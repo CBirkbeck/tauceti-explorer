@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BENOIST-19",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "The period-index problem for real surfaces",
     "authors": "Olivier Benoist",
@@ -27,7 +27,7 @@
     "versionChecks": "PR2016: Published pages70,71,72,76,84,85,88,98,99,100,103,107 visually checked in this continuation; all48 published pages reread. The (0,1) labels on p.100 are diagonal projection labels, not labels of the horizontal reduction map. Author-copy comparisons are targeted, not an independent full reading. This continuation freshly reads pp76–80 and85–87, the author-copy p15, and published images76/77; the prior complete reading is inherited.",
     "readingAttribution": "The complete48-page reading and earlier version checks are evidence from PR2016. The present continuation adds the targeted reading recorded in coverContinuation."
   },
-  "summary": "Continuation of the real-surface period-index extraction. Preserves the earlier uniform-evaluation repair and its open Jannsen/nonconstant-evaluation gates. Adds the finite rank-two cover z²=rs with root line L(R), the map from the projective partial resolution, explicit node and Cech calculations, corrected fixed blowup centres, and the auxiliary-curve restriction used in(5.5). Reuses the shared Stein, blowup, normality and cohomology owners. The source finiteness mistake is resolved at the local-model level; original/transitive foundations remain open. No Lean implementation or proof closure is claimed.",
+  "summary": "Benoist proves that a Brauer class on a real surface has index equal to its period when it vanishes at every real point (Theorems 0.3 and 0.4), computes the index of unramified classes (Theorem 0.5), and deduces u(K) ≤ 4 for fields of transcendence degree 2 over R (Theorem 0.12, the case i = 2 of Pfister's conjecture) and the corresponding case of Lang's conjecture (Theorem 0.10). The proof pulls back along ramified double covers that satisfy a real Noether–Lefschetz criterion. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and nineteen findings are recorded. Propositions 4.4, 4.5 and 6.6 are not established as stated (E3, E4), and §3.1's cover is not finite (E1); the main theorems use only the repaired uniform case. Not formalised.",
   "conventions": {
     "base": "R means the actual real numbers except where explicitly replaced by an arbitrary real closed field. A smooth connected projective R-surface need not be geometrically connected. H^i(Y) without coefficients means F2-cohomology.",
     "G": "G=Gal(C/R)=C2 with generator conjugation σ; H_G denotes Borel/Grothendieck equivariant sheaf cohomology, not merely invariants of ordinary cohomology.",
@@ -3020,6 +3020,26 @@
       ],
       "implementationStatus": "not-implemented-or-certified",
       "owner": "SchemeAndStackFoundations"
+    },
+    {
+      "status": "missing",
+      "kind": "definition",
+      "auditRef": "Both pinned source trees; Current ownership; New definitions, packets, decompositions and reservations",
+      "implementationStatus": "not-implemented-or-certified",
+      "id": "PAPER-BENOIST-19/186",
+      "name": "Lang's C_i conjecture over R (statement only)",
+      "statement": "The function field of an integral variety X of dimension i over R with X(R) = ∅ is C_i. Not proved; Theorem 0.10 is the case i = 2 for quadratic forms (d = 2).",
+      "locator": "Conjecture 0.9 p.66"
+    },
+    {
+      "status": "missing",
+      "kind": "definition",
+      "auditRef": "Both pinned source trees; Current ownership; New definitions, packets, decompositions and reservations",
+      "implementationStatus": "not-implemented-or-certified",
+      "id": "PAPER-BENOIST-19/187",
+      "name": "Pfister's u-invariant conjecture (statement only)",
+      "statement": "If K/R has transcendence degree i, then the Elman–Lam invariant satisfies u(K) ≤ 2^i. Not proved; Theorem 0.12 is the case i = 2.",
+      "locator": "Conjecture 0.11 p.66"
     }
   ],
   "routes": [
@@ -3168,6 +3188,8 @@
         "PAPER-BENOIST-19/27",
         "PAPER-BENOIST-19/28",
         "PAPER-BENOIST-19/29",
+        "PAPER-BENOIST-19/186",
+        "PAPER-BENOIST-19/187",
         "PAPER-BENOIST-19/94",
         "PAPER-BENOIST-19/95",
         "PAPER-BENOIST-19/97",
@@ -3393,16 +3415,20 @@
       "items": [
         "PAPER-BENOIST-19/57"
       ],
-      "status": "local-model-and-consumer-audit-supplied",
-      "detail": "Items174–185 construct the finite rank-two model and its partial/full resolutions, correct the fixed centre to w=0, compute the structure-sheaf splitting, and audit the later finite-map uses. The p86 lifted curve uses strict-transform graph components, not the full finite inverse image. Generic geometric/cohomological supplier implementations and transitive proofs remain G11; no formal closure is claimed."
+      "status": "recorded",
+      "detail": "Items174–185 construct the finite rank-two model and its partial/full resolutions, correct the fixed centre to w=0, compute the structure-sheaf splitting, and audit the later finite-map uses. The p86 lifted curve uses strict-transform graph components, not the full finite inverse image. Generic geometric/cohomological supplier implementations and transitive proofs remain G11; no formal closure is claimed.",
+      "previousStatus": "local-model-and-consumer-audit-supplied",
+      "resolution": "E1 records the non-finite map; the checkpoint supplies the finite rank-two model and audits the later uses."
     },
     {
       "id": "G2",
       "items": [
         "PAPER-BENOIST-19/36"
       ],
-      "status": "compatible-choice-repair-proposed",
-      "detail": "Lemma1.4's argument needs β mod n=p*α̃. Lemma1.3 kills the Bockstein of p*α̃, so choose such β first. This supplies the existential pair used downstream; it is not a proof for every integral Brauer lift."
+      "status": "resolved",
+      "detail": "Lemma1.4's argument needs β mod n=p*α̃. Lemma1.3 kills the Bockstein of p*α̃, so choose such β first. This supplies the existential pair used downstream; it is not a proof for every integral Brauer lift.",
+      "previousStatus": "compatible-choice-repair-proposed",
+      "resolution": "Choose β with β mod n = p*α̃ first, as Lemma 1.3 allows (E2)."
     },
     {
       "id": "G4a",
@@ -3410,8 +3436,10 @@
         "PAPER-BENOIST-19/66",
         "PAPER-BENOIST-19/85"
       ],
-      "status": "unresolved",
-      "detail": "The unrestricted p.84 computation omits [aTilde]_0. Item162 repairs it whenever that function is constant t by multiplying the Picard correction by t. The general nonconstant-indicator case remains open. The main induction is uniform but not always Psi=Theta(a): for n divisible by4, a=(n/2)alpha evaluates zero on Psi=Theta(alpha). This corrects the previous handoff."
+      "status": "recorded",
+      "detail": "The unrestricted p.84 computation omits [aTilde]_0. Item162 repairs it whenever that function is constant t by multiplying the Picard correction by t. The general nonconstant-indicator case remains open. The main induction is uniform but not always Psi=Theta(a): for n divisible by4, a=(n/2)alpha evaluates zero on Psi=Theta(alpha). This corrects the previous handoff.",
+      "previousStatus": "unresolved",
+      "resolution": "E3, now affecting Propositions 4.4, 4.5 and 6.6 as stated. The uniform case, which is all the main theorems use, is repaired."
     },
     {
       "id": "G4b",
@@ -3420,8 +3448,10 @@
         "PAPER-BENOIST-19/85",
         "PAPER-BENOIST-19/92"
       ],
-      "status": "unresolved",
-      "detail": "The general pp.84–85 proof remains ill-typed. Items158–165 give a typed replacement under constant evaluation t on Psi: form an integral lift upstairs from the trace quotient, use Picard primitivity, then the t lambda and extra curve corrections. This bypasses the missing integral lift on U. It does not prove the printed unrestricted statement or close G10/G11."
+      "status": "recorded",
+      "detail": "The general pp.84–85 proof remains ill-typed. Items158–165 give a typed replacement under constant evaluation t on Psi: form an integral lift upstairs from the trace quotient, use Picard primitivity, then the t lambda and extra curve corrections. This bypasses the missing integral lift on U. It does not prove the printed unrestricted statement or close G10/G11.",
+      "previousStatus": "unresolved",
+      "resolution": "E4, as for G4a."
     },
     {
       "id": "G4",
@@ -3432,8 +3462,10 @@
         "PAPER-BENOIST-19/106",
         "PAPER-BENOIST-19/110"
       ],
-      "status": "local-sign-and-reduction-repaired; prerequisite-closure-open",
-      "detail": "Minus psi is required in Lemma7.3 and(7.13); trace zero leaves(7.14),(7.15) unchanged. Item157 supplies the missing target restriction argument. The earlier suspicion about(0,1) labels on p.100 is withdrawn: visual inspection identifies diagonal projection labels. Item156 computes the actual reduction as(id,n/2 mod2) in cohomological degrees1/2; no split circle extension follows. Full general monodromy and cited-foundation formalisation remain G11."
+      "status": "resolved",
+      "detail": "Minus psi is required in Lemma7.3 and(7.13); trace zero leaves(7.14),(7.15) unchanged. Item157 supplies the missing target restriction argument. The earlier suspicion about(0,1) labels on p.100 is withdrawn: visual inspection identifies diagonal projection labels. Item156 computes the actual reduction as(id,n/2 mod2) in cohomological degrees1/2; no split circle extension follows. Full general monodromy and cited-foundation formalisation remain G11.",
+      "previousStatus": "local-sign-and-reduction-repaired; prerequisite-closure-open",
+      "resolution": "The sign (E6) and the target-restriction argument (E7, item 157) are supplied."
     },
     {
       "id": "G5",
@@ -3441,8 +3473,10 @@
         "PAPER-BENOIST-19/92",
         "PAPER-BENOIST-19/93"
       ],
-      "status": "parity-and-divisibility-normalized",
-      "detail": "State the odd-period branch without(n/2)α. In the even induction the restricted period divides n/2; period|index and the extension inequality force the eventual equality. A splitting degree2 of(n/2)α does not itself prove the restricted period is exactly n/2."
+      "status": "resolved",
+      "detail": "State the odd-period branch without(n/2)α. In the even induction the restricted period divides n/2; period|index and the extension inequality force the eventual equality. A splitting degree2 of(n/2)α does not itself prove the restricted period is exactly n/2.",
+      "previousStatus": "parity-and-divisibility-normalized",
+      "resolution": "The odd case is separate. The restricted period divides n/2 and is at least n/2 by corestriction, so it equals n/2 (E8)."
     },
     {
       "id": "G6",
@@ -3450,16 +3484,20 @@
         "PAPER-BENOIST-19/95",
         "PAPER-BENOIST-19/97"
       ],
-      "status": "small-proof-completions-required",
-      "detail": "Enlarge K0 by a transcendence basis so K/K0 is algebraic. For the lower bound first pass to the smooth locus. If a=d(w²+1) and c=2(1+i), then dy_j=a+c dz_j; require the determinant of this pair nonzero, a stronger joint generic condition than merely dz_j not proportional to a. Choose such a basis over C and prove the embedding/specialization step."
+      "status": "recorded",
+      "detail": "Enlarge K0 by a transcendence basis so K/K0 is algebraic. For the lower bound first pass to the smooth locus. If a=d(w²+1) and c=2(1+i), then dy_j=a+c dz_j; require the determinant of this pair nonzero, a stronger joint generic condition than merely dz_j not proportional to a. Choose such a basis over C and prove the embedding/specialization step.",
+      "previousStatus": "small-proof-completions-required",
+      "resolution": "E9 and E10 record the two small proof completions."
     },
     {
       "id": "G7",
       "items": [
         "PAPER-BENOIST-19/42"
       ],
-      "status": "source-correction-checked",
-      "detail": "Equation(2.1)'s coefficient M(−k) disagrees with its cited BW1(1.22). Using codimension d−d', the correct source coefficient is M(d'−d). BW1 statement and surrounding purity/projection formula read. Equal-dimensional pushforwards used later preserve twists."
+      "status": "resolved",
+      "detail": "Equation(2.1)'s coefficient M(−k) disagrees with its cited BW1(1.22). Using codimension d−d', the correct source coefficient is M(d'−d). BW1 statement and surrounding purity/projection formula read. Equal-dimensional pushforwards used later preserve twists.",
+      "previousStatus": "source-correction-checked",
+      "resolution": "E11: the coefficient is M(d′−d), as in the cited BW1 (1.22)."
     },
     {
       "id": "G8",
@@ -3467,16 +3505,20 @@
         "PAPER-BENOIST-19/74",
         "PAPER-BENOIST-19/131"
       ],
-      "status": "degree-correction-checked",
-      "detail": "The normal-sequence boundary in printed(5.7) has target H¹(C,N_C/T), not H0. Benoist2018 Proposition2.1 and its proof explicitly give the correctly graded factorization. The cited Atiyah-class proof remains an external leaf."
+      "status": "resolved",
+      "detail": "The normal-sequence boundary in printed(5.7) has target H¹(C,N_C/T), not H0. Benoist2018 Proposition2.1 and its proof explicitly give the correctly graded factorization. The cited Atiyah-class proof remains an external leaf.",
+      "previousStatus": "degree-correction-checked",
+      "resolution": "E12: the boundary lands in H¹(C, N_C/T), as in the cited Benoist 2018."
     },
     {
       "id": "G9",
       "items": [
         "PAPER-BENOIST-19/128"
       ],
-      "status": "generic-point-sign-detail",
-      "detail": "The fixed real point mentioned on p.108 can lie on zeros/poles of the specialized functions. Recast the parity-of-order argument at a general smooth real point of the irreducible divisor u=0 with v/w<0 and then on its v/w>0 part; prove specialization preserves the stated sign pattern."
+      "status": "recorded",
+      "detail": "The fixed real point mentioned on p.108 can lie on zeros/poles of the specialized functions. Recast the parity-of-order argument at a general smooth real point of the irreducible divisor u=0 with v/w<0 and then on its v/w>0 part; prove specialization preserves the stated sign pattern.",
+      "previousStatus": "generic-point-sign-detail",
+      "resolution": "E13 records the generic-point repair."
     },
     {
       "id": "G10",
@@ -3484,22 +3526,28 @@
         "PAPER-BENOIST-19/149",
         "PAPER-BENOIST-19/66"
       ],
-      "status": "unread-precise-homological-input",
-      "detail": "Read Jannsen's lemma p.268 and the injective-complex replacement theorem with exact signs; reconstruct(4.3)–(4.5). A general derived-category carrier or octahedron axiom does not by itself certify this diagram chase. The Springer chapter was located by DOI10.1007/978-94-011-4098-0_8, but its PDF request returned an HTML access page; old Regensburg author URLs failed DNS. This is not a reading of the lemma. Uniform variants162,165,166 explicitly retain this gate."
+      "status": "deferred",
+      "detail": "Read Jannsen's lemma p.268 and the injective-complex replacement theorem with exact signs; reconstruct(4.3)–(4.5). A general derived-category carrier or octahedron axiom does not by itself certify this diagram chase. The Springer chapter was located by DOI10.1007/978-94-011-4098-0_8, but its PDF request returned an HTML access page; old Regensburg author URLs failed DNS. This is not a reading of the lemma. Uniform variants162,165,166 explicitly retain this gate.",
+      "previousStatus": "unread-precise-homological-input",
+      "resolution": "Jannsen's lemma is a cited supplier's proof; the Springer chapter is not openly available."
     },
     {
       "id": "G11",
       "items": [],
-      "status": "prerequisite-and-coverage-closure-open",
-      "detail": "The main published paper is completely read and its numbered results and major constructions inventoried, but several cited proof interiors listed in prerequisites remain unread. They may reveal further definitions/auxiliary lemmas, so no exhaustive transitive proof-closure claim is made. Reconcile new foundation proposals with other paper routes at integration; none is an accepted new owner yet. This continuation supplies the explicit double-cover/node calculations. Normality, coherent direct images, scheme gluing, blowup and flat-base-change suppliers are named; their full formal/transitive closure remains open. The remaining59 compact legacy API outlines are preserved; six new/affected construction interfaces receive newly structured contracts here."
+      "status": "deferred",
+      "detail": "The main published paper is completely read and its numbered results and major constructions inventoried, but several cited proof interiors listed in prerequisites remain unread. They may reveal further definitions/auxiliary lemmas, so no exhaustive transitive proof-closure claim is made. Reconcile new foundation proposals with other paper routes at integration; none is an accepted new owner yet. This continuation supplies the explicit double-cover/node calculations. Normality, coherent direct images, scheme gluing, blowup and flat-base-change suppliers are named; their full formal/transitive closure remains open. The remaining59 compact legacy API outlines are preserved; six new/affected construction interfaces receive newly structured contracts here.",
+      "previousStatus": "prerequisite-and-coverage-closure-open",
+      "resolution": "The transitive closure of cited proof interiors is supplier and design work."
     },
     {
       "id": "G12",
       "items": [
         "PAPER-BENOIST-19/157"
       ],
-      "status": "target-sheaf-argument-supplied",
-      "detail": "The source injection Q→j_*j*Q does not prove equality of maps out of Q. The required target extension property for p_*(Z/n) follows by the local connected-complement argument of §7.1, as item157 records."
+      "status": "resolved",
+      "detail": "The source injection Q→j_*j*Q does not prove equality of maps out of Q. The required target extension property for p_*(Z/n) follows by the local connected-complement argument of §7.1, as item157 records.",
+      "previousStatus": "target-sheaf-argument-supplied",
+      "resolution": "Item 157 supplies the target-sheaf argument (E7)."
     }
   ],
   "sourceLedger": [
@@ -3952,7 +4000,8 @@
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     },
     {
@@ -3968,7 +4017,8 @@
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     },
     {
@@ -3977,15 +4027,17 @@
       "locator": "Proposition4.4 p.84, after(4.8)",
       "printed": "([ζ]₁)|Ψ=([e]₁)|Ψ",
       "correction": "The displayed computation gives [zeta]_1=[aTilde]_0[e]_1. The uniform case is repaired by item162; the general case remains G4a.",
-      "reason": "The degree-one term of the printed Bockstein map is b+a[e]_1; b=0 does not force a=1.",
-      "affects": "the proof",
+      "reason": "The degree-one term of the printed Bockstein map is b+a[e]_1; b=0 does not force a=1. (cc-442dc5) Reclassified to affect a stated result: the step fails whenever Ξ ≠ ∅ and Ψ ≠ Ξ, so Propositions 4.4, 4.5 and 6.6 are not established as stated. The evaluation [α̃]_0 is α|_x on Ψ, so it is 0 on Ξ and 1 on Ψ∖Ξ. The main theorems use these propositions only through Proposition 6.7, which takes Ψ = Θ = {x : α|_x = 0}; there the evaluation of the lift of (n/2)α is identically 0, the uniform case the checkpoint repairs. Theorems 0.3–0.5, 0.10 and 0.12 are therefore unaffected (up to the Jannsen input of G10).",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
-      ]
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BENOIST-19/E4",
@@ -3993,15 +4045,17 @@
       "locator": "Proposition4.5 pp.84–85",
       "printed": "β|TU=p*α̃+2ε+cl(ϕ)",
       "correction": "Supply a typed replacement. Items158–165 do so under uniform evaluation; do not assume aTilde has an integral lift on U.",
-      "reason": "aTilde has F2 coefficients while the other summands have integral Z(1) coefficients. The Brauer topological obstruction downstairs need not vanish.",
-      "affects": "the proof",
+      "reason": "aTilde has F2 coefficients while the other summands have integral Z(1) coefficients. The Brauer topological obstruction downstairs need not vanish. (cc-442dc5) Reclassified to affect a stated result: the typed replacement covers only a constant evaluation on Ψ, so Proposition 4.5 (and 6.6) is not established as stated. The evaluation [α̃]_0 is α|_x on Ψ, so it is 0 on Ξ and 1 on Ψ∖Ξ. The main theorems use these propositions only through Proposition 6.7, which takes Ψ = Θ = {x : α|_x = 0}; there the evaluation of the lift of (n/2)α is identically 0, the uniform case the checkpoint repairs. Theorems 0.3–0.5, 0.10 and 0.12 are therefore unaffected (up to the Jannsen input of G10).",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
-      ]
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BENOIST-19/E5",
@@ -4016,7 +4070,8 @@
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     },
     {
@@ -4025,15 +4080,17 @@
       "locator": "Lemma7.3 p.98 and equation(7.13) p.103",
       "printed": "p*η+ψ(ζ)",
       "correction": "Use p*eta-psi(zeta) with the displayed(1,-phi) convention; the traced equations are unchanged.",
-      "reason": "psi modulo n equals p*phi. For n=4, a sheet tuple(1,0,0,0) detects the difference of signs.",
-      "affects": "the proof",
+      "reason": "psi modulo n equals p*phi. For n=4, a sheet tuple(1,0,0,0) detects the difference of signs. (cc-442dc5) Reclassified to affect nothing: with the displayed (1, −φ) convention the sign is forced, and the traced equations used afterwards are unchanged.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
-      ]
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BENOIST-19/E7",
@@ -4048,7 +4105,8 @@
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     },
     {
@@ -4064,7 +4122,8 @@
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     },
     {
@@ -4080,7 +4139,8 @@
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     },
     {
@@ -4096,7 +4156,8 @@
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     },
     {
@@ -4105,15 +4166,17 @@
       "locator": "Equation(2.1) p.72",
       "printed": "M(−k)",
       "correction": "Use coefficient M(dprime-d) in the source of the Gysin map.",
-      "reason": "The cited BW1(1.22) gives the dimension difference; an identity map must preserve the twist. The prior worker read that source formula.",
-      "affects": "the proof",
+      "reason": "The cited BW1(1.22) gives the dimension difference; an identity map must preserve the twist. The prior worker read that source formula. (cc-442dc5) Reclassified to affect nothing: the cited BW1 (1.22) has the correct twist, and every later use is equal-dimensional.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
-      ]
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BENOIST-19/E12",
@@ -4121,15 +4184,17 @@
       "locator": "Equation(5.7) p.88",
       "printed": "H⁰(C,N_C/T)",
       "correction": "The normal-sequence boundary lands in H¹(C,N_C/T).",
-      "reason": "The short exact sequence(5.8) sends H0 to H1. The cited Benoist2018 Proposition2.1 uses the corrected degree.",
-      "affects": "the proof",
+      "reason": "The short exact sequence(5.8) sends H0 to H1. The cited Benoist2018 Proposition2.1 uses the corrected degree. (cc-442dc5) Reclassified to affect nothing: the exact sequence (5.8) and the cited Benoist 2018 Proposition 2.1 fix the degree.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
-      ]
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BENOIST-19/E13",
@@ -4144,7 +4209,8 @@
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     },
     {
@@ -4160,7 +4226,8 @@
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     },
     {
@@ -4176,7 +4243,8 @@
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     },
     {
@@ -4185,15 +4253,17 @@
       "locator": "Proof of Proposition7.1 p.103, following(7.14)",
       "printed": "kernel",
       "correction": "Use torsion-freeness of the cokernel of the Picard cycle map.",
-      "reason": "Dividing the equality n(eta-p_*gamma)=cl(p_*phi) needs primitivity of its image. BW1 Proposition2.9 is explicitly a cokernel theorem.",
-      "affects": "the proof",
+      "reason": "Dividing the equality n(eta-p_*gamma)=cl(p_*phi) needs primitivity of its image. BW1 Proposition2.9 is explicitly a cokernel theorem. (cc-442dc5) Reclassified to affect nothing: the cited BW1 Proposition 2.9 is the cokernel statement that the argument uses.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
-      ]
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BENOIST-19/E17",
@@ -4208,7 +4278,8 @@
         "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
         "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
         "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     },
     {
@@ -4217,12 +4288,14 @@
       "locator": "Published §3.1 p77 first line; author-copy p15 has the same wording",
       "printed": "v",
       "correction": "The fixed singular points over Sing R are where w vanishes, with v nonzero.",
-      "reason": "At such a point r=0 and s is a unit, so rv²=sw² forces w=0. Setting v=0 instead forces w=0 too and gives no projective point. Published p77 and author text were checked.",
-      "affects": "the proof",
+      "reason": "At such a point r=0 and s is a unit, so rv²=sw² forces w=0. Setting v=0 instead forces w=0 too and gives no projective point. Published p77 and author text were checked. (cc-442dc5) Reclassified to affect nothing: the equation rv² = sw² with r = 0 and s a unit forces w = 0, which determines the intended centre.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published p77 image and author-copy p15 compared; published article page and title/erratum search on2026-09-23. No correction identified in these checks."
-      ]
+        "Published p77 image and author-copy p15 compared; published article page and title/erratum search on2026-09-23. No correction identified in these checks.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BENOIST-19/E19",
@@ -4234,7 +4307,8 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published pp86–87 compared with the local chart and section equations; title/erratum search on2026-09-23. No correction identified in these checks."
+        "Published pp86–87 compared with the local chart and section equations; title/erratum search on2026-09-23. No correction identified in these checks.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
       ]
     }
   ],
@@ -7368,5 +7442,15 @@
       },
       "limits": "Only recorded dependencies are checked; legacy proof outlines are not a complete proof DAG. The prior7926 arithmetic diagnostics were rerun unchanged. Proposed API tests and arithmetic certificates are not Lean proofs."
     }
+  },
+  "summaryBefore": "Continuation of the real-surface period-index extraction. Preserves the earlier uniform-evaluation repair and its open Jannsen/nonconstant-evaluation gates. Adds the finite rank-two cover z²=rs with root line L(R), the map from the projective partial resolution, explicit node and Cech calculations, corrected fixed blowup centres, and the auxiliary-curve restriction used in(5.5). Reuses the shared Stein, blowup, normality and cohomology owners. The source finiteness mistake is resolved at the local-model level; original/transitive foundations remain open. No Lean implementation or proof closure is claimed.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1454,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Published PDF re-fetched (hash matches); §4 and §6.2–6.3 re-read, including the application of Proposition 6.6 in Proposition 6.7; every numbered statement checked against the items.",
+    "changes": "Conjectures 0.9 and 0.11 added (items 186, 187); E3 and E4 reclassified to affect a stated result; E6, E11, E12, E16 and E18 to affect nothing; gap statuses normalized; status complete."
   }
 }
