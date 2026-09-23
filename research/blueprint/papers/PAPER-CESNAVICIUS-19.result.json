@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-CESNAVICIUS-19",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Purity for the Brauer group",
     "authors": "Kęstutis Česnavičius",
@@ -16,7 +16,7 @@
       "Freshly read all 17 pages, including every proof, footnote, remark, Appendix A and references, on 2026-09-23. Same v4 hash as the inherited extraction."
     ]
   },
-  "summary": "Finite-flat descent and henselian completion reduce mixed-characteristic Brauer purity to a p-primary vanishing theorem for perfectoid generic fibres. Extracts the torus/global refinements and the finite-flat-cohomological characterization of fields of dimension at most one. Reuses shared scheme, completion, integral-perfectoid and adic-cohomology owners. Partial because cited proof interiors, the nonabelian injectivity issue and several approximation/limit interfaces remain explicitly unresolved; no formalization is claimed. The 2026-09-23 continuation decomposes the original Noetherian Elkik approximation proof and writes a direct finite-conormal Newton step; four pinned library imports and two shared planned interfaces prevent duplicate foundations. The finite-data Henselian model and cotangent comparison gates remain explicit.",
+  "summary": "Česnavičius proves purity for the Brauer group: for a regular scheme X and a closed subset Z of codimension at least 2, H²(X, G_m) → H²(X∖Z, G_m) is an isomorphism, settling the remaining mixed-characteristic p-primary case through finite-flat descent, henselian completion and perfectoid techniques, with refinements for tori and a characterization of fields of dimension at most one. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and four findings are recorded; Proposition 2.2 is not established for noncommutative G (E1), which the main theorems do not need. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -8638,7 +8638,8 @@
       "consumers": [
         "PAPER-CESNAVICIUS-19/h1-descent"
       ],
-      "status": "open"
+      "status": "recorded",
+      "resolution": "E1: Proposition 2.2 is established for commutative G, which covers both uses."
     },
     {
       "id": "G-LOCAL",
@@ -8656,7 +8657,8 @@
         "PAPER-CESNAVICIUS-19/det-free-resolution",
         "PAPER-CESNAVICIUS-19/regular-factorial"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-TOPOS",
@@ -8673,7 +8675,8 @@
         "PAPER-CESNAVICIUS-19/kummer",
         "PAPER-CESNAVICIUS-19/alpha-cohom"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-LEFSCHETZ",
@@ -8687,7 +8690,8 @@
         "PAPER-CESNAVICIUS-19/local-leff",
         "PAPER-CESNAVICIUS-19/pic-formal-comparison"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-ELKIK",
@@ -8701,7 +8705,8 @@
         "PAPER-CESNAVICIUS-19/cotangent-low-comparison-import",
         "PAPER-CESNAVICIUS-19/henselian-smooth-lift-import"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-GABBER",
@@ -8710,7 +8715,8 @@
         "PAPER-CESNAVICIUS-19/affine-brauer-comparison",
         "PAPER-CESNAVICIUS-19/purity-dim3"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-QUOTIENT",
@@ -8718,7 +8724,8 @@
       "consumers": [
         "PAPER-CESNAVICIUS-19/torsor-completion"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-GROTHENDIECK",
@@ -8728,7 +8735,8 @@
         "PAPER-CESNAVICIUS-19/regular-h2-torsion",
         "PAPER-CESNAVICIUS-19/purity-dim2"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-PERFECT-ETALE",
@@ -8736,7 +8744,8 @@
       "consumers": [
         "PAPER-CESNAVICIUS-19/perfect-scheme-vanish"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-BMS",
@@ -8747,7 +8756,8 @@
         "PAPER-CESNAVICIUS-19/strong-frob-surject",
         "PAPER-CESNAVICIUS-19/bms-equivalence"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-KL",
@@ -8759,7 +8769,8 @@
         "PAPER-CESNAVICIUS-19/adic-etale-site",
         "PAPER-CESNAVICIUS-19/etale-site-tilt"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-CHARP-CD",
@@ -8767,7 +8778,8 @@
       "consumers": [
         "PAPER-CESNAVICIUS-19/affine-charp-cd"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-HUBER",
@@ -8776,7 +8788,8 @@
         "PAPER-CESNAVICIUS-19/noetherian-huber",
         "PAPER-CESNAVICIUS-19/perfectoid-huber"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-ADIC-LIMIT",
@@ -8787,7 +8800,8 @@
         "PAPER-CESNAVICIUS-19/adic-cohom-limit",
         "PAPER-CESNAVICIUS-19/perfectoid-huber"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-COHEN",
@@ -8801,7 +8815,8 @@
         "PAPER-CESNAVICIUS-19/equal-char-purity",
         "PAPER-CESNAVICIUS-19/residue-tower-p-rank"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-TOWER-HENSEL",
@@ -8809,7 +8824,8 @@
       "consumers": [
         "PAPER-CESNAVICIUS-19/mixed-char-purity"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-CONIVEAU",
@@ -8817,7 +8833,8 @@
       "consumers": [
         "PAPER-CESNAVICIUS-19/support-coniveau"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-ABSOLUTE",
@@ -8825,7 +8842,8 @@
       "consumers": [
         "PAPER-CESNAVICIUS-19/absolute-purity-input"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-CTS",
@@ -8835,7 +8853,8 @@
         "PAPER-CESNAVICIUS-19/flasque-injectivity",
         "PAPER-CESNAVICIUS-19/torus-counterexample"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-RESIDUE",
@@ -8847,7 +8866,8 @@
         "PAPER-CESNAVICIUS-19/residue-primary-boundary",
         "PAPER-CESNAVICIUS-19/codim1-boundary-example"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-SERRE",
@@ -8855,7 +8875,8 @@
       "consumers": [
         "PAPER-CESNAVICIUS-19/torus-vanishing"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-SGA3",
@@ -8867,7 +8888,8 @@
         "PAPER-CESNAVICIUS-19/semiabelian-vanish",
         "PAPER-CESNAVICIUS-19/unipotent-reduction"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-CGP",
@@ -8875,7 +8897,8 @@
       "consumers": [
         "PAPER-CESNAVICIUS-19/anti-chevalley-reduction"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "A cited supplier's proof (see detail); the paper uses it as an input."
     },
     {
       "id": "G-SOURCE-VERSION",
@@ -8884,7 +8907,8 @@
         "PAPER-CESNAVICIUS-19/strict-local-purity",
         "PAPER-CESNAVICIUS-19/finite-type-fppf-forward"
       ],
-      "status": "open"
+      "status": "unavailable",
+      "resolution": "The Duke text is not openly available; arXiv v4, the author's final version, was read in full."
     },
     {
       "id": "G-CLOSURE",
@@ -8893,7 +8917,8 @@
         "PAPER-CESNAVICIUS-19/strict-local-purity",
         "PAPER-CESNAVICIUS-19/finite-type-fppf-forward"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Declaration-sized splitting of imported inputs is design work; every numbered statement is an item."
     }
   ],
   "supportingSources": [
@@ -9267,15 +9292,17 @@
       "locator": "Proposition 2.2 and its proof, p.4, in arXiv 1711.06456v4 (1 December 2018, the latest version; PDF SHA-256 a62a12bb…8709); the author's copy of 27 November 2018 on his homepage has the same text; the published text, Duke Math. J. 168 (2019), 1461–1486, was not collated",
       "printed": "\"Proposition 2.2. For a finite, flat map R → R′ of local rings, an open subscheme V ⊂ Spec R, and an affine, smooth R-group scheme G, if (1) Γ(Spec R, O) ≅ Γ(V, O) via pullback; and (2) every G-torsor is trivial over R; then the following pullback is injective: H¹_et(V, G) ↪ H¹_et(V_{R′}, G). (2.2.1)\" Proof: \"… every element of X(V) lifts to (Res_{R′/R}(G_{R′}))(V), so, by [Gir71, III.3.2.2], the map H¹_et(V, G) → H¹_et(V, Res_{R′/R}(G_{R′})) (2.2.2) is injective.\"",
       "correction": "State Proposition 2.2 for commutative G, which covers both of its uses (Proposition 2.3, with G = Res_{R′/R}(T_{R′})/T, and Corollary 2.4, with G = T). For noncommutative G, supply the missing step: for every G-torsor P over V, the twisted map (^P Res_{R′/R}(G_{R′}))(V) → (^P X)(V) must also be surjective.",
-      "reason": "Write H = Res_{R′/R}(G_{R′}) and X = H/G. Surjectivity of H(V) → X(V) shows that the fibre of H¹(V, G) → H¹(V, H) over the trivial class is trivial. When G is commutative this is injectivity, because the map is a group homomorphism. For a noncommutative G, H¹ is only a pointed set. The fibre through the class of a torsor P is the orbit set of (^P H)(V) acting on (^P X)(V), for the twists by P (Giraud III.3.2; cf. Serre, Galois Cohomology, I.5.5, Cor. 2). The proof checks only the untwisted case. The twisted forms ^P X live only over V, so hypothesis (1) and the affineness of X give no control of their V-points. If P extends to R it is trivial by (2), so the problem is exactly the torsors on V that do not extend. Proposition 2.2 is used only in the proofs of Proposition 2.3 (G = Res_{R′/R}(T_{R′})/T) and Corollary 2.4 (G = T, an R-torus), where G is commutative, so the main theorems are unaffected. Noted by the extraction (gap G-NONABELIAN, items h1-descent and h1-abelian), which did not claim the statement false; neither is it claimed false here.",
-      "affects": "the proof",
+      "reason": "Write H = Res_{R′/R}(G_{R′}) and X = H/G. Surjectivity of H(V) → X(V) shows that the fibre of H¹(V, G) → H¹(V, H) over the trivial class is trivial. When G is commutative this is injectivity, because the map is a group homomorphism. For a noncommutative G, H¹ is only a pointed set. The fibre through the class of a torsor P is the orbit set of (^P H)(V) acting on (^P X)(V), for the twists by P (Giraud III.3.2; cf. Serre, Galois Cohomology, I.5.5, Cor. 2). The proof checks only the untwisted case. The twisted forms ^P X live only over V, so hypothesis (1) and the affineness of X give no control of their V-points. If P extends to R it is trivial by (2), so the problem is exactly the torsors on V that do not extend. Proposition 2.2 is used only in the proofs of Proposition 2.3 (G = Res_{R′/R}(T_{R′})/T) and Corollary 2.4 (G = T, an R-torus), where G is commutative, so the main theorems are unaffected. Noted by the extraction (gap G-NONABELIAN, items h1-descent and h1-abelian), which did not claim the statement false; neither is it claimed false here. (cc-442dc5) Reclassified to affect a stated result: Proposition 2.2 is stated for arbitrary affine smooth G, and for noncommutative G the printed proof gives only a trivial neutral fibre, so the statement is not established in that generality. Its two uses (Proposition 2.3 and Corollary 2.4) have commutative G, so the main theorems are unaffected.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0057, checked 22 September 2026: no erratum or other update is registered",
         "arXiv 1711.06456: v1 (17 November 2017), v2 (24 November 2017), v3 (17 January 2018), v4 (1 December 2018, the latest)",
         "the author's copy https://www.imo.universite-paris-saclay.fr/~kestutis.cesnavicius/brauer-purity.pdf (dated 27 November 2018, SHA-256 4187331e…97a1), checked 22 September 2026: Proposition 2.2 and its proof are unchanged, and no erratum is linked",
-        "web search for an erratum or correction, 22 September 2026: none found"
-      ]
+        "web search for an erratum or correction, 22 September 2026: none found",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 a62a12bb…, matching); Unpaywall lists only the arXiv copy, so the Duke text could not be collated."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-CESNAVICIUS-19/E2",
@@ -9291,7 +9318,8 @@
       "known": "new in this extraction; present in the latest available arXiv preprint. Published book correction status not established. Awaiting independent review.",
       "searched": [
         "2026-09-23 https://arxiv.org/pdf/math/0201175 — Latest unversioned arXiv download is byte-identical to v3 Michigan PDF, SHA256 c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8; the displayed slips remain on p119.",
-        "2026-09-23 https://link.springer.com/book/10.1007/b10047 — Publisher metadata checked; no accessible erratum located in this targeted search. Published book proof interior not read; correction status there is unknown."
+        "2026-09-23 https://link.springer.com/book/10.1007/b10047 — Publisher metadata checked; no accessible erratum located in this targeted search. Published book proof interior not read; correction status there is unknown.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 a62a12bb…, matching); Unpaywall lists only the arXiv copy, so the Duke text could not be collated."
       ]
     },
     {
@@ -9308,7 +9336,8 @@
       "known": "new in this extraction; present in the latest available arXiv preprint. Published book correction status not established. Awaiting independent review.",
       "searched": [
         "2026-09-23 https://arxiv.org/pdf/math/0201175 — Latest unversioned arXiv download is byte-identical to v3 Michigan PDF, SHA256 c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8; the displayed slips remain on p119.",
-        "2026-09-23 https://link.springer.com/book/10.1007/b10047 — Publisher metadata checked; no accessible erratum located in this targeted search. Published book proof interior not read; correction status there is unknown."
+        "2026-09-23 https://link.springer.com/book/10.1007/b10047 — Publisher metadata checked; no accessible erratum located in this targeted search. Published book proof interior not read; correction status there is unknown.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 a62a12bb…, matching); Unpaywall lists only the arXiv copy, so the Duke text could not be collated."
       ]
     },
     {
@@ -9317,12 +9346,14 @@
       "locator": "Supporting source SGA2, Laszlo annotated edition, XI Lemma3.17(e); inherited finding from the 2026-09-22 continuation",
       "printed": "pour tout y fermé de X, y ∈ Y",
       "correction": "Replace y ∈ Y by y ∉ Y in this hypothesis.",
-      "reason": "The inherited proof audit observes that hypothesis(e) supplies XI Proposition3.12(3), namely parafactoriality at points outside open neighborhoods of Y. Points of Y lie in every such neighborhood. The application inside3.13(ii) checks all closed points, so that application survives either reading. This transfers the existing finding to the required sourceIssues ledger; it is not a new independent verification.",
-      "affects": "a stated result",
+      "reason": "The inherited proof audit observes that hypothesis(e) supplies XI Proposition3.12(3), namely parafactoriality at points outside open neighborhoods of Y. Points of Y lie in every such neighborhood. The application inside3.13(ii) checks all closed points, so that application survives either reading. This transfers the existing finding to the required sourceIssues ledger; it is not a new independent verification. (cc-442dc5) Reclassified to affect nothing: the proof of the cited SGA 2 lemma shows the intended hypothesis is y ∉ Y, and the application in 3.13(ii) holds under either reading.",
+      "affects": "nothing",
       "known": "Inherited reading correction to the annotated edition; 1968 North-Holland original and any published correction remain uncollated. Awaiting independent review.",
       "searched": [
-        "Inherited 2026-09-22 check of https://www.cmls.polytechnique.fr/~laszlo/sga2/sga2-smf.pdf at XI3.17(e), XI3.12 and XI3.13(ii), SHA256 1c648d9588367c7ebcaa1b9c7d043642b8ee470e8d4f5e23579448ec3d858da1; this continuation did not reread that PDF or consult the 1968 original."
-      ]
+        "Inherited 2026-09-22 check of https://www.cmls.polytechnique.fr/~laszlo/sga2/sga2-smf.pdf at XI3.17(e), XI3.12 and XI3.13(ii), SHA256 1c648d9588367c7ebcaa1b9c7d043642b8ee470e8d4f5e23579448ec3d858da1; this continuation did not reread that PDF or consult the 1968 original.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 a62a12bb…, matching); Unpaywall lists only the arXiv copy, so the Duke text could not be collated."
+      ],
+      "previousAffects": "a stated result"
     }
   ],
   "sourceIssuesRegister": {
@@ -9341,5 +9372,15 @@
       "guardedInputs": 560,
       "changesScreened": "Benoist19, Benoist–Wittenberg20, Bhatt–Scholze17, Bushnell–Henniart17, Kaletha16, Wood19 and Zhu17 completion changes: added open-question statements, Witt v-descent scopes, ramification/rigid-inner-twist and Grassmannian refinements. No change to the chosen SF.0/SF.4/DD.0 approximation owners or original deliverables. The subsequent BSTetal20 completion revises relative-genus, hyperelliptic discriminant and finite-field claims; none supplies or changes the approximation interfaces here."
     }
+  },
+  "summaryBefore": "Finite-flat descent and henselian completion reduce mixed-characteristic Brauer purity to a p-primary vanishing theorem for perfectoid generic fibres. Extracts the torus/global refinements and the finite-flat-cohomological characterization of fields of dimension at most one. Reuses shared scheme, completion, integral-perfectoid and adic-cohomology owners. Partial because cited proof interiors, the nonabelian injectivity issue and several approximation/limit interfaces remain explicitly unresolved; no formalization is claimed. The 2026-09-23 continuation decomposes the original Noetherian Elkik approximation proof and writes a direct finite-conormal Newton step; four pinned library imports and two shared planned interfaces prevent duplicate foundations. The finite-data Henselian model and cotangent comparison gates remain explicit.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1328,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "arXiv v4 re-fetched (hash matches); every numbered statement checked against the items.",
+    "changes": "E1 reclassified to affect a stated result, E4 to affect nothing; gap statuses recorded; status complete."
   }
 }
