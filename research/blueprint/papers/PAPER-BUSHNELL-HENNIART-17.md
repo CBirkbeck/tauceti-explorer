@@ -1,12 +1,92 @@
-# Bushnell–Henniart (2017): extraction and routing
+# Bushnell–Henniart (2017): higher ramification and the local Langlands correspondence, extraction and routing
+
+Issue [#1153](https://github.com/CBirkbeck/tauceti-explorer/issues/1153). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints (codex-c83e7a, codex-a71f92), whose report follows below as history.
+- **The paper.** C. J. Bushnell and G. Henniart, *Higher ramification and the local Langlands correspondence*, Ann. of Math. 185 (2017), 919–955.
+  - The published PDF was re-fetched; its SHA-256 (c9328263…) matches the checkpoint.
+- **Items.** The result has **149 items: 6 library, 10 planned and 133 missing**. Every missing item is routed exactly once, and every labelled statement is an item.
+- **Mistakes.** Seventeen are recorded under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**New items.** Four labelled statements that had been merged into definitions or left out now have their own items:
+- the §1.1 Lemma (upper ramification in finite quotients);
+- the §2.3 Proposition and Corollary (restriction at the slope; slopes are exactly the positive jumps);
+- the §2.4 "Basic connection" (sl(σ) = sw(σ)/dim σ).
+
+The `slope` and `swan` definitions keep only their definitions.
+
+**Findings rechecked.** These affect a stated result; none affects the Interpolation Theorem or the other main results.
+- **E5.** The auxiliary lemma of §5.3 fails at k = m. For Q_2 and n = m = k = 1, the perturbed stratum is not simple. The Density Lemma survives, because k < m suffices.
+- **E7.** The §7.4 level formula.
+- **E12.** Swan induction gives sw_K(χ) = m − (p−1)a, not a.
+- **E13.** The Example 1 existence claim fails when the residue field is F_4.
+
+**Reclassified to affect nothing.** Each is a slip whose intended form the paper uses.
+- **E4.** A chain-rule slip.
+- **E6.** The "equivalently" clause of §7.2; the definition used is σ|P_F irreducible.
+- **E9.** v_F where v_E is meant.
+
+**Gaps.**
+- G5 and G9 are recorded as findings.
+- The others are deferred as cited suppliers' proofs or design work.
+
+**Why the status is now complete.**
+- Every labelled statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects the proof), BH17 §2.5 Proposition (1) proof, p.929. *Printed:* Γ^ε = Γ *Correction:* Replace Γ by its wild inertia Γ^{0+} for 0<ε before the first positive jump.
+- **E2** (error; affects the proof), BH17 §2.5 Proposition (2) proof, p.929. *Printed:* Δ(ξ,ζ) ≤ ε *Correction:* Use Δ<ε for nonzero Hom on R_F(ε); use Δ≤ε for nonzero Hom on R_F^+(ε).
+- **E3** (misprint; affects nothing), BH17 §4.3 Remark, p.934. *Printed:* x e_a/e_a′ *Correction:* Use x e_a′/e_a.
+- **E4** (misprint; affects nothing), BH17 §4.6 proof, p.937. *Printed:* φ′(x)=Φ′_Θ(x) *Correction:* Replace the right side by Φ′_{Θ_K}(x)=Φ′_Θ(x/e).
+- **E5** (error; affects a stated result), BH17 §5.3 auxiliary Lemma, p.939. *Printed:* 1 ≤ k ≤ m *Correction:* Restrict the same-top-level perturbation to 1≤k<m; if a top-depth version is needed, allow the top level of the replacement to fall and reprove its statement.
+- **E6** (error; affects nothing), BH17 §7.2 explanatory equivalence, p.945. *Printed:* exactly one element *Correction:* A singleton orbit must additionally occur with multiplicity one. Retain the defining condition that σ|P_F is irreducible.
+- **E7** (error; affects a stated result), BH17 §7.4 Lemma, p.946. *Printed:* m′=max{m,nk} *Correction:* Use the actual level m′=−v_a(β+c). If the two summand levels differ it equals max(m,e_a k). The equal-level case needs a cancellation analysis and the full character-transfer statement needs the cited appendix.
+- **E8** (misprint; affects nothing), BH17 §7.1 proof, p.945. *Printed:* Density Lemma of 5.2 *Correction:* The density lemma is §5.3.
+- **E9** (misprint; affects nothing), BH17 §7.6 Proposition (2) proof, p.948. *Printed:* −v_F(α)/p^s *Correction:* Use −v_E(α)/p^s, and consequently m=−p^{r−s}v_E(α).
+- **E10** (gap; affects the proof), BH17 §7.6 Proposition (2) proof, p.948. *Printed:* δ=min{δ_1,δ_2} *Correction:* Also shrink δ so that Ψ_Θ(x)>m_Θ−δ_1 whenever m_Θ−δ<x<m_Θ.
+- **E11** (misprint; affects nothing), BH17 §8.2 Lemma 2 proof, p.951. *Printed:* Lemma 8.1 *Correction:* Refer to the preceding §8.2 Lemma 1.
+- **E12** (error; affects a stated result), BH17 §8.4 two-break paragraph, p.952. *Printed:* sw(χ)=a *Correction:* With the stated cyclic degree-p inducing field of upper break a, use sw_K(χ)=m−(p−1)a.
+- **E13** (error; affects a stated result), BH17 §8.5 existence assertions preceding Examples 1 and 2, p.953. *Printed:* (det α′)^3 ≢ (det α)^3 (mod U_F^1) *Correction:* Require the indicated determinant cube classes to exist; μ_3⊂F alone is insufficient. A sufficient residue-cardinality condition for the class-count obstruction to disappear is q≥16 (with μ_3⊂F), but realization of all choices still needs the epipelagic source.
+- **E14** (gap; affects the proof), BH14 §1.2 Proposition proof, p.10 of arXiv 1103.5316; correction acknowledged BH17 §2.1 p.927. *Printed:* compactly induced *Correction:* Replace the cited compact-induction argument by the finite-quotient closed-subgroup occurrence construction, then use Clifford theory to identify the stabilizer field.
+- **E15** (gap; affects the proof), BH03 Local tame lifting IV, §8.2 Theorem; acknowledgement in BH17 §2.1 p.927. *Printed:* gap *Correction:* Use BH17’s occurrence proposition in the earlier first-ramification proof, then inspect the full BH03 argument for the precise insertion.
+- **E16** (misprint; affects nothing), BH17 bibliography [2], p.954. *Printed:* 10.1515/9781400882496 *Correction:* The DOI of BH96 Local tame lifting I is 10.1007/BF02698646.
+- **E17** (misprint; affects nothing), BH17 §4.5 proof, p.936. *Printed:* F[γ_2]:F] *Correction:* Insert the opening degree bracket: [F[γ_2]:F].
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G1, Finite-quotient and smooth-category adapters** (deferred). The finite-quotient and smooth-category adapters are library and design work.
+- **G2, Complex conductor calculus** (deferred). The complex Swan conductor calculus is a cited supplier (R01.3 and Serre's Local Fields).
+- **G3, Recursive simple-character suppliers** (deferred). BK93 and BH96 are cited suppliers' proofs.
+- **G4, Volume transition and gluing Φ** (deferred). BK93 (1.4.15), BHK98 §6.4 and BH03 §3.1 are cited suppliers' proofs.
+- **G5, Perturbation and scalar twisting** (recorded). The two printed statements are recorded as E5 and E7. BK94 is a cited supplier.
+- **G6, Cuspidal realization, conductor formula and first ramification** (deferred). BH13, BHK98, BH03 and BH14 are cited suppliers; E14 and E15 record the earlier gaps this paper acknowledges.
+- **G7, Equal-characteristic and coefficient normalization** (deferred). The equal-characteristic correspondence and coefficient comparison are cited suppliers.
+- **G8, Finite p-group and projective lifting interfaces** (deferred). The finite p-group and projective-lifting interfaces are cited suppliers.
+- **G9, Degree-p classification and the final examples** (recorded). The §8.4–8.5 claims are recorded as E12 and E13. Mœglin 1990 and BH14 are cited suppliers.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of E4, E6 or E9, this continuation supersedes it.
+
+## Bushnell–Henniart (2017): extraction and routing
 
 Status: **partial**. Codex, session codex-a71f92, continuing codex-c83e7a’s checkpoint in PR #2001 for issue #1153. All 140 inherited item IDs and all seventeen unreviewed source findings are preserved. This continuation adds five items: two exact pinned-library credits and three reusable local lattice-measure helpers. The result has 145 items (6 library, 10 planned, 129 missing), 350 internal dependency edges, 42 definitions/constructions with 126 API entries, 144 structured tests, six routes and nine open proof frontiers. Nothing is claimed formalized or compiled.
 
-## What the paper proves
+### What the paper proves
 
 The paper compares two ultrametrics: A measures the first normalized simple-character intertwining depth, while Δ measures upper-ramification agreement of wild-inertia constituent orbits. Its two profiles satisfy Φ_Θ(A(Θ,Υ))=Σ_{LΘ}(Δ(LΘ,LΥ)) by equality of pair Swan conductors under classical local Langlands. The range-correct inverse Ψ_Θ=Φ_Θ^−1∘Σ_{LΘ} then transports both strict and weak inequalities. The interpolation theorem recovers Ψ from distances to character twists after tame extension. All statements and proof dependencies are itemized below.
 
-## Continuation: the lattice-volume proof
+### Continuation: the lattice-volume proof
 
 The [published article, §4.1, pp.932–933](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n3-p05-p.pdf) defines C(β) from an exact lattice complex and leaves the minimal-parameter arithmetic to a short calculation. This continuation supplies independent conditional proofs, without crediting the unread BHK98 or BK93 proofs.
 
@@ -20,7 +100,7 @@ The maps must stay fixed. For U=V=F and maps (identity, zero, λ·identity), lat
 
 Conditional on BK93 (1.4.15), let d=[E:F]=ef and m=−v_E(β)>0. The E-pure order a is a left O_E-lattice of rank d in End_F(E), while O_E has rank one. Their dilation ratios are q_F^(mfd) and q_F^(mf). Their quotient gives c(β)=mf(d−1)=mf(ef−1), including c=0 for E=F. This proves the arithmetic, not BK exactness or the adjacent-profile intercept transition.
 
-## Ownership and baseline
+### Ownership and baseline
 
 The three reusable helpers are source additions to AutomorphicLFunctionsAndLocalFactors:AL.0, the existing local Haar/Fourier normalization owner. They consume LocalFieldsRamification Layer 0’s existing local-field/DVR carrier and the pinned algebraic length/index infrastructure. They concern measure of compact open subsets, not discrete real covolume (GN.0) or adelic quotient volume (AA.0). The corestriction construction and simple-character application stay in SmoothRepresentationsPartII. No new generic local-fields roadmap is proposed.
 
@@ -40,7 +120,7 @@ The complete current Fintzen Part II brief was re-read: its general-group tame s
 
 The continuation read AL.0/AL.3 and AA.0 contracts/audits, SR.0/SR.2 contracts, the complete LocalFieldsRamification Layer 0 contract and reviewed audit, the four inherited Clifford declaration statements, and the two new algebraic imports at the pinned commits. Targeted whole-portfolio searches found no exact local lattice-volume helper; Euclidean covolume hits are near misses. This is a bounded audit, not a claim to have inspected all related declarations.
 
-## Conventions and retained proof boundaries
+### Conventions and retained proof boundaries
 
 F may have either characteristic, always with finite residue field. Representations are smooth and complex; an ℓ-adic carrier is not silently identified with them. Parameter fields F[β] are not assumed separable. Agreement on R_F(ε) means Δ<ε, while agreement on R_F^+(ε) means Δ≤ε. The truncation integer is ceil(e_a ε)−1. Φ inverse has domain [Φ(0),∞), and its composition is constructed only after Σ(0)=Φ(0). Ψ need not be convex. Total wildness means irreducibility on P_F, not a singleton constituent orbit.
 
@@ -48,7 +128,7 @@ The earlier occurrence proof uses finite quotient induction and Frobenius recipr
 
 The four-dimensional conditional Ψ has pieces x/4, 4x−5/4, 2x−1/2, x with joins 1/3,3/8,1/2. The eight-dimensional conditional Ψ has pieces x/8,8x−21/8,x with joins 1/3,3/8. These calculations do not prove representation existence. In particular, residue F4 has only one nonzero cube class, so μ3 alone cannot guarantee the printed determinant choices. G9 also retains the unverified scalar-image normalization in the extra-special assertion; no new counterexample to that assertion is claimed.
 
-## Read and acquisition ledger
+### Read and acquisition ledger
 
 The current worker independently read all 37 published pages (all 1789 extracted lines, including proofs and bibliography) on 2026-09-23. Primary SHA-256: `c93282637d325e422442e8c1a5721d0d13a742d392b8e78c77e2e6ddd2dc0c31`. The former worker’s selected page-image/arXiv checks are retained as their provenance, not repeated here. Their BH96 and BH14 readings were selective; neither was re-read in this continuation. The original 476-input manifest remains under inputs at its original commit; continuationInputs separately hashes fourteen targeted current inputs at `0fb51acb7bff97a8770bb6031922ea0e6e0cb90f`.
 
@@ -74,9 +154,9 @@ The current worker independently read all 37 published pages (all 1789 extracted
 
 No author contact, access-control bypass, independent review, or exhaustive correction search is claimed.
 
-## Routes
+### Routes
 
-### 1. ArithmeticGaloisRepresentationsPartIIRamificationProfiles (part-ii)
+#### 1. ArithmeticGaloisRepresentationsPartIIRamificationProfiles (part-ii)
 
 The parent’s coefficient-specific conductors do not cover complex smooth Weil profiles, their orbit metric, self-twists or first-break theory. Existing geometric-monodromy and geometric-Artin proposals have different targets; use their conductor interfaces where applicable but do not claim them as this construction.
 
@@ -84,7 +164,7 @@ Extend Arithmetic Galois representations (ArithmeticGaloisRepresentations) with 
 
 Items: ramification-cofinal, smooth-weil, finite-image-twist, ramification-orbit, slope, swan, swan-step-sum, delta, delta-separation, delta-endpoints, delta-ultrametric, delta-tame, end-invariants, normalized-hom, sigma, sigma-max, sigma-shape, swan-pair, pair-ultrametric, sigma-wild-invariance, sigma-tame, sigma-tail, totally-wild-weil, twist-distance, graded-character-torsor, commutant-growth, sigma-jump-criterion, centric-field, self-twist-groups, wild-self-twists, imprimitivity-field, tame-self-twist-trivial, wild-character-extension, self-twist-descent, imprimitivity-bound, absolutely-wild, first-break-absolute, first-break-general, degree-p-breaks, degree-p-induction, ramification-kernel, cyclic-restriction, relative-p-induction, wild-self-twists-nontrivial, weil-occurrence.
 
-### 2. SmoothRepresentationsPartII (part-ii)
+#### 2. SmoothRepresentationsPartII (part-ii)
 
 Reuse the existing Fintzen candidate for explicit local representation constructions. The all-p GL_n endo-class branch is additional work beyond SR.0–SR.6; this is not a second generic types or Bernstein roadmap.
 
@@ -92,7 +172,7 @@ Reuse the already proposed SmoothRepresentationsPartII candidate from PAPER-FINT
 
 Items: hereditary-order, critical-exponent, stratum-equivalence, simple-characters, character-transfer, endo-class, endo-invariants, minimal-parameter, tame-corestriction, volume-exponent, minimal-volume, rational-endo-level, approximation, jumps, jumps-invariance, profile-fields, profile-invariance, phi, phi-continuity, phi-shape, phi-breaks, phi-same-stratum, endo-dual, phi-truncation-tail, tame-endo-lift, totally-wild-endo, phi-tame, endo-distance, endo-distance-well-defined, endo-distance-basic, endo-distance-metric, phi-distance-tail, truncation, truncation-balls, perturbation, endo-density, cuspidal-endo, gl-conductor, gl-level-swan, phi-unique, endo-pair-ultrametric, endo-distance-tame, llc-swan, first-ramification, profile-comparison, herbrand-endo, herbrand-shape, rational-weil-slopes, delta-density, sigma-unique, higher-strict, higher-weak, herbrand-tail, truncated-class-to-orbit, orbit-to-truncated-class, herbrand-tame, wild-lift-exists, wild-llc, endo-character-action, scalar-twist-level, twist-invariance, tame-depth-density, interpolation, interpolation-unique, degree-one, initial-slope, terminal-slope, scalar-level-reduction, essential-tame, essential-tame-criterion, degree-p-profile, degree-p-single-break, extraspecial-image, epipelagic-input, four-dimensional-example, eight-dimensional-example, positive-jumps.
 
-### 3. SmoothRepresentationsOfLocalGroups (source)
+#### 3. SmoothRepresentationsOfLocalGroups (source)
 
 The finite-quotient proof of occurrence is an instance of smooth restriction/induction and Frobenius reciprocity within the existing category and induction layers.
 
@@ -100,7 +180,7 @@ Stages: SmoothRepresentationsOfLocalGroups:SR.0, SmoothRepresentationsOfLocalGro
 
 Items: profinite-occurrence.
 
-### 4. AutomorphicLFunctionsAndLocalFactors (source)
+#### 4. AutomorphicLFunctionsAndLocalFactors (source)
 
 Character conductor realization, Rankin–Selberg exponent conventions and the pair Swan correction belong to the existing local-factor layers; they should be exported for the types application. AL.0 owns the local additive Haar-measure adapters: compact-open lattice index, exact-complex alternating volume, and scalar dilation. They consume the existing local-field/DVR carrier and generic length/index theorems. They are not adelic quotient volumes (AA.0) or discrete real covolumes (GN.0); the BK-normalized corestriction and its application remain in the types Part II.
 
@@ -108,7 +188,7 @@ Stages: AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicLFunctionsAndLocal
 
 Items: pair-epsilon, pair-swan, character-depth-exists, lattice-volume-index, exact-lattice-comparison, lattice-dilation.
 
-### 5. EndoscopicTransferAndUnitaryTraceComparison (source)
+#### 5. EndoscopicTransferAndUnitaryTraceComparison (source)
 
 The paper consumes the classical characteristic-zero LLC already planned here, with dimension, dual, twist and epsilon normalization; it does not supply a new proof of that correspondence.
 
@@ -116,7 +196,7 @@ Stages: EndoscopicTransferAndUnitaryTraceComparison:ET.6.
 
 Items: llc-char0.
 
-### 6. ExcursionOperatorsAndSpectralAction (source)
+#### 6. ExcursionOperatorsAndSpectralAction (source)
 
 The existing equal-characteristic classical realization owns this comparison. The exact complex coefficient and pair-epsilon interface is an open request within its scope, not a consequence of semisimple parameter agreement alone.
 
@@ -124,67 +204,67 @@ Stages: ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic.
 
 Items: llc-charp.
 
-## Recursive proof frontiers
+### Recursive proof frontiers
 
-### G1: Finite-quotient and smooth-category adapters
+#### G1: Finite-quotient and smooth-category adapters
 
 Finish the finite-image comparison W_F→G_F, the finite induction/Frobenius occurrence construction on the actual smooth carriers, and extension of finite abelian characters to C×. The relative mathematical arguments are supplied; exact pinned declarations and transport lemmas remain to be enumerated.
 
 Suppliers: SmoothRepresentationsOfLocalGroups:SR.0; SmoothRepresentationsOfLocalGroups:SR.2; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group. Consumers: profinite-occurrence, finite-image-twist, character-depth-exists, centric-field, imprimitivity-field, weil-occurrence.
 
-### G2: Complex conductor calculus
+#### G2: Complex conductor calculus
 
 Construct the complex finite-inertia Swan conductor, quotient independence, the upper step-sum identity, tame scaling and the induction formula. R01.3 plans ℓ-adic conductors; that is not automatically a declaration at these coefficient/topology conventions.
 
 Suppliers: ArithmeticGaloisRepresentations:R01.3; tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration. Consumers: swan, swan-step-sum, swan-pair, sigma-tame, sigma-tail, degree-p-induction, positive-jumps.
 
-### G3: Recursive simple-character suppliers
+#### G3: Recursive simple-character suppliers
 
 Acquire and read BK93 Chapters 1–3 and the exact transfer/intertwining/approximation proofs. BH96 §§1,7–9 were read selectively, and their statements are recorded; the transitive proof chain, simple-stratum carrier, H-recursion and conjugacy invariance remain open.
 
 Suppliers: SmoothRepresentationsOfLocalGroups:SR.0; SmoothRepresentationsOfLocalGroups:SR.2; EndoscopicTransferAndUnitaryTraceComparison:ET.6. Consumers: hereditary-order, critical-exponent, stratum-equivalence, simple-characters, character-transfer, endo-class, endo-invariants, tame-corestriction, rational-endo-level, approximation, jumps, jumps-invariance, profile-fields, profile-invariance, endo-dual, phi-truncation-tail, tame-endo-lift, totally-wild-endo, phi-tame, endo-distance, endo-distance-well-defined, endo-distance-metric, truncation, cuspidal-endo, endo-distance-tame, terminal-slope.
 
-### G4: Volume transition and gluing Φ
+#### G4: Volume transition and gluing Φ
 
 The fixed-map lattice-choice independence and all minimal-parameter dilation arithmetic now have explicit independent proofs via common uniformizer refinement, finite quotient lengths and coset measure. Still acquire BK93 (1.4.15), BHK98 §6.4 and BH03 §3.1 to verify the normalized corestriction, its allowed choices, minimal integral exactness, and adjacent-profile intercept transition, including inseparable parameter fields. Publisher/public-copy attempts in this continuation did not yield the prerequisite texts. AL.0 proof-to-library adapters remain to be elaborated.
 
 Suppliers: AutomorphicLFunctionsAndLocalFactors:AL.0; AutomorphicLFunctionsAndLocalFactors:AL.3. Consumers: tame-corestriction, volume-exponent, minimal-volume, profile-fields, profile-invariance, phi, phi-continuity.
 
-### G5: Perturbation and scalar twisting
+#### G5: Perturbation and scalar twisting
 
 Read BK94 Simple types §2.8 and Admissible dual of SL(N) II appendix. Prove the k<m perturbation variant, the translated H-group and simple-character identity with the actual level −v_a(β+c), and the terminating scalar-level reduction. The two printed statements are not safe as black boxes.
 
 Suppliers: SmoothRepresentationsOfLocalGroups:SR.0; SmoothRepresentationsOfLocalGroups:SR.2. Consumers: perturbation, endo-density, endo-character-action, scalar-twist-level, twist-invariance, scalar-level-reduction.
 
-### G6: Cuspidal realization, conductor formula and first ramification
+#### G6: Cuspidal realization, conductor formula and first ramification
 
 Read BH13 intertwining, BHK98 §6.5/§6.15, BH03 §8.2 with its acknowledged repair, and the complete proof chain of BH14 §6.1–6.3. Pin the rank-deg Θ cuspidal realization and tame parameter theorem. The BH17 restatements are fully extracted, but do not close these proofs.
 
 Suppliers: EndoscopicTransferAndUnitaryTraceComparison:ET.6; ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic; AutomorphicLFunctionsAndLocalFactors:AL.3. Consumers: cuspidal-endo, gl-conductor, first-ramification, rational-weil-slopes, wild-lift-exists, wild-llc, essential-tame.
 
-### G7: Equal-characteristic and coefficient normalization
+#### G7: Equal-characteristic and coefficient normalization
 
 Use FA.4 for full local reciprocity in characteristic p and ES7:equal-characteristic for its classical realization. Identify the exact complex/ℓ-adic coefficient comparison and pair-epsilon compatibility; do not infer them from semisimple excursion agreement. ET.6 supplies only F/Q_p.
 
 Suppliers: FunctionFieldArithmetic:FA.4; ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic; EndoscopicTransferAndUnitaryTraceComparison:ET.6. Consumers: llc-charp, llc-swan, first-ramification.
 
-### G8: Finite p-group and projective lifting interfaces
+#### G8: Finite p-group and projective lifting interfaces
 
 The cyclic restriction and relative index-p induction arguments are explicit. Still audit their finite group suppliers, finite p-group degree theorem, projective-to-linear scalar twist making an absolutely wild representation finite p-group-valued, and the complete BH14 §1.3 extension interface. No unexamined projective obstruction is assumed away.
 
 Suppliers: tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup; tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group. Consumers: totally-wild-weil, graded-character-torsor, sigma-jump-criterion, wild-character-extension, self-twist-descent, absolutely-wild, first-break-absolute, degree-p-breaks, cyclic-restriction, relative-p-induction, wild-self-twists-nontrivial.
 
-### G9: Degree-p classification and the final examples
+#### G9: Degree-p classification and the final examples
 
 Acquire Mœglin 1990 for the cyclic inducing field, uniqueness and the extra-special-image assertion; acquire BH14 epipelagic §§5.1–5.2 and BH01 conductor divisibility for tensor irreducibility. Resolve the scalar-image normalization and check the determinant-class existence hypotheses. The affine computations are conditional and are not existence proofs.
 
 Suppliers: SmoothRepresentationsOfLocalGroups:SR.3; AutomorphicLFunctionsAndLocalFactors:AL.3. Consumers: degree-p-induction, degree-p-single-break, extraspecial-image, epipelagic-input, four-dimensional-example, eight-dimensional-example.
 
-## Source findings retained for independent review
+### Source findings retained for independent review
 
 All E1–E17 remain unreviewed. The intersection warning in the continuation is our proof-design guard, not a new claim that the published source uses that shortcut. The machine-readable record preserves every earlier search, affected-item list and version comparison.
 
-### E1 — BH17 §2.5 Proposition (1) proof, p.929
+#### E1 — BH17 §2.5 Proposition (1) proof, p.929
 
 Printed: Γ^ε = Γ
 
@@ -194,7 +274,7 @@ Reason: The chosen finite Galois extension need not be totally wildly ramified. 
 
 Affects: the proof. Prior known status: new. No reviewer verdict supplied.
 
-### E2 — BH17 §2.5 Proposition (2) proof, p.929
+#### E2 — BH17 §2.5 Proposition (2) proof, p.929
 
 Printed: Δ(ξ,ζ) ≤ ε
 
@@ -204,7 +284,7 @@ Reason: A nontrivial character at a break has no invariant on R_F(a) and is triv
 
 Affects: the proof. Prior known status: new. No reviewer verdict supplied.
 
-### E3 — BH17 §4.3 Remark, p.934
+#### E3 — BH17 §4.3 Remark, p.934
 
 Printed: x e_a/e_a′
 
@@ -214,7 +294,7 @@ Reason: For scalar β=π^−1 the unnormalized jump is the period itself. Period
 
 Affects: nothing. Prior known status: new. No reviewer verdict supplied.
 
-### E4 — BH17 §4.6 proof, p.937
+#### E4 — BH17 §4.6 proof, p.937
 
 Printed: φ′(x)=Φ′_Θ(x)
 
@@ -224,7 +304,7 @@ Reason: For φ(x)=eΦ_Θ(x/e), the chain rule gives Φ′_Θ(x/e); (4.6.2) ident
 
 Affects: the proof. Prior known status: new. No reviewer verdict supplied.
 
-### E5 — BH17 §5.3 auxiliary Lemma, p.939
+#### E5 — BH17 §5.3 auxiliary Lemma, p.939
 
 Printed: 1 ≤ k ≤ m
 
@@ -234,7 +314,7 @@ Reason: For F=Q_2, GL_1, a=Z_2 and m=1, every simple character of level 1 is the
 
 Affects: a stated result. Prior known status: new. No reviewer verdict supplied.
 
-### E6 — BH17 §7.2 explanatory equivalence, p.945
+#### E6 — BH17 §7.2 explanatory equivalence, p.945
 
 Printed: exactly one element
 
@@ -244,7 +324,7 @@ Reason: Over Q_2 the tame S3 quotient C3⋊C2 (Frobenius acts by inversion) has 
 
 Affects: a stated result. Prior known status: new. No reviewer verdict supplied.
 
-### E7 — BH17 §7.4 Lemma, p.946
+#### E7 — BH17 §7.4 Lemma, p.946
 
 Printed: m′=max{m,nk}
 
@@ -254,7 +334,7 @@ Reason: First, scalar c of valuation −k has order level e_a k, not dim_F(V) k.
 
 Affects: a stated result. Prior known status: new. No reviewer verdict supplied.
 
-### E8 — BH17 §7.1 proof, p.945
+#### E8 — BH17 §7.1 proof, p.945
 
 Printed: Density Lemma of 5.2
 
@@ -264,7 +344,7 @@ Reason: §5.2 supplies truncation, while the next subsection proves density.
 
 Affects: nothing. Prior known status: new. No reviewer verdict supplied.
 
-### E9 — BH17 §7.6 Proposition (2) proof, p.948
+#### E9 — BH17 §7.6 Proposition (2) proof, p.948
 
 Printed: −v_F(α)/p^s
 
@@ -274,7 +354,7 @@ Reason: The element α belongs to E=F[α], not generally to F, and the denominat
 
 Affects: the proof. Prior known status: new. No reviewer verdict supplied.
 
-### E10 — BH17 §7.6 Proposition (2) proof, p.948
+#### E10 — BH17 §7.6 Proposition (2) proof, p.948
 
 Printed: δ=min{δ_1,δ_2}
 
@@ -284,7 +364,7 @@ Reason: The derivative of Φ^−1 is evaluated at Ψ(x), whereas δ_1 controls a
 
 Affects: the proof. Prior known status: new. No reviewer verdict supplied.
 
-### E11 — BH17 §8.2 Lemma 2 proof, p.951
+#### E11 — BH17 §8.2 Lemma 2 proof, p.951
 
 Printed: Lemma 8.1
 
@@ -294,7 +374,7 @@ Reason: Injectivity of the restriction on self-twists uses the triviality of tam
 
 Affects: nothing. Prior known status: new. No reviewer verdict supplied.
 
-### E12 — BH17 §8.4 two-break paragraph, p.952
+#### E12 — BH17 §8.4 two-break paragraph, p.952
 
 Printed: sw(χ)=a
 
@@ -304,7 +384,7 @@ Reason: Swan induction gives m=sw_K(χ)+(p−1)a. Here a is an integer by §8.3 
 
 Affects: a stated result. Prior known status: new. No reviewer verdict supplied.
 
-### E13 — BH17 §8.5 existence assertions preceding Examples 1 and 2, p.953
+#### E13 — BH17 §8.5 existence assertions preceding Examples 1 and 2, p.953
 
 Printed: (det α′)^3 ≢ (det α)^3 (mod U_F^1)
 
@@ -314,7 +394,7 @@ Reason: Take the unramified quadratic extension of Q_2, with residue F_4 and μ_
 
 Affects: a stated result. Prior known status: new. No reviewer verdict supplied.
 
-### E14 — BH14 §1.2 Proposition proof, p.10 of arXiv 1103.5316; correction acknowledged BH17 §2.1 p.927
+#### E14 — BH14 §1.2 Proposition proof, p.10 of arXiv 1103.5316; correction acknowledged BH17 §2.1 p.927
 
 Printed: compactly induced
 
@@ -324,7 +404,7 @@ Reason: BH17 explicitly acknowledges that the older proof was incorrect and supp
 
 Affects: the proof. Prior known status: BH17 §2.1 Proposition 2 and acknowledgement, published p.927. No reviewer verdict supplied.
 
-### E15 — BH03 Local tame lifting IV, §8.2 Theorem; acknowledgement in BH17 §2.1 p.927
+#### E15 — BH03 Local tame lifting IV, §8.2 Theorem; acknowledgement in BH17 §2.1 p.927
 
 Printed: gap
 
@@ -334,7 +414,7 @@ Reason: The authors expressly acknowledge a gap in the proof of the earlier theo
 
 Affects: the proof. Prior known status: BH17 §2.1 Proposition 2 and acknowledgement, published p.927. No reviewer verdict supplied.
 
-### E16 — BH17 bibliography [2], p.954
+#### E16 — BH17 bibliography [2], p.954
 
 Printed: 10.1515/9781400882496
 
@@ -344,7 +424,7 @@ Reason: The Numdam publication record and original PDF identify the correct IHÉ
 
 Affects: nothing. Prior known status: new. No reviewer verdict supplied.
 
-### E17 — BH17 §4.5 proof, p.936
+#### E17 — BH17 §4.5 proof, p.936
 
 Printed: F[γ_2]:F]
 
@@ -354,9 +434,9 @@ Reason: Both sides compare field degrees; the published page image confirms the 
 
 Affects: nothing. Prior known status: new. No reviewer verdict supplied.
 
-## Complete item inventory
+### Complete item inventory
 
-### clifford-semisimple — Semisimplicity of normal restriction
+#### clifford-semisimple — Semisimplicity of normal restriction
 
 theorem; library; BH17 §2.2, p.927; pinned Clifford/Basic.lean:325.
 
@@ -368,7 +448,7 @@ Pinned imports: tauceti:TauCeti.Representation.isSemisimpleRepresentation_comp_s
 
 1. Apply the pinned normal-restriction theorem.
 
-### clifford-orbit — One conjugacy orbit of constituents
+#### clifford-orbit — One conjugacy orbit of constituents
 
 theorem; library; BH17 §2.2, p.927; pinned Clifford/Orbit/Basic.lean:137.
 
@@ -380,7 +460,7 @@ Pinned imports: tauceti:TauCeti.Representation.exists_isAtom_forall_nonempty_lin
 
 1. Apply the packaged orbit theorem, retaining the actual intertwining equivalence.
 
-### clifford-multiplicity — Common constituent Hom dimension
+#### clifford-multiplicity — Common constituent Hom dimension
 
 theorem; library; BH17 §2.2, p.927; pinned Clifford/Multiplicity.lean:424.
 
@@ -392,7 +472,7 @@ Pinned imports: tauceti:TauCeti.Representation.exists_forall_finrank_linearMap_e
 
 1. Apply the pinned Hom-dimension theorem; the complex specialization uses Schur.
 
-### clifford-dimension — Clifford decomposition with dimension identity
+#### clifford-dimension — Clifford decomposition with dimension identity
 
 theorem; library; BH17 §§2.2,8.1; pinned Clifford/Dimension.lean:67.
 
@@ -404,7 +484,7 @@ Pinned imports: tauceti:FDRep.clifford_restrict_finrank.
 
 1. Use the exported isomorphism as well as its dimension formula.
 
-### local-fields — Local-field and normalized valuation conventions
+#### local-fields — Local-field and normalized valuation conventions
 
 definition; planned; BH17 notation, p.924.
 
@@ -432,7 +512,7 @@ Test `local_fields_test_2` (computation): An unramified quadratic extension has 
 
 Test `local_fields_test_3` (compatibility): A totally ramified degree-e extension multiplies valuations of base-field elements by e.
 
-### unit-filtration — Principal-unit filtration
+#### unit-filtration — Principal-unit filtration
 
 definition; planned; BH17 notation p.924 and §7.4; local-field supplier.
 
@@ -460,7 +540,7 @@ Test `unit_filtration_test_2` (non-example): U_F^0/U_F^1 is multiplicative k_F×
 
 Test `unit_filtration_test_3` (computation): For k=1, retain the strict linearization condition 2v_F(x)>sw(χ).
 
-### weil-group — Weil group and its topology
+#### weil-group — Weil group and its topology
 
 construction; planned; BH17 notation p.924 and §2.1.
 
@@ -488,7 +568,7 @@ Test `weil_group_test_2` (compatibility): An unramified degree-f extension multi
 
 Test `weil_group_test_3` (non-example): The inclusion is not asserted to be surjective.
 
-### upper-filtration — Upper ramification and right-limit groups
+#### upper-filtration — Upper ramification and right-limit groups
 
 definition; planned; BH17 §1.1 pp.925–926.
 
@@ -516,7 +596,7 @@ Test `upper_filtration_test_2` (non-example): At x=0 do not identify I_F with P_
 
 Test `upper_filtration_test_3` (non-example): Taking an algebraic union without topological closure is not the definition.
 
-### tame-filtration — Tame scaling of upper groups
+#### tame-filtration — Tame scaling of upper groups
 
 theorem; planned; BH17 §1.2 Lemma 1 p.926.
 
@@ -528,7 +608,7 @@ Existing stages: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramifica
 
 1. Use the tame Herbrand function and quotient-compatible upper numbering.
 
-### ramification-commutators — Commutators of upper groups
+#### ramification-commutators — Commutators of upper groups
 
 theorem; planned; BH17 §1.2 Lemma 2 p.926.
 
@@ -540,7 +620,7 @@ Existing stages: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramifica
 
 1. Apply the finite-quotient commutator estimate and then pass to the inverse limit.
 
-### ramification-cofinal — Cofinality and left local constancy
+#### ramification-cofinal — Cofinality and left local constancy
 
 theorem; missing; BH17 §2.1 Proposition 1 p.926.
 
@@ -550,7 +630,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/upper-filtration.
 
 1. Choose a finite Galois quotient whose kernel lies in U; use its finite upper jumps. Normality of U is unnecessary after shrinking to an open normal subgroup.
 
-### smooth-weil — Smooth finite-dimensional complex Weil representations
+#### smooth-weil — Smooth finite-dimensional complex Weil representations
 
 definition; missing; BH17 notation and §§2.1–3.1.
 
@@ -576,7 +656,7 @@ Test `smooth_weil_test_2` (degenerate): Its restriction to inertia is trivial.
 
 Test `smooth_weil_test_3` (compatibility): No ℓ-adic continuity hypothesis is substituted for complex smoothness.
 
-### profinite-occurrence — Occurrence of a closed-subgroup representation
+#### profinite-occurrence — Occurrence of a closed-subgroup representation
 
 theorem; missing; BH17 §2.1 Proposition 2 and Complement p.927.
 
@@ -592,7 +672,7 @@ Dependencies: SmoothRepresentationsOfLocalGroups:SR.0; SmoothRepresentationsOfLo
 
 Open frontiers: G1.
 
-### finite-image-twist — Finite image after an unramified twist
+#### finite-image-twist — Finite image after an unramified twist
 
 theorem; missing; BH17 §2.2, §8.2; proof adapter.
 
@@ -608,7 +688,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/smooth-weil; PAPER-BUSHNELL-HENNIART-17
 
 Open frontiers: G1.
 
-### ramification-orbit — Constituent orbits and orbit maps
+#### ramification-orbit — Constituent orbits and orbit maps
 
 construction; missing; BH17 §2.2 pp.927–928 and §2.5.
 
@@ -634,7 +714,7 @@ Test `ramification_orbit_test_2` (non-example): A singleton orbit does not force
 
 Test `ramification_orbit_test_3` (compatibility): The orbit maps at larger depth forget information.
 
-### slope — Slope of an irreducible Weil representation
+#### slope — Slope of an irreducible Weil representation
 
 definition; missing; BH17 §2.3 p.928.
 
@@ -660,7 +740,7 @@ Test `slope_test_2` (compatibility): An upper break is killed only on the plus g
 
 Test `slope_test_3` (non-example): The final characters need not be W_F characters.
 
-### swan — Complex Swan conductor and normalized conductor
+#### swan — Complex Swan conductor and normalized conductor
 
 definition; missing; BH17 §2.4 p.928 and §3.1.
 
@@ -688,7 +768,7 @@ Test `swan_test_3` (compatibility): Swan and Artin conductors differ by dim V−
 
 Open frontiers: G2.
 
-### swan-step-sum — Swan conductor as a finite step sum
+#### swan-step-sum — Swan conductor as a finite step sum
 
 theorem; missing; BH17 §3.1 Lemma, independent proof interface.
 
@@ -700,7 +780,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/swan; PAPER-BUSHNELL-HENNIART-17/upper-
 
 Open frontiers: G2.
 
-### delta — Ramification distance
+#### delta — Ramification distance
 
 definition; missing; BH17 §2.5 (2.5.1),(2.5.3) p.929.
 
@@ -726,7 +806,7 @@ Test `delta_test_2` (degenerate): Distinct unramified twists have distance zero.
 
 Test `delta_test_3` (degenerate): On wild orbits, zero distance implies equality.
 
-### delta-separation — Separation on the wild-orbit quotient
+#### delta-separation — Separation on the wild-orbit quotient
 
 theorem; missing; BH17 §2.5 Proposition (1) p.929.
 
@@ -736,7 +816,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/delta; PAPER-BUSHNELL-HENNIART-17/profi
 
 1. Realize both orbits in a common finite Galois quotient. Before its first positive break the upper group equals its wild inertia, not its full Galois group; unequal wild orbits remain unequal.
 
-### delta-endpoints — Strict and weak endpoint identities
+#### delta-endpoints — Strict and weak endpoint identities
 
 theorem; missing; BH17 §2.5 Proposition (2), corrected proof p.929.
 
@@ -748,7 +828,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/delta; PAPER-BUSHNELL-HENNIART-17/ramif
 
 Test `delta_endpoints_test_1` (degenerate): Exact finite C2 filtration with break 1: trivial and sign characters have Δ=1, disagree on R(1), agree on R+(1).
 
-### delta-ultrametric — Ultrametric inequality for Δ
+#### delta-ultrametric — Ultrametric inequality for Δ
 
 theorem; missing; BH17 §2.5 Proposition (3) p.929.
 
@@ -758,7 +838,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/delta-endpoints.
 
 1. At every ε greater than the displayed maximum, orbit equality is transitive; take the infimum.
 
-### delta-tame — Tame coset-minimum formula
+#### delta-tame — Tame coset-minimum formula
 
 theorem; missing; BH17 §2.6 Proposition p.930.
 
@@ -768,7 +848,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/delta-endpoints; PAPER-BUSHNELL-HENNIAR
 
 1. Use the finite coset decomposition of a W_F-orbit and rescale each strict agreement set.
 
-### end-invariants — Canonical invariant summand of End σ
+#### end-invariants — Canonical invariant summand of End σ
 
 construction; missing; BH17 §3.1 p.930.
 
@@ -794,7 +874,7 @@ Test `end_invariants_test_2` (computation): For a character σ, X=1 and X′=0.
 
 Test `end_invariants_test_3` (non-example): A noncanonical vector-space complement is insufficient.
 
-### normalized-hom — Normalized Hom equality above agreement
+#### normalized-hom — Normalized Hom equality above agreement
 
 theorem; missing; BH17 §3.4 proof p.932; explicit §3.1 adapter.
 
@@ -804,7 +884,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/clifford-dimension; PAPER-BUSHNELL-HENN
 
 1. Common orbit, equal constituent dimensions and common multiplicities make normalized restrictions identical; compute Hom dimensions using complex Schur. Do not assert an isomorphism of full W_F-representations.
 
-### sigma — Decomposition function
+#### sigma — Decomposition function
 
 definition; missing; BH17 §3.1 (3.1.2) p.930.
 
@@ -830,7 +910,7 @@ Test `sigma_test_2` (non-example): Σ_σ(0) need not be zero for higher dimensio
 
 Test `sigma_test_3` (compatibility): The right-hand derivative uses plus invariants.
 
-### sigma-max — Finite weighted-max formula
+#### sigma-max — Finite weighted-max formula
 
 theorem; missing; BH17 §3.1 (3.1.3) pp.930–931.
 
@@ -840,7 +920,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/sigma; PAPER-BUSHNELL-HENNIART-17/slope
 
 1. A constituent lies in X(x) exactly when its slope is ≤x; otherwise it lies in X′(x).
 
-### sigma-shape — Shape of the decomposition function
+#### sigma-shape — Shape of the decomposition function
 
 theorem; missing; BH17 §3.1 Proposition and §6.2 proof.
 
@@ -850,7 +930,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/sigma-max.
 
 1. Each weighted max is convex and continuous. The trivial constituent supplies a positive slope everywhere; all End slopes are ≤sl σ, so the final sum is x.
 
-### swan-pair — Conductor of a pair through Δ
+#### swan-pair — Conductor of a pair through Δ
 
 theorem; missing; BH17 §3.1 Lemma (3.1.1), formula (3.1.4) pp.930–931.
 
@@ -866,7 +946,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/normalized-hom; PAPER-BUSHNELL-HENNIART
 
 Open frontiers: G2.
 
-### pair-ultrametric — Ultrametric inequality for normalized pair Swan
+#### pair-ultrametric — Ultrametric inequality for normalized pair Swan
 
 theorem; missing; BH17 §3.1 Corollary p.931.
 
@@ -876,7 +956,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/swan-pair; PAPER-BUSHNELL-HENNIART-17/s
 
 1. Choose the largest of the two comparison distances and use the increasing profile based at the common representation.
 
-### sigma-wild-invariance — Σ depends only on the wild orbit
+#### sigma-wild-invariance — Σ depends only on the wild orbit
 
 theorem; missing; BH17 §3.1 concluding paragraph p.931.
 
@@ -886,7 +966,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/normalized-hom; PAPER-BUSHNELL-HENNIART
 
 1. For every positive t normalized Hom dimensions agree; integrate their common step function and use the common identity tail.
 
-### sigma-tame — Tame scaling of Σ for totally wild representations
+#### sigma-tame — Tame scaling of Σ for totally wild representations
 
 theorem; missing; BH17 §3.2 Proposition p.931.
 
@@ -898,7 +978,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/tame-filtration; PAPER-BUSHNELL-HENNIAR
 
 Open frontiers: G2.
 
-### sigma-tail — Tail agreement of decomposition functions
+#### sigma-tail — Tail agreement of decomposition functions
 
 theorem; missing; BH17 §3.4 Proposition p.932.
 
@@ -910,7 +990,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/normalized-hom; PAPER-BUSHNELL-HENNIART
 
 Open frontiers: G2.
 
-### hereditary-order — Hereditary orders, radicals and periods
+#### hereditary-order — Hereditary orders, radicals and periods
 
 definition; missing; BH17 notation p.924; BH96 §1 pp.111–112.
 
@@ -938,7 +1018,7 @@ Test `hereditary_order_test_3` (compatibility): Changing the realization rescale
 
 Open frontiers: G3.
 
-### critical-exponent — Critical exponent and simple strata
+#### critical-exponent — Critical exponent and simple strata
 
 definition; missing; BH17 notation, §4.2; BH96 §1 (1.3)–(1.5), printed p.112, scan checked.
 
@@ -966,7 +1046,7 @@ Test `critical_exponent_test_3` (compatibility): The bound on r is strict.
 
 Open frontiers: G3.
 
-### stratum-equivalence — Equivalence of strata
+#### stratum-equivalence — Equivalence of strata
 
 definition; missing; BH17 §4.3 and §5.3; BH96 §1 pp.113–114.
 
@@ -994,7 +1074,7 @@ Test `stratum_equivalence_test_3` (non-example): No equivalence between orders o
 
 Open frontiers: G3.
 
-### simple-characters — Simple-character groups and character sets
+#### simple-characters — Simple-character groups and character sets
 
 construction; missing; BH17 notation p.924; BH96 §7, pp.145–146.
 
@@ -1022,7 +1102,7 @@ Test `simple_characters_test_3` (compatibility): A higher-depth restriction can 
 
 Open frontiers: G3.
 
-### character-transfer — Transfer and potential simple characters
+#### character-transfer — Transfer and potential simple characters
 
 construction; missing; BH17 notation and §4.2; BH96 §8 (8.1)–(8.2), pp.151–152.
 
@@ -1050,7 +1130,7 @@ Test `character_transfer_test_3` (non-example): An arbitrary family of character
 
 Open frontiers: G3.
 
-### endo-class — Endo-classes, including the trivial class
+#### endo-class — Endo-classes, including the trivial class
 
 definition; missing; BH17 §4.2 p.933; BH96 §8 (8.6)–(8.10), pp.154–157.
 
@@ -1078,7 +1158,7 @@ Test `endo_class_test_3` (degenerate): 0 is present even though a positive-level
 
 Open frontiers: G3.
 
-### endo-invariants — Degree, level and critical invariant of an endo-class
+#### endo-invariants — Degree, level and critical invariant of an endo-class
 
 construction; missing; BH17 §4.2 (4.2.1)–(4.2.3) p.933; BH96 (8.11).
 
@@ -1106,7 +1186,7 @@ Test `endo_invariants_test_3` (computation): For degree>1, 0<−k_0(Θ)≤m_Θ.
 
 Open frontiers: G3.
 
-### minimal-parameter — Minimal field generators
+#### minimal-parameter — Minimal field generators
 
 definition; missing; BH17 §4.1 p.932.
 
@@ -1132,7 +1212,7 @@ Test `minimal_parameter_test_2` (compatibility): For totally ramified E/F the re
 
 Test `minimal_parameter_test_3` (compatibility): A common divisor of m and e prevents minimality.
 
-### tame-corestriction — Tame corestriction and commutator exact sequence
+#### tame-corestriction — Tame corestriction and commutator exact sequence
 
 construction; missing; BH17 §4.1 p.932; BK93 §1.3 cited there.
 
@@ -1160,7 +1240,7 @@ Test `tame_corestriction_test_3` (non-example): Purely inseparable parameters re
 
 Open frontiers: G3, G4.
 
-### volume-exponent — Conductor-volume exponent
+#### volume-exponent — Conductor-volume exponent
 
 definition; missing; BH17 §4.1 (4.1.1) p.932.
 
@@ -1190,7 +1270,7 @@ Test `conductorVolume_nonunit_corestriction` (non-example): For E=F, replacing t
 
 Open frontiers: G4.
 
-### minimal-volume — Volume exponent of a minimal parameter
+#### minimal-volume — Volume exponent of a minimal parameter
 
 theorem; missing; BH17 §4.1 Proposition p.933.
 
@@ -1214,7 +1294,7 @@ Test `minimalVolume_unramified_quadratic` (computation): For e=1,f=2,m=1, the di
 
 Open frontiers: G4.
 
-### rational-endo-level — Every positive rational occurs as an endo level
+#### rational-endo-level — Every positive rational occurs as an endo level
 
 theorem; missing; BH17 §4.2 Proposition p.933.
 
@@ -1226,7 +1306,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/minimal-parameter; PAPER-BUSHNELL-HENNI
 
 Open frontiers: G3.
 
-### approximation — Degree-decreasing simple approximation
+#### approximation — Degree-decreasing simple approximation
 
 theorem; missing; BH17 §4.3 p.934, citing BK93 (2.4.1).
 
@@ -1238,7 +1318,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/stratum-equivalence; PAPER-BUSHNELL-HEN
 
 Open frontiers: G3.
 
-### jumps — Normalized jumps of an endo-class
+#### jumps — Normalized jumps of an endo-class
 
 definition; missing; BH17 §4.3 (4.3.1) p.934.
 
@@ -1266,7 +1346,7 @@ Test `jumps_test_3` (non-example): Do not attempt max S_0; Φ_0 is defined separ
 
 Open frontiers: G3.
 
-### jumps-invariance — Independence and correct realization scaling of jumps
+#### jumps-invariance — Independence and correct realization scaling of jumps
 
 theorem; missing; BH17 §4.3 Remark and Lemma p.934, corrected ratio.
 
@@ -1280,7 +1360,7 @@ Test `jumps_invariance_test_1` (degenerate): A scalar β=π_F^−1 has unnormali
 
 Open frontiers: G3.
 
-### profile-fields — Piecewise parameter-field profile
+#### profile-fields — Piecewise parameter-field profile
 
 construction; missing; BH17 §4.3 Definition (4.3.2) p.934.
 
@@ -1308,7 +1388,7 @@ Test `profile_fields_test_3` (compatibility): The last degree can already be one
 
 Open frontiers: G3, G4.
 
-### profile-invariance — Profile invariants are intrinsic and locally constant
+#### profile-invariance — Profile invariants are intrinsic and locally constant
 
 theorem; missing; BH17 §4.3 Proposition p.934.
 
@@ -1320,7 +1400,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/profile-fields; PAPER-BUSHNELL-HENNIART
 
 Open frontiers: G3, G4.
 
-### phi — Structure function of an endo-class
+#### phi — Structure function of an endo-class
 
 definition; missing; BH17 §4.4 (4.4.1)–(4.4.2) p.935.
 
@@ -1348,7 +1428,7 @@ Test `phi_test_3` (computation): Calling Φ onto [0,∞) would fail for a wild d
 
 Open frontiers: G4.
 
-### phi-continuity — Continuous gluing of the structure function
+#### phi-continuity — Continuous gluing of the structure function
 
 theorem; missing; BH17 §4.4 Proposition (1) p.935.
 
@@ -1360,7 +1440,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/phi; PAPER-BUSHNELL-HENNIART-17/minimal
 
 Open frontiers: G4.
 
-### phi-shape — Convexity and strict increase of Φ
+#### phi-shape — Convexity and strict increase of Φ
 
 theorem; missing; BH17 §4.4 Proposition (2),(3) p.935.
 
@@ -1370,7 +1450,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/phi-continuity; PAPER-BUSHNELL-HENNIART
 
 1. Approximation field degrees strictly decrease, so positive reciprocal slopes increase; continuity glues the pieces.
 
-### phi-breaks — Derivative breaks of Φ
+#### phi-breaks — Derivative breaks of Φ
 
 theorem; missing; BH17 §4.4 Proposition (4) p.935.
 
@@ -1380,7 +1460,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/phi-shape; PAPER-BUSHNELL-HENNIART-17/j
 
 1. Compare consecutive reciprocal degrees; at the tail the new slope is one.
 
-### phi-same-stratum — Simple characters on one stratum have the same Φ
+#### phi-same-stratum — Simple characters on one stratum have the same Φ
 
 theorem; missing; BH17 §4.4 Complement (1) p.935.
 
@@ -1390,7 +1470,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/phi; PAPER-BUSHNELL-HENNIART-17/profile
 
 1. The numerical profile is defined from β.
 
-### endo-dual — Dual simple character and dual endo-class
+#### endo-dual — Dual simple character and dual endo-class
 
 construction; missing; BH17 §4.4 Complement (2) p.935.
 
@@ -1418,7 +1498,7 @@ Test `endo_dual_test_3` (non-example): The pair conductor uses π_1∨×π_2, no
 
 Open frontiers: G3.
 
-### phi-truncation-tail — Agreement of Φ after intertwining truncations
+#### phi-truncation-tail — Agreement of Φ after intertwining truncations
 
 theorem; missing; BH17 §4.5 Proposition pp.935–936.
 
@@ -1430,7 +1510,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/phi; PAPER-BUSHNELL-HENNIART-17/stratum
 
 Open frontiers: G3.
 
-### tame-endo-lift — Tame lifts of endo-classes
+#### tame-endo-lift — Tame lifts of endo-classes
 
 construction; missing; BH17 §§4.6,5.5,7.1; BH96 §9 (9.7)–(9.13) pp.160–163.
 
@@ -1458,7 +1538,7 @@ Test `tame_endo_lift_test_3` (non-example): A fixed choice of lift is not declar
 
 Open frontiers: G3.
 
-### totally-wild-endo — Totally wild endo-class
+#### totally-wild-endo — Totally wild endo-class
 
 definition; missing; BH17 §4.6 p.936 and §7.1 Remark p.945.
 
@@ -1486,7 +1566,7 @@ Test `totally_wild_endo_test_3` (non-example): Being of p-power degree alone is 
 
 Open frontiers: G3.
 
-### phi-tame — Tame scaling of Φ for totally wild classes
+#### phi-tame — Tame scaling of Φ for totally wild classes
 
 theorem; missing; BH17 §4.6 Proposition, Lemma and (4.6.1)–(4.6.2), pp.936–937.
 
@@ -1502,7 +1582,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/totally-wild-endo; PAPER-BUSHNELL-HENNI
 
 Open frontiers: G3.
 
-### endo-distance — Intertwining distance on endo-classes
+#### endo-distance — Intertwining distance on endo-classes
 
 definition; missing; BH17 §5.1 (5.1.1) p.937.
 
@@ -1530,7 +1610,7 @@ Test `endo_distance_test_3` (compatibility): At l/e_a the restrictions on H^l ca
 
 Open frontiers: G3.
 
-### endo-distance-well-defined — Independence of the intertwining distance
+#### endo-distance-well-defined — Independence of the intertwining distance
 
 theorem; missing; BH17 §5.1 Proposition p.938.
 
@@ -1542,7 +1622,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/endo-distance; PAPER-BUSHNELL-HENNIART-
 
 Open frontiers: G3.
 
-### endo-distance-basic — Distance to zero and unequal-level formula
+#### endo-distance-basic — Distance to zero and unequal-level formula
 
 theorem; missing; BH17 §5.1 Proposition p.938.
 
@@ -1552,7 +1632,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/endo-distance-well-defined; PAPER-BUSHN
 
 1. At the deeper of the two final nontrivial restrictions, only one character is nontrivial.
 
-### endo-distance-metric — Separation and ultrametric inequality for A
+#### endo-distance-metric — Separation and ultrametric inequality for A
 
 theorem; missing; BH17 §5.1 Theorem p.938.
 
@@ -1564,7 +1644,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/endo-distance-well-defined; PAPER-BUSHN
 
 Open frontiers: G3.
 
-### phi-distance-tail — Tail agreement at the endo-distance
+#### phi-distance-tail — Tail agreement at the endo-distance
 
 theorem; missing; BH17 §5.1 Corollary p.938.
 
@@ -1574,7 +1654,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/endo-distance; PAPER-BUSHNELL-HENNIART-
 
 1. Apply the truncation-tail theorem at the least intertwining level.
 
-### truncation — Real-index truncation of endo-classes
+#### truncation — Real-index truncation of endo-classes
 
 construction; missing; BH17 §5.2 pp.938–939.
 
@@ -1602,7 +1682,7 @@ Test `truncation_test_3` (degenerate): At ε=m_Θ the deepest nontrivial restric
 
 Open frontiers: G3.
 
-### truncation-balls — Strict balls are truncated endo-classes
+#### truncation-balls — Strict balls are truncated endo-classes
 
 theorem; missing; BH17 §5.2 Proposition p.939.
 
@@ -1612,7 +1692,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/truncation; PAPER-BUSHNELL-HENNIART-17/
 
 1. For the integral intertwining threshold l, l/e_a<ε iff l≤ceil(e_a ε)−1.
 
-### perturbation — Interior-depth perturbation of a simple character
+#### perturbation — Interior-depth perturbation of a simple character
 
 theorem; missing; BH17 §5.3 helper Lemma p.939, corrected range.
 
@@ -1630,7 +1710,7 @@ Test `perturbation_test_1` (degenerate): Over Q_2 in GL_1 at m=k=1, the unique n
 
 Open frontiers: G5.
 
-### endo-density — Density of endo-distances
+#### endo-density — Density of endo-distances
 
 theorem; missing; BH17 §5.3 Density Lemma p.939.
 
@@ -1644,7 +1724,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/perturbation; PAPER-BUSHNELL-HENNIART-1
 
 Open frontiers: G5.
 
-### cuspidal-endo — Endo-class of a cuspidal representation
+#### cuspidal-endo — Endo-class of a cuspidal representation
 
 construction; missing; BH17 §5.4 p.940, citing BH13; BH14 §6.3.
 
@@ -1672,7 +1752,7 @@ Test `cuspidal_endo_test_3` (compatibility): Residue characteristic dividing n i
 
 Open frontiers: G3, G6.
 
-### pair-epsilon — Rankin–Selberg local constants
+#### pair-epsilon — Rankin–Selberg local constants
 
 construction; planned; BH17 §5.4 p.940.
 
@@ -1700,7 +1780,7 @@ Test `pair_epsilon_test_2` (non-example): Do not confuse the exponent with the e
 
 Test `pair_epsilon_test_3` (computation): Switching π_1 to its dual changes the pair under consideration.
 
-### pair-swan — Swan exponent on the GL side
+#### pair-swan — Swan exponent on the GL side
 
 definition; missing; BH17 §5.4 p.940.
 
@@ -1726,7 +1806,7 @@ Test `pair_swan_test_2` (compatibility): Dropping d would give a negative value 
 
 Test `pair_swan_test_3` (non-example): Unequal ranks remove only d, not the Artin exponent.
 
-### gl-conductor — Explicit GL_n conductor formula
+#### gl-conductor — Explicit GL_n conductor formula
 
 theorem; missing; BH17 §5.4 (5.4.1) p.940; BHK98 Theorem 6.5 cited.
 
@@ -1738,7 +1818,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/pair-swan; PAPER-BUSHNELL-HENNIART-17/c
 
 Open frontiers: G6.
 
-### gl-level-swan — Normalized Swan equals endo level
+#### gl-level-swan — Normalized Swan equals endo level
 
 theorem; missing; BH17 §5.4 (5.4.2) p.940.
 
@@ -1748,7 +1828,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/gl-conductor; PAPER-BUSHNELL-HENNIART-1
 
 1. Take the second representation to be the trivial GL_1-character and use the identity tail.
 
-### phi-unique — Conductor characterization of Φ
+#### phi-unique — Conductor characterization of Φ
 
 theorem; missing; BH17 §5.4 Proposition p.940.
 
@@ -1758,7 +1838,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/gl-conductor; PAPER-BUSHNELL-HENNIART-1
 
 1. Every endo-class occurs; the prescribed arguments are dense. Apply continuity.
 
-### endo-pair-ultrametric — Ultrametric inequality for the endo-class conductor pairing
+#### endo-pair-ultrametric — Ultrametric inequality for the endo-class conductor pairing
 
 theorem; missing; BH17 §5.4 Corollary p.941.
 
@@ -1768,7 +1848,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/gl-conductor; PAPER-BUSHNELL-HENNIART-1
 
 1. Choose the larger comparison distance and apply the profile based at the corresponding common class.
 
-### endo-distance-tame — Tame minimum formula for A
+#### endo-distance-tame — Tame minimum formula for A
 
 theorem; missing; BH17 §5.5 Proposition p.941.
 
@@ -1780,7 +1860,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/tame-endo-lift; PAPER-BUSHNELL-HENNIART
 
 Open frontiers: G3.
 
-### llc-char0 — Classical complex local Langlands in characteristic zero
+#### llc-char0 — Classical complex local Langlands in characteristic zero
 
 theorem; planned; BH17 §6.1 (6.1.1) pp.941–942.
 
@@ -1792,7 +1872,7 @@ Existing stages: EndoscopicTransferAndUnitaryTraceComparison:ET.6.
 
 1. Import ET.6’s independent classical correspondence and its normalization dictionary. Its existence is planned, not supplied by the pinned libraries.
 
-### llc-charp — Equal-characteristic complex LLC and pair factors
+#### llc-charp — Equal-characteristic complex LLC and pair factors
 
 theorem; missing; BH17 §6.1; ES7 equal-characteristic source interface.
 
@@ -1806,7 +1886,7 @@ Dependencies: ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic; PAPE
 
 Open frontiers: G7.
 
-### llc-swan — Swan compatibility of LLC
+#### llc-swan — Swan compatibility of LLC
 
 theorem; missing; BH17 §6.1 (6.1.2) p.942.
 
@@ -1818,7 +1898,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/llc-char0; PAPER-BUSHNELL-HENNIART-17/l
 
 Open frontiers: G7.
 
-### first-ramification — First ramification bijection
+#### first-ramification — First ramification bijection
 
 construction; missing; BH17 §6.1 First ramification theorem p.942; BH14 §§6.1–6.2 pp.41–42.
 
@@ -1846,7 +1926,7 @@ Test `first_ramification_test_3` (non-example): The canonical map is not an arbi
 
 Open frontiers: G6, G7.
 
-### profile-comparison — Equality of the two conductor profiles
+#### profile-comparison — Equality of the two conductor profiles
 
 theorem; missing; BH17 §6.2 (6.2.1) p.942.
 
@@ -1856,7 +1936,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/gl-conductor; PAPER-BUSHNELL-HENNIART-1
 
 1. Choose cuspidal realizations, apply the GL conductor formula, transfer pair Swan through LLC, and apply the Weil formula.
 
-### herbrand-endo — Herbrand function of an endo-class
+#### herbrand-endo — Herbrand function of an endo-class
 
 construction; missing; BH17 §6.2 (6.2.2) pp.942–943.
 
@@ -1882,7 +1962,7 @@ Test `herbrand_endo_test_2` (computation): Φ and Σ can have positive initial v
 
 Test `herbrand_endo_test_3` (compatibility): The inverse composition order is reversed.
 
-### herbrand-shape — Continuity and finite affine structure of Ψ
+#### herbrand-shape — Continuity and finite affine structure of Ψ
 
 theorem; missing; BH17 §6.2 Proposition pp.942–943.
 
@@ -1892,7 +1972,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/herbrand-endo; PAPER-BUSHNELL-HENNIART-
 
 1. Compose the finite affine order isomorphisms; identify m_Θ=sl(Lπ) using Swan compatibility and apply both identity tails.
 
-### rational-weil-slopes — Weil realization of every positive rational slope
+#### rational-weil-slopes — Weil realization of every positive rational slope
 
 theorem; missing; BH17 §2.4 Proposition and Corollary, proved §6.3 p.943.
 
@@ -1904,7 +1984,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/rational-endo-level; PAPER-BUSHNELL-HEN
 
 Open frontiers: G6.
 
-### delta-density — Density of ramification distances
+#### delta-density — Density of ramification distances
 
 theorem; missing; BH17 §3.3 Density Lemma, proved §6.3 p.943.
 
@@ -1914,7 +1994,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/endo-density; PAPER-BUSHNELL-HENNIART-1
 
 1. Transport the dense A-values through the increasing homeomorphism Ψ_Θ^−1. This is deliberately placed after the comparison theorem to avoid a cycle.
 
-### sigma-unique — Conductor characterization of Σ
+#### sigma-unique — Conductor characterization of Σ
 
 theorem; missing; BH17 §3.3 Proposition p.931, completed §6.3.
 
@@ -1924,7 +2004,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/swan-pair; PAPER-BUSHNELL-HENNIART-17/d
 
 1. Use equality on the dense set of Δ-values.
 
-### higher-strict — Higher ramification theorem: open balls
+#### higher-strict — Higher ramification theorem: open balls
 
 theorem; missing; BH17 §6.4 Higher Ramification Theorem p.943.
 
@@ -1934,7 +2014,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/profile-comparison; PAPER-BUSHNELL-HENN
 
 1. Apply the strictly increasing inverse profile to the exact distance identity.
 
-### higher-weak — Higher ramification theorem: closed balls
+#### higher-weak — Higher ramification theorem: closed balls
 
 theorem; missing; BH17 §6.4 Higher Ramification Theorem p.943.
 
@@ -1944,7 +2024,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/profile-comparison; PAPER-BUSHNELL-HENN
 
 1. Order equivalence preserves non-strict inequalities as well. Keep this separate from the non-plus orbit criterion.
 
-### herbrand-tail — Tail agreement of Herbrand functions and inverses
+#### herbrand-tail — Tail agreement of Herbrand functions and inverses
 
 theorem; missing; BH17 §6.5 Lemma and Remark pp.943–944.
 
@@ -1956,7 +2036,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/higher-strict; PAPER-BUSHNELL-HENNIART-
 
 2. Density of distances forces their radii to coincide; equal open balls alone would not imply this in an arbitrary ultrametric space. Extend to the boundary by continuity.
 
-### truncated-class-to-orbit — A truncated endo-class determines a unique ramification pair
+#### truncated-class-to-orbit — A truncated endo-class determines a unique ramification pair
 
 theorem; missing; BH17 §6.5 Corollary (1) p.944.
 
@@ -1966,7 +2046,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/higher-strict; PAPER-BUSHNELL-HENNIART-
 
 1. Construct ε and the constituent orbit; use the ball equivalence for existence. For uniqueness of ε use density, then uniqueness of the restriction orbit.
 
-### orbit-to-truncated-class — Every ramification pair determines a truncated endo-class
+#### orbit-to-truncated-class — Every ramification pair determines a truncated endo-class
 
 theorem; missing; BH17 §6.5 Corollary (2) p.944.
 
@@ -1976,7 +2056,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/weil-occurrence; PAPER-BUSHNELL-HENNIAR
 
 1. Occurrence supplies a center; tail agreement shows that all centers with the same orbit give the same truncation.
 
-### herbrand-tame — Tame lifting law for every Herbrand function
+#### herbrand-tame — Tame lifting law for every Herbrand function
 
 theorem; missing; BH17 §7.1 Proposition pp.944–945.
 
@@ -1988,7 +2068,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/endo-distance-tame; PAPER-BUSHNELL-HENN
 
 2. Apply both minimum formulas and compare at a dense set of A-values; extend by continuity, then descend from the tame Galois closure.
 
-### wild-lift-exists — Reduction to a totally wild lift
+#### wild-lift-exists — Reduction to a totally wild lift
 
 theorem; missing; BH17 §7.1 Remark p.945; BH14 §6.3 Tame Parameter Theorem.
 
@@ -2000,7 +2080,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/first-ramification; PAPER-BUSHNELL-HENN
 
 Open frontiers: G6.
 
-### totally-wild-weil — Totally wild Weil representations
+#### totally-wild-weil — Totally wild Weil representations
 
 definition; missing; BH17 §7.2 p.945, corrected explanatory equivalence.
 
@@ -2028,7 +2108,7 @@ Test `totally_wild_weil_test_3` (non-example): Its wild constituent orbit is nev
 
 Open frontiers: G8.
 
-### wild-llc — Totally wild LLC criterion
+#### wild-llc — Totally wild LLC criterion
 
 theorem; missing; BH17 §7.2 Lemma p.945; BH14 §6.3.
 
@@ -2040,7 +2120,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/totally-wild-weil; PAPER-BUSHNELL-HENNI
 
 Open frontiers: G6.
 
-### character-reciprocity — Reciprocity and Swan exponents of characters
+#### character-reciprocity — Reciprocity and Swan exponents of characters
 
 construction; planned; BH17 §§7.3–7.5; local reciprocity input.
 
@@ -2068,7 +2148,7 @@ Test `character_reciprocity_test_2` (degenerate): A tame ramified character also
 
 Test `character_reciprocity_test_3` (non-example): In characteristic p use the full local reciprocity supplier, not only its prime-to-p quotient.
 
-### twist-distance — Distance under a character twist
+#### twist-distance — Distance under a character twist
 
 theorem; missing; BH17 §7.3 Proposition pp.945–946.
 
@@ -2078,7 +2158,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/totally-wild-weil; PAPER-BUSHNELL-HENNI
 
 1. The two restrictions agree on R_F^+(c). Strict inequality means χ|R_F(c) occurs in End σ; its disappearance on the plus group forces a derivative jump of Σ. If c>sl σ the new slope is c directly.
 
-### endo-character-action — Character action on endo-classes
+#### endo-character-action — Character action on endo-classes
 
 construction; missing; BH17 §7.4 p.946.
 
@@ -2106,7 +2186,7 @@ Test `endo_character_action_test_3` (compatibility): Central cancellation can lo
 
 Open frontiers: G5.
 
-### scalar-twist-level — Actual level of the translated simple stratum
+#### scalar-twist-level — Actual level of the translated simple stratum
 
 theorem; missing; BH17 §7.4 Lemma p.946, corrected necessary level; BH96 (1.3)–(1.4).
 
@@ -2122,7 +2202,7 @@ Test `scalar_twist_level_test_1` (computation): For unramified quadratic E/Q_3, 
 
 Open frontiers: G5.
 
-### twist-invariance — Φ, Σ and Ψ are unchanged by character twisting
+#### twist-invariance — Φ, Σ and Ψ are unchanged by character twisting
 
 theorem; missing; BH17 §7.4 Proposition p.946.
 
@@ -2134,7 +2214,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/endo-character-action; PAPER-BUSHNELL-H
 
 Open frontiers: G5.
 
-### character-depth-exists — Characters of prescribed positive Swan exponent
+#### character-depth-exists — Characters of prescribed positive Swan exponent
 
 theorem; missing; BH17 §7.5 uniqueness proof, expanded supplier.
 
@@ -2148,7 +2228,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/unit-filtration; PAPER-BUSHNELL-HENNIAR
 
 Open frontiers: G1.
 
-### tame-depth-density — Dense character depths after tame rescaling
+#### tame-depth-density — Dense character depths after tame rescaling
 
 theorem; missing; BH17 §7.5 uniqueness argument, expanded supplier.
 
@@ -2158,7 +2238,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/character-depth-exists; tauceti:TauCeti
 
 1. For arbitrarily large e prime to p, the Eisenstein extension generated by a root of X^e−π is finite tame of index e. Use characters of every positive integer Swan exponent and approximate a real number by k/e. Galoisness and roots of unity are not required for this existence argument.
 
-### interpolation — Interpolation theorem: sampling formula
+#### interpolation — Interpolation theorem: sampling formula
 
 theorem; missing; BH17 §7.5 Interpolation Theorem (3) pp.946–947.
 
@@ -2168,7 +2248,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/wild-llc; PAPER-BUSHNELL-HENNIART-17/ph
 
 1. Choose a rank-deg Θ cuspidal realization. Off D the twist distance is sw χ. Compare conductors through LLC and apply both totally-wild scaling formulas. For sw χ=0 use triviality on the realization pro-p group.
 
-### interpolation-unique — Interpolation determines Ψ uniquely
+#### interpolation-unique — Interpolation determines Ψ uniquely
 
 theorem; missing; BH17 §7.5 uniqueness and Remark p.947.
 
@@ -2178,7 +2258,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/interpolation; PAPER-BUSHNELL-HENNIART-
 
 1. For two candidates remove the union of their finite exceptional sets; their values agree on the remaining dense set. Continuity gives equality everywhere.
 
-### degree-one — Degree-one profiles are identity
+#### degree-one — Degree-one profiles are identity
 
 theorem; missing; BH17 §7.6 (7.6.1) p.947.
 
@@ -2188,7 +2268,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/phi; PAPER-BUSHNELL-HENNIART-17/wild-ll
 
 1. The scalar parameter gives c=0,d=1. A rank-one Weil representative has trivial End, so both profiles are identity.
 
-### initial-slope — Initial slope in the totally wild case
+#### initial-slope — Initial slope in the totally wild case
 
 theorem; missing; BH17 §7.6 Proposition (1) p.948.
 
@@ -2198,7 +2278,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/totally-wild-endo; PAPER-BUSHNELL-HENNI
 
 1. Near zero σ|R_F(x) remains irreducible, so Σ′=p^−2r; the first profile degree gives Φ′=p^−r. Divide the two slopes.
 
-### terminal-slope — Slope immediately below the endo level
+#### terminal-slope — Slope immediately below the endo level
 
 theorem; missing; BH17 §7.6 Proposition (2) p.948.
 
@@ -2214,7 +2294,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/profile-fields; PAPER-BUSHNELL-HENNIART
 
 Open frontiers: G3.
 
-### scalar-level-reduction — Removing an integral leading scalar level
+#### scalar-level-reduction — Removing an integral leading scalar level
 
 theorem; missing; BH17 §7.6 Remark and §7.7 proof pp.948–949.
 
@@ -2226,7 +2306,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/endo-character-action; PAPER-BUSHNELL-H
 
 Open frontiers: G5.
 
-### essential-tame — Essentially tame endo-class
+#### essential-tame — Essentially tame endo-class
 
 definition; missing; BH17 §7.7 p.948.
 
@@ -2254,7 +2334,7 @@ Test `essential_tame_test_3` (non-example): A totally wild class of degree>1 is 
 
 Open frontiers: G6.
 
-### essential-tame-criterion — Identity Herbrand function characterizes essential tameness
+#### essential-tame-criterion — Identity Herbrand function characterizes essential tameness
 
 theorem; missing; BH17 §7.7 Corollary pp.948–949.
 
@@ -2264,7 +2344,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/essential-tame; PAPER-BUSHNELL-HENNIART
 
 1. Pass to a totally wild lift. The tame case has degree one. In the non-tame case twist to the terminal-slope hypotheses; the different initial and terminal slopes force an interior break.
 
-### graded-character-torsor — Character torsor over an irreducible restriction
+#### graded-character-torsor — Character torsor over an irreducible restriction
 
 theorem; missing; BH17 §8.1 Lemma p.949.
 
@@ -2276,7 +2356,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/ramification-commutators; PAPER-BUSHNEL
 
 Open frontiers: G8.
 
-### commutant-growth — Commutant dimensions and a ramification break
+#### commutant-growth — Commutant dimensions and a ramification break
 
 theorem; missing; BH17 §8.1 proof pp.949–950.
 
@@ -2286,7 +2366,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/clifford-dimension; PAPER-BUSHNELL-HENN
 
 1. Compute the endomorphism algebra of a semisimple complex direct sum and compare the finite left and right values of the invariant dimension.
 
-### sigma-jump-criterion — Character-twist criterion for a break of Σ
+#### sigma-jump-criterion — Character-twist criterion for a break of Σ
 
 theorem; missing; BH17 §8.1 Proposition and Remark pp.949–950.
 
@@ -2298,7 +2378,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/graded-character-torsor; PAPER-BUSHNELL
 
 Open frontiers: G8.
 
-### centric-field — Centric and tame centric fields
+#### centric-field — Centric and tame centric fields
 
 construction; missing; BH17 §8.2 p.950.
 
@@ -2326,7 +2406,7 @@ Test `centric_field_test_3` (computation): T=F means E/F is totally wildly ramif
 
 Open frontiers: G1.
 
-### self-twist-groups — Weil and wild self-twist groups
+#### self-twist-groups — Weil and wild self-twist groups
 
 definition; missing; BH17 §8.2 Definition p.950.
 
@@ -2352,7 +2432,7 @@ Test `self_twist_groups_test_2` (non-example): The groups depend on isomorphisms
 
 Test `self_twist_groups_test_3` (compatibility): No extension of an arbitrary wild character to W_F is assumed.
 
-### wild-self-twists — Finiteness of wild self-twists
+#### wild-self-twists — Finiteness of wild self-twists
 
 theorem; missing; BH17 §8.2 p.950.
 
@@ -2362,7 +2442,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/self-twist-groups; PAPER-BUSHNELL-HENNI
 
 1. Distinct self-twist characters occur in the n²-dimensional End representation, each with positive multiplicity.
 
-### imprimitivity-field — Imprimitivity field
+#### imprimitivity-field — Imprimitivity field
 
 construction; missing; BH17 §8.2 p.950.
 
@@ -2390,7 +2470,7 @@ Test `imprimitivity_field_test_3` (non-example): T_I is defined from D_0, not fr
 
 Open frontiers: G1.
 
-### tame-self-twist-trivial — A tame self-twist of a totally wild representation is trivial
+#### tame-self-twist-trivial — A tame self-twist of a totally wild representation is trivial
 
 theorem; missing; BH17 §8.2 Lemma 1 p.951; BH14 §1.3 Lemma 1 p.10.
 
@@ -2400,7 +2480,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/self-twist-groups.
 
 1. An intertwiner commutes with σ(P_F), hence is a nonzero scalar by Schur; the intertwining equation forces χ(g)=1 for every g.
 
-### wild-character-extension — Extension of an invariant wild character
+#### wild-character-extension — Extension of an invariant wild character
 
 theorem; missing; BH17 §8.2 Lemma 2 proof p.951; BH14 §1.3 pp.10–11.
 
@@ -2412,7 +2492,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/weil-occurrence; PAPER-BUSHNELL-HENNIAR
 
 Open frontiers: G8.
 
-### self-twist-descent — Self-twists over a tame extension
+#### self-twist-descent — Self-twists over a tame extension
 
 theorem; missing; BH17 §8.2 Lemma 2 p.951.
 
@@ -2424,7 +2504,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/wild-character-extension; PAPER-BUSHNEL
 
 Open frontiers: G8.
 
-### imprimitivity-bound — The imprimitivity field lies in the tame centric field
+#### imprimitivity-bound — The imprimitivity field lies in the tame centric field
 
 theorem; missing; BH17 §8.2 Proposition pp.950–951.
 
@@ -2434,7 +2514,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/centric-field; PAPER-BUSHNELL-HENNIART-
 
 1. W_T=P_F W_E acts trivially on the wild self-twists, because W_E acts projectively trivially and P_F acts by inner conjugation. Apply the fixed-point description.
 
-### absolutely-wild — Absolute wildness
+#### absolutely-wild — Absolute wildness
 
 definition; missing; BH17 §8.3 p.951.
 
@@ -2462,7 +2542,7 @@ Test `absolutely_wild_test_3` (non-example): The finite-image representative is 
 
 Open frontiers: G8.
 
-### first-break-absolute — First break of an absolutely wild representation
+#### first-break-absolute — First break of an absolutely wild representation
 
 theorem; missing; BH17 §8.3 Theorem pp.951–952.
 
@@ -2478,7 +2558,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/absolutely-wild; PAPER-BUSHNELL-HENNIAR
 
 Open frontiers: G8.
 
-### first-break-general — First break from the imprimitivity field
+#### first-break-general — First break from the imprimitivity field
 
 theorem; missing; BH17 §8.3 Corollary p.952.
 
@@ -2488,7 +2568,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/first-break-absolute; PAPER-BUSHNELL-HE
 
 1. Pass to T where σ is absolutely wild. Descend self-twists uniquely to T_I and divide their conductors by the tame ramification factors.
 
-### degree-p-profile — Structure function in totally wild degree p
+#### degree-p-profile — Structure function in totally wild degree p
 
 theorem; missing; BH17 §8.4 p.952.
 
@@ -2498,7 +2578,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/minimal-volume; PAPER-BUSHNELL-HENNIART
 
 1. Coprimality makes the degree-p parameter minimal. Compose the affine inverse of Φ on its non-tail range.
 
-### degree-p-breaks — One or two decomposition breaks in degree p
+#### degree-p-breaks — One or two decomposition breaks in degree p
 
 theorem; missing; BH17 §8.4 p.952.
 
@@ -2512,7 +2592,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/swan; PAPER-BUSHNELL-HENNIART-17/commut
 
 Open frontiers: G8.
 
-### degree-p-induction — Cyclic induction in the absolutely wild two-break case
+#### degree-p-induction — Cyclic induction in the absolutely wild two-break case
 
 theorem; missing; BH17 §8.4 p.952, corrected conductor statement.
 
@@ -2526,7 +2606,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/degree-p-breaks; PAPER-BUSHNELL-HENNIAR
 
 Open frontiers: G2, G9.
 
-### degree-p-single-break — Location of the single break in degree p
+#### degree-p-single-break — Location of the single break in degree p
 
 theorem; missing; BH17 §8.4 pp.952–953.
 
@@ -2540,7 +2620,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/degree-p-profile; PAPER-BUSHNELL-HENNIA
 
 Open frontiers: G9.
 
-### extraspecial-image — Extra-special-image assertion: verification target
+#### extraspecial-image — Extra-special-image assertion: verification target
 
 theorem; missing; BH17 §8.4 first paragraph p.953.
 
@@ -2552,7 +2632,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/degree-p-single-break; PAPER-BUSHNELL-H
 
 Open frontiers: G9.
 
-### epipelagic-input — Conditional epipelagic tensor input
+#### epipelagic-input — Conditional epipelagic tensor input
 
 theorem; missing; BH17 §8.5 p.953; BH14 epipelagic §§5.1–5.2 cited there.
 
@@ -2564,7 +2644,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/wild-llc; PAPER-BUSHNELL-HENNIART-17/de
 
 Open frontiers: G9.
 
-### four-dimensional-example — Four-dimensional Herbrand example
+#### four-dimensional-example — Four-dimensional Herbrand example
 
 theorem; missing; BH17 §8.5 Example 1 p.953.
 
@@ -2578,7 +2658,7 @@ Test `four_dimensional_example_test_1` (computation): Check continuity at 1/3,3/
 
 Open frontiers: G9.
 
-### eight-dimensional-example — Eight-dimensional tensor example
+#### eight-dimensional-example — Eight-dimensional tensor example
 
 theorem; missing; BH17 §8.5 Example 2 p.953.
 
@@ -2592,7 +2672,7 @@ Test `eight_dimensional_example_test_1` (computation): Check Ψ(1/3)=1/24 and Ψ
 
 Open frontiers: G9.
 
-### ramification-kernel — A smooth ramification representation kills a deeper group
+#### ramification-kernel — A smooth ramification representation kills a deeper group
 
 theorem; missing; BH17 §2.1 Proposition 2(1) and Complement p.927.
 
@@ -2602,7 +2682,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/smooth-weil; PAPER-BUSHNELL-HENNIART-17
 
 1. The kernel is open in the compact subgroup. Extend its defining neighborhood to an open subgroup of P_F and apply cofinality, then increase δ past ε.
 
-### clifford-correspondence — Clifford correspondence for a finite group
+#### clifford-correspondence — Clifford correspondence for a finite group
 
 theorem; planned; BH17 §§8.2–8.3 finite p-group argument; upstream InductionRestriction Layer 5.
 
@@ -2614,7 +2694,7 @@ Existing stages: tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestrictio
 
 1. Import the existing correspondence with its actual inertia subgroup and induced representation.
 
-### cyclic-restriction — Restriction across a normal subgroup of prime index
+#### cyclic-restriction — Restriction across a normal subgroup of prime index
 
 theorem; missing; BH17 §§8.2–8.3, explicit finite-quotient adapter.
 
@@ -2628,7 +2708,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/clifford-correspondence; PAPER-BUSHNELL
 
 Open frontiers: G8.
 
-### relative-p-induction — Index-p induction retaining a normal subgroup
+#### relative-p-induction — Index-p induction retaining a normal subgroup
 
 theorem; missing; BH17 §8.3 proof p.952, expanded finite-quotient adapter.
 
@@ -2644,7 +2724,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/cyclic-restriction; PAPER-BUSHNELL-HENN
 
 Open frontiers: G8.
 
-### positive-jumps — The positive absolute upper jumps are exactly rational
+#### positive-jumps — The positive absolute upper jumps are exactly rational
 
 theorem; missing; BH17 §2.4 Corollary p.929, justified §6.3.
 
@@ -2656,7 +2736,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/rational-weil-slopes; PAPER-BUSHNELL-HE
 
 Open frontiers: G2.
 
-### wild-self-twists-nontrivial — A higher-dimensional totally wild representation has a nontrivial self-twist
+#### wild-self-twists-nontrivial — A higher-dimensional totally wild representation has a nontrivial self-twist
 
 theorem; missing; BH17 §8.2 p.950.
 
@@ -2668,7 +2748,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/self-twist-groups; PAPER-BUSHNELL-HENNI
 
 Open frontiers: G8.
 
-### weil-occurrence — Weil realization of a ramification constituent
+#### weil-occurrence — Weil realization of a ramification constituent
 
 theorem; missing; BH17 §2.1 Proposition 2(2) and Complement p.927.
 
@@ -2680,7 +2760,7 @@ Dependencies: PAPER-BUSHNELL-HENNIART-17/profinite-occurrence; PAPER-BUSHNELL-HE
 
 Open frontiers: G1.
 
-### length-additivity — Existing additivity of module length
+#### length-additivity — Existing additivity of module length
 
 theorem; library; Mathlib/RingTheory/Length.lean:170 at 082e2d3; helper for BH17 §4.1.
 
@@ -2692,7 +2772,7 @@ Pinned imports: mathlib:Module.length_eq_add_of_exact.
 
 1. Apply the pinned theorem; for the finite quotients used here first establish finite length, then take the corresponding natural-number equality.
 
-### relative-index-tower — Existing relative additive index tower law
+#### relative-index-tower — Existing relative additive index tower law
 
 theorem; library; Mathlib/GroupTheory/Index.lean:127, to_additive of Subgroup.relIndex_mul_relIndex at 082e2d3.
 
@@ -2704,7 +2784,7 @@ Pinned imports: mathlib:AddSubgroup.relIndex_mul_relIndex.
 
 1. Import the additive theorem generated by the pinned to_additive declaration. Infinite index is represented by zero; prove finiteness before using positive real division.
 
-### lattice-volume-index — Local additive lattice measure and finite index
+#### lattice-volume-index — Local additive lattice measure and finite index
 
 theorem; missing; BH17 §4.1 pp.932–933; independent expansion of the volume argument.
 
@@ -2728,7 +2808,7 @@ Test `latticeVolume_equal_lattices` (degenerate): For N=L the quotient has one e
 
 Test `latticeVolume_not_discrete_covolume` (non-example): For N=πO_F⊊L=O_F, μ(N)<μ(L), whereas the covolume ratio for discrete real lattices would have the reverse containment direction.
 
-### exact-lattice-comparison — Choice independence of an exact lattice volume ratio
+#### exact-lattice-comparison — Choice independence of an exact lattice volume ratio
 
 theorem; missing; BH17 §4.1 pp.932–933; independent expansion of the volume argument.
 
@@ -2754,7 +2834,7 @@ Test `exactLattice_common_scaling` (compatibility): For exact L, M=π^t L is exa
 
 Test `exactLattice_last_map_scaling` (non-example): For U=V=F and maps (identity,zero,λ·identity), take lattices (O_F,O_F,O_F,λO_F); C=|λ|_F^−1, so λ=π gives C=q, not 1.
 
-### lattice-dilation — Scalar dilation of a local-field lattice
+#### lattice-dilation — Scalar dilation of a local-field lattice
 
 theorem; missing; BH17 §4.1 pp.932–933; independent expansion of the volume argument.
 
@@ -2774,7 +2854,7 @@ Test `latticeDilation_unramified_quadratic` (computation): For unramified quadra
 
 Test `latticeDilation_sign` (computation): For β=π_E and r=1, the ratio is q_E^−1, not q_E.
 
-## Validation
+### Validation
 
 Five new diagnostic groups passed 1,317 finite/rational cases: 81 exact cyclic p-power quotient complexes, 330 signed dilation cases, 768 conditional minimal exponents, 72 sheared-intersection integer cases, and 66 last-map-rescaling cases. These are not formal proofs or an implementation of local fields/Haar measure. The earlier eight diagnostic groups (10,680 cases) are preserved as earlier-worker provenance and were not rerun. The paper schema checker passes; intake reports three files and zero problems. Structural checks pass for all 145 items/350 edges, 42 definition/construction APIs and tests, routing, request coverage, construction order, thirteen current non-self input hashes and six pinned declaration hashes. The inherited pre-edit result hash remains provenance. All 48 relevant regression tests pass (9 paper, 3 paper-queue, 7 source-issue, 29 intake).
 

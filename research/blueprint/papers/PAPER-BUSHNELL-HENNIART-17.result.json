@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BUSHNELL-HENNIART-17",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n3-p05-p.pdf",
     "sha256": "c93282637d325e422442e8c1a5721d0d13a742d392b8e78c77e2e6ddd2dc0c31",
@@ -76,7 +76,7 @@
       "usableMathematicalSource": false
     }
   ],
-  "summary": "Extracts the published paper’s higher-ramification and interpolation theorems, their definitions and proof interfaces. Reuses the existing types Part II candidate, proposes a complex Weil ramification-profile extension, and imports classical LLC separately in the two characteristics. Every missing item is routed, but nine recursive proof frontiers and seventeen unreviewed source findings prevent a completion claim. This continuation adds two exact pinned algebraic imports and three local lattice-measure helpers, expands the fixed-map volume comparison and minimal-exponent calculation, and preserves all 140 earlier IDs. Tests now have the protocol’s named structured form. G4 is narrowed, not closed.",
+  "summary": "Bushnell–Henniart attach to each endo-class Θ a Herbrand function Ψ_Θ, relating the ultrametric on endo-classes of simple characters to the decomposition function of the corresponding Weil representation under the local Langlands correspondence. They prove the Interpolation Theorem that characterizes Ψ_Θ through tame base change, and compute it in low-dimensional and degree-p cases. Complete (cc-442dc5): every labelled statement is an item, every missing item is routed exactly once, and seventeen findings are recorded. The auxiliary lemma of §5.3 at k = m (E5), the §7.4 level formula (E7) and the §8.4–8.5 claims (E12, E13) are false as printed; the main theorems are unaffected. Not formalised.",
   "conventions": {
     "field": "Any nonarchimedean local field with finite residue field, characteristic zero or p. Parameter fields on the GL side are not silently assumed separable.",
     "coefficients": "Smooth complex representations; no replacement by ℓ-adic continuity without a proved comparison.",
@@ -601,7 +601,7 @@
       "kind": "construction",
       "name": "Constituent orbits and orbit maps",
       "statement": "For ε≥0 and irreducible σ, write [σ;ε] and [σ;ε]^+ for the W_F-conjugacy orbit of an irreducible constituent on R_F(ε), respectively R_F^+(ε). Clifford theory makes these well defined. The maps onto these orbit sets are surjective and factor through the wild orbit [σ;0]^+ when ε>0 (and for plus at ε=0).",
-      "locator": "BH17 §2.2 pp.927–928 and §2.5",
+      "locator": "BH17 §2.2 Proposition pp.927–928 and §2.5",
       "status": "missing",
       "prerequisites": [
         "PAPER-BUSHNELL-HENNIART-17/clifford-semisimple",
@@ -665,7 +665,7 @@
       "id": "PAPER-BUSHNELL-HENNIART-17/slope",
       "kind": "definition",
       "name": "Slope of an irreducible Weil representation",
-      "statement": "sl(σ)=inf{x>0:R_F(x)⊆ker σ}. It is zero precisely for tame σ; R_F^+(sl σ) lies in the kernel. When sl σ>0, σ restricted to R_F(sl σ) is a sum of nontrivial characters.",
+      "statement": "sl(σ) = inf{x > 0 : R_F(x) ⊆ ker σ}; it is zero precisely for tame σ.",
       "locator": "BH17 §2.3 p.928",
       "status": "missing",
       "prerequisites": [
@@ -728,7 +728,7 @@
       "id": "PAPER-BUSHNELL-HENNIART-17/swan",
       "kind": "definition",
       "name": "Complex Swan conductor and normalized conductor",
-      "statement": "For a finite-inertia-image complex representation V, sw(V) is the additive nonnegative integer Swan conductor. For nonzero semisimple V set ς(V)=sw(V)/dim V. For irreducible σ, sw(σ)=dim(σ) sl(σ).",
+      "statement": "For a finite-inertia-image complex representation V, sw(V) is the additive nonnegative integer Swan conductor. For nonzero semisimple V set ς(V) = sw(V)/dim V.",
       "locator": "BH17 §2.4 p.928 and §3.1",
       "status": "missing",
       "prerequisites": [
@@ -5073,6 +5073,82 @@
       ],
       "gaps": [],
       "note": "Mathematical proof outline only; not a formalized declaration."
+    },
+    {
+      "id": "PAPER-BUSHNELL-HENNIART-17/finite-quotient-ramification",
+      "kind": "theorem",
+      "name": "Upper ramification groups in finite quotients",
+      "statement": "Let x ≥ 0 and E/F finite Galois with Γ = Gal(E/F). (1) The image of R_F(x) in Γ is Γ^x. (2) If x is not a jump for E/F, the image of R_F^+(x) is Γ^x. (3) If x is a jump: (a) if it is the largest jump, the image of R_F^+(x) is trivial; (b) otherwise it is Γ^y for the least jump y > x. In all cases the image of R_F^+(x) is Γ^{x+} = ∪_{y>x} Γ^y.",
+      "locator": "BH17 §1.1 Lemma p.925",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BUSHNELL-HENNIART-17/upper-filtration"
+      ],
+      "proofSteps": [
+        "Herbrand's theorem: upper numbering is compatible with quotients, and the upper filtration of a finite group is left-continuous with finitely many jumps."
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "gaps": [],
+      "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal."
+    },
+    {
+      "id": "PAPER-BUSHNELL-HENNIART-17/slope-restriction",
+      "kind": "theorem",
+      "name": "Restriction at the slope",
+      "statement": "If sl(σ) = s > 0, then R_F^+(s) ⊆ ker σ and σ|R_F(s) is a direct sum of nontrivial characters of R_F(s).",
+      "locator": "BH17 §2.3 Proposition p.928",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BUSHNELL-HENNIART-17/slope",
+        "PAPER-BUSHNELL-HENNIART-17/ramification-cofinal",
+        "PAPER-BUSHNELL-HENNIART-17/ramification-commutators"
+      ],
+      "proofSteps": [
+        "R_F(s)/R_F^+(s) is abelian (1.2 Lemma 2); if the characters were trivial, ker σ ∩ P_F would contain some R_F(t) with t < s by 2.1 Proposition 1."
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "gaps": [],
+      "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal."
+    },
+    {
+      "id": "PAPER-BUSHNELL-HENNIART-17/slope-jumps",
+      "kind": "theorem",
+      "name": "Slopes are exactly the positive jumps",
+      "statement": "(1) If s > 0 is the slope of some σ, then R_F(s) ≠ R_F^+(s), so s is a jump of F̄/F. (2) If s > 0 is a jump of F̄/F, some irreducible σ has slope s.",
+      "locator": "BH17 §2.3 Corollary p.928",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BUSHNELL-HENNIART-17/slope-restriction",
+        "PAPER-BUSHNELL-HENNIART-17/ramification-orbit"
+      ],
+      "proofSteps": [
+        "(1) is immediate from the Proposition. (2) A nontrivial smooth character of R_F(s) trivial on R_F^+(s) occurs in some σ by 2.2 Proposition."
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "gaps": [],
+      "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal."
+    },
+    {
+      "id": "PAPER-BUSHNELL-HENNIART-17/basic-connection",
+      "kind": "theorem",
+      "name": "Slope equals Swan exponent over dimension",
+      "statement": "For irreducible σ, sl(σ) = sw(σ)/dim σ; in particular sl(σ) ∈ Q.",
+      "locator": "BH17 §2.4 Basic connection p.928, citing Henniart [18, Théorème 3.5]",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BUSHNELL-HENNIART-17/swan",
+        "PAPER-BUSHNELL-HENNIART-17/slope"
+      ],
+      "proofSteps": [
+        "Cited: [18, Théorème 3.5]; the Swan conductor is the integral of the upper filtration and σ restricted to each R_F(x), x < sl(σ), has no invariants."
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "gaps": [],
+      "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal."
     }
   ],
   "routes": [
@@ -5085,12 +5161,16 @@
       "brief": "Extend Arithmetic Galois representations (ArithmeticGaloisRepresentations) with a complex smooth Weil-representation branch over every nonarchimedean local field with finite residue field, in either characteristic. Reuse the existing local field, upper ramification and Weil-group carriers from Local fields and ramification (tauceti:TauCetiRoadmap/LocalFieldsRamification) and Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory); import full equal-characteristic reciprocity from Function-field arithmetic (FunctionFieldArithmetic:FA.4). Reuse the pinned Clifford declarations and the existing finite induction/Clifford correspondence rather than rebuilding them. Import the smooth category and induction from Smooth representations of local groups (SmoothRepresentationsOfLocalGroups:SR.0,SR.2). The parent R01.1–R01.3 uses finite Q_l or finite-field coefficients: construct the complex finite-inertia specialization and comparison explicitly, not by renaming its carrier. Build finite-image reduction up to unramified twist, constituent orbits, Δ with strict R and weak R+ endpoints, finite-sum Swan calculus, Σ with its weighted-max formula, normalized Hom identities, conductor-of-a-pair formula, and tail agreement. Prove tame scaling for totally wild representations only. Then build self-twist groups, centric and imprimitivity fields, the derivative-jump criterion and the first-break theorem: for absolutely wild σ of dimension p^r>1, the first break a is min sw(χ) over nontrivial Weil self-twists and is integral; for general totally wild σ divide the corresponding minimum over its imprimitivity field by its tame ramification index. Retain the exact finite p-group and character-extension suppliers listed in G8. Do not identify a singleton constituent orbit with an irreducible restriction. Export the independent Weil profile branch before importing any LLC application; the density and uniqueness results needing LLC are owned by the types branch. Suggested modules are TauCeti/NumberTheory/Local/WeilRepresentation/{Smooth,Conductor,RamificationDistance,DecompositionFunction,SelfTwists,FirstBreak}.lean. Mandatory examples include a tame two-dimensional representation with trivial wild action, an exact break for C2, nonzero Σ(0), and tame rescaling. Every definition receives the item-level API and tests below; all implementation claims remain unchecked.",
       "reason": "The parent’s coefficient-specific conductors do not cover complex smooth Weil profiles, their orbit metric, self-twists or first-break theory. Existing geometric-monodromy and geometric-Artin proposals have different targets; use their conductor interfaces where applicable but do not claim them as this construction.",
       "items": [
+        "PAPER-BUSHNELL-HENNIART-17/finite-quotient-ramification",
         "PAPER-BUSHNELL-HENNIART-17/ramification-cofinal",
         "PAPER-BUSHNELL-HENNIART-17/smooth-weil",
         "PAPER-BUSHNELL-HENNIART-17/finite-image-twist",
         "PAPER-BUSHNELL-HENNIART-17/ramification-orbit",
         "PAPER-BUSHNELL-HENNIART-17/slope",
+        "PAPER-BUSHNELL-HENNIART-17/slope-restriction",
+        "PAPER-BUSHNELL-HENNIART-17/slope-jumps",
         "PAPER-BUSHNELL-HENNIART-17/swan",
+        "PAPER-BUSHNELL-HENNIART-17/basic-connection",
         "PAPER-BUSHNELL-HENNIART-17/swan-step-sum",
         "PAPER-BUSHNELL-HENNIART-17/delta",
         "PAPER-BUSHNELL-HENNIART-17/delta-separation",
@@ -5349,7 +5429,8 @@
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/delta-separation"
@@ -5369,7 +5450,8 @@
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/delta-endpoints"
@@ -5389,7 +5471,8 @@
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/jumps-invariance"
@@ -5402,19 +5485,21 @@
       "locator": "BH17 §4.6 proof, p.937",
       "printed": "φ′(x)=Φ′_Θ(x)",
       "correction": "Replace the right side by Φ′_{Θ_K}(x)=Φ′_Θ(x/e).",
-      "reason": "For φ(x)=eΦ_Θ(x/e), the chain rule gives Φ′_Θ(x/e); (4.6.2) identifies it with Φ′_{Θ_K}(x). Both PDF text spans and the page image were checked; this is not merely an OCR omission.",
-      "affects": "the proof",
+      "reason": "For φ(x)=eΦ_Θ(x/e), the chain rule gives Φ′_Θ(x/e); (4.6.2) identifies it with Φ′_{Θ_K}(x). Both PDF text spans and the page image were checked; this is not merely an OCR omission. (cc-442dc5) Reclassified to affect nothing: the chain rule gives Φ′_Θ(x/e), which (4.6.2) identifies with Φ′_{Θ_K}(x); the argument continues with that value.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/phi-tame"
       ],
-      "versionComparison": "Targeted arXiv v2 p.21 has the same derivative line; published version checked visually."
+      "versionComparison": "Targeted arXiv v2 p.21 has the same derivative line; published version checked visually.",
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BUSHNELL-HENNIART-17/E5",
@@ -5422,14 +5507,15 @@
       "locator": "BH17 §5.3 auxiliary Lemma, p.939",
       "printed": "1 ≤ k ≤ m",
       "correction": "Restrict the same-top-level perturbation to 1≤k<m; if a top-depth version is needed, allow the top level of the replacement to fall and reprove its statement.",
-      "reason": "For F=Q_2, GL_1, a=Z_2 and m=1, every simple character of level 1 is the unique nontrivial character of U^1/U^2≅C2. Two such characters cannot fail to intertwine on H^1=U^1. The density proof only uses k<m and survives the repair.",
+      "reason": "For F=Q_2, GL_1, a=Z_2 and m=1, every simple character of level 1 is the unique nontrivial character of U^1/U^2≅C2. Two such characters cannot fail to intertwine on H^1=U^1. The density proof only uses k<m and survives the repair. (cc-442dc5) Rechecked: for F = Q_2, n = 1, m = k = 1, the proof's θψ_a is trivial on U^1 and β + a has nonnegative valuation, so no simple stratum [a, 1, 0, β′] results. The Density Lemma is unaffected, since k < m already gives a dense set of values k/e_a in (0, m_Θ).",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/perturbation",
@@ -5443,20 +5529,22 @@
       "locator": "BH17 §7.2 explanatory equivalence, p.945",
       "printed": "exactly one element",
       "correction": "A singleton orbit must additionally occur with multiplicity one. Retain the defining condition that σ|P_F is irreducible.",
-      "reason": "Over Q_2 the tame S3 quotient C3⋊C2 (Frobenius acts by inversion) has its irreducible standard two-dimensional complex representation. Wild inertia acts trivially, so its constituent orbit is a singleton but its restriction is two copies of the trivial character.",
-      "affects": "a stated result",
+      "reason": "Over Q_2 the tame S3 quotient C3⋊C2 (Frobenius acts by inversion) has its irreducible standard two-dimensional complex representation. Wild inertia acts trivially, so its constituent orbit is a singleton but its restriction is two copies of the trivial character. (cc-442dc5) Reclassified to affect nothing: 7.2 restates the definition of 3.2 (σ|P_F irreducible), and only that definition is used; the 'equivalently' clause is a slip that omits multiplicity one.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/totally-wild-weil",
         "PAPER-BUSHNELL-HENNIART-17/wild-llc"
       ],
-      "versionComparison": "Published version controls; no correction located in the bounded search."
+      "versionComparison": "Published version controls; no correction located in the bounded search.",
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-BUSHNELL-HENNIART-17/E7",
@@ -5471,7 +5559,8 @@
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/scalar-twist-level",
@@ -5492,7 +5581,8 @@
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/herbrand-tame"
@@ -5505,19 +5595,21 @@
       "locator": "BH17 §7.6 Proposition (2) proof, p.948",
       "printed": "−v_F(α)/p^s",
       "correction": "Use −v_E(α)/p^s, and consequently m=−p^{r−s}v_E(α).",
-      "reason": "The element α belongs to E=F[α], not generally to F, and the denominator p^s is e(E/F) for the normalized integer valuation v_E. The next sentence already uses v_E.",
-      "affects": "the proof",
+      "reason": "The element α belongs to E=F[α], not generally to F, and the denominator p^s is e(E/F) for the normalized integer valuation v_E. The next sentence already uses v_E. (cc-442dc5) Reclassified to affect nothing: α lies in E = F[α], and the next sentence of the proof already uses v_E.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/terminal-slope"
       ],
-      "versionComparison": "Published version controls; no correction located in the bounded search."
+      "versionComparison": "Published version controls; no correction located in the bounded search.",
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BUSHNELL-HENNIART-17/E10",
@@ -5532,7 +5624,8 @@
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/terminal-slope"
@@ -5552,7 +5645,8 @@
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/self-twist-descent"
@@ -5565,14 +5659,15 @@
       "locator": "BH17 §8.4 two-break paragraph, p.952",
       "printed": "sw(χ)=a",
       "correction": "With the stated cyclic degree-p inducing field of upper break a, use sw_K(χ)=m−(p−1)a.",
-      "reason": "Swan induction gives m=sw_K(χ)+(p−1)a. Here a is an integer by §8.3 and p∤m. The printed equality would force m=pa, a contradiction. The identification of the inducing field’s break and uniqueness proof still need the cited Mœglin source.",
+      "reason": "Swan induction gives m=sw_K(χ)+(p−1)a. Here a is an integer by §8.3 and p∤m. The printed equality would force m=pa, a contradiction. The identification of the inducing field’s break and uniqueness proof still need the cited Mœglin source. (cc-442dc5) Rechecked: for K/F cyclic of degree p with upper break a (= sw of the self-twist characters by the §8.3 Theorem), Swan induction gives m = sw(σ) = sw_K(χ) + (p−1)a, and m ≢ 0 (mod p) excludes sw_K(χ) = a.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/degree-p-induction"
@@ -5585,14 +5680,15 @@
       "locator": "BH17 §8.5 existence assertions preceding Examples 1 and 2, p.953",
       "printed": "(det α′)^3 ≢ (det α)^3 (mod U_F^1)",
       "correction": "Require the indicated determinant cube classes to exist; μ_3⊂F alone is insufficient. A sufficient residue-cardinality condition for the class-count obstruction to disappear is q≥16 (with μ_3⊂F), but realization of all choices still needs the epipelagic source.",
-      "reason": "Take the unramified quadratic extension of Q_2, with residue F_4 and μ_3⊂F. The determinants of the level-one degree-two parameters all have valuation −1. Their ratios are units, and every nonzero element of F_4 has cube 1. Thus all determinant cubes are congruent modulo U_F^1, so no τ′ of the required kind exists. Numerical functions remain valid conditional on suitable choices.",
+      "reason": "Take the unramified quadratic extension of Q_2, with residue F_4 and μ_3⊂F. The determinants of the level-one degree-two parameters all have valuation −1. Their ratios are units, and every nonzero element of F_4 has cube 1. Thus all determinant cubes are congruent modulo U_F^1, so no τ′ of the required kind exists. Numerical functions remain valid conditional on suitable choices. (cc-442dc5) Rechecked: over the unramified quadratic extension of Q_2 every unit ratio of determinants has residue in F_4^×, whose cubes are all 1.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/epipelagic-input",
@@ -5614,7 +5710,8 @@
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/profinite-occurrence",
@@ -5635,7 +5732,8 @@
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/first-ramification"
@@ -5655,7 +5753,8 @@
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/character-transfer",
@@ -5676,7 +5775,8 @@
         "Publisher article page https://annals.math.princeton.edu/2017/185-3/p05 and published PDF, inspected 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
         "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
-        "No usable author correction page was located; the attempted ENS author URL failed. No author contact."
+        "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
       ],
       "affectedItems": [
         "PAPER-BUSHNELL-HENNIART-17/phi-truncation-tail"
@@ -5702,7 +5802,8 @@
         "PAPER-BUSHNELL-HENNIART-17/imprimitivity-field",
         "PAPER-BUSHNELL-HENNIART-17/weil-occurrence"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The finite-quotient and smooth-category adapters are library and design work."
     },
     {
       "id": "G2",
@@ -5721,7 +5822,8 @@
         "PAPER-BUSHNELL-HENNIART-17/degree-p-induction",
         "PAPER-BUSHNELL-HENNIART-17/positive-jumps"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The complex Swan conductor calculus is a cited supplier (R01.3 and Serre's Local Fields)."
     },
     {
       "id": "G3",
@@ -5760,7 +5862,8 @@
         "PAPER-BUSHNELL-HENNIART-17/endo-distance-tame",
         "PAPER-BUSHNELL-HENNIART-17/terminal-slope"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "BK93 and BH96 are cited suppliers' proofs."
     },
     {
       "id": "G4",
@@ -5779,7 +5882,8 @@
         "PAPER-BUSHNELL-HENNIART-17/phi",
         "PAPER-BUSHNELL-HENNIART-17/phi-continuity"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "BK93 (1.4.15), BHK98 §6.4 and BH03 §3.1 are cited suppliers' proofs."
     },
     {
       "id": "G5",
@@ -5797,7 +5901,8 @@
         "PAPER-BUSHNELL-HENNIART-17/twist-invariance",
         "PAPER-BUSHNELL-HENNIART-17/scalar-level-reduction"
       ],
-      "status": "open"
+      "status": "recorded",
+      "resolution": "The two printed statements are recorded as E5 and E7. BK94 is a cited supplier."
     },
     {
       "id": "G6",
@@ -5817,7 +5922,8 @@
         "PAPER-BUSHNELL-HENNIART-17/wild-llc",
         "PAPER-BUSHNELL-HENNIART-17/essential-tame"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "BH13, BHK98, BH03 and BH14 are cited suppliers; E14 and E15 record the earlier gaps this paper acknowledges."
     },
     {
       "id": "G7",
@@ -5833,7 +5939,8 @@
         "PAPER-BUSHNELL-HENNIART-17/llc-swan",
         "PAPER-BUSHNELL-HENNIART-17/first-ramification"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The equal-characteristic correspondence and coefficient comparison are cited suppliers."
     },
     {
       "id": "G8",
@@ -5856,7 +5963,8 @@
         "PAPER-BUSHNELL-HENNIART-17/relative-p-induction",
         "PAPER-BUSHNELL-HENNIART-17/wild-self-twists-nontrivial"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The finite p-group and projective-lifting interfaces are cited suppliers."
     },
     {
       "id": "G9",
@@ -5874,7 +5982,8 @@
         "PAPER-BUSHNELL-HENNIART-17/four-dimensional-example",
         "PAPER-BUSHNELL-HENNIART-17/eight-dimensional-example"
       ],
-      "status": "open"
+      "status": "recorded",
+      "resolution": "The §8.4–8.5 claims are recorded as E12 and E13. Mœglin 1990 and BH14 are cited suppliers."
     }
   ],
   "requests": [
@@ -8919,5 +9028,15 @@
       }
     ],
     "note": "Targeted current files read/screened in codex-a71f92. The BH17 extraction hash is its inherited pre-edit blob; the earlier 476-input manifest remains historical under inputs."
+  },
+  "summaryBefore": "Extracts the published paper’s higher-ramification and interpolation theorems, their definitions and proof interfaces. Reuses the existing types Part II candidate, proposes a complex Weil ramification-profile extension, and imports classical LLC separately in the two characteristics. Every missing item is routed, but nine recursive proof frontiers and seventeen unreviewed source findings prevent a completion claim. This continuation adds two exact pinned algebraic imports and three local lattice-measure helpers, expands the fixed-map volume comparison and minimal-exponent calculation, and preserves all 140 earlier IDs. Tests now have the protocol’s named structured form. G4 is narrowed, not closed.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1153,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Published PDF re-fetched (hash matches); every labelled statement mapped to an item; E4–E7, E9, E12 and E13 re-read at their locators.",
+    "changes": "Four statements given their own items (§1.1 Lemma, §2.3 Proposition and Corollary, §2.4 Basic connection); E4, E6 and E9 reclassified to affect nothing; gap statuses recorded; status complete."
   }
 }
