@@ -2,7 +2,7 @@
 
 Alex Gamburd, Michael Magee and Ryan Ronan, *An asymptotic formula for integer points on Markoff-Hurwitz varieties*, [Annals of Mathematics 190 (2019), 751–809](https://doi.org/10.4007/annals.2019.190.3.2); arXiv [1603.06267](https://arxiv.org/abs/1603.06267).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1139). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-GAMBURD-MAGEE-RONAN-19.result.json](PAPER-GAMBURD-MAGEE-RONAN-19.result.json): 43 items (1 library, 1 planned, 41 missing), 3 routes, 14 prerequisite entries and 9 recorded source issues.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1139). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-GAMBURD-MAGEE-RONAN-19.result.json](PAPER-GAMBURD-MAGEE-RONAN-19.result.json): 43 items (1 library, 1 planned, 41 missing), 3 routes, 14 prerequisite entries and 17 recorded source issues (E10–E17 added by the independent review, whose corrections are listed at the end).
 
 **Source.** arXiv v3 (13 June 2018, 57 pages), SHA-256 `965e264e260ca42bbaa5a65f789e5cc6eb6117d70d7219603a3b855d29ba997a`, read in full on 2026-09-22. The Annals version is paywalled and was not available, so locators are v3 pages.
 
@@ -66,7 +66,7 @@ The proof has three layers.
 
    PM.4 stops at the one-dimensional Gauss map, and this is the natural extension in its direction. The brief asks for existence of β to be proved directly, since λ_s → ∞ as s ↓ 1, rather than through Baragar. It also asks for the sketched proofs (Theorem 37, §4.3) to be written out for countably many branches.
 
-## Source issues (`sourceIssues` E1–E9)
+## Source issues (`sourceIssues` E1–E9; E10–E17 from the review)
 
 None affects the truth of Theorems 3, 10 or 13.
 
@@ -113,3 +113,41 @@ Links and reasons are in the JSON.
 - Every missing item appears in exactly one route, and no route takes a planned or library item. The two briefs are 403 and 401 words.
 - The Mathlib citation was read at 082e2d3 (`Analysis/PSeries.lean:317`). Layer ids were checked against `data/atlas.json`, and prerequisite DOIs against Crossref (two initially mistyped DOIs were corrected).
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Independent review corrections (REV-PAPER-GAMBURD-MAGEE-RONAN-19, 23 September 2026)
+
+The review read arXiv v3 in full (same SHA-256), checking the displays the findings depend on against the page images. All locators are v3 printed pages, which equal PDF pages. E1–E9 are confirmed.
+
+**E1: repair amended in place.**
+- **The wrong half of (3.25).** The repair used the half that gives an upper bound on M. The lower bound needs the other half together with the λ = e case.
+- **Propagation to every point.** Positivity at points with large α must be carried to every z, via M(z, a) ≥ M(μz, a − d_μ).
+- **A second use in §4.3.** The identification β₀ = β in §4.3 (p.40) needs the same positive constant.
+
+**Qualifications on the other confirmed issues.**
+- **E6:** C₁ then depends on k′, not only on n.
+- **E8:** the printed step fails for every s > 1, and the printed λ_s bound is itself false (≈ 0.790 < λ₂ = 1 for n = 3). The "c = 3/2" text is on p.43.
+
+**New issues.**
+- **E10 (gap).** The proof of Proposition 30 sums a per-term error over the infinite set S_Λ. The repair is the ℝ₊-invariance of h.
+- **E11 (misprint).** Lemma 28 and (3.26) should have 2ε, not ε.
+- **E12 (error).** Lemma 27's strict inequality fails when a = 1 and a coordinate z_i with i ≤ n − 3 equals 1. The fix is ≤ in those coordinates.
+- **E13 (error).** Lemma 20 needs "unexceptional", and V(ℤ₊) − K₀ has infinitely many exceptional orbits.
+- **E14 (misprint).** The geodesic length in §1.1 is 2 log R + O(1), not log R.
+- **E15 (misprint).** Lemma 44 needs L_{ℜ(s)} on the right.
+- **E16 (misprint).** The Kato decomposition and Lalley's leading constant on p.40 are wrong as printed.
+- **E17 (misprint).** In §5, (5.1) holds for i ≤ n − 2, (5.5) and (5.9) have squared denominators, and p.49 has C₁ ≥ C_k.
+
+**Items corrected.**
+- **Statements:**
+  - 12 (Lemma 20 for unexceptional x);
+  - 20 (non-strict Lemma 27);
+  - 21 (2ε);
+  - 22 (the error term O(exp(βa^δ + (1 + δ)a)));
+  - 33 (Hausdorff);
+  - 34 (L_{ℜ(s)});
+  - 40 and 41 (the §4.3 formulas);
+  - 43 (the range of (5.1), the auxiliary bounds and the passage from ∆₀ to ∆).
+- **Notes:** 6 (the Aut(V) citations are about automorphisms of ℂⁿ preserving the polynomial) and 23 (geodesic length).
+- **Locators:** 8, 15 and 30.
+
+**Briefs.** Both Part II briefs now carry these corrections.
