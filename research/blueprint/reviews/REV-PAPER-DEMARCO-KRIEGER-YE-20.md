@@ -106,3 +106,7 @@ None affects a stated theorem.
 - The intake `check-files` on the four deliverables passes.
 
 Lean: none.
+
+## Post-review correction (23 September 2026)
+
+The status of item 10 (the Weil height on ℙ¹(Q̄)) was wrongly accepted as library. Mathlib's `Projectivization.logHeight` is the height relative to a field with admissible absolute values, not normalized by the degree, and there is no Q̄ version. The extraction now marks it planned by RP.0, which plans normalized absolute heights. This was found while reviewing PAPER-DIMITROV-GAO-HABEGGER-21.
