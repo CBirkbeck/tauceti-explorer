@@ -370,3 +370,35 @@ that a second dilation can be necessary.
 There is no Lean deliverable for this issue, and no Lean compilation or
 formal verification is claimed. All eight findings await the independent
 errata review; none has a worker-written `review` verdict.
+
+## Independent review (`REV-ERRATA-PAPER-CESNAVICIUS-22`, issue #1863)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **All eight findings are
+confirmed**; none is rejected, none is added, and no kind, locator, `printed`,
+`correction` or `affects` is changed. The per-finding verdicts are in the JSON
+beside this file, and
+[the review](../reviews/REV-ERRATA-PAPER-CESNAVICIUS-22.md) records what was
+read and how. Every recorded source hash was re-downloaded and matched byte for
+byte, except the publisher copy, whose dated footer makes its hash
+retrieval-specific, as this record already says; its text agrees at every
+locator.
+
+Three points gained something in review. **E1**'s counterexample was checked
+and it strengthens the author's own footnote from "a priori not an isomorphism
+of `k_m`-schemes" to a genuine failure: in `O/I_z² = k_m[t]/((t^p − s)²)` the
+`p`-th powers are `h(s) + h′(s)u` for `h ∈ k_m^p[X]`, and expanding in the
+`k_m^p`-basis `1, s, …, s^{p−1}` shows `h(s) = s` forces `h′(s) = 1`, so no
+element has `p`-th power `s` and there is no `k_m`-algebra map
+`k_z → O/I_z²` whatever. **E5** was settled at the level of font runs rather
+than extracted text: the `𝔪` in that sentence belongs to the product sign and
+the following `k` is full size, while the display two lines above prints
+`k_𝔪((t))` correctly — the same page carries both. **E3** is confirmed as a
+gap, and Gille's errata of 26 May 2026 supplies exactly the repair recorded
+here, but the final sentence of that correction, replacing the Borel–Tits
+reference « prop. 6.11 » by « Corollaire 6.8 », is **not** covered by Gille's
+errata and could not be checked: [7] is Borel–Tits, *Homomorphismes
+« abstraits » de groupes algébriques simples*, Ann. of Math. 97 (1973), which
+is not publicly accessible, and the swap cannot refer to the 1965 *Groupes
+réductifs*, whose 6.8 is a proposition on the restriction `X*(T) → X*(S)`.
+Treat that one reference repair as a suggestion until someone reads the 1973
+paper.
