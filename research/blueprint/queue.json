@@ -7635,8 +7635,9 @@
    ],
    "avoidAccountOf": "PAPER-DING-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-DING-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1441"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1441",
+   "finishedAt": "2026-09-23T19:38:33Z"
   },
   {
    "id": "PAPER-RICHARD-YAFAEV-25",
@@ -8180,7 +8181,8 @@
    ],
    "avoidAccountOf": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1469"
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20",
