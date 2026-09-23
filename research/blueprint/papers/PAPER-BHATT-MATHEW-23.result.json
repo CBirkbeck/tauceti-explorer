@@ -23,7 +23,8 @@
    {
     "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S205050862200021X",
     "sha256": "abbfd5b2c39d7c6d62cb550d262cb92cd149ba560e77a54e7cd56676e1769925",
-    "read": "all 26 pages (text), page numbers and statement numbering"
+    "read": "all 26 pages (text), page numbers and statement numbering",
+    "sha256Note": "Cambridge stamps each download of this article with a footer carrying the date and the requesting IP, so the byte stream and its hash differ between downloads of the same file and this sha256 is not reproducible: two fresh downloads on 2026-09-23 gave 96e053430d2b2ac2967b6a502abc4d54bf585ce9d212c4def1b9392a31751236 and 3bedeca4bf248f2fbadbc7e9a45629aaa984ceae7052b118435c6e30c0d470f9. The reproducible pin for this paper is the arXiv v2 e-print recorded below, whose hash does reproduce. Added by the reviewer (issue #1366)."
    },
    {
     "url": "https://arxiv.org/e-print/2202.04818v2",
@@ -1223,7 +1224,12 @@
     "arXiv 2202.04818 listing (v1 10 Feb 2022, v2 1 Dec 2022 'small errors corrected') and the v2 TeX source",
     "the published Forum Math. Pi 11 (2023) e1 PDF (Cambridge Core, open access)",
     "Crossref metadata for DOI 10.1017/fmp.2022.21 (no update-to or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in both versions. The published p. 21 and the arXiv v2 source both read `Recall that the latter is defined as an equalizer: $\\mathbb{F}_p(i)(A)=\\mathrm{eq}(\\mathcal{N}^{\\geq p-1}\\Prismp{A}{p-1}\\rightrightarrows\\Prismp{A}{p-1})$ of the Frobenius and canonical maps.' `The latter' is $\\mathbb{F}_p(i)(A)$, whose defining equalizer is in weight $i$ (equation (1), Construction 2.2); $p-1$ is the weight of $v_1$, which the same paragraph has just been discussing, and (24) two lines later uses $\\mathcal{N}^{\\geq i}\\Prism_A\\{i\\}/p\\rightrightarrows\\Prism_A\\{i\\}/p$. A clean substitution slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1366"
+   }
   },
   {
    "id": "PAPER-BHATT-MATHEW-23/E2",
@@ -1238,7 +1244,12 @@
     "arXiv 2202.04818 v2 TeX source",
     "the published Forum Math. Pi PDF",
     "Crossref metadata for DOI 10.1017/fmp.2022.21"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and decided by the paper contradicting itself. The statement of Proposition 3.12 reads `$H^1(\\mathcal{N}^{\\geq\\ast}\\Prismbar_{R[x]})\\simeq A^{\\geq\\ast-1}\\{-1\\}\\oplus\\bigoplus_{i=1}^{p-1}A^{\\geq\\ast-1}/A^{\\geq\\ast}$', and the first paragraph of its proof says the class $dx$ `produces a map of $A^{\\geq\\ast}$-modules $A^{\\geq\\ast-1}\\{-1\\}\\to H^1(\\mathcal{N}^{\\geq\\ast}\\Prismbar_{R[x]})$'. The display at the end of the proof (labelled `H1Npoly2', printed as (10)) writes $A^{\\geq\\ast}\\{-1\\}$ for the same summand. The shift is forced by the weight bookkeeping the proposition itself records: the generator sits in weight one.",
+    "by": "Claude Code, session cc-7b31c4, issue #1366"
+   }
   },
   {
    "id": "PAPER-BHATT-MATHEW-23/E3",
@@ -1253,7 +1264,12 @@
     "arXiv 2202.04818 v2 TeX source (the label of Proposition 4.6 is FSmoothColimitEtale)",
     "the published Forum Math. Pi PDF",
     "Crossref metadata for DOI 10.1017/fmp.2022.21"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the source makes the diagnosis exact. Proposition 4.6 carries the title `Stability of $F$-smoothness under filtered colimits and \\'etale localization' but its statement is the single sentence `The property of being $F$-smooth is stable under filtered colimits', and its proof is about a filtered diagram only. Definition 4.1 cites it as `$F$-smoothness is preserved by Zariski localization by \\Cref{FSmoothColimitEtale} below' and the proof of Proposition 4.9 is `Combine \\Cref{laurentpolySegal} and \\Cref{FSmoothColimitEtale}'. What both need is Proposition 4.7, which ends `In particular, $F$-smoothness is \\'etale local and passes to \\'etale algebras', and which Proposition 4.10 does cite correctly for localizations. So the recorded correction is right; I would add that the defect can equally be read as Proposition 4.6's statement having lost the second half promised by its own title.",
+    "by": "Claude Code, session cc-7b31c4, issue #1366"
+   }
   },
   {
    "id": "PAPER-BHATT-MATHEW-23/E4",
@@ -1267,7 +1283,12 @@
    "searched": [
     "arXiv 2202.04818 v2 TeX source and the published PDF",
     "Bhatt–Scholze arXiv 1905.08229v4 (statement numbering checked)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the paper supplies the right number itself. The proof of Proposition 5.7 on p. 23 reads `The source is discrete as a sheaf (by the odd vanishing theorem, \\cite[Th.~4.1]{Prisms})', while Construction 2.2 cites the same fact as `By \\cite[Th.~14.1]{Prisms}, there is a basis for $\\qrsp_{\\mathbb{Z}_p}$ on which the $\\mathbb{Z}_p(i)(-)$ are discrete'. In Bhatt–Scholze, 4.1 is the definition of the prismatic site and 14.1 is the discreteness theorem in the section on the odd vanishing conjecture.",
+    "by": "Claude Code, session cc-7b31c4, issue #1366"
+   }
   },
   {
    "id": "PAPER-BHATT-MATHEW-23/E5",
@@ -1281,7 +1302,12 @@
    "searched": [
     "arXiv 2202.04818 v2 TeX source and the published PDF",
     "Bloch–Kato, Publ. Math. IHÉS 63 (1986), read on Numdam (DOI 10.1007/BF02831624)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The sentence `By \\cite[Th.~14.1]{BK86}, the symbol map is surjective' stands on published p. 23, in the paragraph before Proposition 5.6, exactly where the locator puts it. Bloch–Kato's paper has sections 0–9 and no Theorem 14.1; Theorem (1.4) is the statement that the sheaves $M^q_n$ are generated locally by symbols. Worth noting alongside E4: the two are a swapped pair one page apart — the number 14.1 that belongs to [Prisms] is attached to [BK86] here, and [Prisms] is given 4.1 there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1366"
+   }
   },
   {
    "id": "PAPER-BHATT-MATHEW-23/E6",
@@ -1297,7 +1323,12 @@
     "the published Forum Math. Pi 11 (2023) e1 PDF",
     "Crossref metadata for DOI 10.1017/fmp.2022.21 (no correction relation)",
     "web search for an erratum to Bhatt–Mathew's Syntomic complexes and p-adic étale Tate twists (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the printed identity is not merely unproved but false in the generality in force. The theorem is the Geisser–Sato–Schneider comparison, stated for `$X$ a regular scheme of finite type over a Dedekind domain $A$ … semistable over characteristic $p$ points of $\\spec(A)$', and $R$ is the strict henselization at a characteristic $p$ point with $\\pi$ the uniformizer of $A$. Take $X=\\spec(\\mathbb{Z}_p[x,y]/(xy-p))$, regular and semistable over $\\mathbb{Z}_p$, and $x$ the origin. $R$ is a regular local ring, hence a UFD, and its height-one primes containing $p$ are $(x)$ and $(y)$, so $R[1/p]^\\times=R^\\times\\times x^{\\mathbb{Z}}\\times y^{\\mathbb{Z}}$ while $\\pi=p=xy$; the valuation vector of $x$ is $(1,0)$ and that of $p$ is $(1,1)$, so $x\\notin\\pi^{\\mathbb{Z}}R^\\times$ and the printed `$R[1/p]^\\times=\\pi^{\\mathbb{Z}}\\oplus R^\\times$' fails. The recorded correction states the right decomposition and is honest that the printed reduction to $i=2$ covers only the one-branch case; the gap for $i\\geq3$ with several $t_k$ among the $b_j$ is real.",
+    "by": "Claude Code, session cc-7b31c4, issue #1366"
+   }
   },
   {
    "id": "PAPER-BHATT-MATHEW-23/E7",
@@ -1311,7 +1342,12 @@
    "searched": [
     "arXiv 2202.04818 v2 TeX source",
     "the published Forum Math. Pi PDF"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: Example 5.9 on p. 24 reads `Let $X$ be a smooth scheme over $\\mathcal{O}_K$ with special fiber $k$', two sentences after $k$ has been introduced as the residue field of $\\mathcal{O}_K$, and the display (30) that follows uses $W_n\\Omega^{i-1}_{X_k,\\mathrm{log}}$ for the special fibre $X_k$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1366"
+   }
   },
   {
    "id": "PAPER-BHATT-MATHEW-23/E8",
@@ -1325,7 +1361,12 @@
    "searched": [
     "arXiv 2202.04818 v2 TeX source",
     "the published Forum Math. Pi PDF"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `by construction, this class is annihilated by $A^{\\geq1}$ since $R/p^{(-1)}[x^{1/p}]$ is by definition, whence we obtain maps in from $A^{\\geq\\ast-1}/A^{\\geq\\ast}$'. The subordinate clause has no predicate. The reason intended is the one the recorded correction supplies — the boundary map is $A^{\\geq\\ast}$-linear and $A^{\\geq1}$ kills $\\mathrm{gr}^0\\Prismbar_{R[x]}=R/p^{(-1)}[x^{1/p}]$ — and the fiber sequence displayed immediately above is what identifies that graded piece.",
+    "by": "Claude Code, session cc-7b31c4, issue #1366"
+   }
   }
  ]
 }

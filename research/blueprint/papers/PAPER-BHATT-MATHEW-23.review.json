@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-BHATT-MATHEW-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Part II of PrismaticCohomology, the main route at 60 items, area padic (a galaxy id), brief 848 words. The title reproduces the parent's atlas title exactly — 'Prismatic cohomology: relative, absolute, Nygaard and log variants, Part II: F-smoothness and p-adic étale Tate twists'. F-smoothness, the Nygaard filtration on Hodge–Tate cohomology of a polynomial ring, the syntomic sheaves Z/p^n(i)_X and the étale comparison are genuinely absent from the parent, which stops at the prismatic and Nygaard formalism itself. Splitting the 27 planned items across PR.0–PR.5, DD.0–DD.5, CR.4 and Q3 rather than re-planning them here is the right handling."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Part II of tauceti:TauCetiRoadmap/LocalFieldsRamification for Kato's Swan conductors with imperfect residue fields, 3 items, area padic, brief 207 words. The title reproduces the parent's title exactly. Three items is the right size: the paper uses the Bloch–Kato filtration and the residue map as inputs, and the ramification theory behind them belongs to the local-fields roadmap rather than to the prismatic one."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source of PrismaticCohomology PR.4 for the single Antieau–Mathew–Morrow–Nikolaus input (connectivity and left Kan extension for syntomic complexes), explicitly deferred to that paper's own extraction. The right way to avoid two extractions planning the same statement."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source of DerivedDeRhamCohomology DD.0 for four cotangent-complex statements — the transitivity triangle, André–Quillen homology and the lci amplitude criterion. DD.0 owns exactly those, and the paper uses them only as inputs to the F-smoothness criteria."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source of DeformationAndDerivedPatchingAlgebra R03.1 and R03.3 for the Cohen structure theorem and maps from power-series rings, and for the regular-local-ring facts (including that a regular local ring is a UFD, which is what Theorem 5.8's argument turns on — see E6). Both stage ids exist and own that material."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source of SchemeAndStackFoundations SF.0 for Néron–Popescu desingularization, one item, joining the proposal the Česnavičius extraction already makes at the same stage."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Source of RefinedTraceMethods RT.6 for the BMS2 quasisyntomic THH/TC computation and motivic filtration that Example 1.6's description of Z/p^n(i)_X through sheafified K-theory rests on. RT.6 owns that, and keeping it there rather than in the prismatic Part II is right."
+    }
+  ],
+  "notes": "Accept, with one correction made in place. Source: the arXiv v2 e-print hash reproduces byte for byte (d1332b57…) and the TeX source is the recorded 2418-line syntomic-etale-final.tex, which I read in full alongside the published PDF. The published Cambridge hash does not reproduce and cannot: two fresh downloads on 23 September 2026 gave 96e05343… and 3bedeca4… against the recorded abbfd5b2…, because Cambridge stamps every download with a footer carrying the date and the requesting IP. I added a `sha256Note` to that artifact saying so and naming the arXiv e-print as the reproducible pin — the same note PAPER-HE-18, PAPER-HE-21 and PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 carry, and the fourth instance in the corpus. Structure: 102 items (74 missing, 27 planned, 1 library), 7 routes (2 Part II, 5 source). Every missing item is routed exactly once, all six source stage ids exist, all 27 planned ids resolve, both Part II parents exist and both proposed titles reproduce their parents' atlas titles exactly, both areas are the galaxy id `padic`, and check_paper.py and intake.py check-files both pass. The one library item's two declarations resolve: `IsRegularLocalRing` and `IsRegularRing`, both in Mathlib's RingTheory/RegularLocalRing/Defs.lean. One provenance gap I did not fill: this extraction records no `libraryPins`, so there is no commit against which its single library claim was checked. I verified the two declarations against the Mathlib index this lane uses, and they are there; but the field should be added by whoever next touches the file, and I have not invented a pin the extraction did not use. Locators: printed page numbers equal PDF pages (26 pages). Of 90 name-and-page checks 87 land exactly, and the three others are right as well — item 007 is anchored `before Example 1.6, p. 2' and Example 1.6 opens at the top of p. 3, Construction 2.7 opens on p. 6 and item 026 cites its `final paragraph, p. 7', and Proposition 3.12 is stated on p. 11 with its proof, and equation (10), running onto p. 12. No locator error. Findings: all eight confirmed, none downgraded, and five of them are decided by the paper contradicting itself. E2's display at the end of the proof of Proposition 3.12 disagrees with the proposition's own statement and with the first paragraph of the same proof. E3's Proposition 4.6 has a title promising étale localization and a statement covering only filtered colimits, while Proposition 4.7 ends with exactly the sentence the two citing passages need and Proposition 4.10 cites it correctly. E4's `[BS22, Th. 4.1]' is contradicted by Construction 2.2's `[BS22, Th. 14.1]' for the same fact. E1's weight p−1 is contradicted by equation (1), by Construction 2.2 and by (24) two lines later. E8's sentence simply breaks off. An observation the record does not make: E4 and E5 are a swapped pair one page apart. The number 14.1, which belongs to Bhatt–Scholze's discreteness theorem, is attached to [BK86] on p. 23, and [Prisms] is given 4.1 on the same page; Bloch–Kato's paper has no section 14 at all. That makes both corrections more secure than either does alone. E6 is the one substantial finding and it is stronger than recorded: the printed identity R[1/p]^× = π^Z ⊕ R^× is not merely unproved but false in the generality the theorem is stated in. The theorem is the Geisser–Sato–Schneider comparison for X regular of finite type over a Dedekind domain and semistable over the characteristic p points, and R is the strict henselization at a characteristic p point. For X = Spec Z_p[x,y]/(xy − p) at the origin, R is regular (hence a UFD, which is the step the proof uses), its height-one primes containing p are (x) and (y), so R[1/p]^× = R^× × x^Z × y^Z while π = p = xy; x has valuation vector (1,0) against p's (1,1), so x is not in π^Z R^×. The recorded correction states the right decomposition and is candid that the printed reduction to i = 2 only covers the one-branch case; the remaining gap for i ≥ 3 with several local equations among the b_j is real. Recording it as a gap affecting the proof rather than the stated result is right, since the theorem itself is not in doubt. No roadmap change, no library claim and no Lean work is proposed by this review."
+}

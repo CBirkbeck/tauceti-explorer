@@ -165,3 +165,40 @@ Item numbers are the suffixes after `PAPER-BHATT-MATHEW-23/`.
 Links are in `prerequisites`.
 
 Bhatt–Lurie's two prismatic papers, BMS2 and Bhatt–Lurie–Mathew are already sources of PrismaticCohomology, RefinedTraceMethods and CrystallineCohomology, so they are not listed. BMS2 (PAPER-BHATT-MORROW-SCHOLZE-19) and Colmez–Nizioł (PAPER-COLMEZ-NIZIOL-17) are queued as paper jobs.
+
+## Review (REV-PAPER-BHATT-MATHEW-23, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1366), **accepted** this
+extraction and all seven routes, and made one correction. The full record is
+[REV-PAPER-BHATT-MATHEW-23.md](../reviews/REV-PAPER-BHATT-MATHEW-23.md).
+
+The arXiv v2 e-print hash reproduces byte for byte and the archive holds the recorded 2418-line
+`syntomic-etale-final.tex`. The published Cambridge hash does not and cannot: two fresh downloads
+gave `96e05343…` and `3bedeca4…` against the recorded `abbfd5b2…`, because Cambridge stamps each
+download with the date and the requesting IP. **Correction:** a `sha256Note` on that artifact now
+records this and names the arXiv e-print as the reproducible pin, as on `PAPER-HE-18`,
+`PAPER-HE-21` and `PAPER-SHANKAR-SHANKAR-TANG-ETAL-22`.
+
+102 items with all 74 missing ones routed exactly once; all six stage ids and all 27 planned ids
+resolve; both Part II titles reproduce their parents' atlas titles exactly and both areas are the
+galaxy id `padic`; the library item's `IsRegularLocalRing` and `IsRegularRing` are both in Mathlib's
+`RingTheory/RegularLocalRing/Defs.lean`. The review notes one provenance gap it did not fill: no
+`libraryPins` are recorded, so there is no commit against which that claim was checked. 87 of 90
+locator checks land exactly and the other three are right as well.
+
+All eight findings are **confirmed**, five of them by the paper contradicting itself — Proposition
+3.12's closing display against its own statement and first paragraph (E2); Proposition 4.6's title
+against its statement, with Proposition 4.7 supplying what Definition 4.1 and Proposition 4.9 cite it
+for (E3); the weight `p − 1` against equation (1), Construction 2.2 and (24) (E1); `[BS22, Th. 4.1]`
+against Construction 2.2's `[BS22, Th. 14.1]` (E4); and a sentence that breaks off (E8). The review
+adds that **E4 and E5 are a swapped pair** one page apart: the number 14.1 that belongs to
+Bhatt–Scholze's discreteness theorem is attached to `[BK86]`, whose paper has no section 14, and
+`[Prisms]` is given 4.1.
+
+`E6` is judged stronger than recorded. The printed `R[1/p]^× = π^Z ⊕ R^×` is not merely unproved but
+**false** in the generality of the theorem, which is stated for `X` regular and semistable over the
+characteristic-`p` points: for `X = Spec Z_p[x,y]/(xy − p)` at the origin, `R[1/p]^× = R^× × x^Z × y^Z`
+with `π = p = xy`, and `x` has valuation vector `(1,0)` against `p`'s `(1,1)`. The recorded
+correction states the right decomposition and is candid that the printed reduction to `i = 2` only
+covers the one-branch case; the gap for `i ≥ 3` with several local equations among the `b_j` is real,
+and the grading as a gap affecting the proof is right, since the theorem itself is not in doubt.
