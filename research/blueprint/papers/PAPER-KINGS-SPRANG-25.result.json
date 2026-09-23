@@ -33,7 +33,9 @@
     "sha256": "a1c5d683a4150442c361bad93dbc0657832177f679fbb3563ec8a00385dae36f",
     "read": "TeX source (Master-Eisenstein-Kronecker-Classes.tex with its seven section files and bibliography), read in full; statement numbers simulated from its counters"
    }
-  ]
+  ],
+  "sha256": "fab8e605123cf9c399753b7114c4fd65000e1863e3507abdd4129c8c940fbb72",
+  "sha256Note": "SHA-256 of https://arxiv.org/pdf/1912.03657v4, recorded by review REV-PAPER-KINGS-SPRANG-25 on 23 September 2026; the extraction gave none."
  },
  "baseline": {
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1012,7 +1014,12 @@
     "G. Kings and J. Sprang, Algebraicity of critical Hecke L-values, arXiv 2511.05198 (survey of this paper; no correction)",
     "G. Gamarra Segovia, Eisenstein-Kronecker classes on Hilbert moduli spaces and a new construction of Katz's p-adic measure, arXiv 2606.10626 (uses Corollary 3.28 as printed; no correction)",
     "web search for an erratum to the paper (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Located at Proposition 3.13, p. 35. The functional equation exchanges (z, w) with (w, z) and ⟨·,·⟩_H is alternating, so the factor attached to the swapped pair is e^{2πi⟨w,z⟩} = e^{−2πi⟨z,w⟩}; the printed e^{2πi⟨z,w⟩} is the unswapped one. I checked the statement as quoted but did not re-derive the functional equation. No later version or erratum corrects it: arXiv 1912.03657 stops at v4, which is itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2025.202.1.1 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-KINGS-SPRANG-25"
+   }
   },
   {
    "id": "PAPER-KINGS-SPRANG-25/E2",
@@ -1030,7 +1037,12 @@
     "G. Kings and J. Sprang, Algebraicity of critical Hecke L-values, arXiv 2511.05198 (survey of this paper; no correction)",
     "G. Gamarra Segovia, Eisenstein-Kronecker classes on Hilbert moduli spaces and a new construction of Katz's p-adic measure, arXiv 2606.10626 (uses Corollary 3.28 as printed; no correction)",
     "web search for an erratum to the paper (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and I verified the base case from the paper's own definitions rather than taking the sign on trust. On p. 36 the paper sets vol := ((2πi)^d/vol(𝒜)) ⋀_{i=1}^d dz_i ∧ dz̄_i and l̃ := Σ_i (l̄_i ū_i)/r_i, viewed as an anti-holomorphic vector field, i.e. Σ_i (l̄_i/r_i) ∂/∂z̄_i. Contracting: ι_{∂/∂z̄_k} of the 2d-form removes dz̄_k from position 2k, with sign (−1)^{2k−1} = −1, so ι_l̃ vol = −((2πi)^d/vol(𝒜)) Σ_k (l̄_k/r_k) Ω_k, where Ω_k is the volume form with dz̄_k deleted. And ω_{e_k} = ι_{−Σ_i r_i ∂/∂r_i}(⋀_i ω^i_{e_k}) = Ω_k, since the single dr_k sits at position 2k and the two minus signs cancel. So at j = 0 the coefficient is −0!(2πi)^d/vol(𝒜), i.e. (−1)^{j+1} and not the printed (−1)^j. That is exactly the extraction's correction, and it also shows why the statement should start at j = 0 rather than j = 1. I did not redo the induction on j, so the claim that the same sign holds for every 1 ≤ j ≤ d − 1, and the (−1)^{d(d+1)/2} of part (c), rest on the extraction's derivation rather than on mine. No later version or erratum corrects it: arXiv 1912.03657 stops at v4, which is itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2025.202.1.1 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-KINGS-SPRANG-25"
+   }
   },
   {
    "id": "PAPER-KINGS-SPRANG-25/E3",
@@ -1048,7 +1060,12 @@
     "G. Kings and J. Sprang, Algebraicity of critical Hecke L-values, arXiv 2511.05198 (survey of this paper; no correction)",
     "G. Gamarra Segovia, Eisenstein-Kronecker classes on Hilbert moduli spaces and a new construction of Katz's p-adic measure, arXiv 2606.10626 (uses Corollary 3.28 as printed; no correction)",
     "web search for an erratum to the paper (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed by computation. For a nilpotent l̃ with divided powers, (A + l̃)^{−(j+1)} = A^{−(j+1)}(1 + l̃/A)^{−(j+1)} = Σ_b (−1)^b C(j+b, b) l̃^b A^{−(j+b+1)}, and l̃^b = b!·l̃^{[b]}, so the coefficient of l̃^{[b]} is (−1)^b (j+b)!/j!·A^{−(b+j+1)}. I verified this by expanding (A + t)^{−(j+1)} as an exact rational power series for j = 0, 1, 2 and b ≤ 5: every coefficient matches (−1)^b (j+b)!/j!/b!·A^{−(b+j+1)}. The printed series omits (−1)^b and is therefore wrong for every odd b, which is what forces the alternating sign in Definition 3.15 and in the current solving ∇″(φ^{(n)}) = δ_f vol. No later version or erratum corrects it: arXiv 1912.03657 stops at v4, which is itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2025.202.1.1 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-KINGS-SPRANG-25"
+   }
   },
   {
    "id": "PAPER-KINGS-SPRANG-25/E4",
@@ -1066,7 +1083,12 @@
     "G. Kings and J. Sprang, Algebraicity of critical Hecke L-values, arXiv 2511.05198 (survey of this paper; no correction)",
     "G. Gamarra Segovia, Eisenstein-Kronecker classes on Hilbert moduli spaces and a new construction of Katz's p-adic measure, arXiv 2606.10626 (uses Corollary 3.28 as printed; no correction)",
     "web search for an erratum to the paper (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Corollary 4.15 (p. 54) concludes 'L_𝔣(χ,0)/c⁺_τ R_{L/ℚ}M(χ) ∈ ℚ̄^×' and Remark 4.16 (p. 54) states Deligne's conjecture as membership in E^×. Deligne's conjecture places the ratio in the coefficient field E, not in E^×: it is a rationality statement and says nothing about non-vanishing, and a critical L-value may vanish. Nothing in §4 assumes L_𝔣(χ,0) ≠ 0 — I searched pp. 45–60 for a non-vanishing hypothesis and found none. So both statements assert more than is proved, or than Blasius and Kufner proved, and the extraction's correction (ℚ̄, with ℚ̄^× exactly when the L-value is non-zero; E for the conjecture) is the right one. No later version or erratum corrects it: arXiv 1912.03657 stops at v4, which is itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2025.202.1.1 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-KINGS-SPRANG-25"
+   }
   },
   {
    "id": "PAPER-KINGS-SPRANG-25/E5",
@@ -1084,7 +1106,12 @@
     "G. Kings and J. Sprang, Algebraicity of critical Hecke L-values, arXiv 2511.05198 (survey of this paper; no correction)",
     "G. Gamarra Segovia, Eisenstein-Kronecker classes on Hilbert moduli spaces and a new construction of Katz's p-adic measure, arXiv 2606.10626 (uses Corollary 3.28 as printed; no correction)",
     "web search for an erratum to the paper (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Equation (5.6.1) on p. 72 prints χ((λ)) = ∏_{σ∈J_L} σ(λ)^{µ(λ)}. The infinity type µ is an element of I_L, i.e. a function on the embeddings, so the exponent in the σ-factor must be µ(σ); µ(λ) is not defined, and with it the product would not depend on σ at all. No later version or erratum corrects it: arXiv 1912.03657 stops at v4, which is itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2025.202.1.1 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-KINGS-SPRANG-25"
+   }
   },
   {
    "id": "PAPER-KINGS-SPRANG-25/E6",
@@ -1102,7 +1129,12 @@
     "G. Kings and J. Sprang, Algebraicity of critical Hecke L-values, arXiv 2511.05198 (survey of this paper; no correction)",
     "G. Gamarra Segovia, Eisenstein-Kronecker classes on Hilbert moduli spaces and a new construction of Katz's p-adic measure, arXiv 2606.10626 (uses Corollary 3.28 as printed; no correction)",
     "web search for an erratum to the paper (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Located at the proof of Theorem 5.27, Step 1 (pp. 74, 76). The identity is obtained from Theorem 3.27, and the extraction's point is that the transfer through Proposition 4.6 — the route used in the proof of Theorem 4.9 — carries a factor (−1)^{d(d−1)/2} that the displayed identity omits, absorbable into µ_𝔣. I checked that the step is as quoted and that the cited route is the one the paper uses; I did not re-derive the constant, so this verdict rests on the extraction's derivation for the value of the sign, not on mine. No later version or erratum corrects it: arXiv 1912.03657 stops at v4, which is itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2025.202.1.1 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-KINGS-SPRANG-25"
+   }
   },
   {
    "id": "PAPER-KINGS-SPRANG-25/E7",
@@ -1120,7 +1152,12 @@
     "G. Kings and J. Sprang, Algebraicity of critical Hecke L-values, arXiv 2511.05198 (survey of this paper; no correction)",
     "G. Gamarra Segovia, Eisenstein-Kronecker classes on Hilbert moduli spaces and a new construction of Katz's p-adic measure, arXiv 2606.10626 (uses Corollary 3.28 as printed; no correction)",
     "web search for an erratum to the paper (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Located at the proof of Theorem 5.27, Step 3 (pp. 74, 78). The displayed product runs over 𝔭 ∈ Σ_p while the final L-factor is written L_{𝔭̄}(χ,0) for a single 𝔭̄; the extraction reads it as the whole conjugate set 𝔭̄_Σ = ∏_{𝔭̄∈Σ̄_p} 𝔭̄, which is what makes the factor match the product it sits in. No later version or erratum corrects it: arXiv 1912.03657 stops at v4, which is itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2025.202.1.1 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-KINGS-SPRANG-25"
+   }
   },
   {
    "id": "PAPER-KINGS-SPRANG-25/E8",
@@ -1138,7 +1175,23 @@
     "G. Kings and J. Sprang, Algebraicity of critical Hecke L-values, arXiv 2511.05198 (survey of this paper; no correction)",
     "G. Gamarra Segovia, Eisenstein-Kronecker classes on Hilbert moduli spaces and a new construction of Katz's p-adic measure, arXiv 2606.10626 (uses Corollary 3.28 as printed; no correction)",
     "web search for an erratum to the paper (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, both halves, on p. 79. The sentence defines Γ acting on X/S and then says 'each γ ∈ G gives an automorphism' — G is not introduced anywhere in that appendix. And the display reads Hom_{Γ,O_X}(O_X, 𝒢) ≅ Γ(X, ℱ)^Γ, where the left side is the global sections of 𝒢, so the right side must be Γ(X, 𝒢)^Γ; ℱ is the other sheaf in the preceding isomorphism. No later version or erratum corrects it: arXiv 1912.03657 stops at v4, which is itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2025.202.1.1 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-KINGS-SPRANG-25"
+   }
   }
- ]
+ ],
+ "verification": {
+  "agent": "Claude Code",
+  "session": "cc-d67081",
+  "issue": 1066,
+  "job": "REV-PAPER-KINGS-SPRANG-25",
+  "date": "2026-09-23",
+  "verdict": "accept",
+  "read": "arXiv 1912.03657v4, SHA-256 fab8e605…fbb72, fetched and hashed by the review; each recorded mistake at its locator, with Lemma 3.16 and the definitions of vol and l̃ read on page images and the j = 0 contraction redone, and E3's expansion verified as an exact rational power series.",
+  "changes": "All 8 sourceIssues carry a review verdict and all are confirmed. The source block's missing sha256 was supplied for the version the extraction says it read. No item, status, route or locator changed.",
+  "lean": "none"
+ }
 }

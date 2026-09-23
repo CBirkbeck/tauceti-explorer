@@ -1,0 +1,27 @@
+{
+  "paper": "PAPER-KINGS-SPRANG-25",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "The Part II AutomorphicPadicLFunctionsPartIICriticalHeckeValues, 52 items. Parent AutomorphicPadicLFunctions exists, the id is free, the title begins with the parent's and the area iwasawa is a galaxy id. The parent owns p-adic L-functions of automorphic forms; the integrality of critical Hecke L-values and their p-adic interpolation through Eisenstein–Kronecker classes continue it in its own direction, and nothing in the atlas plans the Eisenstein–Kronecker current, the critical-value integrality statement or the interpolation. I would build it."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "The Part II AbelianSchemesAndArithmeticModuliPartIIPoincareBundle, 13 items. Parent exists, id free, area arithmeticgeometry. The parent's A2 plans duals, Picard functors and polarizations; the Poincaré bundle with its rigidification, the geometric constructions on the universal abelian scheme and the currents built from them extend that, and keeping them out of the L-function Part II is the right split — they are geometry, not p-adic analysis."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "SchemeAndStackFoundations:SF.2, 6 items. Foundational statements about schemes and equivariant sheaves — including the Γ-equivariant machinery of Appendix A that finding E8 is about — belong with the foundations owner rather than in either Part II."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "ComplexMultiplicationAndExplicitReciprocity CM.0 and CM.1, 3 items. CM theory and explicit reciprocity are that roadmap's subject, and the items are its statements, used here as inputs."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction for Kings–Sprang (review job issue #1066). Verdict: accept. All 8 sourceIssues are confirmed, and two of them I verified by my own computation rather than by reading the extraction's argument. E3: the expansion of (A + l̃)^{−(j+1)} in divided powers is Σ_b (−1)^b ((j+b)!/j!) A^{−(b+j+1)} l̃^{[b]} — I expanded (A + t)^{−(j+1)} as an exact rational power series for j = 0, 1, 2 and b ≤ 5 and every coefficient matches, so the printed series, which omits (−1)^b, is wrong for every odd b. E2: from the paper's own definitions on p. 36 — vol = ((2πi)^d/vol(𝒜)) ⋀ dz_i ∧ dz̄_i and l̃ = Σ_i (l̄_i/r_i)∂/∂z̄_i as an anti-holomorphic vector field — the contraction ι_l̃ vol removes dz̄_k from position 2k with sign (−1)^{2k−1} = −1, giving −((2πi)^d/vol(𝒜)) Σ_k (l̄_k/r_k) ω_{e_k}, since ω_{e_k} is exactly that truncated volume form; so at j = 0 the coefficient is (−1)^{j+1}, not the printed (−1)^j, which also shows the statement should start at j = 0. I did not redo the induction on j, and I say so in the verdict: the claim for 1 ≤ j ≤ d−1 and the (−1)^{d(d+1)/2} of part (c) rest on the extraction's derivation. E4 is the other substantive one and is clear: Corollary 4.15 concludes membership in ℚ̄^× and Remark 4.16 states Deligne's conjecture as membership in E^×, but Deligne's conjecture is a rationality statement placing the ratio in E, and a critical L-value may vanish; §§4 contains no non-vanishing hypothesis, which I checked. E1, E5, E6, E7 and E8 were checked at their locators; for E1 and E6 my verdicts say plainly that I verified the quotation and the route of the argument but did not re-derive the functional equation or the constant. No later version or erratum corrects any of them: arXiv stops at v4, itself the 'final version, to appear in Annals', and Crossref shows no update on the DOI. One correction was made: the source block recorded no sha256, so I fetched arXiv 1912.03657v4, hashed it (fab8e605123cf9c399753b7114c4fd65000e1863e3507abdd4129c8c940fbb72) and recorded it with a note saying the review supplied it — every other extraction I reviewed today carries one, and without it the locators cannot be tied to a fixed file. Everything else holds: both library items resolve at the pinned commits and their notes are precise about what is not there (the cap product and H_i(ℤ^r,ℤ) ≅ ⋀^i ℤ^r are correctly left to item 039); all 8 planned items cite stages that exist; no missing item is in either library (Eisenstein–Kronecker, Hecke characters, the Poincaré bundle, critical values and Hilbert modular forms all return nothing); and the 74 missing items are routed exactly once across four routes, whose two Part II parents exist with free ids and galaxy areas. python3 scripts/check_paper.py reports ok."
+}
