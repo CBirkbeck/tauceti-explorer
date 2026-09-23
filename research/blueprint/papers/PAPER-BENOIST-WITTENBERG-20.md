@@ -300,3 +300,44 @@ exceptional integer sign. It uses no floating point. These checks verify algebra
 identities; the geometric ideal argument and stable-line impossibility are the
 prose proofs above. All144 definition/construction test contracts remain unexecuted
 in Lean. This issue authorizes only JSON, report and handoff.
+
+## Independent review (cc-fb70e5, 23 September 2026)
+
+**Accept.** All seven routes accepted, coverage effectively complete, all ten findings confirmed, nothing
+corrected in place and nothing added. The full review is in
+[`reviews/REV-PAPER-BENOIST-WITTENBERG-20.md`](../reviews/REV-PAPER-BENOIST-WITTENBERG-20.md).
+
+The recorded `daeb43ec…` matches byte for byte; the paper is 77 pages, read from the linearization `/N`
+(this file's page tree is inside a compressed object stream, so a `/Count` scan returns nothing).
+
+**The extraction's version discipline is what makes it checkable, and it is worth recording.** It states
+that it read the author-hosted published version "with Inventiones pagination and DOI; not the 67-page
+revised preprint". Simulating arXiv v3 instead contradicts six of the findings' locators — Theorem 3.16
+comes out a Question, Lemma 2.14 a Proposition, Example 4.4 a Lemma, Lemma 3.4 a Remarks, and Remarks 5.10
+does not exist at all, since §5 of the preprint ends at 5.9. All six are correct in the published text.
+A reviewer who checked against the preprint would have filed six false accusations.
+
+All 193 items carry a numbered locator. A precise statement total is not extractable from this PDF's text
+layer — it glues equation numbers onto statement names, so "Lemma 1.5" followed by (1.43) reads back as
+"Lemma 1.43" — but of the numbers that resolve cleanly the only genuinely uncited statement is Remark 2.7.
+The twelve library declarations all exist (ten in Mathlib, two in Tau Ceti at the pinned `f790474`), and the
+single detailed citation is exact: `normSq_eq_conj_mul_self` and `normSq_nonneg` at
+`Mathlib/Basic/Complex/Basic.lean` lines 544 and 554, inside the recorded 544–555. Note that the evidence
+sits in `libraryAudit.actualDeclarationsRead` rather than `baseline.declarations`, a thinner record than
+some extractions keep here.
+
+All seven routes hold up. Several routes into one roadmap split by stage is the corpus convention (55 papers
+do it), and both Part IIs are joined proposals with **PAPER-BENOIST-19** under the same parents, with titles
+reproducing the parent's exactly before the colon as PROTOCOL §15 requires; `QuadraticFormsRealFunctionFields`
+is shared with PAPER-JANNSEN-16 as well.
+
+**E1 is a counterexample to a published theorem, and it holds.** Theorem 3.16(ii) is printed as an *if and
+only if* under `dim(X) > 0`. For `X = E : y² = x³ − x` over ℝ every hypothesis holds (the real integral Hodge
+conjecture for 1-cycles being the trivial codimension-zero case), the right-hand side holds because the real
+point kills the Brauer obstruction, and the left-hand side fails because the only 1-dimensional integral
+closed subscheme of a curve is the curve, of genus 1. So `dim(X) ≥ 2` is needed when `X(ℝ) ≠ ∅`, and
+Theorem A inherits the gap through `d ≥ 1`; Proposition 3.9, which the proof invokes, is where dimension two
+is actually used. **E3** likewise refutes Example 4.4's construction: `T² = −id` on the weight-4 space, so no
+line is `T`-stable and the asserted dense stable set cannot meet the asserted smooth locus — scoped, rightly,
+as leaving the intended consequence unproved rather than false. **E10** is announced computations, not a
+defective proof.
