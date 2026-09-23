@@ -13,11 +13,12 @@
     "accessDate": "2026-09-22",
     "readSections": [
       "Entire manuscript: introduction, §§2–6, references",
-      "Figures of formulas on printed pp.9,10,12,18,23,24 checked against rendered PDF"
+      "Figures of formulas on printed pp.9,10,12,18,23,24 checked against rendered PDF",
+      "Review REV-PAPER-NGODAC-21 (Claude Code, cc-39fac3, 23 September 2026): the HAL manuscript (same SHA-256 f6bf74f1…) read in full again by two checkers, every item checked against it; Chang 2014 (arXiv 1207.2326v4) and Chang–Papanikolas–Yu 2019 (arXiv 1411.0124v2) consulted for E7 and E10; the algorithm behind Theorem A run on every index up to weight 6 for q = 2 and weight 7 for q = 3, 4, 5 (444 results, all in T_w and numerically equal in K∞)."
     ],
     "continuationReading": "codex-c83e7a reread the full 26-page HAL manuscript and references. Fresh HAL requests returned challenge HTML; the earlier worker’s public artifact was reused after matching its recorded SHA-256. No new journal-version equivalence claim."
   },
-  "summary": "Ngo Dac proves the algebraic half of the Todd–Thakur analogues of the Zagier–Hoffman conjectures for multiple zeta values over F_q[θ]: for every weight w, the Thakur family T_w spans the weight-w MZVs over K (Theorem A, by an algorithm built on Thakur's power-sum products and Todd's operations B* and C). On the transcendental side, the MZVs with all entries below q are linearly independent (Theorem B, through the Anderson–Brownawell–Papanikolas criterion applied to merged Anderson–Thakur t-motives). Together these give the Thakur basis theorem for w ≤ q (Corollary C) and, with the q-indivisible family, for w ≤ 2q − 2 (Theorem D). 108 items (5 library, 3 planned, 100 missing) are routed to DrinfeldModulesAndTModules (DM.0, DM.2, DM.4, DM.6, DM.8) and to the proposed DrinfeldModulesAndTModulesPartII. Twelve findings are recorded: eight in the manuscript (E1–E6, E11, E12), including an ABP criterion stated without c ≠ 0 and an integrality step in §6 that needs δ ∈ A[t], and four in cited sources (E7–E10).",
+  "summary": "Ngo Dac proves the algebraic half of the Todd–Thakur analogues of the Zagier–Hoffman conjectures for multiple zeta values over F_q[θ]: for every weight w, the Thakur family T_w spans the weight-w MZVs over K (Theorem A, by an algorithm built on Thakur's power-sum products and Todd's operations B* and C). On the transcendental side, the MZVs with all entries below q are linearly independent (Theorem B, through the Anderson–Brownawell–Papanikolas criterion applied to merged Anderson–Thakur t-motives). Together these give the Thakur basis theorem for w ≤ q (Corollary C) and, with the q-indivisible family, for w ≤ 2q − 2 (Theorem D). 108 items (5 library, 3 planned, 100 missing) are routed to DrinfeldModulesAndTModules (DM.0, DM.2, DM.4, DM.6, DM.8) and to the proposed DrinfeldModulesAndTModulesPartII. Twelve findings are recorded: eight in the manuscript (E1–E6, E11, E12), including an ABP criterion stated without c ≠ 0 and an integrality step in §6 that needs δ ∈ A[t], and four in cited sources (E7–E10). After the review (REV-PAPER-NGODAC-21) there are 112 items (5 library, 4 planned, 103 missing) and 16 source issues; the review found the extraction accurate and added only small corrections; the gaps recorded (E3, E11 and one new) have verified repairs, so Theorems A, B, D and Corollary C stand.",
   "conventions": [
     "q=p^e with p prime and e>0; A=F_q[θ], K=F_q(θ), K∞ its infinity completion, and C∞ the completed algebraic closure. θ is transcendental and t is a separate auxiliary variable.",
     "All tuple entries are positive integers. Empty tuple has weight/depth zero and zeta value 1. Tuple coordinates past its length are zero. Strict inequalities concern polynomial degrees, not an ordering of finite-field elements.",
@@ -128,7 +129,7 @@
       "kind": "definition",
       "name": "Infinity valuation and valued completion",
       "statement": "For a field F, RatFunc F has multiplicative infinity valuation exp(intDegree), with zero sent to zero, and its uniform completion is a valued field. Specialize F=F_q; the paper's additive valuation on θ is −1.",
-      "locator": "§1 notation; Mathlib/FieldTheory/RatFunc/Valuation.lean, declarations and statements read at pinned commit",
+      "locator": "§1.2, p. 2 (A = F_q[θ], K = F_q(θ), K∞, C∞) and §2 opening, p. 5 (v∞ normalized by v∞(θ) = −1, |·|∞ = q^(−v∞)), HAL v1 printed pages; Mathlib/FieldTheory/RatFunc/Valuation.lean at 082e2d3: inftyValuation (l. 81), inftyValuation.X (l. 97), inftyValuation.X_inv (l. 103), CompletionAtInfty (l. 138).",
       "status": "library",
       "dependencies": [],
       "implementationStatus": "unchecked",
@@ -172,7 +173,8 @@
           "where": "§1",
           "how": "Carrier of all MZV sums."
         }
-      ]
+      ],
+      "note": "Review note: library confirmed at 082e2d3: inftyValuationDef r = if r = 0 then 0 else exp r.intDegree; inftyValuation.X = exp 1, inftyValuation.X_inv = exp (−1), inftyValuation.polynomial = exp natDegree; CompletionAtInfty is UniformSpace.Completion with the extended Valued instance. exp 1 at θ matches the paper's |θ|∞ = q. The locator's valuation normalization is in §2 (p. 5), not §1."
     },
     {
       "id": "PAPER-NGODAC-21/indices",
@@ -222,7 +224,8 @@
           "where": "§§2–6",
           "how": "Parameters of every power sum and finite induction."
         }
-      ]
+      ],
+      "note": "Review note: missing is right for the variable-length carrier with zero padding, but Mathlib already has the fixed-weight carrier: Composition n (Mathlib/Combinatorics/Enumerative/Composition.lean l. 101 at 082e2d3: blocks : List ℕ, blocks_pos, blocks_sum = n; length = depth) and composition_card (l. 1033: card (Composition n) = 2^(n−1)). The item, index-families and family-count should build on it. Owner: the proposed DrinfeldModulesAndTModulesPartII; no atlas stage plans function-field MZVs (PeriodsAndSpecialValues:PS.9 is classical MZVs)."
     },
     {
       "id": "PAPER-NGODAC-21/dominance",
@@ -274,7 +277,8 @@
           "where": "Proposition 2.1; §§2.4–3",
           "how": "Controls all reduction supports."
         }
-      ]
+      ],
+      "note": "Review note: missing correct (no dominance order on compositions in Mathlib at 082e2d3). Its API omits reflexivity/transitivity and the compatibilities with prepending, with + and with T_k that the paper uses without proof; see the coverage row 'Calculus of prefix dominance'."
     },
     {
       "id": "PAPER-NGODAC-21/tuple-operations",
@@ -326,7 +330,8 @@
           "where": "Propositions 2.1,2.12 and 3.2",
           "how": "Records the correct support order after a prefix is fixed."
         }
-      ]
+      ],
+      "note": "Review note: Statement exact. The paper never defines a + b for tuples; zero-padded coordinatewise sum is the only reading consistent with '(q) + W = (s_k, s_{k+1}, …, s_r)' (p. 12) and '(a_1 + b_1, a_− + b_−) = a + b' (p. 7)."
     },
     {
       "id": "PAPER-NGODAC-21/degree-sums",
@@ -431,7 +436,8 @@
           "where": "Theorems A–D",
           "how": "Specialization target of every reduction and independence argument."
         }
-      ]
+      ],
+      "note": "Review note: missing correct for depth ≥ 2. The depth-one value ζ_A(1) is the Carlitz value that DrinfeldModulesAndTModules:DM.6 must recover (its acceptance clause), so the Part II definition should be proved equal to DM.6's Euler-product value, not planned twice."
     },
     {
       "id": "PAPER-NGODAC-21/zeta-converges",
@@ -466,7 +472,7 @@
         "Use the carry-free greedy-decomposition valuation formula for reciprocal power sums.",
         "Discard one component of an optimal (d+1)-component decomposition to get a strictly smaller admissible d-component value."
       ],
-      "note": "The external Sheats carry-free greedy-maximum theorem and the positive-exponent passage remain gap G3."
+      "note": "The external Sheats carry-free greedy-maximum theorem and the positive-exponent passage remain gap G3. Review note: Matches Thakur, FFA 15 (2009), §4.1 and §5.2, Theorem 4 and its proof (p. 542: s_d(k) < s_{d+1}(k) for prime q, general q by (i) or (ii)). Independent exact checks (reviewer code, python-flint over F_q(θ)): v∞(S_d(k)) strictly increases for k ≤ 7 and d ≤ 7 (q=2), d ≤ 5 (q=3), d ≤ 4 (q=4), d ≤ 3 (q=5)."
     },
     {
       "id": "PAPER-NGODAC-21/zeta-nonzero",
@@ -483,7 +489,8 @@
       "proofSteps": [
         "The degree tuple (r−1,r−2,…,0) gives the unique summand of largest norm.",
         "Strict valuation monotonicity and the ultrametric inequality prevent cancellation."
-      ]
+      ],
+      "note": "Review note: Matches FFA Theorem 4, p. 542. The first proof step's 'unique summand' must be read as the degree block (r−1,…,0), i.e. ∏ S_{r−i}(s_i); individual reciprocal terms of that block are many and of equal norm."
     },
     {
       "id": "PAPER-NGODAC-21/index-families",
@@ -639,7 +646,8 @@
           "where": "Theorems A,D; Lemma 6.1",
           "how": "Combinatorial upper bound and dimension equality."
         }
-      ]
+      ],
+      "note": "Review note: Independent exact checks (reviewer code, python-flint over F_q(θ)): the definition and the remark on p. 3 that d(w) = Σ_{i=1}^q d(w−i) holds exactly for w ≠ 0, q (with d = 0 on negatives) were checked for q ∈ {2,3,4,5,7}, −3 ≤ w ≤ 14."
     },
     {
       "id": "PAPER-NGODAC-21/family-count",
@@ -657,14 +665,15 @@
         "For w<q every composition is allowed; at w=q exclude exactly the singleton (q).",
         "For w>q remove the first entry of a Thakur word, which is between 1 and q.",
         "The inverse block map sends each run q,…,q,b to mq+b."
-      ]
+      ],
+      "note": "Review note: REPAIR VERDICT: sound. The statement is true and the argument complete: for w < q all 2^(w−1) compositions qualify (Mathlib composition_card), at w = q only (q) is excluded, for w > q removing the first entry i ∈ [1, q] leaves a nonempty Thakur word of weight w − i, which gives d's recurrence; the run map (q,…,q,b) ↦ mq + b (1 ≤ b < q) is a weight-preserving bijection onto I'_w. Lemma 6.1 (p. 22) proves |T_w| = |T'_w| by the same recurrence, and the paper never proves |T_w| = d(w) explicitly, so the item is needed for Theorem A's dimension bound. Independent exact checks (reviewer code, python-flint over F_q(θ)): |I^T_w| = |I'_w| = d(w) and the block map is a bijection for q ∈ {2,3,4,5,7}, 1 ≤ w ≤ 12."
     },
     {
       "id": "PAPER-NGODAC-21/chen-coefficient",
       "kind": "definition",
       "name": "Chen correction coefficient",
       "statement": "For a,b>0 define Δ_i(a,b) in F_p to be (−1)^(a−1) binom(i−1,a−1)+(−1)^(b−1) binom(i−1,b−1) when 0<i<a+b and (q−1)|i, and zero otherwise.",
-      "locator": "§2.1 before (2.1), Chen [11]",
+      "locator": "§2.1, display immediately after (2.1) (Chen [11]), p. 6 (HAL v1). The formula follows (2.1); it does not precede it.",
       "status": "missing",
       "dependencies": [],
       "implementationStatus": "unchecked",
@@ -707,7 +716,8 @@
           "where": "Equation (2.1), product recursion",
           "how": "Uniform coefficients independent of the degree cutoff."
         }
-      ]
+      ],
+      "note": "Review (REV-PAPER-NGODAC-21): The statement is exact, but the item's test 'q=3, a=b=2 gives Δ_2=2 in F_3' is wrong: Δ_2(2,2) = (−1)·C(1,1) + (−1)·C(1,1) = −2 = 1 in F_3. Exact check at q = 3: S_d(2)^2 = S_d(4) + S_d(2,2) for d = 1, 2, and this fails with coefficient 2. The test should read 'Δ_2(2,2) = 1 in F_3'."
     },
     {
       "id": "PAPER-NGODAC-21/depth-one-product",
@@ -723,7 +733,7 @@
         "PAPER-NGODAC-21/monic-pair-reindex"
       ],
       "implementationStatus": "unchecked",
-      "note": "G2 is discharged for the actual F_q[θ] consumer by the direct all-exponent/all-degree derivation above. The original Chen article and any additional results in it are not claimed read or extracted.",
+      "note": "G2 is discharged for the actual F_q[θ] consumer by the direct all-exponent/all-degree derivation above. The original Chen article and any additional results in it are not claimed read or extracted. Review note: REPAIR VERDICT: sound. The diagonal u = v gives S_d(a+b). For u ≠ v, explicit-partial-fractions with h = u − v and the reindexings (u,h), (v,h) give coefficient (−1)^b C(i−1,b−1) + (−1)^(i−a) C(i−1,a−1) at i = a+b−j. After Σ_h h^(−i) = −[q−1 | i] S_<d(i) (monic-pair-reindex), the result is (−1)^(b−1)C(i−1,b−1) + (−1)^(i−a+1)C(i−1,a−1), which equals Δ_i(a,b): for odd p, i is even; for p = 2 signs are irrelevant. Independent exact checks (reviewer code, python-flint over F_q(θ)): (2.1) with Chen's Δ holds for q ∈ {2,3,4,5,7}, 1 ≤ a,b ≤ 6, d from −1 to 3 (q=2), 2 (q=3,4), 1 (q=5,7): 684 identities.",
       "proofSteps": [
         "For d≥0 separate the diagonal u=v in the product of degree-d sums; it contributes S_d(a+b).",
         "Apply explicit-partial-fractions to each ordered pair u≠v, h=u−v. Reindex its two sums by (u,h) and (v,h), respectively.",
@@ -748,7 +758,7 @@
         "Substitute θ=n/m in the rational identity and multiply by m^(−a−b).",
         "Sum the disjoint orbit identities; handle d=0 directly."
       ],
-      "note": "The present consumer uses only A=F_q[θ]; the general statement needs the supplier's sign-function interface."
+      "note": "The present consumer uses only A=F_q[θ]; the general statement needs the supplier's sign-function interface. Review note: Checked against Thakur, IMRN 2010 (shufflepub.pdf, SHA-256 68507ceb…): Theorem 2, p. 1976, says that if (*) holds for d = 1 and A = F_q[t], then (*) holds for all d ≥ 0 and all A; the proof on p. 1977 partitions pairs into affine orbits. Exact. No item depends on it, since (2.1) is derived by the Chen route (depth-one-product), so it is an optional supplier."
     },
     {
       "id": "PAPER-NGODAC-21/fixed-product",
@@ -768,7 +778,7 @@
         "Induct jointly on total input depth with the truncated product item.",
         "Split equal leading degrees using Chen's formula and recurse on tails; check every prefix bound."
       ],
-      "note": "Use simultaneous well-founded recursion with truncated-product, not a circular prerequisite edge; the latter is its second output. No uniqueness of expansions is asserted. The original Thakur 2010 higher-depth proof has a known correction (E9); the simultaneous recursion follows the corrected argument, not its invalid concatenation equality."
+      "note": "Use simultaneous well-founded recursion with truncated-product, not a circular prerequisite edge; the latter is its second output. No uniqueness of expansions is asserted. The original Thakur 2010 higher-depth proof has a known correction (E9); the simultaneous recursion follows the corrected argument, not its invalid concatenation equality. Review note: The note's simultaneous recursion is exactly the paper's proof. Part 1 at depth sum D uses Part 2 below D; Part 2 at D uses Part 1 at D. The unstated dominance facts are listed in coverage. Independent exact checks (reviewer code, python-flint over F_q(θ)): the recursion (2.2)/(2.4) as printed was implemented; for all a, b of weight ≤ 5 (≤ 4 for q=4,5) with depth sum ≤ 5, fixed, truncated and mixed expansions hold for every d from −2 to D−1 (D = 5, 3, 3, 2 for q = 2, 3, 4, 5), and every output c satisfies c ≤ a+b and depth(c) ≤ depth(a)+depth(b): 25,776 identities."
     },
     {
       "id": "PAPER-NGODAC-21/truncated-product",
@@ -792,7 +802,7 @@
       "id": "PAPER-NGODAC-21/mixed-product",
       "kind": "theorem",
       "name": "Controlled fixed/truncated product expansion",
-      "statement": "S_d(a)S_<d(b)=S_d(a_1) times the truncated product of a's tail and b, hence admits a finite expansion S_d(a_1,c) with weight preserved and depth at most depth(a)+depth(b).",
+      "statement": "For a nonempty tuple a = (a_1, a_−) and any tuple b, S_d(a)S_<d(b) = S_d(a_1)(S_<d(a_−)S_<d(b)) (2.3), hence there are f'_i ∈ F_p and tuples c'_i, independent of d, with c'_i ≤ a_− + b and depth(c'_i) ≤ depth(a_−) + depth(b), such that S_d(a)S_<d(b) = Σ_i f'_i S_d(a_1, c'_i) for all d ∈ Z (2.7). In particular each (a_1, c'_i) has weight w(a)+w(b), depth ≤ depth(a)+depth(b), and (a_1, c'_i) ≤ (a_1, a_− + b) ≤ a + b.",
       "locator": "Equation (2.3) and (2.7)",
       "status": "missing",
       "dependencies": [
@@ -800,7 +810,7 @@
         "PAPER-NGODAC-21/degree-sums"
       ],
       "implementationStatus": "unchecked",
-      "note": " The original Thakur 2010 higher-depth proof has a known correction (E9); the simultaneous recursion follows the corrected argument, not its invalid concatenation equality."
+      "note": "The original Thakur 2010 higher-depth proof has a known correction (E9); the simultaneous recursion follows the corrected argument, not its invalid concatenation equality. Review (REV-PAPER-NGODAC-21): statement corrected against the paper: Omits the dominance bound that (2.7) states (p. 8), c'_i ≤ a_− + b. The bound is needed downstream: Lemma 2.9's t ≤ (q−1)+W comes from S_{d+1}(1,q−1)S_{<d+1}(W) = S_{d+1}(1)(S_{<d+1}(q−1)S_{<d+1}(W)), i.e. from the mixed expansion's tail bound, and C-fundamental reaches it only through C-operation → mixed-product. Review note: Numerically verified with the bound (see fixed-product)."
     },
     {
       "id": "PAPER-NGODAC-21/zeta-product",
@@ -818,7 +828,7 @@
       "proofSteps": [
         "Pass from finite degree cutoffs to limits; the coefficients and index support do not depend on d."
       ],
-      "note": " The original Thakur 2010 higher-depth proof has a known correction (E9); the simultaneous recursion follows the corrected argument, not its invalid concatenation equality."
+      "note": "The original Thakur 2010 higher-depth proof has a known correction (E9); the simultaneous recursion follows the corrected argument, not its invalid concatenation equality. Review note: Thakur 2010 Theorem 3(ii),(iii), p. 1978, checked. It follows from (2.6) by letting d → ∞. The printed proof of Theorem 3(i) is wrong (E9, confirmed, known), but the paper's Proposition 2.1 proof is independent and correct."
     },
     {
       "id": "PAPER-NGODAC-21/binary-relation",
@@ -937,7 +947,8 @@
           "where": "Fundamental binary relation; Γ factors",
           "how": "Fixes signs and Frobenius powers."
         }
-      ]
+      ],
+      "note": "Review note: The paper defines [k] and D_k in §4.2 (p. 17); ℓ_d comes from Thakur, IMRN 2009 (Relations) §1 and §3.1, where ℓ_n = −[n]ℓ_{n−1} and D_n = [n]D_{n−1}^q. The DM.0 source route is reasonable."
     },
     {
       "id": "PAPER-NGODAC-21/small-power-sum",
@@ -955,7 +966,7 @@
         "Extract the small coefficients of Carlitz's additive-polynomial generating function.",
         "The second formula follows alternatively by induction and subtraction."
       ],
-      "note": "Two formulas share the same generating-function calculation. Its general Carlitz interpolation input remains G4."
+      "note": "Two formulas share the same generating-function calculation. Its general Carlitz interpolation input remains G4. Review note: Matches Thakur Relations §3.3.1 (S_d(ap^n) = 1/ℓ_d^(ap^n) for a ≤ q) and §3.3.2 (S_<d(m(q−1)) = [d]^m/([1]^m ℓ_{d−1}^(m(q−1))) at m = 1), IMRN p. 2329. Independent exact checks (reviewer code, python-flint over F_q(θ)): both formulas hold for q ∈ {2,3,4,5,7}, 1 ≤ a ≤ q, up to d = 3, 2, 2, 1, 1."
     },
     {
       "id": "PAPER-NGODAC-21/fundamental-relation",
@@ -972,13 +983,14 @@
       "proofSteps": [
         "Use S_{d+1}(1)S_<d+1(q−1)=−S_d(q)/D_1 for d≥0.",
         "For d<0 both sides vanish by the depth boundary."
-      ]
+      ],
+      "note": "Review note: Matches Thakur Relations §3.4.6: S_d(m, m(q−1)) = ℓ_1^(−m) S_{d−1}(mq), with ℓ_1 = −D_1, at m = 1. Independent exact checks (reviewer code, python-flint over F_q(θ)): R₁ holds exactly for d from −2 up to 2 (q=2), 1 (q=3,4), 0 (q=5,7)."
     },
     {
       "id": "PAPER-NGODAC-21/B-operation",
       "kind": "definition",
       "name": "Todd's B* operation",
-      "statement": "For v>0 and R=(α,β), multiply S_d(v) by Σ_{j<d}R(j). After expanding products, B*_v(R) is the fixed relation Σα_s S_d(v,s)+Σβ_t S_d(v,t)+Σβ_t S_d(v)S_d(t)=0. Define B*_W by composition in the order w_1,…,w_r, with B*_empty=id.",
+      "statement": "For v ≥ 1 and R = (α, β) ∈ BR_w, B*_v(R) ∈ BR_{w+v} is the fixed relation with coefficient family Σ_s α_s[(v,s)] + Σ_t β_t[(v,t)] + Σ_t β_t Σ_c fix((v),t)(c)[c], where fix((v),t) is the canonical F_p-expansion (2.5) of S_d(v)S_d(t) fixed on p. 8. It is obtained by multiplying Σ_{j<d}R(j) by S_d(v), and it realizes Σα_sS_d(v,s) + Σβ_tS_d(v,t) + Σβ_tS_d(v)S_d(t) = 0 for all d ∈ Z (Proposition 2.5). For W = (w_1,…,w_r), B*_W := B*_{w_1} ∘ ⋯ ∘ B*_{w_r} : BR_w → BR_{w+w(W)} (B*_{w_r} is applied first), and B*_∅ = id; on a fixed relation B*_W prepends W. B*_0 is not defined.",
       "locator": "Proposition 2.5 and §2.2",
       "status": "missing",
       "dependencies": [
@@ -1025,7 +1037,8 @@
           "where": "Propositions 2.12–2.13",
           "how": "Builds fixed relations with controlled prefixes."
         }
-      ]
+      ],
+      "note": "Review (REV-PAPER-NGODAC-21): statement corrected against the paper: 'After expanding products' does not define a map. The paper fixes the particular expansions (2.5)–(2.7) produced by the recursion (2.2)–(2.4) ('For the rest of this paper … the product (2.5) (resp. (2.6), (2.7)) will be used', p. 8), and uniqueness of expansions is open (Remark 2.2(1)). B*_v, C_W and BC_q, and the family in Todd's conjecture, are defined relative to that choice. 'Composition in the order w_1,…,w_r' is ambiguous; the paper has B*_W = B*_{w_1} ∘ ⋯ ∘ B*_{w_r}. Review note: Independent exact checks (reviewer code, python-flint over F_q(θ)): B*_v(R) holds for R₁ and derived relations, 1 ≤ v ≤ q+1, q ∈ {2,3,4,5}. The q = 2 test is right: B*_1(R₁) = S_d(1,2) + (θ²+θ)(S_d(1,1,1) + S_d(2,1))."
     },
     {
       "id": "PAPER-NGODAC-21/B-small",
@@ -1042,13 +1055,14 @@
       "implementationStatus": "unchecked",
       "proofSteps": [
         "All Chen correction coefficients vanish in the indicated range, then use head-tail factorization."
-      ]
+      ],
+      "note": "Review note: Corollary 2.7 is the case Δ = 0 of the canonical expansion: fix((v),t) = [(v+t_1, t_−)] exactly when v + t_1 ≤ q (small-product), so the item needs no extra hypothesis."
     },
     {
       "id": "PAPER-NGODAC-21/C-operation",
       "kind": "definition",
       "name": "Todd's C operation",
-      "statement": "For index W, multiply R(d) by S_<d+1(W); split S_<d+1(W)=S_<d(W)+S_d(W) when W is nonempty, and expand fixed, mixed and truncated products into a binary relation C_W(R). Define C_empty=id. Output coefficients are in K, not necessarily F_p.",
+      "statement": "For a nonempty tuple W and R = (α, β) ∈ BR_w, C_W(R) ∈ BR_{w+w(W)} is (Σ_s α_s(mix(s,W) + fix(s,W)), Σ_t β_t mix(t,W)), with fix and mix the canonical expansions (2.5), (2.7) fixed on p. 8. It realizes S_<d+1(W)R(d), i.e. Σα_sS_d(s)S_<d(W) + Σα_sS_d(s)S_d(W) + Σβ_tS_{d+1}(t)S_<d+1(W) = 0 for all d ∈ Z (Proposition 2.8), using S_<d+1(W) = S_<d(W) + S_d(W). C_∅ := id. The coefficients lie in K; only the structure constants lie in F_p (E2).",
       "locator": "Proposition 2.8 and its preceding calculation",
       "status": "missing",
       "dependencies": [
@@ -1096,7 +1110,8 @@
           "where": "Lemma 2.9 and reduction",
           "how": "Introduces a bad head q+w_1 with smaller-head remainder."
         }
-      ]
+      ],
+      "note": "Review (REV-PAPER-NGODAC-21): statement corrected against the paper: As for B-operation: the expansions must be the canonical (2.5) and (2.7) fixed on p. 8. The item's description 'expand fixed, mixed and truncated products' does not determine C_W(R), because uniqueness is open (Remark 2.2(1)). Review note: Independent exact checks (reviewer code, python-flint over F_q(θ)): the q = 2 test is right: C_(1)(R₁) = S_d(3) + (θ²+θ)S_{d+1}(1,2); the S_d(2,1) terms cancel."
     },
     {
       "id": "PAPER-NGODAC-21/C-fundamental",
@@ -1114,14 +1129,15 @@
       "proofSteps": [
         "Separate the merged leading term in the equal-degree product.",
         "Apply the dominance bounds to the remaining fixed and shifted tails."
-      ]
+      ],
+      "note": "Review note: Independent exact checks (reviewer code, python-flint over F_q(θ)): for every nonempty W of weight ≤ 3 and q ∈ {2,3,4,5}, C_W(R₁) holds exactly, (q+w_1, W_−) has coefficient exactly 1, every other fixed index s has s ≤ (q)+W and s_1 < q+w_1, and every shifted index is (1,t) with t ≤ (q−1)+W."
     },
     {
       "id": "PAPER-NGODAC-21/BC-operation",
       "kind": "definition",
       "name": "Cancellation operator BC_q",
       "statement": "For R=(α,β), set BC_q(R)=B*_q(R)−Σ_t β_t C_t(R₁). Its realization is Σα_s S_d(q,s)−D_1Σβ_t S_{d+1}(1)S_<d+1(q−1)S_<d+1(t)=0.",
-      "locator": "Proposition 2.10 and Lemma 2.11",
+      "locator": "§2.2, construction of BC_q and Proposition 2.10, p. 11 (HAL v1). There is no Lemma 2.11: 2.11 is Definition 2.11, the initial tuple Init, on the same page.",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/B-operation",
@@ -1169,14 +1185,15 @@
           "where": "Proof of Proposition 2.12",
           "how": "Moves each intervening q across a binary relation."
         }
-      ]
+      ],
+      "note": "Review note: Statement exact. Independent exact checks (reviewer code, python-flint over F_q(θ)): BC_q(R) = B*_q(R) − Σ_t β_t C_t(R₁) was confirmed for six test relations per q ∈ {2,3,4,5}, and every BC_q(R) holds at all d tested."
     },
     {
       "id": "PAPER-NGODAC-21/initial-prefix",
       "kind": "definition",
       "name": "q-bounded initial prefix and k-admissibility",
       "statement": "Init(s) is the longest initial subword whose entries≤q, ordered by ordinary finite-list lexicographic order with a proper prefix smaller. s is k-admissible iff its first k zero-padded entries≤q and it is not a word of length≤k with all preceding entries≤q and final entry q.",
-      "locator": "§2.4; Definition 3.1",
+      "locator": "§2.3, Definition 2.11 (Init and the lexicographic order), p. 11, and §3, Definition 3.1 (k-admissibility), p. 14 (HAL v1). The manuscript has no §2.4.",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/indices"
@@ -1221,7 +1238,8 @@
           "where": "Propositions 2.12–3.2",
           "how": "Defines the termination state and detects the terminal-q obstruction."
         }
-      ]
+      ],
+      "note": "Review note: Statement exact. The proper-prefix-smaller convention is forced: Prop. 2.12 type 1 (Init(s') a proper extension of Init(s) must satisfy Init(s') ⪰ Init(s)) and p. 16 (Init(s_i) ⪯ q^{k}) need it. This is standard dictionary order, not a defect of the paper."
     },
     {
       "id": "PAPER-NGODAC-21/large-entry-reduction",
@@ -1246,7 +1264,7 @@
         "If j>0 apply B*_{s_j} and the earlier positive prefix. If j=0 sum the binary relation directly; do not apply B*_0.",
         "Track the support bounds through every operation."
       ],
-      "note": "The three named output classes may overlap. Source issue E3 repairs the unhandled j=0 notation."
+      "note": "The three named output classes may overlap. Source issue E3 repairs the unhandled j=0 notation. Review note: REPAIR VERDICT: sound. For j = 0, (2.11) is already a binary relation whose summation (Remark 2.4) gives ζ(s) + Σa_iζ(q^{k−1},s_i) + Σbζ(1,t) = 0. The (1,t) satisfy the type 2 bounds by (2.13), since 1 + (k−1)q < (k−1)q + s_k, and there are no type 3 terms, as the paper itself notes on p. 13. Independent exact checks (reviewer code, python-flint over F_q(θ)): for every s with a large entry that the algorithm met (q=2, w ≤ 6; q=3,4,5, w ≤ 7), the relation built as in the proof holds exactly at the d tested, s has coefficient 1, and every other index satisfies T_k(t) ≤ T_k(s), depth(t) ≥ depth(s) and one of the three type conditions. The j = 0 branch occurred 114 times."
     },
     {
       "id": "PAPER-NGODAC-21/terminal-q-reduction",
@@ -1265,14 +1283,15 @@
       "proofSteps": [
         "Start with R₁ at the terminal q and use the last strictly smaller prefix entry, or the j=0 direct summation branch.",
         "The same prefix and depth bookkeeping gives the two output classes."
-      ]
+      ],
+      "note": "Review note: Checked numerically in the same runs (Case 2 of Prop. 3.2). The W = ∅ start (C_∅(R₁) = R₁) has the Lemma 2.9 shape, with leading term S_d(q) and shifted tail (q−1)."
     },
     {
       "id": "PAPER-NGODAC-21/finite-rank",
       "kind": "theorem",
       "name": "Finite well-founded reduction rank",
       "statement": "At fixed positive weight w and fixed k, the reduction branches in Proposition 3.2 terminate. Order first by the induction parameter k and the relevant prefix sum; within a fixed sum use reverse rank of Init in the finite set of weight≤w positive prefixes, then the bad entry. Every branch decreases a component while earlier components stay fixed.",
-      "locator": "Proof of Proposition 3.2, pp.14–15; formalization of its stabilization argument",
+      "locator": "Proof of Proposition 3.2, pp. 14–16 (HAL v1); the stabilization ('Effectiveness of the algorithm') argument is on p. 16.",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/initial-prefix",
@@ -1286,7 +1305,7 @@
         "Replace bounded lexicographic growth by an explicit rank on this finite set.",
         "The finite branching supplied by the relation expansions yields a finite reduction tree."
       ],
-      "note": "A bounded lexicographic order on arbitrary variable-length words would not by itself prove termination. This item is the finite fixed-weight argument, not an asserted unrestricted lex well-order."
+      "note": "A bounded lexicographic order on arbitrary variable-length words would not by itself prove termination. This item is the finite fixed-weight argument, not an asserted unrestricted lex well-order. Review note: REPAIR VERDICT: sound. Take the measure (k; s_1+⋯+s_k; reverse rank of Init in the finite set of prefixes with entries ≤ q and weight ≤ w; entry after Init) in lexicographic order. Type 2 children lower the sum; type 3 children raise Init strictly; type 1 children either raise Init or keep it and lower s_{|Init|+1}; Case 2 nodes have only type 2/3 children. Finite branching then gives a finite tree (König). The paper's own argument is also complete, since depth(Init) ≤ k with entries ≤ q is a finite set; the item formalizes it and does not repair it. Independent exact checks (reviewer code, python-flint over F_q(θ)): along the algorithm (q = 2, 3, 4, w ≤ 7) no equal-sum child failed to decrease the (Init, bad-entry) component."
     },
     {
       "id": "PAPER-NGODAC-21/admissible-spanning",
@@ -1321,7 +1340,8 @@
       "implementationStatus": "unchecked",
       "proofSteps": [
         "Apply k-admissible spanning with k=w; depth≤w makes every output Thakur-admissible."
-      ]
+      ],
+      "note": "Review note: Statement exact (Theorem A, p. 3; proof p. 16). Independent exact checks (reviewer code, python-flint over F_q(θ)): Props. 2.12, 2.13 and 3.2 were implemented as printed, with the E3 j=0 branch, and run on every index of weight ≤ 6 (q=2) and ≤ 7 (q=3,4,5): 444 indices, 699 applications of Prop. 2.12/2.13. Every output lies in T_w. Each resulting identity ζ_A(s) = Σ c_t ζ_A(t) was checked in K∞ = F_q((1/θ)) to precision at least u^140 (u = 1/θ), using the proven tail bound from Thakur's monotonicity. Example for q=2, w=3: ζ(1,2) = (θ²+θ)(ζ(1,1,1)+ζ(2,1)) and ζ(3) = (θ²+θ)²(ζ(1,1,1)+ζ(2,1))."
     },
     {
       "id": "PAPER-NGODAC-21/upper-bound",
@@ -1378,7 +1398,8 @@
           "where": "§2.3 and introduction",
           "how": "Records context without promoting conjectural completeness to a proved result."
         }
-      ]
+      ],
+      "note": "Review note: Statement matches §2.3, p. 11. The family B*_U ∘ C_V(R₁) is defined through the canonical expansions fixed on p. 8 (see B-operation), and the conjecture should reference them. Recording it as a boundary 'definition' with no dependents is right."
     },
     {
       "id": "PAPER-NGODAC-21/C-infinity",
@@ -1394,7 +1415,7 @@
       "planned": [
         "DrinfeldModulesAndTModules:DM.2"
       ],
-      "note": "DM.2 explicitly uses the completed algebraic closure; its reviewed audit does not find this normed characteristic-p object in the pinned baseline.",
+      "note": "DM.2 explicitly uses the completed algebraic closure; its reviewed audit does not find this normed characteristic-p object in the pinned baseline. Review note: Planned DM.2 is plausible: the DM.2 description works 'over the completed algebraic closure C_infinity of K_infinity with its standard generic characteristic embedding'. Statement matches §1.2 (p. 2) and §4.2 (p. 17): the (q−1)st root of −θ is fixed so that 1/Ω(θ)=π̃.",
       "api": [
         {
           "name": "CharPMZV.C_infinity.embedding",
@@ -1489,7 +1510,8 @@
           "where": "§4.1 Tate algebra",
           "how": "Reuses the exact existing carrier rather than rebuilding it."
         }
-      ]
+      ],
+      "note": "Review note: Library confirmed at Mathlib 082e2d3: PowerSeries.IsRestricted (Mathlib/RingTheory/PowerSeries/Restricted.lean:29, over a NormedRing R), isRestricted_iff' (l.46: ‖coeff n f‖·c^n → 0 along atTop) and PowerSeries.IsRestricted.subring (l.88). Only a carrier: it needs a NormedRing structure on C∞, which the baseline lacks (C-infinity)."
     },
     {
       "id": "PAPER-NGODAC-21/twist",
@@ -1595,7 +1617,8 @@
           "where": "§4.1 dual motives",
           "how": "Existing generic carrier; not a pre-existing Carlitz/Ore Frobenius instance."
         }
-      ]
+      ],
+      "note": "Review note: Library confirmed at Mathlib 082e2d3: SkewPolynomial (Mathlib/Algebra/SkewPolynomial/Basic.lean:94) and monomial_mul_monomial (l.233, monomial n r * monomial m s = monomial (n+m) (r * φ^[n] s), under [MulSemiringAction (Multiplicative ℕ) R]). K̄[t,σ] with σf=f^(−1)σ needs that instance for the (−1)-twist on K̄[t]; the item says so."
     },
     {
       "id": "PAPER-NGODAC-21/dual-motive",
@@ -1609,7 +1632,7 @@
         "PAPER-NGODAC-21/twist"
       ],
       "implementationStatus": "unchecked",
-      "note": "Route to DM.4 as a missing refinement, not an exact match to its contravariant Anderson-motive equivalence with additional finite-generation hypotheses.",
+      "note": "Route to DM.4 as a missing refinement, not an exact match to its contravariant Anderson-motive equivalence with additional finite-generation hypotheses. Review note: Matches Definition 4.1, §4.1, p. 16 (HAL printed page; the journal PDF was not available); morphisms are left K̄[t,σ]-module maps (p. 17).",
       "api": [
         {
           "name": "CharPMZV.dual_motive.basis_matrix",
@@ -1706,14 +1729,15 @@
           "where": "§§4.2,5.1",
           "how": "Connects explicit period matrices to generic DM.8 machinery."
         }
-      ]
+      ],
+      "note": "Review note: Planned DM.8 is plausible ('Build the analytic trivialization matrix'). Matches §4.1, p. 17."
     },
     {
       "id": "PAPER-NGODAC-21/entire-ring",
       "kind": "definition",
       "name": "ABP ring of algebraic entire functions",
       "statement": "E consists of f=Σa_i t^i with a_i∈barK, lim |a_i|^(1/i)=0, and [K∞(a_0,a_1,…):K∞]<∞. This is a coefficient-field finiteness condition in addition to convergence on every disc.",
-      "locator": "§4.2; ABP 2004 §2.2",
+      "locator": "§4.2, p. 18 (HAL printed page; the journal PDF was not available); ABP 2004 §2.4 (the ring E is defined in ABP §2.4, not §2.2; §2.2 is twisting)",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/C-infinity",
@@ -1759,7 +1783,8 @@
           "where": "Theorem 4.2 and specialization",
           "how": "Correct input domain of the lifting theorem."
         }
-      ]
+      ],
+      "note": "Review note: Statement matches the paper's display on p. 18 and ABP arXiv math/0207168 §2.4."
     },
     {
       "id": "PAPER-NGODAC-21/gamma",
@@ -1812,7 +1837,8 @@
           "where": "L(s)(θ) and normalized relations",
           "how": "Prevents the factorial index shift."
         }
-      ]
+      ],
+      "note": "Review note: Matches §4.2, p. 17."
     },
     {
       "id": "PAPER-NGODAC-21/AT-polynomials",
@@ -1865,7 +1891,8 @@
           "where": "§4.2; §6 computations",
           "how": "Provides interpolation and the low-weight difference equation."
         }
-      ]
+      ],
+      "note": "Review note: Matches the generating series on p. 17; consistent with the index shift H_n = H_{n−1} of [3,10,17] (checked against Chang 2014 Theorem 5.5.1 and CPY 2019 §4.1)."
     },
     {
       "id": "PAPER-NGODAC-21/AT-bound",
@@ -1879,7 +1906,7 @@
         "PAPER-NGODAC-21/C-infinity"
       ],
       "implementationStatus": "unchecked",
-      "note": "The interpolation source theorem and its proof dependencies remain G4."
+      "note": "The interpolation source theorem and its proof dependencies remain G4. Review note: Correct. The manuscript cites Anderson–Thakur 1990 [3, (3.7.3)] (p. 17); Chang 2014 Theorem 5.5.1 gives deg_θ H_{n−1}^{AT} ≤ (n−1)q/(q−1), hence ‖H_n‖ ≤ |θ|^{(n−1)q/(q−1)} < |θ|^{nq/(q−1)}. Adding [3, (3.7.3)] to the locator would match the paper's citation."
     },
     {
       "id": "PAPER-NGODAC-21/AT-small",
@@ -1895,13 +1922,14 @@
       "proofSteps": [
         "For n<2q the only denominator terms affecting x^{n−1} have exponents 1 and q.",
         "Extract α_n and exchange θ,t, retaining Γ_n."
-      ]
+      ],
+      "note": "Review note: Verified by expanding x(1 − x − ((θ^q−t^q)/(θ^q−θ))x^q − …)^{−1}: for n−1=q+k−2 with 2≤k≤q the x^{n−1} coefficient is 1+(k−1)(θ^q−t^q)/[1] and Γ_n=D_1, giving α_n=(θ^q−θ)+(k−1)(θ^q−t^q); swapping θ,t gives the stated H_{q+k−1}. H_n=1 for n≤q likewise."
     },
     {
       "id": "PAPER-NGODAC-21/omega",
       "kind": "definition",
       "name": "Anderson–Thakur Ω function",
-      "statement": "With a compatible choice of (q−1)-st root of −θ, Ω(t)=(-θ)^{−q/(q−1)}∏_{i≥1}(1−t/θ^(q^i)). It is an entire Tate unit, satisfies Ω^(−1)=(t−θ)Ω, and Ω(θ)=π̃^(−1).",
+      "statement": "Fix a (q−1)st root of −θ and put Ω(t)=(−θ)^{−q/(q−1)}∏_{i≥1}(1−t/θ^{q^i}). Then Ω∈E (entire, with coefficients in the finite extension K∞((−θ)^{1/(q−1)})), Ω∈T^× (it has no zero in |t|≤1), Ω^(−1)=(t−θ)Ω, the zeros of Ω are exactly the points t=θ^{q^i} (i≥1), each simple (so Ω(θ^{q^N})=0 for N≥1 and Ω(θ)≠0), and, for the compatible choice of Carlitz period, 1/Ω(θ)=π̃.",
       "locator": "§4.2",
       "status": "missing",
       "dependencies": [
@@ -1910,7 +1938,7 @@
         "PAPER-NGODAC-21/twist"
       ],
       "implementationStatus": "unchecked",
-      "note": "Construction and zero/period identities require the generic analytic inputs recorded as G5; do not infer them from the restricted carrier alone.",
+      "note": "Construction and zero/period identities require the generic analytic inputs recorded as G5; do not infer them from the restricted carrier alone. Review (REV-PAPER-NGODAC-21): statement corrected against the paper: The statement omits the zero set of Ω, which §5.2 uses explicitly ('Note that the function Ω has a simple zero at t = θ^{q^k} for k ∈ N', p. 20) to kill the Ω-multiples in (5.5) and (5.7) at t=θ^{q^j}, and which the proof of (5.4) (Chang Lemma 5.3.5, vanishing orders) needs. Also Ω(θ)≠0 should be explicit. Review note: Routed to DM.2 (source route), consistent with DM.2.",
       "api": [
         {
           "name": "CharPMZV.omega.twist",
@@ -2004,7 +2032,8 @@
           "where": "§§4.2–6",
           "how": "Period functions specialized in every independence argument."
         }
-      ]
+      ],
+      "note": "Review note: Matches (4.1), p. 17, and Chang 2014 (5.3.2)."
     },
     {
       "id": "PAPER-NGODAC-21/L-entire",
@@ -2025,7 +2054,7 @@
         "Place the series in its polynomial Frobenius system, whose determinant at t=0 is nonzero.",
         "Apply ABP Proposition 3.1.3 to get algebraic coefficients, finite coefficient-field degree and entire convergence."
       ],
-      "note": "The analytic-growth proof is decomposed in entire-from-equation; Lang's isogeny and the complete Tate norm interface remain G5."
+      "note": "The analytic-growth proof is decomposed in entire-from-equation; Lang's isogeny and the complete Tate norm interface remain G5. Review note: Matches p. 18 ('It is proved that L(s)∈E, see [9, Lemma 5.3.1]'). Chang's proof of Lemma 5.3.1 cites '[ABP04, Prop. 3.1.1]', a misprint for Prop. 3.1.3 (E7, confirmed); these proof steps correctly use Prop. 3.1.3 (entire-from-equation)."
     },
     {
       "id": "PAPER-NGODAC-21/AT-interpolation",
@@ -2041,7 +2070,7 @@
         "PAPER-NGODAC-21/degree-sums"
       ],
       "implementationStatus": "unchecked",
-      "note": "Original Anderson–Thakur 1990 proof not yet read; exact exported statement is fixed in G4."
+      "note": "Original Anderson–Thakur 1990 proof not yet read; exact exported statement is fixed in G4. Review note: Matches Chang 2014 Theorem 5.5.1 ((H_{s−1}Ω^s)^(d)(θ)=Γ_sS_d(s)/π̃^s for d≥0, s≥1) after the index shift."
     },
     {
       "id": "PAPER-NGODAC-21/L-theta",
@@ -2059,14 +2088,15 @@
       "implementationStatus": "unchecked",
       "proofSteps": [
         "Apply interpolation to each twisted factor and pass through the convergent strictly ordered degree sum."
-      ]
+      ],
+      "note": "Review note: Matches (4.2), p. 17, citing Chang 2014 (5.5.3)."
     },
     {
       "id": "PAPER-NGODAC-21/L-frobenius-specialize",
       "kind": "theorem",
       "name": "Specialization at the Frobenius orbit",
       "statement": "For each positive integer N, L(s)(θ^(q^N))=L(s)(θ)^(q^N).",
-      "locator": "Equation (4.1); Chang 2014 Lemma 5.3.5; CPY Proposition 2.3.3",
+      "locator": "§5.2, equation (5.4), p. 20 (HAL printed page; the journal PDF was not available), citing Chang 2014 Lemma 5.3.5 (proved there for constant coefficients u_i) and CPY 2019 Proposition 2.3.3 (the polynomial-coefficient case needed here). Equation (4.1) is the definition of L(s), not this identity.",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/L-entire",
@@ -2078,7 +2108,8 @@
       "proofSteps": [
         "Split off terms whose smallest twist index is<N; the Ω zeros make them vanish after accounting for the denominator zeros in the rewritten series.",
         "Shift the remaining indices by N to obtain the q^N-power of the original specialization."
-      ]
+      ],
+      "note": "Review note: Statement correct (also trivially for N=0)."
     },
     {
       "id": "PAPER-NGODAC-21/single-motive-matrix",
@@ -2132,7 +2163,8 @@
           "where": "§4.2 period interpretation",
           "how": "Polynomial system for the L-series."
         }
-      ]
+      ],
+      "note": "Review note: Matches the displayed Φ_s, p. 17 (Φ_{i,i−1}=H_{s_i}^(−1)(t−θ)^{s_i+…+s_r})."
     },
     {
       "id": "PAPER-NGODAC-21/single-period-matrix",
@@ -2186,7 +2218,8 @@
           "where": "§§4.2,5",
           "how": "A concretely indexed trivialization suitable for reuse."
         }
-      ]
+      ],
+      "note": "Review note: Matches the displayed Ψ_s, p. 18."
     },
     {
       "id": "PAPER-NGODAC-21/single-trivialization",
@@ -2205,7 +2238,8 @@
       "proofSteps": [
         "Expand the strict-index L recursion entry by entry.",
         "Use Ω^(−1)=(t−θ)Ω and the lower-bidiagonal shape."
-      ]
+      ],
+      "note": "Review note: Checked entrywise: L(s_{j+1..i})^(−1)=L(s_{j+1..i})+(Ω^{s_i}H_{s_i})^(−1)L(s_{j+1..i−1}) and u_i+s_i=u_{i−1} give Ψ^(−1)=ΦΨ. Matches p. 18."
     },
     {
       "id": "PAPER-NGODAC-21/entire-from-equation",
@@ -2226,7 +2260,7 @@
         "Eventually small coefficients equal convergent sums of positive Frobenius twists, giving a finite coefficient-field extension.",
         "For every C>1 the recursion bounds sup C^n|a_n|, proving infinite radius."
       ],
-      "note": "Lang and the complete nonarchimedean analytic interface remain G5."
+      "note": "Lang and the complete nonarchimedean analytic interface remain G5. Review note: Matches ABP 2004 Proposition 3.1.3 (arXiv math/0207168 p. 9; ψ∈Mat(C∞{t}), C∞{t}=T). Proof steps follow ABP's proof (Lang isogeny, Artin–Schreier recursion, twisted tail sums, growth). Routed to DM.8."
     },
     {
       "id": "PAPER-NGODAC-21/ABP-size",
@@ -2279,7 +2313,8 @@
           "where": "ABP §3.3 and §3.4",
           "how": "Arithmetic estimates used in the lifting proof."
         }
-      ]
+      ],
+      "note": "Review note: Matches ABP §3.2.2 and the setting of §3.3.1."
     },
     {
       "id": "PAPER-NGODAC-21/ABP-liouville",
@@ -2295,7 +2330,8 @@
       "proofSteps": [
         "Remove an initial power of z and translate f(z+λ).",
         "Bound the nonzero constant coefficient with the conjugate-size lower bound."
-      ]
+      ],
+      "note": "Review note: Matches ABP Lemma 3.3.3."
     },
     {
       "id": "PAPER-NGODAC-21/ABP-count",
@@ -2313,7 +2349,7 @@
         "Riemann–Roch gives # {x∈O_0:||x||≤q^n}=q^{[L_0:K]n+c} for sufficiently large integral n.",
         "Apply q^ν-power and squeeze arbitrary C by q-power rational radii."
       ],
-      "note": "The high-degree Riemann–Roch theorem is verified at the pinned Tau Ceti commit. G6 now concerns the exact-constant-field, infinity-divisor and all-conjugate-norm bridge, not finding or re-planning Riemann–Roch."
+      "note": "The high-degree Riemann–Roch theorem is verified at the pinned Tau Ceti commit. G6 now concerns the exact-constant-field, infinity-divisor and all-conjugate-norm bridge, not finding or re-planning Riemann–Roch. Review note: Matches ABP Lemma 3.3.4."
     },
     {
       "id": "PAPER-NGODAC-21/ABP-siegel",
@@ -2329,7 +2365,8 @@
       "proofSteps": [
         "Choose slightly smaller intermediate C and a small epsilon.",
         "Use the lattice asymptotic to make the source box larger than the target box, then subtract a colliding pair."
-      ]
+      ],
+      "note": "Review note: Matches ABP Lemma 3.3.5."
     },
     {
       "id": "PAPER-NGODAC-21/ABP-polynomial-siegel",
@@ -2346,7 +2383,8 @@
         "Bound deg_t M by d, then choose an input degree e.",
         "Represent multiplication on coefficient vectors with r'=r(d+e+1), s'=s(e+1).",
         "Take e large enough that r'<s' and adjust C before applying the constant-matrix lemma."
-      ]
+      ],
+      "note": "Review note: Matches ABP Lemma 3.3.6."
     },
     {
       "id": "PAPER-NGODAC-21/ABP-auxiliary",
@@ -2364,7 +2402,7 @@
         "Use the adjugate of Φ and a basis of the annihilator of ρ to encode vanishing as polynomial linear conditions.",
         "Apply the kernel estimate to the coefficient system."
       ],
-      "note": "The precise uniform constant and the normalization inequalities are not yet turned into signatures; retain G7 rather than presenting this source-subsetting as a closed proof leaf."
+      "note": "The precise uniform constant and the normalization inequalities are not yet turned into signatures; retain G7 rather than presenting this source-subsetting as a closed proof leaf. Review note: Matches ABP §3.4.3 (ABP state it for every N divisible by 2ℓ with ‖h‖=O(1); 'sufficiently large' is harmless)."
     },
     {
       "id": "PAPER-NGODAC-21/ABP-auxiliary-zero",
@@ -2384,7 +2422,8 @@
         "A polynomial Siegel relation among E and finitely many inverse twists bounds the first nonzero coefficient from below by Liouville.",
         "The N prescribed zeros and the nonarchimedean Schwarz–Jensen bound force an incompatible upper bound.",
         "Conclude E=0; the needed zero-counting theorem is a separate analytic gap G5."
-      ]
+      ],
+      "note": "Review note: Matches ABP §§3.4.4–3.4.5 (the contradictory bounds hold for all N≫0)."
     },
     {
       "id": "PAPER-NGODAC-21/ABP-lifting",
@@ -2404,7 +2443,7 @@
         "In higher rank normalize to integral data, construct hψ=0, and twist/adjugate-normalize the resulting row to specialize to ρ.",
         "Undo the scalar normalizations."
       ],
-      "note": "All actual matrices used in the main manuscript have nonzero determinant. E4 concerns the broader printed theorem, not the validity of these applications."
+      "note": "All actual matrices used in the main manuscript have nonzero determinant. E4 concerns the broader printed theorem, not the validity of these applications. Review note: REPAIR VERDICT: sound. ABP Theorem 3.1.1 (arXiv p. 7) assumes det Φ is a polynomial 'vanishing (if at all) only at t = T', hence nonzero, and Chang 2014 Theorem 3.2.1 restates it with c∈k̄^×; the corrected statement is exactly ABP's. E4's counterexample was checked (Φ=diag(t−θ^{1/q},0), ψ=(Ω^(−1),0)^T). Status: routed source to DM.8; DM.8's description ('prove the specialization/lifting criterion') may already plan this theorem, in which case the status could be 'planned'."
     },
     {
       "id": "PAPER-NGODAC-21/constant-denominator",
@@ -2422,7 +2461,7 @@
         "A pole in θ's Frobenius orbit would produce infinitely many poles, impossible for a rational matrix.",
         "The remaining monic denominator is fixed by inverse twist, hence has F_q coefficients."
       ],
-      "note": "Use the rational coefficient domain corrected in E10; the full proposition proof was read and the printed page visually checked."
+      "note": "Use the rational coefficient domain corrected in E10; the full proposition proof was read and the printed page visually checked. Review note: REPAIR VERDICT: sound. CPY Proposition 2.2.1 prints F∈Mat_{r1×r2}(k̄[t]) (the same in arXiv v2, p. 6), yet f is a k̄(t)[σ]-module map and the proof works with den(F); the rational-coefficient statement here is what the proof proves and what §5.2 (p. 21) uses. The proof steps summarize CPY's argument correctly."
     },
     {
       "id": "PAPER-NGODAC-21/twist-fixed",
@@ -2440,7 +2479,7 @@
         "Normalize a rational expression to coprime polynomials with monic denominator; invariance forces all coefficients into F_q.",
         "A reduced nonconstant F_q denominator has a root of norm≤1, creating a forbidden Tate-disc pole."
       ],
-      "note": "The denominator may have a zero root; nonzero finite-field-algebraic roots have norm one. Do not assume every root has norm one."
+      "note": "The denominator may have a zero root; nonzero finite-field-algebraic roots have norm one. Do not assume every root has norm one. Review note: Correct; Chang 2014 (3.1.1) gives the fixed field of k̄(t). Note that this item does not give the fixed field of Frac(T), which trivialization-uniqueness uses (see that row)."
     },
     {
       "id": "PAPER-NGODAC-21/MZ-property",
@@ -2455,7 +2494,7 @@
         "PAPER-NGODAC-21/omega"
       ],
       "implementationStatus": "unchecked",
-      "note": "barK∞ here denotes the algebraic closure of K∞ inside C∞, as in Chang's setting; the actual MZVs lie in K∞.",
+      "note": "barK∞ here denotes the algebraic closure of K∞ inside C∞, as in Chang's setting; the actual MZVs lie in K∞. Review note: Matches Chang 2014 Definition 3.4.1 (arXiv p. 8).",
       "api": [
         {
           "name": "CharPMZV.MZ_property.witness",
@@ -2501,7 +2540,7 @@
       "id": "PAPER-NGODAC-21/MZ-weight-separation",
       "kind": "theorem",
       "name": "Separating highest-weight relations",
-      "statement": "For finitely many MZ-property values of finitely many positive weights, an algebraic linear relation involving a maximal-weight block forces an algebraic relation among the maximal-weight values alone.",
+      "statement": "Let w_1>w_2>⋯>w_ℓ be positive integers and, for each i, let V_i be a finite set of elements of K̄∞^× with the MZ property of weight w_i. If 1 and the elements of V_1∪⋯∪V_ℓ satisfy a K̄-linear relation in which some element of V_1 has a nonzero coefficient, then the elements of V_1 satisfy a nontrivial K̄-linear relation.",
       "locator": "Chang 2014 §4.1, Step I",
       "status": "missing",
       "dependencies": [
@@ -2514,7 +2553,8 @@
         "Multiply smaller-weight systems by the appropriate powers of Ω and t−θ to align the highest weight.",
         "Lift the relation and specialize at a sufficiently distant θ^(q^N), killing smaller weights.",
         "Take q^N-th roots of the resulting nontrivial relation."
-      ]
+      ],
+      "note": "Review (REV-PAPER-NGODAC-21): statement corrected against the paper: Imprecise: 'an algebraic linear relation involving a maximal-weight block' and 'an algebraic relation among the maximal-weight values alone' do not say that the relation is over K̄, that 1 is allowed in it, or that the conclusion is a nontrivial K̄-linear relation (Chang 2014 §4.1, Step I). Review note: No item depends on this one: the paper needs only the same-weight descent (MZ-descent, Chang Theorem 3.4.5 with ℓ=1, Step II). It can be dropped, or kept as part of Chang's full theorem."
     },
     {
       "id": "PAPER-NGODAC-21/MZ-descent",
@@ -2534,14 +2574,15 @@
         "Subtract its twisted transport by Φ; the normalized coordinate is zero.",
         "Orbit specialization and minimality force all other final coefficients to be twist-fixed rational functions.",
         "Specialize the normalized row at θ to produce a nontrivial K-relation."
-      ]
+      ],
+      "note": "Review note: Matches Chang 2014 Theorem 3.4.5 with ℓ=1, proved in §4.2 (Step II), read at arXiv p. 9–12."
     },
     {
       "id": "PAPER-NGODAC-21/MZV-property",
       "kind": "theorem",
       "name": "MZVs satisfy Chang's MZ property",
       "statement": "For every nonempty positive index s, ζ_A(s) has the MZ property of weight weight(s), with nonzero normalization Γ_s.",
-      "locator": "Chang 2014 §§5.3–5.5; main §4.2",
+      "locator": "Main §4.2, p. 18 (HAL printed page; the journal PDF was not available) (Φ_s, Ψ_s and (4.2)), with the Frobenius specialization (5.4) = CPY 2019 Proposition 2.3.3; Chang 2014 proves the analogue for CMPL values at algebraic points (Proposition 5.4.1) and reaches MZVs through Theorem 5.5.2, not by this direct statement",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/MZ-property",
@@ -2554,7 +2595,8 @@
       "proofSteps": [
         "Take the first column of Ψ_s and the matrix Φ_s.",
         "The non-final entries contain positive powers of Ω and vanish at the positive Frobenius orbit; the final entry has the stated Γ_s normalization."
-      ]
+      ],
+      "note": "Review note: Statement correct: the first column of Ψ_s has ψ(θ)=(π̃^{−w},…,Γ_sζ_A(s)/π̃^w) and ψ(θ^{q^N})=(0,…,0,(Γ_sζ_A(s)/π̃^w)^{q^N})."
     },
     {
       "id": "PAPER-NGODAC-21/prefix-index",
@@ -2606,14 +2648,15 @@
           "where": "§5.1 extension matrix",
           "how": "Deduplication essential to the independence induction."
         }
-      ]
+      ],
+      "note": "Review note: Matches §5.1, pp. 18–19. Distinct s_i of equal weight have distinct penultimate prefixes, so v_t in prefix-Phi is well defined."
     },
     {
       "id": "PAPER-NGODAC-21/prefix-Phi",
       "kind": "construction",
       "name": "Prefix difference matrix and extension row",
       "statement": "For t∈I put u_t=w−weight(t). Let Φ'_{t,t}=(t−θ)^{u_t}, and for a nonempty prefix t=(v,a), Φ'_{t,v}=H_a^(−1)(t−θ)^{u_v}; other entries are zero. For a relation with nonzero a_i∈A, transfer a_i(θ) to a_i(t)∈F_q[t]. Put v_t=a_i(t)H_last(s_i)^(−1)(t−θ)^{u_t} when t is its penultimate prefix, and zero otherwise. Let Φ=[[Φ',0],[v,1]].",
-      "locator": "§5.1 equations (5.2)–(5.3)",
+      "locator": "§5.1, displays defining Φ′=(Φ′_{t,t′}) and Φ=(Φ′ 0; v 1), p. 19 (HAL printed page; the journal PDF was not available). Equations (5.2)–(5.3) are in §5.2 and are not these definitions.",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/prefix-index",
@@ -2667,7 +2710,7 @@
       "kind": "construction",
       "name": "Prefix period matrix and linear-relation row",
       "statement": "For prefixes u,v∈I, put Ψ'_{u,v}=L(u after v)Ω^{w−weight(u)} if v is a prefix of u, and zero otherwise. Put f_t=Σ_{i:t proper prefix of s_i}a_i(t)L(s_i after t). Define Ψ=[[Ψ',0],[f,1]].",
-      "locator": "§5.1 equations (5.3)–(5.4)",
+      "locator": "§5.1, displays defining Ψ′ and Ψ=(Ψ′ 0; f 1), with f_t in equation (5.1), p. 19 (HAL printed page; the journal PDF was not available). Equations (5.3)–(5.4) are in §5.2.",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/prefix-index",
@@ -2735,14 +2778,15 @@
         "Check each parent-prefix recursion rather than assuming a direct sum of the original systems.",
         "Triangularity gives invertibility and the determinant hypothesis.",
         "The normalized MZV relation is exactly the final entry of the first-column specialization."
-      ]
+      ],
+      "note": "Review note: Checked: the last row of Ψ^(−1)=ΦΨ reduces to L(suffix)^(−1)=L(suffix)+(Ω^{s_ℓ}H_{s_ℓ})^(−1)L(shorter suffix) and uses a_i(t)∈F_q[t]. Matches p. 19 (Ψ^(−1)=ΦΨ) and p. 20 (f_∅(θ)=0)."
     },
     {
       "id": "PAPER-NGODAC-21/normalized-lift",
       "kind": "theorem",
       "name": "Normalized ABP row for a putative MZV relation",
       "statement": "Under the preceding relation, ABP produces a polynomial row (g_t,g) annihilating the first column ψ of Ψ, with g_t(θ)=0 and g(θ)=1. Dividing by g gives a rational row G=(g_t/g,1), regular at θ, with Gψ=0.",
-      "locator": "§5.2 after (5.4)",
+      "locator": "§5.2, paragraph before (5.2), p. 20 (HAL printed page; the journal PDF was not available); there is no '(5.4)' before this step",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/prefix-trivialization",
@@ -2758,8 +2802,8 @@
       "id": "PAPER-NGODAC-21/prefix-difference-zero",
       "kind": "theorem",
       "name": "Eliminating the difference of a normalized lift",
-      "statement": "Assume all relevant lower-weight suffix MZVs are K-independent, hence barK-independent. Then B=G−G^(−1)Φ is zero.",
-      "locator": "§5.2 equation (5.5) and proof",
+      "statement": "In the setting of prefix-trivialization and normalized-lift (a putative relation Σ_i a_iΓ_{s_i}ζ_A(s_i)=0 of weight w, normalized row G=(g_t/g,1) with Gψ=0), assume that for each weight w′<w the MZVs ζ_A(t), t∈I with w(t)=w′, are linearly independent over K, hence over K̄ by MZ-descent. (These t are proper prefixes of the s_i and lie in the family of weight w′ by prefix closure.) Then B:=G−G^(−1)Φ, whose last entry is always 0, is zero.",
+      "locator": "§5.2, the claim B_t=0 and its proof, equations (5.2)–(5.5), pp. 20–21 (HAL printed page; the journal PDF was not available)",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/normalized-lift",
@@ -2774,7 +2818,8 @@
         "Choose prefixes of maximal weight, divide out the smallest Ω power, and specialize at infinitely many θ^(q^N) avoiding rational poles.",
         "Lower-weight algebraic independence forces each maximal-weight coefficient to vanish at infinitely many points, so it is the zero rational function.",
         "Remove that block and repeat; at weight zero use L(empty)=1 separately."
-      ]
+      ],
+      "note": "Review (REV-PAPER-NGODAC-21): statement corrected against the paper: 'All relevant lower-weight suffix MZVs' is wrong: (5.3) is Σ_t B_t L(t)Ω^{w−w(t)}=0 with L(t)(θ)=Γ_tζ_A(t)/π̃^{w(t)} for the proper prefixes t∈I themselves, and the induction hypothesis is applied to these prefix MZVs, weight by weight (p. 20–21). Suffixes enter only in Step 3."
     },
     {
       "id": "PAPER-NGODAC-21/polynomial-splitting",
@@ -2791,7 +2836,8 @@
       "proofSteps": [
         "Regard G as a rational intertwiner to the trivial one-dimensional system.",
         "Apply the constant-denominator proposition and clear denominators with twist-fixed b."
-      ]
+      ],
+      "note": "Review note: Checked: multiplying G=G^(−1)Φ′+v by b=b^(−1) gives δ=δ^(−1)Φ′+bv, i.e. (5.6), p. 21."
     },
     {
       "id": "PAPER-NGODAC-21/prefix-rationality",
@@ -2812,13 +2858,14 @@
         "The row δΨ'+bf is twist-fixed; it lies in T, so equals a row ν∈F_q[t].",
         "Specialize at θ^(q^N): every entry of Ψ' vanishes, giving b(θ)^{q^N}f_t(θ)^{q^N}=ν_t(θ)^{q^N}.",
         "Take q^N-th roots and divide by b(θ), which is nonzero since θ is transcendental."
-      ]
+      ],
+      "note": "Review note: Checked against p. 21. The manuscript says it uses '(4.2)' when it specializes (5.7) at θ^{q^j}; the identity needed is (5.4), as these proof steps use (new misprint below)."
     },
     {
       "id": "PAPER-NGODAC-21/period-power",
       "kind": "theorem",
       "name": "Carlitz-period power field criterion",
-      "statement": "For an integer n>0, π̃^n∈K∞ iff (q−1)|n. In particular a nonzero Eulerian normalized MZV in K forces its weight divisible by q−1.",
+      "statement": "For an integer n>0, π̃^n∈K∞ if and only if (q−1)|n. Consequently, if Z∈K∞^× (for instance Γζ_A(s) with Γ∈A∖{0}) and Z/π̃^n∈K, then (q−1)|n.",
       "locator": "§5.3 and §6; CPY Corollary 4.2.3 discussion",
       "status": "missing",
       "dependencies": [
@@ -2830,7 +2877,7 @@
         "Write the period as a (q−1)-st root factor times a unit in K∞.",
         "Its infinity valuation has fractional part determined by n/(q−1), proving necessity; the product gives sufficiency."
       ],
-      "note": "The exact compatible period/product comparison is part of G5."
+      "note": "The exact compatible period/product comparison is part of G5. Review (REV-PAPER-NGODAC-21): statement corrected against the paper: The second sentence is garbled ('a nonzero Eulerian normalized MZV in K forces its weight divisible by q−1'). Review note: True for every choice of root: π̃=(−θ)^{q/(q−1)}·u with u∈K∞^×. Used on p. 21 (Step 3) and p. 23 ('π̃^{w−w(t)}∉K∞'); CPY 2019 proof of Corollary 4.2.3 states it."
     },
     {
       "id": "PAPER-NGODAC-21/isolated-tail",
@@ -2850,7 +2897,8 @@
       "proofSteps": [
         "Here f_t=a_i(t)L(suffix), and a_i(θ)Γ_suffix is nonzero in K.",
         "Apply prefix rationality and the period-power criterion."
-      ]
+      ],
+      "note": "Review note: Matches §5.3, p. 21."
     },
     {
       "id": "PAPER-NGODAC-21/branch-contradiction",
@@ -2869,7 +2917,8 @@
         "Apply isolated-tail divisibility to successive proper prefixes, subtracting consecutive suffix weights.",
         "Equality of total weights and common initial prefix makes the first differing entries congruent.",
         "Two entries in 1,…,q−1 with equal residue modulo q−1 are equal. For q=2 each weight has only the all-ones index and nonvanishing suffices."
-      ]
+      ],
+      "note": "Review note: Matches §5.3, pp. 21–22. The manuscript's 'Let m := max_i m_i. Then we can find two different tuples' needs at least two indices; the one-term case follows from nonvanishing, as these proof steps note for q=2 (new gap, affects nothing). The dependency on zeta-nonzero should be explicit."
     },
     {
       "id": "PAPER-NGODAC-21/theorem-B",
@@ -2888,7 +2937,8 @@
         "Induct on positive weight; w=1 follows from nonvanishing.",
         "After clearing denominators and Γ factors, a putative relation enters the merged-prefix construction.",
         "Apply the branch contradiction using the lower-weight induction hypothesis."
-      ]
+      ],
+      "note": "Review note: Matches Theorem B, p. 3; proof §5, pp. 18–22. The parenthetical K̄-independence is not in the printed theorem but follows from MZ-descent (all indices have weight w); the dependency is present."
     },
     {
       "id": "PAPER-NGODAC-21/corollary-C",
@@ -2903,7 +2953,8 @@
         "PAPER-NGODAC-21/family-count",
         "PAPER-NGODAC-21/index-families"
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "note": "Review note: Matches Corollary C, p. 4, with the observation I^T_w=I^0_w for w≤q."
     },
     {
       "id": "PAPER-NGODAC-21/nonq-tail",
@@ -2923,7 +2974,8 @@
         "If the suffix weight were not divisible by q−1, f_t(θ)∈K and the period-power criterion would force the unnormalized suffix sum to vanish.",
         "Distinct equal-weight original indices with a fixed prefix have distinct I' suffixes; lower-weight independence excludes that vanishing.",
         "Subtract divisibility statements for consecutive nonempty prefixes."
-      ]
+      ],
+      "note": "Review note: Matches §6 Step 3, (6.1), p. 23. It uses suffix closure of I′ ('The MZV's ... belong to T′_{w−w(t)}'), which no item states (see the coverage row)."
     },
     {
       "id": "PAPER-NGODAC-21/two-index-reduction",
@@ -2942,7 +2994,8 @@
         "Two positive trailing multiples of q−1 would already exceed the available weight after a positive first entry.",
         "A single trailing multiple cannot be 2q−2 in this range.",
         "A singleton relation is impossible by nonvanishing."
-      ]
+      ],
+      "note": "Review note: Matches (6.2), p. 23, with the range q<w≤2q−2 corrected per E12. The paper leaves the one-term case to nonvanishing (these proof steps cover it)."
     },
     {
       "id": "PAPER-NGODAC-21/small-weight-system",
@@ -2996,7 +3049,8 @@
           "where": "§6 explicit contradiction",
           "how": "Input to the explicit integral-descent and degree-bound argument; its scope matches the instance attributed to Kuan–Lin by the manuscript."
         }
-      ]
+      ],
+      "note": "Review note: Checked: with I={∅,(k)}, (5.6) gives (6.3)–(6.4) exactly, with b·a_i(t) written as a_i(t)."
     },
     {
       "id": "PAPER-NGODAC-21/degree-descent",
@@ -3012,7 +3066,7 @@
         "PAPER-NGODAC-21/theta-degree-bound"
       ],
       "implementationStatus": "unchecked",
-      "note": "G1 is discharged for this exact instance by the explicit independent derivation, not by claiming access to Kuan–Lin Theorem 2. The manuscript’s citation is preserved in the locator; the original external theorem remains unread. The manuscript quotes Kuan–Lin for δ_1, δ_2 ∈ K[t], while its coefficient comparison needs A[t]; this item supplies the latter (E11).",
+      "note": "G1 is discharged for this exact instance by the explicit independent derivation, not by claiming access to Kuan–Lin Theorem 2. The manuscript’s citation is preserved in the locator; the original external theorem remains unread. The manuscript quotes Kuan–Lin for δ_1, δ_2 ∈ K[t], while its coefficient comparison needs A[t]; this item supplies the latter (E11). Review note: REPAIR VERDICT: sound. Twisting (6.4) once gives δ_2^(1)=(t−θ^q)^{q−1}(δ_2+a_2) (H_{q−1}=1), and twisting (6.3) gives δ_1^(1)=(t−θ^q)^w(δ_1+δ_2+a_1H_w) (H_k=1). Both multipliers are monic in t of positive degree over A, so monic-frobenius-descent gives δ_2 and then δ_1 in A[t]. theta-degree-bound with (m,M)=(q−1,0) gives deg_θ δ_2≤q, and with (m,M)=(w,q) gives floor(qw/(q−1)), since deg_θ H_w≤q and qw/(q−1)>q. This supplies what E11 finds missing.",
       "proofSteps": [
         "Twist (6.4) once, using H_(q−1)=1: δ_2^(1)=(t−θ^q)^(q−1)(δ_2+a_2). Apply monic-frobenius-descent with R=A to obtain δ_2∈A[t]. The degree bound with M=0 gives deg_θ δ_2≤q.",
         "Twist (6.3) once, using H_k=1: δ_1^(1)=(t−θ^q)^w(δ_1+δ_2+a_1 H_w). Both the monic multiplier and the forcing polynomial belong to A[t], so descend δ_1 to A[t].",
@@ -3036,7 +3090,7 @@
         "If Δ≠0, inverse coefficient twist preserves t-degree and the right side has degree deg_t Δ+q−1, impossible. Thus Δ=0.",
         "For each β∈F_q, evaluate Δ=0 at t=β. Since θ^q−β≠0, a_2(β)=0. The q distinct linear factors of t^q−t therefore divide a_2 in F_q[t]. Set f=a_2/(t^q−t) and cancel the nonzero factor to identify δ_2."
       ],
-      "note": "This classification works directly over barK[t] and does not need the degree bound; the dependency edge to degree-descent is removed."
+      "note": "This classification works directly over barK[t] and does not need the degree bound; the dependency edge to degree-descent is removed. Review note: Sound. The particular solution checks: (θ−t^q+t^q−t)(t−θ)^{q−1}=θ^q−t^q. The cross-difference Δ=Δ^(−1)(t−θ)^{q−1} forces Δ=0 by t-degree, and evaluating at β∈F_q gives (t^q−t)|a_2. It needs no degree bound, as the note says."
     },
     {
       "id": "PAPER-NGODAC-21/interior-contradiction",
@@ -3057,7 +3111,7 @@
         "Compare the θ^k coefficient first, then θ^{k−1}, whose contributions below degree q come only from the low-degree part of (aθ+b)(t^q−θ^q)(t−θ)^{k−1}.",
         "Compare θ^q and then the constant coefficient."
       ],
-      "note": "The polynomial forms now follow from degree-descent and integral-monic-quotient, including when p divides k−1."
+      "note": "The polynomial forms now follow from degree-descent and integral-monic-quotient, including when p divides k−1. Review note: Sound. For 2≤k≤q−2, floor(qw/(q−1))=w+1, so integral-monic-quotient gives δ_1=(aθ+b)(t−θ)^w. Since k<q, the θ^k and θ^{k−1} coefficients come only from (aθ+b)t^q(t−θ)^{k−1}, which gives a=b=0. The θ^q coefficient then gives f=(k−1)a_1 and the constant term gives (t^q−t)a_1=0."
     },
     {
       "id": "PAPER-NGODAC-21/endpoint-contradiction",
@@ -3078,7 +3132,7 @@
         "Substitute θ=t into the final polynomial identity to get h(t)(t−t^q)²=0, so h=0.",
         "The remaining right side is a product of nonzero polynomials, contradiction."
       ],
-      "note": "The explicit θ=t step includes the h=0 case suppressed by the manuscript's final divisibility sentence."
+      "note": "The explicit θ=t step includes the h=0 case suppressed by the manuscript's final divisibility sentence. Review note: Sound. The θ^{2q−1} and θ^{2q−2} coefficients give b=−2at and c=at² (using C(2q−2,1)≡−2 and C(2q−2,2)≡3, both valid for p=2; q>2 keeps these degrees above q). The printed divisibility sentence is complete as it stands: f≠0 makes the right side nonzero, hence h≠0, so the left side is not divisible by θ−t. The item's explicit θ=t step is equivalent."
     },
     {
       "id": "PAPER-NGODAC-21/theorem-6-2",
@@ -3098,7 +3152,7 @@
         "For w≤q, I'_w=I^0_w and Theorem B applies.",
         "Induct on larger w; any relation reduces to the two-index system and its contradiction."
       ],
-      "note": "Statement faithfully extracted. The base case should read w ≤ q (E12), and the coefficient comparison needs δ_i ∈ A[t] (E11, supplied by degree-descent)."
+      "note": "Statement faithfully extracted. The base case should read w ≤ q (E12), and the coefficient comparison needs δ_i ∈ A[t] (E11, supplied by degree-descent). Review note: Matches Theorem 6.2, p. 22 (q>2, w≤2q−2); the E11/E12 repairs are recorded in the note."
     },
     {
       "id": "PAPER-NGODAC-21/theorem-D",
@@ -3118,7 +3172,7 @@
         "For q>2, the independent I' family has d(w) members, matching the spanning-family upper bound.",
         "For q=2 the range is w≤2 and Corollary C suffices."
       ],
-      "note": "No claim here that the 2021 paper proves the later all-weight basis theorem."
+      "note": "No claim here that the 2021 paper proves the later all-weight basis theorem. Review note: Matches Theorem D, p. 4, and its proof, p. 24 (Theorem A + Lemma 6.1 + Theorem 6.2; q=2 via Corollary C)."
     },
     {
       "id": "PAPER-NGODAC-21/sharp-method-boundary",
@@ -3139,7 +3193,7 @@
         "Use the explicit next-weight binary relation and nonvanishing.",
         "For q>2, neither 2q−1 nor 1 nor 2q−2 is divisible by q."
       ],
-      "note": "This is not a disproof of the Thakur family basis conjecture: the two index families are different."
+      "note": "This is not a disproof of the Thakur family basis conjecture: the two index families are different. Review note: Matches Remark 6.3, p. 24. For q>2, 1, 2q−1 and 2q−2=q+(q−2) are all prime to q, so both indices lie in I′_{2q−1}."
     },
     {
       "id": "PAPER-NGODAC-21/next-weight-relation",
@@ -3163,14 +3217,15 @@
       ],
       "acceptance": [
         "At q=2 the relation is ζ_A(3)+(θ²−θ)ζ_A(1,2)=0; this does not contradict I' independence because the second index has an entry divisible by q."
-      ]
+      ],
+      "note": "Review note: REPAIR VERDICT: sound. By Proposition 2.8, C_{(q−1)}(R₁) is S_d(q,q−1)+S_d(q)S_d(q−1)+D_1S_{d+1}(1)S_{<d+1}(q−1)²=0. Chen's formula gives Δ^{q−1}_{q,q−1}=(−1)^{q−2}=−1 and Δ^{2q−2}_{q,q−1}=C(2q−3,q−2)[(−1)^{q−1}+(−1)^{q−2}]=0, so S_d(q)S_d(q−1)=S_d(2q−1)−S_d(q,q−1). Also Δ^{q−1}_{q−1,q−1}=2(−1)^{q−2}, so S_{<d}(q−1)²=S_{<d}(2q−2). The relation follows. As an independent check, S_d(2q−1)+D_1S_{d+1}(1,2q−2) was expanded in 1/θ over F_p: it vanishes to about 70 terms for q=2,3 (d=0,1,2) and q=5,7 (d=0,1), and R₁ passes the same test."
     },
     {
       "id": "PAPER-NGODAC-21/BC-support",
       "kind": "theorem",
       "name": "Support control after BC_q cancellation",
       "statement": "After expanding the shifted products in BC_q(R), every resulting shifted index is (1,u) where u≤(q−1)+t for some t in the old shifted support; the fixed part consists of (q,s) for s in the old fixed support.",
-      "locator": "Proposition 2.10 and Lemma 2.11",
+      "locator": "§2.2, paragraph before Proposition 2.10 ('Note that by (2.6) we can write …'), p. 11 (HAL v1). There is no Lemma 2.11 (2.11 is Definition 2.11).",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/BC-operation",
@@ -3182,7 +3237,8 @@
       "proofSteps": [
         "Apply the controlled truncated product theorem to S_<d+1(q−1)S_<d+1(t).",
         "Prepend the fixed entry 1, retaining all K coefficients and the negative D_1 factor."
-      ]
+      ],
+      "note": "Review note: Statement exact and numerically verified: shifted outputs are (1,u) with u ≤ (q−1)+t."
     },
     {
       "id": "PAPER-NGODAC-21/lower-bound",
@@ -3200,7 +3256,8 @@
       "proofSteps": [
         "Independence gives the dimension lower bound.",
         "Partition small-entry compositions by their first part."
-      ]
+      ],
+      "note": "Review note: Matches 'In particular, dim_K Z_w ≥ d_0(w) := |T^0_w|' in Theorem B, p. 3; the composition recurrence is elementary and correct. The locator could read '§1.3, Theorem B, p. 3'."
     },
     {
       "id": "PAPER-NGODAC-21/finite-field-unit-sum",
@@ -3214,7 +3271,7 @@
       "library": [
         "mathlib:FiniteField.sum_pow_units"
       ],
-      "note": "The library statement is for natural positive powers; inverse powers use the bijection c↦c⁻¹. It includes i=0, where q−1=−1 inside F."
+      "note": "The library statement is for natural positive powers; inverse powers use the bijection c↦c⁻¹. It includes i=0, where q−1=−1 inside F. Review note: library confirmed: FiniteField.sum_pow_units at Mathlib/FieldTheory/Finite/Basic.lean l. 290 (082e2d3), (∑ x : Kˣ, (x ^ i : K)) = if q − 1 ∣ i then −1 else 0, with q = Fintype.card K, for [Field K] [Fintype K] [DecidableEq K], i : ℕ. The inverse-power form follows by x ↦ x⁻¹ as the note says."
     },
     {
       "id": "PAPER-NGODAC-21/explicit-partial-fractions",
@@ -3225,7 +3282,7 @@
       "status": "missing",
       "dependencies": [],
       "implementationStatus": "unchecked",
-      "note": "This is an explicit coefficient application, not a replacement for Mathlib’s general partial-fraction existence/uniqueness theory. Chen 2015 itself remains unread; this proof does not claim to transcribe Chen’s proof.",
+      "note": "This is an explicit coefficient application, not a replacement for Mathlib’s general partial-fraction existence/uniqueness theory. Chen 2015 itself remains unread; this proof does not claim to transcribe Chen’s proof. Review note: REPAIR VERDICT: sound. The identity is true: h·x^(−a)y^(−b) = x^(−(a−1))y^(−b) − x^(−a)y^(−(b−1)), then induction with Pascal's rule; clearing x^a y^b h^(a+b−1) gives an integer polynomial identity, so it holds in every characteristic. Case a=b=1: −1/(xh) + 1/(yh) = 1/(xy). Independent exact checks (reviewer code, python-flint over F_q(θ)): 384 exact rational evaluations, 1 ≤ a,b ≤ 8, all equal.",
       "acceptance": [
         "a=b=1 gives (1/y−1/x)/(x−y).",
         "In characteristic two both minus signs become plus signs.",
@@ -3257,7 +3314,8 @@
         "Subtracting monic equal-degree polynomials cancels their leading terms. Conversely adding or subtracting a strictly lower-degree h preserves monicity and degree; h≠0 gives distinctness.",
         "Normalize a nonzero h by its leading coefficient. Its monic factor has the same degree, and this representation is unique.",
         "Factor the finite sum into the unit sum and the monic truncated sum, and apply the pinned finite-field power-sum theorem by inverse reindexing."
-      ]
+      ],
+      "note": "Review note: REPAIR VERDICT: sound. The bijections and the unique normalization h = c·g are correct, and Σ_{c∈F_q^×} c^(−i) = −[q−1 | i]. Independent exact checks (reviewer code, python-flint over F_q(θ)): Σ_{0≠h, deg h<d} h^(−i) = −[q−1 | i]·S_<d(i) for 1 ≤ i ≤ 8, 0 ≤ d ≤ 4 (q=2), 3 (q=3), 2 (q=4,5)."
     },
     {
       "id": "PAPER-NGODAC-21/monic-frobenius-descent",
@@ -3279,7 +3337,8 @@
         "Write B=Σ_{i=0}^m B_i t^i with B_m=1 and δ=Σ δ_j t^j; set coefficients outside the finite support to zero.",
         "Compare the coefficient of t^(j+m): δ_j=δ_(j+m)^q−F_(j+m)−Σ_{i=0}^{m−1} B_i δ_(j+m−i).",
         "All δ subscripts on the right are strictly greater than j. Descend from deg_t δ; ring closure and q-power stability show every δ_j belongs to R. No denominator clearing or perfectness of R is used."
-      ]
+      ],
+      "note": "Review note: REPAIR VERDICT: sound. Comparing t^{j+m} coefficients gives δ_j=δ_{j+m}^q−F_{j+m}−Σ_{i<m}B_iδ_{j+m−i}, and every index on the right exceeds j; descending induction from deg_t δ needs only that R is a ring stable under q-powers. The m>0 hypothesis is necessary (the acceptance counterexample with q=2, B=F=1, δ∈F_4∖F_2 is right)."
     },
     {
       "id": "PAPER-NGODAC-21/theta-degree-bound",
@@ -3300,7 +3359,8 @@
         "For nonzero δ write N=deg_θ δ. Positive coefficient twist fixes t and sends θ to θ^q, so deg_θ δ^(1)=qN.",
         "If N exceeds both M and qm/(q−1), then deg_θ(δ+G)=N. The right-hand side has degree qm+N over the domain F_q[t].",
         "Equality would force qN=qm+N, contradicting (q−1)N>qm. The zero polynomial is handled separately."
-      ]
+      ],
+      "note": "Review note: REPAIR VERDICT: sound. δ∈F_q[t][θ] has F_q[t] coefficients, so δ^(1)(θ,t)=δ(θ^q,t) has θ-degree qN. If N>max(M,qm/(q−1)), then deg_θ(δ+G)=N and (t−θ^q)^m has unit leading θ-coefficient (−1)^m, so qN=qm+N, a contradiction. Integrality of N gives the floor."
     },
     {
       "id": "PAPER-NGODAC-21/integral-monic-quotient",
@@ -3318,7 +3378,8 @@
       "proofSteps": [
         "Divide by the monic t-polynomial (t−θ)^m over A. Map the quotient and remainder to barK[t]; divisibility and uniqueness of division force the remainder to vanish already in A[t].",
         "The polynomial (t−θ)^m has θ-leading coefficient (−1)^m, a unit. Degree additivity in the domain F_q[t][θ] gives the asserted difference."
-      ]
+      ],
+      "note": "Review note: REPAIR VERDICT: sound. Division by the t-monic (t−θ)^m is unique in K̄[t] and can be done in A[t], so the quotient lies in A[t]. The θ-degree of (t−θ)^m is m with unit leading coefficient (−1)^m in the domain F_q[t][θ]."
     },
     {
       "id": "PAPER-NGODAC-21/riemann-roch-high-degree",
@@ -3332,7 +3393,7 @@
       "library": [
         "tauceti:TauCeti.Divisor.dim_eq_degree_add_one_sub_genus_of_two_mul_genus_sub_one_le_degree"
       ],
-      "note": "The exact constant-field hypothesis is essential. This is the existing theorem to import, not a new roadmap target; transporting ABP’s all-conjugate norm bound to such a divisor remains G6."
+      "note": "The exact constant-field hypothesis is essential. This is the existing theorem to import, not a new roadmap target; transporting ABP’s all-conjugate norm bound to such a divisor remains G6. Review note: library confirmed: TauCeti.Divisor.dim_eq_degree_add_one_sub_genus_of_two_mul_genus_sub_one_le_degree at TauCeti/FieldTheory/FunctionField/Consequences/HighDegree.lean l. 65–68 (f790474), variables {k F} [Field k] [Field F] [Algebra k F], hypotheses (hF : IsFunctionField k F) (hex : IsIntegrallyClosedIn k F) (hD : 2·genus − 1 ≤ degree D), conclusion (dim D : ℤ) = degree D + 1 − genus k F. This is outside §§1–3 (ABP, §4)."
     },
     {
       "id": "PAPER-NGODAC-21/small-product",
@@ -3350,7 +3411,7 @@
         "In Chen's identity (2.1) only indices i divisible by q − 1 carry a nonzero coefficient. Since 0 < i < a + b ≤ q, the only candidate is i = q − 1, and only when a + b = q.",
         "Then Δ = (−1)^{a−1}C(q−2, a−1) + (−1)^{b−1}C(q−2, b−1) with b = q − a. The two binomial coefficients agree. For odd q the signs are opposite, and for even q the sum is twice a binomial coefficient, which vanishes in characteristic 2. So Δ = 0 and S_d(a)S_d(b) = S_d(a+b)."
       ],
-      "note": "Added by cc-442dc5; the paper states it as an elementary fact. Without it Corollary 2.7 has no source item."
+      "note": "Added by cc-442dc5; the paper states it as an elementary fact. Without it Corollary 2.7 has no source item. Review note: Locator and statement exact (Remark 2.2(2), p. 8). The argument is right: only i = q−1 can survive when a+b = q, and C(q−2,a−1) = C(q−2,b−1) with opposite signs (q odd) or doubled (p = 2). Independent exact checks (reviewer code, python-flint over F_q(θ)): S_d(a)S_d(b) = S_d(a+b) for all a+b ≤ q, q ∈ {2,3,4,5,7}."
     },
     {
       "id": "PAPER-NGODAC-21/trivialization-uniqueness",
@@ -3370,7 +3431,46 @@
       "proofSteps": [
         "ν := Ψ^{−1}X satisfies ν^(−1) = ν, so its entries lie in the fixed field of the twist on the fraction field of T, which is F_q(t)."
       ],
-      "note": "Added by cc-442dc5. It turns (5.6) into (5.7). DM.8 plans the rigid analytically trivial motives of Papanikolas' theory, of which this is a basic lemma; twist-fixed records only the fixed field of K̄(t)."
+      "note": "Added by cc-442dc5. It turns (5.6) into (5.7). DM.8 plans the rigid analytically trivial motives of Papanikolas' theory, of which this is a basic lemma; twist-fixed records only the fixed field of K̄(t). Review note: Statement true (Papanikolas 2008 §4.1.6, read at arXiv math/0506078 p. 22, for Φ∈GL_r(K̄(t)) and Ψ,Ψ′∈GL_r(L), L=Frac(T); the det Φ hypothesis is stronger than needed). The proof step uses L^σ=F_q(t), which is Papanikolas Lemma 3.3.2 and is not supplied by twist-fixed (that item covers K̄(t) and F_q(t)∩T only). Either add that lemma as a dependency (coverage row below; plausibly DM.8), or note that §5.2 needs only T^σ=F_q[t]: (Ψ′ 0;0 1)^{−1}X=(Id 0; δΨ′+bf 1) directly, so ν=δΨ′+bf∈T is twist-fixed. Planned DM.8 is plausible (Papanikolas' fundamental matrices)."
+    },
+    {
+      "id": "PAPER-NGODAC-21/rev-calculus-of-prefix-dominance",
+      "kind": "theorem",
+      "name": "Calculus of prefix dominance",
+      "statement": "Let s, t, u, c be tuples of positive integers (entries past the depth read as 0; + is zero-padded coordinatewise sum). (1) ≤ is reflexive, transitive and antisymmetric on tuples of each fixed weight. (2) If s ≤ t then (u, s) ≤ (u, t) and u + s ≤ u + t. (3) If s ≤ t then T_k(s) ≤ T_k(t) for every k ≥ 1; if T_i(s) ≤ T_i(t) then T_k(s) ≤ T_k(t) for all k ≥ i. (4) If s ≤ t then depth(s) ≥ depth(t). (5) For integers x > i > 0, (x − i, (i) + c) ≤ (x, c); for nonempty a = (a_1, a_−) and any b, (a_1, a_− + b) ≤ a + b and (a_1 + b_1, a_− + b_−) = a + b; for m ≥ 1, (m) + (1, c) = (m + 1, c).",
+      "locator": "§2.1, p. 5 (HAL v1 printed pages; journal pages unavailable), with uses on pp. 7, 8, 10, 11, 12, 13, 15, 16",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NGODAC-21 (coverage of the paper): The paper uses about a dozen dominance manipulations without proof, e.g. '(a_1+b_1−i, d'_ij) ≤ (a_1+b_1−i, (i)+a_−+b_−) ≤ a+b' (p. 7), '(a_1, c''_j) ≤ (a_1, a_−+b) ≤ a+b' (p. 8) and (2.13) (p. 12). Items dominance and tuple-operations have only antisymmetry, depth monotonicity, the prefix bound and T_i monotonicity. Formalization needs these facts; they could also be added as API of dominance. Route: DrinfeldModulesAndTModulesPartII."
+    },
+    {
+      "id": "PAPER-NGODAC-21/rev-canonical-power-sum-product-expansions",
+      "kind": "construction",
+      "name": "Canonical power-sum product expansions",
+      "statement": "By simultaneous recursion on depth(a)+depth(b) define finitely supported F_p-valued functions on tuples: trunc(∅, b) = [b], trunc(a, ∅) = [a]; for nonempty a, b: fix(a, b) = Σ_c trunc(a_−, b_−)(c)·[(a_1+b_1, c)] + Σ_{0<i<a_1+b_1} Δ_i(a_1, b_1) Σ_c Σ_e trunc(a_−, b_−)(c)·trunc((i), c)(e)·[(a_1+b_1−i, e)]; trunc(a, b) = Σ_c trunc(a_−, b)(c)·[(a_1, c)] + Σ_c trunc(a, b_−)(c)·[(b_1, c)] + fix(a, b); mix(a, b) = Σ_c trunc(a_−, b)(c)·[(a_1, c)]. The recursion terminates, and for every d ∈ Z: S_d(a)S_d(b) = Σ_c fix(a,b)(c)S_d(c) (2.5), S_<d(a)S_<d(b) = Σ_c trunc(a,b)(c)S_<d(c) (2.6), S_d(a)S_<d(b) = Σ_c mix(a,b)(c)S_d(c) (2.7), with the support bounds of fixed-product, truncated-product and mixed-product.",
+      "locator": "§2.1, (2.2)–(2.4), p. 6, and the paragraph after (2.7), p. 8 (HAL v1)",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NGODAC-21 (coverage of the paper): (2.2)–(2.4) are written as definitions (':='), and the paper fixes these specific expansions so that B*_v, C_W and BC_q are maps BR_w → BR_{w+·}. Uniqueness is open (Remark 2.2(1)). Items fixed-product, truncated-product and mixed-product assert only existence, so no item defines the maps that B-operation, C-operation, BC-operation and todd-conjecture need. Route: DrinfeldModulesAndTModulesPartII."
+    },
+    {
+      "id": "PAPER-NGODAC-21/rev-prefix-and-suffix-closure-of",
+      "kind": "theorem",
+      "name": "Prefix and suffix closure of the small-entry and q-indivisible families",
+      "statement": "Let s=(s_1,…,s_r) be an index of weight w and 0≤j<k≤r. (1) If s∈I^0_w (every entry <q), then (s_{j+1},…,s_k)∈I^0_{s_{j+1}+⋯+s_k}. (2) If s∈I′_w (no entry divisible by q), then (s_{j+1},…,s_k)∈I′_{s_{j+1}+⋯+s_k}. In particular every prefix (s_1,…,s_{r−1}) and every suffix of s lies in the family of its weight. (3) The Thakur family is not prefix-closed: (q,1)∈I^T_{q+1}, but (q)∉I^T_q.",
+      "locator": "§5.3, Remark 5.1, p. 22, and §6, Lemma 6.1(2), p. 22 (HAL printed page; the journal PDF was not available)",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NGODAC-21 (coverage of the paper): Step 2 of both independence proofs applies the lower-weight induction hypothesis to the prefix MZVs ζ_A(t), t∈I (Remark 5.1, Lemma 6.1(2)). Step 3 of Theorem 6.2 applies it to suffixes ('The MZV's appearing ... belong to T′_{w−w(t)}'). Remark 5.1 also records that the Thakur family fails prefix closure, which is why §6 exists. No item states these closure facts; index-families only defines the families. Route: DrinfeldModulesAndTModulesPartII."
+    },
+    {
+      "id": "PAPER-NGODAC-21/rev-twist-fixed-field-of-the",
+      "kind": "theorem",
+      "name": "Twist-fixed field of the fraction field of the Tate algebra",
+      "statement": "Let L be the fraction field of the Tate algebra T=C∞{t}. If f∈L satisfies f^(−1)=f, then f∈F_q(t). Hence L^σ=F_q(t) and T^σ=F_q[t].",
+      "locator": "Papanikolas 2008 (Invent. Math. 171), Lemma 3.3.2; used via [20, §4.1.6] in §5.2, p. 21 (HAL printed page; the journal PDF was not available)",
+      "status": "planned",
+      "planned": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "note": "Added by the review REV-PAPER-NGODAC-21 (coverage of the paper): The proof step of trivialization-uniqueness needs the twist-fixed field of Frac(T). twist-fixed gives only that of K̄(t), plus F_q(t)∩T=F_q[t]."
     }
   ],
   "prerequisites": [
@@ -3590,7 +3690,10 @@
         "PAPER-NGODAC-21/explicit-partial-fractions",
         "PAPER-NGODAC-21/monic-pair-reindex",
         "PAPER-NGODAC-21/integral-monic-quotient",
-        "PAPER-NGODAC-21/small-product"
+        "PAPER-NGODAC-21/small-product",
+        "PAPER-NGODAC-21/rev-calculus-of-prefix-dominance",
+        "PAPER-NGODAC-21/rev-canonical-power-sum-product-expansions",
+        "PAPER-NGODAC-21/rev-prefix-and-suffix-closure-of"
       ],
       "reason": "Reuse exactly the Part II proposed in PAPER-CHANG-CHEN-MISHIBA-23 and PAPER-IM-KIM-LE-ETAL-24, not a second MZV roadmap. It has no live roadmap definition/packet in the inspected snapshot, so its additional declarations are missing, not planned. The base covers rank-one and generic motive infrastructure, not this higher-depth index calculus and independence argument.",
       "brief": "Extend the existing proposed DrinfeldModulesAndTModulesPartII by the precise 2021 proof route, sharing definitions with the later basis and alternating-MZV sources. Its theorems from this source are: for every prime power q and weight w>0, Thakur indices with entries≤q and final entry<q span Z_w over F_q(θ); the smaller family with every entry<q is independent at every weight; consequently the Thakur family is a basis and dim Z_w=d(w) for 1≤w≤2q−2. Do not attribute the later all-weight basis theorem to this source. Construct positive indices, prefix dominance, degree sums, MZV convergence/nonvanishing, finite coefficient relation data, Chen product recursion, Todd B*, C and BC_q, the two reduction lemmas and an explicit finite termination rank. Keep Todd's completeness-of-relations assertion labelled conjectural here. Construct Anderson–Thakur interpolation polynomials with the manuscript's one-place index shift, the entire L-series, their explicit matrices, merged proper-prefix extension, normalized ABP row, polynomial splitting, suffix rationality and longest-common-prefix contradiction. The final range extension needs the explicit monic Frobenius descent, theta-degree bound and integral-quotient lemmas recorded in this continuation, the two-equation calculation in both interior and endpoint weights, the I'↔I^T counting bijection, and the explicit dependent I' pair at weight 2q−1. Import Drinfeld modules, t-motives and characteristic-p special values (DrinfeldModulesAndTModules) DM.0 for Carlitz denominator arithmetic, DM.2 for C∞ and period/Ω analysis, DM.4 for the exact dual motive interface, DM.6 for factorial and depth-one power-sum normalization, and DM.8 for generic twists, entire solutions, ABP lifting and denominator descent. Import existing global-function-field/Riemann–Roch suppliers only after matching declarations, never rebuild that theory in this extension. Classical MZVs in Periods, motivic L-values and special-value conjectures (PeriodsAndSpecialValues:PS.9) are an analogy, not a source of characteristic-p independence. Every definition must carry the usage-derived APIs and three discriminating tests recorded here. The six remaining G3–G8 proof leaves must be closed or retained as precise gaps before a blueprint claims closure. The direct two-pole partial-fraction and monic-pair reindexing derivation supplies Chen’s coefficients for all exponents and all degrees, importing Mathlib FiniteField.sum_pow_units. It avoids an unread coefficient-formula oracle. Import the verified Tau Ceti high-degree Riemann–Roch theorem with its exact-constant-field hypothesis; the ABP norm/divisor transport is still a gap."
@@ -3685,7 +3788,13 @@
         "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
         "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
         "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed computation that follows sums a_iS_j(s_i) + b_iS_{j+1}(t_i) over j < d, i.e. R(j). The intended meaning is clear.",
+        "by": "REV-PAPER-NGODAC-21",
+        "amendedCorrection": "S_d(v) Σ_{j<d} R(j)."
+      }
     },
     {
       "id": "PAPER-NGODAC-21/E2",
@@ -3700,7 +3809,13 @@
         "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
         "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
         "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The a_i, b_i ∈ K multiply the F_p structure constants. Exact computation at q = 2: C_(1)(R₁) = S_d(3) + (θ²+θ)S_{d+1}(1,2), so g = θ²+θ ∉ F_2. Lemma 2.9 correctly writes a_i, b_i ∈ K.",
+        "by": "REV-PAPER-NGODAC-21",
+        "amendedCorrection": "f_j, g_ℓ ∈ K. Only the product structure constants lie in F_p."
+      }
     },
     {
       "id": "PAPER-NGODAC-21/E3",
@@ -3715,7 +3830,13 @@
         "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
         "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
         "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "B*_v is defined only for a positive integer v (a singleton tuple). As printed for j = 0, (2.14) would contain S_d(1,t) where (2.11) has S_{d+1}(1,t), so it is not a valid fixed relation, although the summed MZV identity is the same. The paper's remark 'these terms appear only in the case where j ≥ 1' (p. 13) shows the intended reading, so the damage is small. The repaired branch was run 114 times in the reviewer's implementation (q=2,…,5) and every resulting identity was verified in K∞.",
+        "by": "REV-PAPER-NGODAC-21",
+        "amendedCorrection": "For j = 0 (then s_1 = ⋯ = s_{k−1} = q), apply no B* and sum the binary relation (2.11) over d (Remark 2.4): ζ(s) + Σa_iζ(q^{k−1},s_i) + Σbζ(1,t) = 0. The (1,t) are the type 2 terms and there are no type 3 terms. For j ≥ 1 the printed argument stands."
+      }
     },
     {
       "id": "PAPER-NGODAC-21/E4",
@@ -3730,7 +3851,13 @@
         "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
         "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
         "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image and against ABP arXiv math/0207168 p. 7. The counterexample holds: Φ=diag(t−θ^{1/q},0) and ψ=(Ω^(−1),0)^T∈E², with (Ω^(−1))^(−1)=(t−θ^{1/q})Ω^(−1), satisfy ψ^(−1)=Φψ, det Φ=0 and ρψ(θ)=0 for ρ=(1,0), since Ω^(−1)(θ)=0. Any P with Pψ=0 has P_1=0, so P(θ)≠ρ. The matrices the paper actually uses have c=1.",
+        "by": "REV-PAPER-NGODAC-21",
+        "amendedCorrection": "c ∈ K̄^× (det Φ ≠ 0), as in ABP 2004 Theorem 3.1.1 ('det Φ is a polynomial in t vanishing (if at all) only at t = T') and Chang 2014 Theorem 3.2.1 (c ∈ k̄^×)."
+      }
     },
     {
       "id": "PAPER-NGODAC-21/E5",
@@ -3745,7 +3872,13 @@
         "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
         "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
         "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Chang 2014 (arXiv 1207.2326v4) was read. Proposition 4.3.1 (p. 12) says that if π̃^w, Z_1, …, Z_n are linearly dependent over K̄ then they are dependent over K. It concerns π̃^w, and its proof assumes the K̄-independence of the Z_i. Theorem 3.4.5 (p. 9) gives K-independence ⇒ K̄-independence for same-weight MZ-property values.",
+        "by": "REV-PAPER-NGODAC-21",
+        "amendedCorrection": "[9, Theorem 3.4.5] (with ℓ=1; or its MZV form [9, Theorem 2.2.1])."
+      }
     },
     {
       "id": "PAPER-NGODAC-21/E6",
@@ -3760,7 +3893,13 @@
         "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
         "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
         "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Crossref metadata for 'A conjectural characterization for F_q(t)-linear relations between multizeta values' gives J. Number Theory 187, pages 264–287. Second checker: Checked on the page image. Crossref for DOI 10.1016/j.jnt.2017.09.028 gives pages 264–287.",
+        "by": "REV-PAPER-NGODAC-21",
+        "amendedCorrection": "J. Number Theory 187 (2018), 264–287."
+      }
     },
     {
       "id": "PAPER-NGODAC-21/E7",
@@ -3775,7 +3914,13 @@
         "Chang's author page https://www.math.nthu.edu.tw/~cychang/ and arXiv:1207.2326 landing page inspected 2026-09-22.",
         "Title-plus-corrigendum search on 2026-09-22 found no matching correction; full published comparison remains open.",
         "ABP arXiv:math/0207168 §3.1 read directly to verify the correct locator."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "ABP (arXiv math/0207168) §3.1 has Theorem 3.1.1 (the lifting criterion, p. 7) and Proposition 3.1.3 (p. 9: det Φ(0)≠0 and ψ∈Mat(C∞{t}) ⇒ ψ∈Mat(E)). There is no Proposition 3.1.1. The property 'det Φ|_{t=0}≠0, entries in T' is exactly Proposition 3.1.3's hypothesis, and Chang's own Theorem 3.2.1 cites Thm. 3.1.1 correctly.",
+        "by": "REV-PAPER-NGODAC-21",
+        "amendedCorrection": "[ABP04, Prop. 3.1.3]."
+      }
     },
     {
       "id": "PAPER-NGODAC-21/E8",
@@ -3790,7 +3935,13 @@
         "Thakur's author publication list https://www.sas.rochester.edu/mth/sites/dinesh-thakur/indexp.htm inspected 2026-09-22.",
         "Published author-hosted imrnrelation.pdf first page read; corrected target metadata verified.",
         "Thakur's updates.pdf, https://www.sas.rochester.edu/mth/sites/dinesh-thakur/updates.pdf, entry 36 (47), pp.7–8, and title-plus-erratum searches inspected 2026-09-22. The update corrects the higher-depth proof, not the bibliography entry."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The first page of imrnrelation.pdf (SHA-256 f330b56b…) gives Vol. 2009, No. 12, pp. 2318–2346, doi:10.1093/imrn/rnp018, and Crossref gives the same pages. The printed data are those of [1] (Anderson–Thakur, IMRN 2009 no. 11, 2038–55) in the same list. Ngo Dac's own [23] is correct.",
+        "by": "REV-PAPER-NGODAC-21",
+        "amendedCorrection": "IMRN 2009, no. 12, 2318–2346, doi:10.1093/imrn/rnp018."
+      }
     },
     {
       "id": "PAPER-NGODAC-21/E9",
@@ -3804,7 +3955,13 @@
       "searched": [
         "https://www.sas.rochester.edu/mth/sites/dinesh-thakur/updates.pdf, relevant correction and full replacement proof read 2026-09-22.",
         "Original shufflepub.pdf proof read in full and compared with the corrected mixed/fixed induction."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Exact check at X'_i = (1), A' = (1,1), d = 2, for q = 2 and q = 3: LHS − RHS = S_1(1) ≠ 0. Known: Thakur's updates.pdf (SHA-256 99e77414…), entry 36 (47): 'The fourth equality in the display (page 1979) … is wrong'. Theorem 3 itself is true, and Ngo Dac's paper does not rely on the faulty step.",
+        "by": "REV-PAPER-NGODAC-21",
+        "amendedCorrection": "Use a simultaneous induction on fixed and truncated products (Shuhui Shi's proof in Thakur's updates.pdf, entry 36 (47), or Ngo Dac's Proposition 2.1, whose proof is correct). The unequal-degree parts are Σ_{d2<d}S_{d2}(x_1)(S_{<d2}(X''_i)S_{<d2}(A')), not concatenations."
+      }
     },
     {
       "id": "PAPER-NGODAC-21/E10",
@@ -3813,12 +3970,19 @@
       "printed": "F ∈ Mat_{r₁×r₂}(k̄[t])",
       "correction": "The matrix of the rationalized-module homomorphism lies in Mat_{r₁×r₂}(k̄(t)); the conclusion is that its monic common denominator belongs to F_q[t].",
       "reason": "Already for the two trivial rank-one modules, multiplication by 1/t is a k̄(t)[σ]-linear map and has a non-polynomial representing matrix. The proof immediately works with rational denominators and proves the corrected statement. This finding concerns a cited source, not Ngo Dac's text.",
-      "affects": "the proof",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Author publication page https://www.math.nthu.edu.tw/~cychang/Publications.html and author-hosted file explicitly named EulerianJEMS_Corrections1.pdf inspected 2026-09-22.",
         "arXiv:1411.0124 and searches for the paper/corrections checked; this finding is restricted to the PDF read, not asserted for every journal version."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rendered page checked: arXiv v2 has the same k̄[t]. A k̄(t)[σ]-linear map has in general a rational matrix (multiplication by 1/t on the trivial object), the proof works with den(F), and the paper (§5.2, p. 21) applies it to the rational matrix (Id 0; (g_t/g) 1). Suggest affects 'nothing' rather than 'the proof': the intended statement is clear and the proof proves it; read literally, the printed statement is only trivial.",
+        "by": "REV-PAPER-NGODAC-21",
+        "reclassified": "kind/affects changed by the review from misprint/the proof to misprint/nothing",
+        "amendedCorrection": "F ∈ Mat_{r1×r2}(k̄(t)); the conclusion is that the monic common denominator of its entries lies in F_q[t]."
+      }
     },
     {
       "id": "PAPER-NGODAC-21/E11",
@@ -3834,7 +3998,13 @@
         "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
         "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists.",
         "Crossref metadata for 10.4007/annals.2021.194.1.6 and a web search for an erratum, 23 September 2026 (none found)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Page images checked. On p. 24 the proof writes δ_1=(aθ+b)(t−θ)^w, resp. (aθ²+bθ+c)(t−θ)^w, with a,b,c∈F_q[t], and repeats 'δ_1 ∈ K[t]' in (6.5). K[t]-membership with a θ-degree bound does not give that form; e.g. (t−θ)^w/θ∈K[t]. The fix above was verified (the descent recursion δ_j=δ_{j+m}^q−F_{j+m}−Σ_{i<m}B_iδ_{j+m−i} and the degree count qN=qm+N). Kuan–Lin (Exp. Math. 25, DOI 10.1080/10586458.2015.1069228) is paywalled and not on arXiv, so it may state A[t] and the paper may merely misquote it. Either way the printed justification is inadequate, and the step is true.",
+        "by": "REV-PAPER-NGODAC-21",
+        "amendedCorrection": "What is needed is δ_1, δ_2 ∈ A[t]=F_q[θ,t] with deg_θ δ_2≤q and deg_θ δ_1≤qw/(q−1). The proof follows from (6.3)–(6.4): twisting once gives δ^(1)=Bδ+F with B=(t−θ^q)^m monic in t over A, so every K̄[t]-solution lies in A[t] (monic-frobenius-descent), and theta-degree-bound gives the bounds (degree-descent)."
+      }
     },
     {
       "id": "PAPER-NGODAC-21/E12",
@@ -3850,7 +4020,93 @@
         "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
         "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists.",
         "Crossref metadata for 10.4007/annals.2021.194.1.6 and a web search for an erratum, 23 September 2026 (none found)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Page image checked. T′_q=T^0_q, since (q)∉T′_q and every other composition of q has entries <q, so Theorem B covers w=q. As printed, w=q falls to Step 3, which asserts 's_i=(k,q−1) where k=w−(q−1) satisfying 1<k≤q−1' (p. 23), whereas k=1 there. The step survives: (w)=(q)∉T′_q, so the relation is the single term a_2ζ_A(1,q−1)=0, impossible by nonvanishing.",
+        "by": "REV-PAPER-NGODAC-21",
+        "amendedCorrection": "For w ≤ q (as in the proof of Lemma 6.1: 'If w ≤ q ... T_w = T′_w')."
+      }
+    },
+    {
+      "id": "PAPER-NGODAC-21/E13",
+      "kind": "misprint",
+      "locator": "HAL v1, §1.3, printed p. 4, fourth bullet of the list of known cases (w = 3, q = 2); page image checked",
+      "printed": "The inequality d(w) ≤ 2 (i.e. Theorem A in this case) can be easily proved. Further, we have d(w) ≥ 2 by [22, Theorem 5.10.2].",
+      "correction": "The inequality dim_K Z_w ≤ 2 … Further, we have dim_K Z_w ≥ 2 by [22, Theorem 5.10.2].",
+      "reason": "d(3) = d(2) + d(1) = 1 + 1 = 2 by definition when q = 2, so 'd(w) ≤ 2' and 'd(w) ≥ 2' say nothing. Theorem A bounds dim_K Z_w, and the cited lower bound is also for dim_K Z_w. Consistently, the reviewer's Theorem A run at q = 2 gives ζ(3) = (θ²+θ)²(ζ(1,1,1)+ζ(2,1)) and ζ(1,2) = (θ²+θ)(ζ(1,1,1)+ζ(2,1)), verified in K∞.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref for doi:10.4007/annals.2021.194.1.6 (Ann. of Math. 194 (2021), 361–392), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2021/194-1/p06), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from the HAL manuscript here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image by the review",
+        "by": "REV-PAPER-NGODAC-21"
+      }
+    },
+    {
+      "id": "PAPER-NGODAC-21/E14",
+      "kind": "misprint",
+      "locator": "HAL v1, §2.1, printed p. 7, proof of Proposition 2.1, Part 2 (start of the induction step); page image checked",
+      "printed": "By the induction hypothesis there exist constants f′_j, g′_{ij} ∈ F_p and • tuples c″_j … • tuples d″_j … such that … S_<d(a_−)S_<d(b) = Σ_j f″_j S_<d(c″_j), S_<d(a)S_<d(b_−) = Σ_j g″_j S_<d(d″_j).",
+      "correction": "constants f″_j, g″_j ∈ F_p.",
+      "reason": "The constants named in the sentence (f′_j, g′_{ij}, carried over from Part 1) are not the ones used in the displayed formulas and in the rest of the proof (f″_j, g″_j). The intended meaning is clear.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref for doi:10.4007/annals.2021.194.1.6 (Ann. of Math. 194 (2021), 361–392), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2021/194-1/p06), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from the HAL manuscript here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image by the review",
+        "by": "REV-PAPER-NGODAC-21"
+      }
+    },
+    {
+      "id": "PAPER-NGODAC-21/E15",
+      "kind": "misprint",
+      "locator": "§5.2, end of Step 2, p. 21 (HAL printed page; the journal PDF was not available)",
+      "printed": "For any j ∈ N, by specializing (5.7) at t = θ^{q^j} and using (4.2) and the fact that Ω has a simple zero at t = θ^{q^j} we deduce that f(θ) = ν(θ)/b(θ).",
+      "correction": "'using (5.4)': L(t)(θ^{q^j})=L(t)(θ)^{q^j}, together with a_i, b, ν_t ∈ F_q[t], so that f_t(θ^{q^j})=f_t(θ)^{q^j}, followed by taking q^j-th roots.",
+      "reason": "Specializing (5.7) at θ^{q^j} kills δΨ′, since every entry of Ψ′ carries Ω^{w−w(t)} with w−w(t)≥1. What remains is b(θ^{q^j})f(θ^{q^j})=ν(θ^{q^j}). Passing to f(θ) needs the Frobenius specialization (5.4), not the evaluation (4.2) L(s)(θ)=Γ_sζ_A(s)/π̃^{w(s)}; no ζ-value appears in the conclusion. (4.2) is used later, in Step 3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref for doi:10.4007/annals.2021.194.1.6 (Ann. of Math. 194 (2021), 361–392), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2021/194-1/p06), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from the HAL manuscript here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image by the review",
+        "by": "REV-PAPER-NGODAC-21"
+      }
+    },
+    {
+      "id": "PAPER-NGODAC-21/E16",
+      "kind": "gap",
+      "locator": "§5.3, Step 3 of the proof of Theorem B, pp. 21–22; and §6, Step 3 of the proof of Theorem 6.2, (6.2), p. 23 (HAL printed page; the journal PDF was not available)",
+      "printed": "For s_i we let m_i ∈ Z^{≥0} be the biggest index such that (s_{i1},...,s_{im_i}) belongs to I(s_j) for some j ≠ i. ... Let m := max_i m_i. Then we can find two different tuples, says s_1 and s_2 be such that m_1 = m_2 = m.",
+      "correction": "First dispose of a relation with only one index: a_1Γ_{s_1}ζ_A(s_1)=0 is impossible since ζ_A(s_1)≠0 [24, Theorem 4] and a_1Γ_{s_1}≠0. Otherwise at least two indices occur, m_i is defined, and the argument runs as printed. The same remark justifies 'for some a_1,a_2∈K^*' in (6.2).",
+      "reason": "With a single index there is no j≠i, so m_i is undefined and two tuples with m_1=m_2=m do not exist. Step 3 gives no contradiction then: f_∅(θ)=0 is the hypothesis, and the isolated tails only force divisibility. The case is trivial by nonvanishing (stated in §1), but neither proof mentions it. Likewise, (6.2) presupposes that both (w) and (k,q−1) occur.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref for doi:10.4007/annals.2021.194.1.6 (Ann. of Math. 194 (2021), 361–392), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2021/194-1/p06), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from the HAL manuscript here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image by the review",
+        "by": "REV-PAPER-NGODAC-21"
+      }
     }
   ],
   "additionalSources": [

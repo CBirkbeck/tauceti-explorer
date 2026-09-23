@@ -209,3 +209,12 @@ No Lean deliverable is part of a paper job.
 **For the reviewer.**
 - Check E4 (the ABP criterion needs c ≠ 0) and E11.
 - Check the planned status of trivialization-uniqueness in DM.8.
+
+## Review (REV-PAPER-NGODAC-21, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its six routes after small corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-NGODAC-21.md`. The review read the HAL manuscript again and checked Theorem A's algorithm numerically: 444 indices, all verified.
+
+- **Statements and locators:** 7 statements and 13 locators corrected, and one test corrected.
+- **Library citations and the extraction's derivations:** all confirmed.
+- **New items:** 4.
+- **Source issues:** E1–E12 are confirmed, and E10 was reclassified. E13–E16 are new and small.
