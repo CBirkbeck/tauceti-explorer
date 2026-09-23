@@ -8,6 +8,32 @@ The paper constructs integral models of Shimura varieties of abelian type with c
 
 **What the closing pass changed.** The checkpoint had already read the paper in full, routed every missing item exactly once, and — importantly — had already incorporated the corrections that Kisin–Pappas–**Zhou** published in the 2026 sequel into the affected item statements. What it had not done was record them where the protocol requires: the `sourceIssues` list was **absent entirely**, although PROTOCOL §18 asks for the list even when it is empty, and asks specifically for mistakes "noted earlier in this extraction's items, gaps and report". Seven are now recorded, each quoting the printed text of this paper at its locator and citing the authors' own correction. The gates were also re-scoped and the routes re-checked against the accepted restructures; see the closing section.
 
+## Independent review (REV-PAPER-KISIN-PAPPAS-18)
+
+The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-KISIN-PAPPAS-18.md`; the counts in the sections below it are the earlier ones and are
+superseded by these.
+
+- **Items: 275** (14 library, 14 planned, 247 missing), each missing item routed once.
+  - 97 fields corrected: 73 statements, 21 locators, 2 kinds, 1 name.
+  - 105 items added for definitions, constructions and cited inputs the proofs use. They include the Bruhat–Tits,
+    Landvogt, Prasad–Yu and Edixhoven inputs of §1, the Gille, Seshadri and Pappas–Zhu inputs of §§1.4–2, the Zink,
+    Breuil, Broshi and Haines–Rapoport inputs of §3, and the Deligne and Madapusi Pera inputs of §4.
+  - D07 removed: its content is Kisin–Pappas–Zhou's, not this paper's.
+- **Routes.** All ten stand. Five Part II titles now begin with their parents' exact atlas titles, and each brief names the
+  confirmed corrections its design must carry.
+- **Prerequisites.** Rebuilt as 22 cited papers with DOIs.
+- **Mistakes: 80** (57 misprints, 14 gaps, 9 errors).
+  8 reach a stated result and 13 a proof.
+  - **E1–E7**, the authors' own corrections in Kisin–Pappas–Zhou, are confirmed, several with revised scope.
+  - **E8–E80** are new, each checked independently. The main ones:
+    - **E17:** Lemma 1.4.6 is proved only for k algebraically closed.
+    - **E13:** the construction in (1.2.23)–(1.2.24) needs the product over the embeddings when K_1/K has an unramified
+      part.
+    - **E58:** Corollaries 4.2.12–4.2.13 need 𝒢 = 𝒢°.
+    - **E51:** Proposition 3.3.13 needs its étale tensors to match.
+    - **E29, E41:** errors in the proofs of Proposition 2.3.7 and Lemma 3.2.9.
+
 ## The baseline and the existing owners
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Fourteen carrier items cite 22 declarations whose statements were read at those exact pins in this session. They include Witt vectors and fraction-field Frobenius, the reductive and torus predicates, character/cocharacter lattices and pairing, Weyl dominant representatives, Coxeter Bruhat order, divided-power structures and abelian varieties over a field. Their source statements and module digests remain in `baseline.declarations`.
