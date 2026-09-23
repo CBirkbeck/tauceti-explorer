@@ -1,0 +1,62 @@
+{
+  "paper": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Breuil–Kisin height-one modules and integral comparisons are sources for R07.2/R07.4/R07.6; the review moved bk-dp here as missing (no stage names the S-evaluation) and added Kisin's functor, the contravariant Dieudonné crystal and the Grothendieck–Messing/Zink criterion as planned items."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "CM types and reflex norms belong to CM.0."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Torus canonical models belong to V4; the review added the reflex norm of a torus cocharacter as a planned item."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Betti, étale and de Rham realizations over the generic fibre belong to B0–B2."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Hermitian line degrees belong to R35.1–R35.2; the review added R35.3 to faltings-height and moved arithmetic-divisor to the GSpin Part II, since R35.1 does not plan arithmetic divisors on stacks."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Finite Weil modules belong to MP.4–MP.6."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Harmonic Maass forms and ξ belong to QM.3."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "The same Part II as PAPER-BURUNGALE-KOBAYASHI-OTA-21; the review added four missing items (ord_E, the filtered φ-module of the Lubin–Tate Tate module, Lubin–Tate local reciprocity, the 𝔮-adic order)."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "The same Part II id and title as PAPER-LI-ZHANG-22, PAPER-MAULIK-SHANKAR-TANG-22 and PAPER-SHANKAR-SHANKAR-TANG-ETAL-22; PAPER-CHARLES-16 proposes it under an older title ('good-prime orthogonal models and Kuga–Satake'), which the design job should reconcile. The review added four missing items and found the extraction's repair of Theorem 4.4.5/4.4.6 (orth-fiber-connected) unsound (E14: fails for n = 1)."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "The same Part II as the SST22/Li–Zhang22/Maulik–Shankar–Tang22 proposals; the review added fifteen missing items (special divisors on the generic fibre, the local Whittaker and Weil-index inputs, the Rankin–Selberg L-function of ξ(f), Siegel–Weil for the nearby coherent Eisenstein series, the auxiliary-lattice existence results) and arithmetic-divisor."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "The same CM Part II as PAPER-TSIMERMAN-18 and PAPER-YUAN-ZHANG-18; the review added fifteen missing items, including the total reflex CM type, the metrized Hodge and determinant lines on Y0, Colmez's conductor values, and the Chowla–Selberg (d = 1) case that §9.5 needs but only cites."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-39fac3, 23 September 2026, of the extraction by cc-442dc5 and Codex session a71f92. The published version (Ann. of Math. 187 (2018), 391–531, free on the Annals site, same SHA-256 as the extraction's) was read in full again by four checkers and compared with the authors' Colmez_v3.5 text. Statements: 77 corrected (mostly dropped hypotheses such as 'p a good prime', missing definitions, and wrong attributions; product-formula and vandermonde cite results the paper never uses). Locators: 111. Statuses: arithmetic-divisor and bk-dp planned → missing; faltings-height also planned at R35.3. The extraction's repairs are sound except orth-fiber-connected. 40 new items (6 planned, 34 missing). All 27 existing issues confirmed: E1–E3 are false as printed but the paper's later use already matches the corrected versions, so Theorems 9.4.2, 9.5.1, 9.5.5 and Theorem A hold and the extraction's pending caveats on items 129–134 can be closed; E4's recorded correction is wrong for d ≥ 2 (the metric is |[z,z̄]₀|); E9 re-pointed to Theorem 2.1.1's first sentence; E14 reclassified to an error in a stated result: Theorem 4.4.6(3) fails for n = 1 (V = trace-zero part of the discriminant-15 quaternion algebra: four geometric components at p = 7). 35 new source issues, among them Proposition 4.4.1(4) ('potentially good' must be 'good'), 'rank Λ ≤ 2' failing at p = 2, Proposition 2.3.1 needing Spec R connected, the definition of K0,p in (3.2.2), Proposition 3.5.5's N_cris only where Y_{K,q} is étale, the inverted W* on p. 476, Proposition 7.1.4(2) false when r(λ) = n(𝔭), a missing factor in Proposition 7.1.2(2), the d = 1 case of §9.5 (Chowla–Selberg) being only cited, and misprints."
+}
