@@ -8,6 +8,31 @@ Issue [#1422](https://github.com/CBirkbeck/tauceti-explorer/issues/1422). Status
 - **Items.** The result has **124 items: 12 library, 12 planned and 100 missing**. Every missing item is routed exactly once, and every numbered statement is an item. Theorem 4.13 (Peterzil–Starchenko) is now named on the definable-Chow item.
 - **Mistakes.** Twenty-nine are recorded under `sourceIssues`. The official erratum covers E5–E7.
 
+## Independent review (REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20)
+
+The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md`; the counts in the sections below it are the
+earlier ones and are superseded by these.
+
+- **Items: 147** (10 library, 14 planned, 123 missing), each missing item routed once.
+  - 87 fields corrected: 45 statements and 42 locators (many gave the authors' copy's pages instead of the JAMS pages).
+  - 29 items added for definitions, constructions and cited inputs the proofs use, two of them planned (ShimuraVarieties V2,
+    AdelicAlgebraicGroups AA.3).
+  - Six removed as not in the paper: the extraction's own repair lemmas and library-support items and the audit counterexample
+    to Theorem 4.1; their content is kept in the notes of the items they support and in E1.
+- **Routes.** All eight stand; the briefs of routes 7 and 8 name the confirmed corrections their designs must carry.
+- **Prerequisites.** Rebuilt as 24 cited works with DOIs or stable links.
+- **Mistakes: 60** (34 misprints, 16 gaps, 10 errors); 4 reach a stated result and 16 a proof.
+  - **E1–E29** are confirmed; E1, E7, E8, E10, E17, E26, E27 and E28 are revised, and E3's reach is the proof.
+  - **E30–E60** are new, each checked independently; E30–E33 are misprints in the 2023 erratum. The main ones:
+    - **E46:** roughly polynomial functions do not form a ring as defined in Definition 4.4.
+    - **E60:** the Claim on p. 933 is false for every basis; finitely many orderings of one basis repair it.
+    - **E49, E53, E54:** Theorem 4.8 is applied outside the splitting it is stated for, and Lemma 4.10's lower bound is proved
+      only for large y_n.
+    - **E58, E59:** the proof of Theorem 4.12 needs that f is a period map and that the Theorem 1.1 and Baily–Borel structures
+      agree.
+  - With the 2023 erratum, Theorems 1.3 and 1.6 are not affected.
+
 ## This continuation (cc-442dc5)
 
 **E1 rechecked.**
