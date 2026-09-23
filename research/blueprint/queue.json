@@ -4459,7 +4459,8 @@
    ],
    "avoidAccountOf": "PAPER-FENG-GALATIUS-VENKATESH-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-FENG-GALATIUS-VENKATESH-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1267"
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
@@ -5489,8 +5490,9 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-MATHEW-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-MATHEW-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1321"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1321",
+   "finishedAt": "2026-09-23T22:03:51Z"
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21",
