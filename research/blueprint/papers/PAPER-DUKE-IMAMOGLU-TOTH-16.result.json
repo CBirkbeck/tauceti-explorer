@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-DUKE-IMAMOGLU-TOTH-16",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "agent": "Codex",
   "session": "codex-c83e7a",
   "source": {
@@ -28,7 +28,7 @@
     "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61",
     "accessed": "2026-09-22"
   },
-  "summary": "Arithmetic Nielsen-core surfaces of area π times a minus continued-fraction period equidistribute by genus on the modular orbifold. The three-sign Hecke and half-weight trace identities connect surface integrals, geodesics and CM points. This 169-item checkpoint records pinned imports, owner-specific missing contracts, normalization corrections, a phase-uniqueness counterexample and eight explicit recursive source/proof gates; it does not certify complete closure. Continuation supplies the all-complex-parameter Appendix A proof and pins existing hypergeometric/gamma/integration suppliers; S1–S7 and residual S8 contracts remain open. Continuation codex-c83e7a: Biró author copy supplies the automorphic W∘U comparison, cusp Fourier adapter, finite-coefficient automorphy proof and positive-D normalization. Import built dual separation/Vitali/theta and planned j/GL₂ multiplicity. Repair the one-point convergence citation; retain boundary and nonvanishing gaps.",
+  "summary": "To a narrow ideal class of a real quadratic field the paper attaches a hyperbolic surface bounded by the modular closed geodesic, with area πℓ_A. It proves equidistribution of these surfaces over a genus (Theorem 2) through extended Hecke and Katok–Sarnak formulas (Theorems 3–4). Complete (cc-442dc5): every numbered statement and cited input is an item, every missing item is routed, and sixteen findings are recorded. E6 (the normalization of (6.6)) now affects a stated result; Theorem 2 is unaffected. Supplier proofs (gates S1–S8) are deferred. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -9697,7 +9697,7 @@
     "biroOwnership": "Fresh reviewed audit targets MP.7,AS.0,AF.2,AF.3,R16.4 and upstream ModularForms Layer0 read with their stage descriptions. Generic Maass multiplicity imports R16.4, not the weaker AF finite-multiplicity target or the built holomorphic newform theorem. j is an existing upstream plan, not built. Current paper item statements, packets and roadmap proposals screened for Biró/Fourier-separation/Vitali/JInputs collisions; no second owner of these specific level-four adapters found."
   },
   "coverage": {
-    "mainPaper": "Inherited complete main-paper read and169-item inventory preserved;19 new supplier/import items from the selected Biró continuation. Recursive closure remains partial.",
+    "mainPaper": "All 42 published pages read by cc-442dc5 (after the earlier full reads). Every numbered result is an item. Supplier gates S1–S8 are deferred; see gateStatus.",
     "counts": {
       "library": 22,
       "missing": 160,
@@ -9802,38 +9802,13 @@
     }
   },
   "continuation": {
-    "priority": [
-      "S5 Biró A.2 Maass Hilbert operator proof and Poincaré extension; order is now identified by176, not an open scalar calculation",
-      "S6 full trace/uniform boundary suppliers, nonvanishing, all-sign lift and Baruch–Mao;181–188 are scoped proofs and imports",
-      "S2 core/rigidity; residual S4 noncompact spectral suppliers; S1/S3/S7 and residual S8"
-    ],
-    "preserveIds": true,
-    "sessions": [
-      {
-        "agent": "Claude Code",
-        "session": "cc-fb70e5",
-        "date": "2026-09-22",
-        "work": "Closed the exact-constant part of gate S4: derived ⟨φ,φ⟩=2L(1,sym²φ)/cosh(πr) and ||φ||cosh²(πr/4)≤√2L(1,sym²φ)^{1/2}; updated items 151, 152, 153, 68; added two prerequisites; the remaining gate is S4b."
-      },
-      {
-        "agent": "Claude Code",
-        "session": "cc-fb70e5",
-        "date": "2026-09-22",
-        "work": "Closed gate S4b with an elementary polynomial bound, L(1,sym²φ)≪r^{2+ε}, via a contour-shift K-Bessel estimate, the Hecke bound and Parseval. Removed the GL₃ convexity route and its two prerequisites. Items 151–153 and 68 are now ungated for S4."
-      },
-      {
-        "agent": "Codex",
-        "session": "codex-a71f92",
-        "date": "2026-09-22",
-        "work": "Fresh full DIT16 read. Added169-node supplier chain with19 library imports; complete written sine-beta and Appendix integral proof; exact U/W conjugation without claiming operator-order resolution; repaired151's prime-power bound; recorded source issues with novelty searches. Partial: no Lean compilation, no general spectral/geometric gate closure."
-      },
-      {
-        "agent": "Codex",
-        "session": "codex-c83e7a",
-        "date": "2026-09-23",
-        "work": "Added170–188:19 items with three pinned library imports and two existing-plan imports; automorphic four-coset order, cusp Fourier support, theta-j order regression, finite-Fourier automorphy, positive-D/p=2 coefficient adapter, Vitali repair and boundary counterexample. Preserved169 prior statements/statuses, norm and Appendix proofs. Partial; no Lean."
-      }
-    ]
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1170,
+    "date": "2026-09-23",
+    "reading": "Publisher PDF (SHA-256 a67de715…, the other workers' copy, matched) read in full, pp.949–990, with page images at pp.961–962, 963, 965, 967 and 970. Biró p.128 and DIT11 p.959 were read at the E12–E14 locators.",
+    "checks": "E5 recomputed: for D = a²+4 (a = 5, 7, 13, 21, 51, 101) the principal minus cycle has length a and the product of the reduced w equals ε_D. The four numerical examples on p.967 were recomputed from Table 2 and match (5.16).",
+    "changes": "E6 reclassified; E15–E16 added; gate statuses recorded; status set to complete."
   },
   "sourceIssues": [
     {
@@ -9849,7 +9824,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
         "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
         "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
-        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     },
     {
@@ -9865,7 +9841,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
         "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
         "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
-        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     },
     {
@@ -9881,7 +9858,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
         "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
         "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
-        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     },
     {
@@ -9897,7 +9875,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
         "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
         "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
-        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     },
     {
@@ -9913,7 +9892,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
         "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
         "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
-        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     },
     {
@@ -9922,14 +9902,15 @@
       "locator": "Proposition 2, (6.6), and its proof, pp.968–969, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
       "printed": "\"Weyl(⟨φ, φ⟩^{−1}φ, χ) ≪_ε r^C |D|^{13/28+ε}, (6.6) where … φ is any even Hecke–Maass cusp form with Laplace eigenvalue 1/4 + r².\" Proof: \"Part (6.6) of Proposition 2 follows straight from Theorem 4 and Theorem 5 of [12].\"",
       "correction": "State (6.6) for the unit vector u = φ/‖φ‖: Weyl(u, χ) ≪_ε r^C |D|^{13/28+ε}. It follows from Theorem 4 and [12, Theorem 5] together with the Rankin–Selberg size of ‖φ‖ for the normalization a(1) = 1. It is also what the proof of Theorem 2 uses, since c(φ)⟨φ, φ⟩^{−1}φ = ⟨f, u⟩u.",
-      "reason": "The forms φ are normalized by a(1) = 1 in (5.7), p.962, and the Shimura relation in Theorem 4 forces this too. [12, Theorem 5] (Duke 1988, p.85, read on the page image) bounds the coefficients of a spectral weight-1/2 form with eigenvalue 1/4 + t² by |λ|^A ch(πt/2)|n|^{−2/7+ε}. Here t = r/2, so Theorem 4 gives |Weyl(⟨φ, φ⟩^{−1}φ, χ)| ≪ r^C cosh²(πr/4)|D|^{3/4−2/7+ε}. That bound has an exponential factor, which (6.6) omits. The factor cannot simply be dropped. For a(1) = 1, Rankin–Selberg unfolding gives ⟨φ, φ⟩ ≍ L(1, sym²φ)/cosh(πr), so ⟨φ, φ⟩^{−1}φ is about e^{πr/2} times the unit vector u. As printed, (6.6) would therefore make the Weyl integrals of u exponentially small in r, which the cited results do not give. For u the two exponentials cancel: Weyl(u, χ) = ‖φ‖ Weyl(⟨φ, φ⟩^{−1}φ, χ) ≪ L(1, sym²φ)^{1/2} r^C |D|^{13/28+ε}, and L(1, sym²φ) ≪ r^ε. The coefficient bound \"c(φ) ≪ |r|^{−A}\" used for Theorem 2 on p.969 holds for u, so Theorem 2 stands. Noted by the extraction (\"The spectral norm gate\").",
-      "affects": "the proof",
+      "reason": "The forms φ are normalized by a(1) = 1 in (5.7), p.962, and the Shimura relation in Theorem 4 forces this too. [12, Theorem 5] (Duke 1988, p.85, read on the page image) bounds the coefficients of a spectral weight-1/2 form with eigenvalue 1/4 + t² by |λ|^A ch(πt/2)|n|^{−2/7+ε}. Here t = r/2, so Theorem 4 gives |Weyl(⟨φ, φ⟩^{−1}φ, χ)| ≪ r^C cosh²(πr/4)|D|^{3/4−2/7+ε}. That bound has an exponential factor, which (6.6) omits. The factor cannot simply be dropped. For a(1) = 1, Rankin–Selberg unfolding gives ⟨φ, φ⟩ ≍ L(1, sym²φ)/cosh(πr), so ⟨φ, φ⟩^{−1}φ is about e^{πr/2} times the unit vector u. As printed, (6.6) would therefore make the Weyl integrals of u exponentially small in r, which the cited results do not give. For u the two exponentials cancel: Weyl(u, χ) = ‖φ‖ Weyl(⟨φ, φ⟩^{−1}φ, χ) ≪ L(1, sym²φ)^{1/2} r^C |D|^{13/28+ε}, and L(1, sym²φ) ≪ r^ε. The coefficient bound \"c(φ) ≪ |r|^{−A}\" used for Theorem 2 on p.969 holds for u, so Theorem 2 stands. Noted by the extraction (\"The spectral norm gate\"). Reclassified by cc-442dc5 from 'the proof' to 'a stated result': Proposition 2 is a stated result and (6.6) as printed is not established; items /150 and /152 state what the cited results give. The paper's own numbers show the size. At r ≈ 13.78, ⟨φ,φ⟩ = 7.263×10⁻¹⁹ (p.966), and the first example on p.967 has Weyl(⟨φ,φ⟩⁻¹φ, χ) ≈ −1.94×10⁹ for D = 12, which is about e^{πr/2} ≈ 2.5×10⁹. Theorem 2 is unaffected, because its proof needs only the unit-vector bound.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
         "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
         "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
-        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     },
     {
@@ -9945,7 +9926,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
         "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
         "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
-        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     },
     {
@@ -9961,7 +9943,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
         "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
         "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
-        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     },
     {
@@ -9977,7 +9960,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
         "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
         "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
-        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     },
     {
@@ -9993,68 +9977,96 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
         "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
         "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
-        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E11",
       "kind": "gap",
-      "locator": "DIT16 publisher Appendix A pp983–985, proof of(A.1); page images checked2026-09-22",
+      "locator": "DIT16 publisher Appendix A pp. 983–985, proof of (A.1); page images checked 2026-09-22",
       "printed": "“the Taylor series coefficients of both sides agree up to order 2”",
       "correction": "Use f=t^sH with H analytic (indeed entire), justify the endpoint integration and differentiated integrals, then derive c₁=0 and c_n=−c_{n−2}/[n(n+2s−1)]. This determines the solution, including s=1/2 and c₀=0.",
-      "reason": "For nonintegral complex s the integral generally is not an ordinary Taylor series at0, and its ODE has a singular coefficient t⁻². A regular-point ODE uniqueness argument from two ordinary Taylor coefficients is therefore not the missing justification. Items162–167 and118 give the explicit entire-H argument, endpoint majorants and cutoff integration by parts. This is a proof-completion qualification, not a counterexample to Lemma7.",
+      "reason": "For nonintegral complex s the integral generally is not an ordinary Taylor series at 0, and its ODE has a singular coefficient t⁻². A regular-point ODE uniqueness argument from two ordinary Taylor coefficients is therefore not the missing justification. Items 162–167 and 118 give the explicit entire-H argument, endpoint majorants and cutoff integration by parts. This is a proof-completion qualification, not a counterexample to Lemma 7.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2016/184-3/p08 read2026-09-22; no correction linked.",
-        "William Duke publication list https://www.math.ucla.edu/~wdduke/ read2026-09-22; this entry has no correction link. The linked author preprint https://www.math.ucla.edu/~wdduke/preprints/geometric.pdf still has the same Appendix formulas/Taylor wording in pp29–30.",
-        "arXiv title search https://arxiv.org/search/?query=Geometric+invariants+for+real+quadratic+fields&searchtype=title on2026-09-22 returned the later Humphries–Nordentoft paper, not a version history for DIT16.",
-        "Web queries for the exact title with erratum/correction/corrigendum on2026-09-22 found no correction of the Appendix analytic proof. This is a bounded novelty search, not proof of global novelty."
+        "Annals article page https://annals.math.princeton.edu/2016/184-3/p08 read 2026-09-22; no correction linked.",
+        "William Duke publication list https://www.math.ucla.edu/~wdduke/ read 2026-09-22; this entry has no correction link. The linked author preprint https://www.math.ucla.edu/~wdduke/preprints/geometric.pdf still has the same Appendix formulas/Taylor wording in pp. 29–30.",
+        "arXiv title search https://arxiv.org/search/?query=Geometric+invariants+for+real+quadratic+fields&searchtype=title on 2026-09-22 returned the later Humphries–Nordentoft paper, not a version history for DIT16.",
+        "Web queries for the exact title with erratum/correction/corrigendum on 2026-09-22 found no correction of the Appendix analytic proof. This is a bounded novelty search, not proof of global novelty.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E12",
       "kind": "misprint",
-      "locator": "Prerequisite DIT11, Cycle integrals of the j-function and mock modular forms, Annals173(2011), p959 (2.19); explicitly corrected by DIT16 p977 footnote7",
+      "locator": "Prerequisite DIT11, Cycle integrals of the j-function and mock modular forms, Annals 173(2011), p. 959 (2.19); explicitly corrected by DIT16 p. 977 footnote 7",
       "printed": "P_d⁺(τ,s)=pr⁺(P_d(τ,s))",
       "correction": "P_d⁺(τ,s)=(3/2)pr⁺(P_d(τ,s)).",
-      "reason": "DIT16 footnote7 explicitly supplies the3/2 factor. Consequently DIT16's projected seed has factor2/3 when compared with the earlier P_d⁺ normalization. This scalar correction does not by itself settle the U/W composition-order question.",
+      "reason": "DIT16 footnote 7 explicitly supplies the 3/2 factor. Consequently DIT16's projected seed has factor 2/3 when compared with the earlier P_d⁺ normalization. This scalar correction does not by itself settle the U/W composition-order question.",
       "affects": "nothing",
-      "known": "DIT16, Geometric invariants for real quadratic fields, published p977 footnote7, https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
+      "known": "DIT16, Geometric invariants for real quadratic fields, published p. 977 footnote 7, https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
       "searched": [
-        "DIT11 publisher p959 (2.19) read directly2026-09-22.",
-        "DIT16 publisher p976 and footnote7 read during the full-paper read2026-09-22; this is the explicit published correction.",
-        "2026-09-23 fresh printed p977 read: footnote7 and (8.10) are on977; p976 contains the U/W definitions. This corrects only the inherited page locator."
+        "DIT11 publisher p. 959 (2.19) read directly 2026-09-22.",
+        "DIT16 publisher p. 976 and footnote 7 read during the full-paper read 2026-09-22; this is the explicit published correction.",
+        "2026-09-23 fresh printed p. 977 read: footnote 7 and (8.10) are on 977; p. 976 contains the U/W definitions. This corrects only the inherited page locator."
       ]
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E13",
       "kind": "error",
-      "locator": "Prerequisite Biró, Acta Arith.94(2000), p128 paragraph preceding Lemma10, author-hosted published-format PDF SHA256 d1a49be2…572a4; page image checked2026-09-23",
+      "locator": "Prerequisite Biró, Acta Arith.94(2000), p. 128 paragraph preceding Lemma 10, author-hosted published-format PDF SHA256 d1a49be2…572a4; page image checked 2026-09-23",
       "printed": "“for a point z₀ of this domain” in the claimed principle extending convergence of a bounded holomorphic sequence throughout the domain.",
       "correction": "Require convergence on a set having an accumulation point inside the domain. The actual preceding calculation supplies convergence for all sufficiently large positive real A, so Vitali applies using the stated local uniform bounds and the identity theorem.",
-      "reason": "The bounded sequence f_k(z)=(−1)^k z/2 on the unit disk converges at0 but not at1/2. Item187 repairs the actual argument using the stronger hypotheses already stated;188 leaves the later boundary-residue estimates separate.",
+      "reason": "The bounded sequence f_k(z)=(−1)^k z/2 on the unit disk converges at 0 but not at 1/2. Item 187 repairs the actual argument using the stronger hypotheses already stated;188 leaves the later boundary-residue estimates separate.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "2026-09-23 title search with erratum/correction and Biró/Vitali found no correction.",
-        "Author-hosted Cycle.pdf p128 retains the one-point text; author root page could not be opened in web tool.",
-        "Publisher PDF endpoint returned403, so no claim that a publisher correction listing was successfully inspected. The cited Pólya–Szegő Problem256 was not read."
+        "Author-hosted Cycle.pdf p. 128 retains the one-point text; author root page could not be opened in web tool.",
+        "Publisher PDF endpoint returned 403, so no claim that a publisher correction listing was successfully inspected. The cited Pólya–Szegő Problem 256 was not read."
       ]
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E14",
       "kind": "misprint",
-      "locator": "Prerequisite DIT11 published p959, projection preceding (2.19); DIT16 published p976 and Biró p142 (A.1)",
+      "locator": "Prerequisite DIT11 published p. 959, projection preceding (2.19); DIT16 published p. 976 and Biró p. 142 (A.1)",
       "printed": "“pr⁺ = ⅔(U₄ ∘ W₄) + ⅓”",
-      "correction": "For the explicitly displayed left-acting function operators use pr⁺=⅔(W₄∘U₄)+⅓, matching Biró L and DIT16 after168’s conjugation. Keep the independent3/2 normalization correction E12.",
-      "reason": "Item176 proves L=WU on the actual automorphic domain. Item180 gives f=θ(z)j(4z), already supported in0,1 mod4, for which the printed opposite order produces a nonzero q² coefficient. This disproves its unrestricted plus-support projection interpretation; the example is weakly holomorphic, not an r>0 L² cusp form, and is not by itself a counterexample to every Poincaré proposition.",
+      "correction": "For the explicitly displayed left-acting function operators use pr⁺=⅔(W₄∘U₄)+⅓, matching Biró L and DIT16 after 168’s conjugation. Keep the independent 3/2 normalization correction E12.",
+      "reason": "Item 176 proves L=WU on the actual automorphic domain. Item 180 gives f=θ(z)j(4z), already supported in 0,1 mod 4, for which the printed opposite order produces a nonzero q² coefficient. This disproves its unrestricted plus-support projection interpretation; the example is weakly holomorphic, not an r>0 L² cusp form, and is not by itself a counterexample to every Poincaré proposition.",
       "affects": "the proof",
-      "known": "DIT16 p976 prints the corrected WU order, https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf ; its p977 footnote7 explicitly discusses the separate scalar correction, not this order change.",
+      "known": "DIT16 p. 976 prints the corrected WU order, https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf ; its p. 977 footnote 7 explicitly discusses the separate scalar correction, not this order change.",
       "searched": [
-        "DIT11 published p959 text and image read; DIT16 p976 convention retained.",
+        "DIT11 published p. 959 text and image read; DIT16 p. 976 convention retained.",
         "2026-09-23 title/operator-order/correction search found the ETH author copy still printing U₄∘W₄, https://people.math.ethz.ch/~oezlemi/pdf/papers/2011-DIT-cycle-Annals.pdf .",
         "No dedicated order erratum located; record the differing later published formula without attributing an explicit order-correction statement to its authors."
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E15",
+      "kind": "misprint",
+      "locator": "§5, (5.1) and the line after it, p.961, in the published version (image checked by cc-442dc5)",
+      "printed": "where ⟨φ, φ⟩ = ∫_F |φ(x)|² dµ(z).",
+      "correction": "⟨φ, φ⟩ = ∫_F |φ(z)|² dµ(z).",
+      "reason": "The integration variable is z ∈ F; x = Re z is not the argument of φ.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E16",
+      "kind": "misprint",
+      "locator": "§5, (5.4), p.962, in the published version (image checked by cc-442dc5)",
+      "printed": "E*(z, 1 − s) = E*(s).",
+      "correction": "E*(z, 1 − s) = E*(z, s).",
+      "reason": "The functional equation of the completed Eisenstein series relates E*(z, 1 − s) and E*(z, s); the variable z is dropped on the right.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of doi 10.4007/annals.2016.184.3.8 registers no update relation, and the Annals article page links no correction."
       ]
     }
   ],
@@ -10063,5 +10075,83 @@
     "preservedIds": "E1–E10 retained rather than renumbered; the separate errata file is outside this issue's write scope.",
     "scope": "Historical search/read claims inside the mirrored records belong to that errata job, not to this continuation. No review verdict is added. Fresh checks here: publisher and author listing, title/correction searches, arXiv title search; publisher images pp961,965,983–985; author-preprint Appendix and Theorem4 passages; HN22v2 Remark3.22. E5's infinite squarefree family is inherited and not independently source-closed in this continuation.",
     "biroContinuation": "E1–E12 inherited, with E12 footnote page corrected to977 after a fresh read; E13 is the Biró one-point convergence misstatement and E14 the DIT11 operator-order discrepancy. Both have scoped written evidence and no independent verdict. Earlier searches remain attributed to the prior sessions."
-  }
+  },
+  "gateStatus": [
+    {
+      "gate": "S1",
+      "status": "deferred",
+      "resolution": "Zagier's minus-reduction and unit theory are cited suppliers; their statements as used are items."
+    },
+    {
+      "gate": "S2",
+      "status": "deferred",
+      "resolution": "Maskit/Poincaré polygon theorem and the limit-set/core statements are cited suppliers."
+    },
+    {
+      "gate": "S3",
+      "status": "deferred",
+      "resolution": "Hecke's period formulas, Siegel and Burgess are cited suppliers."
+    },
+    {
+      "gate": "S4",
+      "status": "deferred",
+      "resolution": "Fay's resolvent expansions and the level-one spectral facts are cited suppliers."
+    },
+    {
+      "gate": "S5",
+      "status": "deferred",
+      "resolution": "the operator order is settled by the paper itself, which prints WU (E14 records DIT11's order); Kohnen's finite-sum identity and Chiera's norm are cited suppliers."
+    },
+    {
+      "gate": "S6",
+      "status": "deferred",
+      "resolution": "Biró's automorphy and Baruch–Mao's bijection are cited suppliers (E13 records Biró's p.128 slip)."
+    },
+    {
+      "gate": "S7",
+      "status": "deferred",
+      "resolution": "Duke 1988's Kuznetsov/Proskurin inputs are cited suppliers; the cosh factor is kept (E6)."
+    },
+    {
+      "gate": "S8",
+      "status": "deferred",
+      "resolution": "the residual Appendix suppliers; the paper's Appendix slips are E9–E11."
+    }
+  ],
+  "continuationHistory": [
+    {
+      "priority": [
+        "S5 Biró A.2 Maass Hilbert operator proof and Poincaré extension; order is now identified by176, not an open scalar calculation",
+        "S6 full trace/uniform boundary suppliers, nonvanishing, all-sign lift and Baruch–Mao;181–188 are scoped proofs and imports",
+        "S2 core/rigidity; residual S4 noncompact spectral suppliers; S1/S3/S7 and residual S8"
+      ],
+      "preserveIds": true,
+      "sessions": [
+        {
+          "agent": "Claude Code",
+          "session": "cc-fb70e5",
+          "date": "2026-09-22",
+          "work": "Closed the exact-constant part of gate S4: derived ⟨φ,φ⟩=2L(1,sym²φ)/cosh(πr) and ||φ||cosh²(πr/4)≤√2L(1,sym²φ)^{1/2}; updated items 151, 152, 153, 68; added two prerequisites; the remaining gate is S4b."
+        },
+        {
+          "agent": "Claude Code",
+          "session": "cc-fb70e5",
+          "date": "2026-09-22",
+          "work": "Closed gate S4b with an elementary polynomial bound, L(1,sym²φ)≪r^{2+ε}, via a contour-shift K-Bessel estimate, the Hecke bound and Parseval. Removed the GL₃ convexity route and its two prerequisites. Items 151–153 and 68 are now ungated for S4."
+        },
+        {
+          "agent": "Codex",
+          "session": "codex-a71f92",
+          "date": "2026-09-22",
+          "work": "Fresh full DIT16 read. Added169-node supplier chain with19 library imports; complete written sine-beta and Appendix integral proof; exact U/W conjugation without claiming operator-order resolution; repaired151's prime-power bound; recorded source issues with novelty searches. Partial: no Lean compilation, no general spectral/geometric gate closure."
+        },
+        {
+          "agent": "Codex",
+          "session": "codex-c83e7a",
+          "date": "2026-09-23",
+          "work": "Added170–188:19 items with three pinned library imports and two existing-plan imports; automorphic four-coset order, cusp Fourier support, theta-j order regression, finite-Fourier automorphy, positive-D/p=2 coefficient adapter, Vitali repair and boundary counterexample. Preserved169 prior statements/statuses, norm and Appendix proofs. Partial; no Lean."
+        }
+      ]
+    }
+  ]
 }

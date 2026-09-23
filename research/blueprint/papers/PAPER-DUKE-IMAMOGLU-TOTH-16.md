@@ -1,13 +1,102 @@
-# Geometric invariants for real quadratic fields — extraction checkpoint
+# Geometric invariants for real quadratic fields: extraction and routing
+
+Issue [#1170](https://github.com/CBirkbeck/tauceti-explorer/issues/1170). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints of codex-a71f92, cc-fb70e5 and codex-c83e7a (latest #2085), whose reports follow below as history.
+- **The paper.** W. Duke, Ö. Imamoḡlu and Á. Tóth, *Geometric invariants for real quadratic fields*, Ann. of Math. 184 (2016), 949–990. The publisher PDF was read (SHA-256 a67de715…).
+- **Items.** The result has **188 items: 22 library, 6 planned and 160 missing**. Every missing item is routed exactly once.
+- **Mistakes.** Sixteen are recorded under `sourceIssues`. E12–E14 concern cited sources (DIT11 and Biró), and E12 and E14 are already corrected by this paper itself.
+
+## This continuation (cc-442dc5)
+
+**What was read.** All 42 published pages, with the formulas the text layer garbles checked on page images: pp. 961–962, 963, 965, 967 and 970. For E12–E14, Biró p. 128 and DIT11 p. 959 were read at the locators.
+
+**Checks of the checkpoint's findings.** All fourteen were confirmed at their locators.
+- **E1, E7:** on the images (Δ printed with y⁻²; χ(𝔭) missing from the Euler product).
+- **E3:** 1/4 + r² gives the printed λ = 190.1315…, and 1/2 + r² does not.
+- **E5:** recomputed. For D = a² + 4 with a = 5, 7, 13, 21, 51, 101, the principal minus cycle has length a and the product of its reduced w equals ε_D. So ℓ_A/log ε_D → ∞, against the remark's bound.
+- **E6 and (5.16):** the four numerical examples on p. 967 were recomputed from Table 2 and match (5.16).
+- **E9, E10:** checked by specialization (ν = 3, β = 0; ν = s − 1/2).
+- **E13:** a single point of convergence does not give the Vitali conclusion.
+
+**E6 now affects a stated result.**
+- **The problem.** Proposition 2's (6.6) bounds the Weyl integrals of ⟨φ,φ⟩⁻¹φ for φ normalized by a(1) = 1 polynomially in r. With that normalization ⟨φ,φ⟩ decays like e^{−πr}, and the cited results (Theorem 4 with Duke 1988) give the bound only with a factor cosh²(πr/4).
+- **The paper's own numbers.** At r ≈ 13.78, ⟨φ,φ⟩ = 7.26×10⁻¹⁹. The example for D = 12 has Weyl(⟨φ,φ⟩⁻¹φ, χ) ≈ −1.94×10⁹, about e^{πr/2}.
+- **What changes.** Items /150 and /152 state what holds: the cosh² bound, and a polynomial bound for the unit vector φ/‖φ‖.
+- **Theorem 2 is unaffected.** Its proof needs only the unit-vector bound.
+
+**New findings.** Two small misprints, both checked on the images:
+- **E15:** φ(x) for φ(z) under (5.1);
+- **E16:** E*(s) for E*(z,s) in (5.4).
+
+**Source gates.**
+- S1–S8 are all deferred. Each asks for a cited supplier's proof: Zagier, Maskit, Hecke/Siegel/Burgess, Fay, Kohnen/Chiera, Biró/Baruch–Mao, Duke 1988, and the Appendix suppliers. They are listed with their resolutions below and in `gateStatus` in the JSON.
+- The operator-order question under S5 is settled by the paper itself, which prints WU; E14 records DIT11's opposite order.
+
+**Why the status is now complete.**
+- Every numbered statement and every cited input is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+- What remains is suppliers' proofs.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), §5, "Spectral expansion", the display after (5.2), p.961, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there. *Printed:* "Clearly E(z, s) is an eigenfunction of Δ = −y^{−2}(∂²_x + ∂²_y) with eigenvalue λ = s(1 − s)." *Correction:* Δ = −y²(∂²_x + ∂²_y).
+- **E2** (error; affects a stated result), Theorem 4, p.965, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there. *Printed:* "Then there exists a unique nonzero F(z) with weight 1/2 for Γ_0(4) with Fourier expansion F(z) = Σ b(n) W_{sgn(n)/4, ir/2}(4π|n|y) e(nx), such that for any pair of co-prime fundamental discriminants d′ and d, we have (5.16) 12√π |D|^{3/4} b(d′) \overline{b(d)} = ⟨φ, φ⟩^{−1} Σ_A χ(A) {…}. Here ⟨F, F⟩ = … = 1 and the value of b(n) for a general discriminant n = dm² … is determined by means of the Shimura relation …" *Correction:* F is unique only up to a constant factor of absolute value 1. The line spanned by F is unique, and F itself becomes unique once one also requires, for example, b(d_0) > 0 for one fundamental discriminant d_0 with b(d_0) ≠ 0.
+- **E3** (misprint; affects nothing), §5, the numerical example after Theorem 4, p.966; also Proposition 6 and its proof, pp.981–982, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there. *Printed:* p.966: "we take the first occurring even Hecke-Maass form with eigenvalue λ = 190.13154731 ··· = 1/2 + r², where r/2 = 6.889875675 ···". Proposition 6, p.981: "For any even Hecke-Maass cusp form φ for Γ with Laplace eigenvalue 1/2 + r²". The same "1/2 + r²" appears again after (10.4) on p.981 and twice on p.982. *Correction:* 1/4 + r² in each place.
+- **E4** (misprint; affects nothing), Proof of Proposition 1, (6.2), p.968, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there. *Printed:* "We have by Theorem 1 that (6.2) Σ_{A∈G_D} area(F_A) = Σ_{A∈G_D} ℓ_A." *Correction:* Σ_{A∈G_D} area(F_A) = π Σ_{A∈G_D} ℓ_A.
+- **E5** (error; affects nothing), Remark after the proof of Proposition 1, p.968, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there. *Printed:* "Remark. It is also possible to give an upper bound for ℓ_A. For example, Eichler [17] gave a general argument that yields for the modular group that ℓ_A < c log ε_D for an explicit c." *Correction:* No bound ℓ_A ≪ log ε_D holds uniformly. ℓ_A can be about √D while log ε_D is about log D. Eichler's argument bounds the word length of the geometric code of the closed geodesic, which is a different quantity from ℓ_A.
+- **E6** (gap; affects a stated result), Proposition 2, (6.6), and its proof, pp.968–969, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there. *Printed:* "Weyl(⟨φ, φ⟩^{−1}φ, χ) ≪_ε r^C |D|^{13/28+ε}, (6.6) where … φ is any even Hecke–Maass cusp form with Laplace eigenvalue 1/4 + r²." Proof: "Part (6.6) of Proposition 2 follows straight from Theorem 4 and Theorem 5 of [12]." *Correction:* State (6.6) for the unit vector u = φ/‖φ‖: Weyl(u, χ) ≪_ε r^C |D|^{13/28+ε}. It follows from Theorem 4 and [12, Theorem 5] together with the Rankin–Selberg size of ‖φ‖ for the normalization a(1) = 1. It is also what the proof of Theorem 2 uses, since c(φ)⟨φ, φ⟩^{−1}φ = ⟨f, u⟩u.
+- **E7** (misprint; affects nothing), §7, the definition of Hecke's L-function, p.970, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there. *Printed:* "Hecke's L-function for a character χ of Cl⁺(K) is given for Re(s) > 1 by L(s, χ) = Σ_a χ(a)N(a)^{−s} = ∏_p (1 − N(p)^{−s})^{−1}" *Correction:* L(s, χ) = Σ_a χ(a)N(a)^{−s} = ∏_p (1 − χ(p)N(p)^{−s})^{−1}.
+- **E8** (misprint; affects nothing), Proposition 6, p.981, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there. *Printed:* "… such that for d a fundamental discriminant and d′ any discriminant such that D = d′d is not a square, we have T(φ, χ) = 12π^{1/2} D^{3/4} b(d′) \overline{b(d)}" *Correction:* T(φ, χ) = 12π^{1/2} |D|^{3/4} b(d′) \overline{b(d)}, as in (5.16).
+- **E9** (misprint; affects nothing), Appendix A, proof of (A.1) (Lemma 7), the last display, p.984, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there. *Printed:* "Using the integral formula (see [23, p. 511, 3.892(1)]), ∫_0^π e^{iβx} sin^{ν−1}x dx = π e^{iπβ/2} Γ(ν) / (Γ((ν+β+1)/2) Γ((ν−β+1)/2))," *Correction:* ∫_0^π e^{iβx} sin^{ν−1}x dx = π e^{iπβ/2} Γ(ν) / (2^{ν−1} Γ((ν+β+1)/2) Γ((ν−β+1)/2)) for Re ν > 0.
+- **E10** (misprint; affects nothing), Appendix A, the display before (A.3), p.985, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there. *Printed:* "On the other hand, using the Taylor expansion t^{1/2} J_{s−1/2}(t) = Σ_{r≥0} (−1)^r (t/2)^{s+2r} / (r! Γ(s + 1/2 + r))." *Correction:* t^{1/2} J_{s−1/2}(t) = √2 Σ_{r≥0} (−1)^r (t/2)^{s+2r} / (r! Γ(s + 1/2 + r)).
+- **E11** (gap; affects the proof), DIT16 publisher Appendix A pp. 983–985, proof of (A.1); page images checked 2026-09-22. *Printed:* “the Taylor series coefficients of both sides agree up to order 2” *Correction:* Use f=t^sH with H analytic (indeed entire), justify the endpoint integration and differentiated integrals, then derive c₁=0 and c_n=−c_{n−2}/[n(n+2s−1)]. This determines the solution, including s=1/2 and c₀=0.
+- **E12** (misprint; affects nothing), Prerequisite DIT11, Cycle integrals of the j-function and mock modular forms, Annals 173(2011), p. 959 (2.19); explicitly corrected by DIT16 p. 977 footnote 7. *Printed:* P_d⁺(τ,s)=pr⁺(P_d(τ,s)) *Correction:* P_d⁺(τ,s)=(3/2)pr⁺(P_d(τ,s)).
+- **E13** (error; affects the proof), Prerequisite Biró, Acta Arith.94(2000), p. 128 paragraph preceding Lemma 10, author-hosted published-format PDF SHA256 d1a49be2…572a4; page image checked 2026-09-23. *Printed:* “for a point z₀ of this domain” in the claimed principle extending convergence of a bounded holomorphic sequence throughout the domain. *Correction:* Require convergence on a set having an accumulation point inside the domain. The actual preceding calculation supplies convergence for all sufficiently large positive real A, so Vitali applies using the stated local uniform bounds and the identity theorem.
+- **E14** (misprint; affects the proof), Prerequisite DIT11 published p. 959, projection preceding (2.19); DIT16 published p. 976 and Biró p. 142 (A.1). *Printed:* “pr⁺ = ⅔(U₄ ∘ W₄) + ⅓” *Correction:* For the explicitly displayed left-acting function operators use pr⁺=⅔(W₄∘U₄)+⅓, matching Biró L and DIT16 after 168’s conjugation. Keep the independent 3/2 normalization correction E12.
+- **E15** (misprint; affects nothing), §5, (5.1) and the line after it, p.961, in the published version (image checked by cc-442dc5). *Printed:* where ⟨φ, φ⟩ = ∫_F |φ(x)|² dµ(z). *Correction:* ⟨φ, φ⟩ = ∫_F |φ(z)|² dµ(z).
+- **E16** (misprint; affects nothing), §5, (5.4), p.962, in the published version (image checked by cc-442dc5). *Printed:* E*(z, 1 − s) = E*(s). *Correction:* E*(z, 1 − s) = E*(z, s).
+
+The reasons and the places searched are in the JSON.
+
+## Source gates: status after this continuation
+
+- **S1** (deferred). Zagier's minus-reduction and unit theory are cited suppliers; their statements as used are items.
+- **S2** (deferred). Maskit/Poincaré polygon theorem and the limit-set/core statements are cited suppliers.
+- **S3** (deferred). Hecke's period formulas, Siegel and Burgess are cited suppliers.
+- **S4** (deferred). Fay's resolvent expansions and the level-one spectral facts are cited suppliers.
+- **S5** (deferred). the operator order is settled by the paper itself, which prints WU (E14 records DIT11's order); Kohnen's finite-sum identity and Chiera's norm are cited suppliers.
+- **S6** (deferred). Biró's automorphy and Baruch–Mao's bijection are cited suppliers (E13 records Biró's p.128 slip).
+- **S7** (deferred). Duke 1988's Kuznetsov/Proskurin inputs are cited suppliers; the cosh factor is kept (E6).
+- **S8** (deferred). the residual Appendix suppliers; the paper's Appendix slips are E9–E11.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+
+The following was also checked:
+- **Items and routes.** Item ids are unique. Every missing item is routed exactly once, and there are no unrouted items.
+- **E5.** The family was recomputed with exact quadratic-irrational arithmetic.
+- **Examples.** The four numerical examples on p. 967 were recomputed from Table 2.
+
+No Lean deliverable is part of a paper job.
+
+**For the reviewer.**
+- Check E6's reclassification against the numbers above.
+
+## Checkpoint history (unchanged)
+
+The reports of the earlier checkpoints follow as they were written. Where they say *partial*, or list the gates as open, this continuation supersedes them.
+
+## Geometric invariants for real quadratic fields — extraction checkpoint
 
 Current continuation: Codex — `codex-c83e7a`, 23 September 2026, issue #1170. **Partial:188 items,22 library imports,6 existing-plan imports,160 missing contracts;56 definitions/constructions with168 APIs and168 proposed tests.** The Biró continuation at the end supplies the current operator-order and source-gate status. The intervening sections preserve the earlier report and its explicitly historical counts/read scopes.
-
 
 Codex, continuation session `codex-a71f92` (building on `codex-c83e7a` and `cc-fb70e5`); issue #1170; 22 September 2026. **Partial.** The publisher’s entire 42-page paper was read. The inventory has 169 items: 19 pinned-library imports, four imports from existing plans and 146 missing contracts, each assigned once. The 52 definitions/constructions have 156 proposed API statements, recorded uses and 156 proposed tests. Recursive proof closure remains open at the eight source gates below. No Lean code is submitted or claimed to compile.
 
 The source is Duke–Imamoḡlu–Tóth, *Geometric invariants for real quadratic fields*, Annals of Mathematics 184 (2016), 949–990, [publisher page](https://annals.math.princeton.edu/2016/184-3/p08) and [final PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf). All of §§1–10, Appendix A and the references were read, rather than only theorem statements. The PDF SHA-256 is `a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61`. Source archives, actual read scopes, pinned declaration statements and inspected input hashes are in the JSON. Page numbers below are printed page numbers.
 
-## The geometric and arithmetic endpoint
+### The geometric and arithmetic endpoint
 
 Write Γ=PSL₂(Z), with curvature −1 on H and measure dμ=dx dy/y²; the modular fundamental domain has area π/3. Let D>0 be fundamental and K=Q(√D), excluding the trivial discriminant 1 from the field construction. Let ε_D>1 be the least totally positive unit of norm one in the **full** ring of integers. Write Cl⁺ for the narrow ideal class group and J for the class of (√D). An ideal with a positive-norm generator has a totally positive generator after a possible sign change. A negative-norm generator has narrow class J. The map Cl⁺→Cl has kernel {1,J}; a norm −1 unit makes J=1.
 
@@ -44,7 +133,7 @@ as positive fundamental D tends to infinity. The smooth-test-function version pr
 
 The worked D=28 cycles are (3,6) and (3,3,2,2,2), with ε=8+3√7 and areas 2π and 5π. The D=12 cycles (4) and (2,3) have ε=2+√3. These tests simultaneously distinguish primitive period, cusp width, boundary length and area. The paper’s observations involving an infinite class-number-one subsequence are conditional; the extraction does not assert its infinitude. The separate Hirzebruch–Zagier length identity is retained as item 55.
 
-## Spectral identities and their conventions
+### Spectral identities and their conventions
 
 The three cases are surfaces for two negative genus factors, closed geodesics for two positive factors, and CM points for opposite signs. Items 69, 119, 127–130 and 140–142 keep these cases separate. For a factorization D=dd′, retain all fundamental-discriminant and coprimality hypotheses where the theorem requires them; Proposition 6 allows a more general discriminant d′. The trivial character factor d=1 is permissible in L-function statements even though it is not a quadratic field discriminant.
 
@@ -67,7 +156,7 @@ The Hecke and Shimura coefficient relation is an explicit item, not implicit in 
 
 For the substitution w=s/2+1/4 and a simple pole at s₀=1/2+ir, the residue of (2s−1)H(w) is four times the corresponding residue of (2w−1)H(w). One factor two is the coordinate Jacobian and the other is the ratio of the linear factors. This argument excludes r=0. The no-exceptional-spectrum assertion has its own item 157 and still needs a source-qualified proof; a numerical first eigenvalue is not such a proof.
 
-## Corrections and proof qualifications
+### Corrections and proof qualifications
 
 These are local mathematical checks against the printed PDF. They are not an assertion that an author has issued an erratum.
 
@@ -111,7 +200,7 @@ The continuation below now supplies those analytic steps for Lemma 7 through an 
 
 The Stokes conversion also needs the right convergence order. For E(z,1/2+it), the constant terms have size O(y^{1/2}) and their first derivatives O(y^{-1/2}), with a limiting argument at t=0. Thus the core cusp integral is integrable against y⁻²dx dy and the horizontal boundary term tends to zero. The raw core integral generally diverges in Re(s)>1. Continue the **compact geodesic Hecke period** to the critical line first, then apply truncated Stokes there. Item 140 deliberately does not claim a common initial convergence region for the unregularized surface integral and the defining Eisenstein series.
 
-## The spectral norm gate
+### The spectral norm gate
 
 The paper’s polynomial-only spectral bound in (6.6) requires an additional normalization argument. This checkpoint records the missing argument rather than suppressing it.
 
@@ -184,7 +273,7 @@ For compactly supported smooth f, integration by parts gives |⟨f,u_φ⟩|≤||
 
 The Eisenstein exponent is 1/4+3/16=7/16. The genus area lower bound is D^{1/2−ε}, up to ineffective constants. Thus the power savings before absorbing losses are 1/16 and 1/28. Siegel’s ineffective lower bound does not produce an effective rate. The genus factor 2^{ω(D)} and logarithms are absorbed only through a stated D^ε estimate.
 
-## What the atlas already supplies
+### What the atlas already supplies
 
 The pinned commits are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The JSON records each cited declaration’s module, line, statement and file hash. Reading the actual statements, including their namespaces, matters here:
 
@@ -197,7 +286,7 @@ The four existing-plan imports are the upstream polygon theorem (31), automorphi
 
 The ownership screen included all 211 cached roadmap extracts, fourteen relevant extracts, available new roadmap/packet inputs, integrated decompositions, reserved identifiers and the reviewed library audit. The FuchsianOrbifolds and Multiquadratic upstream documents were read in full. Other long documents were read to the relevant supplier scope; no full-read claim is made for every neighboring document. Pre-publication input hashes are rechecked separately.
 
-## Routes and design boundaries
+### Routes and design boundaries
 
 | Route | Items/scope | Reason and imported boundaries |
 |---|---|---|
@@ -214,7 +303,7 @@ The ownership screen included all 211 cached roadmap extracts, fourteen relevant
 
 No standalone roadmap named after this paper is proposed. Each of the 146 missing inventory items occurs in exactly one route. The two Part II briefs contain target statements, required constructions, named imports and discriminating tests; they are reviewable proposals, not accepted atlas changes.
 
-## Source gates and continuation
+### Source gates and continuation
 
 The main paper has been read completely, but that is not recursive source closure. The JSON gives precise `neededBy` item IDs for each gate.
 
@@ -229,7 +318,7 @@ The main paper has been read completely, but that is not recursive source closur
 
 DIT11’s publisher PDF was read selectively at printed pp956–960 and 964–977, including the unfolding and Bessel calculations; the remaining pages were not claimed read. Its SHA-256 is `8f2b8ed3518fe69f08a72ef0ed3311d30523042335d4bd0e1ffd82d84459a010`. Duke88’s PDF SHA-256 is `3c468d0c0d79ec2ab29f96dcdda6094a4ceb6603a4caaae947c0bef443f9005f`. Fay HTML was obtained, but no Fay paper text was read.
 
-## Earlier-checkpoint validation (historical)
+### Earlier-checkpoint validation (historical)
 
 The scratch checks use exact integers, rational numbers and pairs a+b√D. They test 121 cycles, including the published D=12 and D=28 examples and all non-all-2 words of lengths one through four on digits {2,3,4}. They check determinant/discriminant, attracting fixed point, strict digit endpoints, the unit multiplier, product of rotated reduced irrationals, projective involutions and the boundary word. Repeated cycles in this finite family test the matrix identities; they are not accepted as primitive representatives for the area theorem.
 
@@ -237,11 +326,11 @@ Additional exact checks cover the signature-area coefficient, phase invariance a
 
 The repository’s `check_paper.py` passed; `intake.py check-files` reported three files and zero problems. The local checks passed for the acyclic 158-node dependency graph, exactly one route per missing item, API coverage and valid roles. There were 1814 exact mathematical assertions and three numerical quadratures. Inspected roadmap/audit/packet input hashes were unchanged on current main before publication. The validator accepts parent stages in `planned`; item 134 therefore records AN.4 there and preserves its finer reviewed supplier in `plannedNodes`. No compiled Lean test suite is asserted. The handoff preserves the stable item IDs and identifies where the next worker should resume.
 
-## Continuation: Appendix A written proof (codex-a71f92)
+### Continuation: Appendix A written proof (codex-a71f92)
 
 The 22 September 2026 continuation preserves items 1–158 and adds 159–169. Items 159–161 import pinned regularized hypergeometric convergence, beta/gamma identities and dominated complex differentiation. Items 162–167 supply a complete written proof of the integral in Lemma 7 for every stated parameter. They are mathematical proof obligations for a future formalization, not compiled Lean. Residual S8 still includes the W function, infinity asymptotics, the differentiated seed and the separate positive-cycle comparison.
 
-### Series, branches and endpoint bounds
+#### Series, branches and endpoint bounds
 
 Put \(\sigma=\Re s>0\) and
 \[
@@ -273,7 +362,7 @@ All fixed-order \(t\)-derivatives of M retain the first bound: write
 \(M(2t\sin\theta)=(2\sin\theta)^st^sq(2t\sin\theta)\).
 The boundedness of every derivative of the entire function \(q\) on the relevant compact disk proves the claimed uniformity.
 
-### Remove the singular power before differentiating
+#### Remove the singular power before differentiating
 
 For \(\epsilon\in\{-1,1\}\), define on the whole complex plane
 \[
@@ -304,7 +393,7 @@ Its endpoint terms are \(O(\delta^\sigma)\); the differentiated terms are integr
 \]
 which cancels the other terms. This proves \(L_tf_\epsilon=0\) for both signs without assuming that complex-parameter M is real.
 
-### The sine integral from a beta contour
+#### The sine integral from a beta contour
 
 For \(\Re\nu>0\), first put \(\gamma=(\beta-\nu+1)/2\) and assume \(0<\Re\gamma<1\). Substitute \(z=e^{2i\theta}\). Along the circle use
 \(\arg z=2\theta\in(0,2\pi)\) and
@@ -324,7 +413,7 @@ The pinned beta and reflection formulas yield item 115 with denominator factors
 
 For each fixed \(\nu\), both sides are entire in \(\beta\). For the integral, every derivative contributes a bounded power of \(\theta\), with an integrable majorant \(C\sin^{\Re\nu-1}\theta\) on compact parameter sets. For the expression, use the entire reciprocal gamma theorem. The identity theorem therefore removes the strip restriction and includes zeros of either reciprocal gamma factor. This proves the corrected formula independently of an unread table proof. [DLMF 5.12.6](https://dlmf.nist.gov/5.12#E6) supplies a separate convention check; its cited Nielsen proof was not read.
 
-### Frobenius uniqueness, globally and at the repeated root
+#### Frobenius uniqueness, globally and at the repeated root
 
 Substituting \(f=t^sH\) gives \(tH''+2sH'+tH=0\) on positive reals. The left side is entire, so it vanishes on all of \(\mathbb C\). Its Taylor coefficients satisfy
 \[
@@ -343,7 +432,7 @@ The sine integral gives
 \]
 The corrected J series and the pinned duplication formula give exactly the same leading coefficient and recurrence after multiplication by the printed \(G(s,\mu)\). This proves item 118 for every \(t>0,\mu\in\mathbb C,\Re s>0\), including exceptional numerator parameters and a zero leading coefficient. It closes the written integral proof, not all of S8 or the paper's recursive dependencies.
 
-### Other continuation corrections and boundaries
+#### Other continuation corrections and boundaries
 
 Item 168 proves \(CU_4C^{-1}=U\), \(CW_4C^{-1}=W\) for \(C f=y^{1/4}f\). The imaginary parts are \(y/4\) and \(y/(4|z|^2)\); the latter also gives the stated principal-square-root phase. Conjugation preserves order, so \(C(U_4\circ W_4)C^{-1}=U\circ W\). It does **not** turn this into \(W\circ U\). S5 must still resolve the action convention or the equality on the precise automorphic subspace.
 
@@ -356,7 +445,7 @@ The required structured `sourceIssues` list now includes the canonical E1–E10 
 
 Fresh novelty checks covered the Annals article page, Duke's publication list and linked preprint passages, the arXiv title search and exact-title correction searches. No additional published Appendix correction was found. The errata file is outside this issue's write scope and is unchanged; mirrored IDs let a reviewer reconcile the two records. Nothing was sent to authors.
 
-### Continuation validation and read scope
+#### Continuation validation and read scope
 
 This session freshly read all 42 publisher pages, checked images at pp961,965,983–985, reread DIT11's p959 definitions in pp958–960 context, and read the complete pinned regularized-hypergeometric file plus every newly cited declaration. The AS.0 reviewed audit and QM.2 Bessel near-miss were checked directly, as were the AS layer descriptions. Generic differentiation and hypergeometric convergence are imports; only the specific adapters and bounds are routed. No new standalone roadmap is proposed.
 
@@ -366,18 +455,17 @@ Fresh scratch checks passed: 1466 exact rational assertions (632 nonzero denomin
 
 On publication base `153e5fbe48ffcf6c4f82ca14a6e2d291e9089e02`, `check_paper.py` passed and `research/blueprint/intake.py check-files` reported three files and zero problems. The 169-node graph is acyclic; every one of the 146 missing items has exactly one route. All 158 original IDs, kinds, statuses and statements are unchanged. The 52 definition/construction contracts have 156 API statements and 156 proposed tests. All 39 inherited inspected-input hashes and 23 pinned-module hashes matched; WORKERS/PROTOCOL/UPSTREAM/expansion rules were unchanged. No Lean compilation was run or claimed.
 
-
-## Biró continuation: operator order and automorphy (codex-c83e7a)
+### Biró continuation: operator order and automorphy (codex-c83e7a)
 
 This 23 September 2026 continuation preserves all 169 inherited item statements, kinds and statuses, including the norm comparison and Appendix integral proofs. Items170–188 add three library imports, two existing-plan imports and fourteen specific missing contracts. The current total is **188 items:22 library,6 planned,160 missing**, with every missing item assigned once to the same ten routes. All56 definitions/constructions have three proposed API statements, three tests and recorded consumers. The extraction remains partial.
 
-### The source obtained, and what remains unread
+#### The source obtained, and what remains unread
 
 Biró's *Cycle integrals of Maass forms of weight0 and Fourier coefficients of Maass forms of weight1/2*, Acta Arithmetica94(2000),103–152, is available from his [author copy](https://users.renyi.hu/~biroand/pdfs/Cycle.pdf). The50-page file has SHA256 `d1a49be2d88fb60164b11783d444256fdcb0e1e8678476a325c077322a4572a4`. This continuation read printed pp103–111,126–131,139–143,151–152, not the whole paper. Images of104,128,129,142 fix the multiplier conjugation, convergence statement, Fourier bars and cusp indices. DIT11 pp947–951 and959 were freshly read, supplementing the inherited selected-page scope. The main DIT16 full read and Duke88 full read remain attributed to earlier continuations.
 
 Baruch–Mao's2010 paper remains unread: the Wiley endpoint returned403, the Rutgers author URL timed out, and its alternate host returned403. Original Kohnen1982/1985 and Chiera proofs are also unclosed; EuDML returned403 for Kohnen1982. Biró's reference [Ko3] is the1982 Crelle paper, not the different1996 paper with the same title. No successful acquisition is claimed for these sources.
 
-### The four-coset formula fixes the order
+#### The four-coset formula fixes the order
 
 Biró uses
 
@@ -419,7 +507,7 @@ But [q²]U₄W₄f=[q⁸](θj)=490845366512384. Consequently the opposite-order 
 
 The generic j inputs are imported from upstream ModularForms Layer0, whose reviewed audit says j itself is not built at the pins. The theta seed and inversion are already in Mathlib. Neither supplier is re-planned here.
 
-### Fourier support is distinct from orthogonal projection
+#### Fourier support is distinct from orthogonal projection
 
 Biró uses σ_q=[[1,1/2],[2,2]] at q=1/2 and σ_s=[[2,1/2],[6,2]] at s=1/3, equivalent to0. Their cusp parameters areχ_q=3/4 andχ_s=0. Thus rescaling by4 gives frequencies4n−3 and4n, respectively. Lemma A.3 gives, for n≠0,
 
@@ -435,7 +523,7 @@ The shifted index at the nonsingular cusp is essential, including for negative n
 
 If L is bounded self-adjoint and satisfies(L−I)(L+I/2)=0, then P²=P=P* and range P=ker(L−I). That elementary algebra is179. Biró A.2 cites the holomorphic Kohnen argument and asserts the Maass modifications; this selected read has not supplied the operator-domain and self-adjointness proofs. Those remain S5. The extension to non-L² Poincaré families and their principal terms is another obligation. In particular the2/3 main coefficient and the3/2 comparison cannot be inferred by discarding the other-cusp terms without justification.
 
-### Finite coefficient separation proves the automorphy step
+#### Finite coefficient separation proves the automorphy step
 
 Biró takes a finite-dimensional fixed-eigenvalue space W and splits W=W₀⊕W₁, where W₀ is the common kernel of all positive admissible Fourier coefficients and W₁=W₀⊥. On W₁ these coefficient forms separate points. The exact pinned theorem `FiniteDimensional.mem_span_of_iInf_ker_le_ker` imports the linear-algebra principle; no general dual-separation theorem is proposed anew.
 
@@ -451,7 +539,7 @@ is a finite linear combination of level-one cusp eigenforms. Here D is positive 
 
 This argument **does not require W₀=0**, nor any fundamental-coefficient nonvanishing. It proves automorphy conditional on the analytic trace identity and convergent reconstruction. It supplies no injectivity, surjectivity or eigenline bijection. The full Lemma10 analytic input remains183/S6; negative-D and mixed-sign parts of DIT16 need their wider trace identity separately.
 
-### Normalization, prime2 and the supplier boundary
+#### Normalization, prime2 and the supplier boundary
 
 Biró writes W_(1/2+ir)(nz)=2√(|n|y)K_ir(2π|n|y)e(nx), while DIT uses2√y a(n). Multiplying Biró's coefficient by√|n| therefore gives
 
@@ -470,7 +558,7 @@ At N=1 the definition includes the divisor2; Biró's intertwining statement on p
 
 The precise generic owner is **GL2AutomorphicRepresentationsAndTransfer:R16.4**. AF.2's finite multiplicity and the built holomorphic newform theorem do not suffice. Item174 imports R16.4, and186 records the remaining Maass comparison explicitly. There is no additional GL₂ roadmap or duplicate theorem planned in this extraction.
 
-### Repairing the convergence citation without losing the boundary gate
+#### Repairing the convergence citation without losing the boundary gate
 
 On p128 Biró states a bounded-holomorphic convergence principle using convergence at one point. It is false: on the unit disk f_k(z)=(−1)^kz/2 converges at0 but oscillates at1/2. However, his preceding calculation proves convergence for every sufficiently large positive real A, and he states uniform bounds on compact subsets of Ω={Re A>−1/2} minus a finite pole set. This Ω is connected, and a large real interval supplies an accumulation set. Tau Ceti's existing `vitali`/`vitali_of_tendsto`, followed by the identity theorem, repairs the interior step. For the real parameter limit m, apply this to each approaching sequence. E13 records the source misstatement and the repair, without attributing it to the unread Pólya–Szegő source.
 
@@ -482,7 +570,7 @@ g_k(A)=\frac{e^{-k(A+1/2)}}{A+1/2}
 
 converge locally uniformly to0 on Re A>−1/2, yet all have residue1 at the boundary point−1/2. Biró's independent boundary estimates, including the different r=0 behavior, must still be checked. Item188 makes that distinction testable.
 
-### Validation and remaining work
+#### Validation and remaining work
 
 The exact diagnostics passed **2842 rational/integer assertions**: four-coset matrices, shifted cusp indices, projection polynomial, j coefficients and order regression, invertible Fourier certificates with a nontrivial invisible kernel, normalization scalars and the one-point counterexample. Separately,140 floating-point principal-phase comparisons had maximum error1.088×10⁻¹³. The finite calculations are diagnostics; the all-parameter arguments and conditional boundaries are written above and in the JSON. Historical checks were not relabeled as newly rerun.
 
