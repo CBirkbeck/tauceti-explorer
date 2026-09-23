@@ -14,10 +14,11 @@
     "readSections": [
       "Codex codex-c83e7a: entire arXiv2209.11086v4, pp.1–51, all sections/proofs/references; downloaded bytes match prior SHA-256. Page45 additionally inspected as an image.",
       "Inherited from codex-a71f92/PR1963: all eleven PFF alternative-proof image pages; no renewed full PFF read in this continuation.",
-      "Journal landing page inspected; ordinary and encoded Springer PDF endpoints returned HTML previews, not the full journal PDF. Journal numbering and seven inherited version-specific findings remain uncollated."
+      "Journal landing page inspected; ordinary and encoded Springer PDF endpoints returned HTML previews, not the full journal PDF. Journal numbering and seven inherited version-specific findings remain uncollated.",
+      "Third checkpoint codex-c83e7a: fresh downloaded v4 bytes match the fully read PR2029 source. Reused that same-session full pp.1–51 reading and freshly reread pp.48–49; this is not represented as a second new full read. Saito2021 and Kato–Saito2004 selected reading scopes below are new."
     ]
   },
-  "summary": "Continuation of PR1963: complete arXivv4 reread; explicit character-admitting finite local coefficient extension, scalar transport of ULA/traces/supported non-acyclicity/nearby cycles, Swan invariance and Milnor descent without division by extension degree. Saito18 finite étale characteristic-cycle/Chow pushforward input is now explicit. Journal/pencil and recursive geometric/Fourier source gaps remain; status partial.",
+  "summary": "Continuation of PR1963: complete arXivv4 reread; explicit character-admitting finite local coefficient extension, scalar transport of ULA/traces/supported non-acyclicity/nearby cycles, Swan invariance and Milnor descent without division by extension degree. Saito18 finite étale characteristic-cycle/Chow pushforward input is now explicit. Journal/pencil and recursive geometric/Fourier source gaps remain; status partial. Third checkpoint isolates the localized Chern rank threshold, section/excess-intersection comparison, cotangent cycle pushforward and the global Whitney/trace bridge, importing integral operations from SF.5 and preserving the conjectural supported boundary.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -63,6 +64,30 @@
         "module": "Mathlib/RingTheory/LocalRing/Module.lean",
         "lines": "329–383",
         "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle",
+        "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+        "lines": "35–77",
+        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.mapCoeff",
+        "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+        "lines": "35–77",
+        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.map",
+        "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+        "lines": "35–77",
+        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.map_id",
+        "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+        "lines": "35–77",
+        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred."
       }
     ]
   },
@@ -3821,10 +3846,16 @@
       "prerequisites": [
         "PAPER-YANG-ZHAO-25/A13",
         "PAPER-YANG-ZHAO-25/S13",
-        "PAPER-YANG-ZHAO-25/M08"
+        "PAPER-YANG-ZHAO-25/M08",
+        "PAPER-YANG-ZHAO-25/J09"
       ],
       "ownerCandidate": "RT",
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofOutline": "The source calculation (6.8.3), using proper trace compatibility, the curve fibration formula and the top tangent Chern normalization, identifies the pushed-and-forgotten non-acyclicity expression with the right side of J09. J09 identifies that expression with the pushed localized Chern class. Preserve the target H0(Y,K_Y/k); no source C2 or injective support-forgetting map is assumed. The source’s alternate cotangent-cycle calculation is J05–J06 plus J03.",
+      "acceptance": [
+        "Use the A1 quadratic example in J09 to check that no supported equality is deduced from this global identity.",
+        "The proof uses neither the late Saito characteristic-class comparison M16 nor projectivity of f."
+      ]
     },
     {
       "id": "PAPER-YANG-ZHAO-25/M01",
@@ -4047,12 +4078,13 @@
       "id": "PAPER-YANG-ZHAO-25/M05",
       "kind": "construction",
       "name": "Refined Gysin and cycle-class interface",
-      "statement": "Over a perfect field construct Chow groups, rational-equivalence descent, refined Gysin maps, Chern classes and cl:CH0(X)→H0(X,K_X/k) with proper pushforward and smooth/self-intersection compatibilities; for smooth d-folds compare with CH^d→H^(2d)(Λ(d)). Use the established EDC singular-cycle extension, not smooth purity on singular cycles.",
+      "statement": "Over a perfect field, import the integral Chow/refined-Gysin/Chern carrier and operations from J01 (SchemeAndStackFoundations:SF.5). EDC.3 owns their étale realization: cl:CH0(X)→H0(X,K_X/k), rational-equivalence descent, proper-pushforward and intersection/cup-product compatibility, and for smooth d-folds the CH^d→H^(2d)(Λ(d)) comparison. Use the established singular-cycle extension; never apply smooth purity to a singular cycle.",
       "locator": "§2.8–2.10; §6.12; EDC.3",
       "status": "planned",
       "prerequisites": [
         "PAPER-YANG-ZHAO-25/B01",
-        "PAPER-YANG-ZHAO-25/B06"
+        "PAPER-YANG-ZHAO-25/B06",
+        "PAPER-YANG-ZHAO-25/J01"
       ],
       "ownerCandidate": "EDC",
       "implementationStatus": "unchecked",
@@ -4063,7 +4095,7 @@
         {
           "name": "YangZhao25.M05.spec",
           "role": "constructor",
-          "statement": "Over a perfect field construct Chow groups, rational-equivalence descent, refined Gysin maps, Chern classes and cl:CH0(X)→H0(X,K_X/k) with proper pushforward and smooth/self-intersection compatibilities; for smooth d-folds compare with CH^d→H^(2d)(Λ(d)). Use the established EDC singular-cycle extension, not smooth purity on singular cycles."
+          "statement": "Over a perfect field, import the integral Chow/refined-Gysin/Chern carrier and operations from J01 (SchemeAndStackFoundations:SF.5). EDC.3 owns their étale realization: cl:CH0(X)→H0(X,K_X/k), rational-equivalence descent, proper-pushforward and intersection/cup-product compatibility, and for smooth d-folds the CH^d→H^(2d)(Λ(d)) comparison. Use the established singular-cycle extension; never apply smooth purity to a singular cycle."
         },
         {
           "name": "YangZhao25.M05.characterisation",
@@ -4150,7 +4182,8 @@
           "where": "PAPER-YANG-ZHAO-25/M18",
           "how": "Supplies the explicitly named Refined Gysin and cycle-class interface input for Finite étale pushforward of degree-zero characteristic classes."
         }
-      ]
+      ],
+      "note": "Ownership refinement of the former combined interface: generic integral intersection theory is imported once from SF.5; EDC.3 retains the geometric étale cycle map. Both stages and their reviewed overlap were read."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/M06",
@@ -4243,11 +4276,13 @@
       "id": "PAPER-YANG-ZHAO-25/M08",
       "kind": "construction",
       "name": "Localized Chern class interface",
-      "statement": "For smooth X and proper flat f:X→Y to a smooth curve, smooth off X_y, construct Bloch's localized top Chern class c^X_{n,Xy}(Ω1_X/Y)∩[X] in CH0(X_y), retaining the perfect cotangent presentation and exactness off the fiber. This is a required external input; it is not declared equal to the non-acyclicity class.",
-      "locator": "Remark6.8; Bloch§1 (not read directly)",
+      "statement": "For smooth pure n-dimensional X (n≥1) and proper flat f:X→Y to a smooth connected curve, smooth off X_y, construct Bloch’s localized top Chern class c^X_{n,Xy}(Ω1_X/Y)∩[X]∈CH0(X_y) using the presentation [f*ΩY→ΩX] in degrees −1,0. Off X_y its H0 is locally free of rank n−1 and other cohomology vanishes; the complex need not be acyclic. Import J02 rather than create a second localized-Chern carrier, and use J03/J04 for its local derivative intersection. No equality with the non-acyclicity class is assumed.",
+      "locator": "Remark6.8; Kato–Saito2004 §2.3 and Saito1704.04832v4 Lemma2.1.4; direct Bloch§1 construction remains unread",
       "status": "missing",
       "prerequisites": [
-        "PAPER-YANG-ZHAO-25/M05"
+        "PAPER-YANG-ZHAO-25/M05",
+        "PAPER-YANG-ZHAO-25/J02",
+        "PAPER-YANG-ZHAO-25/J04"
       ],
       "ownerCandidate": "MIC",
       "implementationStatus": "unchecked",
@@ -4255,7 +4290,7 @@
         {
           "name": "YangZhao25.M08.spec",
           "role": "constructor",
-          "statement": "For smooth X and proper flat f:X→Y to a smooth curve, smooth off X_y, construct Bloch's localized top Chern class c^X_{n,Xy}(Ω1_X/Y)∩[X] in CH0(X_y), retaining the perfect cotangent presentation and exactness off the fiber. This is a required external input; it is not declared equal to the non-acyclicity class."
+          "statement": "For smooth pure n-dimensional X (n≥1) and proper flat f:X→Y to a smooth connected curve, smooth off X_y, construct Bloch’s localized top Chern class c^X_{n,Xy}(Ω1_X/Y)∩[X]∈CH0(X_y) using the presentation [f*ΩY→ΩX] in degrees −1,0. Off X_y its H0 is locally free of rank n−1 and other cohomology vanishes; the complex need not be acyclic. Import J02 rather than create a second localized-Chern carrier, and use J03/J04 for its local derivative intersection. No equality with the non-acyclicity class is assumed."
         },
         {
           "name": "YangZhao25.M08.characterisation",
@@ -4294,7 +4329,8 @@
           "where": "PAPER-YANG-ZHAO-25/A14",
           "how": "Supplies the explicitly named Localized Chern class interface input for Global pushed localized-Chern conductor comparison."
         }
-      ]
+      ],
+      "note": "Corrects the extraction’s earlier phrase “exactness off the fiber”: only higher/lower cohomology vanishes there, while H0 has rank n−1. This was an artifact defect, not a new source issue."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/M09",
@@ -4915,6 +4951,456 @@
         "On a closed point of degree d the Chow pushforward has multiplicity d before applying cl.",
         "No inverse of d is introduced in the integral Chow group."
       ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/L09",
+      "kind": "construction",
+      "name": "Existing algebraic-cycle carrier and weighted pushforward",
+      "statement": "For a scheme X and a type R with zero, AlgebraicCycle X R is the existing locally finitely supported R-valued function on its points. For a quasi-compact scheme morphism f:X→Y and semiring R, AlgebraicCycle.map f wx wy sums coefficients multiplied by residue degrees when the chosen decidable weights wx(x), wy(f(x)) agree and by zero otherwise. map_id holds. This is not a quotient by rational equivalence and does not supply composition or a Chow-group pushforward.",
+      "locator": "Pinned Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean:35–77 (whole file read)",
+      "status": "library",
+      "prerequisites": [],
+      "ownerCandidate": "SF",
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:AlgebraicGeometry.AlgebraicCycle",
+        "mathlib:AlgebraicGeometry.AlgebraicCycle.mapCoeff",
+        "mathlib:AlgebraicGeometry.AlgebraicCycle.map",
+        "mathlib:AlgebraicGeometry.AlgebraicCycle.map_id"
+      ],
+      "api": [
+        {
+          "name": "YangZhao25.L09.carrier",
+          "role": "data",
+          "statement": "Reuse Function.locallyFinsupp X R, including integer coefficients; do not invent a second cycle carrier."
+        },
+        {
+          "name": "YangZhao25.L09.weighted_map",
+          "role": "constructor",
+          "statement": "Expose the stated mapCoeff and quasi-compact map with both weight functions."
+        },
+        {
+          "name": "YangZhao25.L09.identity",
+          "role": "compatibility",
+          "statement": "For the identity morphism and the same weight function, map id wx wx c=c."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YangZhao25.L09.identity_point",
+          "kind": "computation",
+          "statement": "On Spec(k), the identity sends the integer cycle 3[x] to 3[x]."
+        },
+        {
+          "name": "YangZhao25.L09.residue_degree",
+          "kind": "computation",
+          "statement": "For Spec(F_{q²})→Spec(F_q) with both dimension weights zero, [x] maps to 2[y]."
+        },
+        {
+          "name": "YangZhao25.L09.dimension_drop",
+          "kind": "non-example",
+          "statement": "For A1_k→Spec(k), the generic-point cycle with source dimension weight one and target weight zero maps to zero, not [Spec(k)]."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-YANG-ZHAO-25/J01",
+          "how": "Reuse the carrier and dimension/residue-degree conventions before quotienting by rational equivalence."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/J01",
+      "kind": "construction",
+      "name": "Shared integral Chow and refined-intersection supplier",
+      "statement": "For finite-type schemes over a field, import integral Chow groups formed from L09, proper pushforward with residue-degree weights, flat and lci pullback, refined Gysin for regular immersions, Chern operators, the Whitney formula, zero-section self-intersection and excess/projection formulas. These are the existing SchemeAndStackFoundations:SF.5 targets; this paper supplies applications, not a second theory. Keep Gysin operations with singular base changes distinct from a purity isomorphism for singular schemes.",
+      "locator": "SchemeAndStackFoundations:SF.5; Saito1704.04832v4 §2.1; Fulton1998 §§6.2–6.6 cited there (original proofs remain supplier leaves)",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/L09"
+      ],
+      "ownerCandidate": "SF",
+      "implementationStatus": "unchecked",
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "api": [
+        {
+          "name": "YangZhao25.J01.proper_chow",
+          "role": "constructor",
+          "statement": "Descend the residue-weighted proper cycle pushforward to rational equivalence, with composition."
+        },
+        {
+          "name": "YangZhao25.J01.refined_pullback",
+          "role": "constructor",
+          "statement": "A rank-n vector-bundle zero section is a regular immersion and defines CH_d(X)→CH_{d−n}(Z(s)) in the square with any section s."
+        },
+        {
+          "name": "YangZhao25.J01.excess_and_projection",
+          "role": "compatibility",
+          "statement": "Refined pullback commutes with proper pushforward in its cartesian square, and an excess bundle contributes its top Chern class."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YangZhao25.J01.line_divisor",
+          "kind": "computation",
+          "statement": "For E=O_A1 and s=x^m, m≥1, the zero-section intersection is m[0] in CH0(V(x^m))."
+        },
+        {
+          "name": "YangZhao25.J01.self_intersection",
+          "kind": "computation",
+          "statement": "For E=O_P1(1) and s=0, the self-intersection has degree one."
+        },
+        {
+          "name": "YangZhao25.J01.nonreduced_support",
+          "kind": "non-example",
+          "statement": "The section x² on A1 has local intersection multiplicity two, even though its reduced zero set is the same as that of x."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-YANG-ZHAO-25/M05",
+          "how": "Supply integral Chow/Gysin operations to their étale realization."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/J02",
+          "how": "Supply bivariant Chow operations for localized Chern classes."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/J03",
+          "how": "Supply zero-section and excess intersection."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/J04",
+          "how": "Keep the derivative intersection on its actual support."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/J05",
+          "how": "Define the cotangent correspondence."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/J07",
+          "how": "Supply Whitney and dual Chern operations."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/J02",
+      "kind": "construction",
+      "name": "Localized Chern classes with a rank threshold",
+      "statement": "Let X be finite type over a field, Z⊂X closed, and K a bounded complex of finite-rank locally free O_X-modules. Suppose K|U, U=X−Z, has cohomology only in degree zero and H0(K)|U is locally free of rank n−1, n≥1. Bloch’s construction supplies c_i^X_Z(K) in bivariant CH^i(Z→X) for i≥n; lower-degree classes remain ordinary Chern classes on X. In particular K need not be acyclic on U. Retain the global-image, quasi-isomorphism, support-enlargement and proper-pushforward properties below as explicit construction obligations.",
+      "locator": "Kato–Saito2004 §2.3, printed p.50, Proposition2.3.1(1),(2),(5),(6); Bloch1987 §1 still not acquired directly",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/J01"
+      ],
+      "ownerCandidate": "SF",
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "YangZhao25.J02.threshold",
+          "role": "constructor",
+          "statement": "Given K,Z and the rank-(n−1) condition, construct localized c_i for i≥n acting on every finite-type X-scheme in the bivariant sense."
+        },
+        {
+          "name": "YangZhao25.J02.global_image",
+          "role": "characterisation",
+          "statement": "After forgetting support, the total class is ∏_q c(K^q)^{(−1)^q}; for a two-term L→E in degrees −1,0 it is c(E)/c(L)."
+        },
+        {
+          "name": "YangZhao25.J02.quasi_isomorphism",
+          "role": "compatibility",
+          "statement": "A quasi-isomorphism of eligible complexes gives the same localized class."
+        },
+        {
+          "name": "YangZhao25.J02.support_and_proper",
+          "role": "compatibility",
+          "statement": "For Z⊂Z′ the support pushforward gives c_Z′; for proper g:X′→X, c_Z(K)∩g_*α=g_Z*(c_Z′(g*K)∩α). This is equality with support, not merely after mapping to X."
+        },
+        {
+          "name": "YangZhao25.J02.whitney",
+          "role": "compatibility",
+          "statement": "For an eligible distinguished triangle with the ranks on U as in Kato–Saito Proposition2.3.1(4), total localized Chern classes multiply. In J03 apply it to [O→L]→[O→E]→F with F locally free. Its original graph-construction proof remains a named supplier obligation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YangZhao25.J02.split_inclusion",
+          "kind": "non-example",
+          "statement": "For K=[O_A2→O_A2²], 1↦(1,0), H0(K)=O_A2 is nonzero of rank one. The rank threshold n=2 applies with empty Z and gives zero localized c2; requiring K to be exact would wrongly exclude it."
+        },
+        {
+          "name": "YangZhao25.J02.torsion_on_line",
+          "kind": "computation",
+          "statement": "For K=[O_A1→O_A1], 1↦x², supported c1 is 2[0]."
+        },
+        {
+          "name": "YangZhao25.J02.zero_section",
+          "kind": "compatibility",
+          "statement": "For Z=X, K=[O_X→E] with zero differential, localized c_n(K) is ordinary c_n(E); the empty-complement hypothesis is vacuous."
+        }
+      ],
+      "proofOutline": "The read Kato–Saito proposition records these properties and refers to Bloch and Fulton for the construction; it does not prove them on p.50. The underlying graph construction and its invariance remain G10 supplier leaves. No source-closure claim is made.",
+      "uses": [
+        {
+          "where": "PAPER-YANG-ZHAO-25/M08",
+          "how": "Construct the localized cotangent Chern class with the correct rank threshold."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/J10",
+          "how": "Supply the localized line-complex carrier."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/J03",
+          "how": "Supply proper and Whitney compatibility before blowup reduction."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/J09",
+          "how": "Identify the global image of the supported class."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/J10",
+      "kind": "theorem",
+      "name": "Cartier-divisor normalization of the localized class",
+      "statement": "Let D⊂X be an effective Cartier divisor on a finite-type scheme over a field. For K=[O_X→O_X(D)] in degrees −1,0 with the canonical section, H0(K)=i_*O_D(D). The total localized class acting on [X] equals [X]+[D] (ordinary degree zero plus supported degree one), so localized c1(K)∩[X]=[D] and all higher localized components on [X] vanish.",
+      "locator": "Kato–Saito2004 Lemma2.3.2, printed p.51, specialize its bundle E=O_D of rank one; complete proof read",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/J02"
+      ],
+      "ownerCandidate": "SF",
+      "implementationStatus": "unchecked",
+      "proofOutline": "In Lemma2.3.2 set E=O_D: c(E)=1, a_1(E)=1, and the sole j=1 term is [D]. The source proves its identity by deforming D to a section in a P1-bundle. There the support pushforward is injective and 0→E_X→E_X(D)→i_*E(D)→0 computes the ordinary total Chern quotient. The required deformation and bivariant compatibility are the J01/J02 supplier obligations, not a new conductor theorem.",
+      "acceptance": [
+        "For D=m[0] on A1, localized c1=m[0], retaining multiplicity.",
+        "For a smooth divisor in a surface, higher localized Chern components of this line complex vanish; this is stronger than merely having zero global images."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/J03",
+      "kind": "theorem",
+      "name": "Section intersection equals the localized top Chern class",
+      "statement": "Let X be a pure d-dimensional finite-type scheme over a field, E a rank-n vector bundle, n≥1, s a section, and Z its scheme-theoretic zero locus. With E placed in degree zero in K=[O_X→E], the refined intersection of the zero and s sections equals c_n^X_Z(K)∩[X] in CH_{d−n}(Z), using the localized class J02. No regularity of Z, transverse-zero assumption or properness of X is imposed.",
+      "locator": "Saito1704.04832v4 Lemma2.1.4 and full proof, p.31; Kato–Saito2004 Proposition2.3.1(6), Lemma2.3.2",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/J01",
+        "PAPER-YANG-ZHAO-25/J02",
+        "PAPER-YANG-ZHAO-25/J10"
+      ],
+      "ownerCandidate": "SF",
+      "implementationStatus": "unchecked",
+      "proofOutline": "Use linearity on the fundamental cycle and proper bivariant compatibility to reduce to integral X. If s=0, J02 global normalization with Z=X and zero-section self-intersection give c_n(E)∩[X] directly. Otherwise blow up the ideal generated by the components of s. On the blowup this ideal is invertible; factoring out its local generator gives a primitive vector, hence a line subbundle L=O(D)⊂π*E with locally free quotient F of rank n−1. The pulled-back section of L cuts out the effective Cartier divisor D, including its multiplicities. J10 and the localized Whitney formula give c_{n−1}(F|D)∩[D]. The excess-intersection formula gives exactly the same class for the refined intersection. Push it back to Z. No resolution of singularities is used.",
+      "externalInputs": [
+        "J02 must also supply the localized Whitney formula for the triangle [O→L]→[O→E]→F with the stated rank thresholds (Kato–Saito Proposition2.3.1(4), whose proof is referred to Abbes)."
+      ],
+      "acceptance": [
+        "For E=O_A1, s=x^m, the class is m[0].",
+        "For E=O_A2² and s=(x²,0), the excess line bundle is trivial, so the top supported class is zero on the divisor V(x²), despite its nonempty zero scheme.",
+        "For s=0 in O_P1(1), the degree is one; the proof must handle this case before blowing up the zero ideal."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/J04",
+      "kind": "construction",
+      "name": "Cotangent presentation and its local derivative section",
+      "statement": "Let k be perfect, Y a smooth connected curve, X smooth pure dimension n≥1, and f:X→Y proper flat and smooth over V=Y−{y}. The complex K=[f*Ω1_Y/k→Ω1_X/k] in degrees −1,0 is a locally free presentation of Ω1_X/Y. Its H0 on X_V is locally free of rank n−1, not zero in general. Near y a uniformizer t has dt as a basis of Ω1_Y/k, identifying K with [O_X→Ω1_X/k], 1↦d(f*t). Its critical zero scheme Z(df) is supported on X_y; apply J03 and then enlarge support to X_y.",
+      "locator": "Yang–Zhao2209.11086v4 Remark6.8; Saito1704.04832v4 pp.30–31; Kato–Saito2004 §2.3 rank condition",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/J01",
+        "PAPER-YANG-ZHAO-25/J03"
+      ],
+      "ownerCandidate": "MIC",
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "YangZhao25.J04.presentation",
+          "role": "constructor",
+          "statement": "Build the two-term presentation and prove injectivity of f*ΩY→ΩX from generic smoothness and the torsion-free line bundle on each smooth component of X."
+        },
+        {
+          "name": "YangZhao25.J04.local_chart",
+          "role": "characterisation",
+          "statement": "On a neighborhood where dt generates ΩY, the differential map is the section d(f*t), with cokernel ΩX/Y."
+        },
+        {
+          "name": "YangZhao25.J04.parameter_independence",
+          "role": "compatibility",
+          "statement": "Another parameter gives dt′=u dt with u a unit near y. Multiplication by f*u is a vector-bundle automorphism preserving the zero section, so refined intersection is unchanged. The corresponding complexes are isomorphic. No arbitrary gluing of Chow classes from Zariski patches is assumed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YangZhao25.J04.smooth_surface",
+          "kind": "non-example",
+          "statement": "For P1×A1→A1, H0(K)=pr1*ΩP1 is a nonzero line bundle; K is not acyclic away from a chosen fiber."
+        },
+        {
+          "name": "YangZhao25.J04.tame_cover",
+          "kind": "computation",
+          "statement": "For A1→A1, t=x^m with m≥2 and char(k)∤m, the critical scheme at 0 has ideal (x^{m−1}); localized c1=(m−1)[0]."
+        },
+        {
+          "name": "YangZhao25.J04.inseparable_map",
+          "kind": "non-example",
+          "statement": "For t=x^p in characteristic p the differential is zero everywhere and generic smoothness fails; the one-bad-fiber contract does not apply."
+        }
+      ],
+      "proofOutline": "Flatness over the integral curve makes every nonempty component dominate Y. Generic smoothness makes the line-to-bundle map nonzero at every generic point, hence injective on the smooth reduced X. The usual exact sequence of differentials identifies its cokernel. Since k is perfect, a local uniformizer at a closed point generates the curve differentials after shrinking. Off the bad fiber f is smooth, so df is a subbundle inclusion and has no zero. All these constructions precede any characteristic-cycle theorem.",
+      "uses": [
+        {
+          "where": "PAPER-YANG-ZHAO-25/M08",
+          "how": "Present the relative cotangent sheaf and compare its local derivative section."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/J05",
+      "kind": "construction",
+      "name": "Cotangent correspondence pushforward on supported cycles",
+      "statement": "Let f:X→Y be a morphism of smooth pure-dimensional k-schemes, dimensions n,m; let B⊂X be closed with f|B proper, and C⊂T*X closed over B. Define f∘C as the image in T*Y of the inverse image of C in X×Y T*Y. Compose the lci Gysin map along X×Y T*Y→T*X with proper pushforward to obtain f!:CH_n(C)→CH_m(f∘C). When dim C≤n and dim(f∘C)≤m, this is a map on integral top-dimensional cycles Z_n(C)→Z_m(f∘C).",
+      "locator": "Saito1704.04832v4 §2.1(2.1–2.3), pp.28–29 and Lemma2.1.1 with proof",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/J01",
+        "PAPER-YANG-ZHAO-25/M01"
+      ],
+      "ownerCandidate": "MIC",
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "YangZhao25.J05.support_image",
+          "role": "constructor",
+          "statement": "Keep B, properness on B, and the cotangent differential in the construction of the closed image f∘C."
+        },
+        {
+          "name": "YangZhao25.J05.cycle_map",
+          "role": "constructor",
+          "statement": "The virtual dimension shift of the lci map is m−n, so its Gysin sends dimension n cycles to dimension m cycles."
+        },
+        {
+          "name": "YangZhao25.J05.composition",
+          "role": "compatibility",
+          "statement": "For X→X′→Y with the requisite support properness, f!=f′!g!; use the cartesian middle square and proper/refined-Gysin compatibility."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YangZhao25.J05.identity",
+          "kind": "compatibility",
+          "statement": "For f=id_X and supported cycle A, f!A=A."
+        },
+        {
+          "name": "YangZhao25.J05.finite_etale",
+          "kind": "compatibility",
+          "statement": "For finite étale degree-d f between curves, f![zero_X]=d[zero_Y]."
+        },
+        {
+          "name": "YangZhao25.J05.constant_map",
+          "kind": "non-example",
+          "statement": "For a smooth proper curve mapped constantly to a point y of a curve Y, the pushforward support can contain the whole cotangent fiber T*_yY; it is not forced into the zero section."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-YANG-ZHAO-25/J06",
+          "how": "Separate cotangent-cycle pushforward from direct image of a sheaf."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/J06",
+      "kind": "theorem",
+      "name": "Zero-section and fiber coefficients for a curve target",
+      "statement": "Let k be perfect, f:X→Y a morphism of smooth irreducible schemes with dim X=n and dim Y=1, and C=⋃C_a⊂T*X conical with each C_a of dimension n. Assume f proper on B=C∩zero_X and choose dense open V⊂Y on which f is properly C-transversal. For A=Σm_a[C_a], v a closed point of V, and A_v the signed properly transversal pullback, one has f!A=−deg(A_v,zero_Xv)[zero_Y]+Σ_{y∉V}deg(A,df)_{Xy}[T*_yY] as integral cycles. For the fiber at v, work on a smooth neighborhood of B∩X_v, where transversality ensures f is smooth; singularities outside this support do not enter the fiber cotangent intersection. The boundary intersection uses a local uniformizer, is a class in CH0(B∩X_y), and its degree is relative to k(y), not k.",
+      "locator": "Saito1704.04832v4 Lemma2.1.2, (2.5), Lemma2.1.3(2), pp.29–30; complete displayed proofs read",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/J05",
+        "PAPER-YANG-ZHAO-25/J01",
+        "PAPER-YANG-ZHAO-25/M01"
+      ],
+      "ownerCandidate": "MIC",
+      "implementationStatus": "unchecked",
+      "proofOutline": "Proper transversality places the support over V in zero_Y. For its coefficient, commute the two cartesian cotangent/fiber squares with refined Gysin and proper pushforward. The signed convention for i_v! contributes (−1)^codim(Xv,X)=−1. For each missing y intersect with the local section dt of T*Y. Its pullback is df, and the projection formula gives the coefficient of the cotangent fiber. Conicality gives independence from rescaling dt by a unit. This cycle calculation uses no conductor theorem, no global Saito comparison and no projectivity hypothesis.",
+      "acceptance": [
+        "For f=id_Y and A=[zero_Y], the signed fiber pullback has degree −1, so the coefficient of zero_Y is +1.",
+        "For t=x^m on A1 with char(k)∤m, f![zero_X]=m[zero_Y]+(m−1)[T*_0Y].",
+        "Replacing A by −A negates both coefficients."
+      ],
+      "externalInputs": [
+        "The signed properly transversal cotangent pullback and its expected-dimension compatibility are the existing M01/M05 supplier interfaces; the full Saito2017 Definition7.1 proof chain is not newly read here."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/J07",
+      "kind": "theorem",
+      "name": "Top Chern identity for a line pulled back from a curve",
+      "statement": "Let X be smooth pure dimension n≥1, Y a smooth curve, f:X→Y, and K=[f*Ω1_Y/k→Ω1_X/k] in degrees −1,0. In integral CH^n(X), (−1)^n c_n(K)=c_n(T_X/k)−f*c1(T_Y/k)·c_{n−1}(T_X/k). The identity depends on the virtual bundles only; it does not assume injectivity of the displayed differential.",
+      "locator": "Whitney and dual Chern identities from SchemeAndStackFoundations:SF.5; written calculation expanding Yang–Zhao(6.8.3)",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/J01"
+      ],
+      "ownerCandidate": "SF",
+      "implementationStatus": "unchecked",
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "proofOutline": "Write α=f*c1(ΩY). Since CH²(Y)=0, α²=0. Thus c(K)=c(ΩX)/(1+α)=c(ΩX)(1−α). Extract degree n and use c_i(ΩX)=(−1)^i c_i(TX), c1(ΩY)=−c1(TY). All signs and coefficients are integral; no factorial denominators or rational Riemann–Roch appear.",
+      "acceptance": [
+        "For n=1 the formula is −c1(ΩX)+f*c1(ΩY)=c1(TX)−f*c1(TY).",
+        "For a product F×Y→Y, with F smooth of dimension n−1, the right side is zero by Whitney.",
+        "The inverse (1+α)^{-1}=1−α requires α²=0; it is not a formula for an arbitrary line class on a higher-dimensional base."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/J08",
+      "kind": "theorem",
+      "name": "Smooth proper Euler class from the existing trace",
+      "statement": "Under coefficient convention A, for a smooth proper k-scheme Z of pure dimension d, Tr_Z cl(c_d(T_Z)∩[Z]) equals the image in Λ of the alternating dimension of RΓ(Z_bar,Λ) after derived residue reduction. The same formula applies to each geometric fiber of a smooth proper morphism. This is a Λ-valued statement; by itself it does not prove equality of two integral Euler numbers.",
+      "locator": "Yang–Zhao Proposition3.11 and (3.13.3), specialized to Z→Spec(k); coefficient convention A",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/C12",
+        "PAPER-YANG-ZHAO-25/C14",
+        "PAPER-YANG-ZHAO-25/M05"
+      ],
+      "ownerCandidate": "RT",
+      "implementationStatus": "unchecked",
+      "proofOutline": "C14 identifies the characteristic class of the constant sheaf with its top tangent Chern class. C12 pushes it to the characteristic class of RΓ. At a point this is the categorical trace of the identity of the perfect coefficient complex, namely its Euler rank; derived residue reduction computes that rank in Λ. No characteristic-cycle index theorem or projectivity assumption is used.",
+      "acceptance": [
+        "For P1 the top tangent Chern degree and Euler rank are both 2, interpreted in Λ.",
+        "For a smooth proper genus-one curve both sides vanish.",
+        "With Λ=F3, the equality of residues 1=4 in Λ does not certify equality 1=4 in Z."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/J09",
+      "kind": "theorem",
+      "name": "Global image of the localized cotangent Chern term",
+      "statement": "Under A, let f:X→Y be proper flat with X smooth pure dimension n≥1, Y a smooth connected curve, and f smooth over V=Y−{y}. Put r=Euler rank of Rf*Λ on V and β=c^X_{n,Xy}(Ω1_X/Y)∩[X]∈CH0(X_y), with i:X_y→X. In H0(Y,K_Y/k), cl(f_*i_*((−1)^nβ))=cl(f_*(c_n(TX)∩[X]))−r·cl(c1(TY)∩[Y]). Support has been forgotten on the left. The equality is not asserted in H0_y(Y,K_Y/k).",
+      "locator": "Written bridge for Yang–Zhao2209.11086v4 Remark6.8(6.8.2–3); Kato–Saito Proposition2.3.1(1); J07–J08",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/M08",
+        "PAPER-YANG-ZHAO-25/J02",
+        "PAPER-YANG-ZHAO-25/J07",
+        "PAPER-YANG-ZHAO-25/J08",
+        "PAPER-YANG-ZHAO-25/M05"
+      ],
+      "ownerCandidate": "RT",
+      "implementationStatus": "unchecked",
+      "proofOutline": "J02 sends i_*β to c_n(K)∩[X]. J07 and the Chow projection formula reduce the identity to determining the cohomological image of f_*(c_{n−1}(TX)∩[X])∈CH1(Y). Since Y is integral, this is m[Y] for an integer m. Choose a geometric point of V and use flat/refined base change to compute m from that smooth proper fiber. The tangent exact sequence has trivial rank-one quotient on the fiber, so its degree-(n−1) Chern class is the top tangent class of the fiber. J08 identifies the image of m in Λ with r. Apply the cycle map and its proper/pullback compatibilities. No cancellation in CH or injection of the support-forgetting map is used.",
+      "acceptance": [
+        "For a smooth product F×Y→Y, β=0 and the two global terms cancel.",
+        "For k algebraically closed of characteristic 5, Λ=F3 and f:A1→A1, t=x², the signed local term is −[0] and has nonzero class −1 in H0_{0}(A1,K)=F3, while its image in H0(A1,K)=H²(A1,F3(1)) is zero. Thus global vanishing does not imply supported vanishing.",
+        "The fiber computation determines m modulo the coefficient characteristic for this argument; an integer Gauss–Bonnet theorem is not inferred from a single finite coefficient ring."
+      ]
     }
   ],
   "routes": [
@@ -5041,10 +5527,12 @@
         "PAPER-YANG-ZHAO-25/Q05",
         "PAPER-YANG-ZHAO-25/Q06",
         "PAPER-YANG-ZHAO-25/Q07",
-        "PAPER-YANG-ZHAO-25/Q10"
+        "PAPER-YANG-ZHAO-25/Q10",
+        "PAPER-YANG-ZHAO-25/J08",
+        "PAPER-YANG-ZHAO-25/J09"
       ],
       "reason": "Reuse the same pending continuation proposed in PAPER-ABE-25, not a parallel non-acyclicity roadmap. Yang–Zhao adds the general-base transversality defect, supported characteristic classes and coherent infinity-categorical fibration proof beyond EDC.8 and beyond Abe's two-categorical trace prefix.",
-      "brief": "Extend the pending RelativeTraces brief from PAPER-ABE-25 without duplicating it. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0, EDC.1:adjoint, EDC.2:trace-purity, EDC.3, EDC.4, EDC.8), Enhanced derived categories of sheaves (EnhancedDerivedSheaves:E0,E1,E3,E5:abstract), and the generic existing triangulated K0. First close the Noetherian-base/coefficient six-operation and ULA-dualizability interfaces; ordinary field duality does not suffice. Construct generalized transversality c, its diagonal evaluation condition C1, the explicit closed-diagonal defect functor and K_X/Y/S. Build relative characteristic classes with ULA globally or uniquely extended across H0/H1 support vanishing. Define Ctilde with coefficients K_X/Y/S under C1,C3, and only then C^Z with coefficients K_X/S under C2. Prove base change, proper pushforward, independent étale locality in X and Y, and trait specialization with the exact source/target vanishings. Upgrade the six-functor correspondence construction to the coherent infinity setting, importing all generic stable-category, lifting and nine-diagram machinery from EDS. Prove the fibration equality C_X/S=δ!C_X/Y+C^Z under C1–C3 by either fully recorded proof. Under perfect char-p k, finite local ℓ≠p coefficients, separated f:X→smooth curve and ULA off a closed x, prove C^{x}=−dimtot RΦ_x without smoothness of X; deduce the finite-Z and cohomological GOS formulas. For proper f and ULA off f^−1(y), prove ν_Y^−1 f*Ctilde=−a_y(Rf*F) without imposing source C2. Import the earlier local-Fourier/ULA-extension prefix from LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier. Do not import the late Artin theorem or Saito comparison back into that prefix. The non-isolated localized-Bloch equality stays conjectural; only its stated global pushforward comparison is a theorem here. Prove finite faithfully free coefficient transport of ULA, transversality, supported non-acyclicity classes and local Milnor descent (Q04–Q07,Q10). Import the generic coefficient functor and split-detection facts from EnhancedDerivedSheaves:E1/E3. Preserve the supported factorization itself. Do not multiply a B-valued trace by rankΛB, or divide by that rank; a Λ-linear retraction detects equality even for F2→F4."
+      "brief": "Extend the pending RelativeTraces brief from PAPER-ABE-25 without duplicating it. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0, EDC.1:adjoint, EDC.2:trace-purity, EDC.3, EDC.4, EDC.8), Enhanced derived categories of sheaves (EnhancedDerivedSheaves:E0,E1,E3,E5:abstract), and the generic existing triangulated K0. First close the Noetherian-base/coefficient six-operation and ULA-dualizability interfaces; ordinary field duality does not suffice. Construct generalized transversality c, its diagonal evaluation condition C1, the explicit closed-diagonal defect functor and K_X/Y/S. Build relative characteristic classes with ULA globally or uniquely extended across H0/H1 support vanishing. Define Ctilde with coefficients K_X/Y/S under C1,C3, and only then C^Z with coefficients K_X/S under C2. Prove base change, proper pushforward, independent étale locality in X and Y, and trait specialization with the exact source/target vanishings. Upgrade the six-functor correspondence construction to the coherent infinity setting, importing all generic stable-category, lifting and nine-diagram machinery from EDS. Prove the fibration equality C_X/S=δ!C_X/Y+C^Z under C1–C3 by either fully recorded proof. Under perfect char-p k, finite local ℓ≠p coefficients, separated f:X→smooth curve and ULA off a closed x, prove C^{x}=−dimtot RΦ_x without smoothness of X; deduce the finite-Z and cohomological GOS formulas. For proper f and ULA off f^−1(y), prove ν_Y^−1 f*Ctilde=−a_y(Rf*F) without imposing source C2. Import the earlier local-Fourier/ULA-extension prefix from LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier. Do not import the late Artin theorem or Saito comparison back into that prefix. The non-isolated localized-Bloch equality stays conjectural; only its stated global pushforward comparison is a theorem here. Prove finite faithfully free coefficient transport of ULA, transversality, supported non-acyclicity classes and local Milnor descent (Q04–Q07,Q10). Import the generic coefficient functor and split-detection facts from EnhancedDerivedSheaves:E1/E3. Preserve the supported factorization itself. Do not multiply a B-valued trace by rankΛB, or divide by that rank; a Λ-linear retraction detects equality even for F2→F4. For A14, use J08’s smooth-proper trace calculation and J09’s integral Whitney/projection calculation after applying the cycle map. Retain only the global pushed equality; do not require the late microlocal Saito comparison or a projective global index theorem."
     },
     {
       "route": "part-ii",
@@ -5093,10 +5581,28 @@
         "PAPER-YANG-ZHAO-25/M16",
         "PAPER-YANG-ZHAO-25/M11",
         "PAPER-YANG-ZHAO-25/M17",
-        "PAPER-YANG-ZHAO-25/M18"
+        "PAPER-YANG-ZHAO-25/M18",
+        "PAPER-YANG-ZHAO-25/J04",
+        "PAPER-YANG-ZHAO-25/J05",
+        "PAPER-YANG-ZHAO-25/J06"
       ],
       "reason": "Reuse the pending microlocal continuation from PAPER-SHENDE-TSIMERMAN-17. Its brief already demands a separately sourced positive-characteristic Beilinson–Saito branch. This extraction supplies that branch's precise characteristic-class comparison target; it does not infer it from characteristic-zero conormal topology.",
-      "brief": "Extend the existing pending Microlocal brief, preserving its characteristic-zero polar-bound branch and its single ownership. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0,EDC.3,EDC.4,EDC.8), Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.0 and pencil geometry), and the earlier outputs of EtaleDualityAndPerverseSheavesPartIIRelativeTraces. Over a perfect field of characteristic p>0 with finite local coefficients of residue characteristic ℓ≠p, construct cotangent C-transversality, micro-support, Beilinson's singular support and the integral Saito characteristic cycle characterized by the isolated Milnor formula. Prove CC(Λ_X)=(-1)^dimX[zero section], shift/additivity, étale locality and finite-free lisse rank twisting. Construct the degree-zero class cc_X=0_X!CC(F); distinguish it from the total characteristic class for embeddable singular schemes. Add the sourced localized-perfect-complex Chern interface needed for the conductor comparison beyond EDC.3's current smooth-pair scope, but import all ordinary Chow/Gysin/Chern operations from EDC.3. Prove good-pencil existence and the two matched Chow/cohomological induction identities, retaining smooth properly transversal fibers for divω and the actual quasi-projective reduction, prime-to-ℓ field extension and smooth codimension-two center hypotheses. Repair finite étale descent with F⊗σ*Λ and rank twisting, not the false constant-direct-sum identification. Final theorem: for smooth quasi-projective X/k and F∈Dctf(X,Λ), cl(cc_X(F))=C_X/k(F) in H0(X,K_X/k). This is not the full embeddable-singular conjecture. Define the non-isolated candidate (f*dt)!CC(F), prove its finite-support comparison only, and retain Conjecture6.10 and the supported Bloch formula as explicit non-theorems. Obtain the final UYZ journal pencil/blowup statements before closing this route. Use Saito18 Lemma2 in the finite étale domain for the cycle pushforward step, then commute the zero-section refined Gysin with proper pushforward to obtain the Chow class identity (M17–M18). Retain the independent quasi-projective good-pencil gap."
+      "brief": "Extend the existing pending Microlocal brief, preserving its characteristic-zero polar-bound branch and its single ownership. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0,EDC.3,EDC.4,EDC.8), Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.0 and pencil geometry), and the earlier outputs of EtaleDualityAndPerverseSheavesPartIIRelativeTraces. Over a perfect field of characteristic p>0 with finite local coefficients of residue characteristic ℓ≠p, construct cotangent C-transversality, micro-support, Beilinson's singular support and the integral Saito characteristic cycle characterized by the isolated Milnor formula. Prove CC(Λ_X)=(-1)^dimX[zero section], shift/additivity, étale locality and finite-free lisse rank twisting. Construct the degree-zero class cc_X=0_X!CC(F); distinguish it from the total characteristic class for embeddable singular schemes. Import integral Chow/refined-Gysin/Chern operations and the rank-threshold localized-perfect-complex construction from SchemeAndStackFoundations:SF.5 (J01–J03/J10); EDC.3 supplies their étale cycle realization. Own only the cotangent presentation and microlocal applications J04–J06/M08. Prove good-pencil existence and the two matched Chow/cohomological induction identities, retaining smooth properly transversal fibers for divω and the actual quasi-projective reduction, prime-to-ℓ field extension and smooth codimension-two center hypotheses. Repair finite étale descent with F⊗σ*Λ and rank twisting, not the false constant-direct-sum identification. Final theorem: for smooth quasi-projective X/k and F∈Dctf(X,Λ), cl(cc_X(F))=C_X/k(F) in H0(X,K_X/k). This is not the full embeddable-singular conjecture. Define the non-isolated candidate (f*dt)!CC(F), prove its finite-support comparison only, and retain Conjecture6.10 and the supported Bloch formula as explicit non-theorems. Obtain the final UYZ journal pencil/blowup statements before closing this route. Use Saito18 Lemma2 in the finite étale domain for the cycle pushforward step, then commute the zero-section refined Gysin with proper pushforward to obtain the Chow class identity (M17–M18). Retain the independent quasi-projective good-pencil gap."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "items": [
+        "PAPER-YANG-ZHAO-25/J01",
+        "PAPER-YANG-ZHAO-25/J02",
+        "PAPER-YANG-ZHAO-25/J03",
+        "PAPER-YANG-ZHAO-25/J07",
+        "PAPER-YANG-ZHAO-25/J10"
+      ],
+      "reason": "SF.5 already owns integral Chow, refined Gysin, Chern, projection and excess formulas. Add the sourced rank-threshold localized-Chern API and section-intersection calculation there; EDC.3 and the Microlocal continuation import it. No duplicate generic Chern or Chow construction is assigned to the microlocal route."
     }
   ],
   "prerequisites": [
@@ -5174,6 +5680,11 @@
       "citation": "T. Saito, Characteristic cycles and the conductor of direct image (2021)",
       "link": "https://arxiv.org/abs/1704.04832",
       "why": "The localized Chern identities cited in Remark6.8 and alternate perverse ULA-extension input; not read directly."
+    },
+    {
+      "citation": "Kazuya Kato and Takeshi Saito, On the conductor formula of Bloch, Publ. Math. IHÉS100 (2004),5–151",
+      "link": "https://www.numdam.org/item/PMIHES_2004__100__5_0.pdf",
+      "why": "§2.3 printed pp.50–51 records the precise rank-threshold localized Chern construction, support/proper compatibilities and Cartier normalization used in J02/J03/J10. The linked one-page author corrections concern printed pp.94 and101, not these statements; underlying Bloch/Abbes/Fulton proofs remain explicit leaves."
     }
   ],
   "sourceIssues": [
@@ -5424,9 +5935,13 @@
       "title": "Localized Chern and conductor comparison input",
       "neededBy": [
         "PAPER-YANG-ZHAO-25/M08",
-        "PAPER-YANG-ZHAO-25/A14"
+        "PAPER-YANG-ZHAO-25/A14",
+        "PAPER-YANG-ZHAO-25/J01",
+        "PAPER-YANG-ZHAO-25/J02",
+        "PAPER-YANG-ZHAO-25/J03",
+        "PAPER-YANG-ZHAO-25/J10"
       ],
-      "detail": "Saito18 arXivv1 pp.1–5, including Lemma2 and its complete proof, have now been read; M17–M18 supply its finite étale application and the zero-section proper-pushforward calculation needed by M14. Still read Bloch’s localized Chern construction and Saito2021 Lemmas2.1.3(2)/2.1.4. Generic refined Gysin/cycle operations remain imported from M05, with their granularity boundary recorded in G11."
+      "detail": "Saito18 finite étale input remains as established in the prior checkpoint. Now Saito1704.04832v4 §2.1, pp.28–31 through Lemma2.1.4, and Kato–Saito2004 §2.3 printed pp.50–51 (Proposition2.3.1, Lemma2.3.2 with complete proof, Corollary2.3.3) are read. J01–J10 decompose the section-intersection, cotangent-cycle and global Chern/trace bridges. The rank-(n−1) condition replaces the erroneous extraction requirement of exactness off the fiber. Remaining: Bloch§1/Fulton graph construction, proof of the bivariant properties and localized Whitney formula, full generic deformation/excess suppliers, and journal collation of Saito2021. Kato–Saito states Proposition2.3.1 with references, so its statements alone are not proof closure."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G11",
@@ -5437,7 +5952,7 @@
         "PAPER-YANG-ZHAO-25/M05",
         "PAPER-YANG-ZHAO-25/S05"
       ],
-      "detail": "These foundational interface entries record exact needed domains but collect several operations already assigned to their supplier roadmaps. Expand them against actual supplier blueprint nodes and promote every nonroutine API used as a prerequisite. No claim that the present paper checkpoint is recursively gap-free."
+      "detail": "These foundational interface entries record exact needed domains but collect several operations already assigned to their supplier roadmaps. Expand them against actual supplier blueprint nodes and promote every nonroutine API used as a prerequisite. No claim that the present paper checkpoint is recursively gap-free. This continuation splits M05’s integral intersection supplier into J01/SF.5 and leaves the geometric étale realization in EDC.3. Atomic source decomposition of the foundational supplier implementations is still required; J02 records the localized graph-construction boundary explicitly."
     }
   ],
   "conjecturalBoundaries": [
@@ -5529,6 +6044,38 @@
       "accessed": "2026-09-23",
       "readBy": "Codex codex-c83e7a",
       "read": "Stacks00JB statement and complete displayed proof; 00UB definition and00UC statement (proof omitted in source). Actual construction uses the explicitly read pinned monic quotient, Artinian-localization surjectivity and finite-flat local freeness declarations; Q01 proves the cyclotomic unit calculation directly."
+    },
+    {
+      "id": "YZ_LOCALIZED_CONTINUATION",
+      "url": "https://arxiv.org/pdf/2209.11086v4",
+      "sha256": "e3da9817bc372ce4b72e475ed790ba3e4346de83ccda9751fe37bd02c0e1eb2e",
+      "accessed": "2026-09-23",
+      "readBy": "Codex codex-c83e7a",
+      "read": "Fresh pp.48–49, Remark6.8 and nearby conductor/induction discussion; whole pp.1–51 reading reused from this same session’s PR2029 with identical PDF bytes."
+    },
+    {
+      "id": "SAITO21_LOCALIZED",
+      "url": "https://arxiv.org/pdf/1704.04832v4",
+      "sha256": "8c696aa05412910849ba02695f80f7136f24c7dd4fa6942edc3dd6b856838bc2",
+      "accessed": "2026-09-23",
+      "readBy": "Codex codex-c83e7a",
+      "read": "§2.1 pp.28–31 through Lemma2.1.4, including the full displayed proofs of Lemmas2.1.1–2.1.4; pp.30–31 also inspected as images. Page27 and p.34 conductor theorem/proof beginning inspected as context. This is not a full 41-page reading. The AMS journal endpoint returned403; arXiv locators remain explicit. ArXiv history records earlier corrections to Proposition2.3.3 and Lemma1.4.9; v4 used, no new erratum finding."
+    },
+    {
+      "id": "KATO_SAITO_LOCALIZED",
+      "url": "https://www.numdam.org/item/PMIHES_2004__100__5_0.pdf",
+      "sha256": "615b41f4219ef2da4dce7373a86f219c8243a5268fc0e626fe6cb1ed94b68ff6",
+      "accessed": "2026-09-23",
+      "readBy": "Codex codex-c83e7a",
+      "read": "Printed pp.50–51 (=PDF46–47): §2.3 introduction, Proposition2.3.1(1)–(7), resolution-independence paragraph, Lemma2.3.2 and its complete proof, Corollary2.3.3. Printedp.50 additionally inspected as image. Remaining145 PDF pages not read. Proposition2.3.1 refers to prior sources for proof; it is not counted as a newly read construction proof."
+    },
+    {
+      "id": "KATO_SAITO_CORRECTION",
+      "url": "https://www.ms.u-tokyo.ac.jp/~t-saito/bcor.pdf",
+      "sha256": "6b48db8aeb7ad31b37e8ac7015bdceed37c7dc94451212698856663b26de20c5",
+      "accessed": "2026-09-23",
+      "readBy": "Codex codex-c83e7a",
+      "read": "Complete one-page author correction: faithfully flat quasi-compact condition p.94 and strict étale map p.101. Neither targets §2.3; no new correction proposed."
     }
   ],
   "ownershipAudit": {
@@ -5549,60 +6096,111 @@
       "PAPER-SHENDE-TSIMERMAN-17 Microlocal brief read completely; positive-characteristic continuation explicitly requested there."
     ],
     "nonDuplication": "These pending candidates have no accepted stage IDs at the checked snapshot and therefore remain missing, not planned. Ordinary EDS/EDC stages are actual atlas suppliers. No retired roadmap is a supplier.",
-    "acyclicPrefixes": "EDS→ordinary EDC; early relative ULA/transversality→general-base Fourier; early Fourier→cohomological Milnor; independent microlocal/Chow prefix plus Milnor→late Saito comparison. RelativeTraces A14 additionally consumes early localized-Chern M08, not the late comparison. Never replace this item-level graph by mutual whole-roadmap prerequisites.",
+    "acyclicPrefixes": "EDS→ordinary EDC; early relative ULA/transversality→general-base Fourier; early Fourier→cohomological Milnor; independent microlocal/Chow prefix plus Milnor→late Saito comparison. RelativeTraces A14 additionally consumes early localized-Chern M08, not the late comparison. Never replace this item-level graph by mutual whole-roadmap prerequisites. New prefix: L09→J01(SF.5)→M05(EDC.3); J02/J10→J03→J04→M08→J09→A14. J08 imports the early C12/C14 trace calculations, never M16 or the conductor theorem.",
     "continuationSnapshot": "4d7a180e18ac9704c1ad1f36a943f6bea6c658f1",
     "continuation": "Read complete EDC and EDS owner documents, LPV scope/LPV.0–3 prefix; reviewed AUDIT18 EDC.0/EDC.8, AUDIT22 E0/E1/E3 and AUDIT19 LPV.0/LPV.6; read current Abe RelativeTraces and GeneralBasesFourier briefs. Reuse their IDs. Q02/Q03 are existing EDS coefficient interfaces, not new ownership. Q01 is the specific Fourier-character application of existing commutative algebra. Pinned searches across both trees found generic algebra/carriers, but no actual ULA/non-acyclicity coefficient theorem. Ordinary categorical and finite-field character-table hits are not such theorems.",
-    "upstreamReadingProvenance": "At least two relevant upstream documents were read in earlier codex-c83e7a programme work (GrothendieckEulerForms and CharacterTheory); the older checkpoint also records its own full readings. A partial GrothendieckEulerForms reread in this continuation is not represented as a new full read."
+    "upstreamReadingProvenance": "At least two relevant upstream documents were read in earlier codex-c83e7a programme work (GrothendieckEulerForms and CharacterTheory); the older checkpoint also records its own full readings. A partial GrothendieckEulerForms reread in this continuation is not represented as a new full read.",
+    "thirdCheckpointSnapshot": "c43ee0b12d70c8c7fdc710b5647c2794e6068729",
+    "thirdCheckpoint": "Read complete SchemeAndStackFoundations owner document, EDC.3 description, reviewed AUDIT01 SF.5 and AUDIT18 EDC.3 coverage. Read the complete pinned algebraic-cycle file and searched both pinned geometric libraries for Chow/Gysin/Chern/localized/intersection implementations; generic cycle data is reused in L09. Screened current paper item names/statements, pending roadmaps/packets/decompositions and selected link hits for localized-Chern overlap. SF.5 is the generic supplier, EDC.3 its étale realization, MIC only the cotangent application; all five earlier route IDs are retained, with one source route to existing SF.5 added.",
+    "publicationScreen": "555 input files verified at c43ee0b12d70c8c7fdc710b5647c2794e6068729. Changed AKY22, CHT17, Fu24, Tsuzuki23 and Yuan26 entries screened; no new localized-Chern owner. The later Qian23 update changes completion/source-gap metadata only, with all item and route contracts unchanged. Newly added Zavyalov25 routes and trace-related items screened: mixed-characteristic rigid mod-p/almost duality and coherent duality are separate from the present scheme-theoretic prime-to-characteristic localized Chern bridge. Its scheme Poincare-duality introduction uses the same existing EDC supplier."
   },
   "validation": {
-    "structural": "130 unique items; 47 definitions/constructions with 141 APIs and 141 specification tests. All inherited IDs and routes retained; missing items routed once, graph checked separately.",
+    "structural": "141 unique items, 298 dependency edges; statuses {'library': 9, 'planned': 12, 'missing': 120}; 52 definitions/constructions with 158 API entries and 156 proposed specification tests. All inherited IDs/statuses retained; three inherited entries refined; six routes, all missing items routed once.",
     "lean": "No Lean deliverable is authorized for this paper extraction; no Lean compilation or formalization is claimed.",
-    "continuationChecks": "Recorded in handoff after execution; finite algebra examples validate selected identities, not general sheaf theorems."
+    "continuationChecks": "Recorded in handoff after execution; finite algebra examples validate selected identities, not general sheaf theorems.",
+    "thirdCheckpointChecks": "Paper checker, three-file intake, preserved-item/DAG/route audit and exact finite polynomial/Chern/sign diagnostics recorded in the handoff after execution. These are not Lean proofs."
   },
   "continuation": {
     "agent": "Codex",
     "session": "codex-c83e7a",
     "issue": 1218,
     "date": "2026-09-23",
-    "previousPullRequest": 1963,
+    "previousPullRequest": 2029,
     "previousFiles": {
-      "base": "e46225b7ff6538f1e39b3322e3981022a0241290",
+      "commit": "d779d8c706930852cd5ec8daffdff3c8e6707dc0",
       "files": [
         {
           "path": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
-          "blobSha": "c42d6de0b3382d1f29473a0074e4f79ee70dee42",
-          "sha256": "8dcb71352a71baf8a9b9e7ab3c6bf28e044050c2136b9003166b60ac5b80b451"
+          "blobSha": "83758e777b0cbaeee03e5674b29cecd1a58ad222",
+          "sha256": "a402f63a1f3705d9207de7f62abb1105723af1f1ebe3fe15ecd79889e1201dc4"
         },
         {
           "path": "research/blueprint/papers/PAPER-YANG-ZHAO-25.md",
-          "blobSha": "43e049a79bf7f70d3e8934171b94bb67ae75a714",
-          "sha256": "8b45c9c599e001d002e91ab888b2dc2845966552a3cbd17b95dd6307c224a9ae"
+          "blobSha": "796422c75578e5f534cbf48ab0524d62dfb2dffc",
+          "sha256": "1e0263326ab5dd634caa561303a6a0c9709e17e1cd0386d97d048e5c3091afb4"
         },
         {
           "path": "research/blueprint/handoff/PAPER-YANG-ZHAO-25.md",
-          "blobSha": "81c661f2f655f9d2316d163486ff689b5a52eb8e",
-          "sha256": "3df42c02744c69fd1afd8a563c46a60485292d17640e508a333b420c0534acf2"
+          "blobSha": "cb905ade5b7c522722efab5fda4b00ea3ecdbf78",
+          "sha256": "b0f71231a7ef39760f63adfa0f4e27c303ae029e2582cc18214d79a5956127e7"
         }
       ]
     },
     "newItems": [
-      "PAPER-YANG-ZHAO-25/L05",
-      "PAPER-YANG-ZHAO-25/L06",
-      "PAPER-YANG-ZHAO-25/L07",
-      "PAPER-YANG-ZHAO-25/L08",
-      "PAPER-YANG-ZHAO-25/Q01",
-      "PAPER-YANG-ZHAO-25/Q02",
-      "PAPER-YANG-ZHAO-25/Q03",
-      "PAPER-YANG-ZHAO-25/Q04",
-      "PAPER-YANG-ZHAO-25/Q05",
-      "PAPER-YANG-ZHAO-25/Q06",
-      "PAPER-YANG-ZHAO-25/Q07",
-      "PAPER-YANG-ZHAO-25/Q08",
-      "PAPER-YANG-ZHAO-25/Q09",
-      "PAPER-YANG-ZHAO-25/Q10",
-      "PAPER-YANG-ZHAO-25/M17",
-      "PAPER-YANG-ZHAO-25/M18"
+      "PAPER-YANG-ZHAO-25/L09",
+      "PAPER-YANG-ZHAO-25/J01",
+      "PAPER-YANG-ZHAO-25/J02",
+      "PAPER-YANG-ZHAO-25/J10",
+      "PAPER-YANG-ZHAO-25/J03",
+      "PAPER-YANG-ZHAO-25/J04",
+      "PAPER-YANG-ZHAO-25/J05",
+      "PAPER-YANG-ZHAO-25/J06",
+      "PAPER-YANG-ZHAO-25/J07",
+      "PAPER-YANG-ZHAO-25/J08",
+      "PAPER-YANG-ZHAO-25/J09"
     ],
-    "boundary": "Local coefficient argument and finite étale pushforward refinement proved relative to recorded supplier interfaces; no new claim of recursive closure, Lean implementation or independent review."
-  }
+    "artifactCorrections": [
+      "M08 corrects exactness off the fiber to cohomology concentrated in degree0 of rank n−1.",
+      "M05 delegates generic integral intersection operations to SF.5 while retaining the EDC.3 cycle realization."
+    ],
+    "boundary": "Written source-scoped proof decomposition and global Chern bridge; graph-construction/purity/duality foundations remain supplier gaps. No new sourceIssue, independent review, Lean implementation or supported non-acyclicity equality is claimed."
+  },
+  "continuationHistory": [
+    {
+      "agent": "Codex",
+      "session": "codex-c83e7a",
+      "issue": 1218,
+      "date": "2026-09-23",
+      "previousPullRequest": 1963,
+      "previousFiles": {
+        "base": "e46225b7ff6538f1e39b3322e3981022a0241290",
+        "files": [
+          {
+            "path": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
+            "blobSha": "c42d6de0b3382d1f29473a0074e4f79ee70dee42",
+            "sha256": "8dcb71352a71baf8a9b9e7ab3c6bf28e044050c2136b9003166b60ac5b80b451"
+          },
+          {
+            "path": "research/blueprint/papers/PAPER-YANG-ZHAO-25.md",
+            "blobSha": "43e049a79bf7f70d3e8934171b94bb67ae75a714",
+            "sha256": "8b45c9c599e001d002e91ab888b2dc2845966552a3cbd17b95dd6307c224a9ae"
+          },
+          {
+            "path": "research/blueprint/handoff/PAPER-YANG-ZHAO-25.md",
+            "blobSha": "81c661f2f655f9d2316d163486ff689b5a52eb8e",
+            "sha256": "3df42c02744c69fd1afd8a563c46a60485292d17640e508a333b420c0534acf2"
+          }
+        ]
+      },
+      "newItems": [
+        "PAPER-YANG-ZHAO-25/L05",
+        "PAPER-YANG-ZHAO-25/L06",
+        "PAPER-YANG-ZHAO-25/L07",
+        "PAPER-YANG-ZHAO-25/L08",
+        "PAPER-YANG-ZHAO-25/Q01",
+        "PAPER-YANG-ZHAO-25/Q02",
+        "PAPER-YANG-ZHAO-25/Q03",
+        "PAPER-YANG-ZHAO-25/Q04",
+        "PAPER-YANG-ZHAO-25/Q05",
+        "PAPER-YANG-ZHAO-25/Q06",
+        "PAPER-YANG-ZHAO-25/Q07",
+        "PAPER-YANG-ZHAO-25/Q08",
+        "PAPER-YANG-ZHAO-25/Q09",
+        "PAPER-YANG-ZHAO-25/Q10",
+        "PAPER-YANG-ZHAO-25/M17",
+        "PAPER-YANG-ZHAO-25/M18"
+      ],
+      "boundary": "Local coefficient argument and finite étale pushforward refinement proved relative to recorded supplier interfaces; no new claim of recursive closure, Lean implementation or independent review."
+    }
+  ]
 }

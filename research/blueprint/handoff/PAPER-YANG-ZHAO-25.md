@@ -1,68 +1,33 @@
 # PAPER-YANG-ZHAO-25 handoff
 
-Codex — `codex-c83e7a`; issue #1218; 2026-09-23. Second partial checkpoint,
-continuing PR #1963 by codex-a71f92. Nothing is claimed formalized.
+Codex `codex-c83e7a`, issue #1218, 2026-09-23. Third partial checkpoint continuing PR #2029. The current report preserves the previous report as historical provenance. No formalization or independent review is claimed.
 
-## Completed in this continuation
+## Completed here
 
-- Reread all 51 pages of arXiv v4; matched its prior SHA-256 and inspected the
-  character-choice page as an image. The full alternative-proof reading remains
-  attributed to the previous worker; it was not repeated.
-- Added Q01–Q10: explicit finite local character coefficients, linear-retraction
-  detection, transport of ULA/trace/defect/supported classes/nearby cycles,
-  invariance of integer total dimension, and conditional Milnor descent.
-  Coefficient degree need not be invertible. The supported lift is compared
-  before forgetting support.
-- Read Saito18 pp.1–5 including Lemma 2 and its full proof; M17/M18 supply the
-  finite étale characteristic-cycle and Chow pushforward step in M14. Retained
-  the distinction between coefficient extension and geometric field extension.
-- Read all eight exact pinned library statements, adding the monic quotient
-  power basis, Artinian-localization surjectivity, finite-flat local freeness
-  and residue criterion for a split injection.
-- Retained every old item/route/source issue. Now 130 items, 272 acyclic edges,
-  8 library / 10 planned / 112 missing; 47 definitions/constructions with
-  141 API statements and 141 proposed mathematical tests; five routes.
-- Added E8 (character-choice proof omission) and E9 (Saito18 support typo),
-  without independent-review verdicts. The nine findings are version-specific.
-  All eleven gap IDs remain; the solved subparts of G07/G10 are identified.
+- Reused the same session's full 51-page Yang–Zhao v4 reading after verifying identical freshly downloaded bytes; freshly reread pp.48–49. The alternative PFF proof and other inherited source readings remain attributed to their original workers.
+- Read Saito arXiv:1704.04832v4 §2.1, pp.28–31 through Lemma 2.1.4, including the complete displayed proofs of Lemmas 2.1.1–2.1.4; checked pp.30–31 as images.
+- Read Kato–Saito2004 printed pp.50–51: precise localized-Chern rank condition, Proposition 2.3.1, Lemma 2.3.2 and its complete proof, Corollary 2.3.3. The one-page author correction concerns other sections. The referenced construction/properties are not counted as proved merely because this proposition states them.
+- Added L09 and J01–J10: existing cycle carrier/map; shared integral intersection supplier; rank-threshold localized Chern classes; Cartier normalization and section/excess comparison; cotangent presentation and cycle pushforward; curve coefficient formula; virtual top-Chern identity; smooth proper trace and the global conductor bridge.
+- Corrected M08's old “exactness off the fiber”: only nonzero-degree cohomology vanishes there; H0 has rank n−1. Split M05 into an SF.5 supplier and its EDC.3 étale realization. These are extraction corrections, not new source issues.
+- Preserved all 130 inherited IDs and statuses, all nine source issues and all conjectural boundaries. Now 141 items, 298 acyclic edges, 9 library / 12 planned / 120 missing; 52 definitions/constructions, 158 API statements and 156 proposed specification tests. Six routes, each missing item routed once.
+- Retained all five prior roadmap IDs; added a source route to the existing SchemeAndStackFoundations:SF.5. Generic localized/intersection constructions are owned there, with cotangent applications in the existing Microlocal continuation.
+- A14 now has a global proof bridge via Whitney/projection and early C12/C14 traces. It uses no late M16 comparison, projectivity or supported-class equality. The A1 quadratic example demonstrates noninjectivity of forgetting support.
 
-## Resume here
+## Resume
 
-1. Obtain the final Umezaki–Yang–Zhao journal paper for G09. The correct
-   author-linked URL is
-   https://www.ams.org/journals/tran/2020-373-10/S0002-9947-2020-08187-2/S0002-9947-2020-08187-2.pdf
-   (HTTP 403 in this pass). Reconcile the precise quasi-projective pencil,
-   smooth-center and transversal-fiber hypotheses; do not infer a false
-   theorem from a difference with the older arXiv version.
-2. Obtain the Yang–Zhao journal PDF for G01 and reconcile numbering/findings.
-   Both ordinary and encoded Springer PDF endpoints returned HTML previews.
-3. Close G07's actual local Fourier and finite-local/modular-to-adic input:
-   final UYZ 5.2.6 and the exact Laumon statements. Preserve Q01–Q10 rather
-   than reintroducing an invertible coefficient-degree assumption.
-4. Continue G02–G06/G08 and G10: enhanced geometric six operations, precise
-   purity/finiteness, full ULA extension with its open identification,
-   nearby-cycle goodness, microlocal existence/integrality, Bloch localized
-   Chern classes and Saito2021 Lemmas 2.1.3(2)/2.1.4.
-5. Refine broad supplier leaves (G11) into exact blueprint interfaces. Keep
-   formal coefficient comparison in EDS conditional on already constructed
-   operations; geometric instantiations import B02 separately. Preserve the
-   acyclic prefix dependencies and the same five ownership routes.
+1. G10: obtain Bloch1987 §1 and the relevant Fulton/Abbes graph-construction and localized Whitney proofs. Kato–Saito §2.3 only records many of these properties. J02 keeps them as explicit supplier obligations. J03/J10 provide the exact blowup/Cartier/excess reduction to use once those suppliers are established. Do not replace the rank condition by acyclicity.
+2. G09: obtain the final Umezaki–Yang–Zhao journal paper and reconcile its quasi-projective pencil and Chow-induction hypotheses. Its final author-linked URL is https://www.ams.org/journals/tran/2020-373-10/S0002-9947-2020-08187-2/S0002-9947-2020-08187-2.pdf . Earlier arXiv v4 statements alone do not justify a false-theorem claim.
+3. G01: obtain the final Yang–Zhao journal text and collate numbering and the version-specific source issues. Saito2021 journal collation also remains open; the read arXiv version is explicit.
+4. G07: finish the actual local Fourier and modular-to-adic suppliers, final UYZ 5.2.6 and Laumon. Preserve Q01–Q10: coefficient extension need not have invertible degree and must compare supported classes before forgetting support.
+5. G02–G06/G08: enhanced geometric operations, purity domains, the full ULA-extension proof with its prescribed open identification, nearby-cycle goodness, and microlocal existence/integrality. G11 still requires exact supplier-node decomposition, including the generic deformation/Gysin prerequisites of J01.
+6. Preserve the acyclic prefix: cycle carrier → SF.5 → EDC.3 realization; localized Chern → cotangent application → J09/A14. The smooth proper Euler-class step imports early C12/C14, never late Saito comparison or the conductor theorem.
 
-## Checks and limits
+## Validation and limits
 
-- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json`: passed.
-- `python3 research/blueprint/intake.py check-files` on the three deliverables:
-  passed, 3 files and 0 problems.
-- Custom resolved-ID, DAG, route, API/test/use and gap audit: passed.
-- Exact finite diagnostics: 159 cases passed, including F2→F4 with trace(1)=0
-  and a linear retraction, characteristic-4 cyclotomic coefficients, residue
-  non-detection, wild-invariant base change and the skyscraper sign. These
-  computations do not establish the general geometric comparison theorems.
-- Earlier worker checker-suite and finite diagnostics remain attributed to
-  that checkpoint and were not rerun here.
+- Paper checker: passed.
+- Three-file intake: passed, three files and zero problems.
+- Structural audit: 1,603 assertions passed, including preserved IDs/statuses, unchanged source issues, actual planned stage IDs, acyclicity, unique missing-item routes and structured API/test/use coverage.
+- Exact finite diagnostics: 20,654 cases passed for Chern signs with square-zero base class, product-family cancellation, monomial derivative degeneracy, and finite-coefficient distinctions. These are diagnostics, not geometric proofs.
+- No Lean file is authorized or compiled. The 156 mathematical specification tests remain proposed proof obligations.
 
-No Lean file is authorized for this paper issue and none was compiled. The
-141 mathematical specification tests remain proposed proof obligations.
-Source hashes, exact reading scopes and inherited-reading attribution are in
-the JSON. No author contact occurred. Library and ownership inputs were
-refreshed before publication; the snapshot is in `ownershipAudit`.
+The eleven gap IDs remain. The source ledger records exact URLs, hashes, scopes and inherited-reading attribution. No author contact occurred. Publication checks the current input and deliverable blobs to avoid overwriting concurrent work.
