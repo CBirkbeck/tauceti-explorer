@@ -5,16 +5,122 @@
     {
       "id": "PAPER-COUVEIGNES-20/E1",
       "kind": "misprint",
-      "locator": "§3, p.493, in the published version, Annals of Mathematics 192 (2020), 487–497 (publisher PDF, SHA-256 as recorded by the extraction); the same line is in arXiv 1907.13617v2",
-      "printed": "\"This is a free Z-module 𝓛 ⊂ V_R of rank ℓ = C(d+r, d) − n. We set L = 𝓛 ⊗_Q R as the underlying R-vector space and L^⊥ as its orthogonal complement in V_R.\"",
+      "locator": "§3, published p.493 (PDF p.7), Annals of Mathematics 192 (2020), 487–497; arXiv 1907.13617v1/v2 p.5; HAL hal-02375397v1 PDF p.7 (manuscript p.6).",
+      "printed": "We set L = 𝓛 ⊗_Q R as the underlying R-vector space",
       "correction": "L = 𝓛 ⊗_Z R, the real span of 𝓛 in V_R (equivalently (𝓛 ⊗_Z Q) ⊗_Q R).",
-      "reason": "𝓛 is defined one sentence earlier as a free Z-module, so a tensor product over Q is not defined for it; the intended object, used in the rest of the section, is its real span. Checked on the page image of p.493 and in the arXiv source (\\cL\\otimes_\\QQ \\RR). Noted by the extraction (item relation-lattice).",
+      "reason": "The preceding definition makes 𝓛 the kernel of integral polynomial evaluation in the finite free Z-module V_Z. Its rank ℓ = C(d+r,d) − n is positive: the standing assumptions give ℓ ≥ nr ≥ 1. A basis vector of a nonzero finite free Z-module is not divisible by 2, so this Z-module admits no compatible Q-module structure. Thus the displayed tensor product needs Z as its base ring. Extending the integral evaluation matrix to R identifies 𝓛 ⊗_Z R with its real kernel and real span in V_R. This supplies the space used for orthogonality and successive minima.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals of Mathematics article page https://annals.math.princeton.edu/2020/192-2/p04, checked 22 September 2026: no erratum is linked",
-        "arXiv 1907.13617: v1 (31 July 2019) and v2 (29 August 2019); v2 has the same line, and there is no later version",
-        "web search for an erratum, corrigendum or correction, 22 September 2026: none found"
+        "2026-09-23: Annals article page https://annals.math.princeton.edu/2020/192-2/p04 links no correction; freshly read publisher PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf retains the typo on p.493.",
+        "2026-09-23: https://arxiv.org/abs/1907.13617 lists only v1 (31 July 2019) and v2 (29 August 2019). Both PDFs p.5 retain the typo; the v2 TeX source nf.tex line 568 explicitly tensors over Q.",
+        "2026-09-23: author page https://www.math.u-bordeaux.fr/~jcouveig/ links the publication list https://cv.hal.science/jean-marc-couveignes; neither supplies a correction for this article. The linked record https://hal.science/hal-02375397v1 lists version 1 (16 February 2021); its PDF https://hal.science/hal-02375397v1/file/nf.pdf also retains the typo on PDF p.7.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007/annals.2020.192.2.4 has no update-to or updated-by entries and an empty relation object.",
+        "2026-09-23: exact-title/author searches with erratum, corrigendum and correction, including an Annals-domain search, located no relevant correction. New means not located in these checked sources, not a claim of discovery priority."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the published p.493 page image, arXiv v1/v2 p.5, v2 TeX and HAL manuscript PDF p.7. The positive-rank free abelian group is not a Q-module; tensoring over Z gives exactly the required real span. Retain misprint / affects nothing and the original correction. Shortened the quotation and made the version locators and correction search explicit. Separately corrected the companion report’s transcription of the volume inequality: the paper prints ≥, not >; that is not an additional source error.",
+        "by": "REV-ERRATA-PAPER-COUVEIGNES-20"
+      }
+    }
+  ],
+  "reviewScope": {
+    "status": "complete",
+    "job": "REV-ERRATA-PAPER-COUVEIGNES-20",
+    "agent": "Codex",
+    "session": "codex-hjdg0j",
+    "date": "2026-09-23",
+    "scope": "Independent verification of the one recorded finding and the companion report’s four checked statements; no new full-paper census or Lean formalisation."
+  },
+  "reviewSources": [
+    {
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf",
+      "sha256": "8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104",
+      "accessed": "2026-09-23",
+      "readSections": [
+        "§2 p.489; §3 pp.491–494",
+        "Page images pp.489 and 493"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/pdf/1907.13617v2",
+      "sha256": "d09ef83ea26abcaf43a2bfc582811373ac1066a417349740c194508d6272735a",
+      "accessed": "2026-09-23",
+      "readSections": [
+        "§2 p.2 volume formula and §3 p.5 tensor-product passage"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/pdf/1907.13617v1",
+      "sha256": "37051ff131ffa877ab5ce6ced00e40e96de28fdcfcda17fedbe7194919f9c1ea",
+      "accessed": "2026-09-23",
+      "readSections": [
+        "§2 p.2 volume formula and §3 p.5 tensor-product passage"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1907.13617",
+      "sha256": "c86a96e04ca2287d6286e846a61a7082dcb9ea325d6c7d68dde84858346ff391",
+      "accessed": "2026-09-23",
+      "readSections": [
+        "Article metadata, version history or correction search only"
+      ]
+    },
+    {
+      "url": "https://annals.math.princeton.edu/2020/192-2/p04",
+      "sha256": "aae0a88bae1bf99dabb13d31c3e843c3be56cee5049d99c328ca100cc9d3db88",
+      "accessed": "2026-09-23",
+      "readSections": [
+        "Article metadata, version history or correction search only"
+      ]
+    },
+    {
+      "url": "https://api.crossref.org/works/10.4007/annals.2020.192.2.4",
+      "sha256": "9b2947ebf8e1e0fa40ad9cf429af7427e4ba6f305fa8b913bc0163350748651f",
+      "accessed": "2026-09-23",
+      "readSections": [
+        "Article metadata, version history or correction search only"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/src/1907.13617v2",
+      "sha256": "7af74d0f43dfb1a6ca6e9add0b00c26a7b5c073551c2996e27c7b320cfcb7243",
+      "accessed": "2026-09-23",
+      "readSections": [
+        "nf.tex lines 431–432 and 564–589"
+      ]
+    },
+    {
+      "url": "https://www.math.u-bordeaux.fr/~jcouveig/",
+      "sha256": "268416a982c067be3f1be4d5f19b8a19dcbce7de79736088fefceada85b83725",
+      "accessed": "2026-09-23",
+      "readSections": [
+        "Article metadata, version history or correction search only"
+      ]
+    },
+    {
+      "url": "https://cv.hal.science/jean-marc-couveignes",
+      "sha256": "d17b7fa03452ad346bb9425127080e0711ba30a38bc6e11a61dca7ce6603088c",
+      "accessed": "2026-09-23",
+      "readSections": [
+        "Article metadata, version history or correction search only"
+      ]
+    },
+    {
+      "url": "https://hal.science/hal-02375397v1",
+      "sha256": "7ca923202a67779ce8a7d60860a010a9afdabeb0737533bb59e9cdbd8d38d5f3",
+      "accessed": "2026-09-23",
+      "readSections": [
+        "Article metadata, version history or correction search only"
+      ]
+    },
+    {
+      "url": "https://hal.science/hal-02375397v1/file/nf.pdf",
+      "sha256": "a0e0bd390b817228ec897aa53fb01bbf33bdf8a1676f9779e6c5e825d065d04b",
+      "accessed": "2026-09-23",
+      "readSections": [
+        "PDF p.7, manuscript p.6, tensor-product passage"
       ]
     }
   ]
