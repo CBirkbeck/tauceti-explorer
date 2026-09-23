@@ -4131,8 +4131,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -4575,8 +4575,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIU-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1280"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1280",
+   "finishedAt": "2026-09-23T13:24:18Z"
   },
   {
    "id": "REV-PAPER-LIU-ETAL-22",
@@ -12209,7 +12210,8 @@
    ],
    "avoidAccountOf": "RS-05",
    "prompt": "research/blueprint/prompts/REV-RS-05.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #809"
   },
   {
    "id": "RS-06",
@@ -12266,7 +12268,8 @@
    ],
    "avoidAccountOf": "RS-06",
    "prompt": "research/blueprint/prompts/REV-RS-06.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #811"
   },
   {
    "id": "RS-07",
@@ -12379,7 +12382,8 @@
    ],
    "avoidAccountOf": "RS-08",
    "prompt": "research/blueprint/prompts/REV-RS-08.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #815"
   },
   {
    "id": "RS-09",
@@ -12472,7 +12476,9 @@
    ],
    "avoidAccountOf": "RS-10",
    "prompt": "research/blueprint/prompts/REV-RS-10.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #819",
+   "finishedAt": "2026-09-23T13:24:20Z"
   },
   {
    "id": "RS-11",
@@ -12689,8 +12695,9 @@
    ],
    "avoidAccountOf": "RS-14",
    "prompt": "research/blueprint/prompts/REV-RS-14.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #827"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #827",
+   "finishedAt": "2026-09-23T13:24:24Z"
   },
   {
    "id": "RS-15",
@@ -30264,8 +30271,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-DASGUPTA-KAKDE-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-DASGUPTA-KAKDE-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1704"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1704",
+   "finishedAt": "2026-09-23T13:24:41Z"
   },
   {
    "id": "ERRATA-PAPER-DITTMANN-POP-23",
@@ -30490,7 +30498,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-MOK-PILA-TSIMERMAN-19",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1782"
   },
   {
    "id": "ERRATA-PAPER-TSIMERMAN-18",
@@ -31020,8 +31029,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-WOOD-19",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-WOOD-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1803"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1803",
+   "finishedAt": "2026-09-23T13:24:44Z"
   },
   {
    "id": "ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
