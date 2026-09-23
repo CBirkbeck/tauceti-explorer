@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-LI-LIU-22",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Part II of PELModuli, 11 items, with a title that is an exact prefix extension of its parent's and a free name. Accepted. Co-proposed with identical id, parent and title by PAPER-HE-LI-SHI-ETAL-23, PAPER-LI-LIU-21, PAPER-LI-ZHANG-22-B, PAPER-LIU-ETAL-22 and PAPER-ZHANG-21 — a six-way merge, so it merges rather than competes; that so many extractions converge on these three roadmaps is a sign the boundary is drawn where the mathematics actually divides."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Part II of GrossZagierAndArithmeticHeights, 25 items, with a title that is an exact prefix extension of its parent's and a free name. Accepted. Co-proposed with identical id, parent and title by PAPER-HE-LI-SHI-ETAL-23, PAPER-LI-LIU-21, PAPER-LI-ZHANG-22-B and PAPER-ZHANG-21 — a five-way merge, so it merges rather than competes; that so many extractions converge on these three roadmaps is a sign the boundary is drawn where the mathematics actually divides."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Part II of GrossZagierAndArithmeticHeights, 26 items, with a title that is an exact prefix extension of its parent's and a free name. Accepted. Co-proposed with identical id, parent and title by PAPER-LI-LIU-21, this paper's own Part I — a two-way merge, so it merges rather than competes; that so many extractions converge on these three roadmaps is a sign the boundary is drawn where the mathematics actually divides."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source addition to GeometryOfNumbersAndQuadraticArithmetic at GeometryOfNumbersAndQuadraticArithmetic:GN.3 (9 items), and the reason is specific about what the stage owns and what this paper adds rather than asserting a fit. Accepted."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source addition to MetaplecticAutomorphicForms at MetaplecticAutomorphicForms:MP.2, MetaplecticAutomorphicForms:MP.3 (4 items), and the reason is specific about what the stage owns and what this paper adds rather than asserting a fit. Accepted."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source addition to IgusaVarietiesAndTorsionConcentration at IgusaVarietiesAndTorsionConcentration:IG.5, IgusaVarietiesAndTorsionConcentration:IG.7 (6 items), and the reason is specific about what the stage owns and what this paper adds rather than asserting a fit. Accepted."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by cc-442dc5. Verdict accept: no item, status, route or locator changed. All 84 items, 6 routes and 5 recorded mistakes were checked against the published open-access text, Forum Math. Pi 10 (2022), e5, 71 pp., re-fetched for this review; printed page = PDF page, which I confirmed against the running heads rather than assuming. All 5 recorded mistakes are confirmed, and three decisively. E1 is as clean as this kind of evidence gets: the same expression 1 + q + ⋯ + q^j + (b_2 − ?)q^j appears six times, four times on published p. 27 with the correct j — in the ∂Den(𝑳) display, in the sentence counting L ∈ 𝔏, in the |𝔏| display and in the Int(𝑳) = ∂Den(𝑳) display — and twice with l, at (2.17) on p. 27 and the following display on p. 28, which are exactly the two places the finding identifies. E2's second half is settled by the line it sits on: p. 35 writes the condition with u^{e_i−1} and the conclusion with a_i on the same line. E3 is settled by the text layer itself: Lemma 2.15 on p. 12 prints its summation range as 'L ⊆ L′ ⊆ L′𝑣𝑒𝑒', the literal letters v, e, e in math italic where ∨ belongs, while every other superscript on the line renders normally; and p. 60 writes σ(i) under a quantifier that introduces h and no i. E4 and E5 are confirmed as printed, and for both the verdict says which part rests on the extraction. E5's locator repays checking and is exactly right: the three passages differ, p. 55 carrying the admissibility bullet with (S^R_{Q^ac})_{L_ℓ^R} and the set-minus form the finding quotes appearing in the two proofs at pp. 57 and 64. A provenance problem was found and recorded: the source block's sha256 for the published PDF is NOT reproducible, because Cambridge stamps each download with the date and time on every page. Two downloads gave two hashes, neither the recorded one. A reproducible stamp-stripped text hash, 223a9e92…052a8, was recorded in its place. The extraction records no library items, which is right for this material; 3 planned items name atlas layers that exist; all 81 missing items are routed exactly once. All three Part II titles are exact prefix extensions of their parents' and all three names are free. Two of them are large multi-way merges — UnitaryRapoportZinkSpacesAndRSZModels is proposed identically by five other papers and UnitaryKudlaRapoportCycles by four — which is convergence rather than conflict, and a sign that the boundary between these roadmaps is drawn where the mathematics actually divides. Every check is listed in research/blueprint/reviews/REV-PAPER-LI-LIU-22.md."
+}
