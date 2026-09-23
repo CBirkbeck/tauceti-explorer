@@ -3414,7 +3414,8 @@
    ],
    "avoidAccountOf": "PAPER-GLEASON-LIM-XU-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-GLEASON-LIM-XU-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1206"
   },
   {
    "id": "PAPER-KLEVDAL-PATRIKIS-25",
@@ -3796,8 +3797,9 @@
    ],
    "avoidAccountOf": "PAPER-GUO-REINECKE-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-GUO-REINECKE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1227"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1227",
+   "finishedAt": "2026-09-23T23:02:30Z"
   },
   {
    "id": "PAPER-DISEGNI-LIU-24",
