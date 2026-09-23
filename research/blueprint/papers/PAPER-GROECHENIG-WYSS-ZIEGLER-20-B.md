@@ -210,3 +210,32 @@ Four misprints, all cross-references, none of which affects a statement or a pro
 
 The published version could not be consulted (the AMS site refused automated access on 22 September 2026), and the
 arXiv preprint has no version later than v2, so no existing correction was found.
+
+## Independent review (`REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B`, issue #1429)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, all four routes accepted, all
+four findings confirmed, **two findings added**. The full review is in
+[`reviews/REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.md`](../reviews/REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.md).
+
+The recorded hash matches byte for byte, and the paywall is real: `doi.org/10.1090/jams/948` and the AMS
+article page both return HTTP 403 here too, so the locators stand against arXiv v2 as recorded.
+An independent simulation of the shared per-section counter gives the extraction's numbering — but only
+after **stripping comments** from the source: counting the commented-out environments (`lemma:neron`,
+`prop:purity`, `lemma:Tate` and others) gives 171 objects with shifted numbers instead of the correct
+**154**. Every number tested then agrees, including `thm:volume` = Theorem 2.21 and `defi:weight` =
+Definition 2.20. **Coverage is 150 of 154**, the rest being two Situations, a remark, and the Goal the
+findings cite. The four `library` items were read in the Mathlib and Tau Ceti sources at the pins, and all
+12 cited layers exist. The Part II reproduces its parent's title verbatim and is the same one the
+companion paper's extraction proposes, so the two GWZ papers feed one roadmap.
+
+All four recorded findings are confirmed verbatim. E4 is subtler than it looks: Goal 6.21(1) and (2) carry
+the same pointer, and the argument for (2) lives in the **deferred** "Proof of Lemma 6.14", printed after
+the proof of Lemma 6.34 — a line-order check misattributes it, and the extraction read the structure
+correctly.
+
+**Two findings were added.** All four recorded findings belong to one mechanical class — a reference whose
+introducing word disagrees with the target's environment — so this review ran that class exhaustively over
+every `\ref` in the source. The paper has five such mismatches and the extraction had three: §2's overview
+calls Lemma 2.8 "Definition 2.8" (**E5**), and §6.3 calls Construction 2.13 "Definition 2.13" (**E6**).
+Both are settled by the paper citing the same objects correctly elsewhere. The same audit found no
+duplicate labels and no undefined references.
