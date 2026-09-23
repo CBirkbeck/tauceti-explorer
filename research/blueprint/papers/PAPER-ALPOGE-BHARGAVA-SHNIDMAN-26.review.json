@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ES.3/ES.4 owns local densities and the separate prime-weighted endpoint. The corrected route includes the affine I-lattice, exact Kai input and quantitative non-proportional refinement, with the fixed exceptional families removed."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Ownership in AN.4 is plausible, but item 33 is not an exact Mitsui theorem. G1 requires the archimedean/angular and uniform modulus/error contract before this source can be used."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "AC.5 owns finite-complexity prime patterns. Item 35 now states Kai v5 Theorem 13.1 with its actual lattice, weighted count and local-density hypotheses."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "A6 owns the Weil-restriction/isogeny comparison. General quadratic descent and the rational plus/minus proof are explicit in 59/58; Mordell–Weil and descent foundations are imported, and the elliptic-only near miss is no longer overstated."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "The proposed LD.4 successor has the right direction, but the fixed-r dyadic proof G3 and the Eisenträger reduction G2 remain unresolved. The corrected brief names both and preserves exact target statements."
+    }
+  ],
+  "notes": "Independent review complete, extraction partial. All 44 original IDs preserved and checked; 59 items total. Corrected library scope, S-unit coefficient, height ampleness, isogeny local images, twist conventions and logical reductions. Seven independently confirmed source findings (two already corrected in print), three accepted routes and three explicit proof/source gaps. No Lean file was required or compiled."
+}
