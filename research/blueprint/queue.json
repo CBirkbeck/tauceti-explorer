@@ -2841,8 +2841,9 @@
    ],
    "avoidAccountOf": "PAPER-JANNSEN-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-JANNSEN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1173"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1173",
+   "finishedAt": "2026-09-23T22:18:51Z"
   },
   {
    "id": "PAPER-KOENIGSMANN-16",
@@ -3634,8 +3635,9 @@
    ],
    "avoidAccountOf": "PAPER-YANG-ZHAO-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-YANG-ZHAO-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1219"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1219",
+   "finishedAt": "2026-09-23T22:18:54Z"
   },
   {
    "id": "PAPER-HEUER-25",
@@ -4351,7 +4353,8 @@
    ],
    "avoidAccountOf": "PAPER-TSUZUKI-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-TSUZUKI-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1259"
   },
   {
    "id": "PAPER-DISEGNI-22",
@@ -4925,7 +4928,8 @@
    ],
    "avoidAccountOf": "PAPER-CLAUSEN-MATHEW-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-CLAUSEN-MATHEW-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1291"
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
@@ -5573,7 +5577,8 @@
    ],
    "avoidAccountOf": "PAPER-CALEGARI-GERAGHTY-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-CALEGARI-GERAGHTY-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1325"
   },
   {
    "id": "PAPER-PILLONI-20",
