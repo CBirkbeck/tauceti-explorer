@@ -4,6 +4,7 @@ Amit Ghosh and Peter Sarnak, *Integral points on Markoff type cubic surfaces*, [
 
 Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1272). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-GHOSH-SARNAK-22.result.json](PAPER-GHOSH-SARNAK-22.result.json): 63 items (4 library, 1 planned, 58 missing), 5 routes, 16 prerequisite entries and 19 recorded source issues.
 
+**Independent review.** REV-PAPER-GHOSH-SARNAK-22 (Claude Code, session `cc-442dc5`, 23 September 2026) accepted this extraction. It made corrections in place, listed in [REV-PAPER-GHOSH-SARNAK-22.md](../reviews/REV-PAPER-GHOSH-SARNAK-22.md): item 23 is planned; items 62–63 are conjectural statements; items 20 and 57 are corrected; E15 is extended to all p ≡ 3 (mod 4); and E20 is added.
 **Source.** arXiv v3 (30 May 2022, 55 pages), SHA-256 `e4ddc7a115ad4afd61f0063d0b931baf85792eee2267d1d5c232bece11d3163d`, read in full on 2026-09-22.
 
 - The authors call v3 the final version. The published article has an abridged §10 and "some additional differences".
@@ -42,7 +43,9 @@ Let V_k be the level surface x₁² + x₂² + x₃² − x₁x₂x₃ = k. The 
   - Squares of quadratic Gauss sums: `gaussSum_sq`.
   - Hensel's lemma in the strong form ‖F(a)‖ < ‖F′(a)‖²: `hensels_lemma`.
   - Sums of two squares: `Nat.eq_sq_add_sq_iff`.
-- **Planned.** ExponentialSumsAndCircleMethod ES.3 plans p-adic local densities and singular series. The audit records them as absent.
+- **Planned.**
+  - ExponentialSumsAndCircleMethod ES.3 plans p-adic local densities and singular series. The audit records them as absent.
+  - Tau Ceti BelyiMaps Layer 4 plans the Fricke trace identity, for SL(2,ℝ). Its proof is a polynomial identity, so it gives the version over ℤ/pⁿℤ that §6 uses (item 23, changed to planned at review).
 - **Adjacent work.**
   - PAPER-MARTIN-25 (accepted) sources the coefficient-three Markoff equation, the Vieta moves and the Markoff tree to ClassicalArithmeticCompletion CA.4.
   - It also proposed the Part II `ArithmeticDynamicsPartIIMarkoff` for Markoff actions and strong approximation, whose design job is pending.
@@ -50,11 +53,11 @@ Let V_k be the level surface x₁² + x₂² + x₃² − x₁x₂x₃ = k. The 
 
 ## Routes
 
-1. **Source of ClassicalArithmeticCompletion CA.1 and CA.4** (26 items). This is the elementary arithmetic of V_k:
+1. **Source of ClassicalArithmeticCompletion CA.1 and CA.4** (25 items). This is the elementary arithmetic of V_k:
    - the Markoff cubic, Γ, admissible, exceptional and generic k, and the class numbers;
    - descent, Δ, Theorem 1.1, the Cayley cubic and Remark 4.2;
    - parametric solutions (Lemma 5.1);
-   - local solubility: the Fricke identity, Lemma 6.2, the Gauss-sum count and Proposition 6.1;
+   - local solubility: Lemma 6.2, the Gauss-sum count and Proposition 6.1 (the Fricke identity is imported from BelyiMaps Layer 4);
    - the reciprocity obstructions (8.1), Propositions 8.1–8.3 and Theorem 1.2(i);
    - the §10 enumeration and Conjecture 10.1.
 
@@ -107,7 +110,7 @@ None affects Theorem 1.1 or Theorem 1.2(ii). Every discrepancy below was confirm
   - The error term in (9.5) should be O(KA^{−1/2}).
   - Before (9.25), "(mod k)" should be "(mod s)".
   - The parity condition in (9.3) is wrong for even a.
-- **E15** (error, affects a stated result). At p = 3, Proposition B.1(b) and B.2(d) have the wrong sign in the k-term. For example δ₃(9) = 2/9 and δ₃(18) = 4/9, where the paper gives 4/9 and 2/9. The formulas are correct for p ≥ 5.
+- **E15** (error, affects a stated result). For every p ≡ 3 (mod 4), Proposition B.1(b) and B.2(d) have the wrong sign in the k-term: the factor χ(−1) is missing. For example δ₃(9) = 2/9, δ₃(18) = 4/9 and δ₇(49) = 34/49, where the paper gives 4/9, 2/9 and 36/49. The formulas are correct for p ≡ 1 (mod 4). (Extended from p = 3 at review.)
 - **E16** (misprint). In Proposition B.2(e), χ(k/p^μ) should be χ((k − 4)/p^μ).
 - **E17** (error, nothing).
   - **The problem.** Proposition B.4(d) is wrong whenever η₁ = η₂ (260 cases tested).
@@ -116,6 +119,7 @@ None affects Theorem 1.1 or Theorem 1.2(ii). Every discrepancy below was confirm
   - **The problem.** The explicit 2-adic formulas of Proposition B.12 are wrong in (1), (3)(b), (3)(d) and most of (4). For example δ₂(1) = 3/4 (printed 3/2) and δ₂(24) = 1 (printed 5/2).
   - **Why nothing breaks.** The bound δ₂ ≥ 3/4 used in §9.1 holds.
 - **E19** (error, nothing). In §B.4.2, δ₂(a₁, a₂) = 5/4 when θ = 0 (the paper says 1). Corollary B.15 is unaffected.
+- **E20** (error, nothing; added at review). In §5.2.1, for |x̂₁| = 2 the slice {x₁ = x̂₁} ∩ V_k is a pair of lines. The orbit's closure is one line, not "the conic section". The argument needs only a curve, so nothing breaks.
 
 **Also checked and correct:**
 - (3.1), (4.1) and the U₁, U₂ families (symbolically);
@@ -152,6 +156,6 @@ Links and reasons are in the JSON.
   - `NumberTheory/GaussSum.lean:222`;
   - `NumberTheory/Padics/Hensel.lean:461`;
   - `NumberTheory/SumTwoSquares.lean:211`.
-- Tau Ceti f790474 has no Markoff, Fricke-trace, circle-method or local-density declarations; its `Fricke` files concern the Fricke involution on modular forms.
+- Tau Ceti f790474 has no Markoff, Fricke-trace, circle-method or local-density declarations; its `Fricke` files concern the Fricke involution on modular forms. The Fricke trace identity is planned in Tau Ceti BelyiMaps Layer 4 (found at review).
 - Layer ids were checked against `data/atlas.json`, and prerequisite DOIs against Crossref.
 - No Lean was written or compiled; none is a deliverable of this job.
