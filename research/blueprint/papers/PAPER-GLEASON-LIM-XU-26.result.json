@@ -6885,7 +6885,7 @@
       "route": "part-ii",
       "parent": "DiamondsAndVStacks",
       "roadmap": "DiamondsAndVStacksIntegralPartII",
-      "title": "Pro-etale descent, diamonds and small v-stacks, Part II: integral recovery and kimberlite specialization",
+      "title": "Pro-étale descent, diamonds and small v-stacks, Part II: integral recovery and kimberlite specialization",
       "area": "padic",
       "items": [
         "PAPER-GLEASON-LIM-XU-26/D22",
@@ -6930,7 +6930,7 @@
       "route": "part-ii",
       "parent": "HeckeStacksAndLocalShtukas",
       "roadmap": "HeckeStacksAndLocalShtukasIntegralPartII",
-      "title": "Hecke stacks and local shtukas, Part II: integral parahoric models and specialization",
+      "title": "Hecke correspondences and local shtuka cohomology, Part II: integral parahoric models and specialization",
       "area": "langlands",
       "items": [
         "PAPER-GLEASON-LIM-XU-26/D35",
@@ -6954,7 +6954,7 @@
       "route": "part-ii",
       "parent": "HeckeStacksAndLocalShtukas",
       "roadmap": "HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig",
-      "title": "Hecke stacks and local shtukas, Part II: affine Deligne–Lusztig geometry and components",
+      "title": "Hecke correspondences and local shtuka cohomology, Part II: affine Deligne–Lusztig geometry and components",
       "area": "langlands",
       "items": [
         "PAPER-GLEASON-LIM-XU-26/D08",
@@ -7028,7 +7028,7 @@
       "route": "part-ii",
       "parent": "PadicHodgeTheory",
       "roadmap": "PadicHodgeTheoryGenericMonodromyPartII",
-      "title": "p-adic Hodge theory, Part II: generic crystalline monodromy",
+      "title": "P-adic Hodge theory and geometric comparison, Part II: generic crystalline monodromy",
       "area": "padic",
       "items": [
         "PAPER-GLEASON-LIM-XU-26/D53",
@@ -7203,7 +7203,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, with a sharper statement. The counterexample is right: take F = underline(Z_p) x Spa(C,O_C) with the discrete group Z acting by translation. Then |F| = Z_p, |G| = Z_p/Z carries the quotient topology by the first half of the lemma, and every Z-invariant open subset of Z_p is empty or everything (a ball a + p^n Z_p meets every class because Z surjects onto Z/p^n), so |G| is indiscrete and pi_0(G) is a point while the set pi_0(F)/K = Z_p/Z is uncountable. What the proof establishes is that pi_0, being a left adjoint to the inclusion of totally disconnected spaces, commutes with the colimit computed in totally disconnected spaces; under that reading the lemma is true but empty of the content its three noncompact applications need, and under the set-level reading it is false. The applications at Proposition 3.12 (TeX l. 1336), Proposition 6.6(2) (l. 2285) and Lemma 6.12 (l. 2479) all quotient by the noncompact G(Q_p) or Gamma_K and all want the set-level reading; the applications by a compact group - the Iwahori at l. 674 and l. 2409, and the profinite Gamma_K at l. 2495 - are unaffected, since a quotient of a profinite set by a profinite group is again profinite. I add that the conclusions of those three applications are not contradicted: each is an assertion that a torsor under a locally profinite group over a connected base has transitive action on the components of its total space, which is the statement to prove in place of the printed lemma.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E02",
@@ -7221,8 +7226,13 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed",
-      "previousAffects": "a stated result"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "previousAffects": "a stated result",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The sentence at TeX l. 681 calls G(Q_p)/Im(G^sc(Q_p)) 'the maximal abelian quotient of G(Q_p)', and the anisotropic counterexample is right: for the quaternion-style division algebra D over Q_3 built from the unramified quadratic E = Q_3(i) and Pi^2 = 3, the reduced norm N_E(a) - 3 N_E(b) has summands of different valuation parity, so D is division; a norm-one element a + b.Pi has a a unit, and reduction modulo the maximal ideal gives a homomorphism SL_1(D)(Q_3) -> ker(N : F_9^* -> F_3^*) whose image contains the residue of i, of order 4. So SL_1(D)(Q_3) has a nontrivial abelian quotient although it is simply connected and G^circ is trivial. Kneser-Tits gives the intended statement exactly in the isotropic case. The reclassification to 'affects nothing' is right, since G^circ is defined by the displayed formula and every use is of the formula.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E03",
@@ -7240,7 +7250,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The sequence at TeX l. 1415 has pi_1(G)_I where the Kottwitz map of the torus T lands in X_*(T)_I; the counterexample settles it, since for G = SL_2 with diagonal T one has T(L)/T(O_L) isomorphic to Z while pi_1(G) = 0, so diag(p,p^{-1}) is in the kernel of the map to pi_1(G) but not in T(O_L). The conclusion the sequence is quoted for - surjectivity of G(Q_p) -> pi_1(G)_I^phi - is separately cited from Zhou, Lemma 5.18, on the same line, so only this justification is affected.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E04",
@@ -7258,8 +7273,13 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed",
-      "previousAffects": "a stated result"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "previousAffects": "a stated result",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Definition 4.1 (TeX l. 1459-1463) asks for a phi_0-stable standard Levi M containing M_nu with mu^diamond - nu in Q_{>=0} Delta_M^vee, with no properness. With M = G the condition is exactly b in B(G,mu), which holds by standing assumption, so every pair would be decomposable and Example 4.2 ('a basic element is always HN-indecomposable since M_nu = G') would be false. Properness is the hypothesis in the source the definition follows, GHN19. Affects nothing, since the rest of section 4 uses the definition with M proper.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E05",
@@ -7277,7 +7297,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. What the proof establishes at TeX l. 1632 is S(Q_p) cap K_p(Z_p) contained in S(Z_p); the displayed injection at l. 1633 starts from S(Q_p)/S(Z_p) and so needs the reverse inclusion S(Z_p) contained in K_p(Z_p), which can fail: in SL_2(Q_5) with g = ((1,1/5),(0,1)), K = g SL_2(Z_5) g^{-1} and s = diag(2,1/2) in S(Z_5), one computes g^{-1} s g = ((2,3/10),(0,1/2)), whose upper-right entry is not in Z_5, so s is not in K. Calling the map a homomorphism is also wrong, since G(Q_p)/K_p(Z_p) is only a coset space. The conclusion survives with one word changed: S(Q_p)/(S(Q_p) cap K_p(Z_p)) injects into G(Q_p)/K_p(Z_p) and surjects onto S(Q_p)/S(Z_p) = X_*(S), which is infinite, so G(Q_p)/K_p(Z_p) is infinite, which is all the proof needs. That repair is simpler than the uniformizer section the correction proposes; either works.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E06",
@@ -7295,7 +7320,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and it is a notational error with mathematical force. Section 5 fixes E as the reflex field of mu (TeX l. 1743) and never assumes it normal over K, while the formula of Proposition 5.7 (l. 1859-1860) and its proof quantify over tau in Gal(E/K). For non-normal E, Aut(E/K) is smaller than the set of K-embeddings, and the reflex field of a cocharacter over a p-adic field can be non-normal. The counterexample is correct: for the torus Res_{E/K}G_m with E/K a non-normal cubic and V = E, the generic filtration of Definition 5.5 is V cap Fil^1_mu V_barK = 0, because a nonzero element of E has nonzero image under every embedding, while the printed condition with Aut(E/K) = 1 puts all of V in Fil^1. Reading Gal(E/K) as the set of K-embeddings of E, equivalently indexing by the distinct Gamma_E-orbits inside the Gamma_K-orbit, makes the formula correct; that reading must be stated, since with E non-normal the two differ.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E07",
@@ -7313,7 +7343,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The identity at TeX l. 1969 decomposes v_{O_lambda}, a sum over one Gamma_K-orbit, as a sum indexed by Gal(E/K); the Gamma_E-orbits inside a Gamma_K-orbit are indexed by the double cosets Gamma_E \\\\ Gamma_K / Gamma_lambda, so the printed sum both repeats components and, for non-normal E, can miss them. The stated example settles the repetition: for a quadratic reflex field and lambda = 0 both automorphisms give the same one-dimensional component, so the right-hand side is 2v. The step the identity supports, equation (5.26) of the same proof, only needs the set of Gamma_E-orbits occurring, and an infimum is insensitive to repetition, so the conclusion stands and only the displayed identity is wrong.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E08",
@@ -7331,7 +7366,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The sentence at TeX l. 2294 asserts unconditionally that G^sc(Q_p) acts trivially on pi_0(Sht_(G,b,mu,infinity) x Spd C_p), and that is false: for G = SL_2, mu = 0 and b = 1 the datum is admissible, Gr^b_mu is a point, and Sht_infinity is the constant G(Q_p)-torsor over it, so pi_0 is G(Q_p) with its regular action and G^sc(Q_p) = G(Q_p) acts simply transitively. Triviality of that action is essentially hypothesis (5) of Theorem 6.1, which part (2) is meant to transfer along an ad-isomorphism, so it cannot be assumed before either side is known. As the extraction says, no counterexample to the equivalence itself is claimed; the identification (6.11) has to be derived without the unconditional step, or the two directions treated separately under the respective torsor hypotheses.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E09",
@@ -7349,8 +7389,13 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed",
-      "previousAffects": "a stated result"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "previousAffects": "a stated result",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 6.15 (TeX l. 2561) says G(Q_p) 'has no open normal subgroup' and l. 2555 repeats it for G^der(Q_p); the whole group is open and normal, so the intended statement is 'no proper open normal subgroup'. The proof (l. 2564-2567) concludes K = G(Q_p) from Kneser-Tits, which is the intended reading. Affects nothing.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E10",
@@ -7368,7 +7413,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The composition displayed at TeX l. 1282 runs Sht^{K_1}_{mu_1}(b_1) -> Sht_{K_2,p}(b_2) x Spd O_Ebreve -> Sht_{K_1,p}(b_1) x Spd O_Ebreve and is then said to factor through the closed immersion of Sht^{K_2}_{mu_2}(b_2) into the K_2 ambient space, which the printed target contradicts. Extension of structure group goes from the K_1 ambient to the K_2 ambient, so the order is bounded K_1 -> ambient K_1 -> ambient K_2, as the correction says.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E11",
@@ -7386,7 +7436,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. In the diagram at TeX l. 1290 the upper-right entry is Sht^{K_{1,p}}_{mu_2}(b_2); its vertical arrow lands in Sht_{K_{2,p}}(b_2) x Spd O_Ebreve and its reduction in the diagram below is X^{K_{2,p}}_{mu_2}(b_2), so the superscript must be K_2.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E12",
@@ -7404,7 +7459,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The last line of the proof of Lemma 3.16 (TeX l. 1432) says the coset c_{btilde,mutilde} pi_1(Gtilde)_I^phi 'also maps to the coset c_{b,mu} pi_1(Gtilde)_I^phi'; the map lands in pi_1(G)_I^phi, which is what the statement of part (2) and the diagram at l. 1419-1424 have.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E13",
@@ -7422,7 +7482,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. In the Cartesian diagram of Proposition 3.17 (TeX l. 1446) the bottom-left entry is pi_0(X^{K^H_p}_mu(b)), with the G-data mu and b, while the bottom-right entry is c_{b_H,mu_H} pi_1(H)_I^phi and the transported data b_H = f(b), mu_H = f circ mu were fixed seven lines earlier.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E14",
@@ -7440,7 +7505,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. TeX l. 1475 defines the parahoric group scheme K^{M'}_p of M' by K^{M'}_p(breve Q_p) = K_p cap M'(breve Q_p). A parahoric group scheme evaluated on the generic field gives all of M'(breve Q_p), so the equation types wrongly; and K_p is the Z_p-points while the right-hand side is a subgroup of M'(breve Q_p). The intended object is the integral points K^{M'}_p(breve Z_p) = breve K_p cap M'(breve Q_p), which is what the M'-ADLV in Theorem 4.3 uses.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E15",
@@ -7458,7 +7528,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. TeX l. 1529 sets mu_H = mu circ f, while mu : G_m -> G and f : G -> H, so the composition is ill typed; the same definition is written f circ mu at l. 1180, l. 1439 and l. 2233.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E16",
@@ -7476,7 +7551,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. In the right-hand square at TeX l. 1542 the bottom row is X_*(T)^+_Q -> X_*(T)^+_Q under B(G) -> B(H); the Newton map of H takes values in X_*(T_H)^+_Q, and the left-hand square correctly has pi_1(G)_Gamma -> pi_1(H)_Gamma.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E17",
@@ -7494,7 +7574,12 @@
         "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "independently reviewed for issue #1206 by Claude Code, session cc-7b31c4; verdict confirmed",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. TeX l. 2598 writes Sht_{(G,b^ab,mu^ab,G^ab_par(Z_p))}, with the group G but the abelianized data; the map it is the target of, displayed two lines earlier at l. 2596, has Sht_{(G^ab,b^ab,mu^ab,G^ab_par(Z_p))}, and the torsor statement that follows is about pi_1(G)^phi_I acting on the torus shtuka space.",
+        "by": "REV-PAPER-GLEASON-LIM-XU-26"
+      }
     }
   ],
   "gaps": [
