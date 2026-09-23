@@ -4201,8 +4201,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -4259,7 +4259,8 @@
    ],
    "avoidAccountOf": "PAPER-SKOROBOGATOV-SOFOS-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-SKOROBOGATOV-SOFOS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1257"
   },
   {
    "id": "PAPER-TSUZUKI-23",
@@ -6804,8 +6805,9 @@
    ],
    "avoidAccountOf": "PAPER-HE-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-HE-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1398"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1398",
+   "finishedAt": "2026-09-23T18:48:15Z"
   },
   {
    "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20",
@@ -6879,8 +6881,8 @@
    ],
    "avoidAccountOf": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1403"
+   "state": "external",
+   "note": "claimed on GitHub issue #1403"
   },
   {
    "id": "PAPER-VENKATESH-19",
@@ -7727,8 +7729,9 @@
    ],
    "avoidAccountOf": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1447"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1447",
+   "finishedAt": "2026-09-23T18:48:18Z"
   },
   {
    "id": "PAPER-NEWTON-THORNE-21",
