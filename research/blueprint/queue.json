@@ -5313,7 +5313,8 @@
    ],
    "avoidAccountOf": "PAPER-KOYMANS-MILOVIC-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-KOYMANS-MILOVIC-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1319"
   },
   {
    "id": "PAPER-BHATT-MATHEW-21",
@@ -8470,7 +8471,8 @@
    ],
    "avoidAccountOf": "PAPER-NELSON-VENKATESH-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-NELSON-VENKATESH-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2191"
   },
   {
    "id": "PAPER-NIKOLAUS-SCHOLZE-18",
@@ -8507,8 +8509,9 @@
    ],
    "avoidAccountOf": "PAPER-NIKOLAUS-SCHOLZE-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-NIKOLAUS-SCHOLZE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2193"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2193",
+   "finishedAt": "2026-09-23T15:40:26Z"
   },
   {
    "id": "PAPER-KOYMANS-PAGANO",
@@ -10978,7 +10981,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #115"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_HeegaardFloer",
@@ -11586,7 +11590,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #132"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
@@ -31385,8 +31390,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-EISCHEN-HARRIS-LI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2179"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2179",
+   "finishedAt": "2026-09-23T15:40:29Z"
   },
   {
    "id": "ERRATA-PAPER-MERKURJEV-SCAVIA-26",
@@ -41738,9 +41744,10 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-39.md",
    "timeout": 21600,
-   "state": "external",
+   "state": "done",
    "avoidAccountOf": "AUDIT-39",
-   "note": "claimed on GitHub issue #874"
+   "note": "deliverables arrived from an external worker on issue #874",
+   "finishedAt": "2026-09-23T15:40:32Z"
   },
   {
    "id": "AUDIT-40",
