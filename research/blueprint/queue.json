@@ -4312,8 +4312,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1268"
+   "state": "external",
+   "note": "claimed on GitHub issue #1268"
   },
   {
    "id": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
@@ -5523,8 +5523,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SHENDE-TSIMERMAN-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1334"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1334",
+   "finishedAt": "2026-09-23T06:14:41Z"
   },
   {
    "id": "REV-PAPER-SHENDE-TSIMERMAN-17",
@@ -7029,8 +7030,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1420"
+   "state": "external",
+   "note": "claimed on GitHub issue #1420"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
