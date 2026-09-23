@@ -1150,6 +1150,24 @@
    "statement": "A linear form f on Groth(H(F)) is a trace form tr(φ | −), φ ∈ C_c(H(F), Q̄_ℓ), iff (1) for some compact open K, f(π) ≠ 0 only if π^K ≠ 0, and (2) for every parabolic P = MU and irreducible σ of M(F), ψ ↦ f(i_M^H(σψ)) is algebraic in the unramified character ψ.",
    "locator": "Theorem 6.5.4, p. 66; proof, p. 66",
    "status": "missing"
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/127",
+   "kind": "construction",
+   "name": "Classifying stacks of group diamonds and their 2-morphisms",
+   "statement": "Let S be a diamond and G → S a group diamond. The stack BG = [S/G] classifying G-torsors is a small v-stack, because S ×_{[S/G]} S ≅ G is already a diamond. For another group diamond H → S, the morphisms [S/G] → [S/H] correspond to S-homomorphisms G → H, and for two homomorphisms f_1, f_2 : G → H with induced morphisms φ_1, φ_2 : [S/G] → [S/H], the set of 2-morphisms φ_1 ⇒ φ_2 is identified with the set of h ∈ H(S) such that f_1 = (ad h) ∘ f_2.",
+   "locator": "Example 4.1.1, p. 22 (published version; the same in arXiv v4)",
+   "status": "missing",
+   "note": "Added by REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22: the extraction's §4.1 items begin at Definition 4.1.3, so this example and Remark 4.1.2 were the only numbered statements of the paper not covered by a locator. It is the template for the classifying stacks [S/G_S] that the admissibility and trace-distribution items (061, 062) and the Hecke-stack application work with, and it fixes the identification of 2-morphisms that Definitions 4.3.3–4.3.4 use."
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/128",
+   "kind": "theorem",
+   "name": "Adjointness of f^* and Rf_* is compatible with 2-morphisms",
+   "statement": "Let α : f ⇒ g be a 2-morphism between morphisms f, g : Y → X of v-stacks. Then there are natural isomorphisms α_* : f_* → g_* and α^* : f^* → g^*, and the adjunction is compatible with them: the unit id_{D_ét(X,Λ)} → f_*f^* composed with α_*α^* is the unit id → g_*g^*, and the counit f^*f_* → id_{D_ét(Y,Λ)} composed with α_*α^* is the counit g^*g_* → id.",
+   "locator": "Remark 4.1.2, p. 22 (published version; the same in arXiv v4)",
+   "status": "missing",
+   "note": "Added by REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22. Stated as a remark in the paper but used as a compatibility throughout §4.3, where 1-morphisms of cohomological correspondences are composed and 2-morphisms are pushed through units and counits; the two diagrams are the content, not the existence of α_* and α^*."
   }
  ],
  "prerequisites": [
@@ -1343,7 +1361,9 @@
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22/073",
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22/074",
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22/075",
-    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/076"
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/076",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/127",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22/128"
    ],
    "brief": "Extend Artin v-stacks, solid and lisse coefficient categories (VStackSheavesAndLisseCategories), starting where VS0–VS1 stop (Artin v-stacks, partial compact-support functors, ULA objects): construct Gulotta–Hansen–Weinstein's decent v-stacks and fine morphisms with genuine !-functors for stacky maps, and the Lefschetz–Verdier trace formalism of Hansen–Kaletha–Weinstein §4 and §5.3 (Forum Math. Pi 10 (2022) e13), following Lu–Zheng's categorical traces. Final theorems, as stated there:\n\nTheorem 4.1.8 (GHW). For any fine map f of decent v-stacks there are Rf_!, Rf^! satisfying the projection formula, local Verdier duality, (P5) and base change, agreeing with Scholze's for maps representable in nice diamonds, pseudo-functorial, with Rf_! ≅ Rf_* for proper f, and cohomological smoothness with smooth base change.\n\nTheorem 4.3.8 (relative Lefschetz–Verdier). For (X, A) dualizable in CoCorr_S and f ∈ End(X, A) over C → X ×_S X, with proper q: X → X', p: C → C' compatible with C' → X' ×_S X', (X', q_*A) is dualizable, there is a unique f' over C' filled by p, and a 2-morphism tr(f) ⇒ tr(f') over tr(p). Corollary 4.3.9: In_S(p)_*cc_{X/S}(A) = cc_{X'/S}(p_!A).\n\nAlso: Proposition 4.3.5 and the equivalence dualizable ⇔ ULA for fine maps; Proposition 4.4.1 and 4.4.3 (admissible objects on [S/G_S], cc = trdist); Theorem 4.5.3 (Künneth for characteristic classes over a base with smooth diagonal, via BCoCorr_S); Theorem 4.6.1 (cc on [X/G] is the universal local term); Propositions 5.3.1–5.3.2 (local terms commute with base change and with passage from perfect schemes to v-sheaves); Examples 4.2.1–4.2.5 (locally profinite sets, classifying stacks, Haar measures); Lemmas B.1.1–B.1.2 (dualizable = perfect in D(Λ)) and B.2.1–B.2.5 (sheaves on locally profinite sets). The functoriality and monoidality of ⊠ over a base (4.5.7–4.5.8), which the paper calls 'straightforward but tedious', must be proved.\n\nImports: VStackSheavesAndLisseCategories VS0, VS1, VS4 (parent; FS V.1.1 for classifying stacks); DiamondSixOperations S0–S5; EnhancedDerivedSheaves E0–E3 (the ∞-categorical machinery GHW use, following Liu–Zheng); DiamondEtaleCohomology; AdicCoefficientsAndComparisons L1–L2 (ECD §27); EtaleDualityAndPerverseSheaves EDC.8 (the scheme case, SGA 5 III); Mathlib's monoidal duality (CategoryTheory.ExactPairing) for the 1-categorical shadow. The Abe extraction's proposed Part II of EtaleDualityAndPerverseSheaves (EtaleDualityAndPerverseSheavesPartIIRelativeTraces) plans the same generic 2-categorical trace interface for schemes, after Lu–Zheng; the two continuations should share one home for it rather than duplicate it. Tests: X = Spec k (perfect complexes and Euler characteristics), a locally profinite set, [S/G_S] for G = GL_n(Z_p) and G = Q_p^×, a proper diamond with isolated fixed points, and the affinoid disc with T ↦ T + 1, where j_!Λ is not ULA and the naive formula fails.",
    "reason": "Decent v-stacks with !-functors for stacky maps, cohomological correspondences, categorical traces and characteristic classes are general sheaf theory on v-stacks, owned by VStackSheavesAndLisseCategories (VS0 builds Artin v-stacks and partial compact supports but says its π-sharp is not an ordinary Rf_!). They are planned once there so that other consumers (Hecke operators, excursion operators) can import them."
@@ -1412,7 +1432,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the source: 'Let \\Groth(G_b(F)) be the Grothendieck group of the category of finite length admissible representations of $G(F)$'. The mismatch is inside one sentence, and the next sentence defines Groth(G(F) x W_E) with G(F), so the first must be G_b(F) - which is also what Mant_{b,mu} takes as input.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E2",
@@ -1427,7 +1452,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: Remark 2.4.4 reads 'each $H^{i,j}(G,b,\\mu)[\\rho]$ is an admissible representation of $G_b(F)$, by the analysis in [FarguesScholze]'. The displayed definition just above forms Ext^i over G_b(F) and takes the colimit over level subgroups K of G(F), so what survives is a smooth G(F)-representation, as the entry says.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E3",
@@ -1442,7 +1472,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: the proof of Lemma 3.1.1 opens 'The set $H^1(F,N(T,G))$ classifies conjugacy classes of $F$-rational tori, as follows: given a $F$-rational torus $T'$, we must have $T'=xTx^{-1}$...'. The correction is the standard statement - the map lands in, and is a bijection onto, the kernel of H^1(F,N(T,G)) -> H^1(F,G), because the class of x^{-1}x^sigma is the coboundary of x; for G = PGL_2 the remaining classes are tori of the inner form. The entry is also right that the proof needs only well-definedness and finiteness, so nothing downstream moves.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E4",
@@ -1457,7 +1492,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: 'Therefore $T_{b,\\mu}^{G \\to G_b}f(g')=-2f(g)$. Setting $f=\\Theta_\\rho$...'. Theta_rho is a function on G_b(F), so it can only be fed to T^{G_b -> G}, the map Theorem 3.2.9 is about; and the displayed conclusion Theta_rho(g') = -Theta_pi(g) is what the corrected reading gives.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E5",
@@ -1472,7 +1512,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and settled by the paper against itself three times over. At (3.3.3) on p. 18 the published text reads '=(-1)^{<2rho_G,mu>}, where rho_G is the sum of the positive roots', while on p. 12 and again on p. 15 the same paper writes '2rho_G is the sum of the positive roots (of G)'. The exponent is the d of Definition 3.2.7, so the p. 18 sentence is the misprint.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E6",
@@ -1487,7 +1532,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim, and again settled internally: the end of section 3.4 announces the operator with target $C_c(G_b(F)_{ell},\\Lambda)_{G(F)}$, while Definition 6.3.2's displayed definition of the same map has target $C_c(G_b(F)_{ell},\\Lambda)_{G_b(F)}$. G(F) does not act on G_b(F), so the announcement is the slip.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E7",
@@ -1502,7 +1552,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: 'The source of this morphism is the correspondence $\\In_S(X_1)\\times_{\\In_S(T_1)} \\In_S(X_2)\\to S\\times_S S$'. Theorem 4.5.3 has a single base T and defines no T_1.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E8",
@@ -1517,7 +1572,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: 'Then $R_1\\subset R$ is a finite-type $k$-algebra stable under $g$, with $R_1^{\\mathrm{perf}}=A$'. R = O(X) is what R_1 is a deperfection of - the next clause says 'so $X_1=\\Spec R_1$ is a deperfection of $X$' - while A is the coefficient complex, so R is meant.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E9",
@@ -1532,7 +1592,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim on both counts. The closure is printed '$\\overline{S_{\\nu}}=\\cup_{\\nu'\\leq\\nu}S_{\\nu}$', with S_nu where S_{nu'} is meant, and the following sentence reads 'so $\\chi_{c}(U,\\mathcal{S}_{V})$ coincides with the trace of $g$ on $R\\Gamma_{c}(X_\\nu,\\mathcal{S}_{V})$' although no U is defined and the very next display computes with chi_c(X_nu, S_V).",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E10",
@@ -1547,7 +1612,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and precisely located: inside the three-line display in the proof of Proposition 6.3.3 the first and third lines carry rank V_mu[lambda] and the middle line - the one the entry quotes - carries rank V_mu[lambda']. The sentence above the display has already converted rank V_mu^vee[lambda'] into rank V_mu[lambda], so the middle line is the misprint.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E11",
@@ -1562,7 +1632,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: '\\cite[Theorem 1.9.6.viii-ix]{FarguesScholze}'. Fargues-Scholze number that result I.9.6, and the same proof and Theorem 6.5.1 cite it correctly elsewhere.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E12",
@@ -1577,7 +1652,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim on both counts: 'We have an isomorphism of $\\Lambda$-modules $\\mf{m}^{m-1}\\Lambda \\to \\kappa$' and 'We can apply the inductive hypothesis to the $(\\Lambda/\\mf{m}^{m-1})$-module $\\mf{m}M$'. Lambda = R/m^k and the induction is on k, so m is undefined and k is meant in both places.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E13",
@@ -1592,7 +1672,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: 'the constant group diamonds $\\ul{G(\\Q_p)}$ and $\\ul{G_b(\\Q_p)}$ respectively, the space $\\Sht_{G,b,\\mu}$ is equipped with commuting actions of $G(\\Q_p)$ and $G_b(\\Q_p)$'. G is a reductive group over the finite extension F/Q_p throughout, and the introduction states the actions of G(F) and G_b(F).",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E14",
@@ -1607,7 +1692,12 @@
     "the published article, Forum Math. Pi 10 (2022) e13, https://doi.org/10.1017/fmp.2022.7 (open access; received 21 September 2017, revised 17 March 2022, accepted 8 April 2022; read in full)",
     "arXiv 1709.06651v4 (17 March 2022) with its TeX source (FixedPoints2022.tex and the included files)",
     "Crossref metadata for 10.1017/fmp.2022.7 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: the composite in Definition 4.3.4 ends '\\to (c_2\\times_S d_2)^! (A_2\\boxtimes A_2')'. The target object of the tensor product of 1-morphisms is (X_1' x_S X_2', A_1' boxtimes_S A_2'), and the kappa quoted in the same definition is adjoint to the Kuenneth isomorphism for (c_2)_!B_1 boxtimes (d_2)_!B_2, so A_1' boxtimes_S A_2' is meant.",
+    "by": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
+   }
   }
  ]
 }
