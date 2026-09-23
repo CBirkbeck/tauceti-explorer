@@ -39092,6 +39092,314 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-KISIN-ZHOU-25/E1",
+   "kind": "misprint",
+   "locator": "arXiv2103.09945v2, p9,§2.2.2; final Annals text not compared",
+   "printed": "{u^(-1) w sigma(w) | u in W}",
+   "correction": "Replace the final sigma(w) with sigma(u).",
+   "reason": "Twisted conjugation acts by u^-1 w sigma(u). For sigma=id,w=1 in the cyclic groupC3, the printed set is allC3, whereas the conjugacy class is {1}; the preceding B(G) definition uses the correct variable.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E2",
+   "kind": "misprint",
+   "locator": "arXiv2103.09945v2, p23,§3.2.5, reference to Definition3.1.6; final Annals text not compared",
+   "printed": "property (3) of Definition 3.1.6",
+   "correction": "Use property(2), the closed immersion of local models.",
+   "reason": "Definition3.1.6 onp19 has only clauses(1),(2); clause(2) is exactly the asserted good-embedding condition.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E3",
+   "kind": "misprint",
+   "locator": "arXiv2103.09945v2, p23,§3.2.5, canonical comparison c; final Annals text not compared",
+   "printed": "c: U_tilde_1 tensor W_hat(A_G/a_G) -> M_tilde_1 tensor W_hat(A_G)",
+   "correction": "Reduce the right side to W_hat(A_G/a_G) as well, with the same coefficient maps.",
+   "reason": "The left module is over the quotient Witt coefficient ring, and the next tensor-preservation condition compares the reduced tensors. The previously read KPZv1 equation5.2.1 gives both sides over the quotient.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E4",
+   "kind": "misprint",
+   "locator": "arXiv2103.09945v2, p25,equation(3.3.2.1) and its following tensor label; final Annals text not compared",
+   "printed": "T_p(G)^vee tensor_(breve Z_p) W_hat(O_K); s_(alpha,0)",
+   "correction": "Tensor the etale Tate lattice over Z_p. The tensors transported from that lattice are s_(alpha,et); s_(alpha,0) denotes the crystalline tensors on the target.",
+   "reason": "T_p(G)^vee is a Z_p lattice, with no given breve-Z_p module structure. In§3.3.3 the induced breve-Z_p isomorphism explicitly transports s_(alpha,et) to s_(alpha,0). Keep the crystalline lift tilde-s on the right.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E5",
+   "kind": "misprint",
+   "locator": "arXiv2103.09945v2, p34,Proposition4.2.3(5); final Annals text not compared",
+   "printed": "X_*(G^ab)_I is torsion.",
+   "correction": "Use torsion-free.",
+   "reason": "The immediately following Lemma4.2.4 requires torsion-free coinvariants, as does the later application. KPZv1 Proposition7.2.18(5), already read in the preceding checkpoint, supplies the torsion-free output. The extracted S19 already uses this corrected contract.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E6",
+   "kind": "misprint",
+   "locator": "arXiv2103.09945v2, p48,§5.2.1, integral dominance; final Annals text not compared",
+   "printed": "an integral linear combination of positive coroots",
+   "correction": "Require a nonnegative integral linear combination of positive coroots.",
+   "reason": "Without nonnegativity both a nonzero coroot and its negative belong to the integer span, giving both comparison directions for distinct dominant endpoints (e.g.0 and2 in PGL2). The Bruhat-compatible order requires the positive integral cone.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E7",
+   "kind": "misprint",
+   "locator": "arXiv2103.09945v2, p52,Lemma5.2.5, hypothesis on t_lambda; final Annals text not compared",
+   "printed": "t_lambda in G(F_q[[t]])",
+   "correction": "Use t_lambda in G(F_q((t))) for the loop element; the conjugator g remains in the positive-loop parahoric.",
+   "reason": "The earlier proof onp49 chooses a loop-field lift, andp52 conjugates integral subgroups inside the loop field. Requiring a nontrivial torus translation to be integral would exclude the needed stratum representatives.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E8",
+   "kind": "misprint",
+   "locator": "arXiv2103.09945v2, p55,§6.1.1, Hodge types of Betti cohomology; final Annals text not compared",
+   "printed": "H^1_B(A(C),Q); ((0,-1),(-1,0))",
+   "correction": "For the stated H^1 and the dual Tate comparison in§6.1.3, use cohomological types ((1,0),(0,1)). If choosing H_1 instead, change the realization and dual conventions consistently throughout.",
+   "reason": "The negative types belong to homology. The displayed§6.1.3 comparison is with T_l(A)^vee, hence cohomology. This local type correction does not settle the entire geometric-Frobenius/multiplier convention gate.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E9",
+   "kind": "misprint",
+   "locator": "arXiv2103.09945v2, p58,proof of Lemma6.2.6(2), diagonal conjugacy; final Annals text not compared",
+   "printed": "h^(-1) g h = g; h_1 g h_1^(-1)=gprime",
+   "correction": "The premise is h^-1 g h=gprime and its first-coordinate consequence is h_1^-1 g h_1=gprime.",
+   "reason": "Both errors disappear by projecting the diagonal tuple conjugacy equation to the first factor. The existence of a conjugator and the quotient injection remain valid.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E10",
+   "kind": "error",
+   "locator": "arXiv2103.09945v2, p60,proof of Lemma6.3.3, compactness step; final Annals text not compared",
+   "printed": "any lift",
+   "correction": "Choose a SEMISIMPLE lift of the quotient class before deducing compactness from unit-modulus eigenvalues; carry the central rescaling through the subsequent lift.",
+   "reason": "The unipotent matrix [[1,1],[0,1]] has eigenvalues1 and maps to the identity semisimple quotient class, but its nth power has upper-right entryn and is unbounded. Thus arbitrary lifts do not satisfy the stated compactness inference. This is a proof qualification, not a counterexample to the real elliptic representative theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E11",
+   "kind": "gap",
+   "locator": "arXiv2103.09945v2, p53,proof of Corollary5.2.7; repeated onp54; final Annals text not compared",
+   "printed": "[Poo04, Corollary 3.4]",
+   "correction": "Supply the local smooth-chart curve argument C20–C24, or a proved reduction to the projective hypotheses of that corollary.",
+   "reason": "The cited Poonen statement assumes a smooth projective geometrically integral ambient variety; the obtained Y is only a smooth scheme chart. The etale polynomial graph proof given here establishes exactly the needed one-point/dense-open conclusion over the original field. It does not prove a projective or multipoint Bertini theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E12",
+   "kind": "gap",
+   "locator": "arXiv2103.09945v2, pp49–50,proof of Proposition5.2.3, choice of orbit sum; final Annals text not compared",
+   "printed": "lambda+sigma_q^i(alpha^vee) <= mu; lambda+sum_i sigma_q^i(alpha^vee) <= mu",
+   "correction": "Choose the coroot orbit by applying the ordinary dominance step to the folded coroot root system, with integral/chamber transport and the adjacent-even-A case checked. C14–C19 supply that finite combinatorial proof; the BT relative-root normalization remains G-roots.",
+   "reason": "Separate upper bounds cannot in general be added while retaining the same upper bound. In A4 with reversal, lambda simple pairings(1,0,0,1), mu-lambda=(1,1,1,1), alpha=(1,1,1,0), both individual steps are dominant and bounded, but their sum(1,2,2,1) exceeds the difference. This tests only the generic inference; no claim is made that these endpoints satisfy the paper's minuscule local-model hypotheses. An existential suitable orbit does exist and is proved here.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E13",
+   "kind": "misprint",
+   "locator": "arXiv2103.09945v2, p59,proof of Theorem6.2.7, auxiliary level and special fiber; final Annals text not compared",
+   "printed": "K_1^p subset H(A_f^p); S_K(H_1,X_1)",
+   "correction": "Use K_1^p subset H_1(A_f^p) containing the image of K^p, and S_(K_1)(H_1,X_1) for the reduction.",
+   "reason": "The ambient Shimura datum and p-level have already changed to H_1 and K_(1,p). The point is in Sh_(K_1)(H_1,X_1), and the immediately following sentence names its integral model with K_1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/E14",
+   "kind": "gap",
+   "locator": "arXiv2103.09945v2, p60,proof of Lemma6.3.3, last sentence; final Annals text not compared",
+   "printed": "Any lift",
+   "correction": "Prove a real lift with the required semisimple quotient class, then multiply back by the central element z used to define gamma_1. An arbitrary real lift of the image in G/w(G_m) does not suffice.",
+   "reason": "Multiplying a lift by a nontrivial element of w(G_m)(R) preserves its image in the quotient but can change its class in Conj_G. For example scalar matrices in GL2 all map to the identity of PGL2 while their eigenvalues differ. The necessary compatible real lift and central rescaling remain in G-global; no counterexample to the stated elliptic-representative theorem is asserted.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
+    "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
+    "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
+    "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-KISIN-ZHOU-25",
+   "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+   "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-KLEVDAL-PATRIKIS-25/E1",
    "kind": "gap",
    "locator": "Journal §2 p312, after Lemma2.1; v2 §2 p8",
@@ -52140,14 +52448,15 @@
    "locator": "Yu arXiv:1807.04659v5, 18 July2022: §2.3.1 p9 and §3.3.1 p18",
    "printed": "P ∈ P(B)",
    "correction": "Restrict the cuspidal vanishing condition and the F^G cutoff test to proper parabolics P≠G.",
-   "reason": "For P=G the unipotent quotient is a point and the constant term is phi itself; hat-tau_G=1 would also kill the cutoff. GL_1 gives an immediate counterexample.",
-   "affects": "a stated result",
+   "reason": "For P=G the unipotent quotient is a point and the constant term is phi itself; hat-tau_G=1 would also kill the cutoff. GL_1 gives an immediate counterexample. (cc-442dc5) Reclassified to affect nothing: §2.3.1 requires the constant term to vanish 'pour tout sous-groupe parabolique standard P ∈ P(B)', which for P = G would force ϕ = 0; the intended proper parabolics are the standard definition of cuspidality, and nothing uses the printed form.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52162,14 +52471,15 @@
    "locator": "Yu arXiv:1807.04659v5, 18 July2022: §3.2.3 p17, displayed definition of H_g,n",
    "printed": "−(1−g)(1−z) Log(Omega_g)",
    "correction": "Use −(1−q)(1−z) Log(Omega_g).",
-   "reason": "The rank-one Young-diagram term has denominator (z−1)(1−q); the corrected prefactor gives the Jacobian factor. The printed prefactor gives (1−g)/(1−q) times that factor and vanishes for g=1. Image checked; Mellit's published Theorem1.1 independently confirms q.",
-   "affects": "a stated result",
+   "reason": "The rank-one Young-diagram term has denominator (z−1)(1−q); the corrected prefactor gives the Jacobian factor. The printed prefactor gives (1−g)/(1−q) times that factor and vanishes for g=1. Image checked; Mellit's published Theorem1.1 independently confirms q. (cc-442dc5) Reclassified to affect nothing: the displayed −(1 − g)(1 − z)Log Ω_g = Σ H_{g,n}T^n (p.17) cites Mellit's formula, whose factor is (1 − q); the paper uses Mellit's theorem, not the misprinted display.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52191,7 +52501,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52213,7 +52524,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52235,7 +52547,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52257,7 +52570,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52279,7 +52593,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52302,7 +52617,8 @@
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
     "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
-    "2026-09-23: freshly acquired Laf97, images pp281,284–286, and Yu v5 pp32,33,39; no journal-text collation."
+    "2026-09-23: freshly acquired Laf97, images pp281,284–286, and Yu v5 pp32,33,39; no journal-text collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52325,7 +52641,8 @@
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
     "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
-    "2026-09-23: complete image-level reading of Laf97 VI.2 pp301–308 and its normalization definitions pp280–287 (selected ranges as ledgered)."
+    "2026-09-23: complete image-level reading of Laf97 VI.2 pp301–308 and its normalization definitions pp280–287 (selected ranges as ledgered).",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52340,14 +52657,15 @@
    "locator": "Yu arXiv:1807.04659v5, 18 July2022: Lemma5.3.3 p36",
    "printed": "phi ∈ pi ⇒ ∃x∈G(A)^0, phi(x)≠0",
    "correction": "Add phi≠0.",
-   "reason": "The zero vector is an immediate counterexample; the proof explicitly uses nonzero phi and a nonzero Whittaker scalar.",
-   "affects": "a stated result",
+   "reason": "The zero vector is an immediate counterexample; the proof explicitly uses nonzero phi and a nonzero Whittaker scalar. (cc-442dc5) Reclassified to affect nothing: Lemma 5.3.3 as printed fails only for ϕ = 0, and its proof (through a nonzero Whittaker coefficient) concerns a nonzero ϕ.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52369,7 +52687,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52391,7 +52710,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52413,7 +52733,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52435,7 +52756,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52457,7 +52779,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52472,14 +52795,15 @@
    "locator": "Yu arXiv:1807.04659v5, 18 July2022: Lemma6.3.2(b) p50",
    "printed": "rank(A)=n−1: (product of nonzero eigenvalues)/n",
    "correction": "Use algebraic multiplicity: remove one zero root and multiply the remaining n−1 roots, or add that zero is a simple eigenvalue.",
-   "reason": "For A=[[0,1],[0,0]], rank=1 but det(A+tI)=t², so kappa=0; the printed product over nonzero eigenvalues is the empty product and gives 1/2. Image checked. The actual symmetric Laplacian calculations can use determinant coefficients without the false general assertion.",
+   "reason": "For A=[[0,1],[0,0]], rank=1 but det(A+tI)=t², so kappa=0; the printed product over nonzero eigenvalues is the empty product and gives 1/2. Image checked. The actual symmetric Laplacian calculations can use determinant coefficients without the false general assertion. (cc-442dc5) Verified: for the nilpotent A = [[0, 1], [0, 0]] (n = 2, rank 1), the average of the principal cofactors (c) is 0, while (b), the empty product of nonzero eigenvalues divided by n, is 1/2.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52501,7 +52825,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52523,7 +52848,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52545,7 +52871,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52567,7 +52894,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52582,14 +52910,15 @@
    "locator": "Yu arXiv:1807.04659v5, 18 July2022: §7.3.1 p73, definition of Euler characteristic",
    "printed": "chi(V)=Σ_(i=1)^(2m)(−1)^i dim H^i",
    "correction": "Start the sum at i=0.",
-   "reason": "For a point the printed definition gives zero, whereas both the cohomological Euler characteristic and its point-count specialization are one.",
-   "affects": "a stated result",
+   "reason": "For a point the printed definition gives zero, whereas both the cohomological Euler characteristic and its point-count specialization are one. (cc-442dc5) Reclassified to affect nothing: the definition on p.73 sums (−1)^i dim H^i from i = 1; the Euler characteristic intended, and the one Laumon's theorem cited next concerns, starts at i = 0.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52611,7 +52940,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52633,7 +52963,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52655,7 +52986,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52677,7 +53009,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52699,7 +53032,8 @@
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -52714,14 +53048,15 @@
    "locator": "Yu arXiv:1807.04659v5, 18 July2022: TheoremC.1 p79, reciprocal indexing",
    "printed": "sigma_i sigma_(2g−i)=q",
    "correction": "Use sigma_i sigma_(2g+1−i)=q, or the consistent sigma_i sigma_(i+g)=q for 1≤i≤g.",
-   "reason": "At i=g the printed formula forces sigma_g²=q, incompatible with the ordinary eigenvalues used in the proof. Image checked.",
-   "affects": "a stated result",
+   "reason": "At i=g the printed formula forces sigma_g²=q, incompatible with the ordinary eigenvalues used in the proof. Image checked. (cc-442dc5) Reclassified to affect nothing: 'σ_i σ_{2g−i} = q' is not a pairing of 1, …, 2g (i = 2g gives σ_0, and i = g gives σ_g² = q); the intended pairing of the 2g Weil numbers is clear, and the statement's conclusion is unaffected.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
