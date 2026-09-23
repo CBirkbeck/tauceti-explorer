@@ -21,7 +21,12 @@
         "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
         "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. I re-downloaded the named author PDF and its sha256 is the recorded fd22990b…52db. Page 6 prints the condition exactly as quoted, with the factors c b σ(b) σ²(b) ··· σ^r(b) σ^r(c)^{−1}. The r-th power of bσ is b σ(b) ··· σ^{r−1}(b) σ^r, with r factors, so the printed product has one factor too many, and the G_m test settles it: for b = p the printed left side has valuation r+1 for every c, since v(c) = v(σ^r(c)), while the right side has valuation r. The paper's own (1.1.4.1) on p.7 uses the corrected form.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E2",
@@ -42,7 +47,12 @@
         "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
         "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the paper's own two statements settle it. Corollary 1.1.15 on p.11 concludes 'there exists w ∈ W(G,M) := N_G(M)/M', while its proof reduces to the quasi-split case and invokes Proposition 1.1.13, whose conclusion on p.10 is 'there exists w ∈ W(G,T)' — the absolute Weyl group of a maximal torus. The proof therefore supplies an element of W(G*,T*) while the corollary asserts membership in the smaller N_{G*}(M*)/M*, which is the defect recorded; the correction's absolute-Weyl-group form is what the proof gives.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E3",
@@ -63,7 +73,12 @@
         "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
         "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Proposition 1.2.5 on p.14 prints '… such that [b_bas(μ_x)] ∈ B(T_{Q_p}) maps to [b]', while its own hypothesis is about {μ_X^{−1}}_p and its parenthetical says 'in which case μ_x^{−1} ∈ X_*(T)'. The class the statement needs is the one attached to μ_x^{−1}, as the correction records.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E4",
@@ -86,7 +101,12 @@
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
         "Independent continuation by Codex codex-hjdg0j, 23 September 2026: author PDF hash unchanged; read pp.5–7 and 10–29, with images 26–28 checked. Author pages and bounded title/DOI/correction searches refreshed; no KMPS correction located. Both pages of Shin errata read. The published Duke text remains unavailable through the public routes located; no final verdict is issued.",
         "Noot 2013 public journal PDF https://msp.org/ant/2013/7-2/ant-v7-n2-p01-s.pdf, SHA-256 abe29e0edda6d7e2c67c1a5a5d28d6ed9c18003688ac499c5da6033c94451e30: §4.1, journal pp.261–262 read (PDF pp.20–21, image 21 checked). This is a later restatement, not the unavailable Noot 2009 text."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 26 defines 'strictly accommodating' and then prints 'Finally we say ι is accommodating if there is a finite collection of accommodating embeddings of Shimura data, ι_j …', which is circular as printed; the collection meant is of strictly accommodating embeddings.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E5",
@@ -108,7 +128,12 @@
         "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
         "Independent continuation by Codex codex-hjdg0j, 23 September 2026: author PDF hash unchanged; read pp.5–7 and 10–29, with images 26–28 checked. Author pages and bounded title/DOI/correction searches refreshed; no KMPS correction located. Both pages of Shin errata read. The published Duke text remains unavailable through the public routes located; no final verdict is issued."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 28 prints 'Let G′ = G × T, equipped with the symplectic representation V′ = V ⊕ V.' A product group acting block-diagonally on V ⊕ V lands in GSp(V ⊕ V) only when the two similitude characters agree, which fails for a general pair (g,t); the fibre product G ×_{G^ab} T that the correction substitutes is exactly the locus where they agree, and it is still a connected reductive central-torus extension of G, so the construction goes through. The same defect, in the same shape, is E13 on p.27.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E6",
@@ -129,7 +154,12 @@
         "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
         "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 2.2.11 on p.29 is printed as quoted, for an irreducible scheme S of finite type over k with no reducedness or separatedness hypothesis. Agreement of two morphisms on a dense set of k-points gives equality only on a reduced source, and the equalizer of σ and w is a closed subscheme only when S is separated; both hypotheses hold in every use the paper makes, so the correction records them rather than changing the reach.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E7",
@@ -150,7 +180,12 @@
         "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
         "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Appendix A.2 on p.37 prints 'j : U = D − S ↪ S' where U is the complement S − D, and equips S with 'the log structure j_*O_U', which is not a log structure; the divisorial one, O_S ∩ j_*O_U^× → O_S, is what the appendix uses.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E8",
@@ -166,7 +201,12 @@
         "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
         "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the author version, with its reach stated as recorded. Section 1.3.15 on p.20 prints 'There is a unique [b_μ] ∈ B(G_{Q_p}, {μ^{−1}}) with N_μ = κ_G([b_μ])' and calls the corresponding stratum the μ-ordinary one, then asserts it is non-empty. Existence of a class whose Newton point is the Hodge average is what needs a hypothesis — quasi-split G suffices — and the maximal admissible class need not attain that average. I checked the printed assertion and the surrounding (1.3.10) and (1.3.14) context; I did not collate Kisin–Zhou, whose Definition 2.2.4 and Remark 2.2.5 the record cites for the same restriction, so that corroboration stands as recorded rather than as my own reading.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E9",
@@ -182,7 +222,12 @@
         "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
         "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The proof of Corollary 1.3.13 on p.19 constructs the L-fibre functor ω_{s_0} and asserts that C_{D,L} is equivalent to Rep_L G_{s_0}. What the construction gives is a fully faithful tensor functor onto the category generated by D, so the Tannakian group is the subgroup H ⊂ G_{s_0} the correction names; the equality is not established, and the Frobenius structure is not visible to the Vec_L-valued evaluation.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E11",
@@ -198,7 +243,12 @@
         "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
         "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and it is visible in one line. Page 19 defines V_{m,n} := V^{⊗n} ⊗ V^{*⊗m} and then prints 'ω_L(V_{m,n}) = D^{⊗m} ⊗ D^{*⊗n}', with the two exponents interchanged relative to that definition.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E12",
@@ -214,7 +264,12 @@
         "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
         "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The proof of Proposition 2.3.11 on p.34 works with the crystalline cocharacter and its Newton point, and the class named there is {μ_X}_p where the special pair needs the Hodge cocharacter λ_T^{−1} attached to λ_T ∈ {μ_X^{−1}}_p with Nλ_T = ν_δ, as the correction records; the surrounding computation with rmλ_T = m log_p q · ν_T is consistent only with that reading.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     },
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E13",
@@ -237,7 +292,12 @@
         "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
         "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum.",
         "Independent continuation by Codex codex-hjdg0j, 23 September 2026: author PDF hash unchanged; read pp.5–7 and 10–29, with images 26–28 checked. Author pages and bounded title/DOI/correction searches refreshed; no KMPS correction located. Both pages of Shin errata read. The published Duke text remains unavailable through the public routes located; no final verdict is issued."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 27 prints 'let G″ be the connected component of the identity of G′ ×_{G^ad} G' and 'V″ = V ⊕ V′, where V″ is equipped with the symplectic form ψ″ = ψ ⊕ ψ′'. As in E5, a pair (g′,g) acts on V ⊕ V′ by a symplectic similitude only when the two similitude characters agree, so the group has to be cut out by c′(g′) = c(g) inside G′ ×_{G^ad} G; the identity component of that subgroup is what the construction needs.",
+        "by": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+      }
     }
   ]
 }
