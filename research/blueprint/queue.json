@@ -3162,8 +3162,9 @@
    ],
    "avoidAccountOf": "PAPER-WEI-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-WEI-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1194"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1194",
+   "finishedAt": "2026-09-23T21:14:12Z"
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26",
@@ -5571,8 +5572,8 @@
    ],
    "avoidAccountOf": "PAPER-PILLONI-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-PILLONI-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1327"
+   "state": "external",
+   "note": "claimed on GitHub issue #1327"
   },
   {
    "id": "PAPER-CESNAVICIUS-19",
