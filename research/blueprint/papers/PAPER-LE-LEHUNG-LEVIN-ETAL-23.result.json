@@ -88,9 +88,24 @@
         "scope": "Freshly reread LLHLM23 published PDF68–69 and Elkik §0.2/Lemma 1, printed555–558/PDF4–7; standing Noetherian convention on printed554 was read in the prior continuation. Same hashes as the recorded sources. The original full-paper read is inherited; this continuation makes no new full-212-page reading claim.",
         "result": "Finite Newton correction and the non-Noetherian torsionfree I=A convergence proof decomposed into Z30–Z39, using L24–L33. No new source mistake claimed; E1–E35 unchanged and unreviewed."
       }
-    ]
+    ],
+    "smoothLocusContinuation": {
+      "session": "codex-a71f92",
+      "date": "2026-09-23",
+      "scope": "Fresh reading: published LLHLM23 PDF68–69; Elkik printed554–556/PDF3–5 (including standing Noetherian assumption and the full §0.2); Stacks031I,00TA,00T8. Full main-paper reading remains attributed to codex-7e92bd. This continuation adds the separately proved arbitrary-coefficient finite-presentation smooth-locus adapter, not an attribution of that generality to Elkik.",
+      "sources": [
+        {
+          "url": "https://math.rice.edu/~bl70/LocModels.pdf",
+          "sha256": "e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd"
+        },
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "sha256": "74ddbf6a04ca9fb4e6b9ef0da537231045a293d56242571749cda079349d40c5"
+        }
+      ]
+    }
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial.",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -3161,8 +3176,8 @@
       "note": "Continuation by Codex — codex-hjdg0j. Owner: SchemeAndStackFoundations. Planning only.",
       "prerequisites": [],
       "proofSteps": [
-        "The full H detects smoothness of the fixed presentation. A chosen subideal is sufficient for Newton lifting when its value contains t^r.",
-        "Under base change the image of H_B remains inside the corresponding Jacobian ideal: conductors can increase, so do not assert equality of those ideals under arbitrary base change."
+        "The definition of the full H has no smoothness hypothesis. Z40–Z43 now supply its fixed-presentation smooth-locus theorem, including the empty-row summand and the non-Noetherian finite-presentation extension; the theorem consumes this definition, not conversely.",
+        "Z44 produces a finite universal power identity; Z39 transports admissibility under coefficient maps. Z07 evaluates it and removes a strictly higher-order error by a principal unit. A smaller chosen H_B need not define the full smooth locus."
       ],
       "implementationStatus": "unchecked",
       "unitTests": [
@@ -3195,6 +3210,21 @@
           "name": "ElkikPresentation.smallerWitness",
           "kind": "non-example",
           "statement": "In Z_p[X] with J=(X), the full H=(1) but the permitted H_B=(p) is not the full smooth-locus ideal. At a=0, p∈H_B(a) whereas 1∉H_B(a)."
+        },
+        {
+          "name": "ElkikPresentation.conductorDenominator",
+          "kind": "computation",
+          "statement": "For k[X] with generators (X(X−1),X²), J=(X); at Q=(X) the first equation generates J only locally. The conductor element k=X−1 satisfies k X²=X·X(X−1), and k·(2X−1) is nonzero at Q. Do not replace local generation by global equality."
+        },
+        {
+          "name": "ElkikPresentation.inseparable",
+          "kind": "non-example",
+          "statement": "For F_p[X]/(X^p), all partial derivatives vanish and H=0. Its differential module is free of rank one, but the algebra is nowhere smooth. The conormal injection, not only freeness of differentials, is required."
+        },
+        {
+          "name": "ElkikPresentation.strictPowerThreshold",
+          "kind": "non-example",
+          "statement": "For S=Z[1/2,t], J=(X²−t²), the full H=(2X) and t²=(X/2)(2X)−(X²−t²). After t↦3 in A=Z/81Z at a=0, J(a)⊂(3²), but 3²∉H(a)=0: m=r=2 does not suffice. Z07's m>r is essential even for the full ideal."
         }
       ],
       "uses": [
@@ -3230,12 +3260,12 @@
         {
           "name": "ElkikPresentation.smoothLocus",
           "role": "characterisation",
-          "statement": "The complement of V(H) in Spec(B) is the smooth locus; distinguish the full H from a smaller chosen witness ideal."
+          "statement": "The complement of V(H) in Spec(B) is the smooth locus; distinguish the full H from a smaller chosen witness ideal. Exported separately as Z43 using the fixed-presentation Z40–Z42 witnesses."
         },
         {
           "name": "ElkikPresentation.powerWitness",
           "role": "data",
-          "statement": "Export a concrete finite identity v^r=h+j with h∈H and j∈J for use after all base changes."
+          "statement": "Export a concrete finite identity v^r=h+j with h∈H and j∈J for use after all base changes. Z44 requires generic smoothness of the full universal presentation; no uniform bound across unrelated presentations."
         },
         {
           "name": "ElkikPresentation.emptyMinor",
@@ -3284,6 +3314,21 @@
           "name": "ElkikPresentation.smallerWitness",
           "kind": "non-example",
           "statement": "In Z_p[X] with J=(X), the full H=(1) but the permitted H_B=(p) is not the full smooth-locus ideal. At a=0, p∈H_B(a) whereas 1∉H_B(a)."
+        },
+        {
+          "name": "ElkikPresentation.conductorDenominator",
+          "kind": "computation",
+          "statement": "For k[X] with generators (X(X−1),X²), J=(X); at Q=(X) the first equation generates J only locally. The conductor element k=X−1 satisfies k X²=X·X(X−1), and k·(2X−1) is nonzero at Q. Do not replace local generation by global equality."
+        },
+        {
+          "name": "ElkikPresentation.inseparable",
+          "kind": "non-example",
+          "statement": "For F_p[X]/(X^p), all partial derivatives vanish and H=0. Its differential module is free of rank one, but the algebra is nowhere smooth. The conormal injection, not only freeness of differentials, is required."
+        },
+        {
+          "name": "ElkikPresentation.strictPowerThreshold",
+          "kind": "non-example",
+          "statement": "For S=Z[1/2,t], J=(X²−t²), the full H=(2X) and t²=(X/2)(2X)−(X²−t²). After t↦3 in A=Z/81Z at a=0, J(a)⊂(3²), but 3²∉H(a)=0: m=r=2 does not suffice. Z07's m>r is essential even for the full ideal."
         }
       ]
     },
@@ -3386,11 +3431,12 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U23",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z39",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L29",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L30"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z44"
       ],
       "proofSteps": [
-        "V(H+J) is contained in V(v), hence v lies in the radical of H+J; choose one power and a finite polynomial identity before base change.",
-        "Evaluation gives t^r=h+t^m b. Since 1−t^(m−r)b differs from 1 by an element of (t), L29 and L30 make it a unit. Thus t^r belongs to H_B(a); no cancellation or Noetherian condition on A is used.",
+        "U23 supplies generic smoothness for the fixed universal chart. Apply Z44 to the full H, using Z43 for the fixed-presentation smooth locus and L40/L41 for radical membership, and choose a finite identity v^r=h+Σ b_i f_i before base change.",
+        "Z39 makes the coefficient image H_B admissible. Evaluating the fixed identity at a gives t^r=h(a)+t^m b with h(a)∈H_B(a). Because m>r, rewrite h(a)=t^r(1−t^(m−r)b). L29 and L30 make the parenthesis a unit. Multiply by its inverse to obtain t^r∈H_B(a); this uses no cancellation, no Noetherianity and no t-torsionfree hypothesis on A.",
         "Combining with Z06 permits N=2r+1. Both r and N are chosen from the universal presentation, not separately for each test ring."
       ],
       "implementationStatus": "unchecked"
@@ -4920,6 +4966,430 @@
           "match": "Promotes the consumed Z03 base-change API to its own theorem item; the strict-inclusion example guards against an unjustified equality."
         }
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L34",
+      "kind": "theorem",
+      "name": "Formal smoothness as a split conormal injection",
+      "statement": "For a surjective R-algebra extension P→B with P formally smooth over R, B is formally smooth over R if and only if its conormal differential J/J²→B⊗_P Ω_(P/R) admits a B-linear left inverse.",
+      "locator": "Mathlib/RingTheory/Smooth/Basic.lean:312 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Algebra.Extension.formallySmooth_iff_split_injection"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Read with commutative-ring and formally-smooth ambient-algebra hypotheses. Apply to P_Q→B_p, not by assuming B_p has finite presentation over R."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L35",
+      "kind": "theorem",
+      "name": "A spanning family of a finitely presented flat local module contains a basis",
+      "statement": "Over a commutative local ring R, for a finitely presented flat R-module M and a family v_i spanning M, there exist an index type κ, a map a:κ→ι and a basis b of M with b_j=v_(a(j)).",
+      "locator": "Mathlib/RingTheory/LocalRing/Module.lean:238 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Module.exists_basis_of_span_of_flat"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Z41 first applies this to the conormal module, then to the columns of the transposed split injection. The basis is finite for finite M; its injectivity makes the selected indices distinct."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L36",
+      "kind": "theorem",
+      "name": "Nakayama removes the conormal-square error",
+      "statement": "For submodules N,N′ of a module over a commutative ring, if N′ is finitely generated, I⊂Jac(R), and N′⊂N+I N′, then N′⊂N.",
+      "locator": "Mathlib/RingTheory/Nakayama.lean:146 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Submodule.le_of_le_smul_of_le_jacobson_bot"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Apply in P_Q with N=F_alpha P_Q, N′=J P_Q and I=J P_Q. The ideal I is contained in the maximal ideal, while N′ is finite from the original finite list of equations; Noetherianity is not needed."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L37",
+      "kind": "theorem",
+      "name": "Clear one ideal-membership denominator in a localization",
+      "statement": "For a commutative semiring R, submonoid M and localization S, algebraMap(x) belongs to the extended ideal I S if and only if some m∈M satisfies m x∈I.",
+      "locator": "Mathlib/RingTheory/Localization/Ideal.lean:76 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsLocalization.algebraMap_mem_map_algebraMap_iff"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Unlike an injective-localization argument this also permits zero divisors and accounts for denominators that annihilate a difference. Z40 takes the finite product of the denominators for the given generators."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L38",
+      "kind": "theorem",
+      "name": "A finite submersive presentation is standard smooth",
+      "statement": "For commutative R-algebras S and finite variable and relation index types, a SubmersivePresentation R S gives IsStandardSmooth R S.",
+      "locator": "Mathlib/RingTheory/Smooth/StandardSmooth.lean:68 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Algebra.SubmersivePresentation.isStandardSmooth"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "SubmersivePresentation and its unit-Jacobian field read in Extension/Presentation/Submersive.lean:492. The existing anonymous instance [IsStandardSmooth R S]→Smooth R S is read at Smooth/StandardSmoothCotangent.lean:343; it is an import, not a new named declaration. Z42 explicitly supplies the inverse-coordinate presentation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L39",
+      "kind": "theorem",
+      "name": "Smoothness on a basic open",
+      "statement": "For a finitely presented algebra B over a commutative ring A and b∈B, D(b)⊂Algebra.smoothLocus A B if and only if Localization.Away b is smooth over A.",
+      "locator": "Mathlib/RingTheory/Smooth/Locus.lean:92 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Algebra.basicOpen_subset_smoothLocus_iff_smooth"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "IsSmoothAt means formal smoothness of B_p (Locus.lean:46), not finite presentation of B_p over A. This distinction is retained in Z41/Z43."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L40",
+      "kind": "theorem",
+      "name": "Containment of zero loci is containment in a radical",
+      "statement": "For ideals I,K of a commutative semiring R, V(I)⊂V(K) if and only if K⊂radical(I).",
+      "locator": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean:242 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:PrimeSpectrum.zeroLocus_subset_zeroLocus_iff"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Used with I=H+J and K=(v), after passing from Spec(P/J) to primes of P containing J. This needs neither Noetherianity nor a field Nullstellensatz."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L41",
+      "kind": "theorem",
+      "name": "Radical membership is membership of some natural power",
+      "statement": "For an ideal I of a commutative semiring R, x∈radical(I) if and only if there is n∈N with x^n∈I.",
+      "locator": "Mathlib/RingTheory/Ideal/Operations.lean:805 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Ideal.mem_radical_iff"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "The exponent may be zero when I is the unit ideal. It is an existence statement; no computable or presentation-independent bound is supplied."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L42",
+      "kind": "theorem",
+      "name": "Localizations are formally smooth",
+      "statement": "For a commutative ring R and multiplicative submonoid M, every localization R_M is formally smooth over R.",
+      "locator": "Mathlib/RingTheory/Smooth/Basic.lean:482 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Algebra.FormallySmooth.of_isLocalization"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "The same source's instance at line497 composes this with formal smoothness of an ambient algebra. Together with the polynomial instance at line112 this gives formal smoothness of P_Q over the coefficient ring; no finite-presentation assertion for localization at a prime."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L43",
+      "kind": "theorem",
+      "name": "A square matrix with a left inverse has unit determinant",
+      "statement": "Over a commutative ring, if finite square matrices U,V satisfy V U=1, then det(U) is a unit.",
+      "locator": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean:142 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Matrix.isUnit_det_of_left_inverse"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "After L35 selects a basis from the columns of a split-surjective matrix, its inverse basis matrix supplies the left inverse. Applies also to the empty matrix with determinant 1."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L44",
+      "kind": "theorem",
+      "name": "Polynomial differential coordinates are partial derivatives",
+      "statement": "For a commutative coefficient ring R, in the canonical basis dX_i of Ω_(R[X]/R), the i-th coordinate of df is the formal partial derivative ∂_i f.",
+      "locator": "Mathlib/RingTheory/Kaehler/Polynomial.lean:80 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:KaehlerDifferential.mvPolynomialBasis_repr_apply"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "The basis definition at line60 and evaluation formula were read. Tensoring and L45 identify the conormal map for P_Q→B_p with the original fixed Jacobian, so no change of presentation is silently substituted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L45",
+      "kind": "theorem",
+      "name": "Differentials localize with the algebra",
+      "statement": "For a tower of commutative rings R→S→T where T localizes S at M, the natural map Ω_(S/R)→Ω_(T/R) makes the latter the localized S-module.",
+      "locator": "Mathlib/RingTheory/Etale/Kaehler.lean:63 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:KaehlerDifferential.isLocalizedModule_map"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Read the tower and IsLocalization hypotheses. The preceding tensorKaehlerEquivOfFormallyEtale and its value on d(algebraMap s) identify the localized coordinate basis."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L46",
+      "kind": "theorem",
+      "name": "A retract of a projective module is projective",
+      "statement": "If i:P→M and s:M→P are R-linear with s i=id_P and M is projective, then P is projective.",
+      "locator": "Mathlib/Algebra/Module/Projective.lean:165 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Module.Projective.of_split"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Applied to the split conormal injection into the finite free module B_p^N. Free modules are projective in the immediately preceding instance."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L47",
+      "kind": "theorem",
+      "name": "Finite projective modules are finitely presented",
+      "statement": "A finitely generated projective module over a commutative ring is finitely presented.",
+      "locator": "Mathlib/Algebra/Module/FinitePresentation.lean:161 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Module.finitePresentation_of_projective"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "This discharges the finite-presentation hypothesis of L35 on the conormal module. Do not infer it merely from finite generation over a possibly non-Noetherian base."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L48",
+      "kind": "theorem",
+      "name": "Localization at one element is smooth",
+      "statement": "For a commutative ring R and r∈R, an R-algebra which is Localization.Away r is smooth over R.",
+      "locator": "Mathlib/RingTheory/Smooth/Basic.lean:559 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Algebra.Smooth.of_isLocalization_Away"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Combines formal smoothness with the finite presentation obtained by adjoining an inverse to r. Not a finite-presentation assertion for an arbitrary prime localization."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L49",
+      "kind": "theorem",
+      "name": "Smooth ring maps compose",
+      "statement": "For a compatible tower of commutative algebras R→A→B, if A is smooth over R and B is smooth over A, then B is smooth over R.",
+      "locator": "Mathlib/RingTheory/Smooth/Basic.lean:568 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Algebra.Smooth.comp"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Z44 applies this to S→S[1/v]→B[1/v] before invoking the S-relative basic-open smooth-locus theorem."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z40",
+      "kind": "theorem",
+      "name": "Finite local generation yields a global conductor witness",
+      "statement": "Let P be a commutative ring, Q a prime, F⊂J ideals with J generated by f_1,…,f_q. If F P_Q=J P_Q, there is k∉Q with kJ⊂F.",
+      "locator": "Adapter to Elkik §0.2, conductor K_alpha; exact localization membership supplier L37",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L37"
+      ],
+      "proofSteps": [
+        "For each generator f_i, L37 gives s_i∉Q such that s_i f_i∈F. Set k=∏_i s_i. The prime complement is multiplicatively closed, so k∉Q.",
+        "For each i, k f_i is a multiple of s_i f_i and belongs to F. Finite linear combinations prove kJ⊂F. If q=0, take the empty product k=1.",
+        "No finite generation of F, conductor ideals, or the coefficient ring is assumed; finite generation of J is the indispensable finite-denominator step."
+      ],
+      "acceptance": [
+        "For P=k[X], J=(X), F=(X(X−1)), Q=(X), k=X−1 works although F≠J globally.",
+        "If J=0, k=1 works. Do not replace equality after localization by global ideal equality."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-a71f92, second continuation. Explicit source-level proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "§0.2, printed p.555/PDF4; standing Noetherian convention printed554/PDF3",
+          "excerpt": "conducteur",
+          "match": "The full conductor-weighted Jacobian ideal cuts out the nonsmooth locus. The arbitrary-base finite-presentation adapter below supplies its own proof; it is not attributed verbatim to Elkik's Noetherian statement."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z41",
+      "kind": "theorem",
+      "name": "Smoothness selects original equations and a Jacobian minor",
+      "statement": "Let A be a commutative ring, P=A[X_1,…,X_N], J=(f_1,…,f_q), B=P/J, p∈Spec B and Q its inverse-image prime in P. If B is smooth at p, there are subsets α⊂{1,…,q}, β⊂{1,…,N} of equal size such that J P_Q=F_α P_Q and δ=det(∂_(β_j) f_(α_i)) does not belong to Q.",
+      "locator": "Fixed-presentation refinement of Elkik §0.2; Stacks 031I and 00TA proof",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L46",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L47"
+      ],
+      "proofSteps": [
+        "The map P_Q→B_p is surjective with kernel J P_Q. By L42 the ambient localized polynomial algebra is formally smooth over A, and smoothness at p means that B_p is formally smooth. L34 splits the conormal injection C=(J P_Q)/(J P_Q)^2→B_p^N. L44/L45 identify its coordinates with the localized fixed partial derivatives.",
+        "C is generated by the classes of the original f_i. L46 makes it projective as a summand of B_p^N; L47 makes it finitely presented. Apply L35 over the local ring B_p to select a basis from those classes. Basis injectivity gives distinct original equation indices, defining α; its finite cardinal c is at most N.",
+        "With this basis, the conormal map is the transpose of the c×N selected-row Jacobian D and has a left inverse. Transpose the splitting to see that D:B_p^N→B_p^c is surjective. Its N columns span the finite free local module B_p^c. L35 selects a basis from these columns; basis cardinality gives exactly c distinct indices β. The corresponding square minor has an inverse basis matrix, so L43 makes its determinant a unit in B_p. Therefore the original δ is outside Q.",
+        "The conormal spanning equality implies J P_Q=F_α P_Q+(J P_Q)^2. The ideal J P_Q is finite and lies in the maximal ideal of P_Q. Apply L36 to remove its square, obtaining J P_Q=F_α P_Q.",
+        "This also treats c=0: the conormal module is zero, Nakayama gives J P_Q=0, and the empty minor is 1. Only J is finitely generated; A is not assumed Noetherian."
+      ],
+      "acceptance": [
+        "Duplicated equations (X,X) require a one-row subset; the full two-row minor in one variable is zero.",
+        "For B=F_p[X]/(X^p), Ω_(B/F_p) is free but the conormal map is not injective. Freeness of Ω alone cannot replace smoothness.",
+        "The original generator list is retained throughout; a standard-smooth neighborhood in some unrelated presentation does not itself give the required conductor witness."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-a71f92, second continuation. Explicit source-level proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "§0.2, printed p.555/PDF4; standing Noetherian convention printed554/PDF3",
+          "excerpt": "conducteur",
+          "match": "The full conductor-weighted Jacobian ideal cuts out the nonsmooth locus. The arbitrary-base finite-presentation adapter below supplies its own proof; it is not attributed verbatim to Elkik's Noetherian statement."
+        },
+        {
+          "url": "https://stacks.math.columbia.edu/tag/031I",
+          "locator": "Lemma10.138.7",
+          "excerpt": "split exact sequence",
+          "match": "Conormal split-injection criterion; used through the stronger ambient-formally-smooth pinned L34."
+        },
+        {
+          "url": "https://stacks.math.columbia.edu/tag/00TA",
+          "locator": "Lemma10.137.9, proof",
+          "excerpt": "standard opens",
+          "match": "Basis selection from given equations and differentials; the local denominator argument Z40 retains the fixed presentation."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z42",
+      "kind": "theorem",
+      "name": "A conductor-weighted minor gives a standard-smooth open",
+      "statement": "In Z03 let α,β have equal size, δ the corresponding minor and k∈(F_α:J). Put h=kδ. Then B[1/h] is a standard-smooth A-algebra and hence smooth; the case of the zero localization is allowed.",
+      "locator": "Elkik §0.2 smooth-open implication; explicit inverse-coordinate presentation as in Stacks00T8",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L24"
+      ],
+      "proofSteps": [
+        "Since h is inverted, both k and δ become units. The conductor identity kJ⊂F_α gives J P[1/h]=F_α P[1/h]. Thus B[1/h]≅A[X_1,…,X_N,U]/(f_α,U h−1).",
+        "Use the selected variable columns β and the additional U column. The Jacobian block matrix has top-right block zero, upper-left block D_(α,β), and bottom-right entry h. Its determinant is δ h, which is a unit in the quotient because h=kδ is a unit.",
+        "Reindex these distinct columns to obtain a finite SubmersivePresentation; apply L38 and the imported standard-smooth-to-smooth instance. This is the explicit inverse-coordinate argument of Stacks 00T8, with h=kδ rather than just δ.",
+        "For α empty, kJ=0 and δ=1. The quotient after inverting k is the polynomial algebra localized at k, presented using U k−1 with derivative k in the U column. No nonempty-minor exception is needed."
+      ],
+      "acceptance": [
+        "A single derivative cannot certify smoothness unless the selected equations generate the localized ideal; k records precisely that condition.",
+        "The empty minor recovers the polynomial zero-ideal case. An identically zero h defines the empty open and causes no contradiction."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-a71f92, second continuation. Explicit source-level proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "§0.2, printed p.555/PDF4; standing Noetherian convention printed554/PDF3",
+          "excerpt": "conducteur",
+          "match": "The full conductor-weighted Jacobian ideal cuts out the nonsmooth locus. The arbitrary-base finite-presentation adapter below supplies its own proof; it is not attributed verbatim to Elkik's Noetherian statement."
+        },
+        {
+          "url": "https://stacks.math.columbia.edu/tag/00T8",
+          "locator": "Example10.137.7",
+          "excerpt": "standard smooth algebra",
+          "match": "A variable imposing the inverse of a Jacobian determinant produces a standard-smooth presentation. Here the same block calculation uses the conductor-weighted element."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z43",
+      "kind": "theorem",
+      "name": "The full Elkik ideal defines exactly the nonsmooth locus",
+      "statement": "For the finite polynomial presentation and full ideal H of Z03 over any commutative A, a prime p of B=P/J is a smooth point over A if and only if the image of H is not contained in p. Equivalently the smooth locus is Spec B minus V(H B).",
+      "locator": "Elkik §0.2, printed555/PDF4; arbitrary-base extension proved by Z40–Z42",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L39"
+      ],
+      "proofSteps": [
+        "At a smooth prime apply Z41, then Z40, to get α,β, δ∉Q and k∉Q with kJ⊂F_α. The product kδ lies in H and outside Q. Hence H B is not contained in p.",
+        "Conversely, if H is not contained in Q, not every generating conductor-weighted minor kδ can belong to Q: otherwise their finite sums and multiples would put all H in Q. Choose one outside Q. Z42 makes its basic open smooth and this open contains p.",
+        "Only the full sum H gives equality. For any selected H_B⊂H, its basic-open union is contained in the smooth locus, but its vanishing locus may strictly contain the nonsmooth locus."
+      ],
+      "acceptance": [
+        "For J=0, H=1 and every prime is smooth, including a non-Noetherian coefficient ring.",
+        "For J=(2) over Z, the full H=0 and no prime of B=F_2[X] is smooth over Z, although the new presentation after base change to F_2 is polynomial and smooth.",
+        "A smaller ideal (p)⊂H=1 for the presentation Z_p[X]/(X) does not define the nonsmooth locus."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-a71f92, second continuation. Explicit source-level proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "§0.2, printed p.555/PDF4; standing Noetherian convention printed554/PDF3",
+          "excerpt": "conducteur",
+          "match": "The full conductor-weighted Jacobian ideal cuts out the nonsmooth locus. The arbitrary-base finite-presentation adapter below supplies its own proof; it is not attributed verbatim to Elkik's Noetherian statement."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z44",
+      "kind": "theorem",
+      "name": "Generic smoothness gives one universal power identity",
+      "statement": "For a finite presentation B=P/J over a commutative ring S, v∈S, and the full H of Z03, if B[1/v] is smooth over S[1/v], then there is r≥0 with v^r∈H+J in P. In particular there are h∈H and polynomial coefficients b_i with v^r=h+Σ_i b_i f_i. The choice is made before any coefficient base change.",
+      "locator": "LLHLM23 Proposition3.3.9 proof PDF69; decomposition of its support-to-power step",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L49"
+      ],
+      "proofSteps": [
+        "L48 makes S[1/v] smooth over S. Compose with the given S[1/v]-smooth structure on B[1/v] using L49. This explicit change of base-ring viewpoint is needed before applying the S-relative L39.",
+        "L39 gives D(v)⊂smoothLocus_S(B). Z43 then yields V(H B)⊂V(v) in Spec B. Under prime correspondence for B=P/J, this is V(H+J)⊂V(v) in Spec P.",
+        "Use L40 with K=(v) to get v∈radical(H+J); L41 provides one natural exponent r. Unfold membership in the ideal sum and the finitely generated ideal J to record v^r=h+Σ_i b_i f_i.",
+        "No Noetherianity, finite generation of H, algebraic-closure hypothesis, or nonzerodivisor condition on v enters this step. The finite identity, not a choice made separately on each fiber, is transported by Z39/Z07."
+      ],
+      "acceptance": [
+        "If H+J=1, r=0 is allowed. If v is nilpotent and the generic fiber is empty, a sufficiently large positive exponent still works.",
+        "The family S=k[t], J=(t^e X) has H=(t^e), so its least exponent is e. Uniformity means fixed presentation, not a single bound for all presentations.",
+        "The power identity only implies t^r∈H_B(a)+(t^m) at an approximate zero; Z07 still needs completeness and m>r to remove the error term."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-a71f92, second continuation. Explicit source-level proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://math.rice.edu/~bl70/LocModels.pdf",
+          "locator": "Proposition3.3.9 proof, PDF69",
+          "excerpt": "there exists an integer",
+          "match": "The power is chosen over the universal chart before base change. The proof above separates this from the later complete-ring evaluation argument."
+        },
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "§0.2, printed p.555/PDF4; standing Noetherian convention printed554/PDF3",
+          "excerpt": "conducteur",
+          "match": "The full conductor-weighted Jacobian ideal cuts out the nonsmooth locus. The arbitrary-base finite-presentation adapter below supplies its own proof; it is not attributed verbatim to Elkik's Noetherian statement."
+        }
+      ]
     }
   ],
   "prerequisites": [
@@ -5219,7 +5689,12 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z36",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z37",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z38",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z39"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z44"
       ],
       "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs.",
       "stages": [
@@ -6618,7 +7093,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z27",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29"
       ],
-      "detail": "The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Z06 now has the explicit Z30–Z39/L24–L33 finite algebra and congruence-limit proof decomposition, including witness persistence and a strict-threshold counterexample. Its remaining local source obligation is the smooth-locus/radical power-witness interface consumed by Z07 (Z03 states that interface but does not decompose its Jacobian criterion proof); no new theorem is implemented. Z10/Z13/Z14 analytic Galois descent, Nullstellensatz, rational fibers, flat formal models and smooth generic product regularity remain open. Do not infer arbitrary localization–inverse-limit commutation."
+      "detail": "The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Z06 now has the explicit Z30–Z39/L24–L33 finite algebra and congruence-limit proof decomposition, including witness persistence and a strict-threshold counterexample. The smooth-locus/radical power-witness interface is now decomposed into Z40–Z44 with L34–L49: finite denominator clearing, a split conormal module selecting original equations and columns, the inverse-coordinate standard-smooth chart, the full ideal criterion, and the universal power identity. Z07 distinguishes this choice from complete-ring evaluation. These are proof plans, not implementations; no new theorem is implemented. Z10/Z13/Z14 analytic Galois descent, Nullstellensatz, rational fibers, flat formal models and smooth generic product regularity remain open. Do not infer arbitrary localization–inverse-limit commutation."
     }
   ],
   "sourceData": {
@@ -7240,6 +7715,101 @@
         }
       ],
       "ownership": "Reuse SchemeAndStackFoundations:SF.4 for the general quantitative lifting adapters. Existing adic completeness, formal derivatives, adjugates, and Jacobson facts are imported rather than planned again; all 15 existing routes retained."
+    },
+    "smoothLocusContinuation": {
+      "session": "codex-a71f92",
+      "date": "2026-09-23",
+      "previousPR": 2248,
+      "inputCommit": "80622cca189bf4928d6c5a1033f6db0ee7f20520",
+      "exactFiles": [
+        {
+          "file": "Mathlib/RingTheory/Smooth/Basic.lean",
+          "sha256": "c24a960d8de6ffd373a74750748f8d43d7c49ab5c4f7b67c08e89de38521e608",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/Basic.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/LocalRing/Module.lean",
+          "sha256": "7aad1df3c0b0105a55d98d5b2fa521f9ac73b5ad63267d7ac6a23f47c5e1d907",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalRing/Module.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Nakayama.lean",
+          "sha256": "3b51c6aadae3e2bcf21ffbceed13a83d051c247b58fe0726ead958fab0a53861",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Nakayama.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Localization/Ideal.lean",
+          "sha256": "57f1536d3169ea7f6205e40f3298851daae309f6de4bb8432db2c90cec85b97c",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Localization/Ideal.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Smooth/StandardSmooth.lean",
+          "sha256": "68620e279b696f4f386f93be2a7ba9baca7f9f47750c1cb57b20d3ee5c33c964",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/StandardSmooth.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Smooth/StandardSmoothCotangent.lean",
+          "sha256": "484477028ef466c9e2a713afa87f5280a90e6415f58a24c14906723dc5ab5708",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/StandardSmoothCotangent.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Smooth/Locus.lean",
+          "sha256": "dbb70cd66b3cf35d6a819269ce370ad918d18fd3fab217c0f235a63f0449bb71",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/Locus.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean",
+          "sha256": "10502028b8117b7fd3b51d741f95b302025790dbc859bdb5c0145ff09fb19b05",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Spectrum/Prime/Basic.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Ideal/Operations.lean",
+          "sha256": "4859dadb42353660e6827c0c070962279d8fabdc8eea013eeed783b5cab59c22",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Operations.lean"
+        },
+        {
+          "file": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean",
+          "sha256": "1ee785b6ebd213ad2ed971bf3c804afee8cc6ce52be69e63572b4cf1bdb5e880",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Extension/Presentation/Submersive.lean",
+          "sha256": "bcbc755e7026f461750d868d742069026606895d9fb4eb3bbe6828dad81125f9",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Extension/Presentation/Submersive.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Kaehler/Polynomial.lean",
+          "sha256": "43583c3ac7bef530c0b3cbfe6dc114d31d1a19b81ff88819ab7ad0165c02c799",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Kaehler/Polynomial.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Etale/Kaehler.lean",
+          "sha256": "f7e25d2da5b3718ec670f000d3ce4fece4953a892bcafb957bbdaa171587048c",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Etale/Kaehler.lean"
+        },
+        {
+          "file": "Mathlib/Algebra/Module/Projective.lean",
+          "sha256": "8709ac0f99ad75ab33458c608297145d7afc86cec66c2fb03a0167ff7f6c137e",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/Projective.lean"
+        },
+        {
+          "file": "Mathlib/Algebra/Module/FinitePresentation.lean",
+          "sha256": "1e967f9e7f7e7529f5905db3fd4611cb8eb1573b09f9fc6ed34e33c1f753aba4",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/FinitePresentation.lean"
+        }
+      ],
+      "reviewedRowsRead": [
+        "AUDIT-01: SchemeAndStackFoundations:SF.0 and SF.4; full SchemeAndStackFoundations roadmap"
+      ],
+      "scope": "Read actual named statements and standing hypotheses; byte-compared all fifteen cited source files with raw GitHub at the full Mathlib pin. Both pinned trees searched for Elkik/Jacobian ideal/conductor and matrix-minor suppliers. No complete fixed-presentation conductor-weighted smooth-locus package located; this is a bounded search, not a proof of global absence.",
+      "ownership": "All five missing adapters use the existing SchemeAndStackFoundations:SF.4 route. The published PerfectoidSpaces/AdicEtaleGeometry decompositions mention Elkik/Gabber–Ramero finite-etale equivalences and leave those proofs open; those larger approximation consumers do not supply or replace this fixed-presentation helper. All fifteen route identities retained.",
+      "nearMisses": [
+        "A standard-smooth neighborhood with unrelated equations does not alone supply the conductor for the chosen list; Z41/Z40 track the original generators.",
+        "Freeness of Kahler differentials without a split/injective conormal map is insufficient (F_p[X]/X^p).",
+        "IsSmoothAt is formal smoothness of B_p, not finite presentation of B_p over A.",
+        "No anonymous instance name is invented: standard-smooth→smooth is cited by its file and line."
+      ],
+      "submissionInputCommit": "ad8246d0f68ee398b069a2a3a2aad96f66cc6533"
     }
   },
   "validation": {
@@ -7322,6 +7892,42 @@
         "oneRoutePerMissing": true
       },
       "validators": "Paper checker, three-file intake checker and git diff --check pass. Assertions verify all 386 inherited statements, 35 findings and 15 route identities unchanged; all missing items routed once; 100-edge internal DAG. Fresh diagnostics use SymPy 1.14.0 plus the Python standard library. No repository code changed; earlier 48-test run is historical and was not repeated."
+    },
+    "smoothLocusContinuation": {
+      "session": "codex-a71f92",
+      "structural": {
+        "items": 427,
+        "statuses": {
+          "missing": 372,
+          "planned": 6,
+          "library": 49
+        },
+        "priorStatementsPreserved": 406,
+        "sourceIssuesPreserved": 35,
+        "routes": 15,
+        "definitions": 84,
+        "constructions": 65,
+        "changedExistingObjects": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z07"
+        ],
+        "internalDependencyEdges": 125,
+        "internalDAG": true,
+        "oneRoutePerMissing": true,
+        "uniqueIds": true
+      },
+      "diagnostics": {
+        "boundaryControls": 6,
+        "evaluatedPowerWitnesses": 1322,
+        "minimalUniversalExponents": 12,
+        "nontrivialConductor": 3,
+        "presentations": 16418,
+        "rationalPoints": 3400,
+        "rectangularMinorChecks": 793
+      },
+      "meaning": "Source-level proof planning and finite diagnostics only. No Lean deliverable, compilation, formal proof or independent source-issue review.",
+      "inherited": "All earlier diagnostics, including SymPy computations, remain attributed historical evidence and were not rerun.",
+      "validators": "Paper validator and three-file intake pass; all 48 repository tests pass (9 paper, 3 queue, 7 source-issue, 29 intake). Structural checks preserve all 406 inherited statements, all 35 findings and 15 route identities; every missing item has one route; the 125-edge internal graph is acyclic. Z03 has nine typed tests. Fifteen source files byte-verified at the full Mathlib pin; all fresh standard-library diagnostics pass."
     }
   },
   "definitionApiGroups": [

@@ -1,3 +1,315 @@
+# Local models for Galois deformation rings: the uniform Jacobian power witness
+
+Codex — codex-a71f92, issue #1254, 23 September 2026. Partial continuation of merged #2248: **427 items (49 library, 6 planned, 372 missing), 15 routes, 149 definitions/constructions (84 plus 65), and 35 unchanged, unreviewed source findings.** All 406 inherited statements are preserved. This checkpoint adds sixteen pinned imports L34–L49 and five proof adapters Z40–Z44; it refines only the inherited Z03/Z07 item objects. No Lean deliverable or compilation, formalization, or independent review is claimed.
+
+The particular smooth-locus/radical supplier gap left by #2248 is now decomposed. This does not complete the paper extraction, the remaining analytic proof inputs, or the itemwise API census.
+
+## Source boundaries and ownership
+
+Freshly read [LLHLM23, Proposition 3.3.9](https://math.rice.edu/~bl70/LocModels.pdf), published PDF68–69, and [Elkik §0.2](https://numdam.org/item/10.24033/asens.1258.pdf), printed554–556/PDF3–5, including the standing Noetherian convention. The PDFs have SHA-256 respectively:
+
+- LLHLM23: e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd.
+- Elkik: 74ddbf6a04ca9fb4e6b9ef0da537231045a293d56242571749cda079349d40c5.
+
+The complete main-paper reading remains attributed to codex-7e92bd. This bounded continuation does not claim a new full reading. Elkik states his construction under a Noetherian convention. The finite-presentation argument below works over an arbitrary commutative coefficient ring and is supplied here explicitly; that greater generality is not falsely quoted as Elkik's statement.
+
+The auxiliary public proofs read are [Stacks 031I](https://stacks.math.columbia.edu/tag/031I) (the split conormal criterion), [00TA](https://stacks.math.columbia.edu/tag/00TA) (local basis selection leading to standard smoothness), and [00T8](https://stacks.math.columbia.edu/tag/00T8) (adjoining an inverse to a minor). The missing adapter is not general smoothness theory: the pinned library already contains that. It is the precise connection to the fixed generators and conductor-weighted ideal in this application.
+
+The full SchemeAndStackFoundations roadmap and its reviewed AUDIT-01 SF.0/SF.4 rows were read. All five missing adapters use the existing SF.4 route, and all fifteen route identities are unchanged. Searches of the packets, candidate roadmaps and integrated decompositions found related Elkik/Gabber–Ramero uses in PerfectoidSpaces and AdicEtaleGeometry. Those are finite-etale equivalence consumers with open proof inputs, not an already completed fixed-presentation Jacobian helper. This checkpoint does not duplicate or claim to prove those equivalences. The earlier ModularCurves §4D completion supplier is untouched.
+
+Both pinned trees were searched for Elkik, Jacobian ideals, conductor/minor terminology and matrix suppliers. The actual positive declaration statements and their hypotheses were read. Fifteen cited Mathlib files were byte-compared against their raw GitHub contents at 082e2d37e8b0463410cdb532e111cd43d5a66174; their hashes and exact URLs are in libraryAudit.smoothLocusContinuation. No whole package is marked built merely from a name search.
+
+## Already implemented suppliers
+
+| Item | Exact pinned declaration | Use |
+| --- | --- | --- |
+| L34 | `Algebra.Extension.formallySmooth_iff_split_injection` | Formal smoothness as a split conormal injection. |
+| L35 | `Module.exists_basis_of_span_of_flat` | A spanning family of a finitely presented flat local module contains a basis. |
+| L36 | `Submodule.le_of_le_smul_of_le_jacobson_bot` | Nakayama removes the conormal-square error. |
+| L37 | `IsLocalization.algebraMap_mem_map_algebraMap_iff` | Clear one ideal-membership denominator in a localization. |
+| L38 | `Algebra.SubmersivePresentation.isStandardSmooth` | A finite submersive presentation is standard smooth. |
+| L39 | `Algebra.basicOpen_subset_smoothLocus_iff_smooth` | Smoothness on a basic open. |
+| L40 | `PrimeSpectrum.zeroLocus_subset_zeroLocus_iff` | Containment of zero loci is containment in a radical. |
+| L41 | `Ideal.mem_radical_iff` | Radical membership is membership of some natural power. |
+| L42 | `Algebra.FormallySmooth.of_isLocalization` | Localizations are formally smooth. |
+| L43 | `Matrix.isUnit_det_of_left_inverse` | A square matrix with a left inverse has unit determinant. |
+| L44 | `KaehlerDifferential.mvPolynomialBasis_repr_apply` | Polynomial differential coordinates are partial derivatives. |
+| L45 | `KaehlerDifferential.isLocalizedModule_map` | Differentials localize with the algebra. |
+| L46 | `Module.Projective.of_split` | A retract of a projective module is projective. |
+| L47 | `Module.finitePresentation_of_projective` | Finite projective modules are finitely presented. |
+| L48 | `Algebra.Smooth.of_isLocalization_Away` | Localization at one element is smooth. |
+| L49 | `Algebra.Smooth.comp` | Smooth ring maps compose. |
+
+L38 also records, without inventing a declaration name, the existing anonymous standard-smooth-to-smooth instance in Smooth/StandardSmoothCotangent.lean:343. The distinctions matter: IsSmoothAt is formal smoothness of the prime localization; L35 needs finite presentation of the module, not just finite generation; prime localizations need not be finitely presented as algebras. L46/L47 and L42 explicitly discharge those respective requirements.
+
+## Fixed-presentation adapters
+
+Throughout, the variables and original list of equations are finite, P=A[X_1,…,X_N], J=(f_1,…,f_q), B=P/J, and H is the full Z03 ideal. Empty minors have determinant one and contribute Ann(J).
+
+### Z40: Finite local generation yields a global conductor witness
+
+Let P be a commutative ring, Q a prime, F⊂J ideals with J generated by f_1,…,f_q. If F P_Q=J P_Q, there is k∉Q with kJ⊂F.
+
+Suppliers: L37.
+
+1. For each generator f_i, L37 gives s_i∉Q such that s_i f_i∈F. Set k=∏_i s_i. The prime complement is multiplicatively closed, so k∉Q.
+
+2. For each i, k f_i is a multiple of s_i f_i and belongs to F. Finite linear combinations prove kJ⊂F. If q=0, take the empty product k=1.
+
+3. No finite generation of F, conductor ideals, or the coefficient ring is assumed; finite generation of J is the indispensable finite-denominator step.
+
+Acceptance checks:
+
+- For P=k[X], J=(X), F=(X(X−1)), Q=(X), k=X−1 works although F≠J globally.
+- If J=0, k=1 works. Do not replace equality after localization by global ideal equality.
+
+
+### Z41: Smoothness selects original equations and a Jacobian minor
+
+Let A be a commutative ring, P=A[X_1,…,X_N], J=(f_1,…,f_q), B=P/J, p∈Spec B and Q its inverse-image prime in P. If B is smooth at p, there are subsets α⊂{1,…,q}, β⊂{1,…,N} of equal size such that J P_Q=F_α P_Q and δ=det(∂_(β_j) f_(α_i)) does not belong to Q.
+
+Suppliers: L34, L35, L36, L42, L43, L44, L45, L46, L47.
+
+1. The map P_Q→B_p is surjective with kernel J P_Q. By L42 the ambient localized polynomial algebra is formally smooth over A, and smoothness at p means that B_p is formally smooth. L34 splits the conormal injection C=(J P_Q)/(J P_Q)^2→B_p^N. L44/L45 identify its coordinates with the localized fixed partial derivatives.
+
+2. C is generated by the classes of the original f_i. L46 makes it projective as a summand of B_p^N; L47 makes it finitely presented. Apply L35 over the local ring B_p to select a basis from those classes. Basis injectivity gives distinct original equation indices, defining α; its finite cardinal c is at most N.
+
+3. With this basis, the conormal map is the transpose of the c×N selected-row Jacobian D and has a left inverse. Transpose the splitting to see that D:B_p^N→B_p^c is surjective. Its N columns span the finite free local module B_p^c. L35 selects a basis from these columns; basis cardinality gives exactly c distinct indices β. The corresponding square minor has an inverse basis matrix, so L43 makes its determinant a unit in B_p. Therefore the original δ is outside Q.
+
+4. The conormal spanning equality implies J P_Q=F_α P_Q+(J P_Q)^2. The ideal J P_Q is finite and lies in the maximal ideal of P_Q. Apply L36 to remove its square, obtaining J P_Q=F_α P_Q.
+
+5. This also treats c=0: the conormal module is zero, Nakayama gives J P_Q=0, and the empty minor is 1. Only J is finitely generated; A is not assumed Noetherian.
+
+Acceptance checks:
+
+- Duplicated equations (X,X) require a one-row subset; the full two-row minor in one variable is zero.
+- For B=F_p[X]/(X^p), Ω_(B/F_p) is free but the conormal map is not injective. Freeness of Ω alone cannot replace smoothness.
+- The original generator list is retained throughout; a standard-smooth neighborhood in some unrelated presentation does not itself give the required conductor witness.
+
+
+### Z42: A conductor-weighted minor gives a standard-smooth open
+
+In Z03 let α,β have equal size, δ the corresponding minor and k∈(F_α:J). Put h=kδ. Then B[1/h] is a standard-smooth A-algebra and hence smooth; the case of the zero localization is allowed.
+
+Suppliers: Z03, L38, L24.
+
+1. Since h is inverted, both k and δ become units. The conductor identity kJ⊂F_α gives J P[1/h]=F_α P[1/h]. Thus B[1/h]≅A[X_1,…,X_N,U]/(f_α,U h−1).
+
+2. Use the selected variable columns β and the additional U column. The Jacobian block matrix has top-right block zero, upper-left block D_(α,β), and bottom-right entry h. Its determinant is δ h, which is a unit in the quotient because h=kδ is a unit.
+
+3. Reindex these distinct columns to obtain a finite SubmersivePresentation; apply L38 and the imported standard-smooth-to-smooth instance. This is the explicit inverse-coordinate argument of Stacks 00T8, with h=kδ rather than just δ.
+
+4. For α empty, kJ=0 and δ=1. The quotient after inverting k is the polynomial algebra localized at k, presented using U k−1 with derivative k in the U column. No nonempty-minor exception is needed.
+
+Acceptance checks:
+
+- A single derivative cannot certify smoothness unless the selected equations generate the localized ideal; k records precisely that condition.
+- The empty minor recovers the polynomial zero-ideal case. An identically zero h defines the empty open and causes no contradiction.
+
+
+### Z43: The full Elkik ideal defines exactly the nonsmooth locus
+
+For the finite polynomial presentation and full ideal H of Z03 over any commutative A, a prime p of B=P/J is a smooth point over A if and only if the image of H is not contained in p. Equivalently the smooth locus is Spec B minus V(H B).
+
+Suppliers: Z03, Z40, Z41, Z42, L39.
+
+1. At a smooth prime apply Z41, then Z40, to get α,β, δ∉Q and k∉Q with kJ⊂F_α. The product kδ lies in H and outside Q. Hence H B is not contained in p.
+
+2. Conversely, if H is not contained in Q, not every generating conductor-weighted minor kδ can belong to Q: otherwise their finite sums and multiples would put all H in Q. Choose one outside Q. Z42 makes its basic open smooth and this open contains p.
+
+3. Only the full sum H gives equality. For any selected H_B⊂H, its basic-open union is contained in the smooth locus, but its vanishing locus may strictly contain the nonsmooth locus.
+
+Acceptance checks:
+
+- For J=0, H=1 and every prime is smooth, including a non-Noetherian coefficient ring.
+- For J=(2) over Z, the full H=0 and no prime of B=F_2[X] is smooth over Z, although the new presentation after base change to F_2 is polynomial and smooth.
+- A smaller ideal (p)⊂H=1 for the presentation Z_p[X]/(X) does not define the nonsmooth locus.
+
+
+### Z44: Generic smoothness gives one universal power identity
+
+For a finite presentation B=P/J over a commutative ring S, v∈S, and the full H of Z03, if B[1/v] is smooth over S[1/v], then there is r≥0 with v^r∈H+J in P. In particular there are h∈H and polynomial coefficients b_i with v^r=h+Σ_i b_i f_i. The choice is made before any coefficient base change.
+
+Suppliers: Z43, L39, L40, L41, L48, L49.
+
+1. L48 makes S[1/v] smooth over S. Compose with the given S[1/v]-smooth structure on B[1/v] using L49. This explicit change of base-ring viewpoint is needed before applying the S-relative L39.
+
+2. L39 gives D(v)⊂smoothLocus_S(B). Z43 then yields V(H B)⊂V(v) in Spec B. Under prime correspondence for B=P/J, this is V(H+J)⊂V(v) in Spec P.
+
+3. Use L40 with K=(v) to get v∈radical(H+J); L41 provides one natural exponent r. Unfold membership in the ideal sum and the finitely generated ideal J to record v^r=h+Σ_i b_i f_i.
+
+4. No Noetherianity, finite generation of H, algebraic-closure hypothesis, or nonzerodivisor condition on v enters this step. The finite identity, not a choice made separately on each fiber, is transported by Z39/Z07.
+
+Acceptance checks:
+
+- If H+J=1, r=0 is allowed. If v is nilpotent and the generic fiber is empty, a sufficiently large positive exponent still works.
+- The family S=k[t], J=(t^e X) has H=(t^e), so its least exponent is e. Uniformity means fixed presentation, not a single bound for all presentations.
+- The power identity only implies t^r∈H_B(a)+(t^m) at an approximate zero; Z07 still needs completeness and m>r to remove the error term.
+
+## Evaluation and the quantified uniformity in Z07
+
+The polynomial identity is chosen on the universal chart, not on each test ring:
+
+$$v^r=h+\sum_i b_i f_i,\qquad h\in H.$$
+
+After S→A, v↦t, take H_B to be the coefficient image of that full universal H. Z39 supplies admissibility, only an inclusion in the new full ideal. If the equations vanish at a modulo t^m, evaluation gives
+
+$$t^r=h(a)+t^m b,\qquad h(a)=t^r(1-t^{m-r}b).$$
+
+For m>r in a complete separated (t)-adic ring, L29 puts (t) in its Jacobson radical and L30 makes the parenthesis a unit. Multiplying by its inverse proves t^r∈H_B(a). No cancellation of t^r is involved here; this step does not need t-torsionfreeness or Noetherianity of the test ring. Torsionfreeness is used later in the Newton correction Z33. Combining with Z06 gives the fixed choice N=2r+1 and congruence precision m−r.
+
+These are three distinct claims: existence of one universal polynomial certificate; admissibility after coefficient base change; and removal of the higher-order evaluated error. Equality of Jacobian ideals after arbitrary base change is still false. A smaller admissible ideal cannot replace the full H in the generic-smoothness-to-power step without a separate power-membership hypothesis.
+
+Z03 now has nine typed tests, including a nontrivial conductor denominator, purely inseparable differentials, and the strict threshold m>r. For the latter, S=Z[1/2,t] and f=X²−t² have full H=(2X) and t²=(X/2)(2X)−f. At t=3 and a=0 in the complete ring Z/81Z, the error is divisible by t² but t² is nonzero and H(a)=0. Thus m=r=2 does not justify removing the error. This is a boundary check of the evaluation step, which does not assume t regular.
+
+## Validation and reproducible finite diagnostics
+
+The new Python diagnostics use only the standard library. They check 16,418 two-equation univariate presentations over F_2,F_3,F_5 and 3,400 rational points; three nontrivial conductor identities; 793 rectangular rank/minor comparisons; 1,322 evaluated power witnesses over finite complete rings; six inseparability/strict-threshold controls; and twelve minimal-exponent families. In the univariate principal ideal domain, J=(g), the singleton-row conductor is (f_i/g), so the program computes H independently from the derivative of g used for the smoothness comparison. Rational-point enumeration is not a test of every closed or generic point, and these finite checks do not prove the general theorem. The twelve exponent cases are simple monomial regressions, not a symbolic ideal computation.
+
+The structural check preserves all 406 inherited statements, all 35 source findings and all fifteen route identities. Only Z03/Z07 are refined among the inherited item objects. Every missing item is routed once; the recorded internal dependency graph is acyclic. No new definition or construction is introduced. The global itemwise API/construction deficits remain explicit; passing a validator does not remove them.
+
+Final validator and repository-test results are recorded in the current handoff and validation.smoothLocusContinuation. Earlier CAS/SymPy computations remain historical evidence and were not rerun.
+
+```python
+"""Finite diagnostics only, not a proof of the general smooth-locus theorem."""
+from itertools import product
+from math import gcd
+import json
+
+def trim(f, p):
+    f = [a % p for a in f]
+    while f and f[-1] == 0:
+        f.pop()
+    return tuple(f)
+
+def divrem(f, g, p):
+    assert g
+    f = list(trim(f, p))
+    out = [0] * max(0, len(f) - len(g) + 1)
+    while f and len(f) >= len(g):
+        j = len(f) - len(g)
+        c = f[-1] * pow(g[-1], -1, p) % p
+        out[j] = c
+        for i, b in enumerate(g):
+            f[i+j] = (f[i+j] - c*b) % p
+        f = list(trim(f, p))
+    return trim(out, p), tuple(f)
+
+def pgcd(f, g, p):
+    while g:
+        f, g = g, divrem(f, g, p)[1]
+    return trim([a * pow(f[-1], -1, p) for a in f], p) if f else ()
+
+def deriv(f, p):
+    return trim([i*f[i] for i in range(1, len(f))], p)
+
+def mul(f, g, p):
+    if not f or not g:
+        return ()
+    out = [0] * (len(f) + len(g) - 1)
+    for i, a in enumerate(f):
+        for j, b in enumerate(g):
+            out[i+j] += a*b
+    return trim(out, p)
+
+def ev(f, a, p):
+    out = 0
+    for c in reversed(f):
+        out = (out*a + c) % p
+    return out
+
+counts = dict(presentations=0, rationalPoints=0, nontrivialConductor=0,
+              evaluatedPowerWitnesses=0, boundaryControls=0,
+              minimalUniversalExponents=0, rectangularMinorChecks=0)
+for p in (2, 3, 5):
+    polys = [trim(f, p) for f in product(range(p), repeat=3)]
+    for f1, f2 in product(polys, repeat=2):
+        g = pgcd(f1, f2, p)
+        # In F_p[X], J=(g). For a singleton row,
+        # (f_i:J)=(f_i/g) if J != 0. Empty rows contribute Ann(J).
+        H = (1,) if not g else ()
+        if g:
+            for f in (f1, f2):
+                k, rem = divrem(f, g, p)
+                assert not rem
+                H = pgcd(H, mul(k, deriv(f, p), p), p)
+        counts["presentations"] += 1
+        for a in range(p):
+            if ev(g, a, p):
+                continue
+            expected_smooth = not g or ev(deriv(g, p), a, p) != 0
+            assert (ev(H, a, p) != 0) == expected_smooth
+            counts["rationalPoints"] += 1
+    # A nontrivial conductor is necessary to use f1=X(X-1) locally.
+    f1, f2, k = trim((0, -1, 1), p), (0, 0, 1), trim((-1, 1), p)
+    assert mul(k, f2, p) == mul((0, 1), f1, p)
+    assert ev(mul(k, deriv(f1, p), p), 0, p) != 0
+    counts["nontrivialConductor"] += 1
+    # Purely inseparable example: the conormal differential is zero.
+    assert deriv((0,)*p+(1,), p) == ()
+    counts["boundaryControls"] += 1
+
+# Split-map selection: a 2x3 matrix has rank 2 iff a 2x2 minor is nonzero.
+# Independent rank computation is Gaussian elimination over F_p.
+def rank(rows, p):
+    rows = [list(r) for r in rows]
+    r = 0
+    for c in range(len(rows[0])):
+        pivot = next((i for i in range(r, len(rows)) if rows[i][c] % p), None)
+        if pivot is None:
+            continue
+        rows[r], rows[pivot] = rows[pivot], rows[r]
+        scale = pow(rows[r][c] % p, -1, p)
+        rows[r] = [(x*scale) % p for x in rows[r]]
+        for i in range(len(rows)):
+            if i != r:
+                factor = rows[i][c]
+                rows[i] = [(x-factor*y) % p for x, y in zip(rows[i], rows[r])]
+        r += 1
+        if r == len(rows):
+            break
+    return r
+
+for p in (2, 3):
+    for values in product(range(p), repeat=6):
+        rows = (values[:3], values[3:])
+        minors = [rows[0][i]*rows[1][j]-rows[0][j]*rows[1][i]
+                  for i, j in ((0, 1), (0, 2), (1, 2))]
+        assert (rank(rows, p) == 2) == any(x % p for x in minors)
+        counts["rectangularMinorChecks"] += 1
+
+# The universal full-H certificate for f=X^2-t^2 is
+# t^2 = (X/2)(2X) - f. Test only m>r=2, in complete finite rings.
+for p in (3, 5, 7):
+    for length in (4, 5):
+        modulus = p**length
+        for m in range(3, length):
+            for a in range(modulus):
+                if (a*a-p*p) % p**m:
+                    continue
+                b = (p*p-a*a) // p**m
+                unit = (1-p**(m-2)*b) % modulus
+                assert gcd(unit, modulus) == 1
+                assert (p*p*unit-a*a) % modulus == 0
+                assert p*p % gcd(2*a, modulus) == 0
+                counts["evaluatedPowerWitnesses"] += 1
+    # Boundary m=r=2: a=0 is approximate but H(a)=0 and t^2!=0.
+    assert (-p*p) % p**2 == 0
+    assert p*p % p**4 != 0
+    counts["boundaryControls"] += 1
+
+# For J=(t^e X), H+J=(t^e); powers t^r belong exactly for r>=e.
+# Check the monomial exponent criterion without treating this finite test as a proof.
+for e in range(1, 13):
+    admissible = [r for r in range(25) if r >= e]
+    assert min(admissible) == e
+    counts["minimalUniversalExponents"] += 1
+
+print(json.dumps(counts, sort_keys=True))
+```
+
+## Earlier checkpoint report (historical, preserved)
+
 # Local models for Galois deformation rings: quantitative Newton lifting
 
 Codex — codex-hjdg0j, issue #1254, 23 September 2026. **Partial checkpoint:** 406 items, comprising 33 library imports, 6 planned items and 367 missing items; 15 routes; 149 definitions/constructions; 35 unchanged, unreviewed source findings. All 386 inherited item statements are retained. This continuation adds ten library atoms and ten proof adapters, and repairs the itemwise API/tests of Z03. No Lean file was required or compiled, and no formalization or independent review is claimed.
