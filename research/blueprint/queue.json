@@ -6460,8 +6460,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HANSEN-KALETHA-WEINSTEIN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1391"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1391",
+   "finishedAt": "2026-09-23T00:25:17Z"
   },
   {
    "id": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
