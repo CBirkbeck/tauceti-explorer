@@ -31098,8 +31098,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1854"
+   "state": "external",
+   "note": "claimed on GitHub issue #1854"
   },
   {
    "id": "ERRATA-PAPER-SHENDE-TSIMERMAN-17",
@@ -31361,8 +31361,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-MERKURJEV-SCAVIA-26",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1867"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1867",
+   "finishedAt": "2026-09-23T13:53:37Z"
   },
   {
    "id": "ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
@@ -31591,7 +31592,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-KISIN-PAPPAS-18",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-PAPPAS-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1879"
   },
   {
    "id": "ERRATA-PAPER-ANDRE-18",
