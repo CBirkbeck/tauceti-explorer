@@ -1,0 +1,583 @@
+{
+  "paper": "PAPER-LIU-ETAL-22",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives",
+    "authors": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu",
+    "venue": "Inventiones Mathematicae 228 (2022), 107–375",
+    "doi": "10.1007/s00222-021-01088-4",
+    "arxiv": "1912.11942v3",
+    "url": "https://arxiv.org/abs/1912.11942",
+    "sha256": "84dc7c8369298314bd4e7ece5a45e5e096f39bd376f08c4c489950873c46fe86",
+    "accessed": "2026-09-23",
+    "version": "arXiv v3, 17 August 2021, 179 pages. v3 separated the original Appendix E into an independent article (arXiv:2108.06998) at a referee's suggestion, so the appendices here are A–D. The published version (Invent. Math. 228 (2022), 107–375) is behind the Springer paywall and was not read; all locators are to v3.",
+    "readSections": [
+      "§1 in full: the main results (Theorems 1.1.1, 1.1.5, 1.1.7, 1.1.9), Definition 1.1.3, the remarks explaining the hypotheses, and §1.2, the road map for the whole article.",
+      "The statements, not the proofs, of: Definitions 2.4.1–2.4.2 and the local conditions of §2.2; Propositions 2.4.6, 2.6.6, 2.6.7 and 2.7.2; Proposition 3.2.4, Definition 3.2.5, Hypothesis 3.2.10 and Definition 3.3.4; Theorems 6.2.3 and 6.3.5 and Proposition 6.4.1; Assumptions 7.1.1, 7.2.2, 7.2.3, 7.2.4 and 7.3.2 and Theorems 7.2.8 and 7.3.4; Definition 8.1.1, Theorem 8.2.2, Corollaries 8.2.3 and 8.2.5, Conjecture 8.3.1 and Theorem 8.3.2.",
+      "The section structure of §§2–8 and the appendices. The paper has 363 numbered statements; those not listed above are not yet items, and §§4–5, which carry 140 of them, are represented by section-level items that say so.",
+      "The cited inputs (Bloch–Kato; Kolyvagin; Bertolini–Darmon; Liu; Liu–Tian; Caraiani; Chenevier–Harris; Caraiani–Scholze; Gan–Gross–Prasad; and the companion article) were not read; each item that rests on one says so."
+    ]
+  },
+  "summary": "Liu, Tian, Xiao, Zhang and Zhu prove the first cases of the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives. Let F/F^+ be a CM extension, n ≥ 2, and let Π_0 and Π_1 be relevant — cuspidal, conjugate self-dual, with prescribed archimedean components — representations of GL_{n_0}(A_F) and GL_{n_1}(A_F), where n_0 and n_1 are the even and odd members of {n, n+1}. Theorem 1.1.5: if F^+ ≠ Q and the central critical value L(1/2, Π_0 × Π_1) does not vanish, then the Bloch–Kato Selmer group H^1_f(F, ρ_{Π_0,λ} ⊗ ρ_{Π_1,λ}(n)) vanishes for every admissible prime λ. Theorem 1.1.9, the rank one case: if the class Δ_λ obtained from the diagonal cycle on a product of unitary Shimura varieties by the ℓ-adic Abel–Jacobi map is nonzero, the Selmer group has dimension one. Theorem 1.1.1 specializes the first to symmetric powers of two non-isogenous modular elliptic curves over F^+.\n\nThe method follows Kolyvagin in outline — construct torsion Galois cohomology classes that annihilate the Selmer group — but the system is not an Euler system. It comes from level-raising congruences, as introduced by Bertolini–Darmon and used by Liu for twisted triple products. At a level-raising prime p, the singular part of the local Galois cohomology of the cohomology of the special fibre of a unitary moduli scheme with Iwahori level is shown to be canonically isomorphic to functions on a Shimura set (§§5–6). One inclusion is geometry: the special fibre, its Deligne–Lusztig strata and the Tate cycles on it, which the authors call the technical heart of the article and which uses all five appendices. The equality of cardinalities is deformation theory: a mixed deformation ring with unramified and ramified quotients, whose modules are finite free of equal rank by the R=T theorem of the companion paper and the automorphic rank comparison of §6.4. Merging the two indices n_0 and n_1 gives the first explicit reciprocity law (Theorem 7.2.8), which computes the singular localization of the constructed classes as a period integral over a Shimura set; the nonvanishing of that period is what L(1/2, Π_0 × Π_1) ≠ 0 supplies. A second reciprocity law (Theorem 7.3.4) plays the corresponding role for the diagonal cycle in the rank one case.\n\nWhat it needs. Nothing here is in the libraries. Tau Ceti has a continuous group cohomology development — cochains, cocycles, low degrees, inflation–restriction, Shapiro, long exact sequences — which is the substrate for §2, and Mathlib has abstract group cohomology; but there is no Galois cohomology of a number field, no local condition, no Bloch–Kato Selmer group, no étale cohomology, no nearby cycles, no Shimura variety and no Galois deformation ring at the pinned commits.",
+  "items": [
+    {
+      "id": "PAPER-LIU-ETAL-22/relevant-representation",
+      "kind": "definition",
+      "name": "Definition 1.1.3 — relevant representations",
+      "statement": "A complex representation Π of GL_N(A_F), N ≥ 1, is relevant if (1) Π is an irreducible cuspidal automorphic representation; (2) Π ∘ c ≅ Π^∨, where c ∈ Gal(F/F^+) is complex conjugation; and (3) for every archimedean place w of F, Π_w is the irreducible principal series induced by the characters (arg^{1−N}, arg^{3−N}, …, arg^{N−3}, arg^{N−1}), where arg : C^× → C^× is arg(z) = z/√(z z̄).",
+      "locator": "arXiv:1912.11942v3, §1.1, Definition 1.1.3, p. 3",
+      "status": "missing",
+      "note": "A relevant Π is regular algebraic in the sense of Clozel, and L(s, Π, As^{(−1)^N}) is regular at s = 1 (Remark 1.1.4). The definition serves the whole article."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/theorem-1-1-5",
+      "kind": "theorem",
+      "name": "Theorem 1.1.5 = Theorem 8.2.2 — vanishing of the Selmer group",
+      "statement": "Let Π_0 and Π_1 be relevant representations of GL_{n_0}(A_F) and GL_{n_1}(A_F), where n_0 and n_1 are the even and odd numbers in {n, n+1} for an integer n ≥ 2, and let E ⊆ C be a strong coefficient field of both. Suppose F^+ ≠ Q. If L(1/2, Π_0 × Π_1) ≠ 0, then for every admissible prime λ of E with respect to (Π_0, Π_1) the Bloch–Kato Selmer group H^1_f(F, ρ_{Π_0,λ} ⊗_{E_λ} ρ_{Π_1,λ}(n)) vanishes.",
+      "locator": "arXiv:1912.11942v3, §1.1, Theorem 1.1.5, p. 3; §8.2, Theorem 8.2.2, p. 135",
+      "status": "missing",
+      "note": "The rank zero case of the Beilinson–Bloch–Kato conjecture for these motives. Theorem 8.2.2 also assumes Hypothesis 3.2.10 for both n and n+1."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/theorem-1-1-1",
+      "kind": "theorem",
+      "name": "Theorem 1.1.1 = Corollary 8.2.3 — the elliptic curve case",
+      "statement": "Let n ≥ 2 and let A and A′ be modular elliptic curves over F^+ with End(A_F) = End(A′_F) = Z. Suppose (a) A_F and A′_F are not isogenous; (b) both Sym^{n−1}A and Sym^n A′ are modular; and (c) F^+ ≠ Q. If the central critical value L(n, Sym^{n−1}A_F × Sym^n A′_F) does not vanish, then H^1_f(F, Sym^{n−1}H^1_ét(A_F, Q_ℓ) ⊗_{Q_ℓ} Sym^n H^1_ét(A′_F, Q_ℓ)(n)) vanishes for all but finitely many rational primes ℓ.",
+      "locator": "arXiv:1912.11942v3, §1.1, Theorem 1.1.1, p. 3; §8.2, Corollary 8.2.3, p. 137",
+      "status": "missing",
+      "note": "The least technical form of the main theorem. The excluded set of primes can be effectively bounded (Remark 1.1.2); (a) is necessary for (L3) and (L5), (b) because the method applies only to Galois representations of automorphic origin, and (c) only because Hypothesis 3.2.10 and Proposition D.1.3 are not available for F^+ = Q."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/theorem-1-1-7",
+      "kind": "theorem",
+      "name": "Theorem 1.1.7 = Corollary 8.2.5 — a family with almost all primes admissible",
+      "statement": "With Π_0, Π_1, E as above, suppose (a) there is a very special inert prime p of F^+ such that Π_{0,p} is Steinberg and Π_{1,p} is unramified with Satake parameter containing 1 exactly once; (b) for α = 0, 1 there is a nonarchimedean place w_α of F at which Π_{α,w_α} is supercuspidal; and (c) F^+ ≠ Q if n ≥ 3. If L(1/2, Π_0 × Π_1) ≠ 0, then H^1_f(F, ρ_{Π_0,λ} ⊗_{E_λ} ρ_{Π_1,λ}(n)) vanishes for all but finitely many primes λ of E.",
+      "locator": "arXiv:1912.11942v3, §1.1, Theorem 1.1.7, p. 4; §8.2, Corollary 8.2.5, p. 138",
+      "status": "missing",
+      "note": "Neither this nor Theorem 1.1.1 implies the other. It follows from Theorem 8.2.2 together with Lemma 8.1.4, which shows that almost all primes are then admissible."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/theorem-1-1-9",
+      "kind": "theorem",
+      "name": "Theorem 1.1.9 = Theorem 8.3.2 — the Selmer rank one case",
+      "statement": "With Π_0, Π_1, E as above and F^+ ≠ Q, let λ be an admissible prime with respect to (Π_0, Π_1). If there are data V_n, Λ_n, (K_n, K_{n+1}) of the shape specified in the theorem — with (K_{n_0})_v transferable for v ∈ Σ^+_min — such that AJ^{Π_0,Π_1}_λ(Δ_{Sh(V_n, K_n)}) ≠ 0, then dim_{E_λ} H^1_f(F, ρ_{Π_0,λ} ⊗_{E_λ} ρ_{Π_1,λ}(n)) = 1.",
+      "locator": "arXiv:1912.11942v3, §1.1, Theorem 1.1.9, p. 5; §8.3, Theorem 8.3.2, p. 139",
+      "status": "missing",
+      "note": "Half of the rank one prediction: by Conjecture 8.3.1 and Beilinson's conjecture on the injectivity of the ℓ-adic Abel–Jacobi map, Δ_λ ≠ 0 should be equivalent to L′(1/2, Π_0 × Π_1) ≠ 0, but that equivalence is not proved here. Remark 8.3.3: the nonvanishing already implies that the global epsilon factor of Π_0 × Π_1 is −1. Theorem 8.3.2 also assumes Hypothesis 3.2.10 for both n and n+1."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/conjecture-8-3-1",
+      "kind": "theorem",
+      "name": "Conjecture 8.3.1 — a weak arithmetic Gan–Gross–Prasad conjecture",
+      "statement": "Suppose L(1/2, Π_0 × Π_1) = 0 but L′(1/2, Π_0 × Π_1) ≠ 0. Then there exist a standard indefinite hermitian space V_n of rank n over F with a self-dual lattice Λ_n away from Σ^+_∞ ∪ Σ^+_min, and an object (K_n, K_{n+1}) ∈ K(V_n)^{sp} of the stated shape, for which the diagonal cycle class is nonzero.",
+      "locator": "arXiv:1912.11942v3, §8.3, Conjecture 8.3.1, pp. 138–139",
+      "status": "missing",
+      "note": "Stated, not proved. It is the input that would turn Theorem 8.3.2 into the rank one case of Beilinson–Bloch–Kato."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/main-obstacles",
+      "kind": "theorem",
+      "name": "What the theorems assume, and why",
+      "statement": "The hypothesis F^+ ≠ Q is needed only because Hypothesis 3.2.10 is not known for N ≥ 4 when F^+ = Q, and because Proposition D.1.3, generalizing Caraiani–Scholze, is not available there; both theorems hold for F^+ = Q once these are. When n = 2 a different argument lifts the restriction F^+ ≠ Q and the assumptions (L6) and (L7).",
+      "locator": "arXiv:1912.11942v3, §1.1, Remarks 1.1.6 and 1.1.10, pp. 4–5",
+      "status": "missing",
+      "note": "Recorded because it delimits what a formalisation of this paper would have to assume."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/bloch-kato-selmer",
+      "kind": "definition",
+      "name": "Definition 2.4.1 — the Bloch–Kato Selmer group",
+      "statement": "For R ∈ Mod(F, E_λ), H^1_f(F, R) ⊆ H^1(F, R) is the E_λ-subspace of classes s such that (1) loc_w(s) ∈ H^1_ns(F_w, R) for every nonarchimedean place w of F not above ℓ, and (2) loc_w(s) ∈ ker(H^1(F_w, R) → H^1(F_w, R ⊗_{Q_ℓ} B_cris)) for every place w above ℓ. For R ∈ Mod(F, O_λ)^fr the integral Selmer group is the preimage of H^1_f(F, R_Q), and H^1_{f,R}(F, R̄^{(m)}) is its image in H^1(F, R̄^{(m)}).",
+      "locator": "arXiv:1912.11942v3, §2.4, Definitions 2.4.1 and 2.4.2, p. 16",
+      "status": "planned",
+      "note": "",
+      "planned": [
+        "SelmerIwasawaCohomology:L2",
+        "SelmerIwasawaCohomology:L4"
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/local-conditions",
+      "kind": "definition",
+      "name": "Local conditions in Galois cohomology",
+      "statement": "The unramified/singular decomposition of local Galois cohomology: for R ∈ Mod(F_w, E_λ) or Mod(F_w, O_λ), the subgroup H^1_ns(F_w, R) of §2.2 and the singular quotient H^1_sing, the crystalline condition of Definition 2.2.5 at places above ℓ, and the localization maps loc_w.",
+      "locator": "arXiv:1912.11942v3, §2.2, Definitions 2.2.2, 2.2.4 and 2.2.5, p. 13",
+      "status": "planned",
+      "note": "",
+      "planned": [
+        "SelmerIwasawaCohomology:L2",
+        "ArithmeticGaloisDuality:R02.5"
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/selmer-reduction",
+      "kind": "theorem",
+      "name": "Proposition 2.4.6 — reduction of Selmer groups",
+      "statement": "For R ∈ Mod(F, O_λ)^fr, the Selmer group of R and the Selmer groups of its reductions R̄^{(m)} are related as stated, so that bounding the reductions bounds H^1_f(F, R_Q).",
+      "locator": "arXiv:1912.11942v3, §2.4, Proposition 2.4.6, p. 17",
+      "status": "missing",
+      "note": "Recorded by its role; the precise statement should be transcribed in a later checkpoint."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/localization-selmer",
+      "kind": "theorem",
+      "name": "Propositions 2.6.6 and 2.6.7 — localization of Selmer groups",
+      "statement": "For S a free O_λ/λ^{m−m_0}-module of rank r_S with the stated data, the localization maps at γ-associated places (Definition 2.6.3) control the Selmer group: the two propositions bound its rank in terms of the annihilating classes.",
+      "locator": "arXiv:1912.11942v3, §2.6, Propositions 2.6.6 and 2.6.7, p. 20",
+      "status": "missing",
+      "note": "These are the engine that turns the system of torsion classes into a bound on the Selmer group; the precise statements should be transcribed."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/rankin-selberg-selmer",
+      "kind": "theorem",
+      "name": "Proposition 2.7.2 — the Rankin–Selberg case",
+      "statement": "If A_{0,F} and A_{1,F} are not isogenous and End(A_{0,F}) = End(A_{1,F}) = Z, then the Galois-theoretic conditions (GI) of §2.7 hold for the pair of residual representations, so that the machinery of §§2.4–2.6 applies to the tensor product.",
+      "locator": "arXiv:1912.11942v3, §2.7, Proposition 2.7.2, p. 21",
+      "status": "missing",
+      "note": "This is what makes Theorem 1.1.1 a corollary of Theorem 1.1.5."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/galois-representations",
+      "kind": "theorem",
+      "name": "Proposition 3.2.4 — Galois representations of relevant Π",
+      "statement": "Let Π be a relevant representation of GL_N(A_F). (1) For every nonarchimedean place w of F, Π_w is tempered. (2) For every rational prime ℓ and every isomorphism ι_ℓ : C ≅ Q̄_ℓ there is a semisimple continuous ρ_{Π,ι_ℓ} : Γ_F → GL_N(Q̄_ℓ), unique up to conjugation, such that for every nonarchimedean w the Frobenius semisimplification of the Weil–Deligne representation of ρ_{Π,ι_ℓ}|_{Γ_{F_w}} corresponds to ι_ℓ Π_w |det|_w^{(1−N)/2} under local Langlands; and ρ^c_{Π,ι_ℓ} is conjugate to ρ^∨_{Π,ι_ℓ}(1−N).",
+      "locator": "arXiv:1912.11942v3, §3.2, Proposition 3.2.4, p. 27",
+      "status": "planned",
+      "note": "Cited to Caraiani (temperedness and local-global compatibility) and Chenevier–Harris (construction); not proved here, and those works were not read.",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5"
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/strong-coefficient-field",
+      "kind": "definition",
+      "name": "Definition 3.2.5 — strong coefficient fields",
+      "statement": "For Π relevant, a subfield E ⊆ C is a strong coefficient field of Π if E is a number field containing Q(Π) and, for every prime λ of E, there is a continuous ρ_{Π,λ} : Γ_F → GL_N(E_λ), unique up to conjugation, such that for every ι_ℓ : C ≅ Q̄_ℓ inducing λ, ρ_{Π,λ} ⊗_{E_λ} Q̄_ℓ is conjugate to ρ_{Π,ι_ℓ}.",
+      "locator": "arXiv:1912.11942v3, §3.2, Definition 3.2.5, p. 27",
+      "status": "planned",
+      "note": "A strong coefficient field exists for every relevant Π, by Chenevier–Harris; under Hypothesis 3.2.10, Q(Π) is already one when Π is the base change of a standard pair.",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.7",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/standard-pair",
+      "kind": "definition",
+      "name": "Definition 3.2.7 — standard pairs",
+      "statement": "A pair (V, π), with V a hermitian space over F and π a discrete automorphic representation of U(V)(A_{F^+}), is a standard pair if either (1) V is standard definite and π^∞ appears in lim_K C[Sh(V, K)], or (2) V is standard indefinite and π^∞ appears in lim_K ι_ℓ^{-1} H^i_ét(Sh(V, K)_{F̄}, Q̄_ℓ) for the relevant degree i.",
+      "locator": "arXiv:1912.11942v3, §3.2, Definition 3.2.7, p. 27",
+      "status": "missing",
+      "note": "The definite case gives the automorphic side of the reciprocity laws, through functions on Shimura sets; the indefinite case gives the Galois side."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/hypothesis-3-2-10",
+      "kind": "definition",
+      "name": "Hypothesis 3.2.10 — cohomology of unitary Shimura varieties",
+      "statement": "For N ≥ 1: for every standard indefinite hermitian space V over F of rank N, every discrete automorphic representation π of U(V)(A_{F^+}) whose base change BC(π) exists and is relevant, and every ι_ℓ : C ≅ Q̄_ℓ, if ρ_{BC(π),ι_ℓ} is irreducible then W^{N−1}(π) = Hom_{Q̄_ℓ[U(V)(A_{F^+}^∞)]}(ι_ℓ π^∞, lim_K H^{N−1}_ét(Sh(V, K)_{F̄}, Q̄_ℓ)) is isomorphic to the underlying Q̄_ℓ[Γ_F]-module of ρ^c_{BC(π),ι_ℓ}.",
+      "locator": "arXiv:1912.11942v3, §3.2, Hypothesis 3.2.10, p. 28",
+      "status": "planned",
+      "note": "Assumed, not proved: it is known for F^+ ≠ Q but open for N ≥ 4 when F^+ = Q, which is why the main theorems exclude F^+ = Q.",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/special-inert-prime",
+      "kind": "definition",
+      "name": "Definition 3.3.4 — special and very special inert primes",
+      "statement": "A prime p of F^+ is special inert if (1) p is inert in F, (2) its underlying rational prime p is odd and unramified in F, and (3) p has degree one over Q, i.e. F^+_p = Q_p. It is very special inert if in addition there is a prime p′ of F^+_rflx above p with (F^+_rflx)_{p′} = F^+_p.",
+      "locator": "arXiv:1912.11942v3, §3.3, Definition 3.3.4, p. 28",
+      "status": "missing",
+      "note": "Condition (3) is only to simplify the Dieudonné module computations of §§4–5 and is not essential (Remark 3.3.5). Remark 1.1.8: if F is Galois or contains an imaginary quadratic field, a very special inert prime is just an inert prime of degree one whose rational prime is odd and unramified."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/unitary-hecke",
+      "kind": "definition",
+      "name": "Unitary Satake parameters and unitary Hecke algebras",
+      "statement": "The Satake parameters of unramified representations of unitary groups and the corresponding Hecke algebras, with the mod λ Satake parameters used to define level-raising primes.",
+      "locator": "arXiv:1912.11942v3, §3.1, pp. 22–26",
+      "status": "planned",
+      "note": "Summarizes §3.1 rather than a numbered statement.",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.4"
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/unitary-shimura-sets",
+      "kind": "definition",
+      "name": "Unitary Shimura varieties and Shimura sets",
+      "statement": "For a hermitian space V over F and a level K, the unitary Shimura variety Sh(V, K) when V is indefinite, and the finite Shimura set Sh(V, K) when V is definite, together with the groups U(V) and the level structures used throughout.",
+      "locator": "arXiv:1912.11942v3, §3.2, pp. 26–28",
+      "status": "missing",
+      "note": "Summarizes §3.2; the Shimura sets carry the automorphic side of the reciprocity laws, the Shimura varieties the Galois side."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/unitary-abelian-schemes",
+      "kind": "definition",
+      "name": "Unitary abelian schemes and the CM moduli scheme",
+      "statement": "Abelian schemes with an action of O_F and a compatible polarization satisfying the signature condition, the generalized CM type and reflexive closure of §3.3, and the CM moduli scheme of §3.5 used as a base for the unitary moduli problems.",
+      "locator": "arXiv:1912.11942v3, §§3.3–3.5, pp. 28–36",
+      "status": "missing",
+      "note": "Summarizes §§3.3–3.5."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/moduli-smooth",
+      "kind": "construction",
+      "name": "The unitary moduli schemes in the smooth case",
+      "statement": "The moduli schemes M(V, K) over the CM moduli scheme classifying unitary abelian schemes with level structure, their representability and smoothness at a special inert prime with self-dual level, and the basic correspondences on them.",
+      "locator": "arXiv:1912.11942v3, §4, pp. 36–60",
+      "status": "missing",
+      "note": "Summarizes §4, which has 50 numbered statements. Its outputs are the integral models whose cohomology carries the Galois representations, and Construction 4.6.1, the localization map loc_p used in the second reciprocity law."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/moduli-special",
+      "kind": "construction",
+      "name": "The moduli schemes at level raising: special fibres and Tate cycles",
+      "statement": "The moduli schemes M_p(V) with Iwahori-type level at a special inert prime p, their semistable special fibres, the Deligne–Lusztig varieties appearing there, the Tate cycles on those special fibres and the intersection theory used to compute them.",
+      "locator": "arXiv:1912.11942v3, §5, pp. 60–110",
+      "status": "missing",
+      "note": "Summarizes §5, the longest section (90 numbered statements). The paper calls the resulting computation the technical heart of the article, using material from all five appendices."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/nearby-cycles",
+      "kind": "definition",
+      "name": "Nearby cycles and the cohomology of the special fibre",
+      "statement": "The nearby cycle complexes RΨ_{O_λ} on the special fibres of the moduli schemes, and the cohomology H^i_T(M_p(V), RΨ_{O_λ}(r)) with its Hecke action, localized at a maximal ideal m.",
+      "locator": "arXiv:1912.11942v3, §§5–7, pp. 60–130",
+      "status": "planned",
+      "note": "The object in which the level-raising phenomenon is observed.",
+      "planned": [
+        "IgusaVarietiesAndTorsionConcentration:IG.4",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5"
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/level-raising-prime",
+      "kind": "definition",
+      "name": "Level-raising primes",
+      "statement": "A prime p is a level-raising prime with respect to λ if ℓ ∤ p(p²−1), where ℓ is the rational prime under λ, and the mod λ Satake parameter of Π_{0,p} contains the pair {p, p^{-1}} exactly once and does not contain the pair {−1, −1}.",
+      "locator": "arXiv:1912.11942v3, §1.2, p. 7; §6",
+      "status": "missing",
+      "note": "The condition under which the level-raising phenomenon can be understood on the cohomology of the special fibre."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/level-raising-isomorphism",
+      "kind": "theorem",
+      "name": "The level-raising isomorphism",
+      "statement": "For a level-raising prime p there is a canonical isomorphism of finite-dimensional k_λ-vector spaces H^1_sing(Q_{p²}, H^{n_0−1}_T(M_p(V^◦_{n_0}), RΨ_{O_λ}(r_0))/m_0) ≅ O_λ[Sh(V^◦_{n_0})]/m_0, together with its mod λ^m version.",
+      "locator": "arXiv:1912.11942v3, §1.2, (1.3), p. 7; §6",
+      "status": "missing",
+      "note": "Called the technical heart of the article. One inclusion comes from the geometry of the special fibre (§5 and the appendices); the equality of cardinalities comes from an R=T theorem proved in the companion paper [LTXZZ] together with an automorphic comparison of ranks in §6.4 and §D.2."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/theorem-6-2-3",
+      "kind": "theorem",
+      "name": "Theorem 6.2.3 — the map to the Shimura set is surjective",
+      "statement": "The map ∇^1_m : E^{0,2r}_{2,m} → O_λ[Sh(V^◦_N, K^◦_N)]_m of Construction 5.9.4 is surjective. Assuming Assumptions 6.1.4 and 6.1.6 and Hypothesis 3.2.10 for N: (1) the generalized Frobenius eigenvalues of the (O_λ/λ)[Gal(F̄_p/F_{p²})]-module E^{0,2r}_{2,m} ⊗ O_λ/λ lie among the roots of P_α(Π_p) mod λ in a finite extension of O_λ/λ; (2) the O_λ[Gal(F̄_p/F_{p²})]-module E^{0,2r}_{2,m} is weakly semisimple in the sense of Definition 2.1.2; and (3) ∇^1_m induces the isomorphism of the statement.",
+      "locator": "arXiv:1912.11942v3, §6.2, Theorem 6.2.3, p. 109",
+      "status": "missing",
+      "note": "The geometric half of the level-raising isomorphism: it identifies the relevant piece of the cohomology of the special fibre with functions on the Shimura set."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/theorem-6-3-5",
+      "kind": "theorem",
+      "name": "Theorem 6.3.5 — freeness and the level-raising comparison",
+      "statement": "Assume Assumptions 6.1.4, 6.1.6 and Hypothesis 3.2.10 for N, and further that (a) ℓ ≥ 2(N+1) and ℓ is unramified in F; (b) ρ̄_{Π,λ,+} is rigid for (Σ^+_min, Σ^+_lr) in the sense of Definition 6.3.4 and ρ̄_{Π,λ}|_{Gal(F̄/F(ζ_ℓ))} is absolutely irreducible; (c) the composite T^{Σ^+}_N → O_E → O_E/λ is cohomologically generic in the sense of Definition D.1.1; and (d) O_λ[Sh(V^◦_N, K^◦_N)]_m is nontrivial. Then (1) H^i_T(M^•_N, O_λ)_m is a free O_λ-module for every i, together with the further conclusions of the theorem.",
+      "locator": "arXiv:1912.11942v3, §6.3, Theorem 6.3.5, p. 115",
+      "status": "missing",
+      "note": "This is where the R=T input of the companion paper enters: hypothesis (b), rigidity, is the condition under which the deformation-theoretic comparison of §6.3 applies."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/proposition-6-4-1",
+      "kind": "theorem",
+      "name": "Proposition 6.4.1 — equality of the two dimensions",
+      "statement": "Under the assumptions of Theorem 6.3.5, d_unr = d_ram; consequently the two canonical maps F^{-1}H^1(I_{Q_{p²}}, H^{2r−1}_T(M_N, RΨ_{O_λ}(r))_m) → O_λ[Sh(V^◦_N, K^◦_N)]_m/((p+1)R^◦_{N,p} − I^◦_{N,p}) and F^{-1}H^1(I_{Q_{p²}}, H^{2r−1}_T(M_N, RΨ_{O_λ}(r))_m) → H^1_sing(Q_{p²}, H^{2r−1}_T(M_N, RΨ_{O_λ}(r))_m), from Proposition 6.3.1(4) and Lemma 5.9.3(6), are both isomorphisms.",
+      "locator": "arXiv:1912.11942v3, §6.4, Proposition 6.4.1, p. 117",
+      "status": "missing",
+      "note": "The comparison of ranks that completes the level-raising isomorphism; it is an automorphic computation, carried out in §6.4 on the basis of §D.2."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/galois-deformation-rings",
+      "kind": "construction",
+      "name": "The mixed, unramified and ramified deformation rings",
+      "statement": "A global Galois deformation ring R^mix over O_λ with quotients R^unr and R^ram, modules H^unr over R^unr and H^ram over R^ram, and the Artinian ring R^cong = R^unr ⊗_{R^mix} R^ram, for which H^unr ⊗_{R^unr} R^cong ⊗_{O_λ} k_λ ≅ O_λ[Sh(V^◦_{n_0})]/m_0 and H^ram ⊗_{R^ram} R^cong ⊗_{O_λ} k_λ ≅ H^1_sing(Q_{p²}, H^{n_0−1}_T(M_p(V^◦_{n_0}), RΨ_{O_λ}(r_0))/m_0).",
+      "locator": "arXiv:1912.11942v3, §1.2, p. 7",
+      "status": "planned",
+      "note": "The finite freeness of H^unr and H^ram over their deformation rings, of the same rank, is the R=T theorem of the companion paper [LTXZZ], which is not part of this article.",
+      "planned": [
+        "GlobalGaloisDeformations:G7",
+        "GlobalGaloisDeformations:G8"
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/assumption-7-1-1",
+      "kind": "definition",
+      "name": "Assumption 7.1.1 — residual absolute irreducibility",
+      "statement": "For α = 0, 1, the Galois representation ρ_{Π_α,λ} is residually absolutely irreducible.",
+      "locator": "arXiv:1912.11942v3, §7.1, Assumption 7.1.1, p. 120",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/assumptions-7-2",
+      "kind": "definition",
+      "name": "Assumptions 7.2.2, 7.2.3 and 7.2.4",
+      "statement": "7.2.2: under Assumption 7.1.1, ρ̄_{Π_0,λ,+} is rigid for the stated sets of places. 7.2.3: for α = 0, 1, H^i_T(M_{n_α}, RΨ_{O_λ})_{m_α} = 0 for i ≠ n_α − 1, together with the stated freeness. 7.2.4: the composite T^min_{n_0} → O_E → O_E/λ is cohomologically generic in the sense of §7.2.",
+      "locator": "arXiv:1912.11942v3, §7.2, Assumptions 7.2.2, 7.2.3 and 7.2.4, p. 121",
+      "status": "missing",
+      "note": "These are the hypotheses of the first explicit reciprocity law; (L6) and (L7) of Definition 8.1.1 are what guarantee them for an admissible prime."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/first-reciprocity-law",
+      "kind": "theorem",
+      "name": "Theorem 7.2.8 — the first explicit reciprocity law",
+      "statement": "Assume Assumptions 7.1.1, 7.2.2, 7.2.3, 7.2.4 and Hypothesis 3.2.10 for both n and n+1. Then (1) the image of the composite ∇^{(m_0,m_1)} ∘ Δ^{(m_0,m_1)}_n lies in n_0 · O_λ[Sh(V^◦_{n_0}, K^◦_{n_0})]_{m_0} ⊗ O_λ[Sh(V^◦_{n_1}, K^◦_{n_1})]_{m_1}; (2) the induced map ∇_{m_1}/n_0 on the cokernel is an isomorphism; and (3) under the natural inner product pairing, the pairing of ∇_{/(n_0,n_1)}(∂AJ_Q(Q_η Δ)) with any f ∈ (O_λ/λ^m)[Sh(V^◦_{n_0}, K^◦_{n_0})][n_0] ⊗ (O_λ/λ^m)[Sh(V^◦_{n_1}, K^◦_{n_1})][n_1] equals (p+1) · φ_{Π_0}(I^◦_{n_0,p}) · φ_{Π_1}(T^◦_{n_1,p}) · Σ_s f(s, sh^◦_↑(s)).",
+      "locator": "arXiv:1912.11942v3, §7.2, Theorem 7.2.8, p. 124",
+      "status": "missing",
+      "note": "The identity that makes the singular part of the local Galois cohomology of the constructed classes equal to a period integral over a Shimura set — the automorphic quantity whose nonvanishing follows from L(1/2, Π_0 × Π_1) ≠ 0."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/second-reciprocity-law",
+      "kind": "theorem",
+      "name": "Theorem 7.3.4 — the second explicit reciprocity law",
+      "statement": "Assume Assumptions 7.1.1 and 7.3.2 and Hypothesis 3.2.10 for both n and n+1. Then exp_λ(loc_p([Sh(V_n, K_sp)]), H^{2n}_ét((Sh(V_{n_0}, K_{n_0}) ×_F Sh(V_{n_1}, K_{n_1}))_{F̄_p}, O_λ(n))/(n_0, n_1)) ≤ exp_λ(1_{Sh(V^⋆_n, K^⋆_{sp,sp})}, O_λ[Sh(V^⋆_{n_0}, K^⋆_{n_0}) × Sh(V^⋆_{n_1}, K^⋆_{n_1})]/(n_0, n_1)), where loc_p is the localization map of Construction 4.6.1 and exp_λ the exponent of Definition 2.1.6.",
+      "locator": "arXiv:1912.11942v3, §7.3, Theorem 7.3.4, p. 129",
+      "status": "missing",
+      "note": "The companion of Theorem 7.2.8 used in the rank one case, bounding the exponent of the localization of the diagonal cycle class by an automorphic exponent."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/torsion-class-system",
+      "kind": "construction",
+      "name": "The system of torsion Galois cohomology classes",
+      "statement": "The system of classes in H^1(F, ·) with coefficients in the reductions of ρ_{Π_0,λ} ⊗ ρ_{Π_1,λ}(n), indexed by level-raising primes, whose singular localizations at those primes are computed by the first explicit reciprocity law, and which annihilate the reduction of the Selmer group.",
+      "locator": "arXiv:1912.11942v3, §1.2, pp. 6–7; §7.2",
+      "status": "missing",
+      "note": "Not an Euler or Kolyvagin system in the classical sense: it is a level-raising (bipartite Euler) system in the style of Bertolini–Darmon, as used by Liu for twisted triple products."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/admissible-prime",
+      "kind": "definition",
+      "name": "Definition 8.1.1 — admissible primes",
+      "statement": "A prime λ of E with underlying rational prime ℓ is admissible with respect to (Π_0, Π_1) if: (L1) ℓ > 4n and ℓ is unramified in F; (L2) Σ^+_min contains no ℓ-adic places; (L3) ρ_{Π_0,λ} ⊗_{E_λ} ρ_{Π_1,λ} is absolutely irreducible; (L4) Assumption 7.1.1 holds, i.e. both ρ_{Π_0,λ} and ρ_{Π_1,λ} are residually absolutely irreducible; (L5) under (L4), for α = 0, 1 there is a Γ_F-stable O_λ-lattice R_α in ρ_{Π_α,λ}(r_α), unique up to homothety, that is (1−α)-polarizable, and the conditions (L5-1) and (L5-2) of the definition hold for it; together with the further conditions (L6) and (L7) of the definition.",
+      "locator": "arXiv:1912.11942v3, §8.1, Definition 8.1.1, pp. 131–134",
+      "status": "missing",
+      "note": "Remark 1.1.6 explains the conditions: (L1,2) exclude finitely many λ; (L3) is expected exactly when the automorphic product Π_0 ⊠ Π_1 stays cuspidal; (L4), (L5), (L6) and (L7) are expected for all but finitely many λ, and (L7) holds for all but finitely many λ when F^+ ≠ Q by Corollary D.1.4. (L6) is used only in the R=T argument of the companion paper."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/lemma-8-2-1",
+      "kind": "theorem",
+      "name": "Lemma 8.2.1 — the L-value gives a nonvanishing period",
+      "statement": "Keep the setup of §7.1. If L(1/2, Π_0 × Π_1) ≠ 0, then there exist a standard definite hermitian space V^◦_n of rank n over F with a self-dual lattice Λ^◦_n away from Σ^+_∞ ∪ Σ^+_min (and V^◦_{n+1} = (V^◦_n)^♯, Λ^◦_{n+1} = (Λ^◦_n)^♯), and levels (K^◦_n, K^◦_{n+1}), such that the period sum Σ_{s ∈ Sh(V^◦_n, K^◦_n)} f(s, sh_↑(s)) is nonzero for some f ∈ O_E[Sh(V^◦_{n_0}, K^◦_{n_0})][ker φ_{Π_0}] ⊗ O_E[Sh(V^◦_{n_1}, K^◦_{n_1})][ker φ_{Π_1}].",
+      "locator": "arXiv:1912.11942v3, §8.2, Lemma 8.2.1, p. 135",
+      "status": "missing",
+      "note": "The bridge from the analytic hypothesis to the automorphic one: it is the global Gan–Gross–Prasad conjecture for definite unitary groups, in the form proved in the literature, that turns L(1/2, Π_0 × Π_1) ≠ 0 into the nonvanishing of a period over a Shimura set — exactly the quantity computed by the first explicit reciprocity law."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/diagonal-cycle",
+      "kind": "construction",
+      "name": "The diagonal cycle and its Abel–Jacobi class Δ_λ",
+      "statement": "The diagonal cycle Δ_{Sh(V_n, K_n)} on the product Sh(V_{n_0}, K_{n_0}) ×_F Sh(V_{n_1}, K_{n_1}) of unitary Shimura varieties, obtained from the embedding of Sh(V_n, K_n) by the two projections, and its image AJ^{Π_0,Π_1}_λ(Δ_{Sh(V_n, K_n)}) under the ℓ-adic Abel–Jacobi map followed by the projection to the (Π_0, Π_1)-part. By Lemma 8.1.6 and (L2) this image lies in H^1_f(F, H^{2n−1}_ét((Sh(V_{n_0}, K_{n_0}) ×_F Sh(V_{n_1}, K_{n_1}))_{F̄}, E_λ(n))/(ker φ_{Π_0}, ker φ_{Π_1})), a direct sum of finitely many copies of ρ_{Π_0,λ} ⊗_{E_λ} ρ_{Π_1,λ}(n); Δ_λ denotes that class.",
+      "locator": "arXiv:1912.11942v3, §8.3, (8.10), pp. 138–139",
+      "status": "missing",
+      "note": "The arithmetic Gan–Gross–Prasad cycle. Its nonvanishing is conjecturally equivalent to L′(1/2, Π_0 × Π_1) ≠ 0, by Conjecture 8.3.1 and Beilinson's injectivity conjecture."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/rankin-selberg-l",
+      "kind": "definition",
+      "name": "The Rankin–Selberg L-function and its central value",
+      "statement": "L(s, Π_0 × Π_1) for relevant Π_0, Π_1 of GL_{n_0}(A_F) and GL_{n_1}(A_F), its central critical value L(1/2, Π_0 × Π_1), its derivative there, and the global epsilon factor of Π_0 × Π_1.",
+      "locator": "arXiv:1912.11942v3, §1.1, pp. 3–5",
+      "status": "planned",
+      "note": "",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/beilinson-bloch-kato",
+      "kind": "theorem",
+      "name": "The Beilinson–Bloch–Kato conjecture",
+      "statement": "The conjecture that for a motive M over a number field the rank of the Bloch–Kato Selmer group H^1_f equals the order of vanishing of the L-function of M at its central point — the generalization of Birch–Swinnerton-Dyer to higher-dimensional varieties.",
+      "locator": "arXiv:1912.11942v3, §1, pp. 2–3",
+      "status": "planned",
+      "note": "The conjecture the paper proves cases of; stated here as context, following Bloch–Kato.",
+      "planned": [
+        "PeriodsAndSpecialValues:PS.6"
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/bound-by-annihilators",
+      "kind": "theorem",
+      "name": "The final argument: bounding the Selmer group",
+      "statement": "Combining the system of torsion classes of §7.2 with the Galois-theoretic results of §2 and the nonvanishing of the period integral supplied by L(1/2, Π_0 × Π_1) ≠ 0, the reduction of the Selmer group is annihilated, which gives Theorem 8.2.2.",
+      "locator": "arXiv:1912.11942v3, §1.2, p. 7; §8.2, proof of Theorem 8.2.2, pp. 135–137",
+      "status": "missing",
+      "note": "The step where the automorphic input becomes an arithmetic conclusion."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/companion-rt",
+      "kind": "theorem",
+      "name": "The R=T theorem of the companion article",
+      "statement": "The modules H^unr and H^ram are finite free over R^unr and R^ram respectively, of the same rank.",
+      "locator": "arXiv:1912.11942v3, §1.2, p. 7",
+      "status": "missing",
+      "note": "Proved in the companion article [LTXZZ], 'Deformation of rigid conjugate self-dual Galois representations', not in this one; it is what makes the two sides of the level-raising isomorphism have the same cardinality. Assumption (L6) of Definition 8.1.1 exists only for its sake."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/appendix-inputs",
+      "kind": "theorem",
+      "name": "The appendices",
+      "statement": "The five appendices supply: the local and global inputs used in §5 (Appendices A–C); Proposition D.1.3 and Corollary D.1.4, generalizing Caraiani–Scholze, which give the vanishing of Hecke-localized cohomology of unitary Shimura varieties off middle degree when F^+ ≠ Q; and §D.2, the automorphic comparison of ranks used for the level-raising isomorphism.",
+      "locator": "arXiv:1912.11942v3, Appendices A–D, pp. 140–179",
+      "status": "missing",
+      "note": "Recorded as one item: the appendices were not read statement by statement. The original Appendix E was separated into an independent article (arXiv:2108.06998) in v3."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Y. Liu, Y. Tian, L. Xiao, W. Zhang and X. Zhu, Deformation of rigid conjugate self-dual Galois representations, Acta Math. Sin. (Engl. Ser.) 40 (2024), 1599–1644",
+      "link": "https://doi.org/10.1007/s10114-024-1409-x",
+      "why": "The companion article: the R=T theorem that makes the two sides of the level-raising isomorphism have the same cardinality, and the only place assumption (L6) is used. It is arXiv:2108.06998, which was the original Appendix E of this paper and was separated out in v3 at a referee's suggestion, so it is not part of the article extracted here."
+    },
+    {
+      "citation": "S. Bloch and K. Kato, L-functions and Tamagawa numbers of motives, in The Grothendieck Festschrift I, Progr. Math. 86 (1990), 333–400",
+      "link": "https://doi.org/10.1007/978-0-8176-4574-8_9",
+      "why": "The Selmer group and the conjecture the paper proves cases of."
+    },
+    {
+      "citation": "V. A. Kolyvagin, Euler systems, in The Grothendieck Festschrift II, Progr. Math. 87 (1990), 435–483",
+      "link": "https://doi.org/10.1007/978-0-8176-4575-5_11",
+      "why": "The original method of bounding Selmer groups by systems of cohomology classes; the paper's system is not of this kind but follows the same strategy."
+    },
+    {
+      "citation": "M. Bertolini and H. Darmon, Iwasawa's main conjecture for elliptic curves over anticyclotomic Z_p-extensions, Ann. of Math. 162 (2005), 1–64",
+      "link": "https://doi.org/10.4007/annals.2005.162.1",
+      "why": "The level-raising (bipartite Euler) system that this construction generalizes."
+    },
+    {
+      "citation": "Y. Liu, Hirzebruch–Zagier cycles and twisted triple product Selmer groups, Invent. Math. 205 (2016), 693–780",
+      "link": "https://doi.org/10.1007/s00222-016-0645-9",
+      "why": "The first case beyond Heegner points where a level-raising system bounded a Selmer group; Definition 2.3.2 is taken from it."
+    },
+    {
+      "citation": "Y. Liu, Bounding cubic-triple product Selmer groups of elliptic curves, J. Eur. Math. Soc. 21 (2019), 1411–1508",
+      "link": "https://doi.org/10.4171/jems/865",
+      "why": "A sequel in the same programme, cited in the road map."
+    },
+    {
+      "citation": "Y. Liu and Y. Tian, Supersingular locus of Hilbert modular varieties, arithmetic level raising and Selmer groups, Algebra Number Theory 14 (2020), 2059–2119",
+      "link": "https://doi.org/10.2140/ant.2020.14.2059",
+      "why": "The other sequel cited in the road map, and the model for the geometric study of the special fibre."
+    },
+    {
+      "citation": "A. Caraiani, Local-global compatibility and the action of monodromy on nearby cycles, Duke Math. J. 161 (2012), 2311–2413",
+      "link": "https://doi.org/10.1215/00127094-1723706",
+      "why": "Temperedness and local-global compatibility for the Galois representations of Proposition 3.2.4."
+    },
+    {
+      "citation": "G. Chenevier and M. Harris, Construction of automorphic Galois representations, II, Camb. J. Math. 1 (2013), 53–73",
+      "link": "https://doi.org/10.4310/cjm.2013.v1.n1.a2",
+      "why": "The construction of ρ_{Π,ι_ℓ} in Proposition 3.2.4, and the existence of a strong coefficient field (Remark 3.2.6)."
+    },
+    {
+      "citation": "A. Caraiani and P. Scholze, On the generic part of the cohomology of compact unitary Shimura varieties, Ann. of Math. 186 (2017), 649–766",
+      "link": "https://doi.org/10.4007/annals.2017.186.3.1",
+      "why": "The vanishing of Hecke-localized cohomology off middle degree, which Proposition D.1.3 generalizes; its unavailability for F^+ = Q is one of the two reasons the main theorems exclude that case."
+    },
+    {
+      "citation": "W. T. Gan, B. H. Gross and D. Prasad, Symplectic local root numbers, central critical L values, and restriction problems in the representation theory of classical groups, Astérisque 346 (2012), 1–109",
+      "link": "https://mathscinet.ams.org/mathscinet-getitem?mr=3202556",
+      "why": "The Gan–Gross–Prasad conjecture, whose framework the paper works in and whose arithmetic form is Conjecture 8.3.1. No DOI was found for the Astérisque volume."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "PELModuli",
+      "roadmap": "UnitaryRapoportZinkSpacesAndRSZModels",
+      "title": "Siegel and PEL moduli problems, Part II: unitary Rapoport–Zink spaces, RSZ integral models and p-adic uniformization",
+      "area": "arithmeticgeometry",
+      "brief": "This route coalesces with UnitaryRapoportZinkSpacesAndRSZModels, proposed by PAPER-LI-ZHANG-22-B and extended by PAPER-LI-LIU-21, PAPER-LI-LIU-22 and PAPER-HE-LI-SHI-ETAL-23; keep its id, title, parent, area and brief. Liu–Tian–Xiao–Zhang–Zhu add the integral models this paper builds and the geometry of their special fibres, which three of those extractions already cite as [LTXZZ] and mark missing: the unitary O_F-abelian schemes of §3.4 and the CM moduli scheme of §3.5; the generalized CM type and reflexive closure of §3.3 and the notion of a special and very special inert prime (Definition 3.3.4), a prime of F^+ that is inert in F, of degree one over Q, with odd underlying rational prime unramified in F; the smooth unitary moduli schemes of §4 with self-dual level at such a prime, their representability and smoothness, the basic correspondences on them, and the localization map of Construction 4.6.1; and the moduli schemes with Iwahori-type level of §5, their strictly semistable special fibres, the Deligne–Lusztig strata that appear there, and the Tate cycles on those strata with the intersection theory that computes them — which the authors call the technical heart of the article and which occupies ninety numbered statements and four appendices. Extract §§4–5 statement by statement: they are the part of this paper that other extractions already owe. Import from: Siegel and PEL moduli problems (PELModuli) M4 and M5 for the unitary PEL example and the normal integral model; Igusa varieties, compactified period fibers and torsion concentration (IgusaVarietiesAndTorsionConcentration) IG.4 and IG.7 for nearby cycles and the Caraiani–Scholze concentration theorem, which Appendix D generalizes; and Shimura data and compactifications for the generic fibre.",
+      "items": [
+        "PAPER-LIU-ETAL-22/unitary-abelian-schemes",
+        "PAPER-LIU-ETAL-22/unitary-shimura-sets",
+        "PAPER-LIU-ETAL-22/special-inert-prime",
+        "PAPER-LIU-ETAL-22/standard-pair",
+        "PAPER-LIU-ETAL-22/moduli-smooth",
+        "PAPER-LIU-ETAL-22/moduli-special",
+        "PAPER-LIU-ETAL-22/appendix-inputs"
+      ],
+      "reason": "Three completed extractions — PAPER-LI-LIU-21, PAPER-LI-LIU-22 and PAPER-DISEGNI-LIU-24 — already cite this paper's §§3–5 as [LTXZZ] for unitary O_F-abelian schemes, RSZ models, and the strictly semistable model at an almost self-dual inert place with its special fibre Y° ∪ Y•, and mark those items missing and routed to this proposed Part II. The geometry is therefore already owed to the atlas by its neighbours; this extraction supplies it from the source."
+    },
+    {
+      "route": "new",
+      "roadmap": "GanGrossPrasadConjecturesForClassicalGroups",
+      "title": "The Gan–Gross–Prasad conjectures for classical groups: relevant pairs, Vogan packets, Bessel models and periods",
+      "area": "automorphic",
+      "brief": "This route coalesces with GanGrossPrasadConjecturesForClassicalGroups, proposed by PAPER-JIANG-ZHANG-20 and extended by PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21, PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22, PAPER-BEUZARTPLESSIS-CHAUDOUARD-25 and PAPER-LESLIE-25; keep its id, title, area and brief. Liu–Tian–Xiao–Zhang–Zhu add the arithmetic side of the conjecture for U(n) × U(n+1) over a CM field: Lemma 8.2.1, which turns the nonvanishing of the central Rankin–Selberg value L(1/2, Π_0 × Π_1) into the nonvanishing of a period Σ_s f(s, sh_↑(s)) over the Shimura set of a standard definite hermitian space — the automorphic input to the whole argument, and the point where the global Gan–Gross–Prasad conjecture for definite unitary groups is used; the diagonal cycle Δ_{Sh(V_n, K_n)} on Sh(V_{n_0}, K_{n_0}) ×_F Sh(V_{n_1}, K_{n_1}), its ℓ-adic Abel–Jacobi image AJ^{Π_0,Π_1}_λ and the class Δ_λ in the Bloch–Kato Selmer group of ρ_{Π_0,λ} ⊗ ρ_{Π_1,λ}(n); and Conjecture 8.3.1, the weak arithmetic Gan–Gross–Prasad conjecture asserting that the cycle is nonzero when L(1/2, Π_0 × Π_1) = 0 and L′(1/2, Π_0 × Π_1) ≠ 0. Keep the conjecture a conjecture: this paper proves neither it nor Beilinson's injectivity conjecture, and Theorem 8.3.2 is conditional on the nonvanishing of the cycle, not on the derivative.",
+      "items": [
+        "PAPER-LIU-ETAL-22/lemma-8-2-1",
+        "PAPER-LIU-ETAL-22/conjecture-8-3-1",
+        "PAPER-LIU-ETAL-22/diagonal-cycle"
+      ],
+      "reason": "The automorphic input (Lemma 8.2.1, which converts the nonvanishing of the central Rankin–Selberg value into a nonvanishing period over a Shimura set) and the arithmetic side (the diagonal cycle and Conjecture 8.3.1) belong to the Gan–Gross–Prasad roadmap that four extractions already propose and that the atlas does not yet contain — 'Gan–Gross–Prasad' has no stage, and GrossZagierAndArithmeticHeights explicitly excludes a general higher-dimensional arithmetic GGP theorem from its scope."
+    },
+    {
+      "route": "new",
+      "roadmap": "ArithmeticLevelRaisingAndBipartiteEulerSystems",
+      "title": "Arithmetic level raising, explicit reciprocity laws and bipartite Euler systems for unitary groups",
+      "area": "iwasawa",
+      "brief": "A new roadmap for the method of Liu–Tian–Xiao–Zhang–Zhu, 'On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives' (Invent. Math. 228 (2022), 107–375; arXiv:1912.11942): bounding Bloch–Kato Selmer groups of Rankin–Selberg motives by a level-raising system of torsion Galois cohomology classes on unitary Shimura varieties. Final theorems, as the paper states them. Let F/F^+ be a CM extension, n ≥ 2, and n_0, n_1 the even and odd members of {n, n+1}; let Π_0, Π_1 be relevant representations of GL_{n_0}(A_F) and GL_{n_1}(A_F) with strong coefficient field E, and suppose F^+ ≠ Q. Theorem 8.2.2: if L(1/2, Π_0 × Π_1) ≠ 0 then H^1_f(F, ρ_{Π_0,λ} ⊗ ρ_{Π_1,λ}(n)) = 0 for every admissible prime λ. Theorem 8.3.2: if the Abel–Jacobi class Δ_λ of the diagonal cycle is nonzero, that Selmer group has dimension one. Corollaries 8.2.3 and 8.2.5 specialize these to symmetric powers of non-isogenous modular elliptic curves, and to a family in which all but finitely many λ are admissible. Cover, in this order: (1) the seven conditions (L1)–(L7) of Definition 8.1.1 defining an admissible prime, and Lemma 8.1.4, which shows that under the hypotheses of Corollary 8.2.5 all but finitely many primes are admissible; (2) the Selmer machinery of §2 specific to this argument: the reduction of Selmer groups (Proposition 2.4.6), γ-associated places and the localization propositions 2.6.6 and 2.6.7 that convert annihilating classes into a bound, and the Galois-theoretic input for a tensor product of two representations (Proposition 2.7.2, §2.7); (3) level-raising primes — ℓ ∤ p(p²−1) and the mod λ Satake parameter of Π_{0,p} containing {p, p^{-1}} exactly once and not {−1, −1} — and the level-raising isomorphism between the singular part of the local Galois cohomology of the cohomology of the special fibre and functions on a Shimura set (Theorems 6.2.3 and 6.3.5, Proposition 6.4.1), together with the mixed, unramified and ramified Galois deformation rings that make the two sides have the same cardinality; (4) the first explicit reciprocity law (Theorem 7.2.8), which computes the singular localization of the constructed classes as a period over a Shimura set, and the second (Theorem 7.3.4), which bounds the exponent of the localization of the diagonal cycle; (5) the resulting system of torsion Galois cohomology classes — a level-raising, or bipartite Euler, system in the sense of Bertolini–Darmon rather than an Euler or Kolyvagin system — and the final argument of §8.2 that bounds the Selmer group with it. Nothing in the atlas plans any of this: 'arithmetic level raising', 'bipartite Euler system' and 'Beilinson–Bloch' have no stage, and the existing explicit reciprocity laws (KatoEulerSystems L3, RankZeroOneBSD BSD.6, GeneralizedHeegnerCycles GH.4) are the Kato/Coleman-map kind, not this one. Design the roadmap so that the earlier papers in the same programme — Liu's twisted triple products, Liu–Tian's Hilbert modular case — can be added as instances of the same mechanism. Import from: Selmer groups, continuous integral cohomology, and Iwasawa cohomology (SelmerIwasawaCohomology) L2 and L4, for local conditions and the Bloch–Kato Selmer group; Global Galois duality and compact coefficients (ArithmeticGaloisDuality) R02.4–R02.5, for Poitou–Tate and the comparison of local conditions; Automorphic Galois Representations Part II (AutomorphicGaloisRepresentationsPartII) AG2.0, AG2.5 and AG2.7, for the Galois representations of conjugate self-dual cuspidal Π, local-global compatibility and polarizable lattices; Global Galois deformations (GlobalGaloisDeformations) G7 and G8, for the polarized deformation functor over a CM field; the geometry of the special fibres from the Part II of PELModuli proposed as UnitaryRapoportZinkSpacesAndRSZModels; and the automorphic input from GanGrossPrasadConjecturesForClassicalGroups.",
+      "items": [
+        "PAPER-LIU-ETAL-22/theorem-1-1-5",
+        "PAPER-LIU-ETAL-22/theorem-1-1-1",
+        "PAPER-LIU-ETAL-22/theorem-1-1-7",
+        "PAPER-LIU-ETAL-22/theorem-1-1-9",
+        "PAPER-LIU-ETAL-22/main-obstacles",
+        "PAPER-LIU-ETAL-22/selmer-reduction",
+        "PAPER-LIU-ETAL-22/localization-selmer",
+        "PAPER-LIU-ETAL-22/rankin-selberg-selmer",
+        "PAPER-LIU-ETAL-22/level-raising-prime",
+        "PAPER-LIU-ETAL-22/level-raising-isomorphism",
+        "PAPER-LIU-ETAL-22/theorem-6-2-3",
+        "PAPER-LIU-ETAL-22/theorem-6-3-5",
+        "PAPER-LIU-ETAL-22/proposition-6-4-1",
+        "PAPER-LIU-ETAL-22/assumption-7-1-1",
+        "PAPER-LIU-ETAL-22/assumptions-7-2",
+        "PAPER-LIU-ETAL-22/first-reciprocity-law",
+        "PAPER-LIU-ETAL-22/second-reciprocity-law",
+        "PAPER-LIU-ETAL-22/torsion-class-system",
+        "PAPER-LIU-ETAL-22/admissible-prime",
+        "PAPER-LIU-ETAL-22/bound-by-annihilators",
+        "PAPER-LIU-ETAL-22/relevant-representation"
+      ],
+      "reason": "The method itself has no home. The atlas has no stage for arithmetic level raising, for the first and second explicit reciprocity laws of Bertolini–Darmon type, or for bipartite Euler systems; its explicit reciprocity laws (KatoEulerSystems L3, RankZeroOneBSD BSD.6, GeneralizedHeegnerCycles GH.4) are the Kato/Coleman-map kind, and its Euler-system roadmaps are built on ray-class extensions and norm relations, a different mechanism. 'Beilinson–Bloch' has no stage either. A Part II of SelmerIwasawaCohomology would take only the Selmer half and leave the level-raising machinery unplaced, so this is a new roadmap that imports the Selmer, duality, Galois-representation and deformation stages and the two routes above."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PotentialAutomorphyInfrastructure",
+      "roadmap": "PolarizedAutomorphyLifting",
+      "title": "Reusable infrastructure for potential automorphy over CM fields, Part II: polarized automorphy lifting and finiteness of deformation rings",
+      "area": "automorphic",
+      "brief": "This route coalesces with PolarizedAutomorphyLifting, proposed by PAPER-BOXER-CALEGARI-GEE-25 and extended by PAPER-NEWTON-THORNE-21 and PAPER-NEWTON-THORNE-21-B; keep its id, title, parent, area and brief. Liu–Tian–Xiao–Zhang–Zhu add one consumer contract: the R=T theorem for polarized Galois representations over a CM field with coefficients, in the form proved in their companion article (arXiv:2108.06998, the former Appendix E of this paper, published as Acta Math. Sin. 40 (2024), 1599–1644), namely that the modules H^unr and H^ram are finite free over the unramified and ramified quotients of the mixed deformation ring, of the same rank. That statement, and assumption (L6) of Definition 8.1.1 which exists only for its sake, are the only part of this paper's argument that is not proved in this paper. A separate extraction of the companion article would own its proof; what is recorded here is the interface.",
+      "items": [
+        "PAPER-LIU-ETAL-22/companion-rt"
+      ],
+      "reason": "The R=T theorem that makes the two sides of the level-raising isomorphism have the same cardinality is proved in the companion article, not here. No stage states an R=T theorem for unitary groups — the ten in the atlas are GL_2, ordinary, Hilbert or abstract patching algebra — and four extractions already propose this Part II for polarized automorphy lifting over CM fields, which is where it belongs."
+    }
+  ],
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-d67081",
+    "issue": 1280,
+    "date": "2026-09-23",
+    "status": "partial",
+    "reading": "arXiv v3 §1 in full, the statements listed in readSections, and the section structure of the rest. Proofs were not read; §§4–5 and the appendices were surveyed only at section level.",
+    "changes": "First extraction.",
+    "lean": "none"
+  }
+}
