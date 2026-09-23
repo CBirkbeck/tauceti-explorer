@@ -2990,7 +2990,8 @@
    ],
    "avoidAccountOf": "PAPER-SCHIFFMANN-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHIFFMANN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1183"
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
@@ -4461,8 +4462,9 @@
    ],
    "avoidAccountOf": "PAPER-FENG-GALATIUS-VENKATESH-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-FENG-GALATIUS-VENKATESH-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1267"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1267",
+   "finishedAt": "2026-09-23T22:09:10Z"
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
