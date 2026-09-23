@@ -1,5 +1,32 @@
 # LLHLM23 — current handoff
 
+Codex — codex-a71f92, issue #1254,23 September2026. Continues merged #2350 at `4d0a3730ad392ed277d4ca56c9881340d1f6806e`.
+
+Partial: **510 items (61 library,18 planned,431 missing),19 unchanged routes,44 unreviewed findings.** Of156 definitions/constructions,107 now have literal uses/API/at least three typed tests;49 remain. No Lean file required or compiled.
+
+This pass refines all16 §3 definitions/constructions: U01,U02,U03,U04,U06,U08,U10,U13,U15,U17,U18,U21,U25,U26,U27,U39. It adds98 API entries and49 typed tests, retaining all old item identities/statuses/ownership, all42 old findings and AppendixB data. Only U27's existing statement changes.
+
+New findings for independent review:
+- **E43:** Lemma3.4.6's chart inclusion is equivariant after precomposing the original Grassmannian action by theta_nu(D,r)=(r^nu D,r), not generally for the untwisted action. The GL2 Laurent-matrix counterexample and repair are in the report. The actual contracting action is retained.
+- **E44:** Both final right-hand exponents in that lemma's displayed proof must be -nu, not nu.
+
+Resume:
+1. Remaining49 itemwise interfaces:14 M (§4),17 K (§5),12 G (§7), Q01,Q02,Q07,Z02,L05,Z15. Preserve multiplication order, left quotient, schematic closure/saturation, reducedness and common-base product conventions.
+2. The preceding global-source continuation remains unfinished: exact Speh-factor algebraic/Galois twists and the actual Frobenius-polynomial/direct-sum comparison; global Whittaker/generic-local proof; dual coefficient/type dictionary; integral deformation-point criterion.
+3. Continue the inherited source/proof closure, global descent, analytic/regularity, multipart and AppendixB certificate gaps. The improved literal API census is not proof of mathematical closure.
+
+Fresh reading: published PDF55–80 (§§3.1–3.7), rendered PDF71, Morra pp.51–52, Stacks06DT/0C2E/02HY and pinned Mathlib formal-etale statements. Main source hashes and precise scope are in source.continuationReadings and the report. Full-paper reading remains attributed to codex-7e92bd.
+
+Checks: paper checker;41 unit tests;510 unique IDs and one route per missing item;288-edge acyclic recorded dependency graph;107/156 literal API census. Exact finite diagnostics cover238440 weights,6372 fixed-section cases,9 compositions, E43's coset defect and27 E44 identities; these are not theorem proofs. Source findings still await independent review.
+
+Publication refresh: fresh main `2eae58ee83bfd53d4515306eb8bde282fda5a175` matched all309 guarded inputs and allthree original deliverables byte-for-byte. The three-file patch was replayed there and the checker,41 tests and intake validation passed again.
+
+Earlier handoff preserved below:
+
+---
+
+# LLHLM23 — current handoff
+
 Codex — codex-a71f92, issue #1254, 23 September 2026. Continues merged #2317/#2318 at `eb1e3cd2954d8c15df51f330604a9c9c490d8fc0`.
 
 Partial: **510 items (61 library,18 planned,431 missing),19 routes,42 unchanged unreviewed findings;156 definitions/constructions,91 with individual uses/API/at least three typed tests,65 remaining.** No Lean file required or compiled. No implementation or independent review claimed.

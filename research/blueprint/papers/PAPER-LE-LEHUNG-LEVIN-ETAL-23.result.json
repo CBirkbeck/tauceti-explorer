@@ -292,6 +292,40 @@
             "readSections": "Version history and author's withdrawal notice dated2012-12-07; bibliographic warning only, not evidence that LLHLM's conclusion is false."
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-23",
+        "main": "Fresh complete reading of published LLHLM23 PDF55-80 (§§3.1-3.7), with rendered PDF71 inspected. Bounded continuation, not a new full-main-paper read; inherited full-paper reading stays attributed to codex-7e92bd.",
+        "sources": [
+          {
+            "title": "Published LLHLM23 author-hosted PDF",
+            "url": "https://math.rice.edu/~bl70/LocModels.pdf",
+            "sha256": "e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd",
+            "retrieved": "2026-09-23",
+            "readSections": "PDF55-80 and rendered PDF71; local source rehashed."
+          },
+          {
+            "title": "Morra author preprint",
+            "url": "https://www.math.univ-paris13.fr/~morra/MLM.pdf",
+            "sha256": "8cb1a1dd2eb23404ee9a99b5f0c2632cd1b6f1b879069a6080ff652f8f4f4d6d",
+            "retrieved": "2026-09-23",
+            "readSections": "PDF51-52, parallel action/equivariance/calculation passages only. No assertion of complete identity with published version."
+          },
+          {
+            "title": "Stacks, local irreducibility and completion branches",
+            "url": "https://stacks.math.columbia.edu/tag/06DT",
+            "retrieved": "2026-09-23",
+            "readSections": "Definition15.108.1 and branch-count discussion; also https://stacks.math.columbia.edu/tag/0C2E statement/proof."
+          },
+          {
+            "title": "Stacks, Artinian smoothness criterion",
+            "url": "https://stacks.math.columbia.edu/tag/02HY",
+            "retrieved": "2026-09-23",
+            "readSections": "Statement and proof; this is a smoothness criterion, combined with uniqueness/unramifiedness for the etale upgrade."
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -310,7 +344,7 @@
       ]
     }
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Global-descent continuation by codex-7e92bd adds26 items A34–A58 and L61: pairing/sign, integral trace descent, common-residue gluing, positive automorphic sign and the p-adic monodromy bound. A06 and A26 now import the carrier and image condition from ArithmeticGaloisRepresentations; three source routes reuse existing supplier owners. N57 transitivity and power-rank facts are promoted as A57/A58; L61 imports the pinned partition order. Five definition/construction APIs have itemwise consumers and typed tests. E39 records an adjacent CHT scalar-inverse misprint; E40 repairs the unjustified Galois-closure step in the adjacent sign paper. The extraction remains partial. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial. A second cc-442dc5 pass adds itemwise interfaces for the §6 patching and §9 global definitions (P01–P08, V01–V06, V08, V10). A third cc-442dc5 pass adds itemwise interfaces for the §8 Breuil–Mézard definitions and records E41 (Lemma 8.4.9 notation). A fourth cc-442dc5 pass adds itemwise interfaces for the Appendix A deformation and patching definitions (A05–A11, A13, A15, A16, A19, A20, A22, A23) and records E42 (the adjoint representation of G_n). Continuation codex-a71f92 adds A59-A62: a source-qualified Labesse compact-unitary branch, the discrete Speh quotient/classification and the conditional positive-summand irreducibility adapter. The White withdrawal is recorded as a source-provenance warning, not a newly proved error in LLHLM. The complete Speh-factor Galois twist realization, coefficient/type dictionary and genericity interface remain open.",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Global-descent continuation by codex-7e92bd adds26 items A34–A58 and L61: pairing/sign, integral trace descent, common-residue gluing, positive automorphic sign and the p-adic monodromy bound. A06 and A26 now import the carrier and image condition from ArithmeticGaloisRepresentations; three source routes reuse existing supplier owners. N57 transitivity and power-rank facts are promoted as A57/A58; L61 imports the pinned partition order. Five definition/construction APIs have itemwise consumers and typed tests. E39 records an adjacent CHT scalar-inverse misprint; E40 repairs the unjustified Galois-closure step in the adjacent sign paper. The extraction remains partial. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial. A second cc-442dc5 pass adds itemwise interfaces for the §6 patching and §9 global definitions (P01–P08, V01–V06, V08, V10). A third cc-442dc5 pass adds itemwise interfaces for the §8 Breuil–Mézard definitions and records E41 (Lemma 8.4.9 notation). A fourth cc-442dc5 pass adds itemwise interfaces for the Appendix A deformation and patching definitions (A05–A11, A13, A15, A16, A19, A20, A22, A23) and records E42 (the adjoint representation of G_n). Continuation codex-a71f92 adds A59-A62: a source-qualified Labesse compact-unitary branch, the discrete Speh quotient/classification and the conditional positive-summand irreducibility adapter. The White withdrawal is recorded as a source-provenance warning, not a newly proved error in LLHLM. The complete Speh-factor Galois twist realization, coefficient/type dictionary and genericity interface remain open. Section3 API continuation codex-a71f92: all16 universal-geometry definitions/constructions now have individual uses,98 API entries and49 typed tests. Literal API census107/156,49 remaining; E43/E44 add two unreviewed action/equation findings, total44. Item counts and all19 routes unchanged.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -2971,7 +3005,67 @@
       "locator": "§3.1, PDF55",
       "statement": "Over X=Spec Z[v], construct the smooth affine Bruhat–Tits group scheme G with connected fibres from cyclic n-tuples of invertible matrices satisfying D_i A_(i-1)=A_i D_i, where D_i has v in its ith diagonal position. If v maps to a regular element t in R, its R-points are the invertible matrices upper triangular modulo t. Use the tuple functor for arbitrary bases.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 §3.1, PDF55-56 (U02/U03)",
+          "how": "Evaluate the same group scheme in shifted power-series and Laurent-series rings before forming the fpqc quotient."
+        },
+        {
+          "where": "GeometricSatakeLocalModelsPartII route brief in this packet",
+          "how": "Supply the integral GLn Iwahori carrier, rather than replacing it by a matrix subgroup on bases with v-torsion."
+        }
+      ],
+      "api": [
+        {
+          "name": "UniversalIwahori.of_tuple",
+          "role": "constructor",
+          "statement": "For n>=1 and a Z[v]-algebra R with v↦t, construct a point from a cyclic n-tuple A_i∈GL_n(R) satisfying D_i A_(i-1)=A_i D_i, with D_i the specified diagonal matrix."
+        },
+        {
+          "name": "UniversalIwahori.ext",
+          "role": "extensionality",
+          "statement": "Two points are equal iff all their matrices A_i are equal; projection to A_0 alone is not asserted injective on arbitrary bases."
+        },
+        {
+          "name": "UniversalIwahori.mul_apply",
+          "role": "simp",
+          "statement": "The i-th matrix of the product is A_i B_i; identity and inverse are computed componentwise."
+        },
+        {
+          "name": "UniversalIwahori.map",
+          "role": "functoriality",
+          "statement": "Apply a Z[v]-algebra homomorphism to every matrix entry; preserve the relations, identity maps and compositions."
+        },
+        {
+          "name": "UniversalIwahori.matrix_equiv_of_regular",
+          "role": "equivalence",
+          "statement": "When t is a non-zero-divisor, projection to A_0 gives the group equivalence with invertible matrices upper triangular modulo t."
+        },
+        {
+          "name": "UniversalIwahori.unit_parameter_equiv",
+          "role": "equivalence",
+          "statement": "When t is a unit, the preceding matrix condition is vacuous and gives GL_n(R), with the other A_i recovered by the diagonal conjugations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UniversalIwahori.rank_one",
+          "kind": "compatibility",
+          "statement": "For n=1 over any R, the tuple relation is automatic and UniversalIwahori(R)≃R×."
+        },
+        {
+          "name": "UniversalIwahori.regular_lower_entry",
+          "kind": "non-example",
+          "statement": "Over R=Z[t] with v↦t and n=2, A_0=I+E_21 is not a point in the regular-parameter matrix description, since 1 is not divisible by t."
+        },
+        {
+          "name": "UniversalIwahori.unit_parameter",
+          "kind": "computation",
+          "statement": "Over Q with v↦1 and n=2, every A_0∈GL_2(Q) gives a unique point, and every matrix in its tuple equals A_0."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U02",
@@ -2980,7 +3074,67 @@
       "locator": "§3.1, PDF55–56",
       "statement": "At v->t in a Noetherian ring R, L+G(R)=G(R[[v-t]]) and LG(R)=G(R((v-t))), using the map that sends v to the formal variable v inside these rings. They are represented by a scheme and an ind-group scheme. For Noetherian R use matrices upper triangular modulo v; v is regular in these completed rings. T maps in by constant diagonal matrices, and determinant takes values in the Gm loop group.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 §3.1 and Lemma3.2.2 (U03/U05)",
+          "how": "Use the positive subgroup inside the full loop group to define left cosets and prove uniqueness of factorization."
+        },
+        {
+          "where": "LLHLM23 §§3.2,5.2",
+          "how": "Use coefficientwise maps, determinant, and the exact shifted variable in chart and Frobenius-matrix constructions."
+        }
+      ],
+      "api": [
+        {
+          "name": "UniversalLoop.positive",
+          "role": "constructor",
+          "statement": "For q=v-t, evaluate U01 on R[[q]] via v↦q+t, not via v↦t; the full loop group uses R[[q]][q⁻¹] with the same map."
+        },
+        {
+          "name": "UniversalLoop.positive_to_full",
+          "role": "coercion",
+          "statement": "Localization at q gives a natural group homomorphism L+G(R)→LG(R); in the Noetherian matrix description it is injective."
+        },
+        {
+          "name": "UniversalLoop.matrix_mem",
+          "role": "characterisation",
+          "statement": "For Noetherian R, membership means invertibility over the indicated series ring and vanishing of lower entries modulo v=q+t; the latter condition is not reduction modulo q unless t=0."
+        },
+        {
+          "name": "UniversalLoop.map",
+          "role": "functoriality",
+          "statement": "A Z[v]-algebra map R→S induces coefficientwise maps, with the formal q variable sent to the target shifted variable, commuting with the positive-to-full map and with identity/composition."
+        },
+        {
+          "name": "UniversalLoop.constant_diagonal",
+          "role": "constructor",
+          "statement": "Map T(R) to L+G(R) by the constant diagonal matrix, compatibly with multiplication and coefficient maps."
+        },
+        {
+          "name": "UniversalLoop.det_mul",
+          "role": "relation",
+          "statement": "Determinant is a natural group homomorphism LG→LG_m; on constant diagonal matrices it is the product of diagonal entries."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UniversalLoop.special_full",
+          "kind": "compatibility",
+          "statement": "For R=k a field, t=0, LG(k)=GL_n(k((v))) because v is invertible in the Laurent ring; L+G(k) is the standard upper-Iwahori subgroup."
+        },
+        {
+          "name": "UniversalLoop.special_positive",
+          "kind": "computation",
+          "statement": "For n=2,t=0, I+vE_21 belongs to L+G(k), whereas I+E_21 belongs to LG(k) but not L+G(k)."
+        },
+        {
+          "name": "UniversalLoop.unit_parameter_positive",
+          "kind": "compatibility",
+          "statement": "For t∈R×, q+t is a unit in R[[q]], so L+G(R)=GL_n(R[[q]]) in the Noetherian setting."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U03",
@@ -2989,7 +3143,67 @@
       "locator": "§3.1, PDF56",
       "statement": "The fpqc quotient L+G\\LG is represented by an ind-projective X-ind-scheme Gr. Its fibre off v=0 is the GLn affine Grassmannian and at0 the standard Iwahori affine flag variety. LGdet=d requires det(A)=(v-t)^d times a power-series unit. L+M consists of matrices over R[[v-t]] upper triangular modulo v. Bound A by (v-t)^-h L+M, h>=0; its determinant-d quotient is projective over X and exhausts the determinant-d piece as h grows. Quotients of R-points inject into sheaf-quotient points, not necessarily surject.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Proposition3.2.8/Corollary3.2.10 (U12/U14)",
+          "how": "Bound the determinant component to obtain projective targets for finite-type open charts."
+        },
+        {
+          "where": "LLHLM23 §3.3 (U15/U17/U18)",
+          "how": "Provide the fpqc quotient in which differential and Schubert loci intersect."
+        }
+      ],
+      "api": [
+        {
+          "name": "UniversalGrassmannian.quotient",
+          "role": "constructor",
+          "statement": "Construct the fpqc sheaf quotient of LG by LEFT L+G translation, with quotient map q; descend any invariant morphism to an fpqc sheaf uniquely."
+        },
+        {
+          "name": "UniversalGrassmannian.coset_injective",
+          "role": "characterisation",
+          "statement": "The natural map L+G(R)\\LG(R)→Gr(R) is injective; no surjectivity for arbitrary R is part of this API."
+        },
+        {
+          "name": "UniversalGrassmannian.det_height_mem",
+          "role": "characterisation",
+          "statement": "An LG representative A is in the (d,h) piece iff det A=q^d u with u∈R[[q]]× and q^h A∈L+M(R), where h>=0."
+        },
+        {
+          "name": "UniversalGrassmannian.bounded_inclusion",
+          "role": "functoriality",
+          "statement": "For h<=h', multiplication by q^(h'-h) on the height condition gives compatible inclusions Gr^(d,<=h)→Gr^(d,<=h'); identity and composition hold."
+        },
+        {
+          "name": "UniversalGrassmannian.bounded_quotient",
+          "role": "universal-property",
+          "statement": "The bounded piece is the fpqc quotient of its left-stable LG locus; it is projective over X and its filtered union is Gr^det=d."
+        },
+        {
+          "name": "UniversalGrassmannian.fiber_comparison",
+          "role": "equivalence",
+          "statement": "The restriction to X0 is the GLn affine Grassmannian and the zero fibre is the standard affine flag variety, with the quotient maps identified."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UniversalGrassmannian.rank_one_height",
+          "kind": "computation",
+          "statement": "For n=1 over a field with t=0, Gr^(d,<=h) has its unique point [v^d] if d+h>=0 and is empty otherwise."
+        },
+        {
+          "name": "UniversalGrassmannian.left_translate",
+          "kind": "characterisation",
+          "statement": "For h∈L+G(R), the representatives A and hA have exactly the same image in Gr(R) and the same determinant/height membership."
+        },
+        {
+          "name": "UniversalGrassmannian.determinant_component",
+          "kind": "non-example",
+          "statement": "Over a field with t=0, diag(v,1,...,1) is in determinant component 1, not component 0; multiplying by a positive loop cannot change that integer."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U04",
@@ -2998,7 +3212,67 @@
       "locator": "Definition3.2.1, PDF56–57",
       "statement": "L--G consists of invertible matrices polynomial in(v-t)^-1, lower unipotent at(v-t)^-1=0 and upper triangular modulo v/(v-t). The positive, full and negative loop groups are formally smooth over X in the source's Noetherian test-ring setting.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Lemmas3.2.2-3.2.3 (U05/U07)",
+          "how": "Give the negative factor and its square-zero Lie module in the direct splitting."
+        },
+        {
+          "where": "LLHLM23 Lemma3.2.7 (U11)",
+          "how": "Act on affine-element charts by left multiplication."
+        }
+      ],
+      "api": [
+        {
+          "name": "NegativeUniversalLoop.of_matrix",
+          "role": "constructor",
+          "statement": "For Noetherian R and q=v-t, construct a negative loop from an invertible matrix over R[q⁻¹] whose value at q⁻¹=0 is lower unipotent and whose lower entries vanish modulo v/q=1+t/q."
+        },
+        {
+          "name": "NegativeUniversalLoop.ext",
+          "role": "extensionality",
+          "statement": "Two negative loops are equal iff their Laurent matrices, equivalently every polynomial coefficient, are equal."
+        },
+        {
+          "name": "NegativeUniversalLoop.group",
+          "role": "structure",
+          "statement": "Identity, multiplication and inverse preserve both conditions; the inclusion into LG is a group homomorphism."
+        },
+        {
+          "name": "NegativeUniversalLoop.map",
+          "role": "functoriality",
+          "statement": "Coefficient maps preserve the two conditions and commute with the inclusion into LG, identity and composition."
+        },
+        {
+          "name": "NegativeUniversalLoop.positive_intersection",
+          "role": "relation",
+          "statement": "Use U05: an element simultaneously in L+G and L--G is the identity; this is a uniqueness assertion, not global factorization of LG."
+        },
+        {
+          "name": "NegativeUniversalLoop.chart_action",
+          "role": "compatibility",
+          "statement": "Use U11 for the left L--G-action on U(z); trivialize only after choosing an actual chart point over the base in question."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NegativeUniversalLoop.special_lower_constant",
+          "kind": "computation",
+          "statement": "For n=2,t=0 over a field, I+cE_21 is a negative loop for every c, because v/q=1 and the value at q⁻¹=0 is lower unipotent."
+        },
+        {
+          "name": "NegativeUniversalLoop.upper_constant",
+          "kind": "non-example",
+          "statement": "For n=2 over Q, I+E_12 is not a negative loop: its constant value is not lower triangular."
+        },
+        {
+          "name": "NegativeUniversalLoop.nonzero_parameter_lower",
+          "kind": "computation",
+          "statement": "For n=2,R=Q,t=1, I+(1+q⁻¹)E_21 is a negative loop, but I+E_21 is not, since the required lower-entry divisor is 1+q⁻¹."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U05",
@@ -3016,7 +3290,67 @@
       "locator": "§3.2 before Lemma3.2.3, PDF57–58",
       "statement": "For R->S with square-zero kernel J, define Lie LG(J), Lie L+G(J), Lie L--G(J) by the corresponding matrix-entry and triangular conditions with coefficients J. M->1+M identifies these with the respective congruence kernels; conjugation factors through the S-valued group.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Lemmas3.2.3 and3.2.6 (U07/U09)",
+          "how": "Split and correct infinitesimal errors in positive-negative factorization."
+        },
+        {
+          "where": "LLHLM23 §§4.2,4.3,5.2",
+          "how": "Supply tangent vectors with the correct lower-entry divisibility and the adjoint action."
+        }
+      ],
+      "api": [
+        {
+          "name": "LoopSquareZeroLie.of_matrix",
+          "role": "constructor",
+          "statement": "For a Noetherian square-zero extension R→S with kernel J, construct each full/positive/negative Lie module from J-valued entries with exactly the corresponding support and triangular conditions."
+        },
+        {
+          "name": "LoopSquareZeroLie.congruence_equiv",
+          "role": "equivalence",
+          "statement": "M↦I+M gives an additive-group equivalence with the kernel of the corresponding R-points→S-points map; its inverse is g↦g-I."
+        },
+        {
+          "name": "LoopSquareZeroLie.mul_eq_add",
+          "role": "simp",
+          "statement": "For M,N with entries in J, (I+M)(I+N)=I+(M+N) and (I+M)⁻¹=I-M because J²=0."
+        },
+        {
+          "name": "LoopSquareZeroLie.adjoint_descends",
+          "role": "structure",
+          "statement": "Conjugation of the kernel by an R-valued group element depends only on its image over S; use the S-module structure J=J/J²."
+        },
+        {
+          "name": "LoopSquareZeroLie.split",
+          "role": "projection",
+          "statement": "Use U07 to obtain unique negative and positive projections; their sum is the identity and both cross-composites vanish."
+        },
+        {
+          "name": "LoopSquareZeroLie.map_extension",
+          "role": "functoriality",
+          "statement": "A commuting morphism of square-zero extensions maps Lie entries and congruence kernels compatibly; maps preserve identity, composition and the two projections."
+        }
+      ],
+      "tests": [
+        {
+          "name": "LoopSquareZeroLie.upper_split",
+          "kind": "computation",
+          "statement": "For R=k[ε]/ε²,t=0,J=(ε), the Lie vector ε(v⁻¹+v)E_12 splits as negative εv⁻¹E_12 plus positive εvE_12."
+        },
+        {
+          "name": "LoopSquareZeroLie.lower_split",
+          "kind": "computation",
+          "statement": "For the same extension, ε(1+v)E_21 splits as negative εE_21 plus positive εvE_21; the lower-entry positive cutoff is degree 1, not 0."
+        },
+        {
+          "name": "LoopSquareZeroLie.zero_kernel",
+          "kind": "degenerate",
+          "statement": "For J=0 all three Lie modules and all three congruence kernels are trivial."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U07",
@@ -3034,7 +3368,72 @@
       "locator": "Definition3.2.4 and Remark3.2.5, PDF58",
       "statement": "A morphism of functors on Noetherian rings is formally etale at x:Spec k->F in this section if every compatible Artinian local thickening Spec A->G with residue field k admits a unique lift to F. For representable locally finite-type morphisms with locally Noetherian target this implies etaleness; it is deliberately weaker than the unrestricted formal-lifting definition.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Lemma3.2.6 (U09)",
+          "how": "State the unique lifting conclusion for the non-finite-type loop factorization functors."
+        },
+        {
+          "where": "LLHLM23 Corollary3.2.10 (U14)",
+          "how": "Upgrade the lifting property for bounded finite-type charts, then combine with monomorphism for an open immersion."
+        }
+      ],
+      "api": [
+        {
+          "name": "ArtinianEtaleAt.iff_unique_lift",
+          "role": "characterisation",
+          "statement": "At x∈F(k), require for every local Artinian A with identified residue field k and every y∈G(A) reducing to f(x), a unique z∈F(A) reducing to x with f(z)=y."
+        },
+        {
+          "name": "ArtinianEtaleAt.lift",
+          "role": "constructor",
+          "statement": "For such a compatible diagram, return its unique lift, its two compatibility equalities, and uniqueness."
+        },
+        {
+          "name": "ArtinianEtaleAt.iso_invariant",
+          "role": "equivalence",
+          "statement": "Natural isomorphisms of source and target preserve the property at the transported point."
+        },
+        {
+          "name": "ArtinianEtaleAt.comp",
+          "role": "functoriality",
+          "statement": "Compose lifts for F→G→H to obtain the unique lift at x when the two factors have the property at x and f(x)."
+        },
+        {
+          "name": "ArtinianEtaleAt.base_change",
+          "role": "compatibility",
+          "statement": "Pullback of a morphism with the property at x has it at every point lying over x, with the other fibre-product coordinate fixed."
+        },
+        {
+          "name": "ArtinianEtaleAt.of_formallyEtale",
+          "role": "compatibility",
+          "statement": "For affine representable functors, unrestricted formal etaleness supplies this restricted property by iterated square-zero lifting. Reuse Algebra.FormallyEtale.comp_bijective and iff_comp_bijective at the pinned Mathlib commit, not a replacement definition of formal etaleness."
+        },
+        {
+          "name": "ArtinianEtaleAt.finite_type_upgrade",
+          "role": "relation",
+          "statement": "For representable functors with locally Noetherian target and locally finite-type morphism, the property at all field-valued points implies etaleness, as in Remark3.2.5. No upgrade for arbitrary functors or from a lone field point is asserted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ArtinianEtaleAt.identity",
+          "kind": "degenerate",
+          "statement": "The identity natural transformation on any functor has the property at every field-valued point; the unique lift is the supplied A-point."
+        },
+        {
+          "name": "ArtinianEtaleAt.affine_line_fails",
+          "kind": "non-example",
+          "statement": "For A=k[ε]/ε², the projection A1_k→Spec k at the origin has distinct lifts x↦0 and x↦ε, so it fails the unique-lift property."
+        },
+        {
+          "name": "ArtinianEtaleAt.open_lift",
+          "kind": "compatibility",
+          "statement": "The open immersion Gm_k→A1_k has the property at x=1: any A-element reducing to 1 is a unit and has a unique lift to Gm(A)."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U09",
@@ -3052,7 +3451,67 @@
       "locator": "Before Lemma3.2.7, PDF59",
       "statement": "For z=w t_nu in the dual affine group, U(z) consists of A for which A(v-t)^-nu w^-1 is polynomial in(v-t)^-1 and lower unipotent modulo(v-t)^-1, and A(v-t)^-nu is upper triangular modulo v/(v-t). It is a subfunctor of LG. Its bounded determinant part intersects LGdet=sum(nu),<=h.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Lemma3.2.7/Proposition3.2.8 (U11/U12)",
+          "how": "Turn the two matrix conditions into a negative-loop torsor and finite-type coordinate equations."
+        },
+        {
+          "where": "LLHLM23 Corollary3.2.10 and Lemma3.4.6 (U14/U27)",
+          "how": "Use bounded charts as open immersions and transport the extended-torus action."
+        }
+      ],
+      "api": [
+        {
+          "name": "AffineElementChart.of_matrix",
+          "role": "constructor",
+          "statement": "For z=w t_nu and q=v-t, construct A from A q^-nu w^-1∈GL_n(R[q⁻¹]) lower unipotent at q⁻¹=0, and A q^-nu upper triangular modulo v/q. Keep this order of w and q^-nu."
+        },
+        {
+          "name": "AffineElementChart.ext",
+          "role": "extensionality",
+          "statement": "Chart points are equal exactly when their matrices are equal; the map to LG is a monomorphism."
+        },
+        {
+          "name": "AffineElementChart.map",
+          "role": "functoriality",
+          "statement": "Coefficient maps preserve both conditions and the chart-to-LG map, with identity/composition laws."
+        },
+        {
+          "name": "AffineElementChart.bounded_coefficients",
+          "role": "equivalence",
+          "statement": "Use U12 to identify the determinant/height-bounded chart with its displayed coefficient scheme, including empty nonpivot ranges and the determinant equation."
+        },
+        {
+          "name": "AffineElementChart.negative_torsor",
+          "role": "structure",
+          "statement": "Use U11 for the left negative-loop action and uniqueness of the element carrying one chart point to another; an R-point must be supplied before identifying the torsor with L--G(R)."
+        },
+        {
+          "name": "AffineElementChart.open_map",
+          "role": "compatibility",
+          "statement": "Use U14 to identify the bounded chart as an open subfunctor of the matching bounded determinant component."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AffineElementChart.identity_height_zero",
+          "kind": "computation",
+          "statement": "For n=2,z=1,h=0, over any Noetherian Z[v]-algebra the bounded chart has the sole matrix I; both off-diagonal coefficient ranges are empty."
+        },
+        {
+          "name": "AffineElementChart.swap_height_zero",
+          "kind": "non-example",
+          "statement": "For n=2,w=(12),nu=(0,0),h=0, the bounded chart is empty over a nonzero ring: its (2,1) pivot would require exponent -1 outside the range."
+        },
+        {
+          "name": "AffineElementChart.special_swap_section",
+          "kind": "computation",
+          "statement": "For n=2,t=0,w=(12),nu=(1,0),h=0, the matrix [[0,1],[v,0]] belongs to the chart and has determinant -v."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U11",
@@ -3079,7 +3538,67 @@
       "locator": "Definition3.2.9, PDF61",
       "statement": "For a nonempty bounded chart, its v=0 fibre has a section over Z represented by w v^nu. Distinguish this section from a choice of an arbitrary matrix representative over nonzero v.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Lemma3.4.7 and Proposition3.4.4 (U28/U30)",
+          "how": "Identify the contracting fixed section and the precise point whose branch is tested."
+        },
+        {
+          "where": "LLHLM23 §3.7 (U39-U41)",
+          "how": "Form products of the special-fibre sections; require the section to meet the local model."
+        }
+      ],
+      "api": [
+        {
+          "name": "DistinguishedChartSection.of_nonempty",
+          "role": "constructor",
+          "statement": "For a nonempty bounded z=w t_nu chart, construct the zero-fibre section over Spec Z represented by w v^nu."
+        },
+        {
+          "name": "DistinguishedChartSection.matrix",
+          "role": "simp",
+          "statement": "For a Noetherian ring R with t=0 the section has (i,j) entry δ_(i,w(j)) v^nu_j and determinant det(w)v^sum(nu)."
+        },
+        {
+          "name": "DistinguishedChartSection.map",
+          "role": "functoriality",
+          "statement": "The section commutes with coefficient change along Z→R→S and with inclusions into larger height bounds."
+        },
+        {
+          "name": "DistinguishedChartSection.grassmannian_image",
+          "role": "compatibility",
+          "statement": "Its image is the affine flag point [w v^nu] under U03's zero-fibre comparison; no representative with nonzero t is chosen by this definition."
+        },
+        {
+          "name": "DistinguishedChartSection.model_membership",
+          "role": "characterisation",
+          "statement": "A distinguished point of a local model exists precisely when this ambient section factors through that closed model after the chosen parameter specialization; membership is additional data, not automatic."
+        },
+        {
+          "name": "DistinguishedChartSection.fixed",
+          "role": "relation",
+          "statement": "Use U28: the contracting action on a nonempty bounded chart has this section as its fixed subscheme."
+        }
+      ],
+      "tests": [
+        {
+          "name": "DistinguishedChartSection.identity",
+          "kind": "degenerate",
+          "statement": "For z=1,n=2,h=0 the section is I in the unique-point chart over the zero fibre."
+        },
+        {
+          "name": "DistinguishedChartSection.swap",
+          "kind": "computation",
+          "statement": "For w=(12),nu=(1,0),h=0 the section is [[0,1],[v,0]], not diag(v,1)w."
+        },
+        {
+          "name": "DistinguishedChartSection.base_change",
+          "kind": "compatibility",
+          "statement": "Reducing the integral section for w=(12),nu=(1,0) to any field gives the same two displayed monomial entries and no new choice of representative."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U14",
@@ -3097,7 +3616,67 @@
       "locator": "Equation(3.1), PDF61–62",
       "statement": "LGnabla is the subfunctor of LG times An of pairs(g,a) with v g' g^-1 + Ad(g)Diag(a) in(v-t)^-1 L+M. Its left L+G invariance makes the quotient a closed sub-ind-scheme Grnabla of Gr times An, ind-proper over X times An. A common scalar shift of all coordinates of a yields the isomorphism in Remark3.3.2 with the hyperplane a_n=0 times A1.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Lemma3.3.1 and Definition3.3.3 (U16/U18)",
+          "how": "Descend the matrix differential condition to the LEFT quotient before intersecting Schubert varieties."
+        },
+        {
+          "where": "LLHLM23 Proposition3.3.4 and AppendixB",
+          "how": "Use the exact simple-pole equation in flag coordinates and remove the common scalar parameter without changing the locus."
+        }
+      ],
+      "api": [
+        {
+          "name": "UniversalDifferentialLocus.expression",
+          "role": "data",
+          "statement": "For q=v-t, set Φ_a(g)=v(dg/dv)g⁻¹+g Diag(a)g⁻¹, differentiating with coefficients of R and t constant."
+        },
+        {
+          "name": "UniversalDifferentialLocus.mem_iff",
+          "role": "characterisation",
+          "statement": "A pair (g,a) lies in LG∇ iff q Φ_a(g) belongs to L+M(R), including its lower-entry divisibility by v."
+        },
+        {
+          "name": "UniversalDifferentialLocus.left_translate",
+          "role": "relation",
+          "statement": "Use the corrected U16 identity Φ_a(hg)=v h'h⁻¹+Ad(h)(Φ_a(g)) for h∈L+G; the integral derivative assertion is v h'∈L+M, not h'∈L+M."
+        },
+        {
+          "name": "UniversalDifferentialLocus.quotient",
+          "role": "universal-property",
+          "statement": "The invariant condition descends to the closed sub-ind-scheme Gr∇ of Gr×An; a local representative satisfying it gives a point independently of positive-loop trivialization."
+        },
+        {
+          "name": "UniversalDifferentialLocus.scalar_shift",
+          "role": "equivalence",
+          "statement": "For n>=1, (g,a)↦(g,a-a_n(1,...,1),a_n) identifies LG∇ with its a_n=0 slice times A1, with inverse adding the scalar; the same comparison descends to Gr∇."
+        },
+        {
+          "name": "UniversalDifferentialLocus.map",
+          "role": "functoriality",
+          "statement": "Coefficient change commutes with the formal derivative, Φ, the closed condition, and the quotient maps; preserve identity and composition."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UniversalDifferentialLocus.rank_one_monomial",
+          "kind": "computation",
+          "statement": "For n=1,g=q^m,m∈Z, Φ_a(g)=m v/q+a and qΦ_a(g)=m v+a q∈R[[q]], so every such pair satisfies the condition."
+        },
+        {
+          "name": "UniversalDifferentialLocus.lower_derivative",
+          "kind": "non-example",
+          "statement": "For n=2,R=Q,t=0,h=I+vE_21, h'=E_21 is not in L+M but v h'=vE_21 is; Φ_0(h)=vE_21."
+        },
+        {
+          "name": "UniversalDifferentialLocus.common_scalar",
+          "kind": "compatibility",
+          "statement": "For g=I in rank n, Φ_(a+c1)(I)-Φ_a(I)=cI and multiplication by q puts that difference in L+M; scalar shift cannot change membership."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U16",
@@ -3115,7 +3694,67 @@
       "locator": "§3.3, PDF62–63",
       "statement": "s_lambda is represented by(v-t)^lambda. SX(lambda) is the irreducible closed right-L+G-stable orbit closure; its open stratum excludes smaller dominant weights in the Weyl polytope. Off v=0, the orbit quotient L+G_lambda\\L+G identifies with this stratum and maps to P_lambda\\GLn by reduction modulo(v-t); the map is an iterated affine-space bundle. P_lambda has vanishing root entries where <lambda,alpha^vee><0.",
       "status": "missing",
-      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GeometricSatakeLocalModelsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Definition3.3.3 and Proposition3.3.4 (U18/U19)",
+          "how": "Select the lambda Schubert bound and project the generic open orbit to the correct LEFT parabolic quotient."
+        },
+        {
+          "where": "GeometricSatakeLocalModelsPartII route brief in this packet",
+          "how": "Keep the underlying Schubert/orbit geometry separate from differential equations and their closure."
+        }
+      ],
+      "api": [
+        {
+          "name": "GlobalSchubertOrbit.section",
+          "role": "constructor",
+          "statement": "Construct s_lambda by the diagonal matrix q^lambda, q=v-t; form the scheme-theoretic right-positive-orbit closure S_X(lambda)."
+        },
+        {
+          "name": "GlobalSchubertOrbit.stabilizer",
+          "role": "characterisation",
+          "statement": "The right stabilizer of s_lambda is L+G∩Ad(q^-lambda)(L+G); the orbit map is from L+G_lambda\\L+G, not the reversed quotient."
+        },
+        {
+          "name": "GlobalSchubertOrbit.open_stratum",
+          "role": "data",
+          "statement": "Remove the smaller Schubert loci indexed by integral weights in Conv(lambda) outside W lambda to obtain S_X°(lambda)."
+        },
+        {
+          "name": "GlobalSchubertOrbit.generic_orbit",
+          "role": "equivalence",
+          "statement": "Over X0 the orbit quotient is S_X0°(lambda), and S_X0(lambda) is the constant usual GLn Schubert family. Weyl-conjugate weights give the same generic Schubert variety."
+        },
+        {
+          "name": "GlobalSchubertOrbit.flag_projection",
+          "role": "projection",
+          "statement": "Over X0 send the class of g to its reduction modulo q in P_lambda\\GLn, where root entries of P_lambda vanish when <lambda,alpha∨><0; prove independence from the stabilizer representative."
+        },
+        {
+          "name": "GlobalSchubertOrbit.affine_bundle",
+          "role": "structure",
+          "statement": "The flag projection is an iterated affine-space bundle, with affine root coordinates as in the proof of U19. Do not call it an isomorphism until the differential equations of U19 are imposed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GlobalSchubertOrbit.zero_weight",
+          "kind": "degenerate",
+          "statement": "For lambda=0, the Schubert orbit is the identity section, its stabilizer is L+G, P_lambda=GLn and the generic flag quotient is a point."
+        },
+        {
+          "name": "GlobalSchubertOrbit.GL2_minuscule",
+          "kind": "compatibility",
+          "statement": "For lambda=(1,0) in GL2 over a field on X0, P_lambda is the upper Borel, the flag quotient is P1, and the open Schubert orbit projects isomorphically to it."
+        },
+        {
+          "name": "GlobalSchubertOrbit.GL2_nonminuscule",
+          "kind": "non-example",
+          "statement": "For lambda=(2,0) in GL2 over Q on X0, the open Schubert orbit has dimension 2 whereas P_lambda\\GL2 has dimension 1; the orbit projection before imposing ∇ is not an isomorphism."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U18",
@@ -3124,7 +3763,67 @@
       "locator": "Definition3.3.3, PDF63",
       "statement": "Mnv_X(<=lambda,nabla)=Grnabla intersect(SX(lambda) times An). Its chart Unv(z,<=lambda,nabla) is the intersection with U(z) times An, equal to the sufficiently bounded-chart intersection.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Propositions3.3.4,3.3.8,3.3.9 (U19/U23/U24)",
+          "how": "Use the actual scheme-theoretic intersection for flag comparison, smoothness and a finite chart presentation in Elkik lifting."
+        },
+        {
+          "where": "LLHLM23 Definition3.3.6 (U21)",
+          "how": "Provide the ambient model in which the top generic differential component is closed."
+        }
+      ],
+      "api": [
+        {
+          "name": "NaiveUniversalModel.intersection",
+          "role": "constructor",
+          "statement": "Define Mnv_X(<=lambda,∇) as the fibre product of the closed Gr∇ locus and S_X(lambda)×An over Gr×An, with both projections."
+        },
+        {
+          "name": "NaiveUniversalModel.lift",
+          "role": "universal-property",
+          "statement": "A test-scheme morphism to the ambient factors through Mnv exactly when it factors through both closed loci; the factorization is unique."
+        },
+        {
+          "name": "NaiveUniversalModel.chart",
+          "role": "constructor",
+          "statement": "Pull back the open chart U(z)×An to Mnv; for h sufficiently large to contain the Schubert bound this agrees with the bounded-chart intersection."
+        },
+        {
+          "name": "NaiveUniversalModel.base_change",
+          "role": "functoriality",
+          "statement": "The scheme-theoretic intersection and its chart commute with base change, including non-flat coefficient specialization, as fibre products; this assertion is not made for U21's closure."
+        },
+        {
+          "name": "NaiveUniversalModel.proper",
+          "role": "structure",
+          "statement": "Mnv is proper over X×An because the differential condition is closed in the proper Schubert bound; the chart is affine of finite type with the induced equations."
+        },
+        {
+          "name": "NaiveUniversalModel.generic_flag",
+          "role": "compatibility",
+          "statement": "Use U19 only on the top open stratum over X0 after inverting h_lambda!, and U23 for smoothness of the whole generic naive model after inverting (2h_lambda)!."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NaiveUniversalModel.zero_weight",
+          "kind": "degenerate",
+          "statement": "For lambda=0 the model is X×An: its only Grassmannian coordinate is the identity and Φ_a(I)=Diag(a) satisfies the condition."
+        },
+        {
+          "name": "NaiveUniversalModel.rank_one",
+          "kind": "computation",
+          "statement": "For n=1 and lambda=(m), the Schubert bound is the section q^m; the naive model is X×A1 since m v+a q has no pole."
+        },
+        {
+          "name": "NaiveUniversalModel.intersection_not_union",
+          "kind": "characterisation",
+          "statement": "For any test scheme T, a T-point of Mnv is a Grassmannian point together with both compatible Schubert and differential factorizations, not a choice of one of them."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U19",
@@ -3151,7 +3850,67 @@
       "locator": "Definition3.3.6, PDF65",
       "statement": "MX(lambda,nabla) is the closure of the lambda open differential stratum over X0 inside the naive universal model (equivalently inside Gr times An). Imposing the differential equation before closure differs from imposing it after closure. A later flatness/base-change argument is needed to identify specializations with closures formed after specializing.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 §3.4/Remark3.4.1 (U25)",
+          "how": "Compare closure before and after parameter specialization without assuming that the operations commute."
+        },
+        {
+          "where": "LLHLM23 §§3.5,3.7 (U33/U39-U41)",
+          "how": "Supply the horizontal closure used in generic-flatness and product-specialization arguments."
+        }
+      ],
+      "api": [
+        {
+          "name": "UniversalClosureModel.closure",
+          "role": "constructor",
+          "statement": "Take the scheme-theoretic closure of Mnv_X0∩(S_X0°(lambda)×An) in Mnv_X; retain the closed immersion into the naive model."
+        },
+        {
+          "name": "UniversalClosureModel.minimal",
+          "role": "universal-property",
+          "statement": "Any closed subscheme of the ambient through which the top generic differential stratum factors contains this closure scheme-theoretically."
+        },
+        {
+          "name": "UniversalClosureModel.affine_contraction",
+          "role": "characterisation",
+          "statement": "On an affine open Spec B, if I0⊂B[1/v] defines the restricted generic stratum, the closure ideal is the inverse image of I0 under B→B[1/v]."
+        },
+        {
+          "name": "UniversalClosureModel.parameter_regular",
+          "role": "relation",
+          "statement": "Multiplication by v is injective on each affine coordinate ring of this closure, since that ring injects into its localization. This alone does not assert flatness over all the additional parameters."
+        },
+        {
+          "name": "UniversalClosureModel.generic_comparison",
+          "role": "compatibility",
+          "statement": "Restriction back to X0 recovers the top generic component in the factorial-localized setting of U19/U20; no other generic naive component is added."
+        },
+        {
+          "name": "UniversalClosureModel.specialization_map",
+          "role": "projection",
+          "statement": "After specialization at a field-valued parameter, the closure formed after specialization maps by a closed immersion to the specialized universal closure; equality requires the additional flatness/comparison input used in U31."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UniversalClosureModel.zero_weight",
+          "kind": "degenerate",
+          "statement": "For lambda=0, closing X0×An inside X×An gives X×An, so universal and naive models coincide."
+        },
+        {
+          "name": "UniversalClosureModel.saturation",
+          "kind": "computation",
+          "statement": "For B=k[v,x] and generic ideal (x)⊂B[1/v], the closure ideal is (x); using (v x) instead introduces an unwanted vertical component."
+        },
+        {
+          "name": "UniversalClosureModel.closure_specialization_failure",
+          "kind": "non-example",
+          "statement": "For Y=Spec k[a,v,x]/(a x-v), the closure of Y|D(v) is Y. At a=0, its fibre is Spec k[x] supported at v=0, whereas the closure of (Y|D(v)) at a=0 is empty. This is a test of the closure operation, not an asserted counterexample among LLHLM local models."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U22",
@@ -3197,7 +3956,67 @@
       "locator": "§3.4, PDF69",
       "statement": "For a field k with(2h_lambda)! invertible and a in k^n, first specialize the naive family at a and then take the closure of its lambda flag component over X0_k; call this M(lambda,nabla_a). It is flat over A1_k. The map to MX(lambda,nabla) specialized at a is an isomorphism over X0, but need not be an isomorphism on the whole fibre without a generic-base-change argument.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Proposition3.4.4 (U30)",
+          "how": "Work with the closure formed after fixing a, so the family is flat over A1_k before using contraction."
+        },
+        {
+          "where": "LLHLM23 Corollary3.4.5 (U31)",
+          "how": "Supply the canonical comparison to a universal-model specialization, with both required flatness hypotheses visible."
+        }
+      ],
+      "api": [
+        {
+          "name": "EqualCharacteristicClosure.of_parameter",
+          "role": "constructor",
+          "statement": "For k a field with (2h_lambda)! invertible and a∈k^n, close the top flag component over X0_k in the specialized naive model."
+        },
+        {
+          "name": "EqualCharacteristicClosure.generic_flag",
+          "role": "equivalence",
+          "statement": "Over X0_k this closure is (P_lambda\\GLn)×X0_k via U19; this identification is fixed before taking the closure."
+        },
+        {
+          "name": "EqualCharacteristicClosure.torsion_free",
+          "role": "relation",
+          "statement": "On each affine chart its ring embeds into its v-localization, which is flat over k[v,v⁻¹] by the generic flag description. Consequently the chart ring is torsion-free over k[v], so the model is flat over A1_k."
+        },
+        {
+          "name": "EqualCharacteristicClosure.comparison",
+          "role": "projection",
+          "statement": "Construct the closed immersion into MX(lambda,∇) specialized at a, compatible with the identity on the generic flag component; do not assert it is globally an isomorphism for arbitrary a."
+        },
+        {
+          "name": "EqualCharacteristicClosure.chart",
+          "role": "constructor",
+          "statement": "Pull back U(z) to the equal-characteristic closure. Distinguished points require an actual factorization of the ambient section through this model."
+        },
+        {
+          "name": "EqualCharacteristicClosure.power_base_change",
+          "role": "functoriality",
+          "statement": "For e>0 construct the base change along v↦v^e and the inherited distinguished point; use U30, not a general preservation claim, for its unibranchness."
+        }
+      ],
+      "tests": [
+        {
+          "name": "EqualCharacteristicClosure.zero_weight",
+          "kind": "degenerate",
+          "statement": "For lambda=0 and any allowed a, the equal-characteristic model is A1_k and its comparison with the universal specialization is an isomorphism."
+        },
+        {
+          "name": "EqualCharacteristicClosure.rank_one",
+          "kind": "computation",
+          "statement": "For n=1,lambda=(m), after fixing a the model is A1_k with generic representative (v-t)^m; every e-power base change is again A1_k."
+        },
+        {
+          "name": "EqualCharacteristicClosure.discard_vertical_torsion",
+          "kind": "characterisation",
+          "statement": "The affine closure helper applied to B=k[v,x]/(v x) with its entire D(v) locus returns B/ker(B→B[1/v])≃k[v]. Thus x, killed by v, is removed before the flat-family conclusion."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U26",
@@ -3206,16 +4025,146 @@
       "locator": "Definition3.4.2 and Remark3.4.3, PDF69–70",
       "statement": "A point y is unibranch when the normalization of the reduced local ring is local. Under finite normalization its fibre is then a single point, equivalently connected. For a REDUCED excellent Noetherian local ring, unibranchness is equivalent to its completion being a domain. The printed remark omits reducedness (source issue E9); dual numbers show why it is necessary.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Lemma3.4.8 and Proposition3.4.4 (U29/U30)",
+          "how": "Pass from a connected finite normalization fibre to a unibranch point."
+        },
+        {
+          "where": "LLHLM23 Theorem3.7.1 and existing source finding E9",
+          "how": "Use completed-local-domain conclusions only with reduced excellence, never discard nilpotents silently."
+        }
+      ],
+      "api": [
+        {
+          "name": "UnibranchLocalPoint.iff_normalization_local",
+          "role": "characterisation",
+          "statement": "For a nonzero local ring A in the finite-component setting, unibranch means that A_red has one minimal prime and its integral closure in its fraction field is local; equivalently the normalization of the reduction is local."
+        },
+        {
+          "name": "UnibranchLocalPoint.reduction",
+          "role": "equivalence",
+          "statement": "Unibranchness of A is equivalent to that of A_red; it is not a reducedness predicate."
+        },
+        {
+          "name": "UnibranchLocalPoint.finite_fiber",
+          "role": "characterisation",
+          "statement": "When normalization is finite, a point is unibranch iff its set-theoretic normalization fibre is a single point, equivalently connected."
+        },
+        {
+          "name": "UnibranchLocalPoint.completion_domain",
+          "role": "equivalence",
+          "statement": "For a REDUCED excellent Noetherian local ring A, A is unibranch iff its maximal-ideal completion is a domain. Use U26/E9's corrected hypothesis."
+        },
+        {
+          "name": "UnibranchLocalPoint.local_iso",
+          "role": "functoriality",
+          "statement": "A local-ring isomorphism identifies reductions, normalizations and the unibranch predicate; transport is compatible with identity and composition."
+        },
+        {
+          "name": "UnibranchLocalPoint.geometric_distinction",
+          "role": "characterisation",
+          "statement": "Geometric unibranchness additionally requires the normalization residue extension to be purely inseparable. Do not identify it with ordinary unibranchness or infer arbitrary field-base-change stability from the latter."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UnibranchLocalPoint.normal_local",
+          "kind": "compatibility",
+          "statement": "For a field k, k[[x]] is a normal local domain, is unibranch, and its completion is itself."
+        },
+        {
+          "name": "UnibranchLocalPoint.dual_numbers",
+          "kind": "non-example",
+          "statement": "For A=k[ε]/ε², A_red=k and its normalization is local, so A is unibranch; A is already complete but not a domain."
+        },
+        {
+          "name": "UnibranchLocalPoint.node",
+          "kind": "non-example",
+          "statement": "For A=(k[x,y]/(xy))_(x,y), normalization of the reduction has two points above the closed point; A is not unibranch and its completion k[[x,y]]/(xy) is not a domain."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U27",
       "kind": "construction",
       "name": "Extended torus and chart action",
       "locator": "§3.4; Lemma3.4.6, PDF70–71",
-      "statement": "Tdual times Gm acts on the universal Grassmannian by right diagonal multiplication and loop rotation v->r^-1v, with the induced scaling of t. On the z=w t_nu chart the representative formula is(D,r)A=Ad(w)(D^-1) A(r^-1v) r^nu D. It preserves the chart and all its bounded pieces and makes the chart map equivariant.",
+      "statement": "Tdual times Gm acts on the universal Grassmannian by right diagonal multiplication and loop rotation v->r^-1v, with the induced scaling of t. On the z=w t_nu chart use (D,r)A=Ad(w)(D^-1) A(r^-1v) r^nu D. It preserves the chart and its bounded pieces. The chart-to-Gr map is equivariant for the original target action precomposed by theta_nu(D,r)=(r^nu D,r), not in general for the untwisted action (E43). In the chart-preservation calculation r^nu(v-rt)^-nu=(r^-1v-t)^-nu; the final right-hand exponents in both printed identities need minus signs (E44). The chart action and the corrected contracting weights of U28 are unchanged.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Lemma3.4.7 (U28)",
+          "how": "Calculate the corrected positive coordinate weights and contract to the distinguished section."
+        },
+        {
+          "where": "LLHLM23 proof of Proposition3.4.4 (U30)",
+          "how": "Transport the action through power base change while tracking the common base parameter."
+        }
+      ],
+      "api": [
+        {
+          "name": "ExtendedTorusChartAction.act",
+          "role": "constructor",
+          "statement": "For z=w t_nu, D diagonal and r∈R×, send A(v) over parameter t to Ad(w)(D⁻¹) A(r⁻¹v) r^nu D over parameter r t."
+        },
+        {
+          "name": "ExtendedTorusChartAction.one_mul",
+          "role": "structure",
+          "statement": "The identity pair acts identically and successive actions compose by multiplication in T∨×Gm; include the induced scaling of the base t in this statement."
+        },
+        {
+          "name": "ExtendedTorusChartAction.chart_preserved",
+          "role": "compatibility",
+          "statement": "The matrix conditions preserve U(z) and every bounded subchart. The chart-to-Gr map is equivariant for the original target action precomposed by θ_nu(D,r)=(r^nu D,r); it is not generally equivariant for the original action with unchanged (D,r). See E43."
+        },
+        {
+          "name": "ExtendedTorusChartAction.map",
+          "role": "functoriality",
+          "statement": "Coefficient maps carry the action to the action of the images of D and r, with identity and composition laws."
+        },
+        {
+          "name": "ExtendedTorusChartAction.coefficient_weight",
+          "role": "simp",
+          "statement": "For the cocharacter r↦(Ad(w⁻¹)(r^mu),r^N), the coefficient c_(ij,k) in U12 scales by r^[N(nu_j-[i>j]-k)+mu_(w(j))-mu_i], and t scales by r^N; this is the corrected E8 convention."
+        },
+        {
+          "name": "ExtendedTorusChartAction.contracting",
+          "role": "relation",
+          "statement": "Use U28: for regular dominant mu and N>h_mu, pivots have weight zero, every nonpivot coefficient has positive weight and t has positive weight, giving the A1-monoid extension and its fixed section."
+        },
+        {
+          "name": "ExtendedTorusChartAction.scaled_inverse",
+          "role": "simp",
+          "statement": "In the chart-preservation calculation r^nu(v-rt)^-nu=(r⁻¹v-t)^-nu. Both occurrences of the exponent on the final right-hand sides in Lemma3.4.6's proof must be -nu, as recorded in E44."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ExtendedTorusChartAction.identity_pair",
+          "kind": "degenerate",
+          "statement": "With D=I and r=1 the matrix and its base parameter t are unchanged."
+        },
+        {
+          "name": "ExtendedTorusChartAction.section_fixed",
+          "kind": "computation",
+          "statement": "At t=0, Ad(w)(D⁻¹) w(r⁻¹v)^nu r^nu D=w v^nu, so the distinguished section is fixed for every D,r."
+        },
+        {
+          "name": "ExtendedTorusChartAction.GL2_corrected_weight",
+          "kind": "computation",
+          "statement": "For w=1,nu=(0,0),mu=(1,0),N=2,t=0, the chart matrix I+cE_21 transforms to I+r cE_21. The nonpivot coefficient has weight +1, not -1."
+        },
+        {
+          "name": "ExtendedTorusChartAction.twisted_equivariance",
+          "kind": "non-example",
+          "statement": "Over Q,t=0,w=1,nu=(1,0), take A=[[v,v⁻¹],[0,1]],D=I,r=2. The chart action yields C=[[v,2v⁻¹],[0,1]], whereas the original target rotation yields B=[[v/2,2v⁻¹],[0,1]]. Since CB⁻¹=[[2,-2v⁻¹],[0,1]] is not positive, their left cosets differ. Rotation followed by right diag(2,1), i.e. θ_nu, yields C."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U28",
@@ -3323,7 +4272,67 @@
       "locator": "§3.7, PDF77",
       "statement": "For finite J and dominant tuple lambda, take the product over the common X of MX(lambda_j,nabla), with parameters in(An)^J. Distinguished sections and charts are products indexed by z in Wtilde-dual^J. The shared X coordinate is not duplicated into independent deformation parameters.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LLHLM23 Theorem3.7.1 (U40/U41)",
+          "how": "Keep a single ramification parameter v while allowing a separate coefficient tuple a_j in each factor."
+        },
+        {
+          "where": "LLHLM23 proof of Theorem3.7.1 (U43/Z12/Z13)",
+          "how": "Distinguish the finite scheme fibre product from its later completed local and adic tensor-product constructions."
+        }
+      ],
+      "api": [
+        {
+          "name": "ProductUniversalModel.of_factors",
+          "role": "constructor",
+          "statement": "For finite J form the fibre product over X of the models MX(lambda_j,∇), with structure map to X×(An)^J and projections to each factor."
+        },
+        {
+          "name": "ProductUniversalModel.lift",
+          "role": "universal-property",
+          "statement": "For a test scheme T→X, compatible T→MX(lambda_j,∇) maps with this same map to X give a unique T→product; the coefficient maps a_j may differ."
+        },
+        {
+          "name": "ProductUniversalModel.ext",
+          "role": "extensionality",
+          "statement": "Two maps into the product are equal iff their composites with all factor projections are equal."
+        },
+        {
+          "name": "ProductUniversalModel.reindex",
+          "role": "equivalence",
+          "statement": "A bijection of finite index sets gives the canonical product isomorphism after transporting lambda and parameter tuples; identity and composition agree."
+        },
+        {
+          "name": "ProductUniversalModel.base_change",
+          "role": "functoriality",
+          "statement": "Base change along a single Spec R→X×(An)^J identifies the result with the product over R of the correspondingly specialized factors; the same image of v is used in each."
+        },
+        {
+          "name": "ProductUniversalModel.charts_sections",
+          "role": "compatibility",
+          "statement": "Products of the open factor charts give the product chart; ambient distinguished sections are componentwise, and factor through the product model exactly when all factors meet their individual models."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ProductUniversalModel.empty_product",
+          "kind": "degenerate",
+          "statement": "For J empty the product in X-schemes is X, with parameter space (An)^empty=Spec Z; it is not an extra copy of Spec Z as a total space."
+        },
+        {
+          "name": "ProductUniversalModel.singleton",
+          "kind": "compatibility",
+          "statement": "For a singleton J the product is canonically the original MX(lambda,∇), with its chart and projection unchanged."
+        },
+        {
+          "name": "ProductUniversalModel.shared_parameter",
+          "kind": "characterisation",
+          "statement": "For two affine factor charts Spec B1 and Spec B2, the product ring is B1⊗_(Z[v])B2 and satisfies v⊗1=1⊗v. The independent-parameter tensor product over Z is not the prescribed construction."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U40",
@@ -13687,6 +14696,40 @@
         "2026-09-23: the article page and arXiv 2007.05398 (v2, 15 June 2022, the latest) show no correction; https://math.rice.edu/~bl70/ links the published PDF without an erratum.",
         "2026-09-23: arXiv 2007.05398v2 (SHA-256 3cdae0b1…61af), §A.3.3, has the same sentence."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E43",
+      "kind": "error",
+      "locator": "Published PDF71, Lemma3.4.6, last equivariance assertion, relative to the original action in the preceding paragraph; also Morra author preprint p.51.",
+      "printed": "the natural map U(z) ↪ Gr_G,X is T^{∨,ext}-equivariant.",
+      "correction": "Keep the displayed chart action, but precompose the Grassmannian action by the torus automorphism theta_nu(D,r)=(r^nu D,r). The chart inclusion is theta_nu-equivariant; the unqualified assertion with the original (D,r)-action is false in general.",
+      "reason": "In the left quotient the positive factor Ad(w)(D^-1) disappears, leaving [A(r^-1v)r^nu D], whereas the original target action gives [A(r^-1v)D]. Over Q,t=0,w=1,nu=(1,0),h=1, A=[[v,v^-1],[0,1]] is in the chart. With D=I,r=2 the chart image C=[[v,2/v],[0,1]] and original target image B=[[v/2,2/v],[0,1]] differ because CB^-1=[[2,-2/v],[0,1]] is not in L+G(Q). Twisting gives equality. theta_nu is an automorphism and the original torus preserves the differential and Schubert loci, so this repair retains the contraction argument; no counterexample to the main unibranchness theorem is asserted.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: exact-title correction/erratum and Lemma3.4.6/equivariance searches; no dedicated correction located.",
+        "2026-09-23: https://math.rice.edu/~bl70/ lists the published PDF without a correction for this article; its HNTheory correction is for a different paper.",
+        "2026-09-23: https://arxiv.org/abs/2007.05398 lists v2 dated15 June2022 as latest. Version metadata checked, not a full version diff.",
+        "2026-09-23: https://www.math.univ-paris13.fr/~morra/MLM.pdf p.51 reproduces both passages; downloaded SHA256 8cb1a1dd2eb23404ee9a99b5f0c2632cd1b6f1b879069a6080ff652f8f4f4d6d.",
+        "2026-09-23: Springer https://link.springer.com/article/10.1007/s00222-022-01163-4 timed out; its correction listing was not inspected. 'new' means no correction located in the successful searches, not a priority claim."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E44",
+      "kind": "misprint",
+      "locator": "Published PDF71, proof of Lemma3.4.6, final right-hand side of each of the two displayed identities; also Morra author preprint p.51.",
+      "printed": "(r^{-1}v-t)^ν",
+      "correction": "Replace this factor by (r^{-1}v-t)^(-ν) in both final right-hand sides.",
+      "reason": "The left sides contain r^nu(v-rt)^(-nu)=(r^-1v-t)^(-nu). Already t=0,r=2,nu=1 gives 2/v, while the printed factor is v/2. The corrected factors are precisely those needed to apply the chart's defining negative-power conditions.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: exact-title correction/erratum and Lemma3.4.6/equivariance searches; no dedicated correction located.",
+        "2026-09-23: https://math.rice.edu/~bl70/ lists the published PDF without a correction for this article; its HNTheory correction is for a different paper.",
+        "2026-09-23: https://arxiv.org/abs/2007.05398 lists v2 dated15 June2022 as latest. Version metadata checked, not a full version diff.",
+        "2026-09-23: https://www.math.univ-paris13.fr/~morra/MLM.pdf p.51 reproduces both passages; downloaded SHA256 8cb1a1dd2eb23404ee9a99b5f0c2632cd1b6f1b879069a6080ff652f8f4f4d6d.",
+        "2026-09-23: Springer https://link.springer.com/article/10.1007/s00222-022-01163-4 timed out; its correction listing was not inspected. 'new' means no correction located in the successful searches, not a priority claim."
+      ]
     }
   ],
   "gaps": [
@@ -13767,7 +14810,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G22",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q02"
       ],
-      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement. A06,A34,A35,A46,N57 now have separate consumer-derived APIs and at least three typed tests. The latest validation census supersedes earlier numerical counts. Current literal census: 15 of 155 entries complete in that form; 140 remain. Continuation cc-442dc5 (Claude Code), in four passes, supplied itemwise uses, API and at least three typed tests for the §2 entries N01–N66 that lacked them (published PDF24–53), the §6/§9 entries P01–P08, V01–V06, V08 and V10 (PDF125–131, PDF180–186), the §8 entries B01–B07, B09, B12–B14, B18, B19, B22, B27, B34 and B36 (PDF162–180) and the Appendix A entries A05, A07–A11, A13, A15, A16, A19, A20, A22 and A23 (PDF188–201). Its N57 and A06 interfaces were superseded by the concurrent codex-7e92bd versions from #2317, which are kept. After merging #2317, the literal census is 90 of 155 entries complete in that form; 65 remain. A60 has its own uses/API/four typed tests in continuation codex-a71f92. Updated literal census:91 of156 definitions/constructions,65 outstanding; earlier counts are historical."
+      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement. A06,A34,A35,A46,N57 now have separate consumer-derived APIs and at least three typed tests. The latest validation census supersedes earlier numerical counts. Current literal census: 15 of 155 entries complete in that form; 140 remain. Continuation cc-442dc5 (Claude Code), in four passes, supplied itemwise uses, API and at least three typed tests for the §2 entries N01–N66 that lacked them (published PDF24–53), the §6/§9 entries P01–P08, V01–V06, V08 and V10 (PDF125–131, PDF180–186), the §8 entries B01–B07, B09, B12–B14, B18, B19, B22, B27, B34 and B36 (PDF162–180) and the Appendix A entries A05, A07–A11, A13, A15, A16, A19, A20, A22 and A23 (PDF188–201). Its N57 and A06 interfaces were superseded by the concurrent codex-7e92bd versions from #2317, which are kept. After merging #2317, the literal census is 90 of 155 entries complete in that form; 65 remain. A60 has its own uses/API/four typed tests in continuation codex-a71f92. Updated literal census:91 of156 definitions/constructions,65 outstanding; earlier counts are historical. Continuation codex-a71f92 after #2350 adds consumer-derived itemwise interfaces to all16 Section3 definitions/constructions:98 API entries and49 typed tests. Current literal census107/156;49 remain. E43/E44 correct U27's equivariance and the inverse-power calculation. These are unreviewed source findings, not implementation claims."
     },
     {
       "id": "library-item-audit",
@@ -15777,6 +16820,50 @@
         "guardedInputs": 309,
         "guardedDeliverables": "All3 unchanged from the claimed base before replay."
       }
+    },
+    "codexA71f92UniversalAPI": {
+      "date": "2026-09-23",
+      "base": "4d0a3730ad392ed277d4ca56c9881340d1f6806e",
+      "scope": [
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U06",
+        "U08",
+        "U10",
+        "U13",
+        "U15",
+        "U17",
+        "U18",
+        "U21",
+        "U25",
+        "U26",
+        "U27",
+        "U39"
+      ],
+      "itemCount": 510,
+      "statusCensus": {
+        "library": 61,
+        "planned": 18,
+        "missing": 431
+      },
+      "routes": 19,
+      "sourceIssues": 44,
+      "apiCensus": {
+        "definitionsAndConstructions": 156,
+        "readyInLiteralForm": 107,
+        "remaining": 49,
+        "newApiEntries": 98,
+        "newTypedTests": 49
+      },
+      "preservation": "All510 item IDs, kinds, names, locators, statuses, ownership and routes retained; only U27's existing statement changes. All42 inherited sourceIssues and all AppendixB data retained verbatim as JSON values. This pass adds no new math item or claimed library implementation.",
+      "library": "Reviewed SF.0/SF.1/SF.4 coverage entries from AUDIT-01 and current L7 contract. Read Mathlib/RingTheory/Etale/Basic.lean at082e2d37e8b0463410cdb532e111cd43d5a66174, especially Algebra.FormallyEtale and its comp_bijective/iff_comp_bijective. Reuse the unrestricted ring API; U08's functor-level Artinian comparison remains missing. Targeted searches in both pinned trees were not an exhaustive absence proof.",
+      "finiteDiagnostics": "Exact standard-library Fraction/Laurent-matrix checks:238440 coordinate weights,6372 fixed-section cases,9 action compositions, E43 nonpositive coset defect,27 E44 inverse-power identities. These are regression diagnostics, not proofs of the geometric statements.",
+      "checks": "Paper checker passes;41 tests pass (9 paper,3 queue,29 intake);three-file intake has0 problems;preservation/routing/107-of156 literal API/288-edge DAG checks pass. Same deliverables replayed and checks rerun against fresh main.",
+      "publicationBase": "2eae58ee83bfd53d4515306eb8bde282fda5a175",
+      "guardedInputs": "All309 atlas/coverage/protocol/content/roadmap/packet inputs and allthree original deliverables byte-identical to initial snapshot before replay.",
+      "lean": "No Lean deliverable for this paper extraction; not run."
     }
   },
   "definitionApiGroups": [

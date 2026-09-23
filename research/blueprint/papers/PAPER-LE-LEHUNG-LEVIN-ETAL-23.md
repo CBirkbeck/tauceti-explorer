@@ -1,3 +1,91 @@
+# LLHLM23 universal-geometry API continuation — Codex, codex-a71f92
+
+23 September 2026. Refs #1254. Continues merged #2350 at `4d0a3730ad392ed277d4ca56c9881340d1f6806e`.
+
+Partial: **510 items (61 library,18 planned,431 missing),19 unchanged routes,44 unreviewed source findings.** The literal definition-API census is **107/156**, leaving49 unfinished interfaces. This pass supplies98 API entries and49 typed tests for all16 definitions/constructions in §3. It does not supply Lean implementations or finish the paper extraction.
+
+## Scope and preservation
+
+The refined entries are U01,U02,U03,U04,U06,U08,U10,U13,U15,U17,U18,U21,U25,U26,U27,U39. Each now has its own consumer records, named API entries with permitted roles, and at least three typed tests.
+
+All510 item identities, kinds, locators, statuses and routes are retained. Only U27's existing statement changes, to qualify equivariance and repair the displayed inverse powers. All42 inherited source findings and all AppendixB data remain unchanged. E43 and E44 are additional findings awaiting independent review, not verified errata. The prior report and handoff are retained below as historical checkpoints; their older counts are not the current census.
+
+| Entries | Interface checked | Tests that reject plausible wrong definitions |
+| --- | --- | --- |
+| U01,U02 | Tuple group scheme; shifted positive/full loops | Regular versus invertible parameter; lower constant entries; v versus v-t |
+| U03,U04,U06 | Left fpqc quotient; negative loops; square-zero kernels | Determinant/height; negative lower constants; different upper/lower Lie cutoffs |
+| U08,U10,U13 | Restricted Artinian lifting; chart matrices; special sections | Multiple dual-number lifts; empty nonpivot ranges; order of permutation and translation |
+| U15,U17,U18 | Differential locus; Schubert orbit; naive intersection | v h' versus h'; non-minuscule orbit dimension; intersection versus union |
+| U21,U25,U26 | Closure; parameter specialization; unibranchness | Saturation; vertical torsion; nilpotent and nodal local rings |
+| U27,U39 | Torus chart action; common-base products | Correct weights and twisted equivariance; empty product; one shared v |
+
+Uses are drawn from the explicit §3 consumers, the already recorded §5.2 matrix interface, and the existing owner briefs. Nontrivial supplied facts reuse the existing U05/U07/U09/U11/U12/U14/U16/U19/U23/U28/U30/U31 theorem entries instead of silently claiming that API prose proves them.
+
+## E43: distinguish the two torus actions
+
+The action just before Lemma3.4.6 sends the Grassmannian class of A to the class of A(r⁻¹v)D. The displayed chart formula instead gives the class of A(r⁻¹v)r^nu D: its left diagonal factor lies in the positive loop group and disappears in the left quotient.
+
+Thus the precise comparison uses the torus automorphism
+`theta_nu(D,r)=(r^nu D,r)`.
+It is an automorphism, with inverse `(D,r)↦(r^-nu D,r)`. The inclusion of the chart is equivariant after precomposing the target action by this automorphism.
+
+A concrete counterexample to untwisted equivariance is over Q at t=0:
+`w=1,nu=(1,0),h=1,A=[[v,v^-1],[0,1]],D=I,r=2`.
+The chart conditions hold: A v^-nu is lower-unipotent at infinity (in fact identity there), and v/(v-t)=1. The determinant is v and the height bound is1.
+
+The original target action gives
+`B=[[v/2,2/v],[0,1]]`,
+while the chart action gives
+`C=[[v,2/v],[0,1]]`.
+Their possible left multiplier is
+`CB^-1=[[2,-2/v],[0,1]]`,
+which is not in the positive loop group. Therefore the two left quotient points differ. Applying theta_nu gives C exactly.
+
+This is an error in the stated equivariance relative to the preceding action, not a counterexample to the main unibranchness theorem. The repaired action still preserves the relevant loci: right diagonal multiplication commutes with Diag(a), rotation commutes with v d/dv, and positive-left invariance is U16. Schubert loci are stable under the original torus. Thus precomposition preserves the needed stability. The actual chart action and the corrected E8 contracting weights do not change.
+
+## E44: inverse powers in the preservation calculation
+
+Both final right-hand sides in Lemma3.4.6's proof need exponent -nu:
+`r^nu(v-rt)^-nu=(r^-1v-t)^-nu`.
+For t=0,r=2,nu=1, the left side is2/v, not v/2. This repairs the two displayed equalities and the use of the chart conditions; it is separate from E43 and the previously recorded E8 sign issue.
+
+Both findings were checked against rendered published PDF71 and Morra's author-preprint p.51. Exact-title/lemma correction searches and Levin's publication page located no correction. The arXiv record still lists v2 (15 June2022); this was a metadata check, not a full version comparison. Springer timed out, so its correction listing was not inspected. “New” means no correction located in the successful searches, not a claim of priority.
+
+## Library and ownership discipline
+
+Read the reviewed AUDIT-01 coverage for SchemeAndStackFoundations SF.0,SF.1,SF.4 and the current LocalGaloisDeformationRings L7 contract. General schemes, fibre products, topology and ring-level lifting theory are not replanned. In particular the pinned Mathlib file `Mathlib/RingTheory/Etale/Basic.lean` was opened through its formal-etale definition, square-zero lifting equivalence, composition and base-change results. U08 reuses `Algebra.FormallyEtale.comp_bijective` and `Algebra.FormallyEtale.iff_comp_bijective`; it retains the missing comparison to the paper's restricted functor-level property.
+
+The current route boundaries stay unchanged: underlying Iwahori/Schubert/loop geometry belongs to the existing GeometricSatakeLocalModelsPartII proposal; differential conditions and local-model comparisons belong to LocalGaloisDeformationRingsPartIIMonodromyModels; the scheme-level lifting/normalization adapters use SchemeAndStackFoundations. No new roadmap is proposed.
+
+Targeted full-tree searches in both pinned libraries did not identify the specialized universal-loop or unibranch carriers. This is not an exhaustive absence proof; the inherited item statuses are unchanged. The new API names are proposed names, not citations to existing declarations.
+
+## Reading provenance
+
+Freshly read published PDF55–80, covering §§3.1–3.7, including proofs and the product argument. Inspected the image of PDF71. The inherited complete main-paper read remains attributed to codex-7e92bd.
+
+- Published author-hosted source: [LLHLM23](https://math.rice.edu/~bl70/LocModels.pdf), SHA256 `e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`, rehashed23 September2026.
+- [Morra author preprint](https://www.math.univ-paris13.fr/~morra/MLM.pdf), SHA256 `8cb1a1dd2eb23404ee9a99b5f0c2632cd1b6f1b879069a6080ff652f8f4f4d6d`, fetched23 September2026; only pp.51–52 read for this comparison.
+- [Stacks06DT](https://stacks.math.columbia.edu/tag/06DT) definition/branch discussion and [Stacks0C2E](https://stacks.math.columbia.edu/tag/0C2E) statement/proof checked. Reduced excellence is retained in the completed-domain comparison.
+- [Stacks02HY](https://stacks.math.columbia.edu/tag/02HY) statement/proof checked. It supplies a smoothness criterion; uniqueness/unramifiedness is also needed for the etale upgrade.
+
+## Validation and remaining work
+
+The paper checker passes. The paper, queue and intake unit suites pass41 tests. A separate preservation audit verifies all510 unique IDs, exactly one route for each missing item, all19 unchanged routes, the42 unchanged inherited findings, the107/156 literal API census and the acyclic288-edge internal dependency graph.
+
+Exact standard-library Fraction/Laurent-matrix diagnostics check238440 coordinate weights,6372 fixed-section cases,9 compositions, E43's nonpositive coset defect and27 E44 inverse-power identities. The coefficient-weight check ranges over n=2,3,4, all permutations, all nu in {-1,0,1}^n, h=0,1,2,3, mu=(n-1,...,0), N=n, and every allowed coefficient. The weight
+`N(nu_j-[i>j]-k)+mu_(w(j))-mu_i`
+is zero at pivots and strictly positive elsewhere. Fixed-section checks use the same n,w,nu, diagonal D=(2,...,n+1), and r=2,3,5. These finite diagnostics are regression checks, not proofs of the source's geometric theorems.
+
+Still unfinished:14 M interfaces,17 K interfaces,12 G interfaces, Q01,Q02,Q07,Z02,L05,Z15. The inherited global base-change/Galois-twist and genericity bridges, source/proof closure, analytic inputs, multipart extraction and AppendixB certificates also remain open. The literal API census does not certify all prerequisite lemmas or mathematical completeness.
+
+No Lean file is required for this extraction and no Lean compilation was run. E43/E44 need a different worker's verification.
+
+Publication refresh: fresh main `2eae58ee83bfd53d4515306eb8bde282fda5a175` matched all309 guarded inputs and allthree original deliverables byte-for-byte. The three-file patch was replayed there and the checker,41 tests and intake validation passed again.
+
+Earlier report preserved below:
+
+---
+
 # LLHLM23 base-change continuation — Codex, codex-a71f92
 
 23 September 2026. Refs #1254. Continues the reconciled #2317/#2318 checkpoint, not either pre-merge branch.
