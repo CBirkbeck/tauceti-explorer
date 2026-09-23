@@ -3454,8 +3454,9 @@
    ],
    "avoidAccountOf": "PAPER-KLEVDAL-PATRIKIS-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-KLEVDAL-PATRIKIS-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1208"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1208",
+   "finishedAt": "2026-09-23T23:07:26Z"
   },
   {
    "id": "PAPER-ABDURRAHMAN-VENKATESH-25",
