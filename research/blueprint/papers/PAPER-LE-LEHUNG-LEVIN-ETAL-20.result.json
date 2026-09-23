@@ -7404,7 +7404,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v4 p. 22 (line 'for 0 ≤ j′ < f′ −1.') and p. 23 identical; v3 identical."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in the arXiv v4 LaTeX source (arXiv:1608.06570v4, e-print sha256 cceae9f5…), which prints the range `for $0\\leq j'<f'-1$` in both places in the proof of Proposition 3.2.1, while the lines immediately after it quantify over `$0\\leq j'\\leq f'-1$`. With the printed range the last embedding is omitted and, for $f'=1$, the range is empty. Intended reading obvious; nothing downstream is affected.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E02",
@@ -7420,7 +7425,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v4 p. 25 identical; v1, v2, v3 identical ('if and only if there exists a semisimple M′ of shape w̃ such that T*_dd(M′) ≅ ρ|G_K∞')."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the reach is right. Proposition 3.3.9 reads `Then $\\rhobar'|_{I_K}\\cong\\rhobar|_{I_K}$ if and only if there exists a semisimple $\\ovl{\\fM}'$ of shape $\\tld w$ such that $T^*_{dd}(\\ovl{\\fM}')\\cong\\rhobar|_{G_{K_\\infty}}$', with the unprimed $\\rhobar$ on the right, and its entire proof is the one line `This follows from counting unramified twists using Proposition \\ref{simpleform}' — so the revised reason is right that $\\rhobar'$ never enters the proof. As printed the right-hand condition is satisfied by the $\\ovl{\\fM}$ of the hypothesis, independently of $\\rhobar'$, so the proposition would say that every semisimple $\\rhobar'$ has $\\rhobar'|_{I_K}\\cong\\rhobar|_{I_K}$. With $\\rhobar'$ in place of $\\rhobar$ the statement is the intended one and both directions follow from Propositions 3.3.6 and 3.3.8, as recorded.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E03",
@@ -7436,7 +7446,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v4 p. 32 identical; v3 identical."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: the source reads `By Corollary \\ref{cor:globalBM}, $e(M_\\infty(\\ovl{\\sigma}(\\tau_\\cS')^{\\circ})) - e(M_\\infty(\\ovl{\\sigma}(\\tau_\\cS')^{\\circ})) = 2^\\delta$` — the same primed type twice, so the printed difference is identically zero. The next sentence computes `$e(M_\\infty(\\ovl{\\sigma}(\\tau_\\cS')^{\\circ})) - e(M_\\infty(\\ovl{\\sigma}(\\tau_\\cS)^{\\circ}))$`, which is the intended left-hand side, and the recorded correction matches it.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E04",
@@ -7452,7 +7467,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v4 p. 29 identical; v3 identical."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an error in a stated result. Theorem 3.5.3 reads `If $\\tau$ is not $1$-generic, $R^\\tau_{\\rhobar}$ is $0$. If $\\tau$ is $1$-generic, then the number of irreducible components of $\\ovl R^\\tau_{\\rhobar}$ … is equal to the number of elements in $W^?(\\rhobar,\\tau)$. The ring $R^\\tau_{\\rhobar}$ is a normal domain and is Cohen–Macaulay.' The theorem's own component count gives $\\ovl R^\\tau_{\\rhobar}=0$, hence $R^\\tau_{\\rhobar}=0$ by Nakayama, whenever $W^?(\\rhobar,\\tau)=\\emptyset$ — which a 1-generic $\\tau$ certainly permits, for instance when the central characters of $W^?(\\rhobar)$ and $\\JH(\\ovl{\\sigma(\\tau)})$ disagree. The zero ring is not a domain, so the last sentence needs the nonvanishing hypothesis the recorded correction adds.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E05",
@@ -7468,7 +7488,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 (Table 3 p. 52; matching p. 44) and v4 (Table 3 p. 53; matching p. 45) print the same c*33; v1/v2 have no such table (different organisation of §3.5)."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in the source. The $\\alpha\\beta\\alpha$ row of Table 3 prints the matrix with units $c^*_{31},c^*_{22},c^*_{13}$ and the relation `$c_{11}((a-b)c_{23}c_{32}-(a-c)c^*_{33}d_{33})=0$', with the same expression as the component $\\fC_{(0,1)}$ — and $c^*_{33}$ is not a coordinate of that chart at all. Table 4's matching row prints the corresponding primed relation as `$c'_{11}((a'-b')c'_{23}c'_{32}-(a'-c')c^{\\prime\\,*}_{22}d'_{33})=0$', with $c^{\\prime\\,*}_{22}$. So the correction to $c^*_{22}$ is forced, and the revised `printed' text is the one actually on the page.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E06",
@@ -7484,7 +7509,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: Same in arXiv v3 (pp. 52–53) and v4 (pp. 53–54); v1 (p. 44) and v2 (p. 42) print c31c12(c*32)^{−1} in the body and have no such table."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed by a direct contradiction inside the paper. Table 3 prints the $\\alpha\\beta$ matrix with $(1,1)$ entry `$c_{13}c_{12}(c^*_{32})^{-1}$', in both the first part of the table and its continuation, while the body of §3.6.2 (Case $\\tld w_{f-1-i}=\\alpha\\beta t_{\\un1}$) prints the same matrix with `$c_{31}c_{12}(c^*_{32})^{-1}$'. The body's form is the right one, as the finding says and as the determinant condition requires.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E07",
@@ -7500,7 +7530,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 Table 3 (pp. 52–53) prints the same minus sign together with a different, also wrong, prime c_(0,1) = (d33, c22) and omits c12c23 − c22c13 = 0; v4 (pp. 53–54) as published; the body of v1 (p. 44), v3 (pp. 42, 44) and v4 (pp. 43, 45) has the + sign."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and decided inside the paper. Table 3 prints `$c_{12}((a-b)c_{31}d_{23}-(b-c)d_{33}c^*_{21})=0$' in both the row and its continuation, while equation (3.14) in the body prints `$c_{12}((b-c)d_{33}c^*_{21}+(a-b)c_{31}d_{23})=0$', the very next line writes `$c_{12}((a-b)c_{31}c'_{23}+(b-c)c^*_{21}c'_{33})=p z^*$', and the component $\\fC_{(0,1)}$ listed in the same Table 3 row is `$(c_{22},(b-c)d_{33}c^*_{21}+(a-b)c_{31}d_{23})$'. Three places with the plus sign against one with the minus.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E08",
@@ -7516,7 +7551,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: Introduced in arXiv v4 (p. 54); in v3 the reprinted βα row (p. 53) omits this relation altogether."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the paper contradicts itself within two pages. Table 3 prints the $\\beta\\alpha$ row with first relation `$c_{11}c_{33}=0$'; Table 3 (continued) reprints the identical matrix with `$c_{11}c_{32}=0$'. The matrix mod $v$ is $\\begin{psmallmatrix}c_{11}(c^*_{31})^{-1}&c_{11}c_{32}&c_{13}\\\\0&0&0\\\\0&0&c_{33}\\end{psmallmatrix}$, whose only non-trivial constant $2\\times2$ minor is $c_{11}c_{33}(c^*_{31})^{-1}$; $c_{11}c_{32}=0$ is not implied by the rank condition and is strictly stronger. So the continuation is the misprint, exactly as recorded.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E09",
@@ -7532,7 +7572,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: Same in arXiv v3 (p. 47) and v4 (p. 48)."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the convention is fixed two pages earlier in the same section: `Now we note that $\\tld{z}_{f-1-i}=t_{(-1,0,1)}(123)$' accompanies the factor $\\begin{psmallmatrix}0&0&v^{-1}\\\\1&0&0\\\\0&v&0\\end{psmallmatrix}=\\mathrm{diag}(v^{-1},1,v)P_{(123)}$, so $t_\\nu\\leftrightarrow\\mathrm{diag}(v^\\nu)$. In the case at hand the printed factor is $\\mathrm{diag}(v^{-1},1,v)$ and the printed label is `$\\tld{z}_{f-1-i}=t_{(1,0,-1)}$'; it has to be $t_{(-1,0,1)}$. The computation uses the matrix, not the label.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E10",
@@ -7548,7 +7593,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: Identical in arXiv v4 (p. 59) and v3 (p. 58); v2 (p. 49) has the same display, with 'σ* ∈ JH(M*)*'."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Exact contravariant duality turns a nonsplit $0\\to\\sigma'\\to E\\to\\sigma\\to0$ into a nonsplit $0\\to\\sigma^*\\to E^*\\to\\sigma'^*\\to0$, so `$\\sigma$ points to $\\sigma'$' becomes `$\\sigma'^*$ points to $\\sigma^*$' and every arrow reverses: the isomorphism is $\\Gamma(M)\\cong\\Gamma(M^*)^*$, not $\\Gamma(M)\\cong\\Gamma(M^*)$. The second isomorphism of the same sentence already carries a transpose and the `In particular' clause says paths are reversed, so the intended statement is not in doubt.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E11",
@@ -7564,7 +7614,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: Same in arXiv v3 (p. 45) and v4 (p. 47)."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively from the source. In Case $\\alpha t_{\\un1}$, $\\ovl R/\\fC_{(\\eps_1,1)}=\\F[\\![c_{22},c_{23},c_{32},d_{22},c^*_{21}-[\\cdot],c^*_{12}-[\\cdot],c^*_{33}-[\\cdot]]\\!]/((-1-a+b)c_{22}c^*_{33}-(-1-a+c)c_{23}c_{32})$ and the primed ring is $\\F[\\![c'_{21},d'_{21},c'_{23},c'_{31},c^{\\prime*}_{11},c^{\\prime*}_{22},c^{\\prime*}_{33}]\\!]$ modulo $(-1-a'+b')c'_{21}c^{\\prime*}_{33}-(b'-c')c'_{31}c'_{23}$. The printed change of variables assigns six of the seven pairs and leaves $c_{22}$ on the left and $c'_{21}$ on the right unmatched. Adding $c_{22}=c'_{21}$ completes it, and it is the right assignment: the $(2,2)$ entry $c_{22}+vd_{22}$ meets $v(c'_{21}+vd'_{21})$, and with $(a',b',c')=(b-1,a+1,c)$ the primed relation becomes exactly the negative of the unprimed one, so the two ideals agree.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E12",
@@ -7580,7 +7635,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: Same in arXiv v3 (p. 44) and v4 (p. 46)."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively. In Case $\\alpha\\beta t_{\\un1}$, matching of $\\fW_0$, the printed change of variable is `$c_{12}=c'_{11}, c_{31}=c'_{32}, d_{23}=d'_{23}, d_{33}=d'_{33}, c^*_{32}=c^{\\prime*}_{31}, c^*_{21}=c^{\\prime*}_{22}, c^*_{13}=c^{\\prime*}_{13}$'. The primed chart is the $\\alpha\\beta\\alpha$ one, whose coordinates are $c'_{11},c'_{32},d'_{33},c'_{23},c^{\\prime*}_{31},c^{\\prime*}_{22},c^{\\prime*}_{13}$ — there is no $d'_{23}$, and $c'_{23}$ is the one coordinate left unassigned. So $d_{23}=c'_{23}$, as recorded.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E13",
@@ -7638,7 +7698,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (1); v1, v2 have no §6. Published text has the typo 'Propositionsg' (separate issue)."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (1) is printed there and states the exact component inequality that replaces the quoted phrase from [LLHLM18, Theorem 1.1]: the special fibre of $R^{(2,1,0),\\tau}_{\\rhobar}$ is reduced and its number of irreducible components is at most $\\#(W^?(\\rhobar^{\\mathrm{ss}})\\cap\\JH(\\ovl{\\sigma(\\tau)}))$, with equality when $\\rhobar$ is semisimple. The `known` field attributes it to LLHLM20 §6(1), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E102",
@@ -7654,7 +7719,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (2); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (2) is printed there and states the corrected codomain of $T_{\\mathrm{tan}}$, whose points are a deformation together with an identification of its reduction with $T^*_{dd}(\\ovl\\fM)$. The `known` field attributes it to LLHLM20 §6(2), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E103",
@@ -7670,7 +7740,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (3); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (3) is printed there and states the canonical isomorphism $\\fM_A\\otimes_A\\F\\risom\\ovl\\fM$, recorded for every point of $D^{\\tau,\\Box}_{\\ovl\\fM,\\rhobar}$. The `known` field attributes it to LLHLM20 §6(3), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E104",
@@ -7686,7 +7761,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (4); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (4) is printed there and states the reading of $Y^{[0,2],\\tau}_{\\ovl\\fM}(R)$ as pairs $(\\fM_R,\\jmath_R)$ with $\\jmath_R$ an identification of the reduction, and the same for $Y^{\\mu,\\tau}_{\\ovl\\fM}(R)$. The `known` field attributes it to LLHLM20 §6(4), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E105",
@@ -7702,7 +7782,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (5); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (5) is printed there and states the attribution of $p$-flatness and reducedness of $R$ in the proof of [LLHLM18, Theorem 4.17] to [Cal18, Lemma 2.6]. The `known` field attributes it to LLHLM20 §6(5), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E106",
@@ -7718,7 +7803,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (6); v1, v2 have no §6. The duplicated 'R' at the end of the first sentence is recorded with the typographical slips."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (6) is printed there and states the weaker but sufficient target for the formula of [LLHLM18, Lemma 5.2] — convergence in $\\frac{1}{\\lambda}\\mathrm{Mat}(R[1/p][[u]])$ together with compatibility with base change, in place of membership in $\\cO^{\\mathrm{rig}}_R$. The `known` field attributes it to LLHLM20 §6(6), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E107",
@@ -7734,7 +7824,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (7); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (7) is printed there and states the replacement of $T_1,\\dots,T_8$ by $T_1,\\dots,T_9$ in [LLHLM18, Corollary 5.13] and in the display before its Theorem 6.14. The `known` field attributes it to LLHLM20 §6(7), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E108",
@@ -7750,7 +7845,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (8); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (8) is printed there and states the replacement of 'c_{11} \\equiv 0 modulo \\varpi' by 'c_{11} and c_{13} \\equiv 0 modulo the maximal ideal' in [LLHLM18, §5.3.2]. The `known` field attributes it to LLHLM20 §6(8), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E109",
@@ -7766,7 +7866,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (9); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (9) is printed there and states the replacement of $c^*_{13}$ by $c_{13}$ in the two displays at lines $-6$ and $-4$ of [LLHLM18, §5.3.3]. The `known` field attributes it to LLHLM20 §6(9), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E110",
@@ -7782,7 +7887,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v4 §6 has the same text (p. 97); the item is new in v4 (absent from the 18-item addendum of v3 p. 94); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (10) is printed there and states Definition 6.0.1, supplying the definition of automorphy of weight $V$, level $U$ and coefficients $W$ that [LLHLM18, Definition 7.1] lacked. The `known` field attributes it to LLHLM20 §6(10), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E111",
@@ -7798,7 +7908,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v4 §6 has the same text (p. 97–98); the item is new in v4 (absent from the 18-item addendum of v3 p. 94); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (11) is printed there and states the replacement of 'automorphic of weight $V$' by 'automorphic of weight $V$, level $U$, and coefficients $W$' in [LLHLM18, Definition 7.11(2)], with the explicit remark that the notion of patching functor then depends on the implicit choices of $U$ and $W$. The `known` field attributes it to LLHLM20 §6(11), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E112",
@@ -7814,7 +7929,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v4 §6 has the same text (p. 98); the item is new in v4 (absent from the 18-item addendum of v3 p. 94); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (12) is printed there and states that the definition of $e(M)$ before [LLHLM18, Proposition 7.14] is incorrect, together with the corrected one: $d!$ times the degree-$d$ coefficient of the Hilbert polynomial of $M$ over its support, of dimension at most $d$. The `known` field attributes it to LLHLM20 §6(12), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E113",
@@ -7830,7 +7950,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v4 §6 has the same text (p. 98); the item is new in v4 (absent from the 18-item addendum of v3 p. 94); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (13) is printed there and states the exclusion of primes above $p$ from $\\Sigma_0$ in the paragraph after the proof of [LLHLM18, Proposition 7.14]. The `known` field attributes it to LLHLM20 §6(13), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E114",
@@ -7846,7 +7971,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v4 §6 has the same text (p. 98); the item is new in v4 (absent from the 18-item addendum of v3 p. 94); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (14) is printed there and states the replacement of 'automorphic of weight $V$' by the levelled version in the proof of [LLHLM18, Proposition 7.15], with the explicit $U=\\prod_{v\\nmid\\infty}U_v$ and the lattice $W$. The `known` field attributes it to LLHLM20 §6(14), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E115",
@@ -7862,7 +7992,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v4 §6 has the same text (p. 98); the item is new in v4 (absent from the 18-item addendum of v3 p. 94); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (15) is printed there and states the corrected tame inertial type $\\tau'$ in the proof of [LLHLM18, Proposition 7.16]. The `known` field attributes it to LLHLM20 §6(15), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E116",
@@ -7878,7 +8013,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v4 §6 has the same text (p. 98–99); the item is new in v4 (absent from the 18-item addendum of v3 p. 94); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (16) is printed there and states the addition of Proposition 6.0.2 as a level-lowering input that the proofs of [LLHLM18, Theorems 7.8 and 7.4] require, with the admission that 'Theorem 7.4, which was omitted, uses the same techniques'. The `known` field attributes it to LLHLM20 §6(16), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E117",
@@ -7894,7 +8034,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (10); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (17) is printed there and states the relative dimension 15 over $\\cO$ of $R^{\\tau,\\ovl\\beta,\\Box}_{\\ovl\\fM,\\rhobar}$ after the proof of [LLHLM18, Lemma 8.2]. The `known` field attributes it to LLHLM20 §6(17), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E118",
@@ -7910,7 +8055,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (11); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (18) is printed there and states the further relation $c_{12}c_{33}=0$ in [LLHLM18, Corollary 8.4]. The `known` field attributes it to LLHLM20 §6(18), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E119",
@@ -7926,7 +8076,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (12); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (19) is printed there and states the replacement of the final sentence of [LLHLM18, Corollary 8.4], and likewise of its Proposition 8.11, by the quotient presentation that justifies the dimension hypothesis of its Lemma 8.8. The `known` field attributes it to LLHLM20 §6(19), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E120",
@@ -7942,7 +8097,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (13); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (20) is printed there and states the remark $c_{33}=c_{23}c_{31}(c^*_{21})^{-1}$ in the proof of [LLHLM18, Proposition 8.11]. The `known` field attributes it to LLHLM20 §6(20), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E121",
@@ -7958,7 +8118,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (14); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (21) is printed there and states the coefficients of [LLHLM18, Table 4] being in $\\F$. The `known` field attributes it to LLHLM20 §6(21), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E122",
@@ -7974,7 +8139,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (15); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (22) is printed there and states the coefficients of [LLHLM18, Table 5] being in $R$. The `known` field attributes it to LLHLM20 §6(22), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E123",
@@ -7990,7 +8160,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (16); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (23) is printed there and states the entry $(1,3)$ of [LLHLM18, Table 6] reading 'Leading term of the monodromy condition'. The `known` field attributes it to LLHLM20 §6(23), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E124",
@@ -8006,7 +8181,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (17); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (24) is printed there and states where the missing entries of [LLHLM18, Table 6] are to be read off from. The `known` field attributes it to LLHLM20 §6(24), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E125",
@@ -8022,7 +8202,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: arXiv v3 §6 (p. 94) has the same text as item (18); v1, v2 have no §6."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a faithful report of the authors' own addendum. I read the whole of §6 on published pp. 128–133: item (25) is printed there and states the deletion of the second $c^*_{33}$ in the leading term for $\\alpha\\beta\\alpha\\gamma$ in [LLHLM18, Table 6] and the bolding in its caption. The `known` field attributes it to LLHLM20 §6(25), which is right — these are the authors correcting their own earlier paper, so the finding is the report, not a new discovery — and the recorded correction restates the item without adding to it. What no reading of this paper can do is check the item against [LLHLM18] itself; that boundary is already written into the finding's reason and should stay there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E15",
@@ -8038,7 +8223,12 @@
     "2026-09-23: compared the published author PDF https://math.rice.edu/~bl70/LLHLMlattices.pdf with arXiv v4 https://arxiv.org/pdf/1608.06570v4; metadata at https://arxiv.org/abs/1608.06570 lists v4 dated 2020-03-04.",
     "2026-09-23: title+erratum/correction searches and Morra publication page https://www.math.univ-paris13.fr/~morra/; the linked https://www.math.univ-paris13.fr/~morra/master2.pdf retains the E15/E16 passages. No standalone LLHLM20 correction found in this bounded search. DOI resolver fetch failed in this continuation; earlier checkpoint publisher checks are preserved, not claimed as newly repeated.",
     "arXiv 1608.06570 versions at the same place: arXiv v1 p. 13 and v2 p. 13 print '7^f' (superscript, same slip, f = #J there); v3 and v4 p. 12 print '7^{#J}'; the published version keeps it."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed exactly, superscript included: the source has `there are $7^{\\# \\cJ}$ adjacent vertices`. Definition 2.1.6 changes exactly one component $j\\in\\cJ$, flips $a_j$ and moves $\\omega_j$ by one of the seven displacements of (2.3), so the count is $7\\cdot\\#\\cJ$ — 14 rather than 49 for $\\#\\cJ=2$. The same sentence also writes `$(\\omega,a)\\in\\un{\\Lambda}^\\mu_W$` where the pair lives in $\\un{\\Lambda}^\\mu_W\\times\\mathcal{A}$, as the finding's correction says.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E16",
@@ -8054,7 +8244,12 @@
     "2026-09-23: compared the published author PDF https://math.rice.edu/~bl70/LLHLMlattices.pdf with arXiv v4 https://arxiv.org/pdf/1608.06570v4; metadata at https://arxiv.org/abs/1608.06570 lists v4 dated 2020-03-04.",
     "2026-09-23: title+erratum/correction searches and Morra publication page https://www.math.univ-paris13.fr/~morra/; the linked https://www.math.univ-paris13.fr/~morra/master2.pdf retains the E15/E16 passages. No standalone LLHLM20 correction found in this bounded search. DOI resolver fetch failed in this continuation; earlier checkpoint publisher checks are preserved, not claimed as newly repeated.",
     "arXiv 1608.06570 versions at the same place: Identical in arXiv v2 (p. 49), v3 (p. 56) and v4 (p. 57)."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The printed definition is `Suppose that $M$ is multiplicity free and that $\\mathscr{F}$ is a decreasing (resp. increasing) filtration on $M$. For $\\sigma\\in\\JH(M)$, we define $\\mathrm{d}^M_{\\mathscr F}(\\sigma)$ … to be the unique value $n$ such that $\\Hom_\\cC(\\sigma,\\gr^n_{\\mathscr F}(M))$ … is nonzero', and the next sentence begins `For $\\mathscr{F}$ semisimple'. Without semisimplicity no such $n$ need exist: for a nonsplit $0\\to\\sigma'\\to M\\to\\sigma\\to0$ of distinct simples and the one-step filtration, the only graded piece is $M$ itself and $\\Hom(\\sigma,M)=0$, although $M$ is multiplicity free.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E17",
@@ -8070,7 +8265,12 @@
     "2026-09-23: compared the published author PDF https://math.rice.edu/~bl70/LLHLMlattices.pdf with arXiv v4 https://arxiv.org/pdf/1608.06570v4; metadata at https://arxiv.org/abs/1608.06570 lists v4 dated 2020-03-04.",
     "2026-09-23: title+erratum/correction searches and Morra publication page https://www.math.univ-paris13.fr/~morra/; the linked https://www.math.univ-paris13.fr/~morra/master2.pdf retains the E15/E16 passages. No standalone LLHLM20 correction found in this bounded search. DOI resolver fetch failed in this continuation; earlier checkpoint publisher checks are preserved, not claimed as newly repeated.",
     "arXiv 1608.06570 versions at the same place: Not present in arXiv v1–v4 (the arXiv abstract cites [LLHLM18] without its title)."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim on the published abstract page: `… et al. ['Potentially crystalline deformation 3985 rings and Serre weight conjectures: shapes and shadows', Invent. Math. 212 …]'. The digits are inside the cited title; the reference list on p. 135 has the title without them, and the arXiv abstract has no expanded title at all. A typesetting artefact.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E18",
@@ -8086,7 +8286,12 @@
     "2026-09-23: compared the published author PDF https://math.rice.edu/~bl70/LLHLMlattices.pdf with arXiv v4 https://arxiv.org/pdf/1608.06570v4; metadata at https://arxiv.org/abs/1608.06570 lists v4 dated 2020-03-04.",
     "2026-09-23: title+erratum/correction searches and Morra publication page https://www.math.univ-paris13.fr/~morra/; the linked https://www.math.univ-paris13.fr/~morra/master2.pdf retains the E15/E16 passages. No standalone LLHLM20 correction found in this bounded search. DOI resolver fetch failed in this continuation; earlier checkpoint publisher checks are preserved, not claimed as newly repeated.",
     "arXiv 1608.06570 versions at the same place: Also in arXiv v3 and v4 (v4 p. 7); absent from v1 and v2 (the sentence is not there in this form)."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `we say that $\\lambda$ has Hodge–Tate weighs $\\mu$ if', in the paragraph that has just defined $\\mathrm{HT}_\\sigma(\\rho)$ as a multiset of Hodge–Tate weights. A spelling slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8102,7 +8307,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E19"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E19",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The source reads `and $\\lambda\\in \\un{C}_0$ such that $F(\\lambda-\\eta)$ and $F(\\mu-\\eta)$ have the same central character`, and §2.1 earlier writes `Given $\\mu\\in\\un{C}_0$`. But $\\un{\\Lambda}^\\mu_W$ is defined as $\\{\\omega : \\omega+\\mu-\\eta\\in\\un{C}_0\\}$, Proposition 2.1.5 needs $\\mu-\\eta$ to be a lift of $\\Trns_\\lambda(\\varepsilon,\\un{C}_0)$, and $F(\\mu-\\eta)$ is a Serre weight only for $\\mu-\\eta\\in X_1(\\un{T})$ — so the condition in force is $\\mu-\\eta\\in\\un{C}_0$, which is what §§2.2–2.3 write. A convention slip, harmless.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8118,7 +8328,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E20"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E20",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the source: `this process gives a bijection between from $X_1(\\un{T})/(p-\\pi)X^0(\\un{T})$ to the set of Serre weights of $\\rG$`. A stray word; meaning unambiguous.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8134,7 +8349,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E21"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E21",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `lies $n$-deep in alcove $\\un{C}_0$ if $n<\\langle\\lambda+\\eta,\\alpha^\\vee\\rangle<p-n$ for all $i=0,\\dots,f-1$ and all positive coroots`. No index $i$ occurs in the inequality — a quantifier left over from the componentwise form. Harmless.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8150,7 +8370,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E22"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E22",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Proposition 2.3.7 is stated under `Let $\\tld{w}\\in\\un{W}_at_\\eta$` and its second sentence opens `If $\\tld{w}\\in\\un{W}_a$`. Since $\\un{W}_a=\\un{\\Lambda}_R\\rtimes\\un{W}$ and $\\eta$ has coordinate sum 3 in each embedding, $t_\\eta\\notin\\un{W}_a$ and the two cosets are disjoint, so the second sentence is vacuous as it stands. Read as a separate claim it needs $\\mu+\\tld{w}(0)-\\eta$ 3-deep, since Definition 2.3.6 gives $R_{\\tld w}(\\mu)=R_w(\\mu+\\tld w(0))$ and Proposition 2.3.4 is applied with $\\nu=\\tld w(0)$; the printed hypothesis is on $\\mu+\\tld w^{-1}(0)-\\eta$. The recorded correction states exactly that.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8166,7 +8391,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E23"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E23",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed: the source has `for $\\rhobar_\\cS|_{G_{F_\\cS}} \\cong \\taubar_{\\cS}(s,\\mu)$`, while the same hypothesis is written `$\\rhobar_{\\cS}|_{I_{F_{\\cS}}}\\cong\\taubar_\\cS(s,\\lambda)$` in Proposition 2.3.1 and `$\\rhobar_{\\cS}|_{I_\\cS}$` in §5. $\\taubar_\\cS(s,\\mu)$ is a tame inertial type, so the restriction must be to inertia.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "error",
@@ -8182,7 +8412,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E24"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E24",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and there is a simpler counterexample than the recorded one. The source reads `For $\\tld{w}\\in\\tld{W}$, define $\\Sigma_{\\tld{w}}\\defeq\\Sigma_0\\cap\\tld{w}(r(\\Sigma_0))$ … one can check that $\\Sigma_{\\widetilde{w}}$ is empty if and only if $\\tld{w}$ is not in $\\Adm(\\eta)X^0(\\un{T})$`. Take $\\tld w=1$. With $\\Sigma_0$ as in Definition 2.3.2 and $r$ the alcove-label flip, $\\Sigma_1=\\Sigma_0\\cap r(\\Sigma_0)=\\{(0,0),(\\eps_1,0),(\\eps_2,0),(0,1),(\\eps_1,1),(\\eps_2,1)\\}$, six elements, while $1\\in W_a$ and $\\Adm(\\eta)X^0\\subset W_at_\\eta X^0$, which is disjoint from $W_aX^0$. So the printed equivalence fails already at the identity; the finding's $t_{(1,0,0)}$ is a further instance. Restricting the remark to $W_at_\\eta X^0(T)$, as the correction does, repairs it, and every use is inside that coset.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8198,7 +8433,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E25"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E25",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Corollary 2.3.11 assumes `both $\\mu-\\eta$ and $\\mu+s\\tld{w}^{-1}(\\underline{0})-\\eta$ are $3$-deep`, and its second statement, proved `similarly`, concerns $\\JH(\\ovl{R_s(\\mu-\\un1)})\\cap\\mathcal{R}(\\JH(\\ovl{R_{s\\tld w}(\\mu-\\un1)}))$. That one runs through Proposition 2.3.4 for $R_{s\\tld w}(\\mu-\\un1)=R_{sw}(\\mu-\\un1+s\\tld w(0))$, so it needs $\\mu+s\\tld w(0)-\\eta$ 3-deep. Since $\\tld w^{-1}(0)=-s^{-1}(\\nu)$ for $\\tld w=t_\\nu s$, the two hypotheses are genuinely different — $t_\\eta$ gives $(-1,0,1)$ against $(1,0,-1)$ modulo $X^0$, as the finding says.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8214,7 +8454,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E26"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E26",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the source settles the diagnosis exactly: the LaTeX is `\\cite[Theorem \\ref{thm:BM}]{LLLM}`, a `\\ref` to this paper's own label inside a citation to [LLHLM18]. `thm:BM` is this paper's Theorem 3.5.3 (`\\begin{thm}\\label{thm:BM}\\label{thm:conngenfib}`). [LLHLM18] uses two-level numbering, so there is no Theorem 3.5.3 there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8230,7 +8475,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E27"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E27",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `An element $(\\fM,\\phi_\\fM,\\{\\hat g\\})\\in Y^{[0,h],\\tau}(R)$ is a Kisin module … with height less than $h$`. The ambient category is the height-in-$[0,h]$ one, and $Y^{\\eta,\\tau}\\subset Y^{[0,2],\\tau}$ uses height exactly 2, so `less than' must be read non-strictly.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8246,7 +8496,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E28"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E28",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Lemma 3.2.3 is stated as `Assume there exists $s_0\\in W$, $\\lambda=(\\lambda_j)\\in X^*_1(\\un T)$ and a basis for $\\cM$ such that the $\\phi^f$-action … is given by $Ds_0^{-1}v^\\mu$ … Then by letting $s=(s_0,1,\\dots,1)\\in\\un W$, $V(\\rhobar|_{I_K})=R_s(\\lambda)$`, and its printed proof computes $\\phi^{fk}(e_i)$ and reads off $\\rhobar|_{I_K}$ as a sum of fundamental characters without ever using $\\lambda\\in X_1$ or genericity. So the hypothesis is stronger than the proof needs, and Proposition 3.3.8 applies it with $\\lambda=\\nu+\\eta$, which need not be dominant $p$-restricted. Restating it for arbitrary $\\lambda\\in X^*(\\un T)$ with conclusion $\\rhobar|_{I_K}\\cong\\taubar(s,\\lambda)$, as the correction does, is exactly what the proof gives.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8262,7 +8517,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E29"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E29",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed: four typographical slips, all located. `$\\ovl{\\fM}'\\subset Y^{\\lambda,\\tau}_{\\cM_{dd}}(\\F')$` for a point of that space; `the only monomial matrices $I(\\F)\\tld w I(\\F)$` with the preposition missing; `$e(M_\\infty(\\ovl\\sigma(\\tau'_\\cS)^\\circ)=2$` with one parenthesis short; and `$\\sigma(\\tau_\\cS)^0$` for the lattice written `$^\\circ$` everywhere else. None changes the mathematics.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8278,7 +8538,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E30"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E30",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `In fact, it turns out this admissibility condition exactly captures those semisimple $\\rhobar$ which are reductions of crystalline representations of type $(\\eta,\\tau)$`, immediately after a sentence saying `potentially crystalline representations of type $(\\eta,\\tau)$` and immediately before one about `the potentially crystalline deformation ring of type $(\\eta,\\tau)$`. A representation with nontrivial tame $\\tau$ is not crystalline, so the dropped adverb is a misprint.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8294,7 +8559,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E31"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E31",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, and the reason holds. Proposition 3.4.2 reads `$W^?(\\rhobar,\\tau)\\defeq W^?(\\rhobar)\\cap\\JH(\\ovl{\\sigma(\\tau)})=\\{\\sigma^{(s,\\mu+\\eta)}_{(\\omega,a)}:(\\omega,a)\\in\\Sigma_{\\tld w^*}\\}\\subset\\JH(\\ovl{R_s(\\mu+\\eta)})$`. By §2.1, $F(\\Trns_{\\mu'}(\\omega,a))$ has the central character of $F(\\mu'-\\eta)$, so the middle set has that of $F(\\mu)$. Proposition 2.3.5 is applicable to $R_s(\\mu+\\eta)$ only in the presentation with base $\\mu+\\eta+\\un1$ and $\\nu=-\\un1$ (then $\\nu+\\eta=(1,0,-1)\\in\\un\\Lambda_R$, whereas $2\\eta\\notin\\un\\Lambda_R$), giving $\\JH(\\ovl{R_s(\\mu+\\eta)})=F(\\Trns_{\\mu+\\eta+\\un1}(t_{-\\un1}s\\Sigma))$, of central character $F(\\mu+\\un1)$. For $p\\geq5$ the twist by $\\un1$ is nontrivial on the centre, so the printed inclusion fails and the base must be $\\mu+\\eta+\\un1$, as the correction says. One grading remark rather than a change: E02 is recorded as reaching `a stated result' for the same kind of defect, and by that standard E31's `nothing' is generous — the equality it states is false as printed. I leave the field as recorded because the finding's own text says the downstream use is unaffected, and note the tension here.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "error",
@@ -8331,7 +8601,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E33"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E33",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The printed definition says `the universal framed deformation ring of $\\rhobar_{\\tld v}$ of inertial type $\\tau_{\\tld v}$ and (parallel) Hodge–Tate weights $(2,1,0)$`, without `potentially crystalline'. For a tame type the potentially semistable and potentially crystalline rings of that Hodge type are different, and everything that uses $R^{\\tau_{\\tld v}}_{\\tld v}$ — Remark 3.3.13, Propositions 3.4.4–3.4.5, the proof of Theorem 3.5.3 and the computations imported from [LLHLM18] — is about the potentially crystalline one.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8347,7 +8622,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E34"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E34",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `If $M_\\infty(R_1(\\mu))$ is nonzero, then $\\rhobar_{\\tld v}$ has a semistable lift of type $\\tau_{\\tld v}(1,\\mu_{\\tld v})$ for all $\\tld v\\in\\cS$`. $M_\\infty$ is defined on finitely generated $\\cO$-modules with a $K$-action, and $R_1(\\mu)$ is an $E$-representation, so the functor has to be applied to a lattice; by axiom (1) the nonvanishing is lattice-independent. And a lift of a tame type is potentially semistable, not semistable. Both are conventions left implicit.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8363,7 +8643,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E35"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E35",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Definition 3.5.1 defines `weak minimal patching functor' (`\\label{minimalpatching}`), and that is the only definition in the paper; Theorem 3.5.2 says `$M_\\infty$ is a weak patching functor', Proposition 3.5.15 concludes `Then $M_\\infty$ is a patching functor for $\\rhobar$' and Corollary 3.5.16 `Then there exists a patching functor for $\\rhobar_\\cS$', while §5 and the construction itself say `weak minimal patching functor' throughout. Abbreviations of the defined term.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8379,7 +8664,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E36"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E36",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on both counts from the source. The citation is `By Proposition \\ref{unramtwist} and Proposition \\ref{fixedpoints}`, and `\\label{fixedpoints}` sits on a `\\begin{thm}` — it is Theorem 3.3.12. And `semisimple in the sense of Definition \\ref{defn:shape}`, where `defn:shape` is the definition of the *shape* of a Kisin module; semisimplicity is the separate definition two pages later (3.3.4).",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8395,7 +8685,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E37"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E37",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The proof of Lemma 3.5.4 opens by asserting the existence of $\\ovl{\\fM}_{\\rhobar}\\in Y^{\\eta,\\tau}(\\F)$ with $T^*_{dd}(\\ovl{\\fM}_{\\rhobar})\\cong\\rhobar|_{G_{K_\\infty}}$ `by Proposition 3.4.1', but Proposition 3.4.1 (`typematching`/`typereflection` in the source) runs the other way: from a semisimple Kisin module of a given shape to $V(\\rhobar|_{I_K})$ and to $W^?(\\rhobar,\\tau)$. Existence for a given $(\\rhobar,\\tau)$ is Theorem 3.3.12 together with Lemma 3.3.10, and in the applications (Lemma 3.5.9, Corollary 3.5.5) the type is built from $\\tld w$, so existence is what has to be produced. The recorded repair constructs the semisimple $\\ovl{\\fM}$ of shape $\\tld w$ directly and is the argument the paper's own §§3.3–3.4 supply.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8411,7 +8706,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E38"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E38",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed: the source cites `\\ref{reducetoss}`, whose environment is `\\begin{lemma}` — Lemma 3.3.10, printed as `Proposition 3.3.10'. The finding's note that the step is redundant is also right, since Proposition 3.4.4 already covers non-semisimple $\\rhobar_{\\tld v}$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8427,7 +8727,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E39"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E39",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `we can find an element $\\tld{w}_it_{-\\un1}\\in\\{\\alpha\\beta\\alpha,\\beta\\gamma\\beta,\\alpha\\gamma\\alpha\\}$`. §2.3 fixes the convention explicitly — `we use the dominant base alcove and the corresponding affine reflection $\\gamma^+=t_{(1,0,-1)}(13)$ as a generator for $W^\\der_a$ … The affine generator for the antidominant choice is $\\gamma=(13)t_{(1,0,-1)}$` — and Table 2, which is what this step reads off, is written entirely in $\\gamma^+$. So the three elements must be $\\alpha\\beta\\alpha,\\beta\\gamma^+\\beta,\\alpha\\gamma^+\\alpha$, the order-three orbit of $\\alpha\\beta\\alpha$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8443,7 +8748,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E40"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E40",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `There are six possible pairs $\\{(\\omega_j,a_j),(\\omega'_j,a'_j)\\}\\in\\Sigma^{\\mathrm{obv}}_0$ which are adjacent … each of which is $\\Sigma_{\\widetilde{w}_j^{-1}}$ for some length three non-shadow element $\\widetilde{w}'_j$`. Three slips in one sentence: a pair is a subset, not an element, of $\\Sigma^{\\mathrm{obv}}_0$; the set attached to the new element is $\\Sigma_{\\tld w'^{-1}_j}$, not $\\Sigma_{\\tld w^{-1}_j}$ (the unprimed $\\tld w_j$ is the length-four element of the previous paragraph, whose $\\Sigma$ is a singleton); and the component index is $j_0$, as the following sentence writes it.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8459,7 +8769,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E41"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E41",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The sentence is `if $\\rhobar_\\cS$ is $10$-generic and $W^?(\\rhobar_\\cS,\\tau_\\cS)$ is nonempty, then $\\tau_\\cS$ is $7$-generic by Proposition \\ref{telim2}`, and Proposition 3.4.5 reads `Assume that $\\rhobar$ arises as the reduction of a potentially crystalline representation of type $(\\eta,\\tau)$ where $\\tau$ is a $1$-generic tame inertial type. Then $\\tau$ is $(n-3)$-generic.' Non-emptiness of $W^?(\\rhobar_\\cS,\\tau_\\cS)$ does not supply that lift at this point in the argument — supplying it is part of Theorem 3.5.3, proved later with the patching functor. The claim itself is true and, as the finding says, is never used.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8475,7 +8790,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E42"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E42",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the inconsistency is inside one paragraph: `By Proposition \\ref{lemma:weight-combinatorics}(\\ref{type-inclusion})` two sentences before `By Lemma \\ref{lemma:weight-combinatorics}(\\ref{lower-defect})`, and the environment is `\\begin{lemma}`.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8491,7 +8811,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E43"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E43",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: the display is `$\\tld M_\\infty\\circ\\prod_{v\\in\\Sigma^+_p}\\iota_{\\tld v}\\circ(-\\otimes\\widehat\\bigotimes_{v\\in\\Sigma^+_p,\\,v'\\neq v}\\sigma(\\tau)^\\circ)$`, with the bound variable $v$ and the condition $v'\\neq v$ crossed. Two lines above, $R_\\infty$ is defined with the correct $\\widehat\\bigotimes_{v'\\in\\Sigma^+_p,\\,v'\\neq v}$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8507,7 +8832,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E44"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E44",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a notational gap. The definition on p. 38 says `$e(M)$ is the Hilbert–Samuel multiplicity of $M$ as an $A$ module when $\\dim A=d$, and is $0$ otherwise', for $R_\\infty$-modules in the fixed patching dimension $d$; and the proof of Theorem 3.5.3 writes $e(\\ovl R^\\tau_{\\rhobar})=e(M_\\infty(\\ovl\\sigma(\\tau)^\\circ))$ in (3.5) and then `$e(\\tld R^\\tau_{\\rhobar})=e(\\ovl R^\\tau_{\\rhobar}[\\![X_1,\\cdots X_{3f}]\\!])=e(\\ovl R^\\tau_{\\rhobar})$'. Read with that definition every one of those is zero, and $\\ovl R^\\tau_{\\rhobar}$ is not an $R_\\infty$-module of dimension $d$. The intended reading is each ring's own Hilbert–Samuel multiplicity, or $e(\\ovl R_\\infty(\\tau))$ in (3.5); the recorded correction says so, and the point is not idle, since §6(12) of this very paper corrects [LLHLM18] on exactly this dimension convention.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8523,7 +8853,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E45"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E45",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed: the proof of Proposition 3.6.1(2) writes the tensor product over $\\tld v\\in\\Sigma$ while the statement and the rest of the proof index the places by $\\cS$. A slip of one letter.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8539,7 +8874,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E46"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E46",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and decided by the paper's own later computation. Table 3's identity row prints the component `$(c_{23},c_{33},c_{22},(a-b)c_{21}c_{32}-(a-c)c_{31}c^*_{22},c_{32}c_{13}-c_{12}c^*_{33})$'. In §3.6.2, Case $t_{\\un1}$, the paper computes $\\ovl R/\\fW_0=\\F[\\![c_{13},c_{21},c_{31},c_{32},c^*_{11}-[\\cdot],c^*_{22}-[\\cdot],c^*_{33}-[\\cdot]]\\!]/(c_{13}((a-c)c^*_{22}c_{31}-(b-c)c_{32}c_{21}))$, whose non-$c_{13}$ factor is $-((b-c)c_{21}c_{32}-(a-c)c_{31}c^*_{22})$ — the corrected polynomial, with $(b-c)$ and not $(a-b)$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8555,7 +8895,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E47"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E47",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the table decides it internally. In the row in question the matrix is $\\begin{psmallmatrix}v^2c_{11}&0&0\\\\v(c_{21}+vd_{21})&c_{22}&c^*_{23}\\\\v(c_{21}c_{33}(c^*_{23})^{-1}+vd_{31})&vc^*_{32}&c_{33}\\end{psmallmatrix}$ with relation $c_{22}c_{33}=0$, so $\\det A=v^2c_{11}(c_{22}c_{33}-vc^*_{23}c^*_{32})=-v^3c_{11}c^*_{23}c^*_{32}$; the required elementary divisors force $c_{11}$ to be a unit. Confirming this, $c_{11}$ occurs in none of the row's relations and in neither of its two listed components, whereas the neighbouring row, whose $(1,1)$ entry is the genuine coordinate $vc_{11}$, does list $(c_{11})$ as a component.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8571,7 +8916,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E48"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E48",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `the height of the intersection of $((z_j)_j+(\\varpi))+((z'_j)_j+(\\varpi))$ is easily seen to be` — the word `intersection' attached to a sum. The intersection of two height-one primes has height one, while the quantity compared with the first sentence of the proof is the height of the sum.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8587,7 +8937,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E49"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E49",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, with an independent check the finding does not give. The three $\\gamma$-conjugate rows at the foot of Table 4 print the coefficient pairs $\\{(a'-b'),(a'-c')\\}$, $\\{(b'-c'),(-1-a'+b')\\}$ and $\\{(-1-a'+c'),(1-b'+c')\\}$. The first three are the cyclic pattern $x-y$ with $y$ running through $b',c',a'+1$; the fourth term of the pattern is $c'-(b'+1)=(-1-b'+c')$, while the printed $(1-b'+c')$ is $c'-(b'-1)$ and breaks it. The finding's transport computation reaches the same conclusion: under the p. 66 matching the corrected relation becomes exactly the paper's own $\\ovl R/\\fW_{\\eps_2}$ relation.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8603,7 +8958,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E50"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E50",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `On the other hand $\\tld{w}_{f-1-i}=\\alpha\\beta\\alpha=\\tld{z}^*_i$, $(a',b',c')=(c,b,a)$`. In this case ($\\tld w=t_{\\un1}$) the unprimed shape is the identity one and $\\alpha\\beta\\alpha$ is the shape of $\\tau'$; the parallel sentence in the neighbouring case is written with the primed symbol, `$\\tld{w}'_{f-1-i}=\\alpha\\beta\\gamma\\beta t_{\\un1}$`.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8619,7 +8979,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E51"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E51",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `such that $\\mathscr{F}^{n+1}(M)\\subset\\mathscr{F}^n(M)$ … for all $i$. A filtration $\\mathscr{F}$ is exhaustive and separated if $\\mathscr{F}^n(M)=0$ for $i$ sufficiently large (resp. small) and $\\mathscr{F}^n(M)=M$ for $n$ sufficiently small (resp. large)` — the index is $n$ and the same sentence gets it right at its end.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8635,7 +9000,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E52"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E52",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap on both points. The proof of Proposition 4.1.1 replaces $\\sigma$ by $\\sigma'$ repeatedly and then says `we can assume, without loss of generality, that $\\sigma'$ does not point to $\\sigma$ for all $\\sigma'\\in\\JH(N)$', which terminates only in the absence of a directed cycle; and acyclicity is then asserted, not proved, in `If $M$ is multiplicity free, we can attach a directed acyclic graph $\\Gamma(M)$'. The recorded repair is the standard one and uses only what the printed proof already establishes.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8651,7 +9021,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E53"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E53",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `$\\Gamma_{\\mathscr{F}}(M)\\risom\\Gamma^{\\mathscr{F}^*}(M)^*$`, while the sentence just before it says `A decreasing filtration $\\mathscr{F}$ on $M$ gives rise to an increasing filtration $\\mathscr{F}^*$ on $M^*$' — so $\\Gamma^{\\mathscr{F}^*}$ can only be formed for $M^*$. One character.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8667,7 +9042,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E54"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E54",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `$\\Hom_{\\rG}(\\bullet,Q_1(\\mu)|_{\\rG})\\cong(\\Hom_{\\rG'}(\\bullet,Q_1(\\mu)|_{\\rG^{\\der}}))^{\\rG/\\rG^{\\der}}$`. The module in the inner Hom is restricted to $\\rG^{\\der}$ and the invariants are for $\\rG/\\rG^{\\der}$, so the subscript must be $\\rG^{\\der}$; $\\rG'$ is never defined in the published text.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8683,7 +9063,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E55"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E55",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `$\\soc^\\bullet_{\\ell\\ell(M)-i}(M^*)=(M/\\rad^i_\\bullet(M))^*$`. With the paper's own conventions ($\\rad^0=M$, $\\soc_0=\\soc$) the identity fails at both ends: at $i=0$ the right side is $0$ and the left is $M^*$, at $i=\\ell\\ell(M)$ the right side is $M^*$ and the left is $\\soc(M^*)$. The correct duality is $(M/\\rad^i M)^*=\\soc_{i-1}(M^*)$, since $M/\\rad^iM$ has Loewy length $i$; with it the argument goes through unchanged.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8699,7 +9084,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E56"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E56",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `The isomorphism holds upon restriction to $\\un{G}^{\\der}_1$ … the $\\un{G}^{\\der}_1$-isomorphisms extend to $\\un{G}$-isomorphisms by (4.3)`. (4.3) relates $\\un G$ to $\\un G^{\\der}$ and $\\un G_1$ to $\\un G_1^{\\der}$; it cannot take an isomorphism of $\\un G_1^{\\der}$-modules to one of $\\un G$-modules. The intended reading is the algebraic derived group, without the Frobenius kernel, and statement (1) itself is true.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "error",
@@ -8715,7 +9105,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E57"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E57",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an error in the proof. Lemma 4.2.4 is stated under `Assume that $p\\geq2(h-1)$', and the step asserts `As $\\langle\\omega_\\kappa,\\alpha^\\vee\\rangle<2(h-1)\\leq p-2$ … it follows that $\\omega_\\kappa$ lies in the lower $p$-restricted alcove'. The chain $2(h-1)\\leq p-2$ is two more than the hypothesis supplies, and it fails exactly at $p\\in\\{2h-2,2h-1\\}$; the finding's $h=3$, $p=5$, $\\omega_\\kappa=(3,0,0)$ is on the upper wall, since $\\langle\\omega_\\kappa+\\rho,\\alpha_0^\\vee\\rangle=5=p$. Being in the restricted region is in any case weaker than being in the lowest alcove, which is what the Ext-vanishing conclusion uses.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8731,7 +9126,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E58"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E58",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed from the bibliography source: `\\bibitem[AM01]{Andersen-Kaneda} Henning~Haahr Andersen and Kaneda Masaharu`. The surname-first form was typeset as the initial `K.' plus `Masaharu' as a surname; the coauthor is Masaharu Kaneda, and the internal key `Andersen-Kaneda' shows the authors knew it.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8747,7 +9147,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E59"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E59",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `Let $Q_1(\\mu_i)$ be the $\\GL_3{}_{/\\F}$-module defined in Theorem 4.2.1. It is rigid with Loewy length $\\ell\\ell(Q_1(\\mu))=6+1$` — the module is the $i$-th factor, its Loewy length is $6+1$, and $Q_1(\\mu)=\\otimes_iQ_1(\\mu_i)$ has $6f+1$, as the same page states a few lines later.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8763,7 +9168,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E60"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E60",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `$L|_{\\rG}\\cong L(\\lambda^0+\\pi\\omega_\\lambda)\\cong\\oplus_{\\eps\\in L(\\pi\\omega_\\lambda)}L(\\lambda+\\eps)^{m_{\\pi\\omega_\\lambda}(\\eps)}$ by Lemma 4.2.4(1)'. The translation principle is being applied to $L(\\lambda^0)\\otimes L(\\pi\\omega_\\lambda)$, so the summands are $L(\\lambda^0+\\eps)$; and a simple module restricts to a single Serre weight, so the middle term cannot be a simple module either. The conclusion drawn, $|\\langle\\eps,\\alpha^\\vee\\rangle|\\leq2$, is about those shifts and is unaffected.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8779,7 +9189,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E61"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E61",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `Since $\\Inj(F(\\mu))$ is rigid (it is isomorphic to $\\Proj(F(\\mu))$), this is the unique increasing Loewy series.' Being simultaneously an injective hull and a projective cover does not imply rigidity — the finding's Brauer-tree example is a standard counterexample — so the parenthetical is not a reason. Rigidity does hold, by Corollary 4.2.3 and the rigidity of $Q_1(\\mu)$, which is the repair recorded.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8795,7 +9210,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E62"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E62",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed text confirmed verbatim: `As in the proof of Lemma 4.2.6, the summand $F(\\tld{w}_+\\cdot\\mu+\\varepsilon)$ is $\\sigma_{(w_0\\varepsilon,\\pi(\\tld{w}_+\\cdot\\tld{w}_h\\cdot\\un{A}))}$.' The parallel identification in Lemma 4.2.6's own proof is $(\\omega,\\pi(\\tld w_{+,i}\\tld w_\\mu\\cdot\\un A))=\\beta(\\omega,\\tld w_{+,i}\\tld w_\\mu)$ with $\\omega$ itself and not $w_0\\omega$ in the first slot, so the two sentences do not use the same rule and at least one linear factor is missing here — which is the finding. I did not redo the fourteen-row computation that pins the factor down as $w_0w_+^{-1}$; what I can confirm independently is the finding's own reason for `affects: nothing', namely that $\\varepsilon$ runs over the $\\un W$-stable weight set of $L(\\pi\\omega_-)$, so the collection of summands, which is all the proof uses, is the same either way.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8811,7 +9231,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E63"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E63",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed text confirmed verbatim: `In the fifth column we write the $\\pi i$-th coordinate of the points in the graph (with origin $\\mu+\\eta'$)'. The same caption's closing sentence says the second half `has the graph origin in $\\mu^{\\op}+\\eta$', so the two halves are described with origins differing by more than the $\\op$, and the proof of Lemma 4.2.6 that the table serves works in $\\Trns_{\\lambda+\\eta}$. I did not recompute all fourteen rows; the internal inconsistency of the caption with itself and with the lemma is what I verified.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8827,7 +9252,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E64"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E64",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively, and visible without any computation. Table 5 attaches $\\omega_-=t_{\\eps'_2}$ to the rows landing in $C$ and $E$ and $\\omega_-=t_{\\eps'_1}$ to those landing in $D$ and $F$, in both halves of the table. Table 6 attaches the tensor factor $L(\\eps'_1)$ to $C$ and $E$ and $L(\\eps'_2)$ to $D$ and $F$, again in both diagrams. The two labellings are exactly transposed on $C\\leftrightarrow D$ and $E\\leftrightarrow F$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8843,7 +9273,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E65"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E65",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `Then, we can take $U$ to be the preimage of $\\oplus_{\\omega\\in L(\\eta')}F(\\Trns_{\\lambda+\\eta}(\\omega,0))$ in $V_\\mu|_{\\rG}$', with no exclusion of $\\omega=0$, while the general case two paragraphs later writes `$\\omega\\in L(\\eta'_i),\\,\\omega\\neq0$'. With $\\omega=0$ included, $F(\\Trns_{\\lambda+\\eta}(0,0))$ lies in $\\gr_1$ as well as $\\gr_3$ and $U$ is no longer multiplicity free, so the property the construction is for fails.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8859,7 +9294,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E66"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E66",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `Let $U_i$ be the preimage of $\\bigoplus_{\\omega\\in L(\\eta'_i),\\,\\omega\\neq0}L(\\mu_i^{\\op})\\otimes V_{\\mu_{\\pi i}+\\omega}\\otimes\\bigotimes_{j\\neq i,\\pi i}V_{\\mu_j}|_{\\rG}$', immediately after the decomposition $\\oplus_{\\omega\\in L(\\eta'_{\\pi i})}V_{\\mu_{\\pi i}+\\omega}^{\\oplus m}\\into V_{\\mu_{\\pi i}}\\otimes L(\\eta'_{\\pi i})$ that it quotes. The module $V_{\\mu_{\\pi i}+\\omega}$ needs $\\omega$ at embedding $\\pi i$, so the index set is $L(\\eta'_{\\pi i})$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "error",
@@ -8875,7 +9315,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E67"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E67",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an error in a stated result, by a check independent of the one recorded. Proposition 4.2.9 says $\\Ext^1_{\\un G}(L(\\theta),L(\\lambda))$ is one-dimensional `if and only if $\\lambda$ and $\\theta$ are linked and lie in adjacent alcoves … lie in different alcoves sharing a face'. Take $f=1$ and $\\lambda$ 6-deep in $A$; computing the dot action $\\tld wt_\\nu\\cdot x=w(x+p\\nu+\\eta)-\\eta$ on the rows of Table 5 gives, in the $(\\alpha_1,\\alpha_2,\\alpha_0)$ pairings, $A=(0,p)^3$, $C=(0,p)\\times(p,2p)\\times(p,2p)$, $D=(p,2p)\\times(0,p)\\times(p,2p)$, $E=(0,p)\\times(p,2p)\\times(2p,3p)$ and $F=(p,2p)\\times(0,p)\\times(2p,3p)$. None of $C,D,E,F$ shares a face with $A$ — the reflection of $A$ in the wall $\\langle\\cdot,\\alpha_2^\\vee\\rangle=p$ has $\\alpha_1$-pairing $\\alpha_0-p<0$, so it is none of them. Yet Lemma 4.2.6 identifies the $3f$ Jordan–Hölder factors of $\\gr_1Q_1(\\mu)$ as the $L(\\tld w\\cdot\\mu)$ of exactly those rows, and by (4.8) $Q_1(\\lambda)$ is injective among $p$-bounded modules, so each such factor gives a nonsplit self-extension class and $\\Ext^1_{\\un G}(L(\\theta),L(\\lambda))\\neq0$. The `only if' is therefore false, whichever three of the rows are the $\\gr_1$ ones for a given $\\mu$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8891,7 +9336,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E68"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E68",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The proof says `Both $Q_1(\\lambda^0)\\otimes L(p\\omega_\\lambda)$ and $M$ are $6$-deep by Lemma 4.2.5. By Lemma 4.2.2 the restriction to $\\rG$ of the map $M\\into Q_1(\\lambda^0)\\otimes L(p\\omega_\\lambda)$ is an isomorphism on socles', and Lemma 4.2.2 is stated for $p$-bounded modules, $\\langle\\kappa,\\alpha^\\vee\\rangle<2(h-1)p=4p$ for $\\GL_3$. The highest weight of $Q_1(\\lambda^0)\\otimes L(p\\omega_\\lambda)$ pairs with $\\alpha_0^\\vee$ to $4(p-1)-\\langle\\lambda^0,\\alpha_0^\\vee\\rangle+p\\langle\\omega_\\lambda,\\alpha_0^\\vee\\rangle$, which for $\\omega_\\lambda\\in\\{\\eps'_1,\\eps'_2\\}$ and $\\langle\\lambda^0,\\alpha_0^\\vee\\rangle\\leq p-4$ is at least $4p$. So the hypothesis fails for the very module it is applied to, exactly as recorded.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8907,7 +9357,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E69"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E69",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. Theorem 4.2.7(3) is stated as `Assume that $\\mu$ 6-deep', and its proof invokes `(3) follows from Lemmas 4.2.5 and 4.2.6' for the graph $\\Gamma(U)$ with $U\\subset V_\\mu|_{\\rG}$. Lemma 4.2.6 requires its weight to be 6-deep, while Lemma 4.2.5 states only that `If $\\mu\\in X_1(\\un T)$ is $n+2$-deep, then $Q_1(\\mu)|_{\\rG}$ and $V_\\mu|_{\\rG}$ are all $n$-deep' — so $\\mu$ 6-deep makes the constituents 4-deep and the lemma does not apply. Raising the hypothesis to 8-deep, as the correction does, closes it.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8923,7 +9378,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E70"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E70",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap in the write-up. The proof of Theorem 4.2.16 is the two sentences quoted, and Proposition 4.2.15 is stated only for the one configuration $R=R_s(\\mu^{\\op}+\\eta')$ with $\\sigma=F(\\mu^{\\op}+s(\\eta'))$, whereas Theorem 4.2.16 quantifies over every 13-generic $R$ and every lowest-alcove $\\sigma\\in\\JH(\\ovl R)$ of defect zero — and by Definition 2.3.9 such a $\\sigma$ can sit at any of the three outer lower corners of $\\Sigma_0$ in each embedding. The reduction from the general pair to the standard one is not written down. The recorded repair supplies it; I did not re-derive it, and note only that it uses nothing beyond §§2.3 and 4.2.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8939,7 +9399,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E71"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E71",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `there is a sequence of weights $\\sigma_i$ for $0\\leq i\\leq d-1$ such that $\\sigma_0=\\sigma$, $\\sigma_d=\\sigma'$, and $\\dgr{\\sigma_i}{\\sigma_{i+1}}=1$ for all $i$' — the sentence names $\\sigma_d$, which the printed range does not define. An index slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8955,7 +9420,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E72"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E72",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `we may, and do, fix an extension path of length $k+1$ in $\\Gamma_{\\rad}(\\ovl R^\\sigma)$: $\\sigma'=\\sigma_k\\lar\\dots\\lar\\sigma_0=\\sigma$'. The displayed path has $k$ edges and $k+1$ vertices, and Corollary 4.1.4 and Proposition 4.1.6 count edges, so the length is $k$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -8971,7 +9441,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E73"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E73",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The sentence is `By duality (cf. the proof of Proposition 4.3.17), the graph $\\Gamma_{\\rad}(\\ovl R^{\\sigma^{\\op}})$ is also predicted by the extension graph', and the duality argument being appealed to runs through Theorem 4.2.16, which is stated for a lowest-alcove weight. Here $\\sigma_0$ is only assumed maximally saturated, so that input is not available. The recorded repair goes instead through $\\Def_R(\\sigma_0^{\\op})=0$ and the symmetry of $\\dsat$ (Lemma 4.3.6), which are proved earlier; I checked that those two ingredients are indeed available at that point but did not re-derive the whole replacement.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -8987,7 +9462,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E74"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E74",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `Let us fix saturated inclusions of lattices $R^{\\sigma_i'},R^{\\sigma''_i}\\subseteq R^\\sigma$, $R^{\\sigma_1},R^{\\sigma_1^{\\op}}\\subseteq R^{\\sigma^{\\op}}$', and the sentence that follows asserts that $p^{3f-i}R^{\\sigma'_i}$ and $p^{3f-i}R^{\\sigma''_i}$ sit inside $R^{\\sigma^{\\op}}$ — which is incompatible with $R^{\\sigma_1}\\subseteq R^{\\sigma^{\\op}}$ being saturated, since $3f-1\\geq1$. All the lattices have to be normalised inside $R^\\sigma$, as the subsequent diagram does.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9003,7 +9483,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E75"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E75",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: Lemma 5.1.2 reads `If $\\sigma\\in W^?(\\rhobar_\\cS)$, then $M_\\infty(\\sigma)$ is a cyclic $R_\\infty(\\tau_\\cS)$-module'. For $\\sigma\\in W^?(\\rhobar_\\cS)\\setminus\\JH(\\ovl{\\sigma(\\tau_\\cS)})$ the support of $M_\\infty(\\sigma)$ is not inside $\\Spec R_\\infty(\\tau_\\cS)$, so the conclusion cannot be read literally; the proof gives freeness of rank one over the support, i.e. cyclicity over $R_\\infty$. Every application has $\\sigma\\in W^?(\\rhobar_\\cS,\\tau_\\cS)$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9019,7 +9504,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E76"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E76",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `Note that the support of $M_\\infty(\\sigma)$ is formally smooth as can be checked from Theorem 3.5.2.' Theorem 3.5.2 computes $e(M_\\infty(\\sigma))$ and is cited for exactly that two sentences later; formal smoothness of the components is Theorem 3.5.3, which with Proposition 3.6.1(2) is what identifies the support.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9035,7 +9525,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E77"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E77",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The definition on the preceding page is written `$\\tau_\\cS\\cong\\tau_\\cS(s(w^*)^{-1},\\mu+s(\\tld w^*)^{-1}(0))$' and the one before (5.4) prints a minus sign. The sign is forced: with $V(\\rhobar|_{I})=R_s(\\mu)$ and Proposition 3.4.1's $V=R_{s'\\tld w^*}(\\mu')$, one needs $\\mu'=\\mu-s(w^*)^{-1}\\tld w^*(0)=\\mu+s(\\tld w^*)^{-1}(0)$, since $(\\tld w^*)^{-1}(0)=-(w^*)^{-1}(\\tld w^*(0))$. The definition of $\\tau'_\\cS$ in Lemma 5.1.4 has the plus sign too.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9051,7 +9546,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E78"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E78",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed twice over: `We use the notation of the proof of Lemma \\ref{prop saturation 1}' and `By the proofs of Lemmas \\ref{lem:supp} and \\ref{prop saturation 1}', where the label sits on `\\begin{prop} \\label{prop saturation 1} Let $R$ be a $13$-generic Deligne–Lusztig representation…' — Proposition 4.3.7. The same paragraph also cites it correctly as `By Proposition \\ref{prop saturation 1}'.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -9067,7 +9567,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E79"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E79",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap in the genericity bookkeeping. The two auxiliary types are $\\tau_\\cS=\\tau(s(w^*)^{-1},\\mu+s(\\tld w^*)^{-1}(0))$ and $\\tau'_\\cS=\\tau(s(w')^{-1},\\mu+s(\\tld w')^{-1}(0))$, whose lowest-alcove parameters differ by $s((\\tld w')^{-1}(0)-(\\tld w^*)^{-1}(0))$; the elements substituted are of length up to two more, so the depth can drop, and the results invoked for $\\tau'_\\cS$ (Theorem 4.1.9, Proposition 4.3.7) carry a 13-generic hypothesis that is not re-checked. Raising the hypothesis of Theorem 5.1.1, as the correction proposes, is the clean fix. I verified the two type formulas and the 13-generic hypothesis of Proposition 4.3.7 directly; the exact loss per case rests on the finding's computation.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -9083,7 +9588,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E80"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E80",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The printed step is `there is still a surjection $\\ovl\\sigma(\\tau_\\cS)^\\sigma\\twoheadrightarrow V$ by (5.5) and Theorem 4.1.9', and what the induction then needs is that $V$ is a quotient of $\\ovl\\sigma(\\tau'_\\cS)^\\sigma$ for the new type. Theorem 4.1.9 determines the Jordan–Hölder constituents and the graph of these modules, and two multiplicity-free modules with the same constituents and the same graph need not be isomorphic, so the cited theorem does not by itself produce the surjection. The finding grants that the conclusion is true and only the justification is short.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9099,7 +9609,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E81"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E81",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed; the correction is a genuine repair of the containment. The step reads `there exists $\\tld w'\\in\\Adm(\\eta)$ such that for all $i$, $\\ell(\\tld w'_i)>1$ and $\\Sigma_{V,i}\\subset\\Sigma_{(\\tld w'_i)^{-1}}$. For example, if $\\Sigma_{V,i}\\subset\\{(0,1),(0,0),(\\eps_1,0)\\}$, then one takes $\\tld w'_i=\\beta\\alpha t_{\\un1}$.' With the conventions that reproduce Table 2, $\\Sigma_{V,i}$ has to land in the weights of the new type, i.e. in $r(\\Sigma_{(\\tld w'_i)^{-1}})$ or in $(\\tld w'_i)^{-1}(\\Sigma_0)$, not in $\\Sigma_{(\\tld w'_i)^{-1}}$, and the worked example does not satisfy the printed containment. I checked the shape of the claim against Corollary 2.3.11, which is what fixes $\\JH(\\ovl\\sigma(\\tau'_\\cS))$ and $W^?(\\rhobar_\\cS,\\tau'_\\cS)$; the element-by-element verification is the finding's.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9115,7 +9630,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E82"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E82",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the published text: `On the other hand, $\\Sigma_{V,i}\\cap r(\\Sigma_0)<5$, which implies that $\\Sigma_{V,i}\\cap r(\\Sigma_0)\\subset\\{(\\omega,1),(0,0),(\\eps_1,0),(\\eps_2,0)\\}$', while the sentence immediately before writes $\\#((\\tld w^*_i)^{-1}(\\dots)\\cap r(\\Sigma_0))=5$ with the cardinality sign. A set compared with a number.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9131,7 +9651,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E83"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E83",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the published text, and the inconsistency is inside the same half page. Lemma 5.1.6 reads `Suppose that for all $i\\in\\cJ$, either $\\ell(\\tld w_i)>1$ or $\\Sigma_{V,i}\\subset(\\tld w^*_i)^{-1}(\\Sigma_0\\setminus\\{(\\nu,0)\\})$', and the remark after it again writes `when $\\ell(\\tld w_i)\\leq1$', while the proof directly below inducts on `$n=\\#\\{i\\in\\cJ:\\ell(\\tld w^*_i)\\leq1$ and …$\\}$' with the star, as do Lemmas 5.1.3–5.1.5, 5.1.7 and Theorem 5.1.1. Since $*$ reverses the order of the components (Remark 3.4.3), the two conditions are about different embeddings.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -9147,7 +9672,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E84"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E84",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The step is `There is also a submodule $V^2\\subset V$ such that … $\\#\\Sigma_{V^2,i'}=\\#(\\Sigma_{V^2,i'}\\cap r(\\Sigma_0))=2$ … One can check that $M_\\infty(V^2)$ is cyclic by the inductive hypothesis', and the inductive hypothesis is the statement of the lemma, whose standing condition (5.1) constrains the cosocle at embeddings with $\\ell(\\tld w^*_{i'})\\leq1$. The paper does not check that $\\cosoc(V^2)$ meets it, and the finding's computation says it does not. The authors flag the step as `one can check', so the reach recorded — the proof, not a stated result — is right.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9163,7 +9693,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E85"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E85",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the published text: `By Theorem 3.5.3, $R_\\infty(\\tau_\\cS)$ is irreducible and reduced so that Definition 3.5.1(3) implies that $M_\\infty(\\sigma(\\tau_\\cS)^\\sigma)$ is a faithful $R_\\infty(\\tau_\\cS)$-module.' Definition 3.5.1(3) is about $M_\\infty(\\sigma)$ for an irreducible $\\prod\\GL_3(k_{\\tld v})$-representation $\\sigma$ over $\\F$, whereas $\\sigma(\\tau_\\cS)^\\sigma$ is an $\\cO$-lattice; axiom (1) is the one that applies, and it gives maximal Cohen–Macaulayness over $R_\\infty(\\tau_\\cS)$, whence faithfulness over a reduced domain. The same sentence's neighbour also writes $R_\\infty(\\tau)$ for $R_\\infty(\\tau_\\cS)$, as the finding notes.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -9179,7 +9714,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E86"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E86",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed text confirmed verbatim: `Hence, it suffices to show that for $i$ satisfying (5.6), $\\bigcap_{(\\nu_i,c_i)\\in\\Sigma_{\\tld w^*_i}\\setminus\\Sigma_{V^c,i}}\\fc_{(\\nu_i,c_i)}\\otimes_{\\ovl R^{\\expl,\\nabla}}\\F$ has dimension greater than one, which can be checked from Table 3.' The recorded defect is that the check succeeds for $\\ell(\\tld w^*_i)=0$ and fails for $\\ell(\\tld w^*_i)=1$, where the intersection is principal, so the sketch establishes Proposition 5.1.8 only under the stronger shape hypothesis. That conclusion rests on the finding's Gröbner-basis computation in the $\\alpha$-row ring, which I did not reproduce; what I did check is that the sentence is a one-line appeal to Table 3 covering all $i$ satisfying (5.6) without distinguishing the two lengths, which is what makes the gap a real one, and that the recorded reach — a stated result — matches Proposition 5.1.8 being the statement at issue.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9195,7 +9735,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E87"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E87",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The printed conclusion is `the cycle of $\\ovl R^{\\expl,\\nabla}_{\\ovl\\fM,\\tld w}/I$ is given by the components of $\\ovl R^{\\expl,\\nabla}_{\\ovl\\fM,\\tld w}$ labeled by the Serre weights corresponding to $\\Gamma(\\mathrm{im}(\\imath\\bmod\\varpi))$'. With $I=\\widehat\\otimes_iJ_i$ and $J_i=\\bigcap_{\\Sigma_{\\tld w^*_i}\\setminus\\Sigma_{V^c,i}}\\fc$, the vanishing locus of $I$ consists of the weights having some coordinate outside $\\Sigma_{V^c,i}$, that is $\\Sigma_{\\tld w^*}\\setminus\\prod_i\\Sigma_{V^c,i}$, which the same page identifies with $\\JH(V)\\cap W^?(\\rhobar_\\cS)$ — the complement of the printed set.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -9211,7 +9756,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E88"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E88",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `It is easily seen that $J=j^*(\\prod_{\\theta\\in W^?(\\rhobar_\\cS)}\\fp(\\theta)^{m(\\theta)}R_\\infty(\\tau_\\cS))$', with no argument. The identification of the Cartier divisor of the cokernel with the Jordan–Hölder multiplicities is the content of the lemma, and the recorded repair assembles it from exactness of $M_\\infty$, Theorem 3.5.2 and Proposition 3.6.1, all available at that point.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -9227,7 +9777,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E89"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E89",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim — but this finding and E90 are the same sentence with the same correction, and the record should keep only one. The printed text is `If $\\cM$ is a Cohen–Macaulay sheaf on $X_\\infty(\\tau_\\cS)$, then $j_*j^*\\cM=\\cM$ since the codimension of $Z$ is two (cf. [HK04, Proposition 3.5])', and both E89 and E90 quote it and both correct `Cohen–Macaulay' to `maximal Cohen–Macaulay (of full support)'. E89's own locator records that it was `found while re-checking item T58', which is how the duplicate arose. The mathematics is confirmed under E90; I recommend E89 be merged into it rather than carried as a separate item, and that the merged entry keep E90's `misprint' kind, since the statement as printed is false rather than merely unproved.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9243,7 +9798,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E90"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E90",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The statement as printed is false for Cohen–Macaulay sheaves that are not of full support: for $\\cM=\\cO_C$ with $C$ a component of the special fibre meeting another component along a divisor of $C$ inside $Z$, $\\cM$ is Cohen–Macaulay but has depth one at the generic point of that intersection, so $H^1_Z(\\cM)\\neq0$ and $j_*j^*\\cM\\supsetneq\\cM$. The codimension-two argument needs depth at least two along $Z$, which is what maximal Cohen–Macaulayness over the Cohen–Macaulay $X_\\infty(\\tau_\\cS)$ supplies, and the sheaves it is applied to, $M_\\infty(\\sigma(\\tau_\\cS)^\\circ)$, are of that kind. Note that E89 records the same sentence and the same correction; see the verdict there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9259,7 +9819,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E91"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E91",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `the universal Hecke algebra $\\bT_\\cP=\\cO[T^{(i)}_w,\\ w\\in\\cP,\\ 0\\leq i\\leq n]$ on $\\cP$ acts naturally on $S(U,W)$'. The group here is $\\GL_3$ and the characteristic-polynomial identity displayed immediately below sums over $j=0,\\dots,3$; $n$ is never defined in this paper.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9275,7 +9840,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E92"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E92",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `For a $G(\\bA^{(\\infty,p)}_{F^+})$-module $V$ over $\\cO$, $\\bT^{\\mathrm{univ}}$ acts naturally on $S(U^pU_p,W)$, $S(U^p,W)$, and $\\tld S(U^p,W)$ where $W=W_{\\Sigma^+_0}\\otimes V$'. $V$ is the weight at $p$ — it is what varies in `$S(U,W)_\\fm$ is nonzero for some choice of $V$' and what Proposition 6.0.2 supplies — so it has to carry an action of $\\cG(\\cO_{F^+,p})$; the away-from-$p$ coefficients are $W_{\\Sigma^+_0}$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -9291,7 +9861,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E93"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E93",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `We will now assume that $S(U,W)_\\fm$ is nonzero for some choice of $V$ above. In fact, one can show, by the proof of Proposition 6.0.2, that this is a consequence of the hypothesis that $\\rbar$ is automorphic.' Proposition 6.0.2, printed nine pages later, assumes split ramification outside $p$, the Taylor–Wiles conditions and automorphy of a *reachable* weight; at this point in §5.3 only automorphy has been assumed, and the two further hypotheses are imposed in the next paragraph. The remark is therefore ahead of its hypotheses.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -9307,7 +9882,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E94"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E94",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: $\\bT^{\\mathrm{univ}}$ is generated by the $T^{(j)}_w$ for $w$ outside $\\Sigma^+_0\\cup\\Sigma^+_p\\cup\\{v_1\\}$ `and by $T^{(j)}_{v_1}$ for $j=1,2,3$', while $\\fm$ is defined `as before' by the characteristic-polynomial identity for $w$ in that index set, which excludes $v_1$. So nothing in the text fixes the images of $T^{(j)}_{v_1}$ under $\\fm$ or under the later $\\lambda$, although they are generators of the algebra those ideals live in.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9323,7 +9903,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E95"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E95",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed. The target of the displayed ring homomorphism is the Hecke algebra acting on $S(U^p\\cG(\\cO_{F^+,p}),W_{\\Sigma^+_0})_\\fm$, that is on forms of trivial weight at $p$. Non-vanishing of that space would put the trivial $K$-representation in $W(\\rbar)$, and Theorem 5.3.3 identifies $W(\\rbar)$ with $W^?(\\rhobar_\\cS)$, which for the 10-generic $\\rhobar_\\cS$ in force contains no such weight. The homomorphism that the argument uses is the one at tame level $U^p$ on completed cohomology, as in [CEG+16, §2.8].",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -9360,7 +9945,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E97"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E97",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: Theorem 5.3.3 concludes `$W(\\rbar)\\circ\\prod_{\\tld v\\in\\cS}\\iota_{\\tld v}=W^?(\\rhobar_\\cS)$' and its proof opens `We have that $W^{\\mathrm{BM}}(\\rhobar_\\cS)=W(\\rbar)\\circ\\prod_{\\tld v\\in\\cS}\\iota_{\\tld v}$ by (5.8)'. $W(\\rbar)$ is already a set of $K$-representations by its definition on the preceding page, so composing with $\\prod\\iota_{\\tld v}$ moves it to $\\cG(\\cO_{F^+,p})$-representations and the two sides of the printed equality live in different places.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9376,7 +9966,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E98"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E98",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed: the proof of Theorem 5.3.5 reduces to showing that `the ideal $(\\gamma(\\kappa))\\subset\\cO$ depends only on $\\rhobar_\\cS$', while the theorem it is proving says the lattice depends only on $\\{r|_{G_{F_{\\tld v}}}\\}_{\\tld v\\in\\cS}$ and the proof's own last sentence returns to that. Dependence on the residual representation alone would be a strictly stronger claim, and a false one — the lattice moves with the characteristic-zero local representation already for $\\GL_2$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -9392,7 +9987,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E99"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E99",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The printed order is `By Theorem 5.3.1, $\\tld S(U^p,W)[\\lambda]$ is nonzero. Since $r$ is minimally ramified, $r$ corresponds to a prime ideal of $R_\\infty$', and minimal ramification is a hypothesis of Theorem 5.3.5, which is stated after this paragraph. Theorem 5.3.1 gives automorphy in the sense of [LLHLM18, §7.2], not non-vanishing at this particular level and coefficients; supplying the latter is what minimal ramification is for.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9408,7 +10008,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E126"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E126",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim, and it recurs through the proof: `Observe that the image of the inclusion $\\cO\\cong\\Hom_{U_p}(\\sigma(\\tau_\\cS)^\\sigma,\\tld S(U^p,W)[\\lambda])\\ra\\Hom_{U_p}(\\sigma(\\tau_\\cS)^\\kappa,\\tld S(U^p,W)[\\lambda])\\cong\\cO$ is given by the ideal $(\\gamma(\\kappa))$', and the two Schikhof-duality displays that follow repeat $\\Hom_{U_p}$. In §5.3 $U_p$ is an arbitrary compact open subgroup of $\\cG(\\cO_{F^+,p})$, and for small $U_p$ these Hom spaces are not of rank one; the $K$-equivariant Hom is what the patching functor uses and what makes the displayed isomorphisms with $\\cO$ true.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9424,7 +10029,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E127"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E127",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. (5.9) is printed as `$\\cO\\cong M_\\infty(\\sigma(\\tau_\\cS)^\\kappa)/\\lambda\\ra M_\\infty(\\sigma(\\tau_\\cS)^\\sigma)/\\lambda\\cong\\cO$', while $M_\\infty(\\sigma(\\tau_\\cS)^\\kappa)$ is only an ideal of $R_\\infty(\\tau_\\cS)$, which need not be principal, so the quotient by $\\lambda$ can have $\\cO$-torsion — as $A=\\cO[\\![x]\\!]$, $I=(\\varpi,x)$, $\\lambda=(x)$ already shows. The sentence before (5.9) itself writes `(the $p$-torsion-free part of)', so the torsion-free quotient is what is meant.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9440,7 +10050,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E128"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E128",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed: all four located verbatim. `Propositionsg 8.5, 8.6, and 8.12' in §6(1); `for $R$ a complete local Noetherian flat $\\cO$-algebra $R$.' in §6(6); `a maximal hyperspecial maximal compact open subgroup' in §6(14) and again in Proposition 6.0.2; and `By Schikhov duality', twice, in the proof of Theorem 5.3.5. All are evident slips.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9456,7 +10071,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E129"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E129",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim, and it occurs twice. Definition 6.0.1 in §6(10) reads `$U$ be a compact open subgroup of $G(\\bA^{\\infty,p}_F)\\times\\cG(\\cO_{F^+,p})$ which is unramified at places $v\\mid p$', and §6(11) repeats the same group. $\\cG$ is a model over $\\cO_{F^+}$ and the level is a subgroup of the $F^+$-adelic points, so the first factor has to be $G(\\bA^{\\infty,p}_{F^+})$; §5.3 writes it that way. The same slip is what E92 records at its other occurrence.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9472,7 +10092,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E130"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E130",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: §6(4) defines `$Y^{[0,2],\\tau}_{\\ovl\\fM}(R)$ … the category of pairs $(\\fM_R,\\jmath_R)$ where $\\fM_R\\in Y^{[0,h],\\tau}(R)$ and $\\jmath_R:\\fM_R\\otimes_R\\F\\risom\\ovl\\fM$ is an isomorphism in $Y^{[0,h],\\tau}(\\F)$'. The symbol being defined carries the bound $[0,2]$ and its objects the bound $[0,h]$; one of the two has to give.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9488,7 +10113,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E131"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E131",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The proof of Proposition 6.0.2 concludes `there is a conjugate self-dual lift $r:G_F\\ra\\GL_3(\\ovl\\Q_p)$ of $\\rbar$ which is minimally ramified outside $p$ and potentially crystalline of type $((0,1,2),\\tau_v)$ at $\\tld v$ for each $v\\in\\Sigma^+_0$'. Being potentially crystalline with a Hodge type is a condition at the places above $p$, and §6(13) of this same addendum says explicitly that $\\Sigma_0$ must exclude primes dividing $p$ — so the index set here has to be $\\Sigma^+_p$, as the correction says.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "gap",
@@ -9504,7 +10134,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E132"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E132",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The printed step is `That $R^{\\mathrm{univ}}_\\tau$ is finite over $\\cO_E$ implies that there is a conjugate self-dual lift $r:G_F\\ra\\GL_3(\\ovl\\Q_p)$ of $\\rbar$ …'. Finiteness over $\\cO_E$ is compatible with $R^{\\mathrm{univ}}_\\tau=0$, which would produce no lift at all; what is needed in addition is that the ring is nonzero of dimension at least one, which the usual presentation of the global deformation ring over the local lifting rings supplies. The recorded correction names exactly that missing input.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   },
   {
    "kind": "misprint",
@@ -9520,7 +10155,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E133"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E133",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed against the reference list and the source: `\\bibitem[AM01]{Andersen-Kaneda} Henning~Haahr Andersen and Kaneda Masaharu'. The surname-first form became `K. Masaharu' in print. Note that this finding and E58 are the same bibliography entry recorded twice, E58 at the point of citation in §4.2.2 and E133 at the entry itself; one of the two should be kept, with both locators.",
+    "by": "Claude Code, session cc-7b31c4, issue #1403"
+   }
   }
  ],
  "evidence": {
