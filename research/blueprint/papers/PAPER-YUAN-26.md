@@ -1,10 +1,68 @@
-# PAPER-YUAN-26 — partial extraction and continuation record
+# PAPER-YUAN-26 — Xinyi Yuan, *Arithmetic bigness and a uniform Bogomolov-type result*
 
-Issue #1050. Original extraction: **Codex**, session `codex-c83e7a`, checkpoint PR #1266. Continuation: **ChatGPT / GPT-6 Astra Pro**, session `astra-ao-9c47e2`, 21 September 2026.
+Xinyi Yuan, **Annals of Mathematics 203 (2026), no. 1, 15–119**, [doi:10.4007/annals.2026.203.1.2](https://doi.org/10.4007/annals.2026.203.1.2).
 
-**This remains a partial paper job.** The original worker recorded a complete reading of the 126-page author manuscript, including proofs, appendix and references. This continuation independently reads the targeted sources below; it does not claim a second complete reading of that manuscript or all its prerequisites.
+Read in the **author's manuscript** dated 21 August 2024, 126 pages, SHA-256 `b36f4860…`, from [the author's page](http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf). Locators are its own statement numbers and page numbers, **not** the Annals pagination.
 
-The machine result is **unchanged**: 271 items, comprising 5 library substrate items, 29 planned items and 237 missing items; seven source routes and four provisional Part II routes. Of the missing items, 231 have a single route and six remain deliberately unrouted: `/170` and `/262`–`/266`. This checkpoint updates the report and handoff with source checks, derivations and an item-level continuation ledger. It does not silently promote a machine status, reserve a new ID, activate a design, or certify an unresolved source claim.
+Issue #1050, worked in three checkpoints: original extraction **Codex** `codex-c83e7a` (PR #1266), continuation **ChatGPT / GPT-6 Astra Pro** `astra-ao-9c47e2` (21 September 2026), and this one, **Claude Code** `cc-fb70e5` (23 September 2026).
+
+**Status: `partial`.** 271 items (237 missing, 29 planned, 5 library), **12 routes**, 14 prerequisites, **30 source issues**, **6 gaps**. Every missing item now has exactly one route, and the paper has now been read in full — §§1–2, §3, §§4.1–4.4 and §§4.5–4.6-with-Appendix-A by four parallel readers, each returning a complete numbering inventory. Those four inventories between them account for **all 44 numbered statements** (1.1–1.4, 2.1–2.10, 3.1–3.11, 4.1–4.19, A.1–A.6) with **no gaps in the sequence and no numbered displayed equations anywhere in the paper**, so statement-level coverage is now verified. The extraction nevertheless stays `partial`: roughly forty items still bundle several assertions each, and separating them — together with the flatness, genericity and base-change steps inside proofs — is the coverage obligation of PROTOCOL §0 that remains. See the gap `item-granularity-not-closed`. Syntactic completeness is not completeness.
+
+> **Provenance, re-verified in this checkpoint.** The author's PDF was re-downloaded on 23 September 2026 and its SHA-256 is **byte-for-byte** the hash the first worker recorded, so the page still serves the same text and there is no newer manuscript there. [arXiv:2108.05625](https://arxiv.org/abs/2108.05625) was rechecked the same day: its latest version is **v4 of 30 April 2024**, i.e. *older* than this manuscript, and it carries no journal reference. The two agree word for word in the passages that matter here. The published Annals text is subscription-only and Project Euclid exposes only the abstract, so **identity with the final typeset text is not certified** — this is recorded as the gap `theorem-4-19-published-wording`, and the single source issue below says so in its `searched` field.
+
+## What the paper proves
+
+For a smooth relative curve `π : X → S` of genus `g > 1` with maximal variation, the admissible canonical bundle `ω_{X/S,a}` is a **nef and big adelic line bundle** (Theorem 1.3 = Theorem 3.1), and so is the Deligne pairing `π_*⟨ω_{X/S,a}, ω_{X/S,a}⟩` on `S` (Theorem 1.2 = Theorem 4.5). This is proved uniformly over `k = Z` and over `k` a field, hence for number fields *and* for function fields of all characteristics, by way of Zhang's `φ`-invariant, its globalization `Φ_S`, and Cinkir's bound. The application is a **uniform Bogomolov-type theorem** (Theorem 1.1 = Theorem 4.7): for a non-isotrivial pair, the number of small points is bounded by a constant depending only on the genus. §4.6 then deduces non-degeneracy statements and cases of the **relative Bogomolov conjecture** of Dimitrov–Gao–Habegger.
+
+## Routing — four Part IIs and eight source routes
+
+| # | route | roadmap | items |
+|---|---|---|---|
+| 8 | `part-ii` | `ArakelovGeometryAndAbelianHeightsPartII` — adelic bigness on curve families | 155 |
+| 11 | `part-ii` | `HeightsRationalPointsAndObstructionsPartII` — uniform Bogomolov for curves | 39 |
+| 9 | `part-ii` | `JacobianChallengePartII` — relative Jacobians and theta identities (Tau Ceti parent) | 23 |
+| 10 | `part-ii` | `StableReductionPartII` — moduli of curves and stable compactification (Tau Ceti parent) | 19 |
+| 1 | `source` | `GrossZagierAndArithmeticHeights` GZ.2 | 9 |
+| 2 | `source` | `TropicalAndBerkovichArithmetic` TB.2, TB.3, TB.6 | 6 |
+| 3 | `source` | `ArakelovGeometryAndAbelianHeights` R35.2, R35.3 | 2 |
+| 12 | `source` | `ArakelovGeometryAndAbelianHeights` R35.5, R35.6 — **added in this checkpoint** | 1 |
+| 4 | `source` | `AbelianSchemesAndArithmeticModuli` A1 | 2 |
+| 7 | `source` | `NeronModelsAndSemistableAbelianVarieties` R11.3, R11.4 | 2 |
+| 5 | `source` | `ShimuraCompactifications` C5 | 1 |
+| 6 | `source` | `HeightsRationalPointsAndObstructions` RP.0 | 1 |
+
+The two Tau Ceti parents are extended as Part IIs and never re-planned, per PROTOCOL §15. Route 12 is new here: it takes the Northcott consequence `/170`, which had been left unrouted, into the two layers that already own exactly what it needs — R35.5 "Moduli and theta-height comparison" and R35.6 "Inputs to finiteness", the latter charged in its own text with proving "every constant-dependence statement required to turn height bounds into a finite set of moduli points".
+
+**A defect in the inherited routes, fixed here.** All four Part II routes carried `"area": "diophantine"`, which is **not an id in `data/galaxies.json`**; `check_paper.py` only tests that the field is non-empty, so the wrong value passed the check silently. They are now `arithmeticgeometry`.
+
+## The 30 source issues
+
+`sourceIssues` was **empty** in both earlier checkpoints — although the Theorem 4.19 obstruction had been identified in the report prose of each — so PROTOCOL §18's register is written here for the first time: **24 misprints, 2 errors, 4 gaps**; 23 affect nothing, 5 a proof, 2 a stated result. Every candidate was re-checked by this session at its locator, in rendered page clips wherever the point is glyph-level, and the readers were warned in advance that lost overlines, hats, bold faces and sub/superscripts are extraction artifacts.
+
+The two **errors** and the four **gaps** are the ones that matter to a design job:
+
+- **`E1` (error, a stated result) — Theorem 4.19's hypothesis.** Detailed below.
+- **`E7` (error) — §1.6, p. 16: the definition of a *stable* curve omits "smooth".** As printed it requires every *rational* component of `C_k̄` to meet the others in ≥3 points, where Deligne–Mumford require it of every *nonsingular* rational component. So an irreducible rational curve with two nodes — arithmetic genus 2, `ω` ample, a genuine boundary point of `M̄_2` — fails the printed condition. The paper elsewhere treats §1.6 and `[DM, §1]` as interchangeable and counts "type 0" nodes that the printed definition would rule out.
+- **`E8` (gap, a stated result) — Theorem 2.3 is stated for `g > 0`, proved for `g > 1`.** The normalization of `β̄₂` is pinned down by an isomorphism whose coefficient is `2g−2`, vacuous at `g = 1`; and the asserted nefness is proved only through Theorem 2.10(1), whose formula carries `1/(4g(g−1))` and which assumes `g > 1`. The paper notices the mismatch without resolving it: "Note that we require `g > 1` in this section, while we only require `g > 0` in the previous section" (p. 40).
+- **`E22`, `E28`, `E6` (gaps, the proof).** Lemma 4.3 is invoked to *prove* a finiteness it *assumes* as a hypothesis; Proposition A.5 and one step of Theorem A.1's existence proof need `g > 1` under a standing `g > 0`; and the effectivity step on p. 57 needs the non-negativity of `φ` at the finite places, which is Cinkir's bound but is not cited there.
+
+Five further findings affect a proof rather than nothing: `E16` (Theorem 4.5(4)'s last step is stated over `S` where it must be over the image `T`, and is vacuous in exactly the cases in which the theorem is applied), `E25` (the announcement of the key claim on p. 94 drops the factor `c(g)` that its own proof and its own use both carry) and `E24` (the archimedean admissibility equation on p. 102 omits `deg(D)`, so it fails on total mass for every divisor of degree ≠ 1 — harmless only because every use is in degree 1).
+
+Two results worth recording as **negatives**, since they bear directly on `E1`: the main theorem's non-isotriviality hypothesis really does read "over `k̄`" in both Theorem 1.1 and Theorem 4.7 (bars verified in the page images), so it has no analogue of the Theorem 4.19 defect and would be *false* if it said "over `k`"; and Propositions 4.16 and 4.18 state the base field of every hypothesis correctly, Proposition 4.18 carrying "big on `S/k`" explicitly with the accompanying explanation of why the bound on `m` gains a `+1`. That is precisely the distinction Theorem 4.19 loses.
+
+> **E1 (error, a stated result) — Theorem 4.19, p. 101, with the definition in §1.6, p. 16.** The hypothesis reads only "with maximal variation". By the paper's own definition, maximal variation is relative to the base ring over which `S` is a scheme, and in Theorem 4.19 `S` is a variety over `K`; so as printed the hypothesis is `S → M_{g,K}` generically finite. That is false in the function-field case. Take `K = k(t)` and `S = Spec K`, so `dim S = 0`, and let `X = C ×_k K` be constant for `C/k` of genus `g ≥ 2`. The hypothesis holds vacuously — `Spec K → M_{g,K}` is quasi-finite — so part (1) with `m = 1 ≥ dim S + 1` asserts relative Bogomolov for `i_α : X → J`. But the canonical height is the one attached to the adelic extension **over k** (p. 100), every point of `C(k̄)` is a constant section of a constant family and so has height `0`, and `C(k̄)` is infinite, hence Zariski dense in `X_{K̄}`. So the small-point set is dense for every `ε > 0` and the conclusion fails.
+>
+> The correction is forced, and the paper's own proof half-states it: "we need the bigness of the adelic line bundles **over k instead of over K**, where `k = Z` if `K` is a number field and `k` is the field of constants if `K` is a function field of one variable". The hypothesis must be maximal variation over `k`. **Only the function-field case is affected**: for a number field `k = Z`, and generic finiteness of `S → M_{g,K}` is equivalent to that of the induced map on a `Z`-model, since passing to the model adds one to the dimension of source and image alike. Proposition 4.18 (p. 100) is stated correctly, carrying bigness on `S/k` as an explicit hypothesis; and the main uniform theorem has its own non-isotriviality condition (§4.3.2), so it is untouched.
+
+Consequently `/262`–`/266`, which the earlier checkpoints held as unrouted "printed function-field claims", now **carry the corrected hypothesis** and are routed with their number-field counterparts `/185`–`/189` in route 11. Keeping a false statement as an unrouted item is not what §18 asks for: the printed falsity belongs in `sourceIssues`, and the item carries the corrected statement. `/170` likewise now carries an explicit statement of *which* quotient the Northcott finiteness is over — geometric isomorphism classes, not classes over one fixed `K` — and is routed.
+
+## Gaps
+
+Six, recorded in the machine file. The load-bearing ones: the **published wording of Theorem 4.19** could not be obtained, so E1 is recorded against the best available text; **[FC, Chap. V, Prop. 4.6]**, the Northcott input that `/170` rests on, has been read by none of the three workers, so the precise form of that input is unverified; **nonsplit reduction and the general descent comparison** remain open, the split case having been settled by the second checkpoint; **item granularity is not closed**, which is why the status is still `partial`; imported proof inputs are quoted, not audited; and the four Part II briefs remain provisional pending reconciliation against the packet and link inventory.
+
+---
+
+*The remainder of this document is the technical record of the first two checkpoints, preserved. Its §5 reaches the same conclusion about Theorem 4.19 that E1 records, by an independently constructed example.*
 
 ## 1. Primary source, versions and inherited coverage
 
@@ -150,7 +208,7 @@ This removes an apparent contradiction between the source convention and the cal
 
 ## 4. Northcott: a precise geometric statement, not a twist theorem
 
-The original `/170` remains unrouted. The new source read narrows its repair substantially but does not resolve every interpretation of the cited FC V Proposition 4.6.
+The original `/170` remains unrouted. The new source read narrows its repair substantially but does not resolve every interpretation of the cited FC V Proposition 4.6. **[Third checkpoint: `/170` is now routed, as a source of `ArakelovGeometryAndAbelianHeights` R35.5–R35.6 — exactly the import this section recommends — and its statement now names the geometric quotient explicitly. FC V Prop. 4.6 is still unread and is recorded as the gap `fc-v-prop-4-6-unread`.]**
 
 Pazuki's Definition 2.6 gives Northcott for **geometric isomorphism classes of principally polarized pairs** that admit definition over a number field of bounded degree. The overbar on Q matters. It does not count the same geometric curve once for every field over which it can be defined, and it does not state finiteness of all twists over a fixed field solely from stable height.
 
@@ -204,7 +262,9 @@ The K-relative classifying map is quasi-finite onto its image. All constant poin
 
 The source proof itself says that it needs bigness over k rather than K. Increasing the number of factors does not make a constant family arithmetically big over k. The retained `/184` correctly includes actual bigness; a generically finite moduli map for a model over k would be a stronger premise, not a harmless expansion of K-relative variation.
 
-Accordingly `/185`–`/189` remain the separately extracted number-field branches, while `/262`–`/266` remain visible **unverified source claims with no route**. Do not silently add a stronger premise and label it the published theorem. The main theorem `/128` excludes the isotrivial pair used in this example and is unaffected by this particular obstruction.
+Accordingly `/185`–`/189` remain the separately extracted number-field branches. The main theorem `/128` excludes the isotrivial pair used in this example and is unaffected by this particular obstruction.
+
+> **Superseded by the third checkpoint (`cc-fb70e5`, 23 September 2026).** This section left `/262`–`/266` as visible unverified source claims with no route, and warned against silently adding a stronger premise and labelling it the published theorem. That warning is right and is retained, but the conclusion drawn from it has been revised, for two reasons. First, the obstruction was re-checked directly in the **August 2024 manuscript** — the text this extraction is actually based on, whereas the check recorded above was made against the earlier arXiv v4 — and the manuscript's Theorem 4.19 and §1.6 definition are word for word those of v4, so the obstruction is confirmed in the primary text. Second, the conclusion is not merely *unproven* under the printed hypothesis, it is **false**: since the canonical height of p. 100 is taken over `k`, the constant points have height exactly `0`, so the small-point set is Zariski dense for every `ε > 0` and the stated conclusion fails outright. A false printed statement is what PROTOCOL §18 calls an `error`, and §18 requires it to be recorded under `sourceIssues` with the items carrying the *corrected* statements — not held as unrouted items. So `/262`–`/266` now carry the hypothesis "maximal variation over the field of constants `k`", are routed with `/185`–`/189`, and the printed falsity is recorded as `PAPER-YUAN-26/E1`, whose `searched` field states plainly that the published Annals wording could not be obtained and may differ. Nothing is labelled "the published theorem".
 
 ## 6. Libraries and ownership: preserve the existing suppliers
 
@@ -248,14 +308,14 @@ The labels in the first column refer to the unchanged machine result. The table 
 | --- | --- |
 | `/47` | Keep the family adelic-bundle carrier distinct from DY.1. Import scalar canonical-height uniqueness only on the appropriate fibres. |
 | `/94` | Preserve the split unit-normalized statement. Add a separate bridge for logarithmic lengths and weighted extension degrees; arbitrary nonsplit descent is still an input. |
-| `/170` | Use the geometric Northcott route in §4 as a precise candidate. Fixed-field twist finiteness, polarization descent and FC's exact statement remain unresolved; leave unrouted. |
+| `/170` | **Done in the third checkpoint**, along the lines recommended here: routed as a source of R35.5–R35.6, with the statement rewritten to say that the finiteness is of geometric isomorphism classes over fields of bounded degree, not of classes over one fixed `K`. Fixed-field twist finiteness and FC's exact statement remain unresolved and are now the gap `fc-v-prop-4-6-unread`. |
 | `/184` | Preserve arithmetic bigness over the constant base. Do not replace it by K-relative variation. |
 | `/220`–`/224`, `/229`–`/230` | Preserve graph canonical divisors, genus weights, resistance measures and the genus-one exception. The scaling map transports measures, not their total mass. |
 | `/225` | Distinguish raw length divided by ramification index from residue-weighted degree divided by full extension degree. Name the defectless and nonsplit descent hypotheses. |
 | `/226` | Keep absolute-value rescaling separate from finite extension of the same absolute value. |
 | `/227` | The unit/logarithmic graph comparison is now derived explicitly. For `||1||=e_K^(-f)` on the unit graph, use `F=lambda_K*f` on the logarithmic graph before applying the exponential-potential formula. |
 | `/228` | Retain controlled potential/Laplacian approximation; sup-norm convergence alone is insufficient. |
-| `/262`–`/266` | The constant-family obstruction has been independently checked in the earlier arXiv edition. The final typeset wording is not verified; do not route these source claims. |
+| `/262`–`/266` | **Revised in the third checkpoint.** The obstruction was re-checked in the August 2024 manuscript itself, not only in arXiv v4, and the printed conclusion is false rather than merely unproven. Per PROTOCOL §18 these items now carry the corrected hypothesis (maximal variation over the field of constants `k`) and are routed with `/185`–`/189`; the printed falsity is the source issue `E1`, whose `searched` field records that the typeset Annals wording is still unverified. |
 
 ## 8. Other repairs from the first checkpoint to retain
 
@@ -278,7 +338,7 @@ python3 -m pytest tests/test_check_paper.py -q
 # 8 passed
 ```
 
-A separate structural check verified 271 unique IDs, resolved route references, disjoint membership of every routed missing item, and exactly the six intentionally unrouted items `/170`, `/262`, `/263`, `/264`, `/265`, `/266`. The unchanged machine-result Git blob is `720390f75cc3e9f6cf1ce653ee846f50c4b18b65`.
+A separate structural check verified 271 unique IDs, resolved route references, disjoint membership of every routed missing item, and exactly the six intentionally unrouted items `/170`, `/262`, `/263`, `/264`, `/265`, `/266`. The machine-result Git blob as of that checkpoint was `720390f75cc3e9f6cf1ce653ee846f50c4b18b65`. **[Third checkpoint: the machine result has since been edited — those six items are now routed, so no missing item is unrouted and none is taken twice; `sourceIssues` and `gaps` are no longer empty; and the four Part II routes' `area` was corrected from the non-existent galaxy id `diophantine` to `arithmeticgeometry`. `check_paper.py` reports ok.]**
 
 For the elementary local normalization test, exact rational arithmetic was used for all `1<=e,f<=6` and `1<=n<=7`. With `n_L=e*n`, `[L:K]=e*f` and `lambda_K=1`, all **252** cases satisfy both
 

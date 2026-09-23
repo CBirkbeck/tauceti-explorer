@@ -1,8 +1,36 @@
 # Handoff: PAPER-YUAN-26
 
-Issue #1050. Original checkpoint PR #1266: Codex, session `codex-c83e7a`. Continuation: **ChatGPT / GPT-6 Astra Pro**, session **`astra-ao-9c47e2`**, 21 September 2026.
+Issue #1050. Original checkpoint PR #1266: Codex, session `codex-c83e7a`. Second checkpoint: ChatGPT / GPT-6 Astra Pro, session `astra-ao-9c47e2`, 21 September 2026. **Third checkpoint: Claude Code, session `cc-fb70e5`, 23 September 2026.**
 
-**Partial checkpoint, not completed extraction.** This continuation changes the report and this handoff only. The machine result remains unchanged at blob `720390f75cc3e9f6cf1ce653ee846f50c4b18b65`: 271 items, 5 library, 29 planned, 237 missing; seven source routes and four provisional Part II routes. Exactly six missing items remain intentionally unrouted: `/170`, `/262`, `/263`, `/264`, `/265`, `/266`. Preserve the original IDs and contributor provenance.
+**Still a partial paper job**, but the machine result is no longer unchanged and three of the seven "resume in this order" items below are now closed. Current state: 271 items (237 missing, 29 planned, 5 library), **12 routes**, 14 prerequisites, **30 source issues**, **6 gaps**; `check_paper.py` reports ok; every missing item has exactly one route and none is taken twice.
+
+## What the third checkpoint did
+
+1. **Resume-item 2, first half: closed as far as it can be.** The published Annals text is unobtainable — subscription-only, Project Euclid exposes only the abstract. The author's PDF was re-downloaded and its sha256 is **byte-for-byte** the one the first worker recorded, so the homepage serves no newer manuscript; and arXiv:2108.05625's latest version is **v4 of 30 April 2024**, *older* than the August 2024 manuscript, with no journal reference. Recorded as the gap `theorem-4-19-published-wording`. Do not spend more effort here without institutional access.
+2. **Resume-item 1, the ledger: applied.** `/262`–`/266` and `/170` were the six intentionally unrouted items; all six are now routed. `/262`–`/266` carry the **corrected** Theorem 4.19 hypothesis (maximal variation over the field of constants `k`) and sit with `/185`–`/189` in the `HeightsRationalPointsAndObstructionsPartII` route; `/170` carries an explicit geometric quotient and is a **source of `ArakelovGeometryAndAbelianHeights` R35.5–R35.6**, the import the second checkpoint recommended. The Theorem 4.19 obstruction was re-verified **in the manuscript itself** (the second checkpoint had checked only arXiv v4) and shown to be a *false* statement, not merely an unproven one, since the canonical height of p. 100 is taken over `k` and so vanishes on constant points. It is now `E1`.
+3. **`sourceIssues` written, 30 of them.** The list was empty in both earlier checkpoints. The paper was read in full by four parallel readers (§§1–2, §3, §§4.1–4.4, §§4.5–4.6+Appendix A), each returning a numbering inventory; between them they account for all 44 numbered statements with no gaps, so **statement-level coverage is now verified**. Every candidate was re-checked at its locator by this session, in rendered clips where glyph-level. Two errors, four gaps, twenty-four misprints.
+4. **A defect in the inherited routes, fixed.** All four Part II routes carried `"area": "diophantine"`, which is **not an id in `data/galaxies.json`**; `check_paper.py` only tests that the field is non-empty, so it passed silently. Now `arithmeticgeometry`. **Check the other papers' routes for the same thing.**
+5. Added the Faltings–Chai prerequisite (the `[FC, Chap. V, Prop. 4.6]` input that `/170` rests on) and six `gaps` entries; rewrote the report's front matter as the reader-facing routing explanation the job asks for, keeping the first two checkpoints' technical record below it and annotating the four passages it superseded.
+
+## Resume in this order
+
+1. **Close the granularity obligation — this is the only thing keeping the status `partial`.** Statement coverage is verified, so what remains is splitting the roughly forty items that still bundle several assertions, and separating the flatness, genericity and base-change steps inside proofs. The first worker's list: `/7`–`/13`, `/23`–`/28`, `/44`, `/69`, `/74`, `/77`, `/79`, `/85`, `/106`, `/115`–`/117`, `/124`–`/127`, `/130`, `/139`–`/141`, `/143`, `/151`–`/154`, `/158`, `/162`, `/190`–`/195`, `/197`, `/200`–`/210`, `/217`–`/219`, `/222`, `/230`, `/233`–`/234`. Also audit the introductory historical results and the uniform Mordell–Lang large-point input. When that is done the status can go to `complete`.
+2. **Resume-item 2, second half: `[FC, Chap. V, Prop. 4.6]` is still unread**, and `/170` depends on it. Recover the primary statement: whether it is for one fixed number field or for varying fields of bounded degree, and over which notion of isomorphism the finiteness holds. Web search does not reach the book's text; Chapter V is "Modular Forms and the Minimal Compactification". Gap `fc-v-prop-4-6-unread`.
+3. **Resume-item 3, local descent interfaces**, unchanged from the second checkpoint and still open: nonsplit residue-orbit weights, model and resolution compatibility, the general descent comparison, and controlled Laplacian approximation. Keep raw lengths, residue-weighted degrees and geometric base change distinct. Note that `E3` is a new, independent datum here: the paper's own base-change recipe for `δ` on p. 49 divides by `[K′:K]` where it must divide by the ramification index, which its own preceding clause contradicts.
+4. **Resume-item 4, imported proof inputs**, unchanged: the Yuan–Zhang theory, YZ1, BLR, the moduli inputs, Bost and Faltings–Moret-Bailly normalizations, Wilms, de Jong, Carney, Gross–Schoen. Gap `imported-proof-inputs-not-audited`.
+5. **Resume-item 6, the four Part II briefs** remain provisional pending reconciliation against the packet, decomposition and link inventory. Gap `part-ii-briefs-provisional`. The DY.1 ownership question stays settled as the second checkpoint left it.
+
+## What not to redo
+
+- Do not re-derive the split-reduction unit-versus-logarithmic normalization bridge; the second checkpoint settled it and §3 of the report records it.
+- Do not re-search for a newer manuscript or a published PDF (item 1 above).
+- Do not re-check the Theorem 4.19 obstruction; it is verified in the primary text and recorded as `E1`, with its `searched` field stating plainly that the typeset Annals wording may differ.
+- Do not re-flag the two negatives the readers established: Theorem 1.1/4.7 correctly says non-isotrivial "over `k̄`", and Propositions 4.16 and 4.18 state their base fields correctly.
+- Do not re-report lost overlines, hats or bold faces from the PDF text layer as misprints; the readers were warned and this session re-checked every glyph-level candidate in a rendered clip.
+
+## Preserved from the earlier checkpoints
+
+The record below, and the technical sections of the report, are the first two checkpoints' work and should be kept. Original item-id ranges and contributor provenance are unchanged; no id was reused or retired.
 
 ## What was inherited
 
