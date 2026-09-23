@@ -1,224 +1,60 @@
-# He (2021): cordial elements and affine Deligne–Lusztig dimensions
+# PAPER-HE-21 — He, *Cordial elements and dimensions of affine Deligne–Lusztig varieties*
 
-Codex — `codex-7e92bd`; issue [#1397](https://github.com/CBirkbeck/tauceti-explorer/issues/1397). **Partial continuation**, preserving the two earlier workers' /1–129 identifiers and adding /130–134.
+Xuhua He, **Forum of Mathematics, Pi 9 (2021), e9, 1–15**, [doi:10.1017/fmp.2021.10](https://doi.org/10.1017/fmp.2021.10), open access under CC BY 4.0.
 
-The extraction contains **134 items: 9 library, 10 planned and 115 missing**. Every missing item is routed exactly once through the existing eight source routes and three Part II briefs. The internal graph has 376 edges and is acyclic; all 44 definitions/constructions retain their structured APIs and 132 specified tests. No Lean implementation or compilation is claimed.
+Read in full in the **published version** (Cambridge's PDF, 15 pages, read on 2026-09-23, SHA-256 `d24c4a45…` — Cambridge stamps each download with a footer carrying the date and the requesting IP, so the hash of the same article differs between downloads and is not evidence of a changed text), and compared page by page with **arXiv:2001.03325** (SHA-256 `818873a5…`), the only posted version. The two agree at every locator below except in two places, both recorded: §2.2's sentence on the scheme structure of `X_w(b)` and its reference `[BS17]`, and the citation of `[Vi14, Corollary 5.6]` in §4.3, were added in revision.
 
-This continuation resolves the abstract finite-type dimension inequality, writes the two cartesian endpoint squares, and identifies the precise compatible-model theorem for perfect schemes. It also finds a stronger obstruction to the previous proposed lattice repair: an auxiliary γ need not lift at all. The final geometric descent remains a named gap. Status stays partial because the actual bounded flag models and G1/G3–G10 source frontiers are still unfinished.
+**Status: `complete`.** 134 items (115 missing, 10 planned, 9 library; 90 theorems, 31 definitions, 13 constructions), 11 routes, 13 prerequisites, 14 source issues, 11 gaps.
 
-## Source and reading record
+> **This file replaces the three checkpoint logs.** The extraction was built over three merged checkpoints by `codex-c83e7a`, `codex-a71f92` and `codex-7e92bd`, whose item identifiers `/1`–`/134` are preserved unchanged. This session (`cc-fb70e5`) read the paper and the five sources the findings live in for itself, audited every finding at its locator, rewrote six of them, **rejected two**, added two, turned the checkpoint to-do list into the gaps a design job has to respect, and closed the job. What the earlier logs recorded as unfinished repair work is, in the terms of PROTOCOL §16, exactly a list of gaps: the items are written and routed, and the mathematics the paper leaves to its sources is named rather than redone.
 
-**Current continuation.** All 15 published He21 pages were reread on 2026-09-22 (PDF SHA-256 `89a5bfd91946d5c27d3e347b938d139af3c8901d90a61f40c29d8a26a176d0ec`). GHN §§2.1–2.2 and its complete erratum were reread. Selected Zhu17 §§1.1/1.4 and Appendix A were read, including complete proofs of A.3, A.15 and A.17; SHA-256 `5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7`. Exact scopes and all acquisition hashes are in `source.continuationReading`. Stacks 00P0, 00P3, 05F7 and the fibre-dimension section were inspected. None is represented as a full recursive prerequisite-paper extraction. Both upstream RootSystems and ReductiveGroups documents were read completely before writing.
+## What the paper proves
 
-**Inherited source history.** The following paragraphs record the two previous checkpoints; they are not fresh rereading claims by this session.
+`X_w(b) = {gĬ ∈ Ğ/Ĭ; g^{-1}bσ(g) ∈ Ĭ ẇ Ĭ}` is the affine Deligne–Lusztig variety in the affine flag variety, indexed by a σ-conjugacy class `[b]` — Kottwitz's two invariants `κ(b)` and the Newton point `ν_b` — and by `w` in the Iwahori–Weyl group `W̃`. Mazur's inequality gives the necessary conditions `κ(w) = κ(b)` and `ν_b ≤ λ^♦_w`; the converse is far from true, and the question is which `(w,[b])` give something nonempty and of what dimension.
 
+> **Theorem 6.1 (= Theorem 1.1).** For `G` simple quasi-split, `w` with `w**a**` in a shrunken Weyl chamber, `λ^♦_w − ν_b ∈ Σ_{α∈Δ}Q_{>0}α^∨` and `(λ^♭♭_w)^♦ ≥ ν_b`: `X_w(b) ≠ ∅` if and only if `κ(b) = κ(w)` and `supp_σ(η_σ(w)) = S`, and then `dim X_w(b) = d_w(b)`, the virtual dimension.
 
-Xuhua He, *Cordial elements and dimensions of affine Deligne–Lusztig varieties*, Forum of Mathematics, Pi 9 (2021), e9, 1–15, [DOI 10.1017/fmp.2021.10](https://doi.org/10.1017/fmp.2021.10). All fifteen pages of the [published PDF](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), including every proof and the references, were reread on 2026-09-22. The title page gives CC BY 4.0. The new PDF SHA-256 is `8039273c5ae75cc868ac3343ae8b841d482b309b682a22949d29478b9799cc30`. Cambridge's dynamic download footer can change the bytes; this does not establish a changed mathematical version. The previous acquisition record is retained in the JSON.
+So for **every** σ-conjugacy class, not only the basic ones, the answer is the one the upper bound allows — on the region the two Newton hypotheses cut out, which `λ^♦_w ≥ ν_b + 2ρ^∨` makes concrete (Corollary 6.4). Before this paper the nonbasic classes were reachable only for translation elements under a "very shrunken" hypothesis ([He15], [MST19]); the obstacle was that the reduction method needs an explicit reduction path to a minimal length element, and for a nonbasic class nobody knows how to construct one.
 
-The new supporting-source reading is deliberately distinguished from the previous worker's reading:
+The new idea is to start from **cordial** elements instead of minimal length ones. Milićević–Viehmann call `w` cordial when `dim X_w(b_w) = d_w(b_w)` for the generic class `[b_w]`, and prove that a cordial `w` has the virtual dimension on every nonempty locus and that its nonempty classes are saturated upwards (Theorem 4.1). §4 produces a new family: **every `x t^λ` with `λ` dominant is cordial, with `[b_{xt^λ}] = [ṫ^λ]`** (Theorem 4.2) — proved in half a page from `t^λ ≤ x t^λ ≤ w_S t^λ`, Viehmann's closure result and Mazur's inequality in the affine Grassmannian, the length identity `ℓ(xt^λ) − ℓ(η_σ(xt^λ)) = ℓ(t^λ) = ⟨λ^♦,2ρ⟩` and `def(ṫ^λ) = 0`. §5 then walks `w` to one: it factors `w = w_1w_2` through the **normalised subtraction** `λ − _{dom} λ'` (the least dominant `μ'` with `μ' + λ' ≥_Z λ`, Proposition 5.1, due to S. Nie) and the **double flat** `λ^♭♭_w = λ_w − _{dom}(ρ^∨_J + η^∨_J)`, and compares dimensions along two correspondences of triples of flags, each time using the Demazure product and a fibre-dimension estimate, to get `w ⇒_σ a t^γ` with `γ ≥_Z λ^♭♭_w` and `supp_σ(a) ⊇ supp_σ(η_σ(w))` (Theorem 5.5) — this is where `(λ^♭♭_w)^♦ ≥ ν_b` is used. §6 assembles: the emptiness half comes from the P-alcove machinery of [GHKR10] and [GHN15], the nonemptiness and the dimension from cordiality of `a t^γ` together with a basic seed, and the upper bound `dim X_w(b) ≤ d_w(b)` from [He14].
 
-| Source | New reading | Still not certified |
-|---|---|---|
-| [He14, published Annals paper](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n1-p06-p.pdf) | Setup §§1.1–1.6; §§2.1–2.3; §4.1 and reduction/minimal-geometry passages through the finite-parahoric portion of Theorem 4.8; all §6 and §11; Theorem 12.1 statement. Printed p.399 image inspected. | Full §§3–4 prerequisite tree, upper-bound/Mazur proofs, general characteristic transport |
-| [He–Yang 1203.4680v1](https://arxiv.org/abs/1203.4680v1) | All nine pages, including every Dynkin case and references | Independent verification of all case computations and referenced HN nice-class theorem |
-| [He–Nie 1112.0824](https://arxiv.org/abs/1112.0824) | Theorem 2.10 and proof; all §§5.1–5.2; opening §6.1; Corollary 6.6/Theorem 6.7 statements | Earlier RedMin inputs and the based-ring/trace proof of cocenter linear independence |
-| [Görtz–He 1006.2291](https://arxiv.org/abs/1006.2291) | §§2.2–2.4; Lemma 2.5.1; entire Proposition 2.5.2 induction; §2.6 including proof | Full geometric reduction and representability/characteristic transfer |
-| [GHN erratum](https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf) | All three pages reread | Actual application to the current geometric carrier |
+## Routing — one Part II per direction the atlas does not have
 
-Hashes and exact scopes appear in `source.followUpReading`. He14 arXiv v2 was also inspected for the introduction/setup and §11; published locators control the final statements. The original worker's selected GHN15, MV20 and He15 reading is preserved as historical provenance, not represented as fresh full-paper reading. Viehmann14, He09, GHKR10 and the precise general fibre-dimension source remain acquisition/decomposition frontiers. GS0 already owns the Zhu/Bhatt–Scholze perfect-geometry inputs.
+| # | route | roadmap | items |
+|---|-------|---------|-------|
+| 1 | part-ii | **`HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig`**, parent `HeckeStacksAndLocalShtukas` | 53 |
+| 2 | part-ii | **`RootSystemsPartIIDominanceAndDemazure`**, parent `tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems` | 28 |
+| 3 | part-ii | **`SmoothRepresentationsPartIIParahoricCenters`**, parent `SmoothRepresentationsOfLocalGroups` | 10 |
+| 4–11 | source | `ReductiveGroupsPartII` RG2.0–RG2.4 (10) · `BunGAndNewtonStrata` BG0/BG1 (7) · `GeometricSatakeAndFusion` GS0 (14) · `SchemeAndStackFoundations` SF.0 (3) | 34 |
 
-## Mathematical targets retained
+**Route 1** carries the subject itself: the affine Deligne–Lusztig varieties in the affine flag variety with the virtual dimension and its upper bound, the Deligne–Lusztig reduction and the relation `⇒_σ`, generic Newton classes and cordial elements with their saturation and dimension, the two new cordial families, the whole of §5.4's correspondence argument, the Levi obstruction and the main theorem with its corollary. `HeckeStacksAndLocalShtukas` builds the Hecke stacks and local shtukas these varieties live on, but plans no Newton-stratification-versus-Kottwitz–Rapoport question and no dimension theory for them.
 
-Let L be the completed maximal unramified extension of F, with Frobenius σ and σ-stable Iwahori I. The paper uses a negative base alcove and **t^λ acts by translation by −λ**. After §2.2, G is simple and quasi-split. Write uniquely
+**Route 2** is the combinatorial half, and it extends a **Tau Ceti** roadmap, which is therefore imported and never re-planned: the dominance and integral coroot orders with the finiteness of dominant coweights below a given one, shrunken Weyl chambers and critical strips, σ-saturated support, the Demazure product on `W̃` with its associativity and Bruhat monotonicity, minimal coset representatives and the length identities of §5.4, and the normalised subtraction with the double flat operator.
 
-`w = x t^λ y`, with λ dominant and `t^λ y ∈ {}^S Wtilde`.
+**Route 3** carries what the class-polynomial input needs and nothing more: the generic extended affine Hecke algebra, its twisted cocenter with the basis of minimal classes, the nonnegativity of class polynomials and the positive-cone lemmas of [He14, §11].
 
-Then `ησ(w)=σ⁻¹(y)x` and
+The eight source routes carry 34 items — the 24 missing ones that belong to layers the atlas already has, together with the 10 items those layers already plan. **Those planned items** are the reductive-group and σ-conjugacy infrastructure the atlas already owns — the Iwahori–Weyl group and the Iwahori–Bruhat decomposition (`ReductiveGroupsPartII`), `B(G)` with the Kottwitz and Newton invariants and the Newton order (`BunGAndNewtonStrata`), the affine flag variety as a carrier with its bounded loci and the Witt vector geometry (`GeometricSatakeAndFusion` GS0), and the scheme-theoretic fibre-dimension statements (`SchemeAndStackFoundations` SF.0).
 
-`d_w(b) = (ℓw + ℓησ(w) − def_G(b))/2 − ⟨ν_b,ρ⟩`.
+## The audit of the inherited findings
 
-Every `x t^λ` is cordial and has generic Newton class `[t^λ]`. Cordiality gives the virtual dimension on every nonempty locus and saturation **between a known nonempty lower endpoint and the generic maximum**. It does not supply the basic lower endpoint for free.
+Each of the fourteen findings was checked at its locator in the published PDF, and where the point is glyph-level in a rendered clip of the page — which is how two suspicions were disposed of before they became findings: the apparent repetition in §4.3 ("[b_w] is the unique maximal σ-conjugacy class that intersects `Ĭ ẇ Ĭ`. By [Vi14, Corollary 5.6], [b_w] is also the unique maximal σ-conjugacy class that intersects `Ĭ ẇ Ĭ`") is the **closure** in the second sentence, printed with an overline that the PDF text layer drops, and the definition in §6.1 does carry the conjugations `^{ẋ}U_{P_J}(F̆) ∩ ^{ẇ}Ĭ` that the text layer flattens.
 
-Normalized dominant subtraction is leastness in an integral-coroot congruence class, not coordinatewise truncation. It produces `λ_w^{♭♭}`. Theorem 5.5 constructs `w ⇒σ a t^γ`, with γ dominating that double-flat vector and saturated support containing that of ησ(w).
+**Rewritten (6).** `E1`, the basic seed of §6.3, was recorded as a gap on the strength of an example; it is now supported by the hypothesis of the cited theorem, quoted from [He15] (arXiv:1511.01386, Theorem 2.27 — its numbering matches the numbering this paper cites, checked on Theorems 2.28, 2.30 and 2.34), together with a general reason why the constructed `a t^γ` fails it: if `⟨γ,α⟩ = 0` for a root `α`, every point `v` of the alcove `a t^γ(**a**)` has `0 < |⟨v, a(α)⟩| < 1` and so lies in a critical strip, and non-regular `γ` is the normal case — §5.4 introduces `K = {s; s(γ) = γ}` for exactly that reason and §6.4 discusses `λ_w = nω^∨`. `E2` was diagnosed the wrong way round: the printed Kottwitz element is not the misprint, the alcove datum is. [GHN15, Lemma 3.6.3] conjugates by `η_l(w)`, which in this paper's normal form is the left factor `x`, not `σ^{-1}(y)`; with `x` the defining condition holds, `x^{-1}wσ(x) = t^λσ(η_σ(w)) ∈ W̃_J`, and the printed `σ^{-1}(y)wy^{-1} = η_σ(w)t^λ` has the same image under `κ_{M_J}` because `η_σ(w) ∈ W_J ⊂ ker κ_{M_J}`, so §6.2's conclusion stands. `E6` was the largest change. It claimed that Theorem 5.5's `γ` need not exist, with a twisted `²A_2` example; what is actually wrong is one word in the standing reduction. §2.2 summarises [GHN15, §2] as a reduction to "simple and quasi-split" groups, while that section reduces to groups that are in addition **of adjoint type** — and adjointness is what makes §5 well defined, since `ρ^∨_J = Σ_{s∈J}ω^∨_s` has to be a coweight for `t^{ρ^∨_J}` to be an element of `W̃` at all (in `SL_3`, `y = s_1` gives `ρ^∨_J = ω^∨_1 = (2α^∨_1 + α^∨_2)/3 ∉ X_*(T)`, and in unramified `²A_2` the class of `γ` in `P^∨/Q^∨` is moved by `ω^∨_2 − ω^∨_1 ≠ 0`). That this is a slip and not an intended restriction is clear from §1.2, which calls `X_*(T)` "the coweight lattice". `E3`, `E4`, `E5` and `E8` were confirmed and tightened.
 
-The main theorem retains all three geometric/Newton assumptions:
+**Rejected (2).** The claim that §5.4's step "Hence `∪_Y Z_Y ⫋ Z`" needs finitely many irreducible components `Y` is wrong: `Z` is irreducible and each `Z_Y` is a proper closed subset of it, so the generic point of `Z` lies outside all of them however many there are, and the estimate from [GW10, Corollary 14.116] holds there. The claim that [HY12, §4.2]'s "`J = supp(w)` for any `w ∈ O_min`" confuses ordinary with saturated support is also wrong: that paper's §1.2 defines `supp(wδ) = ∪_n δ^n(supp(w))` for an element of a twisted coset and records that `supp(c) = S` for a Coxeter element, which is exactly the reading that makes the sentence true. Both removals are explained here rather than left in the register, and what a formalisation does need from the first of them — the carrier and a fibre-dimension theorem valid in it — is now gap `G2`.
 
-- the original alcove w·a is shrunken;
-- every simple-coroot coefficient of `λ_w^♦−ν_b` is strictly positive;
-- `(λ_w^{♭♭})^♦ ≥ ν_b`.
+**Added (2).** `E15`: §6.1's heading reads "The `(J,w,δ)`-alcove elements", in the letters of [GHKR10] and [GHN15], while the definition below it and all of §§6.2–6.5 use `(J,x,σ)` — and give `w` to the element of `W̃` instead. `E16`: §2.1 chooses representatives "in `N(L)`", and `L` is never defined in this paper, which writes `F̆`; the notation is [GHN15]'s.
 
-Nonemptiness is then equivalent to equal κ and full σ-support, and the dimension equals d_w(b). Corollary 6.4 replaces the two Newton inequalities by `λ_w^♦≥ν_b+2ρ∨`, retaining the shrunken condition. The split minuscule case does not permit omission of strict positivity. The final Levi remark still needs an actual Hodge–Newton decomposition and renewed hypotheses on the resulting factors.
+**Confirmed against the sources themselves (5).** `E9`, `E10` and `E11` are in the proof and statement of [He14, Proposition 11.6], read in the journal's own PDF at p. 399: an undefined `v` where the saturated support of `x` is meant; a left descent chosen in `δ^{-1}(J_1)`, which contradicts both the minimality of `x_1` and the use of `s_{δ(i)}` two lines later, so it must be taken in `J − δ^{-1}(J_1)`; and `supp(x') = J` where only `supp_δ(x') = J` was established. `E13` and `E14` are the two mistakes the authors of [GHN15] correct in their own erratum, read in full — the non-injectivity of `π_0(Flag) → π_0(Flag_ad)`, whose kernel is `X_*(T)_{Γ,tors}`, and the missing basic hypothesis in Proposition 3.5.1, with the `GL_2` counterexample. The first of these is not incidental here: it is the proposition the adjoint reduction of `E6` rests on, and it carries `char k ∤ |π_1(G_ad)|`.
 
-| Items | Coverage |
-|---|---|
-| /1–28 | Local data, flag carrier, invariants, virtual dimension, support, chambers |
-| /29–52 | Reduction, Demazure product, generic Newton classes, cordiality, Mazur and closures |
-| /53–84 | Normalized subtraction and every major factor/correspondence in §5.4 |
-| /85–105 | Levi obstruction, seed, main conclusions, corollary and GHN corrections |
-| /106–118 | Generic Hecke algebra, twisted cocenter, positive class polynomials and finite-Coxeter reduction |
-| /119–122 | Dimension=degree, restricted non-shrunken seed, zero branch and general-scope transport |
-| /123–129 | Bounded convolution, local dimension argument, perfect comparison, lattice adapter and geometric reductions |
+## Gaps
 
-## G3: a restricted replacement for the shrunken seed citation
+`G1`–`G3` are the three places where a design job has to do something the paper does not: run §§5.2–5.4 in the adjoint datum and **plan the descent** of Theorem 6.1 back to `G` (comparing `κ`, `ν_b`, the defect and the rational inequality component by component, with the characteristic condition the comparison carries) rather than lift `γ` to a smaller lattice, which item `/127` shows is impossible; **fix the carrier** — schemes in equal characteristic, perfect schemes in mixed characteristic — and prove the fibre-dimension estimate there, since the affine flag variety is an ind-scheme and `X_w(b)` is not quasi-compact; and take the **basic seed** from a criterion that holds for every element, [GHN15, Theorem A], or from the class-polynomial route of [He14, §11.2], never from a shrunken one. `G4`–`G10` name the inputs the paper quotes and this extraction does not reprove, each cross-referenced from the items that depend on it: minimal length elements and the cocenter (He–Nie, He–Yang, the "dimension = degree" theorem), cordiality (Milićević–Viehmann's purity and generic Newton points), Viehmann's closure result, Mazur's inequality in both forms, the P-alcove and Hodge–Newton machinery, the rank-one and finite-level Deligne–Lusztig geometry, and a layer of Coxeter and Demazure combinatorics that the root-system roadmap this extraction extends should own. `G11` records what the paper itself leaves open: no conjectural dimension formula exists for basic `[b]` with `w` outside the shrunken chamber, little is known for other nonbasic classes outside the hypotheses of Theorem 6.1, those hypotheses are not removable by this method (Remark 6.2's minuscule case), fully characterising cordial elements is stated to be difficult, and the application announced in §1.2 is joint work with Q. Yu.
 
-The existing A2 diagnostic survives fresh exact checking. In split adjoint A2 use simple-root coordinates (u,v), with base alcove u<0, v<0, u+v>−1. Take λ=ω2∨=(0,1), x=s2s1, y=1. The original element acts by
+## Prerequisite papers the atlas does not cover
 
-`x t^λ(u,v) = (v−1, 1−u−v)`.
+[GHKR10] Görtz–Haines–Kottwitz–Reuman and [GHN15] Görtz–He–Nie **with its erratum** (the P-alcove theory and the two theorems A and B this paper builds on), [He14] (the upper bound, the dimension = degree theorem and the §11 Hecke-algebra reduction), [He15] (the survey that carries the general-case statements quoted as Theorems 2.1 and the seed), [HN14] He–Nie, [HY12] He–Yang, [GH10] Görtz–He, [MV20] Milićević–Viehmann (cordial elements), [Vi14] Viehmann (truncations of level 1), [Ga10] Gashi, [MST19] Milićević–Schwer–Thomas, [He09], and for the carrier [BS17] Bhatt–Scholze and [Zu17] Zhu. Of these only Bhatt–Scholze and Zhu are within reach of an existing atlas layer (`GeometricSatakeAndFusion` GS0); the rest are the reading list of the two Part II roadmaps.
 
-The three positive-root intervals are (−2,−1), (1,2), (0,1), so it is shrunken. The §5.4 construction has J empty, J′={s1}, x′=s2, z=s1, γ=λ and y′=1, hence a=s1*s2=s1s2. Its action is
+## Checks
 
-`a t^γ(u,v) = (1−u−v, u)`.
-
-Its intervals are (1,2), **(−1,0)**, (1,2). Thus the constructed element is not shrunken. Both finite parts have full support; λ has positive simple-coroot coefficients (1/3,2/3). This invalidates direct use of the cited shrunken theorem, **not** the main theorem or seed nonemptiness.
-
-The new route is:
-
-1. In He14 Proposition 11.6 set J=S, x=a, y=1 and μ=γ≠0. The hypotheses require dominant nonzero γ and full δ-support, but **not** a shrunken alcove. It gives a positive twisted-cocenter contribution from `T_(t^γ c)`, for a finite δ-Coxeter element c.
-2. He14 Proposition 11.7, supplied by HY12 Theorem 1.1, reduces `t^γ c` to a minimal twisted Coxeter element `c′τ` in a proper affine parabolic.
-3. A finite twisted Coxeter part has zero Newton vector: its linear part is elliptic, so the affine transformation is rationally conjugate to a finite-order linear transformation. Rational conjugacy is **not** used to assert integral conjugacy.
-4. The nonnegative class-polynomial recursion prevents the indicated minimal basic coefficient from cancelling.
-5. He14 Corollary 6.2 identifies the nonzero coefficient with ADLV nonemptiness.
-6. If γ=0, Proposition 11.6 is inapplicable. Use a finite reductive parahoric quotient and Lang surjectivity separately; in the zero κ-fibre the basic class is [1].
-
-This proves a **source-derived restricted seed contract**: simple quasi-split adjoint G, split over L, in He14's equal-characteristic setup with its good-characteristic restriction, γ≠0 dominant, and full δ-support. The generic equal-parameter algebra and full-coweight datum are explicit. He14's shrunken Theorem 11.4 is not invoked; doing so would undo the repair.
-
-He14 §6.3 describes a p-adic **nonemptiness** extension, while explicitly lacking a p-adic dimension theory at that time. It is not an unrestricted mixed-characteristic dimension theorem. Item /122 records the needed actual-datum/characteristic transport; G3 remains open there and at complete verification of the corrected twisted induction/HN inputs. No hypothesis is silently added to He21's headline target.
-
-### Printed-proof issues kept visible
-
-Published p.399 was inspected as an image, not just extracted text. Proposition 11.6 prints `supp_δ(v)=J` where x is the defined variable. Its proof writes x=u x1 with x1 minimal on the left for W_(δ⁻¹J1), then selects a left descent **inside** δ⁻¹J1. That contradicts this minimality: the required descent is in J outside δ⁻¹J1. The next minimum-coset step uses precisely that exclusion. The proof also drops δ from the support assertion for x′; saturated support is what is justified.
-
-The later [He–Zhou–Zhu proof](https://arxiv.org/abs/2109.02594v1), Proposition 3.4.2, explicitly uses the outside-parabolic descent and σ-support. This is a later reformulation, not an official erratum. Its geometric framework is a concrete next lead for /122. The full corrected twisted induction remains a proof-verification obligation. In the nontrivially twisted HY12 conclusion, J is the saturated support of a twisted Coxeter word, not necessarily its ordinary support.
-
-## G2: dimension argument and the two cartesian squares
-
-The finite-type inequality /68 has the following direct proof. Let f:X→Y be surjective between nonempty finite-type k-schemes, with all geometric fibres of dimension at least d. Replace Y by a reduced component Z of maximal dimension and X by its inverse image. At the generic point η of Z, the fibre has dimension at least d, by field-extension invariance. Choose a component C of that generic fibre of dimension at least d and let V be its reduced closure in X×_Y Z. Then V dominates Z, its generic fibre is C, and
-
-`dim V = dim Z + trdeg_{k(Z)} k(V) = dim Z + dim C`.
-
-The function-field identity follows on affine charts from [Stacks 00P0](https://stacks.math.columbia.edu/tag/00P0). This gives `dim X ≥ dim Y + d` without taking an arbitrary union of exceptional closed subsets. The geometric-fibre assumption includes the geometric generic point. If the preceding calculation proves bounds only for closed fibres, [Stacks 05F7](https://stacks.math.columbia.edu/tag/05F7) supplies a nonempty open where the fibre dimension equals the generic value.
-
-The affine field-extension input already exists at the pin: `TauCeti.ringKrullDim_tensorProduct_field_of_finiteType`, /130, agrees with [Stacks 00P3](https://stacks.math.columbia.edu/tag/00P3). The nontrivial finite-type algebra finiteness lemma is also present (/131). The remaining generic-fibre scheme bridge /132 is routed to SF.0. No scheme theorem is claimed merely from the affine result.
-
-For /124, choose a nonempty affine open U in a maximal-dimensional reduced component of the locally finite-type target. It has the same dimension as that component. If f is finite type, X×_Y U is finite type over k, so /68 applies there. This removes any requirement that the entire ADLV have finitely many components.
-
-Here are the exact base changes behind /125. Write
-
-`C(u,v;q) = {(A,B,C): pos(A,B)=u, pos(B,C)=v, pos(A,C)=q}`
-
-with projection to `O_q` forgetting B. Use He21's symbols and set
-
-`r=(y′)⁻¹z, u=t^{ρ∨_J}y, v=σ(w1), q=uv=σ(x′y′t^γ), h=σ(x′y′), k=σ(t^γ)`.
-
-The first square is
-
-```text
-X2  ───────────────────────→ C(u,v;q)
-│                             │
-│ forget g2                   │ forget middle flag
-↓                             ↓
-X3  ── (g1,g3)↦(g3,bσ(g1)) → O_q.
-```
-
-A test point of the fibre product inserts exactly g2 between g3 and bσ(g1), with positions u,v. This is the definition of X2. The length-additive factorization q=hk identifies X3 with its expanded description involving g4.
-
-The second square is
-
-```text
-X4  ───────────────────────→ C(r,h;σ(a))
-│                             │
-│ forget g3                   │ forget middle flag
-↓                             ↓
-X5  ── (g1,g4)↦(g1,g4) ───→ O_σ(a).
-```
-
-Here X5 already imposes `pos(g4,bσ(g1))=k`; the fibre product inserts precisely g3. The first convolution uses the ordinary product q=uv. The second uses the Demazure product σ(a)=r*h. These are identities of moduli functors, with the Frobenius endpoint retained, rather than identities only on geometric points.
-
-For the perfect-scheme branch, [Zhu17](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), Corollary A.3 and Remark A.4, show that perfection preserves fibre products and is a universal homeomorphism. Proposition A.17 supplies a model of the **morphism**: choose a target model, then descend the map to a sufficiently high Frobenius twist of a source model. Over an algebraically closed field Ω, the geometric fibre of the perfected map is the perfection of the model's Ω-fibre. Thus fibre dimensions, total dimensions and surjectivity transfer, giving /126 from /68. Scheme models are available when the perfect objects are schemes (A.4/A.15).
-
-**Remaining G2 boundary.** The two squares transfer finite-type/pfp properties only after /123 constructs them on the actual bounded convolution projection. Zhu §1.4.2 supplies pfp affine-flag Schubert spaces and their relative-position strata, and Appendix A supplies compatible deperfection. The finite-level Iwahori-action argument and actual local boundedness still need their full supplier proofs. If the models are algebraic spaces rather than schemes, supply the dimension theorem for spaces or a justified étale reduction. None of these hypotheses follows just from a dimension bound on point fibres.
-
-The earlier restricted GH10 rank-one argument is retained: the ordinary-product estimate uses the A1 branch, and the Demazure estimate uses the Gm branch, with different length changes. Its full all-characteristic geometric implementation remains G9.
-
-## G1: a twisted example rules out the requested integral lift
-
-The SL2 half-coroot example already shows that ρ∨_J need not be an original cocharacter. There is a stronger obstruction: even **the final γ** can fail to be an original cocharacter. Thus the previous handoff's demand to prove an unrestricted γ-lifting theorem must be removed.
-
-Consider the unramified quasi-split simply connected group of type ²A2. In fundamental-coweight coordinates,
-
-`P∨=Z², Q∨={(a,b):a+2b≡0 mod 3}, σ(a,b)=(b,a)`.
-
-The original cocharacter lattice is Q∨. Use simple reflections
-
-`s1(a,b)=(-a,a+b), s2(a,b)=(a+b,-b)`.
-
-Take `λ=(3,3), x=1, y=s1`, so `w=t^λs1` belongs to the original Iwahori–Weyl group. With the negative base alcove, w maps `(u,v)` to `(-u-3,u+v-3)`. The open intervals for the three positive roots are `(−3,−2), (−4,−3), (−7,−6)`, so w is shrunken. The normal form is valid because λ is regular dominant.
-
-The construction gives `J={s1}, J′=∅, x′=s2, z=1` and `ρ∨_J=(1,0)`. Since `−σ⁻¹ρ∨_J=−ω2∨` has dominant representative ω1∨, also `η∨_J=(1,0)`. Therefore
-
-`λbb=λ−dom(2ω1∨)=(1,3)`
-
-because λ−2ω1∨ is already dominant. Meanwhile
-
-`β=λ−ω1∨+s2ω2∨=(3,2)=γ`,
-
-so `y′=1` and `a=s2`. Neither λbb nor γ is in Q∨. Moreover, **no** γ in Q∨ can satisfy γ≥_Zλbb, because adding integral coroots preserves λbb's nonzero class in P∨/Q∨. This is a counterexample to the literal original-lattice reading of Theorem 5.5 once double-flat is interpreted in P∨. Without that interpretation its ρ∨_J is already undefined. It is not a counterexample to the final geometric Theorem 6.1 after a valid adjoint reduction.
-
-The correct auxiliary Kottwitz computation is
-
-`β−λ = ((x′)⁻¹σ⁻¹ρ∨_J−σ⁻¹ρ∨_J) + (σ⁻¹ρ∨_J−ρ∨_J)`.
-
-The first term is a coroot, the second a σ-coboundary in P∨, and dominant conjugation adds a coroot. Hence the classes of γ and λ agree in `(P∨/Q∨)_σ`. In this example σ acts by −1 on Z/3, so those coinvariants are zero; this equality cannot imply γ∈Q∨. For a split datum σ=1, the coboundary term vanishes and the integral-lifting conclusion does hold. Item /127 now states precisely that boundary.
-
-Items /61, /84 and /91 and source finding E6 have been updated consistently. Run the construction in the working adjoint/full-coweight group, and then transfer its **final geometric conclusions**. The remaining theorem must control which components lift, their dimensions, κ/Newton/defect comparisons, and ramified local-root conventions. The GHN erratum only gives a characteristic-qualified componentwise equal-characteristic isomorphism; its mixed-characteristic point bijection does not establish dimension equality. An original lift of every intermediate factor is not a target.
-
-Other inherited corrections remain: use x in the Levi conjugation; retain all closure bars; use nonnegative coroot coefficients and an actual feasible-set existence argument; keep the known lower endpoint in cordial saturation; require basic b for Levi-class uniqueness. The earlier split A2 seed example and the twisted lattice example here address different problems.
-
-## Library and owner audit
-
-Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The inherited seven library items retain exact declarations; /130–131 add two exact dimension statements:
-
-| Items | Reused declarations |
-|---|---|
-| /6–7 | CoxeterSystem.length, IsReduced, length_inv, length_mul_le |
-| /8 | CoxeterSystem.BruhatStep, BruhatLE, bruhatPartialOrder |
-| /24–25 | TauCeti.dominantChamber, openDominantChamber, existsUnique_mem_orbit_inter_dominantChamber, stabilizer_eq_closure_wallReflections |
-| /26–27 | TauCeti.posRootCone, mem_posRootCone, finite_setOf_dominant_sub_mem_posRootCone, dualized with exact integrality/root-system hypotheses |
-| /130–131 | TauCeti.ringKrullDim_tensorProduct_field_of_finiteType, finiteRingKrullDim_of_finiteType |
-
-Those statements and signatures were reopened by `codex-7e92bd`. The six inherited Lean files and the new FiniteType file were compared byte-for-byte with exact pinned GitHub sources. They do not identify a local group's Weyl group with the abstract root-pairing carrier, nor construct ADLV geometry.
-
-Pinned searches found no matching generic class-polynomial, twisted-cocenter, Demazure-product or twisted-Coxeter implementation. The inspected double-coset Hecke module in Tau Ceti is a different carrier from a generic Z[v,v⁻¹] affine Hecke deformation. The comparison is a theorem to prove, not a renaming.
-
-The inherited owner audit was at explorer `6a3c7756d3446bd54797604ac7089df94a7f8551`; the relevant RG2.1/SF.0/GS0 stages and reviewed coverage were reread at `b5db06f75311f98ee8754aab201b93c99bebd3a2`. Relevant exact stage descriptions, upstream RootSystems/ReductiveGroups, the reviewed SF/BG/GS/HS audit and changed peer-paper routes were read. The coverage blob is `5e708cfc74a51b10e62149113872fe4e00eb5846`; the local copy's blob hash was checked. No separate RG2/root/SR.1 entry occurs in that file, so actual supplier/source inspection is recorded instead of inventing an audit.
-
-The eight source routes remain RG2.0, RG2.1, RG2.2–3, RG2.4, BG0, BG1, GS0 loop/Witt geometry and SF.0. The new obligations use those same owners.
-
-Three Part II briefs divide the additions:
-
-1. **RootSystemsPartIIDominanceAndDemazure**: abstract root/Coxeter extensions, normalized subtraction and HY12 finite-Coxeter reduction. Preserve this existing candidate, also reused by KPZ26. Consolidate KZ25's overlapping RootSystemsDominancePartII lane at design intake; do not build two integral dominance orders.
-2. **HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig**: classical ADLV schemes/perfections, reduction, cordiality, seed geometry and dimension targets. It imports GS flags and BG invariants; local shtuka diamonds are not silently identified with classical ADLVs.
-3. **SmoothRepresentationsPartIIParahoricCenters**: reuse the pending KP18 Iwahori/parahoric-center proposal and add its early generic twisted-cocenter/class-polynomial branch. **Center and cocenter are distinct**; this shares the generic Iwahori presentation through explicit specialization while leaving the existing Bernstein-center targets intact. There is no duplicate generic Hecke algebra in the root or ADLV continuation.
-
-Pending briefs are not represented as reviewed implementations. Source and candidate routes specify imports, exact target guards, proof obligations, API/tests and future Lean module homes.
-
-## Structured source findings
-
-The previous checkpoint reread the revised protocol at `93ad2ae65555b960e1ce47ae8b144d2173522ab4`; this continuation reread it at its initial snapshot. The publication preflight at `9742505baca49ba909a0dc9844681502827efd0a` checked the latest worker-instruction change and screened the five changed peer-paper route sets. The atlas, reviewed coverage and owner stages were unchanged. The JSON now records 14 source findings under `sourceIssues`, each with a short printed fragment, locator, correction, reason and correction-search record. They cover the He21 citation/notation/proof interfaces, He14 and HY12 support/descent wording, and both already-published GHN corrections. These are findings awaiting independent review, not self-confirmed errata. E6 now records the stronger ²A2 original-lattice counterexample above and distinguishes the affected intermediate theorem from the final geometric statement. Searches did not locate an official He21/He14 correction; that is not a claim that none exists. HY12's finding is confined to the inspected arXiv version. No authors were contacted.
-
-## Validation and remaining work
-
-The prior `codex-a71f92` checkpoint recorded these finite diagnostics (not rerun in this continuation):
-
-- all 36 A2 generic Hecke basis products, including the ordinary-product coefficient and Demazure leading coefficient in N[h];
-- all 216 A2 Hecke associativity triples and all 216 Demazure associativity triples;
-- the norm sums for a split A2 Coxeter element (order three) and a diagram-twisted Coxeter element (order six);
-- exact alcove-coordinate intervals in the A2 diagnostic and the SL2 half-coroot lattice guard.
-
-For reproduction, use s1=[[-1,0],[1,1]], s2=[[1,1],[0,−1]] on coweight coordinates and δ=[[0,1],[1,0]]. For the finite Hecke checks enumerate S3, choose reduced words by breadth-first search in its adjacent transpositions, and multiply by T_s using T_wT_s=T_ws for an ascent and T_ws+hT_w for a descent. Coefficients are integer arrays in h=v−v⁻¹. Subtract T_xy, or h^(ℓx+ℓy−ℓ(x*y))T_(x*y), and check all coefficients are nonnegative. Compute affine interval endpoints on the vertices (0,0), (−1,0), (0,−1). These are finite diagnostics, not proofs of He14 Proposition 11.6 or the general theorems.
-
-The previous worker's 729 A2/512 A1 subtraction cases and 570 shrunken-input reductions are retained as historical evidence, **not** claimed as rerun in this follow-up.
-
-The current paper validator passes. Additional checks verify all 134 stable IDs, exact-once routing for all 115 missing items, all 376 internal edges and acyclicity, and API/test coverage for every definition/construction. Fresh exact rational checks verify the twisted A2 coordinates and alcove intervals, 400 nonnegative-coroot translates, and all nine residue pairs for the σ-action on P∨/Q∨. The universal non-lifting conclusion follows from the congruence proof, not the finite sample. The three exact deliverable paths are checked by intake, with existence checked separately. No Lean file is required by this paper job.
-
-G1–G3 remain substantive gates. G4–G10 identify the HN/minimal-geometry, MV purity, Viehmann closure, upper-bound/Mazur, Levi, Lang/rank-one and residual Coxeter/root proof frontiers. The dependency graph is an itemized **partial plan**, not a closed Lean proof graph. Do not upgrade it merely because structural checks pass.
+`scripts/check_paper.py`: ok with `"status": "complete"`, so exactly-once routing of the 115 missing items is enforced and the 14 findings pass `scripts/source_issues.py`; `research/blueprint/intake.py check-files` reports no problems on both deliverables. The three Part II ids are free in `data/atlas.json` and in `research/blueprint/roadmaps/`, and each is a proposal this extraction shares with others, as §15 intends — `HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig` with `PAPER-ZHU-17`, `PAPER-KISIN-17`, `PAPER-VANHOFTEN-24`, `PAPER-GLEASON-LIM-XU-26` and `PAPER-KISIN-PAPPAS-ZHOU-26`, `RootSystemsPartIIDominanceAndDemazure` with `PAPER-HE-18`, `PAPER-ZHU-17` and `PAPER-KISIN-PAPPAS-ZHOU-26`, `SmoothRepresentationsPartIIParahoricCenters` with `PAPER-HE-18`, `PAPER-ZHU-17` and `PAPER-KISIN-PAPPAS-18`; both atlas parents exist and the third parent is the Tau Ceti roadmap `tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems`; every `planned` stage id and every source route's stages belong to the roadmap that owns them; and the sixteen declarations cited by the nine `library` items were all located in the pinned libraries (Mathlib 082e2d3, Tau Ceti f790474), including `TauCeti.finite_setOf_dominant_sub_mem_posRootCone` in `TauCeti/LinearAlgebra/RootSystem/DominantCone.lean`, whose statement — only finitely many dominant weights lie below a given one — is the step finding E5 says Proposition 5.1's proof needs. The handoff note is rewritten to say that nothing remains to resume, and to point the review at the two findings that were rejected, since a rejected finding leaves no trace in the file.
