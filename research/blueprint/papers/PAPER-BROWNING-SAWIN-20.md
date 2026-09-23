@@ -1,14 +1,14 @@
 # PAPER-BROWNING-SAWIN-20 — geometric circle method
 
-Codex — codex-a71f92. Issue #1125. Status: **partial**, not formalised.
+Codex — codex-c83e7a, continuing codex-a71f92. Issue #1125. Status: **partial**, not formalised.
 
-The complete 49-page author version has been read and 115 interfaces extracted: 8 library, 8 planned, 99 missing, with every missing item routed exactly once. All numbered main/auxiliary results have an interface or an explicit gated target; the remaining proof and publication-reconciliation debts are not hidden by that inventory count. The sharp comparison-range proof is unclosed. The official journal PDF confirms the two most consequential minor-arc problems and the low-dimensional loop-space problem.
+The complete author version and all published text have been read. The continuation inventory has 136 interfaces: 11 library, 9 planned, 116 missing, with every missing item routed exactly once. All numbered main/auxiliary results have an interface or an explicit gated target; the remaining proof and publication-reconciliation debts are not hidden by that inventory count. The sharp comparison-range proof is unclosed. The official journal PDF confirms the two most consequential minor-arc problems and the low-dimensional loop-space problem.
 
 ## Sources and limits of the read
 
 Primary full read: Browning–Sawin, [arXiv1711.10451v3](https://arxiv.org/pdf/1711.10451v3), dated 19 February2020, labelled Final version, all §§1–7 and references. SHA256: `4518f88842e2bc19d2b2e0634f1df54c96d36164331e88fc30ef892f3c879072`.
 
-Publication: [Annals191(2020),893–948](https://annals.math.princeton.edu/2020/191-3/p04), DOI10.4007/annals.2020.191.3.4. The [official 56-page PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p04-s.pdf) was obtained later in the work; SHA256: `f20c87e337c054e42134bf2daf577203ce4b391e0d22ff59b9425d1249c33c53`. Its main statements pp.893–895, Cor.3.10 p.919, minor-arc proof pp.934–935 and topology pp.942–946 were checked. Images of journal pp.934 and944 were compared with the author PDF. This is not a second full line-by-line read. A token comparison is only a navigation aid, not evidence that mathematical formulas are equivalent. Reference numbers15/16 and24/25 exchange places between the two versions.
+Publication: [Annals191(2020),893–948](https://annals.math.princeton.edu/2020/191-3/p04), DOI10.4007/annals.2020.191.3.4. The [official 56-page PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p04-s.pdf) was obtained later in the work; SHA256: `f20c87e337c054e42134bf2daf577203ce4b391e0d22ff59b9425d1249c33c53`. Its main statements pp.893–895, Cor.3.10 p.919, minor-arc proof pp.934–935 and topology pp.942–946 were checked. Images of journal pp.934 and944 were compared with the author PDF. Those were the previous checkpoint’s read extents. On 23 September 2026 all published text was freshly read, pp.893–948. This does not certify image-level reconciliation of every inherited finding. A token comparison is only a navigation aid, not evidence that mathematical formulas are equivalent. Reference numbers15/16 and24/25 exchange places between the two versions.
 
 Original-source passages read: [Browning–Vishe2017 §4](https://msp.org/ant/2017/11-7/ant-v11-n7-p06-s.pdf), [Browning–Vishe2015 Lemma2.8 and beginning of proof](https://www.maths.dur.ac.uk/users/pankaj.vishe/fqt.pdf), [Katz–Sarnak §§11.4.4–9 through the proof](https://web.math.princeton.edu/~nmk/RMFEM.pdf), and [Church–Ellenberg–Farb Prop.3.3/Thm.3.7](https://arxiv.org/abs/1309.6038). The JSON records hashes, precise read extents and unexamined subsidiary inputs. No author was contacted and no finding has independent-review status.
 
@@ -81,7 +81,7 @@ All 28 findings are recorded in the required sourceIssues format, with quoted fo
 - E25 (misprint; nothing): Cor.2.9 proof v3 p.14; publication not separately checked. Here #π0(U) counts only the top-dimensional irreducible components of M.
 - E26 (misprint; nothing): Definition of a polynomial lattice, v3 p.40; publication not separately checked. For an N×N lattice matrix use u∈F_q[T]^N.
 - E27 (misprint; nothing): Def.2.3 v3 p.10; publication not separately checked. Define the matrix only for 0≤m≤kd and set A_m=A^{kd} for larger m.
-- E28 (gap; the proof): Lemma7.2 and definition of Hom_{d,P}, arXiv v3 pp.43–44; published topology not separately reconciled. Specify the topology on the germ-constrained continuous mapping space and prove that germ-straightening and disc gluing are continuous in parameter families. Alternatively construct a uniform-collar model and compare it with the stated model.
+- E28 (topology gap, with a counterexample to the compact-open interpretation): published pp.940–941, (7.1) and Lemma7.2, freshly reconciled. The explicit Fermat family below has an infinite-order winding class in the compact-open germ space, while its double-loop comparison target is simply connected. A stronger intended topology requires a new, explicit comparison proof.
 
 The low-dimensional issue is substantive: a smooth cubic Fermat fibre in C³ has the homotopy type of a wedge of eight S²'s. The full double loop space therefore has components Z⁸ and infinite-dimensional H⁰; the source's Euler product contains a degree-zero singular factor. The intended main application already has n≫3. Use n≥4 for the connected full-loop Betti formula, and separately verify the original rational-homotopy prerequisites. This calculation and the mapping-space topology finding require independent mathematical review, like every other finding here.
 
@@ -94,10 +94,10 @@ The pinned-library checks do not credit paper-level theorems from similar names.
 | source: ExponentialSumsAndCircleMethod | 10 | Polarization, coefficient-count identities, iterative shrinking and the uniform arithmetic minor-arc count are concrete function-field Weyl/counting interfaces inside ES.0–1. Import the nonarchimedean lattice theorem from the dedicated Part II below; do not reprove its general lattice API here. |
 | source: FiniteFieldsAndCharacterSums | 6 | Artin–Schreier coefficient objects and cancellation, the one-dimensional Fourier input, and Lang–Weil all-extension dimension detection are reusable geometric character-sum inputs. FF.2 already calls for ℓ-adic trace functions; these items supply its precise sheaf interfaces. Import EDC/SF operations and existing weight-theorem owners rather than creating a private six-functor or Weil-conjectures theory. |
 | source: FoundationsAndLibraryIntegration | 1 | Use the existing spectral-sequence carrier and LI.3's planned spectral-sequence theory. The exact finite-closed-filtration convergence interface is a supplier requirement, not a new page carrier. |
-| part-ii: GeometricCircleMethodAndMappingSpaces | 58 | ES.0–5 develops numerical oscillatory/counting estimates, not compact-support complexes, configuration-space E1 pages, odd-page monodromy or mapping-space comparison. These are genuinely new layers in the same circle-method direction. |
+| part-ii: GeometricCircleMethodAndMappingSpaces | 72 | ES.0–5 develops numerical oscillatory/counting estimates, not compact-support complexes, configuration-space E1 pages, odd-page monodromy or mapping-space comparison. These are genuinely new layers in the same circle-method direction. |
 | part-ii: FunctionFieldLatticesAndShrinking | 7 | GN.0 explicitly fixes real finite-dimensional lattices and GN.1 builds Euclidean convex geometry. F_q[T]-lattices in F_q((T^{-1})) and exact ultrametric successive-minima identities are not those carriers or the same proof. |
 | part-ii: UniversalHypersurfaceMonodromy | 3 | LPV.5 explicitly proves odd-dimensional symplectic open image and does not assert even-dimensional universal orthogonal monodromy. Katz–Sarnak's full O/Sp theorem and the simultaneous-product argument add this missing direction. |
-| part-ii: ConfigurationSpacesAndRationalLoops | 15 | Upstream AlgebraicTopology owns singular homology, products, duality, CW and ordinary homotopy; it does not provide configuration-representation Euler products, tame-fibre bouquets, Hilton decomposition or Sullivan rational H-space calculations. Extend it; do not source-route a replan of upstream stages. |
+| part-ii: ConfigurationSpacesAndRationalLoops | 18 | Upstream AlgebraicTopology owns singular homology, products, duality, CW and ordinary homotopy; it does not provide configuration-representation Euler products, tame-fibre bouquets, Hilton decomposition or Sullivan rational H-space calculations. Extend it; do not source-route a replan of upstream stages. |
 
 Generic compact-support operations, traces, weak Lefschetz and analytic comparison remain in SF.2/EDC.0,2,4,6. The generic finite-filtration theorem remains in LI.3. LPV.5 does not already prove universal orthogonal monodromy: it explicitly restricts its openness claim to the symplectic case. GN.0 explicitly uses real lattices; a Laurent-series polynomial lattice is not that same carrier. The upstream AlgebraicTopology roadmap is imported and extended, never re-planned.
 
@@ -105,7 +105,7 @@ No extra foundation is made merely to support this paper. The four Part II brief
 
 ## Proof spine and extraction coverage
 
-The JSON's 115 item records are the authoritative statements. Every definition/construction has an API and unit tests; every dependency resolves and the recorded spine is acyclic. It is not yet declaration-level closure.
+The JSON's 136 item records are the authoritative statements. Every new definition/construction has API contracts and at least three structured tests; inherited short API/test lists still need expansion under G10. Every dependency resolves and the recorded spine is acyclic. It is not yet declaration-level closure.
 
 1. Fixed-leading-vector mapping scheme → residue phase → Artin–Schreier complex → Fourier orthogonality (Lemma2.1).
 2. Hankel rank → Padé approximation → exact-denominator open → translation cancellation → affine remainder fibration → CRT → repeated-root cancellation → trace fibre → ordered configurations → signed stratum cohomology (Lemmas2.4,3.1–3.11, Corollaries3.10,3.12).
@@ -119,17 +119,149 @@ The source's sharp comparisons and weak endpoint, and its low-dimensional statem
 ## Remaining work
 
 - G1: Close the sharp minor-arc rounding bound and equality endpoint, or confirm a corrected theorem with an independent reviewer. Finite arithmetic checks do not prove geometric vanishing. Resume: Start with E1–E3, journal p.934. The conservative remainder argument is supplied explicitly.
-- G2: Construct the topology/uniform germ deformation in Lemma7.2 and the nonempty reference mapping space. Resume: Specify a uniform-collar model and prove comparison with the source's O-germ model.
+- G2: Compact-open Lemma7.2 is obstructed. Specify a stronger topology and prove polynomial inclusion, uniform-family collar straightening and global comparison with the fixed-collar model. Resume: Use compactcounter and stronggermgate; do not try to prove the false compact-open equivalence. The explicit nonempty Fermat reference is supplied. General nonempty-reference construction remains an input.
 - G3: Read Katz §8.2.5(2) completely and verify its middle-extension/nonconstant polynomial hypotheses and shifts. Resume: Author [16] is journal [15]; do not confuse it with Katz's Betti-number paper.
-- G4: Read original Broughton1983, Hilton1955 and Sullivan1977 statements/proofs, including connectedness and finite-type restrictions. Resume: Use n≥4 for the full-loop endpoint; independently check the cubic n=3 counterexample.
+- G4: Read original Broughton1983, Hilton1955 and Sullivan1977 statements/proofs, including connectedness and finite-type restrictions. Resume: Use n≥4 for the full-loop endpoint; independently check the cubic n=3 counterexample. The new special Fermat/Milnor calculation suffices only for E28; it does not replace the general Broughton1983, Hilton1955 or Sullivan1977 suppliers.
 - G5: Close nonarchimedean orthogonalization/duality and the original uniform polynomial-box proof, keeping constants independent of q. Resume: BV17 explicitly points to a Lee gap and Usher–Zhang repair; BV15 proof needs more than its statement.
 - G6: Decompose original monodromy auxiliary inputs and algebraic-group quotient classification; do not substitute abstract Goursat for closed group-scheme Goursat. Resume: Katz–Sarnak11.4.9 was read through its proof; audit the subsidiary SGA7, Deligne–Illusie and Lie-group inputs.
 - G7: Make E=Q_ℓ(μ_p) versus Q_ℓ descent, full-pair spreading and good characteristic choice explicit; verify remaining generic cohomology source statements. Resume: SF.2/EDC.0 are planned suppliers, not implemented theorems.
 - G8: Read the underlying hyperplane-arrangement and Lang–Weil originals; CEF's trace proof was read but its imported cohomology presentation remains a source debt. Resume: Separate arrangement purity from general Weil bounds and all-extension counts from one-field counts.
-- G9: Finish publication-wide formula-by-formula reconciliation and independent source-finding verification. Only the full author version and selected journal sections have been read. Resume: Both public PDF hashes and checked publication locators are recorded; secondary-reference renumbering is explicit.
-- G10: Expand the remaining elementary proof dependencies into declaration-level closure and exact APIs before any blueprint is certified complete; no Lean implementation or compilation was done. Resume: Use the inventory, route briefs, explicit dependency spine and reproducible certificate. This is a paper extraction checkpoint, not a finished blueprint.
+- G9: All published text has now been read; finish image-level formula reconciliation and independent verification of inherited E1–E27. A full read does not certify every prior correction. Resume: Use matching-hash 56-page Annals PDF. E28 is freshly reconciled at pp.940–941; preserve the inherited checked/not-checked distinctions for other findings.
+- G10: Expand the remaining elementary proof dependencies into declaration-level closure and exact APIs before any blueprint is certified complete; no Lean implementation or compilation was done. Inherited API outlines and short test lists also need expansion to the protocol’s structured three-test format; only the new definitions/constructions below meet that format in this continuation. Resume: Use the inventory, route briefs, explicit dependency spine and reproducible certificate. This is a paper extraction checkpoint, not a finished blueprint.
 
 The prerequisite list is deliberately not a claim to have read every cited paper. In particular, the Broughton/Hilton/Sullivan originals, Katz's Fourier section, Lee/Usher–Zhang lattice foundations, and the complete degree-uniform box proof still need work. The finite certificate below tests arithmetic mistakes, not those geometric proofs.
+
+## Continuation: the topology of the prescribed germ
+
+Codex — codex-c83e7a, 23 September 2026. This continuation retains the previous extraction and its unresolved arithmetic and source obligations. The 56-page published text has now been read completely. This does not independently validate all 28 inherited findings or replace their formula-image checks. The substantive new work concerns E28, published pp.940–941, definition (7.1) and Lemma7.2. All findings remain unreviewed.
+
+**With the subspace compact-open topology, the claimed equivalence is false.** The paper does not specify a topology, so this conclusion is deliberately limited to that interpretation. It is not a refutation of every stronger germ topology that might have been intended. Nor does it prove or refute the spectral-sequence construction.
+
+Let k≥3,n≥3,d≥1, choose ζ^k=−1, and consider
+
+\[
+X=\{x_1^k+\cdots+x_n^k=1\},\quad
+\overline X=\{x_1^k+\cdots+x_n^k=x_0^k\},\quad
+P=[1:\zeta:0:\cdots:0:0].
+\]
+
+All three relevant varieties—X, its projective closure and its boundary—are smooth: simultaneous vanishing of the relevant derivatives would force every coordinate to vanish. The polynomial reference g(T)=(T^d,ζT^d,1,0,…) lies in X. In the z=1/T chart it is [1:ζ:z^d:0:…:z^d], so it meets (7.1) exactly with an allowed O(|z|) tangential term. Write Hco for the source's set of maps equipped with its subspace topology inside C(P¹(C),Xbar).
+
+For 0<r≤1/4 define
+
+\[
+h(s,r)=\max(0,\min(1,(s-r)/r)),\qquad
+\sigma(s,r)=\exp(2\pi i h(s,r)),\quad 0\le s\le1.
+\]
+
+The endpoint values of σ agree, so it is a loop. At fixed r its real lift h starts at0 and ends at1; its degree is1. At fixed s>0 it is identically1 whenever r<s/2, and the same eventual statement holds at s=0. Nevertheless σ(3r/2,r)=−1. These are pointwise eventual identities, with no uniform convergence in s.
+
+Set
+
+\[
+r(T)=\frac1{4(1+|T|)},\qquad
+a_s(T)=T^d\sigma(s,r(T)),\qquad
+F_s(T)=(a_s(T),\zeta a_s(T),1,0,\ldots).
+\]
+
+The first two kth powers cancel; hence each finite value lies in X. For each fixed s, F_s agrees with g outside a compact set. It therefore has precisely the required germ, with no need to estimate a nonzero error term. Also F_0=F_1=g.
+
+This is a continuous loop in Hco, including at the identified parameter endpoint. Indeed it is jointly continuous at every finite T. Near infinity, divide homogeneous coordinates by a_s(T): the chart coordinates are [1:ζ:a_s(T)^(−1):0:…:a_s(T)^(−1)]. Their varying entries have absolute value |T|^(−d), uniformly in s. Thus the family extends jointly to S¹×P¹, with all infinite values P. Compact-open currying gives continuity into the mapping space and then into its subspace Hco. No uniform estimate on the normalized coordinate a_s(T)^(−1)/T^(−d) follows from this projective estimate.
+
+Suppose F bounded a continuous disk H:D²→Hco. Evaluation is jointly continuous because P¹ is locally compact. For each parameter u the point H(u,∞) is P in the chart x1≠0. Compactness of D² and the tube argument give a common R0 such that this chart contains H(u,T) for every u and |T|>R0. At every finite T these values lie in X, so the normal coordinate v=x0/x1 is nonzero. Choose a positive real R>R0. Then u↦v(H(u,R)) gives a disk in C*, whose boundary is
+
+\[
+R^{-d}\sigma(s,r(R))^{-1}.
+\]
+
+Its normalized circle loop has real lift −h(s,r(R)), with endpoint difference−1. It cannot extend over a disk. This contradiction proves that F is not nullhomotopic.
+
+More precisely, evaluate an arbitrary based loop sufficiently far out, divide its normal coordinate by the basepoint value, normalize its absolute value, and take degree. A radial interval compares any two sufficiently large radii. A based homotopy supplies a common radius by the same compact-parameter argument. Concatenation adds degree. Thus there is a homomorphism endWind:π1(Hco,g)→Z with endWind([F])=−1; it is surjective and [F] has infinite order. The construction never assumes a uniform O-germ for the disk family.
+
+For the comparison target, the JSON's `finitejoin`, `fermatjoin` and `fermatpi3` items supply a separate special-case proof spine. [Milnor, §9 Lemma9.2](https://djvu.online/file/kCFrJq27uCPRi) supplies the Fermat join model. Only selected primary-book OCR pages were read, not the full book; a direct file request returned403, so there is no acquired-file hash. The elementary positive-scaling map and the finite-CW cone-collapse argument are stated explicitly in those items. The generic CW and cellular-approximation inputs belong to upstream AlgebraicTopology Stages4 and8. Consequently π2(X)=π3(X)=0 for n≥5; the pinned loop-space shift gives π1(Ω²X)=0 and Ω²X is connected. The general Broughton/Hilton/Sullivan supplier debt remains open.
+
+Taking k=3,d=2,n=40 meets the paper's main degree and dimension hypotheses: d=k−1 and n>2^k(k−1). Its Hco has an infinite-order fundamental-group element, whereas Ω²X is connected and simply connected. Even if Hco has other components, that prevents a homotopy equivalence. This is an actual obstruction to the compact-open statement, stronger than the previous missing-uniformity observation. It does not depend on the unclosed minor-arc estimate.
+
+## What a corrected topology still needs
+
+Within a fixed product chart (u,v) at P, where the boundary is v=0, fix ε>0 and require u=O(|z|), w=v/z^d=1+O(|z|), with u in a convex chart ball and |w−1|<1/2. The weighted supremum distances of u/|z| and (w−1)/|z| give a concrete topology on these controlled tails. For a cutoff χ that is1 on an inner disk and0 near |z|=ε, the formula
+
+\[
+u_t=(1-t\chi)u,\qquad
+v_t=z^d\bigl(1+(1-t\chi)(w-1)\bigr)
+\]
+
+is a continuous homotopy in that model. It preserves the outer boundary, produces a standard inner tail at t=1, and creates no new zero: the normalized normal coordinate has real part greater than1/2. The weighted error bound does not increase. This proves a fixed-chart construction. It is not a strong deformation retraction onto all maps already standard on the inner disk: such a map may still change in the annulus.
+
+A fixed boundary loop β:S¹→X with a chosen disk extension has an extension space modelled by the fibre of the based restriction Map_*(D²,X)→Map_*(S¹,X). The boundary cofibration gives homotopy lifting by adjunction; the based disk mapping space contracts. The corresponding fibre comparison gives Ω²X after choosing the reference extension/nullhomotopy. The JSON records the implementation contracts, rather than crediting an absent pinned restriction-fibration theorem.
+
+These facts do not yet define the source's all-germs topology. A corrected endpoint must choose that topology, establish uniform control over compact parameter families, prove the polynomial-map inclusion continuous, and compare it with the fixed-collar model. In the Fermat example a model with the claimed Ω²X homotopy type cannot also be weakly equivalent to Hco. The original conjecture must not be silently rewritten with a different target.
+
+## Library, routing and verification of this continuation
+
+At the exact pins, the statements freshly read include Mathlib `ContinuousMap.continuous_of_continuous_uncurry` and its locally compact evaluation/uncurrying API; Tau Ceti `UnitAddCircle.fundamentalGroupMulEquiv`, its integer-monodromy characterization, `Circle.fundamentalGroupMulEquiv`, and `HomotopyGroup.piLoopSpaceMulEquiv`. These are imports. The older upstream circle fundamental-group target is superseded by the pinned implementation. No matching reviewed coverage entry exists for the upstream AlgebraicTopology/UniversalCovers stages; the stages were read directly and credited only as planned where appropriate.
+
+The seven routes are retained. The application-specific germ, winding and collar work belongs to GeometricCircleMethodAndMappingSpaces; the special Fermat join calculation belongs to ConfigurationSpacesAndRationalLoops, importing generic topology. Suggested additional files are `TauCeti/NumberTheory/CircleMethod/Geometric/InfinityGerm.lean` and `TauCeti/Topology/RationalHomotopy/FermatFibre.lean`. Suggested planets are Prescribed infinity germ, End winding, Compact-open obstruction, Controlled collar straightening and Fermat fibre join model. Each new definition/construction has typed API contracts and at least three structured tests in the JSON. The inherited short API/test lists remain an explicit G10 debt, so this is still partial.
+
+The exact regression script below checks clamp branches and lifts, tail bounds, nonuniform normalized behaviour, the main-range arithmetic and convex collar nonvanishing. Complex phase/Fermat cancellation checks are separately labelled floating-point diagnostics. Neither proves a homotopy theorem or supplies Lean elaboration. The prior extraction's arithmetic certificates remain prior evidence and were not rerun in this continuation.
+
+
+```python
+from fractions import Fraction as Q
+from math import pi
+from cmath import exp
+checks=0
+def check(p):
+    global checks
+    assert p
+    checks+=1
+def h(s,r):return max(Q(0),min(Q(1),(s-r)/r))
+for denominator in range(4,205):
+    r=Q(1,denominator)
+    check(h(Q(0),r)==0);check(h(Q(1),r)==1)
+    check(h(3*r/2,r)==Q(1,2))
+    check(h(2*r,r)==1);check(h(r,r)==0)
+    # Exact piecewise lift, including both breakpoints: degree is one.
+    knots=[Q(0),r,3*r/2,2*r,Q(1)]
+    check(sum(h(b,r)-h(a,r) for a,b in zip(knots,knots[1:]))==1)
+    check(sum(-h(b,r)+h(a,r) for a,b in zip(knots,knots[1:]))==-1)
+    for numerator in range(1,21):
+        s=Q(numerator,20)
+        rr=min(r,s/4)
+        check(h(s,rr)==1)
+for d in range(1,7):
+    for radius in range(1,81):
+        r=Q(1,4*(1+radius)); s=3*r/2
+        check(h(s,r)==Q(1,2))
+        # At the half-phase, normalized normal coordinate is -1 exactly;
+        # unnormalized normal coordinate tends to zero at rate radius^-d.
+        v=-Q(1,radius**d)
+        check(abs(v)==Q(1,radius**d));check(abs(v/Q(1,radius**d)-1)==2)
+for a in range(-9,10):
+    delta=Q(a,20)
+    for t in range(11):
+        for cutoff in range(11):
+            factor=1-Q(t,10)*Q(cutoff,10)
+            w=1+factor*delta
+            check(w>Q(1,2));check(abs(w-1)<=abs(delta))
+check(Q(40,8)-3+1==3);check(2//(3-1)==1);check(40>8*2)
+print('exact rational assertions:',checks)
+floating=0;max_error=0.0
+for k in range(3,8):
+    zeta=exp(1j*pi/k)
+    for d in range(1,5):
+        for T in [0,0.25,0.5+0.1j,1j,-0.75]:
+            r=1/(4*(1+abs(T)))
+            for s in [0,r,1.5*r,2*r,0.9,1]:
+                phase=exp(2j*pi*max(0,min(1,(s-r)/r)))
+                a=T**d*phase
+                error=abs(a**k+(zeta*a)**k)
+                assert error<1e-12
+                max_error=max(max_error,error);floating+=1
+print('separate floating Fermat residual checks:',floating,'max error:',max_error)
+```
+
+Continuation regression result: **11,468 exact rational assertions; 600 separate floating checks**, maximum Fermat cancellation residual 7.425×10^−16. The paper-schema check, three-file intake check, exact-once routing, preservation and dependency checks pass. No Lean compilation.
 
 ## Verification
 

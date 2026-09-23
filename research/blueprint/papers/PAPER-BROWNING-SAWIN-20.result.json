@@ -2,7 +2,7 @@
   "paper": "PAPER-BROWNING-SAWIN-20",
   "protocol": "paper-v1",
   "status": "partial",
-  "agent": "Codex — codex-a71f92",
+  "agent": "Codex — codex-c83e7a (continuing codex-a71f92)",
   "source": {
     "title": "A geometric version of the circle method",
     "authors": "Tim Browning and Will Sawin",
@@ -12,7 +12,7 @@
     "url": "https://arxiv.org/pdf/1711.10451v3",
     "version": "v3, 19 February 2020, 49 pages; author-labelled Final version",
     "sha256": "4518f88842e2bc19d2b2e0634f1df54c96d36164331e88fc30ef892f3c879072",
-    "accessed": "2026-09-22",
+    "accessed": "2026-09-23",
     "readSections": [
       "§1 pp.1–8",
       "§2 pp.8–14",
@@ -23,16 +23,17 @@
       "§7 pp.43–48",
       "References pp.48–49"
     ],
-    "versionCheck": "The entire 49-page arXiv v3 author-labelled Final version was read. Subsequently obtained the official 56-page journal PDF and checked the main statements and critical rounding/topology locators against it; those findings persist in publication. Numbering is preserved, but reference numbers 15/16 and 24/25 exchange positions. A token comparison highlights typesetting/reference changes and is not itself a mathematical equivalence proof. Full publication-wide proof reconciliation remains explicitly incomplete.",
+    "versionCheck": "Inherited full arXiv-v3 read retained. This continuation freshly acquired matching-hash PDFs and read all 56 published pages, 893–948, including references. The complete text read is not a formula-image reconciliation of every inherited E1–E27 finding. Lemma7.2 and (7.1), pp.940–941, were separately reread for the new topology analysis.",
     "publishedSource": {
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p04-s.pdf",
       "sha256": "f20c87e337c054e42134bf2daf577203ce4b391e0d22ff59b9425d1249c33c53",
       "pages": 56,
-      "accessed": "2026-09-22",
-      "readExtent": "Main statements pp.893–895, minor-arc proof pp.934–935, topology pp.943–946; additional source-finding locators checked below. Not claiming a second full line-by-line read."
-    }
+      "accessed": "2026-09-23",
+      "readExtent": "Full published text, pp.893–948, read in this continuation. Not every diagram or inherited source-issue formula was checked against a page image."
+    },
+    "continuationBase": "b703145bad0af63e582bb69039745e37d047a1da"
   },
-  "summary": "Full-read extraction checkpoint for a cohomological circle method: Hankel-rank major arcs, Artin–Schreier cancellation, configuration-space E1 terms, monodromy parity, geometric Weyl differencing, function-field lattice shrinking, and a conditional comparison with double loop spaces. A rounding inequality and an odd-kd stratification error leave the sharp published-range proof unclosed; a conservative replacement range is derived below. Generic étale operations are imported, not replanned. No theorem is claimed formalised.",
+  "summary": "Full-read extraction checkpoint for a cohomological circle method: Hankel-rank major arcs, Artin–Schreier cancellation, configuration-space E1 terms, monodromy parity, geometric Weyl differencing, function-field lattice shrinking, and a conditional comparison with double loop spaces. A rounding inequality and an odd-kd stratification error leave the sharp published-range proof unclosed; a conservative replacement range is derived below. Generic étale operations are imported, not replanned. No theorem is claimed formalised. Continuation: full published text read; the compact-open interpretation of the prescribed-germ space has a winding obstruction, even for a Fermat hypersurface in the main parameter range. Lemma7.2 requires a different, explicitly specified topology. Fixed-collar straightening is separated from the still-unproved comparison with that topology.",
   "conventions": {
     "geometry": "K a field; n≥2, k≥3; f∈K[x1,…,xn] has degree k, X={f=0} smooth affine, and its leading form f0 defines a smooth projective hypersurface Z⊂P^{n−1}. Fix a NONZERO vector x∈K^n with f0(x)=0, representing P∈Z. A chosen representative, not only the projective class, fixes the leading coefficients.",
     "ranges": "D=d(n−k), L=kd, K0=k−1, t=floor(d/K0), δ=n/2^k−k+1. Main range d≥K0≥2 and δ>0. Integer cohomological indices; thresholds are rational strict inequalities. Acyclic cohomological degree and dimension of an empty differencing locus are −∞, with extended arithmetic.",
@@ -1291,12 +1292,14 @@
       ],
       "unitTests": [
         "a family of shrinking neighbourhoods is not automatically a uniform homotopy",
-        "not the full unrestricted continuous mapping space"
+        "not the full unrestricted continuous mapping space",
+        "The escapingloop example prevents using an unspecified compact-open Hom≃Ω²X equivalence."
       ],
       "dependsOn": [
         "PAPER-BROWNING-SAWIN-20/mapping",
         "PAPER-BROWNING-SAWIN-20/ordinarytopology"
-      ]
+      ],
+      "note": "Source leaves topology unspecified. See compacthom for the explicit compact-open interpretation and compactcounter for its obstruction."
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/tracepairingconjecture",
@@ -1312,27 +1315,30 @@
       ],
       "unitTests": [
         "a conjecture is not registered as an instance or axiom",
-        "finite-dimensional duality requires the range and irreducibility inputs"
+        "finite-dimensional duality requires the range and irreducibility inputs",
+        "The escapingloop example prevents using an unspecified compact-open Hom≃Ω²X equivalence."
       ],
       "proofStatus": "conjecture",
       "dependsOn": [
         "PAPER-BROWNING-SAWIN-20/localgerm",
         "PAPER-BROWNING-SAWIN-20/mapping",
         "PAPER-BROWNING-SAWIN-20/trace"
-      ]
+      ],
+      "note": "The topology is material: no corrected stronger-topology version is silently substituted into the source conjecture."
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/homloops",
       "kind": "theorem",
       "name": "Continuous mapping space versus the double loop space",
-      "statement": "When Hom_{d,P} is nonempty, Lem.7.2 claims a homotopy equivalence Hom_{d,P}≃Ω²X. Fix a reference map with the same infinity germ, straighten the germ and glue two discs. Supply uniform-family continuity and the chosen mapping-space topology; this checkpoint has not closed that construction.",
+      "statement": "When Hom_{d,P} is nonempty, Lem.7.2 claims a homotopy equivalence Hom_{d,P}≃Ω²X. Fix a reference map with the same infinity germ, straighten the germ and glue two discs. Supply uniform-family continuity and the chosen mapping-space topology; this checkpoint has not closed that construction. For the compact-open topology this assertion is false by compactcounter; any corrected endpoint must specify a stronger topology and discharge stronggermgate.",
       "locator": "arXiv v3, Lem.7.2 pp.43–44",
       "status": "missing",
       "owner": "GCM",
-      "proofStatus": "construction-gap",
+      "proofStatus": "false-for-compact-open; stronger-topology-gap",
       "dependsOn": [
         "PAPER-BROWNING-SAWIN-20/localgerm",
-        "PAPER-BROWNING-SAWIN-20/libloop"
+        "PAPER-BROWNING-SAWIN-20/libloop",
+        "PAPER-BROWNING-SAWIN-20/stronggermgate"
       ]
     },
     {
@@ -1808,6 +1814,484 @@
       "dependsOn": [
         "PAPER-BROWNING-SAWIN-20/sixoperations"
       ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/libcurry",
+      "kind": "theorem",
+      "name": "Compact-open continuity from joint continuity",
+      "statement": "For topological X,Y,Z and f:X→C(Y,Z), continuity of its uncurried evaluation implies continuity of f.",
+      "locator": "Mathlib/Topology/CompactOpen.lean:440; statement freshly read at 082e2d3",
+      "status": "library",
+      "dependsOn": [],
+      "library": [
+        "mathlib:ContinuousMap.continuous_of_continuous_uncurry"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/libevaluation",
+      "kind": "theorem",
+      "name": "Joint evaluation for compact-open mapping spaces",
+      "statement": "If Y is locally compact, evaluation C(Y,Z)×Y→Z is continuous, hence a continuous parameter map into C(Y,Z) uncurries continuously.",
+      "locator": "Mathlib/Topology/CompactOpen.lean:245,455; instance and lemma statements freshly read at 082e2d3",
+      "status": "library",
+      "dependsOn": [],
+      "library": [
+        "mathlib:ContinuousMap.continuous_uncurry_of_continuous"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/libcirclepi1",
+      "kind": "theorem",
+      "name": "Circle fundamental group and integer monodromy",
+      "statement": "UnitAddCircle.fundamentalGroupMulEquiv identifies π1(R/Z,0) with Multiplicative Z; its apply_eq_iff characterizes the integer by the endpoint of the lift beginning at0. Circle.fundamentalGroupMulEquiv gives the corresponding group isomorphism for every basepoint of the complex unit circle.",
+      "locator": "TauCeti/AlgebraicTopology/UniversalCover/Circle/FundamentalGroup.lean:251–292; statements read at f790474",
+      "status": "library",
+      "dependsOn": [],
+      "library": [
+        "tauceti:UnitAddCircle.fundamentalGroupMulEquiv",
+        "tauceti:UnitAddCircle.fundamentalGroupMulEquiv_apply_eq_iff",
+        "tauceti:Circle.fundamentalGroupMulEquiv"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/cwimports",
+      "kind": "theorem",
+      "name": "CW cofibrations and cellular approximation suppliers",
+      "statement": "Import CW cofibration, quotient-by-contractible-subcomplex and cellular-approximation arguments from upstream AlgebraicTopology Stages4 and8. They supply the finite-join calculation and the disk-boundary homotopy extension argument; these generic theorems are not replanned in the application.",
+      "locator": "Freshly read upstream stages4,8; no matching reviewed audit entry for these upstream stages",
+      "status": "planned",
+      "dependsOn": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/compacthom",
+      "kind": "definition",
+      "name": "Compact-open prescribed-germ mapping space",
+      "statement": "Let Xbar be the smooth projective closure, X its affine chart, P its prescribed boundary point and d≥1. Hco is the subset of C(P1(C),Xbar) satisfying the pointwise conditions (7.1), with the subspace compact-open topology. The big-O constants and neighbourhood may depend on the map. This is one explicit interpretation of the source, not a claim about an unstated intended topology.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/localgerm",
+        "PAPER-BROWNING-SAWIN-20/libcurry",
+        "PAPER-BROWNING-SAWIN-20/libevaluation"
+      ],
+      "api": [
+        "carrier(X,Xbar,P,d) : TopologicalSpace; eval : Hco×P1→Xbar continuous",
+        "finite_eval_mem_X : T≠∞ → eval(F,T)∈X; infinity_eval : eval(F,∞)=P",
+        "family_of_joint : joint continuous family with individual germs → continuous map to Hco; no uniform-germ conclusion"
+      ],
+      "unitTests": [
+        "Every F∈Hco has F(∞)=P.",
+        "A continuous map equal to a valid polynomial reference outside a compact subset of C lies in Hco.",
+        "The escapingloop family is Hco-continuous although its normalized normal germs fail to converge uniformly in the loop parameter."
+      ],
+      "tests": [
+        {
+          "name": "compacthom_infinity",
+          "kind": "characterisation",
+          "statement": "Every F∈Hco has F(∞)=P."
+        },
+        {
+          "name": "compacthom_exact_tail",
+          "kind": "compatibility",
+          "statement": "A continuous map equal to a valid polynomial reference outside a compact subset of C lies in Hco."
+        },
+        {
+          "name": "compacthom_escaping_phase",
+          "kind": "non-example",
+          "statement": "The escapingloop family is Hco-continuous although its normalized normal germs fail to converge uniformly in the loop parameter."
+        }
+      ],
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/shrinkingphase",
+      "kind": "definition",
+      "name": "Shrinking degree-one phase loop",
+      "statement": "For 0<r≤1/4 and s∈[0,1], put h(s,r)=max(0,min(1,(s−r)/r)) and σ(s,r)=exp(2πi h(s,r)). Descend in s through 0∼1. The lift h is retained for the integer monodromy computation.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [],
+      "api": [
+        "h : I×(0,1/4]→[0,1]; sigma : S1×(0,1/4]→Circle",
+        "h_zero=0; h_one=1; sigma_outside : s≤r ∨ 2r≤s → σ=1",
+        "sigma_degree : fixed r loop has degree1; eventual_one : fixed s, eventually r→0, σ=1"
+      ],
+      "unitTests": [
+        "h(3r/2,r)=1/2, so σ(3r/2,r)=−1.",
+        "σ(0,r)=σ(1,r)=1 while h(1,r)−h(0,r)=1.",
+        "sup_s |σ(s,r)−1|=2 for every permitted r."
+      ],
+      "tests": [
+        {
+          "name": "shrinkingphase_midpoint",
+          "kind": "computation",
+          "statement": "h(3r/2,r)=1/2, so σ(3r/2,r)=−1."
+        },
+        {
+          "name": "shrinkingphase_endpoints",
+          "kind": "degenerate",
+          "statement": "σ(0,r)=σ(1,r)=1 while h(1,r)−h(0,r)=1."
+        },
+        {
+          "name": "shrinkingphase_not_uniform",
+          "kind": "non-example",
+          "statement": "sup_s |σ(s,r)−1|=2 for every permitted r."
+        }
+      ],
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/phasefacts",
+      "kind": "theorem",
+      "name": "Pointwise eventual constancy does not imply uniform germ control",
+      "statement": "σ is jointly continuous for r>0; for every fixed s it is1 for all sufficiently small r, while each fixed-r loop has degree1. For s>0 take r<s/2; for s=0 use h=0. Its lifted endpoint difference is1, and s=3r/2 prevents uniform convergence.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/shrinkingphase",
+        "PAPER-BROWNING-SAWIN-20/libcirclepi1"
+      ],
+      "proofStatus": "explicit-proof",
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fermatreference",
+      "kind": "construction",
+      "name": "Fermat hypersurface and polynomial reference map",
+      "statement": "For k≥3,n≥3,d≥1 choose ζ∈C with ζ^k=−1. Let X={Σ_{j=1}^n x_j^k=1}, Xbar={Σ x_j^k=x0^k}, P=[1:ζ:0:…:0:0] and g(T)=(T^d,ζT^d,1,0,…). X, Xbar and Xbar∩{x0=0} are smooth, and g has the prescribed leading vector and germ.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/compacthom"
+      ],
+      "api": [
+        "fermat_pair(k,n) : smooth affine/projective pair; smooth_by_gradient : simultaneous gradient zero forces all homogeneous coordinates zero",
+        "reference(d,ζ) : C→X polynomial; reference_extension : P1→Xbar continuous",
+        "reference_germ : in z=1/T coordinates [1:ζ:z^d:0:…:z^d] satisfies (7.1)"
+      ],
+      "unitTests": [
+        "(T^d)^k+(ζT^d)^k+1=1.",
+        "g(0)=(0,0,1,0,…), so the affine map is defined at T=0.",
+        "k=3,d=2,n=40 gives d=k−1, n>2^k(k−1), δ=3 and t=1."
+      ],
+      "tests": [
+        {
+          "name": "fermatreference_cancel",
+          "kind": "computation",
+          "statement": "(T^d)^k+(ζT^d)^k+1=1."
+        },
+        {
+          "name": "fermatreference_zero",
+          "kind": "degenerate",
+          "statement": "g(0)=(0,0,1,0,…), so the affine map is defined at T=0."
+        },
+        {
+          "name": "fermatreference_main_range",
+          "kind": "compatibility",
+          "statement": "k=3,d=2,n=40 gives d=k−1, n>2^k(k−1), δ=3 and t=1."
+        }
+      ],
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/escapingloop",
+      "kind": "construction",
+      "name": "Continuous loop with an escaping phase transition",
+      "statement": "For the Fermat pair let r(T)=1/(4(1+|T|)), a_s(T)=T^d σ(s,r(T)), and F_s(T)=(a_s(T),ζa_s(T),1,0,…), extended at∞ by P. This is a based continuous loop S1→Hco at g. For each fixed s its tail equals g exactly. Joint projective continuity at∞ follows from |a_s(T)|=|T|^d uniformly in s.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/fermatreference",
+        "PAPER-BROWNING-SAWIN-20/phasefacts",
+        "PAPER-BROWNING-SAWIN-20/libcurry"
+      ],
+      "api": [
+        "escaping_family : S1×P1→Xbar continuous; escaping_loop : Path g g in Hco",
+        "eventual_reference(s) : ∃R, |T|>R → F_s(T)=g(T)",
+        "chart_formula : for T≠0, x0/x1=T^(−d)σ(s,r(T))^(−1)"
+      ],
+      "unitTests": [
+        "F_0=F_1=g.",
+        "Σ_j(F_s(T)_j)^k=1 for every finite T.",
+        "At s=3r(T)/2 the normalized normal coordinate (x0/x1)/T^(−d) is−1, however large positive T is."
+      ],
+      "tests": [
+        {
+          "name": "escapingloop_base",
+          "kind": "degenerate",
+          "statement": "F_0=F_1=g."
+        },
+        {
+          "name": "escapingloop_smooth_target",
+          "kind": "compatibility",
+          "statement": "Σ_j(F_s(T)_j)^k=1 for every finite T."
+        },
+        {
+          "name": "escapingloop_normal_control",
+          "kind": "non-example",
+          "statement": "At s=3r(T)/2 the normalized normal coordinate (x0/x1)/T^(−d) is−1, however large positive T is."
+        }
+      ],
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/compactchart",
+      "kind": "theorem",
+      "name": "A compact parameter family has a common projective chart at infinity",
+      "statement": "For compact K and continuous H:K→Hco, there is R0 such that H(u,T) lies in {x1≠0} for all u∈K and |T|>R0, assuming P has x1≠0. Joint evaluation and a finite subcover of K×{∞} give a common neighbourhood of∞. The normal coordinate v=x0/x1 is nonzero there for finite T because H(u,T)∈X. This does not assert uniform convergence of v/z^d.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/compacthom",
+        "PAPER-BROWNING-SAWIN-20/libevaluation"
+      ],
+      "proofStatus": "explicit-proof",
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/endwinding",
+      "kind": "construction",
+      "name": "Winding of a mapping-space loop at infinity",
+      "statement": "For a based loop γ:S1→Hco in the Fermat example, choose any sufficiently large positive R and take the degree of the circle-valued normalization of γ(s)(R).x0/γ(s)(R).x1, divided by its value at the loop basepoint. This defines endWind:π1(Hco,g)→Z after proving the independence and homotopy relations below.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/compactchart",
+        "PAPER-BROWNING-SAWIN-20/libcirclepi1"
+      ],
+      "api": [
+        "endWind : FundamentalGroup Hco g →+ Z (using the multiplicative/additive wrapper as needed)",
+        "radius_independent : R,R′ beyond a common collar give equal degree",
+        "homotopy_invariant; concat_add; reversed_neg; constant_zero"
+      ],
+      "unitTests": [
+        "endWind(constant loop at g)=0.",
+        "endWind(escapingloop)=−1, since its normalized lift is−h(s,r(R)).",
+        "endWind(γ*η)=endWind(γ)+endWind(η)."
+      ],
+      "tests": [
+        {
+          "name": "endwinding_constant",
+          "kind": "degenerate",
+          "statement": "endWind(constant loop at g)=0."
+        },
+        {
+          "name": "endwinding_phase",
+          "kind": "computation",
+          "statement": "endWind(escapingloop)=−1, since its normalized lift is−h(s,r(R))."
+        },
+        {
+          "name": "endwinding_concatenate",
+          "kind": "compatibility",
+          "statement": "endWind(γ*η)=endWind(γ)+endWind(η)."
+        }
+      ],
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/windingwell",
+      "kind": "theorem",
+      "name": "End winding is independent of radius and based homotopy",
+      "statement": "For two admissible radii use the radial interval between them and compactchart. For a based homotopy use compactchart with K=I×S1. All normal coordinates remain in C*, so their normalized phases form a homotopy of loops. A common radius for two loops proves additivity by the circle fundamental-group isomorphism.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/endwinding",
+        "PAPER-BROWNING-SAWIN-20/compactchart"
+      ],
+      "proofStatus": "explicit-proof",
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/windingnonzero",
+      "kind": "theorem",
+      "name": "Infinite-order loop in the compact-open germ space",
+      "statement": "In the Fermat example, endWind([F])=−1; hence endWind is surjective and [F] has infinite order. In particular F does not bound a disk in Hco. A hypothetical disk gives by compactchart a disk in C* with boundary R^(−d)σ(s,r(R))^(−1), whose degree is−1.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/escapingloop",
+        "PAPER-BROWNING-SAWIN-20/windingwell"
+      ],
+      "proofStatus": "explicit-proof",
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/finitejoin",
+      "kind": "theorem",
+      "name": "Join of finite nonempty sets has the required connectivity",
+      "statement": "For n≥2 finite nonempty discrete sets A_j of sizes k_j, their join has the homotopy type of a wedge of ∏(k_j−1) spheres S^(n−1), with a zero product meaning a point. Inductively join a CW complex Y with k points, collapse one contractible cone, and obtain k−1 copies of the reduced suspension of Y. Cellular approximation gives (n−2)-connectivity. Generic CW/cofibration and cellular approximation are imported, not replaced by a list of homology ranks.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/cwimports"
+      ],
+      "proofStatus": "proof-outline-with-planned-CW-imports",
+      "acceptance": [
+        "Two two-point sets give S1.",
+        "If one factor is a singleton the join is contractible.",
+        "For n≥5 all π_i,1≤i≤3, vanish."
+      ],
+      "owner": "TOP"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fermatjoin",
+      "kind": "theorem",
+      "name": "Fermat fibre comparison with a finite join",
+      "statement": "For f=Σ_{j=1}^n z_j^k, k≥2, the positive-phase fibre f^−1(R_{>0}) retracts onto the join of n copies of μ_k (Milnor, Lemma9.2). The explicit homeomorphism u↦(f(u)^(−1/k)u,f(u)) identifies it with X×R_{>0}. Thus X is homotopy equivalent to that join; this special homogeneous case does not discharge the general tame-fibre theorem.",
+      "locator": "Milnor §9, pp.73–74 Lemma9.2; positive-scaling comparison supplied here",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/finitejoin"
+      ],
+      "proofStatus": "primary-proof-read; scaling-map-explicit",
+      "owner": "TOP"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fermatpi3",
+      "kind": "theorem",
+      "name": "Vanishing of the comparison double-loop fundamental group",
+      "statement": "For the Fermat X and n≥5, finitejoin and fermatjoin give π2(X)=π3(X)=0. Hence Ω²X is path connected and π1(Ω²X)=0, using the pinned loop-space shift at m=0,n=2 and its components equivalence.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/fermatjoin",
+        "PAPER-BROWNING-SAWIN-20/libloopshift"
+      ],
+      "proofStatus": "deduced-from-listed-imports",
+      "owner": "TOP"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/compactcounter",
+      "kind": "theorem",
+      "name": "Compact-open interpretation of Lemma7.2 fails in the main range",
+      "statement": "For k=3,d=2,n=40, the nonempty compact-open prescribed-germ space Hco has a fundamental group surjecting onto Z, whereas Ω²X is path connected and simply connected. Consequently Hco is not homotopy equivalent to Ω²X. This refutes the compact-open interpretation, not every topology that could be intended in the unstated source convention.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/windingnonzero",
+        "PAPER-BROWNING-SAWIN-20/fermatpi3"
+      ],
+      "proofStatus": "explicit-counterexample; unreviewed",
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/weightedcollar",
+      "kind": "definition",
+      "name": "A chart with uniform control of the normalized germ",
+      "statement": "Fix a product chart (u,v) near P in Xbar with divisor v=0, a radius ε>0, and a convex tangential ball. For 0<|z|≤ε require u(z)=O(|z|), w(z)=v(z)/z^d=1+O(|z|), u in that ball, and |w−1|<1/2. Equip such tails with the weighted supremum distances of u/|z| and (w−1)/|z|, and combine with the compact-open topology away from the tail. The model includes the fixed radius as data; it is not yet an all-germs topology.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/compacthom"
+      ],
+      "api": [
+        "CollarData(ε,chart,d) : Type with topology; normalized_normal : w=v/z^d",
+        "weighted_dist : sup_{0<|z|≤ε} max(‖Δu‖/|z|,|Δw|/|z|)",
+        "forget_to_compactOpen : continuous; fixed_radius : ε>0; chart_bounds : convex and |w−1|<1/2"
+      ],
+      "unitTests": [
+        "u=0,w=1 has weighted distance0 from itself and v=z^d.",
+        "|w−1|<1/2 implies Re(w)>1/2 and v≠0 for z≠0.",
+        "The escapingloop family has no common small collar on which |w−1|<1/2; its half-phase points have w=−1."
+      ],
+      "tests": [
+        {
+          "name": "weightedcollar_standard",
+          "kind": "degenerate",
+          "statement": "u=0,w=1 has weighted distance0 from itself and v=z^d."
+        },
+        {
+          "name": "weightedcollar_nonzero",
+          "kind": "characterisation",
+          "statement": "|w−1|<1/2 implies Re(w)>1/2 and v≠0 for z≠0."
+        },
+        {
+          "name": "weightedcollar_escaping_excluded",
+          "kind": "non-example",
+          "statement": "The escapingloop family has no common small collar on which |w−1|<1/2; its half-phase points have w=−1."
+        }
+      ],
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/collarstraightening",
+      "kind": "construction",
+      "name": "Cutoff straightening within a fixed controlled collar",
+      "statement": "For a continuous radial cutoff χ equal1 on an inner disk and0 near |z|=ε, put u_t=(1−tχ)u and v_t=z^d[1+(1−tχ)(w−1)]. In the product chart this gives a continuous homotopy through valid controlled tails, fixed near the outer boundary, standard on the inner disk at t=1. Convexity prevents new zeros. It is not asserted to fix the entire subspace of maps already standard on the inner disk.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/weightedcollar"
+      ],
+      "api": [
+        "straighten : I×CollarData→CollarData continuous in weighted norm",
+        "outer_fixed : χ=0 → (u_t,v_t)=(u,v); inner_standard : t=1 ∧ χ=1 → (u_t,v_t)=(0,z^d)",
+        "no_new_zero : Re(v_t/z^d)>1/2; germ_estimate : weighted bound does not increase"
+      ],
+      "unitTests": [
+        "t=0 gives the original tail.",
+        "χ=1 and t=1 gives u=0,v=z^d.",
+        "If 0<χ<1 and u≠0, straightening changes u, even if the original map was standard on the inner disk."
+      ],
+      "tests": [
+        {
+          "name": "collarstraightening_time_zero",
+          "kind": "degenerate",
+          "statement": "t=0 gives the original tail."
+        },
+        {
+          "name": "collarstraightening_inner",
+          "kind": "computation",
+          "statement": "χ=1 and t=1 gives u=0,v=z^d."
+        },
+        {
+          "name": "collarstraightening_annulus",
+          "kind": "non-example",
+          "statement": "If 0<χ<1 and u≠0, straightening changes u, even if the original map was standard on the inner disk."
+        }
+      ],
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fixedcollarloops",
+      "kind": "theorem",
+      "name": "Fixed-collar extension-space comparison contract",
+      "statement": "For a fixed boundary loop β:S1→X with β(b)=x and a chosen extension to D², let Ext(β) be the compact-open space of extensions. The restriction Map_*(D²,X)→Map_*(S1,X) has the homotopy-lifting property by the CW boundary cofibration and compact-open adjunction; its total space contracts by a disk contraction fixing b. Thus its fibre over β is homotopy equivalent to Ω²X after choosing the reference nullhomotopy. This is a fixed-collar supplier, not an equivalence for Hco.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/cwimports",
+        "PAPER-BROWNING-SAWIN-20/libcurry",
+        "PAPER-BROWNING-SAWIN-20/libevaluation",
+        "PAPER-BROWNING-SAWIN-20/libloop"
+      ],
+      "proofStatus": "proof-contract; mapping-restriction and fibre-comparison implementations remain",
+      "acceptance": [
+        "A reference extension is a hypothesis, not supplied by an asserted nonempty fibre.",
+        "A constant boundary in contractible X gives a contractible extension space.",
+        "The boundary basepoint is fixed throughout the disk contraction."
+      ],
+      "owner": "GCM"
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/stronggermgate",
+      "kind": "theorem",
+      "name": "Unclosed stronger-germ comparison",
+      "statement": "To recover the source endpoint choose a topology controlling normalized germs uniformly in compact parameter families, prove continuity of the polynomial-map inclusion, and compare its mapping space with fixedcollarloops using collarstraightening. No such global comparison is proved here. If it has the claimed Ω²X homotopy type, its inclusion into Hco cannot be a weak equivalence in the Fermat example.",
+      "locator": "Continuation, report topology analysis; journal pp.940–941",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/collarstraightening",
+        "PAPER-BROWNING-SAWIN-20/fixedcollarloops",
+        "PAPER-BROWNING-SAWIN-20/compactcounter"
+      ],
+      "proofStatus": "open-topology-and-comparison-gate",
+      "owner": "GCM"
     }
   ],
   "routes": [
@@ -1923,10 +2407,24 @@
         "PAPER-BROWNING-SAWIN-20/localgerm",
         "PAPER-BROWNING-SAWIN-20/tracepairingconjecture",
         "PAPER-BROWNING-SAWIN-20/homloops",
-        "PAPER-BROWNING-SAWIN-20/conditionaldegeneration"
+        "PAPER-BROWNING-SAWIN-20/conditionaldegeneration",
+        "PAPER-BROWNING-SAWIN-20/compacthom",
+        "PAPER-BROWNING-SAWIN-20/shrinkingphase",
+        "PAPER-BROWNING-SAWIN-20/phasefacts",
+        "PAPER-BROWNING-SAWIN-20/fermatreference",
+        "PAPER-BROWNING-SAWIN-20/escapingloop",
+        "PAPER-BROWNING-SAWIN-20/compactchart",
+        "PAPER-BROWNING-SAWIN-20/endwinding",
+        "PAPER-BROWNING-SAWIN-20/windingwell",
+        "PAPER-BROWNING-SAWIN-20/windingnonzero",
+        "PAPER-BROWNING-SAWIN-20/compactcounter",
+        "PAPER-BROWNING-SAWIN-20/weightedcollar",
+        "PAPER-BROWNING-SAWIN-20/collarstraightening",
+        "PAPER-BROWNING-SAWIN-20/fixedcollarloops",
+        "PAPER-BROWNING-SAWIN-20/stronggermgate"
       ],
       "reason": "ES.0–5 develops numerical oscillatory/counting estimates, not compact-support complexes, configuration-space E1 pages, odd-page monodromy or mapping-space comparison. These are genuinely new layers in the same circle-method direction.",
-      "brief": "Construct Mor_{d,x}, the phase e, S_{d,f}, the rank-Hankel arcs and their Padé strata, then prove Lemmas2.1 and3.1–3.12 with every affine shift, Tate twist and symmetric-group sign. The first endpoint is the Frobenius-equivariant E1^{m,s}=(H_c^{s+mn}(PConf_m,E)⊗H_c^{n−1}(X,E)^{⊗m}⊗sgn^{n−1})^{S_m}(kd−m−n(d−m)), 0≤m≤d, with d_r degree(r,1−r) and odd r zero. State d≥k−1≥2,n>2^k(k−1), smooth X and leading boundary, p>k and even order of ℓ modulo p; over general fields explicitly spread the pair. Import SchemeAndStackFoundations SF.2 and EtaleDualityAndPerverseSheaves EDC.0,2,4,6, not a private cohomology theory; import finite-filtration convergence from FoundationsAndLibraryIntegration LI.3, arithmetic shrinking from ExponentialSumsAndCircleMethod ES.0–1, coefficient sheaves from FiniteFieldsAndCharacterSums FF.2, monodromy and configuration/rational topology from the two companion Part IIs. Prove geometric Weyl differencing and conservative vanishing j>2dn+4(k−1)−4tδ. Its comparison endpoint is i>−4(tδ−(k−1)) for H_c^{i+2D}(Mor), and tδ>k−1 suffices for irreducibility and dimension D. The paper's exact targets use +4 rather than +4(k−1), i>−4(tδ−1), and tδ≥1; keep these as gated original targets until E1–E3 are resolved, not as axioms. Construct the germ mapping space and trace pairing, and prove only the conditional Theorem7.7. Conjectures1.3 and7.1 remain unproved propositions. Suggested modules: TauCeti/NumberTheory/CircleMethod/Geometric/{MappingScheme,MajorArcs,MonodromyParity,CohomologicalWeyl,Comparison}. Test the zero column, m=1, odd kd, nontrivial coefficient extension, and strict threshold equality."
+      "brief": "Construct Mor_{d,x}, the phase e, S_{d,f}, the rank-Hankel arcs and their Padé strata, then prove Lemmas2.1 and3.1–3.12 with every affine shift, Tate twist and symmetric-group sign. The first endpoint is the Frobenius-equivariant E1^{m,s}=(H_c^{s+mn}(PConf_m,E)⊗H_c^{n−1}(X,E)^{⊗m}⊗sgn^{n−1})^{S_m}(kd−m−n(d−m)), 0≤m≤d, with d_r degree(r,1−r) and odd r zero. State d≥k−1≥2,n>2^k(k−1), smooth X and leading boundary, p>k and even order of ℓ modulo p; over general fields explicitly spread the pair. Import SchemeAndStackFoundations SF.2 and EtaleDualityAndPerverseSheaves EDC.0,2,4,6, not a private cohomology theory; import finite-filtration convergence from FoundationsAndLibraryIntegration LI.3, arithmetic shrinking from ExponentialSumsAndCircleMethod ES.0–1, coefficient sheaves from FiniteFieldsAndCharacterSums FF.2, monodromy and configuration/rational topology from the two companion Part IIs. Prove geometric Weyl differencing and conservative vanishing j>2dn+4(k−1)−4tδ. Its comparison endpoint is i>−4(tδ−(k−1)) for H_c^{i+2D}(Mor), and tδ>k−1 suffices for irreducibility and dimension D. The paper's exact targets use +4 rather than +4(k−1), i>−4(tδ−1), and tδ≥1; keep these as gated original targets until E1–E3 are resolved, not as axioms. Construct the germ mapping space and trace pairing, and prove only the conditional Theorem7.7. Conjectures1.3 and7.1 remain unproved propositions. Suggested modules: TauCeti/NumberTheory/CircleMethod/Geometric/{MappingScheme,MajorArcs,MonodromyParity,CohomologicalWeyl,Comparison}. Test the zero column, m=1, odd kd, nontrivial coefficient extension, and strict threshold equality. Continuation: first define the topology. The compact-open interpretation of Lemma7.2 is disproved by compactcounter. Include the escaping-phase and end-winding APIs and a fixed-radius controlled-collar straightening construction. Leave the global stronger-germ comparison and continuity of algebraic-map inclusion as explicit gates. Import the existing compact-open curry/evaluation and circle π1 computations. Suggested additional module TauCeti/NumberTheory/CircleMethod/Geometric/InfinityGerm.lean; suggested planets: Prescribed infinity germ, End winding, Compact-open obstruction, Controlled collar straightening."
     },
     {
       "route": "part-ii",
@@ -1981,10 +2479,13 @@
         "PAPER-BROWNING-SAWIN-20/spheresrational",
         "PAPER-BROWNING-SAWIN-20/wedgehomotopy",
         "PAPER-BROWNING-SAWIN-20/rationalHspace",
-        "PAPER-BROWNING-SAWIN-20/loopbetti"
+        "PAPER-BROWNING-SAWIN-20/loopbetti",
+        "PAPER-BROWNING-SAWIN-20/finitejoin",
+        "PAPER-BROWNING-SAWIN-20/fermatjoin",
+        "PAPER-BROWNING-SAWIN-20/fermatpi3"
       ],
       "reason": "Upstream AlgebraicTopology owns singular homology, products, duality, CW and ordinary homotopy; it does not provide configuration-representation Euler products, tame-fibre bouquets, Hilton decomposition or Sullivan rational H-space calculations. Extend it; do not source-route a replan of upstream stages.",
-      "brief": "Import all ordinary topology from tauceti:TauCetiRoadmap/AlgebraicTopology, including its products, duality and homotopy stages, and use Mathlib GenLoop plus Tau Ceti homotopy-shift equivalences. Construct ordered/unordered configurations, their finite-cover symmetric-group action and compact-cohomology support. Import EDC.6 for complex/étale comparison and FF.2/WeilConjectures for the trace supplier. Establish CEF3.3/3.7 and the signed Euler exponents e_r=−r^{-1}Σ_{a|r}μ(a)((−1)^n N)^{r/a}, reusing ArithmeticFunction Möbius inversion. Prove Lemma7.4 and the weighted-diagonal Corollary7.5, retaining d(n−3)≥j. Separately read and decompose Broughton Thm2, Hilton Cor4.10 and Sullivan p.311 to construct tame-fibre bouquets, rational sphere homotopy, wedge decompositions and connected H-space cohomology. The final Betti endpoint is dim H^j(Ω²X,Q)=[q^{-j}]∏_{r≥1}(1−(−q)^{1−r(n−2)})^{-e_r(N)} for n≥4, X smooth with smooth leading form, N=dim H^{n−1}(X,Q). Do not assert the printed n≥2 full-loop formula: n=3 has a component obstruction. Generic rational topology stays here; the special infinity-germ mapping equivalence and conjectural algebraic trace comparison stay in GeometricCircleMethodAndMappingSpaces. Suggested files TauCeti/Topology/{ConfigurationSpace/Cohomology,RationalHomotopy/Bouquet,DoubleLoop/Betti}.lean. Tests: m=0,1,2, N=0,1, both parities, and rejection of n=3."
+      "brief": "Import all ordinary topology from tauceti:TauCetiRoadmap/AlgebraicTopology, including its products, duality and homotopy stages, and use Mathlib GenLoop plus Tau Ceti homotopy-shift equivalences. Construct ordered/unordered configurations, their finite-cover symmetric-group action and compact-cohomology support. Import EDC.6 for complex/étale comparison and FF.2/WeilConjectures for the trace supplier. Establish CEF3.3/3.7 and the signed Euler exponents e_r=−r^{-1}Σ_{a|r}μ(a)((−1)^n N)^{r/a}, reusing ArithmeticFunction Möbius inversion. Prove Lemma7.4 and the weighted-diagonal Corollary7.5, retaining d(n−3)≥j. Separately read and decompose Broughton Thm2, Hilton Cor4.10 and Sullivan p.311 to construct tame-fibre bouquets, rational sphere homotopy, wedge decompositions and connected H-space cohomology. The final Betti endpoint is dim H^j(Ω²X,Q)=[q^{-j}]∏_{r≥1}(1−(−q)^{1−r(n−2)})^{-e_r(N)} for n≥4, X smooth with smooth leading form, N=dim H^{n−1}(X,Q). Do not assert the printed n≥2 full-loop formula: n=3 has a component obstruction. Generic rational topology stays here; the special infinity-germ mapping equivalence and conjectural algebraic trace comparison stay in GeometricCircleMethodAndMappingSpaces. Suggested files TauCeti/Topology/{ConfigurationSpace/Cohomology,RationalHomotopy/Bouquet,DoubleLoop/Betti}.lean. Tests: m=0,1,2, N=0,1, both parities, and rejection of n=3. The special Fermat supplier now has a separate finite-join proof spine from Milnor9.2 and positive real scaling; import generic CW/cofibration/cellular approximation from upstream Stages4,8. This special calculation does not certify the general tame-fibre or rational H-space endpoints. Suggested module TauCeti/Topology/RationalHomotopy/FermatFibre.lean; planet: Fermat fibre join model."
     }
   ],
   "prerequisites": [
@@ -2051,6 +2552,12 @@
       "link": "https://msp.org/ant/2017/11-7/ant-v11-n7-p06-s.pdf",
       "why": "Browning–Vishe2017 §4 cites Lee3.3.3–3.3.6 and explicitly supplies Usher–Zhang orthogonalization to repair a missing justification. Acquire and audit both originals before certifying lattice duality.",
       "readStatus": "Identified through original BV17 discussion; these two originals not read."
+    },
+    {
+      "citation": "John Milnor, Singular Points of Complex Hypersurfaces (1968), §6 Lemma6.4/Theorem6.5 and §9 Lemma9.2",
+      "link": "https://djvu.online/file/kCFrJq27uCPRi",
+      "why": "For the Fermat test only: the positive-phase fibre retracts onto the join of its root sets; positive real scaling identifies that fibre with X times R_{>0}.",
+      "readStatus": "Selected primary-book OCR: pp.55–58 and 71–76, including Lemma9.2 proof, read 2026-09-23. No full-book read. Browser text accessible; direct file fetch returned403, so no acquired-file hash is asserted. Does not discharge the general Broughton/Hilton/Sullivan debt."
     }
   ],
   "sourceIssues": [
@@ -2516,19 +3023,20 @@
     {
       "id": "PAPER-BROWNING-SAWIN-20/E28",
       "kind": "gap",
-      "locator": "Lemma7.2 and definition of Hom_{d,P}, arXiv v3 pp.43–44; published topology not separately reconciled",
+      "locator": "Published pp.940–941, (7.1), Lemma7.2 and its proof; arXiv v3 pp.43–44",
       "printed": "Hom_{d,P}(C,X)≃Ω²X",
-      "correction": "Specify the topology on the germ-constrained continuous mapping space and prove that germ-straightening and disc gluing are continuous in parameter families. Alternatively construct a uniform-collar model and compare it with the stated model.",
-      "reason": "Pointwise O(|z|) bounds and individually chosen shrinking neighbourhoods do not give a uniform neighbourhood for an arbitrary continuous family. The proof sketches the deformation but does not supply this family-level input. This is an unclosed construction, not a counterexample to the intended homotopy equivalence.",
-      "affects": "the proof",
+      "correction": "Specify the mapping-space topology. With the subspace compact-open topology, Lemma7.2 is false: the Fermat example k=3,d=2,n=40 has a nontrivial infinite-order mapping-space loop although π1(Ω²X)=0. A stronger uniform-germ topology requires a new comparison proof.",
+      "reason": "The explicit family F_s in the report preserves each individual germ exactly outside a compact set and is jointly projectively continuous. A disk filling would produce a disk in C* whose boundary has winding−1. Milnor’s special Fermat join model gives π3(X)=0. Thus pointwise germ control cannot justify the printed family deformation in the compact-open topology. The source supplies no topology, so the finding remains scoped to that interpretation.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "2026-09-23: fresh Annals article and PDF, arXiv-v3 PDF, and title/author/correction/topology searches; no correction found. Search outcome is not an assertion of priority or author agreement."
       ],
-      "reviewStatus": "Unreviewed; reviewer should decide whether the intended mapping-space convention supplies the missing uniformity."
+      "reviewStatus": "Unreviewed continuation finding. Independently verify the topology, the explicit winding obstruction and the special Fermat connectivity argument; no verdict on an unstated stronger intended topology."
     }
   ],
   "gaps": [
@@ -2549,8 +3057,8 @@
         "homloops",
         "conditionaldegeneration"
       ],
-      "missing": "Construct the topology/uniform germ deformation in Lemma7.2 and the nonempty reference mapping space.",
-      "resume": "Specify a uniform-collar model and prove comparison with the source's O-germ model."
+      "missing": "Compact-open Lemma7.2 is obstructed. Specify a stronger topology and prove polynomial inclusion, uniform-family collar straightening and global comparison with the fixed-collar model.",
+      "resume": "Use compactcounter and stronggermgate; do not try to prove the false compact-open equivalence. The explicit nonempty Fermat reference is supplied. General nonempty-reference construction remains an input."
     },
     {
       "id": "G3",
@@ -2570,7 +3078,7 @@
         "loopbetti"
       ],
       "missing": "Read original Broughton1983, Hilton1955 and Sullivan1977 statements/proofs, including connectedness and finite-type restrictions.",
-      "resume": "Use n≥4 for the full-loop endpoint; independently check the cubic n=3 counterexample."
+      "resume": "Use n≥4 for the full-loop endpoint; independently check the cubic n=3 counterexample. The new special Fermat/Milnor calculation suffices only for E28; it does not replace the general Broughton1983, Hilton1955 or Sullivan1977 suppliers."
     },
     {
       "id": "G5",
@@ -2618,15 +3126,15 @@
       "needs": [
         "all"
       ],
-      "missing": "Finish publication-wide formula-by-formula reconciliation and independent source-finding verification. Only the full author version and selected journal sections have been read.",
-      "resume": "Both public PDF hashes and checked publication locators are recorded; secondary-reference renumbering is explicit."
+      "missing": "All published text has now been read; finish image-level formula reconciliation and independent verification of inherited E1–E27. A full read does not certify every prior correction.",
+      "resume": "Use matching-hash 56-page Annals PDF. E28 is freshly reconciled at pp.940–941; preserve the inherited checked/not-checked distinctions for other findings."
     },
     {
       "id": "G10",
       "needs": [
         "all"
       ],
-      "missing": "Expand the remaining elementary proof dependencies into declaration-level closure and exact APIs before any blueprint is certified complete; no Lean implementation or compilation was done.",
+      "missing": "Expand the remaining elementary proof dependencies into declaration-level closure and exact APIs before any blueprint is certified complete; no Lean implementation or compilation was done. Inherited API outlines and short test lists also need expansion to the protocol’s structured three-test format; only the new definitions/constructions below meet that format in this continuation.",
       "resume": "Use the inventory, route briefs, explicit dependency spine and reproducible certificate. This is a paper extraction checkpoint, not a finished blueprint."
     }
   ],
@@ -2640,30 +3148,39 @@
       "AUDIT-19 FF.1,2, LPV.5 and WC.5",
       "AUDIT-18 EDC.0,2,4,6",
       "AUDIT-01 SF.2",
-      "AUDIT-22 EnhancedDerivedSheaves:E5"
+      "AUDIT-22 EnhancedDerivedSheaves:E5",
+      "Fresh AUDIT-07 ES.0/ES.1 entries; data/library-coverage.json has no matching reviewed AlgebraicTopology/UniversalCovers stage entry, so those were read as planned upstream text, not credited as reviewed-built."
     ],
     "method": "Read full relevant atlas layer descriptions and reviewed audit entries, then searched both pinned trees and opened each credited declaration. Searched roadmaps, packets, links, reserved ids and integrated decompositions for this title, Browning/Sawin, Hilton, configurations and nonarchimedean lattices. Existing surface-configuration fibrations in MordellLawrenceVenkatesh are not the S_m representation/rational-loop supplier here.",
     "notFound": "No matching geometric exponential-sum complex, Artin–Schreier ℓ-adic sheaf, compact-support mapping-space spectral sequence, function-field lattice-shrinking theorem, or Hilton/Sullivan rational-loop theorem found in the pins. This scoped search is not a universal theorem of absence.",
-    "boundaries": "The spectral-sequence carrier is built but convergence is a separate planned LI.3 obligation. LaurentSeries is built but its variable convention and lattice norm need a bridge. Abstract Goursat is built but algebraic-group monodromy is not. Generalized loops and homotopy shifts are built but rational sphere and wedge homotopy are not."
+    "boundaries": "The spectral-sequence carrier is built but convergence is a separate planned LI.3 obligation. LaurentSeries is built but its variable convention and lattice norm need a bridge. Abstract Goursat is built but algebraic-group monodromy is not. Generalized loops and homotopy shifts are built but rational sphere and wedge homotopy are not.",
+    "continuation": "Read upstream AlgebraicTopology Stages4–8 and UniversalCovers applications; freshly opened CompactOpen.lean curry/evaluation, Circle/FundamentalGroup.lean circle integer monodromy, and LoopSpace.lean piLoopSpaceMulEquiv at the pins. The roadmap circle-π1 target is superseded by the actual pinned theorem and is imported. Scoped homotopy-tree searches found no join-connectivity or disk restriction-fibration implementation. Existing ordinarytopology imports are retained; no replacement generic topology carrier is proposed.",
+    "publicationInputs": {
+      "commit": "1f72d34df88017aca2c8918d2446f9943230ce96",
+      "guardedFiles": 550,
+      "refresh": "Changed Bresciani24 and Duke–Imamoglu–Tóth16 extractions and new Leslie25 extraction screened: birational sections, modular cycles and unitary relative endoscopy do not supply the infinity-germ, Fermat-join or controlled-collar targets. No route change."
+    }
   },
   "dependencyAudit": {
     "scope": "Concrete dependency spine for the extracted interfaces, not a declaration-level closure certificate. External source obligations remain G1–G10.",
-    "cycles": "Mechanical DFS: 115 items, every dependency resolves, no cycle.",
+    "cycles": "Mechanical DFS rerun on the continuation inventory; every dependsOn resolves and no cycle.",
     "notes": [
       "The basic topology route does not depend on the circle-method application.",
       "The E1 calculation and odd differentials are independent of the minor-arc sharp-range gate.",
       "The topology conjecture is consumed only by the final conditional theorem; it is never used to prove the spectral-sequence construction.",
-      "The coefficient prime condition enters signconjugacy and minor estimates, not finite-group invariant exactness over E."
+      "The coefficient prime condition enters signconjugacy and minor estimates, not finite-group invariant exactness over E.",
+      "homloops now depends on an explicit open stronger-topology gate, which depends only on the counterexample/collar suppliers and not on homloops. No circular proof of the comparison."
     ]
   },
   "checks": {
-    "structural": "115 unique items; 99 missing items routed exactly once; 8 library and 8 planned. Every definition/construction has an API outline and unit tests. Dependency DFS passes.",
+    "structural": "136 unique items; 116 missing routed exactly once, 11 library, 9 planned. All 115 inherited IDs and statuses retained; homloops explicitly narrowed after the counterexample. Every new definition/construction has API signatures and at least three structured tests. Inherited short-test/API debt is retained explicitly in G10.",
     "finiteCertificate": "17,280 floor-remainder cases, rank-five odd-length Hankel example, strict equality endpoint, signed Euler-product truncations through degree12, and 120 directly enumerated squarefree-polynomial character sums: PASS.",
-    "limits": "No Lean compilation, no proof assistant validation of the mathematics, no independent review. Script contents are included in the report; they use Python standard library only.",
+    "limits": "No Lean file compiled; no theorem claimed formalised; no independent review. The inherited finite certificate is retained as prior evidence, not reported as freshly rerun.",
     "repository": [
-      "python3 scripts/check_paper.py research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json: ok",
-      "python3 research/blueprint/intake.py check-files <three deliverables>: 3 files, 0 problems",
-      "python3 -m unittest tests.test_check_paper: 9 tests, OK"
-    ]
+      "python3 scripts/check_paper.py research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+      "python3 research/blueprint/intake.py check-files <three authorized deliverables>",
+      "Continuation dependency, route and structured-new-test checks; exact/numerical regression script embedded in report."
+    ],
+    "continuationCertificate": "Exact rational tests of clamp endpoints, lift increments, pointwise tail bounds, escaping support, no uniform normalized germ and convex collar nonvanishing; separate floating checks of complex phase/Fermat cancellation. These regressions do not prove homotopy, smoothness, the source lemma or any cohomological theorem."
   }
 }
