@@ -1447,8 +1447,9 @@
    ],
    "avoidAccountOf": "PAPER-DITTMANN-POP-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-DITTMANN-POP-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1100"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1100",
+   "finishedAt": "2026-09-23T17:07:18Z"
   },
   {
    "id": "PAPER-WITASZEK-22",
@@ -7890,8 +7891,9 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-MORROW-SCHOLZE-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1459"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1459",
+   "finishedAt": "2026-09-23T17:07:26Z"
   },
   {
    "id": "PAPER-KISIN-PAPPAS-18",
