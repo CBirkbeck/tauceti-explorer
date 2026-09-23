@@ -157,3 +157,30 @@ DOIs and arXiv identifiers were checked against Crossref and arXiv.
   - §8: the ch_p non-integrality argument of E10.
 - **Checked by computer (background agent):** Example 8.3; Theorem 8.4 for small Eilenberg–MacLane spaces; Lemma 8.5; the Bernoulli-numerator claim for p < 1200.
 - No Lean was written or compiled; this is an extraction.
+
+## Review (REV-PAPER-FENG-GALATIUS-VENKATESH-22, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1267](https://github.com/CBirkbeck/tauceti-explorer/issues/1267). **Verdict: accept.** All five
+routes accepted; nothing needed correcting in place.
+
+- **A provenance limitation.** Springer's PDF endpoint returns a JavaScript challenge page to every
+  request made here, so the recorded SHA-256 could not be re-verified. The published *text* was read
+  through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks,
+  pp. 226–319), and every finding checked at its recorded page. Crossref records no correction.
+- **All 17 mistakes confirmed.** Several are settled by the paper against itself: **E5** is not even
+  well typed (`s ∘ π` is an endomorphism of `V`, and the displayed sequence draws `s` as a section of
+  `π`), **E6**'s exponent is fixed by the line above, **E9**'s "Theorem 3.3" does not exist, and
+  **E11**'s "integral indecomposables" names a quotient that Example 8.3 itself computes.
+- **E10 reaches a stated result**, and the introduction corroborates it: Theorem 8.1 says
+  `p ≥ max_j(n_j)` where integrality of `ch_{n_j} = s_{n_j}/n_j!` fails at `n_j = p`, while the
+  one-part version on p. 229 already says "in the range when p > 2k".
+- **E12 is a real gap**, reported with the right qualification: the `𝒫¹` k-invariant connects
+  `π₁(X)` to `π_{2p−2}(X)`, so the Postnikov splitting step fails (witness `α₁`), yet Theorem 8.4's
+  conclusion is not contradicted — the argument fails, not the theorem.
+- **Items and routes:** 57 items (1 library, 15 planned, 41 missing), each missing item routed once;
+  seven library declarations opened at the pins; all 26 stage ids present. The Part II title is an
+  exact prefix extension, and the new roadmap `EtaleHomotopyTypes` is co-proposed byte-identically by
+  PAPER-SCHMIDT-STIX-16, so the two coalesce.
+
+Full report: `research/blueprint/reviews/REV-PAPER-FENG-GALATIUS-VENKATESH-22.md`.
