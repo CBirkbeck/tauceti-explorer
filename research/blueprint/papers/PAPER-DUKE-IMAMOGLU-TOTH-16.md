@@ -7,6 +7,29 @@ Issue [#1170](https://github.com/CBirkbeck/tauceti-explorer/issues/1170). Status
 - **Items.** The result has **188 items: 22 library, 6 planned and 160 missing**. Every missing item is routed exactly once.
 - **Mistakes.** Sixteen are recorded under `sourceIssues`. E12–E14 concern cited sources (DIT11 and Biró), and E12 and E14 are already corrected by this paper itself.
 
+## Independent review (REV-PAPER-DUKE-IMAMOGLU-TOTH-16)
+
+The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-DUKE-IMAMOGLU-TOTH-16.md`; the counts in the sections below it are the earlier
+ones and are superseded by these.
+
+- **Items: 188** (16 library, 6 planned, 166 missing), each missing item routed once.
+  - 103 fields corrected: 73 locators (many §2 and §5 locators were shifted) and 30 statements.
+  - 31 items added for definitions, constructions and cited inputs the proofs use, three of them planned at AnalyticNumberTheory AN.4.
+  - 31 removed as not in the paper: the extraction's own repairs, adapters and regression examples, library-support and
+    planning items, and steps inside the proofs of DIT11 and Biró that this paper does not cite; their content is kept in
+    notes and in the mistakes.
+- **Routes.** All ten stand; route 9's brief and the items of the source routes carry the confirmed corrections.
+- **Prerequisites.** Rebuilt as 22 cited works with DOIs.
+- **Mistakes: 34** (21 misprints, 5 gaps, 8 errors); 3 reach a stated result and 6 a proof.
+  - **E1–E16** are confirmed; E3, E6, E8, E11 and E14 are revised. E6: (6.6) is false as printed and holds for the unit vector.
+  - **E17–E34** are new, each checked independently. The main ones:
+    - **E28:** Lemma 6 has the opposite orientation to Lemma 5, so one of them is false as printed.
+    - **E19, E20:** gaps in the proof of Theorem 1, which is still true.
+    - **E22, E24:** ⟨½θ, ½θ⟩ = π/2, not 6, and the Conrey–Iwaniec exponent is 5/12, not 1/3.
+    - **E33:** the p = 2 Euler factor of §10 is undefined.
+  - With the corrections, Theorems 1–4 stand.
+
 ## This continuation (cc-442dc5)
 
 **What was read.** All 42 published pages, with the formulas the text layer garbles checked on page images: pp. 961–962, 963, 965, 967 and 970. For E12–E14, Biró p. 128 and DIT11 p. 959 were read at the locators.
