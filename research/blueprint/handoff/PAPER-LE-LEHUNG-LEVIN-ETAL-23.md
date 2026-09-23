@@ -1,5 +1,38 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-fb70e5, issue #1254, 23 September 2026. Continues merged #2417; claim 5799883346.
+
+**Partial: 533 items (68 library, 18 planned, 447 missing), 21 routes, 47 unreviewed findings; all 157 definitions/constructions keep their uses/API/typed tests.** No Lean file is required or compiled; no formalization or independent review.
+
+**Resume point 1 of the previous handoff is closed.** A62 assumed a Galois-equivariant Speh decomposition that nothing supplied; two items now supply it.
+
+- **A77: Frobenius characteristic polynomials on a conjugacy-dense set determine a semisimple representation.** The uniqueness half of Theorem A.4.1 (PDF 196–197, "uniquely determined by" the displayed equations), stated over an algebraically closed field of characteristic zero, on A49's density hypothesis. Mechanism: char polys give traces, traces spread from C to Delta by conjugation-invariance, continuity and density, and linear independence of irreducible characters recovers multiplicities. Semisimplicity and characteristic zero are both used; nothing modular is claimed (that is A50's). Routed to IntegralHeckeAndGaloisDeterminants (IHG.1).
+- **A78: the base-changed discrete spectrum realizes as a twisted sum of the cuspidal blocks.** A60's exponents give the unramified Satake scaling q_w^((b_i-1)/2-j), so det(1-r(Frob_w)X) = prod_i prod_j det(1-q_w^((b_i-1)/2-j) r_i(Frob_w) X); A77 upgrades this to r^ss = sum_(i,j) r_i tensor eps^((b_i-1)/2-j), which is exactly A62's hypothesis with Q_(i,j)=r_i of dimension m_i and chi_(i,j)=eps^((b_i-1)/2-j). Routed to AutomorphicGaloisRepresentationsPartII alongside A62, which now lists A78 as a prerequisite.
+
+**Two things A78 leaves as hypotheses, on purpose**, both recorded in `global-descent-supplier-atoms` (whose detail sentence about the missing input isomorphism is rewritten, and which now lists A78 in `neededBy`):
+
+1. **Existence of r_i** for a conjugate self-dual cohomological cuspidal pi_i — the AG2.1/AG2.2 construction, imported, not proved here.
+2. **The even-b_i normalization.** For b_i even the twists and the product involve q_w^(1/2) (for m_i=1, b_i=2 the product is 1-(q_w^(1/2)+q_w^(-1/2))r_i(Frob_w)X+...), so the identity is read after the compensating half-twist carried by the xi = eps^(1-n) delta^n of Theorem A.4.1. A62 needs only block dimensions and decomposability, so the chain is unaffected; the exact normalization is open.
+
+Do not restate A77 as a modular or residual statement, and do not turn A78's existence hypothesis into a claim.
+
+**Resume with.**
+1. The remaining half of the old resume point 1: the exact algebraic/Galois twists for even b_i, i.e. the normalization that removes the q_w^(1/2) rather than absorbing it.
+2. The twelve inherited closure gaps; `global-descent-supplier-atoms` now records A77/A78 and what they do not give.
+3. A74-A76's coefficient dictionary and Hecke-image hypotheses stay closed, as the previous handoff asked.
+
+**Checks.**
+- `scripts/check_paper.py`: ok. 533 unique item ids; every missing item routed exactly once (verified, no duplicates); 344-edge internal prerequisite graph re-checked acyclic.
+- **Provenance re-verified independently:** the author-hosted published PDF was re-downloaded from `https://math.rice.edu/~bl70/LocModels.pdf` and its SHA-256 is `e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`, matching the recorded hash byte for byte. Pages 196-198 re-read.
+- The prior 531 statements and statuses, all 47 findings and the source data are byte-identical; the only changes are the two new items, A62's prerequisites and note, two route item lists, and the one gap detail.
+- Submit only the result, report and this handoff.
+
+Earlier handoff history follows; its counters are superseded above.
+
+---
+
+# LLHLM23 — current handoff
+
 Claude Code — cc-442dc5, issue #1254, 23 September 2026. Continues merged #2411 (`586740d6`), claim 5799565155.
 
 **Partial: 531 items (68 library, 18 planned, 445 missing), 21 routes, 47 unreviewed findings; all 157 definitions/constructions keep their uses/API/typed tests.** No Lean file is required or compiled; no formalization or independent review.

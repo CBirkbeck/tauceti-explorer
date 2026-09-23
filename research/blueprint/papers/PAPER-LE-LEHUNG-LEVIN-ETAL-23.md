@@ -4526,3 +4526,49 @@ for prime in (2,3,5,7):
     counts['denominator_controls']+=1
 print(dict(counts))
 ```
+
+## Speh-block continuation (cc-fb70e5)
+
+This pass closes resume point 1 of the previous handoff: the isomorphism that **A62** assumed but nothing
+supplied. Two items do it.
+
+**A77 — Frobenius characteristic polynomials determine a semisimple representation.** Theorem A.4.1 says
+each of `r(U,W)`, `r(U_0(Q),W)` and `r(U_1(Q),W)` is "uniquely determined by" its displayed
+characteristic-polynomial equations (published PDF 196–197). That uniqueness is a theorem, and this item
+states it in the form the chain needs: for a topological group `Δ`, a subset `C` whose conjugacy
+saturation is dense (A49's hypothesis, satisfied by the Frobenii at unramified split places), and
+continuous **semisimple** `ρ_1, ρ_2 : Δ → GL_n(L)` over an algebraically closed `L` of characteristic
+zero, equality of `det(1 − ρ_i(c)X)` on `C` forces `ρ_1 ≅ ρ_2`. The mechanism is: characteristic
+polynomials give traces, traces are conjugation-invariant and continuous so agreement spreads from `C` to
+`Δ`, and in characteristic zero linear independence of irreducible characters recovers the multiplicities.
+Both hypotheses matter — without semisimplicity only the semisimplifications agree, and nothing modular is
+claimed (the residual statement in this extraction is A50's).
+
+**A78 — the base-changed discrete spectrum realizes as a twisted sum of cuspidal blocks.** With A59's base
+change `σ ↦ ⊞_i Δ_i` and `Δ_i = Speh(π_i, b_i)` (A60, A61), the local component of `Speh(π_i, b_i)` at an
+unramified `w` is the unramified constituent of the induction of
+`π_i|det|^{(b_i−1)/2}, …, π_i|det|^{(1−b_i)/2}`, so its Satake parameters are those of `π_{i,w}` scaled by
+`q_w^{(b_i−1)/2−j}` for `0 ≤ j < b_i`. Hence
+
+    det(1 − r(Frob_w)X) = ∏_i ∏_{j=0}^{b_i−1} det(1 − q_w^{(b_i−1)/2−j} r_i(Frob_w) X),
+
+and A77 upgrades this to `r^ss ≅ ⊕_i ⊕_j r_i ⊗ ε^{(b_i−1)/2−j}`. That is exactly A62's hypothesis, with
+`Q_{i,j} = r_i` of dimension `m_i > 0` and `χ_{i,j} = ε^{(b_i−1)/2−j}`, so A62's conclusion — `r = 1`,
+`b_1 = 1`, the base change is cuspidal — is now reached from stated inputs rather than assumed.
+
+**What is still a hypothesis, deliberately.** Two things, both recorded in the `global-descent-supplier-atoms`
+gap rather than papered over:
+
+1. The **existence** of `r_i` for each conjugate self-dual cohomological cuspidal `π_i`. That is the
+   AG2.1/AG2.2 construction, imported, not proved here.
+2. The **even-`b_i` normalization**. For `b_i` even the twists — and the product above — involve
+   `q_w^{1/2}`: already for `m_i = 1`, `b_i = 2` the product is
+   `1 − (q_w^{1/2} + q_w^{−1/2}) r_i(Frob_w) X + …`. The identity is then read after the compensating
+   half-twist carried by the `ξ = ε^{1−n} δ^n_{F/F+}` of Theorem A.4.1. A62 needs only the block
+   dimensions and the decomposability, which hold either way, so the chain is unaffected; pinning the exact
+   normalization is left open.
+
+**Provenance check.** The author-hosted published PDF was re-downloaded on 23 September 2026 from
+`https://math.rice.edu/~bl70/LocModels.pdf` and its SHA-256 is
+`e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`, matching the recorded hash byte for
+byte; pages 196–198 were re-read for this pass.
