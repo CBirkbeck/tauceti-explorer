@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-LANDESMAN-LITT-24",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Nothing in the atlas plans mapping class groups, Teichmüller theory, MCG-finite representations or the Putman–Wieland problem; a new roadmap is justified, and its brief states the final theorems and names its imports. The review added 18 missing items to it (among them mapping class groups and the Birman sequence, Teichmüller space, Dehn twists, the socle filtration, Hochschild–Serre for discrete groups, Jordan's and Burnside's theorems, local systems and monodromy, and Ehresmann's theorem with the homotopy long exact sequence) and appended the corrections its layers must respect, above all the choice of Γ in Lemma 8.6.1, where the printed proof never uses MCG-finiteness."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "The Tau Ceti Hodge-structures roadmap stops at pointwise (mixed, polarized) Hodge structures and period-domain points and defers variations to a successor; variations of (mixed) Hodge structure, the theorem of the fixed part, period maps, parabolic bundles and the cohomological vanishing theorems extend it in its own direction without re-planning it, and the title has the required parent prefix. The review added 9 missing items (Deligne semisimplicity, Saito/Timmerscheidt, the logarithmic comparison, parabolic structures and their duals, Kodaira–Spencer, smooth extension of fibrewise sections, and the two LL22 inputs split from item 72) and appended corrections (Lemma 6.1.1, Proposition 5.2.3, Lemma 8.3.3, the LL22 citation). Routes 1 and 2 import from each other at different layers, which the design jobs must order."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "IG.0 and IG.1 plan étale fundamental groups, fibre functors and the arithmetic exact sequence; items 74–76 and the added item on Artin's good neighbourhoods and the étale–singular comparison belong there as sources."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "R04.1 and R04.2 plan deformation functors and deformation rings; the deformation lemmas of §3 and the deformation-ring statements of §9.2 are instances. Item 83 was corrected (Remark 9.2.5 concerns the arithmetic, not the geometric, fundamental group) and item 80's coefficients restored."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "R09.4, R09.5 and R09.7 plan algebraic stacks, coarse spaces and normal-crossings compactifications; the algebraicity of M_{g,n} and its compactifications belong there."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-39fac3, 23 September 2026, of the extraction by cc-7b31c4. The published version (Ann. of Math. 199 (2024), 823–897) is paywalled, so the review read arXiv v4 (the version the extraction read) and its TeX source in full again, with two checkers splitting the paper and the coordinator verifying the substantive findings (Lemma 8.6.1 in the TeX, the library citations at the pinned commits). Statements: 30 corrected, among them items 77 (M_{g,n,ℚ}, not ℚ̄, else the hypothesis is vacuous), 83 (the arithmetic, not geometric, fundamental group), 80 (the algebraic closures), 63 (Klevdal–Patrikis's G-irreducibility), 72 (two results merged, one misattributed), 17 and 49 (which copied false uniqueness and 'v ∈ 𝕃_m' claims), and the total-space/fibre conflation in 4, 14, 16, 23, 50, 57, 60, 67 and 68. Item 94 claimed the homotopy long exact sequence of a fibration from the libraries, which neither has; it was removed and the library lists of 94 and 100 were corrected. Locators: 9 corrected. 28 new missing items (two further proposals were folded into item 111 and merged). E1–E3 confirmed; 19 new source issues, including gaps in the proofs of Lemmas 8.6.1 and 8.3.3, the g = 0 case of Lemma 2.4.2, and false-as-stated Lemmas 2.2.2 (uniqueness) and 6.1.1; none affects the main theorems."
+}

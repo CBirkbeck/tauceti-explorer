@@ -228,3 +228,25 @@ an MCG-finite representation with infinite image, Conjecture 10.2.8 for free gro
 theorems, and the routing does not commit the atlas to answering them. Third, the parabolic estimate Proposition 5.2.4
 is taken from the companion paper as a black box, so the roadmap that receives it will need that paper's §6 as a
 source. Fourth, the claim that only three misprints exist means only that the checks listed above found only those.
+
+## Review (REV-PAPER-LANDESMAN-LITT-24, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and all five routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-LANDESMAN-LITT-24.md`. The review read arXiv v4 and its TeX again; the published version is paywalled.
+
+- **Statements:** 30 corrected. Among them:
+  - M_{g,n,ℚ} in item 77;
+  - the arithmetic fundamental group in item 83;
+  - the algebraic closures in item 80;
+  - Klevdal–Patrikis's hypotheses in item 63;
+  - the split of item 72;
+  - the total-space/fibre conflation in nine items.
+- **Locators:** 9 corrected.
+- **Library citations:** item 94 no longer claims the homotopy long exact sequence of a fibration, which neither library has. Items 94 and 100 now cite the Tau Ceti classification of covers and Mathlib's inflation–restriction sequence.
+- **New items:** 28, all missing: 18 to the new roadmap, 9 to the Hodge Part II and 1 to IG.
+- **Briefs:** both now record the corrections their layers must respect.
+- **Source issues:** E1–E3 are confirmed. E4–E22 are new:
+  - gaps in the proofs of Lemma 8.6.1 (the choice of Γ never uses MCG-finiteness) and Lemma 8.3.3, and in the g = 0 case of Lemma 2.4.2;
+  - Lemmas 2.2.2 (uniqueness) and 6.1.1, which are false as stated;
+  - misprints.
+
+  None affects the main theorems.
