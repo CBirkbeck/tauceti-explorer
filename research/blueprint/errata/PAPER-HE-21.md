@@ -3,9 +3,10 @@
 **Job:** ERRATA-PAPER-HE-21 · issue #1864  
 **Worker:** ChatGPT Pro — cgp-20260923-h7q4  
 **Checked:** 23 September 2026  
-**Status:** audit submitted for independent review; not an author-approved erratum and not a proof-closure certificate.
+**Independent review:** Codex — codex-hjdg0j, job REV-ERRATA-PAPER-HE-21, issue #1865.
+**Status:** complete review: twelve confirmed, E5 and E15 rejected. Not an author-approved erratum or a proof-closure certificate.
 
-The JSON records fourteen findings: thirteen retained from the extraction, with corrected reasons and more carefully qualified reach, and the additional E17. Stable identifiers are preserved. E7 and E12 remain excluded; E8 is not retained as an established source error for the reason below. The two known GHN corrections are errors in a cited paper, not discoveries about the truth of He21's main theorem. No `review` verdict has been supplied by this worker.
+The JSON records fourteen findings: thirteen retained from the extraction, with corrected reasons and more carefully qualified reach, and the additional E17. Stable identifiers are preserved. E7 and E12 remain excluded; E8 is not retained as an established source error for the reason below. The two known GHN corrections are errors in a cited paper, not discoveries about the truth of He21's main theorem. The original worker supplied no self-review. The independent reviewer has now added a verdict to each of the fourteen entries; rejected entries retain their stable IDs. The [review report](../reviews/REV-ERRATA-PAPER-HE-21.md) records the independent source provenance and all verdicts.
 
 ## Sources, versions and search limits
 
@@ -13,7 +14,7 @@ The input result has Git blob `169cbe264457c7b754f423f70710a36f73b56159`; its re
 
 References used below:
 
-- **H21:** X. He, *Cordial elements and dimensions of affine Deligne–Lusztig varieties*, Forum of Mathematics, Pi 9 (2021), e9, [published article and mathematical HTML](https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties/5A27DBF48CAEF6DA56A313061848574C). [Preprint](https://arxiv.org/abs/2001.03325), v1, 10 January 2020; relevant page images checked. Journal HTML is the reference for published statements; preprint pages are not silently treated as journal pages.
+- **H21:** X. He, *Cordial elements and dimensions of affine Deligne–Lusztig varieties*, Forum of Mathematics, Pi 9 (2021), e9, [published article and mathematical HTML](https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties/5A27DBF48CAEF6DA56A313061848574C). [Preprint](https://arxiv.org/abs/2001.03325), v1, 10 January 2020; relevant page images checked. The independent review additionally retrieved and inspected the published PDF, including the disputed page images; preprint pages are not silently treated as journal pages.
 - **H15:** X. He, *Hecke algebras and p-adic groups*, [arXiv:1511.01386v3](https://arxiv.org/pdf/1511.01386), Theorem 2.27, p.37. The survey's shrunken hypothesis was checked in the page image. A complete audit of this survey is not claimed.
 - **H14:** X. He, *Geometric and homological properties of affine Deligne–Lusztig varieties*, Ann. of Math. 179 (2014), 367–404, [journal PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n1-p06-p.pdf). Proposition 11.6 was checked in the published images of pp.399–400. The [arXiv history](https://arxiv.org/abs/1201.4901) lists v1 and v2; checking that history is not a claim to have compared every preprint PDF.
 - **GHN:** U. Görtz, X. He and S. Nie, *P-alcoves and nonemptiness of affine Deligne–Lusztig varieties*, Ann. Sci. ÉNS 48 (2015), 647–665, [published PDF](https://www.numdam.org/item/10.24033/asens.2254.pdf); [authors' erratum](https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf), all three pages checked. The erratum supplies positive evidence for E13 and E14. No publication date is inferred from the undated PDF.
@@ -23,7 +24,7 @@ References used below:
 
 Correction searches covered the H21 article and its [volume-9 listing](https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/A0F34FDF4105CBC68BD961812700E85E), the H14 [article page](https://annals.math.princeton.edu/2014/179-1/p06) and [volume-179 listing](https://annals.math.princeton.edu/articles/category/2014/179), the relevant arXiv histories, the author's [selected-publications page](https://hkumath.hku.hk/~xuhuahe/selected.html), and title searches with “erratum” and “corrigendum”. No formal H21 or H14 correction notice was located in these checks. This is the limited meaning of `known: new`; it is not an exhaustive novelty claim. Failed Crossref requests provide no evidence and the extraction's claimed negative Crossref results are not inherited. No author was contacted.
 
-The journal PDF's screenshot endpoint could not be retrieved in this run. Consequently, glyph-sensitive H21 comparisons use the journal's mathematical HTML together with explicitly identified preprint images, not a claimed fresh rendering of the journal PDF. Public-source bytes were not downloaded successfully, so no new PDF SHA-256 values are claimed. The earlier extraction's source hashes remain its provenance, not this worker's independently measured hashes.
+During the original audit, the journal PDF's screenshot endpoint could not be retrieved. Consequently, that worker's glyph-sensitive H21 comparisons used the journal's mathematical HTML together with explicitly identified preprint images, not a claimed fresh rendering of the journal PDF. That worker did not obtain public-source bytes or independently measured hashes. The independent review subsequently downloaded nine PDFs, measured their hashes, and inspected the published H21 and H14 finding pages. Its provenance is recorded separately in the review report.
 
 **Important version correction.** H21's published Theorem 5.5 assumes a shrunken input and asserts support containment. The v1 statement on p.10 instead assumes full support and asserts full support for its output. Its proof is also shorter and differently organized. Moreover, v1 p.8 already cites Vi14 and displays the closure bars. Thus the extraction's assertion that the versions agree apart from the BS17 sentence and an added Vi14 citation must not be reused. The findings below are tied to the versions actually specified, not to that blanket comparison. [H21]
 
@@ -76,9 +77,9 @@ The cone computations in Proposition 5.1 and Corollary 5.3 concern coweight diff
 
 The full-Δ cone in Proposition 5.1 must also allow zero coefficients. Taking all four input coweights in the relevant comparison to be zero immediately contradicts strict positivity at every simple coroot. The selected supports of the positive and negative parts can still have strictly positive coefficients; only the sums indexed by the whole base are corrected. The componentwise minimum argument then has its intended meaning.
 
-## E5 — the routine existence argument, with the correct direction
+## E5 — rejected: routine existence argument, with the correct direction
 
-Lower-directedness alone does not prove existence of a minimal feasible coweight. Complete the argument as follows. Let
+The independent review rejects this as a source-error allegation. Lower-directedness alone is insufficient in an arbitrary poset, but the nonemptiness and finite lower intervals here are routine properties of the stated order, requiring no extra hypothesis or substantial input. For formalization, expand the implicit argument as follows. Let
 
 \[
  2\rho^\vee=\sum_{\beta>0}\beta^\vee,
@@ -94,7 +95,7 @@ Every simple-root pairing with `2ρ∨` equals two; hence sufficiently large int
 
 Only finitely many coefficient tuples occur, so a minimal feasible element below `μ₀` exists. Given any other feasible element, a common lower bound and minimality force that bound to equal the chosen minimum; it is therefore globally least. This proves the claimed existence and uniqueness after the printed lower-directedness calculation. [H21, Proposition 5.1]
 
-The correction to the extraction matters: the sum of **simple** coroots is not a universally dominant direction. In D4, with node 2 trivalent, its simple-root pairings are `(1,-1,1,1)`. The full positive-coroot sum has simple-coroot coefficients `(6,10,6,6)` and pairings `(2,2,2,2)`. Item /53 in the extraction already has the valid direction; E5's inherited prose does not. This is a small omitted argument, not a substantive failure of Proposition 5.1.
+The correction to the extraction matters: the sum of **simple** coroots is not a universally dominant direction. In D4, with node 2 trivalent, its simple-root pairings are `(1,-1,1,1)`. The full positive-coroot sum has simple-coroot coefficients `(6,10,6,6)` and pairings `(2,2,2,2)`. Item /53 in the extraction already has the valid direction; E5's inherited prose does not. The independent review treats this as routine exposition rather than an inadequate proof under the errata protocol. The invalid simple-coroot direction was an extraction mistake, not a mistake printed in Proposition 5.1.
 
 ## E6 — an auxiliary coweight need not be a cocharacter of G
 
@@ -113,7 +114,7 @@ In the unramified simply connected twisted A2 datum, let σ interchange the two 
  \gamma=\lambda-\omega_1^\vee+s_2\omega_2^\vee=(3,2).
 \]
 
-The coroot coordinates are `(8/3,7/3)`, although λ has coroot coordinates `(3,3)`. Even the resulting γ need not lift. Work explicitly in a full-coweight/adjoint datum and prove the appropriate componentwise transfer of the final geometry and invariants. The equal-characteristic restriction of the cited comparison and the GHN erratum must remain visible; this audit does not silently extend the comparison to every ramified or mixed-characteristic setting. The finding concerns well-definedness and the written reduction, not a claimed counterexample to Theorem 6.1.
+The coroot coordinates are `(8/3,7/3)`, although λ has coroot coordinates `(3,3)`. Even the resulting γ need not lift. Work explicitly in a full-coweight/adjoint datum and prove the appropriate componentwise transfer of the final geometry and invariants. The equal-characteristic restriction of the cited geometric comparison and the GHN erratum must remain visible. GHN p.652 already states a mixed-characteristic set bijection without that coprimality restriction; do not claim this comparison is absent. A dimension transfer requires its appropriate geometric or combinatorial justification. H14 §1.4, p.372, explicitly reduces to adjoint type; H21's standing assumption on p.5 does not. In the twisted example the input alcove is also shrunken, and the adjoint Kottwitz coinvariants vanish (the twist acts by −1 on Z/3), so equality there cannot repair the missing lift. The finding concerns well-definedness and the written reduction, not a claimed counterexample to Theorem 6.1.
 
 ## E9–E11 and E17 — four slips in the cited H14 induction
 
@@ -129,15 +130,15 @@ These locations were inspected in the published images, not inferred from text e
 
 ## E13 and E14 — already corrected by the GHN authors
 
-**E13.** Import the componentwise adjoint flag comparison from erratum Proposition 0.0.1, not an unconditional global immersion or an automatically injective map on components. Retain its equal-characteristic coprimality hypothesis. The erratum's further kernel description is for semisimple G; the extraction's unqualified wording must not turn it into a claim for arbitrary reductive G. [GHN, Proposition 2.2.1; erratum, pp.1–2]
+**E13.** Import the componentwise adjoint flag comparison from erratum Proposition 0.0.1, not an unconditional global immersion or an automatically injective map on components. Retain its equal-characteristic coprimality hypothesis. Independently, the split torus G_m has affine flag components Z, whereas its adjoint group is trivial; the map on components is not injective, although each component maps isomorphically to a point and the characteristic restriction holds. The erratum's further kernel description is for semisimple G; the extraction's unqualified wording must not turn it into a claim for arbitrary reductive G. [GHN, Proposition 2.2.1; erratum, pp.1–2]
 
 **E14.** The uniqueness of a Levi σ-class in the intersection with a G-class requires the latter to be basic. In GL2, the permutation matrix conjugates `diag(ε,1)` to `diag(1,ε)`, whereas diagonal σ-conjugation preserves the ordered pair of valuations. These are two different classes for the diagonal Levi. Erratum Proposition 0.0.2 supplies the basic hypothesis. Do **not** propagate that restriction to the one-way Levi obstruction in He21 Theorem 6.3: its footnote explicitly distinguishes that statement. [GHN, Proposition 3.5.1; erratum, p.2; H21, Theorem 6.3 and footnote]
 
-## E15 and E16 — editorial notation only
+## E15 rejected; E16 confirmed — different kinds of notation
 
-E15 aligns the §6.1 heading with the immediately following `(J,x,σ)` definition. The old letters in a heading do not falsify a theorem; this is classified as affecting nothing.
+E15 is rejected. The §6.1 heading names the generic `(J,w,δ)` notion; its letters are dummy arguments, while the definition below uses `(J,x,σ)`. It asserts neither that the conjugator is the tested element nor that the twist differs. Harmonization is optional editing and does not establish a misprint. This differs from E2, which substitutes the wrong conjugator into an actual mathematical assertion.
 
-E16 replaces the unintroduced local-field symbol in `N(L)` with the paper's `N(F̆)`. The separately defined L-action is not that field. Neither correction changes the argument. [H21, §§2.1, 6.1]
+E16 replaces the unintroduced local-field symbol in `N(L)` with the paper's `N(F̆)`. The separately defined L-action is not that field. The E16 correction does not change the argument. [H21, §§2.1, 6.1]
 
 ## Allegations not retained
 
@@ -147,11 +148,11 @@ E16 replaces the unintroduced local-field symbol in `N(L)` with the paper's `N(F
 
 **E8 is not established as a source error.** The equal-characteristic scheme statement in H21 is not false. BS is primarily about Witt-vector/mixed-characteristic geometry, but its introduction also discusses the ordinary equal-characteristic Grassmannian; the inherited assertion that it says nothing about equal characteristic is false. A more precise reference and a separate mixed-characteristic/perfect-scheme sentence would improve H21's exposition, but the focus of the cited paper does not alone prove that “equal” is a misprint for “mixed”. No explicit intended replacement or false mathematical assertion was established in this check. Accordingly E8 is documented here rather than promoted into the machine-readable error register. A reviewer can reassess the citation against this narrower question. [H21, §2.2; BS, introduction]
 
-## Validation and review boundary
+## Original validation and subsequent review
 
 `python3 scripts/check_errata.py research/blueprint/errata/PAPER-HE-21.json` reports `ok`. The checker and its helper were fetched from the repository into a scratch mirror and their exact Git blob hashes verified: `d92d3b6177a6c0e13e35248597c5c41fe63648d6` and `da67776033cefc24d185ffd47b2c74d3e9167099`, respectively. This was not a full repository checkout or an execution of every repository check. JSON identifiers, uniqueness and absence of a self-review object were checked separately.
 
-The exact arithmetic regression script below also passes. It tests the witnesses and the repaired direction, not the general source theorems. No Lean file was written or compiled; this is an errata job. The independent reviewer should particularly assess the E1 hypothesis failure, the modest classification of E5, the carrier/scope in E6, the exclusion of E8, and the newly found E17. Nothing here asserts complete proof closure, formalisation, or author acceptance.
+The exact arithmetic regression script below also passes. It tests the witnesses and the repaired direction, not the general source theorems. No Lean file was written or compiled; this is an errata job. The independent review confirms E1 and E17, rejects E5 as an erratum, narrows the E6 comparison warning, and retains the exclusion of E8. The reviewer also independently checked the generic-point argument for E7, HY v1 §§1.2 and 4.2 for E12, and BS v3 pp.1–2 for E8. The review report records the full-checkout validation and additional exact computations. Nothing here asserts complete proof closure, formalisation, or author acceptance.
 
 ### Reproducible exact checks
 
