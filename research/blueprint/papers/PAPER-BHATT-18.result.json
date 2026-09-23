@@ -17,9 +17,39 @@
       "Rendered arXiv pages 1, 9 and 11 inspected for E3, E2 and E1; André published pp. 90–92 rendered for E6–E8",
       "André adjacent direct-summand arXiv v1, all 15 pages; published §2.5 and Appendix A.1–A.4 checked",
       "Scholze Perfectoid spaces: Lemma 6.4 proof, Corollary 6.7, Proposition 6.14 and Theorem 7.9 statements/proofs read; source-closure limits below"
+    ],
+    "continuations": [
+      {
+        "agent": "Codex — codex-7e92bd",
+        "date": "2026-09-23",
+        "freshRead": [
+          "Bhatt arXiv v2, all 12 pages including references and footnotes",
+          "André published pp. 79–82 (§2.5, proof through its end), 89–92 (Appendix A.1–A.4)",
+          "GR2 Release 6.95: 15.4.14(i)–(ii) statements/proofs, 15.4.16–15.4.20, 15.4.25(i)–(vi), 15.4.43–15.4.47; not the whole 1484-page book",
+          "Stacks tags 0815, 081R, 081S, 081T, 081M, 080Y; 080J Definition 31.35.1 and Lemmas 31.35.2–31.35.4; 080D, 080E, 0804; 08HY; 08TB Definition 13.34.1, Lemma 13.34.2 and coherence warnings; 07KV Lemmas 15.88.1, 4–6, 9–13, 16"
+        ],
+        "versionLimits": "The Springer content/pdf endpoint returned a 16-page PDF of the subscription landing page, not the 21-page article. No journal collation or change to E1–E3 publication status is claimed."
+      }
+    ],
+    "supportingSources": [
+      {
+        "id": "GR2-6.95",
+        "title": "Foundations for almost ring theory",
+        "authors": "Ofer Gabber and Lorenzo Ramero",
+        "url": "https://arxiv.org/pdf/math/0409584v11",
+        "version": "arXiv math/0409584v11, release 6.95, 1484 PDF pages; arXiv stamp 4 Nov 2016, generated title-page date 22 Apr 2019",
+        "sha256": "43afeff5750640f2e62d4eedb3d9d434dbef8883022d5b63b26b6a51509218d0",
+        "note": "Correct release and page count of Bhatt [GR2]. The served bytes have a later generated title-page date, so byte identity with his historical copy is not asserted."
+      },
+      {
+        "id": "Stacks-20260923",
+        "title": "The Stacks Project",
+        "url": "https://stacks.math.columbia.edu/",
+        "version": "Live tagged statements read 23 September 2026; numbered locators paired with stable tags above."
+      }
     ]
   },
-  "summary": "Full main-paper reading with a partial proof-level extraction. Routes import existing perfectoid/derived infrastructure, extend the shared pending PerfectoidRamification proposal, and propose regular-ring splitting layers. Eight source findings are recorded, including missing surjectivity in arXiv Proposition 6.2 and five adjacent André slips. Original-input and publication-collation gaps prevent completion.",
+  "summary": "Partial continuation of the 64-item extraction: reclassifies proper H^0 as a pinned-library composite; exposes coherent countable derived limits and Remark 4.3 with the exact shift p^k m; separates algebraic non-Noetherian blowup domination from its integral adic chart adapter; and spells out the comparison-map-only derived splitting argument. The eight inherited source findings remain unchanged and unreviewed. G1–G9 retain precisely scoped residual work; no completeness or formalization claim.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -29,14 +59,27 @@
       "Mathlib/RingTheory/AdicCompletion/Basic.lean",
       "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
       "Mathlib/RingTheory/Filtration.lean",
-      "TauCeti/RingTheory/Ideal/ArtinRees.lean"
+      "TauCeti/RingTheory/Ideal/ArtinRees.lean",
+      "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+      "Mathlib/AlgebraicGeometry/Morphisms/QuasiSeparated.lean",
+      "Mathlib/AlgebraicGeometry/GammaSpecAdjunction.lean",
+      "Mathlib/CategoryTheory/EpiMono.lean",
+      "Mathlib/RingTheory/ReesAlgebra.lean",
+      "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean"
     ],
     "auditsRead": [
       "AUDIT-17 R03.1–R03.6 (including fresh R03.3 read)",
       "AUDIT-22 E0–E5:animation, with fresh E1/E2/E4 reads",
       "AUDIT-01 SF.0 and SF.2"
     ],
-    "auditLimits": "No reviewed library-coverage entry for PerfectoidSpaces, PerfectoidQuotients or DD.1 was found at this snapshot; accepted partial PerfectoidSpaces decomposition and partial PerfectoidQuotients decomposition were checked. No absence is claimed from an audit that does not exist."
+    "auditLimits": "No reviewed library-coverage entry for PerfectoidSpaces, PerfectoidQuotients or DD.1 was found at this snapshot; accepted partial PerfectoidSpaces decomposition and partial PerfectoidQuotients decomposition were checked. No absence is claimed from an audit that does not exist.",
+    "continuation": {
+      "agent": "Codex — codex-7e92bd",
+      "atlasCommit": "fad6c577337f027629e637ef4a71310652da1168",
+      "read": "SF.2/SF.4 and E1/E2 reviewed audits; P0/E1/E2/SF.2/SF.4/R2 stage descriptions; reviewed partial AdicSpacesPartII decomposition and its R2/F0 boundaries.",
+      "pinVerification": "The six newly read files were byte-compared with raw GitHub files at the full Mathlib pin. No new Tau Ceti declaration is claimed.",
+      "limits": "No reviewed R2 layer audit found; its reviewed source decomposition is partial. New source routes remain requests, not existing proof claims."
+    }
   },
   "items": [
     {
@@ -1111,10 +1154,12 @@
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-BHATT-18/pro-zero",
-        "PAPER-BHATT-18/derived-category"
+        "PAPER-BHATT-18/derived-category",
+        "PAPER-BHATT-18/pro-zero-roos"
       ],
       "proofSteps": [
-        "For each k replace the tower by its root-torsion subtower through a pro-isomorphism; Rlim is unchanged and its cohomology is killed by that root. Invariance of Rlim under pro-isomorphism is an explicit E2 request."
+        "For each k the quotient tower M_n/M_n[t^(1/p^k)] is pro-zero. Apply pro-zero-roos and the short exact sequence to identify the two derived limits.",
+        "The two-term Roos complex of M_n[t^(1/p^k)] is termwise killed by t^(1/p^k). Thus each root annihilates the resulting cohomology."
       ],
       "proposedOwner": "PerfectoidSpaces:P0"
     },
@@ -1122,17 +1167,19 @@
       "id": "PAPER-BHATT-18/rlim-iso",
       "kind": "theorem",
       "name": "Almost-pro-isomorphisms induce almost inverse-limit isomorphisms",
-      "statement": "An almost-pro-isomorphism of the bounded derived towers of 3.2 induces an almost isomorphism on Rlim.",
+      "statement": "A morphism of coherent countable towers of A-module complexes whose cone cohomology towers are m_t-almost-pro-zero induces an almost isomorphism on derived inverse limits. This applies to the actual bounded-complex comparisons in 3.2–3.5; coherence is retained in D(Tower(Mod_A)) or an equivalent enhancement.",
       "locator": "Lemma 3.5",
       "status": "missing",
       "note": "",
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-BHATT-18/pro-iso",
-        "PAPER-BHATT-18/rlim-zero"
+        "PAPER-BHATT-18/rlim-zero",
+        "PAPER-BHATT-18/module-tower-milnor"
       ],
       "proofSteps": [
-        "Apply 3.4 to cohomology of the cone, proving the required bounded/convergence passage. The source's short cone argument is not a substitute for that interface."
+        "Use the functorial cone tower rather than choose unrelated cones in D(A). The exact Roos construction commutes with this cone.",
+        "Apply module-tower-milnor to its cohomology towers. Its proof handles the product of annihilators in each Milnor extension."
       ],
       "proposedOwner": "PerfectoidSpaces:P0"
     },
@@ -1267,18 +1314,21 @@
       "id": "PAPER-BHATT-18/derived-uniform",
       "kind": "theorem",
       "name": "Uniform derived tensor version",
-      "statement": "With the hypotheses of 4.2 and fixed m, the same tower comparison remains a uniform almost-pro-isomorphism after derived tensor over A/t^m with any complex; bounds can be chosen uniformly in the tensor factor as in Remark 4.3.",
+      "statement": "Under Notation 4.1 and fixed m≥1, for every k≥0 set c=p^k m. For every K∈D(A/t^m), every i and every n≥1, g^(1/p^k) kills the c-step transition on the kernels and cokernels of H^i(K)→H^i(K⊗^L_(A/t^m) A⟨t^n/g⟩/t^m) in m_t-almost modules. Consequently (tg)^(1/p^k) kills those ordinary transitions, with c independent of n, K and i. For m=0 both rings modulo t^0 are zero.",
       "locator": "Remark 4.3",
       "status": "missing",
-      "note": "",
+      "note": "The prior G4 chain-level gap is resolved at the paper-proof level by the amplitude-zero cone argument. This is not a claim that the derived tensor API is implemented.",
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-BHATT-18/riemann-kernel",
         "PAPER-BHATT-18/riemann-cokernel",
-        "PAPER-BHATT-18/derived-category"
+        "PAPER-BHATT-18/derived-category",
+        "PAPER-BHATT-18/tensor-kernel-cokernel"
       ],
       "proofSteps": [
-        "The source asserts uniform kernel and cokernel control on all cohomology. A chain-level annihilation/factorization proof is still required; do not infer derived annihilation merely from zero maps on cohomology. G4 records the exact unfinished task."
+        "Theorem 4.2(1) identifies the almost cone of each comparison with its module cokernel, naturally in n.",
+        "Theorem 4.2(2) makes g^(1/p^k) times the c-step map of those cokernels exactly zero in almost modules, for c=p^k m.",
+        "Apply uniform-tensor-cone and tensor-kernel-cokernel. This proves the stated bound without a ghost-map assumption. The general almost derived tensor implementation remains supplied by E1/P0."
       ],
       "proposedOwner": "PerfectoidRamification"
     },
@@ -1797,18 +1847,19 @@
       "id": "PAPER-BHATT-18/proper-cohomology",
       "kind": "theorem",
       "name": "Perfect proper coherent cohomology over a regular local base",
-      "statement": "For proper X→Spec(A0) with A0 Noetherian regular local, RΓ(X,O_X) is bounded with finite cohomology, hence perfect over A0. Its derived scalar extension is compared with cohomology of the derived base change; ordinary base change needs a separately verified Tor/flatness hypothesis.",
+      "statement": "For proper X→Spec(A0) with A0 Noetherian regular local, RΓ(X,O_X) is bounded with finite cohomology, hence perfect over A0. For any A0-algebra D there is a unit-compatible map from its derived scalar extension to cohomology of the ordinary base change. This map is not asserted to be an isomorphism without additional hypotheses.",
       "locator": "6.1 proof input",
       "status": "missing",
-      "note": "",
+      "note": "Proper coherent finiteness and perfectness remain G5/G6. The comparison map to ordinary base-change cohomology suffices for 6.1; no isomorphism is needed there.",
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-BHATT-18/regular",
-        "PAPER-BHATT-18/derived-category"
+        "PAPER-BHATT-18/derived-category",
+        "PAPER-BHATT-18/cohomology-base-change-map"
       ],
       "proofSteps": [
-        "Request proper coherent finiteness, finite cohomological dimension and finite global dimension of a regular local ring. The almost-flat passage to the ordinary scheme in this proof needs G6.",
-        "The existing étale proper-base-change target does not prove this coherent assertion."
+        "Request proper coherent finiteness, finite cohomological dimension, and the finite global dimension of the Noetherian regular local base.",
+        "Use cohomology-base-change-map and splitting-through-comparison for the passage to the ordinary proper scheme over each annulus. An almost-flat base-change isomorphism is not a prerequisite for this splitting step."
       ],
       "proposedOwner": "SchemeAndStackFoundations:SF.2"
     },
@@ -1835,29 +1886,39 @@
       "name": "Integral global functions in the perfectoid proper case",
       "statement": "For proper surjective Y→Spec(A) in the corrected 6.2 setup, B=H^0(Y,O_Y) is an integral A-algebra; B[1/p] is the finite étale generic algebra, and Y maps naturally to Spec(B).",
       "locator": "6.2 first paragraph",
-      "status": "missing",
-      "note": "",
+      "status": "library",
+      "note": "Reclassified from missing after reading declarations at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Proper.lean:138 proves integrality for every universally closed morphism with affine target; no Noetherian or surjectivity hypothesis. QuasiSeparated.lean:401 identifies sections on a global basic open with localization for qcqs opens. GammaSpecAdjunction.lean:434,458 supplies the natural affinization map. The given proper morphism is qcqs, and Y[1/p] is its basic open for the image of p. Thus B[1/p]=Γ(Y[1/p],O), finite étale by the stated hypothesis. This is a composition of existing results, not a new general theorem to re-plan. No finiteness of B over A is asserted.",
       "implementationStatus": "unchecked",
       "prerequisites": [],
       "proofSteps": [
-        "Non-Noetherian A is permitted here. Verify the proper/global-functions integrality theorem and localization comparison in this generality before importing them; G6."
+        "Apply isIntegral_appTop_of_universallyClosed to Y→Spec(A).",
+        "Apply isLocalization_basicOpen_of_qcqs to the whole qcqs scheme Y and the image of p; identify the generic fibre with that basic open.",
+        "Use Scheme.toSpecΓ and its naturality for Y→Spec(A) to obtain Y→Spec(B) over Spec(A)."
       ],
-      "proposedOwner": "SchemeAndStackFoundations:SF.2"
+      "proposedOwner": "SchemeAndStackFoundations:SF.2",
+      "library": [
+        "mathlib:AlgebraicGeometry.isIntegral_appTop_of_universallyClosed",
+        "mathlib:AlgebraicGeometry.isLocalization_basicOpen_of_qcqs",
+        "mathlib:AlgebraicGeometry.Scheme.toSpecΓ",
+        "mathlib:AlgebraicGeometry.Scheme.toSpecΓ_naturality"
+      ]
     },
     {
       "id": "PAPER-BHATT-18/formal-domination",
       "kind": "theorem",
       "name": "Admissible blowup domination of a generic isomorphism",
-      "statement": "In the p-torsionfree perfectoid-base situation after the finite-cover reduction of 6.2, a proper morphism whose generic fiber is an isomorphism is dominated after p-adic completion by an admissible blowup of Spf(A).",
-      "locator": "6.2 and footnote 8; [GR2] §15.4",
+      "statement": "Let A be p-torsionfree and p-adically complete, and X→Spec(A) proper and an isomorphism after inverting p. There is a finitely generated ideal I⊂A containing p^N for some N≥1 and a factorization Bl_I(Spec(A))→X→Spec(A). Completing this diagram p-adically gives the formal domination required in 6.2. The algebraic factorization already suffices for the integral generic-fibre map.",
+      "locator": "Bhatt 6.2; exact algebraic supplier Stacks 081T, rather than a domination theorem attributed to GR2 §15.4",
       "status": "missing",
-      "note": "",
+      "note": "The proof source for domination has been identified. Foundational flattening leaves are still G6; GR2 §15.4 is used for rational charts and integral stalks, not mis-cited as a standalone domination theorem.",
       "implementationStatus": "unchecked",
       "prerequisites": [
-        "PAPER-BHATT-18/proper-integral-h0"
+        "PAPER-BHATT-18/proper-modification-domination"
       ],
       "proofSteps": [
-        "This is the non-Noetherian formal-model input, not merely invariance of a known blowup's generic fiber. Read and match GR2 hypotheses; current F0 Noetherian scope alone is insufficient."
+        "Apply proper-modification-domination with U=D(p), a quasi-compact open of the affine qcqs base. Choose a finite list of generators for its centre and append p^N.",
+        "Each blowup chart A[I/f] is a subring of A[1/f]; p remains regular. Its p-adic completion is the chart for the completed admissible blowup.",
+        "Use the functorial completion of the algebraic diagram only if a formal version is desired. No Noetherian formal-functions or formal-GAGA theorem is invoked."
       ],
       "proposedOwner": "AdicSpacesPartII:R2"
     },
@@ -1865,17 +1926,22 @@
       "id": "PAPER-BHATT-18/generic-fiber-map",
       "kind": "construction",
       "name": "Integral generic-fiber factorization",
-      "statement": "The integral locally ringed space (Spa(A[1/p],A),O^+) maps to every admissible blowup of Spf(A); using domination it maps to Y over Spec(A).",
-      "locator": "6.2 final paragraph",
+      "statement": "For mixed-characteristic perfectoid K and normalized integral perfectoid K°-algebra A, let Sη=Spa(A[1/p],A). For every finitely generated I=(f_0,…,f_r) containing p^N, the integral locally ringed space (Sη,O^+) maps over Spec(A) to Bl_I(Spec(A)). Combining this with formal-domination gives a map to any proper model whose generic fibre is the identity.",
+      "locator": "Bhatt 6.2 footnote 8; GR2 Release 6.95, Lemma 15.4.14(i)–(ii) and Remark 15.4.25(i)–(vi), pp. 1318–1324",
       "status": "missing",
       "note": "",
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-BHATT-18/formal-domination",
-        "PAPER-BHATT-18/rational-model"
+        "PAPER-BHATT-18/rational-model",
+        "PAPER-BHATT-18/admissible-blowup"
       ],
       "proofSteps": [
-        "Take the induced maps on derived global sections, retaining the integral sheaf."
+        "Set U_i={x: |f_j(x)|≤|f_i(x)| for all j}. Append p^N to the generator list. These rational subsets cover Sη: at a given valuation one generator has maximal value, and that value is nonzero because |p^N|>0.",
+        "The ratios f_j/f_i are bounded sections on U_i. The map A[1/f_i]→O(U_i) restricts to A[I/f_i]→O^+(U_i), using the actual blowup algebra, including its torsion relations.",
+        "The integral stalks are local: GR2 15.4.14(ii) identifies them as the inverse image of the residual valuation ring. The chart map therefore gives a locally ringed-space map into Spec(A[I/f_i]).",
+        "On U_i∩U_j the two ratios are reciprocal bounded units. Both chart maps restrict to the same localized ring map, so glue.",
+        "Compose with the algebraic domination map. Functoriality of structure-sheaf cohomology identifies A→RΓ(Y,O_Y)→RΓ(Sη,O^+) with the structural unit. Perfectoid sheafiness/acyclicity is imported; GR2 15.4.34 is not applied without its analytically Noetherian hypothesis."
       ],
       "proposedOwner": "AdicSpacesPartII:R2",
       "api": [
@@ -1888,6 +1954,21 @@
           "name": "IntegralGenericFiber.cohomology_map",
           "role": "functoriality",
           "statement": "Export A→RΓ(Y,O_Y)→RΓ(Sη,O^+) and identify its composite with the unit."
+        },
+        {
+          "name": "IntegralGenericFiber.chartMap",
+          "role": "computation",
+          "statement": "On U_i send the blowup ratio f_j/f_i to its bounded rational function; prove the full blowup-ring relations."
+        },
+        {
+          "name": "IntegralGenericFiber.overlap",
+          "role": "compatibility",
+          "statement": "Identify the restrictions on U_i∩U_j via reciprocal bounded units."
+        },
+        {
+          "name": "IntegralGenericFiber.refinement",
+          "role": "functoriality",
+          "statement": "For an actual morphism between dominating models, compare the corresponding maps using their chart restrictions."
         }
       ],
       "unitTests": [
@@ -1899,6 +1980,16 @@
         {
           "name": "generic-fiber-map.test_2",
           "statement": "Replacing O^+ by O would lose integral almost information.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "generic-fiber-map.test_3",
+          "statement": "For I=(p^N,g), the two domains are |g|≤|p^N| and |p^N|≤|g|; their intersection has both ratios units.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "generic-fiber-map.test_4",
+          "statement": "The p^N generator prevents every chosen denominator from vanishing at a generic-fibre valuation.",
           "status": "planning test; not Lean-checked"
         }
       ],
@@ -1941,12 +2032,14 @@
         "PAPER-BHATT-18/proper-integral-h0",
         "PAPER-BHATT-18/almost-purity",
         "PAPER-BHATT-18/generic-fiber-map",
-        "PAPER-BHATT-18/acyclicity"
+        "PAPER-BHATT-18/acyclicity",
+        "PAPER-BHATT-18/splitting-through-comparison"
       ],
       "proofSteps": [
-        "Normalize the generic finite étale cover by almost purity and reduce to a generic isomorphism.",
-        "The composite A→RΓ(Y,O_Y)→RΓ(Sη,O^+) is an almost isomorphism by acyclicity, so the first arrow is almost split.",
-        "The change of base along the almost finite étale cover must be descended with its faithful hypothesis."
+        "Use the pinned integrality/localization/affinization imports for B=Γ(Y,O). Almost purity yields B→C, generic isomorphism and an almost finite étale surjective cover A→C with an almost A-linear retraction.",
+        "The morphism Y→Spec(B) is proper: its graph into Y×_A Spec(B) is closed because Spec(B) is separated over Spec(A), and projection is a base change of the original proper map. Thus Y_C is proper over C and has identity generic fibre.",
+        "Use algebraic blowup domination and the integral generic-fibre map to split C→RΓ(Y_C,O) by perfectoid acyclicity.",
+        "Restrict scalars and compose RΓ(Y,O)→RΓ(Y_C,O)→C→A. Its composite with A→RΓ(Y,O) is the identity in the almost derived category."
       ],
       "proposedOwner": "RegularRingSplittings"
     },
@@ -1965,7 +2058,8 @@
         "PAPER-BHATT-18/perfectoid-proper-split",
         "PAPER-BHATT-18/obstruction-detection",
         "PAPER-BHATT-18/obstruction-limit",
-        "PAPER-BHATT-18/equal-characteristic"
+        "PAPER-BHATT-18/equal-characteristic",
+        "PAPER-BHATT-18/splitting-through-comparison"
       ],
       "proofSteps": [
         "Replace the finite-module cone argument by the perfect-complex cone, use the generic multisection, then apply 6.2 on each annulus.",
@@ -1989,6 +2083,633 @@
         "Read exact hypotheses and reduction from the original cited cases before treating these branches as closed; G7. Characteristic zero here must mean a Q-algebra/equal-characteristic reduction, not merely char(A)=0."
       ],
       "proposedOwner": "RegularRingSplittings"
+    },
+    {
+      "id": "PAPER-BHATT-18/derived-tensor-api",
+      "kind": "construction",
+      "name": "Unbounded derived tensor from K-flat resolutions",
+      "statement": "Import the E1 derived tensor bifunctor for module/sheaf-module complexes, constructed from K-flat replacements, with exactness in each variable, R-linearity, the unit isomorphism and its ordinary-derived-category comparison. Tensoring an arbitrary complex uses this derived functor, not its underived tensor on a chosen representative.",
+      "locator": "EnhancedDerivedSheaves E1; Bhatt Remark 4.3; Stacks 06YF for the K-flat existence input",
+      "status": "planned",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/derived-category"
+      ],
+      "proofSteps": [
+        "Use the existing E1 construction rather than define a new perfectoid-specific derived tensor.",
+        "The P0 almostification comparison is a separate instantiation obligation recorded in G4.",
+        "Uniform tensor annihilation uses R-linearity and exactness of this imported functor."
+      ],
+      "proposedOwner": "EnhancedDerivedSheaves",
+      "uses": [
+        {
+          "where": "EnhancedDerivedSheaves E1; Bhatt Remark 4.3; Stacks 06YF for the K-flat existence input",
+          "how": "Uniform tensor annihilation uses R-linearity and exactness of this imported functor."
+        }
+      ],
+      "api": [
+        {
+          "name": "DerivedTensor.ofKFlat",
+          "role": "constructor",
+          "statement": "Use K-flat replacement and prove independence of that choice."
+        },
+        {
+          "name": "DerivedTensor.unit",
+          "role": "normalization",
+          "statement": "Identify R⊗^L_R K with K."
+        },
+        {
+          "name": "DerivedTensor.map_scalar",
+          "role": "compatibility",
+          "statement": "Tensor a scalar multiple of a morphism as the same scalar multiple of the tensor map."
+        },
+        {
+          "name": "DerivedTensor.cone",
+          "role": "exactness",
+          "statement": "Compare tensor of a functorial cone with the cone of the tensor map."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "derived-tensor-api.1",
+          "statement": "The derived tensor of two flat modules in degree zero agrees with ordinary tensor.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "derived-tensor-api.2",
+          "statement": "Z/p⊗^L_Z Z/p has a nonzero degree −1 cohomology group.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "derived-tensor-api.3",
+          "statement": "Tensoring a zero morphism gives a zero morphism even for an unbounded input.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "planned": [
+        "EnhancedDerivedSheaves:E1"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/almost-injective-cone",
+      "kind": "theorem",
+      "name": "Cone of an almost injective module map",
+      "statement": "For a commutative almost base (V,m) with m²=m and the standard flatness hypothesis on m⊗V m, a V-algebra R, and an R-module map u:M→N whose kernel is almost zero, Cone(u)^a is naturally isomorphic to coker(u)^a placed in degree zero. The isomorphism is natural in commutative squares of module maps.",
+      "locator": "Bhatt Remark 4.3, expanded from Theorem 4.2(1); ordinary cochain convention H^(-1)(Cone(u))=ker(u)",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/almost-category",
+        "PAPER-BHATT-18/derived-category"
+      ],
+      "proofSteps": [
+        "The two-term cone has cohomology only in degrees −1 and 0. Exact almostification removes its degree −1 cohomology.",
+        "The canonical projection Cone(u)→coker(u)[0] is therefore a quasi-isomorphism after almostification; its naturality identifies the actual transition maps, not only the objects."
+      ],
+      "proposedOwner": "PerfectoidSpaces"
+    },
+    {
+      "id": "PAPER-BHATT-18/uniform-tensor-cone",
+      "kind": "theorem",
+      "name": "Uniform tensor annihilation from module cokernels",
+      "statement": "Let u_n:M→N_n be a compatible countable tower of module maps over R, each almost injective for m. Put Q_n=coker(u_n). If a·(Q_(n+c)→Q_n)=0 in almost R-modules for all n, then for every K∈D(R), a annihilates the transition Cone(K⊗^L u_(n+c))→Cone(K⊗^L u_n) in the almost derived category. The same c works for every K and every cohomological degree.",
+      "locator": "Bhatt Remark 4.3; explicit derivation of its same-constant assertion",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/almost-injective-cone",
+        "PAPER-BHATT-18/derived-tensor-api"
+      ],
+      "proofSteps": [
+        "Use the natural cone-to-cokernel equivalence before applying derived tensor. The transition multiplied by a is the zero morphism of modules, hence zero in the derived category.",
+        "Derived tensor is R-linear and exact. Almostification commutes with derived tensor under the fixed almost-base hypotheses, so K^a⊗^L Q_n^a computes the almostified tensor cone.",
+        "Neither boundedness nor flatness of K is assumed: use the K-flat derived tensor supplied by EnhancedDerivedSheaves E1. Do not replace equality of morphisms by mere vanishing of their cohomology maps."
+      ],
+      "proposedOwner": "PerfectoidSpaces"
+    },
+    {
+      "id": "PAPER-BHATT-18/tensor-kernel-cokernel",
+      "kind": "theorem",
+      "name": "Uniform annihilation of tensor comparison defects",
+      "statement": "Under uniform-tensor-cone, a kills the transition maps on both ker(H^i(K⊗^L u_n)) and coker(H^i(K⊗^L u_n)) in almost modules, for all i, with the same shift c. For m=m_t and a=g^(1/p^k), every t^(1/p^j)g^(1/p^k) kills the corresponding ordinary transition maps. In particular (tg)^(1/p^k) works with j=k.",
+      "locator": "Bhatt Remark 4.3, long exact cohomology sequence of the tensor cone",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/uniform-tensor-cone"
+      ],
+      "proofSteps": [
+        "In each degree, the cokernel of H^i(u) embeds in H^i(Cone(u)), while the kernel of H^i(u) is a quotient of H^(i−1)(Cone(u)). These are natural descriptions for the transition squares.",
+        "Restrict or pass to the quotient of the zero scalar transition; no extra shift or squaring of g is needed.",
+        "A morphism which is zero after almostification has m-annihilated image. Multiply by each specified root of t to return to ordinary modules."
+      ],
+      "proposedOwner": "PerfectoidSpaces"
+    },
+    {
+      "id": "PAPER-BHATT-18/tower-roos",
+      "kind": "construction",
+      "name": "Countable derived limit of coherent module towers",
+      "statement": "For a commutative ring R and a strict countable tower of cochain R-module complexes K_n, define Rlim K as Cone(1−s:∏K_n→∏K_n)[−1], where s uses transition maps. This descends to D(Tower(Mod_R)), is exact, and computes the right derived inverse limit. The countable products are degreewise; these formulas are not asserted for arbitrary sheaf categories.",
+      "locator": "Stacks 08TB, Definition 13.34.1 and Lemma 13.34.2; 07KV, Lemmas 15.88.1 and 15.88.9; Bhatt 3.4–3.5",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/derived-category"
+      ],
+      "proofSteps": [
+        "Use exactness of products of R-modules to preserve quasi-isomorphisms and identify product cohomology. The standard two-column Roos resolution computes the derived limit.",
+        "Strict maps of towers give commuting squares on products and thus functorial maps of cones. Totalize the two finite cone directions to compare Rlim(Cone(u_n)) with Cone(Rlim(u)).",
+        "Import enhanced diagram rectification from E1/E2 when the input is a coherent derived diagram. A bare list of triangles in the homotopy category is not the supplied data.",
+        "Use the resulting exact functor for the actual comparison towers in Lemmas 3.4–3.5."
+      ],
+      "proposedOwner": "EnhancedDerivedSheaves",
+      "uses": [
+        {
+          "where": "Stacks 08TB, Definition 13.34.1 and Lemma 13.34.2; 07KV, Lemmas 15.88.1 and 15.88.9; Bhatt 3.4–3.5",
+          "how": "Use the resulting exact functor for the actual comparison towers in Lemmas 3.4–3.5."
+        }
+      ],
+      "api": [
+        {
+          "name": "TowerRlim.ofComplexes",
+          "role": "constructor",
+          "statement": "Form the product-difference cone with its degree shift."
+        },
+        {
+          "name": "TowerRlim.map",
+          "role": "functoriality",
+          "statement": "A strict tower morphism induces its functorial cone morphism, preserving identities and composition."
+        },
+        {
+          "name": "TowerRlim.cone",
+          "role": "compatibility",
+          "statement": "Identify the derived limit of a coherent cone tower with the cone of the induced limit map."
+        },
+        {
+          "name": "TowerRlim.cohomology",
+          "role": "comparison",
+          "statement": "Export the natural Milnor short exact sequence, retaining lim-one."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "tower-roos.1",
+          "statement": "A constant tower with identity maps has derived limit the original complex.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "tower-roos.2",
+          "statement": "A tower with every transition zero has acyclic product-difference cone.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "tower-roos.3",
+          "statement": "For modules in degree zero, cohomology is lim in degree zero and lim-one in degree one.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "tower-roos.4",
+          "statement": "A tower with nonzero lim-one must not be represented by ordinary inverse limit alone.",
+          "status": "planning test; not Lean-checked"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/pro-zero-roos",
+      "kind": "theorem",
+      "name": "Derived acyclicity of a pro-zero module tower",
+      "statement": "For a countable pro-zero tower M_n of R-modules, 1−s on ∏M_n is invertible. Hence lim M_n=lim¹ M_n=0 and Rlim M_n=0. More generally, a levelwise morphism of module towers whose kernel and cokernel towers are pro-zero induces an isomorphism on derived inverse limits.",
+      "locator": "Bhatt 3.4 proof input; Stacks 07KV, Lemmas 15.88.4 and 15.88.16; explicit product proof",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/tower-roos"
+      ],
+      "proofSteps": [
+        "Define ((1−s)^(-1)b)_n=Σ_(j≥n) transition_(j,n)(b_j). For each n all sufficiently late transition maps are zero, so the sum is finite at that coordinate. Telescope to verify both inverse identities.",
+        "For a levelwise pro-isomorphism, split its four-term kernel/cokernel exact sequence using its image tower. Apply exactness of the Roos functor to the two short exact sequences.",
+        "For arbitrary pro-representatives use cofinal reindexing and Stacks 15.88.4; preserve coherence when specifying a map in the derived category."
+      ],
+      "proposedOwner": "EnhancedDerivedSheaves"
+    },
+    {
+      "id": "PAPER-BHATT-18/module-tower-milnor",
+      "kind": "theorem",
+      "name": "Milnor sequence for coherent module-complex towers",
+      "statement": "For the tower-roos construction and every integer i, there is a natural short exact sequence 0→lim¹ H^(i−1)(K_n)→H^i(Rlim K_n)→lim H^i(K_n)→0. If every H^i(K_n) is m_t-almost-pro-zero, then H^i(Rlim K_n) is m_t-almost zero.",
+      "locator": "Stacks 07KV, Lemmas 15.88.9–15.88.10; Bhatt Lemma 3.5",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/tower-roos",
+        "PAPER-BHATT-18/pro-zero-roos",
+        "PAPER-BHATT-18/pro-zero",
+        "PAPER-BHATT-18/root-system"
+      ],
+      "proofSteps": [
+        "Take the long exact cohomology sequence of 1−s and use exact module products; its kernel and cokernel are lim and lim-one.",
+        "For each a=t^(1/p^k), the inclusion M_n[a]→M_n has pro-zero cokernel by almost-pro-zero. Its Roos comparison is an isomorphism, so a kills lim and lim-one of M_n.",
+        "Both ends of the Milnor extension are therefore almost zero. Explicitly choose b=t^(1/p^(k+1)); b² kills the middle, and t^(1/p^k)=b²·b^(p−2). This records the annihilator product that an extension requires.",
+        "This uses exact products for modules, not unproved left completeness of arbitrary sheaf-derived categories."
+      ],
+      "proposedOwner": "EnhancedDerivedSheaves"
+    },
+    {
+      "id": "PAPER-BHATT-18/rees-algebra",
+      "kind": "construction",
+      "name": "Rees algebra and its degree-one generators",
+      "statement": "For any commutative ring R and ideal I, reesAlgebra I is the subalgebra of R[T] consisting of polynomials whose degree-n coefficient lies in I^n. It is generated by the monomials aT with a∈I; if I is finitely generated, the Rees subalgebra is finitely generated over R without any Noetherian assumption.",
+      "locator": "Pinned Mathlib/RingTheory/ReesAlgebra.lean:39–116; underlying algebra for Stacks 0804",
+      "status": "library",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "Import the existing coefficientwise definition, monomial membership, degree-one generation and finite-generation theorem.",
+        "Use this algebra in the affine construction of admissible-blowup; do not re-plan the Rees algebra."
+      ],
+      "proposedOwner": "SchemeAndStackFoundations",
+      "uses": [
+        {
+          "where": "Pinned Mathlib/RingTheory/ReesAlgebra.lean:39–116; underlying algebra for Stacks 0804",
+          "how": "Use this algebra in the affine construction of admissible-blowup; do not re-plan the Rees algebra."
+        }
+      ],
+      "api": [
+        {
+          "name": "reesAlgebra",
+          "role": "constructor",
+          "statement": "Use the existing subalgebra of polynomials."
+        },
+        {
+          "name": "reesAlgebra.monomial_mem",
+          "role": "membership",
+          "statement": "The monomial aT^n belongs exactly when a∈I^n."
+        },
+        {
+          "name": "reesAlgebra.fg",
+          "role": "finiteness",
+          "statement": "A finite generating set for I gives finite generation of the Rees subalgebra."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "rees-algebra.1",
+          "statement": "For I=0, all positive-degree coefficients vanish.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "rees-algebra.2",
+          "statement": "For I=R, every polynomial belongs.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "rees-algebra.3",
+          "statement": "For a∈I and b∈I, the product (aT)(bT) has coefficient ab∈I².",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "library": [
+        "mathlib:reesAlgebra",
+        "mathlib:reesAlgebra.monomial_mem",
+        "mathlib:adjoin_monomial_eq_reesAlgebra",
+        "mathlib:reesAlgebra.fg"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/affine-proj",
+      "kind": "construction",
+      "name": "Projective spectrum of a graded ring",
+      "statement": "Let A be a commutative ring and A_n additive subgroups giving an N-grading: A is their direct sum, 1∈A_0, and A_i A_j⊆A_(i+j). Then AlgebraicGeometry.Proj is a scheme. For a homogeneous element f∈A_m with m>0, its basic open as a locally ringed space is isomorphic to Spec of the degree-zero homogeneous localization at f.",
+      "locator": "Pinned Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean:846–864",
+      "status": "library",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "Import the existing affine graded Proj and projIsoSpec basic-open comparison.",
+        "Applying this to the Rees grading and gluing relative Proj over the base remain adapters, not a new affine Proj construction."
+      ],
+      "proposedOwner": "SchemeAndStackFoundations",
+      "uses": [
+        {
+          "where": "Pinned Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean:846–864",
+          "how": "Applying this to the Rees grading and gluing relative Proj over the base remain adapters, not a new affine Proj construction."
+        }
+      ],
+      "api": [
+        {
+          "name": "AlgebraicGeometry.Proj",
+          "role": "constructor",
+          "statement": "Use the existing scheme associated to a graded ring."
+        },
+        {
+          "name": "AlgebraicGeometry.projIsoSpec",
+          "role": "comparison",
+          "statement": "Identify a positive-degree homogeneous basic open with its affine chart."
+        },
+        {
+          "name": "Blowup.reesGrading",
+          "role": "adapter obligation",
+          "statement": "Supply the Rees grading and identify its degree-zero localized rings with blowup algebras; this adapter is not claimed as a pinned declaration."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "affine-proj.1",
+          "statement": "The positive-degree hypothesis of projIsoSpec is explicit; it is not asserted for an arbitrary degree-zero element.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "affine-proj.2",
+          "statement": "The standard degree-one generators of a finitely generated Rees algebra provide the blowup chart cover.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "library": [
+        "mathlib:AlgebraicGeometry.Proj",
+        "mathlib:AlgebraicGeometry.projIsoSpec"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/admissible-blowup",
+      "kind": "construction",
+      "name": "Algebraic blowups away from an open subset",
+      "statement": "For a scheme S, a quasi-coherent ideal I of finite type, and an open U on which I=O, form Bl_I(S)=Proj_S(⊕_(n≥0) I^n). A U-admissible blowup is a morphism isomorphic to one of these; the centre is part of a witness, not uniquely determined by the morphism. Over Spec(A), its charts are Spec(A[I/f]) for a finite list of generators f, with A[I/f] the subalgebra of A[1/f] generated by the ratios a/f.",
+      "locator": "Stacks 080J, Definition 31.35.1; 0804, Lemma 31.33.2; Bhatt 6.2 footnote 8",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/rees-algebra",
+        "PAPER-BHATT-18/affine-proj"
+      ],
+      "proofSteps": [
+        "Reuse the pinned Rees algebra and affine graded Proj. Supply its Rees grading, chart comparison, and relative-Proj gluing as explicit adapter obligations in G6.",
+        "The chart ring is the degree-zero localized Rees algebra. Equations f T_i=a_i alone can retain f-power torsion; use the actual blowup algebra.",
+        "The blowup is projective for finite type I and is the identity over U. This is the algebraic modification used before p-adic completion."
+      ],
+      "proposedOwner": "SchemeAndStackFoundations",
+      "uses": [
+        {
+          "where": "Stacks 080J, Definition 31.35.1; 0804, Lemma 31.33.2; Bhatt 6.2 footnote 8",
+          "how": "The blowup is projective for finite type I and is the identity over U. This is the algebraic modification used before p-adic completion."
+        }
+      ],
+      "api": [
+        {
+          "name": "AdmissibleBlowup.ofIdeal",
+          "role": "constructor",
+          "statement": "Construct the blowup from I, finite generation and I|U=O."
+        },
+        {
+          "name": "AdmissibleBlowup.chart",
+          "role": "computation",
+          "statement": "Identify each standard chart with the actual blowup algebra A[I/f]."
+        },
+        {
+          "name": "AdmissibleBlowup.overOpen",
+          "role": "restriction",
+          "statement": "Export the isomorphism over U and its compatibility with the structural map."
+        },
+        {
+          "name": "AdmissibleBlowup.universal",
+          "role": "universal property",
+          "statement": "Factor a map whose pulled-back ideal is an invertible ideal sheaf through the blowup."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "admissible-blowup.1",
+          "statement": "Blowing up an invertible ideal, including (p^N) for p regular, gives the identity.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "admissible-blowup.2",
+          "statement": "For I=(x²,xy), the x²-chart has relation xu=y after saturation; the naive equation x²u=xy has an unwanted x-torsion component.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "admissible-blowup.3",
+          "statement": "For I=(p^N,g), use charts A[g/p^N] and A[p^N/g], whose overlap inverts these reciprocal ratios.",
+          "status": "planning test; not Lean-checked"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/strict-transform",
+      "kind": "construction",
+      "name": "Strict transform with exceptional torsion removed",
+      "statement": "For X→S, a blowup S′→S in I, and a quasi-coherent module F on X, its strict transform is the pullback to X×_S S′ modulo sections supported on the exceptional divisor. On the f-chart it is (F⊗_A A[I/f]) modulo f-power torsion. The strict transform X′ of X is the closed subscheme cut out by that torsion in its structure sheaf; it is also Bl_(I O_X)(X).",
+      "locator": "Stacks 080D, Definition 31.34.1; 080E, Lemma 31.34.2 and proof",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/admissible-blowup"
+      ],
+      "proofSteps": [
+        "The exceptional ideal is invertible on S′, so its local generators define a compatible torsion subsheaf; quotient and glue.",
+        "Use the surjective map of Rees algebras after base change to realize X′ as a closed subscheme of X×_S S′.",
+        "Apply this construction to O_X in the flattening argument, retaining properness of X′ over S′."
+      ],
+      "proposedOwner": "SchemeAndStackFoundations",
+      "uses": [
+        {
+          "where": "Stacks 080D, Definition 31.34.1; 080E, Lemma 31.34.2 and proof",
+          "how": "Apply this construction to O_X in the flattening argument, retaining properness of X′ over S′."
+        }
+      ],
+      "api": [
+        {
+          "name": "StrictTransform.module",
+          "role": "constructor",
+          "statement": "Quotient the pulled-back module by exceptional-divisor-power torsion."
+        },
+        {
+          "name": "StrictTransform.chart",
+          "role": "computation",
+          "statement": "Identify the f-chart quotient and show that f is a nonzerodivisor on it."
+        },
+        {
+          "name": "StrictTransform.scheme",
+          "role": "comparison",
+          "statement": "Identify the transformed scheme with the blowup in the pulled-back ideal."
+        },
+        {
+          "name": "StrictTransform.offCentre",
+          "role": "restriction",
+          "statement": "Recover X and F over the complement of the centre."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "strict-transform.1",
+          "statement": "When I is the unit ideal there is no exceptional torsion and the strict transform is the original object.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "strict-transform.2",
+          "statement": "For A=k[x], I=(x), F=A/(x), the strict transform is zero although its ordinary pullback is nonzero.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "strict-transform.3",
+          "statement": "On a chart where the exceptional generator acts invertibly, the strict-transform quotient changes nothing.",
+          "status": "planning test; not Lean-checked"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/flattening-modification",
+      "kind": "theorem",
+      "name": "Flattening by an admissible blowup",
+      "statement": "Let S be qcqs, U⊂S a quasi-compact open, X→S quasi-compact and locally of finite presentation, and F a finite type quasi-coherent O_X-module. If F|_(X_U) is of finite presentation and flat over U, some U-admissible blowup S′→S makes its strict transform finitely presented over X×_S S′ and flat over S′. No Noetherian assumption is made.",
+      "locator": "Stacks 0815, Theorem 38.30.7, statement and proof read; auxiliary leaves listed in G6",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/strict-transform"
+      ],
+      "proofSteps": [
+        "The source reduces étale locally to affine schemes and inducts on the maximum fibre dimension of Supp(F).",
+        "Its local presentation lemma 38.3.2 reduces via a finite pushforward to a smooth affine morphism with geometrically irreducible fibres.",
+        "Lemma 38.30.3 gives a finite locally free locus surjecting over the base. A chosen free submodule is universally injective by 38.10.1; its cokernel has smaller fibre-support dimension, so apply induction.",
+        "After making U schematically dense, 38.11.1 supplies finite presentation. These invoked proof leaves and the étale gluing in 38.30.6 remain explicit source-closure obligations, not assumed solved."
+      ],
+      "proposedOwner": "SchemeAndStackFoundations"
+    },
+    {
+      "id": "PAPER-BHATT-18/flatten-finite-type-scheme",
+      "kind": "theorem",
+      "name": "Flattening a finite type scheme generically of finite presentation",
+      "statement": "For qcqs S, quasi-compact open U, and a finite type quasi-separated X→S whose restriction to U is flat and locally of finite presentation, some U-admissible blowup makes the strict transform X′ flat and finitely presented over S′.",
+      "locator": "Stacks 081R, Lemma 38.31.1 and proof",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/flattening-modification"
+      ],
+      "proofSteps": [
+        "Cover X by finitely many affines and find a common admissible refinement of the blowups for them (Stacks 080J, 31.35.4).",
+        "Embed each affine as a closed subscheme of a quasi-compact open V in affine space over S. Apply flattening-modification to i_*O_X on V.",
+        "Strict transform commutes with affine pushforward (31.34.4, still a supplier obligation). Finite presentation of the transformed structure sheaf then gives finite presentation of the scheme."
+      ],
+      "proposedOwner": "SchemeAndStackFoundations"
+    },
+    {
+      "id": "PAPER-BHATT-18/flat-generic-isomorphism",
+      "kind": "theorem",
+      "name": "A flat generic isomorphism is an open immersion",
+      "statement": "If f:X→S is separated, locally of finite type and flat, and U⊂S is retrocompact and schematically dense with f^(-1)(U)→U an isomorphism, then f is an open immersion.",
+      "locator": "Stacks 081M, Lemma 38.11.5, statement and proof",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "The source first proves local finite presentation and zero-dimensional fibres via 38.11.2–38.11.3, then reduces around a point to a finite component in an elementary étale neighbourhood (37.41.6).",
+        "Flatness transports schematic density of U; the extraneous component is empty. The resulting finite locally free morphism has rank one on the dense open, hence everywhere after localization.",
+        "These local finite-presentation, fibre-dimension and étale-neighbourhood inputs remain individually named in G6. The generic-isomorphism hypothesis alone is not enough without flatness."
+      ],
+      "proposedOwner": "SchemeAndStackFoundations"
+    },
+    {
+      "id": "PAPER-BHATT-18/proper-modification-domination",
+      "kind": "theorem",
+      "name": "A proper generic isomorphism is dominated by a blowup",
+      "statement": "Let S be qcqs and U⊂S quasi-compact open. Every proper X→S which is an isomorphism over U admits a factorization S′→X→S with S′→S a U-admissible blowup. Neither S nor X is required Noetherian.",
+      "locator": "Stacks 081S–081T, Lemmas 38.31.3–38.31.4, with 080Y",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/flatten-finite-type-scheme",
+        "PAPER-BHATT-18/flat-generic-isomorphism",
+        "PAPER-BHATT-18/admissible-blowup"
+      ],
+      "proofSteps": [
+        "First blow up an ideal of finite type defining the complement of U in S so that its inverse image is an effective Cartier divisor; then U is schematically dense.",
+        "Flatten the strict transform; flat-generic-isomorphism makes it an open subscheme of S′.",
+        "The strict transform is also proper over S′, so this open immersion is closed. Its image contains dense U; it is all of S′.",
+        "Compose the admissible blowups using 31.35.2. For S=Spec(A), U=D(p), finite generation and I[1/p]=A[1/p] imply p^N∈I for some N."
+      ],
+      "proposedOwner": "SchemeAndStackFoundations"
+    },
+    {
+      "id": "PAPER-BHATT-18/cohomology-base-change-map",
+      "kind": "construction",
+      "name": "Unit-compatible derived cohomology base-change map",
+      "statement": "For any ring map R→D and a qcqs R-scheme X, put X_D=X×_R Spec(D). There is a natural D-linear map β:RΓ(X,O_X)⊗^L_R D→RΓ(X_D,O_(X_D)), compatible with the units from D. No flatness or Tor-independence is required to construct β; neither isomorphism nor almost isomorphism is asserted.",
+      "locator": "Stacks 08HY, Remark 20.28.3; Bhatt Theorem 6.1 final diagram chase",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/derived-category"
+      ],
+      "proofSteps": [
+        "For the cartesian square, construct Lg* Rf*→Rf′* Lg′* by the adjunction counit, as in 08HY. Apply it to O_X; Lg′*O_X=O_(X_D).",
+        "Identify quasi-coherent derived modules on the affine bases with ring-module complexes, importing this comparison from the existing sheaf foundations.",
+        "The triangle identities give β∘unit_derived=unit_ordinary. This is the sole base-change relation needed in the splitting argument."
+      ],
+      "proposedOwner": "EnhancedDerivedSheaves",
+      "uses": [
+        {
+          "where": "Stacks 08HY, Remark 20.28.3; Bhatt Theorem 6.1 final diagram chase",
+          "how": "The triangle identities give β∘unit_derived=unit_ordinary. This is the sole base-change relation needed in the splitting argument."
+        }
+      ],
+      "api": [
+        {
+          "name": "CohomologyBaseChange.map",
+          "role": "constructor",
+          "statement": "Construct β for every ring map, as the adjoint of pullback of the counit."
+        },
+        {
+          "name": "CohomologyBaseChange.unit",
+          "role": "compatibility",
+          "statement": "Prove the commuting triangle with the structural unit from D."
+        },
+        {
+          "name": "CohomologyBaseChange.identity",
+          "role": "normalization",
+          "statement": "For D=R identify β with the identity comparison."
+        },
+        {
+          "name": "CohomologyBaseChange.composition",
+          "role": "functoriality",
+          "statement": "Check compatibility for two successive scalar extensions."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "cohomology-base-change-map.1",
+          "statement": "For X=Spec(B), β is the canonical B⊗^L_R D→B⊗_R D.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "cohomology-base-change-map.2",
+          "statement": "For R=Z and B=D=Z/p, the source has a nonzero Tor_1 but the target is in degree zero; β exists and is not an isomorphism.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "cohomology-base-change-map.3",
+          "statement": "For X=Spec(R), β is the identity of D and the unit triangle commutes.",
+          "status": "planning test; not Lean-checked"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/splitting-through-comparison",
+      "kind": "theorem",
+      "name": "Transfer a retraction across a compatible comparison",
+      "statement": "In any category, if u:A→M, v:M→N, and r:N→A satisfy r∘v∘u=id_A, then v followed by r is a retraction of u. In D(D), an almost retraction of D→RΓ(X_D,O) therefore composes with cohomology-base-change-map to split D→RΓ(X,O)⊗^L_R D almost. A further derived scalar extension preserves a supplied retraction.",
+      "locator": "Bhatt 6.1 final sentence and 6.2 change of base; elementary composition in a category",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/cohomology-base-change-map"
+      ],
+      "proofSteps": [
+        "Compose the supplied maps and use the unit triangle. Associativity proves the retraction identity; no conservativity, faithful flat descent or inverse of β is used.",
+        "For 6.1 first work over D=A∞⟨p^n/g⟩ and then apply −⊗^L_D D/p^m. Since p is regular on D, this is the displayed reduction of its unit; the left-hand derived scalar extension is already the object in the proof.",
+        "For 6.2 use the algebra map B→C to get Y_C→Y and a map RΓ(Y,O)→RΓ(Y_C,O). Compose the retraction to C with the almost retraction C→A from almost purity. The base change is along B, so no unproved A-flatness of B→C is required."
+      ],
+      "proposedOwner": "EnhancedDerivedSheaves"
     }
   ],
   "routes": [
@@ -2019,7 +2740,10 @@
         "PAPER-BHATT-18/linear-functor",
         "PAPER-BHATT-18/almost-purity",
         "PAPER-BHATT-18/almost-splitting",
-        "PAPER-BHATT-18/acyclicity"
+        "PAPER-BHATT-18/acyclicity",
+        "PAPER-BHATT-18/almost-injective-cone",
+        "PAPER-BHATT-18/uniform-tensor-cone",
+        "PAPER-BHATT-18/tensor-kernel-cokernel"
       ],
       "reason": "Reuse almost algebra, the field/integral dictionary, rational localization and almost purity. Add the general almost-pro estimates and the derived rational presentation inside these existing scopes. Existing detailed supplier nodes are recorded in the item notes; their partial status is retained."
     },
@@ -2063,7 +2787,13 @@
       ],
       "items": [
         "PAPER-BHATT-18/simplicial-perfection",
-        "PAPER-BHATT-18/obstruction"
+        "PAPER-BHATT-18/obstruction",
+        "PAPER-BHATT-18/derived-tensor-api",
+        "PAPER-BHATT-18/tower-roos",
+        "PAPER-BHATT-18/pro-zero-roos",
+        "PAPER-BHATT-18/module-tower-milnor",
+        "PAPER-BHATT-18/cohomology-base-change-map",
+        "PAPER-BHATT-18/splitting-through-comparison"
       ],
       "reason": "Use its derived tensor/Hom and coherent tower foundations. Supply the simplicial perfection discreteness input to animation, and the splitting-obstruction triangle to the module specialization of E1. Rlim invariance is an exact E2 request."
     },
@@ -2089,9 +2819,14 @@
       "items": [
         "PAPER-BHATT-18/proper-cohomology",
         "PAPER-BHATT-18/generic-multisection",
-        "PAPER-BHATT-18/proper-integral-h0"
+        "PAPER-BHATT-18/admissible-blowup",
+        "PAPER-BHATT-18/strict-transform",
+        "PAPER-BHATT-18/flattening-modification",
+        "PAPER-BHATT-18/flatten-finite-type-scheme",
+        "PAPER-BHATT-18/flat-generic-isomorphism",
+        "PAPER-BHATT-18/proper-modification-domination"
       ],
-      "reason": "Request the coherent global-section and proper-modification interfaces used by 6.1–6.2, explicitly distinguished from étale proper base change. General non-Noetherian and almost base-change hypotheses remain open requests, not existing theorem claims."
+      "reason": "Retain proper coherent cohomology and generic multisections, and expose the general algebraic modification/flattening inputs inside SF.4. H^0 integrality is removed from the missing route after exact pinned-library matching. R2 imports the generic modification theory."
     },
     {
       "route": "source",
@@ -2103,7 +2838,7 @@
         "PAPER-BHATT-18/formal-domination",
         "PAPER-BHATT-18/generic-fiber-map"
       ],
-      "reason": "R2 owns admissible blowups and formal generic fibers. Request the precise non-Noetherian domination/factorization input from GR2; do not reconstruct the upstream AdicSpaces carrier or infer this from F0's Noetherian statements."
+      "reason": "Only the p-adic specialization of generic algebraic domination and its integral adic chart map belong here; the algebraic flattening theorem is owned once in SF.4. This is a supplier request beyond the existing partial R2 packet."
     },
     {
       "route": "part-ii",
@@ -2122,7 +2857,7 @@
         "PAPER-BHATT-18/limit-extension"
       ],
       "reason": "Reuse the identically named pending proposal in PAPER-ANDRE-18, not a second Riemann-extension roadmap. It has no registered stages or review at this snapshot, so these items are missing rather than planned. Merge this incremental brief with that proposal during design.",
-      "brief": "Extend the pending PerfectoidRamification brief from PAPER-ANDRE-18 with Bhatt's quantitative version. Import Perfectoid rings and spaces (PerfectoidSpaces) P0 almost-pro mathematics, P1 integral/tilted conventions, P2 rational root presentations and P3 almost purity; import generic derived completion and Koszul complexes from Derived de Rham cohomology (DerivedDeRhamCohomology) DD.1 and derived tensor/Hom from Enhanced derived sheaves (EnhancedDerivedSheaves). For integral perfectoid A with chosen compatible roots of t and g, first assume g is an almost nonzerodivisor modulo every t^m. For f_n:A/t^m→A⟨t^n/g⟩/t^m prove separately the m_t-almost-zero kernel, uniform m_g-almost-zero cokernel with shift c=p^k m independent of n, and the resulting m_(tg)-almost-pro-isomorphism. Construct all transition maps on root monomials. Prove Remark 4.3's derived tensor uniformity with its actual annihilator bounds before using it to remove the regularity assumption in Remark 4.4. Recover the inverse-limit Riemann extension only after the quantitative result, retaining lim-one. Do not infer arbitrary pointwise kernel vanishing from the final theorem without g-regularity. This strengthens the shared André ramification direction; it does not duplicate his completed integral-closure theorem or create a second perfectoidization. The standalone derived-uniformity proof is a mandatory design obligation, not established by this partial extraction."
+      "brief": "Extend the pending PerfectoidRamification brief from PAPER-ANDRE-18 with Bhatt's quantitative version. Import Perfectoid rings and spaces (PerfectoidSpaces) P0 almost-pro mathematics, P1 integral/tilted conventions, P2 rational root presentations and P3 almost purity; import generic derived completion and Koszul complexes from Derived de Rham cohomology (DerivedDeRhamCohomology) DD.1 and derived tensor/Hom from Enhanced derived sheaves (EnhancedDerivedSheaves). For integral perfectoid A with chosen compatible roots of t and g, first assume g is an almost nonzerodivisor modulo every t^m. For f_n:A/t^m→A⟨t^n/g⟩/t^m prove separately the m_t-almost-zero kernel, uniform m_g-almost-zero cokernel with shift c=p^k m independent of n, and the resulting m_(tg)-almost-pro-isomorphism. Construct all transition maps on root monomials. Prove Remark 4.3's derived tensor uniformity with its actual annihilator bounds before using it to remove the regularity assumption in Remark 4.4. Recover the inverse-limit Riemann extension only after the quantitative result, retaining lim-one. Do not infer arbitrary pointwise kernel vanishing from the final theorem without g-regularity. This strengthens the shared André ramification direction; it does not duplicate his completed integral-closure theorem or create a second perfectoidization. The continuation supplies the amplitude-zero cone proof of derived uniformity: c=p^k m survives tensor with arbitrary K, with g^(1/p^k) in m_t-almost modules and (tg)^(1/p^k) in ordinary modules. Implement its explicit P0/E1 suppliers; do not infer the argument from a general cohomological ghost map."
     },
     {
       "route": "part-ii",
@@ -2146,7 +2881,7 @@
         "PAPER-BHATT-18/equal-characteristic"
       ],
       "reason": "The existing parent owns Noetherian, regular-sequence, dimension and complete local algebra, but not either direct-summand theorem. These are new layers in its commutative-algebra direction. Coordinate with PAPER-ANDRE-18-B; PAPER-ANDRE-18 is the different Abhyankar paper.",
-      "brief": "Build on Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra), importing its complete local coefficient and regular local homological algebra rather than recreating those foundations. The first final theorem is: every finite injective map A0→B0 of Noetherian commutative rings with A0 regular admits an A0-linear retraction. The second is: for every proper surjective f0:X0→Spec(A0) with A0 Noetherian regular, the unit A0→RΓ(X0,O_X0) splits in D(A0). Neither retraction is required to be multiplicative. Import PerfectoidSpaces P0–P3, PerfectoidQuotients Q0:integral-algebra and Q3, the shared pending PerfectoidRamification quantitative tower theorem, DerivedDeRhamCohomology DD.1, EnhancedDerivedSheaves E1/E2, and the precise proper-coherent and formal-model suppliers requested from SchemeAndStackFoundations and AdicSpacesPartII R2. Construct the unramified and ramified regular local perfectoid covers separately, prove both positive Tor almost vanishing and detection of ordinary modules, and track the (!!) and star normalization steps. Prove the localization/completion, component, Cohen presentation and discriminant reductions, obstruction detection modulo p^m and its p²g-to-pg annihilator calculation, and almost vanishing on every annulus with its lim-one removal. For the derived theorem prove the perfectness of proper coherent cohomology, generic multisection reduction and corrected Proposition 6.2 with generic finite-étale SURJECTIVITY in mixed characteristic. Do not replace coherent base change by étale proper base change or ordinary base change without Tor control. Read the original equal-characteristic inputs and GR2 non-Noetherian domination theorem before closing the graph. Coordinate ownership of any splinter predicate with PAPER-BHATT-ETAL-23's pending birational proposal; these statements can use explicit retractions and need no duplicate singularity vocabulary. Remark 5.5 is a question in this source, not a proved acceptance target."
+      "brief": "Build on Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra), importing its complete local coefficient and regular local homological algebra rather than recreating those foundations. The first final theorem is: every finite injective map A0→B0 of Noetherian commutative rings with A0 regular admits an A0-linear retraction. The second is: for every proper surjective f0:X0→Spec(A0) with A0 Noetherian regular, the unit A0→RΓ(X0,O_X0) splits in D(A0). Neither retraction is required to be multiplicative. Import PerfectoidSpaces P0–P3, PerfectoidQuotients Q0:integral-algebra and Q3, the shared pending PerfectoidRamification quantitative tower theorem, DerivedDeRhamCohomology DD.1, EnhancedDerivedSheaves E1/E2, and the precise proper-coherent and formal-model suppliers requested from SchemeAndStackFoundations and AdicSpacesPartII R2. Construct the unramified and ramified regular local perfectoid covers separately, prove both positive Tor almost vanishing and detection of ordinary modules, and track the (!!) and star normalization steps. Prove the localization/completion, component, Cohen presentation and discriminant reductions, obstruction detection modulo p^m and its p²g-to-pg annihilator calculation, and almost vanishing on every annulus with its lim-one removal. For the derived theorem prove the perfectness of proper coherent cohomology, generic multisection reduction and corrected Proposition 6.2 with generic finite-étale SURJECTIVITY in mixed characteristic. Do not replace coherent base change by étale proper base change or ordinary base change without Tor control. Read the original equal-characteristic inputs and GR2 non-Noetherian domination theorem before closing the graph. Coordinate ownership of any splinter predicate with PAPER-BHATT-ETAL-23's pending birational proposal; these statements can use explicit retractions and need no duplicate singularity vocabulary. Remark 5.5 is a question in this source, not a proved acceptance target. Continuation: proper H^0 integrality/localization/affinization are pinned library imports. Use the named SF.4 Stacks 0815–081T modification items and their R2 integral chart adapter. The bridge from ordinary proper base change needs only the E1 unit-compatible comparison morphism and composition of retractions, not its being an isomorphism. Finish the exact outstanding flattening leaves in G6; acquisition of GR2 alone does not close them."
     }
   ],
   "sourceIssues": [
@@ -2297,8 +3032,8 @@
     },
     {
       "citation": "Gabber–Ramero, Foundations for almost ring theory, cited GR2",
-      "link": "https://arxiv.org/abs/math/0409584",
-      "why": "The §15.4 non-Noetherian formal-model input must be matched to the exact version; not yet read."
+      "link": "https://arxiv.org/abs/math/0409584v11",
+      "why": "Release 6.95 acquired and selected §15.4 chart/stalk arguments read. Blowup domination is matched separately to Stacks 081T; GR2 sheafification and prior rational-space inputs still use existing suppliers."
     },
     {
       "citation": "Scholze–Weinstein, Berkeley lectures on p-adic geometry, cited SW",
@@ -2314,13 +3049,18 @@
       "citation": "Bhatt, lecture notes cited Bh4, Corollary 9.4.7",
       "link": "https://www.math.ias.edu/~bhatt/",
       "why": "Exact lecture edition and functorial AIC statement must be acquired; this is an acquisition pointer, not a verified theorem URL."
+    },
+    {
+      "citation": "Stacks Project, non-Noetherian flattening and derived limits",
+      "link": "https://stacks.math.columbia.edu/tag/0815",
+      "why": "Statement/proof of flattening read; its unexpanded local-presentation, étale-local gluing and finite-presentation leaves are G6. Derived-limit sources are tags 08TB and 07KV; base-change-map source is 08HY."
     }
   ],
   "gaps": [
     {
       "id": "PAPER-BHATT-18/G1",
       "title": "Version collation",
-      "task": "Read the complete published Bhatt article (Inventiones 212, 297–317) and collate with arXiv v2. Metadata, abstract, displayed public footnotes and references agree, but full line-by-line publication identity is not established.",
+      "task": "Read the complete published Bhatt article (Inventiones 212, 297–317) and collate with arXiv v2. Metadata, abstract, displayed public footnotes and references agree, but full line-by-line publication identity is not established. The continuation checked the purported publisher PDF: it is only a rendered subscription landing page and provides no additional journal text.",
       "affects": [
         "PAPER-BHATT-18/perfectoid-proper-split"
       ]
@@ -2349,8 +3089,8 @@
     },
     {
       "id": "PAPER-BHATT-18/G4",
-      "title": "Coherent derived towers and uniformity",
-      "task": "Supply Rlim invariance under pro-isomorphism, coherent cone models and bounded-convergence argument for 3.5. Expand Remark 4.3 into chain-level annihilator statements with exact shifts and any annihilator products; do not claim a proof from cohomological annihilation alone.",
+      "title": "Remaining enhanced supplier implementation after the tower proof expansion",
+      "task": "The concrete paper-proof gap in 3.4–3.5 and Remark 4.3 is resolved by tower-roos, pro-zero-roos, module-tower-milnor, almost-injective-cone, uniform-tensor-cone and tensor-kernel-cokernel. Remaining source-to-Lean planning: instantiate the E1/E2 coherent diagram/derived tensor APIs for almost modules, verify their monoidal almostification comparison under the fixed P0 base hypotheses, and connect Remark 4.4 to the still-open rational-presentation supplier G2. No arbitrary homotopy-category cone choice or sheaf-product exactness is assumed.",
       "affects": [
         "PAPER-BHATT-18/rlim-zero",
         "PAPER-BHATT-18/rlim-iso",
@@ -2372,11 +3112,14 @@
     {
       "id": "PAPER-BHATT-18/G6",
       "title": "Proper and non-Noetherian geometry",
-      "task": "Acquire GR2 §15.4 in the cited version and match domination hypotheses. Prove integrality of H^0 over the non-Noetherian perfectoid base, coherent finiteness/perfectness, generic multisections and the almost-flat derived-to-ordinary base-change comparison. Assign exact supplier nodes; SF.2 and R2 routes are precise requests, not assertions that their narrower existing packets already close this.",
+      "task": "H^0 integrality, localization and affinization are now pinned library imports. Release 6.95 is acquired, and its chart/stalk construction is read. Stacks 081T exactly supplies non-Noetherian algebraic domination; 081S, 081R, 081M and 0815 are decomposed into named items. Remaining foundational leaves: 38.3.2 local finite presentation and relative normalization; 38.30.3 local free locus; 38.30.6 étale-local gluing; 38.10.1 universal injectivity; 38.11.1–38.11.3 finite presentation/fibre dimension; 37.41.6 finite component in an étale neighbourhood; 31.34.4 affine pushforward for strict transform; 31.33.14 composition of admissible blowups. Match these to supplier nodes in SF.4 and their current dependency owners before declaring domination proof closure. Also supply the Rees-grading/chart and relative-Proj gluing adapters around the pinned affine constructions, and finish proper coherent finiteness/perfectness and generic multisections. The former demand for an almost-flat base-change isomorphism is withdrawn for this proof: the unit-compatible comparison map and retraction composition suffice. R2 owns only the p-adic/analytic adapter to the generic SF.4 modification results; neither its partial packet nor Noetherian F0 proves the remaining leaves.",
       "affects": [
         "PAPER-BHATT-18/proper-cohomology",
         "PAPER-BHATT-18/generic-multisection",
-        "PAPER-BHATT-18/proper-integral-h0",
+        "PAPER-BHATT-18/flattening-modification",
+        "PAPER-BHATT-18/flatten-finite-type-scheme",
+        "PAPER-BHATT-18/flat-generic-isomorphism",
+        "PAPER-BHATT-18/proper-modification-domination",
         "PAPER-BHATT-18/formal-domination",
         "PAPER-BHATT-18/generic-fiber-map",
         "PAPER-BHATT-18/perfectoid-proper-split"
@@ -2409,10 +3152,12 @@
   "requests": [
     {
       "supplier": "EnhancedDerivedSheaves:E2",
-      "statement": "Derived inverse limits of countable A-module towers are invariant under pro-isomorphism, with coherent cone compatibility and the bounded convergence argument used in 3.4–3.5.",
+      "statement": "Instantiate E1/E2 for the explicit coherent module-tower Roos construction, cone compatibility, pro-zero invariance and Milnor sequence. Preserve the almost-category tensor comparison with P0; generic sheaf left-completeness is not inferred.",
       "consumers": [
         "PAPER-BHATT-18/rlim-zero",
-        "PAPER-BHATT-18/rlim-iso"
+        "PAPER-BHATT-18/rlim-iso",
+        "PAPER-BHATT-18/tower-roos",
+        "PAPER-BHATT-18/module-tower-milnor"
       ]
     },
     {
@@ -2425,18 +3170,28 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "statement": "Proper coherent finiteness, non-Noetherian integral H^0, and the Tor-qualified derived base-change statements identified in G6; these are not étale proper base change.",
+      "statement": "Proper coherent finiteness and perfectness, with exact regular-local inputs. The H^0 integrality/localization/affinization portions are already library imports. Only a unit-compatible base-change morphism, constructed from E1 adjunctions, is used in 6.1; no unconditional base-change isomorphism is requested.",
       "consumers": [
         "PAPER-BHATT-18/proper-cohomology",
-        "PAPER-BHATT-18/proper-integral-h0"
+        "PAPER-BHATT-18/cohomology-base-change-map"
       ]
     },
     {
       "supplier": "AdicSpacesPartII:R2",
-      "statement": "GR2 non-Noetherian admissible blowup domination and integral generic-fiber factorization under exact p-adic hypotheses.",
+      "statement": "Use the generic algebraic modification results requested from SF.4, then construct the integral rational-chart map and its p-adic adapter. GR2 release 6.95 15.4.14/15.4.25 supplies local chart/stalk arguments; do not impose or silently claim analytically Noetherian hypotheses.",
       "consumers": [
         "PAPER-BHATT-18/formal-domination",
         "PAPER-BHATT-18/generic-fiber-map"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.4",
+      "statement": "Single ownership of the algebraic finite type ideal blowup, strict transform, non-Noetherian flattening and proper-modification domination supplied by Stacks 0815–081T. R2 imports these for its analytic adapter. Remaining proof leaves are itemized in G6.",
+      "consumers": [
+        "PAPER-BHATT-18/admissible-blowup",
+        "PAPER-BHATT-18/strict-transform",
+        "PAPER-BHATT-18/flattening-modification",
+        "PAPER-BHATT-18/proper-modification-domination"
       ]
     }
   ],
@@ -2444,6 +3199,9 @@
     "Question in Remark 5.5 is not promoted to a theorem.",
     "No new splinter predicate duplicates the pending PAPER-BHATT-ETAL-23 proposal.",
     "No Lean file is among this issue's deliverables; no Lean compilation or formalization is claimed.",
-    "The item DAG records proof dependencies and explicit gaps; supplier stage placeholders are not closed proofs."
+    "The item DAG records proof dependencies and explicit gaps; supplier stage placeholders are not closed proofs.",
+    "The continuation is authored proof expansion, not an independent review of the prior checkpoint or its eight findings.",
+    "A source statement being matched and decomposed is distinct from all of its auxiliary proof leaves being read; G6 lists those remaining leaves.",
+    "The generic algebraic modification theory stays in SF.4; R2 imports it. No new Part II or duplicate splinter definition is introduced."
   ]
 }
