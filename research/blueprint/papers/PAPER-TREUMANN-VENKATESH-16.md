@@ -215,3 +215,21 @@ Ash, *Smith theory and Hecke operators* (J. Algebra **259** (2003), 43–58).
   the `A₃×A₃` diagram of `x₁,x₂,x₃,y₁,y₂,y₃`, the Coxeter factorisation of `U`, `U(α₅)` with its coefficient 2,
   and the roots of `L_G(U)` and `L_G(U²)`), which found E1.
 * No Lean file is part of this job.
+
+## Review (REV-PAPER-TREUMANN-VENKATESH-16, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its three routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-TREUMANN-VENKATESH-16.md`.
+
+- **The published version:** the review read it (Ann. of Math. 183 (2016), 177–228; free on the Annals site). Every locator now gives both versions.
+  - Print keeps §§1–8.
+  - It replaces the preprint's §§9–12 (the existence of σ-dual homomorphisms) with a §9 of examples, and announces the existence theorem in §1.3.
+- **Statements:** 35 corrected.
+- **New items:** 14 (1 library, 13 missing). Both Part II briefs have a corrections paragraph.
+- **Source issues:** E1–E4 are confirmed. E5–E53 are new:
+  - the explicit formula (4.3.1) is wrong for non-σ-invariant h;
+  - Theorem 4.4's proof has a convergence gap for unbounded chains, and its part (b) needs finite-dimensional cohomology;
+  - Proposition 5.6 must exclude places with a disconnected fixed-point special fibre;
+  - the q_v-normalisations of §§7.2–7.4 are inverted;
+  - Remark 9.2 needs H semisimple;
+  - the preprint's Theorem 12.1(i)–(iii) are unproved.
+  - Theorems 4.4, 5.8, 6.5 and 8.10 stand.
