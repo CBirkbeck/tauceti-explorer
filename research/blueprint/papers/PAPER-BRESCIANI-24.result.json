@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BRESCIANI-24",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "On the birational section conjecture with strong birationality assumptions",
     "authors": "Giulio Bresciani",
@@ -16,7 +16,7 @@
       "Entire published pp.129–150: introduction, §§2–7, Lemmas1–26, TheoremsA–C, all proofs, footnote1, acknowledgements and references."
     ]
   },
-  "summary": "Partial continuation of PR2032: proposes an explicit noncircular number-field repair for the nonsplit quadratic-boundary parabolic branch, using local Kummer injectivity, mixed Chebotarev places, diagonal loops and a valuation contradiction modulo squares. Preserves the 168 earlier items, 14 ownership routes and seven source findings; adds 11 declaration-sized proof inputs/applications (two pinned library imports, one existing Chebotarev specialization, eight missing routed lemmas). The positive-transcendence-degree parabolic step, recursive source suppliers and inherited API/DAG closure remain open. Nothing is formalized.",
+  "summary": "Theorem A: over fields finitely generated over Q, t-birationally liftable Galois sections are geometric or cuspidal; Theorems B and C give consequences for the section and birational section conjectures. Complete (cc-442dc5): every numbered statement and cited input is an item and every missing item is routed. Seven findings are recorded. E2 now affects a stated result: the paper's reduction to non-parabolic curves fails for P^1 minus a nonsplit degree-2 point. That case is repaired over number fields by a proposed argument in the extraction and is open in positive transcendence degree. Not formalised.",
   "items": [
     {
       "id": "PAPER-BRESCIANI-24/1",
@@ -893,7 +893,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "This valid counterexample, not the false source sentence, is the item routed as a negative acceptance theorem to the birational-sections Part II. It does not refute TheoremA. The nonsplit degree-two-boundary branches of /81 and /96 remain a genuine proof-repair gap; routing this counterexample does not close that gap."
+      "note": "This valid counterexample, not the false source sentence, is the item routed as a negative acceptance theorem to the birational-sections Part II. It does not refute TheoremA. The nonsplit degree-two-boundary branches of /81 and /96 remain a genuine proof-repair gap; routing this counterexample does not close that gap. Recorded as E2, which affects a stated result: Theorem A in the nonsplit parabolic case (cc-442dc5)."
     },
     {
       "id": "PAPER-BRESCIANI-24/78",
@@ -937,7 +937,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The nonparabolic printed argument uses a b.l. lift over k(t), Stix density and Lemma8 at every closed point, extension over A1, then Π_A1/k=Spec k. For the genus-zero parabolic branch use the explicit proposed number-field replacement /177 plus split-boundary /178 and proper /179, with /69 in the proper case. If a point is removed, lift geometrically to its rational cuspidal packet; existing cuspidal packets also lift to every smaller open. These lifts are t-b.l. by the direct /111 argument. This replaces the false blanket sentence, relative to the still-open supplier/readings in the gaps; it does not settle /96 over all finitely generated fields. For an affine parabolic curve whose completion is not yet known split, push its b.l. section to that completion via /71 and first apply /179.",
+      "note": "The nonparabolic printed argument uses a b.l. lift over k(t), Stix density and Lemma8 at every closed point, extension over A1, then Π_A1/k=Spec k. For the genus-zero parabolic branch use the explicit proposed number-field replacement /177 plus split-boundary /178 and proper /179, with /69 in the proper case. If a point is removed, lift geometrically to its rational cuspidal packet; existing cuspidal packets also lift to every smaller open. These lifts are t-b.l. by the direct /111 argument. This replaces the false blanket sentence, relative to the still-open supplier/readings in the gaps; it does not settle /96 over all finitely generated fields. For an affine parabolic curve whose completion is not yet known split, push its b.l. section to that completion via /71 and first apply /179. The printed proof's 'We may assume that X is non-parabolic' rests on the false sentence recorded as E2 (cc-442dc5).",
       "prerequisites": [
         "PAPER-BRESCIANI-24/13",
         "PAPER-BRESCIANI-24/53",
@@ -1111,12 +1111,12 @@
       "id": "PAPER-BRESCIANI-24/96",
       "kind": "theorem",
       "name": "t-b.l. sections are quasi-t-b.l.",
-      "statement": "Every t-b.l. section is quasi-t-b.l., using the nonparabolic reduction when needed.",
+      "statement": "Every t-b.l. section of a curve X over a field finitely generated over Q is quasi-t-b.l., provided X is not isomorphic to P^1_k minus a closed point of degree 2, or k is a number field. (The printed remark has no such proviso; see E2.)",
       "locator": "Published paper After Definition 18 p.144",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "For nonparabolic X the identity map supplies the target in the definition. Over number fields the parabolic case now has the proposed /177–/179 replacement and /81. Over an arbitrary field finitely generated over Q, the nonsplit degree-two-boundary case remains a checkpoint gap: do not use Proposition22, which already requires quasi-t-b.l., to establish this hypothesis."
+      "note": "Corrected statement (cc-442dc5, E2). For non-parabolic X take U = X and the identity map. Parabolic X with split boundary or proper X: the sections are cuspidal or geometric (/178, /179), hence quasi-t-b.l. through a hyperbolic open containing the point. Over number fields the nonsplit case follows from /177 in the same way. Over fields of positive transcendence degree the nonsplit case is open, and Proposition 22 cannot be used, since it needs quasi-t-b.l. as input."
     },
     {
       "id": "PAPER-BRESCIANI-24/97",
@@ -1287,12 +1287,12 @@
       "id": "PAPER-BRESCIANI-24/112",
       "kind": "theorem",
       "name": "Theorem A reverse direction",
-      "statement": "For every such X/k, every t-b.l. section is geometric or cuspidal.",
+      "statement": "Let X be a smooth geometrically connected curve over a field k finitely generated over Q, and s a t-b.l. section of X. Then s is geometric or cuspidal, provided X is not isomorphic to P^1_k minus a closed point of degree 2, or k is a number field. (The printed theorem has no such proviso; see E2.)",
       "locator": "Published paper Theorem A pp.131,146",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The number-field nonsplit quadratic-boundary branch has the proposed /177 replacement; /178–/179 handle the other genus-zero parabolic cases. For nonparabolic curves the printed quasi-t-b.l. reduction applies. The parabolic nonsplit-boundary step over a positive-transcendence-degree field still needs a noncircular argument. TheoremA is not used as an input to /177, and its full source closure is not claimed."
+      "note": "Corrected statement (cc-442dc5, E2). For non-parabolic X the printed proof applies (the quasi-t-b.l. reduction, Proposition 22, then Lemma 16, Tamagawa and Proposition 17 over number fields). Parabolic curves with split boundary are handled by /178 and proper genus-zero curves by /179. For X = P^1_k minus a nonsplit degree-2 point over a number field, the extraction's proposed repair /177 is used (not in the paper, unreviewed). Over fields of positive transcendence degree that case has no known argument."
     },
     {
       "id": "PAPER-BRESCIANI-24/113",
@@ -2982,22 +2982,24 @@
       "searched": [
         "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
         "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+        "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
       ]
     },
     {
       "id": "PAPER-BRESCIANI-24/E2",
       "kind": "error",
-      "locator": "Published §4 p.141, paragraph after Corollary 15; arXiv v3 §4",
-      "printed": "every Galois section of X is cuspidal",
-      "correction": "Treat parabolic curves with nonsplit degree-two boundary separately. A replacement argument for the general-curve reductions /81 and /96 remains open.",
-      "reason": "X=P1_Q minus V(T²−2) has a rational point 0 and hence a geometric section, but no rational boundary point and therefore no cuspidal section. Splitting its proper completion does not split its boundary. This is the same finding as E2 of the separate errata file; no disproof of Theorems A–C is claimed.",
-      "affects": "the proof",
+      "locator": "Published §4 p.141, paragraph after Corollary 15, and its uses: proof of Lemma 16 p.142 ('We may assume that X is non-parabolic'), the remark after Definition 18 p.144 ('it is immediate to check that t-b.l. sections are quasi-t-b.l.') and the proof of Theorem A p.146; arXiv v3 §4 the same",
+      "printed": "If X is parabolic affine, every Galois section of X is cuspidal (the only non-trivial case is settled by [18, Theorem A]). Because of this, we can always assume that X is non-parabolic.",
+      "correction": "The sentence holds when the boundary is split (every section of A^1 or G_m lies in each cuspidal packet), and for proper genus-zero curves Schmidt's theorem gives X ≅ P^1 once the section is b.l. It is false for X ≅ P^1_k minus a closed point of degree 2, which has geometric sections but no cuspidal ones. That case of Theorem A needs its own proof, and so does the remark after Definition 18, whose identity-map argument needs X non-parabolic. Over number fields the extraction records a proposed repair (items /169–/177, not in the paper, unreviewed). Over fields of positive transcendence degree no argument is known: Proposition 22 takes quasi-t-b.l. sections as input. Theorem A for non-parabolic curves, and Theorems B and C, which only use hyperbolic curves, are unaffected. Items /96 and /112 state what is proved.",
+      "reason": "X = P^1_Q minus V(T²−2) is affine and parabolic, 0 ∈ X(Q) gives a geometric section, and the boundary has no Q-point, so X has no cuspidal section. Schmidt's theorem concerns the splitting of the completion, not rationality of the boundary. The reductions in Lemma 16 and in the proof of Theorem A therefore leave unhandled the t-b.l. sections of such X that are not geometric. Reclassified by cc-442dc5 from 'the proof' to 'a stated result', because the missing case of Theorem A has no proof in the paper or elsewhere over fields of positive transcendence degree. This is not a claim that Theorem A fails there.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
         "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+        "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
       ]
     },
     {
@@ -3012,7 +3014,8 @@
       "searched": [
         "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
         "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+        "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
       ]
     },
     {
@@ -3027,7 +3030,8 @@
       "searched": [
         "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
         "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+        "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
       ]
     },
     {
@@ -3035,14 +3039,15 @@
       "kind": "misprint",
       "locator": "Published Lemma 9 proof p.140; arXiv v3 Lemma 9",
       "printed": "any lifting",
-      "correction": "Choose qbar monic and a monic lift q of the same degree.",
-      "reason": "For R=Q[u]_(u), qbar=T and q=uT²+T reduce correctly, but the coprime factors T and uT+1 give R[T]/q≃R×Q(u), which is not finite over R. With a monic same-degree lift, finite freeness and the unit discriminant give the intended finite étale local extension. /66 already uses that correction.",
-      "affects": "the proof",
+      "correction": "Choose qbar monic and a monic lift q of the same degree. In this paragraph p stands for f(p) ∈ U and k(p) for its residue field.",
+      "reason": "For R=Q[u]_(u), qbar=T and q=uT²+T reduce correctly, but the coprime factors T and uT+1 give R[T]/q≃R×Q(u), which is not finite over R. With a monic same-degree lift, finite freeness and the unit discriminant give the intended finite étale local extension. /66 already uses that correction. Reclassified by cc-442dc5 from 'the proof' to 'nothing': with the evident monic lift of the same degree the construction is exactly as printed.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
         "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+        "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
       ]
     },
     {
@@ -3057,7 +3062,8 @@
       "searched": [
         "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
         "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+        "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
       ]
     },
     {
@@ -3082,7 +3088,9 @@
         "PAPER-BRESCIANI-24/96",
         "PAPER-BRESCIANI-24/112"
       ],
-      "detail": "The proposed /169–/179 argument supplies the nonsplit quadratic-boundary branch over NUMBER FIELDS, independently of /81,/96,Proposition22 and TheoremA, relative to named existing source inputs. It has not received independent review. A noncircular passage to arbitrary fields finitely generated over Q is still missing for /96 and the parabolic branch of /112. Proposition22 assumes quasi-t-b.l.; applying it here to establish quasi-t-b.l. is circular. An arbitrary embedding into a p-adic field does not give transcendental base change of a birational witness. E2 disproves only the printed blanket cuspidality sentence."
+      "detail": "The proposed /169–/179 argument supplies the nonsplit quadratic-boundary branch over NUMBER FIELDS, independently of /81,/96,Proposition22 and TheoremA, relative to named existing source inputs. It has not received independent review. A noncircular passage to arbitrary fields finitely generated over Q is still missing for /96 and the parabolic branch of /112. Proposition22 assumes quasi-t-b.l.; applying it here to establish quasi-t-b.l. is circular. An arbitrary embedding into a p-adic field does not give transcendental base change of a birational witness. E2 disproves only the printed blanket cuspidality sentence.",
+      "status": "recorded",
+      "resolution": "A gap in the paper, not in the extraction: recorded as E2, which affects a stated result. Items /96 and /112 state what is proved (cc-442dc5)."
     },
     {
       "title": "Remaining source verification and decomposition",
@@ -3098,7 +3106,9 @@
         "PAPER-BRESCIANI-24/126",
         "PAPER-BRESCIANI-24/128"
       ],
-      "detail": "Verify the exact Stix book Proposition 75/Lemma 259, Tamagawa Proposition 2.8(iv), Koenigsmann original theorem; finish the inherited valuative/coherence/density prerequisites. Mattuck’s finite-local-field proof and ownership are now decomposed by /153–/168; the specific geometric/analytic implementation leaves are recorded separately. The new Albanese sources were read only in the portions listed in the report; Picard 1-motive proof dependencies remain supplier blueprint work. The present pass read Stix Proposition1 with its proof and TheoremB with its precise hypotheses, not the whole density proof or Koenigsmann original. Schmidt §3 was read, but its Amitsur/Hilbert90/Hochschild–Serre and affine K(π,1) suppliers still need recursive decomposition."
+      "detail": "Verify the exact Stix book Proposition 75/Lemma 259, Tamagawa Proposition 2.8(iv), Koenigsmann original theorem; finish the inherited valuative/coherence/density prerequisites. Mattuck’s finite-local-field proof and ownership are now decomposed by /153–/168; the specific geometric/analytic implementation leaves are recorded separately. The new Albanese sources were read only in the portions listed in the report; Picard 1-motive proof dependencies remain supplier blueprint work. The present pass read Stix Proposition1 with its proof and TheoremB with its precise hypotheses, not the whole density proof or Koenigsmann original. Schmidt §3 was read, but its Amitsur/Hilbert90/Hochschild–Serre and affine K(π,1) suppliers still need recursive decomposition.",
+      "status": "deferred",
+      "resolution": "Cited suppliers' proofs (Stix, Tamagawa, Koenigsmann, Schmidt): their statements as used are items."
     },
     {
       "title": "Supplier closure beneath the local logarithm and projectivity",
@@ -3109,7 +3119,9 @@
         "PAPER-BRESCIANI-24/165",
         "PAPER-BRESCIANI-24/166"
       ],
-      "detail": "The replacement argument is explicit, but source-to-blueprint closure still needs the multivariable analytic Banach/substitution API, algebraic smooth-point analytic charts and analytic inverse, local-field compactness comparison, and the theorem-of-square/Cartier-descent/very-ampleness leaves for Milne7.1. Existing candidate FormalLieTheory/RigidZariskiGeometry are not accepted stages. Do not claim these constructions exist in Lean."
+      "detail": "The replacement argument is explicit, but source-to-blueprint closure still needs the multivariable analytic Banach/substitution API, algebraic smooth-point analytic charts and analytic inverse, local-field compactness comparison, and the theorem-of-square/Cartier-descent/very-ampleness leaves for Milne7.1. Existing candidate FormalLieTheory/RigidZariskiGeometry are not accepted stages. Do not claim these constructions exist in Lean.",
+      "status": "deferred",
+      "resolution": "Supplier leaves under the Mattuck replacement; design work."
     },
     {
       "title": "Inherited API and dependency granularity",
@@ -3166,7 +3178,9 @@
         "PAPER-BRESCIANI-24/141",
         "PAPER-BRESCIANI-24/149"
       ],
-      "detail": "The earlier paper-format items retain API/test prose in note; this is not a claim that every inherited definition has a full structured three-test contract or every source prerequisite has a resolved node ID. The five new constructions do have explicit APIs, uses and three tests each. Complete the inherited contracts before closed blueprint status."
+      "detail": "The earlier paper-format items retain API/test prose in note; this is not a claim that every inherited definition has a full structured three-test contract or every source prerequisite has a resolved node ID. The five new constructions do have explicit APIs, uses and three tests each. Complete the inherited contracts before closed blueprint status.",
+      "status": "deferred",
+      "resolution": "API contracts and the full dependency graph are design work; no Lean deliverable is part of a paper job."
     },
     {
       "title": "Replacement argument supplier interfaces",
@@ -3180,71 +3194,18 @@
         "PAPER-BRESCIANI-24/177",
         "PAPER-BRESCIANI-24/179"
       ],
-      "detail": "Verify independently the proposed number-field replacement and expose the local-field finite-residue-quotient/separated-topology interface, finite Kummer torsor-to-section comparison, Chebotarev fixed-coset versus degree-one-completion comparison, specializing-loop functoriality and finite-level evaluation compatibility as blueprint leaves. Their mathematical uses and proofs are specified here; no complete supplier blueprint or Lean implementation is claimed. /174 and /177 use Stix local Selmerness only for hyperbolic curves over number fields, not for arbitrary fields or parabolic curves directly."
+      "detail": "Verify independently the proposed number-field replacement and expose the local-field finite-residue-quotient/separated-topology interface, finite Kummer torsor-to-section comparison, Chebotarev fixed-coset versus degree-one-completion comparison, specializing-loop functoriality and finite-level evaluation compatibility as blueprint leaves. Their mathematical uses and proofs are specified here; no complete supplier blueprint or Lean implementation is claimed. /174 and /177 use Stix local Selmerness only for hyperbolic curves over number fields, not for arbitrary fields or parabolic curves directly.",
+      "status": "deferred",
+      "resolution": "cc-442dc5 read the proposed number-field argument (/169–/177) step by step and found no error. It remains an unreviewed proposal, not in the paper, and its supplier interfaces are design work."
     }
   ],
   "continuation": {
-    "agent": "Codex",
-    "session": "codex-a71f92",
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
     "issue": 1233,
-    "previousPullRequest": 2032,
     "date": "2026-09-23",
-    "inputCommit": "4b351d3d1b915575362efa61fbc6a961d7ba30ca",
-    "newItems": [
-      "PAPER-BRESCIANI-24/169",
-      "PAPER-BRESCIANI-24/170",
-      "PAPER-BRESCIANI-24/171",
-      "PAPER-BRESCIANI-24/172",
-      "PAPER-BRESCIANI-24/173",
-      "PAPER-BRESCIANI-24/174",
-      "PAPER-BRESCIANI-24/175",
-      "PAPER-BRESCIANI-24/176",
-      "PAPER-BRESCIANI-24/177",
-      "PAPER-BRESCIANI-24/178",
-      "PAPER-BRESCIANI-24/179"
-    ],
-    "reading": [
-      {
-        "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf",
-        "sha256": "77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148",
-        "read": "All 22 published pages, pp.129–150: every proof, footnote and references."
-      },
-      {
-        "url": "https://arxiv.org/pdf/1203.3236v3",
-        "sha256": "0a1cfac490f6543e5308a9489c13f1e398091b2db3e4ee127d0e64c6ef7f5146",
-        "read": "Title/introduction and §§2.1–2.2, pp.1–4; TheoremsA/B and full Proposition1 proof. Not the full density proof. arXiv v3 stamp 17September2015; PDF internal date November1,2018."
-      },
-      {
-        "url": "https://arxiv.org/pdf/1503.08108",
-        "sha256": "50588809107082c3710fd614ba47eaf2b975bedb85d7d2153cab650dd3309ae2",
-        "read": "Title/intro pp.1–2 (TheoremsA–C); complete §3 Theorem3.1 and Lemma3.5 with proofs pp.7–9. Not a full paper read."
-      }
-    ],
-    "baseline": {
-      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
-      "newStatementsRead": [
-        {
-          "path": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
-          "sha256": "a2727b96d764ba05ed1f1909f5a4c481fc2eac96f6c82078898112568565901c",
-          "declarations": [
-            "TauCeti.kummerMap_eq_one_iff",
-            "TauCeti.kummerClassMap_injective"
-          ]
-        },
-        {
-          "path": "Mathlib/FieldTheory/Galois/Basic.lean",
-          "sha256": "59d802b6f4f3b7f44c18035fa37991962c37e28aef73d6e2859135db0b107ba5",
-          "declarations": [
-            "IsGalois.intermediateFieldEquivSubgroup"
-          ]
-        }
-      ],
-      "scope": "Read namespace/hypotheses and actual new declaration statements/proofs. Earlier ten library imports retain their previous authors' verification provenance, not a claim of a new reread of all ten."
-    },
-    "ownership": "Read current NC.0, NC.6, R02.1, IG.0 and Chebotarev layer10 descriptions and corresponding reviewed NC.0/NC.6/R02.1/Chebotarev audit entries. Searched current paper routes, packets, new roadmaps and integrated decompositions for nonsplit-boundary/Kummer/valuation-parity duplicates; no exact replacement found. Reuse the existing birational PartII and R02.1, and import the upstream Chebotarev layer. Complete upstream JacobianChallenge and GlobalNumberFields readings retain earlier programme provenance. No new roadmap, accepted blueprint stage or review verdict is invented.",
-    "sourceIssues": "All seven inherited findings and their correction-search history are preserved verbatim. E2's historical statement that /81 needs a replacement is narrowed by the proposed number-field proof in this continuation, not by a published erratum. Its positive-transcendence-degree obstruction remains. No independent review or author contact.",
-    "checks": []
+    "reading": "The published PDF (SHA-256 77c20bc7…, the other workers' copy, matched) was read in full, pp.129–150, with every proof checked; arXiv v3 was matched by hash. The checkpoint's proposed number-field repair /169–/177 was read step by step.",
+    "changes": "E2 reclassified to 'a stated result', and /96 and /112 restricted to what is proved; E5 reclassified to 'nothing'; gaps given statuses; status set to complete."
   },
   "continuationHistory": [
     {
@@ -3307,6 +3268,69 @@
       "baseline": "Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; TauCetif790474821cf4256814db967cb154e7af3d0c369. All eight inherited declaration statements reread plus /153,/154; real Lie logarithm LocalInverse.lean explicitly has NormedSpace ℝ and is not a p-adic supplier.",
       "ownership": "Full current A, AdicSpacesPartII and LocallyAnalyticDistributions owner documents read; reviewed AUDIT08 A1/A2/A4 and AUDIT25 L0. No exact AdicSpacesPartII:R1/R2 audit entry in this snapshot. Caro–Pasten FormalLieTheory and Howe–Klevdal RigidZariskiGeometry briefs and relevant items read. Reuse their IDs; Harpaz–Wittenberg16 consumes the existing LocalPoints proposal. Upstream JacobianChallenge and GlobalNumberFields full readings from earlier programme work are retained; this pass’s LieGroups scope/read excerpt is not a claim to have reread that entire document.",
       "correctionSearch": "Publisher landing page, arXiv history, title plus correction/erratum searches on2026-09-23 found no main-paper correction. The prior author-page and source-version checks retain their original attribution. No new source issue or independent-review verdict added."
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-a71f92",
+      "issue": 1233,
+      "previousPullRequest": 2032,
+      "date": "2026-09-23",
+      "inputCommit": "4b351d3d1b915575362efa61fbc6a961d7ba30ca",
+      "newItems": [
+        "PAPER-BRESCIANI-24/169",
+        "PAPER-BRESCIANI-24/170",
+        "PAPER-BRESCIANI-24/171",
+        "PAPER-BRESCIANI-24/172",
+        "PAPER-BRESCIANI-24/173",
+        "PAPER-BRESCIANI-24/174",
+        "PAPER-BRESCIANI-24/175",
+        "PAPER-BRESCIANI-24/176",
+        "PAPER-BRESCIANI-24/177",
+        "PAPER-BRESCIANI-24/178",
+        "PAPER-BRESCIANI-24/179"
+      ],
+      "reading": [
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf",
+          "sha256": "77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148",
+          "read": "All 22 published pages, pp.129–150: every proof, footnote and references."
+        },
+        {
+          "url": "https://arxiv.org/pdf/1203.3236v3",
+          "sha256": "0a1cfac490f6543e5308a9489c13f1e398091b2db3e4ee127d0e64c6ef7f5146",
+          "read": "Title/introduction and §§2.1–2.2, pp.1–4; TheoremsA/B and full Proposition1 proof. Not the full density proof. arXiv v3 stamp 17September2015; PDF internal date November1,2018."
+        },
+        {
+          "url": "https://arxiv.org/pdf/1503.08108",
+          "sha256": "50588809107082c3710fd614ba47eaf2b975bedb85d7d2153cab650dd3309ae2",
+          "read": "Title/intro pp.1–2 (TheoremsA–C); complete §3 Theorem3.1 and Lemma3.5 with proofs pp.7–9. Not a full paper read."
+        }
+      ],
+      "baseline": {
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+        "newStatementsRead": [
+          {
+            "path": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+            "sha256": "a2727b96d764ba05ed1f1909f5a4c481fc2eac96f6c82078898112568565901c",
+            "declarations": [
+              "TauCeti.kummerMap_eq_one_iff",
+              "TauCeti.kummerClassMap_injective"
+            ]
+          },
+          {
+            "path": "Mathlib/FieldTheory/Galois/Basic.lean",
+            "sha256": "59d802b6f4f3b7f44c18035fa37991962c37e28aef73d6e2859135db0b107ba5",
+            "declarations": [
+              "IsGalois.intermediateFieldEquivSubgroup"
+            ]
+          }
+        ],
+        "scope": "Read namespace/hypotheses and actual new declaration statements/proofs. Earlier ten library imports retain their previous authors' verification provenance, not a claim of a new reread of all ten."
+      },
+      "ownership": "Read current NC.0, NC.6, R02.1, IG.0 and Chebotarev layer10 descriptions and corresponding reviewed NC.0/NC.6/R02.1/Chebotarev audit entries. Searched current paper routes, packets, new roadmaps and integrated decompositions for nonsplit-boundary/Kummer/valuation-parity duplicates; no exact replacement found. Reuse the existing birational PartII and R02.1, and import the upstream Chebotarev layer. Complete upstream JacobianChallenge and GlobalNumberFields readings retain earlier programme provenance. No new roadmap, accepted blueprint stage or review verdict is invented.",
+      "sourceIssues": "All seven inherited findings and their correction-search history are preserved verbatim. E2's historical statement that /81 needs a replacement is narrowed by the proposed number-field proof in this continuation, not by a published erratum. Its positive-transcendence-degree obstruction remains. No independent review or author contact.",
+      "checks": []
     }
   ]
 }

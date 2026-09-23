@@ -1,4 +1,97 @@
-# Bresciani: number-field nonsplit-boundary continuation
+# Bresciani (2024): extraction and routing
+
+Issue [#1233](https://github.com/CBirkbeck/tauceti-explorer/issues/1233). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints of Codex sessions codex-hjdg0j, codex-c83e7a and codex-a71f92 (#2032, #2064), whose reports follow below as history.
+- **The paper.** Giulio Bresciani, *On the birational section conjecture with strong birationality assumptions*, Invent. Math. 235 (2024), 129–150, open access. The published PDF was read (SHA-256 77c20bc7…); arXiv v3 matches it at every finding.
+- **Items.** The result has **179 items: 12 library, 10 planned and 157 missing**. Every missing item is routed exactly once, and every numbered statement (Lemmas 1–26, Propositions 3, 17, 21, 22, Theorems A–C) is an item.
+- **Mistakes.** Seven are recorded under `sourceIssues`. Two are reclassified: E2 now affects a stated result, and E5 affects nothing.
+
+## This continuation (cc-442dc5)
+
+**What was read.** The whole published paper, pp. 129–150, with every proof checked:
+- the gerbe formalism of §§2–3 and Lemmas 7–8;
+- the Bertini argument of Lemma 9;
+- the specialization lemmas of §4 and the proof of Proposition 17;
+- the reduction to number fields in §6;
+- the proofs of Theorems A–C.
+
+The checkpoint's proposed number-field repair (/169–/177) was also read step by step:
+- local point injectivity at nonsplit places;
+- the mixed-prime Chebotarev choice;
+- the diagonal specializing loops;
+- the parity contradiction.
+
+No error was found. It remains an argument of the extraction, not of the paper, and it is unreviewed.
+
+**E2 now affects a stated result.**
+- **The false sentence.** On p. 141 the paper says that every Galois section of a parabolic affine curve is cuspidal, and so "we can always assume that X is non-parabolic". This is false for X = P¹ minus a nonsplit degree-2 point: such a curve has geometric sections (P¹_Q minus V(T²−2) contains 0) and no cuspidal ones.
+- **Where it is used.** Three steps rely on the sentence:
+  - the proof of Lemma 16 ("We may assume that X is non-parabolic");
+  - the remark after Definition 18 ("it is immediate to check that t-b.l. sections are quasi-t-b.l."), whose identity-map argument needs X non-parabolic;
+  - the proof of Theorem A, through Proposition 22 and Lemma 16.
+- **What is and is not established.**
+  - Over number fields the missing case is covered by the proposed repair.
+  - Over fields of positive transcendence degree no argument is known. Proposition 22 needs quasi-t-b.l. sections as input, so it cannot supply them.
+  - So Theorem A as stated is not established in that one case. This is not a claim that it fails.
+- **What is unaffected.** Theorem A for non-parabolic curves, and Theorems B and C, which only use hyperbolic curves.
+- **Item changes.** Items /112 (Theorem A, reverse direction) and /96 (the remark after Definition 18) now state what is proved.
+
+**E5 now affects nothing.** Lemma 9 needs a monic lift of the same degree, which is the evident reading. In that paragraph p stands for f(p); this is noted in the correction.
+
+**The other findings.** E1, E3, E4, E6 and E7 were confirmed at their locators, and no new mistake was found.
+- Lemma 7's surjectivity of k̂* → Ẑ was checked (the Mittag-Leffler condition holds).
+- In Lemma 8, the weight argument and the Mattuck step are right once E4's choice of neutralization is made.
+- Proposition 17's valuation argument was checked.
+- In Lemma 20, the source curve dominates a non-parabolic curve, so it is itself non-parabolic.
+- Lemma 9's genericity is fine once p is read as f(p).
+
+**Gaps.** The five checkpoint gaps now carry a status.
+- The parabolic gap is **recorded**: it is a gap in the paper, not in the extraction (E2).
+- The other four are **deferred** as supplier proofs or design work.
+
+**Why the status is now complete.**
+- Every numbered statement and every cited input is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded, including a gap in the paper that the extraction cannot close.
+- What remains is suppliers' proofs.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), Published §2 pp.133,135; arXiv v3 §2. *Printed:* Proposition A.18 *Correction:* Cite [6, Proposition A.23] for arbitrary characteristic-zero field extensions. *Reason:* The published dependency, Algebraic Geometry 8 (2021), A.18 p.262, only covers algebraic separable extensions; A.23 p.264 covers arbitrary extensions for geometrically connected concentrated fibered categories. Both statements and the proof of A.23 were reread. k(t)/k requires the latter. Matches the separate errata file E1; no independent review verdict is claimed here.
+- **E2** (error; affects a stated result), Published §4 p.141, paragraph after Corollary 15, and its uses: proof of Lemma 16 p.142 ('We may assume that X is non-parabolic'), the remark after Definition 18 p.144 ('it is immediate to check that t-b.l. sections are quasi-t-b.l.') and the proof of Theorem A p.146; arXiv v3 §4 the same. *Printed:* If X is parabolic affine, every Galois section of X is cuspidal (the only non-trivial case is settled by [18, Theorem A]). Because of this, we can always assume that X is non-parabolic. *Correction:* The sentence holds when the boundary is split (every section of A^1 or G_m lies in each cuspidal packet), and for proper genus-zero curves Schmidt's theorem gives X ≅ P^1 once the section is b.l. It is false for X ≅ P^1_k minus a closed point of degree 2, which has geometric sections but no cuspidal ones. That case of Theorem A needs its own proof, and so does the remark after Definition 18, whose identity-map argument needs X non-parabolic. Over number fields the extraction records a proposed repair (items /169–/177, not in the paper, unreviewed). Over fields of positive transcendence degree no argument is known: Proposition 22 takes quasi-t-b.l. sections as input. Theorem A for non-parabolic curves, and Theorems B and C, which only use hyperbolic curves, are unaffected. Items /96 and /112 state what is proved. *Reason:* X = P^1_Q minus V(T²−2) is affine and parabolic, 0 ∈ X(Q) gives a geometric section, and the boundary has no Q-point, so X has no cuspidal section. Schmidt's theorem concerns the splitting of the completion, not rationality of the boundary. The reductions in Lemma 16 and in the proof of Theorem A therefore leave unhandled the t-b.l. sections of such X that are not geometric. Reclassified by cc-442dc5 from 'the proof' to 'a stated result', because the missing case of Theorem A has no proof in the paper or elsewhere over fields of positive transcendence degree. This is not a claim that Theorem A fails there.
+- **E3** (gap; affects the proof), Published proof of Lemma 26 p.148; arXiv v3 Lemma 26. *Printed:* by hypothesis it is cuspidal *Correction:* First the images are geometric or cuspidal. After identifying the unique associated rational point x, compute the inverse limit over the cofinal opens omitting x. *Reason:* If an open contains x, its image can be geometric. After removing x, uniqueness of the associated point and disjointness of geometric and cuspidal packets force cuspidality at x. The same cofinal limit computes the birational section. Matches E3 of the separate errata file.
+- **E4** (gap; affects the proof), Published Lemma 8 proof p.138; arXiv v3 Lemma 8. *Printed:* canonical identification *Correction:* The choice-free comparison is Π_X/k^ab≃Π_P/k for the generalized Albanese torsor P. Use s=γ(*) to obtain a chosen-object equivalence with B_k TJ (and hence Π_J/k), as in /58 and /150–/152. *Reason:* A geometric Albanese isomorphism supplies the same band, not a choice-free equivalence with the neutral gerbe of J. The image of γ(*) gives the required neutralization of Π_P/k, without a point of P or X. The missing descent/choice argument is now supplied in the report.
+- **E5** (misprint; affects nothing), Published Lemma 9 proof p.140; arXiv v3 Lemma 9. *Printed:* any lifting *Correction:* Choose qbar monic and a monic lift q of the same degree. In this paragraph p stands for f(p) ∈ U and k(p) for its residue field. *Reason:* For R=Q[u]_(u), qbar=T and q=uT²+T reduce correctly, but the coprime factors T and uT+1 give R[T]/q≃R×Q(u), which is not finite over R. With a monic same-degree lift, finite freeness and the unit discriminant give the intended finite étale local extension. /66 already uses that correction. Reclassified by cc-442dc5 from 'the proof' to 'nothing': with the evident monic lift of the same degree the construction is exactly as printed.
+- **E6** (misprint; affects nothing), Published §6 opening p.144; arXiv v3 §6, citation [Sti13]. *Printed:* Theorem B *Correction:* The citation should be [21, Theorem B] (Stix 2015), not [20] (the 2013 book). *Reason:* The discussion refers to the density theorem already cited as [21, Theorem B] in the proof of Lemma 16; the arXiv reference key likewise points to the book instead of Sti15. This is a reference correction, not a new theorem.
+- **E7** (misprint; affects nothing), Dependency Bresciani, Essential dimension and pro-finite group schemes, arXiv:1904.00789v2, Lemma 5.8 proof, last sentence p.20. *Printed:* banded by A *Correction:* The band is TA, the full Tate module, as in the lemma statement. *Reason:* The proof identifies the gerbe with the inverse limit of gerbes banded by A[n]; its band is therefore lim_n A[n]=TA. The semiabelian variety A is not that profinite band.
+
+## Gaps: status after this continuation
+
+- **Parabolic reduction over fields of positive transcendence degree** (recorded). A gap in the paper, not in the extraction: recorded as E2, which affects a stated result. Items /96 and /112 state what is proved (cc-442dc5).
+- **Remaining source verification and decomposition** (deferred). Cited suppliers' proofs (Stix, Tamagawa, Koenigsmann, Schmidt): their statements as used are items.
+- **Supplier closure beneath the local logarithm and projectivity** (deferred). Supplier leaves under the Mattuck replacement; design work.
+- **Inherited API and dependency granularity** (deferred). API contracts and the full dependency graph are design work; no Lean deliverable is part of a paper job.
+- **Replacement argument supplier interfaces** (deferred). cc-442dc5 read the proposed number-field argument (/169–/177) step by step and found no error. It remains an unreviewed proposal, not in the paper, and its supplier interfaces are design work.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+
+The following was also checked:
+- **Items and routes.** Item ids are unique. Every missing item is routed exactly once, and there are no unrouted items.
+- **Coverage.** Every numbered statement of the paper has an item.
+
+No Lean deliverable is part of a paper job.
+
+**For the reviewer.**
+- Check E2's reclassification and the restricted statements of /96 and /112.
+- Check the proposed number-field repair /169–/177.
+
+## Checkpoint history (unchanged)
+
+The reports of the earlier checkpoints follow as they were written. Where they say *partial*, or describe E2 as affecting the proof or E5 the proof, this continuation supersedes them.
+
+## Bresciani: number-field nonsplit-boundary continuation
 
 Codex — session `codex-a71f92`, issue #1233, 2026-09-23. Continues PR #2032.
 Status: **partial**. This is a proposed replacement proof, awaiting independent
@@ -10,7 +103,7 @@ or Theorem A. It does **not** repair the passage to all fields finitely generate
 over Q. There are 179 items: 12 library, 10 planned and 157 missing, with 14
 unchanged ownership routes. All 168 earlier IDs and seven source findings remain.
 
-## The number-field replacement
+### The number-field replacement
 
 Write L/k for a quadratic extension of a number field, D=Spec L embedded as a
 reduced degree-two divisor in P1, and X=P1 minus D. Suppose s is t-b.l. and,
@@ -99,7 +192,7 @@ affect this construction. This contradiction proves that s is geometric.
 It is essential to project to n=2 first. The full completed class may have
 infinitely many nonzero exponents; no finite-support assertion for it is used.
 
-## Consequences and the remaining gap
+### Consequences and the remaining gap
 
 For a split nonempty parabolic boundary, the local decomposition extension
 at a rational cusp maps onto the whole arithmetic fundamental extension;
@@ -129,7 +222,7 @@ E2 and the other six source findings retain their earlier text and search
 provenance. E2's historical open-proof note is narrowed by this proposed
 number-field replacement, not by a published correction or review verdict.
 
-## Ownership, source reading and checks
+### Ownership, source reading and checks
 
 The existing birational-sections Part II owns /172, /174, /177–/179.
 ArithmeticGaloisDuality R02.1 owns generic completion/local Kummer lemmas
@@ -173,13 +266,13 @@ Five explicit gaps remain: the finitely generated parabolic step, named source
 readings, local-logarithm/projectivity supplier closure, inherited API/DAG
 granularity, and the replacement proof's remaining supplier interfaces.
 
-## Earlier checkpoints (retained with their attribution)
+### Earlier checkpoints (retained with their attribution)
 
 The remainder records earlier workers' work and source access. Earlier item
 counts and descriptions of the entirely open parabolic repair are historical;
 the current scope and unresolved boundary are stated above.
 
-# Bresciani: birational lifting and section specialization
+## Bresciani: birational lifting and section specialization
 
 Codex — session `codex-c83e7a`, issue #1233, 2026-09-23. Continues PR #1924
 by codex-hjdg0j and the earlier checkpoints. **Status: partial.**
@@ -197,7 +290,7 @@ Caro–Pasten and Howe–Klevdal proposals. The five new constructions have 15 A
 statements and 15 mathematical test contracts. The older prose API outlines
 remain an explicit granularity task, not a claim of blueprint closure.
 
-## Source scope
+### Source scope
 
 All 22 pages of the [published Bresciani paper](https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf),
 pp.129–150, were reread, including every proof, footnote and reference. Its
@@ -220,7 +313,7 @@ proof and symmetric ample-line-bundle consequence. This is a selected reading
 of the 49-page revision. The inaccessible current `www` endpoint and the
 downloaded but unread 1986 scan are not represented as additional readings.
 
-## A local logarithm with a controlled radius
+### A local logarithm with a controlled radius
 
 Fix a finite extension K/Qp and use the maximum norm on K^g. For a commutative
 analytic group, coordinates at the identity give convergent series
@@ -286,7 +379,7 @@ it and cannot admit an injective logarithm. A smaller ball such as 4Z2 does.
 Neither good reduction nor an integral model of A is needed for the identity
 chart over K; arbitrary reduction is retained.
 
-## From the local subgroup to the cohomology injection
+### From the local subgroup to the cohomology injection
 
 For A/K smooth of dimension g, a standard smooth presentation and an analytic
 implicit-function theorem supply an identity chart. Algebraic multiplication
@@ -321,7 +414,7 @@ zero. Exactness puts j in TT, so c is already a TT-coboundary. This proves
 the desired H1 injection directly. No unchecked inverse limit of long exact
 cohomology sequences is needed.
 
-## Ownership and verification
+### Ownership and verification
 
 The local-points continuation retains only the abelian-variety application,
 finite index and finite torsion. Its generic logarithm supplier is the
@@ -362,14 +455,14 @@ no main-paper correction; no authors were contacted.
 
 Ownership input snapshot: `5c2f7e81c0b65adb77ea28915eb921e23ba06a69`, 497 verified files.
 
-## Retained mathematical detail and earlier reading provenance
+### Retained mathematical detail and earlier reading provenance
 
 The following material is retained from PR #1924 and its predecessor, with
 their worker/date attribution. Its statements that Mattuck preparation remains
 open are superseded by the decomposition above; recursive supplier closure
 still remains open. Its source-access claims describe those earlier reads.
 
-## Endpoints and hypotheses
+### Endpoints and hypotheses
 
 Birational lifting means lifting a curve section to its function-field absolute Galois group. The **t-birational** condition requires this after base change to `k(t)`. Birational sections do not automatically base change to transcendental extensions.
 
@@ -379,7 +472,7 @@ Theorem B quantifies over **every finitely generated extension K/k** of the fiel
 
 Theorem C equates the ordinary birational section conjecture with existence of sections on `(U×V) minus Δ` over V having prescribed specializations, for every number field, every birational P1 section and every nonempty open U. Hilbertian uniqueness makes the lifts compatible. Saïdi–Tyler's ordinary birational reduction is separate from Bresciani's quasi-t-birational reduction.
 
-## Correctness findings
+### Correctness findings
 
 **Routed negative acceptance `/77`: the affine-parabolic assertion is false as printed.** Take `k=Q`, `barX=P1`, and remove the closed point defined by `T²−2`. The resulting X is smooth affine geometrically connected, with genus-zero completion and boundary degree two, hence parabolic. The point `0∈X(Q)` induces a geometric section. Its boundary has no Q-rational point, so there is no cuspidal section under the paper's definition. The projective completion is already split. Schmidt's actual Theorem A gives splitting and rational points, which does not make a deleted degree-two point rational. The claimed trivial parabolic reductions in Lemma 16 and t-b.l.⇒quasi-t-b.l. need a valid replacement argument. No replacement proof is claimed.
 
@@ -395,7 +488,7 @@ Theorem C equates the ordinary birational section conjecture with existence of s
 
 Other checks retain the restricted completed product in footnote1; the failure of unique-specialization⇒constant-loop; and density-one versus adelic integrality. Construct Corollary10's directed divisors by applying Lemma9 after removing the previous divisors: arbitrary intersecting finite unions need not be étale. Preserve monicity and degree in Lemma9's polynomial lift.
 
-## Routes and ownership
+### Routes and ownership
 
 The fresh atlas snapshot is `a92b3b71cc3b9ae610697abe3add3d2ff6d9e716`. Nearby full README documents, relevant reviewed audits, links and available integrated decompositions were inspected. All new definitions/constructions have API and test notes.
 
@@ -418,7 +511,7 @@ Upstream JacobianChallenge explicitly excludes unpointed Pic1/Albanese torsors f
 
 A1–A6 has no Mattuck local-point theorem. Raynaud degeneration uniformization is a different result. The local-points Part II imports the existing abelian-variety carrier and exports finite torsion to compact cohomology. Its detailed logarithm/formal-group owner audit remains unfinished.
 
-## Pinned libraries
+### Pinned libraries
 
 Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` full archives were searched. Relevant reviewed targets from AUDIT-01, -02, -08, -09 and -10 were read. Missing specialized arithmetic constructions were not inferred from a single name search.
 
@@ -431,7 +524,7 @@ Actual declarations read and cited:
 
 Abstract Galois-category prorepresentability was also read; it does not construct an arithmetic fundamental group. Existing sites, abstract stack descent and an abelian-variety carrier do not constitute geometric gerbes, root stacks or Tate modules.
 
-## Dependency reading and provenance
+### Dependency reading and provenance
 
 All downloads are dated 21 September 2026. Only the listed portions count as read; the JSON prerequisite list supplies links and future proof-decomposition obligations.
 
@@ -450,16 +543,15 @@ All downloads are dated 21 September 2026. Only the listed portions count as rea
 
 The exact Stix book passages, Tamagawa's original proposition, Koenigsmann's original theorem and the larger prerequisite proof decompositions remain source tasks. Borne–Vistoli Definition3.4 and Propositions3.9–3.11 have now been read directly. Anderson is historical provenance for the original proof, not a dependency of the replacement proof.
 
-## Earlier-checkpoint validation
+### Earlier-checkpoint validation
 
 The paper checker and intake `check-files` are run on the JSON, this report and the handoff; a custom audit checks IDs, statuses, routes and stage existence. No Lean file was requested or supplied; no Lean compilation was run. Preserve `partial`: these routes are checkpoint proposals, not ready for completed-job review or promotion.
 
-
-## Continuation: split completion and finite gerbe presentations
+### Continuation: split completion and finite gerbe presentations
 
 This section records the new work of session codex-a71f92. Earlier source-ledger entries describe the inherited reading and are not claims that every prerequisite has now been fully reread. All 22 pages of Bresciani's published text, including every proof, were reread in this continuation.
 
-### A direct proof of the completion step
+#### A direct proof of the completion step
 
 The statement needed for Lemma 1 is considerably narrower than exactness for arbitrary extensions. Work first with abstract groups. Suppose G=N⋊H, where N is finitely generated and H is arbitrary.
 
@@ -475,13 +567,13 @@ In the complex affine-base curve-family application, the base has the homotopy t
 
 The general theorem assumes neither residual finiteness nor goodness, and does not require H finitely generated. It does require a split extension and finite generation of N. The ordinary profinite completion used here must not be confused with /18's completion by power quotients: for a general abelian group those quotients need not be finite.
 
-### A sharp negative test
+#### A sharp negative test
 
 Let N be the direct sum of C2 indexed by Z, with basis e_j, and let the shift generate H=Z. Let K be the kernel of the coordinate-zero character N→C2. In any finite quotient of N⋊Z, the image of the shift has some positive finite order t, so e_0 and e_t have the same image. Therefore e_0+e_t is in the restricted kernel but not in K.
 
 No restricted finite-quotient kernel is contained in K. If hat N→hat G were injective, compactness would make it an embedding; the induced profinite topology would then supply such a restricted open neighborhood inside K, a contradiction. Thus completion fails to be injective even for this split extension when finite generation of N is removed. The original abstract inclusion remains injective. Item /146 is this valid negative theorem, not a purported counterexample to the finitely generated result.
 
-### Baseline and ownership
+#### Baseline and ownership
 
 The following actual statements were read at the pins, not inferred from declaration names:
 
@@ -498,7 +590,7 @@ The complete upstream ProfiniteProPGroups document was read. AUDIT-22's Layer0 a
 
 The full parent AnabelianGeometryAndNonabelianChabauty, AbelianSchemesAndArithmeticModuli and FaltingsFinitenessAndIsogenyTheorems documents were also checked, together with the relevant NC.0, A3–A4 and R28.4 audit rows. The full JacobianChallenge document and the IG/SF/R02 source-owner descriptions were read in this claim/session. A3/A4 do not supply generalized open Jacobians; R28.4's rational comparison does not silently settle the integral/all-prime statement. The existing nine routes otherwise retain their boundaries. Current-main relevant atlas rows were compared with the local baseline at claim time.
 
-### Direct verification of the gerbe input
+#### Direct verification of the gerbe input
 
 Borne–Vistoli's published Definition 3.4 defines local fullness by faithful flatness of automorphism-group maps at field-valued objects. Proposition 3.9 gives canonical locally-full/faithful factorization. Proposition 3.10 identifies local fullness with surjectivity of fpqc Isom sheaves and with being a relative gerbe. Its factorization-proof paragraphs have a numbering typo: the argument concerns condition (4). Proposition 3.11 detects local fullness on a cofiltered target presentation, using the filtered colimit of the injective Hopf-algebra maps.
 
@@ -506,7 +598,7 @@ These statements and proofs were read directly. The extraction now separates the
 
 This does not settle /58: the loop supplies a section neutralizing the abelianized gerbe, but the Galois-equivariant identification of its band with the generalized Jacobian Tate module, and the unpointed Albanese-torsor comparison, still require precise construction/source closure. No rational point of the curve or of the Albanese torsor is inferred from that gerbe section.
 
-### New source ledger
+#### New source ledger
 
 Access date: 21 September 2026.
 
@@ -514,7 +606,7 @@ Access date: 21 September 2026.
 - [Borne–Vistoli, Fundamental gerbes, published PDF](https://msp.org/ant/2019/13-3/ant-v13-n3-p01-s.pdf), SHA-256 64fca3767f3c6cbd02fbf84f1fb456c7fda30c7bc95ddc8c8c84cd3bd8629111. Read §3's relevant affine-gerbe setup, Lemma3.3, Definition3.4, Remarks3.5–3.7, Definition3.8 and Propositions3.9–3.11 with proofs, pp.537–541. Not a claim to have read all 46 pages.
 - The Stix book's publisher endpoint returned HTML, not the requested PDF. Its table of contents was inspected, but Proposition75 and Lemma259 were not acquired or verified. This remains an explicit source task. No new access to Anderson is claimed.
 
-### Checks and remaining work
+#### Checks and remaining work
 
 The preceding continuation preserved the original 135 IDs and extended them through `/149`. The present continuation preserves all 149 inherited IDs and adds `/150`–`/152`: 8 library/8 planned/136 missing, with exactly one route for every missing item. Ten routes comprise six source routes and four Part II briefs. The compact finite regression below is retained and rerun; it tests finite formulas only, not the infinite or geometric theorems. No Lean code was requested, generated or compiled.
 
@@ -522,7 +614,7 @@ The checkpoint stays partial. The nonsplit degree-two boundary in /81 and /96 re
 
 The earlier split-completion finite regression remains attributed to that checkpoint; it was not rerun in this continuation.
 
-## Continuation: the Albanese torsor comparison
+### Continuation: the Albanese torsor comparison
 
 Session `codex-hjdg0j`, 22 September 2026. This section supplies `/58` and records precisely what was checked. It does not close the unrelated parabolic reduction.
 
@@ -538,11 +630,11 @@ Useful acceptance cases are: D empty and J the proper Jacobian; X=Gm with P and 
 
 The extra source reading does not certify every theorem used by those sources. In particular, the Picard 1-motive and duality inputs in Spieß–Szamuely Proposition 4.1 still require decomposition in the supplier blueprint. Lemma 5.17 of Bresciani's essential-dimension paper was also inspected, but its general torsion-kernel formulation was not substituted for the precise open-curve calculation above.
 
-### Arithmetic finite-cover detection in Lemma 8
+#### Arithmetic finite-cover detection in Lemma 8
 
 Item `/54` now records the arithmetic cover rather than an arbitrary geometric cover. Write the arithmetic group as E=G⋊s(G_k) using s=γ(*), and let f:Zhat(1)→G be the associated nontrivial equivariant homomorphism. The geometric curve group G is topologically finitely generated. Choose a characteristic open N⊂G detecting f; intersections of all subgroups of a fixed index provide cofinal such subgroups. The cyclic image C of f in G/N is s(G_k)-stable. Its inverse image H⊂G therefore gives E′=H⋊s(G_k), an open subgroup of E projecting onto G_k. It corresponds to a geometrically connected finite étale cover and contains the whole loop and the chosen section. H→C detects f in H^ab. Since the map on local section classes for a finite étale cover has finite fibers, the loop's finite local-image hypothesis survives. This is the missing arithmetic justification for the cover chosen in the printed proof.
 
-### Source issues and corrected statements
+#### Source issues and corrected statements
 
 The extraction now contains the `sourceIssues` required by §18. E1–E3 retain the identifiers already used by the separate errata job, with fresh checks against the published PDF. They record the arbitrary-base-change reference, the false parabolic sentence, and the cofinal-open correction in Lemma 26. This is incorporation of source findings, not an independent review of that job; its files and verdicts are untouched.
 
@@ -552,7 +644,7 @@ E6 corrects the book reference in the opening of §6 to the density theorem used
 
 The publisher article, Crossref update relations, latest arXiv version and author institutional publication list were checked for corrections on 22 September 2026. No correction was located in those searches. The paper's v3 and published versions share the six inspected passages. An absent update relation is not evidence that no correction exists elsewhere.
 
-### Reading provenance and verification
+#### Reading provenance and verification
 
 All entries below were fetched and inspected on 22 September 2026. Source files remain outside the repository.
 
