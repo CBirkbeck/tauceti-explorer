@@ -980,3 +980,18 @@ print(json.dumps({"checks":checks,"total":sum(checks.values()),
 ```
 
 </details>
+
+## Review (REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its eleven routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md`.
+
+- **Statements and locators:** 77 statements and 111 locators corrected.
+- **Statuses:**
+  - arithmetic-divisor and bk-dp changed from planned to missing;
+  - faltings-height is also planned at R35.3.
+- **Repairs:** the extraction's repairs are sound, except its repair of Theorems 4.4.5 and 4.4.6.
+- **New items:** 40 (5 planned, 35 missing).
+- **Source issues:** E1–E27 are confirmed.
+  - E1–E3 are false as printed, but the later use already matches the corrected versions, so Theorem A holds.
+  - E14 is now an error in a stated result: Theorem 4.4.6(3) fails for n = 1.
+  - E28–E62 are new.
