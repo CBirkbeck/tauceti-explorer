@@ -9,7 +9,7 @@
     "doi": "10.1017/fmp.2022.17",
     "arxiv": "2110.09070v4",
     "url": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/local-newforms-for-the-general-linear-groups-over-a-nonarchimedean-local-field/33DB9D89FADFD4DA27852DE3C9C61DCD",
-    "version": "Published article, all56 pages reread in continuation codex-c83e7a; arXiv v4 targeted comparison pp50–51 for the formal family and Lemma8.10. Earlier worker performed the other targeted comparisons recorded in previousCheckpoint.",
+    "version": "Published article, all56 pages reread in continuation codex-c83e7a; arXiv v4 targeted comparison pp50–51 for the formal family and Lemma 8.10. Earlier worker performed the other targeted comparisons recorded in previousCheckpoint.",
     "readSections": [
       "1 Introduction",
       "2 Main theorems",
@@ -90,7 +90,9 @@
       "arxiv": "pp50–51; targeted only.",
       "lapidMao": "Printed pp917–919,922–923 (PDF11–13,16–17), including exact Corollaries3.13/3.15, subgroup conventions and root-exchange setup. Current PDF39pages includes a cover; printed article38pages.",
       "lapidMaoSha256": "9ac53cab98805703dcecca24a4df24c62eed9df7779477ddf270bacf0cd89d89"
-    }
+    },
+    "sha256Note": "The sha256 recorded above for the published PDF is NOT reproducible. Cambridge stamps each download: every page carries a 'Downloaded from https://www.cambridge.org/core. IP address: …, on <date> at <time>' line, and the PDF's ModDate is set at download. Review REV-PAPER-ATOBE-KONDO-YASUDA-22 downloaded the article twice within a minute on 23 September 2026 and obtained two different hashes (6aa1948f…fe41 and 786e7ce8…d0d3), differing only in that timestamp. Use arxivSha256, which this review re-fetched and confirmed byte for byte, as the verifiable anchor for this source.",
+    "publishedTextSha256": "c8beb4ee6815fcaff9c98e6762037519177fdd2820cddd538df98ce525fa1866 — SHA-256 of `pdftotext -layout` output with the per-download Cambridge stamp lines removed. This IS reproducible: the review obtained it identically from two separate downloads. Recorded by REV-PAPER-ATOBE-KONDO-YASUDA-22 so that the published text has a checkable fingerprint."
   },
   "summary": "Atobe–Kondo–Yasuda define compact open subgroups K_{n,λ} of GL_n(F) indexed by tuples λ. They state local newform theory for all irreducible representations: dim π^{K_{n,λ_π}} = 1 and vanishing below λ_π (Theorems 2.1, 2.2). The proof runs through a Mackey reduction, determinantal formulas for type-χ representations, and Rankin–Selberg integrals in Shalika models for Speh representations. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed, and nineteen findings are recorded. Theorem 9.1's uniqueness is false (E1), Lemma 8.10 fails at repeated parameters (E3), and hence the paper does not establish Theorem 2.1 for Speh representations with L(s, π) = 1 and n, m ≥ 2 (E19). Not formalised.",
   "conventions": [
@@ -152,7 +154,7 @@
       ],
       "uses": [
         {
-          "where": "Proposition5.2 and determinant formula",
+          "where": "Proposition 5.2 and determinant formula",
           "how": "pass fixed vectors through exact sequences and conjugacy."
         }
       ],
@@ -207,7 +209,7 @@
       ],
       "uses": [
         {
-          "where": "Proposition5.2 and Theorem8.5",
+          "where": "Proposition 5.2 and Theorem 8.5",
           "how": "convert compact invariants and Levi restrictions into tensor products with the correct modulus."
         }
       ],
@@ -265,7 +267,7 @@
       "note": "Requires an early complex specialization of SR.5, not dependence on its late integral-family or spectral outputs.",
       "uses": [
         {
-          "where": "Proposition2.4 and Lemma6.6",
+          "where": "Proposition 2.4 and Lemma 6.6",
           "how": "iterate highest derivatives while distinguishing ordinary derivative order."
         }
       ],
@@ -322,7 +324,7 @@
       ],
       "uses": [
         {
-          "where": "Definition2.3 and Proposition9.8",
+          "where": "Definition 2.3 and Proposition 9.8",
           "how": "extract integral exponents and unramified twist behavior."
         }
       ],
@@ -436,7 +438,7 @@
       ],
       "uses": [
         {
-          "where": "Propositions2.4 and2.7 and Section6.3",
+          "where": "Propositions 2.4 and2.7 and Section 6.3",
           "how": "preserve multiplicities under classification and duality."
         }
       ],
@@ -490,7 +492,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Theorem2.1 and2.2",
+          "where": "Theorem 2.1 and2.2",
           "how": "relate lex minimality and conductor weight."
         }
       ],
@@ -508,7 +510,7 @@
         {
           "name": "Newform.conductorTuple_mem",
           "role": "structure",
-          "statement": "Using Proposition2.4, the components are nonnegative and weakly increasing."
+          "statement": "Using Proposition 2.4, the components are nonnegative and weakly increasing."
         }
       ],
       "tests": [
@@ -545,7 +547,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Theorems2.1/2.2 and Fourier support",
+          "where": "Theorems 2.1/2.2 and Fourier support",
           "how": "manipulate row congruences and padded tuple order."
         }
       ],
@@ -595,11 +597,11 @@
       "kind": "definition",
       "name": "Newform line and nonzero vectors",
       "statement": "A local newform of pi is any nonzero vector in pi^(K_n,lambda_pi). The line is canonical, but no canonical nonzero basis is asserted.",
-      "locator": "§1.2 after Theorem1.1; §2.2",
+      "locator": "§1.2 after Theorem 1.1; §2.2",
       "status": "missing",
       "uses": [
         {
-          "where": "Conductor characterization and Corollary9.10",
+          "where": "Conductor characterization and Corollary 9.10",
           "how": "use a line without choosing an unjustified canonical vector."
         }
       ],
@@ -651,7 +653,7 @@
       "kind": "theorem",
       "name": "Newform multiplicity one",
       "statement": "For every pi in Irr(G_n), dim_C pi^(K_n,lambda_pi)=1. This is the printed target; its proof closure is conditional on resolving the §9 separation defect.",
-      "locator": "Theorem2.1, first assertion (also1.1(1))",
+      "locator": "Theorem 2.1, first assertion (also1.1(1))",
       "status": "missing",
       "note": "OPEN proof obligation; do not mark formalized or use the false uniqueness theorem as an axiom. (cc-442dc5, 23 September 2026) The paper's gap for this case is recorded as E19.",
       "prerequisites": [
@@ -668,7 +670,7 @@
       "kind": "theorem",
       "name": "Lexicographic vanishing",
       "statement": "For pi in Irr(G_n) and lambda in Lambda_n with lambda<lambda_pi in lex order, pi^(K_n,lambda)=0. The §9-dependent branch remains unclosed.",
-      "locator": "Theorem2.1, second assertion",
+      "locator": "Theorem 2.1, second assertion",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/reduction",
@@ -682,7 +684,7 @@
       "kind": "theorem",
       "name": "Conductor-weight vanishing",
       "statement": "For pi in Irr(G_n), if lambda in Lambda_n has sum(lambda_i)<c_pi=sum(lambda_pi,i), then pi^(K_n,lambda)=0. This criterion is separate from lex vanishing.",
-      "locator": "Theorem2.2 (also1.1(2))",
+      "locator": "Theorem 2.2 (also1.1(2))",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/reduction",
@@ -695,7 +697,7 @@
       "kind": "theorem",
       "name": "Conductor as minimal level weight",
       "statement": "Conditional on the main existence/vanishing statements, c_pi=min{|lambda| : pi^(K_n,lambda) is nonzero}.",
-      "locator": "§1.2 following Theorem1.1",
+      "locator": "§1.2 following Theorem 1.1",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/main-one",
@@ -711,7 +713,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Proposition2.4, Proposition3.5 and Lemma6.6",
+          "where": "Proposition 2.4, Proposition 3.5 and Lemma 6.6",
           "how": "relate images and derivative ranks."
         }
       ],
@@ -765,7 +767,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Proposition2.4 and maximal peeling",
+          "where": "Proposition 2.4 and maximal peeling",
           "how": "compute the target tuple without repeated analytic conductors."
         }
       ],
@@ -790,7 +792,7 @@
         {
           "id": "PAPER-ATOBE-KONDO-YASUDA-22/TEST-lambda-combinatorial-1",
           "definition": "PAPER-ATOBE-KONDO-YASUDA-22/lambda-combinatorial",
-          "expect": "Example2.5 rank17 produces (0^13,1,1,2,4) with weight8.",
+          "expect": "Example 2.5 rank17 produces (0^13,1,1,2,4) with weight8.",
           "status": "planned mathematical test, not Lean-executed"
         },
         {
@@ -816,7 +818,7 @@
       "kind": "theorem",
       "name": "Derivative and multisegment tuples agree",
       "statement": "For pi=Z(m) of rank n>=1, lambda_pi=lambda_m; in particular the derivative differences are ascending nonnegative integers.",
-      "locator": "Proposition2.4",
+      "locator": "Proposition 2.4",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/lambda-combinatorial",
@@ -829,7 +831,7 @@
       "kind": "theorem",
       "name": "Generic specialization",
       "statement": "For generic irreducible pi, lambda_pi=(0^(n-1),c_pi), and the groups/newform claim specialize to the JPSS generic theorem.",
-      "locator": "§1.2 following Theorem1.1; §2.2",
+      "locator": "§1.2 following Theorem 1.1; §2.2",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/derivative",
@@ -841,11 +843,11 @@
       "kind": "definition",
       "name": "Ladder multisegments",
       "statement": "A type-chi multisegment [x_1,y_1]+...+[x_t,y_t] is ladder when x_1>...>x_t and y_1>...>y_t; chi is unramified here.",
-      "locator": "Example2.5(2); §6.1",
+      "locator": "Example 2.5(2); §6.1",
       "status": "missing",
       "uses": [
         {
-          "where": "Section6.1",
+          "where": "Section 6.1",
           "how": "use adjacent overlap lengths and determinant capacities."
         }
       ],
@@ -895,7 +897,7 @@
       "kind": "theorem",
       "name": "Explicit ladder tuple",
       "statement": "For a type-chi ladder [x_1,y_1]+...+[x_t,y_t] in decreasing endpoint order, lambda_pi is the SUM, for i=2,...,t, of the n-tuples with max(y_i-x_(i-1)+2,0) terminal ones and all other entries zero. These lengths are not themselves the coordinates of lambda.",
-      "locator": "Example2.5(2)",
+      "locator": "Example 2.5(2)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/ladder",
@@ -906,8 +908,8 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/product-tuple",
       "kind": "theorem",
       "name": "Irreducible-product tuple addition",
-      "statement": "If each pi_i is either in the L(s,pi_i)=1 class of Example2.5(1) or is a type-chi ladder of Example2.5(2), and pi_1×...×pi_r is irreducible, then lambda of the product is the sum of the lambda_pi_i after left-zero-padding.",
-      "locator": "Example2.5(3)",
+      "statement": "If each pi_i is either in the L(s,pi_i)=1 class of Example 2.5(1) or is a type-chi ladder of Example 2.5(2), and pi_1×...×pi_r is irreducible, then lambda of the product is the sum of the lambda_pi_i after left-zero-padding.",
+      "locator": "Example 2.5(3)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/tuple-comparison",
@@ -919,7 +921,7 @@
       "kind": "definition",
       "name": "Tempered Speh representation",
       "statement": "For irreducible tempered pi of G_n and m>=1, Sp(pi,m) is the unique irreducible subrepresentation of pi|.|^(-(m-1)/2) × ... × pi|.|^((m-1)/2).",
-      "locator": "Example2.5(4); §8.2",
+      "locator": "Example 2.5(4); §8.2",
       "status": "missing",
       "uses": [
         {
@@ -973,7 +975,7 @@
       "kind": "theorem",
       "name": "Speh conductor tuple",
       "statement": "For sigma=Sp(pi,m), lambda_sigma=(0^((n-1)m),c_pi repeated m).",
-      "locator": "Example2.5(4)",
+      "locator": "Example 2.5(4)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/speh",
@@ -989,7 +991,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Proposition2.7 and recursive algorithm",
+          "where": "Proposition 2.7 and recursive algorithm",
           "how": "peel one copy of each inclusion-maximal interval."
         }
       ],
@@ -1039,7 +1041,7 @@
       "kind": "theorem",
       "name": "Ram additivity for maximal peeling",
       "statement": "For unipotent/type-chi m, m^ram=(m_max)^ram+(m^max)^ram; no unrestricted additivity is claimed.",
-      "locator": "Proposition2.7",
+      "locator": "Proposition 2.7",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/max-split",
@@ -1053,7 +1055,7 @@
       "kind": "theorem",
       "name": "Tuple additivity for maximal peeling",
       "statement": "Under the same hypotheses, lambda_m=lambda_(m_max)+lambda_(m^max), padded to the same rank.",
-      "locator": "Corollary2.8",
+      "locator": "Corollary 2.8",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/ram-split",
@@ -1065,7 +1067,7 @@
       "kind": "theorem",
       "name": "Weil–Deligne interpretation of ram",
       "statement": "For unipotent irreducible pi, under the GL_n LLC with geometric Frobenius, pi^ram corresponds to the WD quotient V/(V^I intersect ker N).",
-      "locator": "Lemma2.9, §2.6",
+      "locator": "Lemma 2.9, §2.6",
       "status": "missing",
       "note": "Imports ET.6 full WD/LLC including N. Quotient is not asserted to have no unramified subrepresentation.",
       "prerequisites": [
@@ -1081,7 +1083,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Lemmas3.1–3.4",
+          "where": "Lemmas 3.1–3.4",
           "how": "compute restriction to images and degree shifts."
         }
       ],
@@ -1129,7 +1131,7 @@
       "kind": "theorem",
       "name": "Graded pair reconstruction",
       "statement": "Two VN-pairs are isomorphic iff their underlying graded spaces are isomorphic and their image pairs (Image N,N|Image N) are isomorphic.",
-      "locator": "Lemma3.1",
+      "locator": "Lemma 3.1",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/vn"
@@ -1140,11 +1142,11 @@
       "kind": "definition",
       "name": "Opposite-degree centralizer spaces",
       "statement": "For a VN-pair set S(V,N)={degree -1 maps L on V | LN=NL}; for a WL-pair reverse degrees. These are finite-dimensional complex vector spaces with Zariski topology.",
-      "locator": "§3.1 preceding Lemma3.2",
+      "locator": "§3.1 preceding Lemma 3.2",
       "status": "missing",
       "uses": [
         {
-          "where": "Lemmas3.2/3.4 and Proposition2.4",
+          "where": "Lemmas 3.2/3.4 and Proposition 2.4",
           "how": "choose opposite operators generically on all relevant images."
         }
       ],
@@ -1194,7 +1196,7 @@
       "kind": "theorem",
       "name": "Centralizers restrict surjectively to Image N",
       "statement": "S(V,N)→S(Image N,N|Image N), by restriction, is surjective.",
-      "locator": "Lemma3.2, VN case",
+      "locator": "Lemma 3.2, VN case",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/commuting"
@@ -1205,7 +1207,7 @@
       "kind": "theorem",
       "name": "Centralizers restrict surjectively to Image L",
       "statement": "S(W,L)→S(Image L,L|Image L), by restriction, is surjective.",
-      "locator": "Lemma3.2, WL case",
+      "locator": "Lemma 3.2, WL case",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/commuting"
@@ -1216,7 +1218,7 @@
       "kind": "theorem",
       "name": "VN image and segment truncation",
       "statement": "The VN-pair (Image N(-1),N restricted) corresponds to m^-.",
-      "locator": "Lemma3.3, VN case",
+      "locator": "Lemma 3.3, VN case",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/vn",
@@ -1228,7 +1230,7 @@
       "kind": "theorem",
       "name": "WL image and segment truncation",
       "statement": "The WL-pair (Image L,L restricted) corresponds to m^- with NO grading shift.",
-      "locator": "Lemma3.3, WL case",
+      "locator": "Lemma 3.3, WL case",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/vn",
@@ -1240,7 +1242,7 @@
       "kind": "theorem",
       "name": "Generic commuting operator and duality",
       "statement": "For a VN-pair of type m there is a dense open S^o(V,N) in S(V,N) whose operators L have WL type m#; the analogous opposite construction holds. One can choose L so that N is generic on (V,L) and on (Image L,L|Image L).",
-      "locator": "§3.1, [43],[31]; Lemma3.4",
+      "locator": "§3.1, [43],[31]; Lemma 3.4",
       "status": "missing",
       "note": "Split dense-open duality theorem from simultaneous-genericity proof in the next completion pass; cited-input proofs not yet fully audited.",
       "prerequisites": [
@@ -1253,7 +1255,7 @@
       "kind": "theorem",
       "name": "Ranks compute derivative conductors",
       "statement": "For unipotent m represented by (V,N), choose commuting L whose restrictions to every Image N^i are in the required generic opens. Then c_(Z(m)^(i))=rank(L N^i), and the rank differences produce the terminal-one formula for lambda.",
-      "locator": "Proof of Proposition2.4, pp15–16",
+      "locator": "Proof of Proposition 2.4, pp15–16",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/generic-commuting",
@@ -1266,7 +1268,7 @@
       "kind": "theorem",
       "name": "Ram and right truncation commute",
       "statement": "For unipotent/type-chi m, (m^-)^ram=(m^ram)^-.",
-      "locator": "Proposition3.5",
+      "locator": "Proposition 3.5",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/generic-commuting",
@@ -1279,7 +1281,7 @@
       "kind": "theorem",
       "name": "Maximal peeling commutes with truncation",
       "statement": "For type-chi m, (m^-)_max=(m_max)^- and (m^-)^max=(m^max)^-, after discarding empty intervals.",
-      "locator": "Lemma3.6",
+      "locator": "Lemma 3.6",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/max-split",
@@ -1291,11 +1293,11 @@
       "kind": "definition",
       "name": "Weighted inclusion chains and grid paths",
       "statement": "For integral type-chi m and integer a, take its full submultisegment m_a of intervals INTERSECTING [a,a+1]; E_a is the largest cardinality of a full submultisegment totally ordered by inclusion. Multiplicity counts in cardinality. The grid paths in the proof move (-1,0) or (0,1) from (a+1,a) to (1,r), after translating support to [1,r].",
-      "locator": "Proposition3.7 and proof, pp17–19",
+      "locator": "Proposition 3.7 and proof, pp17–19",
       "status": "missing",
       "uses": [
         {
-          "where": "Proposition3.7",
+          "where": "Proposition 3.7",
           "how": "retain all equal copies and maximize weighted chains."
         }
       ],
@@ -1345,7 +1347,7 @@
       "kind": "theorem",
       "name": "Adjacent dual interval count",
       "statement": "For m of type chi and integer a, the number of segments of m# containing [a,a+1] is Card(m_a)-E_a(m), with full multiplicities.",
-      "locator": "Proposition3.7; Knight–Zelevinsky [16], Theorem1.2 and equation(1.6)",
+      "locator": "Proposition 3.7; Knight–Zelevinsky [16], Theorem 1.2 and equation(1.6)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/chain",
@@ -1361,7 +1363,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Propositions4.4/4.6",
+          "where": "Propositions 4.4/4.6",
           "how": "recover invariants without choosing a decomposition."
         }
       ],
@@ -1412,11 +1414,11 @@
       "kind": "definition",
       "name": "Padded additive monoid and lex order on classes",
       "statement": "Order finite-length DVR-module classes by lex order on equally padded sequences. Define [M] vee [N] by componentwise addition of equally padded sequences.",
-      "locator": "§4.1 before Lemma4.1",
+      "locator": "§4.1 before Lemma 4.1",
       "status": "missing",
       "uses": [
         {
-          "where": "Propositions4.4/4.6 and Corollary4.7",
+          "where": "Propositions 4.4/4.6 and Corollary 4.7",
           "how": "use ordered additive invariant sequences."
         }
       ],
@@ -1466,7 +1468,7 @@
       "kind": "theorem",
       "name": "Monotonicity of vee",
       "statement": "If [M]<=[N] and [M']<=[N'], then [M]vee[M']<=[N]vee[N']; equality holds only when both original inequalities are equalities.",
-      "locator": "Lemma4.1",
+      "locator": "Lemma 4.1",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/vee"
@@ -1477,11 +1479,11 @@
       "kind": "definition",
       "name": "Finite-length DVR dual",
       "statement": "For fraction field F of o, M^vee=Hom_o(M,F/o). This is contravariant, exact on finite-length modules, and noncanonically isomorphic to M.",
-      "locator": "§4.1; Lemma4.2",
+      "locator": "§4.1; Lemma 4.2",
       "status": "missing",
       "uses": [
         {
-          "where": "Lemma4.3 and Proposition4.4",
+          "where": "Lemma 4.3 and Proposition 4.4",
           "how": "turn injections into surjections and reverse flags."
         }
       ],
@@ -1531,7 +1533,7 @@
       "kind": "theorem",
       "name": "Submodule class inequality",
       "statement": "An injection of finite-length DVR modules M→M' implies [M]<=[M'].",
-      "locator": "Lemma4.3(1)",
+      "locator": "Lemma 4.3(1)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/vee",
@@ -1544,7 +1546,7 @@
       "kind": "theorem",
       "name": "Quotient class inequality",
       "statement": "A surjection of finite-length DVR modules M→M' implies [M]>=[M'].",
-      "locator": "Lemma4.3(2)",
+      "locator": "Lemma 4.3(2)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/vee"
@@ -1555,7 +1557,7 @@
       "kind": "theorem",
       "name": "DVR convexity",
       "statement": "For a short exact sequence 0→M'→M→M''→0 of finite-length DVR modules, [M]>=[M']vee[M''].",
-      "locator": "Proposition4.4",
+      "locator": "Proposition 4.4",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/dvr-mono",
@@ -1568,7 +1570,7 @@
       "kind": "theorem",
       "name": "Ideal-multiple equality",
       "statement": "For finite-length M and nonzero ideal I of o, [M]=[IM]vee[M/IM].",
-      "locator": "Lemma4.5",
+      "locator": "Lemma 4.5",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/vee"
@@ -1579,7 +1581,7 @@
       "kind": "theorem",
       "name": "Unique equality-case submodule",
       "statement": "If [M]=[A]vee[B], there exists exactly one ACTUAL submodule N≤M with [N]=[A] and [M/N]=[B].",
-      "locator": "Proposition4.6, first assertion",
+      "locator": "Proposition 4.6, first assertion",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/convexity",
@@ -1591,7 +1593,7 @@
       "kind": "theorem",
       "name": "Strict deficit away from equality submodule",
       "statement": "For that unique N and any other N'≤M, either [N']<[A] or [M/N']<[B].",
-      "locator": "Proposition4.6, last assertion",
+      "locator": "Proposition 4.6, last assertion",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/unique-submodule"
@@ -1602,7 +1604,7 @@
       "kind": "theorem",
       "name": "Unique equality-case filtration",
       "statement": "If [M]=[M_1]vee...vee[M_r], there is exactly one ordered filtration 0=F_0≤...≤F_r=M whose graded quotient classes are [M_i].",
-      "locator": "Corollary4.7, existence/uniqueness",
+      "locator": "Corollary 4.7, existence/uniqueness",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/unique-submodule"
@@ -1613,7 +1615,7 @@
       "kind": "theorem",
       "name": "Alternative filtration has a deficit",
       "statement": "Under the preceding equality, every different ordered filtration has some i with [Gr_i F]<[M_i].",
-      "locator": "Corollary4.7, last assertion",
+      "locator": "Corollary 4.7, last assertion",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/unique-filtration",
@@ -1625,7 +1627,7 @@
       "kind": "theorem",
       "name": "Simultaneous quotient and surjection lifting",
       "statement": "For surjective f:M→N and submodule M'≤M, the map M→N ×_(N/f(M')) (M/M') is surjective.",
-      "locator": "Lemma4.8",
+      "locator": "Lemma 4.8",
       "status": "missing",
       "prerequisites": []
     },
@@ -1634,7 +1636,7 @@
       "kind": "theorem",
       "name": "Equal-rank free covers are equivalent",
       "statement": "For a commutative local ring o, an o-module N, and surjections f:L→N and fprime:Lprime→N from finite free modules of the same rank, there is an o-linear isomorphism alpha:L→Lprime with fprime alpha=f. The source needs the DVR finite-length specialization.",
-      "locator": "Lemma4.9",
+      "locator": "Lemma 4.9",
       "status": "missing",
       "note": "The direct local-ring proof below avoids the separate projective-cover citation. Its matrix and residue-field adapters remain planning work.",
       "proofOutline": [
@@ -1651,7 +1653,7 @@
       "kind": "theorem",
       "name": "Ordered generators lift to a basis",
       "statement": "Given n generators x_i of finite-length N and a surjection f:L→N from a free rank-n module, there is a basis e_i of L with f(e_i)=x_i.",
-      "locator": "Corollary4.10",
+      "locator": "Corollary 4.10",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/free-surjections"
@@ -1662,11 +1664,11 @@
       "kind": "definition",
       "name": "Admissible filtrations and compatible generators",
       "statement": "For n=(n_1,...,n_r), n_i>=0 and sum n_i=n, an n-admissible filtration of M has endpoints0,M and each Gr_i generated by at most n_i elements. Ordered n generators are compatible when each prefix of length b_i=sum_(j<=i)n_j spans F_i.",
-      "locator": "Definition4.11",
+      "locator": "Definition 4.11",
       "status": "missing",
       "uses": [
         {
-          "where": "Lemma4.12 and Proposition5.2",
+          "where": "Lemma 4.12 and Proposition 5.2",
           "how": "transport actual filtrations and prescribed quotient bases."
         }
       ],
@@ -1716,7 +1718,7 @@
       "kind": "theorem",
       "name": "Image of a free admissible flag",
       "statement": "For a free rank-n L surjecting onto finite-length M, an n-admissible filtration of L maps to one of M.",
-      "locator": "Lemma4.12(1)",
+      "locator": "Lemma 4.12(1)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/admissible"
@@ -1727,7 +1729,7 @@
       "kind": "theorem",
       "name": "Compatible basis for a free flag",
       "statement": "Given an n-admissible flag of free rank-n L, a surjection L→M, and any compatible ordered generators x_1,...,x_n of the image flag, there are compatible generators y_1,...,y_n of L lifting the x_i (necessarily a basis since rank L=n).",
-      "locator": "Lemma4.12(2)",
+      "locator": "Lemma 4.12(2)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/admissible",
@@ -1738,8 +1740,8 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/flag-lift",
       "kind": "theorem",
       "name": "Prescribed compatible generators lift through a free flag",
-      "statement": "Given a free admissible flag and compatible generators of its image in M, there is a compatible basis lifting those generators, with the prescribed graded lifts of Lemma4.12(3).",
-      "locator": "Lemma4.12(3)",
+      "statement": "Given a free admissible flag and compatible generators of its image in M, there is a compatible basis lifting those generators, with the prescribed graded lifts of Lemma 4.12(3).",
+      "locator": "Lemma 4.12(3)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/flag-basis",
@@ -1752,7 +1754,7 @@
       "kind": "theorem",
       "name": "Exact-generator filtration counts are symmetric",
       "statement": "For finite-length M over o with FINITE residue field, the number of ordered filtrations whose successive quotients have exactly m_1,...,m_r minimal generators is invariant under permutation of the m_i.",
-      "locator": "Lemma4.13",
+      "locator": "Lemma 4.13",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/admissible",
@@ -1768,7 +1770,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Lemma5.1 and Mackey decomposition",
+          "where": "Lemma 5.1 and Mackey decomposition",
           "how": "replace matrix levels by quotient lattices."
         }
       ],
@@ -1819,7 +1821,7 @@
       "kind": "theorem",
       "name": "Conjugacy depends only on quotient",
       "statement": "The conjugacy class of K_(L1,L2) depends only on n and the isomorphism class [L1/L2].",
-      "locator": "Lemma5.1",
+      "locator": "Lemma 5.1",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/lattice-level",
@@ -1831,7 +1833,7 @@
       "kind": "theorem",
       "name": "Cosets as lattices with quotient maps",
       "statement": "For fixed finite-length M generated by <=n elements and a standard quotient o^n→M, G_n/K_(n,[M]) is G_n-equivariantly in bijection with pairs (L,f) of full lattice and surjection f:L→M.",
-      "locator": "Lemma5.3(1)",
+      "locator": "Lemma 5.3(1)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/lattice-conjugacy"
@@ -1842,7 +1844,7 @@
       "kind": "theorem",
       "name": "Flags from parabolic cosets",
       "statement": "For the partition n=(n_1,...,n_r), G_n/P_n identifies with flags of F-subspaces of prefix dimensions b_i; intersecting such a flag with a lattice identifies it with n-admissible lattice filtrations.",
-      "locator": "Lemma5.3(2)",
+      "locator": "Lemma 5.3(2)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/admissible",
@@ -1854,7 +1856,7 @@
       "kind": "theorem",
       "name": "Double cosets as actual quotient filtrations",
       "statement": "P_n\\G_n/K_(n,[M]) is in bijection with actual n-admissible filtrations of M. In each Mackey summand, projection of P_n∩gKg^-1 to the Levi is the product of the corresponding smaller level groups, up to conjugacy.",
-      "locator": "Lemma5.3(3) and proof of Proposition5.2",
+      "locator": "Lemma 5.3(3) and proof of Proposition 5.2",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/coset-lattices",
@@ -1867,7 +1869,7 @@
       "kind": "theorem",
       "name": "Fixed vectors indexed by module filtrations",
       "statement": "For finite-length smooth complex pi_i of G_(n_i), n_i>=1 and sum n_i=n, (pi_1×...×pi_r)^(K_(n,[M])) is isomorphic to the direct sum over actual n-admissible filtrations F of M of ⊗_i pi_i^(K_(n_i,[Gr_i F])).",
-      "locator": "Proposition5.2",
+      "locator": "Proposition 5.2",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/double-cosets",
@@ -1879,7 +1881,7 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/reduction",
       "kind": "theorem",
       "name": "Reduction to unipotent and L=1 cases",
-      "statement": "Proving both main theorems for every type-chi irreducible with chi unramified, and for every irreducible with L(s,pi)=1, proves them for all Irr(G_n), via the irreducible cuspidal-support factorization of §5.2, tuple/conductor additivity and Proposition5.2.",
+      "statement": "Proving both main theorems for every type-chi irreducible with chi unramified, and for every irreducible with L(s,pi)=1, proves them for all Irr(G_n), via the irreducible cuspidal-support factorization of §5.2, tuple/conductor additivity and Proposition 5.2.",
       "locator": "§5.2, pp27–28",
       "status": "missing",
       "prerequisites": [
@@ -1895,11 +1897,11 @@
       "kind": "definition",
       "name": "Bounded and exact filtration counts",
       "statement": "N_n(M) is the finite number of n-admissible filtrations of finite-length M, for a nonnegative capacity vector n. Negative capacities give zero; zero capacities are allowed. Exact-generator counts impose equality of generator numbers instead.",
-      "locator": "§6.1 preceding Proposition6.1; §6.4",
+      "locator": "§6.1 preceding Proposition 6.1; §6.4",
       "status": "missing",
       "uses": [
         {
-          "where": "Lemma4.13 and Proposition6.1",
+          "where": "Lemma 4.13 and Proposition 6.1",
           "how": "count actual intermediate submodules."
         }
       ],
@@ -1950,7 +1952,7 @@
       "kind": "theorem",
       "name": "Ladder determinantal character formula",
       "statement": "In the Grothendieck group, Z([x_i,y_i]_(i=1..t)) for a type-chi ladder equals sum_(w in S_t) sgn(w) ⊗ind_i Z([x_w(i),y_i]_chi), with empty intervals giving G_0 and negative lengths giving zero.",
-      "locator": "§6.1 proof of Proposition6.1; [21]",
+      "locator": "§6.1 proof of Proposition 6.1; [21]",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/ladder",
@@ -1962,7 +1964,7 @@
       "kind": "theorem",
       "name": "Ladder invariant dimensions as alternating counts",
       "statement": "For that ladder pi of rank n and [M]∈C_n, dim pi^(K_(n,[M]))=sum_(w∈S_t) sgn(w) N_(y_i-x_w(i)+1)_i(M).",
-      "locator": "Proposition6.1",
+      "locator": "Proposition 6.1",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/ladder-determinant",
@@ -1975,7 +1977,7 @@
       "kind": "theorem",
       "name": "Subquotient generator bound at ladder level",
       "statement": "Put b=max_(2<=i<=t) max(y_i-x_(i-1)+2,0). If [M]<=[M_pi], then every graded quotient of every filtration of M is generated by at most b elements.",
-      "locator": "Lemma6.2",
+      "locator": "Lemma 6.2",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/dvr-mono",
@@ -1988,11 +1990,11 @@
       "kind": "definition",
       "name": "Five permutation subsets for ladder cancellation",
       "statement": "Choose a with y_a-x_(a-1)+2=b>0. X1={w | w(k)>=a-1 for k>=a}; X2={w∈X1 | w(k)>=a for k>a}; S={w | w(k)>=a for k>=a}; X3={(a-1,w(a))w | w∈S}; X4={w | w(a)=a-1 and some k>a has w(k)<a-1}; X5={w(a,i(w)) | w∈X4}, with i(w) attaining the largest value among w(1),...,w(a-1).",
-      "locator": "Lemma6.3, pp29–30",
+      "locator": "Lemma 6.3, pp29–30",
       "status": "missing",
       "uses": [
         {
-          "where": "Lemma6.3 and ladder recurrence",
+          "where": "Lemma 6.3 and ladder recurrence",
           "how": "separate disjoint subsets before pairing signs."
         }
       ],
@@ -2043,7 +2045,7 @@
       "kind": "theorem",
       "name": "First sign-reversing cancellation",
       "statement": "For [M]<=[M_pi], swapping the positions of the two largest values among w(1),...,w(a-1) defines a count-preserving sign-reversing involution on S_t\\X1, so its signed sum is zero.",
-      "locator": "Lemma6.3(1)",
+      "locator": "Lemma 6.3(1)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/cancellation-sets",
@@ -2055,7 +2057,7 @@
       "kind": "theorem",
       "name": "Second sign-reversing cancellation",
       "statement": "On X1\\X2, swapping a with the unique position i<a having w(i)>=a defines a count-preserving sign-reversing involution and its signed sum is zero.",
-      "locator": "Lemma6.3(2)",
+      "locator": "Lemma 6.3(2)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/cancellation-sets",
@@ -2067,7 +2069,7 @@
       "kind": "theorem",
       "name": "Remaining subset partition",
       "statement": "X2 is the disjoint union of S and X3.",
-      "locator": "Lemma6.3(3)",
+      "locator": "Lemma 6.3(3)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/cancellation-sets"
@@ -2078,7 +2080,7 @@
       "kind": "theorem",
       "name": "X4 partition and stability",
       "statement": "X4⊆S_t\\X1 is stable under the first involution, and X3 disjoint-union X4={w | w(a)=a-1}.",
-      "locator": "Lemma6.3(4)",
+      "locator": "Lemma 6.3(4)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/cancel-one",
@@ -2090,7 +2092,7 @@
       "kind": "theorem",
       "name": "X5 stability",
       "statement": "X5⊆S_t\\X1 is stable under the first involution.",
-      "locator": "Lemma6.3(5)",
+      "locator": "Lemma 6.3(5)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/cancel-one",
@@ -2102,7 +2104,7 @@
       "kind": "theorem",
       "name": "Ladder fixed-space recurrence",
       "statement": "For [M]<=[M_pi] and b>0 as above, replace the two adjacent segments at a-1,a by [x_a,y_(a-1)] to form pi'. Then dim pi^(K_(n,[M]))=sum_(N≤M, minimalGenerators N=b) dim pi'^(K_(n',[M/N])).",
-      "locator": "§6.1 following Lemma6.3",
+      "locator": "§6.1 following Lemma 6.3",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/cancel-one",
@@ -2117,8 +2119,8 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/ladder-main",
       "kind": "theorem",
       "name": "Newforms for type-chi ladders",
-      "statement": "Theorem2.1 holds for every type-chi ladder; for b=0 use spherical invariants, and for b>0 use the recurrence and unique equality filtration.",
-      "locator": "§6.1 conclusion; Example6.4",
+      "statement": "Theorem 2.1 holds for every type-chi ladder; for b=0 use spherical invariants, and for b>0 use the recurrence and unique equality filtration.",
+      "locator": "§6.1 conclusion; Example 6.4",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/ladder-recurrence",
@@ -2131,7 +2133,7 @@
       "kind": "theorem",
       "name": "Distinguished constituent multiplicity one",
       "statement": "Z(m1+m2) occurs with multiplicity one as a subquotient of Z(m1)×Z(m2).",
-      "locator": "Lemma6.5; [38] Proposition2.3, [22] Proposition3.5(5)",
+      "locator": "Lemma 6.5; [38] Proposition 2.3, [22] Proposition 3.5(5)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/multisegment"
@@ -2142,7 +2144,7 @@
       "kind": "theorem",
       "name": "Truncated constituent criterion",
       "statement": "For type-chi multisegments, if Z(m) occurs in Z(m1)×Z(m2), then Z(m^-) occurs in Z(m1^-)×Z(m2^-) iff Card(m)=Card(m1)+Card(m2). This is the degree-one form actually used in §6.3.",
-      "locator": "Lemma6.6",
+      "locator": "Lemma 6.6",
       "status": "missing",
       "note": "Printed lemma allows general multisegments; the c-th-derivative proof needs degree-weighted orders off a degree-one line. General extension remains a gap; see sourceIssues. The source proof uses the ordinary derivative of order Card(m); for general cuspidal degree this must be replaced by the sum of cuspidal degrees. The type-chi application has degree1 throughout.",
       "prerequisites": [
@@ -2154,7 +2156,7 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/unipotent-main",
       "kind": "theorem",
       "name": "Newforms for arbitrary type-chi irreducibles",
-      "statement": "For chi unramified and pi=Z(m) of type chi, Theorem2.1 holds. Induct on (total segment length,number of linked pairs), use maximal peeling and compare all other constituents' tuples strictly.",
+      "statement": "For chi unramified and pi=Z(m) of type chi, Theorem 2.1 holds. Induct on (total segment length,number of linked pairs), use maximal peeling and compare all other constituents' tuples strictly.",
       "locator": "§6.3",
       "status": "missing",
       "prerequisites": [
@@ -2176,7 +2178,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Lemmas6.7/6.8",
+          "where": "Lemmas 6.7/6.8",
           "how": "turn the Steinberg alternating sum into a weighted-degree obstruction."
         }
       ],
@@ -2184,7 +2186,7 @@
         {
           "name": "DVRFiltration.countLinear_monomial",
           "role": "simp",
-          "statement": "xi_M(product x_(m_i)) is the exact-generator count with capacities m_i>0, independent of ordering by Lemma4.13."
+          "statement": "xi_M(product x_(m_i)) is the exact-generator count with capacities m_i>0, independent of ordering by Lemma 4.13."
         },
         {
           "name": "DVRFiltration.countLinear_add",
@@ -2228,7 +2230,7 @@
       "kind": "theorem",
       "name": "Bounded counts from y-polynomials",
       "statement": "xi_M(y_(m1)...y_(ms)) equals the number of (m1,...,ms)-admissible filtrations.",
-      "locator": "Lemma6.7",
+      "locator": "Lemma 6.7",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/count-polynomial"
@@ -2239,7 +2241,7 @@
       "kind": "theorem",
       "name": "Degree vanishing from module length",
       "statement": "If length_o(M)<m, then xi_M(I_m)=0.",
-      "locator": "Lemma6.8",
+      "locator": "Lemma 6.8",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/count-polynomial",
@@ -2282,7 +2284,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Lemma7.1 and conductor-weight proof",
+          "where": "Lemma 7.1 and conductor-weight proof",
           "how": "track determinant valuation in convolution."
         }
       ],
@@ -2333,7 +2335,7 @@
       "kind": "theorem",
       "name": "Correctly qualified cuspidal nilpotence",
       "statement": "For cuspidal pi and NONZERO lambda, every T in a_(lambda,V) is nilpotent by compact-mod-center matrix coefficient support and support escape. At lambda=0 the standalone statement is false for unramified GL1 characters; in the L(s,pi)=1 application require a separate proof V^GL_n(o)=0.",
-      "locator": "Lemma7.1 and proof, pp38–39",
+      "locator": "Lemma 7.1 and proof, pp38–39",
       "status": "missing",
       "note": "Source defect E2. The nonzero-depth repair and zero-depth spherical-cuspidal classification need an explicit proof contract.",
       "proofOutline": [
@@ -2351,7 +2353,7 @@
       "kind": "theorem",
       "name": "Nonunit ideal annihilates a simple subspace",
       "statement": "In the L=1 cuspidal application, after the preceding nilpotence qualification, the nonunit ideal lies in the Jacobson radical of the finite-dimensional image algebra and annihilates every simple submodule of V^K.",
-      "locator": "§7.1 after Lemma7.1",
+      "locator": "§7.1 after Lemma 7.1",
       "status": "missing",
       "note": "Nil-ideal-to-Jacobson inclusion in a noncommutative algebra is a separate unsupplied library adapter.",
       "proofOutline": [
@@ -2396,8 +2398,8 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/segment-reduction",
       "kind": "theorem",
       "name": "L=1 reduction to single segments",
-      "statement": "For pi=Z(Delta_1+...+Delta_r) with L(s,pi)=1, if Theorem2.1 holds for each single-segment Z(Delta_i), it holds for pi; use the unitriangular constituent transition and equality-case filtration.",
-      "locator": "Lemma7.2",
+      "statement": "For pi=Z(Delta_1+...+Delta_r) with L(s,pi)=1, if Theorem 2.1 holds for each single-segment Z(Delta_i), it holds for pi; use the unitriangular constituent transition and equality-case filtration.",
+      "locator": "Lemma 7.2",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/mackey",
@@ -2415,7 +2417,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Lemma8.1 and Theorem9.1",
+          "where": "Lemma 8.1 and Theorem 9.1",
           "how": "specify embeddings and quotients exactly."
         }
       ],
@@ -2465,7 +2467,7 @@
       "kind": "theorem",
       "name": "First quotient identification",
       "statement": "D=V iota(G') and V∩iota(G')=iota(V'); hence V\\D≃V'\\G'.",
-      "locator": "Lemma8.1(1)",
+      "locator": "Lemma 8.1(1)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/speh-groups"
@@ -2476,7 +2478,7 @@
       "kind": "theorem",
       "name": "Second quotient identification",
       "statement": "N∩D=(N∩V)iota(N') and (N∩V)∩iota(N')=iota(N'∩V'); hence (N∩V)\\(N∩D)≃(N'∩V')\\N'.",
-      "locator": "Lemma8.1(2)",
+      "locator": "Lemma 8.1(2)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/speh-groups"
@@ -2491,7 +2493,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Proposition8.3 and unitary pairing",
+          "where": "Proposition 8.3 and unitary pairing",
           "how": "work in concrete functional realizations."
         }
       ],
@@ -2575,7 +2577,7 @@
       "kind": "theorem",
       "name": "Shalika pairing convergence",
       "statement": "For W1,W2 in W_Sh^psi(sigma), B(W1,W2,s)=integral_(V\\D) W1(g) conjugate(W2(g)) |det g|^s dg converges for Re(s)>-1 and admits meromorphic continuation.",
-      "locator": "Theorem8.2, first assertion; [20] Propositions4.1,6.2",
+      "locator": "Theorem 8.2, first assertion; [20] Propositions 4.1,6.2",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/d-quotient",
@@ -2587,7 +2589,7 @@
       "kind": "theorem",
       "name": "Shalika invariant inner product",
       "statement": "B(W1,W2,0) is a positive-definite G-invariant Hermitian form; in particular restriction to D is injective.",
-      "locator": "Theorem8.2, second assertion; [20] Theorem4.3, Corollary4.4",
+      "locator": "Theorem 8.2, second assertion; [20] Theorem 4.3, Corollary 4.4",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/unitary-convergence"
@@ -2598,11 +2600,11 @@
       "kind": "definition",
       "name": "Model transition transforms",
       "statement": "T^psi W(g)=integral_((V∩N)\\V) W(ug)Psi(u)^-1 du. The inverse integrates a Shalika function over (N∩V)\\(N∩D) with the same inverse character. Measures are the compatible ones of Lapid–Mao.",
-      "locator": "Proposition8.3",
+      "locator": "Proposition 8.3",
       "status": "missing",
       "uses": [
         {
-          "where": "Proposition8.9",
+          "where": "Proposition 8.9",
           "how": "change models without losing invariance or measure factors."
         }
       ],
@@ -2654,7 +2656,7 @@
       "kind": "theorem",
       "name": "Compact support for both model transforms",
       "statement": "The Zelevinsky integrand is compactly supported on (V∩N)\\V and the Shalika integrand on (N∩V)\\(N∩D), for every right translate.",
-      "locator": "Proposition8.3; [20] Lemmas3.8,3.11",
+      "locator": "Proposition 8.3; [20] Lemmas 3.8,3.11",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/transition"
@@ -2665,7 +2667,7 @@
       "kind": "theorem",
       "name": "Two-sided model isomorphism",
       "statement": "With the compatible measures, the displayed T and inverse give mutually inverse G-equivariant isomorphisms of the two Speh models.",
-      "locator": "Proposition8.3; [20] Proposition3.5",
+      "locator": "Proposition 8.3; [20] Proposition 3.5",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/transition-support"
@@ -2676,9 +2678,9 @@
       "kind": "theorem",
       "name": "Compact induction occurs in model restriction",
       "statement": "Restriction of the Shalika model to D contains c-Ind_V^D Psi; the analogous assertion holds for every intermediate model, including Zelevinsky, under the generic Speh construction of Lapid–Mao.",
-      "locator": "§8.3 Lemma8.6 and §9.1 input; [20] Corollaries3.13,3.15, pp923–924",
+      "locator": "§8.3 Lemma 8.6 and §9.1 input; [20] Corollaries3.13,3.15, pp923–924",
       "status": "missing",
-      "note": "Statements, row-vector D convention, and Lemma3.14 checked in the published cited source. Remaining surrounding proof closure recorded as a gap.",
+      "note": "Statements, row-vector D convention, and Lemma 3.14 checked in the published cited source. Remaining surrounding proof closure recorded as a gap.",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/speh-models"
       ]
@@ -2692,7 +2694,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Theorem8.5 and Proposition8.7",
+          "where": "Theorem 8.5 and Proposition 8.7",
           "how": "normalize integrals and obtain Laurent module stability."
         }
       ],
@@ -2743,7 +2745,7 @@
       "kind": "theorem",
       "name": "Levi decomposition of the integral",
       "statement": "I_m equals the iterated integral over P'\\G' and (N'∩L')\\L' of W(iota(lg))W'(lg)|det l|^(s-m/2)delta_P'(l)^-1, with the outer factor |det g|^(s-m/2). Interpret the formal identity first under absolute convergence.",
-      "locator": "Lemma8.4",
+      "locator": "Lemma 8.4",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/im",
@@ -2755,7 +2757,7 @@
       "kind": "theorem",
       "name": "Absolute convergence of Speh I_m",
       "statement": "For tempered pi,pi' and the indicated model vectors, I_m converges absolutely for Re(s) sufficiently large (bound may depend on the vectors).",
-      "locator": "Theorem8.5(1)",
+      "locator": "Theorem 8.5(1)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/im-iwasawa"
@@ -2766,7 +2768,7 @@
       "kind": "theorem",
       "name": "Denominator bound for I_m",
       "statement": "I_m(s,W,W') divided by product_(i=1..m)L(s-m+i,pi×pi') belongs to C[q^-s,q^s].",
-      "locator": "Theorem8.5(2)",
+      "locator": "Theorem 8.5(2)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/im-convergence",
@@ -2778,11 +2780,11 @@
       "kind": "definition",
       "name": "Contragredient model involution",
       "statement": "Define tilde W(g)=W(w_nm transpose(g)^-1 w'_n), where w_nm is the full antidiagonal permutation and w'_n the antidiagonal m×m block permutation with I_n blocks. Use the primed analogue for W'.",
-      "locator": "Theorem8.5(3); Proposition8.9",
+      "locator": "Theorem 8.5(3); Proposition 8.9",
       "status": "missing",
       "uses": [
         {
-          "where": "Theorems8.5/8.11 and Proposition9.8",
+          "where": "Theorems 8.5/8.11 and Proposition 9.8",
           "how": "track the target representation and additive character."
         }
       ],
@@ -2832,7 +2834,7 @@
       "kind": "theorem",
       "name": "Functional equation for I_m",
       "statement": "I_m(m-s,tilde W,tilde W')=omega_pi'(-1)^((n-1)m) product_(i=1..m) gamma(s-m+i,pi×pi',psi) I_m(s,W,W'). Here gamma=epsilon times L(1-s,tilde pi×tilde pi')/L(s,pi×pi').",
-      "locator": "Theorem8.5(3)",
+      "locator": "Theorem 8.5(3)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/im-rational",
@@ -2845,7 +2847,7 @@
       "kind": "theorem",
       "name": "Integral test vector equal to one",
       "statement": "For W' in the partner Zelevinsky model with W'(1)≠0, some W in the first model satisfies I_m(s,W,W')=1 identically.",
-      "locator": "Lemma8.6",
+      "locator": "Lemma 8.6",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/compact-restriction",
@@ -2857,11 +2859,11 @@
       "kind": "definition",
       "name": "GCD polynomial of the integral family",
       "statement": "The C-span of all I_m is a fractional ideal in C[X,X^-1], X=q^-s, generated by 1/P_m(X) for unique P_m∈C[X] with P_m(0)=1.",
-      "locator": "Proposition8.7",
+      "locator": "Proposition 8.7",
       "status": "missing",
       "uses": [
         {
-          "where": "Proposition8.7 and Remark8.8",
+          "where": "Proposition 8.7 and Remark 8.8",
           "how": "express the gcd without overstating its denominator."
         }
       ],
@@ -2912,7 +2914,7 @@
       "kind": "theorem",
       "name": "GCD divisibility bound",
       "statement": "P_m(X) divides product_(i=1..m)P_1(q^(m-i)X). The paper only obtains equality for an unramified partner downstream of §9, not in general.",
-      "locator": "Proposition8.7; Remark8.8",
+      "locator": "Proposition 8.7; Remark 8.8",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/pm"
@@ -2927,7 +2929,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Proposition8.9 and Theorem9.1",
+          "where": "Proposition 8.9 and Theorem 9.1",
           "how": "compare models and define the test transform."
         }
       ],
@@ -2978,7 +2980,7 @@
       "kind": "theorem",
       "name": "Model compatibility of integrals",
       "statement": "If W_Sh=T^psi W_Ze and W'_Sh=T^(psi^-1) W'_Ze, then Z_m(s,W_Sh,W'_Sh)=I_m(s,W_Ze,W'_Ze); the contragredient transforms commute with T in the stated conventions.",
-      "locator": "Proposition8.9",
+      "locator": "Proposition 8.9",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/zm",
@@ -2996,7 +2998,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Lemma8.10 and Theorem8.11",
+          "where": "Lemma 8.10 and Theorem 8.11",
           "how": "distinguish full parameter families from actual Speh vectors."
         }
       ],
@@ -3047,12 +3049,12 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/spherical-span",
       "kind": "theorem",
       "name": "Spherical spanning fails at coincident parameters",
-      "statement": "The literal Lemma8.10 statement for all Satake parameter multisets is false in the n=m=2 specialization with parameters(x,x): spherical-collision supplies two independent eigenfunctions, while the stated family has a single member. A replacement theorem must retain confluent/derivative data at collisions; the generic distinct-parameter statement needs its own proof.",
-      "locator": "Lemma8.10",
+      "statement": "The literal Lemma 8.10 statement for all Satake parameter multisets is false in the n=m=2 specialization with parameters(x,x): spherical-collision supplies two independent eigenfunctions, while the stated family has a single member. A replacement theorem must retain confluent/derivative data at collisions; the generic distinct-parameter statement needs its own proof.",
+      "locator": "Lemma 8.10",
       "status": "missing",
       "note": "Strengthens the earlier proof-multiplicity finding using the explicit derivative eigenfunction. This is a provisional source finding, not an independent-review verdict.",
       "proofOutline": [
-        "Use the family F_t(g)=q^(-(a-b)/2)x^(a+b)exp(t(a-b)), exactly the formal W_Ze^0(x exp(t),x exp(-t)) of Section8.5. Iwasawa torus valuations are well-defined on N\\G/K.",
+        "Use the family F_t(g)=q^(-(a-b)/2)x^(a+b)exp(t(a-b)), exactly the formal W_Ze^0(x exp(t),x exp(-t)) of Section 8.5. Iwasawa torus valuations are well-defined on N\\G/K.",
         "Every compactly supported spherical Hecke operator acts on this family by its symmetric Satake eigenvalue lambda_t. Symmetry gives lambda_t=lambda_-t and lambda_prime(0)=0. Its action is a finite sum on right-K-fixed functions, so differentiate termwise.",
         "H=dF_t/dt at0 therefore has the same eigenvalue as F. The identity and diag(varpi,1) values prove independence. Alternatively for T=1_(K diag(varpi,1) K), use q F(a+1,b)+F(a,b+1)=2 sqrt(q)x F(a,b), and the same equation for H; the central generator acts by x^2."
       ],
@@ -3066,7 +3068,7 @@
       "kind": "theorem",
       "name": "Formal-family convergence",
       "statement": "For W in the Zelevinsky model and every nonzero parameter matrix x, I_m(s,W,W_Ze^0(x)) converges absolutely for Re(s) sufficiently large.",
-      "locator": "Theorem8.11(1)",
+      "locator": "Theorem 8.11(1)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/formal-spherical",
@@ -3078,7 +3080,7 @@
       "kind": "theorem",
       "name": "Formal-family denominator bound",
       "statement": "Writing q^(-s_ij)=x_ij, divide I_m(s,W,W_Ze^0(x)) by product_(i,j)L(s+s_ij-(m-1)/2,pi); the result lies in C[q^-s,q^s] and is independent of choices of logarithms.",
-      "locator": "Theorem8.11(2)",
+      "locator": "Theorem 8.11(2)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/formal-convergence"
@@ -3089,7 +3091,7 @@
       "kind": "theorem",
       "name": "Formal-family functional equation",
       "statement": "I_m(m-s,tilde W,W_Ze^0(x^-1))=product_(i,j)gamma(s+s_ij-(m-1)/2,pi,psi) I_m(s,W,W_Ze^0(x)), with the changed additive-character convention understood.",
-      "locator": "Theorem8.11(3)",
+      "locator": "Theorem 8.11(3)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/formal-rational",
@@ -3101,7 +3103,7 @@
       "kind": "theorem",
       "name": "Formal-family model compatibility",
       "statement": "For W_Sh=T W_Ze, I_m(s,W_Ze,W_Ze^0(x))=Z_m(s,W_Sh,W_Sh^0(x)).",
-      "locator": "Theorem8.11(4)",
+      "locator": "Theorem 8.11(4)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/formal-spherical",
@@ -3113,11 +3115,11 @@
       "kind": "definition",
       "name": "Essential test conditions as a solution set",
       "statement": "Define Ess(pi,m) to be the set of W∈W_Sh^psi(Sp(pi,m)) right iota(K')-invariant such that for all s and all nonzero x_ij, Z_m(s,W,W_Sh^0(x))=product_(i,j)L(s+s_ij-(m-1)/2,pi). Do NOT define a uniquely chosen vector from these conditions: E1 gives a nonzero common kernel for n=m=2.",
-      "locator": "Theorem9.1 and Definition9.2, corrected interface",
+      "locator": "Theorem 9.1 and Definition 9.2, corrected interface",
       "status": "missing",
       "uses": [
         {
-          "where": "Theorem9.1 repair",
+          "where": "Theorem 9.1 repair",
           "how": "encode the inhomogeneous test equations and their common kernel."
         }
       ],
@@ -3179,12 +3181,12 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/spectral-space",
       "kind": "definition",
       "name": "Closed transform space Pi",
-      "statement": "Pi is the closure inside L²(V'\\G';Psi) of smooth functions obtained by the T' integral from smooth N'-equivariant functions, as specified before Lemma9.3.",
+      "statement": "Pi is the closure inside L²(V'\\G';Psi) of smooth functions obtained by the T' integral from smooth N'-equivariant functions, as specified before Lemma 9.3.",
       "locator": "§9.1, p49",
       "status": "missing",
       "uses": [
         {
-          "where": "Lemma9.3 and its attempted application",
+          "where": "Lemma 9.3 and its attempted application",
           "how": "distinguish a closure in L2 from all model restrictions."
         }
       ],
@@ -3235,7 +3237,7 @@
       "kind": "theorem",
       "name": "Separation restricted to Pi remains an obligation",
       "statement": "The source claims a smooth right-K'-invariant phi in Pi with all formal spherical test integrals zero must vanish. A valid proof must handle measurable multiplicity spaces and the domains of the test integrals; it cannot be extended to all restricted Speh vectors.",
-      "locator": "Lemma9.3",
+      "locator": "Lemma 9.3",
       "status": "missing",
       "note": "Open proof audit. In the counterexample specialization Pi=0, so this lemma is vacuous rather than the location of the counterexample.",
       "prerequisites": [
@@ -3248,7 +3250,7 @@
       "kind": "theorem",
       "name": "Noninjectivity of the essential test transform",
       "statement": "For n=m=2 and any tempered pi on GL2, let u=[[1,varpi^-1],[0,1]]. f=1_(uK')-1_K' is nonzero, right K'-invariant and compactly supported. Lapid–Mao restriction plus right averaging yields nonzero W in the Shalika model restricting to f. Every Z_m(s,W,W_Sh^0(x)) vanishes. Thus whenever Ess(pi,2) is nonempty it is not a singleton.",
-      "locator": "Diagnostic replacing the invalid uniqueness part of Theorem9.1; E1",
+      "locator": "Diagnostic replacing the invalid uniqueness part of Theorem 9.1; E1",
       "status": "missing",
       "note": "Worker argument, not a result attributed to AKY. Independent confirmation required; full proof in report.",
       "prerequisites": [
@@ -3261,8 +3263,8 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/levi-separation",
       "kind": "theorem",
       "name": "Levi restriction injectivity requires repair",
-      "statement": "The printed Corollary9.4 asserts that a right-iota(K')-invariant W in the Zelevinsky model with W|L=0 vanishes. Its stated proof invokes the failed §9.1 separation of all restricted vectors. Retain as an unresolved target, not an unconditional import.",
-      "locator": "Corollary9.4",
+      "statement": "The printed Corollary 9.4 asserts that a right-iota(K')-invariant W in the Zelevinsky model with W|L=0 vanishes. Its stated proof invokes the failed §9.1 separation of all restricted vectors. Retain as an unresolved target, not an unconditional import.",
+      "locator": "Corollary 9.4",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/essential-kernel",
@@ -3274,8 +3276,8 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/speh-lex",
       "kind": "theorem",
       "name": "Speh lex vanishing target",
-      "statement": "For sigma=Sp(pi,m) and lambda<lambda_sigma, sigma^(K_nm,lambda)=0. The paper reduces to generic newforms via a conjugate level and Corollary9.4; a replacement for that separation step is required.",
-      "locator": "Proposition9.5",
+      "statement": "For sigma=Sp(pi,m) and lambda<lambda_sigma, sigma^(K_nm,lambda)=0. The paper reduces to generic newforms via a conjugate level and Corollary 9.4; a replacement for that separation step is required.",
+      "locator": "Proposition 9.5",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/speh-tuple",
@@ -3288,11 +3290,11 @@
       "kind": "definition",
       "name": "Speh row-end level",
       "statement": "K^(a) consists of k∈GL_nm(o) whose row ni is congruent to row ni of 1 modulo p^a for every i=1,...,m. It is conjugate to K_nm,(0^((n-1)m),a^m).",
-      "locator": "§9.2 before Proposition9.6",
+      "locator": "§9.2 before Proposition 9.6",
       "status": "missing",
       "uses": [
         {
-          "where": "Propositions9.5/9.6",
+          "where": "Propositions 9.5/9.6",
           "how": "isolate the stronger level condition from the essential test condition."
         }
       ],
@@ -3347,7 +3349,7 @@
       "status": "missing",
       "uses": [
         {
-          "where": "Lemma9.7 and Proposition9.8",
+          "where": "Lemma 9.7 and Proposition 9.8",
           "how": "separate coefficients and compare support after the functional equation."
         }
       ],
@@ -3398,7 +3400,7 @@
       "kind": "theorem",
       "name": "Uniform lower support bound",
       "statement": "For every Shalika vector W there exists integer d(W), independent of x, with Z_(m,d)(W;x)=0 for d<d(W). If W_Ze is right V''(p^ell)-invariant one may take d(W)=-(n-1)m ell.",
-      "locator": "Lemma9.7 and following paragraph",
+      "locator": "Lemma 9.7 and following paragraph",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/det-slice",
@@ -3411,7 +3413,7 @@
       "kind": "theorem",
       "name": "Level-dependent lower bounds",
       "statement": "For W fixed by K^(a), one may take d(W)=0 and d(tilde W)=-(n-1)ma in the determinant-slice bound.",
-      "locator": "§9.2 paragraph after Lemma9.7",
+      "locator": "§9.2 paragraph after Lemma 9.7",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/slice-lower",
@@ -3424,7 +3426,7 @@
       "kind": "theorem",
       "name": "Finite support when L=1",
       "statement": "If L(s,pi)=1, put d'(W)=-c_pi m(n-1)-d(tilde W). Then Z_m(s,W,W_Sh^0(x))=sum_(d(W)<=d<=d'(W)) X^d Z_(m,d)(W;x).",
-      "locator": "Proposition9.8, first assertion",
+      "locator": "Proposition 9.8, first assertion",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/slice-lower",
@@ -3436,7 +3438,7 @@
       "kind": "theorem",
       "name": "Corrected finite Laurent functional equation",
       "statement": "For L=1, epsilon(s,pi,psi)=epsilon_0 q^(-c_pi s), the sum over tilde-W support of q^(-md)X^(-d) Z_(m,d)(tilde W;x^-1) equals epsilon_0^(m(n-1)) q^(c_pi*m*(m-1)*(n-1)/2) X^(c_pi*m*(n-1)) product_(i,j)x_ij^c_pi times the sum over W support of X^d Z_(m,d)(W;x).",
-      "locator": "Proposition9.8, second assertion, corrected q exponent",
+      "locator": "Proposition 9.8, second assertion, corrected q exponent",
       "status": "missing",
       "note": "See E4; this correction does not repair the independent §9 uniqueness defect.",
       "prerequisites": [
@@ -3449,7 +3451,7 @@
       "kind": "theorem",
       "name": "L=1 Speh newform line target",
       "statement": "For L(s,pi)=1, the K^(c_pi)-fixed Shalika space is one-dimensional and admits an element satisfying the essential test conditions. The printed claim that an arbitrarily unique essential vector spans it must be replaced; proof currently unclosed.",
-      "locator": "Proposition9.6",
+      "locator": "Proposition 9.6",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/essential-l1",
@@ -3463,8 +3465,8 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/speh-main",
       "kind": "theorem",
       "name": "General tempered Speh newform line target",
-      "statement": "For tempered pi, dim Sp(pi,m)^(K^(c_pi))=1. This is the source's Corollary9.9 after the reduction chain; do not deduce it from invalid essential uniqueness.",
-      "locator": "Corollary9.9",
+      "statement": "For tempered pi, dim Sp(pi,m)^(K^(c_pi))=1. This is the source's Corollary 9.9 after the reduction chain; do not deduce it from invalid essential uniqueness.",
+      "locator": "Corollary 9.9",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/speh-l1",
@@ -3479,7 +3481,7 @@
       "kind": "theorem",
       "name": "Restriction of Speh newform line to Levi",
       "statement": "Conditional on repaired preceding proofs, restriction identifies W_Ze(sigma)^(K^(c_pi)) with the tensor over i of the generic K_(n,(0^(n-1),c_pi))-newform lines for pi|.|^((m+1-2i)(n-1)/2).",
-      "locator": "Corollary9.10",
+      "locator": "Corollary 9.10",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/speh-main",
@@ -3493,7 +3495,7 @@
       "kind": "theorem",
       "name": "General essential existence target",
       "statement": "For every tempered pi, Ess(pi,m) is nonempty, constructed by normalized generic essential functions on the Levi and the newform restriction isomorphism. This is an existence claim only; the uniqueness claim is rejected pending independent review of E1.",
-      "locator": "§9.3, existence part of Theorem9.1",
+      "locator": "§9.3, existence part of Theorem 9.1",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/newform-restriction",
@@ -3506,7 +3508,7 @@
       "kind": "theorem",
       "name": "Unramified partner GCD equality target",
       "statement": "When pi' is unramified, the source obtains P_m(X)=product_(i=1..m)P_1(q^(m-i)X) from essential existence. Its analytic proof branch is presently conditional on repaired §9 existence.",
-      "locator": "Remark8.8 and §9.3",
+      "locator": "Remark 8.8 and §9.3",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/essential-general",
@@ -3518,11 +3520,11 @@
       "kind": "definition",
       "name": "Mirahoric representations",
       "statement": "Segments are tightly linked when linked and either nonunipotent or with nonempty intersection. L(m) is mirahoric if no pair in m is tightly linked; equivalently c_(pi^highest)=0, equivalently lambda_pi has at most one positive entry.",
-      "locator": "Remark2.6; Kondo–Yasuda [17], AppendixA",
+      "locator": "Remark 2.6; Kondo–Yasuda [17], AppendixA",
       "status": "missing",
       "uses": [
         {
-          "where": "Remark2.6",
+          "where": "Remark 2.6",
           "how": "compare the older newvector class with the all-rank tuple."
         }
       ],
@@ -3580,7 +3582,7 @@
       ],
       "uses": [
         {
-          "where": "Section7.1",
+          "where": "Section 7.1",
           "how": "compute support of the transform of a row-depth coset."
         }
       ],
@@ -3694,7 +3696,7 @@
       ],
       "uses": [
         {
-          "where": "Section8.5",
+          "where": "Section 8.5",
           "how": "normalize Whittaker functions on principal-series families."
         }
       ],
@@ -3770,7 +3772,7 @@
       "kind": "theorem",
       "name": "L=1 multisegment tuple",
       "statement": "For pi=Z(sum Delta_i) with L(s,pi)=1, no Delta_i is unipotent and lambda_pi is the sum of padded tails c_rho_i repeated length(Delta_i); c_rho_i>0.",
-      "locator": "Example2.5(1)",
+      "locator": "Example 2.5(1)",
       "status": "missing",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/tuple-comparison"
@@ -3846,7 +3848,7 @@
       "kind": "theorem",
       "name": "Intrinsic uniqueness of the finite-DVR sequence",
       "statement": "For a DVR o with residue field k and finite-length M, put r_j=dim_k(p^(j-1)M/p^jM) for j>=1. In any cyclic decomposition r_j counts the exponents at least j. Hence multiplicity of exponent j is r_j-r_(j+1), the minimal number of generators is r_1, and the unique ascending n-term sequence is obtained by padding with n-r_1 zeros.",
-      "locator": "Section4.1 classification input; continuation proof from cyclic decomposition",
+      "locator": "Section 4.1 classification input; continuation proof from cyclic decomposition",
       "status": "missing",
       "proofOutline": [
         "Use the pinned PID decomposition and the fact that all irreducibles of a DVR generate its maximal ideal.",
@@ -3863,7 +3865,7 @@
       "kind": "theorem",
       "name": "Injectivity of the fraction-field quotient over a PID",
       "statement": "For a PID o with fraction field F, the o-module F/o is injective. Consequently restriction Hom_o(M,F/o)→Hom_o(N,F/o) is surjective for every injection N→M, without a finite-length hypothesis.",
-      "locator": "Input to Lemma4.3(1); continuation Baer proof",
+      "locator": "Input to Lemma 4.3(1); continuation Baer proof",
       "status": "missing",
       "proofOutline": [
         "For nonzero a in o, multiplication by a on F/o is surjective: the class of z/a maps to the class of z.",
@@ -3879,7 +3881,7 @@
       "kind": "theorem",
       "name": "Exactness and biduality for finite-DVR duals",
       "statement": "Over a DVR o with fraction field F, Hom_o(-,F/o) is exact contravariantly on finite-length modules; the evaluation M→Hom_o(Hom_o(M,F/o),F/o) is a natural isomorphism. It preserves finite length and cyclic exponents.",
-      "locator": "Lemmas4.2–4.3 and duality use in Proposition4.4; continuation proof",
+      "locator": "Lemmas 4.2–4.3 and duality use in Proposition 4.4; continuation proof",
       "status": "missing",
       "proofOutline": [
         "Left exactness of Hom gives the kernel identity; fraction-quotient injectivity supplies surjectivity at the right end.",
@@ -3895,11 +3897,11 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/spherical-collision",
       "kind": "theorem",
       "name": "A second eigenfunction at coincident GL2 parameters",
-      "statement": "In the n=m=2 primed setup, fix x nonzero and write g=n diag(varpi^a,varpi^b)k. Set F(g)=q^(-(a-b)/2)x^(a+b) and H(g)=(a-b)F(g). Both are smooth left-N-invariant right-K-invariant Hecke eigenfunctions with the same Satake character (x,x). They are linearly independent since F(1)=1,H(1)=0,H(diag(varpi,1))=q^-1/2 x. The single formal assignment (x,x) spans only F, refuting the literal Lemma8.10 spanning assertion in this specialization.",
-      "locator": "Published Lemma8.10 p47; arXiv v4 p51; worker continuation argument E3",
+      "statement": "In the n=m=2 primed setup, fix x nonzero and write g=n diag(varpi^a,varpi^b)k. Set F(g)=q^(-(a-b)/2)x^(a+b) and H(g)=(a-b)F(g). Both are smooth left-N-invariant right-K-invariant Hecke eigenfunctions with the same Satake character (x,x). They are linearly independent since F(1)=1,H(1)=0,H(diag(varpi,1))=q^-1/2 x. The single formal assignment (x,x) spans only F, refuting the literal Lemma 8.10 spanning assertion in this specialization.",
+      "locator": "Published Lemma 8.10 p47; arXiv v4 p51; worker continuation argument E3",
       "status": "missing",
       "proofOutline": [
-        "Use the family F_t(g)=q^(-(a-b)/2)x^(a+b)exp(t(a-b)), exactly the formal W_Ze^0(x exp(t),x exp(-t)) of Section8.5. Iwasawa torus valuations are well-defined on N\\G/K.",
+        "Use the family F_t(g)=q^(-(a-b)/2)x^(a+b)exp(t(a-b)), exactly the formal W_Ze^0(x exp(t),x exp(-t)) of Section 8.5. Iwasawa torus valuations are well-defined on N\\G/K.",
         "Every compactly supported spherical Hecke operator acts on this family by its symmetric Satake eigenvalue lambda_t. Symmetry gives lambda_t=lambda_-t and lambda_prime(0)=0. Its action is a finite sum on right-K-fixed functions, so differentiate termwise.",
         "H=dF_t/dt at0 therefore has the same eigenvalue as F. The identity and diag(varpi,1) values prove independence. Alternatively for T=1_(K diag(varpi,1) K), use q F(a+1,b)+F(a,b+1)=2 sqrt(q)x F(a,b), and the same equation for H; the central generator acts by x^2."
       ],
@@ -3912,7 +3914,7 @@
       "kind": "theorem",
       "name": "Infinite-dimensional common kernel in the rank-two Speh test",
       "statement": "For n=m=2 and tempered pi on GL2, the common kernel of all essential test integrals on right-iota(Kprime)-fixed Shalika vectors is infinite-dimensional. For r>=1 put u_r=I+varpi^-r E12 and f_r=1_(u_rKprime)-1_Kprime. Every finite collection has linearly independent restrictions, and each has a model lift after right averaging.",
-      "locator": "Theorem9.1 obstruction E1; continuation of essential-kernel",
+      "locator": "Theorem 9.1 obstruction E1; continuation of essential-kernel",
       "status": "missing",
       "proofOutline": [
         "For r≠s, varpi^-r-varpi^-s has negative valuation; u_rKprime,u_sKprime,Kprime are pairwise disjoint. Evaluation on these cosets proves linear independence.",
@@ -3928,7 +3930,7 @@
       "kind": "theorem",
       "name": "Uniform escape of nonunits at nonzero row depth",
       "statement": "Let lambda≠0 and C⊂GL_n(F) be compact. There is B(C,lambda) such that for z central and g∈C with zg∈X_lambda, the determinant valuation v(det(zg))<=B. Thus X_lambda with determinant valuation tending to infinity escapes every compact subset modulo the center.",
-      "locator": "Repair of support-escape step in Lemma7.1",
+      "locator": "Repair of support-escape step in Lemma 7.1",
       "status": "missing",
       "proofOutline": [
         "Choose i with lambda_i>0. Then (zg)_ii belongs to 1+p, so v(z)+v(g_ii)=0.",
@@ -3949,7 +3951,7 @@
       "continuationSha256": "9ac53cab98805703dcecca24a4df24c62eed9df7779477ddf270bacf0cd89d89"
     },
     {
-      "citation": "Knight–Zelevinsky, Representations of quivers of type A and the multisegment duality, Adv.Math.117(1996),273–293, Theorem1.2/equation(1.6)",
+      "citation": "Knight–Zelevinsky, Representations of quivers of type A and the multisegment duality, Adv.Math.117(1996),273–293, Theorem 1.2/equation(1.6)",
       "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/local-newforms-for-the-general-linear-groups-over-a-nonarchimedean-local-field/33DB9D89FADFD4DA27852DE3C9C61DCD",
       "why": "AKY bibliography[16]; generic duality and weighted path formula are not already an accepted atlas export. Obtain/read this input before closing the quiver extension."
     },
@@ -3991,7 +3993,7 @@
     {
       "citation": "Anderson–Fuller, Rings and Categories of Modules, 2nd ed., GTM13(1992),17.16(3)",
       "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/local-newforms-for-the-general-linear-groups-over-a-nonarchimedean-local-field/33DB9D89FADFD4DA27852DE3C9C61DCD",
-      "why": "The source cites a projective-cover theorem for Lemma4.9. The continuation supplies a direct local-ring residue-matrix proof, so this citation is no longer a necessary mathematical dependency of the chosen proof; it remains source provenance, not a claim of having read the book."
+      "why": "The source cites a projective-cover theorem for Lemma 4.9. The continuation supplies a direct local-ring residue-matrix proof, so this citation is no longer a necessary mathematical dependency of the chosen proof; it remains source provenance, not a claim of having read the book."
     }
   ],
   "routes": [
@@ -4095,7 +4097,7 @@
         "PAPER-ATOBE-KONDO-YASUDA-22/dvr-dual-exact"
       ],
       "reason": "The upstream local-field substrate supplies DVRs and valuation normalization, but not the ordered module-class convexity/unique-filtration theory. Keep this characteristic-free finite-DVR algebra in one foundational owner, outside representation-specific newform proofs.",
-      "brief": "First prerequisite: Local fields and ramification (tauceti:TauCetiRoadmap/LocalFieldsRamification), especially its existing layer0 substrate; do not replan it. Start the algebra over an arbitrary DVR o with fraction field F. Add finite residue field only for finiteness/counting statements. Import Mathlib's Module.equiv_directSum_of_isTorsion for existence, then prove uniqueness of the sorted exponent sequence, the length/minimal-generator formulas and left-zero-padding compatibility. Define the lex ordered class monoid with vee equal to padded coordinate addition, emphatically not direct sum. Build exact Hom_o(-,F/o) duality and biduality, submodule/quotient inequalities, Proposition4.4 convexity, Proposition4.6 uniqueness of an actual equality-case submodule and its strict-deficit alternative, and Corollary4.7 for actual ordered filtrations. Prove the free-cover change-of-basis and prescribed generator/graded-basis lifting statements without importing finite-dimensional-algebra projective covers at the wrong base ring. Then define admissible filtrations, prove finite and permutation-invariant exact-generator counts, and build the Z-linear weighted polynomial functional and its length-vanishing ideal. Final exports are all §§4.1–4.3 results and Lemmas6.7–6.8 plus the corrected composition-polynomial degree bound. Every definition gets the attached APIs and zero/cyclic/equal-class tests. Consumers are the newform extension's Mackey formula, ladder cancellations and weight vanishing. This is a candidate owner: audit any new module/filtered-lattice roadmap added since this checkpoint before activation. Continuation: import the pinned weighted MvPolynomial grading, Baer extension and Nakayama surjectivity. Recover sorted exponents from dim_k(p^(j-1)M/p^jM), prove injectivity of F/o by the principal-ideal Baer argument, and use the direct residue-matrix proof of equivalent equal-rank free surjections over any commutative local ring. No new projective-cover theory is required for Lemma4.9. Keep the finite residue field assumption only where actual finite counts are used."
+      "brief": "First prerequisite: Local fields and ramification (tauceti:TauCetiRoadmap/LocalFieldsRamification), especially its existing layer0 substrate; do not replan it. Start the algebra over an arbitrary DVR o with fraction field F. Add finite residue field only for finiteness/counting statements. Import Mathlib's Module.equiv_directSum_of_isTorsion for existence, then prove uniqueness of the sorted exponent sequence, the length/minimal-generator formulas and left-zero-padding compatibility. Define the lex ordered class monoid with vee equal to padded coordinate addition, emphatically not direct sum. Build exact Hom_o(-,F/o) duality and biduality, submodule/quotient inequalities, Proposition 4.4 convexity, Proposition 4.6 uniqueness of an actual equality-case submodule and its strict-deficit alternative, and Corollary 4.7 for actual ordered filtrations. Prove the free-cover change-of-basis and prescribed generator/graded-basis lifting statements without importing finite-dimensional-algebra projective covers at the wrong base ring. Then define admissible filtrations, prove finite and permutation-invariant exact-generator counts, and build the Z-linear weighted polynomial functional and its length-vanishing ideal. Final exports are all §§4.1–4.3 results and Lemmas 6.7–6.8 plus the corrected composition-polynomial degree bound. Every definition gets the attached APIs and zero/cyclic/equal-class tests. Consumers are the newform extension's Mackey formula, ladder cancellations and weight vanishing. This is a candidate owner: audit any new module/filtered-lattice roadmap added since this checkpoint before activation. Continuation: import the pinned weighted MvPolynomial grading, Baer extension and Nakayama surjectivity. Recover sorted exponents from dim_k(p^(j-1)M/p^jM), prove injectivity of F/o by the principal-ideal Baer argument, and use the direct residue-matrix proof of equivalent equal-rank free surjections over any commutative local ring. No new projective-cover theory is required for Lemma 4.9. Keep the finite residue field assumption only where actual finite counts are used."
     },
     {
       "route": "part-ii",
@@ -4120,7 +4122,7 @@
         "PAPER-ATOBE-KONDO-YASUDA-22/chain-formula"
       ],
       "reason": "Finite type-A interval classification and Krull–Schmidt already belong to upstream QuiverRepresentations. Opposite-degree generic commuting operators, their image-restriction surjectivity and the Knight–Zelevinsky chain formula go beyond those layers.",
-      "brief": "First prerequisite: Quiver representations, path algebras, and Gabriel's theorem (tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations), layers1,2,5. Import path-algebra/interval/Krull–Schmidt machinery; do not replan Gabriel's theorem. Over C construct finite-support Z-graded VN and WL pairs, shifts, images and opposite-degree centralizer spaces, with all ambient finite-dimensional/Zariski-topology hypotheses. Prove Lemmas3.1–3.4, separating the generic commuting-operator duality theorem from simultaneous genericity on all iterated images. State the elementary interval combinatorics independently; import only the representation-theoretic identification with Zelevinsky involution from the early classification part of Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6). Do not duplicate the general Aubert duality contemplated in PAPER-CH26's SmoothRepresentationsPartIIUnitarySpherical candidate. Prove the right-truncation/ram commutation and the maximal-peeling identities with full multiplicities. Close Knight–Zelevinsky's adjacent-interval formula through monotone-grid paths and maximum weighted inclusion chains, then prove Proposition2.7 ram additivity for the special maximal split only. Final consumers are the newform tuple comparison and unipotent induction; no general additivity or finite-field version is asserted. The cited KZ/MW proofs remain a closure task, not an assumed generic-black-box theorem."
+      "brief": "First prerequisite: Quiver representations, path algebras, and Gabriel's theorem (tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations), layers1,2,5. Import path-algebra/interval/Krull–Schmidt machinery; do not replan Gabriel's theorem. Over C construct finite-support Z-graded VN and WL pairs, shifts, images and opposite-degree centralizer spaces, with all ambient finite-dimensional/Zariski-topology hypotheses. Prove Lemmas 3.1–3.4, separating the generic commuting-operator duality theorem from simultaneous genericity on all iterated images. State the elementary interval combinatorics independently; import only the representation-theoretic identification with Zelevinsky involution from the early classification part of Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6). Do not duplicate the general Aubert duality contemplated in PAPER-CH26's SmoothRepresentationsPartIIUnitarySpherical candidate. Prove the right-truncation/ram commutation and the maximal-peeling identities with full multiplicities. Close Knight–Zelevinsky's adjacent-interval formula through monotone-grid paths and maximum weighted inclusion chains, then prove Proposition 2.7 ram additivity for the special maximal split only. Final consumers are the newform tuple comparison and unipotent induction; no general additivity or finite-field version is asserted. The cited KZ/MW proofs remain a closure task, not an assumed generic-black-box theorem."
     },
     {
       "route": "part-ii",
@@ -4166,7 +4168,7 @@
         "PAPER-ATOBE-KONDO-YASUDA-22/spherical-collision"
       ],
       "reason": "The existing AL.3 contract is classical generic Whittaker Rankin–Selberg theory. Degenerate Zelevinsky/Shalika models and unequal-rank Speh integrals need new layers; their analytic core can be built before newform existence, avoiding a cycle.",
-      "brief": "First prerequisite: Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors), AL.0, AL.2 and AL.3. Import Smooth representations of local groups (SmoothRepresentationsOfLocalGroups:SR.0–SR.5, early complex branches) and the Speh constructor from Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6). Fix char(F)=0, conductor-o additive character, compatible quotient/self-dual Haar measures, tempered pi on GL_n and pi' on GL_(n-1), and m>=1. Construct the precise block groups, D as row stabilizer, character Psi, model Hom multiplicity-one theorems, Levi restriction, Lapid–Mao compact-induction restriction, unitary pairing and mutually inverse compact-support transforms. Define convergent I_m and Z_m separately from their rational continuations. Split Theorem8.5 into convergence, product-denominator bound and functional equation with every shift/sign; prove the test-vector-one lemma, gcd normalization and ONLY the divisibility of Proposition8.7. Construct the arbitrary-parameter spherical families, distinguish their actual-Speh specializations, and prove all four parts of Theorem8.11 rather than importing its omitted proof. Audit Lemma8.10 with multiplicities; it is not a usable theorem at singular parameters until repaired. Finally establish determinant slicing, lower bounds, finite support for L=1 and the corrected q^(-md) coefficient in Proposition9.8. Stop before essential-vector uniqueness or newforms. All analytic core exports must be independent of §9's newform line; the newform extension is a downstream consumer. Record the source errors and require independent confirmation, especially the compact-restriction input used in the counterexample. Continuation: the repeated-parameter Lemma8.10 is itself false, not only unproved by its display. Include the explicit GL2 derivative eigenfunction H=(a-b)q^(-(a-b)/2)x^(a+b), and replace spanning by statements that retain confluent data at Satake collisions. Do not use an unqualified all-parameter span as an input to spectral separation."
+      "brief": "First prerequisite: Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors), AL.0, AL.2 and AL.3. Import Smooth representations of local groups (SmoothRepresentationsOfLocalGroups:SR.0–SR.5, early complex branches) and the Speh constructor from Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6). Fix char(F)=0, conductor-o additive character, compatible quotient/self-dual Haar measures, tempered pi on GL_n and pi' on GL_(n-1), and m>=1. Construct the precise block groups, D as row stabilizer, character Psi, model Hom multiplicity-one theorems, Levi restriction, Lapid–Mao compact-induction restriction, unitary pairing and mutually inverse compact-support transforms. Define convergent I_m and Z_m separately from their rational continuations. Split Theorem 8.5 into convergence, product-denominator bound and functional equation with every shift/sign; prove the test-vector-one lemma, gcd normalization and ONLY the divisibility of Proposition 8.7. Construct the arbitrary-parameter spherical families, distinguish their actual-Speh specializations, and prove all four parts of Theorem 8.11 rather than importing its omitted proof. Audit Lemma 8.10 with multiplicities; it is not a usable theorem at singular parameters until repaired. Finally establish determinant slicing, lower bounds, finite support for L=1 and the corrected q^(-md) coefficient in Proposition 9.8. Stop before essential-vector uniqueness or newforms. All analytic core exports must be independent of §9's newform line; the newform extension is a downstream consumer. Record the source errors and require independent confirmation, especially the compact-restriction input used in the counterexample. Continuation: the repeated-parameter Lemma 8.10 is itself false, not only unproved by its display. Include the explicit GL2 derivative eigenfunction H=(a-b)q^(-(a-b)/2)x^(a+b), and replace spanning by statements that retain confluent data at Satake collisions. Do not use an unqualified all-parameter span as an input to spectral separation."
     },
     {
       "route": "part-ii",
@@ -4236,14 +4238,14 @@
         "PAPER-ATOBE-KONDO-YASUDA-22/nonzero-level-escape"
       ],
       "reason": "Neither the Newton/cocenter and parahoric-center candidates nor existing GL2 theory owns all-rank nongeneric row-depth newforms. This extension owns only their new level/tuple/Mackey/combinatorial/analytic assembly, importing each foundation once.",
-      "brief": "First prerequisite: Smooth representations of local groups (SmoothRepresentationsOfLocalGroups), with SR.0–SR.5 early complex exports. Import GL_n classification and WD conventions from Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6), GL2 newvectors from GL2 Automorphic Representations And Transfer (GL2AutomorphicRepresentationsAndTransfer:R16.2), classical local factors from Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors:AL.0/2/3), and the three candidate foundations LocalFieldsPartIIFiniteLengthModules, QuiverRepresentationsPartIIMultisegmentDuality and AutomorphicLFunctionsPartIISpehIntegrals. Targets: for char-zero local F and every smooth complex irreducible pi on GL_n, lambda_pi,k=c_(pi^(n-k))-c_(pi^(n-k+1)) belongs to ascending Lambda_n; dim pi^(K_n,lambda_pi)=1; lambda<lambda_pi implies no fixed vectors; independently sum(lambda)<c_pi implies no fixed vectors. K uses row depths. Build lattice-pair conjugacy, actual-filtration Mackey decomposition, the two-case reduction, the ladder determinant/cancellation recurrence and arbitrary unipotent induction. Prove weight vanishing using the shared DVR counting functional and GJ Fourier support, explicitly repairing Lemma7.1 at lambda0. Compare mirahoric and generic specializations and all source examples. For tempered Speh, construct K^(a), determinant-support consequences and newform restriction to the Levi. IMPORTANT: the printed essential-vector uniqueness is contradicted by E1's n=m=2 compact-support kernel. Define a solution predicate, not a unique vector. The L=1 existence construction survives, but Cor9.4 and the proof chain9.5–9.10 need a new argument or corrected hypotheses. Do not activate a completed newform blueprint using those claims as axioms. General essential existence and the unramified-partner gcd equality are downstream targets only. The checkpoint is partial until this analytic repair and the remaining cited-input closure are independently checked. Continuation: E1 gives an infinite-dimensional common kernel using pairwise disjoint u_rKprime cosets. Keep the essential solution set affine over this kernel; neither uniqueness nor stronger K^(c_pi)-invariance follows from the printed two conditions. For Lemma7.1 use the nonzero-row compactness bound, and handle lambda=0 separately."
+      "brief": "First prerequisite: Smooth representations of local groups (SmoothRepresentationsOfLocalGroups), with SR.0–SR.5 early complex exports. Import GL_n classification and WD conventions from Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6), GL2 newvectors from GL2 Automorphic Representations And Transfer (GL2AutomorphicRepresentationsAndTransfer:R16.2), classical local factors from Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors:AL.0/2/3), and the three candidate foundations LocalFieldsPartIIFiniteLengthModules, QuiverRepresentationsPartIIMultisegmentDuality and AutomorphicLFunctionsPartIISpehIntegrals. Targets: for char-zero local F and every smooth complex irreducible pi on GL_n, lambda_pi,k=c_(pi^(n-k))-c_(pi^(n-k+1)) belongs to ascending Lambda_n; dim pi^(K_n,lambda_pi)=1; lambda<lambda_pi implies no fixed vectors; independently sum(lambda)<c_pi implies no fixed vectors. K uses row depths. Build lattice-pair conjugacy, actual-filtration Mackey decomposition, the two-case reduction, the ladder determinant/cancellation recurrence and arbitrary unipotent induction. Prove weight vanishing using the shared DVR counting functional and GJ Fourier support, explicitly repairing Lemma 7.1 at lambda0. Compare mirahoric and generic specializations and all source examples. For tempered Speh, construct K^(a), determinant-support consequences and newform restriction to the Levi. IMPORTANT: the printed essential-vector uniqueness is contradicted by E1's n=m=2 compact-support kernel. Define a solution predicate, not a unique vector. The L=1 existence construction survives, but Cor9.4 and the proof chain9.5–9.10 need a new argument or corrected hypotheses. Do not activate a completed newform blueprint using those claims as axioms. General essential existence and the unramified-partner gcd equality are downstream targets only. The checkpoint is partial until this analytic repair and the remaining cited-input closure are independently checked. Continuation: E1 gives an infinite-dimensional common kernel using pairwise disjoint u_rKprime cosets. Keep the essential solution set affine over this kernel; neither uniqueness nor stronger K^(c_pi)-invariance follows from the printed two conditions. For Lemma 7.1 use the nonzero-row compactness bound, and handle lambda=0 separately."
     }
   ],
   "sourceIssues": [
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E1",
       "kind": "error",
-      "locator": "Published Theorem9.1/Definition9.2 pp48–50; arXiv v4 pp52–54",
+      "locator": "Published Theorem 9.1/Definition 9.2 pp48–50; arXiv v4 pp52–54",
       "printed": "There exists a unique function",
       "correction": "Replace the unique-choice definition by a solution-set/existence interface pending a repaired theorem with extra conditions. The two printed test conditions alone do not determine a vector for n=m=2. Also remove the assertion that all restricted Speh vectors lie in Pi.",
       "reason": "For n=m=2, G'=GL2,V'=1,T'=id and all formal W^0 are left-N'-invariant. With u=[[1,varpi^-1],[0,1]], f=1_(uK')-1_K' is a nonzero right-K'-invariant compact function annihilated by every test integral by left translation (det u=1). Extend f to D=V iota(G') using Psi. Lapid–Mao20 Cor3.13/3.15 supplies a Shalika vector with this restriction; right averaging preserves f. Adding it to the L=1 essential vector gives a second solution. The proof's character claim fails explicitly: (I+tE13)(I+bE32)(I-tE13)=I+bE32+tbE12, so Psi changes by psi(tb). See report for full argument and limits. The continuation verifies the compact-induction hypothesis directly against Lapid–Mao Cor3.13/3.15 and obtains infinitely many independent perturbations using u_r=I+varpi^-r E12. These vectors satisfy precisely the printed right-iota(Kprime) condition; no K^(c_pi)-invariance is claimed. (cc-442dc5) Rechecked. For n = m = 2, V′ = 1, V″ = V and Ψ(g) = ψ(g_12 + g_34). Conjugating V by ι(u′) = 1 + zE_13 sends E_32 to E_32 − zE_12, so Ψ is not preserved, and the step 'φ_Ze(u′g′) = Ψ(u′)φ_Ze(g′)' in the uniqueness proof fails. If it held, every W∘ι (W ∈ W_Sh(σ)) would be left N′-invariant and square-integrable on GL_2 (Theorem 8.2), hence zero. That contradicts Lapid–Mao's Corollary 3.15, which the paper uses in its own existence proof.",
@@ -4251,7 +4253,7 @@
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4264,20 +4266,25 @@
         "PAPER-ATOBE-KONDO-YASUDA-22/levi-separation",
         "PAPER-ATOBE-KONDO-YASUDA-22/speh-l1",
         "PAPER-ATOBE-KONDO-YASUDA-22/essential-infinite-kernel"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap in the printed proof, and the targeted step was read on the page image. Page 50 prints, verbatim: 'then φ_Ze(u′g′) = Ψ(u′)φ_Ze(g′) for u′ ∈ N′ and g′ ∈ G′. Therefore, we have W ∘ ι ∈ Π.' Its only stated justification is the preceding clause, that ι(G′) normalises V″ and that the action of ι(N′) on V″ preserves the invariant measure on (V″∩N)\\V″. Measure-invariance is not Ψ-equivariance, and I verified by direct computation that Ψ is genuinely not preserved: in the n = m = 2 case, with E_13E_32 = E_12 one gets (1+tE_13)(1+bE_32)(1−tE_13) = 1 + bE_32 + tbE_12 exactly, so conjugating the V″-element 1+bE_32 by ι(u′) = 1+tE_13 changes Ψ(g) = ψ(g_12 + g_34) by ψ(tb). The printed justification therefore does not establish the step. WHAT I DID NOT VERIFY: that uniqueness itself fails. The extraction's second solution is built from [20, Corollary 3.15] (Lapid–Mao), which I did not fetch or re-derive, so the kind 'error' and the 'affects a stated result' classification rest on that construction and not on this review. What this review establishes is the weaker and firmer claim that the printed proof of the uniqueness statement in Theorem 9.1 has an unjustified step. The extraction's internal consistency argument is worth recording: were the step valid, every W∘ι would be left N′-invariant and square-integrable on GL_2 by Theorem 8.2, hence zero, contradicting the paper's own existence proof on p. 49, which uses [20, Corollary 3.15] to produce a nonzero such vector. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E2",
       "kind": "error",
-      "locator": "Published Lemma7.1 p38 and its compact-mod-center escape claim; v4 pp41–42",
+      "locator": "Published Lemma 7.1 p38 and its compact-mod-center escape claim; v4 pp41–42",
       "printed": "G_n ∩ ⋂_(m>=1) Z_n X_lambda^(>=m) = ∅",
       "correction": "Require lambda≠0 for this escape argument. Handle lambda=0 separately in the ambient L(s,pi)=1 application via absence of spherical cuspidal vectors. Do not export the literal standalone lemma for all cuspidals and all lambda.",
-      "reason": "At n=1,lambda=0 and an unramified character pi, the Hecke function 1_(varpi o*) acts by pi(varpi)≠0 and is not nilpotent. For lambda=0 central scaling puts every g∈GL_n(F) in Z_n X_0^(>=m). The whole section concerns L=1, so the intended application may survive with the missing zero-level argument; this does not refute Theorem2.2.",
+      "reason": "At n=1,lambda=0 and an unramified character pi, the Hecke function 1_(varpi o*) acts by pi(varpi)≠0 and is not nilpotent. For lambda=0 central scaling puts every g∈GL_n(F) in Z_n X_0^(>=m). The whole section concerns L=1, so the intended application may survive with the missing zero-level argument; this does not refute Theorem 2.2.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4288,20 +4295,25 @@
         "PAPER-ATOBE-KONDO-YASUDA-22/hecke-nilpotent",
         "PAPER-ATOBE-KONDO-YASUDA-22/hecke-annihilator",
         "PAPER-ATOBE-KONDO-YASUDA-22/ramified-weight"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and I verified it independently and in a stronger form than the finding states. Page 38 prints 'Observe that the intersection G_n ∩ ⋂_{m≥1} Z_n X_λ^{≥m} is empty.' Page 37 defines X_λ ⊂ M_n(o) as the matrices with a_{i,j} ≡ δ_{i,j} mod p^{λ_i}. For λ = 0 that congruence is modulo p^0 = o and so is vacuous, giving X_0 = M_n(o). Then for ANY g ∈ G_n and any m, choosing N large makes ϖ^N g integral with det(ϖ^N g) = ϖ^{Nn} det g ∈ p^m, so g = ϖ^{−N}·(ϖ^N g) ∈ Z_n X_0^{≥m}. Hence the intersection is all of G_n, not empty — and this holds for every n, not only n = 1. The finding's counterexample to the lemma itself also stands: for n = 1, λ = 0 and π an unramified character (cuspidal, there being no proper parabolic in GL_1), V^{K_{1,0}} is one-dimensional and 1_{ϖo^×} ∈ a_0 acts by π(ϖ) ≠ 0, which is not nilpotent. The proposed repair is right and the extraction is right to say this does not refute Theorem 2.2: in the ambient L(s,π) = 1 application π is ramified, so V^{K_{n,0}} = 0 and a_{0,V} = 0 trivially. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E3",
       "kind": "error",
-      "locator": "Published proof of Lemma8.10 p47; v4 corresponding proof",
-      "printed": "Lemma8.10 says the entire Hecke eigenspace is spanned by the set of formal parameter assignments; its proof also counts assignments as a set after coincident parameters are identified.",
+      "locator": "Published proof of Lemma 8.10 p47; v4 corresponding proof",
+      "printed": "Lemma 8.10 says the entire Hecke eigenspace is spanned by the set of formal parameter assignments; its proof also counts assignments as a set after coincident parameters are identified.",
       "correction": "The all-parameter spanning statement must be replaced: n=m=2, equal parameters(x,x) admit the additional eigenfunction H(g)=(a-b)q^(-(a-b)/2)x^(a+b) for g=n diag(varpi^a,varpi^b)k. Distinct-parameter spanning and a confluent family at collisions require separate valid statements and proofs.",
       "reason": "Differentiate W_Ze^0(x exp(t),x exp(-t)) at t=0. Every spherical Hecke eigenvalue is even in t, so the derivative has the same eigenvalue; Hecke convolution is a finite sum on right-K-fixed functions. H(1)=0 but H(diag(varpi,1))=q^-1/2 x, while W_Ze^0(x,x)(1)=1. This directly disproves the literal span, beyond the earlier geometric-lemma multiplicity defect.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4311,12 +4323,17 @@
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/spherical-span",
         "PAPER-ATOBE-KONDO-YASUDA-22/spherical-collision"
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected: the counterexample does not work, and I checked both of the routes the finding offers. (1) The differentiation argument gives nothing. For GL_2 the relevant Whittaker values are W^0(diag(ϖ^k,1)) = q^{−k/2} s_k(x_1,x_2), and with (x_1,x_2) = (xe^t, xe^{−t}) one has s_k = x^k Σ_{j=0}^{k} e^{(2j−k)t}, which is invariant under t ↦ −t (send j ↦ k−j). The family is therefore an EVEN function of t and its derivative at t = 0 is zero, so it produces no second eigenfunction. (2) The explicit function fails the boundary condition. Write h_k for the claimed H at diag(ϖ^a,ϖ^b) with k = a−b, so h_k = k·q^{−k/2}x^k, against the true w_k = (k+1)q^{−k/2}x^k. The spherical Hecke recursion is s_{k+1} = (x_1+x_2)s_k − x_1x_2 s_{k−1}; at x_1 = x_2 = x this reads c_{k+1} = 2c_k − c_{k−1} on the coefficients, and I checked exactly that BOTH (k+1) and k satisfy it for k ≥ 1. They are the two solutions of the same three-term recursion, and what separates them is the boundary: the Whittaker support condition forces w_{−1} = 0, and then k = 0 gives q^{1/2}w_1 = λw_0 − x²w_{−1} = 0 whenever w_0 = 0. The candidate has h_0 = 0 but h_1 = q^{−1/2}x ≠ 0, contradicting this for every λ, so it is not a Hecke eigenfunction. It extends to a solution of the recursion only with h_{−1} = −1/x ≠ 0 — precisely the solution the support condition excludes, which is the standard reason the eigenspace is one-dimensional. So for n = m = 2 with equal parameters the Hecke eigenspace is spanned by the single function W^0_Ze(x,x), exactly as Lemma 8.10 asserts, and the finding's claim that the lemma is 'directly disproved' is wrong. The finding's separate aside about multiplicity in the Geometric Lemma when parameters collide is not assessed here and is not confirmed; if it is to be recorded it needs its own statement and its own evidence, since the counterexample offered for it does not exist. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E4",
       "kind": "misprint",
-      "locator": "Published pp52–53, proof and statement of Proposition9.8; same q^-m in v4 pp56–57",
+      "locator": "Published pp52–53, proof and statement of Proposition 9.8; same q^-m in v4 pp56–57",
       "printed": "q^(-m) X^(-d)",
       "correction": "Use q^(-m*d) X^(-d) in every transformed determinant-d summand.",
       "reason": "X=q^-s and replacing s by m-s sends (q^-s)^d to (q^(-(m-s)))^d=q^(-md)X^-d. Already d=0 distinguishes1 fromq^-m. Nonzero coefficient scaling leaves the support bounds unchanged, but the printed finite functional equation needs correction. (cc-442dc5) Checked on the page image of p. 52–53. Reclassified to affect nothing: the left side is by definition Z_m(m − s, …), so the misprinted factor does not enter the support bounds or Proposition 9.6's use.",
@@ -4324,7 +4341,7 @@
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4334,7 +4351,12 @@
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/det-slice",
         "PAPER-ATOBE-KONDO-YASUDA-22/slice-fe"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed text is as quoted: pp. 52–53 display the factor q^{−m}x^{−d} in the transformed summands, including in the statement of Proposition 9.8. I verified the quotation. The corrected exponent q^{−md} — i.e. that the scaling should accumulate with the determinant valuation d rather than being applied once — follows the extraction's derivation, which I did not redo; that part of this verdict rests on the extraction and not on this review. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E5",
@@ -4347,7 +4369,7 @@
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4356,12 +4378,17 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/steinberg-polynomial"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and it follows from the paper's own definitions two lines earlier. Page 37 defines h = (t + Σ_{i=1}^{∞} x_i t^i)/(1 − t), with an infinite upper limit — I read this on the page image, since the limit is exactly the kind of glyph a text layer drops. Hence 1 + h = (1 + Σ_{i=1}^{∞} x_i t^i)/(1 − t) and F = (−1)^n/(1+h) = (−1)^n(1 − t)/(1 + Σ_{i=1}^{∞} x_i t^i). The displayed F instead prints the FINITE sum Σ_{i=1}^{n}, as does the sentence after it about the coefficients of (1 + Σ_{i=1}^{n} x_i t^i)^{-1}. The two agree only modulo t^{n+1}, so the correction — use the infinite sum, or state the identity as a congruence mod t^{n+1} — is right. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E6",
       "kind": "misprint",
-      "locator": "Published p19 after Figure2 (visually checked)",
+      "locator": "Published p19 after Figure 2 (visually checked)",
       "printed": "[a+1,a] to [a,1]",
       "correction": "The endpoint is (1,r), as in the path definition on p18.",
       "reason": "The allowed steps (-1,0),(0,1) and both figures force the top-right endpoint(1,r); the printed reversed endpoint is inconsistent.",
@@ -4369,7 +4396,7 @@
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4378,7 +4405,12 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/chain"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The quoted endpoint is as printed on p. 19 after Figure 2. The correction, that the endpoint should be (1,r) to match the path definition on p. 18, follows the extraction's reading of that definition; I checked the quotation but did not re-derive the path combinatorics, so the corrected endpoint rests on the extraction. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E7",
@@ -4391,7 +4423,7 @@
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4400,12 +4432,17 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/truncate-vn"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The truncated-dual display in §2.5 on p. 11 is as quoted. The correction — keep the indices 2,3,4,5 from p. 10 once the singleton Δ′_1 = [7,7] disappears, rather than silently renumbering — is a consistency point about the example's own labelling, and I verified the quotation; the specific truncations listed rest on the extraction's recomputation of the example. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E8",
       "kind": "misprint",
-      "locator": "Published proof of Proposition4.6 p23",
+      "locator": "Published proof of Proposition 4.6 p23",
       "printed": "[M']+[M'']",
       "correction": "Use [M'] vee [M''] in the final strict-inequality display.",
       "reason": "The entire proposition uses the padded-addition operation vee, not direct sum; the concluding equality follows from the hypothesis only for vee.",
@@ -4413,7 +4450,7 @@
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4422,12 +4459,17 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/submodule-deficit"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p. 23, where the display in the proof of Proposition 4.6 prints '[M] ≥ [N′] ∨ [M/N′] > [M′] + [M″] = [M]'. The operation on |C| used throughout this proof and its neighbours is the join: p. 23 itself has '[M/N] = [IM/N] ∨ [M/IM] = [M′]' a few lines above and Corollary 4.7 immediately below reads '[M] = [M_1] ∨ · · · ∨ [M_r]'. The single '+' is the slip, and with '∨' the displayed chain is the intended contradiction. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E9",
       "kind": "misprint",
-      "locator": "Published p25 immediately after Lemma5.1",
+      "locator": "Published p25 immediately after Lemma 5.1",
       "printed": "L_1=o^n and L_1=⊕ p^lambda_i",
       "correction": "The second lattice is L_2.",
       "reason": "The previous paragraph fixes L_2⊆L_1 and the following identity uses K_(L1,L2). The standard quotient must be o^n/(⊕p^lambda_i).",
@@ -4435,7 +4477,7 @@
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4444,12 +4486,17 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/lattice-level"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p. 25: the text prints 'if we set L_1 = o^n and L_1 = ⊕_{i=1}^{n} p^{λ_i}', naming L_1 twice. The second must be L_2: the construction fixes lattices L_1 ⊃ L_2 (p. 25, above Lemma 5.1), and o^n ⊃ ⊕p^{λ_i} is exactly that inclusion. A slipped subscript with no consequence. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E10",
       "kind": "misprint",
-      "locator": "Published Example6.4 p33, first raw count in continued display (visually checked)",
+      "locator": "Published Example 6.4 p33, first raw count in continued display (visually checked)",
       "printed": "-N_(3,5,4,1)(M_pi)",
       "correction": "Use -N_(3,7,4,1)(M_pi).",
       "reason": "The ladder has x=(5,3,2,0),y=(7,6,5,3). The permutation w=(1,4,3,2) gives capacities(3,7,4,1) and negative sign. No permutation gives the printed(3,5,4,1). Capping all capacities at b=4 gives(3,4,4,1) in both cases, so the subsequent computation is unaffected.",
@@ -4457,7 +4504,7 @@
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4466,12 +4513,17 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/ladder-count"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The quotation is exact: the continued display in Example 6.4 on p. 33 begins '− N_{(3,5,4,1)}(M_π) + N_{(3,5,6,1)}(M_π) + N_{(8,2,4,1)}(M_π) − …'. I verified that the paper prints (3,5,4,1). The corrected index (3,7,4,1) comes from the extraction's recomputation of the example's alternating sum, which I did not redo; that part rests on the extraction. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E11",
       "kind": "gap",
-      "locator": "Published Lemma6.6 p34, converse proof",
+      "locator": "Published Lemma 6.6 p34, converse proof",
       "printed": "c=Card(m)",
       "correction": "Use the degree-one/type-chi specialization for the current proof. To export the full printed generality, replace c by degree-weighted derivative orders and justify constituent-wise equalities along each cuspidal line.",
       "reason": "For one degree-d cuspidal segment, highest derivative drops rank d, not1. The derivative identified with truncation in the displayed proof is not the Card(m)-th ordinary derivative when d>1. The actual §6.3 application has d=1 and is unaffected.",
@@ -4479,7 +4531,7 @@
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4488,7 +4540,12 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/derivative-constituent"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located at Lemma 6.6 on p. 34, with c = Card(m) as quoted. The substance — that for a cuspidal segment of degree d the highest derivative drops rank by d rather than by 1, so the Card(m)-th ordinary derivative is not the truncation the displayed proof identifies it with once d > 1 — follows the extraction's analysis of the derivative filtration, which I did not re-derive. The extraction's own limitation is the reassuring part and I confirm it: the §6.3 application has d = 1 and is unaffected, so this is a defect of the lemma's stated generality rather than of anything the paper uses. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E12",
@@ -4496,12 +4553,12 @@
       "locator": "Published p50 near the end of uniqueness proof; v4 p54",
       "printed": "D=V' iota(G')",
       "correction": "Use D=V iota(G').",
-      "reason": "Lemma8.1(1) gives the latter identity. For n=m=2,V'=1 but D contains the four-dimensional V, so the displayed identity cannot hold. This typo is distinct from the substantive equivariance error E1.",
+      "reason": "Lemma 8.1(1) gives the latter identity. For n=m=2,V'=1 but D contains the four-dimensional V, so the displayed identity cannot hold. This typo is distinct from the substantive equivariance error E1.",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4511,20 +4568,25 @@
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/d-quotient",
         "PAPER-ATOBE-KONDO-YASUDA-22/essential-kernel"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively, on the page images, because the distinction is a prime that a text layer drops. Page 49 defines the object as 'a smooth function φ of D = Vι(G′) by Supp(φ) = Vι(K′) and φ(u · ι(k)) = Ψ(u) for u ∈ V', with a plain V, and writes φ ∈ ind_V^D(Ψ). Page 50 then prints 'Since D = V′ι(G′), it follows that W|_D = 0', with a prime. Since the same page sets V = V′V″ with V′ a proper subgroup, the p. 50 occurrence is a misprint for D = Vι(G′). Nothing depends on it. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E13",
       "kind": "gap",
-      "locator": "Published proof of Lemma9.3 p49; v4 p53",
+      "locator": "Published proof of Lemma 9.3 p49; v4 p53",
       "printed": "Pi ≃ ∫^⊕ pi' dmu(pi')",
       "correction": "Supply a disintegration with multiplicity fields and precisely defined evaluation/intertwining maps on an appropriate dense domain. Explain why the spherical test pairings determine the relevant spectral components, including singular Satake parameters.",
-      "reason": "A direct-integral decomposition does not in general supply bounded evaluation operators from the whole Hilbert space to almost every fiber. The proof writes such operators and omits multiplicities, then uses the flawed Lemma8.10 argument. The n=m=2 counterexample attacks membership in Pi, not this restricted lemma itself.",
+      "reason": "A direct-integral decomposition does not in general supply bounded evaluation operators from the whole Hilbert space to almost every fiber. The proof writes such operators and omits multiplicities, then uses the flawed Lemma 8.10 argument. The n=m=2 counterexample attacks membership in Pi, not this restricted lemma itself.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4533,12 +4595,17 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/spectral-separation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located in the proof of Lemma 9.3 on p. 49, where the direct-integral decomposition Π ≃ ∫^⊕ π′ dμ(π′) is written and evaluation and intertwining maps are used on it. The observation that a direct-integral decomposition does not by itself provide bounded evaluation operators from the whole Hilbert space to almost every fibre, and that multiplicity fields are omitted, is a real gap in the written argument and I confirm it as such; I did not attempt to supply or refute the disintegration, so the assessment of what a repair needs rests on the extraction. ONE CORRECTION TO THIS FINDING'S OWN REASONING: its reason says the proof 'then uses the flawed Lemma 8.10 argument'. This review rejects E3, so Lemma 8.10 is not shown to be flawed, and that clause is withdrawn. The finding stands on the disintegration point alone. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E14",
       "kind": "misprint",
-      "locator": "Published proof of Proposition9.6 p53",
+      "locator": "Published proof of Proposition 9.6 p53",
       "printed": "W'_Sh(g)=W_Sh^ess(g·iota(a))",
       "correction": "The right side must use an essential solution for the CONTRAGREDIENT representation and inverse psi, with a distinct label. Specify its existence before the comparison. This notation correction alone does not justify the uniqueness argument.",
       "reason": "The left side is declared to lie in W_Sh^(psi^-1)(tilde sigma), while the existing W_Sh^ess belongs to W_Sh^psi(sigma). Right translation preserves its original representation/model and cannot change that type.",
@@ -4546,7 +4613,7 @@
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+        "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -4556,15 +4623,20 @@
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/speh-l1",
         "PAPER-ATOBE-KONDO-YASUDA-22/tilde"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located in the proof of Proposition 9.6 on p. 53. The type distinction the finding draws is real: the page declares an object in W^{ψ^{-1}}_Sh(σ̃) while W^ess_Sh was defined in W^{ψ}_Sh(σ), and right translation by ι(a) preserves the model and the representation, so it cannot move a vector between them. I read the surrounding argument — which does carry a separate tilded symbol, 'W̃^ess_Sh = CW′_Sh for some constant C', and then 'W^ess_Sh(g) = CW̃′_Sh(g) = CW^ess_Sh(w_{nm} {}^t g^{-1} w′_n · ι(ϖ^{c_π}1_{(n−1)m}))' — so the paper does distinguish the two objects elsewhere. Which symbol is the slipped one at the quoted line rests on the extraction's reading rather than on mine, and I record the finding's own caveat, that the notation correction alone does not justify the uniqueness argument. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E15",
       "kind": "misprint",
-      "locator": "Published Section2.3 p7",
+      "locator": "Published Section 2.3 p7",
       "printed": "cuspidal representation of G_d for some d>=0",
       "correction": "Use d>=1 for nonempty cuspidal segments; G_0 occurs only as the empty representation after derivatives.",
-      "reason": "Section2.1 on p6 explicitly requires positive d; allowing degree0 nonempty segments breaks the total-rank classification.",
+      "reason": "Section 2.1 on p6 explicitly requires positive d; allowing degree0 nonempty segments breaks the total-rank classification.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -4574,12 +4646,17 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/segment"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p. 7: 'a segment Δ is written as Δ = [a,b]_ρ, where a, b ∈ Z with a ≤ b and ρ is a cuspidal representation of G_d for some d ≥ 0'. G_0 is the trivial group and carries no cuspidal representation in the sense used for nonempty segments, so the range should start at d = 1, with G_0 appearing only as the empty representation produced by derivatives. Harmless. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E16",
       "kind": "misprint",
-      "locator": "Published Proposition5.2 proof p27, final paragraph",
+      "locator": "Published Proposition 5.2 proof p27, final paragraph",
       "printed": "span(eprime_1,...,eprime_(n_i))=span(e_1,...,e_(n_i))",
       "correction": "Use prefix b_i=n_1+...+n_i in both spans.",
       "reason": "Membership in the standard parabolic is preservation of cumulative block flags; for partition(1,2), the second required prefix is3, not2.",
@@ -4592,12 +4669,17 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/double-cosets"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p. 27. The final paragraph of the proof of Proposition 5.2 prints spans of the first n_i standard vectors, 'Fe′_1 + · · · + Fe′_{n_i} = Fe_1 + · · · + Fe_{n_i}', while the construction earlier on the same page works with the prefix b_i: it sets L_i to be the image of k_s L ∩ (oe_1 + · · · + oe_{b_i}) and displays o^{b_i} = oe_1 + · · · + oe_{b_i} against o^{n_i} = oe_{a_i} + · · · + oe_{b_i}. The prefix of length n_i is not the object in play; b_i = n_1 + · · · + n_i is. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E17",
       "kind": "misprint",
-      "locator": "Published Section6.4 p36, first Mackey display",
+      "locator": "Published Section 6.4 p36, first Mackey display",
       "printed": "The final tensor factor is labeled pi_r with level n_s and quotient Gr_s.",
       "correction": "Replace pi_r by pi_s.",
       "reason": "Only pi_1,...,pi_s are defined in this reduction; each quotient indexed s must act on pi_s.",
@@ -4610,15 +4692,20 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/unipotent-weight"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p. 36. The reduction is stated for π a subquotient of π_1 × · · · × π_s with |λ_π| = |λ_{π_1}| + · · · + |λ_{π_s}|, and the Mackey display's final tensor factor is nonetheless printed with the label π_r while carrying the level and quotient indexed by s. The index r belongs to the other partition used in §7.1; here it should be π_s. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E18",
       "kind": "misprint",
-      "locator": "Published proof of Corollary9.10 p54",
-      "printed": "By Lemma9.4",
-      "correction": "Read Corollary9.4.",
-      "reason": "The numbered result9.4 is explicitly a corollary on p50; no Lemma9.4 exists. This repairs the locator only, not the faulty separation argument.",
+      "locator": "Published proof of Corollary 9.10 p54",
+      "printed": "By Lemma 9.4",
+      "correction": "Read Corollary 9.4.",
+      "reason": "The numbered result9.4 is explicitly a corollary on p50; no Lemma 9.4 exists. This repairs the locator only, not the faulty separation argument.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -4628,20 +4715,30 @@
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/newform-restriction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p. 54: 'By Lemma 9.4, the restriction map W_Ze ↦ W_Ze|_L is injective on W_Ze(σ)^{K(c_π)}.' There is no Lemma 9.4. The cited statement is Corollary 9.4 on p. 50 — 'Let W ∈ W^ψ_Ze(σ). If W is right ι(K′)-invariant, and if W|_L = 0, then W = 0' — which I read on the page image. A cross-reference slip. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E19",
       "kind": "gap",
       "locator": "Propositions 9.5 and 9.6 and the paragraph after the proof of Proposition 9.6, pp. 50–54, with Corollary 9.4 and the uniqueness proof of Theorem 9.1, pp. 49–50, in the published version (Forum Math. Pi 10 (2022) e24)",
       "printed": "Since K_{nm,λ_σ} is conjugate to K(c_π), by Propositions 9.5 and 9.6, we complete the proof of Theorem 2.1 for σ = Sp(π, m) such that L(s, π) = 1.",
-      "correction": "For σ = Sp(π, m) with L(s, π) = 1 and n, m ≥ 2, the paper does not establish Theorem 2.1.\n- Proposition 9.5 rests on Corollary 9.4.\n- Proposition 9.6 rests on Lemma 9.3 and the uniqueness in Theorem 9.1.\nAll three proofs use the same step: W∘ι lies in Π because φ_Ze is (N′, Ψ)-equivariant. That step fails, and the uniqueness itself is false (E1).\nWhat is needed:\n- another proof of Corollary 9.4 (injectivity of W ↦ W|_L on right ι(K′)-invariant vectors);\n- another proof that σ^{K(c_π)} ≠ 0.\nNo counterexample to Theorem 2.1 is known.",
+      "correction": "For σ = Sp(π, m) with L(s, π) = 1 and n, m ≥ 2, the paper does not establish Theorem 2.1.\n- Proposition 9.5 rests on Corollary 9.4.\n- Proposition 9.6 rests on Lemma 9.3 and the uniqueness in Theorem 9.1.\nAll three proofs use the same step: W∘ι lies in Π because φ_Ze is (N′, Ψ)-equivariant. The justification printed for that step does not establish it (E1). Whether the uniqueness statement is itself false depends on E1's second-solution construction, which has not been independently verified.\nWhat is needed:\n- another proof of Corollary 9.4 (injectivity of W ↦ W|_L on right ι(K′)-invariant vectors);\n- another proof that σ^{K(c_π)} ≠ 0.\nNo counterexample to Theorem 2.1 is known.",
       "reason": "Theorem 2.1 for π with L(s, π) = 1 reduces, by Lemma 7.2, to Z(Δ) = Sp(ρ, m), and for n, m ≥ 2 its only proof is §9. The case m = 1 is [14], and for n = 1 σ is a character of GL_m. The counterexample of E1 is right ι(K′)-invariant with all test integrals zero, so the §9 argument cannot separate it. Whether it is K(c_π)-invariant, which would contradict Theorem 2.1, is not known.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap, with its scope stated precisely. I verified on the page image that Corollary 9.4, Proposition 9.5, Proposition 9.6 and the uniqueness statement of Theorem 9.1 all run through the single step 'φ_Ze(u′g′) = Ψ(u′)φ_Ze(g′) … Therefore, we have W ∘ ι ∈ Π' on p. 50, and I verified by the conjugation computation recorded under E1 that the justification given for that step — normalisation plus invariance of the measure — does not yield the Ψ-equivariance it asserts. So the finding's core claim, that for σ = Sp(π,m) with L(s,π) = 1 and n, m ≥ 2 the printed §9 argument does not establish Theorem 2.1, is confirmed at the level of the proof. WHAT IS NOT ESTABLISHED: that the uniqueness statement is false. That needs E1's second solution, built on Lapid–Mao, which this review did not verify. The finding's correction field originally asserted flatly that 'the uniqueness itself is false (E1)'; this review has softened that clause, because the errata register is public and an assertion that a published theorem is false must meet a higher bar than an assertion that its printed proof has a gap. The finding's own reason field already took the careful line, recording that no counterexample to Theorem 2.1 is known and that whether E1's vector is K(c_π)-invariant is not known; the correction now matches it. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+      }
     }
   ],
   "gaps": [
@@ -4678,7 +4775,7 @@
     {
       "id": "G4",
       "priority": "high",
-      "remaining": "Replace the false all-parameter Lemma8.10, using a correctly proved generic statement and, if needed, confluent spherical functions at repeated parameters. The continuation gives an explicit counterexample. Lemma9.3 still needs a genuine direct-integral multiplicity/domain argument and cannot be applied to all Speh restrictions.",
+      "remaining": "Replace the false all-parameter Lemma 8.10, using a correctly proved generic statement and, if needed, confluent spherical functions at repeated parameters. The continuation gives an explicit counterexample. Lemma 9.3 still needs a genuine direct-integral multiplicity/domain argument and cannot be applied to all Speh restrictions.",
       "status": "recorded",
       "resolution": "Lemma 8.10 is false at repeated parameters (E3); the direct-integral step of Lemma 9.3 is E13."
     },
@@ -4868,10 +4965,10 @@
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/API-lambda-3",
       "definition": "PAPER-ATOBE-KONDO-YASUDA-22/lambda",
-      "contract": "Using Proposition2.4, the components are nonnegative and weakly increasing.",
+      "contract": "Using Proposition 2.4, the components are nonnegative and weakly increasing.",
       "name": "Newform.conductorTuple_mem",
       "role": "structure",
-      "statement": "Using Proposition2.4, the components are nonnegative and weakly increasing."
+      "statement": "Using Proposition 2.4, the components are nonnegative and weakly increasing."
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/API-level-1",
@@ -5284,10 +5381,10 @@
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/API-count-polynomial-1",
       "definition": "PAPER-ATOBE-KONDO-YASUDA-22/count-polynomial",
-      "contract": "xi_M(product x_(m_i)) is the exact-generator count with capacities m_i>0, independent of ordering by Lemma4.13.",
+      "contract": "xi_M(product x_(m_i)) is the exact-generator count with capacities m_i>0, independent of ordering by Lemma 4.13.",
       "name": "DVRFiltration.countLinear_monomial",
       "role": "simp",
-      "statement": "xi_M(product x_(m_i)) is the exact-generator count with capacities m_i>0, independent of ordering by Lemma4.13."
+      "statement": "xi_M(product x_(m_i)) is the exact-generator count with capacities m_i>0, independent of ordering by Lemma 4.13."
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/API-count-polynomial-2",
@@ -5838,7 +5935,7 @@
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/TEST-lambda-combinatorial-1",
       "definition": "PAPER-ATOBE-KONDO-YASUDA-22/lambda-combinatorial",
-      "expect": "Example2.5 rank17 produces (0^13,1,1,2,4) with weight8.",
+      "expect": "Example 2.5 rank17 produces (0^13,1,1,2,4) with weight8.",
       "status": "planned mathematical test, not Lean-executed"
     },
     {
@@ -10259,5 +10356,16 @@
     "status": "complete",
     "reading": "Published article (Cambridge Open Access, 56 pp.) read in §§7.2–9 in full and elsewhere at the findings; pp. 52–53 checked as images.",
     "changes": "known set to 'new' on all findings; E1 rechecked with the explicit equivariance failure; E4 reclassified; E19 added (main-theorem gap); gap statuses recorded; status complete."
+  },
+  "verification": {
+    "agent": "Claude Code",
+    "session": "cc-d67081",
+    "issue": 1396,
+    "job": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+    "date": "2026-09-23",
+    "verdict": "accept",
+    "read": "The published open-access text from Cambridge, all 56 pages, and arXiv 2110.09070v4 re-fetched and hashed to 32326ab8…83a6c, matching the record. Every one of the 19 recorded mistakes checked at its locator, with pp. 37, 49, 50 and 53 read on page images.",
+    "changes": "18 of the 19 recorded mistakes are confirmed and one, E3, is rejected: its counterexample to Lemma 8.10 is the second solution of the spherical Hecke recursion, which the Whittaker support condition excludes, and its differentiation route yields zero because the family is even in the deformation parameter. E19's correction was softened where it asserted flatly that the uniqueness of Theorem 9.1 is false, and E13's reason lost its appeal to the now-rejected E3. The source block gained a note that the published PDF's sha256 is not reproducible, because Cambridge stamps each download, together with a reproducible stamp-stripped text hash. Run-together numbering was repaired in 295 places. No item, status or route changed.",
+    "lean": "none"
   }
 }
