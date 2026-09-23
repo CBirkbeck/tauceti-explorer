@@ -669,6 +669,165 @@
             "bytes": 13937
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-c83e7a",
+        "date": "2026-09-23",
+        "main": "Fresh bounded reading of published LLHLM PDF78–80; preserve prior full212-page attribution. No new full-main-paper reading is claimed.",
+        "sources": [
+          {
+            "name": "bosch",
+            "url": "https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf",
+            "sha256": "7cb79d83e0d78e8919aa4b7c29fbd6f88d3041344f62a1c38a3088ab113cb1e4",
+            "pages": 193,
+            "retrieved": "2026-09-23",
+            "readSections": [
+              "PDF10–12,17–27,30–33: restricted-series carrier, Noetherianity, ideals, norms, finite jets and continuity; PDF11,24,27,30 checked as images."
+            ]
+          },
+          {
+            "name": "conrad",
+            "url": "https://math.stanford.edu/~conrad/papers/aws.pdf",
+            "sha256": "5add29094b74385746c4d977290b2308d02cbe8aa6f085e6a99724f6939e309b",
+            "pages": 55,
+            "retrieved": "2026-09-23",
+            "readSections": [
+              "PDF13,30,32: completed products and integral-model exercises; PDF13 checked as image."
+            ]
+          }
+        ],
+        "stacks": {
+          "pages": [
+            {
+              "tag": "0AH2",
+              "url": "https://stacks.math.columbia.edu/tag/0AH2",
+              "sha256": "6c715143f9f75ab436e6aefe222d7d24b503f9abf6e3fae0821dda76a293304a",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "07PV",
+              "url": "https://stacks.math.columbia.edu/tag/07PV",
+              "sha256": "b980390f9bfe5646e361bcc34d44a17b763cd8f7679cf5746c37af3f68b0b04c",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "07PX",
+              "url": "https://stacks.math.columbia.edu/tag/07PX",
+              "sha256": "27eac9082bd1ea10fcc754159f97be409e35949d94a8c69064ca4d88bae4c56f",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "033A",
+              "url": "https://stacks.math.columbia.edu/tag/033A",
+              "sha256": "84fff19c1ebaf1f0b1412beb6130c91cadb249f7380903a236e0146e9be0a7b9",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "0316",
+              "url": "https://stacks.math.columbia.edu/tag/0316",
+              "sha256": "44b56ba876c78d8a4244ebd3cda8baaa3d545388bbc5dc29980df602fa998ccc",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "07C0",
+              "url": "https://stacks.math.columbia.edu/tag/07C0",
+              "sha256": "c33af5c3518e51d86b8712fa6e8c9ecb9ac6c95fe2c1046a3a4f65d39ead0772",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "0AGX",
+              "url": "https://stacks.math.columbia.edu/tag/0AGX",
+              "sha256": "29a5d007974fe81faeae77c75f30af47fa5eb6e30f580b11ace3192ef8b09efc",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "07NT",
+              "url": "https://stacks.math.columbia.edu/tag/07NT",
+              "sha256": "0c1a7dc82940770e75f4a40d54c760d22eef1901c09bf156f68fd7633c43a2f9",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "07PU",
+              "url": "https://stacks.math.columbia.edu/tag/07PU",
+              "sha256": "fc6472e7db6698aa48adce0da0a794f2dd2c0f39124f3f83211076b9a5660484",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "07PE",
+              "url": "https://stacks.math.columbia.edu/tag/07PE",
+              "sha256": "dd11d406a12b88b79c37f2c7fed22603d23b82a4a9063fa348598a7cca66427b",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "07PF",
+              "url": "https://stacks.math.columbia.edu/tag/07PF",
+              "sha256": "0651722d80eeb7c9dd2c7e7bba6af39903fc0e01518940083af4db62cd1b94f3",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "07PR",
+              "url": "https://stacks.math.columbia.edu/tag/07PR",
+              "sha256": "2cae58f4c55561903406670c8d34448196b90fe5ad12069080f74e26382583b6",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "07NG",
+              "url": "https://stacks.math.columbia.edu/tag/07NG",
+              "sha256": "84af82c4b45724eedfa04a73947b93bbe9695cd5ea3bde26cc8cddd3143b3498",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "031E",
+              "url": "https://stacks.math.columbia.edu/tag/031E",
+              "sha256": "470505ed171eae8b9ca4345a0aa8d13879206c72aa5a391dae419418c942c02b",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "032D",
+              "url": "https://stacks.math.columbia.edu/tag/032D",
+              "sha256": "afbcc0e261df0b9759edad8080703a663e002fadde8ae1981aa4ffa34c05c6b9",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "00OF",
+              "url": "https://stacks.math.columbia.edu/tag/00OF",
+              "sha256": "cc436974bcce27f95101f0791f2ea577b4edddfb0313a8298a2cb735875bdce2",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "00NQ",
+              "url": "https://stacks.math.columbia.edu/tag/00NQ",
+              "sha256": "28e8c01c12a52b05820c32d5a1dfc3f5f8d4e79776d2507b5588bcee0f4ffeac",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "07NY",
+              "url": "https://stacks.math.columbia.edu/tag/07NY",
+              "sha256": "7d558d8b88edbf305a5abe565c65e52819b583b0dc2e60b7176792f5266cf853",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "00O7",
+              "url": "https://stacks.math.columbia.edu/tag/00O7",
+              "sha256": "ac4bf1b5ce74d46ce2be6a8d7010f8adc3d35b9a687fda51972084b4b3f859ea",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "00OC",
+              "url": "https://stacks.math.columbia.edu/tag/00OC",
+              "sha256": "6f350f54bb5886fa312133290465be0c23313838251d26f74af5f59d3af16c18",
+              "date": "2026-09-23"
+            },
+            {
+              "tag": "00TT",
+              "url": "https://stacks.math.columbia.edu/tag/00TT",
+              "sha256": "46fa4519b3ce15c9a4ec4bb5eb6f6671785fa2f25ed6035220b923d25aa40103",
+              "date": "2026-09-23"
+            }
+          ],
+          "scope": "Statements and complete outer proofs read for all listed tags. This does not claim recursive source closure. The inner depth/projective-dimension results behind 00O7/00OC, the p-basis/derivation result behind 07PR, and the formal-smoothness input behind 07PU remain open. Histories of 07PV/07PR also read."
+        }
       }
     ],
     "smoothLocusContinuation": {
@@ -687,7 +846,7 @@
       ]
     }
   },
-  "summary": "Partial extraction: 576 items (86 library, 23 planned, 467 missing), 21 routes and 52 unreviewed source findings. This continuation supplies residual characteristic-polynomial recognition, split-prime conjugacy density and finite coefficient-module topology. It reuses pinned compactness and semisimple algebra, existing reconstruction/recognition and Chebotarev owners. Global analytic suppliers, other proof leaves and uniform Appendix B certificates remain open. No formal implementation or independent review is asserted.",
+  "summary": "Partial extraction: 652 items (120 library, 34 planned, 498 missing), 24 routes and 61 unreviewed source findings. This continuation decomposes strict-affinoid topology and the integral/generic completed-tensor comparisons, repairs regular-map descent, and imports existing height, completion and homological suppliers. The recursive proof/source audit and uniform Appendix B certificates remain open. No formal implementation or independent review is asserted.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -15107,7 +15266,11 @@
       "locator": "Conrad AWS Exercise2.2.3(1)–(2), PDF13; Example2.4.5, PDF20",
       "status": "planned",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L59"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z81",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z82",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z83",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z87"
       ],
       "implementationStatus": "unchecked",
       "planned": [
@@ -15115,8 +15278,9 @@
       ],
       "note": "Source-level proof plan; no Lean implementation. ",
       "proofSteps": [
-        "Combine the variables using restricted-series iteration, quotient by the two extended ideals, and use the evaluation universal property. Affinoid ideals are closed, so this is a Banach quotient.",
-        "Construct the inverse maps between two presentations by the same universal property and prove they agree on both factors. This supplies a strict affinoid specialization of the owner’s admissible completed tensor, not a second general Huber tensor."
+        "Use the existing restricted-series carrier via Z81 and L59 to combine variable blocks. Z82 closes the ideal generated by both relation ideals, and Z83 gives its quotient Banach algebra. Given continuous maps from the factors into a commutative Banach K-algebra D, their coordinate images have uniformly bounded powers; products of the two finite blocks remain uniformly bounded. Thus every restricted double series evaluates convergently in D.",
+        "The resulting continuous evaluation map kills both I and J and descends through the quotient by (I,J). Uniqueness follows from polynomial density, the prescribed values of constants and coordinates, and Hausdorffness of D. Quotient maps and Z87 fix the topology, not just the underlying algebra.",
+        "Applying this universal property twice constructs inverse comparison maps between different choices of factor presentations. They agree on both factors, hence are inverse by uniqueness. The source exercise has a denominator misprint recorded in E57; this item uses the quotient by both ideals throughout."
       ],
       "uses": [
         {
@@ -15216,7 +15380,9 @@
       "status": "missing",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L54",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z105",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z87"
       ],
       "implementationStatus": "unchecked",
       "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:R0.",
@@ -15233,7 +15399,9 @@
       "locator": "BLGGT LemmaA.1.1 proof PDF96; Conrad Exercise2.2.3, PDF13",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z105",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z87"
       ],
       "implementationStatus": "unchecked",
       "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:R0.",
@@ -15251,13 +15419,21 @@
       "status": "missing",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L06",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z83",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z87",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z89",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z90",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z91",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L113",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L114"
       ],
       "implementationStatus": "unchecked",
       "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:F0.",
       "proofSteps": [
-        "Write B_i=O[X_i]/I_i with finitely generated I_i. Exactness of completion over O[X_i] gives C_i=O⟨X_i⟩/(I_i). The tensor presentation uses all variables and all relations; the finite-quotient inverse systems also give the canonical integral completed tensor comparison.",
-        "A restricted K-series has coefficients bounded below in valuation, hence one common power of π clears them. Therefore O⟨X⟩[1/π]=K⟨X⟩; localization commutes with this quotient. Compare Z52 presentations. This is a bounded-denominator series argument, not a claim that localization commutes with arbitrary inverse limits."
+        "Z91 identifies the integral completed tensor with the completion of the finite-type presentation ring P. Write each B_i=O[X_i]/I_i; the combined polynomial presentation of P uses the disjoint variable blocks and all the relation ideals. Z89 identifies its completion as O⟨all X_i⟩/(all I_i). All maps are the canonical factor and coefficient maps.",
+        "Apply Z90 to invert π in this explicit presentation and in each individual factor. Z52 gives the same quotient K⟨all X_i⟩/(all I_i) for their affinoid completed tensor. Z83/Z87 identify the quotient topologies. These are mutually continuous isomorphisms, not just comparisons of abstract rings.",
+        "For no factors the integral and generic identifications are O and K. A zero factor gives the zero product. No flatness is used in these identifications; the separate O-flatness conclusion is Z56."
       ]
     },
     {
@@ -15272,13 +15448,16 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L55",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L56",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L57",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z55"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L65",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L113",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L114"
       ],
       "implementationStatus": "unchecked",
       "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:F0.",
       "proofSteps": [
         "The ordinary finite tensor P is O-flat by L55 and finite type over Noetherian O, hence Noetherian. Apply L11 to P and (π): C is P-flat. L56 gives O-flatness, and L57 gives injectivity of π.",
-        "Every power of π acts injectively, so the localization kernel is zero. Do not apply Noetherian completion flatness to an arbitrary ordinary tensor of already completed rings: the finite-type P is the presentation ring that justifies it."
+        "Every power of π acts injectively. Apply L65 to the powers submonoid to obtain injectivity of C→C[1/π]. The finite-type presentation ring P is Noetherian by Hilbert basis and quotient stability; do not substitute an ordinary tensor of already completed rings without that premise. The integral and generic-fiber presentation comparisons remain Z55."
       ]
     },
     {
@@ -15292,13 +15471,19 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L11",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L22",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z76",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z78"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z78",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z93",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z94",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z95",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L117"
       ],
       "implementationStatus": "unchecked",
       "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.4.",
       "proofSteps": [
-        "Use flatness and Noetherianity of completion. A maximal ideal of the completion contains I and has the same residue field as its contraction. The resulting local map has the same maximal-ideal completion as P at that contraction.",
-        "That local completion map is regular by the G-ring hypothesis. Descend regularity along the faithfully flat map from the localized I-adic completion to the common maximal-ideal completion. The regular-map notion is Z76 and the faithful-flat descent of regularity is Z78; both are now named source obligations with their Stacks statements, not baseline results."
+        "L11 gives flatness and Z25 gives Noetherianity of the I-adic completion B. The extended I lies in the Jacobson radical of B: for a∈IB the geometric series for 1−a converges I-adically. Thus every maximal q⊂B contains IB. L22 identifies B/IB with A/I, so its contraction p is maximal, residue fields agree and pB_q=qB_q.",
+        "Z94 identifies the maximal-ideal completion of B_q with that of A_p. L117 makes B_q→B_q̂ faithfully flat, using local completion flatness. The map A_p→A_p̂ is regular because A is a G-ring. Z93 descends regularity of this map to A_p→B_q.",
+        "Use Z95 to conclude that A→B is regular. This uses regular-map descent Z93; plain descent of the ring property in Z78 alone is insufficient. The generic fibre is obtained by localization, which preserves regular maps."
       ]
     },
     {
@@ -15309,7 +15494,8 @@
       "locator": "Stacks 07PX, 15.51.12(2),(5), and finite-type stability 15.51.10 in 07GG",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z79"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z79",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z99"
       ],
       "implementationStatus": "unchecked",
       "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.4.",
@@ -15351,7 +15537,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z55",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z57",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z58",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z59"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z102",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z25"
       ],
       "implementationStatus": "unchecked",
       "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:F0.",
@@ -19250,15 +19438,21 @@
       "kind": "theorem",
       "name": "Dimension formula along a going-down map",
       "statement": "Let R→S be a homomorphism of Noetherian rings, q a prime of S lying over p, and suppose going down holds for R→S — for instance because R→S is flat. Then dim(S_q)=dim(R_p)+dim(S_q/pS_q). The hypothesis is going down, not flatness, and the formula is an equality of Krull dimensions of local rings, not of the rings themselves.",
-      "locator": "Stacks 00ON (Lemma 10.112.7), with the flat case of going down at Stacks 00HS (Lemma 10.39.19), read 23 September 2026",
-      "status": "missing",
-      "prerequisites": [],
+      "locator": "Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean:462 (tagged Stacks00ON), and Ideal/Height.lean:435, at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L12"
+      ],
       "implementationStatus": "unchecked",
       "proofSteps": [
-        "The inequality dim(S_q) ≥ dim(R_p)+dim(S_q/pS_q) is the one that uses going down: lift a chain of primes below p to a chain below q ending at the contraction, and concatenate it with a chain in the fibre. Going down is exactly what makes the lift possible; without it only the other inequality survives.",
-        "The reverse inequality holds for any Noetherian ring map and is the standard dimension count on a saturated chain in S_q, split at the prime where it meets the fibre. Neither half needs the fibre to be regular, and neither is available in Mathlib or Tau Ceti at the pins, which is why this is recorded as a source obligation rather than a library citation."
+        "Apply the pinned height equality already recorded as L12 to p and q. The pinned localization-dimension equality identifies ht(p) and ht(q) with dim R_p and dim S_q.",
+        "Localizing S/pS at the image of q identifies it with S_q/pS_q, so the final height is the dimension of that local quotient. This is the same dimension formula, not a missing second theorem. The previous claim that neither inequality exists at the pins was incorrect."
       ],
-      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, named by Claude Code — cc-7b31c4, 23 September 2026, to close the supplier obligations Z57–Z59 recorded explicitly in their own proof steps. Stacks statements read at the tags cited; no Lean implementation."
+      "note": "Freshly read both declaration statements and their binders. This is an imported existing height theorem with its canonical local-dimension interpretation, not a new Lean proof. Keep L12 as the shared named supplier; Z77 is the previously assigned alias retained to avoid dangling references.",
+      "library": [
+        "mathlib:Ideal.height_eq_height_add_of_liesOver_of_hasGoingDown",
+        "mathlib:IsLocalization.AtPrime.ringKrullDim_eq_height"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z78",
@@ -19267,11 +19461,14 @@
       "statement": "Let R→S be a faithfully flat ring map. If S is Noetherian then R is Noetherian, and if S is a regular ring then R is a regular ring. The direction is descent: the hypothesis is on the target and the conclusion on the source. This does not say that regularity ascends, which is the separate statement Z59 proves under a fibre hypothesis.",
       "locator": "Stacks 07NG (Lemma 10.164.4, regularity) and 033E (Lemma 10.164.1, Noetherianity), read 23 September 2026",
       "status": "missing",
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L118",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z92"
+      ],
       "implementationStatus": "unchecked",
       "proofSteps": [
-        "Noetherianity descends because a faithfully flat map reflects strict inclusions of ideals: I↦IS is injective on ideals of R, so an ascending chain in R that does not stabilise gives one in S that does not either.",
-        "Regularity descends locally. For a prime p of R choose a prime q of S lying over it, which exists by faithful flatness; R_p→S_q is faithfully flat local, so a finite free resolution of the residue field over S_q descends to a bounded resolution over R_p by flat base change and faithfulness. Serre's criterion then makes R_p regular. This is the statement Z57 needs to move regularity from the maximal-ideal completion back to the localised I-adic completion, and it is the only descent step in that argument."
+        "Noetherianity is the specialization M=R of pinned L118. For a prime p of R, faithful flatness gives a prime q of S above it.",
+        "The localized map R_p→S_q is flat and local; the target is regular local. Apply the explicit syzygy descent Z92. A resolution of κ_q cannot simply be descended as a finite free resolution of κ_p; Z92 instead begins with a resolution over R_p."
       ],
       "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, named by Claude Code — cc-7b31c4, 23 September 2026, to close the supplier obligations Z57–Z59 recorded explicitly in their own proof steps. Stacks statements read at the tags cited; no Lean implementation."
     },
@@ -19283,14 +19480,791 @@
       "locator": "Stacks 07GH (Definition 15.51.1) and 07PV (Proposition 15.51.10), read 23 September 2026",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z76"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z76",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z99"
       ],
       "implementationStatus": "unchecked",
       "proofSteps": [
         "The definition is local: R is a G-ring exactly when every R_p is, because the condition quantifies over primes and localisation of a G-ring at a prime is again one. That is what lets the finite type statement be proved one prime of S at a time.",
-        "For stability, write S_q as a localisation of a quotient of a polynomial ring over R and reduce, by the quotient and localisation cases, to R[x_1,…,x_n]. The remaining content is that the formal fibres of a polynomial ring over a G-ring stay geometrically regular. The characteristic-p half of that reduction, which goes through Cohen structure theory and the geometric regularity of Z76 rather than plain fibre regularity, is the part this extraction has not read in full; the finding is recorded at Z58 and stays there."
+        "Reduce through localizations, quotients and polynomial extensions as in the source. After the finite complete-local normalization reduction, regularity of the polynomial algebra is pinned L116 and completion regularity is Z96. For characteristic zero use the corrected two-case fibre proof Z99: a nonzero prime requires a quotient by a separable polynomial and the derivation criterion. The positive-characteristic geometric-regularity arguments in 07PR/07PU and the Cohen-structure reduction remain an explicit source/declaration audit frontier."
       ],
-      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, named by Claude Code — cc-7b31c4, 23 September 2026, to close the supplier obligations Z57–Z59 recorded explicitly in their own proof steps. Stacks statements read at the tags cited; no Lean implementation."
+      "note": "The outer finite-type stability proof has now been freshly read. Its characteristic-zero fibre sentence needs the correction E60/Z99. The characteristic-p generic and nonzero-prime branches 07PR/07PU and Cohen-structure reduction 032D were inspected, but their deeper suppliers have not all been audited; keep that frontier open."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L102",
+      "kind": "theorem",
+      "name": "Closed submodules of complete Noetherian Tate modules",
+      "statement": "Let A be a complete Hausdorff commutative topological Tate ring. Let V be a complete Hausdorff uniform additive group with countably generated uniformity, an A-module with continuous scalar multiplication, and Noetherian as an A-module. Every A-submodule N of V is closed. No canonical module topology on V needs to be assumed; its complete topology is part of the hypotheses.",
+      "locator": "TauCeti/RingTheory/Huber/ClosedSubmodule.lean:79–127 at f790474821cf4256814db967cb154e7af3d0c369",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Read ambient binders and proof. This supplies ideal closedness after Tate-algebra Noetherianity and the norm/topology carrier comparison, not those premises themselves.",
+      "library": [
+        "tauceti:TauCeti.Huber.isClosed_of_isNoetherian"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L103",
+      "kind": "theorem",
+      "name": "Completeness of the finite-module topology",
+      "statement": "If A is a complete first-countable topological ring with compatible uniform additive group structure and M is a finite A-module, the canonical right uniformity of moduleTopology A M is complete. Hausdorffness of M is a separate conclusion requiring a closed presentation kernel.",
+      "locator": "TauCeti/Topology/Algebra/Module/Finite.lean:82–111 at f790474821cf4256814db967cb154e7af3d0c369",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "tauceti:TauCeti.completeSpace_moduleTopology"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L104",
+      "kind": "theorem",
+      "name": "Separatedness of the finite-module topology over a Tate ring",
+      "statement": "For a complete Hausdorff Noetherian commutative topological Tate ring A and a finite A-module M, moduleTopology A M is Hausdorff.",
+      "locator": "TauCeti/RingTheory/Huber/FiniteModuleTopology.lean:55–80 at f790474821cf4256814db967cb154e7af3d0c369",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "tauceti:TauCeti.Huber.IsTateRing.t2Space_moduleTopology"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L105",
+      "kind": "theorem",
+      "name": "Strictness of finite-module linear maps over a Tate ring",
+      "statement": "Let A be a complete Hausdorff commutative topological Tate ring with countably generated uniformity. Let M,N be complete Hausdorff uniform additive groups with countably generated uniformities and continuous A-actions. If M is a finite A-module and N a Noetherian A-module, every A-linear map M→N is continuous and open onto its image, without a continuity assumption on that map.",
+      "locator": "TauCeti/RingTheory/Huber/StrictMorphism.lean:39–66 at f790474821cf4256814db967cb154e7af3d0c369",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "tauceti:LinearMap.isStrictMap_of_module_finite"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L106",
+      "kind": "theorem",
+      "name": "Open mapping over a Tate ring",
+      "statement": "Let A be a commutative topological Tate ring, M a complete uniform additive A-module with countably generated uniformity, nonarchimedean additive topology and continuous scalar multiplication, and N a complete Hausdorff uniform additive A-module with countably generated uniformity and continuous multiplication by each fixed scalar. A surjective A-linear map f:M→N that is continuous at zero is open and a quotient map. The source need not be Hausdorff.",
+      "locator": "TauCeti/RingTheory/Huber/OpenMapping.lean:159–221 at f790474821cf4256814db967cb154e7af3d0c369",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "tauceti:TauCeti.Huber.IsTateRing.isOpenMap",
+        "tauceti:TauCeti.Huber.IsTateRing.isQuotientMap"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L107",
+      "kind": "theorem",
+      "name": "The unique complete finite-module topology",
+      "statement": "Let A be a complete commutative nonarchimedean Tate ring with compatible uniform additive group structure and countably generated uniformity. Every finite A-module M carrying a complete Hausdorff uniform additive topology with countably generated uniformity and continuous A-action has IsModuleTopology A M. No Noetherianity hypothesis on A is required for this uniqueness assertion.",
+      "locator": "TauCeti/RingTheory/Huber/OpenMapping.lean:267–311 at f790474821cf4256814db967cb154e7af3d0c369",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "tauceti:TauCeti.Huber.IsTateRing.isModuleTopology"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L108",
+      "kind": "theorem",
+      "name": "Normed complete quotients by closed ideals",
+      "statement": "Let R be a complete commutative normed ring and I a closed ideal. The quotient R/I has the quotient norm inf_{i∈I} ||r+i||, its topology is the quotient topology, it is a normed commutative ring and it is complete. If R is a normed K-algebra, R/I inherits that structure. The general declarations provide arbitrarily close norm lifts, not a norm-minimizing lift.",
+      "locator": "Mathlib/Analysis/Normed/Group/Quotient.lean:414–437,488–523 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "mathlib:Submodule.Quotient.completeSpace",
+        "mathlib:Ideal.Quotient.normedCommRing",
+        "mathlib:Ideal.Quotient.normedAlgebra",
+        "mathlib:Ideal.Quotient.norm_mk_lt"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L109",
+      "kind": "theorem",
+      "name": "Completed restricted series recover the complete coefficient-series carrier",
+      "statement": "For a commutative nonarchimedean topological ring A, if the one-weight restricted-series ring is complete and Hausdorff, restrictedMvPowerSeriesCompletion k A is canonically A-algebra-isomorphic to that restricted-series ring. Both directions are uniformly continuous and the equivalence fixes every restricted series inserted by the completion map.",
+      "locator": "TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Complete.lean:276–348 at f790474821cf4256814db967cb154e7af3d0c369",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "The same file proves completeness from complete coefficients and separatedness from separated coefficients. The Gauss norm identification remains Z81; this is not a second Tate-algebra carrier.",
+      "library": [
+        "tauceti:TauCeti.Huber.restrictedMvPowerSeriesCompletionAlgEquiv",
+        "tauceti:TauCeti.Huber.uniformContinuous_restrictedMvPowerSeriesCompletionEquiv",
+        "tauceti:TauCeti.Huber.uniformContinuous_restrictedMvPowerSeriesCompletionEquiv_symm"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L110",
+      "kind": "theorem",
+      "name": "Vanishing is detected at maximal localizations",
+      "statement": "For a commutative ring R and r∈R, if r maps to zero in R_m for every maximal ideal m, then r=0.",
+      "locator": "Mathlib/RingTheory/LocalProperties/Basic.lean:582–585 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "mathlib:eq_zero_of_localization"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L111",
+      "kind": "theorem",
+      "name": "Continuity of linear maps from a finite-dimensional space",
+      "statement": "Over a complete nontrivially normed field K, every K-linear map from a finite-dimensional Hausdorff topological K-vector space E to a topological K-vector space F is continuous. The topologies are additive group topologies with continuous scalar multiplication.",
+      "locator": "Mathlib/Topology/Algebra/Module/FiniteDimension.lean:284–286 with section binders at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "mathlib:LinearMap.continuous_of_finiteDimensional"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z80",
+      "kind": "theorem",
+      "name": "Noetherianity of strict Tate algebras",
+      "statement": "For a complete nontrivially valued nonarchimedean field K and n≥0, T_n(K)=K⟨X₁,…,X_n⟩ is Noetherian.",
+      "locator": "Bosch Münster notes §1.2 Proposition13, printed15/PDF17; upstream AdicSpaces Layer0.5(4)–(5)",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z49",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L21"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Already an explicit upstream milestone. No new route or second proof owner. The pinned strong-Noetherian class assumes this field theorem; it does not prove it.",
+      "proofSteps": [
+        "Induct on n; T_0=K. For I=0 there is nothing to generate. Otherwise choose 0≠g∈I, make it distinguished using Z48, and use Z49 to make T_n/(g) a finite module over T_(n−1). If g is a unit then I=T_n and use the generator 1.",
+        "The image I/(g) is finite over the Noetherian T_(n−1). Lift finitely many generators and adjoin g. This generates I as a T_n-ideal. Apply L21 for quotients. Do not use the discrete-topology instance of IsStronglyNoetherian for a nontrivially valued field."
+      ],
+      "planned": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z81",
+      "kind": "theorem",
+      "name": "Gauss topology comparison for the existing restricted-series carrier",
+      "statement": "For a complete nontrivially valued nonarchimedean field K and finitely many variables, the one-weight restricted-series topology on the existing Tau Ceti carrier is the topology of ||Σ a_ν X^ν||=max_ν |a_ν| (zero series has norm zero). Transporting along L109 gives the same Banach K-algebra as the usual strict Tate algebra. Constants and all coordinate variables are preserved.",
+      "locator": "Bosch §1.2 definition of T_n and Gauss norm, PDF10–11; Tau Ceti WeightedRestrictedSeries/Basic and Complete; upstream AdicSpaces Layer0.5(1)–(2)",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L109"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "A norm/topology comparison on the existing carrier, not a proposed replacement. It is still a planning adapter and has not been elaborated.",
+      "proofSteps": [
+        "Restrictedness means the coefficients tend to zero cofinitely. Their norms attain a maximum unless all vanish. The ultrametric inequality bounds each convolution coefficient, so the maximum norm is submultiplicative. Scalar multiplication has the required norm equality.",
+        "At weight one, the defining basic neighborhood associated to an open additive coefficient subgroup U consists exactly of series with every coefficient in U. Coefficient balls and these subgroups are cofinal in the normed-field case. This identifies the topologies, not merely the underlying series.",
+        "A Gauss-Cauchy sequence has coefficientwise limits; uniform smallness outside one finite support shows those limits still tend to zero. The convergence is uniform in the Gauss norm. Polynomials are dense by finite-support truncation. L109 supplies the canonical completion equivalence."
+      ],
+      "planned": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z82",
+      "kind": "theorem",
+      "name": "Closed ideals of strict Tate algebras",
+      "statement": "Let K be complete, nontrivially valued and nonarchimedean. Every ideal of T_n(K) is closed for the Gauss topology.",
+      "locator": "Bosch §1.3 Corollary8 and §1.4 Proposition4, PDF23,25; generic proof via pinned L102/L108; upstream AdicSpaces Layer0.6",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z80",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z81",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L102"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "The general closed-submodule result is library item L102. This is its affine specialization, imported from the existing upstream layer.",
+      "proofSteps": [
+        "Apply L102 to the Tate algebra acting on itself: Z80 supplies Noetherianity; Z81 supplies the complete Hausdorff countably based topology. A scalar 0<|π|<1 is a topologically nilpotent unit, giving the Tate hypothesis."
+      ],
+      "planned": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z83",
+      "kind": "theorem",
+      "name": "Quotient Banach algebra topology on a strict affinoid presentation",
+      "statement": "For a strict affinoid presentation A=T_n(K)/I over a complete nontrivially valued nonarchimedean field, the quotient norm inf_{i∈I} ||f+i|| is a complete nonarchimedean K-algebra norm and induces the quotient topology. The projection T_n→A is continuous, open and contractive. This item does not assert that every infimum is attained.",
+      "locator": "Bosch §1.4 Proposition4(i)–(ii), PDF25; Mathlib quotient-norm declarations L108",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z82",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L108",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L67"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "proofSteps": [
+        "Use Z82 and L108. To retain the ultrametric inequality, lift two quotient classes to representatives with norms arbitrarily close to their quotient norms; apply the ultrametric inequality upstairs and let the positive errors tend to zero. Scalar equality follows by rescaling representatives for a nonzero scalar.",
+        "The general quotient construction already gives the topology and completeness. Openness is L67. Norm-attaining representatives in Bosch4(iii) need the stronger strict-closedness result and are not used by this branch."
+      ],
+      "planned": [
+        "AdicSpacesPartII:R0"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z84",
+      "kind": "theorem",
+      "name": "Finite jets at maximal ideals of a strict affinoid",
+      "statement": "For a strict K-affinoid A and a maximal ideal m, A/m^r is finite-dimensional over K for each integer r≥1. This does not assert the existence of a coefficient-field section A/m→A/m^r.",
+      "locator": "Bosch §1.4 Proposition3 and Lemma18 proof, PDF24,32; explicit filtration proof below",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z80",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z51"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Existing owner AdicSpacesPartII:R0. Gives the finite-dimensional targets in the automatic-continuity proof.",
+      "proofSteps": [
+        "A/m is a finite extension of K by Z51. Choose finitely many generators of m using Z80. Products of j such generators span m^j/m^(j+1) over A/m, so each graded piece has finite K-dimension. This uses its natural quotient scalar action, not a chosen embedding of A/m into A.",
+        "Induct using 0→m^(r−1)/m^r→A/m^r→A/m^(r−1)→0 and finite-dimensionality in an exact sequence. If A=0 there are no maximal ideals, and the quantified statement is vacuous."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z85",
+      "kind": "theorem",
+      "name": "Joint separation by maximal-ideal jets",
+      "statement": "For a Noetherian commutative ring A, the family A→A/m^r over all maximal ideals m and integers r≥1 is jointly injective. No Jacobson, reducedness or coefficient-field hypothesis is needed.",
+      "locator": "Bosch §1.4 Lemma18 final paragraph, PDF32; pinned Krull separation L03 and localization detection L110",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L110"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Generic algebraic adapter owned by SchemeAndStackFoundations:SF.0; consumed by affinoid continuity, not an analytic-specific duplicate.",
+      "proofSteps": [
+        "If a maps to zero in every jet quotient, its image in every A_m lies in every power of mA_m. The localized ring is Noetherian local, so L03 makes this image zero.",
+        "Apply L110. For the zero ring the conclusion still holds. Residue fields alone would only detect the Jacobson radical, so retain all r."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z86",
+      "kind": "theorem",
+      "name": "Automatic continuity of morphisms of strict affinoids",
+      "statement": "Every K-algebra homomorphism f:A→B between strict K-affinoid algebras over a complete nontrivially valued nonarchimedean field is continuous for the quotient Banach topologies of any two chosen presentations.",
+      "locator": "Bosch §1.4 Proposition19 and its closed-graph alternative, PDF33; full closed-graph argument below",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z105",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z83",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z84",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z85",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L111",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L106"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Existing owner AdicSpacesPartII:R0. The proof supplies the alternative Bosch mentions; it is a source-level proof, not Lean code.",
+      "proofSteps": [
+        "For each maximal m⊂B and r≥1, let g:A→B/m^r be the composite. Its kernel is an ideal of A, hence closed by Z105. The algebraic quotient A/ker(g) injects into the finite-dimensional K-space B/m^r and is finite-dimensional. Both quotient topologies are Hausdorff. L111 makes the induced linear map continuous, so g is continuous.",
+        "The graph of f in A×B is the intersection of the closed kernels of the continuous linear maps (a,b)↦g(a)−b mod m^r. Z85 gives equality with that intersection; no reducedness is used. Thus the graph is a closed, hence complete, nonarchimedean Banach K-subspace.",
+        "The first projection from the graph to A is continuous, linear and bijective. L106 makes its inverse continuous. Compose that inverse with the second projection to obtain continuity of f. If B=0 the map is already continuous."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z87",
+      "kind": "theorem",
+      "name": "Independence and functoriality of strict affinoid presentation topology",
+      "statement": "Any two strict Tate-algebra quotient presentations of a K-affinoid algebra A induce the same topology. The identity between the two resulting Banach algebras is bicontinuous. Every algebra isomorphism of strict affinoids is bicontinuous. For an ideal J⊂A, the quotient topology agrees with that from the composed Tate-algebra presentation of A/J.",
+      "locator": "Bosch §1.4 Proposition19, PDF33; Conrad Exercise2.2.3(1), PDF13",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z86",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L67"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "proofSteps": [
+        "Apply Z86 to the identity in both directions and likewise to an algebra isomorphism and its inverse. Equality of the topologies follows from the two continuity assertions.",
+        "The two-step quotient map T_n→A→A/J is an open quotient map by L67 and composition. The algebraic quotient by the preimage of J has exactly this topology. This proves compatibility for each specific quotient map, rather than only an abstract homeomorphism."
+      ],
+      "planned": [
+        "AdicSpacesPartII:R0"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L112",
+      "kind": "theorem",
+      "name": "Finite-module completion is tensoring with the completed ring",
+      "statement": "For a Noetherian commutative ring R, ideal I and finite R-module M, the canonical map R̂_I⊗_R M→M̂_I is an R̂_I-linear equivalence and sends 1⊗m to the completion image of m.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean:316–347 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
+        "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian_symm_of"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L113",
+      "kind": "theorem",
+      "name": "Finite-type algebras over a Noetherian ring are Noetherian",
+      "statement": "For commutative rings R,S with an R-algebra structure, if R is Noetherian and S is finite type over R, S is Noetherian.",
+      "locator": "Mathlib/RingTheory/FiniteType.lean:183–190 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "mathlib:Algebra.FiniteType.isNoetherianRing"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L114",
+      "kind": "theorem",
+      "name": "Finite type is preserved by tensor base change",
+      "statement": "For commutative R-algebras A,B, if A is finite type over R, then B⊗_R A is finite type over B.",
+      "locator": "Mathlib/RingTheory/FiniteStability.lean:25–49 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "mathlib:Algebra.FiniteType.baseChange"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z88",
+      "kind": "theorem",
+      "name": "Restricted integral series as polynomial-adic completion",
+      "statement": "For a complete DVR O with uniformizer π and a finite variable set X, O⟨X⟩ is canonically the π-adic completion of O[X]. For each r≥1, reduction of coefficients identifies O⟨X⟩/π^r with (O/π^r)[X], preserving constants, variables and all transition maps. Its restricted-series topology is its π-adic topology.",
+      "locator": "Conrad AWS Exercise3.3.1, PDF30; explicit coefficient proof",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L109"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Existing owner AdicSpacesPartII:F0. This finite-level calculation never commutes localization with an arbitrary inverse limit.",
+      "proofSteps": [
+        "A compatible family of polynomials modulo π^r gives, for each monomial, a compatible family of coefficients and hence an element of O. For fixed r only finitely many coefficients are nonzero modulo π^r, since the rth member is a polynomial. Thus the coefficient family is restricted.",
+        "Conversely reduce a restricted coefficient family modulo π^r; only finitely many coefficients survive. The constructions are inverse and preserve sums and convolution, since each fixed convolution coefficient uses finitely many pairs of monomials.",
+        "The reduction kernel consists of series whose coefficients lie in π^r O. Divide all coefficients by π^r; restrictedness is preserved by this fixed shift of valuation. Thus the kernel is exactly π^r O⟨X⟩, which identifies the neighborhood bases as well as the quotients. Use L109 for the existing completed carrier."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z89",
+      "kind": "theorem",
+      "name": "Completion respects finite-type polynomial presentations",
+      "statement": "For O,π as in Z88, a finite variable set X and ideal I⊂O[X], the canonical map O⟨X⟩→(O[X]/I)̂_(π) is surjective with kernel I O⟨X⟩. It induces an O-algebra isomorphism O⟨X⟩/I O⟨X⟩≅(O[X]/I)̂_(π), preserving the π-adic topologies and the canonical maps from O[X]/I. Reduction modulo π^r agrees with (O[X]/I)/π^r for every r≥1.",
+      "locator": "Conrad §3.3 and Exercise3.3.1, PDF30; algebraic exactness L06 and tensor comparison L112",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z88",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L112",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L113",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L22"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Existing owner AdicSpacesPartII:F0. Finite-type presentation is essential to this particular exactness argument.",
+      "proofSteps": [
+        "Set S=O[X]. It is Noetherian by L113. Apply L06 to the exact sequence 0→I→S→S/I→0; I is finite because S is Noetherian. Z88 identifies Ŝ with O⟨X⟩.",
+        "L112 identifies Î with Ŝ⊗_S I. Its image under the completed inclusion is exactly the ideal generated by the images of I, so the kernel is IŜ, not an unspecified closure. First-isomorphism and completed surjectivity yield the algebra equivalence.",
+        "L22 identifies each completed topology with the topology of the extended principal ideal. A surjective O-algebra map carries π^r times its source onto π^r times its target, so the isomorphism preserves both π-adic topologies. Alternatively, quotient Z88 at level r by the polynomial relations: both sides are S/(I+(π^r))."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z90",
+      "kind": "theorem",
+      "name": "Bounded denominators identify the generic restricted-series algebra",
+      "statement": "Let O be a complete DVR with uniformizer π and fraction field K. For finitely many variables X, coefficient localization gives O⟨X⟩[1/π]≅K⟨X⟩. The topology induced by the open lattice O⟨X⟩ is the Gauss topology. After quotienting by any ideal I of O[X], it induces (O⟨X⟩/I O⟨X⟩)[1/π]≅K⟨X⟩/I K⟨X⟩ with the corresponding affinoid quotient topology.",
+      "locator": "Conrad AWS Exercise3.3.1, PDF30; explicit bounded-denominator and quotient proof",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z81",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z83",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z87",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z88"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Existing owner AdicSpacesPartII:F0. Uniform boundedness of denominators is the surjectivity argument; unrestricted formal K-power series would fail it.",
+      "proofSteps": [
+        "A restricted K-coefficient family tends to zero; all but finitely many coefficients lie in O, and the finitely many remaining valuations have a common lower bound. A single π^N therefore clears every denominator. Conversely, dividing a restricted O-series by a fixed π^N leaves a restricted K-series. These maps preserve coefficients and convolution and are mutually inverse.",
+        "The O-series are exactly the Gauss unit ball, and π^r O⟨X⟩ for r∈Z form the usual Gauss neighborhood basis. This proves the topology assertion before quotienting.",
+        "Localization of a quotient is the quotient of the localization by the extended ideal. Its presentation agrees with Z83; Z87 ensures this is the intended presentation-independent affinoid topology. No assertion about localization of arbitrary inverse limits is used."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z91",
+      "kind": "theorem",
+      "name": "Finite-level comparison for integral completed tensor products",
+      "statement": "Let B_i be a finite family of finite-type O-algebras over a complete DVR O, and C_i their π-adic completions. Put P=⊗_O B_i, with P=O for the empty family. For each r≥1 there is a canonical factor-compatible isomorphism P/π^r≅⊗_(O/π^r)(C_i/π^r), compatible with r. Thus P̂_(π) is the π-adic completed tensor product of the C_i, defined by the inverse limit of the right-hand side. This is an isomorphism of complete topological O-algebras.",
+      "locator": "Conrad Exercise3.3.8, PDF32, specialized to finite-type affine models; LLHLM23 Theorem3.7.1 PDF79–80; explicit finite-quotient proof",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z89"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Existing owner AdicSpacesPartII:F0. Together with Z89/Z90 and the quotient presentation Z52, this supplies the integral and generic identifications in Z55.",
+      "proofSteps": [
+        "By Z89 replace C_i/π^r with B_i/π^r, respecting each factor map. The universal property of the ordinary algebra tensor product identifies the tensor of these reductions with P/π^r. The two maps are induced by the same factor inclusions, so they commute with every reduction transition.",
+        "Take inverse limits of this isomorphism of inverse systems. The limit maps are inverse because they are inverse at every finite level; their topologies have the same kernels of finite-level projections. The empty system of factors gives lim_r O/π^r=O by completeness.",
+        "Equivalently the ordinary tensor Q=⊗_O C_i satisfies Q/π^r≅⊗_(O/π^r)(C_i/π^r). This comparison does not assert that Q itself is Noetherian; the Noetherian ring used for subsequent completion-flatness is P."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L115",
+      "kind": "theorem",
+      "name": "Flatness descends along faithfully flat scalar extension",
+      "statement": "For a commutative ring R, commutative R-algebra S and R-module M, if S is faithfully flat over R and S⊗_R M is flat over S, then M is flat over R.",
+      "locator": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean:588–604 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "mathlib:Module.Flat.of_flat_tensorProduct"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L116",
+      "kind": "theorem",
+      "name": "Regularity of polynomial rings over regular rings",
+      "statement": "If R is a commutative regular Noetherian ring, R[X] and the polynomial algebra in any finite variable type over R are regular Noetherian rings.",
+      "locator": "Mathlib/RingTheory/RegularLocalRing/Polynomial.lean:78–114 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "mathlib:Polynomial.isRegularRing_of_isRegularRing",
+        "mathlib:MvPolynomial.isRegularRing_of_isRegularRing"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L117",
+      "kind": "theorem",
+      "name": "A flat local ring map is faithfully flat",
+      "statement": "For commutative local rings A,B and an A-algebra structure on B, if B is A-flat and A→B is a local homomorphism, then B is faithfully flat over A.",
+      "locator": "Mathlib/RingTheory/Flat/FaithfullyFlat/Algebra.lean:60–68 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L118",
+      "kind": "theorem",
+      "name": "Noetherian modules descend along faithfully flat base change",
+      "statement": "Let A be a faithfully flat commutative R-algebra and M an R-module. If A⊗_R M is Noetherian as an A-module, then M is Noetherian as an R-module. Taking M=R gives descent of Noetherianity of rings.",
+      "locator": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean:611–637 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "library": [
+        "mathlib:IsNoetherian.of_isNoetherian_tensorProduct_of_faithfullyFlat"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z92",
+      "kind": "theorem",
+      "name": "Regularity descends along flat local maps",
+      "statement": "If A→B is a flat local homomorphism of Noetherian local rings and B is regular, then A is regular.",
+      "locator": "Stacks00OF, Lemma10.110.9, statement and full proof read 23 September2026",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L115",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L117",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L81",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z100",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z101"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "The former Z78 text incorrectly suggested descending a free resolution of κ_B. This proof instead base changes a resolution of κ_A and descends flatness of one finite syzygy. Z100/Z101 expose the remaining homological suppliers.",
+      "proofSteps": [
+        "The map is faithfully flat by L117. Let d=dim B. If d=0, B is a field; locality gives m_A B=0 and faithfulness gives m_A=0, so A is a field.",
+        "For d>0, start with a resolution of the A-residue field κ_A by finite free A-modules, formed by successively choosing generators of kernels over the Noetherian ring A. Tensor that A-resolution with B. Flatness preserves exactness and the terminal module is B⊗_A κ_A, not necessarily κ_B.",
+        "The global-dimension bound Z100 makes its dth syzygy projective over B. The syzygy is finite, hence free over local B. L115 descends flatness of this syzygy to A, and L81 makes the finite A-syzygy free. Therefore κ_A has a finite free resolution, and Z101 makes A regular."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z93",
+      "kind": "theorem",
+      "name": "Faithfully flat descent of regular ring maps",
+      "statement": "Let A→B→C be homomorphisms of commutative rings. If A→C is regular and B→C is faithfully flat, then A→B is regular. Regularity here includes Noetherian, geometrically regular fibres as in Z76.",
+      "locator": "Stacks07NT, Lemma15.42.7, statement and full proof read 23 September2026",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z76",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z78"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "This is descent of a map, whereas Z78 is descent of a ring property. The extra field-extension quantifier is essential.",
+      "proofSteps": [
+        "To prove A-flatness of B, tensor an injection of A-modules with B and then with C over B. The composite is tensoring with the A-flat module C and remains injective; faithful flatness of C over B reflects injectivity. This establishes the flatness criterion for B.",
+        "For a prime p⊂A, the map B⊗_A κ(p)→C⊗_A κ(p) is faithfully flat, as is its base change along every finite field extension L/κ(p). The targets are regular Noetherian by regularity of A→C; Z78 descends both properties to the sources. This gives the full geometric fibre condition."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z94",
+      "kind": "theorem",
+      "name": "Identical completions for a flat local map with identical closed fibre",
+      "statement": "Let A→B be a flat local map of Noetherian local rings such that m_A B=m_B and κ_A→κ_B is an isomorphism. It induces an isomorphism Â_(m_A)→B̂_(m_B), respecting A and all finite quotient maps.",
+      "locator": "Stacks0AGX, Lemma15.44.9, statement and full proof read; finite-quotient alternative supplied here",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "proofSteps": [
+        "Flatness identifies (m_A^r/m_A^(r+1))⊗_A B with m_B^r/m_B^(r+1). Since the first graded piece is annihilated by m_A and the residue fields agree, the map between these graded pieces is an isomorphism for every r.",
+        "Start with the residue-field isomorphism for r=1. Induct on r using the exact rows 0→m^r/m^(r+1)→A/m^(r+1)→A/m^r→0 and their B versions. The outside isomorphisms give the middle one.",
+        "These finite-quotient isomorphisms commute with reduction because all come from A→B. Their inverse limit is the required algebra isomorphism, with inverse continuous for the completion topologies. This argument explicitly proves the comparison used in Z57."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z95",
+      "kind": "theorem",
+      "name": "Regularity of ring maps is local at target maximal ideals",
+      "statement": "For A→B with B Noetherian, the map is regular exactly when A_p→B_q is regular for every prime q of B and its contraction p; it suffices to test maximal q and their contractions (the contractions need not be maximal in A).",
+      "locator": "Stacks07C0, Lemma15.42.2, statement and proof read 23 September2026",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z76"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "proofSteps": [
+        "Flatness is local on target and source local rings. For each residue field and each finite field extension, regularity of the Noetherian fibre is tested on its local rings.",
+        "Localizing a regular map preserves flatness and the regularity of every geometrically extended fibre. Every target prime is contained in a maximal ideal, so the maximal-local test supplies every local test. No maximality of the contracted prime is inserted."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z96",
+      "kind": "theorem",
+      "name": "Regular local rings and their maximal-ideal completions",
+      "statement": "For a Noetherian local ring A, A is regular if and only if its maximal-ideal completion is regular.",
+      "locator": "Stacks07NY, Lemma15.44.4, statement and complete proof read 23 September2026",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z92"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "The same upstream ModularCurves §4D local completion-regularity atom already supplies Z23/Z28. Z96 names its coefficient-field-free equivalence, not a second proof owner. Import the foundational atom without a dependency on modular-curve applications.",
+      "proofSteps": [
+        "Z25 gives a Noetherian completion; L08 identifies its maximal ideal as m_A Â. If A is regular, generators of m_A on dim A elements generate m_Â. Z28 preserves dimension, so L18/L19 give regularity of the completion.",
+        "Conversely apply Z92 to the flat local completion map, using L11 and L08. This proof neither assumes nor concludes that an arbitrary I-adic completion is local."
+      ],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z97",
+      "kind": "theorem",
+      "name": "Derivations extend to adic completion",
+      "statement": "For a derivation D:R→R of a commutative ring and an ideal I, there is a canonical continuous derivation D̂:R̂_I→R̂_I extending D. For r≥1 it satisfies D̂((I R̂)^(r+1))⊂(I R̂)^r when these powers give the completion topology.",
+      "locator": "Stacks07PE, Lemma15.49.1(1), statement and full proof read 23 September2026",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "proofSteps": [
+        "The Leibniz rule gives D(I^(r+1))⊂I^r. Thus D induces compatible additive maps R/I^(r+1)→R/I^r. Passing to the inverse limit gives D̂ with one step of precision loss.",
+        "Addition and Leibniz hold after every finite projection, hence hold in the separated inverse limit. The same precision bound gives continuity and uniqueness among continuous extensions because R is dense. Do not assert D(I^r)⊂I^r."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z98",
+      "kind": "theorem",
+      "name": "A derivation detects regular hypersurface quotients",
+      "statement": "Let R be a regular Noetherian commutative ring and f∈R. If a derivation D:R→R sends f to an element whose image is a unit in R/(f), then R/(f) is regular.",
+      "locator": "Stacks07PF, Lemma15.49.2, statement and full proof read 23 September2026",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z103"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "proofSteps": [
+        "Localize at a prime containing f, extending D by the quotient rule. If f lay in the square of the local maximal ideal, Leibniz would put D(f) in the maximal ideal, contradicting its invertibility modulo f.",
+        "Thus f has nonzero cotangent class and belongs to a minimal generating set of the maximal ideal. Apply Z103 with one generator. Primes not containing f do not occur in the quotient. If f is a unit the quotient is zero, which is regular by the empty-prime condition."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z99",
+      "kind": "theorem",
+      "name": "Characteristic-zero formal fibres in the one-polynomial-variable reduction",
+      "statement": "Let R be a complete regular local domain with fraction field K of characteristic zero. Let q⊂R[x] be maximal over m_R and r⊂q prime with r∩R=0. Then R[x]_q̂⊗_(R[x]) κ(r) is geometrically regular over κ(r).",
+      "locator": "Corrected characteristic-zero step in Stacks07PV, using 07PE and 07PF; source finding E60",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L116",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z96",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z97",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z98",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z100"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "This is a source-level correction proof. No claim that the entire G-ring stability proof, especially its characteristic-p branch, is closed or implemented. Passing from a regular local ring to regularity of all its localizations uses the existing R03.3 regular-local/global-dimension package (Z100), rather than an unprovided instance at the pin.",
+      "proofSteps": [
+        "Polynomial regularity is L116. Localize at q, complete using Z96, then invert R minus zero. The resulting Noetherian ring C=R[x]_q̂⊗_R K is regular. Localizations of regular rings are regular by the prime-local definition.",
+        "If r=0, the fibre further localizes C by the nonzero elements of K[x]. If r≠0, rK[x]=(g) for a nonconstant irreducible g∈K[x], and the fibre is C/(g), not a localization of the completion. In characteristic zero g is separable, so Bezout for g,g′ makes g′ a unit modulo g.",
+        "The R-derivation d/dx extends to R[x]_q and its completion using the quotient rule and Z97, and then to C. It sends g to g′. Apply Z98 to obtain regularity of C/(g). Finally a Noetherian algebra over a characteristic-zero field is geometrically regular when it is regular, since finite field extensions are separable. The finite-separable base-change supplier remains recorded in the regularity gap, rather than replaced by an assertion for imperfect fields."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z100",
+      "kind": "theorem",
+      "name": "Global-dimension bound for a regular local ring",
+      "statement": "A regular local ring of Krull dimension d has global dimension at most d. In particular, for any module, the dth syzygy in a projective resolution is projective.",
+      "locator": "Stacks00O7, Proposition10.110.1 (global-dimension consequence), and its cited dimension-shifting criterion",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L119"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Import the existing depth-auslander-buchsbaum-and-dimension-bounds node of R03.3. Its regular-local/finite-global-dimension equivalence owns this supplier. The bounded source reading here records the exact direction needed; the deeper depth and syzygy proof audit is still open.",
+      "proofSteps": [
+        "The source first bounds the length of finite free resolutions of finite modules by dimension minus depth, using its maximal Cohen–Macaulay freeness and syzygy-depth results. It then passes from finite modules to all modules over the Noetherian ring.",
+        "The dth-syzygy consequence follows by dimension shifting against all target modules. Those depth and homological-dimension results are explicit outstanding supplier contracts in the regularity gap; this entry does not claim that the two-line source citation constitutes their formal proof."
+      ],
+      "planned": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z101",
+      "kind": "theorem",
+      "name": "Finite projective dimension of the residue field forces regularity",
+      "statement": "If (A,m,κ) is a Noetherian local ring and κ has finite projective dimension over A, then A is a regular local ring.",
+      "locator": "Stacks00OC, Proposition10.110.5, implication(1)⇒(3), statement and full outer proof read",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L119"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Import the existing depth-auslander-buchsbaum-and-dimension-bounds node of R03.3. Its regular-local/finite-global-dimension equivalence owns this supplier. The bounded source reading here records the exact direction needed; the deeper depth and syzygy proof audit is still open.",
+      "proofSteps": [
+        "The source uses the bound dim_κ(m/m²)≤pd_A κ and, when pd_A κ is finite, pd_A κ≤dim A. Together with the opposite embedding-dimension inequality they give equality.",
+        "Apply L19. The two projective-dimension bounds and their named Stacks sources 10.110.3–10.110.4 remain an explicit homological supplier audit obligation, not a claimed baseline theorem."
+      ],
+      "planned": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z102",
+      "kind": "theorem",
+      "name": "Smooth algebras over arbitrary fields are regular",
+      "statement": "For any field k, every smooth finitely presented k-algebra S is a regular Noetherian ring. No perfection assumption on k is required.",
+      "locator": "Stacks00TT, Lemma10.140.3 final assertion, complete proof read 23 September2026",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L113",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z92"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "",
+      "proofSteps": [
+        "After extending to an algebraically closed field and choosing a geometric point over a given prime, smoothness remains true by L60. In a standard smooth presentation the invertible Jacobian minor makes the cotangent dimension equal the local dimension; the corresponding local ring is regular.",
+        "The map from the original local ring to that geometric local ring is flat local. Apply Z92 to descend regularity. The standard-smooth Jacobian and finite-type dimension inputs are shared with Z41–Z44 and remain in the source/declaration audit queue. This is not the converse asserting that every regular algebra over an imperfect field is smooth."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z103",
+      "kind": "theorem",
+      "name": "Quotient by part of a regular system of parameters",
+      "statement": "Let A be a Noetherian regular local ring of dimension d and let x₁,…,x_d minimally generate its maximal ideal. For 0≤c≤d, A/(x₁,…,x_c) is a regular local ring of dimension d−c.",
+      "locator": "Stacks00NQ, Lemma10.106.3, statement and complete proof read 23 September2026",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Existing generic owner DeformationAndDerivedPatchingAlgebra:R03.3: this parameter-system specialization consumes the existing regular-sequence carrier and supplies the regular-local homological branch. It is not a new SchemeAndStackFoundations target.",
+      "proofSteps": [
+        "For c=0 use A itself. For c=1 with d>0, the chosen x₁ is nonzero, and Z62 makes it a non-zero-divisor. The local quotient is Noetherian and its maximal ideal is generated by the remaining d−1 elements. The principal-quotient dimension bound and L18 give dimension exactly d−1, hence regularity by L19.",
+        "Repeat on the quotient: the remaining generators are minimal because their number equals its dimension. At c=d the quotient is the residue field. This proves the quotient regularity and dimension assertion; the separate regular-sequence consequence is Z104."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z105",
+      "kind": "theorem",
+      "name": "Closed ideals of strict affinoid quotients",
+      "statement": "For every ideal I of T_n(K), every ideal of A=T_n(K)/I is closed in the quotient Banach topology. This includes the zero quotient.",
+      "locator": "Bosch Münster notes §1.4 Proposition4, printed23/PDF25; upstream AdicSpaces Layer0.6",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z82",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z83",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L67"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "For an ideal J of A, its inverse image under T_n(K)→A is an ideal and is closed by Z82. The projection is a quotient map by Z83/L67. The quotient-topology criterion therefore makes J closed. This argument also covers A=0."
+      ],
+      "note": "Existing upstream owner; separate from Tate closedness and quotient completeness so that each downstream proof can cite the required conclusion."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z104",
+      "kind": "theorem",
+      "name": "Regular systems of parameters are regular sequences",
+      "statement": "In a Noetherian regular local ring A of dimension d, every minimal generating sequence x₁,…,x_d of the maximal ideal is an A-regular sequence. The empty sequence for a field is included.",
+      "locator": "Stacks00NQ, Lemma10.106.3, regular-sequence clause",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z103",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "By Z103, each quotient by an initial segment is regular local of the expected dimension. It is a domain by Z62. If the next parameter exists, its cotangent class is nonzero because the remaining system is minimal, so it is a non-zero-divisor in that domain. The final quotient is the nonzero residue field. This proves the regular-sequence conditions, including properness."
+      ],
+      "note": "Existing generic owner DeformationAndDerivedPatchingAlgebra:R03.3: this parameter-system specialization consumes the existing regular-sequence carrier and supplies the regular-local homological branch. It is not a new SchemeAndStackFoundations target."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L119",
+      "kind": "theorem",
+      "name": "Projective dimension of a regular-sequence quotient",
+      "statement": "For a commutative Noetherian local ring R, a list rs forming an R-regular sequence has pd_R(R/(rs))=length(rs). The pinned categorical statement uses ModuleCat and a universe shrink with Small R.",
+      "locator": "Mathlib/RingTheory/Regular/ProjectiveDimension.lean:167–185 at 082e2d37e8b0463410cdb532e111cd43d5a66174; statement and proof read",
+      "status": "library",
+      "library": [
+        "mathlib:ModuleCat.projectiveDimension_quotient_eq_length"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "The carrier and quotient projective-dimension formula already exist, as AUDIT-17 records. This alone does not assert the global-dimension criterion Z100 or its converse Z101."
     }
   ],
   "prerequisites": [
@@ -19651,9 +20625,17 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z73",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z74",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z76",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z77",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z78",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z79"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z79",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z85",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z92",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z93",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z94",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z95",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z97",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z98",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z99",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z102"
       ],
       "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs. Z45–Z47 supply algebraic connectedness with a rational section without unnecessary normality; Z57–Z59/Z61–Z62 isolate the G-ring/regularity inputs consumed by AdicSpacesPartII. These are source-level additions to the existing owner, with deeper supplier gaps retained. Z67 and Z69–Z74 supply the descending ideal filtration and local Hilbert–Samuel comparisons. Import the shared graded Hilbert–Serre and homogeneous-rank suppliers Z68/Z75 from R09.1, reusing pinned length, Artin–Rees and rational Hilbert-series results.",
       "stages": [
@@ -19686,7 +20668,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z27",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A97",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A102"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A102",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z103",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z104"
       ],
       "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route. Z15–Z24 refine the R03.1 coefficient-tensor argument. Keep its regular complete-local coordinate lemmas in the early foundational part; do not make this construction depend on later arithmetic patching. Z23 and Z28 import the existing upstream ModularCurves §4D local completion/dimension atom. Only general adic Noetherianity, finite-variable coefficient calculations and coefficient-preserving coordinate adapters are additional R03.1 obligations. Their algebraic dependency graph precedes the arithmetic and modular applications; no whole-roadmap cycle is introduced.",
       "stages": [
@@ -19979,7 +20963,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z55",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z56",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z60",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z84",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z86",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z88",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z89",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z90",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z91"
       ],
       "reason": "The affinoid completed-tensor, rational-fiber and regular-product interfaces belong to the existing analytic product owner. They are distinct from complete local coefficient tensors in R03.1. These precise additional statements import the upstream AdicSpaces carrier. The analytic continuation imports upstream AdicSpaces Layer0.5 Weierstrass division (Z49), pinned restricted-series comparison/iteration, and SchemeAndStackFoundations:SF.0/SF.4 algebraic descent/regularity. Z48/Z50–Z56/Z60 refine the existing R0/F0 product and model targets; Z52 reuses their carrier."
     },
@@ -20975,6 +21965,125 @@
       ],
       "url": "https://people.math.osu.edu/cogdell.1/fields-www.pdf",
       "publicationScope": "Only the unqualified reading of this author-note remark is checked. New means no identified correction in the searched locations, not a priority claim. Independent review pending."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E54",
+      "kind": "misprint",
+      "locator": "Supplementary source Bosch Münster notes §1.3 Corollary10 proof, printed22/PDF24, first paragraph; April2008 PDF",
+      "printed": "x_i, i = 1, …, s",
+      "correction": "The generator index runs from 1 to r. The symbol s is the ambient free-module rank, whereas x₁,…,x_r are the generators selected on the preceding page.",
+      "reason": "The preceding construction selects r generators, and the following sentence again uses x₁,…,x_r. For N=(X,Y)⊂T₂ one may take s=1 and r=2; considering only x₁ does not cover the coefficients of the selected generators. This is a local index slip, with no change to the theorem.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "23 September 2026: current author-hosted Münster April2008 notes at https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf; the cited pages were checked as images. This is not a claim to have compared the 2014 Springer book.",
+        "23 September 2026: web searches for Bosch heft378 errata, Lectures on Formal and Rigid Geometry Corollary10 erratum, and Lemma11 corrections; no identified correction to these passages was found.",
+        "23 September 2026: targeted uni-muenster.de Bosch errata rigid search; no matching author correction located. Novelty is limited to this search, not asserted absolutely."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E55",
+      "kind": "misprint",
+      "locator": "Supplementary source Bosch Münster notes §1.4 Lemma11 proof, printed25/PDF27, first formula; April2008 PDF",
+      "printed": "q = Σ_(j=0)^n a_j ζ^(n−j)",
+      "correction": "Use b_j as the coefficients of q, retaining a_i for p.",
+      "reason": "The line declares a₀=b₀=1 and the next displayed convolution uses a_i b_j. Distinct p and q do not have the same coefficient family. All subsequent estimates already use b_j for q, so the intended proof is unambiguous.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "23 September 2026: current author-hosted Münster April2008 notes at https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf; the cited pages were checked as images. This is not a claim to have compared the 2014 Springer book.",
+        "23 September 2026: web searches for Bosch heft378 errata, Lectures on Formal and Rigid Geometry Corollary10 erratum, and Lemma11 corrections; no identified correction to these passages was found.",
+        "23 September 2026: targeted uni-muenster.de Bosch errata rigid search; no matching author correction located. Novelty is limited to this search, not asserted absolutely."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E56",
+      "kind": "error",
+      "locator": "Supplementary source Bosch Münster notes §1.4 Definition1/Proposition2(iii), printed22/PDF24, and Theorem14, printed28/PDF30; April2008 PDF",
+      "printed": "finite monomorphism T_d ↪ A; exists a point x ∈ Max A",
+      "correction": "Require A≠0 in the Noether-normalization and maximum-attainment assertions, or explicitly adopt a convention excluding the zero affinoid. Keep arbitrary quotient and closed-ideal statements valid for the zero quotient.",
+      "reason": "Definition1 allows the quotient T_n/(1)=0. Since T_d contains the nonzero field K, it cannot inject into the zero ring; Max(0) is empty, so it contains no point attaining a maximum. Noetherianity and Jacobsonness remain true for the zero ring. Z50 already assumes a proper ideal; Z51 starts with a nonempty clopen, so the LLHLM domain argument is unaffected.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "23 September 2026: current author-hosted Münster April2008 notes at https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf; the cited pages were checked as images. This is not a claim to have compared the 2014 Springer book.",
+        "23 September 2026: web searches for Bosch heft378 errata, Lectures on Formal and Rigid Geometry Corollary10 erratum, and Lemma11 corrections; no identified correction to these passages was found.",
+        "23 September 2026: targeted uni-muenster.de Bosch errata rigid search; no matching author correction located. Novelty is limited to this search, not asserted absolutely."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E57",
+      "kind": "misprint",
+      "locator": "Supplementary source Conrad AWS Exercise2.2.3(1), PDF/printed13, displayed domain of h; current author PDF",
+      "printed": "h : T_(n+n′)/J → B",
+      "correction": "The map h has domain T_(n+n′)/(J+J′), as in the factor maps immediately preceding it and the universal triple following it.",
+      "reason": "The factor maps ι,ι′ take values in the quotient by J+J′, so the printed composites h∘ι and h∘ι′ are not typed with the displayed domain. For I=0 and I′=(Y), retaining only J leaves an unwanted free Y. Item Z52 already uses both ideals, and its proof now records this source slip.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "23 September 2026: current Stanford author PDF https://math.stanford.edu/~conrad/papers/aws.pdf, Exercise2.2.3(1) inspected as image.",
+        "23 September 2026: author-domain searches for Several approaches corrections and Conrad 2.2.3 J; no correction to this line located. The author PDF is the version checked, not an independently matched AMS printing."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E58",
+      "kind": "misprint",
+      "locator": "Supplementary source Bosch Münster notes §1.2 Proposition3 proof, printed9/PDF11, definition of c_ν; April2008 PDF",
+      "printed": "c_ν = Σ_(i=1)^∞ c_(iν)",
+      "correction": "Start the coefficient sum at i=0, matching the series Σ_(i=0)^∞ f_i being summed.",
+      "reason": "Take f₀=1 and f_i=0 for i≥1. The printed coefficient rule produces zero, while the asserted sum is one. Adding the omitted initial coefficient repairs the proof and does not change completeness. Z81 uses the corrected coefficientwise limit.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "23 September 2026: current author-hosted Münster April2008 notes at https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf; the cited pages were checked as images. This is not a claim to have compared the 2014 Springer book.",
+        "23 September 2026: web searches for Bosch heft378 errata, Lectures on Formal and Rigid Geometry Corollary10 erratum, and Lemma11 corrections; no identified correction to these passages was found.",
+        "23 September 2026: targeted uni-muenster.de Bosch errata rigid search; no matching author correction located. Novelty is limited to this search, not asserted absolutely."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E59",
+      "kind": "gap",
+      "locator": "Supplementary source Bosch Münster notes §1.4 Theorem14 proof, printed28/PDF30, simultaneous coefficient-maximization step; April2008 PDF",
+      "printed": "|a₁(x)|⋯|a_r(x)| = |a₁|⋯|a_r|",
+      "correction": "Apply the Tate-algebra maximum principle to the product of the nonzero coefficients only. Zero coefficients already attain norm zero everywhere. If all coefficients vanish, treat f=0 in the reduced domain separately and choose any maximal point, using A≠0.",
+      "reason": "When a coefficient is zero, the displayed product equality is 0=0 and does not imply equality for the other factors. Such minimal equations occur, for example f=X in K⟨X⟩ finite over K⟨T⟩ by T↦X² has equation f²−T=0 with zero linear coefficient. The proof step is repaired by omitting zero factors; the corrected maximum principle survives. The topology proof in Z86 uses closed graphs and does not depend on this maximum step.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "23 September 2026: current author-hosted Münster April2008 notes at https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf; the cited pages were checked as images. This is not a claim to have compared the 2014 Springer book.",
+        "23 September 2026: web searches for Bosch heft378 errata, Lectures on Formal and Rigid Geometry Corollary10 erratum, and Lemma11 corrections; no identified correction to these passages was found.",
+        "23 September 2026: targeted uni-muenster.de Bosch errata rigid search; no matching author correction located. Novelty is limited to this search, not asserted absolutely."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E60",
+      "kind": "gap",
+      "locator": "Supplementary Stacks07PV, Proposition15.51.10, characteristic-zero paragraph after the regularity of the completed local polynomial ring; version accessed 23 September2026",
+      "printed": "is regular as a localization of R[x]_q̂",
+      "correction": "Separate r=0 from r≠0. After inverting the nonzero elements of R, write C=R[x]_q̂⊗_R Frac(R). For nonzero r, the fibre is C/(g) for a separable irreducible polynomial g over Frac(R). Extend d/dx to C, use that g′ is a unit modulo g, and apply the regular-hypersurface derivation criterion. Item Z99 records the proof and its remaining formal suppliers.",
+      "reason": "The asserted canonical localization description fails when r is nonzero. Take R=k[[t]] in characteristic zero, q=(t,x) and r=(x). The completion is the domain k[[t,x]], whereas the fibre is k((t)) and the canonical map kills the nonzero element x; no nonzero localization of a domain does this. This refutes that proof step, not finite-type stability of G-rings. The zero-prime fibre really is a localization.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "23 September2026: current tag statement, complete outer proof and comments read at https://stacks.math.columbia.edu/tag/07PV and /07PR.",
+        "23 September2026: both tag history pages read. The 07PV history lists January2026 q/r and May2026 notation changes; 07PR lists May2026 n/m and earlier field-extension notation changes. No entry identifies either correction recorded here.",
+        "23 September2026: targeted searches for 07PV localization correction and 07PR mathfrak r typo found no identified correction. The novelty assessment is limited to these checks."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E61",
+      "kind": "misprint",
+      "locator": "Supplementary Stacks07PR, Lemma15.51.5, second completed-ring comparison display (the one with C); version accessed 23 September2026",
+      "printed": "C_r̂",
+      "correction": "Use C_q̂. The prime of C defined in the preceding paragraph is q; r is the prime of B.",
+      "reason": "The immediately preceding setup defines B and its prime r, then C and its prime q. The B display correctly completes at r; the C display repeats r even though its specified local ring is C_q. The rest of the argument uses the intended base change and is unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "23 September2026: current tag statement, complete outer proof and comments read at https://stacks.math.columbia.edu/tag/07PV and /07PR.",
+        "23 September2026: both tag history pages read. The 07PV history lists January2026 q/r and May2026 notation changes; 07PR lists May2026 n/m and earlier field-extension notation changes. No entry identifies either correction recorded here.",
+        "23 September2026: targeted searches for 07PV localization correction and 07PR mathfrak r typo found no identified correction. The novelty assessment is limited to these checks."
+      ]
     }
   ],
   "gaps": [
@@ -21460,7 +22569,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z61",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62"
       ],
-      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and Hilbert–Samuel polynomial existence/dimension comparison (including the finite-length exact-sequence degree estimate). Z63–Z66 now expose the associated-graded construction, homogeneous-relation growth bound and regular-local proof; 00NO,00KQ,00K3 and00IP were freshly read. Their Hilbert–Samuel supplier chain still requires atom/declaration closure. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope. Hilbert–Samuel continuation codex-7e92bd: Z67–Z75 and L87–L99 now replace the unnamed polynomial-existence, finite-colength, exact-sequence-degree and dimension-comparison premises. Z64 includes a complete prime-chain/parameter induction with degree-zero and zero-module boundaries, and Z66 is a specialization of Z67. The generic graded supplier belongs to existing R09.1. This closes that source-proof branch, not the remaining regular-map/G-ring/flat-local-dimension or affinoid-topology branches and not Lean elaboration."
+      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and Hilbert–Samuel polynomial existence/dimension comparison (including the finite-length exact-sequence degree estimate). Z63–Z66 now expose the associated-graded construction, homogeneous-relation growth bound and regular-local proof; 00NO,00KQ,00K3 and00IP were freshly read. Their Hilbert–Samuel supplier chain still requires atom/declaration closure. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope. Hilbert–Samuel continuation codex-7e92bd: Z67–Z75 and L87–L99 now replace the unnamed polynomial-existence, finite-colength, exact-sequence-degree and dimension-comparison premises. Z64 includes a complete prime-chain/parameter induction with degree-zero and zero-module boundaries, and Z66 is a specialization of Z67. The generic graded supplier belongs to existing R09.1. This closes that source-proof branch, not the remaining regular-map/G-ring/flat-local-dimension or affinoid-topology branches and not Lean elaboration. Continuation codex-c83e7a: Z80–Z91 and pinned L102–L114 now supply the closed-ideal, quotient/presentation topology, finite-jet continuity and finite-level integral/generic completed-tensor comparisons. Z77 is corrected to the already pinned L12 height theorem; Z25 supplies completion Noetherianity. Z92–Z103 distinguish local-ring descent, regular-map descent and identical-completion comparison, and Z57 uses the right map theorem. Remaining explicit frontier: full depth/syzygy/projective-dimension suppliers of Z100/Z101, standard-smooth/cotangent dimension adapters of Z102, finite-separable regularity base change in Z99, and characteristic-p formal fibres/Cohen structure in Z79. These are not closed merely by naming the outer propositions. Ownership reconciliation: Z96 imports the same upstream ModularCurves §4D atom as Z23/Z28; Z100/Z101 import the existing R03.3 depth/projective-dimension node. Z103/Z104 are parameter-system refinements for R03.3. L119 already proves projective dimension of a regular-sequence quotient. Do not reconstruct the projective-dimension or regular-sequence carriers."
     },
     {
       "id": "auxiliary-projector-global-input",
@@ -23089,6 +24198,975 @@
         "Mathlib homogeneous polynomial pieces exist, but the exact monomial-rank bridge is still an adapter; finite generation alone is not a rank formula."
       ],
       "owner": "AlgebraicModuliForArithmeticGeometry:R09.1 full stage and reviewed AUDIT-01 Hilbert-polynomial target; local adapters at SchemeAndStackFoundations:SF.4."
+    },
+    "affinoidTopologyContinuation": {
+      "agent": "Codex",
+      "session": "codex-c83e7a",
+      "date": "2026-09-23",
+      "atlasCommit": "abe9bce4aa659b5c95a10c97aa69058af30de9d4",
+      "files": [
+        {
+          "path": "Mathlib/Analysis/Normed/Group/Quotient.lean",
+          "blob": "4ecefb73a94c58895a5f894998e4e521b7ee834d",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
+          "blob": "b145c6f6f798571ca4680cf424fa53796437524e",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/LocalProperties/Basic.lean",
+          "blob": "af76a457e6a18ad78b34dcd5faa806a720ada910",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+          "blob": "5c3185b279c744bb7adb3a7a818ea9719d887234",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/AdicCompletion/Exactness.lean",
+          "blob": "2ac422e1900e1646f6c927b9469d004fa2e9e797",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/Flat/Basic.lean",
+          "blob": "b827fedf96ce35fa107badc6b41b7de0b8e14c66",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/Flat/Stability.lean",
+          "blob": "3c6aa197c93543d23b239e22f86a8b08e54ca922",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/Flat/TorsionFree.lean",
+          "blob": "9cb449c7699f527facefbdf26abcd186edf1f9a7",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/FiniteType.lean",
+          "blob": "f953501655438fd45e5bbe4704e1101402485cc1",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/FiniteStability.lean",
+          "blob": "50db1a6af150296248a6997238c70cf50363f4da",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean",
+          "blob": "21e9d6d1b819226c79ef79d46b50d2f6850fa12a",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/Ideal/Height.lean",
+          "blob": "2ff202cf852e6f58ca97e69df907b3de90b408e8",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+          "blob": "c2d6c3c609d283fe01bcddb47be836eca8230e50",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/Flat/FaithfullyFlat/Algebra.lean",
+          "blob": "283c4cf0a956dfeba81e210652ebcc48f2ec51ae",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/RegularLocalRing/Polynomial.lean",
+          "blob": "ce0e9cf25d7cf7a0a6e2f594fc3b0f9623c014f9",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+          "blob": "79a0a2c967f689baef32b5a0821a4619ea0ac96c",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/LocalRing/Module.lean",
+          "blob": "1060639082082facdd4775b9cf03982490cab2fc",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/Regular/ProjectiveDimension.lean",
+          "blob": "c533f5e8c3d3f727a182c7f12650dee0d3c7d4a7",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/Smooth/Fiber.lean",
+          "blob": "fdb0dd757a236ad78c7a7528376881adba99c60c",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "Mathlib/RingTheory/LocalProperties/ProjectiveDimension.lean",
+          "blob": "2a5e41b36796503209f06f478c5bd1792f9eca55",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+        },
+        {
+          "path": "TauCeti/RingTheory/Huber/ClosedSubmodule.lean",
+          "blob": "ff46093ae6943f0f328a5cf9787bd3230e48aa90",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369"
+        },
+        {
+          "path": "TauCeti/Topology/Algebra/Module/Finite.lean",
+          "blob": "1f17f3a0ce2d7ecbc6600b986677a4af8c43f5ea",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369"
+        },
+        {
+          "path": "TauCeti/RingTheory/Huber/FiniteModuleTopology.lean",
+          "blob": "c99623e2c05ef4a9f7d8c4ebcafa1fd1548ed6e5",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369"
+        },
+        {
+          "path": "TauCeti/RingTheory/Huber/StrictMorphism.lean",
+          "blob": "254c3db8fbd0b01363e3a5ec9ee271bdcb6c1dd5",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369"
+        },
+        {
+          "path": "TauCeti/RingTheory/Huber/OpenMapping.lean",
+          "blob": "c9783d5fae9a9a8f9a4b3fa289b69a833e959d89",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369"
+        },
+        {
+          "path": "TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Complete.lean",
+          "blob": "f8fa356fa9ad4908b232885cf53401590f106ce8",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369"
+        },
+        {
+          "path": "TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Basic.lean",
+          "blob": "8daeb0a7e78d092f084b7ee022e22d0c8187e727",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369"
+        },
+        {
+          "path": "TauCeti/RingTheory/Huber/StronglyNoetherian.lean",
+          "blob": "2a183aa7725137e91975592e7a5858d90afab92a",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369"
+        },
+        {
+          "path": "TauCeti/RingTheory/Huber/TopologicallyFiniteType.lean",
+          "blob": "c3a4ebfdb7e00a781fd98a8ba224b9622e349f39",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369"
+        },
+        {
+          "path": "TauCeti/RingTheory/PowerSeries/GaussNorm.lean",
+          "blob": "33ceb256edd45a75635e69345f0dd8f6d6cf95dd",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369"
+        }
+      ],
+      "searches": {
+        "regular_descent": {
+          "pattern": "of_flat_tensorProduct|of_isNoetherian_tensorProduct_of_faithfullyFlat|[Rr]egular.{0,35}([Dd]escent|[Ff]aithful)|[Ff]aithful.{0,35}[Rr]egular",
+          "libraryFiles": [
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Restricted/Laurent.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Coherent/ReflectsPreregular.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Coherent/SheafComparison.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/Ring/EqualizerPushout.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Regular/Flat.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Etale/Descent.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/FractionalIdeal/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalRing/Length.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Octonion/Derivation.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Lie/OfAssociative.lean"
+          ],
+          "stages": [
+            "EndoscopicTransferAndUnitaryTraceComparison:ET.2",
+            "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
+            "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-8-assemble-the-positive-characteristic-theorem"
+          ],
+          "packets": [
+            "data/decompositions/VectorBundlesAndIsocrystals.json",
+            "data/decompositions/DeformationAndDerivedPatchingAlgebra.json"
+          ]
+        },
+        "regular_polynomial": {
+          "pattern": "isRegularRing_of_isRegularRing|height_eq_height_add_of_liesOver_of_hasGoingDown|ringKrullDim_eq_height",
+          "libraryFiles": [
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Properties.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/RegularLocalRing/Polynomial.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/KrullDimension/Polynomial.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Height.lean"
+          ],
+          "stages": [],
+          "packets": []
+        },
+        "regular_homological": {
+          "pattern": "[Gg]lobal[Dd]im|[Pp]rojective[Dd]im|[Ss]yzygy|[Ff]ormal.{0,20}[Ff]ib(re|er)|[Dd]erivation.{0,25}[Cc]ompletion",
+          "libraryFiles": [
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Morphisms/SmoothFiber.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/ModuleCat/ProjectiveDimension.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/WeilDivisor/AbelJacobi/LinearSystem.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/GrothendieckGroup/Resolution.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/GrothendieckGroup/ProjectiveResolution.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/Exact/Resolution.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/FiberBundle/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/Exact/Projective.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalProperties/ProjectiveDimension.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Regular/ProjectiveDimension.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/Fiber.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Module/AuslanderReiten/Transpose.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Module/MinimalProjectivePresentation/Existence.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Module/MinimalProjectivePresentation/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Module/ProjectiveCover/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Homology/EulerCharacteristic/ExtEuler/Resolution.lean"
+          ],
+          "stages": [
+            "AdicSpacesPartII:R2"
+          ],
+          "packets": [
+            "data/decompositions/AdicSpacesPartII.json",
+            "data/decompositions/ClassicalAdicEtaleCohomology.json"
+          ]
+        },
+        "closed_ideals": {
+          "pattern": "isClosed_of_isNoetherian|closed.{0,30}(ideal|submodule)|isStrictMap_of_module_finite",
+          "libraryFiles": [
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/Comap.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/Proper.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Convex/Cone/Pointed.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Ring/Completion.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Ring/MaximalIdeals.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Ring/Ideal.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/LocalRing.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Order/Module/Archimedean.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Lie/Nilpotent.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/MeasureTheory/Group/Conjugation.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/MathlibTest/TCSynth.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/MeasureTheory/Measure/SymmetricMatrix/Rank.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/LocalField/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/ContinuousMap/Ideals.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Minpoly/IsIntegrallyClosed.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Stalk.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/AffineScheme.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Morphisms/ClosedImmersion.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Convex/Cone/InnerDual.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Convex/Cone/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Group/Submodule.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Group/NullSubmodule.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalProperties/IntegrallyClosed.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/InnerProductSpace/StandardSubspace.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Module/MStructure.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Module/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Module/FiniteDimension.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Module/Complemented.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Module/ContinuousInverse.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/InnerProductSpace/Orthogonal.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/InnerProductSpace/Subspace.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Operator/Perturbation/StrictByFinite.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Operator/Compact/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/InnerProductSpace/Projection/Submodule.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/InnerProductSpace/Projection/FiniteDimensional.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/IdealFilter/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/InnerProductSpace/Projection/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Ring/Units.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Ring/Compact.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Ring/Ideal.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/Complement.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/Compact.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/ClosedSubmodule.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Restrict.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/GraphStep.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/Wkp/Zero.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/W1p/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/W1p/Zero.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DiscreteValuationRing/TFAE.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/W1p/Density.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/Embedding.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Normed/Operator/Compact/RieszTheory.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Spectrum/Prime/Jacobson.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Derived/BaseChange.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Scheme.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Borel.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/SpecialLinear/Borel/Geometry.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/ClosedSubgroup.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/CartesianClosed.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Scheme/Torus.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Lie/E7/Minuscule/BaseChange.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Lie/SpecialLinear/StandardCarrier/Reductive.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/ConstantForm/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/MvPowerSeries/Evaluation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/FiniteModuleTopology.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Symplectic/DiagonalTorus/ClosedImmersion.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/ConstantMultiplication/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Solvable/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/UnitGroup.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/ClosedSubmodule.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Matrix.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Central.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Borel/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Borel/Radical.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Connected/GroupScheme.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/FiniteType/PointSeparation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Cotangent.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Scheme/Classification.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Valuation/LocalSubring.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Scheme/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/OpenMapping.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/StrictMorphism.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/DedekindDomain/Ideal.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Presentation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Identification.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Restricted/Flat.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Restricted/BaseChange.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Flat.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/StronglyNoetherian.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Inverse.lean"
+          ],
+          "stages": [
+            "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+            "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+            "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components"
+          ],
+          "packets": [
+            "data/decompositions/LocallyAnalyticDistributions.json",
+            "data/decompositions/PerfectoidQuotients.json",
+            "data/decompositions/VectorBundlesAndIsocrystals.json"
+          ]
+        },
+        "tate_noetherian": {
+          "pattern": "IsStronglyNoetherian|[Tt]ate.{0,35}[Nn]oether|[Nn]oether.{0,35}[Tt]ate",
+          "libraryFiles": [
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/FiniteModuleTopology.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/IsUniformGroup/Subring.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/StronglyNoetherian.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/TopologicallyFiniteType.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/ClosedSubmodule.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Complete.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Module/Finite.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Completion.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/StrictMorphism.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Evaluation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/StronglyNoetherian.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Presentation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/StronglyNoetherian.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Inverse.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Flat.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/FiniteDimensional/Defs.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Restricted/Laurent.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Restricted/BaseChange.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Restricted/Flat.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Restricted/PowerSeries.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/PowSmulBasis.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Flat/QuotientRegular.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/FiniteType/ConnectedComponents.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/DedekindDomain/IntegralClosure.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Lie/Engel.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/FaithfullyFlat.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Lie/Sl2/WeightString.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Subobject/NoetherianObject.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/FractionalIdeal/Operations.lean"
+          ],
+          "stages": [
+            "AlgebraicModuliForArithmeticGeometry:R09.1",
+            "EllipticKTheory:E.2",
+            "SmoothRepresentationsOfLocalGroups:SR.6",
+            "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+            "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+            "tauceti:TauCetiRoadmap/ModularCurves#layer-4-the-katzmazur-moduli-formalism",
+            "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
+            "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-1-the-pbw-consequences-ado-uses",
+            "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities"
+          ],
+          "packets": [
+            "data/decompositions/AdicEtaleGeometry.json",
+            "data/decompositions/DeformationAndDerivedPatchingAlgebra.json",
+            "data/decompositions/LocallyAnalyticDistributions.json",
+            "data/decompositions/PadicHodgeTheory.json",
+            "data/decompositions/PadicFamilies.json",
+            "data/decompositions/AdicCoefficientsAndComparisons.json",
+            "data/decompositions/RelativeFarguesFontaine.json",
+            "data/decompositions/AdicSpacesPartII.json"
+          ]
+        },
+        "quotient_topology": {
+          "pattern": "completeSpace_moduleTopology|Quotient\\.completeSpace|presentation.{0,35}(independen|topolog)|[Aa]ffinoid",
+          "libraryFiles": [
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Spectral/PatchCriterion.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Manifold/SmoothEmbedding/ContinuousAmbientIsotopy/Prod.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Module/Finite.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/CharacterTable/Independence.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/CharacterTable/Completeness.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/MinusTwentyOne/ClassNumber.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/MinusTwentyOne/TwoRank.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/MinusFive/ClassNumber.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/MinusFive/TwoRank.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Induction/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/ClassicalGroups/Weight/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/Points.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/Support.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/UniformSpace/UniformEmbedding.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/Comap.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/PresentationIndependence.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/UniversalProperty.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Intertwining.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/StructurePresheaf/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Perturbation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/HuberPair.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/SU2/Exhaustion.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Symmetric/Specht/Complex.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/FiniteModuleTopology.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/StronglyNoetherian.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/UnitGroup.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Continuous/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Continuous/TopRep.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Pair.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/OpenMapping.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Presentation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/StronglyNoetherian.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Restriction.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Compact/EigenspaceRepresentation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/CompleteSeparated/RefinementCategory.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Restricted/BaseChange.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/OpenIdeal.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Complete.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Exchangeability/Arrays/AldousHoover/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Kernel/Randomization.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Group/Quotient.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Combinatorics/DenseGraphLimits/Sampling/Exposure.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/Coxeter/BraidEquivalence.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Fischer/TwentyTwo.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Fischer/TwentyFour.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Mathieu/TwentyFour.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/BabyMonster.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Tactic/Linter/DirectoryDependency.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/TitsSystem/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/CentralSimple/Index.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/StandardSmoothOfFree.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/StandardSmooth.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Extension/Cotangent/Free.lean"
+          ],
+          "stages": [
+            "AInfCohomology:AI.4",
+            "AdicEtaleGeometry:A1",
+            "AdicEtaleGeometry:A2",
+            "AdicEtaleGeometry:A3",
+            "AdicEtaleGeometry:A4",
+            "AdicSpacesPartII:F1",
+            "AdicSpacesPartII:R0",
+            "AdicSpacesPartII:R3",
+            "AdicSpacesPartII:R5",
+            "ArithmeticGaloisRepresentations:R01.2",
+            "AutomorphicFormsOnReductiveGroups:AF.4",
+            "AutomorphicGaloisRepresentationsPartII:AG2.6",
+            "BunGAndNewtonStrata:BG0",
+            "ClassicalAdicEtaleCohomology:H1",
+            "ClassicalAdicEtaleCohomology:H1:henselian",
+            "ClassicalAdicEtaleCohomology:H2",
+            "DiamondEtaleCohomology:C4",
+            "DiamondsAndVStacks:D1",
+            "DiamondsAndVStacks:D2",
+            "DiamondsAndVStacks:D3",
+            "DirichletPadicLFunctions:L4",
+            "ExcursionOperatorsAndSpectralAction:ES5",
+            "FarguesFontaineDiamonds:F1",
+            "IgusaVarietiesAndTorsionConcentration:IG.3",
+            "LocallyAnalyticDistributions:L3",
+            "LocallyAnalyticDistributions:L4",
+            "OverconvergentAutomorphicForms:O6",
+            "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+            "PadicFamilies:L2",
+            "PadicFamilies:L2a",
+            "PadicMeasuresIwasawaAlgebras:L0a",
+            "PerfectoidShimuraVarieties:S1",
+            "PerfectoidSpaces:P2",
+            "PerfectoidSpaces:P5",
+            "PerfectoidSpaces:P6",
+            "PerfectoidSpaces:P7",
+            "PerfectoidSpaces:P8",
+            "PerfectoidSpaces:P9",
+            "PhiGammaModulesAndIwasawaCohomology:PG.6",
+            "PhiGammaModulesAndIwasawaCohomology:PG.7",
+            "RelativeFarguesFontaine:RF1",
+            "RelativeFarguesFontaine:RF2",
+            "RelativeFarguesFontaine:RF2:integral-divisors",
+            "RelativeFarguesFontaine:RF3",
+            "ShimuraData:D5",
+            "TorsionCohomologyInfrastructure:TC.0",
+            "TropicalAndBerkovichArithmetic:TB.0",
+            "VectorBundlesAndIsocrystals:VB1",
+            "VectorBundlesAndIsocrystals:VB2",
+            "VectorBundlesAndIsocrystals:VB2:ampleness",
+            "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+            "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+            "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+            "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+            "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+            "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+            "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+            "AnalyticStacks:AS.2",
+            "SolidAnalyticRings:SA.4"
+          ],
+          "packets": [
+            "data/decompositions/AdicEtaleGeometry.json",
+            "data/decompositions/AdicSpacesPartII.json",
+            "data/decompositions/LocallyAnalyticDistributions.json",
+            "data/decompositions/CompletedCohomologyPartII.json",
+            "data/decompositions/RelativeFarguesFontaine.json",
+            "data/decompositions/PadicFamilies.json",
+            "research/blueprint/roadmaps/AnalyticStacks.json",
+            "research/blueprint/roadmaps/SolidAnalyticRings.json",
+            "data/decompositions/PerfectoidSpaces.json",
+            "data/decompositions/PerfectoidQuotients.json",
+            "data/decompositions/ClassicalAdicEtaleCohomology.json",
+            "data/decompositions/ArithmeticGaloisRepresentations.json",
+            "data/decompositions/AutomorphicGaloisRepresentations.json",
+            "data/decompositions/AdicCoefficientsAndComparisons.json",
+            "data/decompositions/VectorBundlesAndIsocrystals.json",
+            "data/decompositions/GeometricSatakeAndFusion.json",
+            "data/decompositions/PadicHodgeTheory.json",
+            "data/decompositions/TropicalAndBerkovichArithmetic.json",
+            "data/decompositions/VStackSheavesAndLisseCategories.json",
+            "data/decompositions/CohomologyComparisons.json"
+          ]
+        },
+        "finite_jets": {
+          "pattern": "pow.{0,20}[Ff]inite[Dd]imension|[Ff]inite[Dd]imension.{0,20}pow|jet|iInf_pow_eq_bot_of_isLocalRing|eq_zero_of_localization",
+          "libraryFiles": [
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Manifold/ContMDiffMap/WeakWhitney.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Manifold/ContMDiffMap/ChartJet.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Manifold/ContMDiffMFDeriv.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/SymplecticGroup.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/BilinearForm/IsometryEquiv.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/BilinearForm/Isometry.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/SymmetricEnergy.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/DirichletProblem.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Manifold/VectorBundle/CovariantDerivative/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Lie/Exponential/Trotter.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/Spectrum.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/EnergyLowerBounds.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/ShiftedLaplacianEnergy.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/EnergyForm/Integrability.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/EnergyForm/Lp.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/EnergyForm/Continuity.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/EnergyForm/VariableLp.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/EnergyForm/Measurability.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/EnergyForm/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/EnergyForm/Integrated/Symmetry.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/EnergyForm/Integrated/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PDE/Ellipticity/Energy.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Holder/One.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/MathlibTest/Util/Notation3.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/Poincare/W1p0.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/CompactSupport.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/GraphStep.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/Wkp/Zero.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/Translation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/W1p/CompactSupport.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/W1p/Extension.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/W1p/Mollification.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/W1p/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/W1p/Multiplication.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/W1p/Zero.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/W1p/Density.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Sobolev/Embedding.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Tropical/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/RamificationInertia/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/IntegralClosure/PurelyInseparable.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/PurelyInseparable/Embedding.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/IntermediateField/Adjoin/Roots.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Unbundled/FiniteExtension.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Unbundled/InvariantExtension.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Unbundled/SpectralNorm.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalProperties/Submodule.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalProperties/Reduced.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalProperties/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Filtration.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Norm/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Unramified/Field.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Frobenius.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/RingHom/QuasiFinite.lean"
+          ],
+          "stages": [
+            "AbelianSchemesAndArithmeticModuli:A6",
+            "LefschetzPencilsAndVanishingCycles:LPV.3",
+            "RankZeroOneBSD:BSD.6",
+            "RankZeroOneBSD:BSD.6a"
+          ],
+          "packets": [
+            "data/decompositions/VectorBundlesAndIsocrystals.json",
+            "data/decompositions/GrossZagierAndArithmeticHeights.json"
+          ]
+        },
+        "automatic_continuity": {
+          "pattern": "continuous_of_finiteDimensional|[Aa]ffinoid.{0,35}[Cc]ontinu|[Cc]ontinu.{0,35}[Aa]ffinoid|isOpenMap",
+          "libraryFiles": [
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/MeasureTheory/Measure/SymmetricMatrix/Rank.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/MeasureTheory/Measure/SeparationQuotient.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Classification/Existence.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Manifold/LocallyFlat/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/MeasureTheory/Measure/Lebesgue/EqHaar.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Classification/SubgroupQuotient.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Manifold/LocallyFlat/Bicollar.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/RealProjective/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Covering.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/BasedPath.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Manifold/Instances/Real.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Deck/Quotient/Homeomorph.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/MeasureTheory/Measure/Haar/Quotient.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Manifold/LocalDiffeomorph.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/MeasureTheory/Measure/Haar/OfBasis.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/MeasureTheory/Measure/Haar/Disintegration.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Manifold/Sheaf/LocallyRingedSpace.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/NoetherianSpace/ConnectedComponents.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/MeasureTheory/Measure/Hausdorff.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/LiftTendstoCofinite.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/RingedSpace/PresheafedSpace.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/RingedSpace/PresheafedSpace/Gluing.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/RingedSpace/OpenImmersion.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/ImageSimplyConnected.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/ZLattice/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Group/Quotient.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Dynamics/Ergodic/Action/OfMinimal.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/OpenMapping/Henkel.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Covering/Factorization.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Covering/BalancedProduct.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Covering/Quotient.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Nonarchimedean/Quotient.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/LocalDegree.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Nonarchimedean/Completion/Surjective.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Nonarchimedean/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Module/Finite.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/IsUniformGroup/Submodule.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Sym/Family.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Sym/Disjoint.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Sym/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Sets/CompactOpenCovered.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Sets/Compacts.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Sets/Closeds.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Sets/Opens.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Sets/VietorisTopology.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Baire/Lemmas.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/ConnectedComponents.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Baire/BaireMeasurable.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Constructible.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/ContinuousOn.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Constructions/SumProd.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Normed/Operator/Surjective.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Biholomorph.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Normed/Module/Multilinear.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/RootsOfUnityQuotient.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Modular.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Constructions.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Calculus/BumpFunction/Cutoff.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Compactification/OnePoint/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Hom/Open.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/ExtremallyDisconnected.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/StronglyNoetherian.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/TopologicallyFiniteType.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/UnitGroup.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Bounded.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/ClosedSubmodule.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Surjective.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Spectral/Prespectral.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Birational/Birational.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Bases.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Connected/Clopen.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Connected/LocallyConnected.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Connected/LocallyPathConnected.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/PowerBounded.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Pair.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Connected/CardComponents.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/DenseSubmodule.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/DiscreteSubset.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Connected/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/RingOfDefinition.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/LocallyConstant.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/IsLocalHomeomorph.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Irreducible.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Inseparable.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Convenient/OpenClosed.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Compactness/Compact.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/OpenMapping.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Compactness/CompactlyCoherentSpace.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Evaluation.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Compactness/LocallyCompact.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Maps/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Maps/OpenQuotient.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/UniversalProperty.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/LocallyConvex/Separation.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Maps/Strict/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/LocalAtTarget.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/LocallyConvex/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/PolynomialEvaluation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Presentation.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Category/Stonean/Limits.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Inverse.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Neighborhood.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Geometrically/Connected.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Geometrically/Integral.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Cover/QuasiCompact.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Geometrically/Irreducible.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Quotient.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Pointwise.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Artinian.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Category/TopCat/OpenNhds.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Gluing.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/VectorBundle/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/AffineSpace.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/ContinuousDiv.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Continuous/ValuativeCriterion.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Separation/Profinite.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Category/TopCat/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Limits.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/ContinuousInv.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Category/TopCat/Opens.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Sites/QuasiCompact.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Restricted/BaseChange.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Sites/Fpqc.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Restricted/PowerSeries.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Separation/Hausdorff.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/ConstMulAction.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Sites/Proetale.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/OpenMapping.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Morphisms/ClosedImmersion.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Morphisms/FlatMono.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Morphisms/FlatDescent.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Ring/Ideal.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Constructions.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Gluing.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Morphisms/UnderlyingMap.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Morphisms/UniversallyOpen.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Affine.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Morphisms/Flat.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Algebra/Equiv.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Morphisms/OpenImmersion.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/OpenImmersion.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/IsOpenUnits.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Nonarchimedean/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Convex/Topology.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Convex/Strict.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/SU2/Exhaustion.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/Spaces/WeakDual.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/Equiv.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Covering/Quotient.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Covering/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/SpecialFunctions/Complex/Circle.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/SpecialFunctions/Complex/LogDeriv.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/FiberBundle/Trivialization.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/PartialHomeomorph/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/FiberBundle/IsHomeomorphicTrivialBundle.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/LocallyClosed.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/FiberBundle/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/SeparatedMap.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Defs/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/QuasiSeparated.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/OpenPartialHomeomorph/Constructions.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Semicontinuity/Hemicontinuity.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/OpenPartialHomeomorph/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Homeomorph/Lemmas.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Homeomorph/Defs.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Continuous.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Sheaves/Module.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Sheaves/Functors.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Sheaves/SheafCondition/Sites.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Sheaves/Presheaf.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Lp/PiLp.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/OpenMapping.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/CoveringMap.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Distributions/Wishart/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/ReImTopology.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/UpperHalfPlane/Topology.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Analytic/Polynomial.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Operator/Banach.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Unbundled/SpectralNorm.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Module/FiniteDimension.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Module/ContinuousInverse.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Ring/Units.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Normed/Affine/AddTorsorBases.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Calculus/TangentCone/Real.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Calculus/TangentCone/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/IrreducibleOfConnectedDomainStalk.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/UniversalProperty.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Calculus/InverseFunctionTheorem/FDeriv.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Calculus/InverseFunctionTheorem/Deriv.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/Locus.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Spectrum/Prime/Polynomial.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Spectrum/Prime/Homeomorph.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Spectrum/Prime/Chevalley.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Spectrum/Prime/IsOpenComapC.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/Cont/DominatingUnit.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/Matrix/Cholesky/Coordinates.lean"
+          ],
+          "stages": [
+            "AdicEtaleGeometry:A1",
+            "PadicMeasuresIwasawaAlgebras:L0a",
+            "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles"
+          ],
+          "packets": [
+            "data/decompositions/AdicSpacesPartII.json",
+            "data/decompositions/RelativeFarguesFontaine.json",
+            "data/decompositions/ClassicalAdicEtaleCohomology.json"
+          ]
+        },
+        "integral_comparison": {
+          "pattern": "restrictedMvPowerSeriesCompletion|[Aa]dic[Cc]ompletion|[Bb]ounded.{0,20}[Dd]enominator|completed.{0,20}tensor",
+          "libraryFiles": [
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Complete.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Completeness.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/RingHom.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Basic.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Exactness.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Topology.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Completion/FinitePlace.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Henselian.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LaurentSeries.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/Equiv.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/HeightOneSpectrum.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Teichmuller.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/AdicCompletion.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/Flat.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/StronglyNoetherian.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/TopologicallyFiniteType.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Surjective.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Complete.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/WeightedRestrictedSeries/PairOfDefinition.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Completion.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Iterate.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/WeightedEval/Completion.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Evaluation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Presentation.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/StronglyNoetherian.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Flat.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Valued/WithVal.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/DedekindDomain/AdicCompletionExtension.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/DedekindDomain/AdicValuation/ValuativeRel.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/DedekindDomain/AdicValuation/Completion.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/DedekindDomain/ValuationOfNeZero.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/DedekindDomain/Ideal.lean",
+            "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Instances/Irrational.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/NumberField/LocalGlobal/Completion.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/NumberField/Global/Adeles/Discrete.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/NumberField/Global/Approximation/Weak.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/NumberField/Global/Places/Completion.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/QuadraticForm/Global/Predicates.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/QuadraticForm/Global/Localization.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/QuadraticForm/Global/CompletionTower.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/QuadraticForm/Global/Discriminant.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SemilocalComparison.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/ValuationIntegrality.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/PolePoints.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/AdicCompletion.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Basic.lean",
+            "TauCeti-f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean"
+          ],
+          "stages": [
+            "AdicCoefficientsAndComparisons:L0",
+            "AdicEtaleGeometry:A0",
+            "AdicSpacesPartII:F0",
+            "AdicSpacesPartII:F1",
+            "AdicSpacesPartII:R0",
+            "ArithmeticGaloisDuality:R02.1",
+            "AutomorphicLFunctionsAndLocalFactors:AL.3",
+            "AutomorphicPadicLFunctions:L4",
+            "CohomologyComparisons:CP.3",
+            "ColemanPowerSeries:L3",
+            "DeformationAndDerivedPatchingAlgebra:R03.1",
+            "DerivedDeRhamCohomology:DD.1",
+            "EnhancedDerivedSheaves:E4",
+            "GL2ModularityLifting:R22.3",
+            "GlobalGaloisDeformations:G7",
+            "GlobalGaloisDeformations:G8",
+            "GlobalGaloisDeformations:R04.3",
+            "HabiroRings:HR.1",
+            "HabiroRings:HR.2",
+            "HeegnerPointEulerSystems:HE.7",
+            "HeegnerPointEulerSystems:HE.7s",
+            "HeegnerPointEulerSystems:HE.8",
+            "HeegnerPointEulerSystems:HE.8b",
+            "IntegralIwasawaTheory:I.3",
+            "LocallyAnalyticDistributions:L4",
+            "PadicHodgeTheory:P7",
+            "PadicHodgeTheory:P7:annulus-foundations",
+            "PadicHodgeTheory:P8",
+            "PadicMeasuresIwasawaAlgebras:L0",
+            "PadicMeasuresIwasawaAlgebras:L0a",
+            "PerfectoidSpaces:P9",
+            "PrismaticCohomology:PR.1",
+            "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+            "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+            "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+            "tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure",
+            "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+            "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+            "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension",
+            "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places"
+          ],
+          "packets": [
+            "data/decompositions/AdicEtaleGeometry.json",
+            "data/decompositions/LocallyAnalyticDistributions.json",
+            "data/decompositions/DiophantineApproximationAndTranscendence.json",
+            "data/decompositions/VectorBundlesAndIsocrystals.json",
+            "data/decompositions/AdicCoefficientsAndComparisons.json",
+            "data/decompositions/AdicSpacesPartII.json",
+            "data/decompositions/PerfectoidSpaces.json",
+            "data/decompositions/PadicHodgeTheory.json",
+            "data/decompositions/FaltingsFinitenessAndIsogenyTheorems.json",
+            "data/decompositions/EulerSystemsCyclotomicMainConjecture.json",
+            "data/decompositions/DeformationAndDerivedPatchingAlgebra.json",
+            "data/decompositions/HeegnerPointEulerSystems.json"
+          ]
+        }
+      },
+      "method": "Read the actual declarations and binders at both full pins, then verify the file bytes against each pinned recursive tree. Thirty inspected files are checked here; this is not a new all-item library audit. Existing reviewed rows SF.0, SF.4 and R03.3 were read. No direct reviewed AdicSpaces rows were present, so its authoritative upstream and PartII owner text was read instead.",
+      "inputBlobs": {
+        "content/campaign/AdicSpacesPartII/README.md": "3fe5fc17636c775fccd84048d8eefa634c72ac1f",
+        "content/campaign/DeformationAndDerivedPatchingAlgebra/README.md": "716f5a15cec7d7bdadba7e48e0d07635a7523231",
+        "content/campaign/SchemeAndStackFoundations/README.md": "a437e4e97312801aff024ad29dafa30165ed5f1c",
+        "content/tau-ceti/AdicSpaces/README.md": "a2b9e3da3abd1baa92cc317afe4fd7612c3f3b97",
+        "content/tau-ceti/ModularCurves/README.md": "215f0b0e17db080c4f01d04bf3612f11047b74a8",
+        "data/decompositions/DeformationAndDerivedPatchingAlgebra.json": "6195d61b49ea42fa96b7c34a9b8b16e1bc87911f",
+        "data/library-coverage.json": "5e708cfc74a51b10e62149113872fe4e00eb5846"
+      }
     }
   },
   "validation": {
@@ -24037,6 +26115,87 @@
       },
       "lean": "No Lean file requested or compiled; proof plans only.",
       "publicationBase": "739164f8cebc120f257d2bd270ef074707c0cb95"
+    },
+    "affinoidTopologyContinuation": {
+      "agent": "Codex",
+      "session": "codex-c83e7a",
+      "date": "2026-09-23",
+      "structural": {
+        "items": 652,
+        "statuses": {
+          "missing": 498,
+          "planned": 34,
+          "library": 120
+        },
+        "routes": 24,
+        "sourceIssues": 61,
+        "newItems": [
+          "L102",
+          "L103",
+          "L104",
+          "L105",
+          "L106",
+          "L107",
+          "L108",
+          "L109",
+          "L110",
+          "L111",
+          "Z80",
+          "Z81",
+          "Z82",
+          "Z83",
+          "Z84",
+          "Z85",
+          "Z86",
+          "Z87",
+          "L112",
+          "L113",
+          "L114",
+          "Z88",
+          "Z89",
+          "Z90",
+          "Z91",
+          "L115",
+          "L116",
+          "L117",
+          "L118",
+          "Z92",
+          "Z93",
+          "Z94",
+          "Z95",
+          "Z96",
+          "Z97",
+          "Z98",
+          "Z99",
+          "Z100",
+          "Z101",
+          "Z102",
+          "Z103",
+          "Z105",
+          "Z104",
+          "L119"
+        ],
+        "changedItems": [
+          "Z52",
+          "Z53",
+          "Z54",
+          "Z55",
+          "Z56",
+          "Z57",
+          "Z58",
+          "Z60",
+          "Z77",
+          "Z78",
+          "Z79"
+        ],
+        "edges": 577,
+        "acyclic": true,
+        "pinnedFiles": 30
+      },
+      "lean": "No Lean deliverable required or compiled. No new formalization claim.",
+      "sourceIssues": "All 53 inherited findings preserved exactly; eight added E54–E61 are unreviewed. This continuation does not independently review this paper.",
+      "inherited": "Earlier CAS, finite-ring and precision diagnostics are retained as attributed historical evidence and were not rerun.",
+      "checks": "Paper checker, three-file intake, unique IDs, exact inherited ID/sourceData/finding preservation, definition/construction APIs and at least three tests, current route/planned-stage resolution, one route for each missing item, 577-edge acyclic dependency graph, and 30 pinned-file blob checks. No new numerical diagnostic is substituted for the source-level arguments."
     }
   },
   "definitionApiGroups": [
@@ -24565,6 +26724,11 @@
       {
         "topic": "Residual recognition and finite coefficient topology",
         "decision": "A99 imports existing IHG.1; A101 imports AGR R01.5. A98 is the arbitrary-group proof refinement of IHG.1, not a second finite character table. A100 belongs to AGR R01.5 and consumes existing Chebotarev Layer10. A102 belongs to general complete coefficient algebra R03.1; A103 is its IHG.2 trace-ring application. Compactness, radical and matrix-block suppliers L82–L86 are existing Mathlib."
+      },
+      {
+        "topic": "Strict affinoid topology, formal fibres and regular-local suppliers",
+        "decision": "Z80–Z82/Z105 reuse upstream AdicSpaces Layer0; Z83/Z87 reuse AdicSpacesPartII:R0. Missing finite-jet continuity and integral/generic comparison adapters stay in existing AdicSpacesPartII R0/F0 routes. Z85 stays generic in SF.0. Z96 imports upstream ModularCurves §4D; Z100/Z101 import the exact R03.3 depth/projective-dimension node; Z103/Z104 refine that existing owner. The remaining regular-map/formal-fibre adapters stay in the existing SF route. No new roadmap or route.",
+        "evidence": "Read current SF.0/SF.4 and R03.3 reviewed audit rows, authoritative owner descriptions and the full R03.3 depth-auslander-buchsbaum-and-dimension-bounds decomposition node. Search coverage is recorded separately; absence is not inferred from one name search."
       }
     ],
     "remaining": "Convert these directions to final fine-grained supplier/request IDs during shared design; whole-roadmap arrows alone can conceal the known globalization/lattice cycle.",
