@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "agent": "Codex — codex-a71f92",
   "source": {
     "title": "The Hasse principle for random Fano hypersurfaces",
@@ -23,7 +23,7 @@
     ],
     "versionCheck": "Journal landing page, ISTA record and all three author pages identify this title/authorship and main theorem. arXiv lists only v1. No published PDF was obtained; proof-by-proof equivalence with the revised 22 July 2022 text is NOT established. Source findings apply only to v1."
   },
-  "summary": "Full-read preprint checkpoint: density-one Hasse principle except cubic surfaces and sharp typical least-point height, with the lattice, variance and local-factor proof interfaces. Reuse basic lattice/covolume and homogeneous-polynomial carriers; supply quantitative lattice estimates to GN, family/local-density interfaces to ST, and extend Heights by a Part II for random Fano hypersurfaces. Publication reconciliation and complete original-source/dependency closure remain open; this is not complete or formalised.",
+  "summary": "Density-one Hasse principle for Fano hypersurfaces except cubic surfaces, and the sharp typical least-point height, via lattice counting, a variance bound and local-factor lower tails. Basic lattice/covolume and homogeneous-polynomial carriers are reused; quantitative lattice estimates go to GN, family and local-density interfaces to ST, and a Part II of Heights covers random Fano hypersurfaces. Complete (cc-442dc5) on arXiv v1: every proof was checked, the checkpoint's thirteen findings were confirmed and six more recorded. The published text is unavailable (G1). Not formalised.",
   "conventions": {
     "parameters": "Unless an item gives different hypotheses, d,n are integers, 2≤d≤n; N=N(d,n)=binomial(n+d,d); all vector norms are Euclidean. V(A) is the projective coefficient family from family; local means at every place including infinity. Every asymptotic statement is for sufficiently large positive A/B and fixed d,n; implied constants depend on d,n unless explicitly stated otherwise.",
     "lattices": "Covolumes are taken in the real span with its induced Euclidean measure, not ambient N-dimensional measure. Primitive integral lattice means saturated in Z^N; primitive vector means gcd of coordinates 1. Quotients of lattices in this extraction are orthogonal-projection lattices, not an unembedded abstract quotient.",
@@ -363,7 +363,7 @@
       "locator": "arXiv v1, Cor.1.2 p.3",
       "status": "missing",
       "owner": "RP",
-      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open.",
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open. The cubic-surface case uses bhargava-plane-cubics through an inscribed coefficient box.",
       "dependencies": [
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/main-density",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density"
@@ -631,7 +631,7 @@
       "locator": "arXiv v1, Lemma 3.4 pp.9–10",
       "status": "missing",
       "owner": "GN4",
-      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins.",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins. The implied constant depends on R and on the number I of bands (E15); every application has I ≤ 2.",
       "dependencies": [
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/bw-count",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/minkowski-second"
@@ -1028,7 +1028,7 @@
       "locator": "arXiv v1, Lemma 3.21 pp.22–23",
       "status": "missing",
       "owner": "RP",
-      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure. The dyadic range is s_1 ≤ s_2 ≤ min{Z, s_3} (E14). The fibre count (3.31) uses grid-zero-bound (E5); the reducible forms lie on a variety of dimension 39, so M^40 is a valid overcount."
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-interpolation",
@@ -1077,7 +1077,7 @@
       "locator": "arXiv v1, Lemma 3.24 pp.25–26",
       "status": "missing",
       "owner": "RP",
-      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure. Same dyadic-range misprint as E14; V(L)^* ∩ B_70(J), not B_5(J) (E7).",
       "dependencies": [
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-span",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-det",
@@ -1095,7 +1095,7 @@
       "locator": "arXiv v1, Prop.4.1 pp.26–27 and §4.6 pp.49–50",
       "status": "missing",
       "owner": "RP",
-      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure. (4.71) is justified with the all-cutoff first moment bound (E18).",
       "dependencies": [
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/global-moment",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-moment",
@@ -1171,7 +1171,7 @@
       "locator": "arXiv v1, Lemma 4.4 p.29",
       "status": "missing",
       "owner": "RP",
-      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure. For d = 2 the intermediate constant 1/4 in the proof must be 1/8 (E16); the bounds are unchanged.",
       "dependencies": [
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/intersection-det",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-gcd",
@@ -1286,7 +1286,7 @@
       "locator": "arXiv v1, Lemma 4.7 pp.32–33",
       "status": "missing",
       "owner": "RP",
-      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure. The proof's bounds (4.18) and the unsimplified bound for M^(2) hold for every cutoff t ≥ 1; the partial summation in (4.71) needs them below B^{4/5} (E18)."
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/D-global",
@@ -1755,7 +1755,7 @@
       "locator": "arXiv v1, Lemma 5.10 pp.62–64",
       "status": "missing",
       "owner": "RP",
-      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure. In (5.34) the gradient bounds are λ/2^{d−1} and λ/2^{d−2} (E17); the norm comparison is E8."
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/library-full-lattice",
@@ -1835,7 +1835,7 @@
       "locator": "arXiv v1, §1 p.2 (1.3), input [16] Thm.3.6",
       "status": "missing",
       "owner": "ST2",
-      "note": "Original author PDF pp.1–3, Remark 2.1 and Thm.3.6, read 2026-09-22; Euclidean transfer is G2."
+      "note": "Original author PDF pp.1–3, Remark 2.1 and Thm.3.6, read 2026-09-22; Euclidean transfer is G2. The Euclidean form actually used is pv-density-ball (E19)."
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/conic-density",
@@ -1948,6 +1948,76 @@
       "owner": "RP",
       "note": "The paper's unit-constant lower bound is false; dimensional constants suffice in Lemma 5.10.",
       "proofOutline": "For the upper bound compare the unweighted sum of degree-2d monomials with the multinomial expansion of (sum u_i²)^d. For the lower bound choose a coordinate of maximum modulus and keep its pure dth power."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/schmidt-extension-count",
+      "kind": "theorem",
+      "name": "Primitive extensions of a fixed primitive lattice",
+      "statement": "Let n ≥ 2, 2 ≤ r ≤ n+1 and let L' ⊂ Z^{n+1} be a primitive lattice of rank r−1. The number of primitive lattices L ⊂ Z^{n+1} of rank r containing L' with det(L)/det(L') ≤ s is ≪_n s^{n−r+2}·det(L'). (As used with det(L') ≪ s_1⋯s_{r−1} and s = s_r.)",
+      "locator": "arXiv v1, proof of Lemma 3.18 p.19, input [17] Lemma 6 (i = 1)",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Cited input (Schmidt 1968). Original not read by cc-442dc5; the statement is the form the proof uses."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/davenport-reduced-basis",
+      "kind": "theorem",
+      "name": "Basis adapted to the successive minima",
+      "statement": "Every lattice L ⊂ R^N of rank R has a basis b_1,…,b_R with λ_j(L) ≤ ||b_j|| ≪_R λ_j(L) for all j, such that every x = t_1b_1 + ⋯ + t_Rb_R ∈ L satisfies |t_j| ≪_R ||x||/λ_j(L).",
+      "locator": "arXiv v1, proofs of Lemmas 3.21 p.22–23 and 3.23 p.24, input [12] Lemma 5",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Cited input (Davenport 1963). Original not read by cc-442dc5."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/broberg-salberger-count",
+      "kind": "theorem",
+      "name": "Uniform count on absolutely irreducible quartic threefolds",
+      "statement": "For every ε > 0 and every absolutely irreducible quartic form F in five variables, #{b ∈ Z^5: ||b|| ≤ s, F(b) = 0} ≪_ε s^{3+ε}, with the implied constant independent of F.",
+      "locator": "arXiv v1, proof of Lemma 3.21 p.22 (3.28), input [5] Theorem 1",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Cited input (Broberg–Salberger 2004), read by the paper through the projective count; the affine-cone count follows by summing over multiples. Original not read by cc-442dc5."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/grid-zero-bound",
+      "kind": "theorem",
+      "name": "Zeros of a ternary quartic in an ordered box",
+      "statement": "Let g ∈ R[t_1,t_2,t_3] be a nonzero polynomial of degree at most 4 and H_1 ≥ H_2 ≥ H_3 > 0. The number of integer points with |t_j| ≤ H_j and g(t) = 0 is ≪ (H_1+1)(H_2+1), with an absolute implied constant.",
+      "locator": "arXiv v1, proof of Lemma 3.21 p.23 before (3.31), repair E5",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Repair of E5 (checkpoint argument, checked by cc-442dc5): expand g in t_3; fibres with a nonzero coefficient have at most four roots, and the remaining (t_1,t_2) lie on the zero set of one nonzero binary coefficient polynomial, which has O(H_1+1) grid points."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/hensel-level-lift",
+      "kind": "theorem",
+      "name": "Hensel lifting at a fixed gradient valuation",
+      "statement": "Let f be a form with integer coefficients, p prime, x ∈ Z^{n+1} primitive with f(x) ≡ 0 mod p^{2e+1} and v_p(∇f(x)) = e. For s ≥ 2e+2 the number C(s) of b mod p^s with b ≡ x mod p^{e+1} and f(b) ≡ 0 mod p^s satisfies C(s)/p^{sn} = C(s−1)/p^{(s−1)n}.",
+      "locator": "arXiv v1, proof of Lemma 5.7 p.57, input [6] Lemma 3.3",
+      "status": "missing",
+      "owner": "ST5",
+      "note": "Cited input (Browning–Matthiesen 2017). Original not read by cc-442dc5."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/bhargava-plane-cubics",
+      "kind": "theorem",
+      "name": "A positive proportion of plane cubics have a rational point",
+      "statement": "When integral ternary cubic forms are ordered by the maximum of their coefficients, a positive proportion have a nontrivial rational zero.",
+      "locator": "arXiv v1, §1 p.3 before Corollary 1.2, input [3] Theorem 2",
+      "status": "missing",
+      "owner": "ST4",
+      "note": "Cited input (Bhargava, arXiv:1402.1131v1). Used for cubic surfaces with a rational point on x_3 = 0. The Euclidean ordering needs only the inscribed box [−A/√20, A/√20]^20 (cc-442dc5). Original not read."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density-ball",
+      "kind": "theorem",
+      "name": "Local-solubility density for the Euclidean ordering",
+      "statement": "For n ≥ d ≥ 2 with (d,n) ≠ (2,2), #V^loc_{d,n}(A)/#V_{d,n}(A) tends to c_∞^{ball} ∏_p c_p > 0 as A → ∞, where V_{d,n}(A) counts primitive coefficient classes of Euclidean norm at most A, c_p is the p-adic local density and c_∞^{ball} is the proportion of the Euclidean unit ball occupied by coefficient vectors of forms with a nontrivial real zero.",
+      "locator": "arXiv v1, §1 p.2 (1.3), as used; repair E19",
+      "status": "missing",
+      "owner": "ST2",
+      "note": "The paper cites Poonen–Voloch Theorem 3.6, which is for sup-norm boxes over all coefficient vectors. The same sieve over Euclidean balls, with PV Remark 2.1(2) for primitivity, gives this form (E19)."
     }
   ],
   "routes": [
@@ -1996,7 +2066,9 @@
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/J-asymptotic",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/weighted-lattice",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/primitive-ball-input",
-        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/bw-count"
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/bw-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/schmidt-extension-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/davenport-reduced-basis"
       ],
       "reason": "Provide the existing quantitative lattice-point/transference layer with a precise source. Fixed-family uniformity, intrinsic dimensions and primitive weighted counts must be proved; GN.1 supplies successive minima. Do not duplicate ST.2's use of these tools."
     },
@@ -2022,7 +2094,8 @@
       ],
       "items": [
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density",
-        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/conic-density"
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/conic-density",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density-ball"
       ],
       "reason": "The local-density product and its tail/shape transfer belong to the existing infinite-local-condition uniformity owner."
     },
@@ -2037,7 +2110,8 @@
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-variance",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/gradient-strata",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/gradient-count",
-        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-lower"
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-lower",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/hensel-level-lift"
       ],
       "reason": "Finite local density moments and gradient strata are source-scoped local statistics, already in this layer's direction."
     },
@@ -2130,11 +2204,24 @@
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/two-point-ideal",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/null-singular",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/reciprocal-det",
-        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-norm"
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-norm",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/broberg-salberger-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/grid-zero-bound"
       ],
       "reason": "RP.0–RP.6 plan height/obstruction foundations, not density-one Hasse principles or the sharp typical least-point bound. This extends their direction. The separate SS23 random-fibration proposal uses prime-polynomial specialization, not these hypersurface incidence lattices; share ST/GN inputs but do not merge proof ownership by title alone.",
-      "brief": "Using the reconciled published Browning–Le Boudec–Sawin source, prove for integers d≥2,n≥d,(d,n)≠(3,3) that rho(A)→rho^loc, and for every positive psi with psi(u)/u→∞ that #{V∈V(A):M(V)≤psi(||a_V||)}/#V(A)→rho^loc. Keep Euclidean coefficient height, primitive ± representatives and anticanonical point height ||x||^(n+1−d) exactly. Derive the O((log A)^(-1/(48n))) exceptional density and Cor.1.2 positivity excluding only conics; the cubic-surface positivity input is separate and does not prove density one. Cover unweighted Veronese coordinates, exact/congruence incidence, minimal containing-lattice determinants, one- and two-point successive-minimum estimates, every quartic-threefold lemma, all three off-diagonal moments with their diagonal terms, the variance and tail reductions, finite-modulus p-adic factors and real gradient strata. Import Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic), GN.0/GN.1/GN.4; Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics), ST.0/ST.2/ST.5; Heights, rational points and obstructions (HeightsRationalPointsAndObstructions), RP.0/RP.2; and Global quadratic forms over number fields (tauceti:TauCetiRoadmap/GlobalQuadraticForms), Layer 5, rather than re-planning their carriers or Hasse–Minkowski. Read and close the listed original sources before scheduling proof execution. Resolve G1–G10, including the Euclidean local-density transfer and the thirteen preprint findings. Supply APIs and unit tests for every definition, exact coefficient/sign normalizations, an acyclic theorem dependency graph, suggested Lean files and upstream-density planets. Do not promote heuristics, infinite singular-factor convergence, cubic-surface density one, or incomplete source repairs to proved facts.",
+      "brief": "Using the reconciled published Browning–Le Boudec–Sawin source, prove for integers d≥2,n≥d,(d,n)≠(3,3) that rho(A)→rho^loc, and for every positive psi with psi(u)/u→∞ that #{V∈V(A):M(V)≤psi(||a_V||)}/#V(A)→rho^loc. Keep Euclidean coefficient height, primitive ± representatives and anticanonical point height ||x||^(n+1−d) exactly. Derive the O((log A)^(-1/(48n))) exceptional density and Cor.1.2 positivity excluding only conics; the cubic-surface positivity input is separate and does not prove density one. Cover unweighted Veronese coordinates, exact/congruence incidence, minimal containing-lattice determinants, one- and two-point successive-minimum estimates, every quartic-threefold lemma, all three off-diagonal moments with their diagonal terms, the variance and tail reductions, finite-modulus p-adic factors and real gradient strata. Import Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic), GN.0/GN.1/GN.4; Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics), ST.0/ST.2/ST.5; Heights, rational points and obstructions (HeightsRationalPointsAndObstructions), RP.0/RP.2; and Global quadratic forms over number fields (tauceti:TauCetiRoadmap/GlobalQuadraticForms), Layer 5, rather than re-planning their carriers or Hasse–Minkowski. Read and close the listed original sources before scheduling proof execution. Resolve G1–G10, including the Euclidean local-density transfer and the thirteen preprint findings. Supply APIs and unit tests for every definition, exact coefficient/sign normalizations, an acyclic theorem dependency graph, suggested Lean files and upstream-density planets. Do not promote heuristics, infinite singular-factor convergence, cubic-surface density one, or incomplete source repairs to proved facts. Import the Broberg–Salberger uniform count on absolutely irreducible quartic threefolds and prove the ordered-box grid-zero bound (the repair of E5) for the quartic-threefold branch. Use the Euclidean-ball local-solubility density (pv-density-ball, ArithmeticStatistics:ST.2), not Poonen–Voloch's box version.",
       "suggestedLeanFile": "TauCeti/NumberTheory/RandomFano/HassePrinciple.lean"
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.4"
+      ],
+      "items": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/bhargava-plane-cubics"
+      ],
+      "reason": "Bhargava's positive proportion of soluble plane cubics comes from the genus-one Selmer-counting direction that ST.4 owns; the paper uses it only for the cubic-surface case of Corollary 1.2."
     }
   ],
   "prerequisites": [
@@ -2202,10 +2289,14 @@
       "correction": "Replace the left generators by products P*Q2 with Q2 any quadratic form vanishing at x and y. Prove I_d=R[X]_(d−2) I_2; the coordinate normal form of the two-point ideal is (X2,...,Xn,X0X1).",
       "reason": "The displayed L is linear, so the left side has degree d−1. Even replacing d−2 by d−1 would describe forms vanishing on the whole line, excluding X0^{d−1}X1 when x=e0,y=e1. The corrected quadratic ideal supplies the needed N−2 spanning vectors and retains their monomial-multiplication norm bound.",
       "affects": "the proof",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2220,10 +2311,14 @@
       "correction": "The equality holds for forms with at least one regular real zero. Add the null set of forms whose real zeros are all singular, and prove its nullity before the integral inequality.",
       "reason": "The unit coefficient vector of f=X0^d, d≥2, has real projective zeros but every such zero has zero gradient; it belongs to no positive-gradient stratum. The discriminant/nullity repair is an explicit prerequisite, not an assumption that the exceptional set is empty.",
       "affects": "the proof",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2238,10 +2333,14 @@
       "correction": "Use log(2Delta) in endpoint-uniform upper bounds for Delta≥1, or separately state and prove Delta in a fixed interval near 1. Propagate the replacement through the dyadic sums.",
       "reason": "At Delta=1, coordinate vectors and independent coordinate pairs lie in determinant-one containing lattices, yet the printed logarithmic factors vanish (for Lemma 3.20 choose r≥3). For quartic pairs choose x=e0,y=e1 and a unit coefficient of a mixed monomial: lambda_1≤1 and d_3=1, so ell^(1)(1;1,1)>0. Changing log changes no large-parameter saving.",
       "affects": "a stated result",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2256,10 +2355,14 @@
       "correction": "Use the closed real-soluble coefficient cone, including the zero coefficient vector, and t∈[0,1]. If the crossing point is zero its gradient vanishes trivially; otherwise use the regular-zero openness argument.",
       "reason": "Take d=2,n=3, f_a=X0²+X1²+X2² and f_b=f_a+epsilon X3² with 0<epsilon≤1. Then a∈U(A) for A≥sqrt(3), but every positive-time form is positive definite. The printed set is empty; a crossing at t=0 must be allowed.",
       "affects": "the proof",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2274,10 +2377,14 @@
       "correction": "The claimed fixed-coordinate fiber assertion needs replacement by a bounded-degree anisotropic grid-zero bound, proved by induction including fibers on which the polynomial vanishes identically. For ordered side lengths H1≥H2≥H3≥1, a nonzero quartic has O(H1 H2) zeros in the box.",
       "reason": "The quartic t1²t2² is nonzero. For any chosen coordinate, setting the other coordinates appropriately to zero leaves an unrestricted fiber, so no single coordinate has at most four values on every fiber. An induction on the polynomial coefficients gives the needed grid bound without this assertion.",
       "affects": "the proof",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2292,10 +2399,14 @@
       "correction": "State these approximations for reciprocal determinants. Exact determinants are W||nu(x)||/[gcd(ell,W)gcd(G,Q)] and W²/[gcd(ell,W)²gcd(G,Q)], Q=W/gcd(ell,W). Their reciprocals have the claimed bounded relative indicator error because 0<gcd(G,Q)/G≤1.",
       "reason": "Inverting (4.56) is invalid on the bad set: 1+O(1) may approach zero. For x=e0,y=e0+q e1 with prime q>w(B), q within the height ball, G=q and gcd(q,W)=1. With ell=1 the determinant divided by its printed leading factor is q, unbounded. The following moment calculation only requires the corrected reciprocals.",
       "affects": "the proof",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2310,10 +2421,14 @@
       "correction": "Replace B_5 by B_70, or by the induced Euclidean ball in the 15-dimensional real span.",
       "reason": "V(L) and its Euclidean dual are lattices in R^70; rank is 15, while 5 belongs to the original point-coordinate space. The printed intersection is ill-typed.",
       "affects": "nothing",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2328,10 +2443,14 @@
       "correction": "Use (n+1)^(−d/2)||u||^d≤||nu(u)||≤||u||^d and adjust the fixed d,n-dependent cutoff in the following volume lower bounds.",
       "reason": "For d=2,u=(1,1,0,...), ||nu(u)||²=3 whereas ||u||^(2d)=4. The pure maximum-coordinate monomial gives the corrected lower bound, which is enough for the stated Vinogradov estimate.",
       "affects": "the proof",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2346,10 +2465,14 @@
       "correction": "Put span_R around the lattice on the left; likewise around the intersection of Veronese kernels on p.18.",
       "reason": "A discrete lattice is not a real vector space. The chosen independent vectors span its real span; they are not asserted to be an integral basis. That real-span equality is all the subsequent argument needs.",
       "affects": "nothing",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2364,10 +2487,14 @@
       "correction": "Starting from the stratum witness in D_a(lambda), prove its spherical neighborhood lies in D_a(C lambda), for a fixed C>1; apply Fubini at that enlarged scale and absorb the constants.",
       "reason": "Membership in B_N^(lambda) gives a zero with gradient at most 2lambda||a||, hence membership in D_a(lambda), not D_a(lambda/2). The printed neighborhood argument uses the latter without establishing it. Enlarging the scale retains the O(lambda²) conclusion.",
       "affects": "the proof",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2380,12 +2507,16 @@
       "locator": "arXiv:2006.02356v1, Proof of Lemma 5.5, p.54, collinear/noncollinear case split; published version not compared",
       "printed": "g∈(Z/pZ)^×",
       "correction": "Use g∈(Z/p^r Z)^× and equality in (Z/p^r Z)^(n+1), or work throughout with determinantal ideals over Z/p^r Z and avoid this split.",
-      "reason": "The vectors b1,b2 live modulo p^r. There is no canonical scalar action of Z/pZ on Z/p^r Z for r>1. Collinearity only modulo p does not make the two modulo-p^r equations identical.",
-      "affects": "the proof",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "reason": "The vectors b1,b2 live modulo p^r. There is no canonical scalar action of Z/pZ on Z/p^r Z for r>1. Collinearity only modulo p does not make the two modulo-p^r equations identical. Reclassified by cc-442dc5 from 'the proof': read with g ∈ (Z/p^rZ)^×, the intended case split is right, and pairs collinear only modulo p fall under the first case, whose count needs only independent lifts.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2400,10 +2531,14 @@
       "correction": "At these two intermediate casewise lines put ||a||, for the current nonzero dual vector a, on the left. Then take the minimum of the two lower bounds and infimum over all a to bound lambda_1.",
       "reason": "The two arguments divide vectors into those inside span Q3 and outside it. A bound for vectors in one part cannot separately bound the minimum over the whole dual lattice. The combined minimum later in the proof is the valid inference.",
       "affects": "nothing",
-      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
@@ -2416,16 +2551,122 @@
       "locator": "arXiv v1, §5.1 p.51, first paragraph; published revision not compared",
       "printed": "converges to the singular series",
       "correction": "Qualify finite convergence by appropriate nondegeneracy hypotheses, or explicitly allow divergence to infinity; no such convergence is needed in the proof.",
-      "reason": "For the primitive form f=X0^d with d≥2, sigma(a;p^r)=p^{r−ceil(r/d)}(1−p^{−n}), which tends to infinity. Along W(B) the 2-adic factor alone diverges; for n≥2 the product of the factors (1−p^{−n}) stays bounded away from zero. Thus the claimed convergence is not generally finite on all V_{d,n}.",
-      "affects": "a stated result",
-      "known": "No correction located; published revision unknown.",
+      "reason": "For the primitive form f=X0^d with d≥2, sigma(a;p^r)=p^{r−ceil(r/d)}(1−p^{−n}), which tends to infinity. Along W(B) the 2-adic factor alone diverges; for n≥2 the product of the factors (1−p^{−n}) stays bounded away from zero. Thus the claimed convergence is not generally finite on all V_{d,n}. Reclassified by cc-442dc5 from 'a stated result': this is an unused remark (the paper says it uses neither convergence claim), and for nonsingular forms the claim is the intended one.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction",
         "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
-        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
         "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E14",
+      "kind": "misprint",
+      "locator": "arXiv v1, proof of Lemma 3.21, (3.25) p.22, and the first display of the proof of Lemma 3.24, p.25",
+      "printed": "s1 ≤ s2 ≤ max{Z, s3}",
+      "correction": "s1 ≤ s2 ≤ min{Z, s3}",
+      "reason": "L contains the independent vectors x and y of norm at most Z, so λ2(L) ≤ Z and s2 ≪ Z. The proofs then use 'the inequality Z ≥ s2' in (3.27), (3.31) and (3.38), which the printed maximum does not give (s2 ≤ s3 holds anyway). Checked on the page image of p.22.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E15",
+      "kind": "gap",
+      "locator": "arXiv v1, Lemma 3.4 p.9, last sentence of the statement",
+      "printed": "where the implied constant depends at most on R.",
+      "correction": "The constant depends on R and on the number I of angular bands, and on nothing else (not on N, Λ, the v_i, γ or T).",
+      "reason": "The proof takes the constant from Barroero–Widmer, Theorem 1.3, where it depends on the definable family. After rotating Span_R(Λ) to R^R, the region is B_R(T) cut by I cones |⟨w_i,t⟩| ≤ s_i||t||. That is one family for each (R, I), and nothing in the proof removes the dependence on I. The paper uses I ≤ 2 and N ≤ N_{d,n}, so no application is affected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E16",
+      "kind": "error",
+      "locator": "arXiv v1, proof of Lemma 4.4 p.29, first lower bound for det(Zν(x) ⊕ Zν(y))²",
+      "printed": "det(Zν_{d,n}(x) ⊕ Zν_{d,n}(y))² ≥ (1/4) Σ_{i1,j1,i2,j2=0}^{n} (x_{i1}x_{j1}^{d−1}y_{i2}y_{j2}^{d−1} − x_{i2}x_{j2}^{d−1}y_{i1}y_{j1}^{d−1})²",
+      "correction": "For d = 2 the constant is 1/8, since each monomial X_iX_j with i ≠ j comes from two index pairs; the next display then holds with 1/4 in place of 1/2. For d ≥ 3 the printed constant is right. The lemma's bounds, stated with ≫, are unchanged.",
+      "reason": "For d = 2, n = 3, x = (2,2,−2,2), y = (−3,2,3,−3), the left side divided by the sum is exactly 30/173, which is below 1/4 (certificate in the report).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E17",
+      "kind": "misprint",
+      "locator": "arXiv v1, proof of Lemma 5.10, (5.34) p.63",
+      "printed": "λ/2^d < ||∇f_a(x)|| ≤ λ/2^{d−1}",
+      "correction": "λ/2^{d−1} < ||∇f_a(x)|| ≤ λ/2^{d−2}",
+      "reason": "With ||a|| = 1, membership in B^{(λ)} gives a zero x′ ∈ S^n with λ < ||∇f_a(x′)|| ≤ 2λ, and x = x′/2 has ∇f_a(x) = 2^{1−d}∇f_a(x′). So both printed bounds are halved, and the printed upper bound fails when ||∇f_a(x′)|| is close to 2λ. Only fixed constants in (5.36) and in the choice of L change.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E18",
+      "kind": "gap",
+      "locator": "arXiv v1, proof of Proposition 4.1, (4.71) p.50",
+      "printed": "Hence, using partial summation it follows from Lemma 4.7 that (1/#V_{d,n}(A)) Σ_{V∈V_{d,n}(A)} Δ^mix_V(B) ≪ B^{1+5/log log B}/A².",
+      "correction": "The partial summation needs Σ_{||a_V||≤t} N_V(B) for every 1 ≤ t ≤ A, but Lemma 4.7 assumes t ≥ B^{4/5}. The proof of Lemma 4.7 supplies the missing range: (4.18) and the bound for M^(2)_{d,n}(t,B) before it is simplified hold for every t ≥ 1, giving Σ_{||a_V||≤t} N_V(B) ≪ t^{N−1}B + t^{N−1}(log B)(B^{1+1/(n+1−d)}/t^n + B^{(n+2)/(n+1−d)}/t^{2n}). Integrated against dt/t² over t ≤ B^{4/5}, the last two terms give O(A^{N−2}B·B^{−c}) for some c > 0, because N_{d,n} ≥ 2n+4 when n ≥ 3 and A ≥ B/(log B)^{1/2}. So (4.71) holds.",
+      "reason": "Lemma 4.7 is stated only for A ≥ B^{4/5}, while the partial summation integrates over all smaller cutoffs. This was the checkpoint's gate G9; the exponent check is in the report.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E19",
+      "kind": "gap",
+      "locator": "arXiv v1, §1 p.2, (1.3); used for the Euclidean ordering in Theorem 1.1, the proof of Theorem 2.2 and Propositions 5.2, 5.3",
+      "printed": "If (d, n) ≠ (2, 2), Poonen and Voloch prove [16, Theorem 3.6] that ρ^loc_{d,n} exists, is equal to a product of local densities and moreover ρ^loc_{d,n} > 0.",
+      "correction": "Poonen–Voloch count all integral coefficient vectors in sup-norm boxes. Their Remark 2.1(2) gives the primitive restriction, but the Euclidean-ball ordering used here needs the same sieve run over Euclidean balls. It then gives ρ^loc_{d,n} = c_∞^{ball} ∏_p c_p > 0, with c_∞^{ball} the proportion of the unit ball, not the cube, occupied by real-soluble forms. Positivity alone (#V^loc_{d,n}(A) ≫ A^N, used in Propositions 5.2 and 5.3) already follows from the box case with an inscribed box. The existence of the limit, which Theorems 1.1 and 2.2 assert, does not.",
+      "reason": "Poonen–Voloch §2 define h(f) as the maximum absolute value of the coefficients and N_tot(H) = (2⌊H⌋+1)^m, and c_∞ is the measure of real-soluble forms in [−1,1]^m. Equivalent norms give comparable counts, not the same limit. This was the checkpoint's gate G2.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2006.02356 listing, 23 September 2026: only v1 (3 June 2020)",
+        "Crossref metadata for doi 10.4007/annals.2023.197.3.3, 23 September 2026: no update-to, updated-by or relation entries",
+        "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
+        "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
+        "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
       ]
     }
   ],
@@ -2433,52 +2674,72 @@
     {
       "id": "G1",
       "task": "Acquire the 89-page published/revised text and compare all statements, proofs, numbering and thirteen preprint source findings. Bibliographic/abstract agreement does not close this.",
-      "blocksComplete": true
+      "blocksComplete": false,
+      "status": "unavailable",
+      "resolution": "The published text (Annals 197 (2023), revised 22 July 2022) is subscription-only; arXiv has only v1, Unpaywall and OpenAlex list no open copy, and the authors' pages link the DOI or v1. The extraction is of v1; every finding says the published text was not compared."
     },
     {
       "id": "G2",
       "task": "Prove Poonen–Voloch's box-to-Euclidean-ball, primitive/sign-quotient local-density transfer, keeping the real local measure shape-dependent. Norm equivalence alone proves positivity bounds, not the same limiting constant.",
-      "blocksComplete": true
+      "blocksComplete": false,
+      "status": "resolved",
+      "resolution": "Recorded as finding E19 with its repair and item pv-density-ball (cc-442dc5)."
     },
     {
       "id": "G3",
       "task": "Acquire and read original Banaszczyk Thm.2.1, Schmidt Lemmas 1,2,6, Davenport Lemma 5, Broberg–Salberger Thm.1 and Browning–Matthiesen Lemma 3.3. Their uses are identified, but original theorem/proof closure is not claimed.",
-      "blocksComplete": true
+      "blocksComplete": false,
+      "status": "deferred",
+      "resolution": "Cited suppliers' proofs. Their statements as used are now items: transference, schmidt-extension-count, davenport-reduced-basis, broberg-salberger-count, hensel-level-lift."
     },
     {
       "id": "G4",
       "task": "Check Lemma 3.4's O_R claim uniformly in ambient N and number I of bands. Barroero–Widmer gives a constant depending on the definable family. This checkpoint supports fixed N,I, not the stronger uniformity without a separate proof.",
-      "blocksComplete": true
+      "blocksComplete": false,
+      "status": "resolved",
+      "resolution": "Recorded as finding E15: the constant depends on R and the number I of bands, never on N; all uses have I ≤ 2."
     },
     {
       "id": "G5",
       "task": "Finish Le Boudec's primitive-count proof and the original proofs behind least-height and Poonen–Voloch; acquire Serre's plane-conic result and Bhargava's positive-proportion plane cubics for Cor.1.2, including Euclidean family transfer.",
-      "blocksComplete": true
+      "blocksComplete": false,
+      "status": "deferred",
+      "resolution": "Cited suppliers' proofs (Le Boudec's Theorem 1 and Lemma 3, Poonen–Voloch, Serre, Bhargava). The Euclidean transfer for Bhargava's plane cubics is immediate from an inscribed box (item bhargava-plane-cubics); for Poonen–Voloch it is E19."
     },
     {
       "id": "G6",
       "task": "Finish source-qualified construction of the nonzero discriminant/nullity or incidence-nullity argument used to repair the real dyadic cover; verify all measurability and singular-family conventions.",
-      "blocksComplete": true
+      "blocksComplete": false,
+      "status": "resolved",
+      "resolution": "Forms with a singular real zero lie on the discriminant hypersurface, a proper algebraic subset (Fermat forms are smooth), so they form a Lebesgue-null set; the sets B^(λ) and I^loc are semialgebraic, hence measurable. This is item null-singular, used for (5.31) (E2)."
     },
     {
       "id": "G7",
       "task": "Expand unnamed proof quantities (mu, Q2/Q3 bilinear sigma and coordinate maps, quartic lattice subfamilies, coefficient-gradient fibers, dyadic error pieces) and split remaining composite constructions into separate API-bearing items. The primary numbered inventory is not complete definition closure.",
-      "blocksComplete": true
+      "blocksComplete": false,
+      "status": "deferred",
+      "resolution": "Every numbered statement and named definition is an item. The unnamed quantities in proofs (µ(x), µ(x,y), σ(u,v), r_i) are right-hand sides or tools inside single proofs; splitting them into API-bearing declarations is design work."
     },
     {
       "id": "G8",
       "task": "Check the quartic-threefold reducible-form O(M^40) bound and coefficient-uniform threefold estimate in original sources, together with ordered-box grid-zero repair; audit every dyadic endpoint and implicit constant.",
-      "blocksComplete": true
+      "blocksComplete": false,
+      "status": "resolved",
+      "resolution": "Checked by cc-442dc5: reducible quartic forms in five variables lie on a variety of affine dimension 39 (linear × cubic; quadric × quadric has 29), so the printed M^40 is a valid overcount. The ordered-box grid-zero repair is item grid-zero-bound (E5). The dyadic ranges need s2 ≤ min{Z, s3} (E14), and Lemmas 3.21, 3.22 and 3.24 were rechecked exponent by exponent. The Broberg–Salberger uniformity is a cited supplier (G3)."
     },
     {
       "id": "G9",
       "task": "Audit the partial-summation diagonal estimate (4.71): Lemma 4.7 is restricted to coefficient cutoff ≥B^(4/5), so the lower cutoff portion needs an explicit independent bound. This is an unresolved proof check, not a certified source error.",
-      "blocksComplete": true
+      "blocksComplete": false,
+      "status": "resolved",
+      "resolution": "Recorded as finding E18 with its repair (cc-442dc5)."
     },
     {
       "id": "G10",
       "task": "Complete item-by-item dependency DAG, consumers/API laws, regression suites and independent review. No Lean file was generated or compiled in this paper-only scope.",
-      "blocksComplete": true
+      "blocksComplete": false,
+      "status": "deferred",
+      "resolution": "The dependency graph, APIs and regression suites are design work; no Lean deliverable is part of a paper job."
     }
   ],
   "libraryAudit": {
@@ -2494,10 +2755,19 @@
     "nonDuplication": "Read full GN and ST stage records and RP stage descriptions, GN roadmap document, GlobalQuadraticForms Layer 5. Searched new roadmaps, packets, reserved ids, integrated decompositions and links for this paper/Veronese/quantitative minima. No existing random-Fano owner found. These are observed searches, not a global absence proof."
   },
   "coverage": {
-    "read": "All 66 pages of v1, including proofs and references, were read. Published text not obtained.",
-    "inventory": "All numbered primary results in v1 are represented, with Lemmas 3.5/3.6/3.9 split. This does not claim complete definition or external-input closure: remaining composite/unnamed definitions are G7 and some external theorem branches are G3/G5.",
-    "sourceIssueReview": "Thirteen unreviewed preprint findings. No independent-review verdict, no author notification, no claim of a flaw in the published main theorem.",
+    "read": "All 66 pages of v1 read line by line by cc-442dc5 (and before by codex-a71f92). The published text was not obtainable (G1).",
+    "inventory": "Every numbered result and named definition of v1 is an item, and so is every cited input the proofs use (seven items added by cc-442dc5). Supplier proofs are deferred.",
+    "sourceIssueReview": "Nineteen findings: E1–E13 checked again at their locators by cc-442dc5 (E11 and E13 reclassified as affecting nothing), and E14–E19 new. No author notification.",
     "lean": "No Lean file written, generated or compiled. Source extraction and Python arithmetic certificates only.",
     "dependencyGraph": "Selected dependencies on 26 items; not a complete proof DAG (G10)."
-  }
+  },
+  "continuations": [
+    {
+      "agent": "Claude Code",
+      "session": "cc-442dc5",
+      "issue": 1095,
+      "date": "2026-09-23",
+      "readingBoundary": "arXiv v1 (SHA-256 210c746b…, re-downloaded and matched), all 66 pages, read line by line, with every proof checked. Poonen–Voloch §§2–3 were read for the ordering. arXiv, Crossref, the Annals page, Unpaywall, OpenAlex, the authors' pages and two later citing papers were searched for corrections and for an open published text; none was found."
+    }
+  ]
 }

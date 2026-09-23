@@ -1,32 +1,30 @@
-# Handoff: PAPER-BROWNING-LEBOUDEC-SAWIN-23
+# PAPER-BROWNING-LEBOUDEC-SAWIN-23 handoff
 
-Issue #1095; Codex session `codex-a71f92`; 22 September 2026. **Partial checkpoint; not ready for complete status.**
+Status: complete for arXiv v1. Claude Code, session cc-442dc5, continuing the merged Codex checkpoint (codex-a71f92, PR #1920). Issue #1095. Date: 23 September 2026.
 
-## Done
+## Saved
 
-Read the full 66-page arXiv:2006.02356v1, all proofs and references. Recorded provenance, 122 items (5 library/4 planned/113 missing), exact-once routing, selected proof dependencies, definition APIs/regressions and thirteen unreviewed source findings. Read relevant GN/ST/RP audits/stages and pinned Lean declarations. Read specified portions of Poonen–Voloch, Le Boudec and Barroero–Widmer. Ran the self-contained Python certificate embedded in the report; no Lean file or compiled proof.
+- **Items.** 129 items: 5 library, 4 planned, 120 missing. Every missing item is routed exactly once.
+  - Seven items are new: five cited inputs (Schmidt Lemma 6, Davenport's reduced basis, Broberg–Salberger, Browning–Matthiesen's Hensel lemma, Bhargava's plane cubics) and two repairs (the grid-zero bound for E5, and the Euclidean-ball local density for E19).
+  - Bhargava's result opens a new source route to ArithmeticStatistics:ST.4.
+- **Mistakes.** Nineteen are recorded; all have `known: new`.
+  - **E1–E13:** the checkpoint's findings, each confirmed again. E11 and E13 are reclassified as affecting nothing.
+  - **E14:** the dyadic ranges in (3.25) and in the proof of Lemma 3.24 need min{Z, s3}, not max.
+  - **E15:** Lemma 3.4's constant also depends on the number of bands.
+  - **E16:** the constant 1/4 in the proof of Lemma 4.4 is false for d = 2 (ratio 30/173).
+  - **E17:** the gradient bounds in (5.34) are off by a factor 2.
+  - **E18:** the partial summation in (4.71) goes below Lemma 4.7's range; the lemma's proof covers it.
+  - **E19:** (1.3) cites Poonen–Voloch's sup-norm box density for the paper's Euclidean ordering.
+- **Gaps.** G2, G4, G6, G8 and G9 are resolved. G1 is unavailable: the published text is subscription-only and not posted. G3, G5, G7 and G10 are deferred as supplier proofs or design work.
 
-## Resume in this order
+## Resume
 
-1. Acquire the 89-page published/revised paper and reconcile every item and E1–E13. The author pages currently link the preprint; the published proof has not been read. Check this before treating any preprint finding as an error in print.
-2. Close G2: derive the Euclidean-ball local density from the Poonen–Voloch input, with real shape measure and uniform sieve tail. Do not replace this by norm equivalence.
-3. Acquire original Banaszczyk, Schmidt, Davenport, Broberg–Salberger, Browning–Matthiesen, Bhargava and Serre inputs; finish the portions of Le Boudec/Poonen–Voloch/Barroero–Widmer not yet read. Insert each required theorem as its own fully stated item, including the cubic-surface positivity branch.
-4. Resolve G4/G8/G9 uniformity and diagonal-cutoff checks. The O_R band-count constant is not established by simply quoting a family-dependent theorem. Audit quartic-threefold dyadic boxes and low coefficient cutoffs.
-5. Expand unnamed and composite constructions (G7) and finish the complete dependency/API/testing closure (G10). The numbered-result inventory is not all definitions. Supply original-source support for the singular-only null-set repair (G6).
-6. Independently verify E1–E13, including the exact corrected statements and downstream use; the extracting worker has not supplied an independent-review verdict. Do not contact authors without maintainer action.
-7. Refresh atlas ownership before design: source routes GN.0/GN.4/ST.0/ST.2/ST.5/RP.2, planned imports GN.1/RP.2/GlobalQuadraticForms Layer 5, and the proposed Heights Part II. Do not duplicate basic lattice carriers or the separate random-fibration route.
+The job is complete. For a reviewer or a later worker:
 
-## Reproducibility
+1. Check E16, E18 and E19, and the reclassifications of E11 and E13.
+2. If the published Annals text becomes available, compare it with v1 at every finding's locator and update `known`.
+3. The design job should read the cited suppliers (G3, G5) in the order the report lists them.
 
-The report embeds the complete finite arithmetic certificate and its expected output. Main/input PDF URLs and SHA-256 values are in the JSON/report. Item locators use v1 pagination only. Suggested Lean path is a future design target, not a delivered file.
+## Validation
 
-Run from repository root:
-
-```sh
-python3 scripts/check_paper.py research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json
-python3 research/blueprint/intake.py check-files research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.md research/blueprint/handoff/PAPER-BROWNING-LEBOUDEC-SAWIN-23.md
-```
-
-Keep partial until every blocking gap is resolved. No manual issue closure, merge or relabel is part of this handoff.
-
-Validation at submission: paper schema and three-file intake checks passed; exact-once routing, unique ids, definition API/test presence and the selected acyclic dependencies were checked. The report's Python certificate passed. Lean not compiled.
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. Both arithmetic certificates in the report run with the outputs shown. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.
