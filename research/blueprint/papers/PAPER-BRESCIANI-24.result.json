@@ -11,12 +11,12 @@
     "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf",
     "sha256": "77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148",
     "readDate": "2026-09-23",
-    "version": "Published open-access PDF, 22 pages, online 26 September 2023; all pp.129–150 reread by codex-hjdg0j on 22 September 2026. arXiv:2108.13397v3 (15 September 2023) checked at the six source-issue passages; its SHA-256 is e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722. All22 published pages reread by codex-c83e7a on2026-09-23; identical published SHA-256. The v3 passage comparison remains attributed to codex-hjdg0j.",
+    "version": "Published open-access PDF, 22 pages, online 26 September 2023; all pp.129–150 reread by codex-hjdg0j on 22 September 2026. arXiv:2108.13397v3 (15 September 2023) checked at the six source-issue passages; its SHA-256 is e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722. All22 published pages reread by codex-c83e7a on2026-09-23; identical published SHA-256. The v3 passage comparison remains attributed to codex-hjdg0j. All 22 published pages independently reread by codex-a71f92 on 2026-09-23; same SHA-256. No new full reading of older auxiliary references is implied.",
     "readSections": [
       "Entire published pp.129–150: introduction, §§2–7, Lemmas1–26, TheoremsA–C, all proofs, footnote1, acknowledgements and references."
     ]
   },
-  "summary": "Continuation of PR1924: explicit finite-K/Qp Mattuck proof by normalized multiplication iterates on a small analytic ball, including p=2 and arbitrary reduction; compactness/finite torsion and the local Tate-invariant/cocycle steps are separated. Reuses the existing FormalLieTheory and RigidZariskiGeometry candidates. 168 items; original parabolic correctness gap and source/blueprint granularity gaps remain. Partial, no formalization claim.",
+  "summary": "Partial continuation of PR2032: proposes an explicit noncircular number-field repair for the nonsplit quadratic-boundary parabolic branch, using local Kummer injectivity, mixed Chebotarev places, diagonal loops and a valuation contradiction modulo squares. Preserves the 168 earlier items, 14 ownership routes and seven source findings; adds 11 declaration-sized proof inputs/applications (two pinned library imports, one existing Chebotarev specialization, eight missing routed lemmas). The positive-transcendence-degree parabolic step, recursive source suppliers and inherited API/DAG closure remain open. Nothing is formalized.",
   "items": [
     {
       "id": "PAPER-BRESCIANI-24/1",
@@ -937,7 +937,19 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Begin with a b.l. lift over k(t), use Stix density and Lemma 8 at every closed point, extend over A1 and descend along Π_A1/k=Spec k. The printed blanket parabolic reduction has the explicit /77 counterexample; the general-curve proof remains a checkpoint gap until that branch is repaired."
+      "note": "The nonparabolic printed argument uses a b.l. lift over k(t), Stix density and Lemma8 at every closed point, extension over A1, then Π_A1/k=Spec k. For the genus-zero parabolic branch use the explicit proposed number-field replacement /177 plus split-boundary /178 and proper /179, with /69 in the proper case. If a point is removed, lift geometrically to its rational cuspidal packet; existing cuspidal packets also lift to every smaller open. These lifts are t-b.l. by the direct /111 argument. This replaces the false blanket sentence, relative to the still-open supplier/readings in the gaps; it does not settle /96 over all finitely generated fields. For an affine parabolic curve whose completion is not yet known split, push its b.l. section to that completion via /71 and first apply /179.",
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/13",
+        "PAPER-BRESCIANI-24/53",
+        "PAPER-BRESCIANI-24/69",
+        "PAPER-BRESCIANI-24/83",
+        "PAPER-BRESCIANI-24/84",
+        "PAPER-BRESCIANI-24/111",
+        "PAPER-BRESCIANI-24/177",
+        "PAPER-BRESCIANI-24/178",
+        "PAPER-BRESCIANI-24/179",
+        "PAPER-BRESCIANI-24/71"
+      ]
     },
     {
       "id": "PAPER-BRESCIANI-24/82",
@@ -1104,7 +1116,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Do not use the identity map to a parabolic target; the special parabolic cases must be discharged. The printed blanket parabolic reduction has the explicit /77 counterexample; the general-curve proof remains a checkpoint gap until that branch is repaired."
+      "note": "For nonparabolic X the identity map supplies the target in the definition. Over number fields the parabolic case now has the proposed /177–/179 replacement and /81. Over an arbitrary field finitely generated over Q, the nonsplit degree-two-boundary case remains a checkpoint gap: do not use Proposition22, which already requires quasi-t-b.l., to establish this hypothesis."
     },
     {
       "id": "PAPER-BRESCIANI-24/97",
@@ -1280,7 +1292,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Reduce to number fields via Proposition22, apply Tamagawa, lift to suitable affine opens, and choose a coordinate of a local point outside k. Proposition17 gives a contradiction. The printed blanket parabolic reduction has the explicit /77 counterexample; the general-curve proof remains a checkpoint gap until that branch is repaired."
+      "note": "The number-field nonsplit quadratic-boundary branch has the proposed /177 replacement; /178–/179 handle the other genus-zero parabolic cases. For nonparabolic curves the printed quasi-t-b.l. reduction applies. The parabolic nonsplit-boundary step over a positive-transcendence-degree field still needs a noncircular argument. TheoremA is not used as an input to /177, and its full source closure is not claimed."
     },
     {
       "id": "PAPER-BRESCIANI-24/113",
@@ -1515,7 +1527,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Source statement read. A section and a homotopy rational point agree in the K(π,1) affine-curve case. Splitting X says nothing about every boundary component being rational; /77 therefore remains unresolved."
+      "note": "Current continuation reread TheoremA and the full §3 Theorem3.1 proof with Lemma3.5 in arXiv:1503.08108v1, pp.7–9. Its route uses the relative Brauer group, Kummer and Hochschild–Serre transgression, not splitting of every deleted point. A section gives a homotopy rational point for the affine genus-zero K(π,1) open used in /179. The Amitsur, Hilbert90, K(π,1) and spectral-sequence supplier leaves are not claimed recursively closed. /77 remains a valid counterexample, not an unresolved example."
     },
     {
       "id": "PAPER-BRESCIANI-24/134",
@@ -1796,7 +1808,7 @@
         },
         {
           "name": "Bresciani24.n154.p_scaling",
-          "kind": "example",
+          "kind": "computation",
           "statement": "On K/Qp finite, multiplication by p has an invertible K-linear derivative and local inverse x↦x/p."
         },
         {
@@ -2260,6 +2272,301 @@
         "Represent a class killed in H1(K,TJ) by a continuous TT-valued cocycle c with c(σ)=σj−j for some j∈TJ.",
         "The image of j in TA is invariant and therefore zero by /167. Exactness places j in TT, proving c is already a TT-coboundary. No passage from termwise long exact sequences through an unchecked derived limit is used."
       ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/169",
+      "kind": "theorem",
+      "name": "Finite Kummer classes detect powers",
+      "statement": "For a field K and n∈ℕ invertible in K, the finite Kummer map K×→H1_cont(G_K,μ_n) has kernel (K×)^n, and its induced map K×/(K×)^n→H1_cont(G_K,μ_n) is injective.",
+      "locator": "TauCeti f790474821cf4256814db967cb154e7af3d0c369, TauCeti/FieldTheory/GaloisCohomology/Kummer.lean:268–311; namespace and IsUnit(n:K) hypotheses read.",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.kummerMap_eq_one_iff",
+        "tauceti:TauCeti.kummerClassMap_injective"
+      ],
+      "planned": [],
+      "prerequisites": [],
+      "ownerCandidate": "baseline",
+      "proofSteps": [
+        "Import the pinned kernel and induced quotient-injectivity statements. This credits neither surjectivity nor the all-n compact-cohomology comparison /48."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Retain invertibility of n; this is not a characteristic-p assertion for n=p."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/170",
+      "kind": "theorem",
+      "name": "Finite Galois field-subgroup order reversal",
+      "statement": "For a finite Galois extension M/k, intermediate fields are order-anti-isomorphic to subgroups of Gal(M/k), via fixing subgroup and fixed field.",
+      "locator": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/FieldTheory/Galois/Basic.lean:350–358.",
+      "status": "library",
+      "library": [
+        "mathlib:IsGalois.intermediateFieldEquivSubgroup"
+      ],
+      "planned": [],
+      "prerequisites": [],
+      "ownerCandidate": "baseline",
+      "proofSteps": [
+        "Import the pinned finite Galois order equivalence, with its finite-dimensional and IsGalois hypotheses."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "L⊆k′ iff Gal(M/k′)⊆Gal(M/L); reversing this inclusion is a failed test."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/171",
+      "kind": "theorem",
+      "name": "Multiplicative power separation over a p-adic field",
+      "statement": "For a finite extension K/Q_p, the intersection of (K×)^n over all positive integers n is {1}.",
+      "locator": "Proposed replacement for Bresciani, published §4 p.141 and Lemma16 pp.141–142; adaptation of the moving-coordinate argument in Proposition17 pp.142–144, not a statement printed in the paper.",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [],
+      "ownerCandidate": "ArithmeticGaloisDuality",
+      "proofSteps": [
+        "The valuation of an element in every power subgroup is divisible by every positive n and hence zero.",
+        "For each r≥1 the group (O_K/𝔪_K^r)× is finite, of order N_r. An N_r-th root of a valuation-zero element also has valuation zero, so its N_r-th power reduces to 1.",
+        "The element is therefore 1 modulo every 𝔪_K^r. Separatedness of the valuation topology gives equality with 1. This elementary proof imports local-field finite residue quotients, not a logarithm or Mattuck."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For K=Q_2 the element −1 is detected by fourth powers modulo 4; ignoring p-power levels is invalid.",
+        "A uniformizer is excluded by the valuation at n=2.",
+        "Over an algebraically closed field every element is divisible; the local-field hypothesis is essential."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/172",
+      "kind": "theorem",
+      "name": "Local point-section injectivity for a quadratic puncture",
+      "statement": "Let K/Q_p be finite and D⊂P1_K an irreducible reduced degree-two divisor. For X=P1_K\\D, the map X(K)→S_X/K is injective.",
+      "locator": "Proposed replacement for Bresciani, published §4 p.141 and Lemma16 pp.141–142; adaptation of the moving-coordinate argument in Proposition17 pp.142–144, not a statement printed in the paper.",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/48",
+        "PAPER-BRESCIANI-24/169",
+        "PAPER-BRESCIANI-24/171"
+      ],
+      "ownerCandidate": "AnabelianGeometryAndNonabelianChabautyPartIIBirationalSections",
+      "proofSteps": [
+        "Over the quadratic splitting field M/K, write D={a,b} and use the Möbius coordinate φ(y)=(y−a)/(y−b), with φ(∞)=1. It is an isomorphism X_M≃Gm_M, conjugation sends φ to φ^−1.",
+        "Equality of point-section classes remains equality after restriction to M. Functoriality of every finite Kummer torsor and /169 put φ(x)/φ(y) in (M×)^n for every n.",
+        "Apply /171 and invert the Möbius map. This proves point injectivity, not that every abstract section is geometric. Absence of K-rational points of D excludes local cuspidal sections."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For D=V(t²−2) over Q_3, ∞ and 0 map to 1 and −1 and are distinct section classes.",
+        "The two geometric punctures are not rational cusps over K.",
+        "Keep M finite over Q_p; no local birational base-change theorem is assumed."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/173",
+      "kind": "theorem",
+      "name": "Mixed degree-one and nonsplit Chebotarev places",
+      "statement": "Let k be a number field, L/k quadratic and k′/k finite with no k-embedding L→k′. There is a positive-Dirichlet-density set of finite places ν of k for which k′ embeds in k_ν but L⊗_k k_ν is a field; this set meets every density-one set.",
+      "locator": "Proposed replacement for Bresciani, published §4 p.141 and Lemma16 pp.141–142; adaptation of the moving-coordinate argument in Proposition17 pp.142–144, not a statement printed in the paper.",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/170",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ],
+      "ownerCandidate": "tauceti:TauCetiRoadmap/Chebotarev",
+      "proofSteps": [
+        "Take a finite Galois M/k containing L and k′. Put H=Gal(M/k′), N=Gal(M/L). The hypothesis and /170 give H⊄N; choose g∈H\\N.",
+        "Its conjugacy class fixes a coset in Gal(M/k)/H and has nontrivial image in Gal(L/k). Chebotarev supplies a positive-density set with this Frobenius class, away from ramification.",
+        "The fixed coset gives a residue-degree-one place of k′, hence completion k′_w=k_ν and a k-embedding k′→k_ν. The nontrivial quadratic restriction makes L nonsplit there.",
+        "Only a degree-one place of k′ is required, not complete splitting in a Galois closure."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For a non-Galois cubic with S3 closure and quadratic discriminant field, a transposition fixes one cubic embedding and is nontrivial on the quadratic field.",
+        "If L⊆k′, the simultaneous local embedding and nonsplit conditions are impossible.",
+        "For k′=k this reduces to the positive density of inert quadratic primes."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/174",
+      "kind": "theorem",
+      "name": "Diagonal loops unramified outside quadratic-containing residue fields",
+      "statement": "Let k be a number field, L/k quadratic, X=P1_k\\Spec L, and s a t-b.l. section assumed not geometric. Fix a hyperbolic U⊆X∩A1. Restrict a birational lift of s_k(t) to r on U_k(t)\\{t}. For every closed c∈U with no k-embedding L→k(c), the specializing loop of r in U_k(c)\\{c} is constant.",
+      "locator": "Proposed replacement for Bresciani, published §4 p.141 and Lemma16 pp.141–142; adaptation of the moving-coordinate argument in Proposition17 pp.142–144, not a statement printed in the paper.",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/13",
+        "PAPER-BRESCIANI-24/43",
+        "PAPER-BRESCIANI-24/53",
+        "PAPER-BRESCIANI-24/68",
+        "PAPER-BRESCIANI-24/69",
+        "PAPER-BRESCIANI-24/78",
+        "PAPER-BRESCIANI-24/172",
+        "PAPER-BRESCIANI-24/173"
+      ],
+      "ownerCandidate": "AnabelianGeometryAndNonabelianChabautyPartIIBirationalSections",
+      "proofSteps": [
+        "By /69 choose a b.l. lift q of s to V=U\\C_c, where C_c is the whole closed divisor on U. Any cuspidal q would be centered at a k-rational boundary point; it cannot lie on Spec L, so its image in X would be geometric, contradicting the assumption.",
+        "Apply Stix /13 to the hyperbolic noncuspidal q. Intersect its density-one integral places with /173 for k′=k(c), choosing ν where L is nonsplit and q gives x_ν∈V(k_ν).",
+        "Every specialization of r at c is b.l. over the number field k(c), by /68. Stix Proposition1 (/78) makes its localization geometric or cuspidal on the hyperbolic U_k(c)\\{c}. Its image in X has the same point-section class as x_ν.",
+        "Because D(k_ν)=∅, its center lies in X(k_ν). The injection /172 forces that center to equal x_ν∈V(k_ν). Thus every specialization is locally the same geometric section, and /53 over k(c), at its degree-one place above ν, makes the loop constant.",
+        "The finite place and auxiliary lift may depend on c. This does not construct a simultaneous adelic point or use /81, /96, Proposition22 or Theorem A."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Every rational c∈U(k) meets the residue-field hypothesis.",
+        "Closed c with L⊆k(c) are deliberately not covered.",
+        "Use local Selmerness of globally b.l. sections, not preservation of birational lifting under completion."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/175",
+      "kind": "theorem",
+      "name": "A regular rational function cannot have the diagonal valuation parity",
+      "statement": "Let k be a number field, ν finite, x∈k_ν, and f∈k(t)× regular and nonzero at x. There is no punctured ν-adic neighborhood of x on whose k-rational points c one has v_ν(f(c))≡v_ν(c−x) modulo 2.",
+      "locator": "Proposed replacement for Bresciani, published §4 p.141 and Lemma16 pp.141–142; adaptation of the moving-coordinate argument in Proposition17 pp.142–144, not a statement printed in the paper.",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [],
+      "ownerCandidate": "ArithmeticGaloisDuality",
+      "proofSteps": [
+        "Continuity and the ultrametric inequality make v_ν(f(c)) equal to v_ν(f(x)) in a small neighborhood.",
+        "For every sufficiently large integer m, density of k in k_ν gives c∈k with v_ν(c−x)=m: approximate x+π^m more accurately than valuation m.",
+        "Take two such m of opposite parity. The contradiction survives deletion of any prescribed finite set of rational points."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For Q⊂Q_3, x=0 and f=t²−2, the left valuation is 0 at c=3^m, whereas the right is m.",
+        "Multiplication by a constant changes a fixed parity but cannot make it alternate.",
+        "The regular/nonzero hypothesis is necessary: f=t−x when x∈k is a counterexample if it is removed."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/176",
+      "kind": "theorem",
+      "name": "Finite square-class representative near a nonsplit local point",
+      "statement": "Let k be a number field, L/k quadratic, U⊆A1_k\\Spec L an open, and z∈completed k(t)×. Assume e_c(z)=0 for all closed c∈U whose residue field admits no k-embedding of L. If ν is a nonsplit place of L/k and x∈U(k_ν), then z modulo squares has a representative f_2∈k(t)× regular and nonzero at x.",
+      "locator": "Generic finite-level refinement of Bresciani Proposition17 p.143 and footnote1, used by the proposed nonsplit-boundary replacement.",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/90"
+      ],
+      "ownerCandidate": "ArithmeticGaloisDuality",
+      "proofSteps": [
+        "Use /90 at n=2 only: there are finitely many nonzero exponents modulo 2, so choose a constant representative and the finite product of the corresponding monic irreducibles.",
+        "Any remaining factor is either supported in A1\\U or has L⊆k(c). It cannot vanish at x: the first case is excluded by x∈U, and a root in k_ν in the second case would embed L into k_ν.",
+        "This argument permits infinitely many nonzero profinite exponents overall. It does not use the stronger finite-support conclusion of Proposition17."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Infinite support that is finite modulo each n is allowed.",
+        "At a nonsplit place every polynomial whose root field contains L is root-free.",
+        "No vanishing of the exceptional exponents is asserted."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/177",
+      "kind": "theorem",
+      "name": "Number-field t-birational sections with nonsplit quadratic boundary",
+      "statement": "Let k be a number field, D⊂P1_k a reduced irreducible degree-two divisor, and X=P1_k\\D. Every t-b.l. section of X is geometric.",
+      "locator": "Proposed replacement for Bresciani, published §4 p.141 and Lemma16 pp.141–142; adaptation of the moving-coordinate argument in Proposition17 pp.142–144, not a statement printed in the paper.",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/13",
+        "PAPER-BRESCIANI-24/43",
+        "PAPER-BRESCIANI-24/48",
+        "PAPER-BRESCIANI-24/68",
+        "PAPER-BRESCIANI-24/69",
+        "PAPER-BRESCIANI-24/78",
+        "PAPER-BRESCIANI-24/172",
+        "PAPER-BRESCIANI-24/173",
+        "PAPER-BRESCIANI-24/174",
+        "PAPER-BRESCIANI-24/175",
+        "PAPER-BRESCIANI-24/176",
+        "PAPER-BRESCIANI-24/50",
+        "PAPER-BRESCIANI-24/89"
+      ],
+      "ownerCandidate": "AnabelianGeometryAndNonabelianChabautyPartIIBirationalSections",
+      "proofSteps": [
+        "Assume s is not geometric. Choose U by also deleting ∞ and two distinct k-rational points, and choose r as in /174. Its pushforward is z.",
+        "Choose a b.l. lift q of s to U. It is noncuspidal by the same rational-boundary argument as in /174. Intersect its density-one integral places with /173 for k′=k, obtaining ν where D is nonsplit and x∈U(k_ν) induces s_kν.",
+        "For every rational c∈U(k), c≠x, /174 makes the loop constant, so z specializes. Every specialization of r is b.l.; Stix Proposition1 and /172 show that its local point is x, since a local boundary point would also map to x and x is in U\\{c}. Thus z(c) has local Kummer class c−x.",
+        "Functoriality of the moving-coordinate map, /174 and the Gm loop criterion /50 kill exponents e_c when L does not embed in k(c). Apply /176 to choose a square-class representative f_2 regular and nonzero at x. Finite Kummer evaluation of the unramified class at c gives [f_2(c)]=[c−x] in k_ν×/(k_ν×)^2. Taking valuation modulo 2 contradicts /175.",
+        "No number-field open-lifting theorem /81, quasi-t-b.l. assertion /96, coherence reduction or Theorem A is used. This is an unreviewed proposed replacement proof relative to the listed source suppliers, not a formalization."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The point 0 on P1_Q\\V(t²−2) gives a geometric t-b.l. section, so the conclusion is not cuspidality.",
+        "The proof uses one nonsplit finite place for the final parity argument; it never needs an everywhere split quadratic field.",
+        "Do not extend the conclusion to all finitely generated fields using an unsupported completion/base-change step."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/178",
+      "kind": "theorem",
+      "name": "Sections of affine genus-zero curves with split parabolic boundary",
+      "statement": "Let k have characteristic zero, D⊂P1_k be a nonempty reduced split divisor of degree at most two, and X=P1_k\\D. For any chosen d∈D(k), every section class of X belongs to the cuspidal packet at d.",
+      "locator": "Proposed replacement for Bresciani, published §4 p.141 and Lemma16 pp.141–142; adaptation of the moving-coordinate argument in Proposition17 pp.142–144, not a statement printed in the paper.",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/4",
+        "PAPER-BRESCIANI-24/48",
+        "PAPER-BRESCIANI-24/84"
+      ],
+      "ownerCandidate": "AnabelianGeometryAndNonabelianChabautyPartIIBirationalSections",
+      "proofSteps": [
+        "Move the chosen d to infinity when deg D=1, or to 0 and the other boundary point to infinity when deg D=2.",
+        "For A1 the geometric fundamental group is trivial; the local decomposition group at infinity surjects onto G_k and its section supplies the sole section class.",
+        "For Gm the local tame decomposition extension at 0 maps isomorphically to its full arithmetic fundamental extension. Every splitting therefore belongs to that cuspidal packet. This is a statement about sections of the specified packet, not that packets are singletons."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For A1 there is one section class.",
+        "For Gm the full completed Kummer group is cuspidal, not just images of rational points.",
+        "The hypothesis excludes a nonsplit degree-two divisor."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/179",
+      "kind": "theorem",
+      "name": "Birational lifting forces a genus-zero completion to split",
+      "statement": "Let k have characteristic zero and C/k be a smooth proper geometrically connected genus-zero curve. If its unique section class is b.l., then C≃P1_k and that class is geometric.",
+      "locator": "Proposed replacement for Bresciani, published §4 p.141 and Lemma16 pp.141–142; adaptation of the moving-coordinate argument in Proposition17 pp.142–144, not a statement printed in the paper.",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/5",
+        "PAPER-BRESCIANI-24/76",
+        "PAPER-BRESCIANI-24/133"
+      ],
+      "ownerCandidate": "AnabelianGeometryAndNonabelianChabautyPartIIBirationalSections",
+      "proofSteps": [
+        "For C, restrict a birational witness to an affine complement of a reduced degree-two divisor. Over the algebraic closure this is Gm and is K(π,1), so a section gives the homotopy rational point in Schmidt /133.",
+        "Schmidt gives splitting of C, not splitting of its boundary. The proper geometric fundamental group is trivial, and C(k) is now nonempty."
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "A nonsplit proper conic still has its unique ordinary section class, but that class is not b.l.",
+        "A rational completion does not make its irreducible degree-two boundary split."
+      ]
     }
   ],
   "prerequisites": [
@@ -2430,9 +2737,12 @@
         "PAPER-BRESCIANI-24/63",
         "PAPER-BRESCIANI-24/90",
         "PAPER-BRESCIANI-24/167",
-        "PAPER-BRESCIANI-24/168"
+        "PAPER-BRESCIANI-24/168",
+        "PAPER-BRESCIANI-24/171",
+        "PAPER-BRESCIANI-24/175",
+        "PAPER-BRESCIANI-24/176"
       ],
-      "reason": "Compact/all-prime coefficient comparison, Kummer inverse limits, completed units, valuations and exactness belong to the existing topological-coefficient extension; the discrete upstream cohomology is imported."
+      "reason": "Compact/all-prime coefficient comparison, Kummer inverse limits, completed units, valuations and exactness belong to the existing topological-coefficient extension; the discrete upstream cohomology is imported. The added power-separation, valuation-parity and finite-level support statements are generic local/completion lemmas. In particular /176 takes a support-vanishing hypothesis rather than importing the anabelian proof /174, so this foundational route does not depend on its consumer."
     },
     {
       "route": "source",
@@ -2534,9 +2844,14 @@
         "PAPER-BRESCIANI-24/131",
         "PAPER-BRESCIANI-24/132",
         "PAPER-BRESCIANI-24/133",
-        "PAPER-BRESCIANI-24/77"
+        "PAPER-BRESCIANI-24/77",
+        "PAPER-BRESCIANI-24/172",
+        "PAPER-BRESCIANI-24/174",
+        "PAPER-BRESCIANI-24/177",
+        "PAPER-BRESCIANI-24/178",
+        "PAPER-BRESCIANI-24/179"
       ],
-      "brief": "Extend Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty), separately from the Betts–Stix p-adic-period-mapping extension. Own birational/t-birational/quasi-t-birational section conditions, ramified specializing loops and the three proved endpoints of Bresciani, Invent. math.235 (2024),129–150. For X/k smooth geometrically connected and k finitely generated over Q prove: a section is geometric or cuspidal iff its base change to k(t) lifts birationally (Theorem A). For fixed hyperbolic X/k prove equivalence of geometric-or-cuspidal and birational lifting AFTER EVERY finitely generated extension K/k (Theorem B), and deduce the equivalence, not truth, of the global section and cuspidalization conjectures. Prove Theorem C exactly: the ordinary birational section conjecture is equivalent to existence, for every number field k, birational section z of k(P1)/k and nonempty open U⊆P1, of a nonempty open V⊆U and relative π1 section of (U×V)\\Δ→V whose v-specialization is the prescribed image of z on U\\{v} for every v∈V(k).\n\nBuild Lemmas1–26 and their proof leaves in source order, with generic foundation ownership below, then Proposition17's stronger pro-open diagonal lifting criterion and its completed-unit valuation proof, the number-field open-lifting Lemma16, quasi-t-b.l. reduction, Tamagawa neighborhoods and the coherence input. Do not substitute the rational-function field for Spec k(y)×k Spec k(t) with the diagonal deleted. Track restricted completed products, nonrational closed points, finite places, residue characteristic zero and the nonparabolic reductions. A specialization is an essential-image class and need not be unique; the C[x]_(x), z=x example must reject the converse to constant-loop⇒unique specialization. For Hilbertian uniqueness keep finite-kernel conjugacy limits, not arbitrary choices of conjugators.\n\nImport path torsors/sections from the parent NC.0; finite covers, homotopy exactness and relative fundamental gerbes from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.2); gerbes, root stacks, tame valuative criteria and extension gluing from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations SF.1), with local curve geometry from SF.3; compact cohomology/Kummer completions from Global Galois duality and compact coefficients (ArithmeticGaloisDuality R02.1); generalized Jacobians/Albanese torsors from the proposed JacobianChallenge Part II; local torsion from the proposed AbelianSchemesAndArithmeticModuli Part II. Import existing Chebotarev and Faltings Hom suppliers by verified stage IDs. General finite cofiltered-limit compactness and stack/site carriers already exist in Mathlib. No private replacements of these suppliers.\n\nPrerequisite papers are work to decompose, not axioms: Bresciani–Vistoli valuative criterion, Bresciani's gerbe/base-change and coherence papers, Stix local density and cuspidal packets/book, Koenigsmann, Tamagawa and Saïdi–Tyler. Use [6] Proposition A.23 for arbitrary extension, not A.18. In Lemma26 first omit the associated point before calling open-curve images cuspidal. Design must resolve the checkpoint gaps before declaring source closure. Give each definition its listed evaluation/functoriality API and tests, and a suggested Lean file on the canonical carriers; no Lean construction is claimed in this paper extraction.\n\nCorrectness gate: the published p.141 assertion that all affine-parabolic sections are cuspidal is false for P1_Q minus the closed point T²−2, which has geometric sections and no rational cusp. This does not refute the main theorem, but the claimed trivial reduction in Lemma16 and the quasi-t-b.l. step must be supplied by a valid argument. Do not turn the printed false sentence into a Lean theorem. The generalized-Jacobian torsor neutralization comparison (/58) is now verified and owned by the JacobianChallenge Part II, importing generic neutralization /152 from SF.1. The parabolic proof repair is still unresolved; do not conflate these two issues.\n\nRoute /77 only as the valid nonsplit-boundary counterexample. Its routing does not repair /81 or /96. Lemma1's completion input now imports the separately owned split-completion Part II through IG.1; do not reintroduce Anderson/goodness as required assumptions for this replacement proof.",
+      "brief": "Extend Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty), separately from the Betts–Stix p-adic-period-mapping extension. Own birational/t-birational/quasi-t-birational section conditions, ramified specializing loops and the three proved endpoints of Bresciani, Invent. math.235 (2024),129–150. For X/k smooth geometrically connected and k finitely generated over Q prove: a section is geometric or cuspidal iff its base change to k(t) lifts birationally (Theorem A). For fixed hyperbolic X/k prove equivalence of geometric-or-cuspidal and birational lifting AFTER EVERY finitely generated extension K/k (Theorem B), and deduce the equivalence, not truth, of the global section and cuspidalization conjectures. Prove Theorem C exactly: the ordinary birational section conjecture is equivalent to existence, for every number field k, birational section z of k(P1)/k and nonempty open U⊆P1, of a nonempty open V⊆U and relative π1 section of (U×V)\\Δ→V whose v-specialization is the prescribed image of z on U\\{v} for every v∈V(k).\n\nBuild Lemmas1–26 and their proof leaves in source order, with generic foundation ownership below, then Proposition17's stronger pro-open diagonal lifting criterion and its completed-unit valuation proof, the number-field open-lifting Lemma16, quasi-t-b.l. reduction, Tamagawa neighborhoods and the coherence input. Do not substitute the rational-function field for Spec k(y)×k Spec k(t) with the diagonal deleted. Track restricted completed products, nonrational closed points, finite places, residue characteristic zero and the nonparabolic reductions. A specialization is an essential-image class and need not be unique; the C[x]_(x), z=x example must reject the converse to constant-loop⇒unique specialization. For Hilbertian uniqueness keep finite-kernel conjugacy limits, not arbitrary choices of conjugators.\n\nImport path torsors/sections from the parent NC.0; finite covers, homotopy exactness and relative fundamental gerbes from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.2); gerbes, root stacks, tame valuative criteria and extension gluing from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations SF.1), with local curve geometry from SF.3; compact cohomology/Kummer completions from Global Galois duality and compact coefficients (ArithmeticGaloisDuality R02.1); generalized Jacobians/Albanese torsors from the proposed JacobianChallenge Part II; local torsion from the proposed AbelianSchemesAndArithmeticModuli Part II. Import existing Chebotarev and Faltings Hom suppliers by verified stage IDs. General finite cofiltered-limit compactness and stack/site carriers already exist in Mathlib. No private replacements of these suppliers.\n\nPrerequisite papers are work to decompose, not axioms: Bresciani–Vistoli valuative criterion, Bresciani's gerbe/base-change and coherence papers, Stix local density and cuspidal packets/book, Koenigsmann, Tamagawa and Saïdi–Tyler. Use [6] Proposition A.23 for arbitrary extension, not A.18. In Lemma26 first omit the associated point before calling open-curve images cuspidal. Design must resolve the checkpoint gaps before declaring source closure. Give each definition its listed evaluation/functoriality API and tests, and a suggested Lean file on the canonical carriers; no Lean construction is claimed in this paper extraction.\n\nCorrectness gate: the published p.141 assertion that all affine-parabolic sections are cuspidal is false for P1_Q minus the closed point T²−2, which has geometric sections and no rational cusp. This does not refute the main theorem, but the claimed trivial reduction in Lemma16 and the quasi-t-b.l. step must be supplied by a valid argument. Do not turn the printed false sentence into a Lean theorem. The generalized-Jacobian torsor neutralization comparison (/58) is now verified and owned by the JacobianChallenge Part II, importing generic neutralization /152 from SF.1. The nonsplit parabolic reduction over positive-transcendence-degree finitely generated fields is still unresolved; do not conflate it with the resolved torsor comparison.\n\nRoute /77 only as the valid nonsplit-boundary counterexample. Its routing does not repair /81 or /96. Lemma1's completion input now imports the separately owned split-completion Part II through IG.1; do not reintroduce Anderson/goodness as required assumptions for this replacement proof.\n\nNumber-field replacement to verify independently: /169–/177 isolate finite Kummer kernel detection, p-adic power separation, point injectivity for P1 minus a nonsplit quadratic divisor, mixed Chebotarev places, restricted diagonal unramifiedness and a contradiction modulo squares. The mixed-prime input /173 imports the existing Chebotarev layer, not a new density theory. Generic finite-level completion and valuation lemmas /171,/175,/176 belong to R02.1; this Part II owns only their section-theoretic applications /172,/174,/177 and the split/proper branches /178–/179. /177 does not import Lemma16, quasi-t-b.l., Proposition22 or TheoremA. It supplies the number-field branch of Lemma16 relative to the explicit prerequisites, but does not justify the nonsplit parabolic case of /96 over every finitely generated field. Do not replace restricted completed support by finite support before projecting to a fixed n.",
       "reason": "NC.1 is source-qualified Mochizuki reconstruction and NC.2–NC.5 are unipotent/Chabauty branches. These full profinite birational-lifting, specialization and conjecture-equivalence theorems need new layers in the parent direction. Betts–Stix imports period maps and is a separate sibling, not a supplier of these theorems."
     },
     {
@@ -2762,13 +3077,12 @@
   ],
   "gaps": [
     {
-      "title": "Parabolic reduction",
+      "title": "Parabolic reduction over fields of positive transcendence degree",
       "neededBy": [
-        "PAPER-BRESCIANI-24/81",
         "PAPER-BRESCIANI-24/96",
         "PAPER-BRESCIANI-24/112"
       ],
-      "detail": "The nonsplit degree-two-boundary case needs a noncircular proof. E2 disproves the printed blanket cuspidality sentence, not Theorems A–C. /58 is no longer part of this gap."
+      "detail": "The proposed /169–/179 argument supplies the nonsplit quadratic-boundary branch over NUMBER FIELDS, independently of /81,/96,Proposition22 and TheoremA, relative to named existing source inputs. It has not received independent review. A noncircular passage to arbitrary fields finitely generated over Q is still missing for /96 and the parabolic branch of /112. Proposition22 assumes quasi-t-b.l.; applying it here to establish quasi-t-b.l. is circular. An arbitrary embedding into a p-adic field does not give transcendental base change of a birational witness. E2 disproves only the printed blanket cuspidality sentence."
     },
     {
       "title": "Remaining source verification and decomposition",
@@ -2784,7 +3098,7 @@
         "PAPER-BRESCIANI-24/126",
         "PAPER-BRESCIANI-24/128"
       ],
-      "detail": "Verify the exact Stix book Proposition 75/Lemma 259, Tamagawa Proposition 2.8(iv), Koenigsmann original theorem; finish the inherited valuative/coherence/density prerequisites. Mattuck’s finite-local-field proof and ownership are now decomposed by /153–/168; the specific geometric/analytic implementation leaves are recorded separately. The new Albanese sources were read only in the portions listed in the report; Picard 1-motive proof dependencies remain supplier blueprint work."
+      "detail": "Verify the exact Stix book Proposition 75/Lemma 259, Tamagawa Proposition 2.8(iv), Koenigsmann original theorem; finish the inherited valuative/coherence/density prerequisites. Mattuck’s finite-local-field proof and ownership are now decomposed by /153–/168; the specific geometric/analytic implementation leaves are recorded separately. The new Albanese sources were read only in the portions listed in the report; Picard 1-motive proof dependencies remain supplier blueprint work. The present pass read Stix Proposition1 with its proof and TheoremB with its precise hypotheses, not the whole density proof or Koenigsmann original. Schmidt §3 was read, but its Amitsur/Hilbert90/Hochschild–Serre and affine K(π,1) suppliers still need recursive decomposition."
     },
     {
       "title": "Supplier closure beneath the local logarithm and projectivity",
@@ -2853,67 +3167,146 @@
         "PAPER-BRESCIANI-24/149"
       ],
       "detail": "The earlier paper-format items retain API/test prose in note; this is not a claim that every inherited definition has a full structured three-test contract or every source prerequisite has a resolved node ID. The five new constructions do have explicit APIs, uses and three tests each. Complete the inherited contracts before closed blueprint status."
+    },
+    {
+      "title": "Replacement argument supplier interfaces",
+      "neededBy": [
+        "PAPER-BRESCIANI-24/171",
+        "PAPER-BRESCIANI-24/172",
+        "PAPER-BRESCIANI-24/173",
+        "PAPER-BRESCIANI-24/174",
+        "PAPER-BRESCIANI-24/175",
+        "PAPER-BRESCIANI-24/176",
+        "PAPER-BRESCIANI-24/177",
+        "PAPER-BRESCIANI-24/179"
+      ],
+      "detail": "Verify independently the proposed number-field replacement and expose the local-field finite-residue-quotient/separated-topology interface, finite Kummer torsor-to-section comparison, Chebotarev fixed-coset versus degree-one-completion comparison, specializing-loop functoriality and finite-level evaluation compatibility as blueprint leaves. Their mathematical uses and proofs are specified here; no complete supplier blueprint or Lean implementation is claimed. /174 and /177 use Stix local Selmerness only for hyperbolic curves over number fields, not for arbitrary fields or parabolic curves directly."
     }
   ],
   "continuation": {
     "agent": "Codex",
-    "session": "codex-c83e7a",
+    "session": "codex-a71f92",
     "issue": 1233,
-    "previousPullRequest": 1924,
+    "previousPullRequest": 2032,
     "date": "2026-09-23",
-    "inputCommit": "5c2f7e81c0b65adb77ea28915eb921e23ba06a69",
-    "previousFiles": {
-      "commit": "7812fe40b48a534f0ea900f4cf1f9093615096d7",
-      "files": [
-        {
-          "path": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
-          "blobSha": "4790a81124a8fd1040786dd119fc2d2d807addba",
-          "sha256": "a7ad1887f506163bf24b3082548faab46b37d047136fa5b5a9075a89836df06d"
-        },
-        {
-          "path": "research/blueprint/papers/PAPER-BRESCIANI-24.md",
-          "blobSha": "fc0b63971c4f8264207a92c00ea5749aaa9bf418",
-          "sha256": "12ab21e43cf57591c3e67ec187308785bc1b60db61904236179f64035cd51ee1"
-        },
-        {
-          "path": "research/blueprint/handoff/PAPER-BRESCIANI-24.md",
-          "blobSha": "7f4813b644b0f3e42d52eefc406f43f63702b176",
-          "sha256": "ae17e6d13d989d773c68c08e1a4a7c476a5c3c47bedd53a860971e9819ff1c86"
-        }
-      ]
-    },
+    "inputCommit": "4b351d3d1b915575362efa61fbc6a961d7ba30ca",
     "newItems": [
-      "PAPER-BRESCIANI-24/153",
-      "PAPER-BRESCIANI-24/154",
-      "PAPER-BRESCIANI-24/155",
-      "PAPER-BRESCIANI-24/156",
-      "PAPER-BRESCIANI-24/157",
-      "PAPER-BRESCIANI-24/158",
-      "PAPER-BRESCIANI-24/159",
-      "PAPER-BRESCIANI-24/160",
-      "PAPER-BRESCIANI-24/161",
-      "PAPER-BRESCIANI-24/162",
-      "PAPER-BRESCIANI-24/163",
-      "PAPER-BRESCIANI-24/164",
-      "PAPER-BRESCIANI-24/165",
-      "PAPER-BRESCIANI-24/166",
-      "PAPER-BRESCIANI-24/167",
-      "PAPER-BRESCIANI-24/168"
+      "PAPER-BRESCIANI-24/169",
+      "PAPER-BRESCIANI-24/170",
+      "PAPER-BRESCIANI-24/171",
+      "PAPER-BRESCIANI-24/172",
+      "PAPER-BRESCIANI-24/173",
+      "PAPER-BRESCIANI-24/174",
+      "PAPER-BRESCIANI-24/175",
+      "PAPER-BRESCIANI-24/176",
+      "PAPER-BRESCIANI-24/177",
+      "PAPER-BRESCIANI-24/178",
+      "PAPER-BRESCIANI-24/179"
     ],
     "reading": [
       {
-        "url": "https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf",
-        "sha256": "9d950c3d86f8c8cf1949ec34b42eff49a8f73cbebf199ccfbf01bc6dcd745f94",
-        "read": "Published pp.92–100 and111–119; complete Theorem7 proof; p.114 image. Pages101–110 not read in this continuation."
+        "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf",
+        "sha256": "77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148",
+        "read": "All 22 published pages, pp.129–150: every proof, footnote and references."
       },
       {
-        "url": "https://mail.jmilne.org/math/xnotes/AVs.pdf",
-        "sha256": "bffdf81c57c77420b5454b31270007989d12f332abea62424be15c424079fc7c",
-        "read": "Author January2,2022 version, title/version p.1 and entire pp.9–12; Theorem7.1 complete proof and Corollary7.2. Not a full49-page read."
+        "url": "https://arxiv.org/pdf/1203.3236v3",
+        "sha256": "0a1cfac490f6543e5308a9489c13f1e398091b2db3e4ee127d0e64c6ef7f5146",
+        "read": "Title/introduction and §§2.1–2.2, pp.1–4; TheoremsA/B and full Proposition1 proof. Not the full density proof. arXiv v3 stamp 17September2015; PDF internal date November1,2018."
+      },
+      {
+        "url": "https://arxiv.org/pdf/1503.08108",
+        "sha256": "50588809107082c3710fd614ba47eaf2b975bedb85d7d2153cab650dd3309ae2",
+        "read": "Title/intro pp.1–2 (TheoremsA–C); complete §3 Theorem3.1 and Lemma3.5 with proofs pp.7–9. Not a full paper read."
       }
     ],
-    "baseline": "Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; TauCetif790474821cf4256814db967cb154e7af3d0c369. All eight inherited declaration statements reread plus /153,/154; real Lie logarithm LocalInverse.lean explicitly has NormedSpace ℝ and is not a p-adic supplier.",
-    "ownership": "Full current A, AdicSpacesPartII and LocallyAnalyticDistributions owner documents read; reviewed AUDIT08 A1/A2/A4 and AUDIT25 L0. No exact AdicSpacesPartII:R1/R2 audit entry in this snapshot. Caro–Pasten FormalLieTheory and Howe–Klevdal RigidZariskiGeometry briefs and relevant items read. Reuse their IDs; Harpaz–Wittenberg16 consumes the existing LocalPoints proposal. Upstream JacobianChallenge and GlobalNumberFields full readings from earlier programme work are retained; this pass’s LieGroups scope/read excerpt is not a claim to have reread that entire document.",
-    "correctionSearch": "Publisher landing page, arXiv history, title plus correction/erratum searches on2026-09-23 found no main-paper correction. The prior author-page and source-version checks retain their original attribution. No new source issue or independent-review verdict added."
-  }
+    "baseline": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "newStatementsRead": [
+        {
+          "path": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+          "sha256": "a2727b96d764ba05ed1f1909f5a4c481fc2eac96f6c82078898112568565901c",
+          "declarations": [
+            "TauCeti.kummerMap_eq_one_iff",
+            "TauCeti.kummerClassMap_injective"
+          ]
+        },
+        {
+          "path": "Mathlib/FieldTheory/Galois/Basic.lean",
+          "sha256": "59d802b6f4f3b7f44c18035fa37991962c37e28aef73d6e2859135db0b107ba5",
+          "declarations": [
+            "IsGalois.intermediateFieldEquivSubgroup"
+          ]
+        }
+      ],
+      "scope": "Read namespace/hypotheses and actual new declaration statements/proofs. Earlier ten library imports retain their previous authors' verification provenance, not a claim of a new reread of all ten."
+    },
+    "ownership": "Read current NC.0, NC.6, R02.1, IG.0 and Chebotarev layer10 descriptions and corresponding reviewed NC.0/NC.6/R02.1/Chebotarev audit entries. Searched current paper routes, packets, new roadmaps and integrated decompositions for nonsplit-boundary/Kummer/valuation-parity duplicates; no exact replacement found. Reuse the existing birational PartII and R02.1, and import the upstream Chebotarev layer. Complete upstream JacobianChallenge and GlobalNumberFields readings retain earlier programme provenance. No new roadmap, accepted blueprint stage or review verdict is invented.",
+    "sourceIssues": "All seven inherited findings and their correction-search history are preserved verbatim. E2's historical statement that /81 needs a replacement is narrowed by the proposed number-field proof in this continuation, not by a published erratum. Its positive-transcendence-degree obstruction remains. No independent review or author contact.",
+    "checks": []
+  },
+  "continuationHistory": [
+    {
+      "agent": "Codex",
+      "session": "codex-c83e7a",
+      "issue": 1233,
+      "previousPullRequest": 1924,
+      "date": "2026-09-23",
+      "inputCommit": "5c2f7e81c0b65adb77ea28915eb921e23ba06a69",
+      "previousFiles": {
+        "commit": "7812fe40b48a534f0ea900f4cf1f9093615096d7",
+        "files": [
+          {
+            "path": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
+            "blobSha": "4790a81124a8fd1040786dd119fc2d2d807addba",
+            "sha256": "a7ad1887f506163bf24b3082548faab46b37d047136fa5b5a9075a89836df06d"
+          },
+          {
+            "path": "research/blueprint/papers/PAPER-BRESCIANI-24.md",
+            "blobSha": "fc0b63971c4f8264207a92c00ea5749aaa9bf418",
+            "sha256": "12ab21e43cf57591c3e67ec187308785bc1b60db61904236179f64035cd51ee1"
+          },
+          {
+            "path": "research/blueprint/handoff/PAPER-BRESCIANI-24.md",
+            "blobSha": "7f4813b644b0f3e42d52eefc406f43f63702b176",
+            "sha256": "ae17e6d13d989d773c68c08e1a4a7c476a5c3c47bedd53a860971e9819ff1c86"
+          }
+        ]
+      },
+      "newItems": [
+        "PAPER-BRESCIANI-24/153",
+        "PAPER-BRESCIANI-24/154",
+        "PAPER-BRESCIANI-24/155",
+        "PAPER-BRESCIANI-24/156",
+        "PAPER-BRESCIANI-24/157",
+        "PAPER-BRESCIANI-24/158",
+        "PAPER-BRESCIANI-24/159",
+        "PAPER-BRESCIANI-24/160",
+        "PAPER-BRESCIANI-24/161",
+        "PAPER-BRESCIANI-24/162",
+        "PAPER-BRESCIANI-24/163",
+        "PAPER-BRESCIANI-24/164",
+        "PAPER-BRESCIANI-24/165",
+        "PAPER-BRESCIANI-24/166",
+        "PAPER-BRESCIANI-24/167",
+        "PAPER-BRESCIANI-24/168"
+      ],
+      "reading": [
+        {
+          "url": "https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf",
+          "sha256": "9d950c3d86f8c8cf1949ec34b42eff49a8f73cbebf199ccfbf01bc6dcd745f94",
+          "read": "Published pp.92–100 and111–119; complete Theorem7 proof; p.114 image. Pages101–110 not read in this continuation."
+        },
+        {
+          "url": "https://mail.jmilne.org/math/xnotes/AVs.pdf",
+          "sha256": "bffdf81c57c77420b5454b31270007989d12f332abea62424be15c424079fc7c",
+          "read": "Author January2,2022 version, title/version p.1 and entire pp.9–12; Theorem7.1 complete proof and Corollary7.2. Not a full49-page read."
+        }
+      ],
+      "baseline": "Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; TauCetif790474821cf4256814db967cb154e7af3d0c369. All eight inherited declaration statements reread plus /153,/154; real Lie logarithm LocalInverse.lean explicitly has NormedSpace ℝ and is not a p-adic supplier.",
+      "ownership": "Full current A, AdicSpacesPartII and LocallyAnalyticDistributions owner documents read; reviewed AUDIT08 A1/A2/A4 and AUDIT25 L0. No exact AdicSpacesPartII:R1/R2 audit entry in this snapshot. Caro–Pasten FormalLieTheory and Howe–Klevdal RigidZariskiGeometry briefs and relevant items read. Reuse their IDs; Harpaz–Wittenberg16 consumes the existing LocalPoints proposal. Upstream JacobianChallenge and GlobalNumberFields full readings from earlier programme work are retained; this pass’s LieGroups scope/read excerpt is not a claim to have reread that entire document.",
+      "correctionSearch": "Publisher landing page, arXiv history, title plus correction/erratum searches on2026-09-23 found no main-paper correction. The prior author-page and source-version checks retain their original attribution. No new source issue or independent-review verdict added."
+    }
+  ]
 }
