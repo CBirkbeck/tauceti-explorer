@@ -5,130 +5,256 @@
     {
       "id": "PAPER-WOOD-19/E1",
       "kind": "gap",
-      "locator": "Theorem 1.2, p.3, and the last assertion of Theorem 4.8, p.23, with its proof, pp.24–25, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "locator": "Theorem 1.2, arXiv 1702.04644v2 p.2 and Duke Math. J. 168 (2019) p.379; Theorem 4.8, v2 pp.22–23 / published pp.406–407; bad-case proof v2 pp.24–25 / published pp.409–410. Both versions independently collated.",
       "printed": "Theorem 1.2: \"for n sufficiently large we have lim_{q→∞, (q,|G′|)=1} E^±_{F_q(t),q^{2n}}(G,G′)/|H_2(G′,c)[|μ_{F_q(t)}|]| … ≫ n^{N_{G′}−1} otherwise\". Theorem 4.8: \"If G′ is not good, then there is a constant w_G such that for n sufficiently large we have lim_{q→∞, (q,|G′|)=1} Ẽ^±_{F_q(t),q^{2n}}(G,G′)/|H_2(G′,c)[|μ_{F_q(t)}|]| ≥ w_G n^{N_{G′}−1}\". The proof ends: \"Dividing both sides by |H_2(G′,c)[q−1]|, and then letting q→∞, the second part of the theorem follows\".",
-      "correction": "For G′ not good, replace lim by liminf: liminf_{q→∞, (q,|G′|)=1} Ẽ^±_{F_q(t),q^{2n}}(G,G′)/|H_2(G′,c)[q−1]| ≥ w_G n^{N_{G′}−1}, and likewise with E^± and a smaller constant in Theorem 1.2.",
-      "reason": "The proof bounds the ratio from below for each large q. It keeps only the multidegrees n in a set 𝒞 (all n_i large, with prescribed parities) on which the number of Frobenius-fixed components is |H_2(G′,c)[q−1]|, and discards the other components as nonnegative. That gives a lower bound for the liminf. It does not show the limit exists: the discarded components with small n_i and their Frobenius-fixed counts may depend on q, and nothing in the argument controls them. The good cases, where the limits are computed exactly, are unaffected. In Theorem 1.2 the passage from Ẽ to E divides by the positive constants of §2.1, |Aut_{G′}(G)| and A(G,G′), so the lower bound transfers with a smaller constant. The proof's remark that \"the second statements of both theorems are the same\" should be read that way. Noted by the extraction (items 97, 141 and 143).",
+      "correction": "In the bad-type clauses of Theorems 1.2 and 4.8, replace the claimed limit by liminf, retaining all group, characteristic and sufficiently-large-n hypotheses. The same positive lower bound follows, with the fixed rigidification factor absorbed into the constant for E. Alternatively, keep lim only after supplying a separate proof of its existence. This finding does not exhibit a group for which that limit actually fails to exist.",
+      "reason": "Independently read the theorem, its entire counting argument, Proposition 4.1, Theorems 4.5 and 4.7, and the conversion factors in §2.1. After correcting the separate exponent slips E5–E6, the proof counts a chosen family of large multidegrees and discards the rest as nonnegative. For fixed n it gives a uniform lower bound with an O_n(q^(−1/2)) error after normalization. This proves the liminf bound. The remaining components are not shown to have a normalized limit. Confirmed as an unproved existence assertion in the printed theorem, not as a proof that the limit fails to exist. Dividing by the fixed positive group-theoretic rigidification factors transfers the lower bound from Ẽ to E. Corrected the v2 locator of Theorem 1.2 from p.3 to p.2 and added the published locators.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
-        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
-        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
-        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
-      ]
+        "Independent review, Codex — codex-a71f92, 2026-09-23: arXiv 1702.04644v2 (2018-07-13), https://arxiv.org/pdf/1702.04644v2, SHA-256 2eacf07f9c79a08a65bbfa332b964f0f9bd4ab5abb93e5db8be72e43669be1bd; every finding and its surrounding argument read. The public published PDF https://par.nsf.gov/servlets/purl/10152050, Duke Math. J. 168 (2019), 377–427, DOI 10.1215/00127094-2018-0037, SHA-256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d, was collated at all eight findings, including page-image checks. This is targeted reading, not a claim to have reread every page.",
+        "Correction search 2026-09-23: https://arxiv.org/abs/1702.04644 lists v1 (2017-02-15) and v2 (2018-07-13), with no later version listed. The author's publication page https://people.math.harvard.edu/~mmwood/Publications/ links the journal paper and old arXiv preprint, but no erratum beside this paper.",
+        "The Crossref record https://api.crossref.org/works/10.1215/00127094-2018-0037 returned an empty relation object and no update-to/updated-by entries on 2026-09-23. This is not an exhaustive correction registry. The Project Euclid link https://projecteuclid.org/euclid.dmj/1548730815 did not expose usable article text in this check; the published text was instead read through NSF PAR.",
+        "Exact-title web searches with erratum, correction, liminf, and Conjecture 5.1/generator located no matching correction. A returned publisher correction for A predicted distribution for Galois groups of maximal unramified extensions concerns a different paper. 'new' means no matching correction found in these searches, not a priority claim. The inherited claim to have searched all relevant later papers was not independently repeated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the theorem, its entire counting argument, Proposition 4.1, Theorems 4.5 and 4.7, and the conversion factors in §2.1. After correcting the separate exponent slips E5–E6, the proof counts a chosen family of large multidegrees and discards the rest as nonnegative. For fixed n it gives a uniform lower bound with an O_n(q^(−1/2)) error after normalization. This proves the liminf bound. The remaining components are not shown to have a normalized limit. Confirmed as an unproved existence assertion in the printed theorem, not as a proof that the limit fails to exist. Dividing by the fixed positive group-theoretic rigidification factors transfers the lower bound from Ẽ to E. Corrected the v2 locator of Theorem 1.2 from p.3 to p.2 and added the published locators.",
+        "by": "REV-ERRATA-PAPER-WOOD-19"
+      }
     },
     {
       "id": "PAPER-WOOD-19/E2",
       "kind": "error",
-      "locator": "Definition 3.12 (from [EVW12, §8.4]), p.13; used again in the proof of Theorem 3.13, p.14, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "locator": "Definition 3.12, arXiv 1702.04644v2 p.13 / published p.394; proof of Theorem 3.13, v2 p.14 / published pp.395–396. Both versions independently collated.",
       "printed": "\"Let Γ be the tame quotient of G_{F̄_p(t)} corresponding to extensions only ramified at S. Then Γ is free pro-prime-to-p, on generators δ_1, …, δ_k, with each generator generating the tame inertia subgroup at a point of S∖∞.\"",
       "correction": "Let Γ be the maximal prime-to-p quotient of that tame quotient. This Γ is free pro-prime-to-p on δ_1, …, δ_k with δ_1⋯δ_kδ_∞ = 1. Since |F| is prime to p, φ factors through it.",
-      "reason": "In characteristic p the tame fundamental group of P¹ minus a finite set S is not pro-prime-to-p. Grothendieck's comparison (SGA 1, XIII, 2.12, which the paper cites) describes only its maximal prime-to-p quotient as the prime-to-p completion of the topological fundamental group. For example, for p ≥ 5 the tame fundamental group of P¹ ∖ {0, 1728, ∞} has as quotients the groups PSL₂(F_ℓ), ℓ ≠ p, of modular covers X(ℓ) → X(1), ramified with indices 2, 3, ℓ, and these orders are divisible by p for suitable ℓ. The definition and the proof of Theorem 3.13 only use homomorphisms to F and its lift F̃_c, whose orders are prime to p. These factor through the prime-to-p quotient, so nothing changes. Noted by the extraction (item 56).",
+      "reason": "Independently checked both versions and SGA 1 XIII Corollary 2.12, including its proof: the single-relation free presentation is asserted for the maximal prime-to-p quotient, not an identification of the entire tame group with that quotient. A concrete tame quotient of order divisible by p is given by the characteristic-3 elliptic example in the review: E:y²=x³+x²+1 has a point P=(2,1) of order 3, and translations by P together with inversion give a tame S3-cover of P¹, branched at four points with inertia order 2. This also fits a branch set arising from a prime-to-3 quadratic cover. Replaced the inherited modular-cover assertion by this independently checked example. Since |F| is prime to p, both F and its reduced Schur cover have prime-to-p order (the Schur multiplier is finite and annihilated by |F|). Thus the homomorphisms used in the definition and lifting argument factor through the corrected quotient. Confirmed the slip without claiming a failure of the intended invariant.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
-        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
-        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
-        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
-      ]
+        "Independent review, Codex — codex-a71f92, 2026-09-23: arXiv 1702.04644v2 (2018-07-13), https://arxiv.org/pdf/1702.04644v2, SHA-256 2eacf07f9c79a08a65bbfa332b964f0f9bd4ab5abb93e5db8be72e43669be1bd; every finding and its surrounding argument read. The public published PDF https://par.nsf.gov/servlets/purl/10152050, Duke Math. J. 168 (2019), 377–427, DOI 10.1215/00127094-2018-0037, SHA-256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d, was collated at all eight findings, including page-image checks. This is targeted reading, not a claim to have reread every page.",
+        "Correction search 2026-09-23: https://arxiv.org/abs/1702.04644 lists v1 (2017-02-15) and v2 (2018-07-13), with no later version listed. The author's publication page https://people.math.harvard.edu/~mmwood/Publications/ links the journal paper and old arXiv preprint, but no erratum beside this paper.",
+        "The Crossref record https://api.crossref.org/works/10.1215/00127094-2018-0037 returned an empty relation object and no update-to/updated-by entries on 2026-09-23. This is not an exhaustive correction registry. The Project Euclid link https://projecteuclid.org/euclid.dmj/1548730815 did not expose usable article text in this check; the published text was instead read through NSF PAR.",
+        "Exact-title web searches with erratum, correction, liminf, and Conjecture 5.1/generator located no matching correction. A returned publisher correction for A predicted distribution for Galois groups of maximal unramified extensions concerns a different paper. 'new' means no matching correction found in these searches, not a priority claim. The inherited claim to have searched all relevant later papers was not independently repeated.",
+        "SGA 1, Exposé XIII, Corollary 2.12 and proof, printed pp.290–292 of the 2003 re-typeset edition (original marginal pp.392–394), https://pi.math.cornell.edu/~dkmiller/bin/sga1.pdf, SHA-256 a28dfc3150749205935cd513ecd9eaa525464ea313e9cc976ee67c23d075e873: independently read for the precise prime-to-p presentation."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked both versions and SGA 1 XIII Corollary 2.12, including its proof: the single-relation free presentation is asserted for the maximal prime-to-p quotient, not an identification of the entire tame group with that quotient. A concrete tame quotient of order divisible by p is given by the characteristic-3 elliptic example in the review: E:y²=x³+x²+1 has a point P=(2,1) of order 3, and translations by P together with inversion give a tame S3-cover of P¹, branched at four points with inertia order 2. This also fits a branch set arising from a prime-to-3 quadratic cover. Replaced the inherited modular-cover assertion by this independently checked example. Since |F| is prime to p, both F and its reduced Schur cover have prime-to-p order (the Schur multiplier is finite and annihilated by |F|). Thus the homomorphisms used in the definition and lifting argument factor through the corrected quotient. Confirmed the slip without claiming a failure of the intended invariant.",
+        "by": "REV-ERRATA-PAPER-WOOD-19"
+      }
     },
     {
       "id": "PAPER-WOOD-19/E3",
       "kind": "error",
-      "locator": "Proposition 4.4, pp.19–20, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "locator": "Proposition 4.4 and proof, arXiv 1702.04644v2 pp.19–20 / published pp.402–403. Both versions independently collated.",
       "printed": "\"Let Q be a global field with a choice of place ∞. Let G be a finite group and G′ a subgroup of G ≀ S_2. Let c be the order 2 elements of G′ with non-trivial image in S_2. Let φ: Gal(Q̄_∞/Q_∞) → G′ be a ramified homomorphism with image ⟨(1,σ)⟩. There is a bijection between {(K,ρ) | … ρ ∈ Sur(G_K^{un,∞}, G) | ρ is type G′} and {isomorphism classes of marked (G′,c) extensions (L,π,m) of Q with infinity type φ}.\" The proof builds ρ from a marked extension \"by projection onto the first factor\" and says \"It is straightforward to check that these constructions are inverses to each other\".",
-      "correction": "Assume that G′ is admissible, or at least that ker(G′ → S_2) projects onto the first factor G. Only then does the projection give a surjection ρ, and both bijections hold. The paper applies the proposition only to admissible G′ (Theorem 4.8 and §7).",
-      "reason": "Without this hypothesis the first bijection fails. Take G = C_3, G′ = ⟨(1,σ)⟩ ≅ C_2 and c = {(1,σ)}, and let Q = ℚ with ∞ the real place. A marked (G′,c)-extension with the ramified infinity type φ is an imaginary quadratic field such as ℚ(√−3) with its marking, so the right side is nonempty. The left side is empty: type G′ requires Gal(L̃/ℚ) ≅ G′, of order 2, while L/K is a C_3-extension. The projection onto the first factor of G′ ∩ (G × G) = 1 is not onto G. Noted by the extraction (items 73 and 142).",
+      "correction": "Assume G′ is admissible. For the inverse-construction issue, a weaker sufficient condition is (1,σ)∈G′ together with surjectivity of ker(G′→S2) onto the first factor G; the ramified infinity-type hypothesis already implies the former in the first bijection. The swap then also gives surjectivity onto the second factor, and the intersection of the projection kernels is trivial. The applications in Theorem 4.8 use admissible G′.",
+      "reason": "Read both bijections and their inverse construction in both versions. For G=C3 and G′=⟨(1,σ)⟩≅C2, the marked imaginary quadratic extension Q(√−3)/Q gives a point on the right of the first bijection, with the required infinity type and allowed finite inertia. The left side is empty because a C3-extension of a quadratic field has degree 6 over Q, so its Galois closure cannot have group of order 2. The inverse projection from ker(G′→S2)=1 is not surjective. Confirmed the missing hypothesis. The correction below includes (1,σ)∈G′ explicitly when giving the weaker alternative, rather than treating surjectivity of one projection alone as all the needed data. With those assumptions, the two projection kernels intersect trivially, so the two conjugate subextensions recover M; the inertia conditions give the required unramified extension.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
-        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
-        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
-        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
-      ]
+        "Independent review, Codex — codex-a71f92, 2026-09-23: arXiv 1702.04644v2 (2018-07-13), https://arxiv.org/pdf/1702.04644v2, SHA-256 2eacf07f9c79a08a65bbfa332b964f0f9bd4ab5abb93e5db8be72e43669be1bd; every finding and its surrounding argument read. The public published PDF https://par.nsf.gov/servlets/purl/10152050, Duke Math. J. 168 (2019), 377–427, DOI 10.1215/00127094-2018-0037, SHA-256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d, was collated at all eight findings, including page-image checks. This is targeted reading, not a claim to have reread every page.",
+        "Correction search 2026-09-23: https://arxiv.org/abs/1702.04644 lists v1 (2017-02-15) and v2 (2018-07-13), with no later version listed. The author's publication page https://people.math.harvard.edu/~mmwood/Publications/ links the journal paper and old arXiv preprint, but no erratum beside this paper.",
+        "The Crossref record https://api.crossref.org/works/10.1215/00127094-2018-0037 returned an empty relation object and no update-to/updated-by entries on 2026-09-23. This is not an exhaustive correction registry. The Project Euclid link https://projecteuclid.org/euclid.dmj/1548730815 did not expose usable article text in this check; the published text was instead read through NSF PAR.",
+        "Exact-title web searches with erratum, correction, liminf, and Conjecture 5.1/generator located no matching correction. A returned publisher correction for A predicted distribution for Galois groups of maximal unramified extensions concerns a different paper. 'new' means no matching correction found in these searches, not a priority claim. The inherited claim to have searched all relevant later papers was not independently repeated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read both bijections and their inverse construction in both versions. For G=C3 and G′=⟨(1,σ)⟩≅C2, the marked imaginary quadratic extension Q(√−3)/Q gives a point on the right of the first bijection, with the required infinity type and allowed finite inertia. The left side is empty because a C3-extension of a quadratic field has degree 6 over Q, so its Galois closure cannot have group of order 2. The inverse projection from ker(G′→S2)=1 is not surjective. Confirmed the missing hypothesis. The correction below includes (1,σ)∈G′ explicitly when giving the weaker alternative, rather than treating surjectivity of one projection alone as all the needed data. With those assumptions, the two projection kernels intersect trivially, so the two conjugate subextensions recover M; the inertia conditions give the required unramified extension.",
+        "by": "REV-ERRATA-PAPER-WOOD-19"
+      }
     },
     {
       "id": "PAPER-WOOD-19/E4",
       "kind": "misprint",
-      "locator": "Proof of Theorem 1.2 from Theorem 4.8, p.23, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "locator": "Proof of Theorem 1.2 from Theorem 4.8, arXiv 1702.04644v2 p.23 / published p.407. Both versions independently collated.",
       "printed": "\"If we restrict to q such that |H_2(G′,c)[q−1]| is fixed, then we have lim_{q→∞, (q,|G′|)=1, |H_2(G′,c)[q−1]|=d} Ẽ^±_{F_q(t),q^n}(G,G′) = d\"",
       "correction": "Ẽ^±_{F_q(t),q^{2n}}(G,G′).",
       "reason": "Theorems 1.2 and 4.8 concern the discriminant slice q^{2n}, and the sum over component invariants in Theorem 4.8 is taken over IQ_{=q^{2n}} and RQ_{=q^{2n}}.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
-        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
-        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
-        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
-      ]
+        "Independent review, Codex — codex-a71f92, 2026-09-23: arXiv 1702.04644v2 (2018-07-13), https://arxiv.org/pdf/1702.04644v2, SHA-256 2eacf07f9c79a08a65bbfa332b964f0f9bd4ab5abb93e5db8be72e43669be1bd; every finding and its surrounding argument read. The public published PDF https://par.nsf.gov/servlets/purl/10152050, Duke Math. J. 168 (2019), 377–427, DOI 10.1215/00127094-2018-0037, SHA-256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d, was collated at all eight findings, including page-image checks. This is targeted reading, not a claim to have reread every page.",
+        "Correction search 2026-09-23: https://arxiv.org/abs/1702.04644 lists v1 (2017-02-15) and v2 (2018-07-13), with no later version listed. The author's publication page https://people.math.harvard.edu/~mmwood/Publications/ links the journal paper and old arXiv preprint, but no erratum beside this paper.",
+        "The Crossref record https://api.crossref.org/works/10.1215/00127094-2018-0037 returned an empty relation object and no update-to/updated-by entries on 2026-09-23. This is not an exhaustive correction registry. The Project Euclid link https://projecteuclid.org/euclid.dmj/1548730815 did not expose usable article text in this check; the published text was instead read through NSF PAR.",
+        "Exact-title web searches with erratum, correction, liminf, and Conjecture 5.1/generator located no matching correction. A returned publisher correction for A predicted distribution for Galois groups of maximal unramified extensions concerns a different paper. 'new' means no matching correction found in these searches, not a priority claim. The inherited claim to have searched all relevant later papers was not independently repeated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the displayed limit in both PDFs and its surrounding discriminant definitions. The slice is q^(2n) in both input theorems and in the sums over IQ and RQ; the intermediate displayed Ẽ has q^n. Confirmed the exponent misprint. It does not change the intended good-case limit calculation.",
+        "by": "REV-ERRATA-PAPER-WOOD-19"
+      }
     },
     {
       "id": "PAPER-WOOD-19/E5",
       "kind": "misprint",
-      "locator": "Proof of Theorem 4.8, the imaginary case with G′ not good, p.24, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "locator": "Proof of Theorem 4.8, bad imaginary case, arXiv 1702.04644v2 p.24 / published p.409. Both versions independently collated.",
       "printed": "\"#{(K,ρ) | K ∈ IQ_{=q^{2n}}, … type G′} = Σ_{n: Σ n_i = 2n−1} #CHur^{c,(1,1,σ)}_{G,n}(F_q)\" and \"Σ #CHur^{c,(1,1,σ)}_{G,n}(F_q) ≥ Σ_{n∈𝒞} |H_2(G,c)[q−1]| q^n + O_n(q^{n−1/2}) ≥ v_{G′} n^{#c/G′−1} |H_2(G′,c)[q−1]| q^n + O_n(q^{n−1/2})\"",
       "correction": "CHur^{c,(1,1,σ)}_{G′,n}, H_2(G′,c)[q−1], and q^{2n−1} + O_n(q^{2n−3/2}) in place of q^n + O_n(q^{n−1/2}).",
       "reason": "The Hurwitz schemes parametrize G′-covers, and H_2(·, c) is defined for the group G′ that contains c. By Theorem 4.7 each Frobenius-fixed component of dimension Σ n_i = 2n − 1 has q^{2n−1} + O(q^{2n−3/2}) points. The next display of the proof indeed uses q^{2n−1} and O_n(q^{2n−3/2}).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
-        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
-        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
-        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
-      ]
+        "Independent review, Codex — codex-a71f92, 2026-09-23: arXiv 1702.04644v2 (2018-07-13), https://arxiv.org/pdf/1702.04644v2, SHA-256 2eacf07f9c79a08a65bbfa332b964f0f9bd4ab5abb93e5db8be72e43669be1bd; every finding and its surrounding argument read. The public published PDF https://par.nsf.gov/servlets/purl/10152050, Duke Math. J. 168 (2019), 377–427, DOI 10.1215/00127094-2018-0037, SHA-256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d, was collated at all eight findings, including page-image checks. This is targeted reading, not a claim to have reread every page.",
+        "Correction search 2026-09-23: https://arxiv.org/abs/1702.04644 lists v1 (2017-02-15) and v2 (2018-07-13), with no later version listed. The author's publication page https://people.math.harvard.edu/~mmwood/Publications/ links the journal paper and old arXiv preprint, but no erratum beside this paper.",
+        "The Crossref record https://api.crossref.org/works/10.1215/00127094-2018-0037 returned an empty relation object and no update-to/updated-by entries on 2026-09-23. This is not an exhaustive correction registry. The Project Euclid link https://projecteuclid.org/euclid.dmj/1548730815 did not expose usable article text in this check; the published text was instead read through NSF PAR.",
+        "Exact-title web searches with erratum, correction, liminf, and Conjecture 5.1/generator located no matching correction. A returned publisher correction for A predicted distribution for Galois groups of maximal unramified extensions concerns a different paper. 'new' means no matching correction found in these searches, not a priority claim. The inherited claim to have searched all relevant later papers was not independently repeated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the p.409 page image and the corresponding v2 display. The covers have group G′ containing c, not G, and the fixed component's dimension is d=Σn_i=2n−1. Applying the stated point bound with d gives q^(2n−1)+O_n(q^(2n−3/2)). The following normalized display already uses these exponents. Confirmed both the group-letter and exponent slips, without confusing the scalar discriminant parameter n with the multidegree vector.",
+        "by": "REV-ERRATA-PAPER-WOOD-19"
+      }
     },
     {
       "id": "PAPER-WOOD-19/E6",
       "kind": "misprint",
-      "locator": "Proof of Theorem 4.8, the real quadratic case, p.25, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "locator": "Proof of Theorem 4.8, real quadratic case, arXiv 1702.04644v2 p.25 / published pp.409–410 (the incorrect discriminant sentence is on p.409). Both versions independently collated.",
       "printed": "\"Note that trivial infinity type φ is exactly what makes the associated quadratic extension real quadratic (this was the definition of real quadratic). In particular these extensions have Nm Disc(M) = q^{(Σ_i n_i+1)|G′|/2}, and thus associated quadratic extension with discriminant norm q^{Σ_i n_i+1},\"",
       "correction": "Nm Disc(M) = q^{(Σ_i n_i)|G′|/2}, and the associated quadratic extension has discriminant norm q^{Σ_i n_i}.",
       "reason": "With trivial infinity type, the place at infinity is unramified and contributes nothing to the discriminant. The paper's own convention before Theorem 4.8 is Σ n_i = 2n − ε, with ε = 0 when K is unramified at infinity. The count that follows is q^{2n} + O_n(q^{2n−1/2}) over RQ_{=q^{2n}}, consistent with Σ n_i = 2n. The sentence was copied from the imaginary case, where the \"+1\" is correct. Noted by the extraction (item 91).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
-        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
-        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
-        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
-      ]
+        "Independent review, Codex — codex-a71f92, 2026-09-23: arXiv 1702.04644v2 (2018-07-13), https://arxiv.org/pdf/1702.04644v2, SHA-256 2eacf07f9c79a08a65bbfa332b964f0f9bd4ab5abb93e5db8be72e43669be1bd; every finding and its surrounding argument read. The public published PDF https://par.nsf.gov/servlets/purl/10152050, Duke Math. J. 168 (2019), 377–427, DOI 10.1215/00127094-2018-0037, SHA-256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d, was collated at all eight findings, including page-image checks. This is targeted reading, not a claim to have reread every page.",
+        "Correction search 2026-09-23: https://arxiv.org/abs/1702.04644 lists v1 (2017-02-15) and v2 (2018-07-13), with no later version listed. The author's publication page https://people.math.harvard.edu/~mmwood/Publications/ links the journal paper and old arXiv preprint, but no erratum beside this paper.",
+        "The Crossref record https://api.crossref.org/works/10.1215/00127094-2018-0037 returned an empty relation object and no update-to/updated-by entries on 2026-09-23. This is not an exhaustive correction registry. The Project Euclid link https://projecteuclid.org/euclid.dmj/1548730815 did not expose usable article text in this check; the published text was instead read through NSF PAR.",
+        "Exact-title web searches with erratum, correction, liminf, and Conjecture 5.1/generator located no matching correction. A returned publisher correction for A predicted distribution for Galois groups of maximal unramified extensions concerns a different paper. 'new' means no matching correction found in these searches, not a priority claim. The inherited claim to have searched all relevant later papers was not independently repeated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the real and imaginary paragraphs side by side in both versions. In the real case infinity splits and contributes zero to the different/discriminant. Every finite inertia group is tame of order 2, so the G′-cover contributes |G′|/2 times the finite branch degree Σn_i, and the quadratic cover contributes Σn_i. Thus both printed +1 terms must be removed. The subsequent count has dimension 2n and denominator q^(2n)−q^(2n−1), consistent with this correction. Confirmed a copied exponent slip; no correction to the imaginary +1.",
+        "by": "REV-ERRATA-PAPER-WOOD-19"
+      }
     },
     {
       "id": "PAPER-WOOD-19/E7",
       "kind": "error",
-      "locator": "Conjecture 5.1, p.26, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
-      "printed": "\"Let h ∈ H_2(G′,c){|μ_Q|}. Let u ∈ μ_{Q(μ_{4|G̃′_c|})}. If G′ is good, then lim_{X→∞} (Σ_{K∈IQ^t_X} #{ρ ∈ Sur(G_K^{un,∞}, G) | ρ is type G′, I_{G′,π,Q}(ρ,u) = h}) / (Σ_{K∈IQ^t_X} 1) = 1, and\" the same for real quadratic fields.",
-      "correction": "Let u be a generator of μ_{Q(μ_{4|G̃′_c|})} (and h ∈ H_2(G′,c)[|μ_Q|]). Equivalently, stratify by the Hom-valued invariant u ↦ I(ρ,u). This matches Theorem 4.8, which takes u_q ∈ Ẑ(1)^×.",
-      "reason": "By Lemma 3.11, u ↦ I_{F,π,K}(φ,u) is a homomorphism from μ_L to H_2(F,c)[|μ_K|], so I(ρ,1) = 1 for every ρ. With u = 1 and h ≠ 1 the count in the numerator is zero for every X, so the limit is 0, not 1, whenever H_2(G′,c)[|μ_Q|] ≠ 1. The paper has such cases. For Q = ℚ, where |μ_Q| = 2, its table in §8.2 lists the good pair G = A_4, G′ = ((C_2⁴) ⋊ C_3) ⋊ C_2 [227] with H_2(G′,c) = C_2, and G = A_5, G′ = A_5 ≀ C_2 with H_2(G′,c) = C_2. More generally, for u of order d the invariant only sees h in the image of μ_d. For a generator u, evaluation at u identifies the homomorphisms μ_L → H_2(G′,c)[|μ_Q|] with H_2(G′,c)[|μ_Q|], since |μ_Q| divides |μ_L|, which is the intended stratification. The braces in \"H_2(G′,c){|μ_Q|}\" are a misprint for the torsion subgroup H_2(G′,c)[|μ_Q|]. Noted by the extraction (items 99 and 144).",
+      "locator": "Conjecture 5.1, arXiv 1702.04644v2 p.26 / published p.411; Lemma 3.11, v2 p.13 / published p.393. Both versions independently collated.",
+      "printed": "\"Let h ∈ H_2(G′,c)|μ_Q|. Let u ∈ μ_{Q(μ_{4|G̃′_c|})}. If G′ is good, then lim_{X→∞} (Σ_{K∈IQ^t_X} #{ρ ∈ Sur(G_K^{un,∞}, G) | ρ is type G′, I_{G′,π,Q}(ρ,u) = h}) / (Σ_{K∈IQ^t_X} 1) = 1, and\" the same for real quadratic fields.",
+      "correction": "Write h∈H_2(G′,c)[|μ_Q|] and take u to be a generator of the cyclic group μ_L, L=Q(μ_(4|G̃′_c|)). Equivalently formulate the conjecture by the Hom-valued invariant. This is a sufficient repair of the indexing: more generally, if u=ζ^a for a generator ζ, evaluation is h↦h^a on H_2(G′,c)[|μ_Q|], so it is enough that this power map be an automorphism. The average-one assertion after this repair remains conjectural.",
+      "reason": "Lemma 3.11 with exponent 0, or the homomorphism property immediately after Definition 3.1, gives I(ρ,1)=1. Thus u=1 and h≠1 make the numerator identically zero, contradicting the predicted average 1. The review independently constructs a good admissible F=PSL2(F5)≀C2 with nonzero H2(F,c)[2] using a stem central extension by C2 that kills the c-commutators; this does not rely on trusting the table's computed multiplier. A generator of μ_L is a sufficient clean repair, not a necessary choice in every case: writing u=ζ^a, evaluation is the a-power map on H2(F,c)[|μ_Q|]. Also fixed the inherited claim about printed braces: both page images print juxtaposition H2(G′,c)|μ_Q|, with no torsion brackets. The revised generator formulation remains a conjecture, not a proved average.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
-        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
-        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
-        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
-      ]
+        "Independent review, Codex — codex-a71f92, 2026-09-23: arXiv 1702.04644v2 (2018-07-13), https://arxiv.org/pdf/1702.04644v2, SHA-256 2eacf07f9c79a08a65bbfa332b964f0f9bd4ab5abb93e5db8be72e43669be1bd; every finding and its surrounding argument read. The public published PDF https://par.nsf.gov/servlets/purl/10152050, Duke Math. J. 168 (2019), 377–427, DOI 10.1215/00127094-2018-0037, SHA-256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d, was collated at all eight findings, including page-image checks. This is targeted reading, not a claim to have reread every page.",
+        "Correction search 2026-09-23: https://arxiv.org/abs/1702.04644 lists v1 (2017-02-15) and v2 (2018-07-13), with no later version listed. The author's publication page https://people.math.harvard.edu/~mmwood/Publications/ links the journal paper and old arXiv preprint, but no erratum beside this paper.",
+        "The Crossref record https://api.crossref.org/works/10.1215/00127094-2018-0037 returned an empty relation object and no update-to/updated-by entries on 2026-09-23. This is not an exhaustive correction registry. The Project Euclid link https://projecteuclid.org/euclid.dmj/1548730815 did not expose usable article text in this check; the published text was instead read through NSF PAR.",
+        "Exact-title web searches with erratum, correction, liminf, and Conjecture 5.1/generator located no matching correction. A returned publisher correction for A predicted distribution for Galois groups of maximal unramified extensions concerns a different paper. 'new' means no matching correction found in these searches, not a priority claim. The inherited claim to have searched all relevant later papers was not independently repeated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 3.11 with exponent 0, or the homomorphism property immediately after Definition 3.1, gives I(ρ,1)=1. Thus u=1 and h≠1 make the numerator identically zero, contradicting the predicted average 1. The review independently constructs a good admissible F=PSL2(F5)≀C2 with nonzero H2(F,c)[2] using a stem central extension by C2 that kills the c-commutators; this does not rely on trusting the table's computed multiplier. A generator of μ_L is a sufficient clean repair, not a necessary choice in every case: writing u=ζ^a, evaluation is the a-power map on H2(F,c)[|μ_Q|]. Also fixed the inherited claim about printed braces: both page images print juxtaposition H2(G′,c)|μ_Q|, with no torsion brackets. The revised generator formulation remains a conjecture, not a proved average.",
+        "by": "REV-ERRATA-PAPER-WOOD-19"
+      }
     },
     {
       "id": "PAPER-WOOD-19/E8",
       "kind": "misprint",
-      "locator": "Appendix A, \"Description of the computation: theoretical\", p.36, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "locator": "Appendix A.1, arXiv 1702.04644v2 p.36 / published p.421. Both versions independently collated.",
       "printed": "\"The non-trivial action gives Gal(L/K) ≃ A_4, and the trivial action gives Gal(L/K) ≃ C_3 × C_3 × C_2. However Gal(L/K) ≃ C_3 × C_3 × C_2, implies, by class field theory, that L/ℚ is Galois.\"",
       "correction": "C_2 × C_2 × C_3, in both places.",
-      "reason": "The group is (C_2 × C_2) ⋊ C_3 with trivial action, of order 12. The printed C_3 × C_3 × C_2 has order 18. The argument, that an abelian unramified Gal(L/K) forces L/ℚ to be Galois, is unaffected. Noted by the extraction (items 125 and 145).",
+      "reason": "Read the full theoretical-computation paragraph in both versions. The trivial action on (C2×C2)⋊C3 gives C2×C2×C3, of order 12, whereas the twice-printed C3×C3×C2 has order 18. Confirmed both occurrences. In the imaginary quadratic setting of the computation, an unramified abelian extension is stable under conjugation because conjugation acts on the ideal class group by inversion; hence the contextual class-field-theory exclusion remains valid. No general assertion about arbitrary abelian extensions of arbitrary base fields is inferred.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
-        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
-        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
-        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
-      ]
+        "Independent review, Codex — codex-a71f92, 2026-09-23: arXiv 1702.04644v2 (2018-07-13), https://arxiv.org/pdf/1702.04644v2, SHA-256 2eacf07f9c79a08a65bbfa332b964f0f9bd4ab5abb93e5db8be72e43669be1bd; every finding and its surrounding argument read. The public published PDF https://par.nsf.gov/servlets/purl/10152050, Duke Math. J. 168 (2019), 377–427, DOI 10.1215/00127094-2018-0037, SHA-256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d, was collated at all eight findings, including page-image checks. This is targeted reading, not a claim to have reread every page.",
+        "Correction search 2026-09-23: https://arxiv.org/abs/1702.04644 lists v1 (2017-02-15) and v2 (2018-07-13), with no later version listed. The author's publication page https://people.math.harvard.edu/~mmwood/Publications/ links the journal paper and old arXiv preprint, but no erratum beside this paper.",
+        "The Crossref record https://api.crossref.org/works/10.1215/00127094-2018-0037 returned an empty relation object and no update-to/updated-by entries on 2026-09-23. This is not an exhaustive correction registry. The Project Euclid link https://projecteuclid.org/euclid.dmj/1548730815 did not expose usable article text in this check; the published text was instead read through NSF PAR.",
+        "Exact-title web searches with erratum, correction, liminf, and Conjecture 5.1/generator located no matching correction. A returned publisher correction for A predicted distribution for Galois groups of maximal unramified extensions concerns a different paper. 'new' means no matching correction found in these searches, not a priority claim. The inherited claim to have searched all relevant later papers was not independently repeated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the full theoretical-computation paragraph in both versions. The trivial action on (C2×C2)⋊C3 gives C2×C2×C3, of order 12, whereas the twice-printed C3×C3×C2 has order 18. Confirmed both occurrences. In the imaginary quadratic setting of the computation, an unramified abelian extension is stable under conjugation because conjugation acts on the ideal class group by inversion; hence the contextual class-field-theory exclusion remains valid. No general assertion about arbitrary abelian extensions of arbitrary base fields is inferred.",
+        "by": "REV-ERRATA-PAPER-WOOD-19"
+      }
     }
-  ]
+  ],
+  "independentReviewAudit": {
+    "job": "REV-ERRATA-PAPER-WOOD-19",
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "date": "2026-09-23",
+    "inputCommit": "408103ee8a404c4828394d8ba288089fff98ff5f",
+    "inputAuthor": "Claude Code — cc-fb70e5",
+    "result": "All eight findings confirmed after independent preprint/published collation; no new finding added.",
+    "amendments": [
+      {
+        "id": "PAPER-WOOD-19/E1",
+        "changedFields": [
+          "locator",
+          "correction",
+          "reason",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-WOOD-19/E2",
+        "changedFields": [
+          "locator",
+          "reason",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-WOOD-19/E3",
+        "changedFields": [
+          "locator",
+          "correction",
+          "reason",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-WOOD-19/E4",
+        "changedFields": [
+          "locator",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-WOOD-19/E5",
+        "changedFields": [
+          "locator",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-WOOD-19/E6",
+        "changedFields": [
+          "locator",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-WOOD-19/E7",
+        "changedFields": [
+          "locator",
+          "printed",
+          "correction",
+          "reason",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-WOOD-19/E8",
+        "changedFields": [
+          "locator",
+          "reason",
+          "searched",
+          "review"
+        ]
+      }
+    ],
+    "scope": "Counterexamples and repair indexing are explained in the review. No extraction or roadmap edited; no claim of formalization. Historical unreviewed text is preserved at the input commit."
+  }
 }
