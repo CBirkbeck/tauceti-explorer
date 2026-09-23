@@ -11116,17 +11116,18 @@
   {
    "id": "PAPER-BROWNING-SAWIN-20/E28",
    "kind": "gap",
-   "locator": "Lemma7.2 and definition of Hom_{d,P}, arXiv v3 pp.43–44; published topology not separately reconciled",
+   "locator": "Published pp.940–941, (7.1), Lemma7.2 and its proof; arXiv v3 pp.43–44",
    "printed": "Hom_{d,P}(C,X)≃Ω²X",
-   "correction": "Specify the topology on the germ-constrained continuous mapping space and prove that germ-straightening and disc gluing are continuous in parameter families. Alternatively construct a uniform-collar model and compare it with the stated model.",
-   "reason": "Pointwise O(|z|) bounds and individually chosen shrinking neighbourhoods do not give a uniform neighbourhood for an arbitrary continuous family. The proof sketches the deformation but does not supply this family-level input. This is an unclosed construction, not a counterexample to the intended homotopy equivalence.",
-   "affects": "the proof",
+   "correction": "Specify the mapping-space topology. With the subspace compact-open topology, Lemma7.2 is false: the Fermat example k=3,d=2,n=40 has a nontrivial infinite-order mapping-space loop although π1(Ω²X)=0. A stronger uniform-germ topology requires a new comparison proof.",
+   "reason": "The explicit family F_s in the report preserves each individual germ exactly outside a compact set and is jointly projectively continuous. A disk filling would produce a disk in C* whose boundary has winding−1. Milnor’s special Fermat join model gives π3(X)=0. Thus pointwise germ control cannot justify the printed family deformation in the compact-open topology. The source supplies no topology, so the finding remains scoped to that interpretation.",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
     "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
     "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-    "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+    "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+    "2026-09-23: fresh Annals article and PDF, arXiv-v3 PDF, and title/author/correction/topology searches; no correction found. Search outcome is not an assertion of priority or author agreement."
    ],
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
