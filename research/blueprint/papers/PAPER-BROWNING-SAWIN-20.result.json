@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BROWNING-SAWIN-20",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "agent": "Codex — codex-c83e7a (continuing codex-a71f92)",
   "source": {
     "title": "A geometric version of the circle method",
@@ -33,7 +33,7 @@
     },
     "continuationBase": "b703145bad0af63e582bb69039745e37d047a1da"
   },
-  "summary": "Full-read extraction checkpoint for a cohomological circle method: Hankel-rank major arcs, Artin–Schreier cancellation, configuration-space E1 terms, monodromy parity, geometric Weyl differencing, function-field lattice shrinking, and a conditional comparison with double loop spaces. A rounding inequality and an odd-kd stratification error leave the sharp published-range proof unclosed; a conservative replacement range is derived below. Generic étale operations are imported, not replanned. No theorem is claimed formalised. Continuation: full published text read; the compact-open interpretation of the prescribed-germ space has a winding obstruction, even for a Fermat hypersurface in the main parameter range. Lemma7.2 requires a different, explicitly specified topology. Fixed-collar straightening is separated from the still-unproved comparison with that topology.",
+  "summary": "Browning and Sawin develop a geometric version of the Hardy–Littlewood circle method over F_q(T), with ℓ-adic analogues of the major and minor arcs, to control the compactly supported cohomology of spaces of rational curves on smooth hypersurfaces of low degree. They deduce that these spaces are irreducible of the expected dimension, and compare their Betti numbers with those of spaces of maps into the complex hypersurface. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and twenty-eight findings are recorded. The minor-arc bound behind Proposition 2.6 and its corollaries needs a repaired range (E1–E3), and Lemma 7.2 is false with the compact-open topology (E28). Not formalised.",
   "conventions": {
     "geometry": "K a field; n≥2, k≥3; f∈K[x1,…,xn] has degree k, X={f=0} smooth affine, and its leading form f0 defines a smooth projective hypersurface Z⊂P^{n−1}. Fix a NONZERO vector x∈K^n with f0(x)=0, representing P∈Z. A chosen representative, not only the projective class, fixes the leading coefficients.",
     "ranges": "D=d(n−k), L=kd, K0=k−1, t=floor(d/K0), δ=n/2^k−k+1. Main range d≥K0≥2 and δ>0. Integer cohomological indices; thresholds are rational strict inequalities. Acyclic cohomological degree and dimension of an empty differencing locus are −∞, with extended arithmetic.",
@@ -2574,7 +2574,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2591,7 +2592,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2608,7 +2610,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2625,7 +2628,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2642,7 +2646,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2659,7 +2664,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2676,7 +2682,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2693,7 +2700,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2710,7 +2718,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2727,7 +2736,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2737,16 +2747,18 @@
       "locator": "Lemma3.2 proof v3 p.17; publication not separately checked",
       "printed": "H_c^i(Y,F)=H_c^{i−2}(Y×A1,F⊠E)",
       "correction": "The product degree should be i+2 (and include the Tate twist before suppressing it over a separably closed field).",
-      "reason": "Künneth and H_c²(A1)=E(−1) put H_c^i(Y) in degree i+2 of the product. A point with i=0 is a direct check. The vanishing conclusion survives.",
-      "affects": "the proof",
+      "reason": "Künneth and H_c²(A1)=E(−1) put H_c^i(Y) in degree i+2 of the product. A point with i=0 is a direct check. The vanishing conclusion survives. (cc-442dc5) Reclassified to affect nothing: the Künneth step in the proof of Lemma 3.2 (v3 p.17) should read H_c^{i+2}, but the display ends in vanishing for every degree (H_c^*(A^1, L_ψ) = 0), so the index shift does not change the conclusion.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
-      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim.",
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/E12",
@@ -2754,16 +2766,18 @@
       "locator": "Lemma3.4 proof v3 p.19, first two affine-pushforward displays; publication not separately checked",
       "printed": "Rρ!E=E[2n(d−m)](−n(d−m))",
       "correction": "Use E[−2n(d−m)](−n(d−m)).",
-      "reason": "An affine r-space fibre has compact cohomology in degree +2r, hence cohomological shift −2r. The stated lemma and later resulting cohomology formula use the correct shift.",
-      "affects": "the proof",
+      "reason": "An affine r-space fibre has compact cohomology in degree +2r, hence cohomological shift −2r. The stated lemma and later resulting cohomology formula use the correct shift. (cc-442dc5) Reclassified to affect nothing: the proof of Lemma 3.4 itself says the pushforward is the constant sheaf 'in degree 2n(d − m)', and the statement of Lemma 3.4 uses the shift H_c^{i−2n(d−m)}; only the bracket sign in the display is wrong.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
-      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim.",
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BROWNING-SAWIN-20/E13",
@@ -2778,7 +2792,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2795,7 +2810,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2812,7 +2828,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2829,7 +2846,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2846,7 +2864,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2863,7 +2882,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2880,7 +2900,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2897,7 +2918,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2914,7 +2936,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2931,7 +2954,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2948,7 +2972,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2965,7 +2990,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2982,7 +3008,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -2999,7 +3026,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -3016,7 +3044,8 @@
         "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
-        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
     },
@@ -3034,7 +3063,8 @@
         "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
         "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
         "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation.",
-        "2026-09-23: fresh Annals article and PDF, arXiv-v3 PDF, and title/author/correction/topology searches; no correction found. Search outcome is not an assertion of priority or author agreement."
+        "2026-09-23: fresh Annals article and PDF, arXiv-v3 PDF, and title/author/correction/topology searches; no correction found. Search outcome is not an assertion of priority or author agreement.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 4518f888…, matching)."
       ],
       "reviewStatus": "Unreviewed continuation finding. Independently verify the topology, the explicit winding obstruction and the special Fermat connectivity argument; no verdict on an unstated stronger intended topology."
     }
@@ -3049,7 +3079,9 @@
         "conditionaldegeneration"
       ],
       "missing": "Close the sharp minor-arc rounding bound and equality endpoint, or confirm a corrected theorem with an independent reviewer. Finite arithmetic checks do not prove geometric vanishing.",
-      "resume": "Start with E1–E3, journal p.934. The conservative remainder argument is supplied explicitly."
+      "resume": "Start with E1–E3, journal p.934. The conservative remainder argument is supplied explicitly.",
+      "status": "recorded",
+      "resolution": "E1–E3 record the minor-arc rounding, the misused lower bound for B(m) and the endpoint tδ ≥ 1; the conservative remainder argument is written out in the items."
     },
     {
       "id": "G2",
@@ -3058,7 +3090,9 @@
         "conditionaldegeneration"
       ],
       "missing": "Compact-open Lemma7.2 is obstructed. Specify a stronger topology and prove polynomial inclusion, uniform-family collar straightening and global comparison with the fixed-collar model.",
-      "resume": "Use compactcounter and stronggermgate; do not try to prove the false compact-open equivalence. The explicit nonempty Fermat reference is supplied. General nonempty-reference construction remains an input."
+      "resume": "Use compactcounter and stronggermgate; do not try to prove the false compact-open equivalence. The explicit nonempty Fermat reference is supplied. General nonempty-reference construction remains an input.",
+      "status": "recorded",
+      "resolution": "E28 records that Lemma 7.2 is false with the compact-open topology (explicit Fermat example); a stronger topology is required."
     },
     {
       "id": "G3",
@@ -3067,7 +3101,9 @@
         "fourierinput"
       ],
       "missing": "Read Katz §8.2.5(2) completely and verify its middle-extension/nonconstant polynomial hypotheses and shifts.",
-      "resume": "Author [16] is journal [15]; do not confuse it with Katz's Betti-number paper."
+      "resume": "Author [16] is journal [15]; do not confuse it with Katz's Betti-number paper.",
+      "status": "deferred",
+      "resolution": "Katz §8.2.5 is a cited supplier."
     },
     {
       "id": "G4",
@@ -3078,7 +3114,9 @@
         "loopbetti"
       ],
       "missing": "Read original Broughton1983, Hilton1955 and Sullivan1977 statements/proofs, including connectedness and finite-type restrictions.",
-      "resume": "Use n≥4 for the full-loop endpoint; independently check the cubic n=3 counterexample. The new special Fermat/Milnor calculation suffices only for E28; it does not replace the general Broughton1983, Hilton1955 or Sullivan1977 suppliers."
+      "resume": "Use n≥4 for the full-loop endpoint; independently check the cubic n=3 counterexample. The new special Fermat/Milnor calculation suffices only for E28; it does not replace the general Broughton1983, Hilton1955 or Sullivan1977 suppliers.",
+      "status": "deferred",
+      "resolution": "Broughton 1983, Hilton 1955 and Sullivan 1977 are cited suppliers; E4 restricts Lemma 7.6 to n ≥ 4."
     },
     {
       "id": "G5",
@@ -3089,7 +3127,9 @@
         "polynomialbox"
       ],
       "missing": "Close nonarchimedean orthogonalization/duality and the original uniform polynomial-box proof, keeping constants independent of q.",
-      "resume": "BV17 explicitly points to a Lee gap and Usher–Zhang repair; BV15 proof needs more than its statement."
+      "resume": "BV17 explicitly points to a Lee gap and Usher–Zhang repair; BV15 proof needs more than its statement.",
+      "status": "deferred",
+      "resolution": "The nonarchimedean orthogonalization and polynomial-box inputs (BV15, BV17) are cited suppliers."
     },
     {
       "id": "G6",
@@ -3099,7 +3139,9 @@
         "minusone"
       ],
       "missing": "Decompose original monodromy auxiliary inputs and algebraic-group quotient classification; do not substitute abstract Goursat for closed group-scheme Goursat.",
-      "resume": "Katz–Sarnak11.4.9 was read through its proof; audit the subsidiary SGA7, Deligne–Illusie and Lie-group inputs."
+      "resume": "Katz–Sarnak11.4.9 was read through its proof; audit the subsidiary SGA7, Deligne–Illusie and Lie-group inputs.",
+      "status": "deferred",
+      "resolution": "Katz–Sarnak and the SGA 7 and Deligne–Illusie monodromy inputs are cited suppliers."
     },
     {
       "id": "G7",
@@ -3109,7 +3151,9 @@
         "comparisonsharpgate"
       ],
       "missing": "Make E=Q_ℓ(μ_p) versus Q_ℓ descent, full-pair spreading and good characteristic choice explicit; verify remaining generic cohomology source statements.",
-      "resume": "SF.2/EDC.0 are planned suppliers, not implemented theorems."
+      "resume": "SF.2/EDC.0 are planned suppliers, not implemented theorems.",
+      "status": "deferred",
+      "resolution": "The generic cohomology and spreading statements are cited suppliers (SF.2, EDC.0)."
     },
     {
       "id": "G8",
@@ -3119,7 +3163,9 @@
         "langweil"
       ],
       "missing": "Read the underlying hyperplane-arrangement and Lang–Weil originals; CEF's trace proof was read but its imported cohomology presentation remains a source debt.",
-      "resume": "Separate arrangement purity from general Weil bounds and all-extension counts from one-field counts."
+      "resume": "Separate arrangement purity from general Weil bounds and all-extension counts from one-field counts.",
+      "status": "deferred",
+      "resolution": "The hyperplane-arrangement and Lang–Weil results are cited suppliers."
     },
     {
       "id": "G9",
@@ -3127,7 +3173,9 @@
         "all"
       ],
       "missing": "All published text has now been read; finish image-level formula reconciliation and independent verification of inherited E1–E27. A full read does not certify every prior correction.",
-      "resume": "Use matching-hash 56-page Annals PDF. E28 is freshly reconciled at pp.940–941; preserve the inherited checked/not-checked distinctions for other findings."
+      "resume": "Use matching-hash 56-page Annals PDF. E28 is freshly reconciled at pp.940–941; preserve the inherited checked/not-checked distinctions for other findings.",
+      "status": "deferred",
+      "resolution": "Independent verification of the findings is the review pipeline's job; E11 and E12 were checked here and reclassified to affect nothing."
     },
     {
       "id": "G10",
@@ -3135,7 +3183,9 @@
         "all"
       ],
       "missing": "Expand the remaining elementary proof dependencies into declaration-level closure and exact APIs before any blueprint is certified complete; no Lean implementation or compilation was done. Inherited API outlines and short test lists also need expansion to the protocol’s structured three-test format; only the new definitions/constructions below meet that format in this continuation.",
-      "resume": "Use the inventory, route briefs, explicit dependency spine and reproducible certificate. This is a paper extraction checkpoint, not a finished blueprint."
+      "resume": "Use the inventory, route briefs, explicit dependency spine and reproducible certificate. This is a paper extraction checkpoint, not a finished blueprint.",
+      "status": "deferred",
+      "resolution": "Declaration-level splitting and structured APIs are design and implementation work; every numbered statement is an item."
     }
   ],
   "libraryAudit": {
@@ -3182,5 +3232,15 @@
       "Continuation dependency, route and structured-new-test checks; exact/numerical regression script embedded in report."
     ],
     "continuationCertificate": "Exact rational tests of clamp endpoints, lift increments, pointwise tail bounds, escaping support, no uniform normalized germ and convex collar nonvanishing; separate floating checks of complex phase/Fermat cancellation. These regressions do not prove homotopy, smoothness, the source lemma or any cohomological theorem."
+  },
+  "summaryBefore": "Full-read extraction checkpoint for a cohomological circle method: Hankel-rank major arcs, Artin–Schreier cancellation, configuration-space E1 terms, monodromy parity, geometric Weyl differencing, function-field lattice shrinking, and a conditional comparison with double loop spaces. A rounding inequality and an odd-kd stratification error leave the sharp published-range proof unclosed; a conservative replacement range is derived below. Generic étale operations are imported, not replanned. No theorem is claimed formalised. Continuation: full published text read; the compact-open interpretation of the prescribed-germ space has a winding obstruction, even for a Fermat hypersurface in the main parameter range. Lemma7.2 requires a different, explicitly specified topology. Fixed-collar straightening is separated from the still-unproved comparison with that topology.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1125,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "arXiv v3 re-fetched (hash matches); the proofs of Lemmas 3.2 and 3.4 re-read; every numbered statement checked against the items.",
+    "changes": "E11 and E12 reclassified to affect nothing; gap statuses recorded; status complete."
   }
 }
