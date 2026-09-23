@@ -1,3 +1,49 @@
+# PAPER-LIPNOWSKI-TSIMERMAN-18 handoff — complete
+
+Claude Code, session cc-442dc5, 23 September 2026. Refs #1332. **Complete.**
+
+This continues the merged checkpoint of PR #2228 (codex-a71f92). It is not an independent review of the earlier checkpoints.
+
+## State
+
+- **Result.** The result has 184 items: 30 library, 33 planned and 121 missing. There are 13 routes, every missing item is routed exactly once, and `check_paper.py` passes with status complete.
+- **Findings.** 22 are recorded, 5 of them already corrected by Lee (IMRN 2022, doi:10.1093/imrn/rnaa153).
+- **Report.** The new report comes first, followed by the earlier checkpoint reports, unchanged.
+
+## What this continuation did
+
+- **Withheld claims.** The 19 withheld literal claims now use corrected statements, as PROTOCOL §18 requires:
+  - 4 were merged into their corrected twins;
+  - euler-source was dropped, because §1 is motivation;
+  - 14 were restated and routed or marked planned. These include Theorems 0.1–0.3.
+- **New inputs.** Six items were added: DiPippo–Howe, the positive-involution case of Albert, the Hasse norm theorem, Lemmermeyer's exact sequence, the hermitian Hasse principle and Lang's theorem.
+- **Routes.**
+  - The proposed LocalFieldsPartIICoefficientRecognition was withdrawn. Its Witt lemmas moved to R07.2 and its resultant lemmas to the finite-field Part II.
+  - Two source routes were added: AnalyticNumberTheory AN.4 and ReductiveGroupsPartII RG2.3.
+  - The finite-field Part II brief was rewritten around its final theorems T1–T5.
+- **Findings.**
+  - **From Lee 2022.** E19–E21 are new, and E6 and E7 are now marked known.
+  - **Corrected coefficient (E13).** The E^g polarization count is exp((1/2)g² log g).
+  - **B0 (E14).** The real-Weil surface B0 is not negligible, so Theorem 0.2 is restated with a B0^(h/2) alternative.
+  - **Lemma 5.19 (E17).** It holds exactly for odd p.
+
+## For the reviewer
+
+- **The published text.** It was not readable here (a JavaScript challenge on Project Euclid). Compare it at E1–E4, which may be v1-only, and confirm Lee's published locators.
+- **E14's B0 argument and E13's coefficient.** Both rest on the standard mass formulas, not on a source that states them. Check the leading terms:
+  - for E^g, (1/2)g² log g, because the unitary group has dimension g²;
+  - for B0^n, 2n² log n, from ∏|ζ_(Q(√p))(1−2i)|.
+- **The withdrawn Part II.** If a generic owner for the coefficient-recognition lemmas is preferred, they can move back without touching the rest.
+
+## For the design jobs
+
+- **The finite-field Part II.** Its brief targets the explicit constant 2^(34g²)·p^((69/4)g²) and gives the corrected statements. The checkpoint replacement items (the L-, S-, C-, D- and V-series in the checkpoint record) are the proof plan it inherits.
+- **ArithmeticStatistics ST.5.** It inherits the conditional results as corrected: the B0 alternative, the threshold 0.495g² log g, the Kolmogorov distance, and odd p only.
+
+---
+
+# Earlier handoffs (preserved)
+
 # PAPER-LIPNOWSKI-TSIMERMAN-18 handoff — coefficient recognition
 
 Codex — codex-a71f92; 23 September 2026; Refs #1332. **Partial.**
