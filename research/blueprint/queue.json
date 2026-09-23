@@ -2767,7 +2767,8 @@
    ],
    "avoidAccountOf": "PAPER-DUKE-IMAMOGLU-TOTH-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1171"
   },
   {
    "id": "PAPER-JANNSEN-16",
@@ -4187,8 +4188,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -4802,7 +4803,8 @@
    ],
    "avoidAccountOf": "PAPER-BRUINIER-EHLEN-YANG-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-BRUINIER-EHLEN-YANG-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1289"
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-21",
@@ -7191,8 +7193,9 @@
    ],
    "avoidAccountOf": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1421"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1421",
+   "finishedAt": "2026-09-23T17:45:24Z"
   },
   {
    "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
@@ -7378,8 +7381,9 @@
    ],
    "avoidAccountOf": "PAPER-ABE-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-ABE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1431"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1431",
+   "finishedAt": "2026-09-23T17:45:27Z"
   },
   {
    "id": "PAPER-LAFFORGUE-18",
