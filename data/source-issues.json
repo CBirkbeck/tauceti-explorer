@@ -45867,7 +45867,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -45889,7 +45890,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -45911,7 +45913,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -45922,18 +45925,19 @@
   },
   {
    "id": "PAPER-VANHOFTEN-24/E4",
-   "kind": "error",
+   "kind": "misprint",
    "locator": "Published2024 Lemma2.1.10 p9; arXivv4 PDF11",
    "printed": "Dim X + d = Dim Y",
    "correction": "Dim X = Dim Y + d.",
-   "reason": "The perfectly smooth map (A1)^perf→Spec k has source dimension1, target dimension0 and fiber dimension1. The printed equality gives2=0.",
-   "affects": "a stated result",
+   "reason": "The perfectly smooth map (A1)^perf→Spec k has source dimension1, target dimension0 and fiber dimension1. The printed equality gives2=0. (cc-442dc5) Reclassified to affect nothing: the standard dimension formula Dim X = Dim Y + d is the evident intent (the printed version gives 2 = 0 for (A¹)^perf → Spec k), and it is the form the paper uses.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -45955,7 +45959,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -45970,14 +45975,15 @@
    "locator": "Published2024 Lemma2.1.12 and proof2.1.13 p9; arXivv4 PDF11",
    "printed": "for some positive integer d_y",
    "correction": "Use nonnegative integers for algebraic-space relative dimensions.",
-   "reason": "An identity map is weakly perfectly smooth of relative dimension0.",
-   "affects": "a stated result",
+   "reason": "An identity map is weakly perfectly smooth of relative dimension0. (cc-442dc5) Reclassified to affect nothing: relative dimension 0 must be allowed, as for the identity; the paper's uses are unaffected.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -45999,7 +46005,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46021,7 +46028,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46036,14 +46044,15 @@
    "locator": "Published2024 Lemma2.3.9 proof p21, first display",
    "printed": "[M_I^(1-rdt) / Ad_sigma H_m] = Sht_I,mu^(mprime,1)",
    "correction": "Remove the final equality; pass from the H_m quotient to the L^mprime G_I quotient by the additional kernel gerbe.",
-   "reason": "The next display of the proof explicitly constructs that nontrivial kernel gerbe. The two quotient stacks are not identified merely by having a surjective group map.",
-   "affects": "the proof",
+   "reason": "The next display of the proof explicitly constructs that nontrivial kernel gerbe. The two quotient stacks are not identified merely by having a surjective group map. (cc-442dc5) Reclassified to affect nothing: the next display of the proof constructs the kernel gerbe that the corrected passage needs.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46065,7 +46074,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46087,7 +46097,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46109,7 +46120,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46131,7 +46143,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46153,7 +46166,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46175,7 +46189,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46197,7 +46212,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46219,7 +46235,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46234,14 +46251,15 @@
    "locator": "Published2024 AppendixA1 p54; arXivv4 PDF64",
    "printed": "lambda − lambdaPrime can be written as a sum of positive coroots",
    "correction": "Use lambdaPrime−lambda for lambda≤lambdaPrime, allowing the zero sum.",
-   "reason": "The following identity Adm(mu)={lambda:lambda≤mu} and the Schubert Bruhat order require the usual bounded dominance orientation. In rank one 0≤alphaVee.",
-   "affects": "a stated result",
+   "reason": "The following identity Adm(mu)={lambda:lambda≤mu} and the Schubert Bruhat order require the usual bounded dominance orientation. In rank one 0≤alphaVee. (cc-442dc5) Reclassified to affect nothing: the identity Adm(μ) = {λ : λ ≤ μ} that follows fixes the usual orientation of the dominance order.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46263,7 +46281,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46285,7 +46304,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46300,14 +46320,15 @@
    "locator": "Published2024 Proof PropositionA1.6 p57",
    "printed": "simple roots contained in M but not in G",
    "correction": "Use the classes of simple coroots of G outside M to generate ker(pi1(M)→pi1(G)).",
-   "reason": "M is a Levi subgroup of G, so it has no simple roots outside G; the kernel is Qvee(G)/Qvee(M).",
-   "affects": "the proof",
+   "reason": "M is a Levi subgroup of G, so it has no simple roots outside G; the kernel is Qvee(G)/Qvee(M). (cc-442dc5) Reclassified to affect nothing: a Levi subgroup has no simple roots outside G, so the intended generators are the simple coroots of G outside M.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46329,7 +46350,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46344,14 +46366,15 @@
    "locator": "Published2024 Proof PropositionA1.6 p58, choice of g0",
    "printed": "g0^(-1) wsharp g0 = w",
    "correction": "Use g0^(-1) wsharp sigma(g0)=w.",
-   "reason": "The point lies in the sigma-conjugacy ADLV; ordinary conjugacy is not supplied by the cited straight-element theorem.",
-   "affects": "the proof",
+   "reason": "The point lies in the sigma-conjugacy ADLV; ordinary conjugacy is not supplied by the cited straight-element theorem. (cc-442dc5) Reclassified to affect nothing: the point lies in a σ-conjugacy ADLV, so σ-conjugacy is the evident intent.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46366,14 +46389,15 @@
    "locator": "Published2024 Proof PropositionA1.6 p58, definition of w_i",
    "printed": "w_i := u_i^(-1) wsharp sigma(u_i)",
    "correction": "Use w_i=u_i^(-1) w sigma(u_i) after choosing g0 with g0^(-1)wsharp sigma(g0)=w and g_i=g0 u_i.",
-   "reason": "Substitution gives g_i^(-1)wsharp sigma(g_i)=u_i^(-1)w sigma(u_i).",
-   "affects": "the proof",
+   "reason": "Substitution gives g_i^(-1)wsharp sigma(g_i)=u_i^(-1)w sigma(u_i). (cc-442dc5) Reclassified to affect nothing: the corrected formula follows by substituting g_i = g0 u_i into the displayed definitions.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46395,7 +46419,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46410,14 +46435,15 @@
    "locator": "Published2024 AppendixA3.3 p59",
    "printed": "x − xprime = alphaVee − sigma^r(alphaVee)",
    "correction": "Use xprime−x=alphaVee−sigma^r(alphaVee), consistently with the displayed intermediate parameters and the endpoint in LemmaA3.11.",
-   "reason": "The first alleged shorter step is x→x+alphaVee−sigma^i(alphaVee). With the printed difference it has the opposite sign. The endpoint g_x t^(−sum sigma^i alphaVee) changes the Levi Hodge class by +alphaVee−sigma^r alphaVee.",
-   "affects": "the proof",
+   "reason": "The first alleged shorter step is x→x+alphaVee−sigma^i(alphaVee). With the printed difference it has the opposite sign. The endpoint g_x t^(−sum sigma^i alphaVee) changes the Levi Hodge class by +alphaVee−sigma^r alphaVee. (cc-442dc5) Reclassified to affect nothing: a sign slip; the displayed intermediate parameters and the endpoint in Lemma A3.11 fix the sign.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46439,7 +46465,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46450,18 +46477,19 @@
   },
   {
    "id": "PAPER-VANHOFTEN-24/E28",
-   "kind": "error",
+   "kind": "misprint",
    "locator": "Published2024 AppendixA3.7(3) p61; arXivv4 PDF71",
    "printed": "u_1([a], [a]^2/2)",
    "correction": "Use u_1([a], −[a]^2/2) for the stated Hermitian form and tau fixing [a].",
-   "reason": "At a=1 the printed unitary equation tau(c)c+d+tau(d)=0 reads1+1/2+1/2=2. The corrected negative sign makes it0.",
-   "affects": "a stated result",
+   "reason": "At a=1 the printed unitary equation tau(c)c+d+tau(d)=0 reads1+1/2+1/2=2. The corrected negative sign makes it0. (cc-442dc5) Reclassified to affect nothing: the displayed unitary equation fixes the sign of the second coordinate.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46483,7 +46511,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46498,14 +46527,15 @@
    "locator": "Published2024 Proof LemmaA3.11 p62, endpoint limit",
    "printed": "product_i t^(sigma^i(alphaVee))",
    "correction": "The first endpoint expression must use t^(−sigma^i(alphaVee)), consistently with the next equality g_x t^(−sum_i sigma^i(alphaVee)).",
-   "reason": "The unipotent factors tend to1, so a product of positive translations cannot tend to the negative translation displayed on the next line.",
-   "affects": "the proof",
+   "reason": "The unipotent factors tend to1, so a product of positive translations cannot tend to the negative translation displayed on the next line. (cc-442dc5) Reclassified to affect nothing: a sign slip; the next equality fixes the endpoint.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46527,7 +46557,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46549,7 +46580,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46571,7 +46603,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -46593,7 +46626,8 @@
     "Cambridge article DOI10.1017/fmp.2024.22 and article listing, accessed2026-09-22: no linked corrigendum found",
     "https://arxiv.org/abs/2010.10496, latest listed v4 dated2024-09-03; targeted formula comparisons, not a complete version collation",
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
-    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found."
+    "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
+    "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
