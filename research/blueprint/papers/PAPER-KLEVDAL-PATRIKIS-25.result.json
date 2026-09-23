@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-KLEVDAL-PATRIKIS-25",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties",
     "authors": "Christian Klevdal and Stefan Patrikis",
@@ -45,9 +45,34 @@
         ]
       }
     ],
-    "continuationWorker": "Codex — codex-c83e7a; preserves codex-a71f92 extraction in PR1996."
+    "continuationWorker": "Codex — codex-c83e7a; preserves codex-a71f92 extraction in PR1996.",
+    "independentReviewReading": {
+      "by": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+      "date": "2026-09-23",
+      "published": "All31pages, journal305–335; images of journal326–331 inspected for formulas and source findings.",
+      "versions": "arXiv v1 pp7–11 in full; relevant v2 pp1,8,17,20–23 collated. No claim of full v1/v2 rereading.",
+      "getzHahn": "Published backmatter pp548–550 including B.5.1–2 p549, with p549 image; draft pp482–483; all3pages of July2026 author errata.",
+      "other": "Fujino–Payne v2 introduction for smooth complete nonprojective examples; author bibliographies and publisher/version metadata. Original suppliers not listed here remain unexpanded."
+    },
+    "supplementaryIndependentReview": {
+      "getz-draft": {
+        "url": "https://sites.duke.edu/jgetz/files/2022/04/Graduate_Text.pdf",
+        "sha256": "56cdca900d42a7b17510b3d36d6800d8e2ef7e5b460c4dc2a09e26c3203a1f1d",
+        "pages": 550
+      },
+      "getz-errata": {
+        "url": "https://sites.duke.edu/jgetz/files/2026/07/Errata.pdf",
+        "sha256": "bdbc52bbd0d7dfa5ce2cf2526635f5feedb174214f5aa48350c3df18c62165a2",
+        "pages": 3
+      },
+      "getz-backmatter": {
+        "url": "https://link.springer.com/content/pdf/bbm:978-3-031-41153-3/1",
+        "sha256": "eeed7c1e648e0a9f998a22797b30820de00a6d08896a7ed448c3d08239dc42a2",
+        "pages": 81
+      }
+    }
   },
-  "summary": "Klevdal–Patrikis show that, for Shimura data in the superrigid regime and neat level, the canonical ℓ-adic representations ρ_{y,ℓ}: Gal(Q̄/F) → G^ad(Q_ℓ) attached to a number-field point y form a compatible system (unramified outside N(y)ℓ, with Q-rational and equal semisimple Frobenius classes), deduced from compatibility of the canonical G(Q_ℓ)-local systems on connected Shimura varieties; this covers non-abelian type. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and ten findings are recorded, with corrections for the proof issues E1–E4; E8 is an arXiv v1 error that the published version corrects. Not formalised.",
+  "summary": "Independent review corrects the completion claim: 150 items now comprise 15 library, 19 planned and 116 missing targets. The source proves uniform compatibility for canonical adjoint systems in the stated higher-rank Shimura regime and pointwise compatibility with an exceptional integer depending on the number-field point. The two written torus-separation and ramified-norm repairs are mathematically justified conditional on their named suppliers. Twelve source findings are reviewed (eleven confirmed with stated scope, E7 rejected as a confirmed misprint). Original supplier extraction and exact ownership/dependency contracts remain open; this is not a formalization or a closed blueprint.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1520,7 +1545,7 @@
         "PAPER-KLEVDAL-PATRIKIS-25/023",
         "PAPER-KLEVDAL-PATRIKIS-25/019"
       ],
-      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
+      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input. Independent review: equivalence holds between the total trait and special-fibre tame-cover categories; generic restriction is only fully faithful.",
       "uses": [
         {
           "where": "PAPER-KLEVDAL-PATRIKIS-25/025: Proposition2.3 proof p315, citation [32]",
@@ -1557,7 +1582,7 @@
         },
         {
           "name": "AdjointCompatibility.sp.test2",
-          "statement": "A contravariant equivalence sending tame covers of the special fiber to covers of the geometric generic fiber induces a homomorphism π₁ᵗ(generic)→π₁ᵗ(special).",
+          "statement": "In the good strict-henselian trait setting, the equivalence between total-space and special-fibre tame covers, together with fully faithful generic restriction, gives a surjection π₁ᵗ(generic)→π₁ᵗ(special). It does not assert an equivalence with all generic-fibre covers.",
           "verification": "Mathematical planning test; no Lean elaboration asserted.",
           "kind": "compatibility"
         },
@@ -1597,7 +1622,7 @@
         },
         {
           "name": "AdjointCompatibility.sp.test2",
-          "statement": "A contravariant equivalence sending tame covers of the special fiber to covers of the geometric generic fiber induces a homomorphism π₁ᵗ(generic)→π₁ᵗ(special).",
+          "statement": "In the good strict-henselian trait setting, the equivalence between total-space and special-fibre tame covers, together with fully faithful generic restriction, gives a surjection π₁ᵗ(generic)→π₁ᵗ(special). It does not assert an equivalence with all generic-fibre covers.",
           "verification": "Mathematical planning test; no Lean elaboration asserted.",
           "kind": "compatibility"
         },
@@ -1868,13 +1893,13 @@
       "key": "integral",
       "kind": "definition",
       "name": "Integral algebraic-group-valued local system",
-      "statement": "A complex representation is integral in the source sense if it is conjugate to a representation into G(O_L) for some number field L and a chosen integral model after the permitted spreading. Integral structure is data; boundedness at one coefficient place is weaker.",
+      "statement": "For a complex group-valued representation, an integral realization consists of a number field L, an integral group model with the specified generic fibre, and a conjugator placing the representation in G_model(O_L). The valuation-ring condition is at every finite place of L. Replacing O_L by O_L[1/S] is a different, S-integral notion and cannot supply completions at the primes in S.",
       "locator": "§2 p313",
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/008"
       ],
-      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
+      "note": "Reuse the integral-local-system carrier requested by the accepted HodgeStructuresPartII candidate, with the group-model and coefficient-field data explicit. Neither the existence theorem from EG18/KP22 nor strong integrality for all Galois conjugates is part of this definition.",
       "uses": [
         {
           "where": "PAPER-KLEVDAL-PATRIKIS-25/032: §2 p313, citations [13,24]; §1.2",
@@ -1895,7 +1920,7 @@
         {
           "name": "AdjointCompatibility.integral.enlarge",
           "role": "data",
-          "statement": "Transport the integral structure under permitted field/model changes."
+          "statement": "Transport an O_L-integral realization under a finite extension L′/L by base change to O_L′. A change of integral model requires a separately stated comparison; localization alone does not retain global integrality."
         }
       ],
       "unitTests": [
@@ -1932,7 +1957,7 @@
         {
           "name": "AdjointCompatibility.integral.enlarge",
           "role": "data",
-          "statement": "Transport the integral structure under permitted field/model changes."
+          "statement": "Transport an O_L-integral realization under a finite extension L′/L by base change to O_L′. A change of integral model requires a separately stated comparison; localization alone does not retain global integrality."
         }
       ],
       "tests": [
@@ -1979,14 +2004,14 @@
       "key": "completion",
       "kind": "construction",
       "name": "Integral coefficient-place completion",
-      "statement": "For each finite place λ of Qbar, the integral representation extends uniquely and continuously from topological π₁ to its profinite/étale completion with values in G(Zbar_λ). Comparison uses Riemann existence and the fixed coefficient embedding.",
+      "statement": "Given the O_L-integral realization and a finite place λ_L of L above the selected place of Qbar, take its completion L_λ and the compact profinite group of integral points G_model(O_Lλ). The representation of topological π₁ extends continuously to its profinite completion, identified with geometric étale π₁ by Riemann existence. Compose with the fixed embedding into the algebraic closure of the local coefficient field. Compactness is used at the finite coefficient extension, not asserted for all algebraic integers in Qbar_ℓ.",
       "locator": "§2 p313",
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/032",
         "PAPER-KLEVDAL-PATRIKIS-25/009"
       ],
-      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
+      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input. The algebraic closure of a local field is not a compact coefficient target; the finite-field-of-definition realization supplies compactness.",
       "uses": [
         {
           "where": "PAPER-KLEVDAL-PATRIKIS-25/034: §2 p313; Remark2.4 p315",
@@ -2644,14 +2669,15 @@
       "key": "geomdense",
       "kind": "theorem",
       "name": "Adjoint arithmetic density forces geometric density",
-      "statement": "If the arithmetic image is dense in connected adjoint semisimple G, the Zariski closure H of geometric monodromy is normal. The quotient G/H is densely generated by one Frobenius, hence commutative; its semisimple adjoint structure forces it trivial.",
+      "statement": "Let X be geometrically connected of finite type over a finite field k, and let a continuous representation of π₁(X) have Zariski-dense image in a connected adjoint semisimple group G over an algebraically closed characteristic-zero coefficient field of residue characteristic different from char(k). Let H be the Zariski closure of the geometric image. Then H is normal, and G/H is densely generated by the image of the procyclic Γ_k, hence commutative. A connected semisimple group has no nontrivial commutative algebraic quotient, so H=G.",
       "locator": "Proposition2.3 p314",
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/010",
-        "PAPER-KLEVDAL-PATRIKIS-25/026"
+        "PAPER-KLEVDAL-PATRIKIS-25/026",
+        "PAPER-KLEVDAL-PATRIKIS-25/011"
       ],
-      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
+      "note": "The finite base field is essential to this proof. The arithmetic/geometric quotient for a general number-field base need not be procyclic.",
       "proofOutline": "Geometric monodromy is normal in arithmetic monodromy; the arithmetic/geometric quotient has dense cyclic image. Its commutativity contradicts a nontrivial semisimple quotient."
     },
     {
@@ -2888,9 +2914,10 @@
         "PAPER-KLEVDAL-PATRIKIS-25/007"
       ],
       "planned": [
+        "ReductiveGroupsPartII:RG2.0a",
         "ShimuraData:D1"
       ],
-      "note": "The cited stage owns this scope; planned does not mean implemented or proof-closed.",
+      "note": "RG2.0a owns the affine restriction-of-scalars carrier and its Deligne-torus instance. D1 supplies the Hodge representation/sign dictionary; the same S is imported there, not constructed a second time.",
       "uses": [
         {
           "where": "PAPER-KLEVDAL-PATRIKIS-25/055: Theorem3.10 p329; §3.2 p319",
@@ -3893,17 +3920,18 @@
       "key": "autdescent",
       "kind": "theorem",
       "name": "Descent of the comparison automorphism",
-      "statement": "After representing the outer class over algebraically closed Ω, reduce τ over Ω' to an inner conjugator g. Every automorphism of Ω'/Ω fixes g by density and trivial centralizer; use the fixed-field property for algebraically closed Ω to descend g and τ to Ω.",
+      "statement": "Let Ω be algebraically closed of characteristic zero. Enlarge the overfield from Margulis, if necessary, to an algebraically closed overfield Ω′ containing all factor maps. Representatives of the finite outer group exist over Ω, so reduce the comparison to inn(g) over Ω′. Each Ω-automorphism of Ω′ fixes g by density and trivial adjoint centralizer. The fixed field of all Ω-automorphisms of this algebraically closed overfield is Ω, hence g and the comparison descend to Ω.",
       "locator": "Proposition3.3 p321; Remark3.4",
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/026",
         "PAPER-KLEVDAL-PATRIKIS-25/008"
       ],
-      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
+      "note": "This makes the extraction’s descent contract sufficient. Algebraic closedness of Ω alone does not justify a fixed-field assertion for an arbitrary overfield Ω′. No additional source-error verdict about Margulis is assigned without collating his original overfield construction.",
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G4"
-      ]
+      ],
+      "proofOutline": "Enlarging the overfield preserves the algebraic maps and equality on the lattice. For an algebraically closed extension Ω′/Ω in characteristic zero, a transcendental element can be moved by an Ω-automorphism: extend it to a transcendence basis, replace it by its translate by 1, and extend the induced rational-function-field isomorphism to algebraic closures. Thus the common fixed field is Ω. Apply this coordinatewise to the unique conjugator. Alternatively use affine fpqc descent of the unique solution to the conjugacy equations."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/075",
@@ -4603,12 +4631,12 @@
       "kind": "theorem",
       "name": "Bounded torus subgroup in an integral Borel",
       "statement": "If T_model⊂B_model⊂G_model is a maximal torus in a Borel over O_F of the reductive model, T(F)∩G_model(O_F)=T_model(O_F) is the maximal compact subgroup of T(F). The integral-position hypothesis cannot be replaced by unramifiedness of the generic torus alone.",
-      "locator": "Getz–Hahn 22Apr2022 AppendixA.5 LemmasA.5.1–2 pp482–483; journal p328 citation [14]",
+      "locator": "Getz–Hahn, published 2024 book, Appendix B.5 Lemmas B.5.1–2 p549 (public backmatter PDF pp23–24 for setup); 22Apr2022 draft Appendix A.5 pp482–483. Journal p328 citation [14] retains the draft numbering.",
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/091"
       ],
-      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
+      "note": "Independently collated both versions. The published statement still requires a maximal integral torus inside an integral Borel of the chosen reductive O_F-model. Its proof imports Macdonald Proposition4.6 and SGA3; these supplier proofs remain unexpanded.",
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G6"
       ]
@@ -4726,7 +4754,9 @@
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/067",
         "PAPER-KLEVDAL-PATRIKIS-25/083",
-        "PAPER-KLEVDAL-PATRIKIS-25/149"
+        "PAPER-KLEVDAL-PATRIKIS-25/149",
+        "PAPER-KLEVDAL-PATRIKIS-25/090",
+        "PAPER-KLEVDAL-PATRIKIS-25/123"
       ],
       "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
       "uses": [
@@ -5291,7 +5321,10 @@
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/083",
-        "PAPER-KLEVDAL-PATRIKIS-25/141"
+        "PAPER-KLEVDAL-PATRIKIS-25/141",
+        "PAPER-KLEVDAL-PATRIKIS-25/056",
+        "PAPER-KLEVDAL-PATRIKIS-25/105",
+        "PAPER-KLEVDAL-PATRIKIS-25/106"
       ],
       "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
       "proofOutline": "For H⊂∏T_i a connected subtorus surjecting to every factor, restriction gives a surjective Γ_Q-map r:⊕V_i→X*(H)_Q, injective on each simple V_i. All representations factor through one finite Galois group. By item141 ker(r) is semisimple; if nonzero it has a simple constituent isomorphic to some V_i. Vanishing of Hom(V_i,V_j) for i≠j forces its inclusion into the direct sum to land in that V_i alone, contradicting injectivity of r there. Thus ker(r)=0. Equality of dimensions makes H=∏T_i. For the Mumford–Tate application, H is its adjoint torus image; each factor projection is nontrivial by the Shimura axiom, hence surjective by irreducibility.",
@@ -5357,7 +5390,8 @@
         "PAPER-KLEVDAL-PATRIKIS-25/113",
         "PAPER-KLEVDAL-PATRIKIS-25/057",
         "PAPER-KLEVDAL-PATRIKIS-25/145",
-        "PAPER-KLEVDAL-PATRIKIS-25/144"
+        "PAPER-KLEVDAL-PATRIKIS-25/144",
+        "PAPER-KLEVDAL-PATRIKIS-25/143"
       ],
       "note": "Written repair supplied in the 2026-09-23 continuation. Mathematical proof outline only; imported source foundations and independent verification remain open.",
       "proofOutline": "The p-component of canonical reciprocity gives q^-1 N μ(π_w)=a_p k_p(Frob_w) a_p^-1. This point lies in T(Q_p), while a_p K_p a_p^-1 is compact. Their intersection is a compact subgroup by item143, so item145 makes every geometric-character valuation of the right-hand side zero. Therefore v_p χ(q)=v_p χ(N μ(π_w)). Equality with the entire maximal bounded subgroup is not used.",
@@ -5398,7 +5432,9 @@
         "PAPER-KLEVDAL-PATRIKIS-25/114",
         "PAPER-KLEVDAL-PATRIKIS-25/108",
         "PAPER-KLEVDAL-PATRIKIS-25/150",
-        "PAPER-KLEVDAL-PATRIKIS-25/112"
+        "PAPER-KLEVDAL-PATRIKIS-25/112",
+        "PAPER-KLEVDAL-PATRIKIS-25/077",
+        "PAPER-KLEVDAL-PATRIKIS-25/080"
       ],
       "note": "Written repair supplied in the 2026-09-23 continuation. Mathematical proof outline only; imported source foundations and independent verification remain open.",
       "proofOutline": "The reflex cocharacter is defined over E(x)⊂E(s), hence over L=E(s)_w after the chosen embedding. Integral extension of s from item112 and the soft-model theorem implies its ℓ-adic representation is unramified for w∤Nℓ, independently of ramification of L/Q_p. For each adjoint factor choose α from item147. Items114–115 give v_p α(q_i)>0, so q_i is not torsion: a torsion field unit has valuation zero. Item150 transfers this order assertion from Q to Q_ℓ and preserves it under inversion and conjugation. Equation(6) identifies the resulting element with the projected Frobenius. Assumption2.7 asks for integral sections and their unramified representations, not an unramified extension Cy/F, so the replacement suffices for Proposition2.8 and Theorem3.10.",
@@ -5415,7 +5451,8 @@
       "locator": "Theorem3.10 p331 footnote9",
       "status": "missing",
       "dependencies": [
-        "PAPER-KLEVDAL-PATRIKIS-25/004"
+        "PAPER-KLEVDAL-PATRIKIS-25/004",
+        "PAPER-KLEVDAL-PATRIKIS-25/150"
       ],
       "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
       "uses": [
@@ -5562,7 +5599,7 @@
       "key": "uniformN",
       "kind": "construction",
       "name": "Uniform excluded primes for all components and coefficients",
-      "statement": "Let N be the soft-model bound, N₀ a bound for a reductive Z[1/N₀]-model, N₁ the product of primes where a chosen finite set of adelic component representatives is not integral, and N₂ the primes where K₀ does not contain the model's integral points. Set Ntilde=NN₀N₁N₂; it is independent of ℓ,ℓ' and the fibre.",
+      "statement": "Fix X⁺ and a finite set C of representatives for G(Q)_+\\G(A_f)/K₀ as in item066. Let N contain the soft-model and all component extension bounds, N₀ a bound for a reductive Z[1/N₀]-model, N₁ the product of primes at which some a∈C is not integral, and N₂ the finite set where K₀ lacks the model’s integral points. Then Ntilde=NN₀N₁N₂ is independent of coefficients and of the good closed point. Using G(Q) in place of G(Q)_+ with a fixed X⁺ may omit components; see E11.",
       "locator": "Theorem3.10 proof p330",
       "status": "missing",
       "dependencies": [
@@ -5570,7 +5607,7 @@
         "PAPER-KLEVDAL-PATRIKIS-25/091",
         "PAPER-KLEVDAL-PATRIKIS-25/066"
       ],
-      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
+      "note": "E11 corrects the representative set in the printed proof. Finiteness and existence of the component decomposition are imported from V0; all component bounds are included before taking the uniform integer.",
       "uses": [
         {
           "where": "PAPER-KLEVDAL-PATRIKIS-25/122: Theorem3.10 pp330–331",
@@ -5586,7 +5623,7 @@
         {
           "name": "AdjointCompatibility.uniformN.representatives",
           "role": "data",
-          "statement": "Take the finite union of denominator primes of the component representatives."
+          "statement": "Choose C for G(Q)_+\\G(A_f)/K₀ with the fixed X⁺, then take the finite union of its denominator primes."
         },
         {
           "name": "AdjointCompatibility.uniformN.levelPrimes",
@@ -5603,7 +5640,7 @@
         },
         {
           "name": "AdjointCompatibility.uniformN.test2",
-          "statement": "The resulting integer does not depend on ℓ or ℓ'.",
+          "statement": "For GSp₄ at principal level K(N), N≥3, the rational matrix diag(-I₂,I₂) has multiplier -1. Its double coset is identified with 1 by G(Q), but is distinct modulo G(Q)_+ because a positive rational number that is a unit at all finite places equals 1 and -1 is not congruent to 1 mod N.",
           "verification": "Mathematical planning test; no Lean elaboration asserted.",
           "kind": "compatibility"
         },
@@ -5623,7 +5660,7 @@
         {
           "name": "AdjointCompatibility.uniformN.representatives",
           "role": "data",
-          "statement": "Take the finite union of denominator primes of the component representatives."
+          "statement": "Choose C for G(Q)_+\\G(A_f)/K₀ with the fixed X⁺, then take the finite union of its denominator primes."
         },
         {
           "name": "AdjointCompatibility.uniformN.levelPrimes",
@@ -5640,7 +5677,7 @@
         },
         {
           "name": "AdjointCompatibility.uniformN.test2",
-          "statement": "The resulting integer does not depend on ℓ or ℓ'.",
+          "statement": "For GSp₄ at principal level K(N), N≥3, the rational matrix diag(-I₂,I₂) has multiplier -1. Its double coset is identified with 1 by G(Q), but is distinct modulo G(Q)_+ because a positive rational number that is a unit at all finite places equals 1 and -1 is not congruent to 1 mod N.",
           "verification": "Mathematical planning test; no Lean elaboration asserted.",
           "kind": "compatibility"
         },
@@ -5703,7 +5740,7 @@
       "key": "main",
       "kind": "theorem",
       "name": "Uniform adjoint compatibility on the soft integral model",
-      "statement": "For (G,X) with discrete Z_G(Q)⊂Z_G(A_f), neat K₀ and real rank≥2 for every Q-simple factor of G^ad, the canonical adjoint systems extend to the smooth component model away from Nℓ. There is Ntilde such that for every ℓ,ℓ' and every closed x away from Ntildeℓℓ', their semisimple Frobenius classes equal one point of (G^ad//G^ad)(Q). Proof remains gated by E2,E4 repairs.",
+      "statement": "For (G,X) with discrete Z_G(Q)⊂Z_G(A_f), neat K₀ and real rank≥2 for every Q-simple factor of G^ad, the canonical adjoint systems extend to the smooth component model away from Nℓ. There is Ntilde such that for every ℓ,ℓ' and every closed x away from Ntildeℓℓ', their semisimple Frobenius classes equal one point of (G^ad//G^ad)(Q). The mathematical E2/E4 repairs are verified here conditional on their suppliers; apply the corrected component indexing E11. Original source prerequisites and exact blueprint interfaces remain open.",
       "locator": "Theorem3.10 pp329–331; Theorem1.3",
       "status": "missing",
       "dependencies": [
@@ -6413,18 +6450,24 @@
       "id": "PAPER-KLEVDAL-PATRIKIS-25/150",
       "key": "torsionbasechange",
       "kind": "theorem",
-      "name": "Order is reflected by extension of fields",
-      "statement": "For an affine group scheme H/F and an extension K/F, H(F)→H(K) is injective. For h∈H(F) and integer n>0, h^n=1 if and only if its image has nth power 1. Thus finite or infinite order is preserved by field extension, inversion and conjugation.",
-      "locator": "Continuation: explicit repair of Proposition 3.7 and Lemma 3.9, journal pp325–329",
-      "status": "planned",
+      "name": "Injective coefficient change on Hopf-coordinate points preserves order",
+      "statement": "For a bialgebra H/R and an injective R-algebra homomorphism A→B between commutative value algebras, TauCeti.AlgHom.mapValue is an injective homomorphism between the convolution point monoids. Mathlib orderOf_injective and Function.Injective.isOfFinOrder_iff preserve exact order and finite-order status. For a Hopf algebra these are groups; inversion preserves order, and conjugation is a multiplicative equivalence. Taking A=F and B=K gives the field-extension application.",
+      "locator": "TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints.lean:141–169; Mathlib/GroupTheory/OrderOfElement.lean:371–384,777",
+      "status": "library",
       "dependencies": [],
-      "planned": [
-        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary"
-      ],
-      "proofOutline": "Write points as F-algebra maps O(H)→F. Composition with the injective field inclusion is injective, and commutes with powers. Inversion and conjugation are group automorphisms for the order calculation.",
+      "proofOutline": "Compose the already-built injective point homomorphism with the already-built general monoid order theorem; specialize the value-algebra inclusion to the injective field inclusion. Apply the existing inversion and multiplicative-equivalence order lemmas.",
       "acceptance": [
         "The rational point 2∈G_m(Q) has infinite order after every field extension of Q."
-      ]
+      ],
+      "library": [
+        "tauceti:TauCeti.AlgHom.mapValue",
+        "tauceti:TauCeti.AlgHom.mapValue_injective",
+        "mathlib:orderOf_injective",
+        "mathlib:Function.Injective.isOfFinOrder_iff",
+        "mathlib:MulEquiv.orderOf_eq",
+        "mathlib:orderOf_inv"
+      ],
+      "note": "New independent pinned-library match. Use the existing affine group/Hopf anti-equivalence to interpret scheme points; this is not a new planned order-reflection theorem."
     }
   ],
   "prerequisites": [
@@ -6603,7 +6646,7 @@
       "title": "Reductive algebraic groups, Part II: arithmetic conjugacy and torus transfer",
       "area": "algebra",
       "reason": "Reuse the candidate already proposed by PAPER-KISIN-MADAPUSIPERA-SHIN-22 and PAPER-KISIN-ZHOU-25. It owns global tori, H¹ transfer and Conj; this paper adds irreducible, isogeny-separated torus approximation and outer-stabilizer interfaces, not a second torus roadmap.",
-      "brief": "Extend the existing candidate ReductiveGroupsArithmeticPartII from Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups). Import the pinned torus/character/cocharacter and adjoint carriers, the upstream maximal-torus/root-data/isomorphism theory, local models from ReductiveGroupsPartII, and Chebotarev and class field theory from their upstream owners. Retain the KMPS22/Kisin–Zhou25 ownership of H¹ transfer and Conj_G. Supply generic maximal-torus rationality, full W⋊A₀ specialization, local orbit openness and the exact Lemma3.6 approximation theorem, correcting the product-open-subgroup step. Strengthen the local separation choices to pairwise nonisogeny before using rational character modules. Build the real normalizer cocycle, one-exceptional-prime H¹ lift, local simply-connected vanishing, Hasse principle, rational torus twist and rational Brauer–Nesbitt comparison needed for Proposition3.7. Export generic subdirect-product and cyclic-closure lemmas, scalar-extension compatibility of rational cyclic closure, the dominant-orbit norm valuation with a general uniformizer, finite outer-automorphism/root-datum descent, and Chebotarev descent of conjugation-quotient points. Include Serre groups with modulus and the locally algebraic torus realization of Remark3.11, without using the later Shimura theorem as an input. The final generic interfaces imply a dense cyclic torus element has no outer stabilizer; the Shimura application belongs to ShimuraVarietiesCompatibleSystemsPartII. Correct E2–E4 and resolve original group-theory sources before marking this closed. Suggested file TauCeti/AlgebraicGeometry/Reductive/ArithmeticTori.lean. Continuation: items144–149 decompose the pointwise torus norm, compact-character vanishing, ramified embedding-pairing formula, dominant-orbit positivity, rational isomorphism from a torus-valued cocycle, and split–anisotropic rational separation. Reuse local-field Layer0 for item142 and RG2.0 for item143. Apply the explicit torus isomorphism to preserve character modules, keeping local conjugacy for real/p-adic embedding positions. The general-uniformizer proof bypasses the unproved special-point-field unramifiedness claim; it does not repair that separate claim. Use Maschke only for the finite-image rational Galois modules, never for all reductive-group representations in positive characteristic.",
+      "brief": "Extend the existing candidate ReductiveGroupsArithmeticPartII from Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups). Import the pinned torus/character/cocharacter and adjoint carriers, the upstream maximal-torus/root-data/isomorphism theory, local models from ReductiveGroupsPartII, and Chebotarev and class field theory from their upstream owners. Retain the KMPS22/Kisin–Zhou25 ownership of H¹ transfer and Conj_G. Supply generic maximal-torus rationality, full W⋊A₀ specialization, local orbit openness and the exact Lemma3.6 approximation theorem, correcting the product-open-subgroup step. Strengthen the local separation choices to pairwise nonisogeny before using rational character modules. Build the real normalizer cocycle, one-exceptional-prime H¹ lift, local simply-connected vanishing, Hasse principle, rational torus twist and rational Brauer–Nesbitt comparison needed for Proposition3.7. Export generic subdirect-product and cyclic-closure lemmas, scalar-extension compatibility of rational cyclic closure, the dominant-orbit norm valuation with a general uniformizer, finite outer-automorphism/root-datum descent, and Chebotarev descent of conjugation-quotient points. Include Serre groups with modulus and the locally algebraic torus realization of Remark3.11, without using the later Shimura theorem as an input. The final generic interfaces imply a dense cyclic torus element has no outer stabilizer; the Shimura application belongs to ShimuraVarietiesCompatibleSystemsPartII. Correct E2–E4 and resolve original group-theory sources before marking this closed. Suggested file TauCeti/AlgebraicGeometry/Reductive/ArithmeticTori.lean. Continuation: items144–149 decompose the pointwise torus norm, compact-character vanishing, ramified embedding-pairing formula, dominant-orbit positivity, rational isomorphism from a torus-valued cocycle, and split–anisotropic rational separation. Reuse local-field Layer0 for item142 and RG2.0 for item143. Apply the explicit torus isomorphism to preserve character modules, keeping local conjugacy for real/p-adic embedding positions. The general-uniformizer proof bypasses the unproved special-point-field unramifiedness claim; it does not repair that separate claim. Use Maschke only for the finite-image rational Galois modules, never for all reductive-group representations in positive characteristic. Independent-review boundary: import stable/rational conjugacy, inner twisting, Tate–Nakayama and abelianized group cohomology from EndoscopicTransferAndUnitaryTraceComparison:ET.0 as required by the accepted Kisin–Zhou proposal. Retain the shared KMPS22/Kisin–Zhou candidate, with no duplicate Conj or H¹ carrier. Use an algebraically closed common overfield in item074. Supply original statement-level contracts for the generic-torus, approximation, H¹ and Serre inputs before this enlarged brief is accepted.",
       "items": [
         "PAPER-KLEVDAL-PATRIKIS-25/026",
         "PAPER-KLEVDAL-PATRIKIS-25/038",
@@ -6695,7 +6738,7 @@
       "title": "Arithmetic Galois representations and conductors, Part II: superrigid local systems and uniform ramification",
       "area": "modular",
       "reason": "R01.1/R01.5 cover continuous linear systems and recognition, not the family of group-valued superrigid descents and the arithmetic unramifiedness argument. The CHT17 geometric-monodromy candidate concerns smooth proper cohomological families and uniform integral invariants, not this abstract rigidity method.",
-      "brief": "Extend Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations), importing its continuous coefficient operations, the existing HodgeStructuresPartII integral-local-system interface, generic adjoint centralizers and Conj from ReductiveGroupsArithmeticPartII, tame specialization from InverseGaloisPartIITameSpecialization, and finite-field G-companions from GlobalShtukasPartIICompanions. Define G-superrigidity exactly as Definition2.2 with algebraic automorphisms, not inner conjugacy. Prove Lemma2.1's unique group extension and rationality separately from Simpson's continuity theorem. Build coefficient-place completions, the finite Out(G)-torsor, stabilizer descent fields and the explicit common-field hypothesis. Extract the EG18/KP22 integrality variant rather than replacing superrigidity by H¹=0. Starting from Petrov's individual N_λ, use the gcd exceptional set, tame companions, geometric density, and superrigidity to kill the specialization kernel; then separately kill integral-section inertia and apply the tangent-curve ramification test. Final results are Proposition2.3(1) uniform extension over one O_F[1/N'] and (2) fibrewise companionship up to τ(λ,λ',v), followed by Proposition2.8's symmetry-breaking criterion for τ to be inner. Record central twists as counterexamples to the non-adjoint uniqueness shortcut. No common F(λ), motivicity or untwisted companionship is built into the abstract assumptions. Suggested file TauCeti/NumberTheory/Galois/SuperrigidSystems.lean.",
+      "brief": "Extend Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations), importing its continuous coefficient operations, the existing HodgeStructuresPartII integral-local-system interface, generic adjoint centralizers and Conj from ReductiveGroupsArithmeticPartII, tame specialization from InverseGaloisPartIITameSpecialization, and finite-field G-companions from GlobalShtukasPartIICompanions. Define G-superrigidity exactly as Definition2.2 with algebraic automorphisms, not inner conjugacy. Prove Lemma2.1's unique group extension and rationality separately from Simpson's continuity theorem. Build coefficient-place completions, the finite Out(G)-torsor, stabilizer descent fields and the explicit common-field hypothesis. Extract the EG18/KP22 integrality variant rather than replacing superrigidity by H¹=0. Starting from Petrov's individual N_λ, use the gcd exceptional set, tame companions, geometric density, and superrigidity to kill the specialization kernel; then separately kill integral-section inertia and apply the tangent-curve ramification test. Final results are Proposition2.3(1) uniform extension over one O_F[1/N'] and (2) fibrewise companionship up to τ(λ,λ',v), followed by Proposition2.8's symmetry-breaking criterion for τ to be inner. Record central twists as counterexamples to the non-adjoint uniqueness shortcut. No common F(λ), motivicity or untwisted companionship is built into the abstract assumptions. Suggested file TauCeti/NumberTheory/Galois/SuperrigidSystems.lean. Independent-review contracts: item031 requires O_L-integrality; use compact integral points over a finite coefficient-place completion in item033. The geometric-density argument044 is over a finite base field. The common F(λ)=F hypothesis is required, not derived from separate finite descent fields.",
       "items": [
         "PAPER-KLEVDAL-PATRIKIS-25/027",
         "PAPER-KLEVDAL-PATRIKIS-25/028",
@@ -6724,7 +6767,7 @@
       "title": "Global shtukas and Langlands over function fields, Part II: group-valued companions and monodromy",
       "area": "automorphic",
       "reason": "GS.6 owns the GL_n global correspondence, which is an input. Higher-dimensional Drinfeld companions, preservation of G-structure, and connected-monodromy recognition are not supplied by merely applying the GL_n theorem. This owner is distinct from the existing rigid p-to-ℓ/isocrystal companion extension.",
-      "brief": "Build on Global shtukas and Langlands over function fields (GlobalShtukasAndFunctionFieldLanglands), importing the actual GL_n global correspondence GS.6 and its finite-determinant/purity restrictions, not the one-way general-group parameterization GS.5. Coordinate the previously routed Chin inputs in PAPER-KISIN-ZHOU-25 and CHT17; do not duplicate their basic GL_n existence. Extend to Drinfeld's smooth finite-field-variety companions and the connected-monodromy reconstruction needed to retain a prescribed connected adjoint G-valued representation. Either fully extract Drinfeld2018's pro-semisimple comparison or justify the paper's permitted Drinfeld2012-plus-Chin route, including all determinant, normalization, embedding and dense-image hypotheses. Define companions by common semisimple Frobenius quotient classes. Prove the curvewise tameness/Swan comparison using Kerz–Schmidt and Deligne, and the density-one recognition of Remark2.5 by extending BHKT Proposition6.4 from curves with Chebotarev. Keep connected versus disconnected monodromy explicit. The final export gives the tame G-companion used in Proposition2.3 without the later Shimura compatibility theorem; no crystalline p-companion or motive is produced. The original-proof and hypothesis gates listed in this extraction must be discharged. Suggested file TauCeti/NumberTheory/FunctionField/GroupCompanions.lean.",
+      "brief": "Build on Global shtukas and Langlands over function fields (GlobalShtukasAndFunctionFieldLanglands), importing the actual GL_n global correspondence GS.6 and its finite-determinant/purity restrictions, not the one-way general-group parameterization GS.5. Coordinate the previously routed Chin inputs in PAPER-KISIN-ZHOU-25 and CHT17; do not duplicate their basic GL_n existence. Extend to Drinfeld's smooth finite-field-variety companions and the connected-monodromy reconstruction needed to retain a prescribed connected adjoint G-valued representation. Either fully extract Drinfeld2018's pro-semisimple comparison or justify the paper's permitted Drinfeld2012-plus-Chin route, including all determinant, normalization, embedding and dense-image hypotheses. Define companions by common semisimple Frobenius quotient classes. Prove the curvewise tameness/Swan comparison using Kerz–Schmidt and Deligne, and the density-one recognition of Remark2.5 by extending BHKT Proposition6.4 from curves with Chebotarev. Keep connected versus disconnected monodromy explicit. The final export gives the tame G-companion used in Proposition2.3 without the later Shimura compatibility theorem; no crystalline p-companion or motive is produced. The original-proof and hypothesis gates listed in this extraction must be discharged. Suggested file TauCeti/NumberTheory/FunctionField/GroupCompanions.lean. The accepted Kisin–Zhou25 source route already places basic GL_n/Chin plainness and twist interfaces in GS.6. Import that work and identify the additional higher-dimensional G-structure reconstruction separately. DWP.7–8 provide weight and geometric-semisimplicity inputs, not a general G-companion theorem. This enlarged design remains a source-acquisition task until an exact original G-companion contract is supplied.",
       "items": [
         "PAPER-KLEVDAL-PATRIKIS-25/037",
         "PAPER-KLEVDAL-PATRIKIS-25/042",
@@ -6737,9 +6780,9 @@
       "parent": "tauceti:TauCetiRoadmap/HodgeStructures",
       "roadmap": "HodgeStructuresPartII",
       "title": "Hodge structures (pure, mixed, and polarized), Part II: variations, period maps and non-abelian Hodge theory",
-      "area": "motivic",
+      "area": "algebraicgeometry",
       "reason": "Reuse the HodgeStructuresPartII candidate of Landesman–Litt, EG20 and Liu–Zhu, which already names integral versus strongly integral local systems. Its integral-structure carrier is shared, not newly owned by the superrigid endpoint.",
-      "brief": "Reuse the existing HodgeStructuresPartII design, extending Hodge structures (tauceti:TauCetiRoadmap/HodgeStructures), and preserve its established ownership of variations, representation/Betti moduli and integral versus strongly integral local systems. The input needed here is an integral group-valued representation with the number field, integral group model and conjugator recorded, compatible with all coefficient-place completions. Import affine reductive carriers and representations from the pinned libraries and upstream ReductiveGroups rather than rebuilding Hodge fibres or algebraic groups. Coordinate EG18/KP22 and the source-gated integrality variant on journal p313 with ArithmeticGaloisRepresentationsSuperrigidSystems: this route does not claim superrigidity is identical to cohomological rigidity, or prove Simpson motivicity. Test a trivial integral object, dependence on the chosen integral model and the distinction between one local lattice and one global integral realization. No additional duplicate integral-local-system roadmap is proposed. Suggested interface file TauCeti/Geometry/Hodge/IntegralLocalSystems.lean.",
+      "brief": "Reuse the existing HodgeStructuresPartII design, extending Hodge structures (tauceti:TauCetiRoadmap/HodgeStructures), and preserve its established ownership of variations, representation/Betti moduli and integral versus strongly integral local systems. The input needed here is an integral group-valued representation with the number field, integral group model and conjugator recorded, compatible with all coefficient-place completions. Import affine reductive carriers and representations from the pinned libraries and upstream ReductiveGroups rather than rebuilding Hodge fibres or algebraic groups. Coordinate EG18/KP22 and the source-gated integrality variant on journal p313 with ArithmeticGaloisRepresentationsSuperrigidSystems: this route does not claim superrigidity is identical to cohomological rigidity, or prove Simpson motivicity. Test a trivial integral object, dependence on the chosen integral model and the distinction between one local lattice and one global integral realization. No additional duplicate integral-local-system roadmap is proposed. Suggested interface file TauCeti/Geometry/Hodge/IntegralLocalSystems.lean. The integral realization is over the full ring of integers O_L; localizing at S is not a substitute. Keep the group model as data, prove finite-extension transport to O_L′, and compare model changes explicitly. Area and candidate identity match the accepted Landesman–Litt/Esnault–Groechenig proposal; Liu–Zhu adds a compatible early Higgs prefix but its pending review is not used as acceptance evidence.",
       "items": [
         "PAPER-KLEVDAL-PATRIKIS-25/031"
       ]
@@ -6751,7 +6794,7 @@
       "title": "Complex Shimura varieties and canonical models, Part II: compatible adjoint local systems",
       "area": "modular",
       "reason": "The generic canonical tower stays in V4/V8 and is shared with T6:comparison. The new layers are the soft integral model, symmetry-breaking sections and uniform adjoint ℓ-independence. The Honda–Tate sibling owns reduction/isogeny theory, not this higher-rank non-abelian-type proof.",
-      "brief": "Extend Complex Shimura varieties and canonical models (ShimuraVarieties), importing V4/V7/V8.general's canonical tower, reciprocity and Betti–étale local system with its right-action convention. Share this carrier with HodgeTateAndCanonicalSubgroups:T6:comparison without requiring the logarithmic comparison theorem here. Import higher-rank lattice rigidity from ArithmeticLocallySymmetricSpacesSuperrigidity, the abstract uniform ramification and symmetry-breaking criterion from ArithmeticGaloisRepresentationsSuperrigidSystems, and irreducible/isogeny-separated tori and norm valuations from ReductiveGroupsArithmeticPartII. Construct the soft SNC-complement integral model with uniform special-point integrality using PSTEG Theorem4.1. Prove the five parts of Proposition3.7 separately, including the strengthened pairwise nonisogeny needed by E2. Compute special Frobenius via q and Eq.(6)–(7), resolving the fixed-hyperspecial-position gap E4 with a proved general-uniformizer or stronger integral-position argument. Establish cyclic density and trivial outer stabilizer, then uniform fibrewise compatibility and Q-rationality of the quotient point. Final Theorem3.10 assumes neat K₀, discrete rational centre and real rank at least two for every Q-simple adjoint factor; it yields one Ntilde for every good fibre and all ℓ,ℓ'. Corollary3.12 gives pointwise systems with N(y). Separate Serre-group realization and the fixed-ℓ open-image remark from all-prime density claims. Do not import BST Theorem9.7, Patrikis's full-G follow-up or crystalline companions back into their own prerequisite. Suggested file TauCeti/Geometry/Shimura/AdjointCompatibility.lean. The continuation writes the Eq.(7) compact-character and ramified-uniformizer calculation and connects it through Eq.(6) to Assumption2.7. It requires no unramifiedness of the section field. The special-point construction uses pairwise nonisogeny justified by items094/148/149. These are worker-supplied proof repairs with foundational and independent-review gates still open.",
+      "brief": "Extend Complex Shimura varieties and canonical models (ShimuraVarieties), importing V4/V7/V8.general's canonical tower, reciprocity and Betti–étale local system with its right-action convention. Share this carrier with HodgeTateAndCanonicalSubgroups:T6:comparison without requiring the logarithmic comparison theorem here. Import higher-rank lattice rigidity from ArithmeticLocallySymmetricSpacesSuperrigidity, the abstract uniform ramification and symmetry-breaking criterion from ArithmeticGaloisRepresentationsSuperrigidSystems, and irreducible/isogeny-separated tori and norm valuations from ReductiveGroupsArithmeticPartII. Construct the soft SNC-complement integral model with uniform special-point integrality using PSTEG Theorem4.1. Prove the five parts of Proposition3.7 separately, including the strengthened pairwise nonisogeny needed by E2. Compute special Frobenius via q and Eq.(6)–(7), resolving the fixed-hyperspecial-position gap E4 with a proved general-uniformizer or stronger integral-position argument. Establish cyclic density and trivial outer stabilizer, then uniform fibrewise compatibility and Q-rationality of the quotient point. Final Theorem3.10 assumes neat K₀, discrete rational centre and real rank at least two for every Q-simple adjoint factor; it yields one Ntilde for every good fibre and all ℓ,ℓ'. Corollary3.12 gives pointwise systems with N(y). Separate Serre-group realization and the fixed-ℓ open-image remark from all-prime density claims. Do not import BST Theorem9.7, Patrikis's full-G follow-up or crystalline companions back into their own prerequisite. Suggested file TauCeti/Geometry/Shimura/AdjointCompatibility.lean. The continuation writes the Eq.(7) compact-character and ramified-uniformizer calculation and connects it through Eq.(6) to Assumption2.7. It requires no unramifiedness of the section field. The special-point construction uses pairwise nonisogeny justified by items094/148/149. These worker-supplied repairs are independently verified conditional on their hypotheses; the original foundational supplier gates remain open. Use representatives of G(Q)_+\\G(A_f)/K₀ for the fixed X⁺ (E11), incorporating all their denominator primes into N₁. Published Getz–Hahn B.5.2 retains the integral-position hypothesis; E12 corrects the outdated A.5.2 locator. The written norm and nonisogeny repairs have passed independent mathematical review conditional on the suppliers, but the original external statements and proof interfaces remain acquisition tasks.",
       "items": [
         "PAPER-KLEVDAL-PATRIKIS-25/077",
         "PAPER-KLEVDAL-PATRIKIS-25/078",
@@ -6785,9 +6828,10 @@
       "roadmap": "ShimuraVarieties",
       "stages": [
         "ShimuraVarieties:V4",
+        "ShimuraVarieties:V8",
         "ShimuraVarieties:V8.general"
       ],
-      "reason": "The existing canonical-model and tower stages own reflex norms, component fields, finite étale level covers and their monodromy. Add the precise opposite-deck-group construction, Eq.(3), Lemma3.2 and the Betti comparison here; share the carrier with T6:comparison rather than creating a second local system.",
+      "reason": "The existing canonical-model and tower stages own reflex norms, component fields, finite étale level covers and their monodromy. Add the precise opposite-deck-group construction, Eq.(3), Lemma3.2 and the Betti comparison here; share the carrier with T6:comparison rather than creating a second local system. Read V8 and V8.general together: V8 owns the algebraic level/Hecke tower; V8.general imports V7 for all data. Import the finite-étale Galois-category/π₁ carrier from IG.0 and sites/coefficient comparison from SF.2, sharing the canonical local system with T6:comparison. This source request specifies those tower adapters; it does not certify the canonical-model proofs.",
       "items": [
         "PAPER-KLEVDAL-PATRIKIS-25/058",
         "PAPER-KLEVDAL-PATRIKIS-25/062",
@@ -6803,7 +6847,7 @@
       "stages": [
         "SchemeAndStackFoundations:SF.0"
       ],
-      "reason": "Finite-presentation spreading and separated integral-point descent belong to the general scheme/morphism foundations. The special theorem that all special points are uniformly integral remains a new Shimura input.",
+      "reason": "Finite-presentation spreading and separated integral-point descent belong to the general scheme/morphism foundations. The special theorem that all special points are uniformly integral remains a new Shimura input. A pinned near match, AlgebraicGeometry.spread_out_of_isGermInjective (SpreadingOut.lean:335), spreads a stalk morphism; it does not spread smoothness/projectivity/SNC strata or prove separated integral-point descent. The source request is for precisely those general scheme adapters, with compactification supplied by R09.7d and uniform special-point integrality kept in route7.",
       "items": [
         "PAPER-KLEVDAL-PATRIKIS-25/014",
         "PAPER-KLEVDAL-PATRIKIS-25/112"
@@ -6815,7 +6859,7 @@
       "stages": [
         "ReductiveGroupsPartII:RG2.3"
       ],
-      "reason": "The hyperspecial/parahoric owner supplies the integral-model maximal-torus bounded-subgroup theorem, with the integral-position hypothesis from Getz–Hahn. Generic unramified tori must not silently satisfy it. Item092 remains a separate source target. The repaired infinite-order application no longer depends on its claimed applicability to the chosen torus.",
+      "reason": "The hyperspecial/parahoric owner supplies the integral-model maximal-torus bounded-subgroup theorem, with the integral-position hypothesis from Getz–Hahn. Generic unramified tori must not silently satisfy it. Item092 remains a separate source target. The repaired infinite-order application no longer depends on its claimed applicability to the chosen torus. Use published Getz–Hahn B.5.1–2, p549, now independently collated against the author draft; apply it only to the chosen integral torus/Borel/model triple. Macdonald/SGA3 proof leaves are acquisition work inside this owner.",
       "items": [
         "PAPER-KLEVDAL-PATRIKIS-25/092"
       ]
@@ -6836,8 +6880,14 @@
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing compactification hypothesis. The printed smooth finite-type assumption alone does not imply quasi-projectivity. A smooth proper nonprojective split toric example (Fujino–Payne, arXiv:math/0510679v2, introduction) cannot be an open subvariety of a projective variety: the open immersion would also be proper and therefore closed. v1 explicitly assumes the compactification; v2 and the journal assert existence. The Shimura application is quasi-projective.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/E2",
@@ -6854,9 +6904,15 @@
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
         "2026-09-23: freshly downloaded and read complete journal PDF (same SHA-256); rechecked arXiv version history (latest v2 2024-10-06), Patrikis papers page and title/DOI correction searches. No relevant correction located in these checks; supplementary draft/book reading remains inherited, not a new full read.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
       ],
-      "repairStatus": "Written continuation proof supplied on 2026-09-23; independent verification remains outstanding. See report and items094/103/106/110/114–116/118/142–150. No verdict assigned."
+      "repairStatus": "Independently verified mathematical implication with the corrected hypotheses. Original supplier and exact formal-interface closure remains open; no Lean proof is claimed.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap in the rational-character inference, not a counterexample to the main theorem. Independent A2 computation: the root/weight intertwiners are m[[2,-1],[-1,2]] over Z, all with determinant3m², though they give the same rational irreducible S3 module. Integral nonisomorphism does not imply rational nonisomorphism. The split/anisotropic local separation and torus-cocycle descent repairs in094/148/149 give the stronger contract; the multiplicity-free argument110/118 is valid conditional on the named global/local suppliers.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/E3",
@@ -6872,16 +6928,22 @@
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. In PGL₂(Q₂)×PGL₂(Q₂), take the preimage of the diagonal S₃ in the reduction of PGL₂(Z₂)². It is open and proper with both full projections, so is not a product. A contained product of small open subgroups suffices for the proof. No change to Lemma3.6’s conclusion is needed.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/E4",
       "kind": "gap",
-      "locator": "Journal Lemma3.9 p328 paragraph after Eq.(7); same in v2 p22",
+      "locator": "Journal Lemma3.9 p328 after Eq.(7); v2 p22; published Getz–Hahn Appendix B.5.1–2 p549 (draft A.5.1–2 pp482–483).",
       "printed": "is equal to T_x(Q_p)^0",
-      "correction": "The cited Getz–Hahn statement requires T_model⊂B_model⊂G_model over O_F. Prove that integral-position condition for the torus used here, or avoid claiming E(s_K₀)_w/Q_p unramified and evaluate Eq.(7) with a general uniformizer, giving v_p(χ(N μ(π_w)))=e⁻¹∑_σ〈χ,σμ〉.",
-      "reason": "The source has only an unramified generic torus in a Q_p-rational Borel and hyperspecial containment for the fixed model. In GL₂/Q₃ let u=[[1,1/3],[0,1]], T=uDu⁻¹ and t=u diag(2,1)u⁻¹=[[2,-1/3],[0,1]]. T is split and t belongs to its maximal compact subgroup, but t∉GL₂(Z₃). Getz–Hahn 22Apr2022 AppendixA.5, LemmasA.5.1–2 pp482–483 explicitly starts with an integral torus and Borel. The paper has not established that hypothesis for its chosen T_x. This invalidates the quoted equality's justification; it does not disprove the infinite-order conclusion. The proposed general-uniformizer repair requires a separate full proof audit.",
+      "correction": "The published Getz–Hahn B.5.2 statement requires T_model⊂B_model⊂G_model over O_F. Prove that integral-position condition for the torus used here, or avoid claiming E(s_K₀)_w/Q_p unramified and evaluate Eq.(7) with a general uniformizer, giving v_p(χ(N μ(π_w)))=e⁻¹∑_σ〈χ,σμ〉.",
+      "reason": "The source has only an unramified generic torus in a Q_p-rational Borel and hyperspecial containment for the fixed model. In GL₂/Q₃ let u=[[1,1/3],[0,1]], T=uDu⁻¹ and t=u diag(2,1)u⁻¹=[[2,-1/3],[0,1]]. T is split and t belongs to its maximal compact subgroup, but t∉GL₂(Z₃). Getz–Hahn 22Apr2022 AppendixA.5, LemmasA.5.1–2 pp482–483 explicitly starts with an integral torus and Borel. The paper has not established that hypothesis for its chosen T_x. This invalidates the quoted equality's justification; it does not disprove the infinite-order conclusion. The proposed general-uniformizer repair requires a separate full proof audit. Independent review obtained the public published backmatter: the same integral-position hypothesis occurs in B.5.2 p549.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -6891,9 +6953,16 @@
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
         "Getz–Hahn author draft https://sites.duke.edu/jgetz/files/2022/04/Graduate_Text.pdf AppendixA.5 pp482–483, and the author-linked 2026-07 errata https://sites.duke.edu/jgetz/files/2026/07/Errata.pdf (all3pages): no correction pertinent to this application located.",
         "2026-09-23: freshly downloaded and read complete journal PDF (same SHA-256); rechecked arXiv version history (latest v2 2024-10-06), Patrikis papers page and title/DOI correction searches. No relevant correction located in these checks; supplementary draft/book reading remains inherited, not a new full read.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion.",
+        "Getz–Hahn published backmatter https://link.springer.com/content/pdf/bbm:978-3-031-41153-3/1 pp548–550; 2022 author draft pp482–483; author-linked July2026 errata all3pages, freshly read independently."
       ],
-      "repairStatus": "Written continuation proof supplied on 2026-09-23; independent verification remains outstanding. See report and items094/103/106/110/114–116/118/142–150. No verdict assigned."
+      "repairStatus": "Independently verified mathematical implication with the corrected hypotheses. Original supplier and exact formal-interface closure remains open; no Lean proof is claimed.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the cited inference. Published Getz–Hahn B.5.1–2 p549, as well as draft A.5.1–2 pp482–483, explicitly uses an integral torus in an integral Borel of the chosen model. The GL₂/Q₃ calculation gives the printed equality’s missing-position diagnostic. The source does not establish that position. The separate arbitrary-uniformizer valuation repair is mathematically valid and bypasses the unramified-section-field claim; it does not prove that intermediate claim. All three pages of the current author errata were checked, with no relevant change.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/E5",
@@ -6909,8 +6978,14 @@
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed index slip. The construction with the numbered conditions is Proposition3.7. The source’s Lemma3.2 is a different reciprocity computation, and no Proposition3.2 exists.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/E6",
@@ -6926,8 +7001,14 @@
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed type slip, including the journal page image. χ is evaluated on a torus element and is an element of the character lattice; its domain is T and its codomain G_m.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/E7",
@@ -6943,8 +7024,14 @@
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected as a confirmed misprint or mathematical error. The source immediately explains nontriviality on each factor and uses only one positive-root pairing; it does not invoke positivity on every simple root. The A2 example refutes an interior-of-chamber interpretation but does not show that this interpretation was intended. Retain the precise nonzero-dominant formulation in the extraction and its boundary test, without registering the wording itself as a proved mistake.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/E8",
@@ -6960,8 +7047,14 @@
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the v1 definition, which the journal still references. A coordinate linear subspace cannot model the crossing xy=0; for codimension≥2 it is not even a Cartier divisor. Read all of v1 pp7–11. The section was deleted in v2, not replaced by a corrected definition, and journal footnote3 explicitly points to it. Remove the completion summary’s claim that publication corrected it. This is not a disproof of tame specialization with the proper SNC definition.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/E9",
@@ -6977,8 +7070,14 @@
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only as an abstract scope omission. Its first displayed family is already adjoint; the later stronger-family sentence names G-valued local systems without mentioning projection. Theorem3.10 and Remark3.14, and the author’s bibliography, confine the proved compatibility to their adjoint projections. Do not interpret this as a counterexample to a claimed full-G theorem.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/E10",
@@ -6994,8 +7093,51 @@
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the journal image: the local component refers to the previously fixed finite adele a, so A_f is intended. The relevant v2 p21 passage already uses A_f correctly; this journal slip is not present there.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/E11",
+      "kind": "misprint",
+      "locator": "Journal Theorem3.10 proof p330, first paragraph; arXiv v2 p23; compare Eq.(4) journal p319",
+      "printed": "G(ℚ)\\G(𝔸_f)/K₀",
+      "correction": "For a fixed X⁺ take representatives of G(ℚ)_+\\G(𝔸_f)/K₀, as in Eq.(4), and form N₁ using all of them.",
+      "reason": "The proof fixes X⁺ after choosing C, then treats those C-indexed components as all components. For the genus-two Siegel datum GSp₄ and neat principal K(N), N≥3, g=diag(-I₂,I₂) is rational with multiplier -1. Thus 1 and g have the same G(Q) double coset. If they had the same positive-G double coset, taking multipliers would give a positive rational finite unit times a unit congruent1modN equal to -1; the rational unit must be1, contradicting -1≠1modN. This example satisfies real rank2. The missing plus omits a component; using the correct finite set repairs the argument, without changing the theorem.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof fixes X⁺ after choosing C, then treats those C-indexed components as all components. For the genus-two Siegel datum GSp₄ and neat principal K(N), N≥3, g=diag(-I₂,I₂) is rational with multiplier -1. Thus 1 and g have the same G(Q) double coset. If they had the same positive-G double coset, taking multipliers would give a positive rational finite unit times a unit congruent1modN equal to -1; the rational unit must be1, contradicting -1≠1modN. This example satisfies real rank2. The missing plus omits a component; using the correct finite set repairs the argument, without changing the theorem.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/E12",
+      "kind": "misprint",
+      "locator": "Journal Lemma3.9 p328, citation [14, Lemma A.5.2]; bibliography [14] journal p334",
+      "printed": "[14, Lemma A.5.2]",
+      "correction": "In the cited 2024 published Getz–Hahn book, use Lemma B.5.2, p549; A.5.2 is the 22April2022 draft locator.",
+      "reason": "The journal bibliography cites the 2024 Springer book. The public published backmatter has the integral-torus lemma at B.5.2 p549, whereas the author draft has it at A.5.2 pp482–483. Both were read, and the published page image was inspected. This numbering correction is separate from the applicability gap E4.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion.",
+        "Published Getz–Hahn backmatter and draft, with July2026 author errata; no B.5.2 correction found."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The journal bibliography cites the 2024 Springer book. The public published backmatter has the integral-torus lemma at B.5.2 p549, whereas the author draft has it at A.5.2 pp482–483. Both were read, and the published page image was inspected. This numbering correction is separate from the applicability gap E4.",
+        "by": "REV-PAPER-KLEVDAL-PATRIKIS-25"
+      }
     }
   ],
   "gaps": [
@@ -7008,8 +7150,8 @@
         "PAPER-KLEVDAL-PATRIKIS-25/076"
       ],
       "detail": "Extract the exact EG18/KP22 variant, Margulis admissible H¹ modules, boundary conditions, and Simpson continuity. Do not identify superrigidity with cohomological rigidity or assert every dense representation integral without these gates.",
-      "status": "deferred",
-      "resolution": "Esnault–Groechenig, Klevdal–Patrikis 2022, Margulis and Simpson are cited suppliers."
+      "status": "open",
+      "resolution": "Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G2",
@@ -7022,8 +7164,8 @@
         "PAPER-KLEVDAL-PATRIKIS-25/025"
       ],
       "detail": "Finish original Lieblich–Olsson A.7/A.12, Grothendieck–Murre, Néron–Popescu and Artin inputs. Verify Ahat as a union rather than merely a colimit, descent of valuations, and the inertia-equivariant paths used on journal p315. Correct v1 chart E8.",
-      "status": "deferred",
-      "resolution": "Lieblich–Olsson, Grothendieck–Murre, Néron–Popescu and Artin are cited suppliers."
+      "status": "open",
+      "resolution": "Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G3",
@@ -7037,8 +7179,8 @@
         "PAPER-KLEVDAL-PATRIKIS-25/051"
       ],
       "detail": "Read Petrov6.1; one full G-companion route (Drinfeld2018 or Drinfeld2012+Chin); Kerz–Schmidt/Deligne and BHKT6.4; then Drinfeld's arithmetic tangent results. Check all determinant/purity/connectedness and coefficient assumptions. The journal proof identifies their uses, not their recursive closure.",
-      "status": "deferred",
-      "resolution": "Petrov, Drinfeld, Chin and Kerz–Saito are cited suppliers."
+      "status": "open",
+      "resolution": "Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap. Correct the inherited supplier name to Kerz–Schmidt (the cited tameness source), not Kerz–Saito."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G4",
@@ -7057,8 +7199,8 @@
         "PAPER-KLEVDAL-PATRIKIS-25/099"
       ],
       "detail": "Extract the original Margulis, Platonov–Rapinchuk, Prasad–Rapinchuk and Voskresenskiĭ statements. Generic algebraic-group auxiliary arguments are itemized but still need a baseline-to-target expansion; coordinate existing H¹/Conj candidate instead of duplicating it.",
-      "status": "deferred",
-      "resolution": "The higher-rank lattice and group-theoretic results are cited suppliers."
+      "status": "open",
+      "resolution": "Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G5",
@@ -7071,8 +7213,8 @@
         "PAPER-KLEVDAL-PATRIKIS-25/125"
       ],
       "detail": "The strengthened separation, factorwise torus-cocycle isomorphism and multiplicity-free subdirect-product proofs are now written in items094/103/106/110/118/148/149. Still obtain the original local anisotropic maximal-torus existence theorem, generic approximation and H¹ suppliers in G4 and independently verify the repair in G10. No unqualified closure or implementation claim.",
-      "status": "recorded",
-      "resolution": "E2 records the separation property the proof of Lemma 3.9 needs; the strengthened argument is written out in the checkpoint's items."
+      "status": "open",
+      "resolution": "The strengthened nonisogeny, rational-torus-descent and multiplicity-free density arguments are independently verified conditional on their hypotheses. Original anisotropic-torus existence, approximation and H¹ suppliers in G4 remain open."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G6",
@@ -7085,9 +7227,9 @@
         "PAPER-KLEVDAL-PATRIKIS-25/120",
         "PAPER-KLEVDAL-PATRIKIS-25/125"
       ],
-      "detail": "The full general-uniformizer proof and application are written in items114–116/142–147/150: compact character values vanish, the norm valuation is e^-1 times the embedding-pairing sum, and positivity gives infinite-order Frobenius. This bypasses the intermediate unramified-field claim. Still close the imported finite-extension/topology/reflex-reciprocity leaves and independently verify the repair. Collation of the published Getz–Hahn appendix remains required for the separate item092/source finding E4; that collation is not claimed completed.",
-      "status": "recorded",
-      "resolution": "E4 records the unverified integral position for the cited Getz–Hahn statement; the general-uniformizer repair is written out in the checkpoint's items."
+      "detail": "The full general-uniformizer proof and application are written in items114–116/142–147/150: compact character values vanish, the norm valuation is e^-1 times the embedding-pairing sum, and positivity gives infinite-order Frobenius. This bypasses the intermediate unramified-field claim. Still close the imported finite-extension/topology/reflex-reciprocity leaves and independently verify the repair. Published Getz–Hahn B.5.1–2 p549 has now been collated against draft A.5.1–2. The integral-position restriction persists.",
+      "status": "open",
+      "resolution": "General-uniformizer valuation, compact-character vanishing, positivity and the Eq.(6)–(7) application independently verified. Published-book collation completed. Finite-extension/topological/reflex-reciprocity and Macdonald/SGA3 supplier proofs remain open; the source’s intermediate unramified-field assertion is not certified."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G7",
@@ -7101,8 +7243,8 @@
         "PAPER-KLEVDAL-PATRIKIS-25/111"
       ],
       "detail": "Read PSTEG Theorem4.1 and Ullmo–Yafaev2.1–2.2; finish exact canonical-model, right-tower and centre/neatness proof leaves in V4/V7/V8. Coordinate the identical canonical local system consumed by T6:comparison, without importing all logarithmic RH.",
-      "status": "deferred",
-      "resolution": "Pila–Shankar–Tsimerman–Esnault–Groechenig and Ullmo–Yafaev are cited suppliers."
+      "status": "open",
+      "resolution": "Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G8",
@@ -7116,8 +7258,8 @@
         "PAPER-KLEVDAL-PATRIKIS-25/134"
       ],
       "detail": "Extract Serre's locally algebraic realization and the fixed-ℓ specialization/open-image input, then Huryn–Zhang only for the follow-up density-one assertion. The full-G follow-up, p-adic compatibility follow-up and BST Theorem9.7 remain downstream, not main theorem inputs.",
-      "status": "deferred",
-      "resolution": "Serre's locally algebraic representations are a cited supplier for the supplementary remarks."
+      "status": "open",
+      "resolution": "Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G9",
@@ -7131,8 +7273,8 @@
         "PAPER-KLEVDAL-PATRIKIS-25/119"
       ],
       "detail": "Reviewed audits and actual layer descriptions are recorded, but these coarse planned stage references do not close proofs. Resolve exact accepted packet/reserved supplier nodes and request statements in future design jobs. Complete per-leaf pinned searches during blueprint expansion; no claim that all 137 targets elaborate. Continuation identifies LocalFieldsRamification Layer0, ReductiveGroupsPartII RG2.0/RG2.0a and ReductiveGroups Layer0 as owners of the new adapters. Resolve their exact supplier signatures and affine descent before claiming formal closure. The 46 API/test lists are planning specifications; inherited source-wide contracts beyond the focused repair still require per-node blueprint expansion.",
-      "status": "deferred",
-      "resolution": "Finer supplier identifiers are design work."
+      "status": "open",
+      "resolution": "Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G10",
@@ -7141,21 +7283,28 @@
         "PAPER-KLEVDAL-PATRIKIS-25/125"
       ],
       "detail": "All ten E-records await independent review; no reviewer verdict is self-assigned. Verify intended positivity conventions in E7 and adjoint abstract wording in E9 before treating these as confirmed errata. E1/E3 require the explicit corrected assumptions/step recorded in items.",
-      "status": "deferred",
-      "resolution": "Independent review of the findings is the review pipeline's job."
+      "status": "resolved",
+      "resolution": "Independent review finished: eleven of twelve findings confirmed with the recorded scope, E7 rejected. This closes verification of these records, not original-source proof closure."
     }
   ],
   "validation": {
     "lean": "Not run: this issue permits JSON/report/handoff only. API and unit-test entries are planning specifications, not compiled declarations.",
-    "closure": "Partial: written mathematical repairs reduce G5/G6 but do not close original-source suppliers, exact formal interfaces or independent verification.",
-    "checks": [
+    "closure": "Partial. Review is complete; G1–G9 retain explicit original-source or exact-interface work. Mathematical E2/E4 repairs and the published-book collation are verified; item150 reuses existing pinned declarations.",
+    "previousChecks": [
       "Paper checker and exact three-deliverable intake check: pass (commands and final snapshot in handoff).",
       "Focused structural audit: 1134 assertions, 150 IDs, 271 acyclic dependency edges, all 137 inherited IDs/statuses retained, 116 missing items routed exactly once, 46 canonical API/test triples, unchanged ten route/source-issue/gap identities.",
       "Exact rational/integer arithmetic: 11567 assertions passed for Eisenstein norm determinants (including wild ramification), dominant simple-root coordinates, A2 lattice intertwiners, finite-character projectors, Gaussian-rational cocycle descent and the compact-position/repeated-factor counterexamples. These finite diagnostics are not proofs of the general theorems."
+    ],
+    "checks": [
+      "Independent structural audit passed: 150 unique items, 281 acyclic resolved dependency edges, 116 missing items each routed once, 46 synchronized API/test triples, 22 search clusters cover all missing IDs, all ten route and twelve finding verdicts present.",
+      "python3 scripts/check_paper.py research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json: passed.",
+      "python3 research/blueprint/intake.py check-files on exactly the five submitted deliverables: 5 files, 0 problems.",
+      "Fresh exact arithmetic diagnostics: 89 passed; inherited 11567-check run not rerun.",
+      "No Lean file required or compiled."
     ]
   },
   "summaryBefore": "Second full-journal-read checkpoint, preserving all 137 earlier items and adding 13 atomic supplier/repair items. Written proofs now explain the ramified torus-norm valuation and its Frobenius application, rational descent of the torus conjugation isomorphism, split–anisotropic nonisogeny and the multiplicity-free density argument. All ten routes and source-finding/gap IDs remain; original reference leaves and independent verification remain open. Partial, with no Lean formalization claim.",
-  "completion": {
+  "completionBeforeIndependentReview": {
     "agent": "Claude Code",
     "session": "cc-442dc5",
     "issue": 1207,
@@ -7163,5 +7312,915 @@
     "status": "complete",
     "reading": "Published PDF re-fetched (hash matches); every numbered statement checked against the items.",
     "changes": "Gap statuses recorded; status complete."
+  },
+  "review": {
+    "by": "independent-review-REV-PAPER-KLEVDAL-PATRIKIS-25",
+    "verdict": "revise",
+    "notes": "Review complete; extraction partial. Four corrected routes accepted (6,8,9,10); routes1–5,7 need exact source/ownership contracts. Eleven source findings confirmed, E7 rejected; mathematical repairs remain conditional on suppliers."
+  },
+  "independentReviewAudit": {
+    "job": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+    "agent": "Codex",
+    "session": "codex-7e92bd",
+    "issue": 1208,
+    "status": "complete",
+    "inputMain": "f6d1db9c90a51acd95d1f68d019e62513e803b13",
+    "inputBlobs": {
+      "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json": "fb14c255b42fb9102ede82ba9fe886d8bd15d457",
+      "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.md": "a2245ea589f6518adc08eda91193470314938f79"
+    },
+    "independence": "Input authored by codex-a71f92 (PR1996), codex-c83e7a (PR2117), and cc-442dc5 (PR2135); reviewer codex-7e92bd wrote none of those input versions.",
+    "date": "2026-09-23",
+    "itemChanges": [
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/024",
+        "fields": [
+          "note"
+        ],
+        "previous": {
+          "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input."
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/024",
+        "fields": [
+          "tests",
+          "unitTests"
+        ],
+        "previous": {
+          "tests": [
+            {
+              "name": "AdjointCompatibility.sp.test1",
+              "statement": "A trivial tame cover remains trivial after specialization.",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "degenerate"
+            },
+            {
+              "name": "AdjointCompatibility.sp.test2",
+              "statement": "A contravariant equivalence sending tame covers of the special fiber to covers of the geometric generic fiber induces a homomorphism π₁ᵗ(generic)→π₁ᵗ(special).",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "compatibility"
+            },
+            {
+              "name": "AdjointCompatibility.sp.test3",
+              "statement": "A wild special-fibre cover is not covered by the tame specialization theorem.",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "non-example"
+            }
+          ],
+          "unitTests": [
+            {
+              "name": "AdjointCompatibility.sp.test1",
+              "statement": "A trivial tame cover remains trivial after specialization.",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "degenerate"
+            },
+            {
+              "name": "AdjointCompatibility.sp.test2",
+              "statement": "A contravariant equivalence sending tame covers of the special fiber to covers of the geometric generic fiber induces a homomorphism π₁ᵗ(generic)→π₁ᵗ(special).",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "compatibility"
+            },
+            {
+              "name": "AdjointCompatibility.sp.test3",
+              "statement": "A wild special-fibre cover is not covered by the tame specialization theorem.",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "non-example"
+            }
+          ]
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/031",
+        "fields": [
+          "statement",
+          "note"
+        ],
+        "previous": {
+          "statement": "A complex representation is integral in the source sense if it is conjugate to a representation into G(O_L) for some number field L and a chosen integral model after the permitted spreading. Integral structure is data; boundedness at one coefficient place is weaker.",
+          "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input."
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/031",
+        "fields": [
+          "api",
+          "planningAPI"
+        ],
+        "previous": {
+          "api": [
+            {
+              "name": "AdjointCompatibility.integral.model",
+              "role": "data",
+              "statement": "Record the number field, integral group model and conjugator."
+            },
+            {
+              "name": "AdjointCompatibility.integral.place",
+              "role": "data",
+              "statement": "Evaluate at each coefficient-place completion."
+            },
+            {
+              "name": "AdjointCompatibility.integral.enlarge",
+              "role": "data",
+              "statement": "Transport the integral structure under permitted field/model changes."
+            }
+          ],
+          "planningAPI": [
+            {
+              "name": "AdjointCompatibility.integral.model",
+              "role": "data",
+              "statement": "Record the number field, integral group model and conjugator."
+            },
+            {
+              "name": "AdjointCompatibility.integral.place",
+              "role": "data",
+              "statement": "Evaluate at each coefficient-place completion."
+            },
+            {
+              "name": "AdjointCompatibility.integral.enlarge",
+              "role": "data",
+              "statement": "Transport the integral structure under permitted field/model changes."
+            }
+          ]
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/033",
+        "fields": [
+          "statement",
+          "note"
+        ],
+        "previous": {
+          "statement": "For each finite place λ of Qbar, the integral representation extends uniquely and continuously from topological π₁ to its profinite/étale completion with values in G(Zbar_λ). Comparison uses Riemann existence and the fixed coefficient embedding.",
+          "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input."
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/044",
+        "fields": [
+          "statement",
+          "dependencies",
+          "note"
+        ],
+        "previous": {
+          "statement": "If the arithmetic image is dense in connected adjoint semisimple G, the Zariski closure H of geometric monodromy is normal. The quotient G/H is densely generated by one Frobenius, hence commutative; its semisimple adjoint structure forces it trivial.",
+          "dependencies": [
+            "PAPER-KLEVDAL-PATRIKIS-25/010",
+            "PAPER-KLEVDAL-PATRIKIS-25/026"
+          ],
+          "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input."
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/054",
+        "fields": [
+          "planned",
+          "note"
+        ],
+        "previous": {
+          "planned": [
+            "ShimuraData:D1"
+          ],
+          "note": "The cited stage owns this scope; planned does not mean implemented or proof-closed."
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/074",
+        "fields": [
+          "statement",
+          "proofOutline",
+          "note"
+        ],
+        "previous": {
+          "statement": "After representing the outer class over algebraically closed Ω, reduce τ over Ω' to an inner conjugator g. Every automorphism of Ω'/Ω fixes g by density and trivial centralizer; use the fixed-field property for algebraically closed Ω to descend g and τ to Ω.",
+          "proofOutline": null,
+          "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input."
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/092",
+        "fields": [
+          "locator",
+          "note"
+        ],
+        "previous": {
+          "locator": "Getz–Hahn 22Apr2022 AppendixA.5 LemmasA.5.1–2 pp482–483; journal p328 citation [14]",
+          "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input."
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/121",
+        "fields": [
+          "statement",
+          "note"
+        ],
+        "previous": {
+          "statement": "Let N be the soft-model bound, N₀ a bound for a reductive Z[1/N₀]-model, N₁ the product of primes where a chosen finite set of adelic component representatives is not integral, and N₂ the primes where K₀ does not contain the model's integral points. Set Ntilde=NN₀N₁N₂; it is independent of ℓ,ℓ' and the fibre.",
+          "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input."
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/121",
+        "fields": [
+          "api",
+          "planningAPI"
+        ],
+        "previous": {
+          "api": [
+            {
+              "name": "AdjointCompatibility.uniformN.modelPrimes",
+              "role": "data",
+              "statement": "Record N and N₀."
+            },
+            {
+              "name": "AdjointCompatibility.uniformN.representatives",
+              "role": "data",
+              "statement": "Take the finite union of denominator primes of the component representatives."
+            },
+            {
+              "name": "AdjointCompatibility.uniformN.levelPrimes",
+              "role": "data",
+              "statement": "Take the finite exceptional set where hyperspecial containment fails."
+            }
+          ],
+          "planningAPI": [
+            {
+              "name": "AdjointCompatibility.uniformN.modelPrimes",
+              "role": "data",
+              "statement": "Record N and N₀."
+            },
+            {
+              "name": "AdjointCompatibility.uniformN.representatives",
+              "role": "data",
+              "statement": "Take the finite union of denominator primes of the component representatives."
+            },
+            {
+              "name": "AdjointCompatibility.uniformN.levelPrimes",
+              "role": "data",
+              "statement": "Take the finite exceptional set where hyperspecial containment fails."
+            }
+          ]
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/121",
+        "fields": [
+          "tests",
+          "unitTests"
+        ],
+        "previous": {
+          "tests": [
+            {
+              "name": "AdjointCompatibility.uniformN.test1",
+              "statement": "Every prime excluded by any of the four inputs divides Ntilde.",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "characterisation"
+            },
+            {
+              "name": "AdjointCompatibility.uniformN.test2",
+              "statement": "The resulting integer does not depend on ℓ or ℓ'.",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "compatibility"
+            },
+            {
+              "name": "AdjointCompatibility.uniformN.test3",
+              "statement": "If Ntilde divides Mtilde, every prime not dividing Mtilde also does not divide Ntilde, so restricting the integral model retains each asserted good-fiber conclusion.",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "compatibility"
+            }
+          ],
+          "unitTests": [
+            {
+              "name": "AdjointCompatibility.uniformN.test1",
+              "statement": "Every prime excluded by any of the four inputs divides Ntilde.",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "characterisation"
+            },
+            {
+              "name": "AdjointCompatibility.uniformN.test2",
+              "statement": "The resulting integer does not depend on ℓ or ℓ'.",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "compatibility"
+            },
+            {
+              "name": "AdjointCompatibility.uniformN.test3",
+              "statement": "If Ntilde divides Mtilde, every prime not dividing Mtilde also does not divide Ntilde, so restricting the integral model retains each asserted good-fiber conclusion.",
+              "verification": "Mathematical planning test; no Lean elaboration asserted.",
+              "kind": "compatibility"
+            }
+          ]
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/125",
+        "fields": [
+          "statement"
+        ],
+        "previous": {
+          "statement": "For (G,X) with discrete Z_G(Q)⊂Z_G(A_f), neat K₀ and real rank≥2 for every Q-simple factor of G^ad, the canonical adjoint systems extend to the smooth component model away from Nℓ. There is Ntilde such that for every ℓ,ℓ' and every closed x away from Ntildeℓℓ', their semisimple Frobenius classes equal one point of (G^ad//G^ad)(Q). Proof remains gated by E2,E4 repairs."
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/150",
+        "fields": [
+          "name",
+          "status",
+          "statement",
+          "library",
+          "locator",
+          "note",
+          "proofOutline"
+        ],
+        "previous": {
+          "name": "Order is reflected by extension of fields",
+          "status": "planned",
+          "statement": "For an affine group scheme H/F and an extension K/F, H(F)→H(K) is injective. For h∈H(F) and integer n>0, h^n=1 if and only if its image has nth power 1. Thus finite or infinite order is preserved by field extension, inversion and conjugation.",
+          "library": null,
+          "locator": "Continuation: explicit repair of Proposition 3.7 and Lemma 3.9, journal pp325–329",
+          "note": null,
+          "proofOutline": "Write points as F-algebra maps O(H)→F. Composition with the injective field inclusion is injective, and commutes with powers. Inversion and conjugation are group automorphisms for the order calculation."
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/094",
+        "fields": [
+          "dependencies"
+        ],
+        "previous": {
+          "dependencies": [
+            "PAPER-KLEVDAL-PATRIKIS-25/067",
+            "PAPER-KLEVDAL-PATRIKIS-25/083",
+            "PAPER-KLEVDAL-PATRIKIS-25/149"
+          ]
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/110",
+        "fields": [
+          "dependencies"
+        ],
+        "previous": {
+          "dependencies": [
+            "PAPER-KLEVDAL-PATRIKIS-25/083",
+            "PAPER-KLEVDAL-PATRIKIS-25/141"
+          ]
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/114",
+        "fields": [
+          "dependencies"
+        ],
+        "previous": {
+          "dependencies": [
+            "PAPER-KLEVDAL-PATRIKIS-25/113",
+            "PAPER-KLEVDAL-PATRIKIS-25/057",
+            "PAPER-KLEVDAL-PATRIKIS-25/145",
+            "PAPER-KLEVDAL-PATRIKIS-25/144"
+          ]
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/116",
+        "fields": [
+          "dependencies"
+        ],
+        "previous": {
+          "dependencies": [
+            "PAPER-KLEVDAL-PATRIKIS-25/115",
+            "PAPER-KLEVDAL-PATRIKIS-25/114",
+            "PAPER-KLEVDAL-PATRIKIS-25/108",
+            "PAPER-KLEVDAL-PATRIKIS-25/150",
+            "PAPER-KLEVDAL-PATRIKIS-25/112"
+          ]
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/117",
+        "fields": [
+          "dependencies"
+        ],
+        "previous": {
+          "dependencies": [
+            "PAPER-KLEVDAL-PATRIKIS-25/004"
+          ]
+        }
+      },
+      {
+        "item": "PAPER-KLEVDAL-PATRIKIS-25/121",
+        "fields": [
+          "dependencies"
+        ],
+        "previous": {
+          "dependencies": [
+            "PAPER-KLEVDAL-PATRIKIS-25/078",
+            "PAPER-KLEVDAL-PATRIKIS-25/091",
+            "PAPER-KLEVDAL-PATRIKIS-25/066"
+          ]
+        }
+      }
+    ],
+    "otherChanges": [
+      "Restore partial extraction status; preserve previous completion as provenance.",
+      "Review every inherited source finding; reject E7 as a confirmed misprint; add confirmed E11/E12.",
+      "Published Getz–Hahn appendix collated and locators corrected.",
+      "Open supplier gaps G1–G9 retained as work; G10 finding verification resolved.",
+      "Route6 candidate area corrected; routes1/4/5/7 contracts tightened; route8 includes V8.",
+      "All14 input library items reread; item150 upgraded to exact existing Hopf-point/order interface.",
+      "Canonical and legacy API/test fields kept synchronized."
+    ],
+    "missingSearches": [
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/014",
+          "PAPER-KLEVDAL-PATRIKIS-25/112"
+        ],
+        "pattern": "spreading|spread.out|integral.point.*descen|limit.*finite.presentation",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/015",
+          "PAPER-KLEVDAL-PATRIKIS-25/016",
+          "PAPER-KLEVDAL-PATRIKIS-25/017",
+          "PAPER-KLEVDAL-PATRIKIS-25/018",
+          "PAPER-KLEVDAL-PATRIKIS-25/019",
+          "PAPER-KLEVDAL-PATRIKIS-25/020",
+          "PAPER-KLEVDAL-PATRIKIS-25/021",
+          "PAPER-KLEVDAL-PATRIKIS-25/022",
+          "PAPER-KLEVDAL-PATRIKIS-25/023",
+          "PAPER-KLEVDAL-PATRIKIS-25/024",
+          "PAPER-KLEVDAL-PATRIKIS-25/025"
+        ],
+        "pattern": "tame.*(cover|fundamental|speciali)|N.ron.Popescu|Artin.approximation|strict.*hensel.*trait",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/026",
+          "PAPER-KLEVDAL-PATRIKIS-25/027",
+          "PAPER-KLEVDAL-PATRIKIS-25/028",
+          "PAPER-KLEVDAL-PATRIKIS-25/039",
+          "PAPER-KLEVDAL-PATRIKIS-25/044",
+          "PAPER-KLEVDAL-PATRIKIS-25/072",
+          "PAPER-KLEVDAL-PATRIKIS-25/073",
+          "PAPER-KLEVDAL-PATRIKIS-25/074"
+        ],
+        "pattern": "centraliz.*dense|dense.*centraliz|faithful.irreducible|adjoint.*automorphism|automorphism.*descent|monodromy",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/029",
+          "PAPER-KLEVDAL-PATRIKIS-25/030",
+          "PAPER-KLEVDAL-PATRIKIS-25/032",
+          "PAPER-KLEVDAL-PATRIKIS-25/034",
+          "PAPER-KLEVDAL-PATRIKIS-25/035",
+          "PAPER-KLEVDAL-PATRIKIS-25/036",
+          "PAPER-KLEVDAL-PATRIKIS-25/068",
+          "PAPER-KLEVDAL-PATRIKIS-25/069",
+          "PAPER-KLEVDAL-PATRIKIS-25/070",
+          "PAPER-KLEVDAL-PATRIKIS-25/071",
+          "PAPER-KLEVDAL-PATRIKIS-25/075",
+          "PAPER-KLEVDAL-PATRIKIS-25/076"
+        ],
+        "pattern": "super.?rigid|Margulis|Borel.density|outer.automorphism|integrality.*local.system",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/031",
+          "PAPER-KLEVDAL-PATRIKIS-25/033"
+        ],
+        "pattern": "integral.local.system|strongly.integral|integral.*representation|profinite.completion",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/037",
+          "PAPER-KLEVDAL-PATRIKIS-25/040",
+          "PAPER-KLEVDAL-PATRIKIS-25/041",
+          "PAPER-KLEVDAL-PATRIKIS-25/042",
+          "PAPER-KLEVDAL-PATRIKIS-25/043",
+          "PAPER-KLEVDAL-PATRIKIS-25/045",
+          "PAPER-KLEVDAL-PATRIKIS-25/046",
+          "PAPER-KLEVDAL-PATRIKIS-25/049",
+          "PAPER-KLEVDAL-PATRIKIS-25/050",
+          "PAPER-KLEVDAL-PATRIKIS-25/051"
+        ],
+        "pattern": "companion|Petrov|uniform.*ramification|arithmetic.*monodromy",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/047",
+          "PAPER-KLEVDAL-PATRIKIS-25/048"
+        ],
+        "pattern": "ramification.*tangent|tangent.*ramification|arithmetic.*curve|Hilbert.irreducib",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/052",
+          "PAPER-KLEVDAL-PATRIKIS-25/053"
+        ],
+        "pattern": "symmetry.break|outer.*stabiliz|super.?rigid",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/038",
+          "PAPER-KLEVDAL-PATRIKIS-25/124"
+        ],
+        "pattern": "Conj_G|conjugation.quotient|semisimple.*conjugacy|stable.conjugacy",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/058",
+          "PAPER-KLEVDAL-PATRIKIS-25/062",
+          "PAPER-KLEVDAL-PATRIKIS-25/063",
+          "PAPER-KLEVDAL-PATRIKIS-25/064",
+          "PAPER-KLEVDAL-PATRIKIS-25/065",
+          "PAPER-KLEVDAL-PATRIKIS-25/079"
+        ],
+        "pattern": "reflex.norm|canonical.*local.system|Shimura.*(tower|component)|opposite.*deck",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/067"
+        ],
+        "pattern": "Weil.restrict|restriction.of.scalars|absolutely.simple",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/077",
+          "PAPER-KLEVDAL-PATRIKIS-25/078"
+        ],
+        "pattern": "soft.*model|integrality.*special.point|special.point.*integr|Pila.Shankar",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/082",
+          "PAPER-KLEVDAL-PATRIKIS-25/083",
+          "PAPER-KLEVDAL-PATRIKIS-25/084",
+          "PAPER-KLEVDAL-PATRIKIS-25/085",
+          "PAPER-KLEVDAL-PATRIKIS-25/086",
+          "PAPER-KLEVDAL-PATRIKIS-25/087",
+          "PAPER-KLEVDAL-PATRIKIS-25/088",
+          "PAPER-KLEVDAL-PATRIKIS-25/089",
+          "PAPER-KLEVDAL-PATRIKIS-25/090",
+          "PAPER-KLEVDAL-PATRIKIS-25/094",
+          "PAPER-KLEVDAL-PATRIKIS-25/095",
+          "PAPER-KLEVDAL-PATRIKIS-25/103",
+          "PAPER-KLEVDAL-PATRIKIS-25/110",
+          "PAPER-KLEVDAL-PATRIKIS-25/117",
+          "PAPER-KLEVDAL-PATRIKIS-25/118"
+        ],
+        "pattern": "irreducible.tor|generic.tor|variety.of.maximal.tori|cyclic.closure|isogeny.separat|Prasad.Rapinchuk",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/092"
+        ],
+        "pattern": "hyperspecial|bounded.*torus|torus.*compact",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/096",
+          "PAPER-KLEVDAL-PATRIKIS-25/097",
+          "PAPER-KLEVDAL-PATRIKIS-25/098",
+          "PAPER-KLEVDAL-PATRIKIS-25/099",
+          "PAPER-KLEVDAL-PATRIKIS-25/100",
+          "PAPER-KLEVDAL-PATRIKIS-25/101",
+          "PAPER-KLEVDAL-PATRIKIS-25/148"
+        ],
+        "pattern": "Hasse.principle|torus.*cocycle|H.?[¹1].*tor|torus.*H.?[¹1]|simply.connected.*vanish|torus.transfer",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/093",
+          "PAPER-KLEVDAL-PATRIKIS-25/108",
+          "PAPER-KLEVDAL-PATRIKIS-25/115",
+          "PAPER-KLEVDAL-PATRIKIS-25/147"
+        ],
+        "pattern": "dominant.*cocharacter|cocharacter.*dominant|torus.norm|norm.*valuation",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/104",
+          "PAPER-KLEVDAL-PATRIKIS-25/105",
+          "PAPER-KLEVDAL-PATRIKIS-25/106",
+          "PAPER-KLEVDAL-PATRIKIS-25/107",
+          "PAPER-KLEVDAL-PATRIKIS-25/109",
+          "PAPER-KLEVDAL-PATRIKIS-25/111",
+          "PAPER-KLEVDAL-PATRIKIS-25/113",
+          "PAPER-KLEVDAL-PATRIKIS-25/114",
+          "PAPER-KLEVDAL-PATRIKIS-25/116",
+          "PAPER-KLEVDAL-PATRIKIS-25/120"
+        ],
+        "pattern": "special.point|Mumford.Tate|Frobenius.*torus|torus.*Frobenius",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/080",
+          "PAPER-KLEVDAL-PATRIKIS-25/081",
+          "PAPER-KLEVDAL-PATRIKIS-25/121",
+          "PAPER-KLEVDAL-PATRIKIS-25/122",
+          "PAPER-KLEVDAL-PATRIKIS-25/125",
+          "PAPER-KLEVDAL-PATRIKIS-25/126",
+          "PAPER-KLEVDAL-PATRIKIS-25/127",
+          "PAPER-KLEVDAL-PATRIKIS-25/135"
+        ],
+        "pattern": "compatible.*(Shimura|adjoint)|canonical.*local.system|Klevdal|Patrikis",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/128",
+          "PAPER-KLEVDAL-PATRIKIS-25/129",
+          "PAPER-KLEVDAL-PATRIKIS-25/130"
+        ],
+        "pattern": "Serre.group|locally.algebraic.*represent|Serre.condition",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/131",
+          "PAPER-KLEVDAL-PATRIKIS-25/132"
+        ],
+        "pattern": "Huryn|Frattini|open.image|transport.*Zariski",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/133",
+          "PAPER-KLEVDAL-PATRIKIS-25/134"
+        ],
+        "pattern": "central.twist|central.*character|non.adjoint",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      },
+      {
+        "items": [
+          "PAPER-KLEVDAL-PATRIKIS-25/144",
+          "PAPER-KLEVDAL-PATRIKIS-25/145",
+          "PAPER-KLEVDAL-PATRIKIS-25/146",
+          "PAPER-KLEVDAL-PATRIKIS-25/149"
+        ],
+        "pattern": "torus.norm|norm.*torus|compact.*character|character.*compact|anisotropic.*split|split.*anisotropic",
+        "outcome": "Pinned libraries and atlas searched independently; candidate declarations/stages inspected by mathematical scope. Broad lexical hits are not implementation evidence. See the review report for near matches, shared owners and limitations."
+      }
+    ],
+    "libraryPins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "stageReads": [
+      "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "ArithmeticGaloisRepresentations:R01.1",
+      "ArithmeticGaloisRepresentations:R01.5",
+      "ArithmeticLocallySymmetricSpaces:ALS.0",
+      "ArithmeticLocallySymmetricSpaces:ALS.1",
+      "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+      "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+      "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+      "ReductiveGroupsPartII:RG2.0",
+      "ReductiveGroupsPartII:RG2.0a",
+      "ReductiveGroupsPartII:RG2.3",
+      "SchemeAndStackFoundations:SF.0",
+      "ShimuraData:D1",
+      "ShimuraData:D4",
+      "ShimuraData:D5",
+      "ShimuraVarieties:V0",
+      "ShimuraVarieties:V4",
+      "ShimuraVarieties:V7",
+      "ShimuraVarieties:V8.general",
+      "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+      "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+      "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+      "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
+      "ShimuraVarieties:V8",
+      "SchemeAndStackFoundations:SF.2",
+      "ShimuraData:D3",
+      "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "DeligneWeightsAndPurity:DWP.7",
+      "DeligneWeightsAndPurity:DWP.8",
+      "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+    ],
+    "tests": {
+      "count": 89,
+      "checks": [
+        "A2 intertwiners have determinant 3 times an integer square",
+        "A2 rational isomorphism has index3",
+        "diagonal quotient is proper with full projections",
+        "split torus compact element is not integral in fixed GL2 model",
+        "ramified norm p=2 e=1 exponent=-2",
+        "ramified norm p=2 e=1 exponent=-1",
+        "ramified norm p=2 e=1 exponent=0",
+        "ramified norm p=2 e=1 exponent=1",
+        "ramified norm p=2 e=1 exponent=2",
+        "ramified norm p=2 e=2 exponent=-2",
+        "ramified norm p=2 e=2 exponent=-1",
+        "ramified norm p=2 e=2 exponent=0",
+        "ramified norm p=2 e=2 exponent=1",
+        "ramified norm p=2 e=2 exponent=2",
+        "ramified norm p=2 e=3 exponent=-2",
+        "ramified norm p=2 e=3 exponent=-1",
+        "ramified norm p=2 e=3 exponent=0",
+        "ramified norm p=2 e=3 exponent=1",
+        "ramified norm p=2 e=3 exponent=2",
+        "ramified norm p=2 e=4 exponent=-2",
+        "ramified norm p=2 e=4 exponent=-1",
+        "ramified norm p=2 e=4 exponent=0",
+        "ramified norm p=2 e=4 exponent=1",
+        "ramified norm p=2 e=4 exponent=2",
+        "ramified norm p=2 e=5 exponent=-2",
+        "ramified norm p=2 e=5 exponent=-1",
+        "ramified norm p=2 e=5 exponent=0",
+        "ramified norm p=2 e=5 exponent=1",
+        "ramified norm p=2 e=5 exponent=2",
+        "ramified norm p=3 e=1 exponent=-2",
+        "ramified norm p=3 e=1 exponent=-1",
+        "ramified norm p=3 e=1 exponent=0",
+        "ramified norm p=3 e=1 exponent=1",
+        "ramified norm p=3 e=1 exponent=2",
+        "ramified norm p=3 e=2 exponent=-2",
+        "ramified norm p=3 e=2 exponent=-1",
+        "ramified norm p=3 e=2 exponent=0",
+        "ramified norm p=3 e=2 exponent=1",
+        "ramified norm p=3 e=2 exponent=2",
+        "ramified norm p=3 e=3 exponent=-2",
+        "ramified norm p=3 e=3 exponent=-1",
+        "ramified norm p=3 e=3 exponent=0",
+        "ramified norm p=3 e=3 exponent=1",
+        "ramified norm p=3 e=3 exponent=2",
+        "ramified norm p=3 e=4 exponent=-2",
+        "ramified norm p=3 e=4 exponent=-1",
+        "ramified norm p=3 e=4 exponent=0",
+        "ramified norm p=3 e=4 exponent=1",
+        "ramified norm p=3 e=4 exponent=2",
+        "ramified norm p=3 e=5 exponent=-2",
+        "ramified norm p=3 e=5 exponent=-1",
+        "ramified norm p=3 e=5 exponent=0",
+        "ramified norm p=3 e=5 exponent=1",
+        "ramified norm p=3 e=5 exponent=2",
+        "ramified norm p=5 e=1 exponent=-2",
+        "ramified norm p=5 e=1 exponent=-1",
+        "ramified norm p=5 e=1 exponent=0",
+        "ramified norm p=5 e=1 exponent=1",
+        "ramified norm p=5 e=1 exponent=2",
+        "ramified norm p=5 e=2 exponent=-2",
+        "ramified norm p=5 e=2 exponent=-1",
+        "ramified norm p=5 e=2 exponent=0",
+        "ramified norm p=5 e=2 exponent=1",
+        "ramified norm p=5 e=2 exponent=2",
+        "ramified norm p=5 e=3 exponent=-2",
+        "ramified norm p=5 e=3 exponent=-1",
+        "ramified norm p=5 e=3 exponent=0",
+        "ramified norm p=5 e=3 exponent=1",
+        "ramified norm p=5 e=3 exponent=2",
+        "ramified norm p=5 e=4 exponent=-2",
+        "ramified norm p=5 e=4 exponent=-1",
+        "ramified norm p=5 e=4 exponent=0",
+        "ramified norm p=5 e=4 exponent=1",
+        "ramified norm p=5 e=4 exponent=2",
+        "ramified norm p=5 e=5 exponent=-2",
+        "ramified norm p=5 e=5 exponent=-1",
+        "ramified norm p=5 e=5 exponent=0",
+        "ramified norm p=5 e=5 exponent=1",
+        "ramified norm p=5 e=5 exponent=2",
+        "quadratic norm point differs from cocharacter sum at p",
+        "cocycle is torus-valued",
+        "restricted conjugation descends even for nonrational g",
+        "dominant nonregular A2 has some positive root",
+        "GSp4 rational negative multiplier",
+        "negative multiplier excluded by principal level3",
+        "negative multiplier excluded by principal level4",
+        "negative multiplier excluded by principal level5",
+        "negative multiplier excluded by principal level7",
+        "SNC crossing differs from one affine coordinate subspace"
+      ],
+      "scope": "Exact algebraic and finite diagnostics; not Lean elaboration or proof of global supplier theorems."
+    },
+    "remaining": [
+      "Extract exact original suppliers in G1–G4/G7–G8, with full hypotheses and statement-level DAG inputs.",
+      "Resolve original local anisotropic-torus, approximation, H¹ and reciprocity/topology adapters underpinning G5–G6.",
+      "Match G9 suppliers to exact owner nodes and eliminate remaining broad proof gates; no complete blueprint closure asserted.",
+      "Revisit rejected routes1–5,7 after their specific source/ownership contracts are supplied."
+    ],
+    "atlasRefresh": {
+      "commit": "ca5c885d4dcda14db02150265c0fd480dd49817e",
+      "files": [
+        {
+          "path": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+          "blob": "8ce63c353fd7c0be4388e18214b691ab0fe676ec",
+          "new": false,
+          "sha256": "ff8bfe6277de02590f8245962b633f31560c0dfcbbcb05ad2c608dce98317302"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.review.json",
+          "blob": "f561886850b9eac5749e61653ab4317421760852",
+          "new": true,
+          "sha256": "939b1c5c60c48d27d4cee0066c7fd71aedd1a06fadbe41ef011af37e03f4aeea"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
+          "blob": "21815c09879604d19f86d7e5e9d561483bbff52f",
+          "new": false,
+          "sha256": "47b8e5146f9ba83da81e94b2319caed1d39f962707c9eb906d8ab62be4d36987"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.review.json",
+          "blob": "d6997d6ba81860bb3254ffc9370639e2e5989fb1",
+          "new": true,
+          "sha256": "89d7441439d0fc8b13efdaaab4074dcd862e0ba38ffa1485a2c3a719bdfed5df"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-BREUIL-ETAL-23.result.json",
+          "blob": "f0904998757fe8d68744eb35449025a9dd7540a1",
+          "new": false,
+          "sha256": "9016952f166874fde98c31ba9ea26f3f32adc2b43a7d0238e71d61be4a744623"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-BREUIL-ETAL-23.review.json",
+          "blob": "f9b7455ebe4df78db9b58b48525e2ba7f2d2c150",
+          "new": true,
+          "sha256": "2bb0daa599a4c954827a92ad4adc88302ca4193e633cf9b8f6e666cbe2eb3be3"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-21.result.json",
+          "blob": "e826dad03dc6843550b38b0d173104a08dbf9bf8",
+          "new": false,
+          "sha256": "cea6c12a3c9a3627f953587be2ec82ed4eb53e61b6308db21cb7f486d21bd571"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-21.review.json",
+          "blob": "afd5bd47edbff22e5869b91ba0252888c356e27f",
+          "new": true,
+          "sha256": "f5dafc8e649f2f874e0aa2df421bd6fd6f9a20f212edd6a17febc7286d81889b"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
+          "blob": "09871d9d410aa7826b24ca487bb027b397d01752",
+          "new": false,
+          "sha256": "a2e6fa27a14bcfee2a61104c89a9405b00347e08fbad026e453a5b379cd126f7"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-GUO-REINECKE-24.review.json",
+          "blob": "4e5bcfac55c4bc06bb521e4eeb91075d1ee70b67",
+          "new": true,
+          "sha256": "14473e739b54b35aa536d1f76c047d339f2599ae5c18d17cbc1b45628484d1ae"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-IYENGAR-KHARE-MANNING-24.result.json",
+          "blob": "d7471417528f328929ad2489fc90659ff92e55af",
+          "new": false,
+          "sha256": "efe4fbcff6ccab00b1135236c09d6c4e71f035303d7500a0005e6a2e982ba571"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-IYENGAR-KHARE-MANNING-24.review.json",
+          "blob": "fbf489037fd73499488dd410c4e84dec0c57be17",
+          "new": true,
+          "sha256": "caed0d6ee26bfa094696ee06a8254203bd0464bbbb5b1100f56bd79ff59ce8ed"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
+          "blob": "35765f4d4ef0fa36b8a161c7f59a2fdd6e04d45b",
+          "new": false,
+          "sha256": "8f06b78faaf4a3f0c45cf3782b7f15c7862f35b43ddb8f2ce482ed9a3b1306c8"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-TSUZUKI-23.review.json",
+          "blob": "10e39484ebdaa91ffffe2d31ca63354ff5f0e112",
+          "new": true,
+          "sha256": "c4f650aabd32808261f217573e92797430ed8ac808de4ea914e00564860810c6"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-XU-ZHU-22.result.json",
+          "blob": "07c8a46078274feded91386730b5d406bfce6943",
+          "new": false,
+          "sha256": "8fac91048fbbe7986be3663001026c1228a6755753a003c1d6f1499e6aad71f2"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-XU-ZHU-22.review.json",
+          "blob": "c43b4101722b1c03c1dd10a12260dd7e6e4b5b0f",
+          "new": true,
+          "sha256": "32839f9b6191ca23da709101c9c613d5b22eb9494fc0a41a703e91432a5027a9"
+        }
+      ],
+      "assessment": "Final atlas refresh checked all sixteen changed paper-result/review files by status and route ownership; relevant fresh overlaps were read in full. Clausen–Mathew routes5/6 retain algebraic spaces and noetherian approximation/henselization at SF.1/SF.0, reinforcing route9. Xu–Zhu route3 and items41/46 concern the special Kloosterman/Bessel companion and monodromy problem, not the general higher-dimensional G-companion theorem042. Tsuzuki route3/item134 imports generic mixed p-adic coefficient Chebotarev from the shared arithmetic-D-module owner; it does not replace the l-adic G-reconstruction required here. Binda–Kato–Vezzani, Breuil et al., BLZ and IKM introduce no replacement owner for this review’s missing interfaces. Guo–Reinecke’s newly reviewed prismatic/crystalline-coefficient, arc and formal-duality routes were checked; they do not own the present adjoint l-adic compatibility or generic algebraic spreading targets."
+    },
+    "publicationBase": "ca5c885d4dcda14db02150265c0fd480dd49817e"
   }
 }
