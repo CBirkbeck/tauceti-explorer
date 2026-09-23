@@ -446,7 +446,7 @@
       "kind": "theorem",
       "name": "Twist independence of the terminal edge map",
       "statement": "If H³(k,G_m)=0, then the boundary δσ:H²(k,T̂)→H³(X,G_m) in (2.2) is independent of σ∈H¹(k,T): it is the cup with [fσ] up to a fixed common sign and the difference factors through H³(k,G_m).",
-      "locator": "Proposition 2.3(i) p.8",
+      "locator": "Proposition 2.3(i) p.9",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -457,7 +457,7 @@
       "kind": "theorem",
       "name": "Twist independence of the unramified edge image",
       "statement": "If H³(k,G_m)=0, the subgroup φσ(Br_nr(Yσ))⊂H²(k,T̂) is independent of σ.",
-      "locator": "Proposition 2.3(ii) p.8",
+      "locator": "Proposition 2.3(ii) p.9",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -468,7 +468,7 @@
       "kind": "theorem",
       "name": "Twist independence of pullback-unramified classes",
       "statement": "Without the H³ vanishing hypothesis, fσ*⁻¹(Br_nr(Yσ))⊂Br(X) is independent of σ∈H¹(k,T).",
-      "locator": "Proposition 2.3(iii) p.8",
+      "locator": "Proposition 2.3(iii) p.9",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -479,7 +479,7 @@
       "kind": "theorem",
       "name": "Brauer evaluation under torus translation",
       "statement": "For every extension L/k, α∈Br₁(Yσ/X), y∈Yσ(L), and t∈T(L), α(t·y)=α(y)+φσ(α)∪t in Br(L), using the character evaluation pairing.",
-      "locator": "Proposition 2.3(iv) p.8",
+      "locator": "Proposition 2.3(iv) p.9",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -545,7 +545,7 @@
       "kind": "theorem",
       "name": "Variation of the residual functional",
       "statement": "For σ∈Sha¹(k,T) and a in the domain of ε, εσ(a)=ε₀(a)−⟨a,σ⟩ under the paper twist and Poitou–Tate conventions.",
-      "locator": "Proposition 2.6 p.10",
+      "locator": "Proposition 2.6 p.11",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -624,7 +624,7 @@
       "kind": "theorem",
       "name": "Descent from an open torus torsor",
       "statement": "For smooth proper rationally connected X over a number field, V⊂X dense open and W→V a torus torsor, X(A_k)^Br(X) lies in the closure in X(A_k) of ⋃σ fσ(Wσ(A_k)^Br_nr(Wσ)).",
-      "locator": "Corollary 2.2 p.7",
+      "locator": "Corollary 2.2 p.8",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -712,7 +712,7 @@
       "kind": "theorem",
       "name": "Universal torsors contain a quasitrivial-base fibration",
       "statement": "Assume Pic(X_kbar) finitely generated and kbar[V]^×=kbar^×. Every universal torsor over X contains a dense open W with a smooth map to a quasitrivial torus Q whose rational fibres are universal torsors over V.",
-      "locator": "Corollary 3.2 p.14",
+      "locator": "Corollary 3.2 p.13",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -811,7 +811,7 @@
       "kind": "theorem",
       "name": "Geometrically split affine boundary yields algebraic Brauer density",
       "statement": "In the setup, suppose every codimension-one fibre over Q is split, and every codimension-one fibre over (Q_aff)_kbar is split. If rational fibres in a Hilbert subset of Q have weak approximation, then X(k) is dense in X(A_k)^Br₁(X).",
-      "locator": "Theorem 4.2(i) p.15",
+      "locator": "Theorem 4.2(i) p.16",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -822,7 +822,7 @@
       "kind": "theorem",
       "name": "Geometrically split affine boundary yields full Brauer density",
       "statement": "Under the splitting hypotheses of Theorem 4.2, if rational fibres in a Hilbert subset of Q have Brauer–Manin density, then X has Brauer–Manin density for its full Brauer group.",
-      "locator": "Theorem 4.2(ii) p.15",
+      "locator": "Theorem 4.2(ii) p.16",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1150,7 +1150,7 @@
       "kind": "definition",
       "name": "Supersolvability for an outer Galois action",
       "statement": "A finite group H with continuous outer Γ_k-action is supersolvable if it has a chain 1=H₀⊲H₁⊲…⊲H_m=H, each H_i normal in H and invariant under the outer action, and each H_(i+1)/H_i cyclic.",
-      "locator": "Definition 6.4 p.23",
+      "locator": "Definition 6.4 p.22",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -2105,7 +2105,12 @@
         "Crossref metadata for doi 10.1090/jams/943, 23 September 2026: no update-to, updated-by or relation entries",
         "Wittenberg's publication page (math.univ-paris13.fr/~wittenberg), 23 September 2026: no erratum listed",
         "arXiv 1802.09605 (v2 read; same mathematical text as the author manuscript read, SHA-256 2e425ee6…)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap in a stated result. The standing setting of §4, fixed on p.15, includes 'un morphisme dominant f : X → P^n_k dont la fibre générique est rationnellement connexe', and Théorème 4.2 is stated inside it. Remarque 4.5 on p.17 then invokes 'le théorème 4.2 (i) et la proposition 3.3 (i)' for an X assumed only proper and smooth with the two Picard-group conditions, so the rational-connectedness hypothesis the invoked theorem carries is missing, as the correction records.",
+        "by": "REV-PAPER-HARPAZ-WITTENBERG-20"
+      }
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/E2",
@@ -2120,7 +2125,12 @@
         "Crossref metadata for doi 10.1090/jams/943, 23 September 2026: no update-to, updated-by or relation entries",
         "Wittenberg's publication page (math.univ-paris13.fr/~wittenberg), 23 September 2026: no erratum listed",
         "arXiv 1802.09605 (v2 read; same mathematical text as the author manuscript read, SHA-256 2e425ee6…)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 4 prints 'si Γ = Q_{2^m} est le groupe quaternionique d'ordre 2^m pour un entier m ≥ 1'. The generalised quaternion group Q_{2^m} = ⟨x, y | x^{2^{m−1}} = 1, y² = x^{2^{m−2}}, yxy^{−1} = x^{−1}⟩ is defined for m ≥ 3, Q_8 being the smallest; at m = 2 the presentation gives a cyclic group of order 4 and at m = 1 it is not defined.",
+        "by": "REV-PAPER-HARPAZ-WITTENBERG-20"
+      }
     }
   ],
   "continuations": [
