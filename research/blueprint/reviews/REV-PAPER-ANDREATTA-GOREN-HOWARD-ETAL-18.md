@@ -27,17 +27,16 @@ Job `REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18` (issue #1144), by Claude Code, se
   - 27 are **sound**, including the normalisation repairs for E1–E3 and E5.
   - orth-fiber-connected (the repair of Theorems 4.4.5 and 4.4.6) is **unsound**; see E14.
 - **New items (40):**
-  - **6 planned:**
+  - **5 planned:**
     - Kisin's functor (R07.4);
     - the contravariant Dieudonné crystal (R07.2);
     - Grothendieck–Messing and Zink (R07.6, R07.2);
     - the reflex norm of a torus cocharacter (V4, CM.0);
-    - the Newton cocharacter (VB0, BG1);
-    - and one further item.
-  - **34 missing:**
+    - the Newton cocharacter (VB0, BG1).
+  - **35 missing:**
     - 4 to LubinTate;
     - 4 to OrthogonalIntegralModels;
-    - 15 to GSpinSpecialDivisorHeights;
+    - 12 to GSpinSpecialDivisorHeights;
     - 15 to the CM Part II. These include the Chowla–Selberg d = 1 case, which §9.5 needs but only cites.
 - **Summary:** a closing paragraph records the counts after the review and the conclusions below.
 - **Part II title mismatch:** PAPER-CHARLES-16 proposes the orthogonal-models Part II under an older title. This paper, PAPER-LI-ZHANG-22, PAPER-MAULIK-SHANKAR-TANG-22 and PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 share the newer one. The design job should reconcile them.
