@@ -5012,3 +5012,76 @@ the item is the pinned one, including the splitting hypothesis on the minimal po
 
 A37 now lists A85 and L75 as prerequisites, and its proof outline names them instead of the two open
 suppliers. The gap's first obligation is struck and replaced by a sentence saying what closed it.
+
+## Global analytic suppliers for the Whittaker chain (cc-d67081)
+
+The handoff's first resume item asked for the global analytic suppliers that A66–A73 had been
+consuming without an explicit chain: compact additive-character duality and Fourier uniqueness,
+compatible quotient Haar measure and Fubini, smooth-globalization continuity, and the
+finite-place Flath factorization. Route 20's own reason already *named* two of these — "Import
+AL.0 Fourier uniqueness, AA.2 quotient measures" — without there being items to point at. Four
+items now supply them, and each goes to a layer whose own description already promises the
+general theorem, so all four are source additions and none needs new ground.
+
+**A104 — characters of `F\A` and Fourier uniqueness.** Owner `AutomorphicLFunctionsAndLocalFactors:AL.0`,
+which already builds self-duality of the local additive groups, the restricted tensor-product
+adelic space, Fourier inversion and adelic Poisson summation. The specialisation the Whittaker
+theory needs is that `γ ↦ ψ_γ` identifies `F` with the dual of the **compact** group `F\A`, so a
+continuous function on it with all Fourier coefficients zero vanishes — and the same over the
+successive additive quotients of the unipotent filtration, which is the form A67 and A68 consume
+when they peel one row at a time. This is Cogdell's "by standard duality theory the additive
+characters of the compact group `k\A` are isomorphic to `k`" (PCMI notes, printed 6). Only the
+uniqueness half is asked for; pointwise convergence of the Fourier series is not claimed, and the
+continuity hypothesis is recorded as load-bearing, since an `L¹` function with vanishing
+coefficients vanishes only almost everywhere.
+
+**A105 — compatible invariant probability measures.** Owner `AdelicAlgebraicGroups:AA.2`, whose
+description already undertakes to "construct invariant quotient measures by Weil's integral
+formula and prove their independence of measurable fundamental-domain choices". A105 specialises
+that to unipotent radicals, where the quotient is compact so the invariant measure normalises to
+a probability measure, and records that the normalisations along a filtration with abelian
+successive quotients agree — which is exactly what licenses the iterated integration of A67 and
+A68 and the phrase "compatible with the successive additive quotients" that A66 had been
+asserting. The unimodularity hypothesis is kept explicit: for the Borel of `GL₂` there is no
+invariant quotient measure at all, so the item records what the hypothesis is doing.
+
+**A106 — continuity on the smooth globalization.** Owner `AutomorphicFormsOnReductiveGroups:AF.1`,
+added to route 20's stage list, since AF.1 is where the smooth moderate-growth Fréchet
+globalization is constructed and is explicit that "these analytic globalization proofs are
+targets, not an assumed black box". A106 records only that the Whittaker integral is *continuous*
+for that topology: the integrand is bounded on a compact domain by one of the defining seminorms,
+so `|W_ψ(φ)(g)|` is controlled by a seminorm of `φ`. This is what makes A70's "nonzero continuous
+functional" meaningful, and it is why A70 is stated on the smooth globalization rather than on the
+`K_∞`-finite Harish–Chandra module — a functional on the latter need not extend continuously.
+
+**A107 — one-place abstract factorization.** Owner `AutomorphicFormsOnReductiveGroups:AF.2`, which
+already owns restricted tensor-product factorization and uniqueness of almost-everywhere spherical
+vectors. A107 is the single-place grouping `V_Π ≅ V_{Π_v} ⊗_C V^v` that A71 consumes, obtained by
+splitting the restricted tensor product at one finite place and absorbing the archimedean factor
+into `V^v` — which is why `V^v` is asked only to carry a smooth action and no topology.
+
+The item carries Cogdell's own caveat verbatim, because A71 depends on it: the decomposition **is
+abstract** and "does not give a factorization of automorphic forms into a product of functions on
+the local groups `G(k_v)`". A71 chooses a `w ∈ V^v` to detect a given global functional, which is
+legitimate for an abstract tensor decomposition; a factorization of forms into local functions is
+not available and is not claimed anywhere in this chain.
+
+### Sources read for this continuation
+
+Bounded supplier reads only; the inherited main-paper reading stands and is not restated.
+
+- Cogdell, *L-functions and Converse Theorems for GL_n*, author-hosted PCMI notes (2002), SHA-256
+  `09b82f9aed494d28327ed9692f5bf37e6bed229cf470e80927e0cc10ce70932a`, read 23 September 2026:
+  Lecture 1, printed 5–6 (PDF 9–10), the Fourier expansion and the duality statement. Printed page
+  = PDF page − 4. *Note for later workers: this PDF's text layer drops the letter `c` throughout
+  ("Le ture", "multipli ity"), so quotations from it must be read against the page image or
+  reconstructed with care.*
+- Cogdell, *Lectures on L-functions, Converse Theorems, and Functoriality for GL_n*, Fields
+  Institute notes (2003), SHA-256
+  `2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7`, read 23 September 2026:
+  Theorem 3.2 and Corollary 3.2.1 with the abstractness caveat, printed 23–24 (PDF 27); the smooth
+  Fréchet topologies on `(A^∞)^L`, printed 24 (PDF 27); Theorem 3.4, printed 24–25 (PDF 28).
+  Printed page = PDF page − 3. This PDF's text layer is clean.
+
+No new findings were recorded: nothing in the supplier passages contradicts what the items assert,
+and the 52 inherited findings are unchanged.
