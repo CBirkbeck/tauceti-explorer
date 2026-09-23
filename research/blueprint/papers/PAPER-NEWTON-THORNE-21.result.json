@@ -11,11 +11,12 @@
     "url": "https://doi.org/10.1007/s10240-021-00127-3",
     "readSections": [
       "The published version, read in full: the open-access (CC BY 4.0) PDF from pmihes.centre-mersenne.org/item/10.1007/s10240-021-00127-3.pdf (116 pages; SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37; fetched 23 September 2026; received 17 July 2020, revised 22 September 2021, accepted 25 September 2021, online 15 October 2021). Read: the Introduction (Theorems A, B, D, E, Corollary C), §1 (definite unitary groups, endoscopy, Mœglin's L-packets, depth-zero types for U_3 and GL_n, fixed-type lifting rings, algebraic modular forms), Part I — §2 (trianguline deformations, pseudocharacter spaces, Emerton's eigenvariety, Theorems 2.24, 2.27, Corollary 2.28, Lemmas 2.29–2.30, the eigencurve, Theorem 2.33, Lemmas 2.34–2.35) and §3 (Buzzard–Kilford and ping pong, Theorem 3.1), Part II — §4 (Theorem 4.1, Proposition 4.6), §5 (Theorems 5.2 and 5.7, Proposition 5.8), §6 (Theorem 6.1), §7 (Theorem 7.1, Proposition 7.4, Theorems 7.6–7.7) and §8 (Theorem 8.1, Propositions 8.2–8.3, Lemma 8.4), and the references. Page numbers are the journal's; misprints were checked on page images.",
-      "arXiv 1912.11261 v3 (27 September 2021) is the version the journal published; the published text was the one extracted.",
-      "Cited inputs were not read; items resting on them (Labesse, Mœglin, Moy–Prasad, Lust–Stevens, Kazhdan–Varshavsky, Geck, Dudas–Malle, Shotton, Kedlaya–Pottharst–Xiao, Bellaïche–Chenevier, Nakamura, Emerton, Breuil–Hellmann–Schraen, Breuil, Orlik–Strauch, Chenevier, Geraghty, Buzzard–Kilford, Coleman, Allen–Newton–Thorne, Thorne, Barnet-Lamb–Gee–Geraghty–Taylor, Anastassiades–Thorne, Newton–Thorne 2020, Diamond, Diamond–Taylor, Kisin, Thorne 2016, Khare–Thorne, Weston) state them as the paper uses them."
+      "arXiv 1912.11261 v3 (27 September 2021, the accepted version) is the version the journal published. A word-level comparison by the review found no differences beyond typesetting and bibliographic formatting (the arXiv TeX has a stray item label on p. 86 that the journal printed as '(nb)'). The published text was the one extracted.",
+      "Cited inputs were not read; items resting on them (Labesse, Mœglin, Moy–Prasad, Lust–Stevens, Kazhdan–Varshavsky, Geck, Dudas–Malle, Shotton, Kedlaya–Pottharst–Xiao, Bellaïche–Chenevier, Nakamura, Emerton, Breuil–Hellmann–Schraen, Breuil, Orlik–Strauch, Chenevier, Geraghty, Buzzard–Kilford, Coleman, Allen–Newton–Thorne, Thorne, Barnet-Lamb–Gee–Geraghty–Taylor, Anastassiades–Thorne, Newton–Thorne 2020, Diamond, Diamond–Taylor, Kisin, Thorne 2016, Khare–Thorne, Weston) state them as the paper uses them.",
+      "Review (REV-PAPER-NEWTON-THORNE-21, Claude Code, session cc-38267a, 23 September 2026): the published PDF (the same file, SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37) was read in full, with the arXiv v3 TeX (https://arxiv.org/e-print/1912.11261v3) and arXiv PDF (https://arxiv.org/pdf/1912.11261v3). Four checkers split the paper (Introduction and §1; §2; §§3–5; §§6–8). Each compared every item with the text and the page images, listed uncovered results and checked mistakes on page images. The coordinator re-derived the substantive findings (E5, E7, E9, E10, E17, E18, E21, E22)."
     ]
   },
-  "summary": "For every level-one cuspidal Hecke eigenform f and every n ≥ 1 the paper proves that Sym^n f is automorphic (Theorem A). It extends this to every non-CM eigenform whose local components are nowhere supercuspidal (Theorem B), which includes semistable elliptic curves, and deduces that their completed symmetric power L-functions are entire (Corollary C). The proof has two halves. Theorem D shows that automorphy of Sym^{n−1} spreads along irreducible components of eigenvarieties. It rests on trianguline deformation theory on Emerton's eigenvariety for a definite unitary group, the vanishing of adjoint Selmer groups (Newton–Thorne 2020) and classicality via companion points. A game of 'ping pong' on the Buzzard–Kilford annuli of the tame-level-1, 2-adic eigencurve then connects all level-one forms. Theorem E produces one level-one form with automorphic Sym^{n−1}. It starts from the CM form of weight 5 and level 4, raises the level on definite unitary groups with a congruence of depth-zero types of U_3, and applies Galois deformation theory for residually reducible representations (Allen–Newton–Thorne) and Anastassiades–Thorne. Theorem B kills ramification by analytic continuation and a patching argument. ModularityAndLanglandsExtensions ML.3 already plans the endpoints with Newton–Thorne as source. The method goes to one new Part II of that roadmap (analytic continuation of functoriality along eigenvarieties) and to five pending candidates, with which it coalesces: Clozel–Thorne's unitary level-raising Part II, the eigenvariety and trianguline owners of Breuil–Hellmann–Schraen and Ding, Fintzen's types Part II, and Boxer–Calegari–Gee's polarized automorphy lifting Part II. Four misprints are recorded.",
+  "summary": "For every level-one cuspidal Hecke eigenform f and every n ≥ 1 the paper proves that Sym^n f is automorphic (Theorem A). It extends this to every non-CM eigenform whose local components are nowhere supercuspidal (Theorem B), which includes semistable elliptic curves, and deduces that their completed symmetric power L-functions are entire (Corollary C). The proof has two halves. Theorem D shows that automorphy of Sym^{n−1} spreads along irreducible components of eigenvarieties. It rests on trianguline deformation theory on Emerton's eigenvariety for a definite unitary group, the vanishing of adjoint Selmer groups (Newton–Thorne 2020) and classicality via companion points. A game of 'ping pong' on the Buzzard–Kilford annuli of the tame-level-1, 2-adic eigencurve then connects all level-one forms. Theorem E produces one level-one form with automorphic Sym^{n−1}. It starts from the CM form of weight 5 and level 4, raises the level on definite unitary groups with a congruence of depth-zero types of U_3, and applies Galois deformation theory for residually reducible representations (Allen–Newton–Thorne) and Anastassiades–Thorne. Theorem B kills ramification by analytic continuation and a patching argument. ModularityAndLanglandsExtensions ML.3 already plans the endpoints with Newton–Thorne as source. The method goes to one new Part II of that roadmap (analytic continuation of functoriality along eigenvarieties) and to five pending candidates, with which it coalesces: Clozel–Thorne's unitary level-raising Part II, the eigenvariety and trianguline owners of Breuil–Hellmann–Schraen and Ding, Fintzen's types Part II, and Boxer–Calegari–Gee's polarized automorphy lifting Part II. Four misprints are recorded. After review: 164 items (38 planned, 126 missing), routes 1–7 accepted with additions, and a new source route to R19.3 for the Ribet–Momose large-image theorem. Item 73 (the adjoint Selmer vanishing of Newton–Thorne 2020) moved to PolarizedAutomorphyLifting. Source issues: E1–E4 are confirmed, and the review adds E5–E26. The most serious is E21: in the proof of Proposition 7.4, π_2 is not conjugate self-dual (it fails by δ_{K/ℚ}), so the printed route to Theorem 7.1 for n not a power of 2, and through it to Theorems A, B, E and Corollary C, has a gap. Remark 7.5 covers n a power of 2. The others are gaps with direct repairs, one false remark in a sketch (E18), one over-strong unused corollary (E15) and misprints.",
   "items": [
     {
       "id": "PAPER-NEWTON-THORNE-21/1",
@@ -27,7 +28,7 @@
       "planned": [
         "ModularityAndLanglandsExtensions:ML.3"
       ],
-      "note": "ModularityAndLanglandsExtensions ML.3 plans exactly this: it is to 'integrate Newton–Thorne source-scoped symmetric-power automorphy', and Newton–Thorne is its selected source. The proof machinery is routed to the Part IIs below. Theorem A = Theorem D (Theorem 3.1) + Theorem E (Theorem 7.6)."
+      "note": "ModularityAndLanglandsExtensions ML.3 plans exactly this: it is to 'integrate Newton–Thorne source-scoped symmetric-power automorphy', and Newton–Thorne is its selected source. The proof machinery is routed to the Part IIs below. Theorem A = Theorem D (Theorem 3.1) + Theorem E (Theorem 7.6). Review (REV-PAPER-NEWTON-THORNE-21): the printed route to this theorem passes through Proposition 7.4, whose proof has the gap recorded as sourceIssues E21 (π_2 not conjugate self-dual). The route is complete for n a power of 2 (Remark 7.5)."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/2",
@@ -39,7 +40,7 @@
       "planned": [
         "ModularityAndLanglandsExtensions:ML.3"
       ],
-      "note": "Planned in ML.3 (as Theorem A). Proved by killing ramification (Propositions 8.2–8.3, routed to the analytic-continuation Part II) and a final residually irreducible automorphy lifting step (BLGGT14 Theorem 4.2.1). The sequel PAPER-NEWTON-THORNE-21-B removes the hypothesis on π_l."
+      "note": "Planned in ML.3 (as Theorem A). Proved by killing ramification (Propositions 8.2–8.3, routed to the analytic-continuation Part II) and a final residually irreducible automorphy lifting step (BLGGT14 Theorem 4.2.1). The sequel PAPER-NEWTON-THORNE-21-B removes the hypothesis on π_l. Review (REV-PAPER-NEWTON-THORNE-21): the printed route to this theorem passes through Proposition 7.4, whose proof has the gap recorded as sourceIssues E21 (π_2 not conjugate self-dual). The route is complete for n a power of 2 (Remark 7.5)."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/3",
@@ -69,7 +70,7 @@
       "statement": "For each n ≥ 3 there is a cuspidal, everywhere unramified automorphic representation π of GL_2(𝔸_ℚ) of weight k ≥ 2 such that, for any isomorphism ι : Q̄_p ≅ ℂ, Sym^{n−1} r_{π,ι} is automorphic.",
       "locator": "Introduction, Theorem E, p. 4; §7, Theorem 7.6, pp. 103–104",
       "status": "missing",
-      "note": "Proof: Corollary 7.3 gives a weight-5 form σ, Steinberg at q ≡ 3 mod 4 and with χ_2 of conductor 4 at 2, with Sym^{n−1} automorphic; Theorem 2.33 on the q-adic tame-level-4 eigencurve moves to σ′ unramified outside 2 of weight k ≡ 3 mod 4; since Buzzard–Kilford leaves no level-4 newforms of odd slope, its 2-adic refinements are n-regular and Theorem 2.33 on the tame-level-1 2-adic eigencurve gives an everywhere unramified π."
+      "note": "Proof: Corollary 7.3 gives a weight-5 form σ, Steinberg at q ≡ 3 mod 4 and with χ_2 of conductor 4 at 2, with Sym^{n−1} automorphic; Theorem 2.33 on the q-adic tame-level-4 eigencurve moves to σ′ unramified outside 2 of weight k ≡ 3 mod 4; since Buzzard–Kilford leaves no level-4 newforms of odd slope, its 2-adic refinements are n-regular and Theorem 2.33 on the tame-level-1 2-adic eigencurve gives an everywhere unramified π. Review (REV-PAPER-NEWTON-THORNE-21): the printed route to this theorem passes through Proposition 7.4, whose proof has the gap recorded as sourceIssues E21 (π_2 not conjugate self-dual). The route is complete for n a power of 2 (Remark 7.5)."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/6",
@@ -112,20 +113,20 @@
       "statement": "Standard assumptions: F is a CM field with F/F⁺ everywhere unramified (so [F⁺ : ℚ] is even), p a prime, S ⊇ S_p a finite set of finite places of F⁺ all split in F, with chosen factorisations v = ṽṽ^c. G = G_n over F⁺ has G(R) = {g ∈ GL_n(R ⊗_{F⁺} F) : g = (1 ⊗ c)(g)^{−t}} (1.0.1): quasi-split at finite places, compact at infinity, a reductive group scheme over 𝒪_{F⁺}. The inner twist ξ : U_{n,F} → G_F, ξ(g_1, g_2) = (g_1, Φ_n^{−1}g_2Φ_n), is lifted to a pure inner twist (ξ, u) (u_c = (Φ_n, Φ_n) for n odd; (ζΦ_n, ζ^{−1}Φ_n) with tr ζ = 0 for n even); μ_F is a character of F^×\\𝔸_F^× with μ|_{𝔸_{F⁺}^×} = δ_{F/F⁺} ∘ Art, unramified at inert places. These give conjugacy classes of isomorphisms ι_v : G(F⁺_v) → U_n(F⁺_v) (v finite) and ι_w : G(F⁺_v) → GL_n(F_w) (v = ww^c split), and the construction is compatible with base change to totally real L⁺/F⁺.",
       "locator": "§1, pp. 9–11",
       "status": "missing",
-      "note": "The triviality of u in H¹(F⁺_v, U_n) at every finite place uses Hilbert 90 and Rogawski §1.9."
+      "note": "The triviality of u in H¹(F⁺_v, U_n) at every finite place uses Hilbert 90 and Rogawski §1.9. Review (REV-PAPER-NEWTON-THORNE-21): ι_w is the canonical isomorphism (the composite of the inclusion and the projection to the w-factor, p. 10), not a conjugacy class."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/10",
       "kind": "theorem",
       "name": "Theorem 1.2 and Corollary 1.3: base change from G to GL_n and its Galois representations",
-      "statement": "Let σ be an automorphic representation of G(𝔸_{F⁺}). There are a partition n = n_1 + ⋯ + n_k and discrete conjugate self-dual automorphic representations π_i of GL_{n_i}(𝔸_F) such that π = π_1 ⊞ ⋯ ⊞ π_k satisfies: (1) at finite places where σ is unramified, π_w is the unramified base change of σ_{w|F⁺}; (2) at split v = ww^c, π_w ≅ σ_v ∘ ι_w^{−1}; (3) at v | ∞, π_v has the infinitesimal character of ⊗_τ W_τ with σ_v ≅ W_τ|_{G(F⁺_v)} (Labesse Corollaire 5.3). σ is ι-ordinary if π is (Geraghty Definition 5.3). Corollary 1.3: there is a unique continuous semisimple r_{σ,ι} : G_F → GL_n(Q̄_p), unramified at prime-to-p places where σ is unramified, de Rham at ṽ | p, with WD(r_{σ,ι}|_{G_{F_w}})^{F-ss} ≅ rec^T(σ_v ∘ ι_w^{−1}) at split places. If r_{σ,ι}|_{G_{F(ζ_p)}} is multiplicity free, each π_i is cuspidal and π is tempered.",
+      "statement": "Let σ be an automorphic representation of G(𝔸_{F⁺}). There are a partition n = n_1 + ⋯ + n_k and discrete conjugate self-dual automorphic representations π_i of GL_{n_i}(𝔸_F) such that π = π_1 ⊞ ⋯ ⊞ π_k satisfies: (1) at finite places where σ is unramified, π_w is the unramified base change of σ_{w|F⁺}; (2) at split v = ww^c, π_w ≅ σ_v ∘ ι_w^{−1}; (3) at v | ∞, π_v has the infinitesimal character of ⊗_τ W_τ with σ_v ≅ W_τ|_{G(F⁺_v)} (Labesse Corollaire 5.3). σ is ι-ordinary if π is (Geraghty Definition 5.3). Corollary 1.3: there is a unique continuous semisimple r_{σ,ι} : G_F → GL_n(Q̄_p), unramified at prime-to-p places where σ is unramified, de Rham at ṽ | p, with WD(r_{σ,ι}|_{G_{F_w}})^{F-ss} ≅ rec^T(σ_v ∘ ι_w^{−1}) at split places. If r̄_{σ,ι}|_{G_{F(ζ_p)}} is multiplicity free, each π_i is cuspidal and π is tempered.",
       "locator": "§1.1, Theorem 1.2, Corollary 1.3 and the remark after it, pp. 11–12",
       "status": "planned",
       "planned": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
         "AutomorphicGaloisRepresentationsPartII:AG2.2"
       ],
-      "note": "Unitary-to-GL_n base change is ET.7a (from the stable and twisted trace formulas of ET.4, with Moeglin–Waldspurger's residual spectrum), and AG2.2 attaches the Galois representations to the discrete constituents."
+      "note": "Unitary-to-GL_n base change is ET.7a (from the stable and twisted trace formulas of ET.4, with Moeglin–Waldspurger's residual spectrum), and AG2.2 attaches the Galois representations to the discrete constituents. Review (REV-PAPER-NEWTON-THORNE-21): statement corrected: the remark after Corollary 1.3 (p. 12) assumes the residual representation r̄_{σ,ι}|_{G_{F(ζ_p)}} multiplicity free. With r in place of r̄ the claim fails, since a non-cuspidal π_i gives distinct cyclotomic twists that only coincide residually."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/11",
@@ -144,7 +145,7 @@
       "id": "PAPER-NEWTON-THORNE-21/12",
       "kind": "definition",
       "name": "Endoscopic data, transfer factors and transfer for G and for twisted Res GL_n",
-      "statement": "Equivalence classes of endoscopic data for G correspond to (p, q) with p + q = n, p ≥ q ≥ 0, represented by extended triples (H = U_p × U_q, s = diag(1_p, −1_q), η) with η built from μ^{(−1)^q}, μ^{(−1)^p}; local transfer factors are normalised (n odd) by the Whittaker normalisation of the quasi-split U_n (= Langlands–Shelstad Δ_0) transported by the pure inner twist, satisfying the adelic product formula (Kaletha); every f ∈ C_c^∞ admits a transfer f^H (Waldspurger, Laumon–Ngô). For twisted Res_{F/F⁺}GL_n ⋊ θ_n the principal triple (U_n, 1, η) with trivial transfer factors gives f ↦ f̃ and every function on U_n(F⁺_v) arises (Labesse Lemme 4.1); M_H = Res GL_p × GL_q with its twisted space M̃_H.",
+      "statement": "Equivalence classes of endoscopic data for G correspond to (p, q) with p + q = n, p ≥ q ≥ 0, represented by extended triples (H = U_p × U_q, s = diag(1_p, −1_q), η) with η : (g_1, g_2) ↦ diag(g_1, g_2), η(w) = diag(μ_{(−1)^q}(w)1_p, μ_{(−1)^p}(w)1_q) ⋊ w for w ∈ W_F (μ_+ = 1, μ_− = μ) and η(w_c) = diag(Φ_p, Φ_q)Φ_n^{−1} ⋊ w_c; local transfer factors are normalised (n odd) by the Whittaker normalisation of the quasi-split U_n (= Langlands–Shelstad Δ_0) transported by the pure inner twist, satisfying the adelic product formula (Kaletha); every f ∈ C_c^∞ admits a transfer f^H (Waldspurger, Laumon–Ngô). For twisted Res_{F/F⁺}GL_n ⋊ θ_n the principal triple (U_n, 1, η) with trivial transfer factors gives f ↦ f̃ and every function on U_n(F⁺_v) arises (Labesse Lemme 4.1); M_H = Res GL_p × GL_q with its twisted space M̃_H.",
       "locator": "§1.5, pp. 12–13",
       "status": "planned",
       "planned": [
@@ -152,7 +153,7 @@
         "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.3"
       ],
-      "note": "Endoscopic data are ET.0, Langlands–Shelstad and Kottwitz–Shelstad transfer factors ET.1, the fundamental lemma and existence of transfer ET.3. The specific normalisation through the pure inner twist is carried by Propositions 1.6–1.7."
+      "note": "Endoscopic data are ET.0, Langlands–Shelstad and Kottwitz–Shelstad transfer factors ET.1, the fundamental lemma and existence of transfer ET.3. The specific normalisation through the pure inner twist is carried by Propositions 1.6–1.7. Review (REV-PAPER-NEWTON-THORNE-21): statement corrected against p. 12: η uses μ_{(−1)^q} and μ_{(−1)^p} with μ_+ = 1, μ_− = μ, not powers μ^{±1}. The printed Galois action on ^L Res_{F/F⁺}GL_n used in the twisted triple is inconsistent with the printed η (sourceIssues E5); the twisted triple is taken from Labesse."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/13",
@@ -176,10 +177,10 @@
       "id": "PAPER-NEWTON-THORNE-21/15",
       "kind": "definition",
       "name": "Conjugate self-dual parameters extending to ^LU_n; θ-discrete representations",
-      "statement": "At a place v of F⁺ inert in F, A(GL_n(F_ṽ)) is identified with Langlands parameters φ : W_{F_ṽ} × SL_2(ℂ) → GL_n(ℂ), A_t with the tempered ones and A^θ with the conjugate self-dual ones. A^θ_t(GL_n(F_ṽ))⁺ is the set of φ extending to φ_{F⁺_v} : W_{F⁺_v} × SL_2(ℂ) → ^LU_n (unique up to conjugacy, GGP Theorem 8.1). Writing φ = ⊕ρ_i^{l_i} ⊕ σ_j^{m_j} ⊕ (τ_k ⊕ τ_k^{w_c,∨})^{n_k} with ρ_i conjugate self-dual of sign (−1)^{n−1} and σ_j of sign (−1)^n, the extension exists iff every m_j is even; it is discrete iff all l_i = 1 and J, K are empty, and then π is θ-discrete.",
+      "statement": "At a place v of F⁺ inert in F, A(GL_n(F_ṽ)) is identified with Langlands parameters φ : W_{F_ṽ} × SL_2(ℂ) → GL_n(ℂ), A_t with the tempered ones and A^θ with the conjugate self-dual ones. A^θ_t(GL_n(F_ṽ))⁺ is the set of φ extending to φ_{F⁺_v} : W_{F⁺_v} × SL_2(ℂ) → ^LU_n (unique up to conjugacy, GGP Theorem 8.1). Writing φ = ⊕ρ_i^{l_i} ⊕ σ_j^{m_j} ⊕ (τ_k ⊕ τ_k^{w_c,∨})^{n_k} with ρ_i conjugate self-dual of sign (−1)^{n−1} and σ_j of sign (−1)^n, the extension exists iff every m_j is even; if it is discrete (Cent(GL_n(ℂ), im φ_{F⁺_v}) finite), then all l_i = 1 and J, K are empty, and then π is θ-discrete.",
       "locator": "§1.8, pp. 15–16",
       "status": "missing",
-      "note": ""
+      "note": "Review (REV-PAPER-NEWTON-THORNE-21): only the printed implication is stated; the paper does not state the converse."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/16",
@@ -296,10 +297,10 @@
       "id": "PAPER-NEWTON-THORNE-21/28",
       "kind": "theorem",
       "name": "Proposition 1.15(1): modular irreducibility of the cuspidal unipotent type",
-      "statement": "Via a fixed Q̄_p ≅ ℂ, the reduction τ̄(v, n) of τ(v, n) is irreducible.",
+      "statement": "Assume char k(v) is odd and q_v mod p is a primitive 6th root of unity (the standing assumptions of §1.8). Via a fixed Q̄_p ≅ ℂ, the reduction τ̄(v, n) of τ(v, n) is irreducible.",
       "locator": "§1.8, Proposition 1.15(1), p. 20",
       "status": "missing",
-      "note": "Dudas–Malle 2018 (modular irreducibility of cuspidal unipotent characters)."
+      "note": "Dudas–Malle 2018 (modular irreducibility of cuspidal unipotent characters). Review (REV-PAPER-NEWTON-THORNE-21): the standing hypotheses were added (p. 20: 'because of our assumption that q_v mod p is a primitive 6th root of unity')."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/29",
@@ -350,37 +351,37 @@
       "id": "PAPER-NEWTON-THORNE-21/34",
       "kind": "theorem",
       "name": "Lemma 1.21: splitting of lifts of ρ̄_ṽ = σ̄_1 ⊕ σ̄_2",
-      "statement": "Let ρ̄_ṽ = σ̄_{ṽ,1} ⊕ σ̄_{ṽ,2} with σ̄_{ṽ,1} ≅ Ind^{G_{F_ṽ}}_{G_{F_{ṽ,n_1}}} ψ̄_ṽ (ψ̄_ṽ unramified) and σ̄_{ṽ,2} ⊗ ω(ṽ) ∘ Art^{−1} unramified on inertia. Every lift ρ_ṽ to R ∈ 𝒞_𝒪 is (1 + M_n(m_R))-conjugate to σ_{ṽ,1} ⊕ σ_{ṽ,2} with σ_{ṽ,i} lifting σ̄_{ṽ,i}, each unique up to (1 + M_{n_i}(m_R))-conjugacy.",
+      "statement": "In the setting of §1.17: char k(ṽ) is odd, 2 ≤ n_1 ≤ n, n_2 = n − n_1, q_ṽ mod p is a primitive n_1-th root of unity and Θ is a character of k_{n_1}^× of order p. Let ρ̄_ṽ = σ̄_{ṽ,1} ⊕ σ̄_{ṽ,2} with σ̄_{ṽ,1} ≅ Ind^{G_{F_ṽ}}_{G_{F_{ṽ,n_1}}} ψ̄_ṽ (ψ̄_ṽ unramified) and σ̄_{ṽ,2} ⊗ ω(ṽ) ∘ Art^{−1} unramified on inertia. Every lift ρ_ṽ to R ∈ 𝒞_𝒪 is (1 + M_n(m_R))-conjugate to σ_{ṽ,1} ⊕ σ_{ṽ,2} with σ_{ṽ,i} lifting σ̄_{ṽ,i}, each unique up to (1 + M_{n_i}(m_R))-conjugacy.",
       "locator": "§1.17, Lemma 1.21, p. 23",
       "status": "missing",
-      "note": "H⁰ and H¹ of Hom(σ̄_1, σ̄_2) and Hom(σ̄_2, σ̄_1) vanish (Shotton Lemma 2.3)."
+      "note": "H⁰ and H¹ of Hom(σ̄_1, σ̄_2) and Hom(σ̄_2, σ̄_1) vanish (Shotton Lemma 2.3). Review (REV-PAPER-NEWTON-THORNE-21): the standing hypotheses of §1.17 (pp. 21, 23) were added. The proof needs H⁰ = H¹ = 0 for Hom(σ̄_{ṽ,1}, σ̄_{ṽ,2}) and Hom(σ̄_{ṽ,2}, σ̄_{ṽ,1}), which fails without them (p = char k(ṽ) or p = 2)."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/35",
       "kind": "theorem",
       "name": "Proposition 1.22(1)–(2): the fixed-inertial-type lifting ring R(ṽ, Θ, ρ̄_ṽ)",
-      "statement": "R(ṽ, Θ, ρ̄_ṽ) is the quotient of the universal lifting ring R^□_ṽ attached (Shotton Definition 3.5) to the inertial type τ_ṽ = ⊕_{i=1}^{n_1}(ι^{−1}Θ^{q_ṽ^{i−1}} ∘ Art^{−1}) ⊕ (ω(ṽ) ∘ Art^{−1})^{⊕n_2}. (1) It is reduced, p-torsion-free, supported on a union of irreducible components of R^□_ṽ, 𝒪-flat and equidimensional of dimension 1 + n². (2) A Q̄_p-point x factors through it iff σ_{x,1} ≅ Ind ψ_x with ψ_x|_I ∘ Art = ι^{−1}Θ and σ_{x,2}|_I ⊗ ω(ṽ) ∘ Art^{−1} trivial.",
+      "statement": "In the setting of §1.17: char k(ṽ) is odd, 2 ≤ n_1 ≤ n, n_2 = n − n_1, q_ṽ mod p is a primitive n_1-th root of unity and Θ is a character of k_{n_1}^× of order p. R(ṽ, Θ, ρ̄_ṽ) is the quotient of the universal lifting ring R^□_ṽ attached (Shotton Definition 3.5) to the inertial type τ_ṽ = ⊕_{i=1}^{n_1}(ι^{−1}Θ^{q_ṽ^{i−1}} ∘ Art^{−1}) ⊕ (ω(ṽ) ∘ Art^{−1})^{⊕n_2}. (1) It is reduced, p-torsion-free, supported on a union of irreducible components of R^□_ṽ, 𝒪-flat and equidimensional of dimension 1 + n². (2) A Q̄_p-point x factors through it iff σ_{x,1} ≅ Ind ψ_x with ψ_x|_I ∘ Art = ι^{−1}Θ and σ_{x,2}|_I ⊗ ω(ṽ) ∘ Art^{−1} trivial.",
       "locator": "§1.17, Proposition 1.22(1)–(2), p. 24",
       "status": "planned",
       "planned": [
         "LocalGaloisDeformationRings:R08.2"
       ],
-      "note": "Fixed inertial-type deformation conditions away from p, with dimension and components, are R08.2 (Shotton Proposition 3.6)."
+      "note": "Fixed inertial-type deformation conditions away from p, with dimension and components, are R08.2 (Shotton Proposition 3.6). Review (REV-PAPER-NEWTON-THORNE-21): the §1.17 setting was made explicit. The printed inertial type has Art_{F_ṽ} in its first summand where Art_{F_{ṽ,n_1}} is meant (sourceIssues E6); the statement follows part (2)."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/36",
       "kind": "theorem",
       "name": "Proposition 1.22(3)–(4): Frobenius and restriction properties of R(ṽ, Θ, ρ̄_ṽ)",
-      "statement": "(3) There is α_ṽ ∈ R(ṽ, Θ, ρ̄_ṽ)/(ϖ) with det(X − σ_{ṽ,1}(φ_ṽ^{n_1})) ≡ (X − α_ṽ)^{n_1} mod ϖ for every Frobenius lift φ_ṽ. (4) For L_ṽ/F_ṽ finite with τ_ṽ|_{I_{L_ṽ}} trivial, R^□_{L_ṽ} → R(ṽ, Θ, ρ̄_ṽ) factors through the unramified quotient R^{ur}_{L_ṽ}.",
+      "statement": "In the setting of §1.17: char k(ṽ) is odd, 2 ≤ n_1 ≤ n, n_2 = n − n_1, q_ṽ mod p is a primitive n_1-th root of unity and Θ is a character of k_{n_1}^× of order p. (3) There is α_ṽ ∈ R(ṽ, Θ, ρ̄_ṽ)/(ϖ) with det(X − σ_{ṽ,1}(φ_ṽ^{n_1})) ≡ (X − α_ṽ)^{n_1} mod ϖ for every Frobenius lift φ_ṽ. (4) For L_ṽ/F_ṽ finite with τ_ṽ|_{I_{L_ṽ}} trivial, R^□_{L_ṽ} → R(ṽ, Θ, ρ̄_ṽ) factors through the unramified quotient R^{ur}_{L_ṽ}.",
       "locator": "§1.17, Proposition 1.22(3)–(4), p. 24",
       "status": "missing",
-      "note": "Used in Proposition 5.6 and Lemma 6.7."
+      "note": "Used in Proposition 5.6 and Lemma 6.7. Review (REV-PAPER-NEWTON-THORNE-21): the §1.17 setting was made explicit. The printed proof of (3) takes an n_1-th root by Hensel's lemma, which need not exist in R/(ϖ) (sourceIssues E7). The statement holds with α_ṽ = (−1)^{n_1+1} det σ_{ṽ,1}(φ_ṽ), which is independent of the Frobenius lift because det σ_{ṽ,1} is unramified."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/37",
       "kind": "definition",
       "name": "Algebraic modular forms S_λ(U, M) on G",
-      "statement": "For a coefficient field E ⊂ Q̄_p containing all embeddings of F, λ ∈ (ℤ^n_+)^{Ĩ_p}, V_λ (Geraghty's W_λ, a tensor product of highest weight representations restricted to ∏_{v∈S_p}GL_n(F_ṽ)) with 𝒪-lattice 𝒱_λ (Geraghty's M_λ), U = ∏U_v open compact with U_v ⊂ ι_ṽ^{−1}GL_n(𝒪) at v ∈ S_p, Σ a finite set of places and M a smooth 𝒪[U_Σ]-module finite over 𝒪: S_λ(U, M) is the space of f : G(F⁺)\\G(𝔸^∞_{F⁺}) → 𝒱_λ ⊗ M with u · f(gu) = f(g). Lemma 1.24: for U sufficiently small and M 𝒪-flat, S_λ(U, M) ⊗ 𝒪/ϖ^c ≅ S_λ(U, M/ϖ^c). Lemma 1.25: S_λ(U, M) ⊗_{𝒪,ι} ℂ ≅ ⊕_σ m(σ)Hom_U((M ⊗ ℂ)^∨, σ^∞), Hecke-equivariantly away from Σ ∪ S_p, over σ with σ_v the dual of the algebraic representation of weight λ_{ι^{−1}τ} at infinity.",
+      "statement": "For a coefficient field E ⊂ Q̄_p containing all embeddings of F, λ ∈ (ℤ^n_+)^{Ĩ_p}, V_λ (Geraghty's W_λ, a tensor product of highest weight representations restricted to ∏_{v∈S_p}GL_n(F_ṽ)) with 𝒪-lattice 𝒱_λ (Geraghty's M_λ), U = ∏U_v open compact with U_v ⊂ ι_ṽ^{−1}GL_n(𝒪) at v ∈ S_p, Σ a finite set of places and M a smooth 𝒪[U_Σ]-module finite over 𝒪: S_λ(U, M) is the space of f : G(F⁺)\\G(𝔸^∞_{F⁺}) → 𝒱_λ ⊗ M with u · f(gu) = f(g). Lemma 1.24: for U sufficiently small and M 𝒪-flat, S_λ(U, M) ⊗ 𝒪/ϖ^c ≅ S_λ(U, M/ϖ^c). Lemma 1.25: S_λ(U, M) ⊗_{𝒪,ι} ℂ ≅ ⊕_σ m(σ)Hom_U((M ⊗ ℂ)^∨, σ^∞), Hecke-equivariantly away from Σ ∪ S_p, over σ with σ_v the dual of the algebraic representation of weight λ_{ι^{−1}τ} at infinity. U is sufficiently small if G(F⁺) ∩ gUg^{−1} is trivial for every g ∈ G(𝔸^∞_{F⁺}); Lemma 1.24 holds for every c ≥ 1.",
       "locator": "§1.23, Lemmas 1.24–1.25, pp. 24–26",
       "status": "planned",
       "planned": [
@@ -458,7 +459,7 @@
       "id": "PAPER-NEWTON-THORNE-21/45",
       "kind": "theorem",
       "name": "Lemma 2.8 and Definition 2.9: a numerical criterion for non-critical triangulations",
-      "statement": "Let ρ_v : G_{F_ṽ} → GL_n(Q̄_p) be de Rham with (1) an increasing filtration of WD(ρ_v) with graded characters χ_{v,1}, …, χ_{v,n}, (2) distinct τ-Hodge–Tate weights k_{τ,1} < ⋯ < k_{τ,n}, and (3) v_p(χ_{v,1}(p)) < k_{τ,2} + Σ_{τ′≠τ}k_{τ′,1} and v_p((χ_{v,1}⋯χ_{v,i})(p)) < k_{τ,i+1} + Σ_{τ′≠τ}k_{τ′,i} + Σ_{τ′}Σ_{j<i}k_{τ′,j} (2 ≤ i ≤ n − 1). Then ρ_v is trianguline of parameter δ_{v,i}(x) = (χ_{v,i} ∘ Art(x))∏_τ τ(x)^{−k_{τ,i}}, and this triangulation is non-critical. Definition 2.9: δ_v is numerically non-critical if its labelled weights increase and v_p((δ_{v,1}⋯δ_{v,i})(p)) < wt_τ(δ_{v,i+1}) − wt_τ(δ_{v,i}) for all τ and i; for Hodge–Tate regular de Rham ρ_v with a Weil–Deligne filtration, a numerically non-critical δ_v yields a non-critical triangulation.",
+      "statement": "Let ρ_v : G_{F_ṽ} → GL_n(Q̄_p) be de Rham with (1) an increasing filtration of WD(ρ_v) with graded characters χ_{v,1}, …, χ_{v,n}, (2) distinct τ-Hodge–Tate weights k_{τ,1} < ⋯ < k_{τ,n}, and (3) v_p(χ_{v,1}(p)) < k_{τ,2} + Σ_{τ′≠τ}k_{τ′,1} and v_p((χ_{v,1}⋯χ_{v,i})(p)) < k_{τ,i+1} + Σ_{τ′≠τ}k_{τ′,i} + Σ_{τ′}Σ_{j<i}k_{τ′,j} (2 ≤ i ≤ n − 1). Then ρ_v is trianguline of parameter δ_{v,i}(x) = (χ_{v,i} ∘ Art(x))∏_τ τ(x)^{−k_{τ,i}}, and this triangulation is non-critical. Definition 2.9: δ_v is numerically non-critical if its labelled weights form an increasing sequence of integers and v_p((δ_{v,1}⋯δ_{v,i})(p)) < wt_τ(δ_{v,i+1}) − wt_τ(δ_{v,i}) for all τ and i; for Hodge–Tate regular de Rham ρ_v with a Weil–Deligne filtration, a numerically non-critical δ_v yields a non-critical triangulation.",
       "locator": "§2.3.1, Lemma 2.8, Definition 2.9, pp. 31–32",
       "status": "missing",
       "note": "Generalises Hellmann–Schraen Lemma 2.9 (crystalline case). Proof: Breuil–Schneider Proposition 4.1 and Berger's equivalence between filtered (φ, N, G)-modules and (φ, Γ)-modules, with weak admissibility (t_N ≥ t_H)."
@@ -476,19 +477,19 @@
       "id": "PAPER-NEWTON-THORNE-21/47",
       "kind": "theorem",
       "name": "Proposition 2.15: the trianguline locus near an absolutely irreducible point",
-      "statement": "Let ρ_v be absolutely irreducible and trianguline of parameter δ_v ∈ 𝒯_v^{reg}(E), z = (ρ_v, δ_v) ∈ 𝒳^{v-irr}_{ps,v} × 𝒯_v^{reg}. (1) There is an affinoid neighbourhood 𝒰_v of z carrying a universal representation, and the set 𝒱_v of points (ρ′_v, δ′_v) with ρ′_v trianguline of parameter δ′_v is Zariski open in its Zariski closure 𝒵_v. (2) The Zariski tangent space of 𝒵_v at z lies in H¹_{tri,δ_v}(F_ṽ, ad ρ_v).",
+      "statement": "Let ρ_v : G_{F_ṽ} → GL_n(E) be absolutely irreducible and trianguline of parameter δ_v ∈ 𝒯_v^{reg}(E), z = (ρ_v, δ_v) ∈ 𝒳^{v-irr}_{ps,v} × 𝒯_v^{reg}. (1) There is an affinoid neighbourhood 𝒰_v of z carrying a universal representation, and the set 𝒱_v of points (ρ′_v, δ′_v) with ρ′_v trianguline of parameter δ′_v is Zariski open in its Zariski closure 𝒵_v. (2) The Zariski tangent space of 𝒵_v at z lies in H¹_{tri,δ_v}(F_ṽ, ad ρ_v).",
       "locator": "§2.11.1, Proposition 2.15, pp. 36–38",
       "status": "missing",
-      "note": "Proof: KPX Corollary 6.3.10 (proper birational Z′ → 𝒵_v with a global triangulation off a closed set), Köpf's relative analytification and EGA I 3.9.8 for injectivity of completed local rings."
+      "note": "Proof: KPX Corollary 6.3.10 (proper birational Z′ → 𝒵_v with a global triangulation off a closed set), Köpf's relative analytification and EGA I 3.9.8 for injectivity of completed local rings. Review (REV-PAPER-NEWTON-THORNE-21): ρ_v is defined over E (p. 36), which the proof needs for the splitting of the Azumaya algebra."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/48",
       "kind": "theorem",
       "name": "Remark 2.16: KPX's global triangulation holds for the standard notion of Zariski density",
-      "statement": "KPX Definition 6.3.2 requires density in each member of an admissible affinoid cover; Theorem 6.3.9 of loc. cit. nevertheless holds when X_alg is Zariski dense in the usual sense: for X normal and connected, the points of X_alg in the Zariski open locus U′ where H^i_{φ,γ}(M^∨(δ)) and H^i_{φ,γ}(M^∨(δ)/t_σ) are locally free and the relevant fibre maps are non-zero form a set dense in every affinoid.",
+      "statement": "KPX Definition 6.3.2 requires density in each member of an admissible affinoid cover; Theorem 6.3.9 of loc. cit. nevertheless holds when X_alg is Zariski dense in the usual sense: reducing to X normal and connected, the sheaves H^i_{φ,γ_K}(M^∨(δ)) and H^i_{φ,γ_K}(M^∨(δ)/t_σ) are locally free on a dense Zariski open U; on a Zariski open U′ ⊂ U containing X_alg ∩ U the fibre of H⁰(M^∨(δ)) is one-dimensional and maps non-trivially to each H⁰(M^∨(δ)/t_σ) ⊗ k(z); U′ contains a Zariski dense subset of every affinoid open, so X_alg ∪ U′ is Zariski dense in the sense of KPX Definition 6.3.2, and KPX Theorem 6.3.9 applies to it.",
       "locator": "§2.11.1, Remark 2.16, p. 38",
       "status": "missing",
-      "note": "An argument explained to the authors by E. Hellmann, prompted by a referee."
+      "note": "An argument explained to the authors by E. Hellmann, prompted by a referee. Review (REV-PAPER-NEWTON-THORNE-21): statement corrected against p. 38: the density in every affinoid is that of U′, which is adjoined to X_alg, not that of the points of X_alg in U′."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/49",
@@ -529,10 +530,10 @@
       "id": "PAPER-NEWTON-THORNE-21/52",
       "kind": "construction",
       "name": "The rigid spaces 𝒳_ps, 𝒳_{ps,v} and their absolutely irreducible loci",
-      "statement": "𝒳_ps and 𝒳_{ps,v} are the rigid generic fibres of R_ps and R_{ps,v}, with 𝒳_ps → 𝒳_{ps,p} = ∏_{v∈S_p}𝒳_{ps,v}; 𝒳^{v-irr}_{ps,v} is the Zariski open locus where the universal pseudocharacter is absolutely irreducible, carrying an Azumaya algebra 𝒜 and ρ^u_v : G_{F_ṽ} → 𝒜^× with trace the universal pseudocharacter (Chenevier §4.2); 𝒳^{p-irr}_{ps} is the preimage of ∏𝒳^{v-irr}_{ps,v}. Lemma 2.13: at an absolutely irreducible point z, 𝒜 splits on an affinoid neighbourhood, 𝒜|_𝒰 ≅ M_n(𝒪_𝒰) (the stalk is Henselian).",
+      "statement": "𝒳_ps and 𝒳_{ps,v} are the rigid generic fibres of R_ps and R_{ps,v}, with 𝒳_ps → 𝒳_{ps,p} = ∏_{v∈S_p}𝒳_{ps,v}; 𝒳^{v-irr}_{ps,v} is the Zariski open locus where the universal pseudocharacter is absolutely irreducible, carrying an Azumaya algebra 𝒜 and ρ^u_v : G_{F_ṽ} → 𝒜^× with trace the universal pseudocharacter (Chenevier §4.2); 𝒳^{p-irr}_{ps} is the preimage of ∏𝒳^{v-irr}_{ps,v}. Lemma 2.13: if z = tr ρ_v ∈ 𝒳^{v-irr}_{ps,v}(E) for an absolutely irreducible ρ_v : G_{F_ṽ} → GL_n(E), 𝒜 splits on an affinoid neighbourhood, 𝒜|_𝒰 ≅ M_n(𝒪_𝒰) (the stalk is Henselian).",
       "locator": "§2.11.1, Lemma 2.13, p. 35",
       "status": "missing",
-      "note": ""
+      "note": "Review (REV-PAPER-NEWTON-THORNE-21): Lemma 2.13 assumes ρ_v defined over E (p. 35: 'Let ρ_v : G_{F_ṽ} → GL_n(E) be an absolutely irreducible representation'); an E-point of the irreducible locus alone does not split the fibre."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/53",
@@ -541,7 +542,7 @@
       "statement": "Let ρ : G_{F,S} → GL_n(E) be absolutely irreducible with ρ^c ≅ ρ^∨ ⊗ ϵ^{1−n}, extended to ρ_1 : G_{F⁺,S} → 𝒢_n(E) with ν ∘ ρ_1 = ϵ^{1−n}δ^a (a ∈ {0, 1} determined by ρ). For A ∈ 𝒞_E, conjugacy classes of lifts ρ′ of ρ with tr ρ′ ∘ c = tr(ρ′)^∨ ⊗ ϵ^{1−n} correspond bijectively to conjugacy classes of lifts ρ′_1 of ρ_1 with ν ∘ ρ′_1 = ϵ^{1−n}δ^a.",
       "locator": "§2.11.1, Lemma 2.12, p. 35",
       "status": "missing",
-      "note": "Clozel–Harris–Taylor Lemmas 2.1.1, 2.1.4, 2.1.8 and Chenevier Example 3.4."
+      "note": "Clozel–Harris–Taylor Lemmas 2.1.1, 2.1.4, 2.1.8 and Chenevier Example 3.4. Review (REV-PAPER-NEWTON-THORNE-21): the paper never defines 𝒞_E, only 𝒞′_E (Artinian local E-algebras with residue field E, p. 29), and applies the lemma on p. 49 to a completed local ring (sourceIssues E11). The printed proof also says two lifts are 'equal' where they are only conjugate, which is all the lemma needs (E10)."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/54",
@@ -619,7 +620,7 @@
       "id": "PAPER-NEWTON-THORNE-21/62",
       "kind": "theorem",
       "name": "Proposition 2.22(3), (6): the Hecke algebra generates and is bounded",
-      "statement": "For every affinoid open 𝒱 ⊂ 𝒯_n, 𝕋^S_n ⊗ 𝒪(𝒱) → 𝒪(ν^{−1}𝒱) is surjective, and ψ takes values in the bounded functions 𝒪(ℰ_n)^{≤1}. A tuple with properties (1)–(3) is unique (as in Bellaïche–Chenevier Proposition 7.2.8).",
+      "statement": "For every affinoid open 𝒱 ⊂ 𝒯_n, 𝕋^S_n ⊗ 𝒪(𝒱) → 𝒪(ν^{−1}𝒱) is surjective, and ψ takes values in the bounded functions 𝒪(ℰ_n)^{≤1}. (The paper remarks, without using it or proving it, that a tuple with properties (1)–(3) is unique, as in Bellaïche–Chenevier Proposition 7.2.8.)",
       "locator": "§2.18.1, Proposition 2.22(3), (6), pp. 44–45",
       "status": "missing",
       "note": ""
@@ -682,16 +683,16 @@
       "id": "PAPER-NEWTON-THORNE-21/69",
       "kind": "theorem",
       "name": "Theorem 2.24: analytic continuation of symmetric power functoriality (non-critical case)",
-      "statement": "Let (π_2, χ_2) ∈ ℛ𝒜_2 with tr r̄_{π_2,ι} = τ̄_2 and z_2 = γ_2(π_2, χ_2). Suppose (1) χ_2 is numerically non-critical and n-regular; (2) there is (π_n, χ_n) ∈ ℛ𝒜_n with (σ_n ∘ i_2)(z_2) = i_n(z_n), z_n = γ_n(π_n, χ_n); (3) for each v ∈ S_p the Zariski closure of r_{π_2,ι}(G_{F_ṽ}) contains SL_2. Then every irreducible component 𝒞 of ℰ_2(τ̄_2)_{ℂ_p} through z_2 satisfies (σ_n ∘ i_2)(𝒞) ⊂ i_n(ℰ_n(τ̄_n)_{ℂ_p}).",
+      "statement": "Assume n ≥ 3 (the standing assumption of p. 46). Let (π_2, χ_2) ∈ ℛ𝒜_2 with tr r̄_{π_2,ι} = τ̄_2 and z_2 = γ_2(π_2, χ_2). Suppose (1) χ_2 is numerically non-critical and n-regular; (2) there is (π_n, χ_n) ∈ ℛ𝒜_n with (σ_n ∘ i_2)(z_2) = i_n(z_n), z_n = γ_n(π_n, χ_n); (3) for each v ∈ S_p the Zariski closure of r_{π_2,ι}(G_{F_ṽ}) contains SL_2. Then every irreducible component 𝒞 of ℰ_2(τ̄_2)_{ℂ_p} through z_2 satisfies (σ_n ∘ i_2)(𝒞) ⊂ i_n(ℰ_n(τ̄_n)_{ℂ_p}).",
       "locator": "§2.18.1, Theorem 2.24, pp. 46–48",
       "status": "missing",
-      "note": "Proof: Lemma 2.2; r_{π_n} is trianguline of the regular non-critical parameter σ_{n,p}(δ_2); Propositions 2.11 and 2.15 with H¹_f(F⁺, ad r_{π_n,ι}) = 0 (Newton–Thorne 2020) bound the tangent space of the trianguline locus 𝒵 by dim 𝒲_n, so ℰ_n(τ̄_n) is smooth at z_n and locally equal to 𝒵. Remark 2.25: (3) keeps all symmetric powers locally irreducible."
+      "note": "Proof: Lemma 2.2; r_{π_n} is trianguline of the regular non-critical parameter σ_{n,p}(δ_2); Propositions 2.11 and 2.15 with H¹_f(F⁺, ad r_{π_n,ι}) = 0 (Newton–Thorne 2020) bound the tangent space of the trianguline locus 𝒵 by dim 𝒲_n, so ℰ_n(τ̄_n) is smooth at z_n and locally equal to 𝒵. Remark 2.25: (3) keeps all symmetric powers locally irreducible. Review (REV-PAPER-NEWTON-THORNE-21): the standing assumption n ≥ 3 was added (also to items 70–71)."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/70",
       "kind": "theorem",
       "name": "Theorem 2.27: analytic continuation of symmetric power functoriality (ordinary case)",
-      "statement": "Let (π_2, χ_2), z_2 be as in Theorem 2.24 and suppose (1) χ_2 is ordinary; (2) there is (π_n, χ_n) ∈ ℛ𝒜_n with (σ_n ∘ i_2)(z_2) = i_n(z_n); (3) the Zariski closure of r_{π_2,ι}(G_F) contains SL_2. Then every irreducible component 𝒞 of ℰ_2(τ̄_2)_{ℂ_p} through z_2 satisfies (σ_n ∘ i_2)(𝒞) ⊂ i_n(ℰ_n(τ̄_n)_{ℂ_p}).",
+      "statement": "Assume n ≥ 3 (the standing assumption of p. 46). Let (π_2, χ_2), z_2 be as in Theorem 2.24 and suppose (1) χ_2 is ordinary; (2) there is (π_n, χ_n) ∈ ℛ𝒜_n with (σ_n ∘ i_2)(z_2) = i_n(z_n); (3) the Zariski closure of r_{π_2,ι}(G_F) contains SL_2. Then every irreducible component 𝒞 of ℰ_2(τ̄_2)_{ℂ_p} through z_2 satisfies (σ_n ∘ i_2)(𝒞) ⊂ i_n(ℰ_n(τ̄_n)_{ℂ_p}).",
       "locator": "§2.18.1, Theorem 2.27, p. 49",
       "status": "missing",
       "note": "Proof: the closed subspace 𝒵^{ord} of the flag variety FL_p(𝒪^n_𝒰) of G_{F_ṽ}-stable flags with graded characters δ_{z,v,i}, the ordinary analogue of Lemma 2.7 (Geraghty Lemma 3.9) and Newton–Thorne 2020."
@@ -700,7 +701,7 @@
       "id": "PAPER-NEWTON-THORNE-21/71",
       "kind": "theorem",
       "name": "Corollary 2.28: symmetric power automorphy along an irreducible component",
-      "statement": "Let (π_2, χ_2), (π′_2, χ′_2) ∈ ℛ𝒜_2 with points z_2, z′_2 ∈ ℰ_2(Q̄_p). Suppose either (1) χ_2 is numerically non-critical and n-regular, (2) every triangulation of r_{π′_2,ι}|_{G_{F_ṽ}} is non-critical (v ∈ S_p) and χ′_2 is n-regular, (3) the Zariski closures of r_{π_2,ι}(G_{F_ṽ}) and r_{π′_2,ι}(G_{F_ṽ}) contain SL_2, (4) Sym^{n−1}r_{π_2,ι} ≅ r_{π_n,ι} for an automorphic π_n of G_n(𝔸_{F⁺}) and (5) z_2, z′_2 lie on a common irreducible component of ℰ_{2,ℂ_p}; or (1ord) χ_2 ordinary, (2ord) the Zariski closure of r_{π_2,ι}(G_F) contains SL_2, (3ord) Sym^{n−1}r_{π_2,ι} ≅ r_{π_n,ι} and (4ord) a common irreducible component. Then Sym^{n−1}r_{π′_2,ι} ≅ r_{π′_n,ι} for an automorphic representation π′_n of G_n(𝔸_{F⁺}).",
+      "statement": "Assume n ≥ 3 (the standing assumption of p. 46). Let (π_2, χ_2), (π′_2, χ′_2) ∈ ℛ𝒜_2 with points z_2, z′_2 ∈ ℰ_2(Q̄_p). Suppose either (1) χ_2 is numerically non-critical and n-regular, (2) every triangulation of r_{π′_2,ι}|_{G_{F_ṽ}} is non-critical (v ∈ S_p) and χ′_2 is n-regular, (3) the Zariski closures of r_{π_2,ι}(G_{F_ṽ}) and r_{π′_2,ι}(G_{F_ṽ}) contain SL_2, (4) Sym^{n−1}r_{π_2,ι} ≅ r_{π_n,ι} for an automorphic π_n of G_n(𝔸_{F⁺}) and (5) z_2, z′_2 lie on a common irreducible component of ℰ_{2,ℂ_p}; or (1ord) χ_2 ordinary, (2ord) the Zariski closure of r_{π_2,ι}(G_F) contains SL_2, (3ord) Sym^{n−1}r_{π_2,ι} ≅ r_{π_n,ι} and (4ord) a common irreducible component. Then Sym^{n−1}r_{π′_2,ι} ≅ r_{π′_n,ι} for an automorphic representation π′_n of G_n(𝔸_{F⁺}).",
       "locator": "§2.18.1, Corollary 2.28, pp. 50–51",
       "status": "missing",
       "note": "The refinement χ_n = (χ_{2,v,1}^{n−1} ⊗ ⋯ ⊗ χ_{2,v,2}^{n−1}) is accessible (Zelevinsky Theorem 9.7, Rodier §4.4); classicality at z′_n from Lemma 2.26 (ordinary) or Lemmas 2.29–2.30."
@@ -721,13 +722,13 @@
       "statement": "For the automorphic representations π_n of G_n used here (with r_{π_n,ι} irreducible and the base change cuspidal), H¹_f(F⁺, ad r_{π_n,ι}) = 0.",
       "locator": "§2.18.1, proof of Theorem 2.24, p. 47; proof of Theorem 2.27, p. 49",
       "status": "missing",
-      "note": "Imported from Newton–Thorne, Adjoint Selmer groups of automorphic Galois representations of unitary type (JEMS). This is the input that turns the eigenvariety into a smooth space near z_n, following Kisin (GL_2) and Bellaïche–Chenevier."
+      "note": "Imported from Newton–Thorne, Adjoint Selmer groups of automorphic Galois representations of unitary type (JEMS). This is the input that turns the eigenvariety into a smooth space near z_n, following Kisin (GL_2) and Bellaïche–Chenevier. Review (REV-PAPER-NEWTON-THORNE-21): rerouted to PolarizedAutomorphyLifting (route 7), the owner chosen for the Newton–Thorne 2020 results by the review of PAPER-NEWTON-THORNE-21-B, so that the theorem has one owner across the three Newton–Thorne extractions. The Bloch–Kato groups are item 140 and Allen's genericity items 141–142."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/74",
       "kind": "construction",
       "name": "The Coleman–Mazur eigencurve of tame level N",
-      "statement": "For N ≥ 1 prime to p: 𝒯_0 = Hom(ℚ_p^×/ℤ_p^× × ℚ_p^×, 𝔾_m), 𝒲_0 = Hom(ℤ_p^×, 𝔾_m), r_0(χ_{0,1} ⊗ χ_{0,2}) = χ_{0,2}^{−1}|_{ℤ_p^×}, 𝕋^{pN}_0 = 𝒪[T_l, S_l]_{l∤pN}, U_1(N). The eigencurve (ℰ_0, ψ_0, ν_0, Z_0) is a reduced E-rigid space with finite ν_0 : ℰ_0 → 𝒯_0, bounded ψ_0 and a self-accumulating Zariski dense Z_0, equidimensional of dimension 1 with κ(𝒞) Zariski open, Z_0 in bijection with pairs (π_0, χ_0) (π_0 cuspidal of weight k ≥ 2 with (π_0^∞)^{U_1(N)^p} ≠ 0, χ_0 accessible with χ_{0,1} unramified) via ν_0(π_0, χ_0)(diag(t_1, t_2)) = t_2^{2−k}χ_{0,1}(t_1)χ_{0,2}(t_2)|t_1/t_2|^{−1/2} (2.31.1), and 𝕋 ⊗ 𝒪(𝒱) → 𝒪(ν_0^{−1}𝒱) surjective; it carries a pseudocharacter t with t_z = tr r_{π_0,ι}. The slope s(z) = v_p(χ(diag(p, 1))) equals v_p(ι^{−1}a_p(f)) at classical points; (π_0, χ_0) is numerically non-critical iff s < k − 1 and ordinary iff s = 0; Coleman's classicality: a point of weight t ↦ t^{k−2} (on a finite-index subgroup) and slope s < k − 1 is classical.",
+      "statement": "For N ≥ 1 prime to p: 𝒯_0 = Hom(ℚ_p^×/ℤ_p^× × ℚ_p^×, 𝔾_m), 𝒲_0 = Hom(ℤ_p^×, 𝔾_m), r_0(χ_{0,1} ⊗ χ_{0,2}) = χ_{0,2}^{−1}|_{ℤ_p^×}, 𝕋^{pN}_0 = 𝒪[T_l, S_l]_{l∤pN}, U_1(N). The eigencurve (ℰ_0, ψ_0, ν_0, Z_0) is a reduced E-rigid space with finite ν_0 : ℰ_0 → 𝒯_0, bounded ψ_0 and a self-accumulating Zariski dense Z_0, equidimensional of dimension 1 with κ(𝒞) Zariski open, Z_0 in bijection with pairs (π_0, χ_0) (π_0 cuspidal of weight k ≥ 2 with (π_0^∞)^{U_1(N)^p} ≠ 0, χ_0 accessible with χ_{0,1} unramified) via ν_0(π_0, χ_0)(diag(t_1, t_2)) = t_2^{2−k}χ_{0,1}(t_1)χ_{0,2}(t_2)|t_1/t_2|^{−1/2} (2.31.1), and 𝕋 ⊗ 𝒪(𝒱) → 𝒪(ν_0^{−1}𝒱) surjective; it carries a pseudocharacter t with t_z = tr r_{π_0,ι}. The slope s(z) = v_p(χ(diag(p, 1))) equals v_p(ι^{−1}a_p(f)) at classical points; (π_0, χ_0) is numerically non-critical iff s < k − 1 and ordinary iff s = 0; Coleman's classicality: a point of weight t ↦ t^{k−2} (on a finite-index subgroup) and slope s < k − 1 is classical. A point whose π_p is a twist of the Steinberg representation has slope (k − 2)/2 (used in the proof of Lemma 3.7, p. 64).",
       "locator": "§2.31, pp. 54–56",
       "status": "planned",
       "planned": [
@@ -785,7 +786,7 @@
       "id": "PAPER-NEWTON-THORNE-21/80",
       "kind": "theorem",
       "name": "Theorem 3.2(3): slopes on the Buzzard–Kilford annuli",
-      "statement": "For each i ≥ 1, s ∘ κ|_{X_i}^{−1} : 𝒲_0(b)(ℂ_p) → ℝ equals i · v_p ∘ w. In particular there are no newforms of level 4 and odd slope (Buzzard–Kilford, Corollary of Theorem B).",
+      "statement": "For each i ≥ 1, s ∘ κ|_{X_i}^{−1} : 𝒲_0(b)(Q̄_p) → ℝ equals i · v_p ∘ w. In particular there are no newforms of level 4 and odd slope (Buzzard–Kilford, Corollary of Theorem B).",
       "locator": "§3, Theorem 3.2(3), p. 61; §7, p. 104",
       "status": "missing",
       "note": ""
@@ -831,7 +832,7 @@
       "kind": "theorem",
       "name": "Lemma 3.5(3): level-one forms at 2",
       "statement": "If p = 2 and π is everywhere unramified, the Zariski closure of r_{π,ι}(G_{ℚ_2}) contains SL_2.",
-      "locator": "§3, Lemma 3.5(3), p. 63",
+      "locator": "§3, Lemma 3.5(3), pp. 62–63 (stated p. 62, proved p. 63)",
       "status": "missing",
       "note": "An induced local representation would force T_2-eigenvalue 0, excluded as in Lemma 3.4."
     },
@@ -839,7 +840,7 @@
       "id": "PAPER-NEWTON-THORNE-21/86",
       "kind": "theorem",
       "name": "Lemma 3.6: moving within one annulus",
-      "statement": "Let z, z′ ∈ Z_0 ∩ X_i(ℂ_p) with pairs (π, χ), (π′, χ′), χ and χ′ n-regular. If Sym^{n−1}r_{π,ι} is automorphic, so is Sym^{n−1}r_{π′,ι}.",
+      "statement": "Let z, z′ ∈ Z_0 ∩ X_i(Q̄_p) with pairs (π, χ), (π′, χ′), χ and χ′ n-regular. If Sym^{n−1}r_{π,ι} is automorphic, so is Sym^{n−1}r_{π′,ι}.",
       "locator": "§3, Lemma 3.6, p. 63",
       "status": "missing",
       "note": "Theorem 2.33 with X_i ≅ 𝒲_0(b) irreducible, Lemma 3.5."
@@ -848,7 +849,7 @@
       "id": "PAPER-NEWTON-THORNE-21/87",
       "kind": "theorem",
       "name": "Lemma 3.7: a ping-pong move",
-      "statement": "Let π be everywhere unramified of weight k ≥ 2 with a refinement χ. There is m_π ≥ 1 such that for every m ≥ m_π there is a cuspidal π′ of GL_2(𝔸_ℚ), unramified outside 2, with two accessible refinements of distinct slopes, a refinement χ′ with (π, χ), (π′, χ′) on the same irreducible component of ℰ_{0,ℂ_p}, κ(z′) ∈ 𝒲_0(b), twin z″ = τ(z′) ∈ X_{2^m−1}, and such that automorphy of any one of Sym^{n−1}r_{π,ι}, Sym^{n−1}r_{π′,ι}, Sym^{n−1}r_{π″,ι} implies all three.",
+      "statement": "Let π be everywhere unramified of weight k ≥ 2 with a choice of accessible refinement χ. There is m_π ≥ 1 such that for every m ≥ m_π there is a cuspidal π′ of GL_2(𝔸_ℚ), unramified outside 2, with two accessible refinements of distinct slopes, a refinement χ′ with (π, χ), (π′, χ′) on the same irreducible component of ℰ_{0,ℂ_p}, κ(z′) ∈ 𝒲_0(b), twin z″ = τ(z′) ∈ X_{2^m−1}, and such that automorphy of any one of Sym^{n−1}r_{π,ι}, Sym^{n−1}r_{π′,ι}, Sym^{n−1}r_{π″,ι} implies all three.",
       "locator": "§3, Lemma 3.7, p. 64",
       "status": "missing",
       "note": "Take z′ ∈ X_i with κ(z′)(5) = 5^{k′−2}, k′ = 2i + 2^{m+1} − 1, classical by Coleman since s(z′) = 2i < k′ − 1; footnote 6 explains the name."
@@ -857,7 +858,7 @@
       "id": "PAPER-NEWTON-THORNE-21/88",
       "kind": "definition",
       "name": "The data of §4: π = π_2 ⊞ π_{n−2} with the auxiliary place sets T_1, T_2, T_3",
-      "statement": "n = 2k + 1 ≥ 3 odd; π_2, π_{n−2} cuspidal conjugate self-dual on GL_2(𝔸_F), GL_{n−2}(𝔸_F) with (1) π = π_2 ⊞ π_{n−2} regular algebraic (ρ = ρ_2 ⊕ ρ_{n−2}, both tempered), (2) π ι-ordinary, (3) disjoint non-empty sets of places of F⁺ outside S with q_v odd and π unramified outside S ∪ T: T_1 inert, q_v a primitive 6th root of unity mod p, char k(v) > n, π_{2,ṽ} ≅ St_2(χ_ṽ), π_{n−2,ṽ} ≅ ⊞_{i=0}^{2k−2}χ_{ṽ,i} with χ_ṽ, χ_{ṽ,0} unramified and χ_{ṽ,i}|_{𝒪^×} = ω(ṽ) (i ≥ 1); T_2 split, q_v ≡ −1 mod p, π_{2,ṽ} ⊇ λ̃(ṽ, Θ_ṽ) (n_1 = 2) and π_{n−2,ṽ} ⊇ ω(ṽ) ∘ det; T_3 split, q_v a primitive (n − 2)th root of unity mod p, π_{n−2,ṽ} ⊇ λ̃(ṽ, Θ_ṽ) (n_1 = n − 2) and π_{2,ṽ} ⊇ ω(ṽ) ∘ det; and characters θ_v of C(k(v)) of order p for v ∈ T_1.",
+      "statement": "n = 2k + 1 ≥ 3 odd; π_2, π_{n−2} cuspidal conjugate self-dual on GL_2(𝔸_F), GL_{n−2}(𝔸_F) with (1) π = π_2 ⊞ π_{n−2} regular algebraic (ρ̄ = r̄_{π,ι} = ρ̄_2 ⊕ ρ̄_{n−2} with ρ̄_2 = r̄_{π_2|·|^{(2−n)/2},ι} and ρ̄_{n−2} = r̄_{π_{n−2}|·|^{−1},ι}; π_2 and π_{n−2} are tempered), (2) π ι-ordinary, (3) disjoint non-empty sets of places of F⁺ outside S with q_v odd and π unramified outside S ∪ T: T_1 inert, q_v a primitive 6th root of unity mod p, char k(v) > n, π_{2,ṽ} ≅ St_2(χ_ṽ), π_{n−2,ṽ} ≅ ⊞_{i=0}^{2k−2}χ_{ṽ,i} with χ_ṽ, χ_{ṽ,0} unramified and χ_{ṽ,i}|_{𝒪^×} = ω(ṽ) (i ≥ 1); T_2 split, q_v ≡ −1 mod p, π_{2,ṽ} ⊇ λ̃(ṽ, Θ_ṽ) (n_1 = 2) and π_{n−2,ṽ} ⊇ ω(ṽ) ∘ det; T_3 split, q_v a primitive (n − 2)th root of unity mod p, π_{n−2,ṽ} ⊇ λ̃(ṽ, Θ_ṽ) (n_1 = n − 2) and π_{2,ṽ} ⊇ ω(ṽ) ∘ det; and characters θ_v of C(k(v)) of order p for v ∈ T_1.",
       "locator": "§4, pp. 68",
       "status": "missing",
       "note": ""
@@ -866,10 +867,10 @@
       "id": "PAPER-NEWTON-THORNE-21/89",
       "kind": "theorem",
       "name": "Theorem 4.1: level raising to a type on a definite unitary group",
-      "statement": "With the data of §4, for every totally real S ∪ T-split quadratic L⁺/F⁺ and L = L⁺F there is a RACSDC automorphic representation Π of GL_n(𝔸_L) with (1) Π ι-ordinary and unramified outside S ∪ T; (2) r̄_{Π,ι} ≅ r̄_{π,ι}|_{G_L}; (3) for v ∈ T_{1,L}, Π_ṽ|_{r_ṽ} contains λ̃(ṽ, θ̃_v, n)|_{r_ṽ} (the conditions of Proposition 1.19); (4) for v ∈ T_{2,L} ∪ T_{3,L}, Π_ṽ|_{q_ṽ} contains λ̃(ṽ, Θ_ṽ|_F, n).",
+      "statement": "With the data of §4, for every totally real S ∪ T-split quadratic L⁺/F⁺ and L = L⁺F there is a RACSDC automorphic representation Π of GL_n(𝔸_L) with (1) Π ι-ordinary and unramified outside S ∪ T; (2) r̄_{Π,ι} ≅ r̄_{π,ι}|_{G_L}; (3) for v ∈ T_{1,L}, Π_ṽ|_{r_ṽ} contains λ̃(ṽ, θ̃_{v|_{F⁺}}, n)|_{r_ṽ} (the conditions of Proposition 1.19); (4) for v ∈ T_{2,L} ∪ T_{3,L}, Π_ṽ|_{q_ṽ} contains λ̃(ṽ, Θ_ṽ|_F, n).",
       "locator": "§4, Theorem 4.1, pp. 68–69 (proof pp. 73–74)",
       "status": "missing",
-      "note": "Proof: Proposition 4.6 gives σ with τ_g in σ_T; the congruence of types (Proposition 1.15) and exactness of S^{ord}_λ(U, −) give Σ containing λ_g, and cuspidality of its base change follows from Lemma 4.5 and Proposition 1.16 via the identities (4.6.4), (4.6.5). Remark 4.2: T_2 ∪ T_3 serve to force cuspidality."
+      "note": "Proof: Proposition 4.6 gives σ with τ_g in σ_T; the congruence of types (Proposition 1.15) and exactness of S^{ord}_λ(U, −) give Σ containing λ_g, and cuspidality of its base change follows from Lemma 4.5 and Proposition 1.16 via the identities (4.6.4), (4.6.5). Remark 4.2: T_2 ∪ T_3 serve to force cuspidality. Review (REV-PAPER-NEWTON-THORNE-21): the character at T_{1,L} is the one attached to the place of F⁺ below v (p. 68). Theorem 4.1(4) prints n_2 where n_1 is meant (sourceIssues E14)."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/90",
@@ -893,7 +894,7 @@
       "id": "PAPER-NEWTON-THORNE-21/92",
       "kind": "theorem",
       "name": "Labesse's stabilised trace formula for G",
-      "statement": "(4.6.1) T^G_{disc}(f) = Σ_H ι(G, H)T^{M̃_H}_{disc}(f̃^H) for f = f^∞ ⊗ f_∞ with f_∞ a pseudocoefficient of discrete series, the sum over endoscopic data, ι(G, H) as in Labesse Proposition 4.11, and (4.6.2) T^{M̃_H}_{disc}(f̃^H) = Σ_L Σ_{s∈W^{M̃_H}(L)_{reg}} Σ_{π̃_L} (|det(s − 1|a_L/a_{M_H})| |W^{M_H}(L)|)^{−1} tr I_Q(π̃_L)(f̃^H) (Labesse Proposition 3.4).",
+      "statement": "(4.6.1) (Labesse Théorème 5.1) T^G_{disc}(f) = Σ_H ι(G, H)T^{M̃_H}_{disc}(f̃^H) for f = f^∞ ⊗ f_∞ with f_∞ a pseudocoefficient of discrete series, the sum over endoscopic data, ι(G, H) as in Labesse Proposition 4.11, and (4.6.2) T^{M̃_H}_{disc}(f̃^H) = Σ_L Σ_{s∈W^{M̃_H}(L)_{reg}} Σ_{π̃_L} (|det(s − 1|a_L/a_{M_H})| |W^{M_H}(L)|)^{−1} tr I_Q(π̃_L)(f̃^H) (Labesse Proposition 3.4).",
       "locator": "§4, proof of Proposition 4.6, (4.6.1)–(4.6.2), p. 71",
       "status": "planned",
       "planned": [
@@ -923,7 +924,7 @@
       "id": "PAPER-NEWTON-THORNE-21/95",
       "kind": "definition",
       "name": "Ordinary deformation problems over the Iwasawa algebra Λ",
-      "statement": "Λ_v = 𝒪[[(I^{ab}_{F_ṽ}(p))^n]], Λ = ⊗̂_{v∈S_p}Λ_v with universal characters ψ^i_v; for μ de Rham with μ(c_v) = −1 and χ_i with χ_iχ_i^c = μ, r̄ : G_{F⁺,S} → 𝒢_n(k) extending ⊕χ_i, trivial at S_p; global deformation problems 𝒮_Σ = (F/F⁺, S ∪ Σ, S̃ ∪ Σ̃, Λ, r̄, μ, {R^Δ_v}_{S_p} ∪ {R^□_v}_{S−S_p} ∪ {R^{St}_v}_Σ) with R^Δ_v ordinary variable-weight liftings, R^□_v all liftings and R^{St}_v Steinberg liftings (Allen–Newton–Thorne §3; unipotent R^1_v and Steinberg R^{St}_v as in Thorne 2015 §§3.3.3–3.3.4); for Schur r̄ (Clozel–Harris–Taylor Definition 2.1.6) the functor is represented by R_{𝒮_Σ} ∈ 𝒞_Λ.",
+      "statement": "Λ_v = 𝒪[[(I^{ab}_{F_ṽ}(p))^n]], Λ = ⊗̂_{v∈S_p}Λ_v with universal characters ψ^i_v; for μ de Rham with μ(c_v) = −1 and characters χ̄_i with χ̄_iχ̄_i^c = μ̄|_{G_{F,S}}, r̄ : G_{F⁺,S} → 𝒢_n(k) extending ⊕χ̄_i, trivial at S_p; for Σ a set of finite places of F⁺ split in F and disjoint from S, with lifts Σ̃, such that q_v ≡ 1 mod p and r̄|_{G_{F_ṽ}} is trivial for v ∈ Σ (𝒮 = 𝒮_∅), global deformation problems 𝒮_Σ = (F/F⁺, S ∪ Σ, S̃ ∪ Σ̃, Λ, r̄, μ, {R^Δ_v}_{S_p} ∪ {R^□_v}_{S−S_p} ∪ {R^{St}_v}_Σ) with R^Δ_v ordinary variable-weight liftings, R^□_v all liftings and R^{St}_v Steinberg liftings (Allen–Newton–Thorne §3; unipotent R^1_v and Steinberg R^{St}_v as in Thorne 2015 §§3.3.3–3.3.4); for Schur r̄ (Clozel–Harris–Taylor Definition 2.1.6) the functor is represented by R_{𝒮_Σ} ∈ 𝒞_Λ.",
       "locator": "§5, pp. 75–76; §6, p. 89",
       "status": "planned",
       "planned": [
@@ -931,7 +932,7 @@
         "LocalGaloisDeformationRings:L8",
         "LocalGaloisDeformationRings:R08.2"
       ],
-      "note": "Polarized global deformation problems are G7; ordinary flag conditions L8; Steinberg and unipotent conditions away from p R08.2."
+      "note": "Polarized global deformation problems are G7; ordinary flag conditions L8; Steinberg and unipotent conditions away from p R08.2. Review (REV-PAPER-NEWTON-THORNE-21): the conditions on Σ (p. 76), without which R^{St}_v is not defined, and the residual bars were added."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/96",
@@ -955,10 +956,10 @@
       "id": "PAPER-NEWTON-THORNE-21/98",
       "kind": "theorem",
       "name": "Corollary 5.4: ordinary lifts of every weight",
-      "statement": "Under the hypotheses of Theorem 5.2, for λ ∈ (ℤ^n_+)^{Hom(F,Q̄_p)} with λ_{τc,i} = −λ_{τ,n+1−i} and [F_ṽ : ℚ_p] > n(n − 1)/2 + 1 (v ∈ S_p), there is r : G_{F⁺,S} → 𝒢_n(ℤ̄_p) lifting r̄ with r|_{G_{F,S}} ordinary of weight λ (Thorne 2015 Definition 2.5).",
+      "statement": "Under the hypotheses of Theorem 5.2, for λ ∈ (ℤ^n_+)^{Hom(F,Q̄_p)} with λ_{τc,i} = −λ_{τ,n+1−i} and [F_ṽ : ℚ_p] > n(n − 1)/2 + 1 (v ∈ S_p), there is r : G_{F⁺,S∪Σ} → 𝒢_n(ℤ̄_p) lifting r̄, of Steinberg type at Σ, with r|_{G_{F,S}} ordinary of weight λ (Thorne 2015 Definition 2.5).",
       "locator": "§5, Corollary 5.4, pp. 79–80",
       "status": "missing",
-      "note": "Thorne 2015 Propositions 3.9, 3.14; Geraghty Definition 2.24."
+      "note": "Thorne 2015 Propositions 3.9, 3.14; Geraghty Definition 2.24. Review (REV-PAPER-NEWTON-THORNE-21): corrected statement: the paper prints r : G_{F⁺,S} → 𝒢_n(ℤ̄_p), but the proof takes a point of R_{𝒮_Σ}, which may ramify at Σ (sourceIssues E15). The corollary is not used later in the paper."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/99",
@@ -973,7 +974,7 @@
       "id": "PAPER-NEWTON-THORNE-21/100",
       "kind": "theorem",
       "name": "Proposition 5.6: the reducible locus is small",
-      "statement": "Let R_𝒮/(ϖ) → A be a surjection onto a domain with r = r_1 ⊕ r_2 over A, R ⊂ S − S_p of odd residue characteristic with n_ṽ, q_ṽ a primitive n_ṽ-th root of unity mod p, r̄|_{G_{F_ṽ}} = σ̄_{ṽ,1} ⊕ σ̄_{ṽ,2} as in §1.17 and Θ_ṽ of order p. If (1) p > 2n, (2) χ_i/χ_j|_{G_{F(ζ_p)}} has order > 2n, (3) [F_ṽ : ℚ_p] > n(n − 1)/2 + 1, (4) [F(ζ_p) : F] = p − 1, (5) for v ∈ R both r̄_1|_{G_{F_ṽ}}, r̄_2|_{G_{F_ṽ}} have non-trivial unramified subquotients and R^□_v → A factors over R(ṽ, Θ_ṽ, n), then dim A ≤ n[F⁺ : ℚ] + n − d_R, d_R the ℤ_p-rank of the subgroup of Δ = Gal(L_{S_p}/F)/(c + 1) generated by the Frob_ṽ (v ∈ R).",
+      "statement": "Let R_𝒮/(ϖ) → A be a surjection onto a domain with r = r_1 ⊕ r_2 over A, r_i : G_{F⁺,S} → 𝒢_{n_i}(A) with ν ∘ r_i = ν ∘ r (𝒮 = 𝒮_∅), R ⊂ S − S_p of odd residue characteristic with n_ṽ, q_ṽ a primitive n_ṽ-th root of unity mod p, r̄|_{G_{F_ṽ}} = σ̄_{ṽ,1} ⊕ σ̄_{ṽ,2} as in §1.17 and Θ_ṽ of order p. If (1) p > 2n, (2) χ_i/χ_j|_{G_{F(ζ_p)}} has order > 2n, (3) [F_ṽ : ℚ_p] > n(n − 1)/2 + 1 for v ∈ S_p, (4) [F(ζ_p) : F] = p − 1, (5) for v ∈ R both r̄_1|_{G_{F_ṽ}}, r̄_2|_{G_{F_ṽ}} have non-trivial unramified subquotients and R^□_v → A factors over R(ṽ, Θ_ṽ, n), then dim A ≤ n[F⁺ : ℚ] + n − d_R, d_R the ℤ_p-rank of the subgroup of Δ = Gal(L_{S_p}/F)/(c + 1) generated by the Frob_ṽ (v ∈ R).",
       "locator": "§5, Proposition 5.6, pp. 80–82",
       "status": "missing",
       "note": "Proof: Allen–Newton–Thorne Lemma 3.6, Thorne 2015 Corollary 3.12 and Lemma 3.36, Theorem 5.2 for the two blocks and Proposition 1.22(3)."
@@ -982,16 +983,16 @@
       "id": "PAPER-NEWTON-THORNE-21/101",
       "kind": "theorem",
       "name": "Theorem 5.7: generic primes in large quotients",
-      "statement": "With the global deformation problem 𝒮 = (F/F⁺, S, S̃, Λ, r̄, μ, {R^Δ_v}_{S_p} ∪ {R(ṽ, Θ_ṽ, n)}_R ∪ {R^□_v}), R = R_1 ⊔ R_2, 2 ≤ n < p/2, χ_i/χ_j of order > 2n, [F_ṽ : ℚ_p] > n(n − 1)/2 + 1 and [F(ζ_p) : F] = p − 1: let R_𝒮 → B be a surjection with B finite over Λ/(ϖ). If (1) every irreducible component of Spec B has dimension > sup({n[F⁺ : ℚ] + n − d_{R_i}}, {n[F⁺ : ℚ] − [F_ṽ : ℚ_p]}) and (2) for every decomposition r̄ = r̄_1 ⊕ r̄_2 some R_i has both r̄_1, r̄_2 with unramified subquotients at every v ∈ R_i, then some prime p ⊂ R_𝒮 of dimension 1 and characteristic p containing ker(R_𝒮 → B) is generic (Allen–Newton–Thorne Definition 3.7: distinct, ℤ-linearly independent universal characters at p, and r_p ⊗ Frac absolutely irreducible).",
+      "statement": "With the global deformation problem 𝒮 = (F/F⁺, S, S̃, Λ, r̄, μ, {R^Δ_v}_{S_p} ∪ {R(ṽ, Θ_ṽ, n)}_R ∪ {R^□_v}), R = R_1 ⊔ R_2, 2 ≤ n < p/2, χ̄_i/χ̄_j|_{G_{F(ζ_p)}} of order > 2n for i < j, r̄|_{G_{F_ṽ}} trivial for v ∈ S_p, R ⊂ S − S_p of odd residue characteristic with the data n_ṽ, q_ṽ, σ̄_{ṽ,1} ⊕ σ̄_{ṽ,2} and Θ_ṽ of order p of §1.17, [F_ṽ : ℚ_p] > n(n − 1)/2 + 1 and [F(ζ_p) : F] = p − 1: let R_𝒮 → B be a surjection with B finite over Λ/(ϖ). If (1) every irreducible component of Spec B has dimension > sup({n[F⁺ : ℚ] + n − d_{R_i}}, {n[F⁺ : ℚ] − [F_ṽ : ℚ_p]}) and (2) for every decomposition r̄ = r̄_1 ⊕ r̄_2 into r̄_j : G_{F⁺,S} → 𝒢_{n_j}(k) with n_1n_2 ≠ 0 some R_i has both r̄_1, r̄_2 with unramified subquotients at every v ∈ R_i, then some prime p ⊂ R_𝒮 of dimension 1 and characteristic p containing ker(R_𝒮 → B) is generic (Allen–Newton–Thorne Definition 3.7: distinct, ℤ-linearly independent universal characters at p, and r_p ⊗ Frac absolutely irreducible).",
       "locator": "§5, Theorem 5.7, p. 83",
       "status": "missing",
-      "note": "Allen–Newton–Thorne Lemmas 3.8–3.9, the reducibility ideal, Thorne 2015 Lemma 1.9."
+      "note": "Allen–Newton–Thorne Lemmas 3.8–3.9, the reducibility ideal, Thorne 2015 Lemma 1.9. Review (REV-PAPER-NEWTON-THORNE-21): statement corrected against pp. 82–83: the order condition is on the restrictions to G_{F(ζ_p)} (so the item claimed more than the paper proves), and the triviality at S_p, the §1.17 data at R and the 𝒢-valued decompositions in (2) were missing."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/102",
       "kind": "theorem",
       "name": "Proposition 5.8: automorphic lifts of prescribed types from residual automorphy over a soluble extension",
-      "statement": "Let F_0 be imaginary CM with F_0/F_0⁺ unramified, S_0 ⊇ S_{0,p} (p-adic places split), ρ̄ = ⊕ρ̄_i : G_{F_0,S_0} → GL_n(k) with ρ̄_i absolutely irreducible, ρ̄_i^c ≅ ρ̄_i^∨ ⊗ ϵ^{1−n}, pairwise non-isomorphic; T_0, Σ_0 ⊂ S_0 prime-to-p split, q ≡ 1 mod p and ρ̄ trivial at Σ_0; quotients R^□_v → R_v (unions of components) at T_0; ρ̄(I) of order prime to p at inert places; λ with λ_{τc,i} = −λ_{τ,n+1−i} and ordinary lifts of weight λ_ṽ at p (Geraghty Definition 3.8). If a soluble CM F/F_0 satisfies (1) p > max(n, 3), [F_v : ℚ_p] > n(n − 1)/2 + 1 and ρ̄|_{G_{F_v}} trivial at v | p; (2) F(ζ_p) ⊄ F^{ker ad ρ̄}, F ⊄ F⁺(ζ_p), ρ̄_i|_{G_{F(ζ_p)}} absolutely irreducible and distinct, ρ̄|_{G_F} primitive with no quotient of order p; (3) there is a RACSDC ι-ordinary π of GL_n(𝔸_F) with r̄_{π,ι} ≅ ρ̄|_{G_F} and an unramified Steinberg twist at a place above Σ_0; (4) places above S_0 split in F — then there is a RACSDC π_0 of GL_n(𝔸_{F_0}), unramified outside S_0, with r̄_{π_0,ι} ≅ ρ̄, ι-ordinary of weight ιλ, with points of R_v at T_0, unramified Steinberg twists at Σ_0, and inertia at inert places mapping isomorphically mod p.",
+      "statement": "Let F_0 be imaginary CM with F_0/F_0⁺ unramified, S_0 ⊇ S_{0,p} (p-adic places split), ρ̄ = ⊕ρ̄_i : G_{F_0,S_0} → GL_n(k) with ρ̄_i absolutely irreducible, ρ̄_i^c ≅ ρ̄_i^∨ ⊗ ϵ^{1−n}, pairwise non-isomorphic; disjoint T_0, Σ_0 ⊂ S_0 prime-to-p split, q ≡ 1 mod p and ρ̄ trivial at Σ_0; quotients R^□_v → R_v (unions of components) at T_0; ρ̄(I) of order prime to p at inert places; λ with λ_{τc,i} = −λ_{τ,n+1−i} and ordinary lifts of weight λ_ṽ at p (Geraghty Definition 3.8). If a soluble CM F/F_0 satisfies (1) p > max(n, 3), [F_v : ℚ_p] > n(n − 1)/2 + 1 and ρ̄|_{G_{F_v}} trivial at v | p; (2) F(ζ_p) ⊄ F^{ker ad ρ̄}, F ⊄ F⁺(ζ_p), ρ̄_i|_{G_{F(ζ_p)}} absolutely irreducible and distinct, ρ̄|_{G_F} primitive with no quotient of order p; (3) there is a RACSDC ι-ordinary π of GL_n(𝔸_F) with r̄_{π,ι} ≅ ρ̄|_{G_F} and an unramified Steinberg twist at a place above Σ_0; (4) places above S_0 split in F — then there is a RACSDC π_0 of GL_n(𝔸_{F_0}), unramified outside S_0, with r̄_{π_0,ι} ≅ ρ̄, ι-ordinary of weight ιλ, with points of R_v at T_0, unramified Steinberg twists at Σ_0, and inertia at inert places mapping isomorphically mod p.",
       "locator": "§5, Proposition 5.8, pp. 83–86",
       "status": "missing",
       "note": "Similar to Bellovin–Gee Theorem 5.2.1; proof via Kisin's potentially semistable rings, Geraghty Lemma 3.10, Bellovin–Gee Corollary 5.1.1 (Schur suffices), Lemma 5.3 and Allen–Newton–Thorne Theorems 6.1–6.2, then soluble descent."
@@ -1000,7 +1001,7 @@
       "id": "PAPER-NEWTON-THORNE-21/103",
       "kind": "theorem",
       "name": "Automorphy lifting for residually reducible representations (Allen–Newton–Thorne; Thorne 2015)",
-      "statement": "The inputs used as stated: Allen–Newton–Thorne 2020 Theorem 1.1 and Theorem 6.1 (automorphy lifting for ι-ordinary conjugate self-dual ρ with ρ̄ a sum of characters or of pairwise distinct irreducibles, primitive, given an ι-ordinary RACSDC Π with r̄_Π ≅ ρ̄ and a twisted Steinberg local component), Theorem 6.2 (finiteness of R_𝒮 over Λ in that situation), Theorem 4.1 (J ⊂ Q for minimal primes Q of the deformation ring below a generic prime when there is no ramification outside p) and Lemmas 3.6, 3.8, 3.9; Thorne 2015's deformation theory (Propositions 3.9, 3.14, 3.26, 3.29, 4.12, 4.18, Corollary 3.12, Lemmas 1.9, 3.36).",
+      "statement": "The inputs used as stated: Allen–Newton–Thorne 2020 Theorem 1.1 and Theorem 6.1 (automorphy lifting for ι-ordinary conjugate self-dual ρ with ρ̄ a sum of characters or of pairwise distinct irreducibles, primitive, given an ι-ordinary RACSDC Π with r̄_Π ≅ ρ̄ and a twisted Steinberg local component), Theorem 6.2 (finiteness of R_𝒮 over Λ in that situation), Theorem 4.1 (J ⊂ Q for minimal primes Q of the deformation ring below a generic prime when there is no ramification outside p) and Lemmas 3.6, 3.8, 3.9; Thorne 2015's deformation theory (Propositions 3.9, 3.14, 3.26, 3.29, 4.12, 4.18, Corollary 3.12, Lemmas 1.9, 3.36). Also used: Allen–Newton–Thorne Proposition 2.5 (unique decomposition of residually multiplicity-free pseudocharacters, p. 79), Lemma 3.4 with the reducibility ideal (p. 83) and Definition 3.7 (item 152); Thorne 2015 Theorem 2.4 and Lemma 2.3 (pp. 62–63), Definition 2.5 (p. 80), Proposition 3.29(2) and §3.3.2 (p. 85).",
       "locator": "§§5–7 (e.g. pp. 65, 78, 85–86, 94, 97)",
       "status": "missing",
       "note": "Imported theorems; the Clozel–Thorne extraction already names Thorne 2015 as a stated input and suggests this Part II as its home."
@@ -1009,13 +1010,13 @@
       "id": "PAPER-NEWTON-THORNE-21/104",
       "kind": "theorem",
       "name": "Potential automorphy (Barnet-Lamb–Gee–Geraghty–Taylor 2014, Theorem 3.1.2)",
-      "statement": "Given a residual representation with the stated adequacy/image hypotheses, there are a Galois totally real extension L⁺/F⁺, linearly disjoint from a given field, and a regular algebraic self-dual cuspidal automorphic representation of GL_{2n}(𝔸_{L⁺}), ι-ordinary of weight 0 and an unramified Steinberg twist at the places above p (and, with an extra condition, above Σ), realising the residual representation.",
+      "statement": "(BLGGT14 Theorem 3.1.2, with the modification made in the proof of Theorem 5.2.) Applied to r̄_1 = I(r̄ ⊗ (ψ̄, …)) : G_{F⁺} → GSp_{2n}(k) with multiplier ϵ^{1−2n} (item 154), whose restriction to G_F is conjugate to ρ̄ ⊗ ψ̄ ⊕ ρ̄^c ⊗ ψ̄^c and hence highly reducible, after checking ζ_p ∉ F̄^{ker ad ρ̄_2}, F ⊄ F⁺(ζ_p), primitivity and multiplicity one of the constituents over F(ζ_p): there are a Galois totally real L⁺/F⁺, with L = FL⁺ linearly disjoint from the extension of F(ζ_p) cut out by ρ̄_2|_{G_{F(ζ_p)}}, and an essentially self-dual regular algebraic cuspidal π of GL_{2n}(𝔸_{L⁺}), ι-ordinary of weight 0, with r̄_{π,ι} ≅ r̄_1|_{G_{L⁺}}. The self-duality and the Steinberg components above p come from the last paragraph of BLGGT14's proof, and the Steinberg components above Σ by adding 't(P) < 0 for all places v | Σ of L⁺' to the list on BLGGT14, p. 549.",
       "locator": "§5, proof of Theorem 5.2, p. 77",
       "status": "planned",
       "planned": [
         "ModularityAndLanglandsExtensions:ML.2"
       ],
-      "note": "Potential automorphy assembly is ML.2 (whose selected sources include Newton–Thorne)."
+      "note": "Potential automorphy assembly is ML.2 (whose selected sources include Newton–Thorne). Review (REV-PAPER-NEWTON-THORNE-21): statement corrected against p. 77: the residual representation is a sum of characters, not an adequate one, and two of the listed properties come from BLGGT14's proof and a modification of it, not from its statement."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/105",
@@ -1030,7 +1031,7 @@
       "id": "PAPER-NEWTON-THORNE-21/106",
       "kind": "theorem",
       "name": "Potentially semistable and ordinary local deformation rings at p",
-      "statement": "For an inertial type τ_ṽ and Hodge type λ_ṽ, Kisin's lifting ring R^{λ_ṽ,τ_ṽ}_ṽ is equidimensional of dimension 1 + n² + n(n − 1)[F_{0,ṽ} : ℚ_p]/2 (Kisin 2008 Theorem 3.3.4); Geraghty Lemma 3.10 gives a minimal prime whose quotient R_v is 𝒪-flat of that dimension, contains a given ordinary lift, has only ordinary Q̄_p-points of weight λ_ṽ and factors R^□_v ⊗̂ Λ_v → R^Δ_v (also for non-trivial τ_ṽ).",
+      "statement": "For an inertial type τ_ṽ and Hodge type λ_ṽ, Kisin's lifting ring R^{λ_ṽ,τ_ṽ}_ṽ is equidimensional of dimension 1 + n² + n(n − 1)[F_{0,ṽ} : ℚ_p]/2 (Kisin 2008 Theorem 3.3.4); Geraghty Lemma 3.10 gives a minimal prime whose quotient R_v is 𝒪-flat of that dimension, contains a given ordinary lift, has only ordinary Q̄_p-points of weight λ_ṽ and factors R^□_v ⊗̂ Λ_v → R^Δ_v (Geraghty Lemma 3.10 for trivial τ_ṽ; for non-trivial τ_ṽ the paper asserts, without writing it out, that the same proof works, p. 85).",
       "locator": "§5, proof of Proposition 5.8, pp. 84–85",
       "status": "planned",
       "planned": [
@@ -1043,10 +1044,10 @@
       "id": "PAPER-NEWTON-THORNE-21/107",
       "kind": "theorem",
       "name": "Theorem 6.1: level raising to Steinberg by Galois deformation theory",
-      "statement": "Let n ≥ 3 odd, p > 2n and π RACSDC on GL_n(𝔸_F) with (1) π ι-ordinary; (2) [F(ζ_p) : F] = p − 1; (3) r̄_{π,ι} ≅ χ_1 ⊕ ⋯ ⊕ χ_n with χ_i^c = χ_i^∨ϵ^{1−n} and χ_i/χ_j|_{G_{F(ζ_p)}} of order > 2n; (4) r̄_{π,ι}|_{G_{F_ṽ}} trivial and [F_ṽ : ℚ_p] > n(n − 1)/2 + 1 at v ∈ S_p; (5) R = R_1 ⊔ R_2 ⊂ S − S_p non-empty of odd residue characteristic with π_ṽ|_{q_ṽ} ⊇ λ̃(ṽ, Θ_ṽ, n) (n_1 = 3, q_v a primitive 3rd root of unity mod p, on R_1; n_1 = n − 2, q_v a primitive (n − 2)th root, on R_2) and the splitting condition (d). For a place v_{St} above S − (S_p ∪ R) with q_{v_{St}} ≡ 1 mod p and r̄ trivial there, there is a RACSDC ι-ordinary π′ of GL_n(𝔸_F) with r̄_{π′,ι} ≅ r̄_{π,ι}, HT_τ(r_{π′,ι}) = HT_τ(r_{π,ι}) for all τ, and π′_{v_{St}} an unramified twist of Steinberg.",
+      "statement": "With F, S, p, G as in the standard assumptions of §1 (F/F⁺ everywhere unramified, S ⊇ S_p all split in F), and each Θ_ṽ in (5) of order p: Let n ≥ 3 odd, p > 2n and π RACSDC on GL_n(𝔸_F) with (1) π ι-ordinary; (2) [F(ζ_p) : F] = p − 1; (3) r̄_{π,ι} ≅ χ_1 ⊕ ⋯ ⊕ χ_n with χ_i^c = χ_i^∨ϵ^{1−n} and χ_i/χ_j|_{G_{F(ζ_p)}} of order > 2n; (4) r̄_{π,ι}|_{G_{F_ṽ}} trivial and [F_ṽ : ℚ_p] > n(n − 1)/2 + 1 at v ∈ S_p; (5) R = R_1 ⊔ R_2 ⊂ S − S_p non-empty of odd residue characteristic with π_ṽ|_{q_ṽ} ⊇ λ̃(ṽ, Θ_ṽ, n) (n_1 = 3, q_v a primitive 3rd root of unity mod p, on R_1; n_1 = n − 2, q_v a primitive (n − 2)th root, on R_2) and the splitting condition (d). For a place v_{St} above S − (S_p ∪ R) with q_{v_{St}} ≡ 1 mod p and r̄ trivial there, there is a RACSDC ι-ordinary π′ of GL_n(𝔸_F) with r̄_{π′,ι} ≅ r̄_{π,ι}, HT_τ(r_{π′,ι}) = HT_τ(r_{π,ι}) for all τ, and π′_{v_{St}} an unramified twist of Steinberg.",
       "locator": "§6, Theorem 6.1, pp. 86–87 (proof pp. 93–94)",
       "status": "missing",
-      "note": "Template: Clozel–Thorne 2017 Theorem 5.1. Proof: Lemma 6.7 gives a generic prime of the big ordinary Hecke algebra; Allen–Newton–Thorne Theorem 4.1 and Theorem 5.2 compare R_{D_{1,a}} and R_{D_{1,b}}; Geraghty Lemma 2.25 and Theorem 1.2 produce π″, and Lemma 6.2 with Proposition 5.8 descend."
+      "note": "Template: Clozel–Thorne 2017 Theorem 5.1. Proof: Lemma 6.7 gives a generic prime of the big ordinary Hecke algebra; Allen–Newton–Thorne Theorem 4.1 and Theorem 5.2 compare R_{D_{1,a}} and R_{D_{1,b}}; Geraghty Lemma 2.25 and Theorem 1.2 produce π″, and Lemma 6.2 with Proposition 5.8 descend. Review (REV-PAPER-NEWTON-THORNE-21): the standing assumptions and the order of Θ_ṽ were added; the 'Theorem 5.2' of the note is this paper's Theorem 5.2."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/108",
@@ -1079,17 +1080,17 @@
       "id": "PAPER-NEWTON-THORNE-21/111",
       "kind": "definition",
       "name": "Deformation data D and Lemma 6.4",
-      "statement": "A deformation datum D = (L, {R_v}_{v∈X}) is a Y_a ∪ S̃_a-split soluble CM L/F with X ⊂ S − S_p and, for v ∈ X, R_v = R(ṽ, Θ_ṽ, r̄|_{G_{L_ṽ}}) (v ∈ R_L), the unipotent ring R^1_v or the Steinberg ring R^{St}_v (q_v ≡ 1 mod p, r̄ trivial); 𝒮_D = (L/L⁺, S_{p,L} ∪ X, …, Λ_L, r̄|_{G_{L⁺}}, ϵ^{1−n}δ^n, {R^Δ_v}_{S_{p,L}} ∪ {R_v}_X) with representing ring R_D. Lemma 6.4: every irreducible component of R_D has dimension ≥ 1 + n[L⁺ : ℚ].",
+      "statement": "A deformation datum D = (L, {R_v}_{v∈X}) is a Y_a ∪ S̃_a-split soluble CM L/F with X ⊂ S_L − S_{p,L} (with X̃ ⊂ S̃_L) and, for v ∈ X, R_v = R(ṽ, Θ_ṽ, r̄|_{G_{L_ṽ}}) (v ∈ R_L with ṽ split over F), the unipotent ring R^1_v or the Steinberg ring R^{St}_v (q_v ≡ 1 mod p, r̄ trivial); 𝒮_D = (L/L⁺, S_{p,L} ∪ X, …, Λ_L, r̄|_{G_{L⁺}}, ϵ^{1−n}δ^n, {R^Δ_v}_{S_{p,L}} ∪ {R_v}_X) with representing ring R_D. Lemma 6.4: every irreducible component of R_D has dimension ≥ 1 + n[L⁺ : ℚ].",
       "locator": "§6, Lemma 6.4, p. 89",
       "status": "missing",
-      "note": "Thorne 2015 Proposition 3.9 and Clozel–Harris–Taylor Lemma 2.1.7."
+      "note": "Thorne 2015 Proposition 3.9 and Clozel–Harris–Taylor Lemma 2.1.7. Review (REV-PAPER-NEWTON-THORNE-21): the paper prints X ⊂ S − S_p (sourceIssues E26); X is a set of places of L⁺."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/112",
       "kind": "theorem",
       "name": "Geraghty's big ordinary Hecke algebras and Proposition 6.5",
       "statement": "For a deformation datum D: U_D and the smooth 𝒪[U_D]-module M_D (lattices in ι^{−1}λ̃(ṽ, Θ_ṽ, n)^∨ on q_ṽ at R-places, Iwahori level with trivial coefficients at R^1/R^{St} places), U(D, c) with Iw_ṽ(c, c) at p and K_ṽ(1) at ṽ_a, 𝕋^{ord}(D, c) ⊂ End S^{ord}(U(D, c), M_D) generated by the T^j_w and diamond operators, 𝕋^{ord}(D) = lim_c 𝕋^{ord}(D, c) and H^{ord}(D) = lim_c Hom(S^{ord}(U(D, c), M_D), 𝒪), with Geraghty's Λ_L-algebra structure. Proposition 6.5: H^{ord}(D) is a finite free Λ_L-module and 𝕋^{ord}(D), if non-zero, a finite faithful Λ_L-algebra.",
-      "locator": "§6, Proposition 6.5, p. 90",
+      "locator": "§6, pp. 89–90 (U_D and M_D p. 89; Proposition 6.5 p. 90)",
       "status": "missing",
       "note": "As Geraghty Proposition 2.20 and Corollary 2.21 (U(D, 1) sufficiently small)."
     },
@@ -1127,7 +1128,7 @@
       "statement": "Let n ≥ 3, p ≡ 1 mod 48n!, ι : Q̄_p ≅ ℂ, q ≠ p a prime, X_0 a finite set of places of K prime to 2pq and ω : G_K → Q̄_p^× de Rham with ωω^c = ϵ³ and ω unramified on X_0. Then there are an X_0-split soluble CM extension F/K and a RACSDC ι-ordinary Π on GL_n(𝔸_F) with (a) r̄_{Π,ι} ≅ ω̄^{n−1}|_{G_F} ⊗ Sym^{n−1}r̄_{σ_0,ι}|_{G_F}, (b) HT_τ(r_{Π,ι}) = HT_τ(ω^{n−1}|_{G_F} ⊗ Sym^{n−1}r_{σ_0,ι}|_{G_F}) for all τ, and (c) Π_v an unramified twist of Steinberg at some v | q.",
       "locator": "§7, Theorem 7.1, pp. 94–95 (proof pp. 101–103)",
       "status": "missing",
-      "note": "Odd n is Proposition 7.4; n = 2^r m follows by induction on r from Anastassiades–Thorne Theorem 5.1 applied to π_0 = π_1 ⊞ π_2 with r_{π_0} ≅ ω^{2n−1} ⊗ Sym^{2n−1}r_{σ_0}. Remark 7.5: for n a power of 2, Anastassiades–Thorne alone suffices."
+      "note": "Odd n is Proposition 7.4; n = 2^r m follows by induction on r from Anastassiades–Thorne Theorem 5.1 applied to π_0 = π_1 ⊞ π_2 with r_{π_0} ≅ ω^{2n−1} ⊗ Sym^{2n−1}r_{σ_0}. Remark 7.5: for n a power of 2, Anastassiades–Thorne alone suffices. Review (REV-PAPER-NEWTON-THORNE-21): the printed proof of the odd case (Proposition 7.4, item 120) applies Theorem 4.1 to a π_2 that is not conjugate self-dual (sourceIssues E21), so the printed proof covers Theorem 7.1 only for n a power of 2 (Remark 7.5, via Anastassiades–Thorne alone). No counterexample to the theorem is known."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/117",
@@ -1151,10 +1152,10 @@
       "id": "PAPER-NEWTON-THORNE-21/119",
       "kind": "theorem",
       "name": "Level raising for GL_2(𝔸_ℚ) (Diamond 1989; Diamond–Taylor 1994) and Edixhoven's ordinarity criterion",
-      "statement": "Diamond 1989 Corollary 6.9 raises the level of a form at a prime q satisfying the level-raising congruence to an unramified Steinberg twist at q; Diamond–Taylor 1994 Theorem A produces forms with prescribed supercuspidal or Steinberg components at non-optimal levels with the same residual representation; a form with reducible residual representation at p, Hodge–Tate weights (0, 8k) and p > 8k is ι-ordinary (Edixhoven 1992 Theorem 2.6).",
+      "statement": "Diamond 1989 Corollary 6.9 raises the level of a form at a prime q satisfying the level-raising congruence to an unramified Steinberg twist at q; Diamond–Taylor 1994 Theorem A produces forms with prescribed supercuspidal or Steinberg components at non-optimal levels with the same residual representation; a form unramified at p with reducible residual representation at p, Hodge–Tate weights (0, 8k) and p > 8k is ι-ordinary (Edixhoven 1992 Theorem 2.6).",
       "locator": "§7, proofs of Corollary 7.3 and Proposition 7.4, pp. 96, 98–99",
       "status": "missing",
-      "note": "Imported GL_2 inputs. The atlas has the Ihara lemma (ModularCurvesPartII R14.4) and level lowering (SerreWeightAndLevelOptimisation R20.2) but no level-raising theorem; CT17's Part II records the same gap."
+      "note": "Imported GL_2 inputs. The atlas has the Ihara lemma (ModularCurvesPartII R14.4) and level lowering (SerreWeightAndLevelOptimisation R20.2) but no level-raising theorem; CT17's Part II records the same gap. Review (REV-PAPER-NEWTON-THORNE-21): Edixhoven's criterion needs level prime to p (a form Steinberg at p has slope (k − 2)/2); here τ is unramified outside 2, q_1, q_2 (p. 98)."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/120",
@@ -1163,16 +1164,16 @@
       "statement": "Theorem 7.1 holds when n = 2k + 1 is odd.",
       "locator": "§7, Proposition 7.4, pp. 97–101",
       "status": "missing",
-      "note": "Proof by induction on odd n: Chebotarev primes q_1 (split in K, > n, q_1 a primitive 6th root of unity mod p, Frobenius ratios q_1^{±1} on Ind ψ̄^{2k} and a primitive 12k-th root on Ind ψ̄), q_2 ≡ −1 and q_3 (primitive (n − 2)th root); real quadratic M_1, M_2, M_3; a GL_2 form τ (Diamond–Taylor) Steinberg at q_1 and supercuspidal at q_2; the inductive π on GL_{n−2}; Proposition 5.8 (fixed-type rings, Shotton Definition 3.5), Theorem 4.1, the stronger property at q_1, L_1 = L_0K (Arthur–Clozel Theorem 4.2) and Theorem 6.1."
+      "note": "Proof by induction on odd n: Chebotarev primes q_1 (split in K, > n, q_1 a primitive 6th root of unity mod p, Frobenius ratios q_1^{±1} on Ind ψ̄^{2k} and a primitive 12k-th root on Ind ψ̄), q_2 ≡ −1 and q_3 (primitive (n − 2)th root); real quadratic M_1, M_2, M_3; a GL_2 form τ (Diamond–Taylor) Steinberg at q_1 and supercuspidal at q_2; the inductive π on GL_{n−2}; Proposition 5.8 (fixed-type rings, Shotton Definition 3.5), Theorem 4.1, the stronger property at q_1, L_1 = L_0K (Arthur–Clozel Theorem 4.2) and Theorem 6.1. Review (REV-PAPER-NEWTON-THORNE-21): sourceIssues E21: π_2 = τ_0 ⊗ |·|^{(n−2)/2}ιω_1ω_0^{n−1} is not conjugate self-dual; it fails by δ_{K/ℚ}|_{G_{F_0}}. The hypotheses of Theorem 4.1 are therefore not met as claimed on p. 100. See also E22 (Lemma 6.7), E19 (the base case n = 3) and E23 (Hodge–Tate weights)."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/121",
       "kind": "theorem",
       "name": "Level raising for GL_{2n} of unitary type (Anastassiades–Thorne, Theorem 5.1)",
-      "statement": "Given a RACSDC ι-ordinary π_0 = π_1 ⊞ π_2 on GL_{2n}(𝔸_F) with π_i ≅ St_n(ξ_i) at a place v, ι^{−1}ξ_1/ξ_2(ϖ_v) ≡ q_v^n mod m, and r̄ not a twist of 1 ⊕ ϵ^{−1} ⊕ ⋯, there are a soluble X_0-split quadratic CM F′/F and a RACSDC ι-ordinary π′ of GL_{2n}(𝔸_{F′}) with r̄_{π′,ι} ≅ r̄_{π_0,ι}|_{G_{F′}}, the same weight, and an unramified twist of Steinberg at a place above v.",
+      "statement": "Given cuspidal conjugate self-dual π_1, π_2 on GL_n(𝔸_F) whose isobaric sum π_0 = π_1 ⊞ π_2 is regular algebraic and ι-ordinary, with r_{π_0,ι} := r_{π_1|·|^{−n/2},ι} ⊕ r_{π_2|·|^{−n/2},ι} satisfying local–global compatibility at every finite place, and with the p-adic places and the ramified places of π split over F⁺, with π_i ≅ St_n(ξ_i) at a place v, ι^{−1}ξ_1/ξ_2(ϖ_v) ≡ q_v^n mod m, and r̄ not a twist of 1 ⊕ ϵ^{−1} ⊕ ⋯, there are a soluble X_0-split quadratic CM F′/F and a RACSDC ι-ordinary π′ of GL_{2n}(𝔸_{F′}) with r̄_{π′,ι} ≅ r̄_{π_0,ι}|_{G_{F′}}, the same weight, and an unramified twist of Steinberg at a place above v.",
       "locator": "§7, proof of Theorem 7.1, pp. 101–103",
       "status": "missing",
-      "note": "Imported from Anastassiades–Thorne, J. Inst. Math. Jussieu (2021); it passes from Sym^{n−1} to Sym^{2n−1}."
+      "note": "Imported from Anastassiades–Thorne, J. Inst. Math. Jussieu (2021); it passes from Sym^{n−1} to Sym^{2n−1}. Review (REV-PAPER-NEWTON-THORNE-21): statement corrected against p. 102: π_0 is an isobaric sum, not cuspidal, and the hypotheses the paper checks were stated."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/122",
@@ -1205,26 +1206,431 @@
       "id": "PAPER-NEWTON-THORNE-21/125",
       "kind": "construction",
       "name": "Patching data for modular curves with Fontaine–Laffaille condition at p",
-      "statement": "The deformation problem 𝒮 = (ρ̄, χ, S, {𝒪}, {D_v}) (Fontaine–Laffaille lifts of determinant χ at p, all lifts elsewhere), H = H¹(Y_{U_1(Mq_a)}, Sym^{k−2}𝒪²) with Hecke algebra 𝕋^S and R_𝒮 → 𝕋^S_m surjective, Taylor–Wiles sets Q_N (q ≡ 1 mod p^N, distinct Frobenius eigenvalues, |Q_N| = q_0), Δ_Q, augmented problems 𝒮_Q, H_Q free over 𝒪[Δ_Q] with H_Q ⊗ 𝒪 ≅ H_m, framed rings R^T and presentations A^T_𝒮[[X_1, …, X_g]] → R_{𝒮^T_{Q_N}} with g = q_0 + |T| − 1.",
+      "statement": "The deformation problem 𝒮 = (ρ̄, χ, S, {𝒪}, {D_v}) (Fontaine–Laffaille lifts of determinant χ with the same Hodge–Tate weights as r_{π,ι} at p, all lifts elsewhere), H = H¹(Y_{U_1(Mq_a)}, Sym^{k−2}𝒪²) with Hecke algebra 𝕋^S and R_𝒮 → 𝕋^S_m surjective, Taylor–Wiles sets Q_N (q ≡ 1 mod p^N, distinct Frobenius eigenvalues, |Q_N| = q_0), Δ_Q, augmented problems 𝒮_Q, H_{Q,m_{Q,1}} free over 𝒪[Δ_Q] with H_{Q,m_{Q,1}} ⊗_{𝒪[Δ_Q]} 𝒪 ≅ H_m, framed rings R^T and presentations A^T_𝒮[[X_1, …, X_g]] → R_{𝒮^T_{Q_N}} with g = q_0 + |T| − 1. Patching gives S_∞ = 𝒯⟦S_1, …, S_{q_0}⟧ → R_∞ = (A^T/I)⟦X_1, …, X_g⟧ and a finite R_∞-module H_∞ free over S_∞ (Thorne 2012 Lemma 6.10), of the same dimension over R_∞ and S_∞ (Khare–Thorne 2017 Lemma 2.8).",
       "locator": "§8, proof of Proposition 8.3, pp. 107–109",
       "status": "planned",
       "planned": [
         "GL2ModularityLifting:R22.2",
-        "GL2ModularityLifting:R22.3"
+        "GL2ModularityLifting:R22.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.5",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
       ],
-      "note": "Auxiliary levels and freeness are GL2ModularityLifting R22.2, arithmetic patching R22.3."
+      "note": "Auxiliary levels and freeness are GL2ModularityLifting R22.2, arithmetic patching R22.3. Review (REV-PAPER-NEWTON-THORNE-21): the localisation, the Hodge–Tate condition and the patching conclusion were added (pp. 107–110); the abstract patching and the dimension comparison are R03.5 and R03.3."
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/126",
       "kind": "theorem",
       "name": "Soluble base change and descent for GL_n (Arthur–Clozel)",
-      "statement": "Cyclic base change and automorphic induction for GL_n and the resulting soluble descent: if ρ|_{G_F} is automorphic for a soluble extension F/ℚ and irreducible, then ρ is automorphic.",
+      "statement": "Cyclic base change and automorphic induction for GL_n and the resulting soluble descent: if F/ℚ is a soluble Galois extension, ρ|_{G_F} is irreducible and automorphic, then ρ is automorphic.",
       "locator": "§2, proof of Theorem 2.33, p. 59; §6, Lemma 6.2; §7, pp. 97, 101",
       "status": "planned",
       "planned": [
         "ModularityAndLanglandsExtensions:ML.5"
       ],
-      "note": "ML.5 registers cyclic base change and automorphic induction."
+      "note": "ML.5 registers cyclic base change and automorphic induction. Review (REV-PAPER-NEWTON-THORNE-21): the cyclic base change dichotomy the paper also uses in §6 and on p. 101 (Arthur–Clozel Theorem 4.2) is now item 163."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/127",
+      "kind": "definition",
+      "name": "Regular algebraic, weight λ, conjugate self-dual, polarizable and RACSDC representations",
+      "statement": "An automorphic representation π of GL_n(𝔸_F) (F CM or totally real) is regular algebraic if π_∞ has the infinitesimal character of an irreducible algebraic representation W of (Res_{F/ℚ}GL_n)_ℂ, of weight λ ∈ (ℤ^n_+)^{Hom(F,ℂ)} if W^∨ has highest weight λ; it is conjugate self-dual if π^c ≅ π^∨, and then (π, δ^n_{F/F⁺}) is polarized; polarizable is as in BLGGT14 §2.1; RACSDC means regular algebraic, conjugate self-dual and cuspidal.",
+      "locator": "Notation, pp. 7–8; §1.1, p. 11",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. AG2.0: 'Define regular algebraic, conjugate self-dual, essentially conjugate self-dual and polarized cases separately, retaining the multiplier character'."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/128",
+      "kind": "theorem",
+      "name": "Galois characters of algebraic Hecke characters",
+      "statement": "For a Hecke character χ : F^×\\𝔸_F^× → ℂ^× of type A_0 and ι : Q̄_p → ℂ there is a continuous character r_{χ,ι} : G_F → Q̄_p^×, de Rham at v | p, with WD(r_{χ,ι}) ∘ Art_{F_v} = ι^{−1}χ|_{F_v^×} at every finite v; conversely every de Rham character unramified almost everywhere arises in this way (written χ = ιχ′).",
+      "locator": "Notation, p. 7 (used pp. 56, 102)",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0",
+        "AutomorphicFormsOnReductiveGroups:AF.5"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. AG2.0 takes n = 1 algebraic Hecke characters as its acceptance example; AF.5 proves the GL_1 dictionary with Hecke characters including infinity type."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/129",
+      "kind": "definition",
+      "name": "Weil–Deligne representations and the normalisation of Art_K",
+      "statement": "For K/ℚ_l finite and ρ : G_K → GL_n(Q̄_p) continuous (de Rham if l = p), WD(ρ) = (r, N) is the associated Weil–Deligne representation and WD(ρ)^{F-ss} its Frobenius semisimplification; Art_K : K^× → W_K^{ab} sends uniformisers to geometric Frobenius elements.",
+      "locator": "Notation, p. 7",
+      "status": "planned",
+      "planned": [
+        "ArithmeticGaloisRepresentations:R01.2",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. R01.2 constructs the Weil–Deligne representation and 'Distinguish[es] the full object, its semisimplification, and its Frobenius semisimplification'."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/130",
+      "kind": "definition",
+      "name": "Normalised parabolic induction, products and isobaric sums for GL_n",
+      "statement": "For a parabolic P = MN of GL_n(K), i^G_P(σ) = Ind(σ ⊗ δ_P^{1/2}) with δ_P(x) = |det(Ad(x)|_{Lie N_P})|; for the standard Levi L_{(n_i)} ⊂ P_{(n_i)}, π_1 × ⋯ × π_k = i^{GL_n}_{P_{(n_i)}}(π_1 ⊗ ⋯ ⊗ π_k); the isobaric sum ⊞π_i is an irreducible subquotient of ×π_i.",
+      "locator": "Notation, pp. 7–9",
+      "status": "planned",
+      "planned": [
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. SR.2 defines 'normalized induction/Jacquet functors using a specified square root of the modulus character'; ET.6 the segment and Langlands-quotient theory. Used in items 16 and 55 and in Proposition 1.20."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/131",
+      "kind": "theorem",
+      "name": "The discrete spectrum of GL_m (Mœglin–Waldspurger)",
+      "statement": "(As the paper uses it, [MW89].) Every discrete automorphic representation of GL_m(𝔸_F) is a Speh representation built from a cuspidal π_0 of GL_a(𝔸_F), m = ab; a non-cuspidal π_i (b ≥ 2) contributes to r_{σ,ι} a direct sum of b twists of one Galois representation by powers of the cyclotomic character.",
+      "locator": "§1.1, remark after Corollary 1.3, pp. 11–12",
+      "status": "planned",
+      "planned": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. ET.7a: 'Develop the required GL_m residual-spectrum/Speh classification'."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/132",
+      "kind": "theorem",
+      "name": "Temperedness of cuspidal RACSDC representations",
+      "statement": "(As the paper uses it, [Shi11, Clo13, Car12].) A cuspidal RACSDC automorphic representation of GL_n(𝔸_F) is tempered at every finite place.",
+      "locator": "§1.1, remark after Corollary 1.3, p. 12; §4, p. 68",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.5"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Follows from local–global compatibility with purity (AG2.5: 'monodromy-purity comparison … the Caraiani/Taylor–Yoshida upgrades'). The L-packets of §1.8 are defined only for tempered representations."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/133",
+      "kind": "theorem",
+      "name": "Endoscopic transfer of Deligne–Lusztig functions (Kazhdan–Varshavsky)",
+      "statement": "(As the paper uses it, [KV12, Theorem 2.2.6].) If char k(v) > n, the transfer φ(v, θ, n)^H of the Deligne–Lusztig test function can be taken to be a weighted sum of inflations to H(𝒪) of the characters R^{H_{k(v)}}_{C_i}(θ^{−1} ⊗ ω(ṽ)^{⊗(k−1)}), one for each conjugacy class of embeddings C_i : C × Res_{k(ṽ)/k(v)}𝔾_m^{k−1} → H_{k(v)}.",
+      "locator": "§1.8, proof of Proposition 1.16, pp. 20–21",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Named only in the note of item 30. ET.3 plans transfer and the fundamental lemma, not the explicit transfer of Deligne–Lusztig functions. Routed with the level-raising material (route 3)."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/134",
+      "kind": "definition",
+      "name": "The symmetric power lift Sym^{n−1}π",
+      "statement": "For a cuspidal automorphic representation π of GL_2(𝔸_F), Sym^{n−1}π exists if there is an automorphic representation of GL_n(𝔸_F) whose Langlands parameter at every place v is the image of that of π_v under Sym^{n−1} : GL_2 → GL_n.",
+      "locator": "Introduction, p. 1 (the functorial lift along R : GL_n → GL_N)",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.5",
+        "ModularityAndLanglandsExtensions:ML.0"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. For regular algebraic π over ℚ the paper passes between 'Sym^{n−1}π exists' (Theorems A, B) and 'Sym^{n−1}r_{π,ι} is automorphic' (Theorems 7.7, 8.1). That passage uses local–global compatibility (item 7), strong multiplicity one and matching at infinity; it is not written out. Planned where PAPER-NEWTON-THORNE-21-B plans the same definition."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/135",
+      "kind": "theorem",
+      "name": "Modularity of semistable elliptic curves over ℚ",
+      "statement": "Every semistable elliptic curve E over ℚ is modular (Wiles, Taylor–Wiles; every E/ℚ by Breuil–Conrad–Diamond–Taylor): there is a weight-2 cuspidal π_E of GL_2(𝔸_ℚ) of squarefree conductor N_E with r_{π_E,ι} ≅ H¹_ét(E_ℚ̄, ℚ_p) ⊗ Q̄_p; π_{E,l} is a twist of Steinberg for l | N_E, so Theorem B applies.",
+      "locator": "Introduction, before Corollary C, p. 2 (used without citation)",
+      "status": "planned",
+      "planned": [
+        "EllipticCurveModularity:R29.6"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. R29.6 states the unconditional modularity theorem with a weight-two newform of exact conductor."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/136",
+      "kind": "theorem",
+      "name": "Standard L-functions of cuspidal representations of GL_m are entire (Godement–Jacquet)",
+      "statement": "For m ≥ 2 and a cuspidal automorphic representation Π of GL_m(𝔸_F), the completed standard L-function Λ(s, Π) extends to an entire function with Λ(s, Π) = ε(s, Π)Λ(1 − s, Π^∨).",
+      "locator": "Introduction, Corollary C, p. 2 (used without statement)",
+      "status": "planned",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.2"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Corollary C applies it to Π = Sym^n π_E (item 135), whose Euler factors agree with those of Λ(Sym^n E, s) (item 137) at every prime by item 134 and local–global compatibility."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/137",
+      "kind": "definition",
+      "name": "The completed symmetric power L-function Λ(Sym^n E, s)",
+      "statement": "For an elliptic curve E over ℚ and n ≥ 1, Λ(Sym^n E, s) is the product of the archimedean Γ-factor of Sym^n H¹(E(ℂ), ℚ) and the Euler factors det(1 − Frob_p p^{−s} | (Sym^n H¹_ét(E_ℚ̄, ℚ_l))^{I_p})^{−1} (l ≠ p), as defined e.g. in Dummigan–Martin–Watkins 2009.",
+      "locator": "Introduction, Corollary C, p. 2",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. The paper refers to DMW09, and the review stated the standard definition. Planned as in PAPER-NEWTON-THORNE-21-B."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/138",
+      "kind": "theorem",
+      "name": "H⁰ of rank-one (φ, Γ)-modules over the Robba ring (KPX Proposition 6.2.8)",
+      "statement": "(As the paper uses it.) For a continuous character δ : F_ṽ^× → E^×, H⁰_{φ,γ}(ℛ_{E,F_ṽ}(δ)) = 0 unless δ = x^{−a} = ∏_τ τ^{−a_τ} with a ∈ ℤ_{≥0}^{Hom(F_ṽ,E)}, and it is one-dimensional when δ is trivial.",
+      "locator": "§2.3.1, proof of Lemma 2.4, p. 29",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. A local input of the trianguline theory of route 5."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/139",
+      "kind": "theorem",
+      "name": "Triangulations from Weil–Deligne filtrations of de Rham representations",
+      "statement": "(As the paper uses it: Breuil–Schneider Proposition 4.1, Berger 2008, KPX Example 6.2.6(3).) For de Rham ρ_v, sub-WD representations of WD(ρ_v) correspond to sub-(φ, N, G)-modules of D_pst(ρ_v); Berger's tensor equivalence between filtered (φ, N, G)-modules and (φ, Γ)-modules restricts to D_pst ↔ D†_rig on de Rham representations, and a rank-one object with WD character χ and Hodge jumps a_τ corresponds to ℛ(x^{−a}(χ ∘ Art)). Hence a filtration of WD(ρ_v) with graded characters χ_{v,i} induces a triangulation of D†_rig(ρ_v).",
+      "locator": "§2.3.1, proof of Lemma 2.8, p. 31; Example 2.10, pp. 32–33; proof of Lemma 2.29, pp. 51–52",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Local p-adic Hodge theory for route 5 (the trianguline variety's local foundations)."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/140",
+      "kind": "definition",
+      "name": "Bloch–Kato Selmer groups H¹_f and H¹_g",
+      "statement": "For a de Rham representation V of G_{F_v}: H¹_f(F_v, V) = ker(H¹(F_v, V) → H¹(F_v, V ⊗ B_cris)) and H¹_g with B_dR for v | p, and H¹_f = H¹_ur for v ∤ p; globally H¹_f(F⁺, ad ρ) is the subgroup of classes that lie in H¹_f at every place.",
+      "locator": "§2.3.1, Proposition 2.11(4), p. 34; proof of Theorem 2.24, p. 47",
+      "status": "planned",
+      "planned": [
+        "SelmerIwasawaCohomology:L4",
+        "PadicHodgeRegulators:L1"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Used in Proposition 2.11 and in item 73 but never defined in the paper. SelmerIwasawaCohomology L4 defines 'finite Bloch–Kato … local conditions' and PadicHodgeRegulators L1 constructs 'the finite local condition'."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/141",
+      "kind": "definition",
+      "name": "Generic Weil–Deligne representations (Allen)",
+      "statement": "(As the paper uses it, [All16, Definition 1.1.2].) A Frobenius-semisimple WD representation (r, N) is generic if Hom_{WD}((r, N), (r, N)(1)) = 0; this holds in particular when (r, N) is pure.",
+      "locator": "§2.3.1, Proposition 2.11(2), p. 34; proof of Theorem 2.24, p. 47",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Stated as used (the paper checks it through purity). Belongs with the adjoint Selmer theory of route 7."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/142",
+      "kind": "theorem",
+      "name": "Local Bloch–Kato conditions at generic places (Allen, Remark 1.2.9)",
+      "statement": "(As the paper uses it.) If WD(ρ_v) is generic, then H¹_f(F_v, ad ρ_v) = H¹_g(F_v, ad ρ_v) for v ∈ S_p with ρ_v de Rham, and H¹_f(F_v, ad ρ_v) = H¹(F_v, ad ρ_v) for v ∈ S − S_p.",
+      "locator": "§2.3.1, proof of Proposition 2.11, p. 34",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Route 7, with item 141."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/143",
+      "kind": "theorem",
+      "name": "Accumulating non-critical points give trianguline points (BHS17 Lemme 2.11)",
+      "statement": "(As the paper uses it, in the published version of Breuil–Hellmann–Schraen 2017; footnote 5: the arXiv version is restricted to crystalline representations.) Let U be a connected affinoid with a family ρ^u_v and a parameter δ, trianguline of parameter δ on a Zariski open dense V ⊂ U, with numerically non-critical classical points accumulating at z. If δ_z = δ_alg·δ_sm is locally algebraic and every triangulation of ρ_z|_{G_{F_ṽ}} is non-critical, then δ_alg is strictly dominant and ρ_z is trianguline of parameter δ_z.",
+      "locator": "§2.18.1, proof of Lemma 2.30, pp. 52–54",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. An input of Lemma 2.30 (item 65); routed with it to the companion-points candidate (route 4)."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/144",
+      "kind": "theorem",
+      "name": "Ordinary tangent vectors lie in H¹_g (Geraghty Lemma 3.9)",
+      "statement": "(As the paper uses it.) Ordinary E[ε]-deformations whose parameter maps to 0 in the tangent space of weight space lie in H¹_g; with the vanishing of adjoint Selmer groups (item 73) this makes T_{z_n}Z^{ord} → T𝒲_n injective.",
+      "locator": "§2.18.1, proof of Theorem 2.27, p. 49",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Geraghty's ordinary theory is in route 7."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/145",
+      "kind": "theorem",
+      "name": "Irreducible components of rigid spaces under base change (Conrad)",
+      "statement": "(As the paper uses it, [Con99, Theorem 3.4.2].) Each irreducible component of X_{ℂ_p} lies in the base change of an irreducible component of X, and for some finite E′/E the irreducible components of X_{E′} are geometrically irreducible.",
+      "locator": "§2.18.1, proof of Theorem 2.24, pp. 46–47; Corollary 2.28, footnote 4, p. 50; proof of Theorem 2.33, pp. 57–58",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. No layer plans it; routed with Lemma 2.2 (item 39) to route 2."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/146",
+      "kind": "theorem",
+      "name": "Jacquet modules of induced Steinberg representations (Zelevinsky)",
+      "statement": "(As the paper uses it, [Zel80, Theorem 1.2].) The subquotients of the normalised Jacquet module of i_P(St_{n_1}(ψ_1) ⊗ ⋯ ⊗ St_{n_k}(ψ_k)) are exactly β_{w^{−1}(1)} ⊗ ⋯ ⊗ β_{w^{−1}(n)} for the permutations w increasing on each block.",
+      "locator": "§2.17, proof of Lemma 2.18, p. 40",
+      "status": "planned",
+      "planned": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. SR.2 plans Jacquet functors and the geometric lemma; ET.6 the segment theory."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/147",
+      "kind": "theorem",
+      "name": "Irreducibility of principal series (Zelevinsky, Rodier)",
+      "statement": "(As the paper uses it, [Zel80, Theorem 9.7] with [Rod82, §4.4].) If π_{n,v} is generic and rec^T(π_{n,v}) is a sum of characters no ratio of two of which is the norm character, then i_B(ιχ_{n,v}) is irreducible and isomorphic to π_{n,v}.",
+      "locator": "§2.18.1, proof of Corollary 2.28, pp. 50–51",
+      "status": "planned",
+      "planned": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. ET.6 develops the segment/Langlands-quotient classification."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/148",
+      "kind": "theorem",
+      "name": "Large image for non-CM modular forms (Ribet, Momose)",
+      "statement": "Let π be a non-CM regular algebraic cuspidal automorphic representation of GL_2(𝔸_ℚ). The Zariski closure of r_{π,ι}(G_ℚ) contains SL_2; and for all but finitely many primes p that split completely in the coefficient field of π, the image of r̄_{π,ι} contains a conjugate of SL_2(𝔽_p).",
+      "locator": "§2.31, Theorem 2.33 (2ord), p. 57; §8, proof of Proposition 8.3, p. 106 (used without citation)",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Sources: K. Ribet, Glasgow Math. J. 27 (1985); F. Momose, J. Fac. Sci. Univ. Tokyo 28 (1981). Item 84 is only the local version. Routed as in PAPER-NEWTON-THORNE-21-B, as a source of AutomorphicGaloisRepresentations R19.3 (route 8)."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/149",
+      "kind": "construction",
+      "name": "The base-change morphism of the proof of Theorem 2.33",
+      "statement": "With T̃ = 𝒯_0 ×_{𝒲_0} 𝒲̃ and b_p : T̃ → 𝒯_2 twisting by ψ^{−1}, the morphism b : 𝒳_{0,ps} × T̃ → 𝒳_{2,ps} × 𝒯_2, (τ, μ) ↦ (τ|_{G_F} ⊗ ψ^{−1}, b_p(μ)), satisfies: b ∘ ĩ sends classical points into i_2(ℰ_2), by Labesse's descent (Labesse Théorème 5.4).",
+      "locator": "§2.31, proof of Theorem 2.33, p. 58",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Route 2, with Theorem 2.33 (item 76)."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/150",
+      "kind": "theorem",
+      "name": "Congruence subgroups of the unit group (Chevalley)",
+      "statement": "(As the paper uses it, [Che51, Théorème 1].) Every subgroup of finite index of the unit group 𝒪_F^× of a number field F contains the units congruent to 1 modulo some non-zero ideal.",
+      "locator": "§2.31, proof of Lemma 2.34, p. 59",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Route 2, with Lemma 2.34 (item 77)."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/151",
+      "kind": "definition",
+      "name": "Primitive representations",
+      "statement": "For a profinite group Γ, a field k and a continuous ρ̄ : Γ → GL_n(k), ρ̄ is primitive if it is not isomorphic to Ind_{Γ′}^{Γ} σ̄ for any proper closed subgroup Γ′ of finite index and any σ̄ : Γ′ → GL_{n/[Γ:Γ′]}(k).",
+      "locator": "§5, p. 75",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. A hypothesis of the Allen–Newton–Thorne lifting theorems (Lemma 5.1, Theorem 5.2, Proposition 5.8(2), Lemmas 6.2, 7.2). Route 7."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/152",
+      "kind": "definition",
+      "name": "Generic primes of an ordinary deformation ring (Allen–Newton–Thorne Definition 3.7)",
+      "statement": "A prime 𝔭 ⊂ R_𝒮 of dimension 1 and characteristic p, with A = R_𝒮/𝔭 and r_𝔭 the pushforward of the universal deformation, is generic at p if for each v ∈ S_p the characters ψ^v_1, …, ψ^v_n : I^{ab}_{F_ṽ}(p) → A^× are distinct and for some v ∈ S_p and σ ∈ I^{ab}_{F_ṽ}(p) the values ψ^v_1(σ), …, ψ^v_n(σ) satisfy no non-trivial ℤ-linear relation; 𝔭 is generic if moreover r_𝔭|_{G_{F,S}} ⊗_A Frac A is absolutely irreducible.",
+      "locator": "§5, p. 82",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Used in Theorem 5.7 and in §6 (items 113–114). Route 7."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/153",
+      "kind": "construction",
+      "name": "The level U and the types τ_g, λ_g of §4",
+      "statement": "U = ∏U_v with: U_v arbitrary with π_ṽ^{ι_ṽ(U_v)} ≠ 0 at v ∈ S; G(𝒪_{F⁺_v}) at v ∉ S ∪ T; ι_ṽ^{−1}Iw_ṽ(c, c) at v ∈ S_p, with π_ṽ^{Iw_ṽ(c,c),ord} ≠ 0 and U_v torsion-free; ι_v^{−1}𝔭_v at v ∈ T_1; ι_ṽ^{−1}𝔮_ṽ at v ∈ T_2 ∪ T_3 (n_1 = 2 on T_2, n_1 = n − 2 on T_3). τ_g = ⊗_{T_1}τ(v, n) ⊗ ⊗_{T_2∪T_3}λ̃(ṽ, Θ_ṽ, n) and λ_g = ⊗_{T_1}λ(v, θ_v, n) ⊗ ⊗_{T_2∪T_3}λ̃(ṽ, Θ_ṽ, n) as ℂ[U]-modules, with 𝒪-lattices τ̊_g, λ̊_g; U_L, τ_{g,L}, λ_{g,L} likewise over L.",
+      "locator": "§4, p. 70",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Used by Theorem 4.1 and Proposition 4.6 (items 89, 93). Route 3."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/154",
+      "kind": "construction",
+      "name": "The BLGGT14 §1.1 operations on 𝒢_n-valued representations",
+      "statement": "For ψ̄ : G_F → k^× with ψ̄ψ̄^c = ϵ^{1−2n}μ̄^{−1}|_{G_F}: (ψ̄, ϵ^{1−2n}μ̄^{−1}δ_{F/F⁺}) : G_{F⁺} → 𝒢_1(k); r̄ ⊗ (ψ̄, …) : G_{F⁺} → 𝒢_n(k) with multiplier ϵ^{1−2n}; r̄_1 = I(r̄ ⊗ (ψ̄, …)) : G_{F⁺} → GSp_{2n}(k); r̄_2 = (r̄_1)^∧_{G_F} : G_{F⁺} → 𝒢_{2n}(k) with ν ∘ r̄_2 = ϵ^{1−2n}; r̄_1|_{G_F} and r̄_2|_{G_F} are conjugate to ρ̄ ⊗ ψ̄ ⊕ ρ̄^c ⊗ ψ̄^c; and the same operations on deformations give r′ with r′|_{G_L} = (r ⊗ ψ̄ ⊕ r^c ⊗ ψ̄^c)|_{G_L}.",
+      "locator": "§5, proof of Theorem 5.2, pp. 76–78",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Route 7, with Theorem 5.2 (item 96)."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/155",
+      "kind": "theorem",
+      "name": "The sign of the polarization (Bellaïche–Chenevier)",
+      "statement": "(As the paper uses it, [BC11].) For π = π_2 ⊞ π_{n−2} as in §4, r_{π,ι} extends to r : G_{F⁺} → 𝒢_n(Q̄_p) with ν ∘ r = ϵ^{1−n}δ^n_{F/F⁺}.",
+      "locator": "§4, Lemma 4.3, p. 69",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "ArithmeticGaloisRepresentations:G7"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. AG2.2 'recover[s] the specified polarization', and G7 proves the symmetry sign of a polarization."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/156",
+      "kind": "theorem",
+      "name": "Global lifts with prescribed local components (Bellovin–Gee Corollary 5.1.1)",
+      "statement": "(As the paper uses it, with the irreducibility hypothesis weakened to r̄|_{G_{F_0⁺(ζ_p)}} Schur, which is all the proof uses for the vanishing of H⁰(ad r̄) and H⁰(ad r̄(1)).) For r̄ : G_{F_0⁺,S_0} → 𝒢_n(k) with ν ∘ r̄ = ϵ^{1−n}δ^n_{F_0/F_0⁺}, and local rings R_v at the places above p (of dimension 1 + n² + n(n − 1)[F_{0,ṽ} : ℚ_p]/2), R̄_v at T_0, R^{St}_v at Σ_0 and the inertia-isomorphism components at inert places, the universal ring exists and has Krull dimension ≥ 1.",
+      "locator": "§5, proof of Proposition 5.8, p. 85",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Route 7, with Proposition 5.8 (item 102)."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/157",
+      "kind": "theorem",
+      "name": "Lie algebras of Hodge–Tate representations (Sen)",
+      "statement": "(As the paper uses it, [Sen73, Theorem 1].) If ρ : G_{ℚ_p} → GL_2(Q̄_p) is Hodge–Tate with distinct weights, a maximal torus of the Zariski closure of its image is regular in GL_2.",
+      "locator": "§3, proof of Lemma 3.5(2), p. 63",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. No layer plans Sen's theorem. Route 2, with item 84."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/158",
+      "kind": "theorem",
+      "name": "Mod 5 and mod 7 level-one eigenforms (as used in Lemma 3.4)",
+      "statement": "For l ∈ {5, 7}, r̄^{ss}_{f,ι_l} of a level-one eigenform is a twist of the representation of a level-one eigenform of weight ≤ l + 1: E_4 or E_6 for l = 5, and E_4, E_6 or E_8 for l = 7. Hence ι_5^{−1}(α/β) ≡ 2³ or 2⁵ and ι_7^{−1}(α/β) ≡ 2³, 2⁵ or 2⁷ modulo 𝔪.",
+      "locator": "§3, proof of Lemma 3.4, p. 62 (no citation)",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Route 2, with Lemma 3.4 (item 82)."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/159",
+      "kind": "theorem",
+      "name": "Classical weights in the 2-adic boundary annulus",
+      "statement": "For a classical point z of weight k with κ(z)(5) = 5^{k−2}ζ_{2^m}: κ(z) ∈ 𝒲_0(b) iff k is odd or m ≥ 1; v_2(w(z)) = 2^{1−m} for m ≥ 1 and v_2(w(z)) = 2 for m = 0 with k odd; and (k − 1)/v_2(w(z)) is an integer.",
+      "locator": "§3, remark after Lemma 3.3, p. 62",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. The review checked it from v_2(5^j − 1) = 2 + v_2(j) and v_2(ζ_{2^m} − 1) = 2^{1−m}. Needed in Lemma 3.7 to get s(z′) = 2i and i′ = 2^m − 1. Route 2."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/160",
+      "kind": "theorem",
+      "name": "Unobstructedness for almost all p and the auxiliary prime q_a",
+      "statement": "(As the paper uses it.) For non-CM π of conductor M and all but finitely many p: H⁰(ℚ_l, ad⁰r̄(1)) = 0 at every ramified l, so the fixed-determinant lifting rings there are formally smooth (Weston 2004, Propositions 3.2, 5.3); and there is a prime q_a > p with π_{q_a} unramified and a formally smooth lifting ring at q_a (Diamond–Taylor 1994, Lemma 11).",
+      "locator": "§8, proof of Proposition 8.3, p. 106",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Route 2, with Proposition 8.3 (item 123)."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/161",
+      "kind": "theorem",
+      "name": "Completed local rings at characteristic-zero points of lifting rings",
+      "statement": "(As the paper uses it, [Gee11, Proposition 2.1.5].) For a closed point x of R_l[1/p], the completed local ring pro-represents the lifts of the characteristic-zero representation ρ_x to Artinian E_x-algebras.",
+      "locator": "§8, proof of Proposition 8.3, p. 109",
+      "status": "planned",
+      "planned": [
+        "LocalGaloisDeformationRings:R08.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. R08.3 proves 'the characterisation of characteristic-zero points', and R03.4 the extraction of characteristic-zero points."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/162",
+      "kind": "construction",
+      "name": "The auxiliary field L_0 of Lemma 6.7",
+      "statement": "L_0 = M_d · F, where M_d/F⁺ is cyclic, totally real, of odd degree d > n + n², split at R, Y^a and S_a and totally inert at S_p; then d_{R_i,L_0} > n + n², [L_{0,ṽ} : ℚ_p] > n², and r̄ is trivial with q_v ≡ 1 mod p at the other places required (class field theory, Allen–Newton–Thorne Theorem 7.1, Maire Proposition 19).",
+      "locator": "§6, proof of Lemma 6.7, p. 92",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Route 3. The multiplicity claim in its proof is recorded as sourceIssues E22."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/163",
+      "kind": "theorem",
+      "name": "Cyclic base change for GL_n (Arthur–Clozel)",
+      "statement": "(As the paper uses it, [AC89, Theorem 4.2, Theorem 5.1, Proposition 4.4] with [Clo90b, Lemma 4.9].) For a cyclic extension F_1/F of prime degree l and cuspidal Π of GL_n(𝔸_F), the base change Π_{F_1} exists and is either cuspidal or of the form Ξ ⊞ Ξ^σ ⊞ ⋯ ⊞ Ξ^{σ^{l−1}} with Ξ cuspidal on GL_{n/l}(𝔸_{F_1}); in particular it is cuspidal when l = 2 and n is odd.",
+      "locator": "§6, proof of Lemma 6.2, p. 88; §7, proof of Proposition 7.4, p. 101",
+      "status": "planned",
+      "planned": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+        "ModularityAndLanglandsExtensions:ML.5"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Split from item 126. ET.7a develops 'cyclic automorphic-induction/base-change steps from the Arthur–Clozel … proofs, with central characters and cuspidality hypotheses'; ML.5 registers cyclic base change."
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/164",
+      "kind": "theorem",
+      "name": "The Chebotarev density theorem",
+      "statement": "For a finite Galois extension L/K of number fields and a conjugacy class C of Gal(L/K), the set of primes of K unramified in L whose Frobenius class is C has Dirichlet density #C/#Gal(L/K); in particular it is infinite.",
+      "locator": "§7, proof of Proposition 7.4, p. 97; §8, proof of Proposition 8.3, pp. 106–108",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "note": "Added by the review REV-PAPER-NEWTON-THORNE-21. Tau Ceti f790474 has the Frobenius prime sets (TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean) but not the density theorem; its Chebotarev roadmap's Layer 10 plans it. Planned as in PAPER-NEWTON-THORNE-21-B."
     }
   ],
   "prerequisites": [
@@ -1414,9 +1820,44 @@
       "why": "The split fundamental lemma and constant terms in Proposition 1.7."
     },
     {
-      "citation": "L. Clozel and J. A. Thorne, Level-raising and symmetric power functoriality, III, Duke Math. J. 166 (2017), 325–402",
-      "link": "10.1215/00127094-3714971",
-      "why": "Theorem 5.1, the template for Theorem 6.1 (extraction pending review as PAPER-CLOZEL-THORNE-17)."
+      "citation": "K. A. Ribet, On l-adic representations attached to modular forms II, Glasgow Math. J. 27 (1985), 185–194; F. Momose, On the l-adic representations attached to modular forms, J. Fac. Sci. Univ. Tokyo 28 (1981), 89–109",
+      "link": "10.1017/S0017089500006170",
+      "why": "Large image for non-CM forms (item 148), used without citation. Added by the review."
+    },
+    {
+      "citation": "K. S. Kedlaya, J. Pottharst and L. Xiao, Cohomology of arithmetic families of (φ, Γ)-modules, J. Amer. Math. Soc. 27 (2014), 1043–1115",
+      "link": "10.1090/S0894-0347-2014-00794-3",
+      "why": "Proposition 6.2.8, Example 6.2.6(3), Definition 6.3.2 and Theorem 6.3.9 (items 40, 48, 138, 139). Added by the review."
+    },
+    {
+      "citation": "P. B. Allen, Deformations of polarized automorphic Galois representations and adjoint Selmer groups, Duke Math. J. 165 (2016), 2407–2460",
+      "link": "10.1215/00127094-3477342",
+      "why": "Definition 1.1.2 and Remark 1.2.9 (items 141–142). Added by the review."
+    },
+    {
+      "citation": "B. Conrad, Irreducible components of rigid spaces, Ann. Inst. Fourier 49 (1999), 473–541",
+      "link": "10.5802/aif.1681",
+      "why": "Theorem 3.4.2 (item 145). Added by the review."
+    },
+    {
+      "citation": "S. Sen, Lie algebras of Galois groups arising from Hodge–Tate modules, Ann. of Math. 97 (1973), 160–170",
+      "link": "10.2307/1970879",
+      "why": "Theorem 1 in Lemma 3.5(2) (item 157). Added by the review."
+    },
+    {
+      "citation": "C. Mœglin and J.-L. Waldspurger, Le spectre résiduel de GL(n), Ann. Sci. Éc. Norm. Supér. 22 (1989), 605–674",
+      "link": "10.24033/asens.1595",
+      "why": "The discrete spectrum of GL_m (item 131). Added by the review."
+    },
+    {
+      "citation": "J. Arthur and L. Clozel, Simple algebras, base change, and the advanced theory of the trace formula, Ann. of Math. Stud. 120 (1989)",
+      "link": "",
+      "why": "Theorems 4.2, 5.1 and Proposition 4.4 (items 126, 163). Added by the review."
+    },
+    {
+      "citation": "T. Weston, Unobstructed modular deformation problems, Amer. J. Math. 126 (2004), 1237–1252 (already listed) and F. Diamond and R. Taylor, Non-optimal levels of mod l modular representations, Invent. Math. 115 (1994), 435–462",
+      "link": "10.1007/BF01231768",
+      "why": "Diamond–Taylor Theorem A and Lemma 11 (items 119, 160). Added by the review."
     }
   ],
   "routes": [
@@ -1452,7 +1893,6 @@
         "PAPER-NEWTON-THORNE-21/70",
         "PAPER-NEWTON-THORNE-21/71",
         "PAPER-NEWTON-THORNE-21/72",
-        "PAPER-NEWTON-THORNE-21/73",
         "PAPER-NEWTON-THORNE-21/75",
         "PAPER-NEWTON-THORNE-21/76",
         "PAPER-NEWTON-THORNE-21/77",
@@ -1468,10 +1908,17 @@
         "PAPER-NEWTON-THORNE-21/87",
         "PAPER-NEWTON-THORNE-21/122",
         "PAPER-NEWTON-THORNE-21/123",
-        "PAPER-NEWTON-THORNE-21/124"
+        "PAPER-NEWTON-THORNE-21/124",
+        "PAPER-NEWTON-THORNE-21/145",
+        "PAPER-NEWTON-THORNE-21/149",
+        "PAPER-NEWTON-THORNE-21/150",
+        "PAPER-NEWTON-THORNE-21/157",
+        "PAPER-NEWTON-THORNE-21/158",
+        "PAPER-NEWTON-THORNE-21/159",
+        "PAPER-NEWTON-THORNE-21/160"
       ],
-      "brief": "Build on Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions), whose ML.3 plans Newton–Thorne symmetric-power automorphy as an endpoint but no layer plans the method that proves it. This Part II owns the first half of that method: moving automorphy of symmetric powers along irreducible components of eigenvarieties. Source: Newton–Thorne, 'Symmetric power functoriality for holomorphic modular forms' (Publ. Math. IHÉS 134 (2021)). Its sequel (PAPER-NEWTON-THORNE-21-B) and the Hilbert modular case (Newton–Thorne, Ann. of Math. 203 (2026)) should extend this Part II. Final theorems, as the paper states them. Theorem 2.33: let (π_0, χ_0), (π′_0, χ′_0) be refined cuspidal automorphic representations of GL_2(𝔸_ℚ) whose points z_0, z′_0 of the tame level N, p-adic eigencurve lie on a common irreducible component, and n ≥ 2. If either (1) χ_0 is numerically non-critical and n-regular, (2) χ′_0 is n-regular, (3) the Zariski closures of r_{π_0,ι}(G_{ℚ_p}) and r_{π′_0,ι}(G_{ℚ_p}) contain SL_2 and (4) Sym^{n−1}r_{π_0,ι} is automorphic; or (1ord) χ_0 is ordinary, (2ord) π_0, π′_0 are not CM and (3ord) Sym^{n−1}r_{π_0,ι} is automorphic — then Sym^{n−1}r_{π′_0,ι} is automorphic. Theorem 3.1 (Theorem D): if Sym^{n−1} of one everywhere unramified cuspidal π_0 of weight ≥ 2 is automorphic, then so is Sym^{n−1} of every everywhere unramified cuspidal π of weight ≥ 2. Proposition 8.2: if π is non-CM of weight ≥ 2 with an n-regular accessible refinement at every ramified prime, Sym^{n−1}r_{π,ι} is automorphic. Proposition 8.3 (congruences to forms with n-regular refinements). Together with Theorem E (owned by SymmetricPowersByUnitaryLevelRaising) these prove Theorems A and B, which ML.3 exports. Layers: (1) Lemma 2.2 (analytic continuation along irreducible components, after Conrad) and the rigid spaces of conjugate self-dual pseudocharacters with their absolutely irreducible loci, Azumaya algebras and tangent spaces (Lemmas 2.12–2.14); (2) the global trianguline tangent bound (Proposition 2.11), with the vanishing of adjoint Bloch–Kato Selmer groups (Newton–Thorne, JEMS) as an imported theorem and Allen's genericity notion; (3) symmetric power maps σ_n between pseudocharacter and character spaces, n-regular refinements (Definition 2.23), Theorem 2.24 (non-critical case), Theorem 2.27 (ordinary case), Corollary 2.28 and Lemma 2.29; (4) on the Coleman–Mazur eigencurve: the twin map and Lemma 2.32, Lemma 2.34 (trivialising families of characters over CM fields), the base-change morphism to a definite unitary eigenvariety and Theorem 2.33, and Lemma 2.35 (the bad locus is Zariski closed); (5) the 2-adic eigencurve at the boundary of weight space — Buzzard–Kilford's decomposition ℰ_0(b) = ⊔X_i with slope i·v(w) (Theorem 3.2) as an imported theorem, with the design job deciding whether it belongs as a later layer of PadicFamilies — and the ping-pong Lemmas 3.3–3.7 with Theorem 3.1; (6) killing ramification: Proposition 8.2, the Taylor–Wiles–Kisin argument of Proposition 8.3 with Lemma 8.4 (the non-regular locus is a principal divisor of the local lifting ring), and the final step of Theorem 8.1 through BLGGT14 Theorem 4.2.1. Use the corrected statements of sourceIssues E1 (Lemma 3.3: z′ ∈ X_{i′}) and E3 (g = q_0 + |T| − 1 in the proof of Proposition 8.3). Imports: Hida and Coleman families, period modules, and family L-functions (PadicFamilies: L2 and L2a for the eigencurve, Buzzard's construction and Coleman classicality); Automorphic Galois Representations PartII (AutomorphicGaloisRepresentationsPartII: AG2.2, AG2.3, AG2.5); Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison: ET.7a for unitary base change and descent); ModularityAndLanglandsExtensions ML.5 (soluble descent) and ML.3 (endpoints); Integral Hecke actions, determinants and interpolation (IntegralHeckeAndGaloisDeterminants: IHG.0–IHG.1); Global Galois deformation rings (GlobalGaloisDeformations: R04.1, G7); Local Galois deformation rings and their components (LocalGaloisDeformationRings: L7 for Fontaine–Laffaille); GL₂ Modularity Lifting (GL2ModularityLifting: R22.2–R22.3 for patching). Coordinate with the pending candidates that own the neighbouring material rather than re-planning it: Completed cohomology and p-adic local–global compatibility, Part II: eigenvarieties, classicality and companion constituents (LocalGlobalCompatibilityPartIIEigenvarietyCompanions — Emerton's unitary eigenvariety and Lemma 2.30); The trianguline variety and its local model (TriangulineVarietyAndItsLocalModel — local trianguline deformation theory); Reusable infrastructure for potential automorphy over CM fields, Part II: polarized automorphy lifting and finiteness of deformation rings (PolarizedAutomorphyLifting — BLGGT14); and ModularityAndLanglandsExtensions's Part II SymmetricPowersByUnitaryLevelRaising (Theorem E).",
-      "reason": "ML.3 plans the endpoints (Theorems A, B, Corollary C) but not their proof, and the atlas has no layer on functoriality along eigenvarieties. The pending candidates are adjacent but aimed elsewhere. Clozel–Thorne's Part II is a different method (level raising). Breuil–Hellmann–Schraen's eigenvariety Part II builds eigenvarieties, classicality and companion points for local–global compatibility, not symmetric-power transfer between eigenvarieties of different groups. The trianguline variety owner is purely local. The Buzzard–Kilford/ping-pong argument and the killing of ramification are specific to symmetric powers. A Part II in ML's direction, importing those owners, is the home that Newton–Thorne II and the Hilbert case can extend."
+      "brief": "Build on Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions), whose ML.3 plans Newton–Thorne symmetric-power automorphy as an endpoint but no layer plans the method that proves it. This Part II owns the first half of that method: moving automorphy of symmetric powers along irreducible components of eigenvarieties. Source: Newton–Thorne, 'Symmetric power functoriality for holomorphic modular forms' (Publ. Math. IHÉS 134 (2021)). Its sequel (PAPER-NEWTON-THORNE-21-B) and the Hilbert modular case (Newton–Thorne, Ann. of Math. 203 (2026)) should extend this Part II. Final theorems, as the paper states them. Theorem 2.33: let (π_0, χ_0), (π′_0, χ′_0) be refined cuspidal automorphic representations of GL_2(𝔸_ℚ) whose points z_0, z′_0 of the tame level N, p-adic eigencurve lie on a common irreducible component, and n ≥ 2. If either (1) χ_0 is numerically non-critical and n-regular, (2) χ′_0 is n-regular, (3) the Zariski closures of r_{π_0,ι}(G_{ℚ_p}) and r_{π′_0,ι}(G_{ℚ_p}) contain SL_2 and (4) Sym^{n−1}r_{π_0,ι} is automorphic; or (1ord) χ_0 is ordinary, (2ord) π_0, π′_0 are not CM and (3ord) Sym^{n−1}r_{π_0,ι} is automorphic — then Sym^{n−1}r_{π′_0,ι} is automorphic. Theorem 3.1 (Theorem D): if Sym^{n−1} of one everywhere unramified cuspidal π_0 of weight ≥ 2 is automorphic, then so is Sym^{n−1} of every everywhere unramified cuspidal π of weight ≥ 2. Proposition 8.2: if π is non-CM of weight ≥ 2 with an n-regular accessible refinement at every ramified prime, Sym^{n−1}r_{π,ι} is automorphic. Proposition 8.3 (congruences to forms with n-regular refinements). Together with Theorem E (owned by SymmetricPowersByUnitaryLevelRaising) these prove Theorems A and B, which ML.3 exports. Layers: (1) Lemma 2.2 (analytic continuation along irreducible components, after Conrad) and the rigid spaces of conjugate self-dual pseudocharacters with their absolutely irreducible loci, Azumaya algebras and tangent spaces (Lemmas 2.12–2.14); (2) the global trianguline tangent bound (Proposition 2.11), importing the vanishing of adjoint Bloch–Kato Selmer groups (Newton–Thorne, JEMS) and Allen's genericity from PolarizedAutomorphyLifting; (3) symmetric power maps σ_n between pseudocharacter and character spaces, n-regular refinements (Definition 2.23), Theorem 2.24 (non-critical case), Theorem 2.27 (ordinary case), Corollary 2.28 and Lemma 2.29; (4) on the Coleman–Mazur eigencurve: the twin map and Lemma 2.32, Lemma 2.34 (trivialising families of characters over CM fields), the base-change morphism to a definite unitary eigenvariety and Theorem 2.33, and Lemma 2.35 (the bad locus is Zariski closed); (5) the 2-adic eigencurve at the boundary of weight space — Buzzard–Kilford's decomposition ℰ_0(b) = ⊔X_i with slope i·v(w) (Theorem 3.2) as an imported theorem, with the design job deciding whether it belongs as a later layer of PadicFamilies — and the ping-pong Lemmas 3.3–3.7 with Theorem 3.1; (6) killing ramification: Proposition 8.2, the Taylor–Wiles–Kisin argument of Proposition 8.3 with Lemma 8.4 (the non-regular locus is a principal divisor of the local lifting ring), and the final step of Theorem 8.1 through BLGGT14 Theorem 4.2.1. Use the corrected statements of sourceIssues E1 (Lemma 3.3: z′ ∈ X_{i′}) and E3 (g = q_0 + |T| − 1 in the proof of Proposition 8.3). Imports: Hida and Coleman families, period modules, and family L-functions (PadicFamilies: L2 and L2a for the eigencurve, Buzzard's construction and Coleman classicality); Automorphic Galois Representations PartII (AutomorphicGaloisRepresentationsPartII: AG2.2, AG2.3, AG2.5); Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison: ET.7a for unitary base change and descent); ModularityAndLanglandsExtensions ML.5 (soluble descent) and ML.3 (endpoints); Integral Hecke actions, determinants and interpolation (IntegralHeckeAndGaloisDeterminants: IHG.0–IHG.1); Global Galois deformation rings (GlobalGaloisDeformations: R04.1, G7); Local Galois deformation rings and their components (LocalGaloisDeformationRings: L7 for Fontaine–Laffaille); GL₂ Modularity Lifting (GL2ModularityLifting: R22.2–R22.3 for patching). Coordinate with the pending candidates that own the neighbouring material rather than re-planning it: Completed cohomology and p-adic local–global compatibility, Part II: eigenvarieties, classicality and companion constituents (LocalGlobalCompatibilityPartIIEigenvarietyCompanions — Emerton's unitary eigenvariety and Lemma 2.30); The trianguline variety and its local model (TriangulineVarietyAndItsLocalModel — local trianguline deformation theory); Reusable infrastructure for potential automorphy over CM fields, Part II: polarized automorphy lifting and finiteness of deformation rings (PolarizedAutomorphyLifting — BLGGT14); and ModularityAndLanglandsExtensions's Part II SymmetricPowersByUnitaryLevelRaising (Theorem E). Review of PAPER-NEWTON-THORNE-21: the review added Conrad's components theorem, the base-change morphism of Theorem 2.33, Chevalley's congruence subgroups, Sen's theorem, the mod-5/mod-7 input of Lemma 3.4, the weight computation after Lemma 3.3, and the Weston/Diamond–Taylor inputs of Proposition 8.3. Import also the Ribet–Momose large-image theorem from AutomorphicGaloisRepresentations R19.3, and Bloch–Kato groups from SelmerIwasawaCohomology L4. Respect the corrections E9 (the twin map uses ψ|_{ℚ_p^×}), E10–E13 (Lemma 2.12 gives conjugate, not equal, lifts; 𝒞_E means 𝒞′_E; shrink U into 𝒯^{HT-reg}_n in Theorem 2.27), E24 (the induction step of Proposition 8.2 must exclude supercuspidal π′_l) and E25 (in Proposition 8.3, I is a product over T, q_a needs its own argument, and the Jacquet module condition must be checked).",
+      "reason": "ML.3 plans the endpoints (Theorems A, B, Corollary C) but not their proof, and the atlas has no layer on functoriality along eigenvarieties. The pending candidates are adjacent but aimed elsewhere. Clozel–Thorne's Part II is a different method (level raising). Breuil–Hellmann–Schraen's eigenvariety Part II builds eigenvarieties, classicality and companion points for local–global compatibility, not symmetric-power transfer between eigenvarieties of different groups. The trianguline variety owner is purely local. The Buzzard–Kilford/ping-pong argument and the killing of ramification are specific to symmetric powers. A Part II in ML's direction, importing those owners, is the home that Newton–Thorne II and the Hilbert case can extend. Review: accepted. Item 73 (Newton–Thorne 2020) moved to route 7 so that it has one owner across the three Newton–Thorne extractions; seven missing items were added."
     },
     {
       "route": "part-ii",
@@ -1517,10 +1964,13 @@
         "PAPER-NEWTON-THORNE-21/118",
         "PAPER-NEWTON-THORNE-21/119",
         "PAPER-NEWTON-THORNE-21/120",
-        "PAPER-NEWTON-THORNE-21/121"
+        "PAPER-NEWTON-THORNE-21/121",
+        "PAPER-NEWTON-THORNE-21/133",
+        "PAPER-NEWTON-THORNE-21/153",
+        "PAPER-NEWTON-THORNE-21/162"
       ],
-      "brief": "This route coalesces with SymmetricPowersByUnitaryLevelRaising, proposed by PAPER-CLOZEL-THORNE-17; keep its id, title, parent, area and brief. Newton–Thorne, 'Symmetric power functoriality for holomorphic modular forms' (Publ. Math. IHÉS 134 (2021)), is the second source: its Part II ('Raising the level') produces, for every n, a level-one form with automorphic Sym^{n−1}. Final theorems added: Theorem 7.6 (Theorem E) — for n ≥ 3 there is an everywhere unramified cuspidal π of GL_2(𝔸_ℚ) of weight ≥ 2 with Sym^{n−1}r_{π,ι} automorphic; Theorem 7.1 — for p ≡ 1 mod 48n!, q ≠ p, X_0 and ω with ωω^c = ϵ³, an X_0-split soluble CM F/ℚ(i) and a RACSDC ι-ordinary Π with r̄_Π ≅ ω̄^{n−1} ⊗ Sym^{n−1}r̄_{σ_0} (σ_0 the CM newform of weight 5 and level Γ_1(4)), the same Hodge–Tate weights and an unramified Steinberg twist above q; Theorem 4.1 — level raising on the definite unitary group in n = 2k + 1 variables to the types λ(v, θ, n), λ̃(ṽ, Θ, n) at auxiliary places T_1, T_2, T_3; Theorem 6.1 — level raising to Steinberg by the Galois deformation theory of residually reducible representations. Add, beside Clozel–Thorne's ramified-unitary Iwahori-spherical material: (i) the definite unitary group with its pure inner twist, the Whittaker-normalised transfer factors and the character identities of Propositions 1.6–1.7; (ii) Mœglin's extended cuspidal support, the stable base change BC and the L-packets Π(π) at inert places (Propositions 1.9–1.11); (iii) Deligne–Lusztig inputs for U_3(k(v)) — the cuspidal unipotent τ(v), λ(v, θ) = −R_C^{U_3}θ, modular irreducibility (Dudas–Malle) and Geck's congruence — giving the types τ(v, n), λ(v, θ, n) and Propositions 1.12, 1.13, 1.15, 1.16 (the last via Kazhdan–Varshavsky, assuming char k(v) > n); (iv) Lemma 1.21 and Proposition 1.22(3)–(4) on the fixed-type rings; (v) §4: Lemmas 4.3, 4.5, Proposition 4.6 (Labesse's trace formula with the multiplicity computation) and Theorem 4.1; (vi) §6: Lemmas 6.2–6.4, 6.6, 6.7 and Theorem 6.1; (vii) §7: σ_0, Lemma 7.2, Corollary 7.3, Proposition 7.4 (induction on odd n with the Chebotarev primes q_1, q_2, q_3), the even case through Anastassiades–Thorne Theorem 5.1, and Theorem 7.6. Imported statements: GL_2 level raising (Diamond 1989 Corollary 6.9, Diamond–Taylor 1994 Theorem A, Edixhoven's ordinarity) and Anastassiades–Thorne. Use sourceIssue E2 (G_{F_{−1}} for G_E in Proposition 7.4). Import the types from Smooth representations of local groups, Part II (SmoothRepresentationsPartII); the ordinary Hecke algebras, §5's finiteness theorems and the Allen–Newton–Thorne and BLGGT14 inputs from PolarizedAutomorphyLifting; fixed-type rings from LocalGaloisDeformationRings R08.2; and the analytic continuation used in Theorem 7.6 from the Part II SymmetricPowersByAnalyticContinuation proposed here.",
-      "reason": "Clozel–Thorne's Part II is the pending owner of level raising on definite unitary groups for symmetric powers, and Newton–Thorne's Part II is the same programme with new types (depth-zero U_3 instead of Iwahori-spherical ramified U_n) and the same residually reducible deformation theory; both feed ML.3."
+      "brief": "This route coalesces with SymmetricPowersByUnitaryLevelRaising, proposed by PAPER-CLOZEL-THORNE-17; keep its id, title, parent, area and brief. Newton–Thorne, 'Symmetric power functoriality for holomorphic modular forms' (Publ. Math. IHÉS 134 (2021)), is the second source: its Part II ('Raising the level') produces, for every n, a level-one form with automorphic Sym^{n−1}. Final theorems added: Theorem 7.6 (Theorem E) — for n ≥ 3 there is an everywhere unramified cuspidal π of GL_2(𝔸_ℚ) of weight ≥ 2 with Sym^{n−1}r_{π,ι} automorphic; Theorem 7.1 — for p ≡ 1 mod 48n!, q ≠ p, X_0 and ω with ωω^c = ϵ³, an X_0-split soluble CM F/ℚ(i) and a RACSDC ι-ordinary Π with r̄_Π ≅ ω̄^{n−1} ⊗ Sym^{n−1}r̄_{σ_0} (σ_0 the CM newform of weight 5 and level Γ_1(4)), the same Hodge–Tate weights and an unramified Steinberg twist above q; Theorem 4.1 — level raising on the definite unitary group in n = 2k + 1 variables to the types λ(v, θ, n), λ̃(ṽ, Θ, n) at auxiliary places T_1, T_2, T_3; Theorem 6.1 — level raising to Steinberg by the Galois deformation theory of residually reducible representations. Add, beside Clozel–Thorne's ramified-unitary Iwahori-spherical material: (i) the definite unitary group with its pure inner twist, the Whittaker-normalised transfer factors and the character identities of Propositions 1.6–1.7; (ii) Mœglin's extended cuspidal support, the stable base change BC and the L-packets Π(π) at inert places (Propositions 1.9–1.11); (iii) Deligne–Lusztig inputs for U_3(k(v)) — the cuspidal unipotent τ(v), λ(v, θ) = −R_C^{U_3}θ, modular irreducibility (Dudas–Malle) and Geck's congruence — giving the types τ(v, n), λ(v, θ, n) and Propositions 1.12, 1.13, 1.15, 1.16 (the last via Kazhdan–Varshavsky, assuming char k(v) > n); (iv) Lemma 1.21 and Proposition 1.22(3)–(4) on the fixed-type rings; (v) §4: Lemmas 4.3, 4.5, Proposition 4.6 (Labesse's trace formula with the multiplicity computation) and Theorem 4.1; (vi) §6: Lemmas 6.2–6.4, 6.6, 6.7 and Theorem 6.1; (vii) §7: σ_0, Lemma 7.2, Corollary 7.3, Proposition 7.4 (induction on odd n with the Chebotarev primes q_1, q_2, q_3), the even case through Anastassiades–Thorne Theorem 5.1, and Theorem 7.6. Imported statements: GL_2 level raising (Diamond 1989 Corollary 6.9, Diamond–Taylor 1994 Theorem A, Edixhoven's ordinarity) and Anastassiades–Thorne. Use sourceIssue E2 (G_{F_{−1}} for G_E in Proposition 7.4). Import the types from Smooth representations of local groups, Part II (SmoothRepresentationsPartII); the ordinary Hecke algebras, §5's finiteness theorems and the Allen–Newton–Thorne and BLGGT14 inputs from PolarizedAutomorphyLifting; fixed-type rings from LocalGaloisDeformationRings R08.2; and the analytic continuation used in Theorem 7.6 from the Part II SymmetricPowersByAnalyticContinuation proposed here. Review of PAPER-NEWTON-THORNE-21: also record Kazhdan–Varshavsky's transfer of Deligne–Lusztig functions (KV12 Theorem 2.2.6), the level and types of §4 and the auxiliary field L_0 of Lemma 6.7. Respect these corrections. E21: in the proof of Proposition 7.4, π_2 = τ_0 ⊗ |·|^{(n−2)/2}ιω_1ω_0^{n−1} is not conjugate self-dual (it fails by δ_{K/ℚ}|_{G_{F_0}}), so Theorem 4.1 does not apply as printed. The design must supply a conjugate self-dual GL_2 block with the required residual representation and local components, or record the odd case of Theorem 7.1 as a gap. E22: Lemma 6.7's multiplicity-one claim needs a single place of R_i. E19: base cases n = 3 and n_1 = 1. E23: track the Hodge–Tate weights in Theorem 4.1 and Proposition 5.8. E14: n_1, not n_2, in Theorem 4.1(4). E17: ωω^c = (det r·ϵ)^{1−n} in the sketch.",
+      "reason": "Clozel–Thorne's Part II is the pending owner of level raising on definite unitary groups for symmetric powers, and Newton–Thorne's Part II is the same programme with new types (depth-zero U_3 instead of Iwahori-spherical ramified U_n) and the same residually reducible deformation theory; both feed ML.3. Review: accepted as a coalescence, with the gap E21 recorded in the brief. The design job must repair or record it."
     },
     {
       "route": "part-ii",
@@ -1540,10 +1990,11 @@
         "PAPER-NEWTON-THORNE-21/63",
         "PAPER-NEWTON-THORNE-21/64",
         "PAPER-NEWTON-THORNE-21/65",
-        "PAPER-NEWTON-THORNE-21/66"
+        "PAPER-NEWTON-THORNE-21/66",
+        "PAPER-NEWTON-THORNE-21/143"
       ],
       "brief": "This route coalesces with LocalGlobalCompatibilityPartIIEigenvarietyCompanions, proposed by PAPER-BREUIL-HELLMANN-SCHRAEN-19 and extended by PAPER-DING-25; keep its id, title, parent, area and brief. Newton–Thorne (Publ. Math. IHÉS 134 (2021) §2.17–2.18) adds the eigenvariety ℰ_n of a definite unitary group built from Emerton's locally analytic Jacquet functor without Iwahori restriction at p. Its ingredients are: accessible refinements and Lemma 2.18; the characters ν(π, χ) and j_n with numerically non-critical refinements; Lemmas 2.19–2.20; and Proposition 2.22 (reduced, finite over 𝒯_n, equidimensional with open image of components, Zariski-dense accumulating classical points, Emerton's classicality, Hecke surjectivity and boundedness, via the spectral variety). It also adds the pseudocharacter T_n with the closed immersion i_n; Lemma 2.26 (the Hida-ordinary locus is open and closed and finite over weight space); and Lemma 2.30 — a point of ℰ_n with locally algebraic weight, all of whose local triangulations are non-critical, is classical — proved by excluding companion points with the Orlik–Strauch functors and Breuil's adjunction. Note that Newton–Thorne rely on the published version of Breuil–Hellmann–Schraen 2017 Lemme 2.11, the arXiv version being restricted to crystalline representations. The analytic continuation of symmetric powers that consumes this is the Part II SymmetricPowersByAnalyticContinuation.",
-      "reason": "This candidate is the pending owner of Emerton-style eigenvarieties for definite unitary groups, classicality and companion points; Newton–Thorne's eigenvariety and its classicality lemma are instances of exactly that machinery."
+      "reason": "This candidate is the pending owner of Emerton-style eigenvarieties for definite unitary groups, classicality and companion points; Newton–Thorne's eigenvariety and its classicality lemma are instances of exactly that machinery. Review: accepted; BHS17 Lemme 2.11 (published version) added as item 143."
     },
     {
       "route": "new",
@@ -1558,10 +2009,12 @@
         "PAPER-NEWTON-THORNE-21/45",
         "PAPER-NEWTON-THORNE-21/46",
         "PAPER-NEWTON-THORNE-21/47",
-        "PAPER-NEWTON-THORNE-21/48"
+        "PAPER-NEWTON-THORNE-21/48",
+        "PAPER-NEWTON-THORNE-21/138",
+        "PAPER-NEWTON-THORNE-21/139"
       ],
       "brief": "This route coalesces with TriangulineVarietyAndItsLocalModel, proposed by PAPER-BREUIL-HELLMANN-SCHRAEN-19 and extended by PAPER-DING-25; keep its id, title, area and brief. Newton–Thorne (Publ. Math. IHÉS 134 (2021) §2.3.1, §2.11.1) contributes local trianguline deformation theory over arbitrary F_ṽ/ℚ_p in the Kedlaya–Pottharst–Xiao formalism. It adds: triangulations of given parameter, ordinary and regular parameters, and the spaces 𝒯_v^{reg} and 𝒲_v; uniqueness for regular parameters (Lemma 2.4); the trianguline deformation functor and H¹_tri (Proposition 2.6, after Bellaïche–Chenevier and Nakamura); de Rham-ness of fixed-weight deformations (Lemma 2.7); the numerical criterion for non-critical triangulations of de Rham representations (Lemma 2.8, Definition 2.9); the triangulations of two-dimensional de Rham representations (Example 2.10); and the local trianguline locus with its tangent space (Proposition 2.15). It also records Hellmann's argument (Remark 2.16) that KPX Theorem 6.3.9 holds for the standard notion of Zariski density.",
-      "reason": "The pending owner of trianguline deformations and the trianguline variety; these items are its local foundations."
+      "reason": "The pending owner of trianguline deformations and the trianguline variety; these items are its local foundations. Review: accepted; KPX Proposition 6.2.8 and the Weil–Deligne-to-triangulation dictionary added."
     },
     {
       "route": "part-ii",
@@ -1598,10 +2051,29 @@
         "PAPER-NEWTON-THORNE-21/102",
         "PAPER-NEWTON-THORNE-21/103",
         "PAPER-NEWTON-THORNE-21/105",
-        "PAPER-NEWTON-THORNE-21/112"
+        "PAPER-NEWTON-THORNE-21/112",
+        "PAPER-NEWTON-THORNE-21/73",
+        "PAPER-NEWTON-THORNE-21/141",
+        "PAPER-NEWTON-THORNE-21/142",
+        "PAPER-NEWTON-THORNE-21/144",
+        "PAPER-NEWTON-THORNE-21/151",
+        "PAPER-NEWTON-THORNE-21/152",
+        "PAPER-NEWTON-THORNE-21/154",
+        "PAPER-NEWTON-THORNE-21/156"
       ],
-      "brief": "This route coalesces with PolarizedAutomorphyLifting, proposed by PAPER-BOXER-CALEGARI-GEE-25; keep its id, title, parent, area and brief. Newton–Thorne (Publ. Math. IHÉS 134 (2021) §§1.23, 5, 6) add three things. (1) Hecke operators, Iwahori level and ordinary parts for definite unitary groups, and Geraghty's big ordinary Hecke algebras with Proposition 6.5. (2) The residually reducible deformation theory of §5: primitivity (Lemma 5.1); finiteness of ordinary deformation rings with residual representation a sum of characters (Theorem 5.2); Lemma 5.3; Corollaries 5.4–5.5; the dimension bound for the reducible locus (Proposition 5.6); generic primes in large quotients (Theorem 5.7); and automorphic lifts of prescribed types from residual automorphy over a soluble extension (Proposition 5.8, after Bellovin–Gee Theorem 5.2.1). (3) The imported Allen–Newton–Thorne 2020 and Thorne 2015 theorems, BLGGT14 Theorem 4.2.1 and Lemma A.2.5. Clozel–Thorne's extraction already proposed that Thorne 2015 could live here; Newton–Thorne's §5 is its natural continuation.",
-      "reason": "The pending owner of polarized automorphy lifting and finiteness of deformation rings on definite unitary groups; Newton–Thorne's §5 proves finiteness in the residually reducible case with the same tools."
+      "brief": "This route coalesces with PolarizedAutomorphyLifting, proposed by PAPER-BOXER-CALEGARI-GEE-25; keep its id, title, parent, area and brief. Newton–Thorne (Publ. Math. IHÉS 134 (2021) §§1.23, 5, 6) add three things. (1) Hecke operators, Iwahori level and ordinary parts for definite unitary groups, and Geraghty's big ordinary Hecke algebras with Proposition 6.5. (2) The residually reducible deformation theory of §5: primitivity (Lemma 5.1); finiteness of ordinary deformation rings with residual representation a sum of characters (Theorem 5.2); Lemma 5.3; Corollaries 5.4–5.5; the dimension bound for the reducible locus (Proposition 5.6); generic primes in large quotients (Theorem 5.7); and automorphic lifts of prescribed types from residual automorphy over a soluble extension (Proposition 5.8, after Bellovin–Gee Theorem 5.2.1). (3) The imported Allen–Newton–Thorne 2020 and Thorne 2015 theorems, BLGGT14 Theorem 4.2.1 and Lemma A.2.5. Clozel–Thorne's extraction already proposed that Thorne 2015 could live here; Newton–Thorne's §5 is its natural continuation. Review of PAPER-NEWTON-THORNE-21 (§§2, 5): the review adds four inputs. (i) The vanishing of adjoint Bloch–Kato Selmer groups of Newton–Thorne 2020 (item 73), with Allen's generic WD representations and his Remark 1.2.9, placed here as for PAPER-NEWTON-THORNE-21-B. (ii) Geraghty's Lemma 3.9. (iii) Primitivity, generic primes (ANT20 Definition 3.7), the BLGGT14 §1.1 operations and Bellovin–Gee Corollary 5.1.1. (iv) The corrections E15 (Corollary 5.4 gives a lift of G_{F⁺,S∪Σ}) and E16 (Lemma 5.3 needs Mazur's condition Φ_p, not topological finite generation). Item 104 now states how BLGGT14 Theorem 3.1.2 is applied to a residually reducible representation.",
+      "reason": "The pending owner of polarized automorphy lifting and finiteness of deformation rings on definite unitary groups; Newton–Thorne's §5 proves finiteness in the residually reducible case with the same tools. Review: accepted. Item 73 and seven further missing items join it; the adjoint Selmer vanishing now has this single owner."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicGaloisRepresentations",
+      "stages": [
+        "AutomorphicGaloisRepresentations:R19.3"
+      ],
+      "items": [
+        "PAPER-NEWTON-THORNE-21/148"
+      ],
+      "reason": "Added by the review, as for PAPER-NEWTON-THORNE-21-B. The Ribet–Momose large-image theorem (Zariski closure containing SL_2, and residual image containing SL_2(𝔽_p) for almost all p) concerns the compatible family of a fixed eigenform that R19.3 constructs. No layer plans it; the proposed open-image Part II of PAPER-CALEGARI-GERAGHTY-20 is about abelian varieties."
     }
   ],
   "sourceIssues": [
@@ -1618,7 +2090,12 @@
         "Crossref record of doi:10.1007/s10240-021-00127-3: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 1912.11261: v3 (27 September 2021) is the last version and matches the published text",
         "The article page on pmihes.centre-mersenne.org and Springer, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "Checked on the p. 61 page image: 'Then z ∈ X_{i′}' where z ∈ X_i is the hypothesis. The proof on p. 62 ('z′ lies in ℰ_0(b), so in X_{i′}') and the use in Lemma 3.7 (p. 64) concern the twin z′."
+      }
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/E2",
@@ -1633,7 +2110,12 @@
         "Crossref record of doi:10.1007/s10240-021-00127-3: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 1912.11261: v3 (27 September 2021) is the last version and matches the published text",
         "The article page on pmihes.centre-mersenne.org and Springer, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "Checked on the p. 99 page image and in the TeX: 'G_E' in the inductive hypothesis (2), where part (1) and Theorem 7.1(b) have G_{F_{−1}}; E is not defined there."
+      }
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/E3",
@@ -1648,7 +2130,12 @@
         "Crossref record of doi:10.1007/s10240-021-00127-3: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 1912.11261: v3 (27 September 2021) is the last version and matches the published text",
         "The article page on pmihes.centre-mersenne.org and Springer, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "Checked on the p. 109 page image and in the TeX: 'g = q + |T| − 1' with no q defined. The count on p. 110, dim R_∞ = dim A^T − 1 + g = 4|T| + q_0 − 1 with dim A^T = 1 + 3|T|, needs g = q_0 + |T| − 1."
+      }
     },
     {
       "id": "PAPER-NEWTON-THORNE-21/E4",
@@ -1663,7 +2150,452 @@
         "Crossref record of doi:10.1007/s10240-021-00127-3: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 1912.11261: v3 (27 September 2021) is the last version and matches the published text",
         "The article page on pmihes.centre-mersenne.org and Springer, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "Checked on the page images. p. 23 prints 'ρ̄_v = σ̄_{ṽ,1} ⊕ σ̄_{ṽ,2}' with a plain v, and the TeX has \\overline{\\rho}_v, while everywhere else in §1.17 the object is ρ̄_ṽ; the same slip is in Proposition 1.22(4), p. 24 ('ρ̄|_{G_{L_ṽ}}' for ρ̄_ṽ|_{G_{L_ṽ}}). p. 86 labels the conditions (a), (nb), (c), (d); the TeX has an unlabelled item there, so this is a journal typesetting slip."
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E5",
+      "kind": "misprint",
+      "locator": "§1.5, principal twisted endoscopic triple, p. 13",
+      "printed": "an element w_c ∈ W_{F⁺} − W_F acts by the automorphism (g_1, g_2) ↦ (Φ_n g_2^{−t}Φ_n^{−1}, Φ_n g_1^{−t}Φ_n^{−1}). Then η : (g) ⋊ 1 ↦ diag(g, ᵗg^{−1}) ⋊ 1; … (1_n) ⋊ w_c ↦ diag(Φ_n, Φ_n^{−1}) ⋊ w_c.",
+      "correction": "w_c acts on ^L Res_{F/F⁺}GL_n by the swap (g_1, g_2) ↦ (g_2, g_1); with this action the printed η is an L-homomorphism.",
+      "reason": "An L-homomorphism needs η(w_c)η(g)η(w_c)^{−1} = η(w_c · g), where w_c · g = Φ_n g^{−t}Φ_n^{−1} on the dual group of U_n. With the printed action, the left side is (Φ_n²gΦ_n^{−2}, g^{−t}) = (g, g^{−t}), while the right side is (Φ_n g^{−t}Φ_n^{−1}, Φ_n^{−1}gΦ_n); already for n = 1 these are (g, g^{−1}) and (g^{−1}, g). With the swap (the Galois action on the dual group of a restriction of scalars) both sides equal (Φ_n g^{−t}Φ_n^{−1}, Φ_n^{−1}gΦ_n).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E6",
+      "kind": "misprint",
+      "locator": "§1.17, the inertial type τ_ṽ before Proposition 1.22, p. 24",
+      "printed": "τ_ṽ = ⊕_{i=1}^{n_1}(ι^{−1}Θ^{q_ṽ^{i−1}} ∘ Art^{−1}_{F_ṽ}) ⊕ (ω(ṽ) ∘ Art^{−1}_{F_ṽ})^{⊕n_2}",
+      "correction": "the first summands use Art^{−1}_{F_{ṽ,n_1}}: ⊕_{i}(ι^{−1}Θ^{q_ṽ^{i−1}} ∘ Art^{−1}_{F_{ṽ,n_1}}).",
+      "reason": "Θ is a character of k_{n_1}^×, the residue field of F_{ṽ,n_1}. Composed with Art^{−1}_{F_ṽ}, which lands in k(ṽ)^× on inertia, it would be trivial, since Θ|_{k(ṽ)^×} = 1 when p ∤ q_ṽ − 1. That contradicts Proposition 1.22(2), which describes the points by ψ_x|_I ∘ Art_{F_{ṽ,n_1}} = ι^{−1}Θ.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E7",
+      "kind": "gap",
+      "locator": "§1.17, proof of Proposition 1.22(3), p. 24",
+      "printed": "Reducing modulo ϖ and applying Hensel's lemma, we find that there is an element α′_ṽ ∈ R(ṽ, Θ, ρ̄_ṽ)/(ϖ) such that det(X − σ_{ṽ,1}(φ_ṽ)) ≡ ∏_{i=1}^{n_1}(X − q_ṽ^{i−1}α′_ṽ) mod ϖ.",
+      "correction": "Take α_ṽ = (−1)^{n_1+1} det σ_{ṽ,1}(φ_ṽ). Then det(X − σ_{ṽ,1}(φ_ṽ^{n_1})) = (X − α_ṽ)^{n_1} already in R(ṽ, Θ, ρ̄_ṽ) (check at Q̄_p-points, which suffices since the ring is reduced and p-torsion-free). α_ṽ is independent of the Frobenius lift, because det σ_{ṽ,1} is unramified (Θ ∘ N_{k_{n_1}/k(ṽ)} = 1).",
+      "reason": "Since q_ṽ is a primitive n_1-th root of unity mod p, the displayed product is X^{n_1} − α′^{n_1}, so Hensel's lemma needs an n_1-th root of (−1)^{n_1+1} det σ̄_{ṽ,1}(φ_ṽ) in the residue field, which the hypotheses do not provide. Example: n_1 = 2, q_ṽ ≡ −1 mod p, k = 𝔽_p and a non-square value. The proof also never shows that α does not depend on the Frobenius lift, as the statement claims. The statement is true.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E8",
+      "kind": "misprint",
+      "locator": "Notational slips in §1: Theorem 1.4(1), p. 12; p. 19; Lemma 1.25, p. 26",
+      "printed": "'For each finite place v ∉ S of F' (Theorem 1.4(1)); 'we write E(σ_v) for the set …' and 'σ′(v)' (p. 19, against E(σ(v)) in Proposition 1.14); 'for each embedding τ : F → ℂ inducing a place v of F⁺ … highest weight λ_{ι^{−1}τ}' (Lemma 1.25)",
+      "correction": "of F⁺; E(σ(v)) and σ′; for each τ with ι^{−1}τ ∈ Ĩ_p.",
+      "reason": "S, ι_v and U_n(𝒪_{F⁺_v}) live over F⁺. Proposition 1.14 uses E(σ(v)) and σ′. λ is indexed only by Ĩ_p, so λ_{ι^{−1}τ} is defined for only one of τ, τc. The meaning is clear in each case.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E9",
+      "kind": "misprint",
+      "locator": "§2.31, the twin map, p. 56",
+      "printed": "Then the character χ_{0,2}ψ|_{ℤ_p^×} is unramified and χ′_0 = χ_{0,2}ψ|_{ℤ_p^×} ⊗ χ_{0,1}ψ|_{ℤ_p^×} is an accessible refinement of the twist π_0 ⊗ ιψ.",
+      "correction": "χ_{0,2}ψ|_{ℚ_p^×} is unramified and χ′_0 = χ_{0,2}ψ|_{ℚ_p^×} ⊗ χ_{0,1}ψ|_{ℚ_p^×}, where ψ|_{ℚ_p^×} is the p-component of the Hecke character ψ.",
+      "reason": "χ_{0,1}, χ_{0,2} are characters of ℚ_p^×, so the twist must use the local component ψ_p = ψ|_{ℚ_p^×}. With ψ|_{ℤ_p^×}, the products are characters of ℤ_p^× (the first one trivial), which can be neither 'unramified' nor a point of 𝒯_0. The preceding 'ψ|_{ℤ_p^×} = χ_{0,2}|^{−1}_{ℤ_p^×}' is correct. With ψ_p the review checked τ² = 1 and Lemma 2.32 (s + s′ = k − 1).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E10",
+      "kind": "error",
+      "locator": "§2.11.1, proof of Lemma 2.12 (injectivity), p. 35",
+      "printed": "In this case Schur's lemma (cf. [CHT08, Lemma 2.1.8]), applied to ρ′_1(c)^{−1}ρ″_1(c), shows that ρ′_1, ρ″_1 are equal.",
+      "correction": "… shows that ρ″_1(c) = ρ′_1(c)(λ, 1) for a scalar λ ∈ 1 + 𝔪_A, so ρ″_1 is the conjugate of ρ′_1 by (α, 1) with α ∈ 1 + 𝔪_A, α² = λ^{−1}; the two are conjugate, which is what the lemma needs.",
+      "reason": "For any scalar λ ∈ 1 + 𝔪_A, setting ρ″_1 = ρ′_1 on G_{F,S} and ρ″_1(c) = ρ′_1(c)(λ, 1) gives a homomorphism with the same multiplier: j(λ, 1)j^{−1} = (λ^{−1}, 1) gives ρ″_1(c)² = ρ′_1(c)², and conjugation on G_F is unchanged. So the two lifts are not equal in general. Conjugating ρ′_1 by (α, 1) with α² = λ^{−1} (a square root exists in 1 + 𝔪_A) fixes ρ′_1|_{G_{F,S}} and gives ρ″_1.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E11",
+      "kind": "misprint",
+      "locator": "§2.11.1, Lemmas 2.12–2.13, p. 35",
+      "printed": "'objects of 𝒞_E … Let A ∈ 𝒞_E' (𝒞_E is defined nowhere); 'There is an obvious map sending ρ′_1 to tr ρ′_1|_{G_{F,S}}'; 'ρ′(σ^c) = J′(ρ′(σ))^{−t}(J′)^{−1}'; 'z ∈ U ⊂ 𝒳^{v−irr}_{ps,v}(E)'",
+      "correction": "𝒞′_E (or the complete Noetherian local E-algebras, given the use on p. 49); ρ′_1 ↦ ρ′_1|_{G_{F,S}}; ρ′(σ^c) = J′(ρ′(σ))^{−t}(J′)^{−1} ⊗ ϵ^{1−n}(σ); U an affinoid open subspace of 𝒳^{v−irr}_{ps,v}.",
+      "reason": "Only 𝒞′_E (Artinian local E-algebras with residue field E, p. 29) is defined. The set in (1) consists of lifts, not traces. The factor ϵ^{1−n} appears in the formula for ρ just before and in the trace condition. U must be a subspace, not a set of E-points. The meaning is clear in each case.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E12",
+      "kind": "gap",
+      "locator": "§2.18.1, proof of Theorem 2.27, p. 49",
+      "printed": "Since our parameters lie in 𝒯^{HT−reg}_n, Z^{ord} → U is a closed immersion",
+      "correction": "Choose U inside 𝒳^{irr}_{ps,n} × (𝒯^{reg}_n ∩ 𝒯^{HT−reg}_n); this is possible because that set is Zariski open and contains δ_n.",
+      "reason": "U is chosen in 𝒳^{irr}_{ps,n} × 𝒯^{reg}_n, which need not lie in 𝒯^{HT−reg}_n, so the stated reason does not apply to U as chosen. Shrinking U repairs it.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E13",
+      "kind": "misprint",
+      "locator": "Notational slips in §2: pp. 29, 32, 37, 39, 46, 51, 55",
+      "printed": "'for each 0 ≤ i ≤ n' (p. 29, proof of Lemma 2.4); '> t_N(M_i) ≥ t_H(Fil_i) =' (p. 32); 'δ_v ∈ T(Q̄_p)' (p. 32); the letter m for both the tower Z_m → ⋯ → Z_1 and the points z̃_1, …, z̃_m, 'Â_x → Ô_{X,x}' and 'Ô_{Z′_v,z′_i}' (p. 37); 'G_n(𝔸_F^+)' (p. 39); 'λ : ℰ(τ̄_n) → 𝒳_{ps,n}' and 'i_n = λ × (j ∘ ν)' (p. 46); 'T_{n,z′}' (p. 51); 'ψ_{π_0} : 𝕋^{pN}_0 → Q̄_p^×', '𝒵_0 ⊂ Hom(𝕋^{pN}_0, Q̄_p) × 𝒯(Q̄_p)' and '(π_0, χ_0) ∈ 𝒜_0' (p. 55)",
+      "correction": "0 ≤ i ≤ n − 1; t_H(M_i); 𝒯_v(Q̄_p); distinct letters, and the local rings at x′ and Ô_{Z′,z′_i}; G_n(𝔸_{F⁺}); ℰ_n(τ̄_n) and j_n; T_{n,z′_n}; → Q̄_p, 𝒯_0(Q̄_p) and ℛ𝒜_0.",
+      "reason": "In order: δ_{v,n+1} does not exist and D/Fil_n = 0; the M_1 display just above uses t_H; 𝒯 is only defined on p. 33; the rest are index and notation slips whose meaning is clear from the surrounding text.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E14",
+      "kind": "misprint",
+      "locator": "§4, Theorem 4.1(4), p. 69",
+      "printed": "(thus satisfying the equivalent conditions of Proposition 1.20 with n_2 = 2 if v ∈ T_{2,L} and n_2 = n − 2 if v ∈ T_{3,L})",
+      "correction": "with n_1 = 2 if v ∈ T_{2,L} and n_1 = n − 2 if v ∈ T_{3,L}.",
+      "reason": "§1.17 defines n_1 as the Deligne–Lusztig block size and n_2 = n − n_1. The §4 set-up (p. 68) and the level (p. 70) use n_1 = 2 on T_2 and n_1 = n − 2 on T_3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E15",
+      "kind": "gap",
+      "locator": "§5, Corollary 5.4, p. 80",
+      "printed": "Then there exists a homomorphism r : G_{F⁺,S} → 𝒢_n(ℤ̄_p) lifting r̄ such that r|_{G_{F,S}} is ordinary of weight λ",
+      "correction": "r : G_{F⁺,S∪Σ} → 𝒢_n(ℤ̄_p), of Steinberg type at Σ.",
+      "reason": "The hypotheses of Theorem 5.2 require Σ ≠ ∅, and the proof chooses 'any prime of R_{𝒮_Σ}/Q[1/p]', which gives a representation allowed to ramify at Σ. Finiteness of R_{𝒮_∅} over Λ, which the printed statement would need, is not proved (Corollary 5.5 only bounds dimensions). The corollary is not used later: its label is never referenced.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E16",
+      "kind": "gap",
+      "locator": "§5, Lemma 5.3, p. 79 (applied pp. 79, 85)",
+      "printed": "Let Γ be a topologically finitely generated profinite group",
+      "correction": "Assume Mazur's finiteness condition Φ_p for Γ (and Σ); the proof only needs the pseudodeformation rings Q_{t̄} to be complete Noetherian local rings, which Φ_p gives.",
+      "reason": "The lemma is applied to Galois groups with restricted ramification, such as G_{F⁺,S}, which are not known to be topologically finitely generated. They satisfy Φ_p. On p. 79 the ramification sets must also be enlarged, since t̄_2 is ramified at v_q through ψ̄. With these adjustments the argument goes through.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E17",
+      "kind": "misprint",
+      "locator": "Introduction to Part II, p. 65",
+      "printed": "we can find … a (de Rham) character ω : G_K → Q̄_p^× such that ωω^c = (det r_{π,ι}ϵ^{−1})^{n−1}.",
+      "correction": "ωω^c = (det r_{π,ι} · ϵ)^{1−n}.",
+      "reason": "For ρ = ω ⊗ Sym^{n−1}r|_{G_K}, the condition ρ^c ≅ ρ^∨ ⊗ ϵ^{1−n} forces ωω^c = (det r · ϵ)^{1−n}, since (Sym^{n−1}r)^∨ ≅ Sym^{n−1}r ⊗ (det r)^{1−n}. This agrees with §7, where ω^{n−1} with ωω^c = ϵ³ and det r_{σ_0} = δϵ^{−4} give ϵ^{3(n−1)}; the printed formula would give ϵ^{−5(n−1)}. The same sketch also says 'Sym^{n−1}ρ̄ will be irreducible' where 'ρ̄ will be irreducible' is meant.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E18",
+      "kind": "error",
+      "locator": "Introduction to Part II, p. 66",
+      "printed": "There is a slight wrinkle here in that such a group G does not exist if n is even",
+      "correction": "such a group G does not exist if n ≡ 2 mod 4; it exists for n odd and for n ≡ 0 mod 4.",
+      "reason": "A definite unitary group in n variables for K/ℚ, quasi-split at all finite places, exists iff there is a hermitian form whose discriminant is positive and a local norm at every finite place. For n ≡ 0 mod 4, d = 1 works. For n ≡ 2 mod 4 the class (−1)^{n/2}d would be a local norm at every finite place but not at ∞, contradicting the product formula for the Hilbert symbol. The statement sits in a heuristic sketch; the paper works over fields with [F⁺ : ℚ] even.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E19",
+      "kind": "gap",
+      "locator": "§1.17, p. 21 ('Let 2 ≤ n_1 ≤ n'); §4, pp. 68–70; §5, p. 83 ('Fix an integer n ≥ 2'); §7, proofs of Proposition 7.4 and Theorem 7.1, pp. 97, 101",
+      "printed": "Let 2 ≤ n_1 ≤ n be an integer (§1.17); 'We prove the proposition by induction on odd integers n = 2k + 1' (p. 97); 'The case r = 0 is already known' (p. 101)",
+      "correction": "Extend §1.17 to n_1 = 1 (λ̃(ṽ, Θ) = Θ, q_ṽ ≡ 1 mod p), where its statements hold trivially or by the same proofs. Treat the base cases separately: n = 1 is trivial (F = K, Π trivial), and n = 3 needs an anticyclotomic character with the prescribed order-p ramification, which exists by class field theory because p does not divide the order of 𝒪_{F_0}^×/𝒪_{F_0⁺}^×.",
+      "reason": "§4 allows n = 3, where the T_3 condition has n_1 = n − 2 = 1, outside §1.17. Proposition 7.4 applies Theorem 4.1 at n = 3 with an inductive π on GL_1, and Proposition 5.8 is then used for n − 2 = 1, outside its stated range n ≥ 2. Theorem 7.1 is stated for n ≥ 3, so the induction's base case n = 1 is not covered by it, and for m = 1 the r-induction starts at n = 1.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E20",
+      "kind": "misprint",
+      "locator": "Notational slips in §§4–5: pp. 70, 79, 82, 84, 85",
+      "printed": "'π′_{1,ṽ_3}|_{GL_{n_1}(𝒪)} contains λ̃(ṽ_3, Θ_{ṽ_3}, n_1)' (p. 70); 'the characteristic polynomial of X − γ under t' (p. 79); 'r̄ : G_{F,S} → 𝒢_n(k) such that ν_{𝒢_n} ∘ r̄ = μ̄' (p. 82); 'For each 1 ≤ i < j ≤ r, ρ̄_i|_{G_{F(ζ_p)}} is absolutely irreducible and ρ̄_i|_{G_{F(ζ_p)}} ≇ ρ̄_j|_{G_{F(ζ_p)}}' and 'the lift of ρ̄|_{G_{F_ṽ}}' (p. 84); '𝒮 = (F/F⁺, S, S̃, Λ_F, r̄|_{G_F}, …)' (p. 85)",
+      "correction": "restriction to 𝔮 ⊂ GL_{n_1}(𝒪); the characteristic polynomial of γ under t_A; G_{F⁺,S}; irreducibility for each 1 ≤ i ≤ r and distinctness for i < j, and ρ̄|_{G_{F_{0,ṽ}}}; r̄|_{G_{F⁺}}.",
+      "reason": "λ̃(ṽ, Θ, n_1) is a representation of the parahoric 𝔮; t is a determinant over A; page 76 and Theorem 5.7(2) use G_{F⁺,S}; read literally, the quantifier imposes nothing on ρ̄_r (or at all when r = 1); the field is F_0; 𝒮′ on p. 78 uses the G_{L⁺}-representation. The meaning is clear in each case.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E21",
+      "kind": "error",
+      "locator": "§7, proof of Proposition 7.4, p. 100 (with the data on pp. 97–99)",
+      "printed": "Let τ_0 denote the base change of τ to F_0, and let π_2 = τ_0 ⊗ |·|^{(n−2)/2}ιω_1ω_0^{n−1}. Let π_{n−2} = π_0 ⊗ |·|^{−3}ιω_0². We see that the hypotheses of Theorem 4.1 are now satisfied",
+      "correction": "The π_2 so defined is not conjugate self-dual, so Theorem 4.1 (which requires π_2 cuspidal and conjugate self-dual, p. 68) does not apply. A conjugate self-dual GL_2 block with the required residual representation ω̄_0^{n−1}ω̄_1 ⊗ Ind ψ̄^{2k} and local components must be supplied by another construction. The review did not find one within the printed framework.",
+      "reason": "Data: det r_{τ,ι} = ϵ^{−8k}δ_{K/ℚ} (p. 98); ω_1 is quadratic from G_ℚ; ω_0ω_0^c = ϵ³δ_{K/ℚ}|_{G_{F_0}} (p. 99); F_0 is Y-split, hence linearly disjoint from K/ℚ (p. 97). Since τ_0 comes from GL_2(𝔸_ℚ), τ_0^c ≅ τ_0 and τ_0^∨ ≅ τ_0 ⊗ ω_{τ_0}^{−1}. With χ = |·|^{(n−2)/2}ιω_1ω_0^{n−1}, the condition π_2^c ≅ π_2^∨ becomes τ_0 ≅ τ_0 ⊗ (ω_{τ_0}χχ^c)^{−1}. Here χχ^c = |·|^{n−2}(ω_0ω_0^c)^{n−1} = |·|^{4n−5}, because δ^{n−1} = 1 for n − 1 = 2k even, and ω_{τ_0} = |·|^{1−8k}δ_{K/ℚ}, so ω_{τ_0}χχ^c = δ_{K/ℚ}|_{F_0}, which is non-trivial. The same computation on the Galois side gives r_τ ≅ r_τ ⊗ δ_{K/ℚ}. But r_τ|_{G_{F_0}} ≅ r_τ|_{G_{F_0}} ⊗ δ would make it induced from G_{F_0K}, with N = 0 at every place, while τ is Steinberg at q_1 (N ≠ 0 above q_1). (π_{n−2} is conjugate self-dual: its twist uses the even power ω_0², which kills δ.) No change of exponent or twist from G_ℚ repairs π_2: the residual self-twists of Ind ψ̄^{2k} are {1, δ̄}, and every such choice fails by the same δ.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E22",
+      "kind": "gap",
+      "locator": "§6, proof of Lemma 6.7, p. 92",
+      "printed": "Since 𝒪^{c=−1}_{L_0,R_{i,L_0}} ⊗_ℤ Q̄_p decomposes as a Q̄_p[Gal(L_0/F⁺)]-module with multiplicity 1, [Mai02, Proposition 19] shows that this rank equals the ℤ-rank of (𝒪^×_{L_0,R_{i,L_0}})^{c=−1}, which is d|R_i|.",
+      "correction": "Apply the argument to one place v_i ∈ R_i: its units give multiplicity one, rank d > n + n², and d_{R_i} is at least that rank.",
+      "reason": "Gal(L_0/F⁺) ≅ ℤ/d × ℤ/2 has exactly d odd characters, and each place of R_i splits completely in L_0. So the c = −1 part of the R_i-units ⊗ Q̄_p, of dimension d|R_i|, contains each odd character |R_i| times. 'Multiplicity 1' holds only when |R_i| = 1, and |R_i| ≥ 2 occurs in the application in Proposition 7.4.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E23",
+      "kind": "gap",
+      "locator": "§7, proof of Proposition 7.4, pp. 99–101; Theorem 4.1, pp. 68–69",
+      "printed": "(the choices for Proposition 5.8 specify no weight λ, and Theorem 4.1 does not state the weight of Π; Theorem 7.1(b) is nevertheless claimed at the end)",
+      "correction": "Take λ to be the weight of π_1 in Proposition 5.8, and record in Theorem 4.1 that Π has the weight of π; its proof gives this.",
+      "reason": "Theorem 7.1(b) asserts the Hodge–Tate weights of r_{Π,ι}, but neither step of the printed proof tracks them.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E24",
+      "kind": "gap",
+      "locator": "§8, proof of Proposition 8.2, pp. 105–106",
+      "printed": "(3) … each accessible refinement of π′_l is n-regular (the inductive step)",
+      "correction": "Show that π′_l is not supercuspidal: the restriction to I_l is locally constant along the component, and supercuspidal types differ from those of representations with non-trivial Jacquet module.",
+      "reason": "Condition (3) is vacuous if π′_l is supercuspidal. The inductive hypothesis needs an accessible refinement to exist, and x′ ∉ 𝒵 does not exclude the supercuspidal case.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E25",
+      "kind": "gap",
+      "locator": "§8, end of the proof of Proposition 8.3, pp. 109–110",
+      "printed": "I = ∏_{l∈S−{p}} I_l A^T_𝒮 … (5) … the Jacquet module … is non-trivial … 'q ∈ Q_N such that π_q is ramified'",
+      "correction": "I = ∏_{l∈T} I_l A^T_𝒮 with T = S − {p, q_a}. q_a needs a separate argument: smoothness at q_a forces q_a ≢ 1 mod p and excludes the eigenvalue ratio q_a^{±1}, so π′_{q_a} is unramified. The non-trivial Jacquet module at every l holds because p > M > 3 gives p ∤ l(l² − 1), so every lift of the reducible r̄|_{G_{ℚ_l}} is reducible. Also, π′_q for π_q.",
+      "reason": "I_{q_a} is not an ideal of A^T, since T = S − {p, q_a}. The first sentence of (5) is never verified in the printed proof. The corrected steps hold.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
+    },
+    {
+      "id": "PAPER-NEWTON-THORNE-21/E26",
+      "kind": "misprint",
+      "locator": "Notational slips in §§6–7: pp. 89, 90, 92, 93, 98, 103, 109",
+      "printed": "'X ⊂ S − S_p' and '∏ GL_n(𝒪_{F_ṽ})' (p. 89); 'det r_{𝒮_D}|_{G_F}' (p. 90); 'unramified outside S_{p,L}' (p. 92); 'S^{ord}(U(D, c), M_D)_{𝔪_{D_0}}' and 'v ∈ R_L' (p. 93); 'χ_{q_2}|_{I_{ℚ_q}}' (p. 98); 'Sym^{n−1}r_{π,ι_p} is automorphic' (p. 103, proof of Theorem 7.6); 'the unramified character which sends ψ to 1 + T' (p. 109)",
+      "correction": "X ⊂ S_L − S_{p,L} and GL_n(𝒪_{L_ṽ}); |_{G_L}; S_{p,L_1}; U(D_0, c), M_{D_0} and R_{L_0}; I_{ℚ_{q_2}}; r_{σ,ι_p}; sends φ_l to 1 + T.",
+      "reason": "Each is an index or letter slip whose meaning is fixed by the surrounding definitions (the datum D lives over L, the Hecke algebra of D_0, the prime q_2, the form σ of Corollary 7.3, the Frobenius φ_l).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00127-3, 23 September 2026: no update-to, updated-by or relation entries",
+        "arXiv 1912.11261: v3 (27 September 2021, 'Accepted version') is the last version and has the same text",
+        "the published PDF from pmihes.centre-mersenne.org (SHA-256 ef76912a84fdf3d0630fe3aaa83548110f9aca9fc50a421401ba5462512dce37), page images"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-NEWTON-THORNE-21",
+        "reason": "found by the review and checked on the page image and in the arXiv v3 TeX"
+      }
     }
   ]
 }
