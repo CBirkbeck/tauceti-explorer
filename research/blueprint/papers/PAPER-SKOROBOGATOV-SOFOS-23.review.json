@@ -1,0 +1,47 @@
+{
+  "paper": "PAPER-SKOROBOGATOV-SOFOS-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "No layer plans averages of Schinzel's Hypothesis over coefficient boxes (§§2–4, 7): Bernoulli local models, the Möbius randomness law with Λ read evenly on ℤ, and the dispersion argument. The title already begins with the parent's atlas title. The brief names E1, E4, E10, E11, E19 and E30."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "No layer plans the density of Hasse-principle-satisfying members of random norm and conic-bundle families (§§5–6). The title already begins with the parent's atlas title. The brief names E14, E24, E32, E40, E41 and E37."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "ArithmeticStatistics ST.0 plans the coefficient-height density interface."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "AnalyticNumberTheory AN.2 and AN.5 plan Möbius cancellation, multiplicative means (Wintner) and Euler-product estimates."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "ExponentialSumsAndCircleMethod ES.0 plans the Dirichlet-kernel L¹ bounds of §3."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "SieveMethodsAndPrimePatterns SV.2 plans Heath-Brown's bilinear estimate for Jacobi symbols."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "HeightsRationalPointsAndObstructions RP.2 plans Brauer evaluation and local-to-global obstruction tests for §5."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "SieveMethodsAndPrimePatterns SV.4 plans Schinzel's Hypothesis (H) and the Bouniakowsky and Schinzel predicates."
+    }
+  ],
+  "notes": "Independent review REV-PAPER-SKOROBOGATOV-SOFOS-23 by Claude Code, session cc-2aeb03; the extraction was written by Codex (codex-a71f92) and completed by Claude Code (cc-442dc5, #2073). The published open-access version (67 pages, pp. 673–739; hash matching the extraction's) was read in full on page images in six ranges against every item. Corrected in place: 68 item fields (36 statements, 31 locators, 1 name); item 101 removed as not in the paper (the extraction's repair lemma, which is true and is now quoted where it is used); 47 items added, four planned (the cyclic Hasse norm theorem and Kronecker–Weber at Tau Ceti ClassFieldTheory Layer 13, the Hilbert-symbol conic criterion and product formula at QuadraticFormInvariants §6C) and one library (quadratic reciprocity in Mathlib); the briefs of routes 1 and 2 name the confirmed corrections; prerequisites rebuilt as 12 cited works with DOIs or stable links. Statuses: all library declarations opened at the pinned commits and all planned stages checked. Mistakes: of the extraction's 22, E2 and E15 are rejected on review (the modulus M is positive by convention, and 'density 1' is relative density, as the paper means), E1 and the rest are confirmed, and E4, E10, E11, E17, E19 and E22 are revised as the independent checks upheld. 20 new claims were checked a second time, independently, and all were confirmed; they are E23–E42. The main new ones: Lemma 4.9 is false for θ_P (E30), as Lemma 3.14 is (E1), because both count only positive prime values; the proof of Corollary 1.7 fails when a is a square (E24); the proofs of Theorems 5.3 and 5.8 need ℤ_p-points on the fibres (E32); §6.3 has three small gaps (E37, E40, E41). With Λ read evenly on ℤ, Theorems 1.1–1.5 and 1.9 stand; Corollary 1.10 and the square case of Corollary 1.7 are unproved as printed."
+}
