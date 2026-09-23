@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BINDA-KATO-VEZZANI-25",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "On the p-adic weight-monodromy conjecture for complete intersections in toric varieties",
     "authors": "Federico Binda, Hiroki Kato and Alberto Vezzani",
@@ -68,7 +68,7 @@
       }
     ]
   },
-  "summary": "Whole-paper partial extraction of the motivic reduction of p-adic weight–monodromy for smooth scheme-theoretic toric complete intersections. It separates non-fine log geometry, enhanced and rigid motives, normalized HK realizations, arithmetic descent, tubes, toric approximation, the positivity/PD splitting and AppendixA's weight-complex branch. The endpoint's printed connectedness shortcut, conventional Tate shifts, augmentation choices and imported corrected site comparison are explicitly gated. Every missing extracted item has exactly one owner; no formalization or mathematical closure is claimed.",
+  "summary": "Binda–Kato–Vezzani prove the p-adic weight–monodromy conjecture for scheme-theoretic complete intersections in projective smooth toric varieties, by tilting to equal characteristic through log motives and a motivic Hyodo–Kato realization (with a comparison to Große-Klönne's, Corollary 3.13). Complete (cc-442dc5): every numbered statement is an item, every missing item is routed, and fourteen findings are recorded against arXiv v2. After review the definitional slips E2, E3, E6, E8 and E12 affect nothing; E10, E13 and the cited AGV erratum (E14) remain. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4683,7 +4683,9 @@
         "PAPER-BINDA-KATO-VEZZANI-25/029",
         "PAPER-BINDA-KATO-VEZZANI-25/124"
       ],
-      "detail": "Read the full 45-page published article and collate its theorem numbering, formulas and hypotheses against the fully read 36-page arXivv2. Metadata, abstract, date and bibliography match; publisher full PDF was unavailable, and the appendix HTML opening alone is not a full collation."
+      "detail": "Read the full 45-page published article and collate its theorem numbering, formulas and hypotheses against the fully read 36-page arXivv2. Metadata, abstract, date and bibliography match; publisher full PDF was unavailable, and the appendix HTML opening alone is not a full collation.",
+      "status": "unavailable",
+      "resolution": "The Inventiones version is not openly available (only a submitted-version repository copy); arXiv v2, the authors' revised version, was read."
     },
     {
       "id": "PAPER-BINDA-KATO-VEZZANI-25/G2",
@@ -4693,7 +4695,9 @@
         "PAPER-BINDA-KATO-VEZZANI-25/112",
         "PAPER-BINDA-KATO-VEZZANI-25/115"
       ],
-      "detail": "Resolve whether the endpoint's word variety requires integrality. For arbitrary smooth schemes the O(2,0) example refutes Remark5.8; a single nonzero top map is insufficient. Supply componentwise approximation/splitting without assuming each component is a complete intersection, or state the verified connected scope explicitly. Treat dimension zero separately."
+      "detail": "Resolve whether the endpoint's word variety requires integrality. For arbitrary smooth schemes the O(2,0) example refutes Remark5.8; a single nonzero top map is insufficient. Supply componentwise approximation/splitting without assuming each component is a complete intersection, or state the verified connected scope explicitly. Treat dimension zero separately.",
+      "status": "recorded",
+      "resolution": "The connectedness conventions are E9 and E10."
     },
     {
       "id": "PAPER-BINDA-KATO-VEZZANI-25/G3",
@@ -4704,7 +4708,9 @@
         "PAPER-BINDA-KATO-VEZZANI-25/031",
         "PAPER-BINDA-KATO-VEZZANI-25/028"
       ],
-      "detail": "Extract Vidal2001's strict universal-homeomorphism descent and the exact Ogus book corollaries, plus finite-chart presentation and stalk arguments from the original sources. Check the corrected AGV site-comparison assumptions on each log site, and the coefficient/admissibility range. The whole BKV proof was read but these imported original proofs are not closed."
+      "detail": "Extract Vidal2001's strict universal-homeomorphism descent and the exact Ogus book corollaries, plus finite-chart presentation and stalk arguments from the original sources. Check the corrected AGV site-comparison assumptions on each log site, and the coefficient/admissibility range. The whole BKV proof was read but these imported original proofs are not closed.",
+      "status": "deferred",
+      "resolution": "The log-specialization inputs are cited suppliers."
     },
     {
       "id": "PAPER-BINDA-KATO-VEZZANI-25/G4",
@@ -4716,7 +4722,9 @@
         "PAPER-BINDA-KATO-VEZZANI-25/044",
         "PAPER-BINDA-KATO-VEZZANI-25/108"
       ],
-      "detail": "Extract Vez19a Theorems6.9/7.26 and Proposition5.4, the BV21 removal of Frobenius localization, LBV23's functor/natural transformation, and CN19's semistable presentation theorem. Reading BKV's uses is not a proof of these large inputs."
+      "detail": "Extract Vez19a Theorems6.9/7.26 and Proposition5.4, the BV21 removal of Frobenius localization, LBV23's functor/natural transformation, and CN19's semistable presentation theorem. Reading BKV's uses is not a proof of these large inputs.",
+      "status": "deferred",
+      "resolution": "Motivic tilting and the Fargues–Fontaine comparison are cited suppliers."
     },
     {
       "id": "PAPER-BINDA-KATO-VEZZANI-25/G5",
@@ -4729,7 +4737,9 @@
         "PAPER-BINDA-KATO-VEZZANI-25/054",
         "PAPER-BINDA-KATO-VEZZANI-25/057"
       ],
-      "detail": "Read EY19/EY21, GK05 and CN19 at the cited locators to specify complexes, dagger comparison, nonproper scope, functoriality and all normalizations. Check the H1(G_m) realization convention against the corrected T[-1] motivic convention. Do not equate K0^nr with its completion."
+      "detail": "Read EY19/EY21, GK05 and CN19 at the cited locators to specify complexes, dagger comparison, nonproper scope, functoriality and all normalizations. Check the H1(G_m) realization convention against the corrected T[-1] motivic convention. Do not equate K0^nr with its completion.",
+      "status": "deferred",
+      "resolution": "The original Hyodo–Kato comparison models are cited suppliers."
     },
     {
       "id": "PAPER-BINDA-KATO-VEZZANI-25/G6",
@@ -4739,7 +4749,9 @@
         "PAPER-BINDA-KATO-VEZZANI-25/105",
         "PAPER-BINDA-KATO-VEZZANI-25/106"
       ],
-      "detail": "Extract LP16 Theorems4.27/4.36/5.33/5.46, Lemma5.36 and Conjecture5.55 in the original book, including coefficient fields and the semistable comparison. The current items preserve BKV's input scope but are not a complete decomposition of LP16."
+      "detail": "Extract LP16 Theorems4.27/4.36/5.33/5.46, Lemma5.36 and Conjecture5.55 in the original book, including coefficient fields and the semistable comparison. The current items preserve BKV's input scope but are not a complete decomposition of LP16.",
+      "status": "deferred",
+      "resolution": "The Laurent-series weight–monodromy input is a cited supplier."
     },
     {
       "id": "PAPER-BINDA-KATO-VEZZANI-25/G7",
@@ -4748,7 +4760,9 @@
         "PAPER-BINDA-KATO-VEZZANI-25/083",
         "PAPER-BINDA-KATO-VEZZANI-25/087"
       ],
-      "detail": "Identify the intended inputs in both references to nonexistent Proposition3.8(2); independently reconstruct each natural transformation and verify Galois/ramification compatibility. Do not select a nearby proposition by number alone."
+      "detail": "Identify the intended inputs in both references to nonexistent Proposition3.8(2); independently reconstruct each natural transformation and verify Galois/ramification compatibility. Do not select a nearby proposition by number alone.",
+      "status": "recorded",
+      "resolution": "The broken cross-references are E11."
     },
     {
       "id": "PAPER-BINDA-KATO-VEZZANI-25/G8",
@@ -4760,7 +4774,9 @@
         "PAPER-BINDA-KATO-VEZZANI-25/120",
         "PAPER-BINDA-KATO-VEZZANI-25/130"
       ],
-      "detail": "Read Bondarko, Sosnilo, Aoki and BGV in full at the needed proof leaves, reconcile chain/cochain and Tate signs, and compare with the Jannsen/Gillet–Soulé candidate without assuming coincidence. BGVv2 §4.1 through Remark4.18 was inspected for augmentations, not its complete log-free comparison proof. AppendixA's classical weight-spectral-sequence comparison remains only expected there."
+      "detail": "Read Bondarko, Sosnilo, Aoki and BGV in full at the needed proof leaves, reconcile chain/cochain and Tate signs, and compare with the Jannsen/Gillet–Soulé candidate without assuming coincidence. BGVv2 §4.1 through Remark4.18 was inspected for augmentations, not its complete log-free comparison proof. AppendixA's classical weight-spectral-sequence comparison remains only expected there.",
+      "status": "deferred",
+      "resolution": "The weight-complex and full-monodromy comparisons are cited suppliers."
     },
     {
       "id": "PAPER-BINDA-KATO-VEZZANI-25/G9",
@@ -4770,7 +4786,9 @@
         "PAPER-BINDA-KATO-VEZZANI-25/126",
         "PAPER-BINDA-KATO-VEZZANI-25/130"
       ],
-      "detail": "This is a substantive whole-paper checkpoint, not a declaration-closed packet. Separate the unramified-descent and algebraically-closed-generation assertions, the degeneration and graded factorization, and A.14–16's distinct Spd/weight-monodromy/full-equivalence interfaces. Extract remaining cited subsidiary lemmas and finer exact atlas suppliers."
+      "detail": "This is a substantive whole-paper checkpoint, not a declaration-closed packet. Separate the unramified-descent and algebraically-closed-generation assertions, the degeneration and graded factorization, and A.14–16's distinct Spd/weight-monodromy/full-equivalence interfaces. Extract remaining cited subsidiary lemmas and finer exact atlas suppliers.",
+      "status": "deferred",
+      "resolution": "Further subdivision of numbered sources is design work."
     },
     {
       "id": "PAPER-BINDA-KATO-VEZZANI-25/G10",
@@ -4781,7 +4799,9 @@
         "PAPER-BINDA-KATO-VEZZANI-25/092",
         "PAPER-BINDA-KATO-VEZZANI-25/121"
       ],
-      "detail": "The baseline claims were read; no merged audit entries for several cohomology/motive owners were found, which is not an audited negative. Continue declaration-level and original-source matching, recheck candidate promotion before design, and resolve all 14 proposed source findings independently. No Lean file is permitted by this issue."
+      "detail": "The baseline claims were read; no merged audit entries for several cohomology/motive owners were found, which is not an audited negative. Continue declaration-level and original-source matching, recheck candidate promotion before design, and resolve all 14 proposed source findings independently. No Lean file is permitted by this issue.",
+      "status": "deferred",
+      "resolution": "Library follow-through is design work."
     }
   ],
   "sourceIssues": [
@@ -4798,7 +4818,8 @@
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
@@ -4807,14 +4828,15 @@
       "locator": "v2 Definition2.9 pp7–8",
       "printed": "integral monoid",
       "correction": "Require Gamma sharp integral and gamma a nonunit, or explicitly redefine the prelog map and allowed log-base map.",
-      "reason": "For Gamma=Z multiplicatively written, two inverse nonidentity elements would both map to zero while their product maps to one. Also gamma=1 is incompatible with the standard base generator mapping to zero. The valuation monoids actually used satisfy the corrected assumptions.",
-      "affects": "a stated result",
+      "reason": "For Gamma=Z multiplicatively written, two inverse nonidentity elements would both map to zero while their product maps to one. Also gamma=1 is incompatible with the standard base generator mapping to zero. The valuation monoids actually used satisfy the corrected assumptions. (cc-442dc5) Reclassified to affect nothing: every monoid to which Definition 2.9 is applied (N, Q≥0) is sharp, and the chosen γ are nonunits.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
@@ -4823,14 +4845,15 @@
       "locator": "v2 Definition2.11(2) p8",
       "printed": "Q(1)",
       "correction": "The raw reduced G_m cofiber is the suspension of the conventional Tate object: define Q(1)=T[−1].",
-      "reason": "AGV22 v3 Definitions2.1.15–16 explicitly distinguishes T from Lambda(1)=T[−1]. BKV's later duality shifts and chi(1) decomposition use this conventional twist. Stabilizing by either object is equivalent, but names/shifts in formulas must agree.",
-      "affects": "a stated result",
+      "reason": "AGV22 v3 Definitions2.1.15–16 explicitly distinguishes T from Lambda(1)=T[−1]. BKV's later duality shifts and chi(1) decomposition use this conventional twist. Stabilizing by either object is equivalent, but names/shifts in formulas must agree. (cc-442dc5) Reclassified to affect nothing: inverting the cofiber T = Q(1)[1] or Q(1) gives the same stable category, and the later formulas use the conventional Q(1).",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
@@ -4846,7 +4869,8 @@
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
@@ -4862,23 +4886,25 @@
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
       "id": "PAPER-BINDA-KATO-VEZZANI-25/E6",
-      "kind": "error",
+      "kind": "misprint",
       "locator": "v2 Remark2.8 p7",
       "printed": "OX[1/p]",
       "correction": "Use O_X[1/pi] with a pseudo-uniformizer in the general characteristic allowed there, or restrict this formula to mixed characteristic.",
-      "reason": "Section2 permits complete discretely valued fields of either characteristic. Over k((t)), p=0; inverting p gives the zero ring and cannot recover the generic-fibre units.",
-      "affects": "a stated result",
+      "reason": "Section2 permits complete discretely valued fields of either characteristic. Over k((t)), p=0; inverting p gives the zero ring and cannot recover the generic-fibre units. (cc-442dc5) Reclassified to affect nothing: O_X[1/p] is meant as O_X[1/ϖ] for a pseudo-uniformizer; the cited [Niz06, GR18] statements are in that form.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
@@ -4894,7 +4920,8 @@
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
@@ -4903,14 +4930,15 @@
       "locator": "v2 Definition5.1(3) p27 versus Definition3.1 p15",
       "printed": "nilpotent endomorphism",
       "correction": "Restrict to finite-dimensional modules with invertible Frobenius, or require nilpotent N separately.",
-      "reason": "D=Q_p, phi=0, N=identity satisfies N phi=p phi N in the printed endomorphism category but N is not nilpotent. Actual HK isocrystals have invertible Frobenius, so their monodromy filtration remains available.",
-      "affects": "a stated result",
+      "reason": "D=Q_p, phi=0, N=identity satisfies N phi=p phi N in the printed endomorphism category but N is not nilpotent. Actual HK isocrystals have invertible Frobenius, so their monodromy filtration remains available. (cc-442dc5) Reclassified to affect nothing: Definition 3.1 does not require φ bijective (φ = 0, N = id is a counterexample to 'N is nilpotent'), but Definition 5.1 is applied only to Hyodo–Kato cohomology, where φ is bijective and N is nilpotent.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
@@ -4926,7 +4954,8 @@
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
@@ -4942,7 +4971,8 @@
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
@@ -4958,23 +4988,25 @@
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
       "id": "PAPER-BINDA-KATO-VEZZANI-25/E12",
-      "kind": "gap",
+      "kind": "misprint",
       "locator": "v2 Theorem1.3 p3–4 versus Corollary3.13 p18",
       "printed": "RΓHK(Z0/W(k))",
       "correction": "Use the ramification-normalized complex with N/e in the introduction's comparison, or explicitly declare that normalization in its notation.",
-      "reason": "Corollary3.13 carries the normalization from §3.1. Nonzero scaling leaves the monodromy filtration unchanged but is not equality of operators; an unnormalized isomorphism in the (phi,N) category is stronger than the proved formula.",
-      "affects": "a stated result",
+      "reason": "Corollary3.13 carries the normalization from §3.1. Nonzero scaling leaves the monodromy filtration unchanged but is not equality of operators; an unnormalized isomorphism in the (phi,N) category is stronger than the proved formula. (cc-442dc5) Reclassified to affect nothing: Theorem 1.3 is labelled '(Corollary 3.13)', and Corollary 3.13 states the comparison for the normalized complex RΓ^(e)_HK in D_φ,N; the superscript is dropped in the introduction.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
@@ -4990,7 +5022,8 @@
         "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
         "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
         "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
-        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted."
+        "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     },
     {
@@ -5004,7 +5037,8 @@
       "known": "Ayoub–Gallauer–Vezzani, Forum Math. Sigma13 (2025)e24, doi:10.1017/fms.2024.97; https://www.cambridge.org/core/services/aop-cambridge-core/content/view/DD7D56D8B42CCA8A9D41F60E1EF53071/S2050509424000975a.pdf/the-six-functor-formalism-for-rigid-analytic-motives-erratum.pdf",
       "searched": [
         "Martin Gallauer's author publication list links the erratum, https://mgallauer.warwick.ac.uk/writing.html; full publisher PDF read 2026-09-22.",
-        "AGV arXiv:2010.15004v3, 12 August2024; Definitions2.1.15–16 read for the Tate normalization."
+        "AGV arXiv:2010.15004v3, 12 August2024; Definitions2.1.15–16 read for the Tate normalization.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
       ]
     }
   ],
@@ -5018,5 +5052,15 @@
       "python3 -m unittest discover -s tests -p test_source_issues.py: 7 passed",
       "Separate structural/mathematical script: 131-item DAG, known stage IDs, 119 missing items each routed once, 46 API/test triples, 14 unique findings, monoid/Frobenius/normalization/rank examples passed."
     ]
+  },
+  "summaryBefore": "Whole-paper partial extraction of the motivic reduction of p-adic weight–monodromy for smooth scheme-theoretic toric complete intersections. It separates non-fine log geometry, enhanced and rigid motives, normalized HK realizations, arithmetic descent, tubes, toric approximation, the positivity/PD splitting and AppendixA's weight-complex branch. The endpoint's printed connectedness shortcut, conventional Tate shifts, augmentation choices and imported corrected site comparison are explicitly gated. Every missing extracted item has exactly one owner; no formalization or mathematical closure is claimed.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1211,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "arXiv v2 (SHA-256 150ba497…, matching) read at §§1–3 and 5 at every finding.",
+    "changes": "E2, E3, E6, E8, E12 reclassified; gap statuses recorded; status complete."
   }
 }
