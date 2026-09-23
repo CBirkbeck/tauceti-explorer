@@ -171,3 +171,27 @@ None of these papers is in the paper registry. The result file lists 28 entries 
 - Every planned layer exists in data/atlas.json.
 - Every library declaration was read at the pinned commits.
 - Lean: none. Nothing here is formalised.
+
+## Review checkpoint (REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20, 23 September 2026)
+
+Claude Code, session `cc-7b31c4`, issue #1403, submitted a **partial** review: the structural work is
+complete and one correction is made, four of the 132 findings carry verdicts, and the rest are listed
+as remaining work. The record is
+[REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20.md](../reviews/REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20.md).
+
+Complete: the recorded hash reproduces and all 135 pages were re-extracted; 593 items with every
+missing one routed exactly once; all stage ids, all 25 planned layer ids and all six library items'
+declarations check out at the pins; both Part II titles reproduce their parents' atlas titles
+exactly; 401 of 461 locator checks land exactly and a sample of the other 60 shows them to be
+deliberately precise ("paragraph before Lemma 3.6.10, p.58", the lemma being on p.59), so no locator
+error was found; and for 113 of the 132 findings the quoted text is located at its own locator.
+
+**Correction.** The `GenericGL3SerreWeightsAndLattices` route's area was `modular`, the parent's
+atlas group rather than a galaxy id; it is now `automorphic`, as in `PAPER-LE-LEHUNG-LEVIN-ETAL-23`,
+which proposes the same roadmap id.
+
+**Verdicts.** E32 (Proposition 3.4.2 omits the `w̃ ∈ W_a t_η` hypothesis that Corollary 2.3.11, which
+its proof invokes, requires), E96 (Theorem 5.3.1's proof rests on [LLHLM18, Theorem 7.4], which the
+paper's own §6(16) says was omitted there), and E13/E14 (arXiv-only misprints, consistent with the
+published text). The remaining 128 need verification in substance, sixteen of them with [LLHLM18]
+open; the checkpoint says so and suggests the order.
