@@ -39845,6 +39845,49 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-PASKUNAS-QUAST-26/E1",
+   "kind": "error",
+   "locator": "§11, Proposition 11.5 and its proof, pp. 55–56 (published version; arXiv v2, Proposition 11.5, p. 62)",
+   "printed": "§11: 'Let G be a generalised reductive group over an algebraically closed field κ.' Proposition 11.5: 'Let ρ : Γ_F → P(κ) be a representation such that (1) ρ(Γ_F) is not contained in an R-Levi of P; (2) the G-semisimplification of ρ is not contained in H_0; (3) h⁰(Γ_F, (Lie(G′_1)_sc)^*(1)) = 0. Then h⁰(Γ_F, (Lie G′_sc)^*(1)) = 0.' Proof: 'If ψ = ω or ψ = ω^{−1} then ψ^{p−1} = 1.'",
+   "correction": "Add the hypothesis char κ = p (as in its only application, Proposition 14.5, which works on the special fibre X̄^gen); in characteristic 0 the proposition must also exclude ψ = ω^{±1}, e.g. by replacing condition (2) with 'ψ ≠ ω^{±1}' as in Lemma 11.4.",
+   "reason": "The step ψ = ω^{±1} ⇒ ψ^{p−1} = 1 uses ω = χ_cyc ⊗ κ of order dividing p − 1, true only in characteristic p. Counterexample in characteristic 0: G = PGL_2, P = B_2, L = T_2 (dim U = 1, G_1 trivial, H_0 = μ_{p−1} ⊂ T_2), κ = ℚ̄_p, ρ̃ = (1 b; 0 χ_cyc) a non-split extension (H¹(Γ_F, ℚ̄_p(χ_cyc^{±1})) ≠ 0 by the Euler characteristic), so ψ = χ_cyc^{−1} = ω^{−1}. Then (1) holds (non-split), (2) holds (ψ has infinite order, so the G-semisimplification is not in μ_{p−1}), (3) is vacuous; but the line ē_{12} of (Lie SL_2)^*(1) has character ωψ = 1 (the computation in the proof of Lemma 11.4), so h⁰ ≥ 1.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2026.10030: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1017/fmp.2026.10030, 23 September 2026)",
+    "arXiv 2404.14622: v1 (22 April 2024) and v2 (9 January 2026, the revised version after the referee report); v2 has the recorded passages unchanged, and no later version exists",
+    "The article page on Cambridge Core (published 30 April 2026), 23 September 2026: its corrections list is empty and no erratum is linked",
+    "Only the characteristic-p case is used: Theorem 14.6 reduces all three fibres to the special fibre through Corollary 13.15, so no main theorem is affected."
+   ],
+   "owner": "PAPER-PASKUNAS-QUAST-26",
+   "file": "research/blueprint/papers/PAPER-PASKUNAS-QUAST-26.result.json",
+   "citation": "Paškūnas–Quast, \"On local Galois deformation rings: generalised reductive groups\", Forum of Mathematics, Pi (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-PASKUNAS-QUAST-26/E2",
+   "kind": "misprint",
+   "locator": "§5.1, Lemma 5.5, p. 31",
+   "printed": "every ρ ∈ X^gen_{GL_d}(A), where A ∈ R^ps_G-alg, factors as ρ : Γ → Q → GL_d(A)",
+   "correction": "… where A ∈ R^ps_{GL_d}-alg …",
+   "reason": "X^gen_{GL_d} is a functor on R^ps_{GL_d}-algebras (Definition 5.3), and R^ps_G is only introduced in §7.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2026.10030: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1017/fmp.2026.10030, 23 September 2026)",
+    "arXiv 2404.14622: v1 (22 April 2024) and v2 (9 January 2026, the revised version after the referee report); v2 has the recorded passages unchanged, and no later version exists",
+    "The article page on Cambridge Core (published 30 April 2026), 23 September 2026: its corrections list is empty and no erratum is linked"
+   ],
+   "owner": "PAPER-PASKUNAS-QUAST-26",
+   "file": "research/blueprint/papers/PAPER-PASKUNAS-QUAST-26.result.json",
+   "citation": "Paškūnas–Quast, \"On local Galois deformation rings: generalised reductive groups\", Forum of Mathematics, Pi (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-QIAN-23/E1",
    "kind": "error",
    "locator": "Main paper Lemma3.12, publisher PDF pp.29–30",
