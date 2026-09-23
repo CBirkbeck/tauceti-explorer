@@ -132,3 +132,30 @@ Each entry says what the paper takes from it.
 ## Checks
 
 `python3 scripts/check_paper.py research/blueprint/papers/PAPER-ABE-18.result.json` reports no errors.
+
+## Independent review (`REV-PAPER-ABE-18`, issue #1431)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, both Part II routes accepted,
+all 27 findings confirmed, one `affects` field corrected in place. The full review is in
+[`reviews/REV-PAPER-ABE-18.md`](../reviews/REV-PAPER-ABE-18.md).
+
+Both recorded hashes match byte for byte. Simulating the shared counter independently gives the same
+**243 numbered objects**, with the appendix lettered `A` — the reading the locators need — and
+**coverage is complete**: the ten uncovered numbers are nine bare subsubsection headings and one remark.
+The single `planned` item's two layers exist in `data/atlas.json`. Both routes reproduce their parent's
+title verbatim, as PROTOCOL §15 requires, and neither duplicates existing atlas material: the p-adic
+differential equations Part II is already proposed by `PAPER-XU-ZHU-22` with the same parent, and the
+shtukas parent is ℓ-adic throughout, with no atlas coverage of isocrystals or companions.
+
+All **27 findings quote the source verbatim and all 27 are confirmed**. Several are settled by the paper
+against itself — the Corollary of §4.3.3 writes `E′(−t)` where the Proposition it comes from writes
+`E′(t)`; `Tr_f ∈ Ext⁰` comes from `E_1^{0,0}`, not `p = 1`; the appendix's own `L_x(E,Z) =
+det(1 − Z^{deg(x)}F_x)^{−1}` shows `F_x` is the `q^{deg x}`-Frobenius, so A.3.2's sum needs
+`F_x^{n/deg x}`. Three by computation: the Dwork comparison map `exp((ω−1)πx)` has coefficients of
+absolute value `p^{−s_p(n)/(p−1)}`, which do not tend to 0, so Remark 1.1.2's display is not an
+isomorphism (E4); `Spec F_{q²}` over `F_q` at `n = 2` makes the stacky trace formula read `2 = 0` (E24);
+and the `E_1` weight bound in §2.2.32 falls short of the abutment by the simplicial index (E13).
+
+The one correction: **E4's `affects`**, from `nothing` to `the proof` — the display is the whole
+justification of Remark 1.1.2, and the remark is used inside the proof of Lemma 1.4.11. The remark's
+conclusion stands, but the entry's repair (`σ^N = σ′^N`) is a sketch, and the review says so.
