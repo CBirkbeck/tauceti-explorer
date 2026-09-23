@@ -59022,9 +59022,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed, and the counterexample is decisive. Take q = 4, G and χ trivial, s_r = 4^{1/r} > 0 and s′_r = 4^{1/r}e^{2πi/r}. Both are compatible systems of roots: (s′_{rr′})^r = 4^{1/r′}e^{2πi/r′} = s′_{r′}. But s_2 = 2 and s′_2 = −2, so for X = L^{1/2} and Y = 2·[pt] the counts agree for s and differ for s′, and no element of Gal(Q̄/Q) carries 2 to −2. The definition’s appeal to ‘two choices of roots of p differ by an element σ of Gal(Q̄/Q)’ is therefore not available at prime powers. The repair the extraction gives is the right one and its density argument is sound: closed points of Spec R with prime residue field have Dirichlet density one, which is all the Chebotarev step of Theorem 2.18 uses, so Theorems 2.18–2.19 stand. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E2",
@@ -59043,9 +59043,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed, and I checked the obstruction independently. A continuous character of a profinite group into Q_ℓ^× has image in Z_ℓ^×, and for odd ℓ one has (Z_ℓ^×)^{ℓ^k} = μ_{ℓ−1}·(1 + ℓ^{k+1}Z_ℓ). The cyclotomic character of π₁ of a finite-type Z-algebra has open image, so it contains 1 + ℓ^m for some m, and 1 + ℓ^m does not lie in μ_{ℓ−1}·(1 + ℓ^{k+1}Z_ℓ) once k ⩾ m. So no ℓ^k-th root of the Tate twist exists with Q_ℓ-coefficients for large k, and passing to a further finite étale extension does not help, the image staying open. The printed exp((1/r)·log ρ) also converges only for r of small ℓ-adic valuation. The lemma is true as the extraction restates it — with Q̄_ℓ-coefficients, or for the finitely many r that actually occur as denominators in Theorem 2.18 — and the observation that the sheaves live on Spec R′[1/ℓ] is right. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E3",
@@ -59064,9 +59064,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed, and the paper’s own proof shows the mismatch. The first assertion of Lemma 3.12 is about μ_r-gerbes, i.e. classes in H²_ét(A, μ_r) — the proof says in terms ‘the subset of H²_ét(A, μ_r) corresponding to gerbes which are trivial on A_{F^s}’ — while the second is stated with Br(P)[r], and Br(−)[r] is not H²(−, μ_r): the Kummer sequence leaves the term Pic/r. I checked the extraction’s example arithmetic. For F = Q₅ and E : y² = x³ − x, which has good reduction at 5 with full rational 2-torsion, E(F₅) has 8 points (x = 0, 1, 4 give one each, x = 2, 3 give two each, plus infinity) and contains E[2] ≅ (Z/2)², so it is Z/2 × Z/4; the formal group is pro-5, so E(Q₅)/2 has order 4 and so does H¹(F, E)[2]. Meanwhile H¹(F, E[2]) has order 16 by the local Euler characteristic formula (5 ∤ 2, so |H¹| = |H⁰||H²| = 4·4). The two sides of the printed equivalence therefore have orders 4 and 16. With H²_ét(P, μ_r) in place of Br(P)[r] both sides are H¹(F, A^∨[r]) and the statement is right, which is also the form Lemma 6.7 — its only use — needs. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E4",
@@ -59085,9 +59085,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed. The printed sequence asserts injectivity of Br(K) → Br(X)_K unconditionally and writes H¹(K^sep, −) where the Galois group G_K = Gal(K^s/K) is meant. Injectivity fails exactly as the extraction says: for K = R and X the conic x² + y² + z² = 0, which is projective and geometrically connected with X(R) = ∅, the class of the Hamilton quaternions generates Br(R) = Z/2 and dies in Br(X), X being its Severi–Brauer variety. The full Hochschild–Serre sequence the extraction writes out is the correct statement, and Lemma 6.5 uses only exactness at Br(X)_K, which always holds, so nothing downstream moves. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E5",
@@ -59106,9 +59106,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed. Page 524 prints ‘recover the dimension of the χ-isotypic component of H^q(X_E, Ω^q)’, and the decomposition displayed immediately above is ⊕_{p+q=i} H^q(X_E, Ω^p) ⊗ C_ℓ(−p) ≅ H^i(X_Ē, Q_ℓ) ⊗ C_ℓ, in which the Hodge–Tate weight p selects h^{p,q}. So Ω^q should be Ω^p; the intended reading is fixed by the display one line earlier. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E6",
@@ -59127,9 +59127,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed decisively in all three places, the paper’s own indices settling each. Page 526 prints ‘[Y_i]L^{β_j}’, mixing the index i with the exponent β_j; the displayed sheaf decompositions are (R^{c−2α_i}f_{i,*}Q(α_i))^χ and (R^{c−2β_i}g_{i,*}Q(β_i))^χ, where the twist should be Q(−α_i) and Q(−β_j) since L corresponds to Q_ℓ(−1); and page 527 prints h^{p,q}_χ(Y_C) = Σ_{i=0}^{m′} h^{p−α_i,q−α_i}_χ(Y_j), where the sum runs over i while its summand is indexed by j and the exponents belong to the X side. Only the bookkeeping is affected. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E7",
@@ -59148,9 +59148,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed. Page 528 prints ‘We can therefore apply Theorem 2.18 to G = Γ × μ_r and Σ_{γ∈Γ}[Y_{i,γ}]·L^{α_i} to deduce the assertion’, while the stringy count set up earlier in the same proof is over conjugacy classes [γ] with the fermionic shift F(γ) as exponent, and α_i denotes the gerbe in this proof, not an exponent. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E8",
@@ -59169,9 +59169,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed decisively by the claim it is proving. Claim 4.2 asks for ‘an F-analytic 1-gauge form η … such that |η^{⊗r}| = q^m·|ω|’, and the proof’s own display reads 1 = |(dx₁ ∧ ⋯ ∧ dx_n)^{⊗r}| = q^m·|g(dx₁ ∧ ⋯ ∧ dx_n)^{⊗r}|, which identifies η^{⊗r}, not η, with (dx₁ ∧ ⋯ ∧ dx_n)^{⊗r}. So η = dx₁ ∧ ⋯ ∧ dx_n. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E9",
@@ -59190,9 +59190,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed decisively. Definition 1.2 on p. 508 prints ‘M₁^♦ ≃ Split′(M₂^♦/A^♦, α₂), and M₂^♦ ≃ Split′(M₁^♦/A^♦, α₂)’ — the same gerbe twice. The second must be α₁, as Definition 6.9(c) and Theorem 7.18 have it. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E10",
@@ -59211,9 +59211,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed decisively by the preceding sentence. Definition 6.9(c) on p. 569 says ‘The isomorphism of (b) defines a P_{i′}^♦-torsor structure on the same space’ and then stipulates ‘isomorphisms of P_i^♦-torsors Split′(M_i^♦/A^♦, α_i) ≃ M_{i′}^♦’. Both sides carry P_{i′}^♦-actions, and Theorem 7.18 states the two isomorphisms as P_{PGL_n}- and P_{SL_n}-torsor isomorphisms accordingly. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E11",
@@ -59232,9 +59232,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed. Definition 7.1(a) on p. 575 prints ‘Let D be a line bundle on X. A D-Higgs bundle is a pair (E, θ), where E is a vector bundle on S, and θ : E → E ⊗ D an O_X-linear morphism.’ D lives on X and θ is O_X-linear, so E is a bundle on X; S is the base of the family. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E12",
@@ -59253,9 +59253,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed. Lemma 7.8(a) on p. 579 prints Nm^{−1}_{Y×_A S/X}(L ⊗ det(π_*O_{Y×_A S})) without the inverse, and the extraction’s reason is the right one: the proof uses Nm(L′) = det(π_*L′)·det(π_*O)^{−1}, so det(π_*L′) ≅ L gives Nm(L′) ≅ L ⊗ det(π_*O)^{−1}. The extraction’s tracking of the consequences is careful and, as far as I checked it, right: with the corrected sign the statements of Lemma 7.13(a)–(b) are as printed while their proof and the proof of Theorem 7.16 carry the opposite sign, and Theorem 7.16 survives by taking N = M^{−1}Q^n. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E13",
@@ -59274,9 +59274,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed, and the counterexample sits inside the paper’s own hypotheses, which is what makes it serious. Take F = Q₅ and L = Q₅(y) with y⁴ − 20y² + 50 = 0, so y² = 5(2 + √2) with 2 + √2 of norm 2, a unit, and √2 ∉ Q₅ since 2 is not a square mod 5. Then Q₅(√2) is the unramified quadratic extension and L/Q₅(√2) is ramified, so e = f = 2 and d = 4; y ∉ Q₅(√2) because v(y²) = 1 is odd, so L/F has degree 4. For the biquadratic x⁴ + px² + q the Galois group is cyclic exactly when q(p² − 4q) is a square, and here 50·200 = 10000 = 100², so Γ ≅ Z/4 with I ≅ Z/2 — a non-split extension, against Lemma 5.1(c). And μ₄ ⊂ Q₅, so even the μ_{e²} ⊂ F assumption of §5 holds. The only proper subfield is the unramified quadratic one, which contains no element of valuation 1/2, so F(π_L) = L has degree 4 ≠ e for every uniformiser, against (a). The extraction’s repair — pass to L′ = L·F_d, where (g, 1) generates a complement of I and X_{L′/F} ≅ X_{L/F} by Lemma 5.3 — is the natural one; I checked its shape rather than re-deriving every use in Lemmas 5.5, 5.7, 5.8, Proposition 5.15 and Theorem 5.20, so that part rests on the extraction. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E14",
@@ -59295,9 +59295,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed, and I checked the witness. In Construction 4.15 the generator of I is taken to be the image of a primitive |Γ|-th root of unity under local reciprocity. For F = Q₅ and L = Q₅(√5) we have Γ = I = Z/2 and ζ = −1; the norm group of L^× meets Z₅^× in the squares, and −1 ≡ 4 is a square in Q₅, so r(−1) = 1 is not a generator, whereas r(ζ₄) is, ζ₄ being a non-square (its residue ±2 is a non-residue mod 5). The general condition is gcd((q − 1)/e, e) = 1, which fails here with q − 1 = 4 and e = 2. The tame character σ ↦ σ(π_L)/π_L of Lemma 5.1(b) is the normalisation under which the later computations are made, so the extraction’s correction restores consistency rather than changing the mathematics. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E15",
@@ -59316,9 +59316,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed as a gap. The splitting whose μ_e-action produces the cocycle (c_ij) is constructed over Spec L, the generic fibre, where σ_ξ acts freely; τ̃ is defined through j_σ^* on the special fibre B_{k_F}I, which is where the twisted sectors of IX_{L/F} live, the fixed scheme of a non-trivial σ_ξ on Spec O_L being Spec k_L. The proof passes between the two without a comparison, and the extraction is right that one is needed. Its proposed comparison — choose an O_L^×-valued splitting u, which exists because Br(O_L) = 0, and compare π^{ψ/e} with u modulo a μ_e-coboundary — is plausible and I did not verify it in detail; that part rests on the extraction. Its observation that the sign turns on the γ^*/γ_* convention in (2) is fair. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E16",
@@ -59337,9 +59337,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed as a gap, and the numerical witness is right. Theorem 5.20 is proved under the standing assumption μ_{e²} ⊂ k of §5.4, while admissibility (Definition 5.22) gives only μ_{r·|Γ|} ⊂ F. With Γ = I = Z/4, r = 2 and F = Q₃(μ₈), so that k_F = F₉: μ_{r|Γ|} = μ₈ ⊂ F makes α admissible, but μ_{e²} = μ_{16} ⊄ F₉, so Theorem 5.20 is not available for a totally ramified quartic T_φ. The second half of the point is equally fair: τ̃ is a μ_e-transgression and τ_α a μ_r-transgression, and ‘by definition, the right hand side agrees with τ_α(y)’ passes between them without argument. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E17",
@@ -59358,9 +59358,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed. The printed inference is ‘Proposition 5.15 guarantees that Br(X_{L/F})[e] is a finite group of order e. Therefore j_σ^* : Br(X_{L/F})[e] ↠ Br([Spec k_F/I])[e] is an isomorphism’, and a surjection from a group of order e is an isomorphism only if the target has order e, which is nowhere shown. The extraction supplies exactly what is missing and it is correct: Kummer gives Pic(B_{k_F}I) = Hom(I, k_F^×) ≅ Z/e by Claim 5.9 and |H²(B_{k_F}I, μ_e)| = e² by Lemma 5.12, so |Br(B_{k_F}I)[e]| = e. The conclusion stands once that line is added. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E18",
@@ -59379,9 +59379,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed, both halves, and I checked the counterexample. An Azumaya algebra of rank r² is a PGL_r-torsor, so its Brauer–Severi variety is a P^{r−1}-bundle, not a P^r-bundle. And the ‘only if’ fails over a general base: B = End(T_{P²}) is split, being an endomorphism algebra of a vector bundle, but a section of P(T_{P²}) → P² would be a line subbundle O(a) ⊂ T_{P²} with locally free quotient, which forces c₂(T(−a)) = a² − 3a + 3 = 0; that quadratic has discriminant −3 and no integer root, indeed no real one. The proof of Lemma 5.14 uses only the direction that does hold and the local case, so nothing is affected. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E19",
@@ -59400,9 +59400,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed decisively, both halves, by the paper’s own indices. Page 561 prints that the boundary map of the Bockstein sequence Z ↪ Z ↠ Z/eZ ‘sends (φ_ijk) to the cocycle (ψ_ij)’, but for 0 → Z →^e Z → Z/e → 0 the connecting map runs H¹(−, Z/e) → H²(−, Z), so it sends the class of (ψ_ij mod e) to (φ_ijk); and it then speaks of ‘(ψ_ijk) ∈ H²(k, Z)’, though ψ carries two indices everywhere else and φ is the three-index cochain. The further corrections the extraction lists in (22) and Claim 5.21 are of the same bookkeeping kind and I checked them against the printed text. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E20",
@@ -59421,9 +59421,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "reviewReason": "Confirmed, with one distinction I would record. The substantive slip is the application of Lemma 2.7(c): equation (4) on p. 516 reads H¹_ét(k, Hom_{sm.ab.grp.k-sch.}(Γ, A)) ↪ H²_ét([Y/Γ], A) ↠ Ext¹_{sm.ab.grp.k-sch.}(Γ, A_k), whereas p. 554 prints the subgroup as Hom(μ_e, μ_e); the cohomological H¹_ét(k_F, −) has been dropped. Written correctly with the group I acting on Spec k_F — which is the presentation the middle term B_{k_F}I names, and for which I is cyclic as 2.7(c) requires — the first term is H¹_ét(k_F, Hom(I, μ_e)), and since μ_e ⊂ k_F that is Z/e by evaluation at Frobenius, so the lemma’s conclusion |H²| = e² is unchanged. The distinction: the paper writes the same stack as [Spec k_F/I] = [Spec k_L/Γ], and in the second presentation a central extension of Γ is the right object, so that half of the correction is a choice of presentation rather than an error. Checked in the published text (Invent. math. 221, 505–596) at the recorded page. No correction is in print: Crossref's record of doi:10.1007/s00222-020-00957-8 carries no update-to, updated-by or relation entry, re-checked by this review on 23 September 2026."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E1",
@@ -93146,155 +93146,346 @@
    "id": "PAPER-SCHMIDT-STIX-16/E1",
    "kind": "misprint",
    "locator": "Proof of Theorem 4.7, end of the proof of property (b), p. 837",
-   "printed": "\"= (pr2 ιY r(γ1))et = (ιZ r(γ2) r(γ1))et, and this shows (a).\"",
+   "printed": "and this shows (a)",
    "correction": "\"and this shows (b).\"",
    "reason": "The computation proves the functoriality r(γ2γ1) = r(γ2)r(γ1), which is property (b). Property (a) (the retraction property) was proved in the preceding paragraph, and the next sentence of the paper cites 'the established retract property (a) and functoriality (b)'.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
-    "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
-    "the Annals of Mathematics article page, which lists no erratum",
-    "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
    ],
    "owner": "PAPER-SCHMIDT-STIX-16",
    "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
    "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Confirmed against p. 837 and v2 TeX: the immediately preceding computation proves functoriality (b), not the already proved retraction identity (a)."
   },
   {
    "id": "PAPER-SCHMIDT-STIX-16/E2",
    "kind": "misprint",
    "locator": "Theorem 4.7(b), p. 835",
-   "printed": "\"(b) Functoriality: Let Z be a further geometrically connected variety over k that can be embedded as a locally closed subscheme into a product of hyperbolic curves over k.\"",
+   "printed": "Z: geometrically connected, locally closed in a product of hyperbolic curves",
    "correction": "\"Let Z be a further smooth, geometrically connected variety over k …\"",
    "reason": "r(γ2): Y → Z is only defined for smooth Z. The construction factors through Proposition 4.4, which requires the target Y ⊆ W to be smooth, and Theorem 4.7 itself is stated for smooth X and Y.",
-   "affects": "a stated result",
+   "affects": "nothing",
    "known": "new",
    "searched": [
-    "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
-    "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
-    "the Annals of Mathematics article page, which lists no erratum",
-    "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
    ],
    "owner": "PAPER-SCHMIDT-STIX-16",
    "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
    "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Confirmed as an omitted explicit smoothness qualifier for Z in the displayed functoriality clause. The ambient family defining r is already smooth; this is not evidence that the intended theorem is false. Keep Z smooth in the extracted contract."
   },
   {
    "id": "PAPER-SCHMIDT-STIX-16/E3",
    "kind": "misprint",
    "locator": "Proof of Theorem 6.2, p. 846",
-   "printed": "\"We have δ f_et = f_et γ, and by Proposition 4.8, we obtain f r(δ) = r(γ) f = f.\"",
+   "printed": "f r(δ)=r(γ) f=f",
    "correction": "r(δ) ∘ f = f ∘ r(γ) = f",
    "reason": "Here f: X → Y and r(δ): Y → Y, so f ∘ r(δ) is not defined. Proposition 4.8, applied with X′ = Y′ = X, X = Y = Y, the dominant maps f and f, and the isomorphisms γ′ = γ and γ = δ, gives f r(γ) = r(δ) f. Then r(γ) = id_X gives r(δ) f = f, and r(δ) = id_Y because f is surjective.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
-    "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
-    "the Annals of Mathematics article page, which lists no erratum",
-    "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
    ],
    "owner": "PAPER-SCHMIDT-STIX-16",
    "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
    "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Confirmed by source and domains: f:X→Y, r(γ):X→X and r(δ):Y→Y; only r(δ)f=f r(γ)=f composes. Surjectivity of the elementary fibration then gives r(δ)=id."
   },
   {
    "id": "PAPER-SCHMIDT-STIX-16/E4",
    "kind": "misprint",
    "locator": "Proof of Proposition 5.3, p. 841",
-   "printed": "\"Therefore m(g) = 1 holds for elements whose images in Ẑ generate an open subgroup. This is a dense set of elements in π1^et(X, x̄) because it contains the preimage of Z.\"",
+   "printed": "preimage of Z",
    "correction": "\"… because it contains the preimage of Z ∖ {0}.\"",
    "reason": "Elements mapping to 0 ∈ Ẑ generate the trivial subgroup, which is not open, so the preimage of Z is not contained in the set. The preimage of Z ∖ {0} is: a nonzero integer generates an open subgroup of Ẑ. That preimage is dense because Z ∖ {0} is dense in Ẑ and the map is open and surjective.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
-    "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
-    "the Annals of Mathematics article page, which lists no erratum",
-    "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
    ],
    "owner": "PAPER-SCHMIDT-STIX-16",
    "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
    "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Confirmed: 0∈Z⊂Zhat generates no open subgroup of Zhat. Removing zero gives a dense subset; a continuous surjective homomorphism of profinite groups is open, so its inverse image is dense."
   },
   {
    "id": "PAPER-SCHMIDT-STIX-16/E5",
    "kind": "misprint",
    "locator": "Proof of Theorem A.13, p. 861",
-   "printed": "\"… if and only if f′0 = τ(f0) for some τ ∈ πtop1(Y, x), which moreover must map to SX ⊂ πtop1(B, b).\"",
+   "printed": "τ∈π_1^top(Y,x)",
    "correction": "τ ∈ π1^top(Y, y)",
    "reason": "The monodromy action on pointed maps into (Y, y) is by the topological fundamental group of Y at its base point y (Theorem A.10). x is the base point of X.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
-    "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
-    "the Annals of Mathematics article page, which lists no erratum",
-    "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
    ],
    "owner": "PAPER-SCHMIDT-STIX-16",
    "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
    "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Confirmed against p. 861 and TeX: the target base point is y. This is the same π_1^top(Y,y) action as in A.10/A.13."
   },
   {
    "id": "PAPER-SCHMIDT-STIX-16/E6",
    "kind": "gap",
    "locator": "Proof of Proposition 5.5, p. 844",
-   "printed": "\"Furthermore, by Proposition 5.3, there exists τ′ ∈ π1^et(X′, x̄′) with π1^et(γ′0)(σ) = τ′στ′^{−1}.\"",
+   "printed": "π_1^et(γ′_0)(σ)=τ′στ′^−1 (application of Proposition 5.3)",
    "correction": "Before applying Proposition 5.3, check its hypotheses for γ′. From Lemma 2.2, ι′_et γ′ = ι′_et, so γ′ lies over k′_et, where k′ is the base field of W′. For every factor p_i: W′ → C′_i, Theorem 4.7(c) gives (p_i ι′)_et r(γ′)_et = (p_i ι′)_et γ′ = (p_i ι′)_et. Theorem 3.2 then gives p_i ι′ r(γ′) = p_i ι′, hence ι′ r(γ′) = ι′ and r(γ′) = id_{X′}. X′ is smooth and geometrically connected over k′ with a factor-dominant immersion into a product of non-rational hyperbolic curves (finite étale covers of hyperbolic curves are hyperbolic).",
    "reason": "Proposition 5.3 applies only to automorphisms γ with r(γ) = id over the base field. The proof applies it to the base-changed γ′ from Lemma 2.2 without checking this. Lemma 2.2 is stated without uniqueness, so r(γ′) = id is not automatic. The check above supplies it.",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
-    "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
-    "the Annals of Mathematics article page, which lists no erratum",
-    "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
    ],
    "owner": "PAPER-SCHMIDT-STIX-16",
    "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
    "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Rejected as a new proof gap. The right-hand triangle in the displayed base-change diagram gives ι′_et γ′=ι′_et, hence γ′ is over k′_et. In the construction of r in Theorem 4.7, the auxiliary map for this immersion is therefore ι′ itself, by Proposition 4.3 uniqueness, and its factorization is id_X′. Thus r(γ′)=id follows directly from the established definition, independently of uniqueness of γ′. The original added verification is useful formalization detail, but does not exhibit a failed or unavailable step."
   },
   {
    "id": "PAPER-SCHMIDT-STIX-16/E7",
    "kind": "misprint",
    "locator": "Proof of Lemma 6.3, p. 848",
-   "printed": "\"For every closed point W ∈ Grassd(V), let SW ⊂ P(W) be the preimage of P(W) under the projection SW → P(W). Note that SW is nonempty and open in P(W) for W in an open and nonempty subscheme of Grassd(V), namely, the image of SW under the open map P(W) → Grassd(V).\"",
+   "printed": "S_W⊂P(W) is the inverse image of P(W) under 𝒮_𝒲→P(𝒲)",
    "correction": "Let S_W := 𝒮_𝒲 ∩ P(W) be the fibre over W ∈ Grass_d(V) of 𝒮_𝒲 ⊆ P(𝒲) → Grass_d(V). It is nonempty and open in P(W) for W in the image of 𝒮_𝒲 under the open map P(𝒲) → Grass_d(V).",
    "reason": "In the TeX source the sets are the universal ones: \\cS_\\cW ⊆ P(\\cW), with P(\\cW) projective over Grass_d(V). The printed sentence confuses the universal 𝒮_𝒲 with the fibre S_W, and 'preimage of P(W)' should be the preimage of the point W. As printed the definition is circular.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
-    "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
-    "the Annals of Mathematics article page, which lists no erratum",
-    "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
    ],
    "owner": "PAPER-SCHMIDT-STIX-16",
    "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
    "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Rejected after visual inspection of published p. 848 and comparison with v2 TeX line 1797. The projection is 𝒮_𝒲→P(𝒲), and the inverse image of the fibre P(W) under this inclusion correctly defines S_W; it is not circular. Text extraction erased calligraphic distinctions. The separate later 𝒮_W versus 𝒮_𝒲 subscript slip is recorded as E14, not as a circular definition."
+  },
+  {
+   "id": "PAPER-SCHMIDT-STIX-16/E8",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 7.1, p. 850, final paragraph; v2 TeX line 1866",
+   "printed": "g:Spec(ℓ)→Spec(k), f_c=g",
+   "correction": "Use g:Spec(k)→Spec(ℓ), so that f_c=g and Y′=Y×_(Spec ℓ,g) Spec k are well typed.",
+   "reason": "Earlier f:X→Y induces f_c:Spec(k)→Spec(ℓ). The declared reverse arrow cannot equal f_c and cannot serve as the structural arrow of the displayed base change. Swapping its source and target repairs both uses.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
+   ],
+   "owner": "PAPER-SCHMIDT-STIX-16",
+   "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+   "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Independently checked in the published text and matching arXiv v2 TeX. Earlier f:X→Y induces f_c:Spec(k)→Spec(ℓ). The declared reverse arrow cannot equal f_c and cannot serve as the structural arrow of the displayed base change. Swapping its source and target repairs both uses."
+  },
+  {
+   "id": "PAPER-SCHMIDT-STIX-16/E9",
+   "kind": "misprint",
+   "locator": "Theorem A.8 proof, p. 857, formula after holim X=lim_n Tot^n Π*X; v2 TeX lines 2186–2189",
+   "printed": "Tot^n Π*X = ∏_(u∈I_n) X_(i_0)",
+   "correction": "The product describes the cosimplicial replacement (Π*X)^n. Tot^n is its partial totalization, defined by compatible maps from the truncated/coskeletal simplices; after the appropriate fibrant replacement these form the totalization tower.",
+   "reason": "Degree n of the cosimplicial replacement is not its n-th partial totalization. For the inverse diagram of two equal discrete two-point spaces indexed by a single arrow, the degree-one product has 2^3=8 elements (three arrows including identities), whereas Tot^1 imposes the arrow compatibility and has 2 elements. Use the genuine totalization tower for the cited Bousfield–Kan spectral sequence.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
+   ],
+   "owner": "PAPER-SCHMIDT-STIX-16",
+   "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+   "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Independently checked in the published text and matching arXiv v2 TeX. Degree n of the cosimplicial replacement is not its n-th partial totalization. For the inverse diagram of two equal discrete two-point spaces indexed by a single arrow, the degree-one product has 2^3=8 elements (three arrows including identities), whereas Tot^1 imposes the arrow compatibility and has 2 elements. Use the genuine totalization tower for the cited Bousfield–Kan spectral sequence."
+  },
+  {
+   "id": "PAPER-SCHMIDT-STIX-16/E10",
+   "kind": "error",
+   "locator": "Appendix A.2.3, p. 858, relative cylinder projection; v2 TeX line 2218",
+   "printed": "X∧I → X is a trivial fibration",
+   "correction": "Use that X∧I→X is a weak equivalence and that the endpoint map is a cofibration in the undercategory. This is a cylinder object; do not assert that this particular projection is a fibration.",
+   "reason": "Take constant X={a,b,c}, with distinguished points a,b. The cylinder is {a}⊔{b}⊔Δ[1], projecting its interval component to c. The outer horn Λ²_0→Δ[1] with vertices (0,1,0) has valid edges 01=(0→1), 02=(0→0), but no 2-simplex filler, because 1→0 is absent. Hence the projection fails the horn-lifting property even as a constant pro-map. The weak-equivalence cylinder suffices for homotopy classes into a fibrant target; this does not disprove A.9 or A.10.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
+   ],
+   "owner": "PAPER-SCHMIDT-STIX-16",
+   "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+   "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Independently checked in the published text and matching arXiv v2 TeX. Take constant X={a,b,c}, with distinguished points a,b. The cylinder is {a}⊔{b}⊔Δ[1], projecting its interval component to c. The outer horn Λ²_0→Δ[1] with vertices (0,1,0) has valid edges 01=(0→1), 02=(0→0), but no 2-simplex filler, because 1→0 is absent. Hence the projection fails the horn-lifting property even as a constant pro-map. The weak-equivalence cylinder suffices for homotopy classes into a fibrant target; this does not disprove A.9 or A.10."
+  },
+  {
+   "id": "PAPER-SCHMIDT-STIX-16/E11",
+   "kind": "misprint",
+   "locator": "Appendix A.2.3, p. 858, paragraph defining u(f); v2 TeX lines 2230–2231",
+   "printed": "z_i=ε(y_i), i=1,2; u(f):(X,x_0)→(Z,z_1)",
+   "correction": "Use i=0,1 and u(f):(X,x)→(Z,z_1).",
+   "reason": "The data in this paragraph are (X,x) and (Y,y_0,y_1); the path begins at z_0 and ends at z_1. Neither y_2 nor a source point x_0 is specified.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
+   ],
+   "owner": "PAPER-SCHMIDT-STIX-16",
+   "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+   "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Independently checked in the published text and matching arXiv v2 TeX. The data in this paragraph are (X,x) and (Y,y_0,y_1); the path begins at z_0 and ends at z_1. Neither y_2 nor a source point x_0 is specified."
+  },
+  {
+   "id": "PAPER-SCHMIDT-STIX-16/E12",
+   "kind": "misprint",
+   "locator": "Appendix A.1, p. 853, definition of Ho(pro-ss_*)_c; v2 TeX lines 2001–2003",
+   "printed": "Ho(pro-ss_*)_c ⊂ Ho(pro-ss)",
+   "correction": "Define Ho(pro-ss_*)_c as the full subcategory of Ho(pro-ss_*) on connected pointed pro-spaces.",
+   "reason": "Proposition A.2 takes pointed objects and pointed morphisms in this subcategory. The unpointed homotopy category cannot be the declared ambient category.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
+   ],
+   "owner": "PAPER-SCHMIDT-STIX-16",
+   "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+   "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Independently checked in the published text and matching arXiv v2 TeX. Proposition A.2 takes pointed objects and pointed morphisms in this subcategory. The unpointed homotopy category cannot be the declared ambient category."
+  },
+  {
+   "id": "PAPER-SCHMIDT-STIX-16/E13",
+   "kind": "misprint",
+   "locator": "Theorem A.13 proof, p. 861, equations (9) and (10); v2 TeX lines 2371, 2376",
+   "printed": "Hom_(Ho(pro-ss_*)(B,b))((X,x,p),(Y,y,p_Y)); Hom_(Ho(pro-ss))((X,p),(Y,p_Y))",
+   "correction": "The two summands are Hom in Ho(pro-ss_*)↓(B,b) and Ho(pro-ss)↓B, respectively.",
+   "reason": "The objects in each summand include structural maps and the morphisms must commute with those maps. Without the overcategory qualification the decomposition is not the asserted partition by p_Y f.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
+   ],
+   "owner": "PAPER-SCHMIDT-STIX-16",
+   "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+   "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Independently checked in the published text and matching arXiv v2 TeX. The objects in each summand include structural maps and the morphisms must commute with those maps. Without the overcategory qualification the decomposition is not the asserted partition by p_Y f."
+  },
+  {
+   "id": "PAPER-SCHMIDT-STIX-16/E14",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 6.3, p. 848, sentence about the image in the Grassmannian; v2 TeX line 1797",
+   "printed": "image of 𝒮_W",
+   "correction": "Use the image of 𝒮_𝒲 under P(𝒲)→Grass_d(V).",
+   "reason": "The universal open is indexed by the calligraphic universal subspace 𝒲. The fibre S_W lies over a fixed Grassmannian point and cannot have the nonempty open image described here. This is only the later subscript slip; the fibre definition targeted by E7 is correct.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
+   ],
+   "owner": "PAPER-SCHMIDT-STIX-16",
+   "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+   "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Independently checked in the published text and matching arXiv v2 TeX. The universal open is indexed by the calligraphic universal subspace 𝒲. The fibre S_W lies over a fixed Grassmannian point and cannot have the nonempty open image described here. This is only the later subscript slip; the fibre definition targeted by E7 is correct."
+  },
+  {
+   "id": "PAPER-SCHMIDT-STIX-16/E15",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.4, p. 825, first paragraph; v2 TeX line 777",
+   "printed": "Δ_(X,Y): Theorem A.13(a)",
+   "correction": "Reference Theorem A.13(b).",
+   "reason": "Part (b) defines S_X and its preimage Δ_(X,Y); part (a) states the surjection and lifting of isomorphisms.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent check 2026-09-23: Annals article page https://annals.math.princeton.edu/2016/184-3/p05 and published PDF; no linked correction found.",
+    "arXiv version history https://arxiv.org/abs/1504.01068 lists v1 (2015-04-04) and v2 (2016-07-12), with no later revision. Relevant formulas checked in v2 TeX https://arxiv.org/src/1504.01068v2; not a claim to have diffed both versions in full.",
+    "Jakob Stix publication list https://www.math.uni-frankfurt.de/~stix/publikationen.html: no correction attached to this paper; linked PDF is the older 2015 preprint.",
+    "Alexander Schmidt paper page https://www.mathi.uni-heidelberg.de/~schmidt/papers/schmidt40-de.html and linked 33-page https://www.mathi.uni-heidelberg.de/~schmidt/papers/anab-hotype.pdf: no separate erratum listed; relevant appendix/typesetting passages checked.",
+    "Crossref https://api.crossref.org/works/10.4007/annals.2016.184.3.5 returned relation {}, with no update-to/updated-by entry. Title-plus-erratum/correction search found none. 'new' means not found in this bounded search."
+   ],
+   "owner": "PAPER-SCHMIDT-STIX-16",
+   "file": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+   "citation": "Schmidt–Stix, \"Anabelian geometry with étale homotopy types\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHMIDT-STIX-16",
+   "reviewReason": "Independently checked in the published text and matching arXiv v2 TeX. Part (b) defines S_X and its preimage Δ_(X,Y); part (a) states the surjection and lifting of isomorphisms."
   },
   {
    "id": "PAPER-SCHOLZE-26/E1",
