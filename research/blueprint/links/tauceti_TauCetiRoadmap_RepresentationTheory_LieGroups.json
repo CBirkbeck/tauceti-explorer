@@ -1,262 +1,1838 @@
 {
-"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
-"protocol":"links-v1",
-"status":"complete",
-"summary":"Completed a catalogue-wide link-audit pass: all 211 other raw-atlas roadmaps and six additional blueprint roadmaps were screened, with detailed source/use checks for the retained interfaces. Four existing RootSystems/UniversalCovers arrows are reused rather than duplicated. Fourteen new links and eleven scope/ownership proposals separate real differentiation/integration from algebraic, p-adic and infinite-dimensional analogues. Comparison requests and source-statement corrections remain explicit; complete refers to this link-audit pass, not implementation or mathematical closure of the LieGroups roadmap.",
-"provenance":{"jobId":"LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups","issue":61,"worker":"ChatGPT Pro — cgp-14f035649b9f","sessionId":"cgp-14f035649b9f","inputRevision":"088ac3dcfb573a1e875fcea971ce54526bbe74d3","snapshotRevision":"262dee344399d4123a712655f2be585d7e68720d","snapshotArtifact":10446703864,"snapshotWorkflowRun":35097901665,"snapshotVerification":"GitHub compare shows one intervening presentation/classification commit and no changes to atlas, roadmap documents, baseline, protocols, or link packets. The deployed snapshot is used as a read-only local input; only the two authorised deliverables are submitted.","atlasBlob":"37f2add06983c206067d1104e0f40a839cc3961a","validatorBlob":"88135efe5a74ef82e088f3fa3189893e27a7867a","baseline":{"tauceti":"f790474821cf4256814db967cb154e7af3d0c369","mathlib":"082e2d37e8b0463410cdb532e111cd43d5a66174","created":"2026-09-16T09:50:49Z"},"libraryAssessment":"No Lean declaration existence or absence is asserted. Declaration names inside quotations are roadmap promises. No Lean code was added or compiled.","confidencePolicy":"Explicit only when the roadmap text names the other roadmap; otherwise inferred from a checked output/use pair. Hypothesis restrictions and remaining comparison work are stated in the reason.","submissionInputRevision":"be09b0fb85faab7fc6a8646e9f524140cfa0df2e","refreshArtifact":10446963221,"refreshWorkflowRun":35099069170,"refreshVerification":"Atlas, baseline and check_links.py byte-identical to the 262dee3 snapshot. Added link packets and roadmap definitions from the be09b0f Pages artifact were loaded for validation and duplicate screening.","upstreamRoadmapRevision":"faa5423b925964415cc926802ab206567719d3f4","coveragePolicy":"Every raw-atlas summary was read. All readmes and stage descriptions were searched for finite-dimensional Lie-group terms, with candidate-stage passages opened. Summary-only entries are labelled as such; none means no retained source/use pair, not proved absence. The six additional definitions were screened at summary/purpose/stage-inventory level."},
-"links": [
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-5-assemble-ado-in-characteristic-zero","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories","reason":"Use the arbitrary characteristic-zero Ado theorem with K=R to embed a finite-dimensional real Lie algebra in endomorphisms of a finite-dimensional real space. Choosing a basis gives the matrix Lie algebra used by the Frobenius construction. The strengthened nilpotence theorem and the positive-characteristic track are not prerequisites. Ado’s Levi argument consumes algebraic Casimir-based Weyl reducibility, not compact integration; retain that route to avoid a cycle. The cover construction must be an independent early prefix of LieGroups Layer 5.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-5-assemble-ado-in-characteristic-zero","quote":"Since `ker(ad) = Z(L)`, the direct sum `ρ₀ ⊕ ad` is faithful.","sourcePath":"content/tau-ceti/RepresentationTheory/AdoIwasawa/README.md","locator":"lines 404-404"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories","quote":"Prove it via the real specialization of the [**Ado–Iwasawa theorem**](../AdoIwasawa/README.md)","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 332-332"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra","reason":"Import the general-field PBW filtration and normalized ordered-monomial basis, specialized to R and its complex scalar extension. Do not duplicate PBW in the geometric differential-operator construction or import semisimplicity into arbitrary Lie groups. LieGroups still proves that its differential-operator representation is an isomorphism, including the order/symbol comparison; the universal property alone supplies only a homomorphism.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ","quote":"the PBW filtration; its multiplicativity and the associated-graded equivalence with the symmetric algebra `Sym(L)`","sourcePath":"content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md","locator":"lines 397-398"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra","quote":"The **PBW theorem** and the PBW basis are [../LieHighestWeight](../LieHighestWeight/README.md)'s targets","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 359-360"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat","reason":"The finite-dimensional irreducible highest-weight classification identifies the geometric section representation after LieGroups proves the Borel–Weil construction and its highest-weight property. Restrict to characters of the chosen group’s Borel, not all weights of a simply connected covering algebra. For a reductive group, the semisimple classification also needs the separately specified central character; holomorphic integration and central-kernel descent are consumer obligations.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles","quote":"`λ ↦ L(λ)` is a bijection from **dominant integral weights** to isomorphism classes of **finite-dimensional irreducible** `L`-modules","sourcePath":"content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md","locator":"lines 467-468"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat","quote":"the **irreducible** `L(λ)` of [../LieHighestWeight](../LieHighestWeight/README.md) (`irreducibleQuotient`)","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 428-428"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration","reason":"Use the same finite nonzero normalized Haar probability on the compact connected G and its compact torus T, with the specified invariance and uniqueness. The |W| factor and root density belong to the Weyl integration proof, not to Haar normalization. CompactGroups Layer 0 is valid for general compact groups and does not depend on maximal tori or complexification.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging","quote":"`haarProb_apply_univ : haarProb G univ = 1` and `isProbabilityMeasure_haarProb`","sourcePath":"content/tau-ceti/RepresentationTheory/CompactGroups/README.md","locator":"lines 211-212"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration","quote":"with maximal torus `T` and normalized Haar `μ_G`, `μ_T`","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 384-385"}]},
-{"source":"tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups","reason":"The shared manifold inverse-function theorem supplies the local-diffeomorphism conclusion once LieGroups has proved smoothness and the derivative identity for its own exponential. Apply its boundaryless finite-dimensional real specialization; do not import geodesic completeness or identify the Lie exponential with the Riemannian exponential. The generic inverse-function prefix must be independently usable before Hopf–Rinow’s geodesic summit.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map","quote":"for `C¹` boundaryless Banach manifolds, a `C¹` map whose `mfderiv` at a point is a continuous linear equivalence induces a `LocalDiffeomorphAt` there.","sourcePath":"content/tau-ceti/HopfRinow/README.md","locator":"lines 302-304"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups","quote":"so (inverse function theorem) `lieExp` is a **local diffeomorphism at `0`**","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 240-240"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad","target":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra","reason":"Specialize the differential-of-conjugation/adjoint identity to the smooth real Clifford-unit group and Spin subgroup. SpinRepresentations owns the bivector-to-skew-adjoint identification and the scalar fixed by its polar-form convention. For the complex version prove complex-linearity after the underlying-real comparison; this is not a theorem for Clifford algebras over arbitrary fields.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad","quote":"The milestone is that it is the derivative of `Ad`: `ad = d(Ad)_1`","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 259-260"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra","quote":"state the compatibility `d(conjugation) = ad(bivector)` as a named lemma","sourcePath":"content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md","locator":"lines 381-382"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff","target":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra","reason":"The Lie functor turns the smooth spin covering homomorphism into the Lie homomorphism to be compared with the explicitly constructed bivectors. Spin must provide smooth group structures, smoothness/local-covering facts and the complex-linear comparison where required. The purely algebraic Clifford and abstract double-cover constructions remain independent of this analytic compatibility theorem.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff","quote":"For a smooth homomorphism `φ : G →* G'`, `lieMap φ = d(φ)_1 : 𝔤 →ₗ⁅ℝ⁆ 𝔤'` is a **Lie-algebra homomorphism**","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 294-295"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra","quote":"The Lie-algebra homomorphism differentiating `spinToSpecialOrthogonal` is the isomorphism `soEquivBivector` composed with the adjoint action","sourcePath":"content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md","locator":"lines 380-381"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff","target":"AutomorphicFormsOnReductiveGroups:AF.1","reason":"Differentiation and functoriality supply the compatibility between the compact group action and the infinitesimal action in a (g,K)-module. Apply them to finite-dimensional K-stable pieces, then pass to the locally finite union and complexify the real Lie algebra. Infinite-dimensional Frechet differentiation/globalization is additional AF.1 analysis and is not supplied by this finite-dimensional Lie functor.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff","quote":"Functoriality: `lieMap (id) = id`, `lieMap (ψ ∘ φ) = lieMap ψ ∘ lieMap φ`.","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 296-297"},{"stageId":"AutomorphicFormsOnReductiveGroups:AF.1","quote":"Define compatible (g,K)-modules with algebraic infinitesimal action, locally finite K action and derivative compatibility.","sourcePath":"content/campaign/AutomorphicFormsOnReductiveGroups/README.md","locator":"lines 21-21"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra","target":"AutomorphicFormsOnReductiveGroups:AF.0","reason":"The identification of the real enveloping algebra with left-invariant differential operators, followed by complex scalar extension, is the algebraic operator interface used by archimedean differentiation and uniform moderate growth. AF.0 still proves continuity, seminorm/growth bounds and the right-translation convention (including any opposite-algebra/sign conversion). Finite-place locally constant operators do not come from this real Lie theorem.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra","quote":"`UniversalEnvelopingAlgebra ℝ 𝔤` (Mathlib) is the algebra of **left-invariant differential operators** on `G`","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 357-358"},{"stageId":"AutomorphicFormsOnReductiveGroups:AF.0","quote":"Define uniform moderate growth for all differential operators","sourcePath":"content/campaign/AutomorphicFormsOnReductiveGroups/README.md","locator":"lines 17-17"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions","target":"ArithmeticLocallySymmetricSpaces:ALS.0","reason":"For real reductive points in a class admitting the stated global Cartan decomposition, quotienting the K times p diffeomorphism identifies G/K with p and supplies its contraction and homogeneous smooth structure. ALS.0 retains the reductive-center correction, finite component data, arithmetic stabilizers and neatness; these are not consequences of the Cartan theorem. A reductive Lie algebra alone is not an adequate group hypothesis.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions","quote":"the map `K × 𝔭 → G`, `(k, X) ↦ k · lieExp X` is a **diffeomorphism**","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 436-437"},{"stageId":"ArithmeticLocallySymmetricSpaces:ALS.0","quote":"Construct Cartan involutions, maximal compact subgroups and the contractible symmetric space with G(F∞)-action.","sourcePath":"content/campaign/ArithmeticLocallySymmetricSpaces/README.md","locator":"lines 13-13"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms","target":"ShimuraData:D2","reason":"The compact-real-form existence interface is needed to define the Cartan involution in the Hermitian-domain construction. Use the complexification of the relevant algebraic real group with a proved analytic comparison, not the incorrect blanket assertion that a noncompact real group is itself maximal compact. ShimuraData owns the positivity criterion, stabilizer, Hodge tangent decomposition and integrability; no classification of all real forms is imposed.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms","quote":"State the compact-real-form existence as a milestone.","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 402-402"},{"stageId":"ShimuraData:D2","quote":"Define a Cartan involution using the compact real form of the complexified group.","sourcePath":"content/campaign/ShimuraData/README.md","locator":"lines 64-64"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat","reason":"The reductive extension supplies the missing central-character factor when the group in Borel–Weil is reductive rather than semisimple. Restrict to the one-dimensional central characters that integrate to the chosen group torus and descend through its central quotient. This is a classification of irreducibles, not a claim that every module of a reductive Lie algebra is semisimple.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n","quote":"Together these classify the irreducibles as (derived-ideal irreducible) × (central weight).","sourcePath":"content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md","locator":"lines 696-697"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat","quote":"For a complex reductive `G_ℂ` with maximal torus `T_ℂ`","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 415-415"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra","target":"tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition","reason":"The independent universal-cover prefix supplies the smooth simply connected covering group of SL2(R), needed for the SL2-tilde model geometry. GeometricTopology still constructs the homogeneous Riemannian metric, the actual maximal isometry group and the comparison with its model carrier. Neither the universal cover alone nor Lie III proves the JSJ or geometrization theorem.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra","quote":"Every **connected** Lie group `G` has a **universal cover** `G̃` that is a simply-connected Lie group with a **covering homomorphism**","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 348-349"},{"stageId":"tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition","quote":"`S³`, `E³`, `ℍ³`, `S² × ℝ`, `ℍ² × ℝ`, `SL₂~`, `Nil`, `Sol`, each with its maximal isometry group","sourcePath":"content/tau-ceti/GeometricTopology/README.md","locator":"lines 703-704"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories","target":"tauceti:TauCetiRoadmap/GeometricTopology#layer-10-foliations-and-their-euler-class","reason":"Use the general constant-rank smooth Frobenius prerequisite named in LieGroups Layer 4, not its later Lie III conclusion, to identify bracket-involutive subbundles with local foliation charts. GeometricTopology owns maximal leaf assembly, tautness, plane-bundle orientations and the Euler class. The shared theorem must be built for arbitrary finite-dimensional smooth manifolds, not only left-invariant distributions on a Lie group.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories","quote":"State the Frobenius theorem (`VectorField.mlieBracket`-involutive ⇒ integrable) as the named analytic prerequisite.","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 325-327"},{"stageId":"tauceti:TauCetiRoadmap/GeometricTopology#layer-10-foliations-and-their-euler-class","quote":"A **foliation** of `M` as an integrable subbundle of `TM` (a distribution closed under Lie bracket), equivalently a maximal atlas of flat charts","sourcePath":"content/tau-ceti/GeometricTopology/README.md","locator":"lines 792-793"}]}
-],
-"overlaps": [
-{"stages":["tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories"],"detail":"Both exponential constructions require parameter-dependent local flows and an inverse-function theorem, but a geodesic spray and a left-invariant vector field are different vector fields, and their exponential maps need not agree.","recommendation":"rescope","proposal":"Keep the boundaryless-manifold inverse-function prefix in HopfRinow’s shared manifold API. Extract local existence, uniqueness and smooth parameter dependence for arbitrary smooth finite-dimensional vector fields there, with domain and time restrictions explicit. LieGroups owns the one-parameter subgroup law and global completeness of left-invariant fields; HopfRinow owns its geodesic spray and metric/geodesic completeness. Do not make either global-completeness theorem a prerequisite for the other. The Frobenius prefix needs the arbitrary-vector-field version and must not wait for Ado or Lie III."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem","tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms"],"detail":"The generic compact-group Peter–Weyl/Schur theory and LieGroups’ torus/complexification theory meet at compact Lie groups, but generic Peter–Weyl neither assumes a Lie structure nor requires a complexification. LieGroups’ introductory claim that complexification feeds Peter–Weyl must not become a reverse foundational dependency.","recommendation":"keep","proposal":"Keep CompactGroups responsible for compact Hausdorff harmonic analysis, convolution, finite-dimensional coefficient spaces and completeness without Lie assumptions. LieGroups owns maximal tori, the Weyl density and complexification. Put finite-dimensional Lie-group highest-weight identification after the independent compact decomposition. The by-hand SU2 example may compare with the general Weyl formula but does not make general character orthogonality depend on it."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ","tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra"],"detail":"Both expose enveloping algebras and central characters. Algebraic PBW supplies a basis and filtration, not automatically the geometric differential-operator isomorphism. LieGroups’ assertion that the centre acts by scalars needs a representation hypothesis: over R a one-dimensional abelian algebra can act irreducibly by rotation on R2 without acting by real scalars, as the reductive-algebra roadmap already records.","recommendation":"rescope","proposal":"Keep PBW and normalized monomials in LieHighestWeight. LieGroups owns the map to left-invariant differential operators, the symbol/filtration comparison and its inverse. State scalar central action for finite-dimensional complex irreducibles (or an explicitly supplied infinitesimal character), not arbitrary real irreducibles. Separate algebraic central weights from the integral group characters that survive integration and central-kernel descent."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms"],"detail":"ClassicalGroups’ diagonal algebraic torus in GL_n(C) and LieGroups’ compact maximal torus are not the same group. A Lie-algebra central weight is not automatically an algebraic or compact-torus character. The disconnected orthogonal group also cannot be classified from its Lie algebra alone.","recommendation":"keep","proposal":"Keep rational classical-group representations and their integer character lattices in ClassicalGroups. LieGroups supplies compact real forms, compact maximal tori and differentiation/integration after the relevant smooth structures exist. Add an explicit comparison between (S1)^n and (C*)^n, their character lattices, and the chosen central quotient; transport the highest-weight parametrization through that comparison. Handle O_n/SO_n component extension separately."},
-{"stages":["tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components","tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat"],"detail":"Closed subgroup schemes, fppf quotients and algebraic Bruhat decompositions are different objects from smooth real closed subgroups and complex-analytic homogeneous spaces. Neither an arbitrary fppf quotient nor a positive-characteristic group follows from Cartan’s real closed-subgroup theorem.","recommendation":"keep","proposal":"Keep Hopf ideals, quotient representability, scheme-theoretic Borels/parabolics and algebraic Bruhat cells in ReductiveGroups. LieGroups owns smooth subgroup charts and the analytic quotient/flag-manifold theory. Request a characteristic-zero analytification comparison for the chosen smooth algebraic G, H, B and P, with representability and compatible quotient maps proved. Do not add an unconditional dependency between the entire two subgroup stages."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat","ShimuraData:D3","AutomorphicBundles:B0"],"detail":"LieGroups Layer 8 constructs full flags G_C/B and line bundles for Borel characters. ShimuraData D3 needs a parabolic compact dual G/P, the Borel embedding, horizontal geometry and descent to the reflex field. A full-flag theorem alone supplies neither that partial flag nor its algebraic descent. AutomorphicBundles B0 additionally needs associated bundles for general parabolic representations, not only character line bundles.","recommendation":"rescope","proposal":"Add a LieGroups-owned partial-flag analytic unit with P closed complex parabolic, the projection G/B to G/P, tangent quotient and complex structure. Compare it with the algebraic homogeneous variety supplied by ReductiveGroups. ShimuraData owns the Hodge cocharacter parabolic, open-domain/Borel embedding, horizontality and reflex-field descent. Keep the character/sign conventions of Borel–Weil separate from the reflex-field field-of-definition statement. Keep the generic torsor-associated-bundle functor in ReductiveGroupsPartII as B0 explicitly requests, and the analytic/arithmetic coefficient-descent comparison in AutomorphicBundles."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions","ReductiveGroupsPartII:RG2.4"],"detail":"Both stages use the names Cartan and Iwasawa decomposition, but LieGroups concerns real reductive groups, real smooth spaces and K times p; RG2.4 concerns nonarchimedean points, special maximal compact subgroups and dominant coweights/buildings. Equal theorem names do not give an applicable prerequisite.","recommendation":"keep","proposal":"Keep the real-analytic and nonarchimedean decompositions separate. Share only an explicitly compared root/weight combinatorial interface when its hypotheses match; root valuation data and the special maximal compact subgroup remain in ReductiveGroupsPartII. No LieGroups9 to RG2.4 arrow is asserted."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms","ShimuraData:D2"],"detail":"Layer 7 allows a noncompact real reductive G and then says it embeds as a maximal compact subgroup of its complexification. That conclusion is incompatible with the word noncompact. ShimuraData only needs the valid compact-real-form and Cartan-involution interface.","recommendation":"rescope","proposal":"Split Layer 7 into compact connected G with a complexification and maximal-compact embedding, and a separate real-form discussion for noncompact reductive groups with the correct global group hypotheses. State the universal property for continuous source homomorphisms and holomorphic target homomorphisms. Supply central-quotient and chosen-real-form comparisons before applying it to ShimuraData; do not repair the statement by silently deleting the noncompact case."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories","AdditiveCombinatorics:AC.3"],"detail":"Local BCH and existence of a simply connected integrating group do not yet supply the global nilpotent exponential coordinates and rational/filtered lattice data needed for nilmanifold and nilsequence complexity.","recommendation":"rescope","proposal":"Create an early LieGroups nilpotent unit: finite-dimensional real nilpotent Lie algebra, finite BCH polynomial, its global group law, and the exponential diffeomorphism for the connected simply connected nilpotent group. Keep rational Malcev bases, lattice/cocompactness criteria, filtrations, coordinate-height and quantitative complexity bounds in AdditiveCombinatorics. Its inverse theorem and corrected nilsequence argument still require their own source proofs. Do not treat local BCH as an already-complete global quantitative supplier."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions","BorelRegulators:R.3"],"detail":"A compact real form of a complex group is not by itself the compact dual of a specified symmetric pair. BorelRegulators R.3 needs the classical compact homogeneous spaces and fibrations, while R.2 already imports continuous/relative cochains through AF.1a.","recommendation":"rescope","proposal":"LieGroups should expose a Cartan-involution-compatible compact-dual pair, with the k plus i p Lie algebra and actual groups/subgroups, central quotient and homogeneous manifold comparison. BorelRegulators owns the classical compact-dual cohomology, primitive generators, stabilization maps and stable-range arithmetic estimates. Reuse AF.1a for invariant forms and van Est, and AlgebraicTopology for bundle/fibration comparison; do not make the rank theorem a prerequisite for this geometric prefix."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat","ArithmeticLocallySymmetricSpaces:ALS.0","GeometryOfNumbersAndQuadraticArithmetic:GN.4","AdditiveCombinatorics:AC.3"],"detail":"A closed embedded Lie subgroup theorem is not the smooth homogeneous-quotient theorem. Compact maximal-torus arguments, flags, symmetric spaces, homogeneous dynamics and nilmanifolds all need compatible quotient carriers; an immersed nonclosed subgroup cannot be substituted.","recommendation":"rescope","proposal":"Assign an early LieGroups homogeneous-quotient unit for closed H: Hausdorff smooth G/H, quotient submersion, local sections/principal H-bundle, tangent space g/h at the identity coset and action/normal-subgroup comparisons. A Lie group structure on G/H requires normal H. A discrete subgroup acts freely on G by translations even when it has torsion; arithmetic actions on G/K instead need their separate stabilizer/freeness hypotheses. Keep finite volume, measures, ergodic/mixing/nondivergence estimates and quantitative lattice results with the arithmetic consumers."}
-],
-"examined": [
-{"roadmapId":"AInfCohomology","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AbelianSchemesAndArithmeticModuli","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AdditiveCombinatorics","result":"overlap","note":"Read AC.3–AC.4. Nilmanifold/nilsequence complexity needs global nilpotent coordinates and arithmetic lattice data; local BCH alone is not a sufficient supplier. Added a precise rescope, not a fabricated completed theorem."},
-{"roadmapId":"AdelicAlgebraicGroups","result":"none","note":"Read AA.0–AA.5 and rechecked AA.3. Siegel-set reduction includes noncompact arithmetic finiteness and height estimates not supplied by the compact Weyl formula or K times p alone; the retained ALS.0 interface is more precise."},
-{"roadmapId":"AdicCoefficientsAndComparisons","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AdicEtaleGeometry","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AdicSpacesPartII","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AlgebraicModularFormsAndSerreWeights","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AlgebraicModuliForArithmeticGeometry","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AnabelianGeometryAndNonabelianChabauty","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AnalyticHabiroStack","result":"none","note":"Additional blueprint roadmap: read summary, purpose and stage inventory. Rapid-decay analytic Habiro group/ring stacks and their quotients are not finite-dimensional Lie groups or smooth homogeneous quotients."},
-{"roadmapId":"AnalyticNumberTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AnalyticStacks","result":"none","note":"Additional blueprint roadmap: read summary, purpose and stage inventory. Six-functor and Clausen–Scholze analytic-stack foundations do not identify the manifold, form and differential-operator carriers used in LieGroups."},
-{"roadmapId":"ArakelovGeometryAndAbelianHeights","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ArithmeticDynamics","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ArithmeticGaloisDuality","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ArithmeticGaloisRepresentations","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ArithmeticKTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ArithmeticLocallySymmetricSpaces","result":"links","note":"Read ALS.0 and its subsequent topology context. Real Cartan decomposition supplies symmetric-space contraction only after the global group/center/component hypotheses are fixed."},
-{"roadmapId":"ArithmeticQuantumTopology","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ArithmeticStatistics","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AutomorphicBundles","result":"overlap","note":"Read B0. Associated bundles for parabolic representations come from ReductiveGroupsPartII; geometric/analytic coefficient descent is owned here. Borel character line bundles alone do not supply this functor."},
-{"roadmapId":"AutomorphicCongruences","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AutomorphicFormsOnReductiveGroups","result":"links","note":"Read AF.0, AF.1 and AF.1a. Finite-dimensional differentiation and enveloping differential operators are direct interfaces. General Frechet globalization and the nonreductive van Est case are not supplied by LieGroups9."},
-{"roadmapId":"AutomorphicGaloisRepresentations","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AutomorphicGaloisRepresentationsPartII","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AutomorphicLFunctionsAndLocalFactors","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AutomorphicPadicLFunctions","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"AutomorphicSpectralTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"BorelRegulators","result":"overlap","note":"Read R.1–R.3 and the aggregation checkpoint. R.1 imports AA/ALS; R.2 imports AF.1a, so no redundant direct cochain arrow. R.3 needs an explicit compact-dual pair and its classical fibrations."},
-{"roadmapId":"BunGAndNewtonStrata","result":"none","note":"Read BG1. Its maximal tori and pi_1 are algebraic root-datum/Kottwitz objects, not compact tori or topological universal covers of real Lie groups."},
-{"roadmapId":"ClassicalAdicEtaleCohomology","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ClassicalArithmeticCompletion","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ClassicalSerreModularity","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"CohomologyComparisons","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ColemanIntegration","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ColemanPowerSeries","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"CompletedCohomologyAndLocalGlobalCompatibility","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"CompletedCohomologyPartII","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ComplexComparisonPartII","result":"none","note":"Read C2 coherent GAGA. It can compare projective algebraic flag sheaves with analytic ones after a flag analytification identification, but LieGroups does not specify that algebraic proof route. No unconditional GAGA arrow added."},
-{"roadmapId":"ComplexMultiplicationAndExplicitReciprocity","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ComputationalNumberTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"CrystallineCohomology","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"DeformationAndDerivedPatchingAlgebra","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"DeligneWeightsAndPurity","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"DerivedDeRhamCohomology","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"DiamondEtaleCohomology","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"DiamondSixOperations","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"DiamondsAndVStacks","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"DiophantineApproximationAndTranscendence","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"DirichletPadicLFunctions","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"DrinfeldModulesAndTModules","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"EffectiveDiophantineMethods","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"EllipticCurveModularity","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"EllipticKTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"EllipticRegulators","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"EndoscopicTransferAndUnitaryTraceComparison","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"EnhancedDerivedSheaves","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"EtaleDualityAndPerverseSheaves","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"EulerSystemsAndKolyvaginSystems","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"EulerSystemsCyclotomicMainConjecture","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ExcursionOperatorsAndSpectralAction","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ExponentialSumsAndCircleMethod","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"FaltingsFinitenessAndIsogenyTheorems","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"FarguesFontaineDiamonds","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"FiniteFieldsAndCharacterSums","result":"none","note":"Read FF.4. BCH here is the coding-theory abbreviation, not Baker–Campbell–Hausdorff. Finite homogeneous spaces need no real smooth-quotient theorem."},
-{"roadmapId":"FiniteFlatGroupsAndIntegralPadicHodgeTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"FoundationsAndLibraryIntegration","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"FunctionFieldArithmetic","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"GL2AutomorphicRepresentationsAndTransfer","result":"none","note":"Read R16.1, R16.3 and R16.6. Generic automorphic function spaces are explicitly imported through AF, and local correspondence through ET.6. Do not duplicate these mediated Lie interfaces."},
-{"roadmapId":"GL2ModularityLifting","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"GeneralAlgebraicKTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"GeneralizedHeegnerCycles","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"GeometricSatakeAndFusion","result":"none","note":"Read GS4, including the integral dual-group reconstruction. Maximal-compact generation is nonarchimedean RG2.2–4; the torus/root datum is algebraic. No real Lie-group arrow."},
-{"roadmapId":"GeometryOfNumbersAndQuadraticArithmetic","result":"overlap","note":"Read GN.4. Generic homogeneous quotients are a missing shared construction; finite-volume, mixing, nondivergence and irrationality estimates remain here. No dynamics theorem is inferred from Cartan decomposition."},
-{"roadmapId":"GlobalGaloisDeformations","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"GlobalShtukasAndFunctionFieldLanglands","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"GrossZagierAndArithmeticHeights","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"HabiroCohomologyFoundations","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"HabiroCyclotomicCompletions","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"HabiroNahmSeries","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"HabiroNumberFields","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"HabiroRings","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"HeckeStacksAndLocalShtukas","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"HeegnerPointEulerSystems","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"HeightsRationalPointsAndObstructions","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"HigherLocalFieldsAndHigherClassFieldTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"HilbertModularVarietiesAndShimuraCurves","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"HodgeTateAndCanonicalSubgroups","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"IgusaVarietiesAndTorsionConcentration","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"IntegralHeckeAndGaloisDeterminants","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"IntegralIwasawaTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"InverseGaloisAndArithmeticFundamentalGroups","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"K2SymbolsBrauer","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"K3BlochGroups","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"KTheoryFiniteLocalFields","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"KTheoryLowDegrees","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"KatoEulerSystems","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"LanglandsParameterStacks","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"LefschetzPencilsAndVanishingCycles","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"LocalGaloisDeformationRings","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"LocallyAnalyticDistributions","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"LogicAndDefinabilityInNumberTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"MetaplecticAutomorphicForms","result":"none","note":"Read MP.0, MP.1, MP.4, MP.7 and MP.8. The Weil-index cocycle/Stone–von Neumann construction is not a universal-cover construction. Identifying the real metaplectic cover by pi_1 would require an additional comparison not stated here; no forced dependency."},
-{"roadmapId":"ModularCurvesPartII","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ModularIwasawaMainConjectures","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ModularSymbolsPadicLFunctions","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ModularityAndLanglandsExtensions","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"MordellLawrenceVenkatesh","result":"none","note":"Additional blueprint roadmap: read summary, purpose and stage inventory. The stated scope uses algebraic Lagrangian period varieties, Gauss–Manin transport and p-adic/complex period maps; no specific finite-dimensional Lie-group theorem is identified as a new prerequisite."},
-{"roadmapId":"MotivesAndAlgebraicCycles","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"MotivicEtaleKTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"NeronModelsAndSemistableAbelianVarieties","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"NoncommutativeAndEquivariantIwasawa","result":"none","note":"Read NE.0. Its Lie group is compact p-adic and its completed group ring uses inverse limits; real BCH/integration does not supply the needed Lazard/Venjakob hypotheses."},
-{"roadmapId":"OrdinaryAutomorphicFormsAndModularityLifting","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"OverconvergentAutomorphicForms","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PELModuli","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PadicDifferentialEquationsAndRigidCohomology","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PadicFamilies","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PadicHodgeRegulators","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PadicHodgeTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PadicLocalLanglandsForGL2Qp","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PadicMeasuresIwasawaAlgebras","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PerfectoidQuotients","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PerfectoidShimuraVarieties","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PerfectoidSpaces","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PeriodsAndSpecialValues","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PhiGammaModulesAndIwasawaCohomology","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"Polylogarithms","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PotentialAutomorphyInfrastructure","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PotentialModularityAndCompatibleSystems","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"PrismaticCohomology","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ProbabilisticAndMetricNumberTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"QSeriesPartitionsAndMockModularForms","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"QWittVectors","result":"none","note":"Additional blueprint roadmap: read summary, purpose and stage inventory. Big/q-Witt vectors and q-de Rham–Witt complexes do not supply real Lie-group analytic operations."},
-{"roadmapId":"RankZeroOneBSD","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ReductiveGroupsPartII","result":"overlap","note":"Read RG2.1 and RG2.4. Valued roots/buildings and nonarchimedean Cartan/Iwasawa decompositions must not be identified with the real smooth theorem."},
-{"roadmapId":"RefinedTraceMethods","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"RelativeFarguesFontaine","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"RingStacksAndTransmutation","result":"none","note":"Additional blueprint roadmap: read summary, purpose and stage inventory. Lawvere group objects and derived quotient ring stacks are not smooth Lie groups or ordinary homogeneous quotient manifolds."},
-{"roadmapId":"SchemeAndStackFoundations","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"SchemeKTheoryOperations","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"SelmerIwasawaCohomology","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"SerreWeightAndLevelOptimisation","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ShimuraCompactifications","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"ShimuraData","result":"links","note":"Read D0, D2 and D3. Compact real forms feed the Cartan interface; partial flags, the Borel embedding and reflex-field descent require more than the full-flag Borel–Weil stage."},
-{"roadmapId":"ShimuraVarieties","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"SieveMethodsAndPrimePatterns","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"SmallRamificationAndAbelianVarietyBaseCases","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"SmoothRepresentationsOfLocalGroups","result":"none","note":"Read the smooth-action, induction and Hecke stages. Smooth here means open vector stabilizers for a totally disconnected group, not real differentiability."},
-{"roadmapId":"SolidAnalyticRings","result":"none","note":"Additional blueprint roadmap: read summary, purpose and stage inventory. Condensed/solid analytic coefficient foundations have no checked finite-dimensional Lie-group construction interface."},
-{"roadmapId":"SpecialValuesBirchTate","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"StableHomotopyKTheory","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"TorsionCohomologyInfrastructure","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"TropicalAndBerkovichArithmetic","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"VStackSheavesAndLisseCategories","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"VectorBundlesAndIsocrystals","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"WeightsInEtaleCohomology","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"WeilConjectures","result":"none","note":"Summary/text screen; no matched pair."},
-{"roadmapId":"tauceti:Completed/ContourIntegration","result":"none","note":"Summary and keyword screen: Complex contour-integral infrastructure is not higher-dimensional homogeneous complex geometry."},
-{"roadmapId":"tauceti:Completed/EffectiveBounds","result":"none","note":"Summary and keyword screen: Arithmetic effective bounds do not supply Lie group geometry."},
-{"roadmapId":"tauceti:Completed/IntegralLattices","result":"none","note":"Summary and keyword screen: Integral lattice and root-coordinate calculations are algebraic; root-system comparisons are mediated by RootSystems."},
-{"roadmapId":"tauceti:Completed/OrthogonalL2Bases","result":"none","note":"Summary and keyword screen: Explicit Hermite/Haar and other orthogonal bases do not supply the Peter–Weyl decomposition for an arbitrary compact group."},
-{"roadmapId":"tauceti:TauCetiRoadmap/AdicSpaces","result":"none","note":"Summary and keyword screen: Huber rings and nonarchimedean adic spaces are not real smooth Lie groups."},
-{"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCodingTheory","result":"none","note":"Summary and keyword screen: Finite-field code and lattice-coordinate constructions do not import Lie-group analysis."},
-{"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCurves","result":"none","note":"Summary and keyword screen: Algebraic curve and valuation theory does not by itself provide the complex homogeneous-space or line-bundle comparison."},
-{"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicTopology","result":"none","note":"Read Stages 5–6. Bundles/fibrations and manifold duality are potential supporting APIs, but Stage6 imports its degree carrier from HeegaardFloer; the particular fixed-point/degree theorem for torus exhaustion is not supplied by these statements alone. Record the missing interface rather than invent a degree provider."},
-{"roadmapId":"tauceti:TauCetiRoadmap/AnalyticToricGeometry","result":"none","note":"Summary and keyword screen: Algebraic/analytic toric varieties share complex tori but no specific toric result was established as a LieGroups-stage prerequisite."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries","result":"none","note":"Summary and keyword screen: Dirichlet-series analytic estimates are not the archimedean group differential-operator interface."},
-{"roadmapId":"tauceti:TauCetiRoadmap/BelyiMaps","result":"none","note":"Summary and keyword screen: Branched curve covers are not universal covers of connected Lie groups; no direct stage contract established."},
-{"roadmapId":"tauceti:TauCetiRoadmap/CFSGStatement","result":"none","note":"Summary and keyword screen: Finite simple-group carriers and Lie-type indices use algebraic groups and root data, not finite-dimensional real Lie integration."},
-{"roadmapId":"tauceti:TauCetiRoadmap/Chebotarev","result":"none","note":"Summary and keyword screen: Finite Galois conjugacy classes and Frobenius are not smooth group conjugacy or maximal tori."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ClassFieldTheory","result":"none","note":"Summary and keyword screen: Reciprocity and formation cohomology do not require the finite-dimensional real Lie correspondence."},
-{"roadmapId":"tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer","result":"none","note":"Summary and keyword screen: Combinatorial knot complexes are not a supplier for group flows or homogeneous quotients."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ConformalMapping","result":"none","note":"Summary and keyword screen: One-complex-variable mapping theory does not by itself supply higher-dimensional holomorphic group quotients."},
-{"roadmapId":"tauceti:TauCetiRoadmap/DGAInfinity","result":"none","note":"Summary and keyword screen: Differential graded and infinity structures concern algebraic/homological composition; no smooth Lie-group stage contract established."},
-{"roadmapId":"tauceti:TauCetiRoadmap/DenseGraphLimits","result":"none","note":"Summary and keyword screen: Graphon compactness and kernels have no established finite-dimensional Lie-group contract."},
-{"roadmapId":"tauceti:TauCetiRoadmap/EllipticCurves","result":"none","note":"Summary and keyword screen: Algebraic elliptic curves and their analytic uniformization may need comparison interfaces; no direct target-stage dependency established from this screen."},
-{"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none","note":"Summary and keyword screen: Permutation-invariant probability and representation-theoretic symmetry are not compact Lie-group structure."},
-{"roadmapId":"tauceti:TauCetiRoadmap/FuchsianOrbifolds","result":"none","note":"Read Layers 0–1. They explicitly use the topological projective quotient, the concrete Mobius action and generic free-action/finite-disc quotient results. No dependency on the full real Lie correspondence is imposed."},
-{"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"links","note":"Read Layers 8 and 10 in full and the manifold context. The SL2-tilde model imports the Lie universal-cover prefix; involutive-subbundle/foliation-chart equivalence imports general Frobenius. Neither supplies geometrization or the Euler-class counterexample."},
-{"roadmapId":"tauceti:TauCetiRoadmap/GlobalNumberFields","result":"none","note":"Summary and keyword screen: Global arithmetic of number fields supplies neither smooth groups nor enveloping differential operators."},
-{"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"none","note":"Summary and keyword screen: Archimedean form signatures alone do not identify the topology or Lie algebra of their orthogonal groups."},
-{"roadmapId":"tauceti:TauCetiRoadmap/GrothendieckEulerForms","result":"none","note":"Summary and keyword screen: K0 and Ext-Euler pairings do not supply differential geometry; lattice/root examples are mediated by their own roadmaps."},
-{"roadmapId":"tauceti:TauCetiRoadmap/HeegaardFloer","result":"none","note":"Read the orientation/degree scope and Lane F0. Orientations/degree are mentioned in the introduction, but F0 explicitly supplies Sard/Fredholm/Sard–Smale, not a pinned degree theorem adequate for torus exhaustion. No hard arrow to LieGroups6 until that interface is assigned."},
-{"roadmapId":"tauceti:TauCetiRoadmap/HodgeStructures","result":"none","note":"Read L3. The period domain is a point/filtration carrier with a lattice symmetry group; the text explicitly leaves manifold structure to a successor. No smooth homogeneous-space arrow into L3."},
-{"roadmapId":"tauceti:TauCetiRoadmap/HopfRinow","result":"links","note":"Read Layers 0–1. The generic boundaryless inverse-function prefix feeds LieGroups0. Smooth-flow reuse needs an arbitrary-vector-field interface; geodesic and Lie exponentials are distinct."},
-{"roadmapId":"tauceti:TauCetiRoadmap/JacobianChallenge","result":"none","note":"Summary and keyword screen: Jacobian representability is an algebraic-geometric quotient question, not the smooth homogeneous quotient asserted in LieGroups."},
-{"roadmapId":"tauceti:TauCetiRoadmap/LocalFieldsRamification","result":"none","note":"Summary and keyword screen: Valued local fields, unit filtrations and ramification are nonarchimedean; no real smooth-group theorem is imported."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ModularCurves","result":"none","note":"Summary and keyword screen: Algebraic moduli and curve uniformization require their own analytic comparison, not a blanket LieGroups dependency."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ModularForms","result":"none","note":"Summary and keyword screen: Classical modular forms do not automatically use the general real reductive decomposition; the AF.0/AF.1 operator links address the actual general automorphic interface."},
-{"roadmapId":"tauceti:TauCetiRoadmap/Multiquadratic","result":"none","note":"Summary and keyword screen: Multiquadratic extension arithmetic has no established direct smooth Lie-group stage interface."},
-{"roadmapId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic","result":"none","note":"Summary and keyword screen: Explicit arithmetic algorithms do not supply the real Lie-group construction."},
-{"roadmapId":"tauceti:TauCetiRoadmap/OneParameterSemigroups","result":"none","note":"Summary and keyword screen: Strongly continuous Banach-space semigroups and unbounded generators are not finite-dimensional smooth one-parameter subgroups. No identification of their exponentials is asserted."},
-{"roadmapId":"tauceti:TauCetiRoadmap/OptimalTransport","result":"none","note":"Summary and keyword screen: Wasserstein and metric gradient flows are not left-invariant smooth group flows; no direct dependency established."},
-{"roadmapId":"tauceti:TauCetiRoadmap/PDE","result":"none","note":"Summary and keyword screen: General PDE/distribution infrastructure does not yet identify the smooth finite-dimensional local-flow theorem needed here."},
-{"roadmapId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups","result":"none","note":"Summary and keyword screen: Finite polynomial Galois group actions do not need the real Lie correspondence."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteCohomology","result":"none","note":"Summary and keyword screen: Continuous cochains with discrete coefficients are not Lie differentiation or analytic group cohomology."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteProPGroups","result":"none","note":"Summary and keyword screen: Profinite and pro-p group structure is not the finite-dimensional real smooth group category."},
-{"roadmapId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants","result":"none","note":"Summary and keyword screen: Quadratic form and Clifford-algebra algebra is not the smooth spin-group comparison; that boundary is read in SpinRepresentations."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ReductiveGroups","result":"overlap","note":"Read the group-functor, subgroup/quotient, torus and structure stages. Keep scheme quotients, positive-characteristic structure and analytic Lie quotients separate pending explicit characteristic-zero comparisons."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory","result":"none","note":"Summary and keyword screen: Read the family scope/index; it has no stage endpoint for an independent supplier arrow."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa","result":"links","note":"Read the characteristic-zero assembly and its PBW/Levi/Weyl dependencies. Only the real characteristic-zero output supplies Lie III; preserve its algebraic Weyl proof."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory","result":"none","note":"Summary and keyword screen: Finite-group characters and character tables do not require a maximal torus or complexification."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups","result":"overlap","note":"Read Layer 3 and the rational representation conventions. Algebraic diagonal and compact tori need a character-lattice comparison; no unconditional integration edge to disconnected O_n."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups","result":"links","note":"Read Layers 0, 1, 5 and 6: Haar probability feeds Weyl integration, but Peter–Weyl and ordinary orthogonality stay independent of Lie complexification."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction","result":"none","note":"Summary and keyword screen: Algebraic induction/restriction and monoidal representation functors do not supply smooth or holomorphic induction."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight","result":"links","note":"Read Layers 3–5 and 9 and relevant conventions: general-field normalized PBW, finite-dimensional highest weights, the algebraic Casimir route and the reductive central-character correction."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","result":"none","note":"Summary and keyword screen: Quiver representations and ADE classification use root combinatorics, not Lie-group integration."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems","result":"links","note":"Read its incident packet and relevant LieGroups stages. Reuse existing RootSystems1 to LieGroups6 and RootSystems2 to LieGroups8; do not duplicate. Its existing nonreduced-restricted-root/chamber rescope remains required for LieGroups9."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl","result":"none","note":"Summary and keyword screen: Tensor-power centralizers and Young combinatorics stay algebraic; their classical-group interpretation is mediated by ClassicalGroups."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","result":"none","note":"Summary and keyword screen: Semisimple ring/module structure does not itself give real Lie-group differentiation or finite-dimensional real Schur scalar action."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations","result":"links","note":"Read Layers 3, 5, 7 and 8 and the cover context. Retain differential/conjugation comparisons over R/C only. The algebraic triality route already appears in the Spin packet; do not impose Lie III on that alternative route."},
-{"roadmapId":"tauceti:TauCetiRoadmap/StablePeriodicCurved","result":"none","note":"Summary and keyword screen: Stable, periodic and curved categories have no established direct smooth Lie-group interface."},
-{"roadmapId":"tauceti:TauCetiRoadmap/StableReduction","result":"none","note":"Summary and keyword screen: Stable reduction and stable maps are algebraic-geometric, not the real closed-subgroup theorem."},
-{"roadmapId":"tauceti:TauCetiRoadmap/StandardDistributions","result":"none","note":"Summary and keyword screen: Probability law constructions do not supply normalized compact-group Haar or Lie torus structure."},
-{"roadmapId":"tauceti:TauCetiRoadmap/UniversalCovers","result":"links","note":"Read the construction roadmap and packet. Reuse the two existing Stage0/Stage1 to LieGroups5 arrows. Lie III consumes only an independent cover-construction prefix, not the later homomorphism-descent theorem."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ZigzagPreprojective","result":"none","note":"Summary and keyword screen: Preprojective and zigzag algebras use quiver/root combinatorics; no Lie-group analytic contract established."}
-],
-"remainingWork": [
-"Independent review of the fourteen retained arrows, especially the finite-dimensional scope of AF.1 differentiation and the general-manifold Frobenius prefix for GeometricTopology10.",
-"Assign and build the comparison units in the eleven overlap proposals: generic flows/quotients, compact-versus-algebraic tori, compact duals/partial flags, and global nilpotent coordinates with a distinct arithmetic complexity owner.",
-"In the LieGroups blueprint, correct the noncompact/maximal-compact wording in Layer7 and the scalar-central-action hypothesis in Layer5; add a nonzero-parameter condition to Layer2’s sequential criterion. See the handoff for exact reasoning and locators.",
-"Specify the actual fixed-point/degree theorem used by maximal-torus exhaustion and its canonical degree supplier; the inspected topology roadmaps do not yet pin that interface.",
-"Preserve the acyclic cover-prefix -> LieIII -> homomorphism-descent construction and the algebraic Casimir-based Ado/Weyl route. Refresh duplicate/cycle checks when parallel submissions are integrated."
-]
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+  "protocol": "links-v1",
+  "status": "complete",
+  "summary": "Independently reviewed all fourteen original dependencies and eleven overlaps. Retain thirteen original links, remove the duplicate CompactGroups0-to-LieGroups6 entry in favor of its sibling packet, and add the restricted LieGroups9-to-AF.1a Cartan-contraction dependency. All ten LieGroups stages were searched for further suppliers/consumers against 2007 stage descriptions and 218 roadmap texts; the existing 217-other-roadmap ledger remains complete at screening depth. Restore raw quotation whitespace, add evidence for every overlap and route scope extensions through Part II without re-planning upstream layers. Source corrections and comparison obligations remain explicit; this is a completed link review, not a claim of implementation or mathematical closure.",
+  "provenance": {
+    "jobId": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
+    "issue": 61,
+    "worker": "ChatGPT Pro — cgp-14f035649b9f",
+    "sessionId": "cgp-14f035649b9f",
+    "inputRevision": "088ac3dcfb573a1e875fcea971ce54526bbe74d3",
+    "snapshotRevision": "262dee344399d4123a712655f2be585d7e68720d",
+    "snapshotArtifact": 10446703864,
+    "snapshotWorkflowRun": 35097901665,
+    "snapshotVerification": "GitHub compare shows one intervening presentation/classification commit and no changes to atlas, roadmap documents, baseline, protocols, or link packets. The deployed snapshot is used as a read-only local input; only the two authorised deliverables are submitted.",
+    "atlasBlob": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "validatorBlob": "88135efe5a74ef82e088f3fa3189893e27a7867a",
+    "baseline": {
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "created": "2026-09-16T09:50:49Z"
+    },
+    "libraryAssessment": "No Lean declaration existence or absence is asserted. Declaration names inside quotations are roadmap promises. No Lean code was added or compiled.",
+    "confidencePolicy": "Explicit only when the roadmap text names the other roadmap; otherwise inferred from a checked output/use pair. Hypothesis restrictions and remaining comparison work are stated in the reason.",
+    "submissionInputRevision": "be09b0fb85faab7fc6a8646e9f524140cfa0df2e",
+    "refreshArtifact": 10446963221,
+    "refreshWorkflowRun": 35099069170,
+    "refreshVerification": "Atlas, baseline and check_links.py byte-identical to the 262dee3 snapshot. Added link packets and roadmap definitions from the be09b0f Pages artifact were loaded for validation and duplicate screening.",
+    "upstreamRoadmapRevision": "faa5423b925964415cc926802ab206567719d3f4",
+    "coveragePolicy": "Every raw-atlas summary was read. All readmes and stage descriptions were searched for finite-dimensional Lie-group terms, with candidate-stage passages opened. Summary-only entries are labelled as such; none means no retained source/use pair, not proved absence. The six additional definitions were screened at summary/purpose/stage-inventory level.",
+    "reviewScope": "Codex — codex-7e92bd independently read all 34 original endpoint/overlap stages and 13 additional candidate stages in full. Original provenance describes the author snapshot; the report separately records current input hashes. No new library-availability claim is made."
+  },
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-5-assemble-ado-in-characteristic-zero",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories",
+      "reason": "Use the arbitrary characteristic-zero Ado theorem with K=R to embed a finite-dimensional real Lie algebra in endomorphisms of a finite-dimensional real space. Choosing a basis gives the matrix Lie algebra used by the Frobenius construction. The strengthened nilpotence theorem and the positive-characteristic track are not prerequisites. Ado’s Levi argument consumes algebraic Casimir-based Weyl reducibility, not compact integration; retain that route to avoid a cycle. The cover construction must be an independent early prefix of LieGroups Layer 5.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-5-assemble-ado-in-characteristic-zero",
+          "quote": "Since `ker(ad) = Z(L)`, the direct sum `ρ₀ ⊕ ad` is faithful.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/AdoIwasawa/README.md",
+          "locator": "lines 404-404"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories",
+          "quote": "Prove it via the real specialization of the [**Ado–Iwasawa theorem**](../AdoIwasawa/README.md)",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 332-332"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
+      "reason": "Import the general-field PBW filtration and normalized ordered-monomial basis, specialized to R and its complex scalar extension. Do not duplicate PBW in the geometric differential-operator construction or import semisimplicity into arbitrary Lie groups. LieGroups still proves that its differential-operator representation is an isomorphism, including the order/symbol comparison; the universal property alone supplies only a homomorphism.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+          "quote": "the PBW filtration;\n  its multiplicativity and the associated-graded equivalence with the symmetric algebra `Sym(L)`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+          "locator": "lines 397-398"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
+          "quote": "The **PBW theorem** and the PBW\n  basis are [../LieHighestWeight](../LieHighestWeight/README.md)'s targets",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 359-360"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+      "reason": "The finite-dimensional irreducible highest-weight classification identifies the geometric section representation after LieGroups proves the Borel–Weil construction and its highest-weight property. Restrict to characters of the chosen group’s Borel, not all weights of a simply connected covering algebra. For a reductive group, the semisimple classification also needs the separately specified central character; holomorphic integration and central-kernel descent are consumer obligations.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+          "quote": "`λ ↦ L(λ)` is a bijection from **dominant integral weights** to\n  isomorphism classes of **finite-dimensional irreducible** `L`-modules",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+          "locator": "lines 467-468"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+          "quote": "the **irreducible** `L(λ)` of [../LieHighestWeight](../LieHighestWeight/README.md) (`irreducibleQuotient`)",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 428-428"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups",
+      "reason": "The shared manifold inverse-function theorem supplies the local-diffeomorphism conclusion once LieGroups has proved smoothness and the derivative identity for its own exponential. Apply its boundaryless finite-dimensional real specialization; do not import geodesic completeness or identify the Lie exponential with the Riemannian exponential. The generic inverse-function prefix must be independently usable before Hopf–Rinow’s geodesic summit.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map",
+          "quote": "for `C¹` boundaryless Banach manifolds, a\n  `C¹` map whose `mfderiv` at a point is a continuous linear equivalence induces a\n  `LocalDiffeomorphAt` there.",
+          "sourcePath": "content/tau-ceti/HopfRinow/README.md",
+          "locator": "lines 302-304"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups",
+          "quote": "so (inverse function theorem) `lieExp` is a **local diffeomorphism at `0`**",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 240-240"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra",
+      "reason": "Specialize the differential-of-conjugation/adjoint identity to the smooth real Clifford-unit group and Spin subgroup. SpinRepresentations owns the bivector-to-skew-adjoint identification and the scalar fixed by its polar-form convention. For the complex version prove complex-linearity after the underlying-real comparison; this is not a theorem for Clifford algebras over arbitrary fields.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad",
+          "quote": "The\n  milestone is that it is the derivative of `Ad`: `ad = d(Ad)_1`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 259-260"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra",
+          "quote": "state the\n  compatibility `d(conjugation) = ad(bivector)` as a named lemma",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md",
+          "locator": "lines 381-382"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra",
+      "reason": "The Lie functor turns the smooth spin covering homomorphism into the Lie homomorphism to be compared with the explicitly constructed bivectors. Spin must provide smooth group structures, smoothness/local-covering facts and the complex-linear comparison where required. The purely algebraic Clifford and abstract double-cover constructions remain independent of this analytic compatibility theorem.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff",
+          "quote": "For a smooth homomorphism `φ : G →* G'`,\n  `lieMap φ = d(φ)_1 : 𝔤 →ₗ⁅ℝ⁆ 𝔤'` is a **Lie-algebra homomorphism**",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 294-295"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra",
+          "quote": "The Lie-algebra homomorphism differentiating\n  `spinToSpecialOrthogonal` is the isomorphism `soEquivBivector` composed with the adjoint action",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md",
+          "locator": "lines 380-381"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff",
+      "target": "AutomorphicFormsOnReductiveGroups:AF.1",
+      "reason": "Differentiation and functoriality supply the compatibility between the compact group action and the infinitesimal action in a (g,K)-module. Apply them to finite-dimensional K-stable pieces, then pass to the locally finite union and complexify the real Lie algebra. Infinite-dimensional Frechet differentiation/globalization is additional AF.1 analysis and is not supplied by this finite-dimensional Lie functor.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff",
+          "quote": "Functoriality: `lieMap (id) = id`,\n  `lieMap (ψ ∘ φ) = lieMap ψ ∘ lieMap φ`.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 296-297"
+        },
+        {
+          "stageId": "AutomorphicFormsOnReductiveGroups:AF.1",
+          "quote": "Define compatible (g,K)-modules with algebraic infinitesimal action, locally finite K action and derivative compatibility.",
+          "sourcePath": "content/campaign/AutomorphicFormsOnReductiveGroups/README.md",
+          "locator": "lines 21-21"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
+      "target": "AutomorphicFormsOnReductiveGroups:AF.0",
+      "reason": "The identification of the real enveloping algebra with left-invariant differential operators, followed by complex scalar extension, is the algebraic operator interface used by archimedean differentiation and uniform moderate growth. AF.0 still proves continuity, seminorm/growth bounds and the right-translation convention (including any opposite-algebra/sign conversion). Finite-place locally constant operators do not come from this real Lie theorem.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
+          "quote": "`UniversalEnvelopingAlgebra ℝ 𝔤` (Mathlib) is the algebra of\n  **left-invariant differential operators** on `G`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 357-358"
+        },
+        {
+          "stageId": "AutomorphicFormsOnReductiveGroups:AF.0",
+          "quote": "Define uniform moderate growth for all differential operators",
+          "sourcePath": "content/campaign/AutomorphicFormsOnReductiveGroups/README.md",
+          "locator": "lines 17-17"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.0",
+      "reason": "For real reductive points in a class admitting the stated global Cartan decomposition, quotienting the K times p diffeomorphism identifies G/K with p and supplies its contraction and homogeneous smooth structure. ALS.0 retains the reductive-center correction, finite component data, arithmetic stabilizers and neatness; these are not consequences of the Cartan theorem. A reductive Lie algebra alone is not an adequate group hypothesis. The displayed K × p decomposition first describes K\\G; inversion converts it to the G/K convention, where radial contraction of p gives the required homotopy.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+          "quote": "the map `K × 𝔭 → G`,\n  `(k, X) ↦ k · lieExp X` is a **diffeomorphism**",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 436-437"
+        },
+        {
+          "stageId": "ArithmeticLocallySymmetricSpaces:ALS.0",
+          "quote": "Construct Cartan involutions, maximal compact subgroups and the contractible symmetric space with G(F∞)-action.",
+          "sourcePath": "content/campaign/ArithmeticLocallySymmetricSpaces/README.md",
+          "locator": "lines 13-13"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms",
+      "target": "ShimuraData:D2",
+      "reason": "The compact-real-form existence interface is needed to define the Cartan involution in the Hermitian-domain construction. Use the complexification of the relevant algebraic real group with a proved analytic comparison, not the incorrect blanket assertion that a noncompact real group is itself maximal compact. ShimuraData owns the positivity criterion, stabilizer, Hodge tangent decomposition and integrability; no classification of all real forms is imposed.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms",
+          "quote": "State the compact-real-form existence as a milestone.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 402-402"
+        },
+        {
+          "stageId": "ShimuraData:D2",
+          "quote": "Define a Cartan involution using the compact real form of the complexified group.",
+          "sourcePath": "content/campaign/ShimuraData/README.md",
+          "locator": "lines 64-64"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+      "reason": "The reductive extension supplies the missing central-character factor when the group in Borel–Weil is reductive rather than semisimple. Restrict to the one-dimensional central characters that integrate to the chosen group torus and descend through its central quotient. This is a classification of irreducibles, not a claim that every module of a reductive Lie algebra is semisimple.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n",
+          "quote": "Together these classify the irreducibles as (derived-ideal\n  irreducible) × (central weight).",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+          "locator": "lines 696-697"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+          "quote": "For a complex reductive `G_ℂ` with maximal torus `T_ℂ`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 415-415"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
+      "target": "tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition",
+      "reason": "The independent universal-cover prefix supplies the smooth simply connected covering group of SL2(R), needed for the SL2-tilde model geometry. GeometricTopology still constructs the homogeneous Riemannian metric, the actual maximal isometry group and the comparison with its model carrier. Neither the universal cover alone nor Lie III proves the JSJ or geometrization theorem.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
+          "quote": "Every **connected** Lie group `G` has a **universal cover** `G̃` that is a\n  simply-connected Lie group with a **covering homomorphism**",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 348-349"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition",
+          "quote": "`S³`, `E³`, `ℍ³`, `S² × ℝ`, `ℍ² × ℝ`, `SL₂~`, `Nil`, `Sol`, each with its maximal\n  isometry group",
+          "sourcePath": "content/tau-ceti/GeometricTopology/README.md",
+          "locator": "lines 703-704"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories",
+      "target": "tauceti:TauCetiRoadmap/GeometricTopology#layer-10-foliations-and-their-euler-class",
+      "reason": "Use the general constant-rank smooth Frobenius prerequisite named in LieGroups Layer 4, not its later Lie III conclusion, to identify bracket-involutive subbundles with local foliation charts. GeometricTopology owns maximal leaf assembly, tautness, plane-bundle orientations and the Euler class. The shared theorem must be built for arbitrary finite-dimensional smooth manifolds, not only left-invariant distributions on a Lie group.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories",
+          "quote": "State the\n  Frobenius theorem (`VectorField.mlieBracket`-involutive ⇒ integrable) as the named analytic\n  prerequisite.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 325-327"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GeometricTopology#layer-10-foliations-and-their-euler-class",
+          "quote": "A **foliation** of `M` as an integrable subbundle of `TM` (a distribution closed under\n  Lie bracket), equivalently a maximal atlas of flat charts",
+          "sourcePath": "content/tau-ceti/GeometricTopology/README.md",
+          "locator": "lines 792-793"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+      "target": "AutomorphicFormsOnReductiveGroups:AF.1a",
+      "confidence": "inferred",
+      "reason": "In the real reductive cases admitting the stated global Cartan decomposition, including the GL_n(C)/U(n) acceptance example, the K × p diffeomorphism identifies K\\G with p; inversion supplies the G/K convention. Radial contraction then supplies the smooth contracting homotopy needed in the relative resolution for van Est. This is a geometric prerequisite for those cases only: AF.1a still constructs the cochain comparisons, coefficient topology, equivariance and cup products. Its broader theorem for arbitrary finite-dimensional real Lie groups with finitely many components needs an additional general G/K contraction argument; reductivity of the Lie algebra alone does not license this global decomposition.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+          "quote": "the map `K × 𝔭 → G`,\n  `(k, X) ↦ k · lieExp X` is a **diffeomorphism**",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 436-437"
+        },
+        {
+          "stageId": "AutomorphicFormsOnReductiveGroups:AF.1a",
+          "quote": "Construct the comparison maps, the contracting homotopy on G/K and the relatively injective resolution; prove that they induce van Est's isomorphism.",
+          "sourcePath": "content/campaign/AutomorphicFormsOnReductiveGroups/README.md",
+          "locator": "lines 27-27"
+        },
+        {
+          "stageId": "AutomorphicFormsOnReductiveGroups:AF.1a",
+          "quote": "Acceptance: a compact group (averaging), a real vector group with trivial coefficients, GL_n(C)/U(n) in the regulator range, and a disconnected group with a nontrivial component action.",
+          "sourcePath": "content/campaign/AutomorphicFormsOnReductiveGroups/README.md",
+          "locator": "lines 29-29"
+        }
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories"
+      ],
+      "detail": "Both exponential constructions require parameter-dependent local flows and an inverse-function theorem, but a geodesic spray and a left-invariant vector field are different vector fields, and their exponential maps need not agree.",
+      "recommendation": "rescope",
+      "proposal": "Keep the boundaryless-manifold inverse-function prefix in HopfRinow’s shared manifold API. Extract local existence, uniqueness and smooth parameter dependence for arbitrary smooth finite-dimensional vector fields there, with domain and time restrictions explicit. LieGroups owns the one-parameter subgroup law and global completeness of left-invariant fields; HopfRinow owns its geodesic spray and metric/geodesic completeness. Do not make either global-completeness theorem a prerequisite for the other. The Frobenius prefix needs the arbitrary-vector-field version and must not wait for Ado or Lie III. Reuse the existing HopfRinow prefix unchanged; any missing general flow theorem beyond that scope belongs in HopfRinow, Part II, coordinated with its shared manifold owner.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map",
+          "quote": "for `C¹` boundaryless Banach manifolds, a\n  `C¹` map whose `mfderiv` at a point is a continuous linear equivalence induces a\n  `LocalDiffeomorphAt` there.",
+          "sourcePath": "content/tau-ceti/HopfRinow/README.md",
+          "locator": "lines 302-304"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups",
+          "quote": "so (inverse function theorem) `lieExp` is a **local diffeomorphism at `0`**",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 240-240"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories",
+          "quote": "State the\n  Frobenius theorem (`VectorField.mlieBracket`-involutive ⇒ integrable) as the named analytic\n  prerequisite.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 325-327"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms"
+      ],
+      "detail": "The generic compact-group Peter–Weyl/Schur theory and LieGroups’ torus/complexification theory meet at compact Lie groups, but generic Peter–Weyl neither assumes a Lie structure nor requires a complexification. LieGroups’ introductory claim that complexification feeds Peter–Weyl must not become a reverse foundational dependency.",
+      "recommendation": "keep",
+      "proposal": "Keep CompactGroups responsible for compact Hausdorff harmonic analysis, convolution, finite-dimensional coefficient spaces and completeness without Lie assumptions. LieGroups owns maximal tori, the Weyl density and complexification. Put finite-dimensional Lie-group highest-weight identification after the independent compact decomposition. The by-hand SU2 example may compare with the general Weyl formula but does not make general character orthogonality depend on it.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
+          "quote": "The representative `*`-subalgebra is **dense in `C(G)` for the uniform norm**",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/CompactGroups/README.md",
+          "locator": "lines 321-321"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups",
+          "quote": "**The character.** `character π : C(G, ℂ)`, `g ↦ trace (π g)`;",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/CompactGroups/README.md",
+          "locator": "lines 367-367"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+          "quote": "**The Weyl integration formula.** For a compact connected `G` with maximal torus `T` and normalized\n  Haar `μ_G`, `μ_T`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 384-385"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms",
+          "quote": "and it feeds [../CompactGroups](../CompactGroups/README.md)'s Peter-Weyl.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 411-411"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra"
+      ],
+      "detail": "Both expose enveloping algebras and central characters. Algebraic PBW supplies a basis and filtration, not automatically the geometric differential-operator isomorphism. LieGroups’ assertion that the centre acts by scalars needs a representation hypothesis: over R a one-dimensional abelian algebra can act irreducibly by rotation on R2 without acting by real scalars, as the reductive-algebra roadmap already records.",
+      "recommendation": "rescope",
+      "proposal": "Keep PBW and normalized monomials in LieHighestWeight. LieGroups owns the map to left-invariant differential operators, the symbol/filtration comparison and its inverse. State scalar central action for finite-dimensional complex irreducibles (or an explicitly supplied infinitesimal character), not arbitrary real irreducibles. Separate algebraic central weights from the integral group characters that survive integration and central-kernel descent. Existing upstream PBW and LieGroups targets are cited unchanged; any additional comparison beyond their stated scope belongs in the appropriate Part II.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+          "quote": "the PBW filtration;\n  its multiplicativity and the associated-graded equivalence with the symmetric algebra `Sym(L)`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+          "locator": "lines 397-398"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n",
+          "quote": "Together these classify the irreducibles as (derived-ideal\n  irreducible) × (central weight).",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+          "locator": "lines 696-697"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
+          "quote": "`UniversalEnvelopingAlgebra ℝ 𝔤` (Mathlib) is the algebra of\n  **left-invariant differential operators** on `G`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 357-358"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms"
+      ],
+      "detail": "ClassicalGroups’ diagonal algebraic torus in GL_n(C) and LieGroups’ compact maximal torus are not the same group. A Lie-algebra central weight is not automatically an algebraic or compact-torus character. The disconnected orthogonal group also cannot be classified from its Lie algebra alone.",
+      "recommendation": "keep",
+      "proposal": "Keep rational classical-group representations and their integer character lattices in ClassicalGroups. LieGroups supplies compact real forms, compact maximal tori and differentiation/integration after the relevant smooth structures exist. Add an explicit comparison between (S1)^n and (C*)^n, their character lattices, and the chosen central quotient; transport the highest-weight parametrization through that comparison. Handle O_n/SO_n component extension separately. Route a comparison beyond existing upstream scope to Lie groups and the Lie algebra correspondence, Part II; do not re-plan ClassicalGroups or its existing torus API.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification",
+          "quote": "`diagonalTorus n : Subgroup (GL n ℂ)`, the invertible diagonal\n  matrices, `≃* (Fin n → ℂˣ)`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md",
+          "locator": "lines 244-245"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+          "quote": "A **torus** in `G` is a compact connected abelian Lie subgroup;",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 370-370"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms",
+          "quote": "`(U(n))_ℂ = GL_n(ℂ)`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 397-397"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat"
+      ],
+      "detail": "Closed subgroup schemes, fppf quotients and algebraic Bruhat decompositions are different objects from smooth real closed subgroups and complex-analytic homogeneous spaces. Neither an arbitrary fppf quotient nor a positive-characteristic group follows from Cartan’s real closed-subgroup theorem.",
+      "recommendation": "keep",
+      "proposal": "Keep Hopf ideals, quotient representability, scheme-theoretic Borels/parabolics and algebraic Bruhat cells in ReductiveGroups. LieGroups owns smooth subgroup charts and the analytic quotient/flag-manifold theory. Request a characteristic-zero analytification comparison for the chosen smooth algebraic G, H, B and P, with representability and compatible quotient maps proved. Do not add an unconditional dependency between the entire two subgroup stages. Keep the upstream layers intact and route any additional analytic/algebraic comparison to a Part II of its existing owner.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+          "quote": "**Hopf ideals ↔ closed subgroup schemes:**",
+          "sourcePath": "content/tau-ceti/ReductiveGroups/README.md",
+          "locator": "lines 153-153"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+          "quote": "**Borel subgroups, maximal tori**, and their conjugacy; **parabolic** subgroups and\n  **Levi** decomposition.",
+          "sourcePath": "content/tau-ceti/ReductiveGroups/README.md",
+          "locator": "lines 209-210"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem",
+          "quote": "For the **finite-dimensional real** `G`, if `H ≤ G` is **closed**,\n  then `H` is an **embedded Lie subgroup**",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 272-273"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+          "quote": "the **flag manifold** `flagManifold = G_ℂ / B` is a compact\n  complex manifold",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 417-418"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+        "ShimuraData:D3",
+        "AutomorphicBundles:B0"
+      ],
+      "detail": "LieGroups Layer 8 constructs full flags G_C/B and line bundles for Borel characters. ShimuraData D3 needs a parabolic compact dual G/P, the Borel embedding, horizontal geometry and descent to the reflex field. A full-flag theorem alone supplies neither that partial flag nor its algebraic descent. AutomorphicBundles B0 additionally needs associated bundles for general parabolic representations, not only character line bundles.",
+      "recommendation": "rescope",
+      "proposal": "Propose Lie groups and the Lie algebra correspondence, Part II, for the additional partial-flag analytic unit with P closed complex parabolic, the projection G/B to G/P, tangent quotient and complex structure. Compare it with the algebraic homogeneous variety supplied by ReductiveGroups. ShimuraData owns the Hodge cocharacter parabolic, open-domain/Borel embedding, horizontality and reflex-field descent. Keep the character/sign conventions of Borel–Weil separate from the reflex-field field-of-definition statement. Keep the generic torsor-associated-bundle functor in ReductiveGroupsPartII as B0 explicitly requests, and the analytic/arithmetic coefficient-descent comparison in AutomorphicBundles.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+          "quote": "the **flag manifold** `flagManifold = G_ℂ / B` is a compact\n  complex manifold",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 417-418"
+        },
+        {
+          "stageId": "ShimuraData:D3",
+          "quote": "Construct the parabolic stabilizing the Hodge filtration and the compact dual as a flag variety.",
+          "sourcePath": "content/campaign/ShimuraData/README.md",
+          "locator": "lines 76-76"
+        },
+        {
+          "stageId": "AutomorphicBundles:B0",
+          "quote": "Import the generic associated-bundle construction for torsors and representations from ReductiveGroupsPartII, including tensor products, duals, determinants and pullback.",
+          "sourcePath": "content/campaign/AutomorphicBundles/README.md",
+          "locator": "lines 33-33"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+        "ReductiveGroupsPartII:RG2.4"
+      ],
+      "detail": "Both stages use the names Cartan and Iwasawa decomposition, but LieGroups concerns real reductive groups, real smooth spaces and K times p; RG2.4 concerns nonarchimedean points, special maximal compact subgroups and dominant coweights/buildings. Equal theorem names do not give an applicable prerequisite.",
+      "recommendation": "keep",
+      "proposal": "Keep the real-analytic and nonarchimedean decompositions separate. Share only an explicitly compared root/weight combinatorial interface when its hypotheses match; root valuation data and the special maximal compact subgroup remain in ReductiveGroupsPartII. No LieGroups9 to RG2.4 arrow is asserted.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+          "quote": "**The Iwasawa decomposition.** `G = KAN`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 439-439"
+        },
+        {
+          "stageId": "ReductiveGroupsPartII:RG2.4",
+          "quote": "Prove Iwasawa decomposition using an appropriate special maximal compact subgroup.",
+          "sourcePath": "content/campaign/ReductiveGroupsPartII/README.md",
+          "locator": "lines 41-41"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms",
+        "ShimuraData:D2"
+      ],
+      "detail": "Layer 7 allows a noncompact real reductive G and then says it embeds as a maximal compact subgroup of its complexification. That conclusion is incompatible with the word noncompact. ShimuraData only needs the valid compact-real-form and Cartan-involution interface.",
+      "recommendation": "rescope",
+      "proposal": "Request an upstream statement correction distinguishing compact connected G with a complexification and maximal-compact embedding, and a separate real-form discussion for noncompact reductive groups with the correct global group hypotheses. State the universal property for continuous source homomorphisms and holomorphic target homomorphisms. Supply central-quotient and chosen-real-form comparisons before applying it to ShimuraData; do not repair the statement by silently deleting the noncompact case. This is a correction request to the existing owner, not a replacement atlas plan for Layer 7; extensions beyond its corrected scope belong in Part II.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms",
+          "quote": "For a compact (or real reductive) Lie group `G`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 394-394"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms",
+          "quote": "`G` is a **maximal compact subgroup** of `G_ℂ`.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 397-397"
+        },
+        {
+          "stageId": "ShimuraData:D2",
+          "quote": "Define a Cartan involution using the compact real form of the complexified group.",
+          "sourcePath": "content/campaign/ShimuraData/README.md",
+          "locator": "lines 64-64"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories",
+        "AdditiveCombinatorics:AC.3"
+      ],
+      "detail": "Local BCH and existence of a simply connected integrating group do not yet supply the global nilpotent exponential coordinates and rational/filtered lattice data needed for nilmanifold and nilsequence complexity.",
+      "recommendation": "rescope",
+      "proposal": "Propose an extension in Lie groups and the Lie algebra correspondence, Part II, importing the existing local BCH and Lie III results: finite-dimensional real nilpotent Lie algebra, finite BCH polynomial, its global group law, and the exponential diffeomorphism for the connected simply connected nilpotent group. Keep rational Malcev bases, lattice/cocompactness criteria, filtrations, coordinate-height and quantitative complexity bounds in AdditiveCombinatorics. Its inverse theorem and corrected nilsequence argument still require their own source proofs. Do not treat local BCH as an already-complete global quantitative supplier.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff",
+          "quote": "converges for `X, Y` near `0` and satisfies\n  `lieExp X · lieExp Y = lieExp (bch X Y)` there.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 305-306"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories",
+          "quote": "Every **finite-dimensional real Lie algebra** `L` is `Lie(G)` for some\n  **simply-connected** Lie group `G`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 330-331"
+        },
+        {
+          "stageId": "AdditiveCombinatorics:AC.3",
+          "quote": "inverse theorems in their proved settings and nilmanifold/nilsequence complexity.",
+          "sourcePath": "content/campaign/AdditiveCombinatorics/README.md",
+          "locator": "lines 53-53"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+        "BorelRegulators:R.3"
+      ],
+      "detail": "A compact real form of a complex group is not by itself the compact dual of a specified symmetric pair. BorelRegulators R.3 needs the classical compact homogeneous spaces and fibrations, while R.2 already imports continuous/relative cochains through AF.1a.",
+      "recommendation": "rescope",
+      "proposal": "A Lie groups and the Lie algebra correspondence, Part II extension should expose a Cartan-involution-compatible compact-dual pair, with the k plus i p Lie algebra and actual groups/subgroups, central quotient and homogeneous manifold comparison. BorelRegulators owns the classical compact-dual cohomology, primitive generators, stabilization maps and stable-range arithmetic estimates. Reuse AF.1a for invariant forms and van Est, and AlgebraicTopology for bundle/fibration comparison; do not make the rank theorem a prerequisite for this geometric prefix.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms",
+          "quote": "State the compact-real-form existence as a milestone.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 402-402"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+          "quote": "`𝔤 = 𝔨 ⊕ 𝔭` (`+1` and `-1` eigenspaces of `dθ`)",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 436-436"
+        },
+        {
+          "stageId": "BorelRegulators:R.3",
+          "quote": "Compute the stable cohomology of the compact duals using the classical groups and their fibrations, with primitive generators and their degrees.",
+          "sourcePath": "content/campaign/BorelRegulators/README.md",
+          "locator": "lines 26-26"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+        "ArithmeticLocallySymmetricSpaces:ALS.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+        "AdditiveCombinatorics:AC.3"
+      ],
+      "detail": "A closed embedded Lie subgroup theorem is not the smooth homogeneous-quotient theorem. Compact maximal-torus arguments, flags, symmetric spaces, homogeneous dynamics and nilmanifolds all need compatible quotient carriers; an immersed nonclosed subgroup cannot be substituted.",
+      "recommendation": "rescope",
+      "proposal": "Assign the additional homogeneous-quotient unit to Lie groups and the Lie algebra correspondence, Part II, importing the upstream closed-subgroup theorem for closed H: Hausdorff smooth G/H, quotient submersion, local sections/principal H-bundle, tangent space g/h at the identity coset and action/normal-subgroup comparisons. A Lie group structure on G/H requires normal H. A discrete subgroup acts freely on G by translations even when it has torsion; arithmetic actions on G/K instead need their separate stabilizer/freeness hypotheses. Keep finite volume, measures, ergodic/mixing/nondivergence estimates and quantitative lattice results with the arithmetic consumers.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem",
+          "quote": "For the **finite-dimensional real** `G`, if `H ≤ G` is **closed**,\n  then `H` is an **embedded Lie subgroup**",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 272-273"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+          "quote": "argument on `G/T`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 376-376"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+          "quote": "the **flag manifold** `flagManifold = G_ℂ / B`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 417-417"
+        },
+        {
+          "stageId": "ArithmeticLocallySymmetricSpaces:ALS.0",
+          "quote": "Construct Cartan involutions, maximal compact subgroups and the contractible symmetric space with G(F∞)-action.",
+          "sourcePath": "content/campaign/ArithmeticLocallySymmetricSpaces/README.md",
+          "locator": "lines 13-13"
+        },
+        {
+          "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+          "quote": "Develop lattice-point estimates and equidistribution;",
+          "sourcePath": "content/campaign/GeometryOfNumbersAndQuadraticArithmetic/README.md",
+          "locator": "lines 65-65"
+        },
+        {
+          "stageId": "AdditiveCombinatorics:AC.3",
+          "quote": "nilmanifold/nilsequence complexity.",
+          "sourcePath": "content/campaign/AdditiveCombinatorics/README.md",
+          "locator": "lines 53-53"
+        }
+      ]
+    }
+  ],
+  "examined": [
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "overlap",
+      "note": "Read AC.3–AC.4. Nilmanifold/nilsequence complexity needs global nilpotent coordinates and arithmetic lattice data; local BCH alone is not a sufficient supplier. Added a precise rescope, not a fabricated completed theorem."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none",
+      "note": "Read AA.0–AA.5 and rechecked AA.3. Siegel-set reduction includes noncompact arithmetic finiteness and height estimates not supplied by the compact Weyl formula or K times p alone; the retained ALS.0 interface is more precise."
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AnalyticHabiroStack",
+      "result": "none",
+      "note": "Additional blueprint roadmap: read summary, purpose and stage inventory. Rapid-decay analytic Habiro group/ring stacks and their quotients are not finite-dimensional Lie groups or smooth homogeneous quotients."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AnalyticStacks",
+      "result": "none",
+      "note": "Additional blueprint roadmap: read summary, purpose and stage inventory. Six-functor and Clausen–Scholze analytic-stack foundations do not identify the manifold, form and differential-operator carriers used in LieGroups."
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "links",
+      "note": "Read ALS.0 and its subsequent topology context. Real Cartan decomposition supplies symmetric-space contraction only after the global group/center/component hypotheses are fixed."
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "overlap",
+      "note": "Read B0. Associated bundles for parabolic representations come from ReductiveGroupsPartII; geometric/analytic coefficient descent is owned here. Borel character line bundles alone do not supply this functor."
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "links",
+      "note": "Read AF.0, AF.1 and AF.1a. Finite-dimensional differentiation and enveloping differential operators are direct interfaces. General Frechet globalization and the nonreductive van Est case are not supplied by LieGroups9."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "overlap",
+      "note": "Read R.1–R.3 and the aggregation checkpoint. R.1 imports AA/ALS; R.2 imports AF.1a, so no redundant direct cochain arrow. R.3 needs an explicit compact-dual pair and its classical fibrations."
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none",
+      "note": "Read BG1. Its maximal tori and pi_1 are algebraic root-datum/Kottwitz objects, not compact tori or topological universal covers of real Lie groups."
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none",
+      "note": "Read C2 coherent GAGA. It can compare projective algebraic flag sheaves with analytic ones after a flag analytification identification, but LieGroups does not specify that algebraic proof route. No unconditional GAGA arrow added."
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "none",
+      "note": "Read FF.4. BCH here is the coding-theory abbreviation, not Baker–Campbell–Hausdorff. Finite homogeneous spaces need no real smooth-quotient theorem."
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "FoundationsAndLibraryIntegration",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none",
+      "note": "Read R16.1, R16.3 and R16.6. Generic automorphic function spaces are explicitly imported through AF, and local correspondence through ET.6. Do not duplicate these mediated Lie interfaces."
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none",
+      "note": "Read GS4, including the integral dual-group reconstruction. Maximal-compact generation is nonarchimedean RG2.2–4; the torus/root datum is algebraic. No real Lie-group arrow."
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "overlap",
+      "note": "Read GN.4. Generic homogeneous quotients are a missing shared construction; finite-volume, mixing, nondivergence and irrationality estimates remain here. No dynamics theorem is inferred from Cartan decomposition."
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none",
+      "note": "Read MP.0, MP.1, MP.4, MP.7 and MP.8. The Weil-index cocycle/Stone–von Neumann construction is not a universal-cover construction. Identifying the real metaplectic cover by pi_1 would require an additional comparison not stated here; no forced dependency."
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "none",
+      "note": "Additional blueprint roadmap: read summary, purpose and stage inventory. The stated scope uses algebraic Lagrangian period varieties, Gauss–Manin transport and p-adic/complex period maps; no specific finite-dimensional Lie-group theorem is identified as a new prerequisite."
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "none",
+      "note": "Read NE.0. Its Lie group is compact p-adic and its completed group ring uses inverse limits; real BCH/integration does not supply the needed Lazard/Venjakob hypotheses."
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "QWittVectors",
+      "result": "none",
+      "note": "Additional blueprint roadmap: read summary, purpose and stage inventory. Big/q-Witt vectors and q-de Rham–Witt complexes do not supply real Lie-group analytic operations."
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "overlap",
+      "note": "Read RG2.1 and RG2.4. Valued roots/buildings and nonarchimedean Cartan/Iwasawa decompositions must not be identified with the real smooth theorem."
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "RingStacksAndTransmutation",
+      "result": "none",
+      "note": "Additional blueprint roadmap: read summary, purpose and stage inventory. Lawvere group objects and derived quotient ring stacks are not smooth Lie groups or ordinary homogeneous quotient manifolds."
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "links",
+      "note": "Read D0, D2 and D3. Compact real forms feed the Cartan interface; partial flags, the Borel embedding and reflex-field descent require more than the full-flag Borel–Weil stage."
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none",
+      "note": "Read the smooth-action, induction and Hecke stages. Smooth here means open vector stabilizers for a totally disconnected group, not real differentiability."
+    },
+    {
+      "roadmapId": "SolidAnalyticRings",
+      "result": "none",
+      "note": "Additional blueprint roadmap: read summary, purpose and stage inventory. Condensed/solid analytic coefficient foundations have no checked finite-dimensional Lie-group construction interface."
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "none",
+      "note": "Summary/text screen; no matched pair."
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none",
+      "note": "Summary and keyword screen: Complex contour-integral infrastructure is not higher-dimensional homogeneous complex geometry."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "none",
+      "note": "Summary and keyword screen: Arithmetic effective bounds do not supply Lie group geometry."
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "none",
+      "note": "Summary and keyword screen: Integral lattice and root-coordinate calculations are algebraic; root-system comparisons are mediated by RootSystems."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none",
+      "note": "Summary and keyword screen: Explicit Hermite/Haar and other orthogonal bases do not supply the Peter–Weyl decomposition for an arbitrary compact group."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none",
+      "note": "Summary and keyword screen: Huber rings and nonarchimedean adic spaces are not real smooth Lie groups."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none",
+      "note": "Summary and keyword screen: Finite-field code and lattice-coordinate constructions do not import Lie-group analysis."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "none",
+      "note": "Summary and keyword screen: Algebraic curve and valuation theory does not by itself provide the complex homogeneous-space or line-bundle comparison."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "none",
+      "note": "Read Stages 5–6. Bundles/fibrations and manifold duality are potential supporting APIs, but Stage6 imports its degree carrier from HeegaardFloer; the particular fixed-point/degree theorem for torus exhaustion is not supplied by these statements alone. Record the missing interface rather than invent a degree provider."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none",
+      "note": "Summary and keyword screen: Algebraic/analytic toric varieties share complex tori but no specific toric result was established as a LieGroups-stage prerequisite."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "none",
+      "note": "Summary and keyword screen: Dirichlet-series analytic estimates are not the archimedean group differential-operator interface."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "none",
+      "note": "Summary and keyword screen: Branched curve covers are not universal covers of connected Lie groups; no direct stage contract established."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "none",
+      "note": "Summary and keyword screen: Finite simple-group carriers and Lie-type indices use algebraic groups and root data, not finite-dimensional real Lie integration."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "none",
+      "note": "Summary and keyword screen: Finite Galois conjugacy classes and Frobenius are not smooth group conjugacy or maximal tori."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "none",
+      "note": "Summary and keyword screen: Reciprocity and formation cohomology do not require the finite-dimensional real Lie correspondence."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none",
+      "note": "Summary and keyword screen: Combinatorial knot complexes are not a supplier for group flows or homogeneous quotients."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none",
+      "note": "Summary and keyword screen: One-complex-variable mapping theory does not by itself supply higher-dimensional holomorphic group quotients."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "none",
+      "note": "Summary and keyword screen: Differential graded and infinity structures concern algebraic/homological composition; no smooth Lie-group stage contract established."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none",
+      "note": "Summary and keyword screen: Graphon compactness and kernels have no established finite-dimensional Lie-group contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "none",
+      "note": "Summary and keyword screen: Algebraic elliptic curves and their analytic uniformization may need comparison interfaces; no direct target-stage dependency established from this screen."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none",
+      "note": "Summary and keyword screen: Permutation-invariant probability and representation-theoretic symmetry are not compact Lie-group structure."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none",
+      "note": "Read Layers 0–1. They explicitly use the topological projective quotient, the concrete Mobius action and generic free-action/finite-disc quotient results. No dependency on the full real Lie correspondence is imposed."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "links",
+      "note": "Read Layers 8 and 10 in full and the manifold context. The SL2-tilde model imports the Lie universal-cover prefix; involutive-subbundle/foliation-chart equivalence imports general Frobenius. Neither supplies geometrization or the Euler-class counterexample."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "none",
+      "note": "Summary and keyword screen: Global arithmetic of number fields supplies neither smooth groups nor enveloping differential operators."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none",
+      "note": "Summary and keyword screen: Archimedean form signatures alone do not identify the topology or Lie algebra of their orthogonal groups."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "none",
+      "note": "Summary and keyword screen: K0 and Ext-Euler pairings do not supply differential geometry; lattice/root examples are mediated by their own roadmaps."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none",
+      "note": "Read the orientation/degree scope and Lane F0. Orientations/degree are mentioned in the introduction, but F0 explicitly supplies Sard/Fredholm/Sard–Smale, not a pinned degree theorem adequate for torus exhaustion. No hard arrow to LieGroups6 until that interface is assigned."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none",
+      "note": "Read L3. The period domain is a point/filtration carrier with a lattice symmetry group; the text explicitly leaves manifold structure to a successor. No smooth homogeneous-space arrow into L3."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "links",
+      "note": "Read Layers 0–1. The generic boundaryless inverse-function prefix feeds LieGroups0. Smooth-flow reuse needs an arbitrary-vector-field interface; geodesic and Lie exponentials are distinct."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "none",
+      "note": "Summary and keyword screen: Jacobian representability is an algebraic-geometric quotient question, not the smooth homogeneous quotient asserted in LieGroups."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "none",
+      "note": "Summary and keyword screen: Valued local fields, unit filtrations and ramification are nonarchimedean; no real smooth-group theorem is imported."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "none",
+      "note": "Summary and keyword screen: Algebraic moduli and curve uniformization require their own analytic comparison, not a blanket LieGroups dependency."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "none",
+      "note": "Summary and keyword screen: Classical modular forms do not automatically use the general real reductive decomposition; the AF.0/AF.1 operator links address the actual general automorphic interface."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "none",
+      "note": "Summary and keyword screen: Multiquadratic extension arithmetic has no established direct smooth Lie-group stage interface."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "none",
+      "note": "Summary and keyword screen: Explicit arithmetic algorithms do not supply the real Lie-group construction."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "note": "Summary and keyword screen: Strongly continuous Banach-space semigroups and unbounded generators are not finite-dimensional smooth one-parameter subgroups. No identification of their exponentials is asserted."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none",
+      "note": "Summary and keyword screen: Wasserstein and metric gradient flows are not left-invariant smooth group flows; no direct dependency established."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none",
+      "note": "Summary and keyword screen: General PDE/distribution infrastructure does not yet identify the smooth finite-dimensional local-flow theorem needed here."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "none",
+      "note": "Summary and keyword screen: Finite polynomial Galois group actions do not need the real Lie correspondence."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "none",
+      "note": "Summary and keyword screen: Continuous cochains with discrete coefficients are not Lie differentiation or analytic group cohomology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "none",
+      "note": "Summary and keyword screen: Profinite and pro-p group structure is not the finite-dimensional real smooth group category."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "none",
+      "note": "Summary and keyword screen: Quadratic form and Clifford-algebra algebra is not the smooth spin-group comparison; that boundary is read in SpinRepresentations."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "overlap",
+      "note": "Read the group-functor, subgroup/quotient, torus and structure stages. Keep scheme quotients, positive-characteristic structure and analytic Lie quotients separate pending explicit characteristic-zero comparisons."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "note": "Summary and keyword screen: Read the family scope/index; it has no stage endpoint for an independent supplier arrow."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "links",
+      "note": "Read the characteristic-zero assembly and its PBW/Levi/Weyl dependencies. Only the real characteristic-zero output supplies Lie III; preserve its algebraic Weyl proof."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "none",
+      "note": "Summary and keyword screen: Finite-group characters and character tables do not require a maximal torus or complexification."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "overlap",
+      "note": "Read Layer 3 and the rational representation conventions. Algebraic diagonal and compact tori need a character-lattice comparison; no unconditional integration edge to disconnected O_n."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "links",
+      "note": "Read Layers 0, 1, 5 and 6: Haar probability feeds Weyl integration, but Peter–Weyl and ordinary orthogonality stay independent of Lie complexification."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "note": "Summary and keyword screen: Algebraic induction/restriction and monoidal representation functors do not supply smooth or holomorphic induction."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "links",
+      "note": "Read Layers 3–5 and 9 and relevant conventions: general-field normalized PBW, finite-dimensional highest weights, the algebraic Casimir route and the reductive central-character correction."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "none",
+      "note": "Summary and keyword screen: Quiver representations and ADE classification use root combinatorics, not Lie-group integration."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "result": "links",
+      "note": "Read its incident packet and relevant LieGroups stages. Reuse existing RootSystems1 to LieGroups6 and RootSystems2 to LieGroups8; do not duplicate. Its existing nonreduced-restricted-root/chamber rescope remains required for LieGroups9."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "result": "none",
+      "note": "Summary and keyword screen: Tensor-power centralizers and Young combinatorics stay algebraic; their classical-group interpretation is mediated by ClassicalGroups."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "none",
+      "note": "Summary and keyword screen: Semisimple ring/module structure does not itself give real Lie-group differentiation or finite-dimensional real Schur scalar action."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "links",
+      "note": "Read Layers 3, 5, 7 and 8 and the cover context. Retain differential/conjugation comparisons over R/C only. The algebraic triality route already appears in the Spin packet; do not impose Lie III on that alternative route."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "none",
+      "note": "Summary and keyword screen: Stable, periodic and curved categories have no established direct smooth Lie-group interface."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "none",
+      "note": "Summary and keyword screen: Stable reduction and stable maps are algebraic-geometric, not the real closed-subgroup theorem."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Summary and keyword screen: Probability law constructions do not supply normalized compact-group Haar or Lie torus structure."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "links",
+      "note": "Read the construction roadmap and packet. Reuse the two existing Stage0/Stage1 to LieGroups5 arrows. Lie III consumes only an independent cover-construction prefix, not the later homomorphism-descent theorem."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "none",
+      "note": "Summary and keyword screen: Preprojective and zigzag algebras use quiver/root combinatorics; no Lie-group analytic contract established."
+    }
+  ],
+  "remainingWork": [
+    "Independent link review completed on 2026-09-23; the fourteen retained/added arrows remain planned contracts, not implemented declarations.",
+    "Route the additional shared comparisons and constructions in the overlap proposals through the existing owners and Part II extensions under PROTOCOL section 15; do not re-plan upstream roadmaps.",
+    "Request upstream corrections to Layer7 noncompact/maximal-compact wording, Layer5 scalar-central-action hypotheses and Layer2 nonzero-parameter sequential criterion. The README and its mathematical proofs are outside this review’s permitted files.",
+    "Specify the actual fixed-point/degree theorem used by maximal-torus exhaustion and its canonical degree supplier; the inspected topology roadmaps do not yet pin that interface.",
+    "Preserve the acyclic cover-prefix -> LieIII -> homomorphism-descent construction and the algebraic Casimir-based Ado/Weyl route. Refresh duplicate/cycle checks when parallel submissions are integrated.",
+    "AF.1a’s general finite-component Lie-group case still needs a G/K contraction outside the restricted real reductive Cartan supplier, with the coefficient and cochain comparison proved separately."
+  ],
+  "alreadyRecorded": [
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json",
+      "blob": "ddb833bcf849d6a13c2591e67d98c2e1e4d2321f",
+      "reviewRecheck": "2026-09-23",
+      "note": "Existing planned dependency, retained in its owning sibling packet rather than duplicated here; this record does not confer acceptance on that entire packet."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json",
+      "blob": "ddb833bcf849d6a13c2591e67d98c2e1e4d2321f",
+      "reviewRecheck": "2026-09-23",
+      "note": "Existing planned dependency, retained in its owning sibling packet rather than duplicated here; this record does not confer acceptance on that entire packet."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_UniversalCovers.json",
+      "blob": "1b51d8a0d1a32a1476e46633bdec195e6b0dfca6",
+      "reviewRecheck": "2026-09-23",
+      "note": "Existing planned dependency, retained in its owning sibling packet rather than duplicated here; this record does not confer acceptance on that entire packet."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-1-close-out-the-universal-cover",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_UniversalCovers.json",
+      "blob": "1b51d8a0d1a32a1476e46633bdec195e6b0dfca6",
+      "reviewRecheck": "2026-09-23",
+      "note": "Existing planned dependency, retained in its owning sibling packet rather than duplicated here; this record does not confer acceptance on that entire packet."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups.json",
+      "blob": "dbc84805a340394e8dad3e8d4a1fb0cb12791bf0",
+      "reviewRecheck": "2026-09-23",
+      "note": "Existing planned dependency, retained in its owning sibling packet rather than duplicated here; this record does not confer acceptance on that entire packet."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
+    "date": "2026-09-23",
+    "notes": "Independent of ChatGPT Pro — cgp-14f035649b9f. Checked every original link and all eleven overlap recommendations; corrected raw quotation whitespace, added overlap evidence, clarified quotient handedness and routed extra upstream-direction work to Part II. Removed one duplicate Haar dependency, still referenced in alreadyRecorded, and added the Cartan contraction used by AF.1a in its real reductive cases. Searched all ten focal stages. The underlying source correction requests are not certified proved. See report.",
+    "removed": [
+      {
+        "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging",
+        "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+        "reason": "Same valid dependency already recorded in the CompactGroups sibling packet; retained in alreadyRecorded, not rejected mathematically."
+      }
+    ],
+    "added": [
+      {
+        "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+        "target": "AutomorphicFormsOnReductiveGroups:AF.1a",
+        "reason": "Global Cartan decomposition supplies the G/K contraction in AF.1a’s reductive cases, with the broader case explicitly excluded from this supply claim."
+      }
+    ]
+  }
 }
