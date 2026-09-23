@@ -18,12 +18,13 @@
       "keeps": "Own RJW Theorem 2.4's actual Mellin continuation argument, decay and differentiation proofs and its Bernoulli/smoothing application; compare the imported generalized Bernoulli quantities with complex L-values and prove algebraicity through chosen complex and p-adic embeddings. Reuse the already proved zeta(0) and negative-zeta, Gauss-inversion and character/conductor APIs. Own the explicit identification of the existing Dedekind series with AL.1's meromorphic germ, its simple-pole proof and equality of residue with the existing real class-number limit, without repeating the unit-volume calculation. Instantiate the imported rational idele/infinity-type dictionary in RJW 2.9/2.11 and prove normalization commutativity. All original positive and exceptional-conductor tests survive.",
       "suppliedBy": [
         "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
-        "AnalyticNumberTheory:AN.1",
+        "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+        "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic"
       ],
-      "reason": "Generalized Bernoulli and finite Fourier/Gauss data for character Eisenstein series belong to the existing ModularForms layer; classical Dirichlet continuation/conductor/Euler-factor interfaces belong to AN.1, general adelic continuation to AL.1, and idele characters/infinity types to GlobalNumberFields. Specific source proof routes and residue/embedding comparisons remain here. These supplier plans are not declarations that the missing parts are built."
+      "reason": "Generalized Bernoulli and finite Fourier/Gauss data for character Eisenstein series belong to the existing ModularForms layer; classical Dirichlet continuation, Euler-factor and conductor interfaces belong upstream to Mathlib (the owners the accepted RS-07 named when it dropped AnalyticNumberTheory:AN.1), general adelic continuation to AL.1, and idele characters/infinity types to GlobalNumberFields. Specific source proof routes and residue/embedding comparisons remain here. These supplier plans are not declarations that the missing parts are built."
     },
     "DirichletPadicLFunctions:L1": {
       "action": "narrow",
@@ -148,44 +149,84 @@
   },
   "links": [
     {
-      "source": "AnalyticNumberTheory:AN.1",
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
       "target": "ColemanIntegration:L0",
-      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
     },
     {
-      "source": "AnalyticNumberTheory:AN.1",
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "ColemanIntegration:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
       "target": "DirichletPadicLFunctions:KU-zeta",
-      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
     },
     {
-      "source": "AnalyticNumberTheory:AN.1",
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "DirichletPadicLFunctions:KU-zeta",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
       "target": "DirichletPadicLFunctions:L0",
-      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
     },
     {
-      "source": "AnalyticNumberTheory:AN.1",
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "DirichletPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
       "target": "DirichletPadicLFunctions:L1",
-      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
     },
     {
-      "source": "AnalyticNumberTheory:AN.1",
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "DirichletPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
       "target": "EllipticRegulators:ER.5",
-      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
     },
     {
-      "source": "AnalyticNumberTheory:AN.1",
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
       "target": "IntegralIwasawaTheory:L0",
-      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
     },
     {
-      "source": "AnalyticNumberTheory:AN.1",
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "IntegralIwasawaTheory:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
       "target": "ModularSymbolsPadicLFunctions:L1",
-      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
     },
     {
-      "source": "AnalyticNumberTheory:AN.1",
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "ModularSymbolsPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
       "target": "SpecialValuesBirchTate:B.1",
-      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "SpecialValuesBirchTate:B.1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
     },
     {
       "source": "AutomorphicBundles:B2",
@@ -964,10 +1005,16 @@
       ]
     },
     {
-      "target": "Classical complex Dirichlet continuation, conductor and imprimitive Euler-factor API, reusing pinned library declarations",
-      "owner": "AnalyticNumberTheory:AN.1",
+      "target": "Classical complex Dirichlet continuation, completed functional equation and imprimitive Euler-factor API, reusing pinned library declarations",
+      "owner": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
       "formerly": [
-        "AnalyticNumberTheory:AN.1",
+        "DirichletPadicLFunctions:L0"
+      ]
+    },
+    {
+      "target": "Primitive Dirichlet characters, conductor and orthogonality as used by the Dirichlet p-adic interpolation",
+      "owner": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "formerly": [
         "DirichletPadicLFunctions:L0"
       ]
     },
@@ -1232,5 +1279,16 @@
         "IntegralIwasawaTheory:I.3"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-14",
+    "date": "2026-09-23",
+    "notes": "All 15 stages of the two members have entries (12 narrow, 3 keep). The 3 evidence pairs share owner entries, and every consumer of the 12 narrowed layers receives links from each supplier. The extension of AutomorphicPadicLFunctions is titled exactly \"<DirichletPadicLFunctions title>, Part II: …\" and starts beyond the rational-field constructions. The sampled narrowings (Dirichlet L0 and L4, Automorphic L3) keep every original target not supplied by a named owner. The owners agree with the accepted RS-13 (AL.1 analytic GL1 theory; L0 owns the algebraic-to-complex comparison; ModularForms Layer 0 owns the generalized Bernoulli quantities). One correction: the proposal still used AnalyticNumberTheory:AN.1, which the accepted RS-07 drops, as a supplier, an owner and the source of eight links; these now name the upstream Mathlib owners RS-07 chose. With the twelve accepted restructurings applied, no link closes a cycle. See REV-RS-14.md.",
+    "corrections": [
+      "layers[DirichletPadicLFunctions:L0].suppliedBy: replaced AnalyticNumberTheory:AN.1 (dropped by the accepted RS-07) with UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions and UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality, the owners RS-07 named; the reason records this.",
+      "owners: the AN.1 entry for the classical Dirichlet continuation/conductor/Euler-factor API is replaced by two entries with those upstream owners (formerly DirichletPadicLFunctions:L0), matching RS-07.",
+      "links: each of the eight links AN.1 -> X (ColemanIntegration L0, DirichletPadicLFunctions KU-zeta, L0 and L1, EllipticRegulators ER.5, IntegralIwasawaTheory L0, ModularSymbolsPadicLFunctions L1, SpecialValuesBirchTate B.1) is replaced by links from the two upstream owners; they are recorded contracts that restructure.py does not draw, where the AN.1 links would have drawn new edges out of a hidden stage."
+    ]
+  }
 }
