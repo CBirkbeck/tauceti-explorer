@@ -3096,8 +3096,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GILLE-PARIMALA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1197"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1197",
+   "finishedAt": "2026-09-23T04:02:43Z"
   },
   {
    "id": "REV-PAPER-GILLE-PARIMALA-26",
@@ -4116,8 +4117,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SKOROBOGATOV-SOFOS-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1256"
+   "state": "external",
+   "note": "claimed on GitHub issue #1256"
   },
   {
    "id": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
@@ -6745,8 +6746,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-18.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1406"
+   "state": "external",
+   "note": "claimed on GitHub issue #1406"
   },
   {
    "id": "REV-PAPER-HE-18",
