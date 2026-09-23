@@ -1688,6 +1688,62 @@
    "link": "",
    "note": "Already routed by the maintainer: a new roadmap, GaloisSectionsPadicPeriodMaps (DESIGN-BETTS-STIX). Do not re-route it: read the paper in full and route its items into that roadmap's layers and to existing roadmaps as sources.",
    "batch": 3
+  },
+  {
+   "id": "PAPER-BHATT-18",
+   "short": "Bhatt (2018): On the direct summand conjecture and its derived variant",
+   "citation": "Bhatt, \"On the direct summand conjecture and its derived variant\", Inventiones Mathematicae 212 (2018)",
+   "link": "https://link.springer.com/article/10.1007/s00222-017-0768-7",
+   "note": "Mixed-characteristic commutative algebra by arithmetic-geometric methods; read with PAPER-ANDRE-18-B. Held as adjacent on 21 September 2026, chosen by the maintainer on 23 September 2026.",
+   "batch": 4
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21",
+   "short": "Česnavičius (2021): Macaulayfication of Noetherian schemes",
+   "citation": "Česnavičius, \"Macaulayfication of Noetherian schemes\", Duke Mathematical Journal (2021)",
+   "link": "https://webusers.imj-prg.fr/~kestutis.cesnavicius/",
+   "note": "Scheme-theoretic foundations. Held as adjacent on 21 September 2026, chosen by the maintainer on 23 September 2026.",
+   "batch": 4
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24",
+   "short": "Land–Mathew–Meier–Tamme (2024): Purity in chromatically localized K-theory",
+   "citation": "Land–Mathew–Meier–Tamme, \"Purity in chromatically localized K-theory\", Journal of the American Mathematical Society (2024)",
+   "link": "https://math.uchicago.edu/~amathew/",
+   "note": "Algebraic K-theory and chromatic homotopy theory. Held as adjacent on 21 September 2026, chosen by the maintainer on 23 September 2026.",
+   "batch": 4
+  },
+  {
+   "id": "PAPER-ANDRE-18-B",
+   "short": "André (2018): La conjecture du facteur direct",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/",
+   "note": "Commutative algebra by perfectoid methods; the companion to PAPER-ANDRE-18 (Le lemme d'Abhyankar perfectoïde). Held as adjacent on 21 September 2026, chosen by the maintainer on 23 September 2026.",
+   "batch": 4
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21",
+   "short": "Nelson–Venkatesh (2021): The orbit method and analysis of automorphic forms",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "link": "https://archive.ymsc.tsinghua.edu.cn/pacm_journal?journal=Acta+Mathematica&volume=226&year=2021",
+   "note": "Analytic automorphic representation theory. Held as adjacent on 21 September 2026, chosen by the maintainer on 23 September 2026.",
+   "batch": 4
+  },
+  {
+   "id": "PAPER-NIKOLAUS-SCHOLZE-18",
+   "short": "Nikolaus–Scholze (2018): On topological cyclic homology",
+   "citation": "Nikolaus–Scholze, \"On topological cyclic homology\", Acta Mathematica 221 (2018)",
+   "link": "https://people.mpim-bonn.mpg.de/scholze/papers.html",
+   "note": "Homotopy-theoretic foundations with major arithmetic applications. Held as adjacent on 21 September 2026, chosen by the maintainer on 23 September 2026.",
+   "batch": 4
+  },
+  {
+   "id": "PAPER-KOYMANS-PAGANO",
+   "short": "Koymans–Pagano: On Stevenhagen's conjecture",
+   "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
+   "link": "https://webspace.science.uu.nl/~koyma001/publications.html",
+   "note": "Governing fields and the negative Pell equation; squarely in scope. Held on 21 September 2026 only because its Acta volume and year were not established: settle them from the publisher page and record them in the report. Chosen by the maintainer on 23 September 2026.",
+   "batch": 4
   }
  ],
  "guides": [
@@ -1792,7 +1848,8 @@
  "batches": {
   "1": "Annals of Mathematics, issues from January 2016 to September 2026, algebraic number theory and arithmetic geometry read inclusively (the maintainer's classification, 21 September 2026). Four of its papers were routed earlier and are among the guides: Pan (2026), Betts–Stix (2025), Skinner (2020) and Balakrishnan–Dogra–Müller–Tuitman–Vonk (2019).",
   "2": "Six journals (Inventiones, Duke, Forum of Mathematics Pi, JAMS, Publications de l'IHÉS, Acta), issues from 21 September 2016 to 21 September 2026, the same scope as batch 1: the maintainer's working catalogue, not exhaustive (Duke, JAMS, earlier Inventiones and recent Acta are incomplete). Three of its papers were already covered and are not queued: Lawrence–Venkatesh (DESIGN-LV), Boxer–Calegari–Gee–Pilloni 2021 (DESIGN-BCGP18) and Pan's first paper (the foundation of DESIGN-PAN).",
-  "3": "The seven papers the maintainer gave as routing guides (21 September 2026), queued for extraction on 23 September 2026 at the maintainer's request: their routes are already decided and applied, so each extraction reads the paper in full and routes its items into the roadmap its guide entry names."
+  "3": "The seven papers the maintainer gave as routing guides (21 September 2026), queued for extraction on 23 September 2026 at the maintainer's request: their routes are already decided and applied, so each extraction reads the paper in full and routes its items into the roadmap its guide entry names.",
+  "4": "Seven of the held papers, chosen by the maintainer on 23 September 2026: the direct summand conjecture (André and Bhatt), purity in chromatically localized K-theory, the orbit method, topological cyclic homology, Macaulayfication, and Stevenhagen's conjecture. The rest of the held list stands."
  },
  "held": [
   {
@@ -1916,57 +1973,15 @@
    "batch": 2
   },
   {
-   "short": "Bhatt (2018): On the direct summand conjecture and its derived variant",
-   "link": "https://link.springer.com/article/10.1007/s00222-017-0768-7",
-   "note": "Inventiones Mathematicae. Mixed-characteristic commutative algebra using arithmetic-geometric methods.",
-   "batch": 2
-  },
-  {
-   "short": "Česnavičius (2021): Macaulayfication of Noetherian schemes",
-   "link": "https://webusers.imj-prg.fr/~kestutis.cesnavicius/",
-   "note": "Duke Mathematical Journal. General scheme-theoretic foundations.",
-   "batch": 2
-  },
-  {
    "short": "Eriksson–Freixas i Montplet–Mourougane (2022): On genus one mirror symmetry in higher dimensions and the BCOV conjectures",
    "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/10698C1D3340FD1019F9361A62AAEA70",
    "note": "Forum of Mathematics, Pi. Primarily mirror symmetry, although arithmetic Riemann–Roch is important to the work.",
    "batch": 2
   },
   {
-   "short": "Land–Mathew–Meier–Tamme (2024): Purity in chromatically localized K-theory",
-   "link": "https://math.uchicago.edu/~amathew/",
-   "note": "Journal of the American Mathematical Society. Primarily algebraic K-theory and chromatic homotopy theory.",
-   "batch": 2
-  },
-  {
    "short": "Melanie Matchett Wood (2017): The distribution of sandpile groups of random graphs",
    "link": "https://people.math.harvard.edu/~mmwood/Publications/",
    "note": "Journal of the American Mathematical Society. Closely connected to Cohen–Lenstra statistics, but the principal objects are random graphs.",
-   "batch": 2
-  },
-  {
-   "short": "André (2018): La conjecture du facteur direct",
-   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/",
-   "note": "Publications Mathématiques de l'IHÉS. Principally commutative algebra; foundational perfectoid methods.",
-   "batch": 2
-  },
-  {
-   "short": "Nelson–Venkatesh (2021): The orbit method and analysis of automorphic forms",
-   "link": "https://archive.ymsc.tsinghua.edu.cn/pacm_journal?journal=Acta+Mathematica&volume=226&year=2021",
-   "note": "Acta Mathematica. Analytic automorphic representation theory rather than primarily ANT/AG.",
-   "batch": 2
-  },
-  {
-   "short": "Nikolaus–Scholze (2018): On topological cyclic homology",
-   "link": "https://people.mpim-bonn.mpg.de/scholze/papers.html",
-   "note": "Acta Mathematica. General homotopy-theoretic foundations with major arithmetic applications.",
-   "batch": 2
-  },
-  {
-   "short": "Koymans–Pagano: On Stevenhagen's conjecture",
-   "link": "https://webspace.science.uu.nl/~koyma001/publications.html",
-   "note": "Acta Mathematica. Directly relevant, but its Acta issue date was not established securely enough for the catalogue.",
    "batch": 2
   }
  ]
