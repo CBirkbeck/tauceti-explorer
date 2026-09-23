@@ -504,8 +504,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YUAN-26.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1050"
+   "state": "external",
+   "note": "claimed on GitHub issue #1050"
   },
   {
    "id": "REV-PAPER-YUAN-26",
@@ -4063,8 +4063,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-QIAN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1252"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1252",
+   "finishedAt": "2026-09-23T06:45:20Z"
   },
   {
    "id": "REV-PAPER-QIAN-23",
