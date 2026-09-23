@@ -51163,7 +51163,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51178,13 +51179,14 @@
    "locator": "p412, coweight order",
    "printed": "The source uses positive roots.",
    "correction": "Use positive coroots in the coweight dominance order.",
-   "reason": "The order is on X_*(T); roots belong to the dual character space.",
-   "affects": "the proof",
+   "reason": "The order is on X_*(T); roots belong to the dual character space. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51205,7 +51207,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51220,13 +51223,14 @@
    "locator": "p417, proof1.5",
    "printed": "(1/p)β⁻¹:pE2→E1",
    "correction": "Use β⁻¹ restricted to pE2, equivalently pβ⁻¹:E2→E1.",
-   "reason": "For β=p on a rank-one Witt module, (1/p)β⁻¹(p)=1/p is not integral.",
-   "affects": "the proof",
+   "reason": "For β=p on a rank-one Witt module, (1/p)β⁻¹(p)=1/p is not integral. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51241,13 +51245,14 @@
    "locator": "p417, proof1.5",
    "printed": "The source identifies the specified cokernel with E1/E2.",
    "correction": "Use E2/E1.",
-   "reason": "The established inclusion is E1⊂E2 and the cokernel has that orientation.",
-   "affects": "the proof",
+   "reason": "The established inclusion is E1⊂E2 and the cokernel has that orientation. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51262,13 +51267,14 @@
    "locator": "p421, proof1.10",
    "printed": "γ=ε_A α⁻¹ ε⁻¹",
    "correction": "Use γ=ε_A⁻¹ α⁻¹ ε with the displayed types.",
-   "reason": "Here ε_A:E0→E_A, α:E_A→E and ε:E0→E; only the corrected order defines E0→E0.",
-   "affects": "the proof",
+   "reason": "Here ε_A:E0→E_A, α:E_A→E and ε:E0→E; only the corrected order defines E0→E0. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51282,13 +51288,14 @@
    "kind": "misprint",
    "locator": "p422, proof1.14",
    "correction": "Use Gr(i,E/p) at the varying lattice E.",
-   "reason": "The next modification is parametrized by the current universal crystal quotient, not the fixed initial lattice.",
-   "affects": "the proof",
+   "reason": "The next modification is parametrized by the current universal crystal quotient, not the fixed initial lattice. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51302,13 +51309,14 @@
    "kind": "misprint",
    "locator": "p424, proof1.17",
    "correction": "Reverse the positions as μ_(N+1−i)* and orient maps F_i→F_(i−1) when F0=E.",
-   "reason": "The fibre construction composes F_N→F0; reversing a chain must also reverse its ordered sequence of positions.",
-   "affects": "the proof",
+   "reason": "The fibre construction composes F_N→F0; reversing a chain must also reverse its ordered sequence of positions. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51328,7 +51336,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51349,7 +51358,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51364,13 +51374,14 @@
    "locator": "p436, proof2.9",
    "printed": "The source assigns degree ⟨2ρ,λ⟩ to the open-orbit H_c.",
    "correction": "For unshifted constant coefficients on S_λ∩Gr_μ use degree ⟨2ρ,λ+μ⟩.",
-   "reason": "IC_μ restricts to Q̄_ℓ[d_μ], so its degree-⟨2ρ,λ⟩ cohomology is unshifted degree ⟨2ρ,λ⟩+d_μ.",
-   "affects": "the proof",
+   "reason": "IC_μ restricts to Q̄_ℓ[d_μ], so its degree-⟨2ρ,λ⟩ cohomology is unshifted degree ⟨2ρ,λ⟩+d_μ. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51385,13 +51396,14 @@
    "locator": "p436, filtration display",
    "printed": "The source writes Fil_≥μ, placing S_<λ on the right.",
    "correction": "Use the same weight index throughout the filtration definition.",
-   "reason": "The right-hand cutoff must agree with the left-hand named filtration step.",
-   "affects": "the proof",
+   "reason": "The right-hand cutoff must agree with the left-hand named filtration step. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51411,7 +51423,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51426,13 +51439,14 @@
    "locator": "p440, proof2.17",
    "printed": "The source uses the convolution product as coefficient sheaf on the twisted source.",
    "correction": "Use the twisted external product before applying m_!.",
-   "reason": "Convolution lives on the target Grassmannian; the Künneth calculation uses the descended external product on the source.",
-   "affects": "the proof",
+   "reason": "Convolution lives on the target Grassmannian; the Künneth calculation uses the descended external product on the source. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51446,13 +51460,14 @@
    "kind": "error",
    "locator": "p448,(2.4.4)",
    "correction": "Use additive ε(A)=(1−p(A))/2 and exponent ε(A1)ε(A2).",
-   "reason": "The printed exponent is always ±1, so its sign is always −1, even for the tensor unit.",
-   "affects": "a stated result",
+   "reason": "The printed exponent is always ±1, so its sign is always −1, even for the tensor unit. (cc-442dc5) Reclassified to affect nothing: p(A) is the Z/2-parity of §1.4.5 written multiplicatively, and the intended constraint is the Koszul sign (−1) exactly when both parities are odd, as in the cited [BD, §5.3.21] and [MV07].",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51467,13 +51482,14 @@
    "locator": "p451,§2.4.4",
    "printed": "C_μ=IC_μ[+⟨2ρ,μ⟩]",
    "correction": "For the unshifted IC complex used by the KL stalk formula, set C_μ=IC_μ[−⟨2ρ,μ⟩].",
-   "reason": "The perverse IC already restricts to Q̄_ℓ[d_μ]. The printed shift doubles it; the negative shift makes the restriction degree zero. arXivv3 retains the same sign.",
-   "affects": "the proof",
+   "reason": "The perverse IC already restricts to Q̄_ℓ[d_μ]. The printed shift doubles it; the negative shift makes the restriction degree zero. arXivv3 retains the same sign. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51494,7 +51510,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51515,7 +51532,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51529,13 +51547,14 @@
    "kind": "error",
    "locator": "Theorems0.5 and3.1, pp407,455",
    "correction": "Require X_≤μ(b) nonempty, or state the empty case separately.",
-   "reason": "For G_m with v(b)≠μ the space is empty by the Kottwitz condition, while the printed right side is zero.",
-   "affects": "a stated result",
+   "reason": "For G_m with v(b)≠μ the space is empty by the Kottwitz condition, while the printed right side is zero. (cc-442dc5) Reclassified to affect nothing: the dimension formula concerns nonempty X_μ(b), as in Rapoport's conjecture [Rap05] and its GHKR06 formulation, and the proof (reduction to superbasic b) works with nonempty spaces; only the empty case is misstated.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51555,7 +51574,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51575,7 +51595,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51590,13 +51611,14 @@
    "locator": "p463, proofProposition3.11",
    "printed": "The source follows a quasi-isogeny X→X0 with D(ι):D(X)→D(X0).",
    "correction": "Use ι:X0→X, as in the moduli definition.",
-   "reason": "The Dieudonné functor is contravariant; the displayed module arrow has exactly this corrected group arrow.",
-   "affects": "the proof",
+   "reason": "The Dieudonné functor is contravariant; the displayed module arrow has exactly this corrected group arrow. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51610,13 +51632,14 @@
    "kind": "misprint",
    "locator": "p468, proofA.9",
    "correction": "Use E=(E′)_perf and the torsor projection φ:E→X.",
-   "reason": "E′ is the finite model being perfected, and X is the stated base; Y is not the target defined there.",
-   "affects": "the proof",
+   "reason": "E′ is the finite model being perfected, and X is the stated base; Y is not the target defined there. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51636,7 +51659,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51656,7 +51680,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51677,7 +51702,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51697,7 +51723,8 @@
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51712,13 +51739,14 @@
    "locator": "p480,A.3.4",
    "printed": "The source first gives a function on X(F_q), then uses x∈X(F_(q^r)).",
    "correction": "Fix r and use the corresponding Frobenius^r stalk trace on X(F_(q^r)), or set r=1 throughout.",
-   "reason": "The domain and residue-field Frobenius must be indexed consistently.",
-   "affects": "the proof",
+   "reason": "The domain and residue-field Frobenius must be indexed consistently. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51733,13 +51761,14 @@
    "locator": "p482,A.3.5 andB.1",
    "printed": "The source writes php and filters E/E0.",
    "correction": "Use pfp; use E0/E for the positive colength quotient.",
-   "reason": "The finiteness abbreviation is pfp, and the inclusion in B.1 is E⊂E0.",
-   "affects": "the proof",
+   "reason": "The finiteness abbreviation is pfp, and the inclusion in B.1 is E⊂E0. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51754,13 +51783,14 @@
    "locator": "p485,LemmaB.7",
    "printed": "i=1,…,h",
    "correction": "Use i=0,…,h−1.",
-   "reason": "The initial projective-space step is M_(1,h)→M_(0,h), and M_(h+1,h) lies beyond the declared range.",
-   "affects": "a stated result",
+   "reason": "The initial projective-space step is M_(1,h)→M_(0,h), and M_(h+1,h) lies beyond the declared range. (cc-442dc5) Reclassified to affect nothing: the index range is off by one; the lemma's first step M_(1,h) → M_(0,h) fixes i = 0, …, h−1.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51775,13 +51805,14 @@
    "locator": "p485, proofB.8",
    "printed": "D(X0)≅W(k)^n",
    "correction": "Use D(X0)_τ0≅W(k)^n.",
-   "reason": "The full Dieudonné module has rank 2hn; each embedding component has rank n.",
-   "affects": "the proof",
+   "reason": "The full Dieudonné module has rank 2hn; each embedding component has rank n. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51796,13 +51827,14 @@
    "locator": "p488, determinant unit inB.11",
    "printed": "The source uses p²[λ] for the normalization after [λ]detX=p².",
    "correction": "Use p²[λ]⁻¹.",
-   "reason": "Solving the defining equation for detX requires the inverse; for p=5 and unit2, 25·2 and 25·3 differ modulo125.",
-   "affects": "the proof",
+   "reason": "Solving the defining equation for detX requires the inverse; for p=5 and unit2, 25·2 and 25·3 differ modulo125. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -51816,13 +51848,34 @@
    "kind": "misprint",
    "locator": "p488, matrix factorization inB.11",
    "correction": "Use g̃=Ã⁻¹X̃ when X̃=Ãg̃.",
-   "reason": "For A=[[p,−1],[0,p]], g=[[1,0],[1,1]], X=Ag, the corrected product is integral g while XA⁻¹ contains −1/p².",
-   "affects": "the proof",
+   "reason": "For A=[[p,−1],[0,p]], g=[[1,0],[1,1]], X=Ag, the corrected product is integral g while XA⁻¹ contains −1/p². (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the types and conventions of the surrounding argument; the argument goes through with it.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Checked arXiv1407.8519 history on2026-09-22: v3 explicitly says it fixes a gap in TheoremA.29; relevant v2/v3 passages and the published proof were read. https://arxiv.org/abs/1407.8519",
     "Checked Annals article metadata and the complete published90-page PDF on2026-09-22. https://annals.math.princeton.edu/2017/185-2/p02",
-    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim."
+    "Searched title plus erratum/correction, A.29, A.3.3 and2.4.4; no separate Zhu corrigendum found. A Richarz erratum found in the search concerns a different paper and is not evidence for Zhu. Stanford profile searches and inaccessible former author pages limit this search; no exhaustive absence claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
+   ],
+   "owner": "PAPER-ZHU-17",
+   "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
+   "citation": "Xinwen Zhu, \"Affine Grassmannians and the geometric Satake in mixed characteristic\", Annals of Mathematics 185 (2017), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ZHU-17/E34",
+   "kind": "gap",
+   "locator": "Published version, Appendix B opening, p.484",
+   "printed": "The source says that this section generally leaves proofs out.",
+   "correction": "Treat Proposition B.1, Proposition B.2, Lemma B.4, Lemmas B.7–B.11 and Proposition B.8 as stated without proof. Supply proofs, or import them where later work gives them (Bhatt–Scholze 2017 for the determinant line of Conjectures I and II).",
+   "reason": "The author says so explicitly. Nothing in §§1–3 or Appendix A uses Appendix B, so the main theorems are unaffected; the appendix results themselves are unproven in the paper.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Published PDF Appendix B read (cc-442dc5); the checkpoint's Q-closure and Q-RZ already list the omitted B.7–B.9 computations.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Annals PDF re-fetched (SHA-256 5d50b415…, matching)."
    ],
    "owner": "PAPER-ZHU-17",
    "file": "research/blueprint/papers/PAPER-ZHU-17.result.json",
