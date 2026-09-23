@@ -1,0 +1,51 @@
+{
+  "paper": "PAPER-IYENGAR-KHARE-MANNING-24",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The numerical-criterion direction is justified, but generic local duality/Tate ownership and cited-source closure remain unresolved (G1–G3), with incomplete definition APIs (G10). Do not activate a consumer-owned duplicate foundation."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "The continuation must import the accepted CG defect-one and coherent-complex proposals. Its arithmetic endpoints still need the joint patching, determinant, scalar, Galois and orientation suppliers (G4–G8); the revised brief exposes them but is not yet buildable."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "The source route bundles ordinary commutative algebra with a normalized-duality package not explicitly in the named stage contracts. Resolve G2, complete G1, and then split or extend the supplier precisely."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "P7–P9 are the existing owners of derived actions, perfect complexes and fixed-ultrafilter patching. Accept the corrected source request, including the explicit E34/E35 proof obligations and E39 coherence contract; this does not certify the printed finiteness or duality proof."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "The local framed, Steinberg and unipotent deformation-ring inputs fit the existing R08.2/L7 contracts. Retain their exact determinant, residual-eigenvalue and residue-characteristic assumptions; do not duplicate the local ring owner."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "The general deformation/Taylor–Wiles imports are appropriate, but the bundled level-raising supply assertion still conflates image and coefficient fields after rejection of E42. Resolve G9 before activating this combined route."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "ALS.0/.3/.5 own the coefficient systems, double cosets and finite-level duality. The corrected request keeps orientation coefficients, ordered degeneracy maps and the precise Atkin–Lehner level convention. Untwisted arithmetic self-duality remains conditional on its additional proof."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "R20.3 is a plausible owner, but the exact Gross/Coleman–Voloch exceptional hypotheses and supplier proof were not independently closed. Keep G1 open rather than certify the broad companion-form request."
+    }
+  ],
+  "notes": "Finished independent review of 181 input items, eight routes and all 65 input findings. The corrected extraction has 184 items, 26 definition interfaces, 64 confirmed findings (with narrowed scope where required) and one rejected finding, E42. Extraction remains partial with ten explicit gaps. Routes 4, 5 and 7 are accepted as corrected source requests; the other five are rejected pending the named supplier/ownership work. No Lean file was compiled.",
+  "by": "REV-PAPER-IYENGAR-KHARE-MANNING-24",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "status": "complete"
+}
