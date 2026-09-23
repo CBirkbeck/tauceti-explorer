@@ -16795,27 +16795,36 @@
       "status": "missing",
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.0",
-        "AutomorphicFormsOnReductiveGroups:AF.3"
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A104",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A105"
       ],
       "proofOutline": "Y_n is the radical for (n-1)+1, so cuspidality kills its trivial coefficient. The product formula gives volume preservation under t↦gamma t for rational gamma; left rational invariance gives the displayed coefficient identity. Elementary row-basis completion gives transitivity on nonzero rows and the exact row stabilizer P_(n-1). AL.0's character duality identifies every character of the compact additive quotient with x∈F^(n-1). If all coefficients vanish, Fourier uniqueness for continuous functions on that quotient gives f(y(t)p)=0, hence f(p)=0. Only uniqueness is used here, not a rearrangement of an infinite multiple Fourier series.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-d67081, 23 September 2026, against Cogdell PCMI printed7–8.",
       "tests": [
         {
-          "name": "LastColumn.row_stabilizer",
+          "name": "A67.GL2_base",
           "kind": "computation",
-          "statement": "For n=3, e=(0,1), the stabilizer of e under right multiplication is exactly the matrices [[a,b],[0,1]] with a≠0, so the parameter set is P_2(F)\\GL_2(F), not a projective line."
+          "statement": "For n=2, Y_2 is F\\A, the expansion is the classical one and the index set P_1(F)\\GL_1(F) is F^*, recovering the GL_2 Fourier expansion."
         },
         {
-          "name": "LastColumn.zero_frequency",
+          "name": "A67.cuspidality_needed_only_for_C0",
           "kind": "non-example",
-          "statement": "The constant function 1 has C_0=1 and all nonzero additive coefficients zero, so dropping cuspidality invalidates detection."
+          "statement": "Without the vanishing of the constant term along Y_n the term C_0 f survives and the displayed expansion acquires an extra summand; every other step is unaffected, which is why the hypothesis is stated as the vanishing of constant terms and nothing stronger."
         },
         {
-          "name": "LastColumn.rank_two",
-          "kind": "degenerate",
-          "statement": "For n=2 the quotient P_1(F)\\GL_1(F) is F^×; these are precisely the nonzero Fourier frequencies."
+          "name": "A67.two_orbits",
+          "kind": "computation",
+          "statement": "GL_(n-1)(F) acting on F^(n-1) has exactly the orbits {0} and F^(n-1) minus {0}; for n=2 that is {0} and F^*, and the stabiliser of e is trivial."
         }
+      ],
+      "proofSteps": [
+        "Restriction. A cusp form on GL_n(A) restricts to a smooth function on P_n(A) that remains left invariant under P_n(F), and its constant terms along the standard unipotent subgroups contained in P_n still vanish. Cogdell states exactly this, printed7: 'Simply by restriction of functions, a cusp form on GL_n(A) restricts to a smooth cuspidal function on P_n(A) which remains left invariant under P_n(k)', with cuspidal there defined by the vanishing of the integral over U(k)\\U(A) for every standard unipotent U in P_n. The hypothesis of this item is that vanishing, so no cuspidality beyond it is used.",
+        "Fourier expansion along Y_n. P_n = GL_(n-1) semidirect Y_n with Y_n isomorphic to the row space F^(n-1), and y↦f(yp) is invariant under Y_n(F) because Y_n(F) is contained in P_n(F). Apply A104 to the compact quotient Y_n(F)\\Y_n(A), which is (F\\A)^(n-1): its characters are exactly y↦psi(<x,y>) for x in F^(n-1), under the pairing <x,y>=sum x_i y_i that Cogdell fixes on printed8. This gives f(p)=sum over x in F^(n-1) of C_x f(p), with C_x f(p) the coefficient integral of the statement taken against A105's invariant probability measure.",
+        "The zero coefficient vanishes. C_0 f(p) is the integral of f(yp) over Y_n(F)\\Y_n(A), and Y_n is a standard unipotent subgroup of GL_n contained in P_n, so this is one of the constant terms the hypothesis kills. Cogdell, printed8: 'Since phi(p) is cuspidal and Y_n is a standard unipotent subgroup of GL_n, we see that phi_0(p) = 0.' This is the only place cuspidality is used in this item.",
+        "The nonzero coefficients form one orbit. GL_(n-1)(F) acts on F^(n-1) with exactly two orbits, {0} and its complement, the latter being the orbit of e=(0,...,0,1); the stabiliser of the transpose of e is the transposed mirabolic. A change of variable in the defining integral gives C_(e gamma) f(p) = C_e f(diag(gamma,1)p), so the nonzero terms are indexed by P_(n-1)(F)\\GL_(n-1)(F). Cogdell calls this 'an elementary calculation as before', printed8, and the indexing by P_(n-1)(k)\\GL_(n-1)(k) is his displayed conclusion.",
+        "Conclusion. Combining the three previous steps, f(p) = sum over gamma in P_(n-1)(F)\\GL_(n-1)(F) of C_e f(diag(gamma,1)p). If every term vanishes at a fixed p then the whole Fourier expansion of y↦f(yp) vanishes, so f(p)=0 by the uniqueness half of A104. That is the last assertion of the statement, and it is what A69 consumes."
       ]
     },
     {
@@ -16828,27 +16837,34 @@
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A66",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A67",
-        "AutomorphicFormsOnReductiveGroups:AF.3"
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A105"
       ],
       "proofOutline": "Rational elements of P_(n-1) stabilize the last-row character, so the same change of variables proves invariance. For the maximal parabolic a+(n-1-a), 1<=a<=n-2, split Y_n's column into coordinates 1..a and a+1..n-1. The character psi(t_(n-1)) is trivial on the first group. That first group together with the smaller radical is precisely the GL_n radical for a+(n-a). Its constant term is zero; integrate the remaining column coordinates afterwards. They normalize the enlarged radical, and the character is unchanged. General standard parabolics follow by transitivity of constant terms. All unipotent quotients in this calculation are compact, justifying Fubini. Finally N_n=N_(n-1)⋉Y_n and the two characters multiply to psi_N; the iterated integral is W_f at the displayed block-diagonal argument.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-d67081, 23 September 2026, against Cogdell PCMI printed8–9.",
       "tests": [
         {
-          "name": "SmallerMirabolic.enlarged_block",
+          "name": "A68.n_equals_2_base",
           "kind": "computation",
-          "statement": "For n=3,a=1, the x_12 and x_13 entries form the radical of the 1+2 parabolic; psi(x_23) is trivial on it."
+          "statement": "For n=2 the smaller mirabolic is P_1={1}, there is no cuspidality condition to inherit, and the identity reduces to the definition of the GL_2 Whittaker function."
         },
         {
-          "name": "SmallerMirabolic.last_character",
+          "name": "A68.measure_compatibility_used",
           "kind": "non-example",
-          "statement": "For n=3 the nonzero last-column character must be psi(x_23). Using psi(x_13) breaks invariance under the stated P_2 row stabilizer."
+          "statement": "If the three invariant measures were normalised independently the unfolding would produce W_f(diag(p',1)p) times a constant, so the identity as stated needs A105's compatibility and not merely the existence of invariant measures."
         },
         {
-          "name": "SmallerMirabolic.base_case",
-          "kind": "degenerate",
-          "statement": "At n=2 the smaller mirabolic is {1}; no nonexistent GL_1 proper-parabolic condition is required."
+          "name": "A68.psi_trivial_on_F",
+          "kind": "non-example",
+          "statement": "If psi were not trivial on F then C_e f would not be left Y_n(F)-invariant and f_p' would not descend to the smaller mirabolic quotient; the hypothesis on psi in A66 is used here."
         }
+      ],
+      "proofSteps": [
+        "Smoothness and Y_n(F)-invariance of the coefficient. For y in Y_n(A) one has C_e f(yp) = psi(y_(n-1)) C_e f(p), directly from the defining integral and the translation invariance of the measure. Since psi is trivial on F, C_e f is left invariant under Y_n(F); Cogdell records both, printed8: 'phi_(te_(n-1))(yp) = psi(y_(n-1)) phi_(te_(n-1))(p)' and 'Since psi is trivial on k we see that phi_(te_(n-1))(p) is left invariant under Y_n(k)'. Smoothness is inherited from f because the integral is over a compact quotient.",
+        "Left P_(n-1)(F)-invariance of f_p'. By A67's equivariance C_(e gamma) f(p) = C_e f(diag(gamma,1)p), the function p'↦C_e f(diag(p',1)p) is unchanged when p' is multiplied on the left by an element of P_(n-1)(F), since such an element fixes e. Together with the previous step this is the invariance the statement asserts.",
+        "Cuspidality descends. A standard unipotent subgroup U' of GL_(n-1) contained in P_(n-1) gives a standard unipotent subgroup of GL_n contained in P_n after the embedding p'↦diag(p',1), and the constant term of f_p' along U' is a constant term of f along that larger group, computed with A105's compatible measures. It therefore vanishes with f's. For n=2 the smaller mirabolic is P_1={1} and there is no condition to check, which is the base of the induction; Cogdell marks that base explicitly, printed8: 'Note that if n = 2 this is exactly the fact we used previously for GL_2. This then begins our induction.'",
+        "The Whittaker identity. Structurally P_n = GL_(n-1) semidirect Y_n and N_n = N_(n-1) semidirect Y_n. Unfolding and using A105's compatibility of the invariant probability measures on N_n(F)\\N_n(A), N_(n-1)(F)\\N_(n-1)(A) and Y_n(F)\\Y_n(A), the Whittaker transform of f_p' is the double integral of f(y n' diag(p',1) p) against psi^(-1)(y_(n-1)) psi^(-1)(n'), which is the single integral over N_n(F)\\N_n(A) of f(n diag(p',1) p) psi^(-1)(n). That is W_f(diag(p',1)p). Cogdell performs exactly this computation, printed9, concluding 'W_(phi'_(delta p))(delta') = W_phi(delta' delta p)'. The Fubini step is where A105 is load-bearing: without the compatibility of the three normalisations the two iterated integrals would differ by a constant."
       ]
     },
     {

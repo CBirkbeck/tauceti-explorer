@@ -1,10 +1,32 @@
 # LLHLM23 — current handoff
 
-Claude Code — cc-d67081, issue #1254, 23 September 2026. Claim confirmed by the swarm bot. Status **partial**.
+Claude Code — cc-d67081, issue #1254, 23 September 2026 (second pass). Claim confirmed by the swarm bot. Status **partial**.
 
-Current census: **580 items (86 library, 23 planned, 471 missing), 23 routes, 52 unreviewed findings**. All 576 inherited IDs and sourceData are preserved; `source`, `sourceIssues` and `sourceData` are byte-identical to the inherited file. All 163 definitions/constructions retain uses/API/at least three typed tests. No Lean deliverable required or compiled; no new formalization or independent review.
+Current census: **580 items (86 library, 23 planned, 471 missing), 23 routes, 52 unreviewed findings**. This pass added no items and changed no routes; it proved out A67 and A68. All 576 inherited IDs and sourceData are preserved; `source`, `sourceIssues` and `sourceData` are byte-identical to the inherited file. All 163 definitions/constructions retain uses/API/at least three typed tests. No Lean deliverable required or compiled; no new formalization or independent review.
 
-## Completed this continuation
+## Completed this pass (second pass, cc-d67081)
+
+**A67 and A68 now carry step-by-step proofs.** They had no `proofSteps` at all — the
+Piatetski-Shapiro–Shalika peeling and its inductive step were stated as planning adapters, which
+is what the previous pass's resume item 1 flagged. Both now have a proof read against Cogdell's
+proof of Theorem 1.1 (PCMI notes, printed 7–9), plus three typed tests each.
+
+- **A67**, five steps: restriction keeping left `P_n(F)`-invariance and constant-term vanishing;
+  Fourier expansion along `Y_n ≅ F^{n-1}` via **A104** on `(F\A)^{n-1}` against **A105**'s
+  probability measure; vanishing of `C_0 f`, the only place cuspidality is used; the two-orbit
+  decomposition giving `C_{eγ}f(p) = C_e f(diag(γ,1)p)` and the indexing by
+  `P_{n-1}(F)\GL_{n-1}(F)`; and the conclusion, where **A104's uniqueness half** turns vanishing
+  of all coefficients into `f(p) = 0` — the implication A69 consumes.
+- **A68**, four steps: the equivariance `C_e f(yp) = ψ(y_{n-1})C_e f(p)`, giving left
+  `Y_n(F)`-invariance *because* `ψ` is trivial on `F`; left `P_{n-1}(F)`-invariance of `f'_p`;
+  descent of cuspidality with the `n = 2` base (`P_1 = {1}`, nothing to check); and the Whittaker
+  identity by unfolding `N_n = N_{n-1} ⋉ Y_n`.
+- **Do not weaken A105 to "an invariant measure exists".** A68's unfolding turns one integral over
+  `N_n(F)\N_n(A)` into an iterated integral; if the three normalisations were independent the two
+  sides would differ by a constant and the identity would be false. The test
+  `A68.measure_compatibility_used` records that as a non-example.
+
+## Completed in the first pass
 
 The handoff's resume item 1 — A66–A73's global analytic suppliers — is closed. Four items supply what that chain had been asserting without one, and each goes to a layer whose own description already promises the general theorem, so all four are source additions and none needs new ground. Route 20's reason had already *named* two of them ("Import AL.0 Fourier uniqueness, AA.2 quotient measures") with no items to point at; those names now resolve.
 
@@ -19,7 +41,7 @@ Preserve the preceding A98–A103 residual-recognition/finite-module-topology wo
 
 ## Resume in order
 
-1. The rest of the A66–A73 chain now has its analytic feet, but **A67/A68's mirabolic induction itself is still a planning adapter**: the Piatetski-Shapiro–Shalika peeling is stated, not proved step by step against a source. A104/A105 are the inputs it needs; the induction on `n` is what remains. Last IDs: **A107**, **L86**, **E52**.
+1. **A69 and A70 are now the frontier of this chain.** A67/A68 are proved and A104–A107 supply the analytic inputs, so A69 (injectivity, which is just the assembly of A67's conclusion over the induction) and A70 (the nonzero functional, which needs A106's continuity plus a nonvanishing argument) should be provable in the same style against Cogdell printed 9–11. A71's dependence on A107 is already explicit. Last IDs: **A107**, **L86**, **E52**.
 2. Other queues, unchanged: `analytic-regularity-suppliers`, `approximation-and-tensor-adapter-closure`, `remaining-proof-leaves`, `closure-external-inputs`, per-item audit and shared-owner reconciliation. Keep bounded supplier reads and the inherited main-paper read attributed; do not restart as if unread.
 3. Appendix B: uniform integral-parameter certificates, exceptional denominator loci, minimal primes and specialized Gröbner cases. Existing generic rational checks are insufficient.
 
@@ -27,9 +49,11 @@ Preserve the preceding A98–A103 residual-recognition/finite-module-topology wo
 
 Bounded supplier reads only; the inherited main-paper reading stands and is not restated.
 
+Second pass: Cogdell's proof of Theorem 1.1 read in full, PCMI notes printed 7–9 (PDF 11–13) — the restriction to `P_n`, the Fourier expansion along `Y_n`, the orbit decomposition, the `n = 2` base and the unfolding ending `W_{φ'_{δp}}(δ') = W_φ(δ'δp)`.
+
 - Cogdell, PCMI notes (2002), SHA-256 `09b82f9aed494d28327ed9692f5bf37e6bed229cf470e80927e0cc10ce70932a`, Lecture 1 printed 5–6 (PDF 9–10). Printed page = PDF page − 4. **Warning for later workers: this PDF's text layer drops the letter `c` throughout ("Le ture", "multipli ity"); quotations must be read against the page image or reconstructed with care.**
 - Cogdell, Fields Institute notes (2003), SHA-256 `2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7`, Theorem 3.2 / Corollary 3.2.1 printed 23–24 (PDF 27), the Fréchet topologies on `(A^∞)^L` printed 24 (PDF 27), Theorem 3.4 printed 24–25 (PDF 28). Printed page = PDF page − 3. Text layer clean.
 
 No new findings recorded: nothing in the supplier passages contradicts what the items assert, and the 52 inherited findings are unchanged.
 
-Paper checker and intake pass. Verified this continuation: 580 unique IDs with all 576 inherited preserved and none lost; 413 internal prerequisite edges, all resolving to existing items and **acyclic**; all 23 routes' stages resolve against the atlas; all 471 missing items carry exactly one route, with no double-routing and no routed id that is not an item; all 23 planned items resolve; all 163 definitions/constructions retain api or tests; `source`, `sourceData` and `sourceIssues` byte-identical to the inherited file; exactly three deliverables touched. Submit exactly the result, report and this handoff.
+Paper checker and intake pass. Verified this second pass: 580 unique IDs with none added and none lost, and **only A67 and A68 modified**, their `routes`, `sourceIssues` and `source` byte-identical to the inherited file; 416 internal prerequisite edges, all resolving to existing items and **acyclic**; all 23 routes' stages resolve against the atlas; all 471 missing items carry exactly one route, with no double-routing and no routed id that is not an item; all 23 planned items resolve; all 163 definitions/constructions retain api or tests; `source`, `sourceData` and `sourceIssues` byte-identical to the inherited file; exactly three deliverables touched. Submit exactly the result, report and this handoff.
