@@ -2710,6 +2710,199 @@
         "For 6.2 use the algebra map B→C to get Y_C→Y and a map RΓ(Y,O)→RΓ(Y_C,O). Compose the retraction to C with the almost retraction C→A from almost purity. The base change is along B, so no unproved A-flatness of B→C is required."
       ],
       "proposedOwner": "EnhancedDerivedSheaves"
+    },
+    {
+      "id": "PAPER-BHATT-18/contributions",
+      "kind": "theorem",
+      "name": "What this paper contributes over Andre’s proof",
+      "statement": "Theorem 1.1 was proven by Andre; the paper states its own two contributions. (1) Andre's flatness lemma from [An2, section 2.5], reproduced in cleaned-up form as Theorem 2.3, is the essential new ingredient in the solution of the direct summand conjecture: using it, the conjecture is reproved using only the quantitative Hebbarkeitssatz, a simple linear statement about a fixed and explicit system of modules over a perfectoid ring (Theorem 4.2 and its proof), whereas [An2] relies on the perfectoid Abhyankar lemma of [An1], a deep non-linear assertion describing an entire class of algebras over a perfectoid ring. (2) The same techniques establish the derived version, Theorem 1.2, which has geometric implications inaccessible from Theorem 1.1: it implies that passage to alterations of a regular affine scheme can often be lossless for coherent cohomological purposes, and even the special case where the map is birational is a slightly nontrivial assertion about blowups, related to the work of [CR], and completely orthogonal to Theorem 1.1.",
+      "locator": "1.3",
+      "status": "missing",
+      "note": "This is the paper's own statement of which route through the material is the cheap one, and it should govern the design: the linear Hebbarkeitssatz replaces the non-linear perfectoid Abhyankar lemma. It also warns that the derived theorem is not a formal strengthening - its birational case is orthogonal to the classical statement - so a blueprint cannot treat Theorem 1.2 as a corollary of Theorem 1.1.",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/direct-summand",
+        "PAPER-BHATT-18/derived-summand",
+        "PAPER-BHATT-18/riemann-pro",
+        "PAPER-BHATT-18/extension-flat"
+      ],
+      "proofSteps": [
+        "Record the dependency structure asserted here and check it against the actual proofs in sections 5 and 6: Theorem 1.1 uses Theorem 2.3 and Theorem 4.2 only, not the Abhyankar lemma.",
+        "Keep the birational case of Theorem 1.2 as a separate target, since it is claimed to be independent of Theorem 1.1."
+      ],
+      "proposedOwner": "RegularRingSplittings",
+      "api": [
+        {
+          "name": "DirectSummand.proofRoute",
+          "role": "documentation",
+          "statement": "The classical theorem is deduced from the flatness lemma and the quantitative Hebbarkeitssatz, with no appeal to the perfectoid Abhyankar lemma."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "birational_case_independent",
+          "statement": "The birational case of the derived theorem is not derivable from the classical direct summand theorem."
+        }
+      ],
+      "uses": [
+        "PAPER-BHATT-18/direct-summand",
+        "PAPER-BHATT-18/derived-summand",
+        "PAPER-BHATT-18/riemann-pro"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/strategy-summary",
+      "kind": "theorem",
+      "name": "What each theorem needs from the quantitative Hebbarkeitssatz",
+      "statement": "Theorem 1.6 says that the limiting isomorphism from Remark 1.7, that A_infinity is almost the limit of the A_infinity<p^n/g>, holds for diagrammatic reasons, so it remains true after applying any A_infinity-linear functor - such as Ext^i(N,-) for an A_infinity-module N - to both sides and then taking limits. The case i = 0 recovers Scholze's theorem, the case i = 1 is what Theorem 1.1 needs, and Theorem 1.2 relies on the statement for all i >= 0. With that in hand, Theorem 1.1 is proved by passing from A_0 to A_infinity losslessly using Theorem 1.5, passing to A_infinity<p^n/g> to push all ramification into characteristic p, constructing an almost splitting there by almost purity, and taking the limit over n using Theorem 1.6; it is exactly this last step where the approach diverges from [An2], which uses the perfectoid Abhyankar lemma. Theorem 1.2 is proved analogously: when the map is finite etale after inverting p, base change to a faithfully flat integral perfectoid extension and apply almost purity together with Scholze's vanishing theorem; in general one reduces to the generically finite, generically finite etale case and deduces it from Theorems 1.5 and 1.6.",
+      "locator": "1.8",
+      "status": "missing",
+      "note": "The i-indexing is the useful content for planning: a blueprint that only wants the classical direct summand theorem needs the pro-isomorphism statement for Ext^0 and Ext^1, while the derived theorem needs it for all i, which is why Lemma 3.6 on A-linear functors is stated in the generality it is.",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/riemann-pro",
+        "PAPER-BHATT-18/limit-extension",
+        "PAPER-BHATT-18/linear-functor",
+        "PAPER-BHATT-18/almost-purity",
+        "PAPER-BHATT-18/acyclicity"
+      ],
+      "proofSteps": [
+        "State the Ext^i consequence of Theorem 1.6 as its own lemma, for i = 0, 1 and then for all i, so that the two targets can be separated.",
+        "Check the claim that i = 0 recovers Scholze's theorem against the form of that theorem actually imported."
+      ],
+      "proposedOwner": "PerfectoidRamification",
+      "api": [
+        {
+          "name": "Hebbarkeitssatz.extFunctor",
+          "role": "consequence",
+          "statement": "Applying Ext^i(N,-) to the pro-isomorphism and taking limits preserves it, for every i >= 0."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "ext_zero_recovers_scholze",
+          "statement": "The i = 0 case of the Ext consequence is Scholze's almost acyclicity statement."
+        },
+        {
+          "name": "ext_one_suffices_classical",
+          "statement": "Only i = 0 and i = 1 are needed for the classical direct summand theorem."
+        }
+      ],
+      "uses": [
+        "PAPER-BHATT-18/riemann-pro",
+        "PAPER-BHATT-18/limit-extension",
+        "PAPER-BHATT-18/linear-functor"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/flatness-generality",
+      "kind": "theorem",
+      "name": "The generality of the flatness lemma, and its attribution",
+      "statement": "Theorem 2.3 is proven in [An2] under a more restrictive setup but with a stronger conclusion; the author records that Scholze pointed out that the same proof goes through in the generality stated here.",
+      "locator": "2.4",
+      "status": "missing",
+      "note": "An attribution and scope fact a blueprint must respect: the statement formalised here is Bhatt's generalisation of Andre's lemma, not Andre's lemma, and Andre's version carries a stronger conclusion under narrower hypotheses. A design job importing [An2, section 2.5] must say which of the two it is importing.",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/neighborhood-flat",
+        "PAPER-BHATT-18/extension-flat"
+      ],
+      "proofSteps": [
+        "Record both forms - Andre's narrower hypotheses with the stronger conclusion, and the generalisation used here - and prove the implication actually needed downstream."
+      ],
+      "proposedOwner": "PerfectoidQuotients:Q3",
+      "api": [
+        {
+          "name": "FlatnessLemma.scope",
+          "role": "documentation",
+          "statement": "The hypotheses used here are weaker than Andre's and the conclusion correspondingly weaker."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "andre_version_stronger",
+          "statement": "Andre's conclusion under his hypotheses implies the conclusion used here in the overlapping case."
+        }
+      ],
+      "uses": [
+        "PAPER-BHATT-18/neighborhood-flat",
+        "PAPER-BHATT-18/extension-flat"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/derived-presentation",
+      "kind": "theorem",
+      "name": "The rational presentations also hold in the derived sense",
+      "statement": "One might worry that the presentations of [Sc1, Lemma 6.4] used in section 2 are valid only in the non-derived sense, and so do not interact well with reduction modulo t or with t-adic completion; one may ask whether the displayed presentation is also true when the relations are imposed in the derived sense, that is when one works with the corresponding Koszul complexes. The answer is yes. The author records this although it is not needed for the purposes of section 2, because such presentations matter later.",
+      "locator": "2.5",
+      "status": "missing",
+      "note": "This is the bridge between the ordinary presentations of section 2 and the Koszul models used later; the extraction already has derived-completion and derived-rational, and this remark is what licenses passing between the two descriptions. Bhatt calls it psychological comfort, but for a formalisation it is the statement that has to be proved rather than assumed.",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/rational-model",
+        "PAPER-BHATT-18/derived-rational",
+        "PAPER-BHATT-18/derived-completion"
+      ],
+      "proofSteps": [
+        "Formulate the derived form of the presentation as a Koszul complex statement and prove it agrees with the ordinary one, rather than quoting the ordinary presentation and reducing modulo t.",
+        "Check where later sections use the derived form: the Koszul models of 2.6 and 5.1 and the uniform estimates of Remark 4.3."
+      ],
+      "proposedOwner": "PerfectoidSpaces:P2",
+      "api": [
+        {
+          "name": "RationalPresentation.derived",
+          "role": "comparison",
+          "statement": "The Koszul presentation computes the same object as the ordinary presentation, compatibly with reduction modulo t and t-adic completion."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "koszul_matches_ordinary",
+          "statement": "The derived presentation is almost isomorphic to the ordinary one."
+        }
+      ],
+      "uses": [
+        "PAPER-BHATT-18/rational-model",
+        "PAPER-BHATT-18/derived-rational"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/perfectoid-kunz",
+      "kind": "theorem",
+      "name": "A p-adic Kunz question, and its answer in the literature",
+      "statement": "The proof of Proposition 5.2 goes through for any Noetherian ring A_0 admitting a faithfully flat extension which is integral perfectoid. The author therefore asks whether that condition characterises regularity, that is whether there is a p-adic analogue of Kunz's theorem, which characterises regularity in characteristic p as the flatness of Frobenius, and records that a positive answer will appear in forthcoming work with Iyengar and Ma.",
+      "locator": "5.5",
+      "status": "missing",
+      "note": "That forthcoming work has appeared: Bhatt, Iyengar and Ma, 'Regular rings and perfect(oid) algebras', Communications in Algebra 47 (2019), no. 6, 2367-2383, arXiv:1803.03229, proves that a p-adically complete Noetherian ring is regular exactly when it admits a faithfully flat map to a perfectoid ring, with a version where flatness is relaxed to almost flatness. So a design job should import the characterisation rather than plan around an open question, and the extraction's regular-local reductions can be stated in the 'admits a faithfully flat integral perfectoid extension' form, which is what the proofs of section 5 actually use.",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/regular",
+        "PAPER-BHATT-18/general-perfectoid",
+        "PAPER-BHATT-18/cover-tor",
+        "PAPER-BHATT-18/local-complete-reduction"
+      ],
+      "proofSteps": [
+        "State the hypothesis of Proposition 5.2 in the form the proof uses - existence of a faithfully flat integral perfectoid extension - and record regularity as a separate, equivalent condition citing Bhatt-Iyengar-Ma.",
+        "Keep the almost-flat variant separate from the flat one."
+      ],
+      "proposedOwner": "RegularRingSplittings",
+      "api": [
+        {
+          "name": "RegularRingSplittings.perfectoidKunz",
+          "role": "characterisation",
+          "statement": "For a p-adically complete Noetherian ring, regularity is equivalent to admitting a faithfully flat map to a perfectoid ring."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "kunz_direction_used",
+          "statement": "The direction actually used in section 5 is that a regular ring admits such an extension."
+        }
+      ],
+      "uses": [
+        "PAPER-BHATT-18/regular",
+        "PAPER-BHATT-18/general-perfectoid"
+      ]
     }
   ],
   "routes": [
@@ -2743,7 +2936,8 @@
         "PAPER-BHATT-18/acyclicity",
         "PAPER-BHATT-18/almost-injective-cone",
         "PAPER-BHATT-18/uniform-tensor-cone",
-        "PAPER-BHATT-18/tensor-kernel-cokernel"
+        "PAPER-BHATT-18/tensor-kernel-cokernel",
+        "PAPER-BHATT-18/derived-presentation"
       ],
       "reason": "Reuse almost algebra, the field/integral dictionary, rational localization and almost purity. Add the general almost-pro estimates and the derived rational presentation inside these existing scopes. Existing detailed supplier nodes are recorded in the item notes; their partial status is retained."
     },
@@ -2760,7 +2954,8 @@
         "PAPER-BHATT-18/root-extension",
         "PAPER-BHATT-18/neighborhood-flat",
         "PAPER-BHATT-18/extension-flat",
-        "PAPER-BHATT-18/aic-extension"
+        "PAPER-BHATT-18/aic-extension",
+        "PAPER-BHATT-18/flatness-generality"
       ],
       "reason": "Q3 already owns André flatness and absolutely integrally closed extensions. Bhatt supplies an alternative geometric proof and a functorial variant, not a competing owner. The field-based/general integral comparison is a separate obligation."
     },
@@ -2854,7 +3049,8 @@
         "PAPER-BHATT-18/derived-uniform",
         "PAPER-BHATT-18/koszul-uniform",
         "PAPER-BHATT-18/remove-regularity",
-        "PAPER-BHATT-18/limit-extension"
+        "PAPER-BHATT-18/limit-extension",
+        "PAPER-BHATT-18/strategy-summary"
       ],
       "reason": "Reuse the identically named pending proposal in PAPER-ANDRE-18, not a second Riemann-extension roadmap. It has no registered stages or review at this snapshot, so these items are missing rather than planned. Merge this incremental brief with that proposal during design.",
       "brief": "Extend the pending PerfectoidRamification brief from PAPER-ANDRE-18 with Bhatt's quantitative version. Import Perfectoid rings and spaces (PerfectoidSpaces) P0 almost-pro mathematics, P1 integral/tilted conventions, P2 rational root presentations and P3 almost purity; import generic derived completion and Koszul complexes from Derived de Rham cohomology (DerivedDeRhamCohomology) DD.1 and derived tensor/Hom from Enhanced derived sheaves (EnhancedDerivedSheaves). For integral perfectoid A with chosen compatible roots of t and g, first assume g is an almost nonzerodivisor modulo every t^m. For f_n:A/t^m→A⟨t^n/g⟩/t^m prove separately the m_t-almost-zero kernel, uniform m_g-almost-zero cokernel with shift c=p^k m independent of n, and the resulting m_(tg)-almost-pro-isomorphism. Construct all transition maps on root monomials. Prove Remark 4.3's derived tensor uniformity with its actual annihilator bounds before using it to remove the regularity assumption in Remark 4.4. Recover the inverse-limit Riemann extension only after the quantitative result, retaining lim-one. Do not infer arbitrary pointwise kernel vanishing from the final theorem without g-regularity. This strengthens the shared André ramification direction; it does not duplicate his completed integral-closure theorem or create a second perfectoidization. The continuation supplies the amplitude-zero cone proof of derived uniformity: c=p^k m survives tensor with arbitrary K, with g^(1/p^k) in m_t-almost modules and (tg)^(1/p^k) in ordinary modules. Implement its explicit P0/E1 suppliers; do not infer the argument from a general cohomological ghost map."
@@ -2878,7 +3074,9 @@
         "PAPER-BHATT-18/direct-summand",
         "PAPER-BHATT-18/perfectoid-proper-split",
         "PAPER-BHATT-18/derived-summand",
-        "PAPER-BHATT-18/equal-characteristic"
+        "PAPER-BHATT-18/equal-characteristic",
+        "PAPER-BHATT-18/contributions",
+        "PAPER-BHATT-18/perfectoid-kunz"
       ],
       "reason": "The existing parent owns Noetherian, regular-sequence, dimension and complete local algebra, but not either direct-summand theorem. These are new layers in its commutative-algebra direction. Coordinate with PAPER-ANDRE-18-B; PAPER-ANDRE-18 is the different Abhyankar paper.",
       "brief": "Build on Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra), importing its complete local coefficient and regular local homological algebra rather than recreating those foundations. The first final theorem is: every finite injective map A0→B0 of Noetherian commutative rings with A0 regular admits an A0-linear retraction. The second is: for every proper surjective f0:X0→Spec(A0) with A0 Noetherian regular, the unit A0→RΓ(X0,O_X0) splits in D(A0). Neither retraction is required to be multiplicative. Import PerfectoidSpaces P0–P3, PerfectoidQuotients Q0:integral-algebra and Q3, the shared pending PerfectoidRamification quantitative tower theorem, DerivedDeRhamCohomology DD.1, EnhancedDerivedSheaves E1/E2, and the precise proper-coherent and formal-model suppliers requested from SchemeAndStackFoundations and AdicSpacesPartII R2. Construct the unramified and ramified regular local perfectoid covers separately, prove both positive Tor almost vanishing and detection of ordinary modules, and track the (!!) and star normalization steps. Prove the localization/completion, component, Cohen presentation and discriminant reductions, obstruction detection modulo p^m and its p²g-to-pg annihilator calculation, and almost vanishing on every annulus with its lim-one removal. For the derived theorem prove the perfectness of proper coherent cohomology, generic multisection reduction and corrected Proposition 6.2 with generic finite-étale SURJECTIVITY in mixed characteristic. Do not replace coherent base change by étale proper base change or ordinary base change without Tor control. Read the original equal-characteristic inputs and GR2 non-Noetherian domination theorem before closing the graph. Coordinate ownership of any splinter predicate with PAPER-BHATT-ETAL-23's pending birational proposal; these statements can use explicit retractions and need no duplicate singularity vocabulary. Remark 5.5 is a question in this source, not a proved acceptance target. Continuation: proper H^0 integrality/localization/affinization are pinned library imports. Use the named SF.4 Stacks 0815–081T modification items and their R2 integral chart adapter. The bridge from ordinary proper base change needs only the E1 unit-compatible comparison morphism and composition of retractions, not its being an isomorphism. Finish the exact outstanding flattening leaves in G6; acquisition of GR2 alone does not close them."
@@ -3060,7 +3258,7 @@
     {
       "id": "PAPER-BHATT-18/G1",
       "title": "Version collation",
-      "task": "Read the complete published Bhatt article (Inventiones 212, 297–317) and collate with arXiv v2. Metadata, abstract, displayed public footnotes and references agree, but full line-by-line publication identity is not established. The continuation checked the purported publisher PDF: it is only a rendered subscription landing page and provides no additional journal text.",
+      "task": "Read the complete published Bhatt article (Inventiones 212, 297–317) and collate with arXiv v2. Metadata, abstract, displayed public footnotes and references agree, but full line-by-line publication identity is not established. The continuation checked the purported publisher PDF: it is only a rendered subscription landing page and provides no additional journal text. Third continuation (cc-fb70e5, 23 September 2026): the published text is not obtainable by the means available, and this should be treated as settled rather than retried. Springer serves only the subscription landing page, as recorded above; the author's IAS page at math.ias.edu/~bhatt routes its 'Papers' link to an arXiv author search and hosts no paper PDFs; and his Michigan directory public.websites.umich.edu/~bhattb/math/ returns HTTP 403. So arXiv v2 remains the reference text and all locators are its numbering. Note that the published article is 21 journal pages against v2's 12, so the risk of renumbering is real and every source issue must keep saying so. Remaining task: collate only if a subscription copy becomes available.",
       "affects": [
         "PAPER-BHATT-18/perfectoid-proper-split"
       ]
@@ -3136,7 +3334,7 @@
     {
       "id": "PAPER-BHATT-18/G8",
       "title": "Coverage and routing closure",
-      "task": "Complete a line-by-line proof-leaf inventory of all cited inputs, allocate supplier nodes instead of stage placeholders wherever possible, check all active reservations/accepted restructurings, and coordinate the two pending Part II briefs with PAPER-ANDRE-18 and PAPER-ANDRE-18-B. No claim of complete coverage is made.",
+      "task": "Complete a line-by-line proof-leaf inventory of all cited inputs, allocate supplier nodes instead of stage placeholders wherever possible, check all active reservations/accepted restructurings, and coordinate the two pending Part II briefs with PAPER-ANDRE-18 and PAPER-ANDRE-18-B. No claim of complete coverage is made. Third continuation (cc-fb70e5): the coverage half of this gap is now closed for the paper's own statements. A mechanical inventory of arXiv v2 - every 'Kind n.m' heading, with citations into other papers filtered out and 'Assumption' added to the environment list - gives 32 numbered statements of Bhatt's own: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8; 2.1-2.7; 3.1-3.6; 4.1-4.4; 5.1-5.6; 6.1, 6.2. Checking each against the locators of the 81 inherited items exposed five that appeared in no locator and were mentioned nowhere in the extraction - Remarks 1.3, 1.8, 2.4, 2.5 and 5.5 - and they are now items contributions, strategy-summary, flatness-generality, derived-presentation and perfectoid-kunz. Two of the five carry planning content rather than bookkeeping: Remark 1.8 says exactly how much of Theorem 1.6 each target needs (Ext^0 recovers Scholze, Ext^1 suffices for Theorem 1.1, all i >= 0 for Theorem 1.2), and Remark 5.5's 'forthcoming work of the author with Iyengar and Ma' has appeared as 'Regular rings and perfect(oid) algebras', Communications in Algebra 47 (2019), no. 6, 2367-2383, arXiv:1803.03229, which proves the p-adic Kunz theorem the remark asks for, so that question is no longer open. Beware that in this paper a locator like '1.4' is ambiguous between Assumption 1.4 and section 1.4 Notation, and the inherited items use it in the second sense. The cited-input proof-leaf inventory, the other half of this gap, is not closed.",
       "affects": [
         "PAPER-BHATT-18/direct-summand",
         "PAPER-BHATT-18/derived-summand"
