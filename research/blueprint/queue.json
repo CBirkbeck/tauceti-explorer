@@ -8376,8 +8376,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDRE-18-B.md",
-   "state": "pending",
-   "note": "released on GitHub issue #2188"
+   "state": "external",
+   "note": "claimed on GitHub issue #2188"
   },
   {
    "id": "REV-PAPER-ANDRE-18-B",
@@ -31501,8 +31501,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-ANDRE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1880"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1880",
+   "finishedAt": "2026-09-23T11:39:31Z"
   },
   {
    "id": "REV-ERRATA-PAPER-ANDRE-18",
