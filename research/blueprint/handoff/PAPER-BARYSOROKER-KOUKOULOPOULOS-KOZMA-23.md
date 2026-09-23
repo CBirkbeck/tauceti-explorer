@@ -1,36 +1,33 @@
-# Handoff: PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23
+# PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23 handoff
 
-Issue #1248; Codex session codex-a71f92; 22 September 2026. Status: partial.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged checkpoint of Codex session codex-a71f92 (#1905). Issue #1248. Date: 23 September 2026.
 
-## Done
+## Saved
 
-Read all65 pages of arXiv2007.14567v3, including all remarks and references. Recorded version/hash and limited publication comparison. Extracted130 items, with15 pinned-library credits,3 planned suppliers and112 missing items routed once. Forty definitions have120 API contracts and120 proposed tests. Seven routes comprise two Part IIs and five source routes. Read actual pinned statements and the relevant reviewed audit. Recorded18 source findings, without self-review or contacting authors.
+- **Items.** 133 items: 15 library, 3 planned, 115 missing.
+  - Items /1–/130 keep the checkpoint's ids; /131–/133 are new.
+  - Every missing item is routed exactly once across seven routes:
+    - Part IIs of ArithmeticStatistics (random polynomials) and of Tau Ceti's PolynomialGaloisGroups (ramified merging and random partitions);
+    - source routes for FiniteFieldsAndCharacterSums, SieveMethodsAndPrimePatterns, ClassicalArithmeticCompletion, AnalyticNumberTheory and ProbabilisticAndMetricNumberTheory.
+- **Mistakes.** Twenty-five are recorded (E1–E25). E1–E18 were rechecked and several were revised; E19–E25 are new.
+- **Repairs.**
+  - Lemma 12.9 (E12): block orbits of five long parts, and E₅ strengthened to four parts (/108, /113, /117).
+  - Theorem 4's height range (E18): Proposition 2.1 for supports exp(Cn^{1/3}) (/131).
+  - Lemma 3.7's change of variables (E19).
+  - The general upper tail of Lemma 9.2(b) (/83).
+- **Certificates.** Table 1 and the ±1 exponent were recomputed at 60 digits (/132). α(210) was rechecked for 35 ≤ N ≤ 33729.
+- **Versions.** The author PDF of 24 May 2023 agrees with arXiv v3 word for word. The Inventiones PDF is paywalled.
+- **Spacing.** The checkpoint's stripped spaces are restored in the result and the report.
 
-The report embeds the full exact-rational Fourier certificate:76,860 inequalities and the residue-class reduction prove α_210(N)^2<997/1000 for allN≥35. Paper/intake and structural checks pass; no Lean file was compiled.
+## Resume
 
-## Resume in this order
+The job is complete. For a reviewer or a later worker:
 
-1. Obtain and collate the published proof with v3. Findings currently refer to v3 only. The publisher PDF endpoint returned HTML; do not claim published-version identity.
-2. Independently inspect E12 at Lemma12.9 pp62–63: the auxiliary part k can exceed n/4, outside E₁. Supply a large-part argument or a stronger good event with a justified probability bound. Keep dependent Galois endpoints gated.
-3. Repair E4 at p25: four primes give P² of order x^8, hence the checked log-height exponent9, not the printed5. Do not restore5 without another proof. Recover the fixed-d height bound in E18 before asserting Theorem4's exact n-range.
-4. Verify the explicit E17 counterexample and corrected moment inequalities. Check all remaining findings E1–E18; review verdicts belong to an independent job.
-5. Close S2 with rational certificates for Table1 and the P=1155 Littlewood calculation, retaining γ=.5000197 and the δ=.00068053 rounding margin. C1 is already supplied and need not be rediscovered.
-6. Acquire the original suppliers S4–S10,S12: divisor/PNT/Mertens and large sieve, both Rosen prime-polynomial counts, Mignotte Theorem1′, concentration, inverse-totient, Dobrowolski/degree-drop and primitive-group minimum degree. Existing generic Mahler and Frobenius APIs are not substitutes.
-7. Write the omitted general upper-tail proof83 and the square-coefficient/near-half-factor sketch123. Perform a second complete inventory for small background definitions and proof leaves, expand the route/API contracts, then reassess closure. S1–S15 in the JSON are the authoritative gate list.
+1. Check the E12 repair in /117. The two facts used are that distinct long parts have disjoint block orbits and that g has at most three cycles longer than n/4.
+2. Check /131. Condition (a) of Theorems 7 and 8 enters only through Proposition 2.1; the exponents 8/15 < 17/30 carry the extension.
+3. E4 is recorded as affecting Theorem 2's explicit θ = c′ε/(log H)⁵. A heuristic suggests the step s ≍ Q/η, which would give exponent 5, but the written proof gives 9.
+4. When the published version becomes available, map the v3 locators to its 80 pages.
 
-## Conventions to preserve
+## Validation
 
-Condition on a₀≠0 only where specified; keep joint bad-event probabilities distinct from conditional probabilities. Nonconstant divisors exclude units; smooth parts excludeT; full cycle type includes1s and factor degrees count multiplicity. Use separability for transitivity iff irreducibility. Reuse ramified Frobenius existence already in Tau Ceti. The group layer proves an arbitrary partition-law theorem before the probability layer instantiates it, avoiding circular imports.
-
-## Files and checks
-
-Only the result JSON, report and this handoff are deliverables. Pins: Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, TauCetif790474821cf4256814db967cb154e7af3d0c369. Evidence file hashes are in the result; the certificate is fully embedded in the report, so no private scratch file is needed.
-
-Run:
-
-```sh
-python3 scripts/check_paper.py research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json
-python3 research/blueprint/intake.py check-files research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md research/blueprint/handoff/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md
-```
-
-Also verify the item dependency DAG, exact route coverage and API/test counts, and rerun the report's Python certificate. None of these establishes full mathematical closure or Lean compilation.
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. The report embeds the table script and the checkpoint's certificate C1. Only the two named deliverables and this handoff are submitted. No Lean deliverable is part of a paper job.
