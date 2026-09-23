@@ -4214,6 +4214,186 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1",
+   "kind": "gap",
+   "locator": "§4.3, proof of Proposition 4.13, p. 39",
+   "printed": "Suppose that weak automorphic base change of π^V does not exists. Then χ′ is not (G′, T)-CAP and L²_cusp(G′(F)∖G′(A_F)/K′, 1)[χ′] = {0}. … However, this is a contradiction since the image of R(μ′⋆f′) is contained in L²_cusp(G′(F)∖G′(A_F)/K′, 1)[χ′], which is zero. Therefore, 𝔇(G′, 1)^♥_{χ′} ≠ ∅, that is, weak automorphic base change of π^V exists. … For (1), it follows from the fact that 𝔇(G′, 1)^♥_{χ′} ≠ ∅.",
+   "correction": "Suppose instead that 𝔇(G′, 1)^♥_{χ′} = ∅, and take μ′ from Theorem 3.19 (for G′ and χ′) rather than Theorem 3.6. Then R(μ′⋆f′) = 0, so μ′⋆f′ is quasi-cuspidal and every I_{Π̃}(μ′⋆f′) vanishes, while the unitary side still gives a nonzero sum (Proposition 4.2 with Theorem 3.6 in case (a), or the supercuspidal component in case (b)). This contradiction gives 𝔇(G′, 1)^♥_{χ′} ≠ ∅, which is existence together with (1).",
+   "reason": "The contradiction as written rules out only 'weak base change does not exist', which by Definition 1.6 concerns the split places. 𝔇(G′, 1)^♥_{χ′} ≠ ∅ says more: some cuspidal datum realises χ′ including its archimedean component χ′_∞, the base change of χ_{π^V_∞}, and that is statement (1). The two differ when BC(π^V) exists but is not cuspidal, for example an endoscopic π^V, which is not CAP (case (a)) but has an isobaric-sum base change. Then χ′ is (G′, T)-CAP, Theorem 3.6 does not apply, and nothing in the written argument reaches the archimedean component. Theorem 4.14(4) (hermitian, possibly non-cuspidal, base change) and the archimedean assertion of Lemma 4.16 rest on (1) in exactly this case. Theorems 1.8–1.10 use only cuspidal Π_m, where the written argument suffices.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+    "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+   "citation": "Beuzart-Plessis–Liu–Zhang–Zhu, \"Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture\", Annals of Mathematics 194 (2021), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E2",
+   "kind": "misprint",
+   "locator": "§2.1, Definition 2.3, p. 9, and Remark 2.7, p. 10",
+   "printed": "Let μ be a holomorphic function on U_C. We say that μ has moderate vertical growth if for every M > 0, there exists r_M ∈ R such that sup_{‖Re z‖<M} |ν(z)|·(1 + ‖z‖)^{r_M} < ∞ … (Remark 2.7) we may even require μ in Corollary 2.5 and Corollary 2.6 to have exponential decay on vertical strips.",
+   "correction": "… sup_{‖Re z‖<M} |μ(z)|·(1 + ‖z‖)^{r_M} < ∞ … (Remark 2.7) we may even require ν in Corollary 2.5 and Corollary 2.6 …",
+   "reason": "The function being defined is μ; the functions in Corollaries 2.5–2.6 are called ν.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+    "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+   "citation": "Beuzart-Plessis–Liu–Zhang–Zhu, \"Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture\", Annals of Mathematics 194 (2021), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E3",
+   "kind": "misprint",
+   "locator": "§2.4, proof of Theorem 2.13, p. 21",
+   "printed": "By Definition 2.8(2), for every M > 0, we may choose r_M ∈ R such that p_{ϑ,M,r_M}(μ) < ∞ holds for every ϑ ∈ θ ∪ {1}.",
+   "correction": "By Definition 2.8(1), …",
+   "reason": "μ ∈ M_{θ∪{1}}(h*_C)^W, the space of Definition 2.8(1) (moderate growth); Definition 2.8(2) defines N_θ (rapid decay), where the bound holds for every r.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+    "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+   "citation": "Beuzart-Plessis–Liu–Zhang–Zhu, \"Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture\", Annals of Mathematics 194 (2021), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E4",
+   "kind": "misprint",
+   "locator": "§2.4, proof of Lemma 2.21, (2.2) and the next display, p. 15",
+   "printed": "|μ(α+ϖ)/ℓ_s(α+ϖ)| ⩽ 2 sup_{|u|⩽1} ‖μ(α + uα_s + ϖ)‖. (2.2) Choose C_{s,M,r} > 0 so that 2(1 + ‖α+ϖ‖)^r ⩽ C_{s,M,r}·min_{u∈C^×,|u|=1} (1 + ‖α + uα_s + ϖ‖)^r",
+   "correction": "… 2 sup_{|u|⩽1} |μ(α + uα_s + ϖ)| (2.2); choose C_{s,M,r} so that 2(1 + ‖α+ϖ‖)^r ⩽ C_{s,M,r}·min_{|u|⩽1} (1 + ‖α + uα_s + ϖ‖)^r",
+   "reason": "The supremum in (2.2) runs over the closed disc |u| ≤ 1, so the comparison of weights needs the minimum over the same disc; such a constant exists for the same reason. μ is scalar-valued, so ‖·‖ in (2.2) is the absolute value.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+    "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+   "citation": "Beuzart-Plessis–Liu–Zhang–Zhu, \"Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture\", Annals of Mathematics 194 (2021), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E5",
+   "kind": "misprint",
+   "locator": "§3.4, Theorem 3.19(1), p. 29",
+   "printed": "is contained in ⨁_{(M,σ)∈𝔇(G,ω)^♥_χ} L²_{(M,σ)}(G(F)∖G(A_F)/K, ω) under the decomposition (3.9)",
+   "correction": "… under the decomposition (3.2)",
+   "reason": "(3.9) is Definition 3.9, not a decomposition (the TeX has \\eqref{de:component}); the decomposition of L²(G(F)∖G(A_F)/K, ω) into cuspidal components is (3.2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+    "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+   "citation": "Beuzart-Plessis–Liu–Zhang–Zhu, \"Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture\", Annals of Mathematics 194 (2021), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E6",
+   "kind": "misprint",
+   "locator": "§4.1, after (4.4), p. 32",
+   "printed": "In general, the distribution I_γ is a certain regularization of relative orbital integrals, whose precise definition is complicated and will not be used in our later discussion, hence we will not recall. The following proposition is Zydor's extension of the Jacquet–Rallis trace formula for G^V.",
+   "correction": "In general, the distribution J_{δ^V} is …",
+   "reason": "The paragraph concerns the unitary distributions J_{δ^V} of (4.4) (Zydor, Théorème 6.6); the sentence is copied from the corresponding paragraph for G′.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+    "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+   "citation": "Beuzart-Plessis–Liu–Zhang–Zhu, \"Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture\", Annals of Mathematics 194 (2021), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E7",
+   "kind": "misprint",
+   "locator": "§4.2, proof of Proposition 4.11, p. 37",
+   "printed": "By Proposition 4.6(2), we may find an element f^V_1 ∈ S_tr(G^V(F)) satisfying J_{π_0}(f^V) = 1",
+   "correction": "… satisfying J_{π_0}(f^V_1) = 1",
+   "reason": "f^V is the given function, already normalised by J_{π_0}(f^V) = 1; the new function chosen from the dense subspace is f^V_1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+    "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+   "citation": "Beuzart-Plessis–Liu–Zhang–Zhu, \"Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture\", Annals of Mathematics 194 (2021), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E8",
+   "kind": "misprint",
+   "locator": "Appendix A, Proposition A.1, p. 43",
+   "printed": "For every element μ ∈ N(h*_C), there is a unique linear operator μ⋆ : C_c^∞(G)_{(K)} → S(G)_{(K)}, such that π(μ⋆f) = μ(χ_π)·π(f) …",
+   "correction": "For every element μ ∈ N(h*_C)^W, …",
+   "reason": "μ(χ_π) is defined only for W-invariant μ (χ_π is a W-orbit), and the next sentence and the proof construct the bilinear map on N(h*_C)^W × C_c^∞(G)_{(K)}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+    "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+   "citation": "Beuzart-Plessis–Liu–Zhang–Zhu, \"Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture\", Annals of Mathematics 194 (2021), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E9",
+   "kind": "misprint",
+   "locator": "Appendix A, proof of Proposition A.1, display before (A.6), p. 45",
+   "printed": "µ⋆ : C^∞_Ω(G^0)_{(𝔗)} ≃ (C^∞_{Ω_Z}(Z^0)_{(𝔗_Z)} ⊗̂ C^∞_{Ω_der}(G^0_der)_{(𝔗_der)})^{Z^0_der} → (S(G^0_der)_{(𝔗_Z)} ⊗̂ S(Z^0)_{(𝔗_der)})^{Z^0_der} → S(G^0)_{(𝔗)}",
+   "correction": "… → (S(Z^0)_{(𝔗_Z)} ⊗̂ S(G^0_der)_{(𝔗_der)})^{Z^0_der} → …",
+   "reason": "μ_1⋆ maps into S(Z^0)_{(𝔗_Z)} and μ_2⋆ into S(G^0_der)_{(𝔗_der)}; the printed target swaps both the factors and their K-type subscripts.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+    "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+   "citation": "Beuzart-Plessis–Liu–Zhang–Zhu, \"Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture\", Annals of Mathematics 194 (2021), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-BHARGAVA-GROSS-WANG-17/E1",
    "kind": "error",
    "locator": "Proof of Theorem 28, p.19 (arXiv v2)",
