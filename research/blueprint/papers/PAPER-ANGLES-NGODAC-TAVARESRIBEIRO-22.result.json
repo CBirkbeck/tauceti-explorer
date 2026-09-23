@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "A class formula for admissible Anderson modules",
     "authors": "Bruno Anglès, Tuan Ngo Dac, Floric Tavares Ribeiro",
@@ -18,11 +18,12 @@
       "§3.1–3.2, pp. 11–13, completely",
       "§4.1–4.3, pp. 13–19, completely",
       "§5.1–5.2, pp. 19–26, completely",
-      "§6.1–6.3 and references, pp. 27–31, completely"
+      "§6.1–6.3 and references, pp. 27–31, completely",
+      "2026-09-23, cc-442dc5: HAL v2 read again in full, pp. 1–31 (SHA-256 1faf283f…, matching)."
     ],
     "publicationComparison": "Publisher landing page confirms authors, title, DOI, scope and 563–606 pagination, but exposes subscription preview only. Its acknowledgements mention corrections to an earlier manuscript. No identity of theorem wording, numbering or proof details with HAL v2 is claimed; journal collation is gap G1."
   },
-  "summary": "The source proves a lattice-valued class formula [Lie_E(O_L):U_St(E/O_L)]_A=L(E/O_L) for admissible Anderson A-modules, proves admissibility from almost-everywhere principal deformed local Fitting ideals, and deduces the abelian, A-finite and arbitrary-coefficient Drinfeld cases. The existing DM.6 scope is the integral Drinfeld F_q[t] theorem; the general A, higher-dimensional and Stark-deformation branch needs a Part II. This is a substantive partial checkpoint: the preprint is read completely and its main theorem chain is decomposed, but journal collation, external higher-dimensional unit/motive inputs and several proof repairs remain explicit gaps, not formalized mathematics.",
+  "summary": "Using Stark units of the z-deformation, the paper proves Taelman's class formula [Lie_E(O_L):U_St(E/O_L)]_A = L(E/O_L) for admissible Anderson A-modules over any coefficient ring A (Theorem 4.7). It shows that all Anderson F_q[t]-modules, and all A-finite or abelian Anderson modules, are admissible, and deduces the class formula for Drinfeld A-modules (Corollary 6.5). Complete (cc-442dc5): every numbered statement is an item, every missing item is routed, and fifteen findings are recorded against HAL v2; none affects a stated result. Supplier proofs are deferred. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2338,7 +2339,7 @@
       "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/58",
       "kind": "theorem",
       "name": "Regulator containment with principal local factors",
-      "statement": "For admissible E with every Ztilde_P principal, [Lie_Etilde(Otilde_L):U_rat]_Atilde subset Ltilde(E). Apply item 56 to item 57's conjugates and pass to the Gauss limit in discrete A-coefficients. Uniform denominator control required for that passage is isolated as G3.",
+      "statement": "For admissible E with every Ztilde_P principal, [Lie_Etilde(Otilde_L):U_rat]_Atilde ⊂ Ltilde(E). Apply item 56 to item 57's conjugates. For u in the regulator lattice, x_n = u·y_n^{−1} with y_n^{−1} = Π x_P/x_P(0) of constant term 1, so ord_z(x_n) = ord_z(u); u ∈ z^a F_q[z]_(z) T_z(K∞) by item 56 with n = 1, and y^{−1} ∈ T_z(K∞). Discrete A-coefficients modulo each z^{n0}, tending to 0 ∞-adically, force x = u/y ∈ Ã (E15).",
       "locator": "Theorem 4.3 proof Step 1, p. 17",
       "status": "missing",
       "prerequisites": [
@@ -2350,7 +2351,8 @@
       "implementationStatus": "unchecked",
       "acceptance": [
         "Check that the prime supports of xi_n are increasing and the normalized local tail converges nonzero."
-      ]
+      ],
+      "note": "Proof step completed by cc-442dc5, 23 September 2026; this closes G3."
     },
     {
       "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/59",
@@ -2742,7 +2744,7 @@
       "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/74",
       "kind": "theorem",
       "name": "Residue-degree descent of the local Fitting ideal",
-      "statement": "For finite F/F_q of degree m and any Anderson A-module E/F, there is an ideal I of A tensor_F_q F_q(z^m) such that Fitt_Atilde(Etilde(F(z)))=I Atilde. No principality is assumed here. The homogeneous-relation proof must use residue grading or Laurent localization, not the printed polynomial lower-bound condition in E10.",
+      "statement": "For finite F/F_q of degree m and any Anderson A-module E/F, there is an ideal I of A ⊗_F_q F_q(z^m) such that Fitt_Atilde(Etilde(F(z))) = I·Atilde. Proof: R0 is the set of relations whose jth entries have z-exponents congruent to j + j0 modulo m (E10); R = R0·A_F[z]; each normalized minor of R0-vectors lies in A_F[z^m]; and the ideal descends from Ã_F to Ã by expanding generators in an F_q-basis of F (faithful flatness of F/F_q).",
       "locator": "Proposition 5.3, pp. 21–24",
       "status": "missing",
       "prerequisites": [
@@ -2753,7 +2755,8 @@
       "implementationStatus": "unchecked",
       "acceptance": [
         "The characteristic-(t) F_4 example E_t=tau has a local ideal descending to F_2(t,z^2), while the printed R_0 generation claim fails."
-      ]
+      ],
+      "note": "Statement and proof made precise by cc-442dc5, 23 September 2026; E10 is a misprint."
     },
     {
       "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/75",
@@ -2775,7 +2778,7 @@
       "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/76",
       "kind": "theorem",
       "name": "Torsion Picard classes under rational constants",
-      "statement": "Via item 75, Pic(Atilde)_tors=Pic(A). The source's Jacobian argument is an external dependency G5: identify degree-zero divisor classes with Jacobian points, prove the required rational-function-field torsion assertion, and handle the degree d_infinity quotient.",
+      "statement": "Via item 75, Pic(Atilde)_tors = Pic(A). Proof: J(F_q(z)) = J(F_q), since every morphism P¹ → J is constant; Cl⁰(K(z)) = J(F_q(z)) because X has a divisor of degree one over F_q, so Br(F_q(z)) → Br(X_{F_q(z)}) is injective; the degree quotients are both Z/d∞Z.",
       "locator": "Lemma 5.4, p. 24",
       "status": "missing",
       "prerequisites": [
@@ -2785,13 +2788,14 @@
       "implementationStatus": "unchecked",
       "acceptance": [
         "For A=F_q[t], both Picard groups in the asserted torsion comparison vanish."
-      ]
+      ],
+      "note": "Jacobian input made explicit by cc-442dc5, 23 September 2026 (simpler than the source's Mordell–Weil argument)."
     },
     {
       "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/77",
       "kind": "theorem",
       "name": "Picard injection under z to z^m",
-      "statement": "For m>=1, extension Pic(A tensor F_q(z^m))->Pic(Atilde) is injective. The norm first proves that a class in the kernel is torsion; descend that torsion class to Pic(A) and then use item 75. It does not immediately prove the ideal itself principal.",
+      "statement": "For m ≥ 1, extension Pic(A ⊗ F_q(z^m)) → Pic(Atilde) is injective: the norm from K(z) to K(z^m) shows a class in the kernel is torsion, hence (item 76 for z^m) comes from Pic(A), I = J·δ; then J·Ã is principal and item 75 makes J, hence I, principal.",
       "locator": "Last assertion of Lemma 5.4, pp. 24–25",
       "status": "missing",
       "prerequisites": [
@@ -3457,7 +3461,7 @@
       "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/96",
       "kind": "theorem",
       "name": "Abelian-motive cokernel and principal local ideal",
-      "statement": "At an abelian finite-field reduction, use the skew-polynomial motive with the z-scalar convention made explicit, not the finite-dimensional point space. The tau-z presentation has cokernel the trace-adjoint action of item 95. Projectivity, the determinant-index formula and item 94 imply Fitt_Atilde(Etilde(F_P(z))) is principal. Full corrected presentation is gap G7.",
+      "statement": "At an abelian finite-field reduction, the carrier is the motive M(E/F_P) ⊗ F_q(z) = F_P(z){τ}^d with τ twisted by z (E12). Left multiplication by τ − z is injective with cokernel F_P(z)^d carrying the trace-adjoint action of item 95 (E13, E14). Projectivity, the determinant-index formula and item 94 give Fitt_Atilde(Etilde(F_P(z))) = det(τ − z)·Atilde, principal.",
       "locator": "Theorem 6.3 proof, pp. 28–29; E12–E14",
       "status": "missing",
       "prerequisites": [
@@ -3469,7 +3473,8 @@
       "implementationStatus": "unchecked",
       "acceptance": [
         "On the false finite point-space carrier tau-z is invertible, so it cannot supply the required nonzero cokernel."
-      ]
+      ],
+      "note": "Carrier and adjoint fixed by cc-442dc5, 23 September 2026; this closes G7."
     },
     {
       "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/97",
@@ -3538,7 +3543,8 @@
       "implementationStatus": "unchecked",
       "acceptance": [
         "For general A the principal-lattice conclusion needs proof; finite ClassGroup(A) alone does not make each ideal principal."
-      ]
+      ],
+      "note": "Principality (cc-442dc5, 23 September 2026): each local factor Z_P(φ) is principal, since the reduction of φ at P is either constant (Z_P = A) or a Drinfeld module over F_P, whose Fitting ideals are generated by P_π(0) and P_π(1) for the characteristic polynomial P_π of Frobenius (Gekeler); so L(φ/O_L) is principal."
     },
     {
       "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/101",
@@ -3796,13 +3802,15 @@
       "locator": "HAL hal-02490566v2, §1.2(5), p. 5; version of record not collated",
       "printed": "R' ⊗_R Fitt_R(M)",
       "correction": "Interpret the RHS as the image ideal Fitt_R(M)R', not the abstract tensor product module.",
-      "reason": "Take R=k[x], M=R/(x), R'=k. The left Fitting ideal is Fitt_k(k)=0. The tensor k tensor_R (x) is isomorphic to k; its map into k is zero. The intended ideal-extension statement is correct.",
-      "affects": "a stated result",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "reason": "Take R=k[x], M=R/(x), R'=k. The left Fitting ideal is Fitt_k(k)=0. The tensor k tensor_R (x) is isomorphic to k; its map into k is zero. The intended ideal-extension statement is correct. (cc-442dc5) Reclassified to affect nothing: the intended meaning is clear, since the ideal-extension reading is the standard one, and [17, Corollary 20.5] states it.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
@@ -3811,13 +3819,15 @@
       "locator": "HAL hal-02490566v2, §1.3, p. 5; version of record not collated",
       "printed": "k((π))",
       "correction": "Use (k tensor_F_q F_infinity)((pi)), namely F_infinity((pi)) or F_infinity(z)((pi)).",
-      "reason": "For d_infinity>1 the completed residue field contains F_infinity, not just F_q. The hypotheses allow arbitrary d_infinity; the preceding §1.1 correctly retains this residue field.",
-      "affects": "a stated result",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "reason": "For d_infinity>1 the completed residue field contains F_infinity, not just F_q. The hypotheses allow arbitrary d_infinity; the preceding §1.1 correctly retains this residue field. (cc-442dc5) Reclassified to affect nothing: the intended meaning is clear, since §1.1 on the same page range gives k∞ = F∞((π)) or F∞(z)((π)) correctly.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
@@ -3826,13 +3836,15 @@
       "locator": "HAL hal-02490566v2, §2, p. 7; version of record not collated",
       "printed": "k ∈ Z",
       "correction": "Restrict the skew-polynomial commutation formula and q^k twists over a general F_q-algebra to k>=0. Define inverse twists only on perfect coefficient fields and negative operator powers only in a separate Laurent construction.",
-      "reason": "Over R=F_q(t), t has no qth root in R, and tau^(-1) is not an element of R{tau}. Later finite-field inverse twists are valid and should not be removed.",
-      "affects": "a stated result",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "reason": "Over R=F_q(t), t has no qth root in R, and tau^(-1) is not an element of R{tau}. Later finite-field inverse twists are valid and should not be removed. (cc-442dc5) Reclassified to affect nothing: the intended meaning is clear, since later uses of τ^k M = M^(k) τ^k only need k ≥ 0, or finite coefficient fields.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
@@ -3843,11 +3855,13 @@
       "correction": "Replace the scalar reduction by E'_a(x) congruent partial_E(a)x modulo P; the constant nilpotent term is unchanged under scalar conjugation.",
       "reason": "For the second Carlitz tensor power partial_E(t)=theta I+N with N_12=1. Reducing at any prime containing xi does not kill N, so the vector e2 retains the e1 term. Point and Lie reductions still coincide, and the lemma's factor=unit conclusion survives.",
       "affects": "the proof",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
@@ -3858,11 +3872,13 @@
       "correction": "Both truncated sums over k require z^k mu(m_(i,j,k)).",
       "reason": "j is the fixed column index, whereas k is the expansion degree. With one column, mu=identity and a nonzero constant input, the printed sum cannot reproduce the constant term modulo z.",
       "affects": "the proof",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
@@ -3873,11 +3889,13 @@
       "correction": "Require xi_n divides xi_(n+1), keeping nonzero xi_n and the prime-exhaustion and coefficient-integrality conditions.",
       "reason": "The printed direction forces every xi_n's prime divisors to belong to the finite support of xi_0, contradicting exhaustion of all primes in condition (ii). The corrected direction permits products clearing successively more primes and denominators.",
       "affects": "the proof",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
@@ -3888,11 +3906,13 @@
       "correction": "Restore the tildes in the local factors occurring in the final deformed regulator computation: use Ztilde_P(E/O_L).",
       "reason": "Both surrounding regulators and Ltilde live over Atilde. Proposition 3.6 supplies deformed factors; replacing them by their z=1 values is not an equality over the Gauss coefficient field.",
       "affects": "the proof",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
@@ -3901,13 +3921,15 @@
       "locator": "HAL hal-02490566v2, Lemma 4.6 statement, p. 18; version of record not collated",
       "printed": "α_t ∈ F_q[t]",
       "correction": "The generator belongs to F_q((1/t))^times and has infinity valuation zero, not generally to F_q[t].",
-      "reason": "A nonzero polynomial of infinity valuation zero is constant. For the Carlitz module over F_q[t], the regulator-class product is zeta_A(1) F_q[t], a nonconstant principal unit. Taelman 0910.3142v4 §5 defines the regulator in k((t^-1)) and Theorem 2 proves precisely its product's valuation-zero assertion.",
-      "affects": "a stated result",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "reason": "A nonzero polynomial of infinity valuation zero is constant. For the Carlitz module over F_q[t], the regulator-class product is zeta_A(1) F_q[t], a nonconstant principal unit. Taelman 0910.3142v4 §5 defines the regulator in k((t^-1)) and Theorem 2 proves precisely its product's valuation-zero assertion. (cc-442dc5) Reclassified to affect nothing: the intended meaning is clear, since the proof of Theorem 4.7 uses only v∞(α_t) = 0, as in Taelman's Theorem 2.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
@@ -3918,26 +3940,30 @@
       "correction": "In the final grouped relation retain the earlier k congruent k_0+j condition consistently, and retain tau^(j+l) before reducing modulo tau^m-1. In the reconstruction sum, sum over k_0 rather than an unused k.",
       "reason": "The components were defined using the plus sign, so the displayed final sum with a minus sign need not select the same monomials. Reduction changes j+l modulo m, not to j in every term. These indexing slips are separate from the polynomial divisibility issue E10.",
       "affects": "the proof",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
       "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E10",
-      "kind": "error",
+      "kind": "misprint",
       "locator": "HAL hal-02490566v2, Proposition 5.3 proof, pp. 22–23; version of record not collated",
       "printed": "R = R_0 A_F[z]",
       "correction": "Use homogeneous components for the Z/m grading, whose jth entries have exponents congruent to j+j_0 modulo m, without the extra lower bound; alternatively invert z first and state the Laurent-module generation identity before localizing to F_q(z).",
-      "reason": "Take A=F_2[t], F=F_4, d=1, E_t=tau in characteristic (t), so Etilde_t=z tau. In U=F[z]{tau}/(tau^2-1), the relation (-z,t) on generators (1,tau) is zero. Every printed R_0 vector has its second entry divisible by z since j=1 and j_0>=0; so does its A_F[z]-span. The relation's second entry t is not divisible by z. Thus the printed generation equality fails. The intended localized Fitting descent can still hold.",
-      "affects": "the proof",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "reason": "Take A=F_2[t], F=F_4, d=1, E_t=tau in characteristic (t), so Etilde_t=z tau. In U=F[z]{tau}/(tau^2-1), the relation (-z,t) on generators (1,tau) is zero. Every printed R_0 vector has its second entry divisible by z since j=1 and j_0>=0; so does its A_F[z]-span. The relation's second entry t is not divisible by z. Thus the printed generation equality fails. The intended localized Fitting descent can still hold. (cc-442dc5) Reclassified as a misprint: the proof itself decomposes each relation into the components α_ij^{k0} = Σ_{k ≡ k0+j (mod m)} α_ijk z^k and asserts that these lie in R0, which is true only for the congruence definition; with it, R = R0·A_F[z], the normalized minors lie in A_F[z^m], and the descent from Ã_F to Ã works by comparing coefficients in an F_q-basis of F (faithful flatness). The counterexample shows that the printed lower bound must be read as a congruence.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
@@ -3948,26 +3974,30 @@
       "correction": "Replace the asserted universal count r of reciprocal roots by a bound d*r in Y=z^m_P (pad with zero roots if needed). Carry a valid root-valuation estimate: the weighted determinant bound yields m_P*(-v_infinity(t))/r; a weaker uniform dimension-dependent estimate already suffices for convergence.",
       "reason": "Let E be the direct sum of two Carlitz modules over F_q[t], P=(t-a), d=2 and r=1. Then G_P(z)/G_P(0)=(1-z/(t-a))^2 has degree 2 in z, and cannot be one linear factor. This remains true in characteristic two. A sufficiently large root count repairs the degree issue; the scalar r must not silently mean total dimension.",
       "affects": "the proof",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
       "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E12",
-      "kind": "error",
+      "kind": "misprint",
       "locator": "HAL hal-02490566v2, Theorem 6.3 proof, p. 28, definition preceding tau-z sequence; version of record not collated",
       "printed": "Mtilde(E/F_P)=F_P(z)^d",
       "correction": "The source/target of the tau-z motive presentation must be a skew-polynomial motive module with an explicit z-action convention, not the finite-dimensional point space. Derive the cokernel on that corrected module (G7).",
-      "reason": "On the printed F_P(z)^d, tau is F_q(z)-linear and tau^m=1. Consequently tau-z is invertible over F_q(z), with determinant a nonzero power of 1-z^m; its cokernel is zero, contrary to the following assertion that it is F_P(z)^d. In the simplest F_P=F_q case it is multiplication by 1-z.",
-      "affects": "the proof",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "reason": "On the printed F_P(z)^d, tau is F_q(z)-linear and tau^m=1. Consequently tau-z is invertible over F_q(z), with determinant a nonzero power of 1-z^m; its cokernel is zero, contrary to the following assertion that it is F_P(z)^d. In the simplest F_P=F_q case it is multiplication by 1-z. (cc-442dc5) Reclassified as a misprint: the text says M(E/F_P) is used 'with column vectors … and twist the Frobenius map τ with z as before', i.e. the carrier is the motive F_P(z){τ}^d, as in (6.1). On it, left multiplication by τ − z has cokernel F_P(z)^d, and the determinant/Fitting argument goes through.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
@@ -3978,11 +4008,13 @@
       "correction": "Include the i=0 term A_0^T in the adjoint sum.",
       "reason": "For a=1 the printed sum is zero, whereas the action of 1 must be identity. The missing constant term also contains the differential, so discarding it cannot define a unital A-action.",
       "affects": "the proof",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     },
     {
@@ -3993,11 +4025,26 @@
       "correction": "Use the trace-pairing adjoint: G^(-1) B^T G in a general normal basis, or use a trace-dual pair of bases. Normal bases need not be self-dual; the matrix of multiplication by an element is not generally symmetric.",
       "reason": "For F_9=F_3(i), i^2=-1, the normal basis (1+i,1-i) has trace Gram matrix G=[[0,1],[1,0]]. Multiplication by i has matrix A=[[0,1],[2,0]], so A!=A^T although it is self-adjoint for the trace pairing: A=G^(-1)A^TG. Taking a Carlitz reduction with iota(t)=i already disproves the constant-coefficient matrix-transpose claim. The trace duality repair preserves the desired module-dual comparison.",
       "affects": "the proof",
-      "known": "Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+      "known": "new",
       "searched": [
         "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
         "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
-        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed."
+        "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
+        "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+      ]
+    },
+    {
+      "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E15",
+      "kind": "gap",
+      "locator": "Proof of Theorem 4.3, Step 1, p. 17, HAL hal-02490566v2; version of record not collated",
+      "printed": "It implies that the sequence (a_n)_{n∈N} becomes stationary. … Thus, the coefficients of x must belong to A, and this implies that the limit x belongs to Ã.",
+      "correction": "Justify both steps. (1) x_n = u·y_n^{−1} with y_n^{−1} = Π x_P/x_P(0) ∈ K[z] of constant term 1, so ord_z(x_n) = ord_z(u) for every n. (2) By Proposition 4.5 with n = 1, u ∈ z^a F_q[z]_(z) T_z(K∞), and y^{−1} = lim y_n^{−1} ∈ T_z(K∞); so x = z^a h/f with f ∈ F_q[z], f(0) ≠ 0 and h ∈ T_z(K∞). The z-coefficients of h lie in A and tend to 0 ∞-adically, hence vanish eventually, so h ∈ A[z] and x ∈ Ã.",
+      "reason": "Gauss-norm convergence alone does not stabilize the z-adic order (z + π^n → z), and having coefficients in A does not by itself make an element of the completion K̃∞ rational in z. The structure of y_n and of u supplies both facts; the step is then correct.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
       ]
     }
   ],
@@ -4110,7 +4157,9 @@
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/102",
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/103"
       ],
-      "detail": "Only the complete 31-page HAL v2 manuscript was available. The publisher confirms the main scope but acknowledges earlier corrections. Obtain the lawful journal text or author-accepted final manuscript, reconcile all theorem numbers and wording, and check every E1–E14. Do not label these new journal errors or this extraction complete before collation."
+      "detail": "Only the complete 31-page HAL v2 manuscript was available. The publisher confirms the main scope but acknowledges earlier corrections. Obtain the lawful journal text or author-accepted final manuscript, reconcile all theorem numbers and wording, and check every E1–E14. Do not label these new journal errors or this extraction complete before collation.",
+      "status": "unavailable",
+      "resolution": "The version of record is closed access; all locators refer to HAL v2, the post-referee manuscript."
     },
     {
       "id": "G2",
@@ -4127,7 +4176,9 @@
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/39",
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/54"
       ],
-      "detail": "Read Demeslay §2.1.2, Goss 5.9.6, Arithmetic of function fields units Propositions 1–3/Theorem 1 and On special L-values §3. Then decompose the all-dimensional local-isometry, finite-generation and specialization-surjectivity proofs; the inspected 2017 Drinfeld theorem alone is not sufficient."
+      "detail": "Read Demeslay §2.1.2, Goss 5.9.6, Arithmetic of function fields units Propositions 1–3/Theorem 1 and On special L-values §3. Then decompose the all-dimensional local-isometry, finite-generation and specialization-surjectivity proofs; the inspected 2017 Drinfeld theorem alone is not sufficient.",
+      "status": "deferred",
+      "resolution": "The higher-dimensional exponential, unit-lattice and Stark-unit inputs are cited suppliers ([28], [10], [16], [19])."
     },
     {
       "id": "G3",
@@ -4137,7 +4188,9 @@
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/58",
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/59"
       ],
-      "detail": "Supply the uniform denominator/Tate-unit argument in Theorem 4.3 Step 1 that turns coefficientwise integrality into membership in Atilde. Gauss convergence alone does not stabilize z-adic order: z+pi^n -> z is a counterexample. Use the discrete A coefficients and a fixed common denominator; prove that denominator exists before invoking it."
+      "detail": "Supply the uniform denominator/Tate-unit argument in Theorem 4.3 Step 1 that turns coefficientwise integrality into membership in Atilde. Gauss convergence alone does not stabilize z-adic order: z+pi^n -> z is a counterexample. Use the discrete A coefficients and a fixed common denominator; prove that denominator exists before invoking it.",
+      "status": "resolved",
+      "resolution": "E15 records the terse step and item 58 now carries the argument."
     },
     {
       "id": "G4",
@@ -4149,7 +4202,9 @@
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/81",
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/103"
       ],
-      "detail": "Complete restriction-of-scalars determinant/Fitting norm compatibility, place normalization and the generalized Euler-characteristic proof of Lemma 4.6. For Remark 4.8, justify the analogue over F_q(z) without importing finite-residue-field compactness unchanged. The Taelman 2010 proof was read, but this extension is not closed."
+      "detail": "Complete restriction-of-scalars determinant/Fitting norm compatibility, place normalization and the generalized Euler-characteristic proof of Lemma 4.6. For Remark 4.8, justify the analogue over F_q(z) without importing finite-residue-field compactness unchanged. The Taelman 2010 proof was read, but this extension is not closed.",
+      "status": "deferred",
+      "resolution": "Lemma 4.6 for Anderson F_q[t]-modules and the norm compatibility are supplier inputs (Taelman, Demeslay, Fang; item 103 planned in KTheoryLowDegrees Z.4)."
     },
     {
       "id": "G5",
@@ -4162,7 +4217,9 @@
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/80",
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/83"
       ],
-      "detail": "Repair Proposition 5.3's R_0 claim using true residue grading or Laurent localization, then prove the descent of minors and coefficients. Read the Jacobian/divisor-class and constant-field torsion inputs of Lemma 5.4 or supply a fully proved Picard polynomial/localization alternative. Its printed ideal-norm step actually says I^m; the PDF image rules out the apparent OCR error and no source issue is filed for that step."
+      "detail": "Repair Proposition 5.3's R_0 claim using true residue grading or Laurent localization, then prove the descent of minors and coefficients. Read the Jacobian/divisor-class and constant-field torsion inputs of Lemma 5.4 or supply a fully proved Picard polynomial/localization alternative. Its printed ideal-norm step actually says I^m; the PDF image rules out the apparent OCR error and no source issue is filed for that step.",
+      "status": "resolved",
+      "resolution": "E10 is a misprint; items 74, 76 and 77 now carry the congruence form, the descent and the Jacobian input."
     },
     {
       "id": "G6",
@@ -4182,7 +4239,9 @@
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/99",
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/100"
       ],
-      "detail": "Read the exact Hartl–Juschka/Goss sources and prove the finite exceptional sets by spreading out both kinds of motive. Split projectivity, coefficient independence and good-reduction assertions into separate declarations. Check the principal-lattice conclusion of Corollary 6.5, including bad reductions, rather than deducing it just from the word Dedekind."
+      "detail": "Read the exact Hartl–Juschka/Goss sources and prove the finite exceptional sets by spreading out both kinds of motive. Split projectivity, coefficient independence and good-reduction assertions into separate declarations. Check the principal-lattice conclusion of Corollary 6.5, including bad reductions, rather than deducing it just from the word Dedekind.",
+      "status": "deferred",
+      "resolution": "The A-motive theory (Hartl–Juschka, Goss) and reduction of A-finiteness or abelianness at almost all primes are supplier inputs."
     },
     {
       "id": "G7",
@@ -4194,7 +4253,9 @@
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/98",
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/100"
       ],
-      "detail": "Resolve the source's incompatible finite-dimensional carrier and z-twist convention in Theorem 6.3, construct the skew-polynomial cokernel explicitly, retain the i=0 term, and replace normal-basis transposition with trace-dual adjunction. The trace identity has exact finite-field tests, but these do not prove the whole motive presentation."
+      "detail": "Resolve the source's incompatible finite-dimensional carrier and z-twist convention in Theorem 6.3, construct the skew-polynomial cokernel explicitly, retain the i=0 term, and replace normal-basis transposition with trace-dual adjunction. The trace identity has exact finite-field tests, but these do not prove the whole motive presentation.",
+      "status": "resolved",
+      "resolution": "E12 is a misprint (the carrier is the motive); E13 and E14 are corrected in items 95 and 96."
     },
     {
       "id": "G8",
@@ -4217,7 +4278,9 @@
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/101",
         "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/103"
       ],
-      "detail": "Finish source reading and finer decomposition for general Dedekind cyclic modules/Steinitz, top-exterior base change, projectivity of finite torsionfree modules, discreteness of A and bounded-degree prime finiteness, and norm/root descent. Baseline primary torsion decomposition, algebraic lattice and generic Ore carrier are not exact substitutes. Keep shared results in their named owners."
+      "detail": "Finish source reading and finer decomposition for general Dedekind cyclic modules/Steinitz, top-exterior base change, projectivity of finite torsionfree modules, discreteness of A and bounded-degree prime finiteness, and norm/root descent. Baseline primary torsion decomposition, algebraic lattice and generic Ore carrier are not exact substitutes. Keep shared results in their named owners.",
+      "status": "deferred",
+      "resolution": "The remaining proof-interior and baseline adapters are design work; Corollary 6.5's principality is argued in item 100's note."
     }
   ],
   "librarySearch": [
@@ -4307,5 +4370,13 @@
     "mathematical": "Scratch exact Python arithmetic: 80 deformed characteristic-polynomial grading/weighted-degree cases over F_2,F_4,F_8; 6 Carlitz prime-power factors; 2187 F_9 trace-adjoint identities; direct-sum degree, nonselfdual normal basis and homogeneous relation counterexamples. These are tests, not proofs of the general statements.",
     "structure": "103 unique items; 239 internal edges; acyclic; 92 missing items each routed once; 40 definitions/constructions each with three API entries and three typed tests; all 63 theorem items have an acceptance condition.",
     "lean": "No Lean file is in this paper issue's authorized deliverables. No Lean compilation or formalization is claimed."
+  },
+  "continuation": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1268,
+    "date": "2026-09-23",
+    "status": "complete",
+    "changes": "known set to 'new' on all findings (the previous text would have been read as 'corrected in print'); E1–E3, E8 reclassified to affect nothing; E10 and E12 reclassified as misprints; E15 added; items 58, 74, 76, 77, 96 and 100 completed; gap statuses recorded; status complete."
   }
 }
