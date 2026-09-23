@@ -746,7 +746,8 @@
    ],
    "avoidAccountOf": "PAPER-ZAVYALOV-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-ZAVYALOV-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1064"
   },
   {
    "id": "PAPER-KINGS-SPRANG-25",
@@ -41444,9 +41445,10 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-34.md",
    "timeout": 21600,
-   "state": "external",
+   "state": "done",
    "avoidAccountOf": "AUDIT-34",
-   "note": "claimed on GitHub issue #869"
+   "note": "deliverables arrived from an external worker on issue #869",
+   "finishedAt": "2026-09-23T15:24:21Z"
   },
   {
    "id": "AUDIT-35",
