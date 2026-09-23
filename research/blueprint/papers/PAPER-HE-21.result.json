@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-HE-21",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Cordial elements and dimensions of affine Deligne–Lusztig varieties",
     "authors": "Xuhua He",
@@ -9,7 +9,7 @@
     "doi": "10.1017/fmp.2021.10",
     "arxiv": "2001.03325",
     "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf",
-    "version": "Published Cambridge open-access PDF, 15 pages; read completely, including references. The arXiv PDF was acquired only for provenance/possible comparison, not used instead of the publication.",
+    "version": "Published Cambridge open-access PDF (CC BY 4.0), 15 pages, read completely including the references, and compared page by page with arXiv:2001.03325, the only posted version, which is also 15 pages and agrees at every locator below except where a finding says otherwise (§2.2's sentence on the scheme structure and its reference [BS17], and the citation of [Vi14, Corollary 5.6] in §4.3, were added when the paper was revised). Locators are the statement numbers together with the page numbers of the published version. Cambridge stamps each download with a footer carrying the date and the requesting IP, so the byte stream and its hash differ between downloads of the same article; the hashes recorded below are of the files actually read.",
     "readSections": [
       "§1.1–1.5, entire introduction",
       "§2.1–2.2, all setup, upper bound and shrunken conventions",
@@ -45,6 +45,14 @@
         "date": "2026-09-22",
         "pages": 15,
         "note": "All pages reread. Cambridge's dynamic download footer can alter bytes; this is not evidence of a changed mathematical version."
+      },
+      {
+        "name": "published-reread-cc-fb70e5",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf",
+        "sha256": "d24c4a45401082dbc923d40c38e649b1bee826ecd4c271a41394c8dac01e0170",
+        "date": "2026-09-23",
+        "pages": 15,
+        "note": "Downloaded and read in full by cc-fb70e5 while auditing the merged checkpoints; the hash differs from the earlier reads only through Cambridge's per-download footer."
       }
     ],
     "libraryPins": {
@@ -215,6 +223,13 @@
           "read": "Statement and proof inspected; linked dependencies not claimed recursively verified."
         }
       ]
+    },
+    "arxivProvenance": {
+      "url": "https://arxiv.org/pdf/2001.03325",
+      "sha256": "818873a568bf37ec0b336cb12bd6822879ca369865cceb332ba06b95910989a3",
+      "date": "2026-09-23",
+      "pages": 15,
+      "note": "Byte-identical to the copy taken in the first checkpoint (818873a5…); read in full for the comparison described in source.version."
     }
   },
   "summary": "134-item partial extraction: resolves the abstract finite-type fibre-dimension argument and compatible perfect-scheme transfer, supplies both Frobenius endpoint squares, reuses two further pinned dimension lemmas, and replaces an impossible original-lattice lifting obligation by an explicit twisted A2 counterexample and adjoint-descent boundary. All 115 missing items are routed once; G1–G10 remain qualified research frontiers, not formalization claims.",
@@ -3449,13 +3464,13 @@
     {
       "id": "PAPER-HE-21/61",
       "kind": "theorem",
-      "name": "Auxiliary-lattice realization and geometric descent obligation",
-      "statement": "Carry out He21 §§5.2–5.4 in a specified adjoint/full-coweight datum. To apply its nonemptiness and dimension conclusions to the original G, construct the componentwise ADLV comparison, compare κ, Newton vectors, defect and the rational double-flat inequality, and handle component reachability. Do not require the auxiliary γ or factors w1,w2 to lift to the original Iwahori–Weyl group; /127 gives an explicit obstruction.",
+      "name": "Adjoint realization of the construction and descent of the conclusion",
+      "statement": "Carry out He21 §§5.2–5.4 in the adjoint datum the cited reduction provides, where X_*(T)_{Γ_0} is the full coweight lattice, so that ρ^∨_J, w_1, w_2 and a t^γ are defined. To apply the nonemptiness and dimension conclusions to the original G, construct the componentwise comparison of affine flag varieties and compare κ, the Newton point, the defect and the rational inequality (λ^♭♭_w)^♦ ≥ ν_b; record the hypothesis char k ∤ |π_1(G_ad)| that the comparison carries. Do not plan a lift of γ, λ^♭♭_w, w_1 or w_2 to a lattice between Q^∨ and P^∨: /127 shows that no such lift exists in general, and none is needed once the construction is read in the adjoint datum.",
       "locator": "§5.2–5.4 pp.9–11",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G1 is narrowed: GHN §2.2 and its erratum give a characteristic-qualified componentwise comparison, not unrestricted dimension descent. The non-lifting boundary in /127 replaces the previous impossible demand for an original-lattice γ.",
+      "note": "Finding E6: the paper's summary of [GHN15, §2] drops 'of adjoint type', which is what makes ρ^∨_J a coweight; the cited section does reduce to quasi-split semisimple groups of adjoint type. What remains for a design job is the descent, which the paper does not write out, and the characteristic condition the comparison of [GHN15, Proposition 2.2.1] and its erratum carries.",
       "dependencies": [
         "PAPER-HE-21/104",
         "PAPER-HE-21/127"
@@ -3794,13 +3809,13 @@
     {
       "id": "PAPER-HE-21/69",
       "kind": "theorem",
-      "name": "Boundedness and perfection bridge for the fibre argument",
-      "statement": "For the particular maps X2→X3 and X4→X5 in §5.4, one must justify a finite-type (or perfected finite-type) convolution model over each finite-dimensional irreducible target component, sufficient to apply the preceding fiber-dimension inequality.",
+      "name": "Carrier and fibre-dimension theory for the two correspondences",
+      "statement": "For the maps X_2 → X_3 and X_4 → X_5 of §5.4, fix the category the objects live in — schemes over F̄_q in equal characteristic, perfect schemes in mixed characteristic — and supply a fibre-dimension theorem valid there: a bounded (respectively perfectly finitely presented) convolution model over each finite-dimensional irreducible component of the target, and the generic-point estimate of /68 and /124 applied to it. The affine flag variety is an ind-scheme and X_w(b) is not quasi-compact, so the statement of [GW10, Corollary 14.116] does not apply to it directly.",
       "locator": "§5.4 argument (a), pp.11–12",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G2 — now routed to GS0, decomposed into /123–126 and linked to the already single-owned SF.0 lemma /68. The local finite-type argument avoids a globally finite set of components; bounded convolution and compatible perfect models must still be constructed.",
+      "note": "The printed inference 'Hence ∪_Y Z_Y ⫋ Z' in §5.4 argument (a) is valid as it stands, and for any number of irreducible components Y: the generic point of the irreducible Z lies in no proper closed subset of Z, and each Z_Y is one (the closure of π(Y), or the complement of the dense open produced by [GW10, Corollary 14.116]). An earlier checkpoint recorded this step as a gap in the paper; that reading was rejected in this one. What a formalisation still needs is the carrier and the dimension theory, which is gap G2 and items /123–/126.",
       "dependencies": [
         "PAPER-HE-21/123",
         "PAPER-HE-21/124",
@@ -4326,7 +4341,7 @@
       "id": "PAPER-HE-21/79",
       "kind": "theorem",
       "name": "First dimension gain",
-      "statement": "X2→X3 is surjective with all fibers of dimension at least N1=(ℓ(t^{ρ∨_J}y)+ℓw1−ℓ(x′y′t^γ))/2; after the boundedness bridge G2, dim X_w(b)≥dim X3+N1.",
+      "statement": "X_2 → X_3 is surjective with all fibres of dimension at least N_1 = (ℓ(t^{ρ^∨_J}y) + ℓ(w_1) − ℓ(x′y′t^γ))/2; with the fibre-dimension estimate of /68 in the carrier fixed by /69, dim X_w(b) ≥ dim X_3 + N_1.",
       "locator": "§5.4 pp.11–12",
       "status": "missing",
       "library": [],
@@ -4460,7 +4475,7 @@
       "id": "PAPER-HE-21/82",
       "kind": "theorem",
       "name": "Second dimension gain and final identification",
-      "statement": "After G2, dim X3≥dim X5+ℓη_σ(w)−ℓa. The length-additive map gives X5≅X_{σ(at^γ)}(b), universally homeomorphic to X_{at^γ}(b).",
+      "statement": "With the same estimate, dim X_3 ≥ dim X_5 + ℓ(η_σ(w)) − ℓ(a). The length-additive map gives X_5 ≅ X_{σ(at^γ)}(b), universally homeomorphic to X_{at^γ}(b).",
       "locator": "§5.4 p.12",
       "status": "missing",
       "library": [],
@@ -4880,7 +4895,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Both Newton hypotheses are retained; no claim for all w or all [b]≤[t^λ]. The broad scope remains a target pending G1–G3 and source-hypothesis transport.",
+      "note": "Both Newton hypotheses are retained; no claim is made for all w or for all [b] ≤ [ṫ^λ] (see gap G11 and Remark 6.2). The statement is the one the paper proves, in the adjoint datum of /61, from which G1 records the descent a design job must plan.",
       "dependencies": [
         "PAPER-HE-21/17",
         "PAPER-HE-21/89",
@@ -6024,8 +6039,8 @@
     {
       "id": "PAPER-HE-21/122",
       "kind": "theorem",
-      "name": "General-scope transport required for the basic seed",
-      "statement": "Required bridge, not an established unrestricted theorem here: transport the class-polynomial nonemptiness test and the zero-translation seed to He21's actual simple quasi-split Iwahori–Weyl datum, including mixed characteristic, ramification and non-adjoint lattices. Preserve δ, κ, the basic class and relative positions.",
+      "name": "Transport of the basic seed to the paper's own datum",
+      "statement": "Transport the class-polynomial nonemptiness test of /117–/120 and the zero-translation seed of /121 from the simple adjoint equal-characteristic setting in which they are proved to the datum of He21 §6.3 — mixed characteristic and ramified groups included — preserving σ, κ, the basic class and relative positions; or replace them by [GHN15, Theorem A], which is stated for every element of W̃ and needs no shrunken hypothesis.",
       "locator": "He21 §1.5; He14 §6.1–6.3",
       "status": "missing",
       "library": [],
@@ -6257,7 +6272,7 @@
     {
       "id": "PAPER-HE-21/127",
       "kind": "theorem",
-      "name": "Lattice comparison with an explicit non-lifting boundary",
+      "name": "Lattice comparison for the auxiliary construction",
       "statement": "For an unramified semisimple root datum with σ-stable Q∨⊂Λ⊂P∨, the inclusion Λ→P∨ is W0- and σ-equivariant and preserves root pairings, dominant representatives of points of Λ, affine length, and integral-coroot comparisons between points of Λ. The He21 auxiliary construction is carried out in P∨. For its β=λ−ρ∨_J+(x′)⁻¹σ⁻¹ρ∨_J and γ=dom(β), one has [γ]=[λ] in (P∨/Q∨)_σ. This does not imply β, γ or λbb belong to Λ; actual-lattice Kottwitz equality is meaningful only after the needed integral comparison. General ramified data, inertia torsion and reduced-root adapters remain G1.",
       "locator": "He21 §§5.2–5.4,6.3; GHN15 §2.2 and erratum",
       "status": "missing",
@@ -6281,7 +6296,7 @@
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked",
-      "note": "In unramified simply connected quasi-split type ²A2, use fundamental-coweight coordinates P∨=Z², Q∨={(a,b):a+2b≡0 mod 3}, σ(a,b)=(b,a), λ=(3,3), x=1, y=s1. Then J={s1}, J′=∅, x′=s2, z=1, ρ∨_J=η∨_J=(1,0), λbb=(1,3), γ=(3,2), y′=1 and a=s2. Both λbb and γ are outside Q∨, while λ lies in Q∨. The negative-base-alcove root intervals of w=t^λs1 are (−3,−2),(−4,−3),(−7,−6), so w is shrunken. No γ in Q∨ can satisfy γ≥_Zλbb: that inequality fixes its nonzero class in P∨/Q∨.",
+      "note": "Supporting computation for finding E6, in unramified simply connected quasi-split type ²A_2, in fundamental-coweight coordinates: P^∨ = Z², Q^∨ = {(a,b); a + 2b ≡ 0 mod 3}, σ(a,b) = (b,a); λ = (3,3) ∈ Q^∨, x = 1, y = s_1 give J = {s_1}, J′ = ∅, x′ = s_2, z = 1, ρ^∨_J = η^∨_J = (1,0), λ^♭♭ = (1,3), γ = (3,2), y′ = 1 and a = s_2, and the root intervals of w = t^λ s_1 on the base alcove are (−3,−2), (−4,−3), (−7,−6), so w is shrunken. Both λ^♭♭ and γ lie outside Q^∨ while λ lies inside, and γ ≥_Z λ^♭♭ fixes that nonzero class, so the construction cannot be run inside the coroot lattice. This is why the adjoint datum of /61 is the right place for it, not a defect of Theorem 6.1.",
       "prerequisites": [
         "PAPER-HE-21/2",
         "PAPER-HE-21/4",
@@ -6777,6 +6792,7 @@
   "gaps": [
     {
       "id": "G1",
+      "detail": "The reduction that §5 needs is to adjoint groups, and the paper's summary of it omits that word (finding E6): ρ^∨_J is a coweight of G, and so w_1, w_2 and a t^γ are elements of W̃, exactly when X_*(T)_{Γ_0} is the full coweight lattice. A design job therefore plans §§5.2–5.4 in the adjoint datum, and must plan two things the paper does not write out: the descent of Theorem 6.1's conclusion from G_ad back to G — a comparison of κ, of the Newton point, of the defect and of the rational inequality (λ^♭♭_w)^♦ ≥ ν_b, component by component — and the cost of the cited reduction, which holds under char k ∤ |π_1(G_ad)| and, after the authors' erratum (finding E13), only component by component. It must not plan a lift of γ, λ^♭♭_w, w_1 or w_2 to a smaller lattice: item /127 shows in unramified ²A_2 that no such lift exists, and none is needed.",
       "items": [
         "PAPER-HE-21/61",
         "PAPER-HE-21/63",
@@ -6785,12 +6801,11 @@
         "PAPER-HE-21/94",
         "PAPER-HE-21/95",
         "PAPER-HE-21/127"
-      ],
-      "missing": "General adjoint geometric descent, component reachability, numerical invariant comparison and ramified local-root/inertia-torsion adapter. An original-lattice lift of auxiliary γ is false in ²A2 and is no longer a requested proof.",
-      "resume": "Use /127 only for its explicit unramified integral/root calculation. Prove /61 on components and transfer the final geometric result; do not attempt to lift γ, λbb, w1 or w2 indiscriminately."
+      ]
     },
     {
       "id": "G2",
+      "detail": "§5.4 deduces dim X_2 ≥ dim X_3 + N_1 from a lower bound on every fibre of π: X_2 → X_3, using [GW10, Corollary 14.116] on an irreducible component Z of X_3. The inference itself is sound — the generic point of Z lies outside every proper closed subset Z_Y, whatever the number of irreducible components Y of π^{-1}(Z) — but two things a formalisation needs are left implicit and a design job must plan them: which category the objects live in (in equal characteristic X_w(b) is the F̄_q-points of a scheme; in mixed characteristic the carrier is a perfect scheme, by [BS17] and Zhu's appendix, see finding E8), and a fibre-dimension theorem valid there, since the affine flag variety is an ind-scheme and X_w(b) is not quasi-compact. Items /68 and /124 give the generic-point form of the estimate for finite-type morphisms, /123 and /125 the bounded convolution models the two maps of §5.4 require, and /126 with /133 and /134 the transfer through perfection.",
       "items": [
         "PAPER-HE-21/69",
         "PAPER-HE-21/79",
@@ -6798,12 +6813,11 @@
         "PAPER-HE-21/123",
         "PAPER-HE-21/125",
         "PAPER-HE-21/126"
-      ],
-      "missing": "For the actual equal/mixed-characteristic flag carrier, prove the bounded convolution producer /123 and local finite-type/pfp hypotheses. Supply pfp scheme charts or the algebraic-space dimension extension. The abstract /68,/124 inequalities, the two endpoint squares /125, and compatible-model transfer /126 are now explicit; their application still requires these producers.",
-      "resume": "Construct the finite-level Iwahori action on bounded Schubert loci, or a direct locally trivial bounded-convolution model, then apply the two written cartesian squares. Zhu §1.4.2 and Appendix A provide carriers and compatible deperfection, not a blanket all-characteristic comparison."
+      ]
     },
     {
       "id": "G3",
+      "detail": "The basic seed X_{a t^γ}(τ̇) ≠ ∅ of §6.3 is quoted from the shrunken criterion [He15, Theorem 2.27], whose hypothesis the constructed a t^γ does not satisfy whenever γ is not regular (finding E1). A design job plans the seed from the criterion that holds for every element — [GHN15, Theorem A], that is Corollary 3.6.1 together with Theorem 4.4.7 — or from the class-polynomial route of [He14, §11.2] with Corollary 6.2, which items /117–/120 record, with /121 for γ = 0. It must not plan it from [He14, Theorem 11.4] or [GHN15, Theorem B], both of which assume a shrunken alcove.",
       "items": [
         "PAPER-HE-21/92",
         "PAPER-HE-21/117",
@@ -6811,12 +6825,11 @@
         "PAPER-HE-21/120",
         "PAPER-HE-21/121",
         "PAPER-HE-21/122"
-      ],
-      "missing": "General He21-scope transport of the non-shrunken seed; complete verification of the corrected δ-support induction. The restricted source derivation is recorded, not a formal proof.",
-      "resume": "Use He14 Proposition11.6 with J=S, Proposition11.7 and Corollary6.2 for γ≠0; handle γ=0 separately; do not reintroduce the shrunken Theorem11.4. Also inspect HZZ21 §3's motivic reduction framework: Proposition3.4.2 has the corrected descent and could supply a direct geometric route. Only the selected proposition/proof is read here."
+      ]
     },
     {
       "id": "G4",
+      "detail": "The minimal length theory is imported, not proved here: He–Nie's reduction of a σ-conjugacy class to its minimal length elements (Theorem 3.1), the cocenter of the extended affine Hecke algebra with its basis of minimal classes and the class polynomials (items /106–/110), the 'dimension = degree' theorem and the geometry of straight and fundamental elements behind Theorem 3.2, and He–Yang's determination of the minimal elements of a class with finite Coxeter part (items /114–/116). A design job imports these from the stages named in the routes and plans only what the paper adds.",
       "items": [
         "PAPER-HE-21/30",
         "PAPER-HE-21/31",
@@ -6826,42 +6839,38 @@
         "PAPER-HE-21/115",
         "PAPER-HE-21/116",
         "PAPER-HE-21/119"
-      ],
-      "missing": "HN affine-subspace/finite-parabolic RedMin and nice-class proof, cocenter linear independence through based rings/traces and twisted-component passage; HY Dynkin-case verification; He14 straight/fundamental-element minimal geometry.",
-      "resume": "HN14 §§2,4,6, then He14 §§3–4. Selected theorem proofs were read, not their full recursive subtrees."
+      ]
     },
     {
       "id": "G5",
+      "detail": "Cordiality is taken from Milićević–Viehmann: the generic Newton point [b_w] of an Iwahori double coset, the saturation property and the dimension formula for cordial elements (Theorem 4.1, items /41–/45). Their proofs — the purity and the local geometry of the Newton stratification they rest on — are not planned here. §4.1 also records that fully characterising cordial elements is difficult, and §4.4 that not every x t^λ is ≈_σ-equivalent to an element of the dominant chamber, so a design job must not plan a classification of cordial elements nor treat the two families of §4.2 and §4.4 as one.",
       "items": [
         "PAPER-HE-21/41",
         "PAPER-HE-21/42",
         "PAPER-HE-21/44",
         "PAPER-HE-21/45"
-      ],
-      "missing": "MV20 generic Newton point, purity, completed local geometry and maximal-chain suppliers behind cordial saturation/dimension.",
-      "resume": "Decompose MV20 proof interiors and check scope transport from the previously inspected passages."
+      ]
     },
     {
       "id": "G6",
+      "detail": "The step in §4.3 that passes from the Iwahori double coset to its closure — [Vi14, Corollary 5.6], that the maximal σ-conjugacy class meeting Ĭ ẇ Ĭ is the one meeting its closure (item /49) — is quoted; Viehmann's proof and the hypotheses it needs are not planned here. The citation was added when the paper was revised: the arXiv version asserts only the inclusion Ĭ ẇ_S ṫ^λ Ĭ ⊂ K̆ ṫ^λ K̆.",
       "items": [
         "PAPER-HE-21/49",
         "PAPER-HE-21/47"
-      ],
-      "missing": "Original Viehmann14 Corollary5.6 proof and exact closure/characteristic hypotheses.",
-      "resume": "Acquire and read the original proof before activating the closure sandwich's maximal-Newton inference."
+      ]
     },
     {
       "id": "G7",
+      "detail": "Mazur's inequality in both forms is quoted: the upper bound dim X_w(b) ≤ d_w(b) (Theorem 2.1, from [He14, Corollary 10.4] for residually split groups and [He15, Theorem 2.30] in general) and the nonemptiness criterion in the affine Grassmannian (Theorem 4.4, from [Ga10] for unramified groups and [He14, Theorem 7.1] in general). A design job imports them; the paper proves neither, and the ramified and mixed-characteristic transfer of the second is part of what it imports.",
       "items": [
         "PAPER-HE-21/21",
         "PAPER-HE-21/48",
         "PAPER-HE-21/51"
-      ],
-      "missing": "Original upper-bound and special-parahoric Mazur/converse-Mazur proof subtrees and Newton-stratum/ADLV dimension comparison, including general ramified/perfect transfer.",
-      "resume": "He14 §§7,10; Gashi; He15 Theorems2.23/2.24/2.30 with original suppliers."
+      ]
     },
     {
       "id": "G8",
+      "detail": "The P-alcove machinery is imported from [GHKR10] and [GHN15]: the (J,x,σ)-alcove elements, the Kottwitz obstruction (Theorem 6.3 = [GHN15, Corollary 3.6.1]), the lemma that makes w an alcove element (Lemma 3.6.3, whose data the paper misquotes — finding E2), and the Hodge–Newton decomposition quoted in §6.5 for the case supp_σ(η_σ(w)) ⊊ S. Two of the propositions behind them are corrected by the authors' erratum (findings E13 and E14), and §6.5 does not make the resulting Levi affine Deligne–Lusztig variety explicit, so a design job must plan the reduction it names rather than assume it.",
       "items": [
         "PAPER-HE-21/85",
         "PAPER-HE-21/86",
@@ -6871,22 +6880,20 @@
         "PAPER-HE-21/103",
         "PAPER-HE-21/104",
         "PAPER-HE-21/105"
-      ],
-      "missing": "Full P-alcove contraction and Hodge–Newton decomposition with exact Levi quotients/components and source-scope extension.",
-      "resume": "GHN15 and GHKR10 original proofs, retaining both GHN erratum corrections."
+      ]
     },
     {
       "id": "G9",
+      "detail": "The rank-one and finite-level geometry behind the Deligne–Lusztig reduction (Proposition 3.3, items /128–/129) and the finite Deligne–Lusztig variety in the reductive quotient of a special parahoric used for the γ = 0 seed (item /121) are quoted from [DL76], [GH10] and [He14, §4]; Lang's theorem and the comparison of relative positions in the quotient are not planned here.",
       "items": [
         "PAPER-HE-21/121",
         "PAPER-HE-21/128",
         "PAPER-HE-21/129"
-      ],
-      "missing": "Lang surjectivity's source/proof and finite reductive parahoric quotient/relative-position comparison; full geometry of rank-one and Frobenius reductions in the target characteristic.",
-      "resume": "Complete the finite-parahoric branch of He14 Theorem4.8 and GH10 Corollary2.5.3, then prove the perfect analogues instead of using point bijections."
+      ]
     },
     {
       "id": "G10",
+      "detail": "A layer of small combinatorial facts is used throughout and is not proved in the paper: the Demazure product with its associativity and monotonicity (He09, items /37–/40), minimal coset representatives and the length identities of §5.4, the dominance and integral coroot orders with the finiteness of dominant coweights below a given one, the normalised subtraction of §5.1, and the sign facts about shrunken chambers taken from [GH10, §2.3 and Lemma 2.6.1]. A design job takes these from the root-system roadmap this extraction extends, and plans only the ones that roadmap does not have.",
       "items": [
         "PAPER-HE-21/9",
         "PAPER-HE-21/22",
@@ -6909,9 +6916,11 @@
         "PAPER-HE-21/98",
         "PAPER-HE-21/101",
         "PAPER-HE-21/106"
-      ],
-      "missing": "Remaining atomic Coxeter/parabolic, Demazure maximum/braid-independence, dominant-subtraction and local-root identification proof leaves. Existing pinned Bruhat/chamber carriers are inputs, not proofs of these extensions.",
-      "resume": "Promote each load-bearing API lemma to its own item, use existing upstream nodes where exact, and close the He09 maximum and root-sign inputs; do not re-plan the upstream root roadmap."
+      ]
+    },
+    {
+      "id": "G11",
+      "detail": "What the paper leaves open, in its own words, and which a design job must therefore not plan as part of it. For [b] basic and w outside the shrunken Weyl chamber, §1.3 records that no conjectural dimension formula has even been formulated, while the nonemptiness pattern there is known ([GHN15]); for other nonbasic classes outside the hypotheses of Theorem 6.1, §1.3 records that little is known. The hypotheses of Theorem 6.1 are not removable by the method: Remark 6.2 shows that λ^♭♭_w = λ_w when G is split and λ_w is minuscule, which is why λ^♦_w − ν_b ∈ Σ_{α∈Δ}Q_{>0}α^∨ is assumed, and §6.4 gives λ^♦_w ≥ ν_b + 2ρ^∨ as the simple sufficient condition (Corollary 6.4). The paper also does not determine the nonemptiness pattern for the classes [b] with κ(b) = κ(w) and ν_b ≤ λ^♦_w that fall outside those hypotheses, and the application announced in §1.2 — a dimension formula for the group-theoretic analogue of Newton strata for sufficiently large dominant coweights — is joint work with Q. Yu ([HY21]), not proved here."
     }
   ],
   "dependencyAudit": {
@@ -7257,218 +7266,277 @@
     {
       "id": "PAPER-HE-21/E1",
       "kind": "gap",
-      "locator": "He21 published §6.3, p.14",
-      "printed": "By [He15, Theorem 2.27], X_(at^γ)(τdot)≠∅.",
-      "correction": "Supply a non-shrunken seed theorem, with the source/characteristic bridge; /118–122 give the restricted repair and remaining obligations.",
-      "reason": "The explicit adjoint A2 example in /92 and the report has shrunken input and non-shrunken constructed output. The cited theorem's extra premise is not available. This does not contradict nonemptiness or the main theorem.",
+      "locator": "§6.3, p. 14 (published version; the same sentence is in arXiv:2001.03325)",
+      "printed": "By [He15, Theorem 2.27], X_{at^γ}(τ̇) ≠ ∅, where τ ∈ Ω with κ(w) = κ(t^γ) = κ(τ).",
+      "correction": "The basic seed has to be taken from a criterion that does not assume a shrunken alcove — [GHN15, Theorem A] (Corollary 3.6.1 with Theorem 4.4.7), which is stated for every element of W̃ — or proved for a t^γ directly; [He15, Theorem 2.27] cannot be quoted as printed.",
+      "reason": "The cited theorem reads (arXiv:1511.01386, Theorem 2.27, the numbering of the published survey, cross-checked through its Theorems 2.28, 2.30 and 2.34, which this paper cites for the results they carry): 'Assume that G is simple. Let w ∈ W̃ such that wσ(a) is contained in a Shrunken Weyl chamber. Then for any basic σ-conjugacy class [b], Ĭ ẇ Ĭ ∩ [b] ≠ ∅ if and only if κ(w) = κ(b) and η_σ(w) is not contained in W_M for any proper standard ς-stable Levi M.' The element it is applied to is the a t^γ produced by Theorem 5.5, and that element is not shrunken whenever γ is not regular: if ⟨γ, α⟩ = 0 for a root α, then every point v of the alcove a t^γ(a) satisfies ⟨v, a(α)⟩ = ⟨u, α⟩ for a point u of the base alcove, so 0 < |⟨v, a(α)⟩| < 1 and v lies in the critical strip of ±a(α). Non-regular γ is the normal case, not an edge case: the proof of Theorem 5.5 introduces K = {s ∈ S; s(γ) = γ} and y′ ∈ W_0^K for exactly this reason, and §6.4 discusses λ_w = nω^∨ for a fundamental coweight ω^∨, where γ lies on the walls. A worked instance in split adjoint type A_2: λ = ω_2^∨, y = 1, x = s_2s_1 give J = ∅, J′ = {s_1}, x′ = s_2, z = s_1, γ = λ, y′ = 1 and a = s_1 ∗ s_2 = s_1s_2; on the base alcove {u < 0, v < 0, u + v > −1} the element w = x t^λ y is outside every critical strip, while a t^γ sends (u,v) to (1−u−v, u), whose second coordinate lies in (−1,0), so a t^γ is not shrunken although both finite parts have full support. The conclusion is not contradicted — [GHN15, Theorem A] is available for every w — but the step as written applies its source outside its hypothesis.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
-        "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
-        "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+        "Crossref for 10.1017/fmp.2021.10 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
+        "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
+        "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
       ]
     },
     {
       "id": "PAPER-HE-21/E2",
       "kind": "misprint",
-      "locator": "He21 published §6.2, p.13",
-      "printed": "(J, σ⁻¹(y), σ)",
-      "correction": "Use (J,x,σ) with the normal-form left factor, and x⁻¹wσ(x)=t^λσ(ησ(w)).",
-      "reason": "This matches GHN15 Lemma3.6.3 and retains the dominant translation λ in the Levi calculation. The printed conjugating element and later inverse conventions are inconsistent.",
+      "locator": "§6.2, p. 13, and again §6.5, p. 14 (both versions)",
+      "printed": "By [GHN15, Lemma 3.6.3], w is a (J, σ^{-1}(y), σ)-alcove element … Therefore κ_{M_J}(σ^{-1}(y) w y^{-1}) ≠ κ_{M_J}(b').",
+      "correction": "w is a (J, x, σ)-alcove element, for the left factor x of the normal form w = x t^λ y, and the Kottwitz element is κ_{M_J}(x^{-1} w σ(x)) = κ_{M_J}(t^λ σ(η_σ(w))).",
+      "reason": "[GHN15, Lemma 3.6.3] conjugates by η_l(x) — in this paper's normal form w = x t^λ y that is x, not σ^{-1}(y) — and §6.1 of this paper defines a (J,x,σ)-alcove element by x^{-1} w σ(x) ∈ W̃_J. With the printed conjugator σ^{-1}(y) the defining condition fails: σ^{-1}(y)^{-1} w σ(σ^{-1}(y)) = σ^{-1}(y^{-1}) x t^λ y·y has finite part σ^{-1}(y)^{-1} x y², which lies in no W_J in general. With x it holds: x^{-1} w σ(x) = t^λ y σ(x) = t^λ σ(σ^{-1}(y) x) = t^λ σ(η_σ(w)) ∈ W̃_J because J ⊇ supp_σ(η_σ(w)) is σ-stable. The printed element σ^{-1}(y) w y^{-1} = η_σ(w) t^λ is not x^{-1} w σ(x) either, although it has the same Kottwitz image, since η_σ(w) ∈ W_J lies in the affine Weyl group of M_J and so in the kernel of κ_{M_J}; the conclusion of §6.2 therefore stands.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
-        "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
-        "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+        "Crossref for 10.1017/fmp.2021.10 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
+        "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
+        "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
       ]
     },
     {
       "id": "PAPER-HE-21/E3",
       "kind": "misprint",
-      "locator": "He21 published Proposition5.1 and Corollary5.3 proofs, p.8",
-      "printed": "Σ_(α∈Δ) Nα",
-      "correction": "Use α∨ in coweight differences; retain the reduced-root/coroot pairing convention of §2.",
-      "reason": "The differences are in the coweight space and the defined integral dominance order is the coroot order. In non-simply-laced types roots and coroots cannot be silently identified.",
-      "affects": "the proof",
+      "locator": "proof of Proposition 5.1 and proof of Corollary 5.3, p. 8 (both versions)",
+      "printed": "γ_1 ∈ Σ_{α∈J_1} Z_{>0}α, γ_2 ∈ Σ_{α∈J_2} Z_{>0}α … λ' − λ + μ'_1 ∈ (Σ_{α∈Δ} Z_{>0}α + γ_1 − γ_2) ∩ Σ_{α∈Δ} Z_{>0}α (Proposition 5.1); μ − (λ − x(λ'')) ∈ Σ_{α∈Δ} Nα, λ'' − x(λ'') ∈ Σ_{α∈Δ} Nα and λ' − λ'' ∈ Σ_{α∈Δ} Nα (Corollary 5.3).",
+      "correction": "Simple coroots α^∨ in every one of these sums: Σ_{α∈J_1} Z_{>0}α^∨, Σ_{α∈Δ} Nα^∨, and so on.",
+      "reason": "All the elements involved are coweights, and the two orders these proofs work with are defined in §2.2 by coroots: λ ≥ λ' means λ − λ' ∈ Σ_{α∈Δ} Q_{≥0}α^∨ and λ ≥_Z λ' means λ − λ' ∈ Σ_{α∈Δ} Nα^∨. A sum of simple roots is not a coweight, and outside the simply-laced types the two lattices cannot be identified. Every other statement of the paper writes α^∨ (for example §2.2, Theorem 6.1, Remark 6.2 and §6.4); only these two proofs drop the superscript.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
-        "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
-        "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
-        "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+        "Crossref for 10.1017/fmp.2021.10 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
+        "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
+        "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
       ]
     },
     {
       "id": "PAPER-HE-21/E4",
       "kind": "misprint",
-      "locator": "He21 published Proposition5.1 proof, p.8, sums over the full Δ",
-      "printed": "Σ_(α∈Δ) Z_{>0}α",
-      "correction": "Use nonnegative coroot coefficients in the full-Δ feasibility cones. Strictly positive coefficients on the separately selected supports J1,J2 are legitimate and need not be changed.",
-      "reason": "Taking λ=λ′=μ1′=μ2′=0 gives zero, which is not in the all-strict-positive cone in positive rank.",
-      "affects": "the proof",
+      "locator": "proof of Proposition 5.1, p. 8, in the two sums over the whole of Δ (both versions)",
+      "printed": "λ' − λ + μ'_1 = λ' − λ + μ'_2 + γ_1 − γ_2 ∈ (Σ_{α∈Δ} Z_{>0}α + γ_1 − γ_2) ∩ Σ_{α∈Δ} Z_{>0}α. Since J_1 ∩ J_2 = ∅, we have λ' − λ + μ'_1 − γ_1 ∈ Σ_{α∈Δ} Z_{>0}α.",
+      "correction": "Nonnegative coefficients in the sums over Δ: Σ_{α∈Δ} Nα^∨.",
+      "reason": "The hypothesis being used is μ'_i + λ' ≥_Z λ, which by the definition in §2.2 puts λ' − λ + μ'_i in Σ_{α∈Δ} Nα^∨, not in the cone with all coefficients strictly positive: λ = λ' = μ'_1 = μ'_2 = 0 satisfies the hypotheses and gives the zero vector, which is not in Σ_{α∈Δ} Z_{>0}α^∨ in positive rank. The strictly positive coefficients on the two selected disjoint supports J_1 and J_2 are legitimate and are not affected.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
-        "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
-        "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
-        "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+        "Crossref for 10.1017/fmp.2021.10 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
+        "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
+        "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
       ]
     },
     {
       "id": "PAPER-HE-21/E5",
       "kind": "gap",
-      "locator": "He21 published Proposition5.1 proof, final line, p.8",
-      "printed": "The statement is proved.",
-      "correction": "Add existence of a feasible coweight and a well-foundedness/finiteness argument yielding a minimal element; lower-directedness then proves leastness.",
-      "reason": "The written argument constructs a common lower bound for two feasible points. A nonempty lower-directed poset alone need not have a minimal element. Items /53–55 supply the finite-below-one-feasible-point argument.",
+      "locator": "Proposition 5.1 with its proof, p. 8 (both versions)",
+      "printed": "Then the set {μ'; μ' is dominant, μ' + λ' ≥_Z λ} contains a unique minimal element with respect the dominance order ≥_Z. … [proof] The statement is proved.",
+      "correction": "Two steps have to be added: that the set is nonempty, and that it has a minimal element at all.",
+      "reason": "What the printed proof establishes is that the set is lower directed: for any two of its elements μ'_1, μ'_2 it produces a dominant μ in the set with μ'_1 ≥_Z μ and μ'_2 ≥_Z μ. Directedness gives uniqueness of a minimal element once one exists, but not existence. Both missing steps are standard: μ' = λ − λ' + NΣ_{α∈Δ}α^∨ is dominant and feasible for N large, which gives nonemptiness; and for a fixed feasible μ'_0 the dominant coweights μ with μ'_0 ≥_Z μ form a finite set, so a minimal element exists. The statement is correct as it stands.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
-        "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
-        "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+        "Crossref for 10.1017/fmp.2021.10 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
+        "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
+        "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
       ]
     },
     {
       "id": "PAPER-HE-21/E6",
-      "kind": "error",
-      "locator": "He21 published §5.2 and Theorem5.5, p.9, with §5.4 construction, pp.10–11",
-      "printed": "there exist a dominant coweight",
-      "correction": "State Theorem5.5 in the working full-coweight/adjoint realization. For the original group, transfer the final geometric theorem with a proved component and dimension comparison; do not require its intermediate γ to be an original cocharacter.",
-      "reason": "In unramified simply connected quasi-split type ²A2, use fundamental-coweight coordinates P∨=Z², Q∨={(a,b):a+2b≡0 mod 3}, σ(a,b)=(b,a), λ=(3,3), x=1, y=s1. Then J={s1}, J′=∅, x′=s2, z=1, ρ∨_J=η∨_J=(1,0), λbb=(1,3), γ=(3,2), y′=1 and a=s2. Both λbb and γ are outside Q∨, while λ lies in Q∨. The negative-base-alcove root intervals of w=t^λs1 are (−3,−2),(−4,−3),(−7,−6), so w is shrunken. No γ in Q∨ can satisfy γ≥_Zλbb: that inequality fixes its nonzero class in P∨/Q∨. The earlier SL2 example already shows ρ∨_J need not be an original cocharacter. The stronger twisted example prevents repairing this by merely proving the final γ integral.",
-      "affects": "a stated result",
-      "known": "new",
-      "searched": [
-        "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
-        "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
-        "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists.",
-        "2026-09-22, codex-7e92bd: repeated exact-title erratum/corrigendum/correction and cordial+coweight+adjoint searches; no published correction located. This finding concerns the literal original-lattice Theorem5.5, not a disproof of the final dimension formula."
-      ]
-    },
-    {
-      "id": "PAPER-HE-21/E7",
       "kind": "gap",
-      "locator": "He21 published §5.4 argument (a), p.12",
-      "printed": "Hence ∪_Y Z_Y ⊊ Z.",
-      "correction": "Localize to a finite-type open in the target component and establish a finite-type convolution preimage, or supply equivalent finiteness hypotheses.",
-      "reason": "An arbitrary union of proper closed subsets can cover an irreducible scheme. The /123–126 local bounded-model route supplies the required setting once its producers are proved; this is not a counterexample to the dimension conclusion.",
+      "locator": "§2.2, p. 5, the standing reduction, with §5.2, p. 9 and §5.4, pp. 10–11 (both versions)",
+      "printed": "As discussed in [GHN15, §2], the study of the nonemptiness pattern and dimension formula of affine Deligne–Lusztig varieties for an arbitrary reductive group may be reduced to simple and quasi-split groups over F. From now on, we assume that G is simple and quasi-split over F.",
+      "correction": "The reduction must also carry 'of adjoint type', as the cited section does: [GHN15, p. 648] reduces 'to the case where G is quasi-split and semisimple of adjoint type' (§2.2 Reduction to adjoint groups, §2.3, §2.4).",
+      "reason": "Adjointness is what makes §5 well defined. §5.2 introduces ρ^∨_J, the dominant coweight with ⟨ρ^∨_J, α_s⟩ = 1 for s ∈ J and 0 otherwise — that is, Σ_{s∈J} ω^∨_s — and §5.4 uses the elements w_1 = x z^{-1} t^{λ_w − ρ^∨_J} y' and w_2 = (y')^{-1} z t^{ρ^∨_J} y of W̃ and the element a t^γ of W̃. These require ρ^∨_J ∈ X_*(T)_{Γ_0}, which fails as soon as that lattice is smaller than the coweight lattice: for G = SL_3, split, X_*(T) is the coroot lattice of A_2, and y = s_1 gives J = {s_1} and ρ^∨_J = ω^∨_1 = (2α^∨_1 + α^∨_2)/3 ∉ X_*(T), so t^{ρ^∨_J} is not an element of W̃ at all. The twisted case shifts γ itself out of the lattice: in unramified simply connected ²A_2, with P^∨/Q^∨ = Z/3 and σ acting by −1, taking λ = 3ρ^∨, x = 1, y = s_1 gives J = {s_1}, σ^{-1}(ρ^∨_J) = ρ^∨_{σ^{-1}(J)} = ω^∨_2, and the class of γ in P^∨/Q^∨ is that of ω^∨_2 − ω^∨_1 ≠ 0, so no W_0-translate of it is a coweight of G. That this is a slip in summarising the reduction, and not a restriction the author intends, is clear from §1.2, which describes W̃ as 'the semidirect product of the coweight lattice with the relative Weyl group' — the coweight lattice being X_*(T) exactly for adjoint groups. Two consequences are worth recording: the cited reduction to adjoint groups holds under char k ∤ |π_1(G_ad)| and, after the authors' erratum, only component by component (see E13), and the descent of Theorem 6.1 from G_ad back to G is not written out.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
-        "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
-        "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+        "Crossref for 10.1017/fmp.2021.10 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
+        "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
+        "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
       ]
     },
     {
       "id": "PAPER-HE-21/E8",
       "kind": "misprint",
-      "locator": "He21 published §2.2, p.5, sentence citing BS17",
-      "printed": "equal characteristic",
-      "correction": "Use a source for ordinary equal-characteristic flag schemes and separately state the mixed-characteristic perfect-scheme construction supported by BS17.",
-      "reason": "The equal-characteristic existence statement is true; the cited Witt-vector construction addresses the mixed-characteristic carrier. This is a citation/carrier clarification, not a false equal-characteristic theorem.",
+      "locator": "§2.2, p. 5 (published version only; the sentence and the reference [BS17] are absent from arXiv:2001.03325)",
+      "printed": "In the equal characteristic, X_w(b) is the set of F̄_q-points of a scheme [BS17].",
+      "correction": "The cited result is about mixed characteristic: it gives X_w(b) as the F̄_q-points of a perfect scheme. In equal characteristic the affine flag variety is an ind-scheme by the classical construction, and no Witt vector geometry is needed.",
+      "reason": "[BS17] is Bhatt–Scholze, 'Projectivity of the Witt vector Grassmannian', whose subject is the Witt vector affine Grassmannian — W(k)-lattices in W(k)[1/p]^n — represented by an inductive limit of perfect schemes; it says nothing about equal characteristic, where the affine flag variety is an ind-scheme by Iwahori–Matsumoto, Bruhat–Tits and Faltings and X_w(b) is a locally closed subscheme of it. The sentence was added when the paper was revised: the arXiv version has neither it nor [BS17] in its bibliography, and states the scheme structure only in the notation of §5.3 ('locally closed sub-ind-schemes of the product of affine flag varieties').",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
-        "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
-        "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+        "Crossref for 10.1017/fmp.2021.10 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
+        "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
+        "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
       ]
     },
     {
       "id": "PAPER-HE-21/E9",
       "kind": "misprint",
-      "locator": "He14 published Proposition11.6 statement, p.399; also arXivv2",
-      "printed": "supp_δ(v)=J",
-      "correction": "Replace the undefined v by x.",
-      "reason": "The statement introduced wtilde=x t^μ y; x is the element in W_J used throughout the induction.",
+      "locator": "He14 = X. He, 'Geometric and homological properties of affine Deligne–Lusztig varieties', Ann. of Math. 179 (2014), Proposition 11.6, statement, p. 399 of the published version (also in arXiv:1201.4901)",
+      "printed": "Let J ⊆ S with δ(J) = J and w̃ = x t^μ y such that x ∈ W_J with supp_δ(v) = J, y is a δ-twisted Coxeter element in W_{S−J}, μ ≠ 0 and t^μ y ∈ ^S W̃.",
+      "correction": "supp_δ(x) = J.",
+      "reason": "The statement introduces no v, and v is the Hecke algebra parameter of that paper (the conclusion is stated in powers of v − v^{-1}). The element whose saturated support is J is x: the induction in the proof begins 'we may also assume that the statement is true for all x' with supp_δ(x') = J and ℓ(x') < ℓ(x)'.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "2026-09-22: Annals article record and targeted title + erratum/correction search; no official correction located.",
-        "2026-09-22: arXiv1201.4901 history and v2 proof compared with the published page399 image.",
-        "2026-09-22: HZZ arXiv2109.02594v1 Proposition3.4.2 and proof read for a later reformulation."
+        "Crossref for the Annals paper (10.4007/annals.2014.179.1.6): no correction relation",
+        "the Annals of Mathematics errata listing and the journal's page for volume 179",
+        "arXiv:1201.4901, all versions",
+        "the author's page and the later reworking of the same induction in He–Zhou–Zhu, arXiv:2109.02594, Proposition 3.4.2"
       ]
     },
     {
       "id": "PAPER-HE-21/E10",
       "kind": "misprint",
-      "locator": "He14 published Proposition11.6 proof, p.399; page image checked; also arXivv2",
-      "printed": "i∈δ⁻¹(J1)",
-      "correction": "The left descent must be chosen in J\\δ⁻¹(J1).",
-      "reason": "x1 was chosen left-minimal for W_(δ⁻¹J1), so a simple generator in that set cannot be a left descent. The next minimum-coset step needs exclusion. HZZ's later proof explicitly makes the outside choice.",
+      "locator": "He14, proof of Proposition 11.6, p. 399 of the published version (also in arXiv:1201.4901)",
+      "printed": "If x ∉ W_{δ^{-1}(J_1)}, then x_1 ≠ 1 and there exists i ∈ δ^{-1}(J_1) with s_i x_1 < x_1.",
+      "correction": "there exists i ∈ J − δ^{-1}(J_1) with s_i x_1 < x_1.",
+      "reason": "x_1 was chosen in ^{δ^{-1}(J_1)}W, the minimal length representative of W_{δ^{-1}(J_1)}x_1, so s_i x_1 > x_1 for every i ∈ δ^{-1}(J_1): the printed choice contradicts the choice of x_1. Since x ∈ W_J and x_1 ≠ 1, a left descent exists and lies in J − δ^{-1}(J_1). The next lines confirm the reading: they use ℓ(y s_{δ(i)}) = ℓ(y) + 1 and t^μ y s_{δ(i)} ∈ ^S W̃, which by the definition J_1 = {i ∈ J; t^μ y s_i ∉ ^S W̃} need δ(i) ∉ J_1, that is i ∉ δ^{-1}(J_1).",
       "affects": "the proof",
-      "known": "Later reformulation: He–Zhou–Zhu, arXiv2109.02594v1, Proposition3.4.2 proof, pp.22–23 (not an official erratum)",
+      "known": "Later reformulation, not an erratum: He–Zhou–Zhu, arXiv:2109.02594, Proposition 3.4.2, whose proof makes the choice outside the excluded set",
       "searched": [
-        "2026-09-22: Annals article record and targeted title + erratum/correction search; no official correction located.",
-        "2026-09-22: arXiv1201.4901 history and v2 proof compared with the published page399 image.",
-        "2026-09-22: HZZ arXiv2109.02594v1 Proposition3.4.2 and proof read for a later reformulation."
+        "Crossref for the Annals paper (10.4007/annals.2014.179.1.6): no correction relation",
+        "the Annals of Mathematics errata listing and the journal's page for volume 179",
+        "arXiv:1201.4901, all versions",
+        "the author's page and the later reworking of the same induction in He–Zhou–Zhu, arXiv:2109.02594, Proposition 3.4.2"
       ]
     },
     {
       "id": "PAPER-HE-21/E11",
       "kind": "misprint",
-      "locator": "He14 published Proposition11.6 proof, p.399, after x′=x1*δ(u)",
-      "printed": "supp(x′)=J",
-      "correction": "Retain supp_δ(x′)=J.",
-      "reason": "Only saturated support was established by the preceding equalities. For a nontrivial A2 node-swap automorphism, s1 has full saturated support but proper ordinary support. HZZ's later induction consistently keeps σ-support.",
+      "locator": "He14, proof of Proposition 11.6, p. 399 of the published version, in the proof of claim (a) (also in arXiv:1201.4901)",
+      "printed": "Notice that supp_δ(x) = supp_δ(u) ∪ supp_δ(x_1) = supp_δ(x_1) ∪ supp_δ(δ(u)) = supp_δ(x'). Hence supp(x') = J.",
+      "correction": "Hence supp_δ(x') = J.",
+      "reason": "The chain of equalities that precedes it establishes the saturated support supp_δ(x') = supp_δ(x) = J, and the induction hypothesis it feeds is stated for supp_δ. Ordinary support is strictly smaller in general: for the diagram automorphism of A_2, s_1 has supp_δ(s_1) = {s_1,s_2} but supp(s_1) = {s_1}.",
       "affects": "the proof",
-      "known": "Later reformulation: He–Zhou–Zhu, arXiv2109.02594v1, Proposition3.4.2 proof (not an official erratum)",
+      "known": "Later reformulation, not an erratum: He–Zhou–Zhu, arXiv:2109.02594, Proposition 3.4.2, whose induction keeps the σ-saturated support throughout",
       "searched": [
-        "2026-09-22: Annals article record and targeted title + erratum/correction search; no official correction located.",
-        "2026-09-22: arXiv1201.4901 history and v2 proof compared with the published page399 image.",
-        "2026-09-22: HZZ arXiv2109.02594v1 Proposition3.4.2 and proof read for a later reformulation."
-      ]
-    },
-    {
-      "id": "PAPER-HE-21/E12",
-      "kind": "misprint",
-      "locator": "HY12 arXiv1203.4680v1 §4.2, p.9",
-      "printed": "J=supp(w)",
-      "correction": "In the twisted setting J is the τ-saturated support of the finite Coxeter word in W_Jτ.",
-      "reason": "A twisted Coxeter word chooses one representative per orbit, so its ordinary support may omit other members of J. Published Journal of Algebra wording has not been compared; this finding is confined to arXivv1.",
-      "affects": "the proof",
-      "known": "new",
-      "searched": [
-        "2026-09-22: arXiv1203.4680 version history (v1 only), full v1 text and Journal of Algebra article record.",
-        "2026-09-22: targeted title + erratum search; no correction located. The published PDF has not been checked."
+        "Crossref for the Annals paper (10.4007/annals.2014.179.1.6): no correction relation",
+        "the Annals of Mathematics errata listing and the journal's page for volume 179",
+        "arXiv:1201.4901, all versions",
+        "the author's page and the later reworking of the same induction in He–Zhou–Zhu, arXiv:2109.02594, Proposition 3.4.2"
       ]
     },
     {
       "id": "PAPER-HE-21/E13",
       "kind": "error",
-      "locator": "GHN15 published Proposition2.2.1(1)–(2), §2.2",
-      "printed": "Flag→Flagad",
-      "correction": "Keep the componentwise isomorphism with its characteristic restriction. A global immersion additionally requires injectivity on component groups.",
-      "reason": "The original argument wrongly assumed that π0(Flag)→π0(Flagad) is injective. The authors' erratum removes that assumption from the componentwise statement and adds it to the immersion assertion.",
+      "locator": "GHN15 = U. Görtz, X. He, S. Nie, 'P-alcoves and nonemptiness of affine Deligne–Lusztig varieties', Ann. Sci. ÉNS 48 (2015), Proposition 2.2.1, §2.2",
+      "printed": "1. The homomorphism G → G_ad induces an immersion Flag → Flag_ad. 2. Let λ ∈ π_0(Flag) = π_1(G)_Γ, denote by λ_ad its image under the injective map π_0(Flag) → π_0(Flag_ad) …",
+      "correction": "The map π_0(Flag) → π_0(Flag_ad) need not be injective, so the immersion is only available when it is; the componentwise isomorphism Flag_λ ≅ Flag_{ad,λ_ad} is what the proof gives.",
+      "reason": "The authors' erratum states the corrected proposition and identifies the kernel: ker(π_0(Flag) → π_0(Flag_ad)) ≅ X_*(T)_{Γ,tors}, so injectivity holds exactly when the coinvariants are torsion-free — for instance when G is adjoint or simply connected. This matters here because the reduction to adjoint groups that this paper's §5 needs (see E6) rests on this proposition.",
       "affects": "a stated result",
-      "known": "GHN 2017 erratum Proposition0.0.1: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
+      "known": "The authors' erratum, Proposition 0.0.1: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
       "searched": [
-        "Original GHN15 §2.2 and all three pages of the authors' erratum, reread 2026-09-22."
+        "the authors' erratum, https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf, read in full",
+        "Crossref and the Numdam page for 10.24033/asens.2254",
+        "arXiv:1211.3784, all versions"
       ]
     },
     {
       "id": "PAPER-HE-21/E14",
       "kind": "error",
-      "locator": "GHN15 published Proposition3.5.1 and Remark3.6.2",
-      "printed": "at most one σ-conjugacy class",
-      "correction": "Require [b] to be basic.",
-      "reason": "diag(t,1) and diag(1,t) are GL2-σ-conjugate but not σ-conjugate in its diagonal torus. The authors' erratum gives this counterexample and adds the basic hypothesis.",
+      "locator": "GHN15, Proposition 3.5.1, §3.5, with Remark 3.6.2",
+      "printed": "Let [b] be a σ-conjugacy class in G(L) and J ⊂ S with δ(J) = J. [Then [b] ∩ M_J(L) contains at most one σ-conjugacy class of M_J(L).]",
+      "correction": "The hypothesis that [b] be basic is missing.",
+      "reason": "The authors' erratum supplies the corrected statement and a counterexample: in GL_2 with J = ∅, so that M_J is the diagonal torus, the matrices diag(ϵ,1) and diag(1,ϵ) are σ-conjugate in G(L) but not in M(L). The proof only gives equality of the dominant Newton vectors, which is enough exactly when [b] is basic, since then the Newton vector is central. The footnote on p. 13 of this paper records that [GHN15, Corollary 3.6.1], which it quotes as Theorem 6.3, does not need the basic assumption even though Proposition 3.5.1 and Remark 3.6.2 do.",
       "affects": "a stated result",
-      "known": "GHN 2017 erratum Proposition0.0.2: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
+      "known": "The authors' erratum, Proposition 0.0.2: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
       "searched": [
-        "Original GHN15 Proposition3.5.1 and full authors' erratum, reread 2026-09-22.",
-        "He21 Theorem6.3 footnote already distinguishes the basic-only inputs."
+        "the authors' erratum, https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf, read in full",
+        "Crossref and the Numdam page for 10.24033/asens.2254",
+        "arXiv:1211.3784, all versions"
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E15",
+      "kind": "misprint",
+      "locator": "§6.1, the section heading, p. 13 (both versions)",
+      "printed": "6.1. The (J,w,δ)-alcove elements",
+      "correction": "The (J,x,σ)-alcove elements.",
+      "reason": "The heading keeps the letters of [GHKR10] and [GHN15], where the conjugating element is called w and the Frobenius δ, while the definition two lines below it and the whole of §§6.2–6.5 use x for the conjugator and σ for the Frobenius — and w for the element of W̃ whose affine Deligne–Lusztig variety is in question, which is the one letter the heading gives to something else.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref for 10.1017/fmp.2021.10 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
+        "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
+        "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E16",
+      "kind": "misprint",
+      "locator": "§2.1, p. 4 (both versions)",
+      "printed": "For any w ∈ W̃, we choose a representative ẇ in N(L).",
+      "correction": "in N(F̆).",
+      "reason": "L is never defined in this paper, which writes F̆ for the completion of the maximal unramified extension and Ğ for G(F̆); L is the notation of [GHN15] for the same field, and the sentence is taken over from there. (The unrelated 'L-action' of §2.1, Kottwitz's transfer of the σ-action to the dominant chamber, is defined where it is used.)",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref for 10.1017/fmp.2021.10 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
+        "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
+        "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
       ]
     }
   ],
   "validation": {
-    "agent": "Codex — codex-7e92bd",
-    "mathematicalChecks": [
-      "Exact Fraction arithmetic for the ²A2 matrices, γ, λbb and the three open root intervals.",
-      "400 nonnegative-coroot translates retain the nonzero coset; the universal reason is the stated congruence proof.",
-      "Nine residue pairs verify that σ acts by minus one on P∨/Q∨=Z/3."
+    "agent": "Claude Code — cc-fb70e5",
+    "continues": [
+      "codex-c83e7a",
+      "codex-a71f92",
+      "codex-7e92bd"
     ],
-    "lean": "Not written or compiled: this paper job authorizes only its extraction, report and handoff."
-  }
+    "readIndependently": [
+      "the published paper in full, and arXiv:2001.03325 in full for the comparison recorded in source.version",
+      "GHN15 §2 (the reduction to quasi-split semisimple adjoint groups, Proposition 2.2.1), §3.5–§3.6 (Proposition 3.5.1, Corollary 3.6.1, Lemma 3.6.3, Proposition 3.6.4) and Theorems A and B, and the authors' erratum in full",
+      "He15 (arXiv:1511.01386) Theorems 2.27, 2.28, 2.30 and 2.34",
+      "He14 (the Annals PDF) §11, Propositions 11.5–11.7 with their proofs, pp. 397–400",
+      "HY12 (arXiv:1203.4680) §1.2 and §4.2"
+    ],
+    "mathematicalChecks": [
+      "Each finding was checked at its locator in the published PDF; where the point is glyph-level, in a rendered clip of the page, which is how the closure bars of §4.3 and the left-superscript conjugation in the definition of §6.1 were confirmed to be present in print and lost only by the PDF text layer.",
+      "[GHN15, Lemma 3.6.3] and Corollary 3.6.1 were retranslated into this paper's normal form w = x t^λ y: the conjugator is η_l = x, x^{-1}wσ(x) = t^λσ(η_σ(w)) ∈ W̃_J, and κ_{M_J} of the printed σ^{-1}(y)wy^{-1} = η_σ(w)t^λ agrees with it because η_σ(w) ∈ W_J ⊂ ker κ_{M_J} (finding E2).",
+      "The lattice computation behind finding E6: ρ^∨_{{s_1}} = ω^∨_1 = (2α^∨_1 + α^∨_2)/3 ∉ X_*(T) for SL_3, and σ^{-1}(ρ^∨_J) = ρ^∨_{σ^{-1}(J)} moves the class of γ in P^∨/Q^∨ by ω^∨_2 − ω^∨_1 in ²A_2.",
+      "The non-shrunkenness behind finding E1: for a root α with ⟨γ,α⟩ = 0, every point of the alcove a t^γ(a) pairs with a(α) to a value of absolute value in (0,1), hence lies in a critical strip; and the split adjoint A_2 instance recorded in /92.",
+      "Two findings of the merged checkpoints were rejected and removed after being checked at their locators, with the reasons recorded in the report: the claim that §5.4's union of proper closed subsets could cover Z (the generic point of Z lies outside every one of them) and the claim that HY12 §4.2 confuses ordinary with saturated support (HY12 §1.2 defines supp on a twisted coset as the saturated support)."
+    ],
+    "checks": [
+      "python3 scripts/check_paper.py research/blueprint/papers/PAPER-HE-21.result.json: ok with status complete",
+      "python3 research/blueprint/intake.py check-files on the two deliverables: no problems"
+    ],
+    "lean": "Not written or compiled: this is a paper extraction job."
+  },
+  "prerequisiteProvenance": [
+    {
+      "name": "he15-arxiv",
+      "url": "https://arxiv.org/pdf/1511.01386",
+      "sha256": "f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc",
+      "date": "2026-09-23",
+      "pages": 60,
+      "note": "X. He, 'Hecke algebras and p-adic groups', the survey published in Current Developments in Mathematics 2015; read for Theorem 2.27 (the basic nonemptiness criterion quoted in §6.3) and Theorem 2.30 (the upper bound quoted as Theorem 2.1). The published text is not available to this worker; the numbering of this version matches the numbering the paper cites, checked on Theorems 2.27, 2.28, 2.30 and 2.34."
+    },
+    {
+      "name": "he14-published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n1-p06-p.pdf",
+      "sha256": "372c913d305f2b9d5f285cfe830d00f5ad3fd98242e31a54991fbf2474b72cbf",
+      "date": "2026-09-23",
+      "pages": 38,
+      "note": "X. He, 'Geometric and homological properties of affine Deligne–Lusztig varieties', Ann. of Math. 179 (2014), 367–404, the journal's own PDF; read for §11 (Propositions 11.5–11.7 and the reduction to a twisted Coxeter part) at the pages the findings E9–E11 cite."
+    },
+    {
+      "name": "hy12-arxiv",
+      "url": "https://arxiv.org/pdf/1203.4680",
+      "sha256": "4e72d185afa697bdeb7b941916234e40f4f373f720ba9ae76d2079280bea0e71",
+      "date": "2026-09-23",
+      "pages": 9,
+      "note": "X. He and Z. Yang, 'Elements with finite Coxeter part in an affine Weyl group'; read for §1.2 (the convention supp(wδ) = ∪_n δ^n(supp(w)) for a twisted coset) and §4.2, the uniqueness of J."
+    }
+  ]
 }

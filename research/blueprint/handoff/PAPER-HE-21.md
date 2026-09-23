@@ -1,28 +1,18 @@
 # PAPER-HE-21 handoff
 
-Codex — `codex-7e92bd`; issue #1397. Partial continuation of `codex-c83e7a` and `codex-a71f92`; stable /1–129 preserved, /130–134 appended.
+Claude Code — `cc-fb70e5`; issue #1397. **Nothing to resume: the job is finished** and the extraction is `complete`. This note is kept only because a submission may not delete files; it replaces the three checkpoint notes of `codex-c83e7a`, `codex-a71f92` and `codex-7e92bd`.
 
-## Done
+## What the last session did
 
-- Reread the complete 15-page published He21 paper, the relevant GHN adjoint-reduction section and full erratum, selected Zhu17 affine-flag/perfection passages, and two complete upstream roadmap documents. Exact source scopes and hashes are in the extraction.
-- G1: proved an explicit twisted ²A2 obstruction to the previous requested lift of γ. Corrected /61,/63,/72,/75,/84,/91,/127 and source finding E6. Run the intermediate construction in the working adjoint/full-coweight lattice; an original γ need not exist. The final geometric theorem still needs adjoint descent.
-- G2: supplied a generic-point proof of /68 and the local deduction /124; wrote both exact cartesian endpoint squares /125; supplied compatible perfect-scheme transfer /126 from Zhu A.3/A.4/A.17.
-- Reused the pinned affine field-extension/finiteness dimension lemmas (/130–131). Compared all inherited baseline source files and the new dimension file byte-for-byte with exact pinned URLs and read their statements. Added /132–134 under the existing SF.0/GS0 routes.
-- 134 items: 9 library, 10 planned, 115 missing. All missing items routed once. 376 internal edges, acyclic. 44 definitions/constructions retain their structured API/tests. No Lean file written or compiled; this is a paper extraction job.
+Read the published paper in full and compared it page by page with arXiv:2001.03325; read GHN15 with its erratum, He15 (arXiv:1511.01386) Theorems 2.27–2.34, He14 in the Annals PDF §11 and HY12 §§1.2, 4.2. Audited all fourteen inherited findings at their locators: six rewritten, **two rejected**, two added. Rewrote the checkpoint to-do list as the eleven gaps a design job must respect, keeping the ids `G1`–`G10` that the items cross-reference and adding `G11` for what the paper itself leaves open. Kept all 134 item identifiers and their routes unchanged, repaired the items whose text encoded a finding that did not survive (`/61`, `/69`, `/79`, `/82`, `/94`, `/122`, `/127`), and rewrote the report for a human reader.
 
-## Resume
+The three earlier notes recorded unfinished work of a different kind: an attempt to repair the paper's own proofs. That is not what a paper extraction owes — PROTOCOL §16 records such things under `gaps` and §18 under `sourceIssues`, which is where they now are.
 
-1. **G1:** do not try to lift γ, λbb or the factors indiscriminately. In unramified simply connected ²A2, λ=(3,3), x=1, y=s1 gives λbb=(1,3), γ=(3,2), both outside Q∨. Finish the componentwise ADLV descent and the numerical invariant comparison; retain the characteristic restriction in the GHN erratum. For general ramified data, construct the reduced-root adapter and handle inertia torsion explicitly.
-2. **G2:** /68,/124 and the two diagrams are now explicit. Prove /123's finite-level action/bounded convolution on the actual carrier. Establish pfp scheme charts, or the algebraic-space dimension theorem, before applying /126. Read Zhu §1.4.2 with its PR08 suppliers and the precise local ADLV representability source. Compatible deperfection is supplied by A.17 once the pfp hypothesis is proved.
-3. **G3:** continue the previous restricted non-shrunken seed route /117–122. Corrected HZZ21 Proposition3.4.2 is a lead for the general geometric argument; only its selected proof was read in the previous checkpoint. Do not invoke the shrunken He14 Theorem11.4 on the constructed seed.
-4. **G4–G10:** HN RedMin/cocenter and HY cases, MV purity/completion, Viehmann closure, upper bound/Mazur, Levi/Hodge–Newton, Lang/rank-one, and residual root/Demazure leaves remain as explicitly listed in the JSON. No claimed closure by graph acyclicity.
+## For the review (REV-PAPER-HE-21)
 
-## Conventions and ownership
+Two removals are the things to check first, since a rejected finding leaves no trace in the file:
 
-Keep t^λ acting by −λ, x in the Levi conjugator, all closure bars, nonnegative coroot coefficients, the known lower endpoint in cordial saturation, and basic-only Levi uniqueness. Preserve the existing RootSystemsPartIIDominanceAndDemazure, SmoothRepresentationsPartIIParahoricCenters and HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig candidate IDs. Center and cocenter remain distinct. SF.0 owns the general scheme dimension bridge; GS0 owns perfect geometry and bounded flags. No other job's file was changed.
+1. §5.4 argument (a), "Hence `∪_Y Z_Y ⫋ Z`", was recorded as a gap on the grounds that an arbitrary union of proper closed subsets can cover an irreducible scheme. It cannot: the generic point of the irreducible `Z` lies outside every proper closed subset, whatever the number of components of the preimage. What a formalisation still needs there — the carrier and a fibre-dimension theorem valid in it — is gap `G2`.
+2. [HY12, §4.2]'s "`J = supp(w)` for any `w ∈ O_min`" was recorded as a misprint about ordinary versus saturated support. That paper's §1.2 defines `supp(wδ) = ∪_n δ^n(supp(w))` on a twisted coset, so the sentence is correct under its own convention.
 
-## Checks
-
-Run `python3 scripts/check_paper.py research/blueprint/papers/PAPER-HE-21.result.json` and `python3 research/blueprint/intake.py check-files` on the three deliverables. Independently check exact-once missing routes, references/DAG and API/test coverage. The current mathematical regression uses rational A2 reflection matrices and alcove vertices as written in the report; 400 coroot translates and nine residue-pair checks supplement the universal congruence proof. Earlier Hecke/subtraction counts are historical and were not rerun.
-
-All 14 source findings remain pending independent review. E6 is now stronger and precisely limited to the literal original-lattice intermediate theorem. No author contact. Keep status partial: the unproved geometry and recursive source gates remain substantive.
+The two largest surviving findings are `E1` (the basic seed of §6.3 is quoted from a theorem whose shrunken hypothesis the constructed `a t^γ` fails whenever `γ` is not regular) and `E6` (§2.2's summary of the cited reduction omits "of adjoint type", which is what makes `ρ^∨_J` a coweight and so `w_1`, `w_2` and `a t^γ` elements of `W̃`).
