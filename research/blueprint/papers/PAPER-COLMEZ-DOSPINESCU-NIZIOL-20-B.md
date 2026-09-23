@@ -63,3 +63,28 @@ Separately, and recorded in the errata log rather than here because it is not a 
 ## Checks
 
 `scripts/check_paper.py`: ok with `"status": "complete"`, so exactly-once routing of the 81 missing items is enforced. All route areas are galaxy ids of `data/galaxies.json`; the proposed new id and the Part II id are free in the atlas, in `research/blueprint/roadmaps/` and in every other paper extraction; the `part-ii` parent exists and is of atlas origin; and every `planned` stage id was checked against `data/atlas.json`.
+
+## Review (REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1425](https://github.com/CBirkbeck/tauceti-explorer/issues/1425). **Verdict: accept.**
+Nothing needed correcting in place.
+
+- **The source is verified.** The extraction records that JAMS opens its back content six
+  years after publication and that it therefore read the published article directly. That is
+  correct: the AMS PDF re-fetched by this review hashes to `db810ee0…f0a16`, matching the
+  record byte for byte (52 pages, printed page = PDF page + 310).
+- **All 6 mistakes confirmed, every one against the published text**, four by the paper's own
+  surrounding argument: E1 (the proof of Prop. 4.8 announces "(ii)" twice and never "(i)",
+  while what follows establishes (i)); E4 (the displayed formula leaves `H⁰(G,` unclosed, and
+  the proof pulls `X` out of the invariants); E3 (θ's source carries the same superscript as
+  its kernel, so the map would have kernel equal to its source); E6 (Lemma 4.4's hypothesis is
+  absurd as printed, the inverse image of `X_n` in `X` being `X_n`). E6 was read on a page
+  image, since it turns on a hat the text layer drops; E2's distinction is corroborated by the
+  text layer rendering the caron in `ρ_{Π̌,p}` but not in the `Π_p` of the hypothesis.
+- **Items and routes:** no library items; 21 planned resolving; 81 missing routed exactly
+  once; no run-together numbering. Both proposed roadmap names are free and both are
+  co-proposed identically by other papers, so they are merges; the Part II title is an exact
+  prefix extension of its parent's.
+
+Full report: `research/blueprint/reviews/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.md`.
