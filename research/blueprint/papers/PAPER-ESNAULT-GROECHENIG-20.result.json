@@ -3238,7 +3238,7 @@
       "route": "part-ii",
       "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
       "roadmap": "SemisimpleAlgebrasPartIIGeometricMorita",
-      "title": "Semisimple algebras, Artin–Wedderburn and module structure, Part II: geometric Azumaya and Morita descent",
+      "title": "Semisimple algebras, Artin-Wedderburn, and the structure of their modules, Part II: geometric Azumaya and Morita descent",
       "area": "arithmeticgeometry",
       "items": [
         "PAPER-ESNAULT-GROECHENIG-20/022",
@@ -3246,14 +3246,14 @@
         "PAPER-ESNAULT-GROECHENIG-20/036",
         "PAPER-ESNAULT-GROECHENIG-20/124"
       ],
-      "reason": "The ring IsAzumaya carrier exists, and field central-simple/Brauer theory is already upstream. The needed equivalence concerns sheaf algebras over nonreduced spectral schemes, with descent and annihilator control; neither field Skolem–Noether nor the endoscopic Hitchin roadmap supplies it.",
+      "reason": "The ring IsAzumaya carrier exists, and field central-simple/Brauer theory is already upstream. The needed equivalence concerns sheaf algebras over nonreduced spectral schemes, with descent and annihilator control; neither field Skolem–Noether nor the endoscopic Hitchin roadmap supplies it. Title corrected by REV-PAPER-ESNAULT-GROECHENIG-20: the prefix now reproduces the parent's atlas title exactly, as PROTOCOL §16 requires; the previous title paraphrased it. This roadmap id is proposed by this extraction alone, so no other file is affected.",
       "brief": "Start from Semisimple algebras and Artin–Wedderburn (tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras), Mathlib IsAzumaya and Tau Ceti field-level central-simple/Brauer declarations. Extend once to sheaf Azumaya algebras, splitting modules and coherent Morita equivalence over general scheme bases. The foundational theorem is equivalence of modules over End(P) with modules over the base for a finite projective generator P, compatible with annihilators, affine pushforward and the local-free rank calculations used in EG20 Theorem 2.17. Prove strict-henselian splitting, transition invertible bimodules, and descent of the reduced characteristic invariant even on nonreduced parameter schemes. Coordinate geometric Brauer comparison with SchemeAndStackFoundations:SF.2, already requested by PAPER-CESNAVICIUS-19; it is a supplier, not a duplicate Brauer owner. Import quasi-coherent sheaves and étale descent from SchemeAndStackFoundations/AlgebraicModuliForArithmeticGeometry. Export the Cartier one-form connecting map and its functorial/additive Brauer-class interpretation, while the special crystalline D-algebra and its W₂ splitting remain in the Cartier-transform successor. No assertion of unique isomorphisms between arbitrary modules, and no ordinary-henselian splitting without a residue-field condition, is permitted."
     },
     {
       "route": "part-ii",
       "parent": "CrystallineCohomology",
       "roadmap": "CrystallineCohomologyPartIICartierFlows",
-      "title": "Crystalline cohomology, Part II: Cartier transforms and periodic rigid connections",
+      "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations, Part II: Cartier transforms and periodic rigid connections",
       "area": "padic",
       "items": [
         "PAPER-ESNAULT-GROECHENIG-20/010",
@@ -3317,14 +3317,14 @@
         "PAPER-ESNAULT-GROECHENIG-20/129",
         "PAPER-ESNAULT-GROECHENIG-20/130"
       ],
-      "reason": "CR.1 owns crystals and quasi-nilpotent connection comparison, but its layers do not promise crystalline differential-operator Azumaya theory, inverse Cartier in families or Higgs–de Rham flow. R07.3 owns absolute Fontaine–Laffaille theory; relative filtered connections on a variety are additional.",
+      "reason": "CR.1 owns crystals and quasi-nilpotent connection comparison, but its layers do not promise crystalline differential-operator Azumaya theory, inverse Cartier in families or Higgs–de Rham flow. R07.3 owns absolute Fontaine–Laffaille theory; relative filtered connections on a variety are additional. Title corrected by REV-PAPER-ESNAULT-GROECHENIG-20: the prefix now reproduces the parent's atlas title exactly, as PROTOCOL §16 requires; the previous title paraphrased it. This roadmap id is proposed by this extraction alone, so no other file is affected.",
       "brief": "Extend Crystalline cohomology (CrystallineCohomology), importing CR.1 crystals/connections and CR.2 comparison rather than constructing rival carriers. With HodgeStructuresPartII supplying stable Higgs moduli and nice arithmetic models, build restricted tangent derivations, p-curvature with its Frobenius-semilinearity and horizontality, relative Frobenius, tensor nilpotency, the crystalline D-algebra and its cotangent centre, BMR rank p^(2dim Z), Cartier descent and the W₂-dependent Ogus–Vologodsky equivalence with explicit signs and nilpotency range. Import sheaf Morita descent from SemisimpleAlgebrasPartIIGeometricMorita. Correct the family BNR invariant conditions as in E2/034–035 before the nonreduced deformation proof; locate an explicit R(r,m) support bound and repair E3. Then prove EG20 Theorem 1.4: a rigid stable fixed-torsion-determinant complex connection has a selected arithmetic model with nilpotent p-curvature at every closed point. Build signed inverse Cartier, finite and mixed-characteristic periodic flows, LSZ/SYZ realization and its reduction compatibility; import only the absolute Fontaine–Laffaille input from FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. Prove the finite permutation over all determinant powers, lift independence at the level of rigid points, unique filtered lifts, and the finite inverse-limit argument. The second final result is Theorem 1.6: every permitted W(k)-point yields an F^f-isocrystal after finite residue-field extension, with the stronger filtered integral realization specified separately. Develop the Appendix-A scaling/PD action only after repairing the relative Brauer argument E5; retain Corollary A.7's p>2, W₂-liftability and cohomological rigidity hypotheses. This is not a proof of Question A.8 or Simpson motivicity."
     },
     {
       "route": "part-ii",
       "parent": "PadicDifferentialEquationsAndRigidCohomology",
       "roadmap": "PadicDifferentialEquationsPartIIRigidCompanions",
-      "title": "P-adic differential equations and rigid cohomology, Part II: rigid connections and companions",
+      "title": "P-adic differential equations, rigid cohomology and p-adic weights, Part II: rigid connections and companions",
       "area": "padic",
       "items": [
         "PAPER-ESNAULT-GROECHENIG-20/086",
@@ -3352,7 +3352,7 @@
         "PAPER-ESNAULT-GROECHENIG-20/120",
         "PAPER-ESNAULT-GROECHENIG-20/122"
       ],
-      "reason": "RD.3 and RD.6 supply geometric coefficients and weights. None of their existing layers states Faltings/LSZ compatibility, rigid p-adic representations, the zero-p-curvature unitarity result or the cohomologically rigid companion bijections. This successor consumes, not repeats, the Cartier-flow construction.",
+      "reason": "RD.3 and RD.6 supply geometric coefficients and weights. None of their existing layers states Faltings/LSZ compatibility, rigid p-adic representations, the zero-p-curvature unitarity result or the cohomologically rigid companion bijections. This successor consumes, not repeats, the Cartier-flow construction. Title corrected by REV-PAPER-ESNAULT-GROECHENIG-20: the prefix now reproduces the parent's atlas title exactly, as PROTOCOL §16 requires; the previous title paraphrased it. This roadmap id is proposed by this extraction alone, so no other file is affected.",
       "brief": "Extend P-adic differential equations and rigid cohomology (PadicDifferentialEquationsAndRigidCohomology) from its frame/coefficient and p-adic-weight foundations to arithmetic rigid connections. Import periodic crystalline realizations from CrystallineCohomologyPartIICartierFlows, projective stable Hodge/Betti theory and unitarity criterion from HodgeStructuresPartII, fixed-determinant deformation functors from GlobalGaloisDeformations, and étale fundamental-group specialization from InverseGaloisAndArithmeticFundamentalGroups. Build the Faltings small p-adic Simpson input and the LSZ comparison by direct sums of Frobenius shifts, keeping generic, geometric and residual rigidity distinct. Prove EG20 Theorem 5.4 in its verified convention; construct Cassels good points densely in arithmetic opens, projective arithmetic descent and projective period one. Theorem 6.1 concludes UNITARY monodromy from vanishing p-curvature on every closed fibre of a model; finite monodromy needs the extra hypotheses in Propositions 8.1/8.2. For companions, import CR.2 coefficient comparison and RD.6 weights, explicitly source-gate Abe's crystalline shtuka realization and Abe–Esnault p-to-ℓ existence rather than substituting the ℓ-adic GS.6 theorem. Construct local-polynomial companions, finite normalized geometric comparison sets, geometric irreducibility, End⁰-H¹ vanishing by L-functions/purity, determinant-order control and the counting bijection. Final Theorem 7.3 gives p↔ℓ and p↔p companions only for this cohomologically rigid family. Corollary 4.17 gives motivicity only after restriction to a complete-intersection curve and a dense open. The higher-dimensional motivicity problem remains a question. Resolve all source gates and arithmetic-Frobenius normalization before treating the design as closed."
     },
     {
@@ -3575,7 +3575,12 @@
         "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
         "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
         "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The introduction on p.106 prints 'An irreducible flat connection (E,∇) with torsion determinant L is called cohomologically rigid, if [(E,∇)] is a reduced isolated [point of] M_dR(X,L,r). This is equivalent to vanishing of H¹_dR(X,(End(E),∇)) = 0', with the full endomorphism bundle, while §7 on p.148 writes 'an irreducible connection (E,∇) with determinant L on X over C is called cohomologically rigid if H¹(X, End⁰(E,∇)) = 0'. On a fixed-determinant moduli space the trace-free version is the right one, so the introduction's End(E) should be End⁰(E).",
+        "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
+      }
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/E2",
@@ -3593,7 +3598,12 @@
         "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
         "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
         "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the locator. Page 118 prints 'It is clear that there is at most one such a ∈ A_{Z′,r}(S) with this property, since a and b are monic polynomials', in the construction of the degree-r factor a of b with M scheme-theoretically supported on Z′_a. Monicity gives uniqueness of a factorisation only over a reduced base; over a non-reduced S a monic polynomial can factor in several ways, so both the uniqueness claim and the essential-image half of Theorem 2.17 need the hypothesis the correction adds.",
+        "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
+      }
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/E3",
@@ -3611,7 +3621,12 @@
         "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
         "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
         "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. Page 127 prints 'By construction, the family (E_{T^{(m−1)}_t}, ∇_{T^{(m−1)}_t}) has the property that χ_dR(…) is a morphism T^{(m−1)}_t → A⁰, and therefore it factors through A⁰(m−1), but not through A(k−1) for k < m.' The first half is automatic for the (m−1)-st order neighbourhood; the second is not, since truncating a deformation can lower the order at which its Hitchin invariant becomes non-constant, as the correction records.",
+        "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
+      }
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/E4",
@@ -3629,7 +3644,12 @@
         "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
         "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
         "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Definition 5.2 on p.139 prints 'One denotes by Def_ϱ: Art_F → Sets the functor sending a finite-dimensional commutative local F-algebra A to the set of isomorphism classes of continuous representations ϱ′: Γ → GL(r,A), such that there exists a finite field extension F′/F, an F-morphism A → F′, and an isomorphism (ϱ′)_{F′} ≅ ϱ_{F′}', with no determinant condition, while the rest of the paper — and Lemma 5.6's comparison with the fixed-determinant moduli space — works with fixed determinant.",
+        "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
+      }
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/E5",
@@ -3647,7 +3667,12 @@
         "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
         "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
         "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. Page 154 prints 'On the other hand, m*θ − r*θ ∈ Ker(H⁰((Z′_a)_p, Ω¹_{(Z′_a)_p/Spec k[t]/(t−1)^p}) → H⁰(Z′_a, Ω¹_{Z′_a})). Thus, m*θ − r*θ has support in Z′_p ⊂ T*Z′ ×_k G_m, where Z′ ⊂ T*Z′ is the zero-section.' Vanishing after restriction along that map does not localise the form to the zero-section, so the support assertion does not follow, and what the argument needs is the statement about φ(m*θ − r*θ) the correction gives.",
+        "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
+      }
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/E6",
@@ -3665,7 +3690,12 @@
         "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
         "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
         "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. Page 146 prints 'Since there are infinitely many prime numbers p such that there exists a good closed point s ∈ S (Lemma 5.11), we conclude that the Kodaira–Spencer class vanishes everywhere on X_S.' Vanishing of gr(∇_s) at the good points of infinitely many fibres does not by itself give vanishing on X_S; the repair the correction records — invert a non-zero coefficient of gr(∇_S), that is shrink S, which Lemma 5.11's own proof allows — is what makes the deduction work.",
+        "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
+      }
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/E7",
@@ -3683,7 +3713,12 @@
         "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
         "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
         "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Remark 2.16(a) on p.116 prints 'The vector space of degree-r sections in H⁰(Z′, Sym^• Ω¹_{Z′}[λ]) is isomorphic to A_{Z′,r}(k)', where the Hitchin base parametrises monic characteristic polynomials with vanishing subleading term; the space of all degree-r sections is larger, and the right statement is the one in the correction.",
+        "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
+      }
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/E8",
@@ -3701,7 +3736,12 @@
         "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
         "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
         "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Definition 4.1(b) on p.129 defines C₁ as the composition C^{−1} ∘ (w^{−1})* ∘ ι, i.e. as an inverse-Cartier functor, and (c) then writes the fixed-point isomorphism as φ: C₁^{−1}(gr_F(H), gr_F(∇)) ≅ (H,∇), applying the inverse of that functor; Theorem 4.5 names the level-n version C_n^{−1}. One of the two namings has to change, as the correction says.",
+        "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
+      }
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/E9",
@@ -3719,7 +3759,12 @@
         "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
         "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
         "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the locator. Proposition 4.10 and the two displays after it are printed on p.133 as quoted, with the index a absent from the term it is supposed to index and with d and R where d−1 and r are meant.",
+        "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
+      }
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/E10",
@@ -3737,7 +3782,12 @@
         "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
         "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
         "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 108 prints 'A Higgs bundle on Z is a pair (V,θ), where V is a vector bundle and θ: V → V ⊗ Ω¹_X is an O-linear map satisfying the integrality condition θ ∧ θ = 0', and repeats 'integrality condition' for ∇² = 0 in the next sentence: the condition is integrability, and the base is Z, not X. The remaining index slips in the list are of the same kind.",
+        "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
+      }
     }
   ],
   "gaps": [
