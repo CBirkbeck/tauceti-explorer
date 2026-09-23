@@ -1331,8 +1331,9 @@
    ],
    "avoidAccountOf": "PAPER-ALLEN-ETAL-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-ALLEN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1094"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1094",
+   "finishedAt": "2026-09-23T16:24:07Z"
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
@@ -7943,7 +7944,8 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-MORROW-SCHOLZE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1463"
   },
   {
    "id": "PAPER-ANDRE-18",
@@ -8434,8 +8436,9 @@
    ],
    "avoidAccountOf": "PAPER-LAND-MATHEW-MEIER-ETAL-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-LAND-MATHEW-MEIER-ETAL-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2187"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2187",
+   "finishedAt": "2026-09-23T16:24:10Z"
   },
   {
    "id": "PAPER-ANDRE-18-B",
@@ -9934,7 +9937,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #85"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
@@ -9976,8 +9980,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #86"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #86",
+   "finishedAt": "2026-09-23T16:24:12Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
