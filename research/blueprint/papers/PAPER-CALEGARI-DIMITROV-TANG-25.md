@@ -158,3 +158,28 @@ Links and reasons are in the JSON.
 - Every cited declaration was read in its source file at Mathlib 082e2d3 or Tau Ceti f790474, with file and line recorded in the item notes.
 - Planned layer ids were checked against `data/atlas.json`.
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Review (REV-PAPER-CALEGARI-DIMITROV-TANG-25, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1415), **accepted** this
+extraction and all nine routes, and needed no correction. The full record is
+[REV-PAPER-CALEGARI-DIMITROV-TANG-25.md](../reviews/REV-PAPER-CALEGARI-DIMITROV-TANG-25.md).
+
+Both recorded hashes reproduce. The offprint is an encrypted PDF (RC4-128, `R = 3`), so the reviewer
+implemented the standard security handler and read the **published** text; every page number checked
+is the journal's. 148 items, all 129 missing ones routed exactly once; the 124 numbered environments
+in the published text are all cited; 147 of 158 locator checks land exactly and the other eleven are
+`proof of X, p.N` locators whose statement sits on the previous page, two of which were read in
+full. All 28 declarations behind the 14 library items resolve at the pins. The three Part II titles
+reproduce their parents' atlas titles exactly, two of those parents being Tau Ceti roadmaps, the
+areas are galaxy ids, and the three proposed roadmap ids appear in no other extraction. Each source
+route was checked against its layer's description, including G7, whose text defines enormous image
+by `H⁰(H, ad⁰) = H¹(H, ad⁰) = 0`, which is what route 9 sends there.
+
+All eleven findings are **confirmed**. E1's printed `H¹(Γ(5), F₃)^{SL₂(F₅)} = 0` is false as stated,
+since `SL₂(F₅)` is perfect and `H¹(SL₂(Z), F₃) = F₃` restricts injectively; E4's matrix factor is
+inverted; E6's counterexample works with `E = ⟨−I⟩`, so the printed kernel is `⟨E, Γ(N)⟩ ∩ Γ(p)`;
+E7 is a real gap, because §4.3 uses `G_{2N} ⊂ ⟨E, Γ(2N)⟩` while the construction gives only level
+dividing `2N`; E10 was recomputed coefficientwise, and the printed identity is exactly the negative
+of the correct one; and E11's missing case `p = ℓ = 2` is repaired by `SL₂(Z₂)^{ab} ≅ Z/4`. The
+remaining five are constant- and index-level slips, each printed as quoted.
