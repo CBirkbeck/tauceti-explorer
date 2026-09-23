@@ -168,3 +168,35 @@ These are listed in the result with links:
   - Yu, integral geometric Satake (arXiv:1903.11132);
   - Mieda (Crelle 2014; Lubin–Tate and GSp(4));
   - Rapoport–Viehmann (arXiv:1401.2849).
+
+## Independent review (`REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22`, issue #1392)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, all five routes accepted, all
+fourteen findings confirmed, **two uncovered statements added as items**. The full review is in
+[`reviews/REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md`](../reviews/REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md).
+
+The arXiv v4 PDF and e-print hashes match byte for byte. The Cambridge PDF hash **cannot be reproduced by
+anyone**: Cambridge Core watermarks each download with the requesting IP address and a timestamp, so two
+downloads a minute apart differ from each other and from the recorded value. The file is the right article
+with the 79 pages recorded; the hash simply is not a repeatable check, and the review says so.
+
+`macros.sty`'s `\numberwithin{thm}{subsection}`, with every statement environment on the `thm` counter,
+gives `section.subsection.n`; simulating it across the seven included files yields **111 numbered
+statements** and reproduces the kind as well as the number of every object the findings cite, and the
+locators' page numbers are the journal's own. Coverage was **109 of 111**: Example 4.1.1 (the classifying
+stack `[S/G]` with the identification of 2-morphisms that Definitions 4.3.3–4.3.4 use) and Remark 4.1.2
+(the `(f^*, Rf_*)` adjunction's compatibility with 2-morphisms, used throughout §4.3) had no locator, and
+are now **items 127 and 128**, routed to the v-stack Part II. An audit of all **161** `<word> \ref{…}`
+citations found no mismatch, no duplicate label and no undefined reference. All 25 cited layers exist.
+
+The three Part IIs are proposed by this extraction alone, so non-duplication was checked against the atlas
+itself: the parents stop short (HS0–HS4, VS0–VS5, SR.0–SR.6), "Kottwitz conjecture" appears nowhere in
+`data/atlas.json`, and the only atlas layer mentioning cohomological correspondences is the scheme-level
+interface this extraction uses as a *source* route.
+
+All fourteen findings are confirmed, most settled by the paper against itself — (3.3.3) says "`ρ_G` is the
+sum of the positive roots" where pp. 12 and 15 say `2ρ_G`; §3.4 announces the transfer operator with
+`G(F)`-coinvariants where Definition 6.3.2 has `G_b(F)`; the middle line of a three-line display carries
+`rank V_μ[λ′]` between two lines with `rank V_μ[λ]`. The single error, E3, is that `H^1(F, N(T,G))`
+classifies rational maximal tori: it is the **kernel** of `H^1(F,N(T,G)) → H^1(F,G)`, and the proof uses
+only well-definedness, so nothing downstream moves.
