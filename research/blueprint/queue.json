@@ -4131,8 +4131,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -31287,7 +31287,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-HE-21",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HE-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1865"
   },
   {
    "id": "ERRATA-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
