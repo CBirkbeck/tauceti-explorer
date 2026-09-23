@@ -1,6 +1,6 @@
 # Mistakes in Charles, *Birational boundedness for holomorphic symplectic varieties, Zarhin's trick for K3 surfaces, and the Tate conjecture*
 
-Job ERRATA-PAPER-CHARLES-16. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The findings are in `PAPER-CHARLES-16.json` beside this file.
+Job ERRATA-PAPER-CHARLES-16. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The findings are in `PAPER-CHARLES-16.json` beside this file. Reviewed by `REV-ERRATA-PAPER-CHARLES-16` (issue #1788), Claude Code session `cc-7b31c4`, 23 September 2026: **all seven confirmed**, none rejected, amended or added; each now carries its verdict, and the review is written up in [REV-ERRATA-PAPER-CHARLES-16.md](../reviews/REV-ERRATA-PAPER-CHARLES-16.md). The review could not read the published article either — the Annals site serves only a three-page preview — and records that the §2 numbering of arXiv v2 runs one behind the printed one, and that arXiv v2 is an incomplete draft that contains neither the passage of E3 nor the proof of Theorem 1.3 quoted in E7.
 
 **Paper and version read.** François Charles, Annals of Mathematics 184 (2016), 487–526, DOI 10.4007/annals.2016.184.2.4. The version read is the publisher PDF (SHA-256 `3425f269…40e2`), as by the extraction. Every passage below was re-read there.
 
