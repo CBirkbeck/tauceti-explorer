@@ -1277,8 +1277,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ALLEN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1093"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1093",
+   "finishedAt": "2026-09-23T09:52:21Z"
   },
   {
    "id": "REV-PAPER-ALLEN-ETAL-23",
@@ -8468,7 +8469,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KOYMANS-PAGANO.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2194"
   },
   {
    "id": "REV-PAPER-KOYMANS-PAGANO",
