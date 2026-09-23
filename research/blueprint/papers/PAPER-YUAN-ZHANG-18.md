@@ -1,10 +1,102 @@
-# Yuan–Zhang: averaged Colmez, with the corrected nearby-isogeny argument
+# Yuan–Zhang (2018): the averaged Colmez conjecture, extraction and routing
+
+Issue [#1145](https://github.com/CBirkbeck/tauceti-explorer/issues/1145). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoint (codex-a71f92), whose report follows below as history.
+- **The paper.** X. Yuan and S.-W. Zhang, *On the averaged Colmez conjecture*, Ann. of Math. 187 (2018), 533–638, with the erratum in Ann. of Math. 198 (2023), 867–878.
+  - The published main paper was re-fetched; its SHA-256 (29dfd5f1…) matches the checkpoint.
+  - The author revision of the erratum (Erratum5.pdf, 18 December 2022) was re-fetched; its SHA-256 (18b46acd…) matches. The 12-page journal version is not openly available.
+- **Items.** The result has **115 items: 6 library, 4 planned and 105 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Twenty-three are recorded under `sourceIssues`. Only E1, the error the published erratum corrects, affects a stated result (Theorem 2.7). None affects Theorems 1.1, 1.6 or 1.7.
+
+## This continuation (cc-442dc5)
+
+**New items.** Seven numbered statements that the checkpoint had merged into other items now have their own:
+- Proposition 3.5 and Corollary 3.6 (`level-integral`, `level-projective-system`);
+- Propositions 4.2, 4.3 and 4.4 (`component-comparison`, `pdiv-comparison`, `finite-level-comparison`);
+- Proposition 5.4 and Corollary 5.5 (`cotangent-tensor`, `determinant-cancellation`);
+- Assumption 7.1 (`s2-assumption`), with dependencies from Theorems 7.2 and 8.6 and the §7.2 test function.
+
+**Reclassified findings.**
+- **E1** now affects a stated result. The published erratum does not prove Theorem 2.7 as printed; it proves a weaker Theorem 1, which suffices for Theorem 1.6.
+- **E9** is now an error rather than a gap. The claim that exactly one of j1, j2 is an isomorphism at each point is false at the double points of the Mumford special fibre, where both are nonunits.
+  - Repair: argue off those finitely many points and extend, since the surface is regular.
+- **E20** is now a misprint that affects nothing. "Principal homogeneous space of T̂′" is a slip for the quotient of T̂′ by the closure of T′(Q), and the paper uses only that the fixed points form one orbit.
+
+**Repairs checked.**
+- **E4 (Theorem 2.2).** No c_p is needed. The product of |σ(x)|_p over σ: K → Q̄_p is the norm of x from K⊗Q_p. For x = τ(α) and x = τ(ᾱ) it is |N_{E⊗Q_p/Q_p}(α)|^{[K:E]}, because conjugation is an algebra automorphism of E⊗Q_p.
+- **E5 (Theorem 2.3).** Enlarge K until its residue fields at p are large. Then O_E⊗O_σ is monogenic over O_σ: shift the local generators so that their reductions are coprime, then use the Chinese remainder theorem. The proof already runs over O_σ.
+- **E18 (Lemma 9.4).** π is ramified at P′, but P′ is still a section over R. The level at v is unchanged, so P′ is rational over H_w^ur.
+
+**New finding.**
+- **E23.** The proof of Theorem 4.5 cites "Theorem 3.2" for Proposition 3.2.
+
+**Gaps.**
+- G1 and G3 are resolved.
+- G7 is recorded as findings.
+- G2 is unavailable, because the journal erratum is closed access.
+- The others are deferred as cited suppliers' proofs or design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+- The remaining gaps are cited suppliers' proofs, design work, or the closed-access journal erratum.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (error; affects a stated result), Main Theorem2.7 pp550; erratum §1 pp1–3, 18 December 2022 revision. *Printed:* 0→A1→A→A2→0 ⇒ 0→𝒜1→𝒜→𝒜2→0 *Correction:* Use erratum Theorem1: good reduction, nearby types and kernel graph of an OE-isomorphism of relative-different torsion. Verify the actual quaternionic isogeny has that kernel.
+- **E2** (misprint; affects nothing), Author erratum p11 final Hom display, image checked; NOT collated with final journal. *Printed:* Hom_{Oπ/δπ}(A1[δπ],A2[π]) *Correction:* Use A2[δπ] in both Hom targets and consistently index by the local different δw.
+- **E3** (misprint; affects nothing), Author erratum Proposition6 proof p10, image checked; NOT collated with final journal. *Printed:* rank(Ω(X,τ))=rank(Ω(Y,τ))=2 *Correction:* Replace the fixed rank 2 by their common finite rank; justify local freeness of the τ-components under the precise endomorphism assumptions.
+- **E4** (error; affects the proof), Main Theorem2.2 proof pp545–546, images checked; unchanged in selected arXiv v3 §2.2. *Printed:* c_p∈Gal(Q̄_p/Q_p), τc=c_pτ for every τ *Correction:* For x in K⊗Q_p, the product of |σ(x)|_p over σ: K → Q̄_p is |N_{K⊗Q_p/Q_p}(x)|_p. With x = τ(α) and x = τ(ᾱ), both products equal |N_{E⊗Q_p/Q_p}(α)|_p^{[K:E]}, since complex conjugation is a Q_p-algebra automorphism of E⊗Q_p and so preserves the norm. Hence the product of ||φ_σ||_p is 1 without any c_p.
+- **E5** (error; affects the proof), Main Theorem2.3 proof p547, image checked; same assertion in selected arXiv v3. *Printed:* OE⊗Zp=Zp[x] *Correction:* Enlarge K (the heights are invariant under base change) until every residue field of K at p contains the residue fields of the Galois closure of E and has more than [E:Q] elements. Then O_E⊗O_σ = ∏_w O_σ[t]/P_w(t); shifting each generator by a unit of O_σ makes the reductions of the P_w pairwise coprime, so the Chinese remainder theorem gives O_E⊗O_σ = O_σ[t]/P(t). Run the proof of Lemma 2.4 and Theorem 2.3 over O_σ, where R_Φ⊗O_σ = O_σ[t]/P_Φ(t) and the relative discriminant is compatible with this flat base change.
+- **E6** (misprint; affects nothing), Main introduction p537 component-height display; compare corrected definition p544. *Printed:* h(Φ,τ)=½ deg_hat N(A,τ) *Correction:* Insert 1/[K:Q], as in the actual §2.2 definition.
+- **E7** (misprint; affects nothing), Main Theorem2.7 proof p550 final determinant display. *Printed:* det W(A^t,τ)=W(A1^t,τ2)⊗W(A1^t,τ1) *Correction:* The second factor must be W(A2^t,τ1), matching the two summands.
+- **E8** (misprint; affects nothing), Main p569 definition before Theorem4.10, image checked. *Printed:* N℘:=det W℘^t⊗det W℘^∨ *Correction:* Use N℘=det W℘^t⊗det W℘, consistently with §§3.3 and5.2.
+- **E9** (error; affects the proof), Main Theorem4.10 division-case proof p570, image checked. *Printed:* j1j2=π ⇒ exactly one of j1,j2 is invertible *Correction:* Argue on the complement of the finitely many double points of the special fibre, where exactly one of j1, j2 is an isomorphism (Čerednik–Drinfeld), and on the generic fibre, where both are. There ω^{-2} and π^{-1}N^∨ agree as invertible subsheaves of N^∨⊗K. X_℘ is a regular surface, so two invertible subsheaves of the same invertible sheaf that agree off a closed set of codimension two are equal.
+- **E10** (misprint; affects nothing), Main p590 c2 and c1 displays, image checked. *Printed:* c2/m=−(γ+log4π)/2; c1=c0−2mc2 *Correction:* With c2 already the global projection constant, write c1=c0−2c2.
+- **E11** (error; affects the proof), Main p591 integral conjugation basis, image checked. *Printed:* m0≠0 ⇒ (OE→M, t↦tm0) is an isomorphism *Correction:* Choose an OE-module generator of the free rank-one OE lattice M, not an arbitrary nonzero vector.
+- **E12** (misprint; affects nothing), Main Lemma6.1 proof p583 Vandermonde step. *Printed:* N_i≠N_j ⇒ (1+iN_i)^−[F:Q]≠(1+iN_j)^−[F:Q] *Correction:* Choose distinct positive sufficiently divisible integers N; their absolute values then make the displayed powers distinct.
+- **E13** (error; affects the proof), Main pp599–600 Lemma7.6 proof; correction to YZZ13 Proposition6.10(1). *Printed:* W°_{a,v}(s), a=0 *Correction:* Use the separately normalized zero-index Whittaker coefficient derived here; the cited formula applies to a≠0.
+- **E14** (misprint; affects nothing), Main p604 end of Lemma7.6, ψ2 calculation. *Printed:* cψ1(1,y,u)=0 *Correction:* Replace ψ1 by ψ2 in the three conclusions of the ψ2 computation.
+- **E15** (error; affects the proof), Main p618 Lemma8.7; correction to YZZ13 Lemma8.6/Proposition8.7 and Zha01 Lemma5.5.2. *Printed:* m(b,β), c=0, Ev/Fv ramified *Correction:* Use m(b,β)=½v(Dv λ(b)) on the stated unit-norm support, including wild ramification.
+- **E16** (misprint; affects nothing), Main ordinary case pp614–615, images checked. *Printed:* m_v̄=½(m_ν̄2+m_ν̄2) *Correction:* Use ½(m_ν̄1+m_ν̄2); label the lower-unipotent formula m_ν̄2 and its following extension i_ν̄2.
+- **E17** (gap; affects the proof), Main Lemma8.9 proof p623, image checked. *Printed:* t2∈Fv*GL2(OFv) ⇒ t2 fixes every component *Correction:* Supply an invariant/equivariant vertical-divisor lift or a quotient/descent argument establishing the needed intersection invariance.
+- **E18** (error; affects the proof), Main p633 paragraph after Lemma9.4, image checked. *Printed:* π is étale *Correction:* π ramifies at P' with index e. The section property holds because U'_v = U_v: the CM point P' is then defined over a class field of E that is unramified at w over H, so P' is H_w^ur-rational. Its closure in the proper R-scheme X_{U',R} is therefore the image of a section Spec R → X_{U',R}.
+- **E19** (misprint; affects nothing), Main Proposition3.2 proof p554 last paragraph, image checked. *Printed:* dim(A/S)=2g; M_{2g,d,n} *Correction:* In the full B'-module realization V'=B', use dimension 4g and the corresponding Siegel moduli dimension. Reserve 2g for the Morita-reduced E-PEL realization of §3.3.
+- **E20** (misprint; affects nothing), Main §3.3 CM points p558. *Printed:* X'^{T'} is a T̂'-torsor *Correction:* State the orbit using the effective torus quotient, with the rational stabilizer (and its closure in the adelic action) accounted for.
+- **E21** (misprint; affects nothing), Main §6.1 p578 opening quadratic-space convention. *Printed:* V over R; V(A) *Correction:* Take the quadratic space over F, positive definite at every real place; its local real fibers are over R.
+- **E22** (misprint; affects nothing), Main p598 proof of Lemma7.4, before restricting to v(a)≥0. *Printed:* v(a)<0 does affect our final result *Correction:* Insert 'not': the negative-valuation range does not affect the near-diagonal restriction being computed.
+- **E23** (misprint; affects nothing), Main Theorem 4.5 proof p565, first sentence. *Printed:* By Proposition 4.4, Theorem 3.2 and Corollary 3.6 *Correction:* Read Proposition 3.2.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G1, Atomic extraction and source closure** (resolved). Every numbered statement of the main paper and the author erratum is now its own item: Propositions 3.5, 4.2, 4.3, 4.4, 5.4, Corollaries 3.6 and 5.5 and Assumption 7.1 are split out. Remarks 1.2–1.5, 3.3, 3.4, 4.8 and 7.7 state no new result; Remark 8.10 is in vertical-pseudo. Finer constants and consumer edges are design work for implementation.
+- **G2, Final erratum collation** (unavailable). The 12-page journal erratum (Annals 198 (2023) 867–878) is not openly available: its Annals page links no PDF and Unpaywall has no copy. The author revision of 18 December 2022, whose date matches the journal record, was read in full; E2 and E3 are scoped to it.
+- **G3, CM integral de Rham and monogenic repair** (resolved). E4 and E5 now have checked repairs (a norm argument, and monogenicity over O_σ after enlarging K). Colmez II.1.2 and CCO Theorem 3.7.4 stay prerequisites for their suppliers.
+- **G4, Kisin conventions and dyadic closure** (deferred). Kisin's classification and the p = 2 inputs are cited suppliers' proofs.
+- **G5, Integral quaternionic and PEL geometry** (deferred). Carayol, Boutot–Carayol and Vignéras are cited suppliers. E9 now has an extension argument, E19 affects nothing and E20 is reclassified to a misprint.
+- **G6, YZZ analytic and arithmetic proof leaves** (deferred). The YZZ13 analytic and height chapters are a cited supplier; E13 and E15 record the corrections this paper makes to them.
+- **G7, Wild lifting and vertical adjunction repairs** (recorded). E17 and E18 are recorded, and E18 now has a section argument. Gross 1986 is a cited supplier for E15.
+- **G8, Route and library refinement** (deferred). Route and library refinement is design work.
+- **G9, Executable contracts and independent verification** (deferred). Executable contracts and independent review are later work.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every `dependsOn` target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of E1, E9 or E20, this continuation supersedes it.
+
+## Yuan–Zhang: averaged Colmez, with the corrected nearby-isogeny argument
 
 Worker: Codex — codex-a71f92. Issue #1145. Status: **partial checkpoint**.
 
 The published 106-page main paper and the complete revised author erratum have been read. This is not a claim of complete extraction or source closure. The JSON contains 110 items (6 library, 4 planned, 100 missing), nine nonduplicating routes, planning APIs and two tests for all 38 introduced carriers, 72 theorem outlines, and 22 source findings awaiting independent review. Some compound results still need atomic splitting and the original external proofs remain open.
 
-## The result and its normalization
+### The result and its normalization
 
 Let E/F be CM, [F:Q]=g, and η its quadratic Hecke character. With the squared Faltings metric
 `||α||²=(2π)^−g ∫|α∧bar α|`, the theorem is
@@ -15,7 +107,7 @@ The sum is over all 2^g CM types. Lf is the finite L-function, dE/F is the norm 
 
 Two normalizations are deliberately different. The abelian component height is `deg_hat N(A,τ)/(2[K:Q])`; the quaternionic point height is relative to F, with denominator `[F(P):F]`. The Petersson norm is `||dz||=2 Im z`. CM-orbit integrals are normalized averages, while the separate unit index is `e=[OE*:OF*]`. None of these factors can be inferred from the word “height”.
 
-## What was read
+### What was read
 
 | Source | Provenance and scope |
 | --- | --- |
@@ -30,7 +122,7 @@ Crucially, the latest arXiv file appends an **older** erratum. Its kernel-suppor
 
 Continuous main-paper reading ledger: text1–5862, printed533–638. The detailed block ledger is in the JSON. The erratum ledger covers text1–553. Images were additionally inspected for printed545–547,554,569–570,590–591,614–615,623,633 and author-erratum10–11. Other minor index findings were checked in the extracted text and still need final image/journal review. External references are not counted as read merely because their citation was read.
 
-## Proof map
+### Proof map
 
 The two branches join only after the corrected isogeny hypothesis is established:
 
@@ -51,7 +143,7 @@ Weil/Whittaker derivatives + arithmetic height series
 Both branches → cancellation of dB → averaged Colmez
 ```
 
-### The corrected Part I
+#### The corrected Part I
 
 The complex hermitian pairing between invariant differentials of A and its dual is decomposed by embeddings. The associated determinant line N(A,τ) must carry its dual-conjugate action and its normalized arithmetic degree. Component-height invariance compares an isogeny with its dual. The printed local-conjugation automorphism argument needs repair (E4); the global embedding product is the relevant invariant.
 
@@ -69,7 +161,7 @@ The PEL comparison then passes through X', X and X''. The full B'=B⊗E realizat
 
 At large level the model is normal and Q-factorial after the specified base change, not automatically regular. The Hodge Q-line is obtained by norm descent and equals the **dualizing** sheaf at suitable small local level. At a node it cannot be replaced by a locally free Kähler-differential sheaf without proof. The determinant line in Theorem4.10 has a printed dual error (E8), and the division-case unit argument needs a nodal extension justification (E9).
 
-### Part II and the local table
+#### Part II and the local table
 
 A pseudo-theta function is not assumed automorphic. It uses V0⊂V1⊂V, the ambient Weil representation outside a finite nonarchimedean bad set, and controlled local functions at the bad set. Nonsingularity permits associated outer and inner **usual** theta series, with their own quadratic-space Weil actions. Lemma6.1 separates codimensions by a Vandermonde argument. Distinct positive sufficiently divisible unipotent parameters work; arbitrary distinct integers need not (E12).
 
@@ -96,7 +188,7 @@ Adjunction is a residue comparison for `LU⊗O(P/e)`. At infinity,
 `Q0(t)=½log((t+1)/(t−1))`
 cancels the Petersson singularity exactly. At finite places, a sufficiently small away-v cover realizes the extended diagonal as a proper intersection; the residue lattice has index iw/e. The printed assertion that this coarse cover is étale conflicts with its ramification e (E18) and must be replaced by a genuine CM-section argument. The vertical lift invariance in Lemma8.9 also needs repair (E17).
 
-## Ownership and reuse
+### Ownership and reuse
 
 Baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Atlas screen at `000051df2cad918be6c4bbebe2442925a0bddcd6`.
 
@@ -132,17 +224,17 @@ Suggested implementation files are planning hints, not deliverables:
 - NeronModelsAndSemistableAbelianVarieties: `TauCeti/AlgebraicGeometry/AbelianScheme/InvariantDifferential.lean`.
 - ComplexMultiplicationAndExplicitReciprocityPartII: `TauCeti/NumberTheory/ComplexMultiplication/AveragedColmez.lean`.
 
-## API and acceptance obligations
+### API and acceptance obligations
 
 The JSON is the authoritative item inventory. All38 definitions/constructions have a carrier-specific API and at least two tests. Tests include field-extension normalization, empty versus zero truncation, ineffective centers, full versus Morita dimension, zero different torsion at unramified primes, two-place degeneracy, diagonal omission, Frobenius-component indexing and dualizing versus Kähler sheaves.
 
 Proposed planet names are the mathematical item names (“Corrected nearby-isogeny identity”, “CM-type independence modulo the different”, “Arithmetic adjunction for the CM point”), not source locators. A later blueprint must split the remaining compound contracts, write typed declarations and complete imports before compilation is claimed.
 
-## Source findings
+### Source findings
 
 The following are worker findings, **not independently confirmed errata**. “New” means no correction was found in the stated limited search; it is not a priority or novelty claim. E2/E3 concern only the author erratum revision until final-journal collation. E9/E17 are proof gaps, not claims that the main results are false. Printed mathematical assertions in the JSON are transcribed with notation normalized.
 
-### E1 — error
+#### E1 — error
 
 Main Theorem2.7 pp550; erratum §1 pp1–3, 18 December 2022 revision.
 
@@ -152,7 +244,7 @@ Reason: Néron models need not preserve a short exact sequence; authors cite BLR
 
 Known: Published erratum, Annals198(2023)867–878, DOI10.4007/annals.2023.198.2.8; later author revision read. Affects: the proof.
 
-### E2 — misprint
+#### E2 — misprint
 
 Author erratum p11 final Hom display, image checked; NOT collated with final journal.
 
@@ -162,7 +254,7 @@ Reason: The preceding and following isomorphisms are on different torsion; A2[π
 
 Known: new Affects: nothing.
 
-### E3 — misprint
+#### E3 — misprint
 
 Author erratum Proposition6 proof p10, image checked; NOT collated with final journal.
 
@@ -172,7 +264,7 @@ Reason: The proposition permits different dimensions and τ multiplicities; an i
 
 Known: new Affects: nothing.
 
-### E4 — error
+#### E4 — error
 
 Main Theorem2.2 proof pp545–546, images checked; unchanged in selected arXiv v3 §2.2.
 
@@ -182,7 +274,7 @@ Reason: Take E=Q(i), p=5. X²+1 has a simple root mod5 and hence i∈Q5 under ei
 
 Known: new Affects: the proof.
 
-### E5 — error
+#### E5 — error
 
 Main Theorem2.3 proof p547, image checked; same assertion in selected arXiv v3.
 
@@ -192,7 +284,7 @@ Reason: For CM E=Q(√17,√−7), p=2 splits in both quadratic factors (both di
 
 Known: new Affects: the proof.
 
-### E6 — misprint
+#### E6 — misprint
 
 Main introduction p537 component-height display; compare corrected definition p544.
 
@@ -202,7 +294,7 @@ Reason: Unnormalized arithmetic degree multiplies under field extension. The bod
 
 Known: new Affects: nothing.
 
-### E7 — misprint
+#### E7 — misprint
 
 Main Theorem2.7 proof p550 final determinant display.
 
@@ -212,7 +304,7 @@ Reason: The product has the two distinct CM factors A1,A2. This entire proof is 
 
 Known: new Affects: nothing.
 
-### E8 — misprint
+#### E8 — misprint
 
 Main p569 definition before Theorem4.10, image checked.
 
@@ -222,7 +314,7 @@ Reason: The displayed map det W^t→det W^∨⊗ω² gives det W^t⊗det W→ω�
 
 Known: new Affects: nothing.
 
-### E9 — gap
+#### E9 — gap
 
 Main Theorem4.10 division-case proof p570, image checked.
 
@@ -232,7 +324,7 @@ Reason: The relation alone is insufficient: in O[[x,y]]/(xy−π) at the closed 
 
 Known: new Affects: the proof.
 
-### E10 — misprint
+#### E10 — misprint
 
 Main p590 c2 and c1 displays, image checked.
 
@@ -242,7 +334,7 @@ Reason: Substitution into the printed equality otherwise gives m² rather than m
 
 Known: new Affects: nothing.
 
-### E11 — error
+#### E11 — error
 
 Main p591 integral conjugation basis, image checked.
 
@@ -252,7 +344,7 @@ Reason: Multiplying a generator by π gives a nonzero vector whose image is πM,
 
 Known: new Affects: the proof.
 
-### E12 — misprint
+#### E12 — misprint
 
 Main Lemma6.1 proof p583 Vandermonde step.
 
@@ -262,7 +354,7 @@ Reason: For degree4 and N=±1, both fourth powers equal −4. The proof only nee
 
 Known: new Affects: nothing.
 
-### E13 — error
+#### E13 — error
 
 Main pp599–600 Lemma7.6 proof; correction to YZZ13 Proposition6.10(1).
 
@@ -272,7 +364,7 @@ Reason: The main authors explicitly explain the normalization mismatch and redo 
 
 Known: Yuan–Zhang 2018 pp599–600 explicitly correct YZZ13 Proposition6.10(1). Affects: the proof.
 
-### E14 — misprint
+#### E14 — misprint
 
 Main p604 end of Lemma7.6, ψ2 calculation.
 
@@ -282,7 +374,7 @@ Reason: The displayed series being differentiated is c-tilde_ψ2; the substituti
 
 Known: new Affects: nothing.
 
-### E15 — error
+#### E15 — error
 
 Main p618 Lemma8.7; correction to YZZ13 Lemma8.6/Proposition8.7 and Zha01 Lemma5.5.2.
 
@@ -292,7 +384,7 @@ Reason: The main authors explicitly identify the inherited wild-ramification err
 
 Known: Yuan–Zhang 2018 p618; authors state the erroneous case did not enter the main YZZ13 result. Affects: the proof.
 
-### E16 — misprint
+#### E16 — misprint
 
 Main ordinary case pp614–615, images checked.
 
@@ -302,7 +394,7 @@ Reason: There are two distinct split primes and upper/lower supports. Propositio
 
 Known: new Affects: nothing.
 
-### E17 — gap
+#### E17 — gap
 
 Main Lemma8.9 proof p623, image checked.
 
@@ -312,7 +404,7 @@ Reason: Fv*GL2(OFv) fixes the standard tree vertex, not all vertices. An unramif
 
 Known: new Affects: the proof.
 
-### E18 — error
+#### E18 — error
 
 Main p633 paragraph after Lemma9.4, image checked.
 
@@ -322,7 +414,7 @@ Reason: The same paragraph assigns multiplicity e to P' in π*P. At elliptic CM 
 
 Known: new Affects: the proof.
 
-### E19 — misprint
+#### E19 — misprint
 
 Main Proposition3.2 proof p554 last paragraph, image checked.
 
@@ -332,7 +424,7 @@ Reason: [F:Q]=g, [E:Q]=2g, rank_E B'=4, so H1 has Q-rank8g and A has dimension4g
 
 Known: new Affects: nothing.
 
-### E20 — error
+#### E20 — error
 
 Main §3.3 CM points p558.
 
@@ -342,7 +434,7 @@ Reason: In the double quotient, rational torus elements fix the distinguished co
 
 Known: new Affects: the proof.
 
-### E21 — misprint
+#### E21 — misprint
 
 Main §6.1 p578 opening quadratic-space convention.
 
@@ -352,7 +444,7 @@ Reason: V(F), V(A) and the rational theta sum require an F-space, as stated expl
 
 Known: new Affects: nothing.
 
-### E22 — misprint
+#### E22 — misprint
 
 Main p598 proof of Lemma7.4, before restricting to v(a)≥0.
 
@@ -364,7 +456,7 @@ Known: new Affects: nothing.
 
 Search record: publisher original/erratum records; author publication directory and whole Erratum5.pdf; selected arXiv v3 passages; targeted correction searches on23September2026. Older author errata and the final journal erratum were not exhaustively collated. No author contact or external errata notification was made.
 
-## Exact diagnostic checks
+### Exact diagnostic checks
 
 A scratch Python/Fraction check ran150005 finite/rational cases successfully; this is not a formal proof. Script SHA256:
 `e511ddda809a354822ebfec5f97305e12f5e368f0fc6913bd8cb695c7515ef36`.
@@ -383,41 +475,41 @@ A scratch Python/Fraction check ran150005 finite/rational cases successfully; th
 
 These tests refute selected erroneous intermediate assertions and catch factors; they do not certify the analytic continuation, integral classification, nodal extension or corrected main proof.
 
-## Remaining gates and resume order
+### Remaining gates and resume order
 
-### G1 — Atomic extraction and source closure
+#### G1 — Atomic extraction and source closure
 
 Main pp533–638 and the full 11-page revised author erratum are read; this checkpoint has 110 substantive items, but some multi-part Propositions3.2/3.5/4.2–4.4/5.4 and Theorems4.7/4.9/7.2/8.6 still need separate atomic declarations, all exact moduli determinants, local Haar constants and explicit consumer edges. Introductory consequences/previous special cases and every original external prerequisite are not fully decomposed. Do not mark complete from inventory count.
 
-### G2 — Final erratum collation
+#### G2 — Final erratum collation
 
 The Annals record gives revision18Dec2022 matching Erratum5.pdf, but journal pp867–878 have12pages and author PDF11. Obtain the final published text and collate all hypotheses, formulas and E2/E3 before attributing those author-version slips to the journal. Latest arXiv v3 appends an older November2021 erratum with a different kernel condition and is not the final correction.
 
-### G3 — CM integral de Rham and monogenic repair
+#### G3 — CM integral de Rham and monogenic repair
 
 Acquire Colmez1993 II.1.2, CCO2014 Theorem3.7.4 and the exact local CM-group uniqueness statements. Close E4 by global embedding permutation and E5 by factorwise/unramified monogenic descent, including the discriminant comparison. Finite residue checks certify only the counterexamples, not those repairs.
 
-### G4 — Kisin conventions and dyadic closure
+#### G4 — Kisin conventions and dyadic closure
 
 Read Ki09 Theorems1.2.8/1.3.9 and Ki10 Hodge-filtration comparison, plus the precise Kim/Lau/Liu p=2 input used by main §5.2. Prove covariance, formal/connected nilpotence, torsion projective dimension, Frobenius index permutation, OE-linear Cartier dual and all generic-isomorphism extension. No e<p−1 substitute works at p=2.
 
-### G5 — Integral quaternionic and PEL geometry
+#### G5 — Integral quaternionic and PEL geometry
 
 Read Carayol1986 and Boutot–Carayol1991 at the cited sections, and VignérasIII.3.2 p44 integral-conjugacy statement. Reconcile E9 at nodes, E19 PEL dimension and E20 effective torus quotient. Verify tensor HT weights are 0,−1 componentwise before Proposition5.2 and prove the OE/OB deformation-Hom identification in Proposition5.4.
 
-### G6 — YZZ analytic and arithmetic proof leaves
+#### G6 — YZZ analytic and arithmetic proof leaves
 
 The reviewed GZ decomposition remains partial, explicitly leaving YZZ chapters2–8 largely unread. Acquire/read YZZ with its current erratum: local measures §1.6, extended Weil action, generating-series modularity, two-place degeneracy, Chapter6 holomorphic projection and Chapter8 local heights. This paper's E13/E15 corrections do not replace the book's own erratum. Close differentiation and regularized-limit interchange and positivity of the associated theta constant term.
 
-### G7 — Wild lifting and vertical adjunction repairs
+#### G7 — Wild lifting and vertical adjunction repairs
 
 Read Gross1986 canonical/quasicanonical lifting for E15, rather than treating the asserted correction as a proof. Resolve E17 by an equivariant/invariant vertical lift and E18 by a correct CM-section argument. Reconcile with the already proposed finite-flat Lubin–Tate/quasi-canonical-lift direction; do not create another general local-lifting owner.
 
-### G8 — Route and library refinement
+#### G8 — Route and library refinement
 
 This is a bounded name/declaration and owner screen, not an exhaustive declaration proof of absence. Read the remaining source-owner packets and refine specializations against current reserved IDs. R07 has no reviewed audit entry in this snapshot. Reuse the pending CM Part II ID from Tsimerman, coordinate AGHMP18 #1143, and keep general reflex reciprocity with ShimuraVarieties V5.
 
-### G9 — Executable contracts and independent verification
+#### G9 — Executable contracts and independent verification
 
 Every introduced carrier here has planning API and at least two test obligations; 150005 exact finite diagnostics are not Lean proofs. Expand interfaces to executable typed declarations and complete dependency closure before suggesting a compiled blueprint. All new source findings lack an independent review verdict. No Lean file was requested, written or compiled.
 
