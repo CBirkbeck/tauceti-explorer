@@ -10244,9 +10244,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed. The sentence prints « the punctured spectrum Spec 𝔖 ∖ {s}, where s ∈ Spec R is the closed point »: the punctured spectrum is of 𝔖, so the closed point is that of Spec 𝔖."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E2",
@@ -10266,9 +10266,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed. The induction's d = 1 case lists three fractional ideals and then writes « for a principal fraction field J »; J is a principal fractional ideal, as the other two members of the list are."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E3",
@@ -10288,9 +10288,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed, and the paper never names the map. The paragraph before Lemma 4.30 introduces « the map 𝔖 → A_inf that sends T to [π^♭]^p and is the Frobenius on W(k) » without a symbol, and Lemma 4.30 refers to it as « the map 𝔖 → A_inf above »; the proof of Proposition 4.32 then writes f(E) with f undefined. The same sentence also prints « is a Breuil–Kisin–Fargues modules » for « module », which the entry quotes but its correction does not mention."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E4",
@@ -10310,9 +10310,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed. The Koszul complex is on f_1, …, f_d and no index set I occurs in the passage, so the shift is by d."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E5",
@@ -10332,9 +10332,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed. The sentence maps the resolution into M and then computes RΓ_cont(Γ, N); the module being resolved into is N."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E6",
@@ -10354,9 +10354,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed. The example sets E_2 := RΓ(Γ_disc, R) and then E_1 = Lη_{q−1}E_1, which defines E_1 in terms of itself; the intended right-hand side is E_2."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E7",
@@ -10376,9 +10376,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed by the paper against itself. The displayed differential two lines above is (x,y) ↦ (dx, dy + (−1)^n g x), while the description of the subcomplex writes (dx, dy + (−1)^n g y) in both the forward and the converse direction."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E8",
@@ -10398,9 +10398,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed. Part (ii) of Theorem 9.4 is the one whose quasi-isomorphisms identify W̃_rΩ^□_R with the (pro)étale versions and with RΓ(𝔛, W̃_rΩ_𝔛), i.e. the sheaf property being invoked; part (iii) is the same statement for AΩ."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E9",
@@ -10420,9 +10420,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed, and the sentence's own logic decides it: the hypothesis is used « only to guarantee that W_r(R) → W_r(R′) is étale », so it is a condition on R, not on S."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E10",
@@ -10442,9 +10442,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed in both halves. P_a is defined with partitions (I_0, …, I_n), so the « (I_0, …, I_d) ∈ P_a » of the construction is a slip; and the case distinction runs over j = ρ_1 + 1, …, ρ_2, the printed « ρ » being undefined, only ρ_1 and ρ_2 having been introduced."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E11",
@@ -10464,9 +10464,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed, and the frequency argument makes it unarguable. §11.1 works over the perfectoid ring S: in the passage concerned the base appears as (S) fifty-four times against the five stray A's the entry records — « if A is 2-adic », « W_rΩ^•_{B/A} », and the three W_{r+1}(A)'s in Proposition 11.5(iv) — and Remark 11.3 itself writes W_rΩ^•_{B/S}. The W_{r+1}(A) instances in §10's definition of an F-V-procomplex are correct there; only their repetition in §11.1 carries the wrong base."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E12",
@@ -10486,9 +10486,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed. The identity is Fdλ_{r+1}([b]) = λ_r([b])^{p−1}dλ_r([b]), quantified over the Teichmüller lifts of elements b of B, so « for all x ∈ B » should name b."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E13",
@@ -10508,9 +10508,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed by the two neighbouring lines. The proof establishes R(α) ∈ (η_μ D)^n and computes d(R(α)) ∈ ξ̃_r μ^{n+1} D^{n+1}, and the conclusion it draws is about H^n((η_μ D^•)/ξ̃_r); the « (η_{φ(μ)}D)^{n+1}/ξ̃_r » in between is the slip."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E14",
@@ -10530,9 +10530,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed. The proof prints « 𝒲_r^n(D) is Tor-independent from W_r(O) over W_r(k) », but W_r(k) is the quotient one base-changes to and W_r(O) the base, so the two rings are the wrong way round."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E15",
@@ -10552,9 +10552,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed. « log(μ) = μv for some unit v » cannot be meant, since μ is not a unit and log(μ) is not defined; the element with that property is log([ε]), and the operator is g_u = log([ε]) ∂/∂log(x_u)."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E16",
@@ -10574,9 +10574,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed. The sentence introduces the analogues A_{0,crys} and A_{0,crys}^{(m)} and then says « for example, A_crys is the p-adic completion of the PD envelope of A_0 → A_0/ξ_0 »; the object being described over A_0 is A_{0,crys}."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E17",
@@ -10596,9 +10596,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed, decisively: Proposition 13.15 has exactly two parts, (1) the algebra R with 𝔛_R and (2) the map η with the isomorphism ψ. So « (i) and (ii) are clear from the construction » and « the proof of (iii) » cannot both be right; the proof that follows constructs η and ψ, which is part (ii)."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E18",
@@ -10618,9 +10618,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-18",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
+   "reviewReason": "Confirmed by the display immediately above, which reads AΩ_R ⊗̂_{A_inf} φ^r(A_crys^{(m)}); the cohomology line then prints AΩ_r, and R is the ring in play throughout."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E1",
@@ -18071,9 +18071,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. Definition 3.10 on p.12 makes M_{d−2,n} the monomials of degree d−2 and L^{(x,y)}_{i,j,k} is linear, so the p.18 left-hand side has degree d−1 while the right-hand side has degree d. Raising the degree does not repair it: those products vanish on the whole line through x and y, missing X_0^{d−1}X_1 for x=e_0, y=e_1. The correction is what the proof already does, since Psi_P multiplies a degree-(d−2) monomial by the quadratic <c, nu_{2,n}(X)>, so the statement needed is I_d = R[X]_{d−2}·I_2 for the two-point ideal (X_2,…,X_n, X_0X_1)."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E2",
@@ -18099,9 +18099,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. Definition (5.28) on p.60 asks only for a non-trivial real point, so the unit coefficient vector of X_0^d lies in B_{N}(1) ∩ I^loc while every real zero has vanishing gradient, hence it lies in no stratum B^{(lambda)} of (5.30). The printed equality (5.31) therefore fails and the null set of forms with only singular real zeros must be added and shown null."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E3",
@@ -18127,9 +18127,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. Lemma 3.19 (p.20) and Lemma 3.20 (p.21) print log Delta and (log Delta)^{2 min{r−2,1}}, which vanish at Delta = 1 while the counts do not: d_r(e_0) = 1 by Definition 3.12, and for Lemma 3.20 with r ≥ 3 take x = e_0, y = e_1. (3.24) inherits the same defect. log(2Delta) repairs the endpoint and changes nothing for large Delta."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E4",
@@ -18155,9 +18155,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. With I^loc as in (5.28), f_a = X_0²+X_1²+X_2² in n+1 = 4 variables lies in I^loc through the real zero (0,0,0,1), while a + t(b−a) with b = a + eps·X_3², 0 < eps ≤ 1, is positive definite for every t > 0. The set defining M_a on p.60 is then empty and the maximum undefined, so the closed cone and t = 0 must be allowed."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E5",
@@ -18183,9 +18183,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. The assertion on p.23 preceding (3.31) fails for the quartic t_1²t_2², which does not involve t_3 and vanishes identically on the fibres t_1 = 0 and t_2 = 0, so no coordinate takes at most four values on every fibre. The proposed grid bound, O(H_1H_2) zeros of a non-zero quartic in a box with H_1 ≥ H_2 ≥ H_3, returns exactly the printed N_c(Z;L) << Z²/(s_1s_2), since H_j ≍ Z/s_j."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E6",
@@ -18211,9 +18211,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. (4.56) is an estimate for gcd(G(x,y), W/gcd(l,W)), and (4.57) and (4.69) invert it. On the bad set gcd(G,Q)/G can be as small as 1/G: with x = e_0, y = e_0 + q·e_1 for a prime q > w(B) and l = 1, the determinant divided by its printed leading factor is exactly q. Stating both displays for the reciprocals, where the relative error is bounded because 0 < gcd(G,Q)/G ≤ 1, is the repair, and the moment calculation consumes them in that form."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E7",
@@ -18239,9 +18239,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. B_N(u) is the ball in R^N by the definition on p.8, and V(L) = Span_Q(nu_{4,4}(L)) ∩ Z^{N_{4,4}} by (3.33), a rank-15 lattice in R^70; the 5 is the dimension of the point-coordinate space. The count that follows, J^15 det(V(L)*), is the rank-15 one, so the intersection in (3.38)–(3.39) is ill-typed as printed and nothing downstream changes."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E8",
@@ -18267,9 +18267,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. Definition 2.1 lists the monomials with no multinomial weights, so at d = 2, u = (1,1,0,…) one has ||nu(u)||² = 3 < 4 = ||u||^{2d} and the inequality on p.63 is false. The maximum-coordinate monomial gives ||nu(u)|| ≥ (n+1)^{−d/2}||u||^d, which suffices for the volume lower bounds that follow."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E9",
@@ -18295,9 +18295,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. The p.14 line prints Lambda_x = R a_1 ⊕ … ⊕ R a_n and the p.18 line prints Lambda_{nu_{2,n}(x)} ∩ Lambda_{nu_{2,n}(y)} = R a_1 ⊕ … ⊕ R a_{N_{2,n}−2}, each equating a discrete lattice with a real vector space. Only the equality of real spans is used, so the missing Span_R is a misprint."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E10",
@@ -18323,9 +18323,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. Definition (5.30) gives a zero x with lambda||a|| < ||grad f_a(x)|| ≤ 2 lambda||a||, hence x ∈ D_a(lambda), whereas the neighbourhood argument at the top of p.62 starts from x ∈ D_a(lambda/2). Running it from D_a(lambda) into D_a(C lambda) retains the O(lambda²) conclusion."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E11",
@@ -18351,9 +18351,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed, and the reclassification is right. The vectors b_1, b_2 lie in R^{n+1}(p^r), so the scalar of the p.54 case split must lie in (Z/p^rZ)^×; there is no scalar action of Z/pZ on Z/p^rZ for r > 1. Read with g ∈ (Z/p^rZ)^× the split is the intended one and the first case needs only independent lifts, so nothing downstream changes."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E12",
@@ -18379,9 +18379,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. On p.16 the vector a is introduced as an arbitrary non-zero element of (Q_2(x,y)^⊥)*, and the second case derives d_3(x,y) ≤ ||a||·d_2(x,y). The casewise displays (3.16) and (3.18) therefore bound ||a||, not lambda_1; the minimum over the two cases taken afterwards is the valid inference."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E13",
@@ -18407,9 +18407,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed, and the reclassification is right. The paper's own sentence on p.51 is 'We shall use neither of these facts in our work', so the unqualified convergence claim is an unused remark; for the primitive form X_0^d the local factors diverge, so the claim is not generally finite on all of V_{d,n}."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E14",
@@ -18430,9 +18430,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. (3.25) on p.22 prints s_1 ≤ s_2 ≤ max{Z,s_3} while the step at (3.31) on p.23 argues 'since Z ≥ s_2'. Definition (3.23) on p.21 restricts to ||x||, ||y|| ≤ Z, and any rank-3 lattice containing x and y then has lambda_2 ≤ Z, so the terms with s_2 > Z do not occur and the misprint costs nothing."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E15",
@@ -18453,9 +18453,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. Lemma 3.4 on p.9 states dependence on R alone, but its proof takes the constant from Barroero–Widmer for the family B_R(T) cut by I cones, and nothing in the proof removes the dependence on I. The paper only ever uses I ≤ 2, so no application is affected."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E16",
@@ -18476,9 +18476,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed, with the certificate recomputed. For d = 2, n = 3, x = (2,2,−2,2), y = (−3,2,3,−3) the Gram determinant is 72000 and the printed quadruple sum is 415200, a ratio of 30/173 = 0.1734…, below the printed 1/4. The cause is that (i,j) ↦ X_iX_j is two-to-one off the diagonal at d = 2, so each unordered monomial pair is counted up to four times and 1/8 is the right constant; a search over small integer pairs found no smaller ratio. For d ≥ 3 the map is injective and the printed 1/4 stands."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E17",
@@ -18499,9 +18499,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. grad f_a is homogeneous of degree d−1, and (5.30) gives a zero x' ∈ S^n with lambda < ||grad f_a(x')|| ≤ 2 lambda when ||a|| = 1, so x = x'/2 satisfies lambda/2^{d−1} < ||grad f_a(x)|| ≤ lambda/2^{d−2}. The printed upper bound in (5.34) fails when ||grad f_a(x')|| approaches 2 lambda; only the fixed constants in (5.36) and in the choice of L move."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E18",
@@ -18522,9 +18522,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. Lemma 4.7 on p.32 assumes A ≥ B^{4/5}, while the partial summation at (4.71) on p.50 needs the sum over ||a_V|| ≤ t for every t ≤ A, including t below B^{4/5}. The missing range is supplied by the proof of Lemma 4.7 itself, whose bounds before simplification hold for all t ≥ 1, so (4.71) survives."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E19",
@@ -18545,9 +18545,9 @@
    "owner": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "file": "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
    "citation": "Browning–Le Boudec–Sawin, \"The Hasse principle for random Fano hypersurfaces\", Annals of Mathematics 197 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "reviewReason": "Confirmed. Poonen–Voloch order coefficient vectors by the sup norm, whereas V_{d,n}(A) here is cut out by the Euclidean ball B_{N}(A). Equivalent norms give comparable counts but not the same limit, since the real-solubility locus is a cone whose proportion of a ball and of a cube differ. Positivity, which Propositions 5.2 and 5.3 use, follows from an inscribed box; the existence of the limit asserted by Theorem 1.1 and (1.3) does not."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E1",
@@ -97278,7 +97278,7 @@
    "locator": "§2.2.6, definition of an accommodating embedding, p.26, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the named version independently rechecked on 23 September 2026; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated",
    "printed": "\"Finally we say ι is accommodating if there is a finite collection of accommodating embeddings of Shimura data, ι_j : (G_j, X_j) ↪ (G_{V_j}, H_{V_j}), j = 1, …, s, and an isomorphism of symplectic spaces ∏_j V_j ≃ V which induces a commutative diagram … such that the map on the left induces an isomorphism G^der ≃ ∏_j G_j^der.\"",
    "correction": "\"… if there is a finite collection of strictly accommodating embeddings of Shimura data ι_j …\".",
-   "reason": "As printed the definition is circular and imposes no effective restriction: the one-factor identity diagram would certify any embedding already called accommodating. The preceding paragraph supplies the strictly accommodating basic factors, so inserting 'strictly' makes the intended product construction meaningful. Independently read the p.26 image and following proof. KMPS cites Noot [Noo09, §2.3], but the independent checkpoint could not obtain that full text: the author's https://irma.math.unistra.fr/~noot/publications/jlms.html links to the journal, whose discovered PDF returned HTTP 403. The earlier report's claimed verbatim agreement with Noot has therefore not been independently established; the local circularity does not depend on it.",
+   "reason": "As printed the definition is circular and imposes no effective restriction: the one-factor identity diagram would certify any embedding already called accommodating. The preceding paragraph supplies the strictly accommodating basic factors, so inserting 'strictly' makes the intended product construction meaningful. Independently read the p.26 image and following proof. KMPS cites Noot [Noo09, §2.3], but the independent checkpoint could not obtain that full text: the author's https://irma.math.unistra.fr/~noot/publications/jlms.html links to the journal, whose discovered PDF returned HTTP 403. The earlier report's claimed verbatim agreement with Noot has therefore not been independently established; the local circularity does not depend on it. Codex codex-hjdg0j independently checked the later published restatement in Noot, Algebra & Number Theory 7 (2013), §4.1, pp.261–262: tractable varieties are products of strictly tractable factors, with the derived-group product condition. This supports the intended insertion but is not a reading of the unavailable 2009 §2.3.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -97290,7 +97290,9 @@
     "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation.",
     "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
     "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
-    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
+    "Independent continuation by Codex codex-hjdg0j, 23 September 2026: author PDF hash unchanged; read pp.5–7 and 10–29, with images 26–28 checked. Author pages and bounded title/DOI/correction searches refreshed; no KMPS correction located. Both pages of Shin errata read. The published Duke text remains unavailable through the public routes located; no final verdict is issued.",
+    "Noot 2013 public journal PDF https://msp.org/ant/2013/7-2/ant-v7-n2-p01-s.pdf, SHA-256 abe29e0edda6d7e2c67c1a5a5d28d6ed9c18003688ac499c5da6033c94451e30: §4.1, journal pp.261–262 read (PDF pp.20–21, image 21 checked). This is a later restatement, not the unavailable Noot 2009 text."
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
@@ -97304,8 +97306,8 @@
    "kind": "error",
    "locator": "Proof of Lemma 2.2.8, p.28, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the named version independently rechecked on 23 September 2026; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated",
    "printed": "\"Let G′ = G × T, equipped with the symplectic representation V′ = V ⊕ V. Let X′ = X × {h_T}. Then we have (G′, X′) ↪ (G_{V′}, H_{V′}). … Restricting the action of I_{s′_0} to A_T induces a map of Q-groups I_{s′_0} → T, and we consider the composite I_{s′_0} → T → G^ab. By Corollary 2.1.9, I_{s′_0} → I_{s_0} is surjective, so the map I_{s′_0} → G^ab factors through I_{s_0}, as this is true over Q_ℓ for any ℓ ≠ p.\"",
-   "correction": "Replace G′=G×T by G′=G×_{G^ab}T. This is a connected reductive central-torus extension of G: its kernel is 1×(T∩G^der). The similitude character factors through G^ab, so the two blocks have equal multipliers. Since h^ab is constant on X, X×{h_T} factors through G′. After constructing the lift and its CM factor as in the proof, Corollary 2.1.9 identifies the ℓ-adic groups with Frobenius centralizers. Their projection is surjective and its kernel lies in 1×(T∩G^der), which maps trivially to G^ab. Faithfully flat descent then gives I_s→G^ab. The written proof must include this kernel argument; surjectivity alone is insufficient.",
-   "reason": "The direct-product construction is false as written, not merely an unexplained descent: already for G=GSp_2 and a CM maximal torus T, (1,2·1)∈G×T scales the two blocks of ψ⊕ψ by 1 and 4. Thus it is not a symplectic similitude. Independently of that failed Shimura construction, on the proposed direct-product group the composite G×T→T→G^ab is nontrivial on the kernel 1×T of projection to G, so it cannot descend. The original errata's unconditional claim about I_{s′} is replaced by this group-level obstruction, since the proposed Shimura embedding has already failed. In the repaired fibre product, projection to G has central torus kernel, so geometric Frobenius centralizers surject: after splitting off the connected center up to isogeny, centralizing a semisimple element is unchanged on the derived factor. Corollary 2.1.9 then gives surjectivity on the I-groups; over Q_ℓ the kernel is killed by T→G^ab, hence over Q as well. Read Lemma 2.2.8, Corollary 2.1.9 and the preceding lifting construction. This repairs the identified local construction/descent; it is not a global certification of Proposition 2.2.2, whose preceding construction has the related E13 defect.",
+   "correction": "Replace G′=G×T by H=G×_{G^ab}T. This is a connected reductive central-torus extension of G, with kernel 1×(T∩G^der). The similitude character factors through G^ab, so the two blocks have equal multipliers; h^ab is constant on X, so X×{h_T} factors through H. Once the lifted point and compatible I-group maps have been constructed, use C_H((γ,t))=C_G(γ)×_{G^ab}T: projection is a base change of the surjective morphism T→G^ab, with kernel 1×(T∩G^der). Corollary 2.1.9 then gives surjectivity on I-groups over Q_ℓ for ℓ≠p. The composite through T to G^ab kills that kernel, and this descends faithfully flatly to Q. Surjectivity here means a morphism of algebraic groups, not necessarily surjectivity on rational points. The argument must establish kernel triviality, not infer factorization from surjectivity alone.",
+   "reason": "The direct-product construction is false as written, not merely an unexplained descent: already for G=GSp_2 and a CM maximal torus T, (1,2·1)∈G×T scales the two blocks of ψ⊕ψ by 1 and 4. Thus it is not a symplectic similitude. Independently of that failed Shimura construction, on the proposed direct-product group the composite G×T→T→G^ab is nontrivial on the kernel 1×T of projection to G, so it cannot descend. The original errata's unconditional claim about I_{s′} is replaced by this group-level obstruction, since the proposed Shimura embedding has already failed. The earlier checkpoint justified centralizer surjectivity by a general central-extension assertion which is false: for GL₂→PGL₂, d=diag(1,−1) and the coordinate swap w satisfy wdw⁻¹=−d, so [w] centralizes [d], but no scalar multiple of w centralizes d. The repaired fibre product has a stronger, direct argument. Since T is commutative, (g,u) commutes with (γ,t) precisely when g commutes with γ. This proves C_H((γ,t))=C_G(γ)×_{G^ab}T as group schemes, giving the asserted surjectivity and kernel without a general semisimple-centralizer claim. Corollary 2.1.9 then gives surjectivity on the I-groups; over Q_ℓ the kernel is killed by T→G^ab, hence over Q as well. Read Lemma 2.2.8, Corollary 2.1.9 and the preceding lifting construction. This repairs the identified local construction/descent; it is not a global certification of Proposition 2.2.2, whose preceding construction has the related E13 defect.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -97317,7 +97319,8 @@
     "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation.",
     "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
     "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
-    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
+    "Independent continuation by Codex codex-hjdg0j, 23 September 2026: author PDF hash unchanged; read pp.5–7 and 10–29, with images 26–28 checked. Author pages and bounded title/DOI/correction searches refreshed; no KMPS correction located. Both pages of Shin errata read. The published Duke text remains unavailable through the public routes located; no final verdict is issued."
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
@@ -97473,8 +97476,8 @@
    "kind": "error",
    "locator": "§2.2.7, proof of Proposition 2.2.2, p.27 in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db); the published Duke Math. J. 171 (2022), 1559–1614 text has not been collated",
    "printed": "“let G″ be the connected component of the identity of G′ ×_{G^ad} G”; “ψ″ = ψ ⊕ ψ′”",
-   "correction": "The block-diagonal map into GSp(V⊕V′,ψ⊕ψ′) additionally requires equality of the two similitude characters. Replace the group by the identity component of the subgroup of G′×_{G^ad}G cut out by c′(g′)=c(g). The paired Hodge homomorphism has equal multipliers and factors through this subgroup. Recheck the subsequent lifting and centralizer arguments for this corrected group; the present checkpoint establishes the missing condition, not the full repaired proposition. The related construction in Kisin–Zhou arXiv:2103.09945v2 §4.3.7, p.40, explicitly uses (G₂×_{G^ad,G_m}G)^0. Its Proposition 4.4.10, p.45, checks the projection maps using product projectors, central kernels and Frobenius centralizers. Those results have additional integral-model hypotheses; they are evidence for the repair strategy, not a completed verification of this proposition in its full generality.",
-   "reason": "The fibre product over the adjoint group does not identify the central multipliers, and taking its identity component does not fix this. Test G′=G=GSp_2=GL_2 with the same Siegel datum and standard representation. The curve a↦(a·1,1) lies in the identity component of the fibre product over PGL_2. At a=2 its block-diagonal action scales ψ′ by 4 and ψ by 1, so it is not a similitude of their direct sum. These data satisfy the accommodating type-C setup (standard two-dimensional representation, with no proper nonzero invariant subspace). Hence the asserted embedding fails even in this basic allowed case. The equality-of-multipliers subgroup removes the obstruction; this is distinct from E5, where equality in all of G^ab is needed for descent. Independently read §2.2.7 pp.26–28 and the p.27 image. E13 avoids reusing E8–E12, which already identify different findings in the newer extraction.",
+   "correction": "The block-diagonal map into GSp(V⊕V′,ψ⊕ψ′) additionally requires equality of the two similitude characters. Replace the group by the identity component of the subgroup of G′×_{G^ad}G cut out by c′(g′)=c(g). The paired Hodge homomorphism has equal multipliers and factors through this subgroup. Recheck the subsequent lifting and centralizer arguments for this corrected group; the present checkpoint establishes the missing condition, not the full repaired proposition. The related construction in Kisin–Zhou arXiv:2103.09945v2 §4.3.7, p.40, explicitly uses (G₂×_{G^ad,G_m}G)^0. Its Proposition 4.4.10, p.45, checks the projection maps using product projectors, central kernels and Frobenius centralizers. Those results have additional integral-model hypotheses; they are evidence for the repair strategy, not a completed verification of this proposition in its full generality. For the centralizer step, first use a common sufficiently divisible Frobenius power as in §2.1.5 and Corollary 2.1.9, pp.22–24. Its cyclic Zariski closure is a torus, so the relevant centralizers are connected Levi subgroups. The corrected group has central surjective projections; over an algebraic closure the projections identify root groups and carry maximal tori onto maximal tori. Corresponding roots have the same value on compatible Frobenius elements, so the roots taking value 1 agree. The restricted centralizer maps are therefore surjective with the same central kernels. This verifies the geometric centralizer step conditional on the compatible lifted points and I-group morphisms; it does not by itself establish their construction, the rational center embeddings, or the quotient assertions.",
+   "reason": "The fibre product over the adjoint group does not identify the central multipliers, and taking its identity component does not fix this. Test G′=G=GSp_2=GL_2 with the same Siegel datum and standard representation. The curve a↦(a·1,1) lies in the identity component of the fibre product over PGL_2. At a=2 its block-diagonal action scales ψ′ by 4 and ψ by 1, so it is not a similitude of their direct sum. These data satisfy the accommodating type-C setup (standard two-dimensional representation, with no proper nonzero invariant subspace). Hence the asserted embedding fails even in this basic allowed case. The equality-of-multipliers subgroup removes the obstruction; this is distinct from E5, where equality in all of G^ab is needed for descent. Independently read §2.2.7 pp.26–28 and the p.27 image. E13 avoids reusing E8–E12, which already identify different findings in the newer extraction. The GL₂→PGL₂ counterexample explained under E5 shows why arbitrary semisimple centralizers cannot replace the connected centralizers used in §2.1.5. For the corrected common-multiplier subgroup, each projection is surjective: first lift the adjoint image, then adjust the other component by a scalar to equalize multipliers over an algebraic closure. Taking the identity component preserves surjectivity onto the connected target. The kernels are central, since an element projecting to the identity has trivial image in the other adjoint group. These are statements about algebraic groups, not about surjectivity on Q-points.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -97487,7 +97490,8 @@
     "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
     "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
     "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
-    "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum."
+    "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum.",
+    "Independent continuation by Codex codex-hjdg0j, 23 September 2026: author PDF hash unchanged; read pp.5–7 and 10–29, with images 26–28 checked. Author pages and bounded title/DOI/correction searches refreshed; no KMPS correction located. Both pages of Shin errata read. The published Duke text remains unavailable through the public routes located; no final verdict is issued."
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
