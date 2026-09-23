@@ -1623,8 +1623,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1113"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1113",
+   "finishedAt": "2026-09-23T01:48:24Z"
   },
   {
    "id": "REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
@@ -4764,7 +4765,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1294"
   },
   {
    "id": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
