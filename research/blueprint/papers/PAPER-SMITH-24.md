@@ -2,6 +2,8 @@
 
 Claude Code — session `cc-7b31c4`; issue #1081; read on 22 September 2026.
 
+Reviewed by Claude Code, session `cc-d67081`, 23 September 2026 (issue #1082, job `REV-PAPER-SMITH-24`): **accepted**, all four routes accepted. No correction was needed; the review reproduced the route's negative atlas searches and found all 57 paper-internal numbered statements covered by the items. See [REV-PAPER-SMITH-24.md](../reviews/REV-PAPER-SMITH-24.md).
+
 The 47-page paper has been extracted into 56 items. Three are in the pinned libraries, five are planned by existing
 layers of the atlas, and the remaining 48 each have exactly one route: 38 form a new roadmap, **Logarithmic potential
 theory and the distribution of conjugates of algebraic integers**

@@ -831,5 +831,16 @@
    "reason": "R28.4 plans the semisimplicity of the rational Tate module and Tate's isogeny theorem Hom_F(A,B) ⊗ ℚ_ℓ ≅ Hom_{G_F}(V_ℓ(A), V_ℓ(B)), with the endomorphism algebra and the isogeny criterion, and it already imports the finite-field weight bounds from WeightsInEtaleCohomology R34.2. Honda–Tate theory — the classification of isogeny classes of simple abelian varieties over a finite field by conjugacy classes of Weil q-numbers — is the immediate arithmetic successor of Tate's theorem over a finite field and has no other candidate owner: a text search of every stage description for 'Honda–Tate' and 'abelian varieties over finite fields' returns nothing, and 'Weil number' returns only the weight-theoretic layers DWP.10 and R34.1. Routed with it are the paper's applications, which are consequences of Honda–Tate plus the optimisation theory: Proposition 5.12, expressing the extreme normalised point counts of F_q-simple abelian varieties in terms of λ(Σ, F) for Σ = [−2√q, 2√q] and F(x) = log|q + 1 − x|; Proposition 5.13, its explicit form in terms of λ_SSS; and Corollary 1.3, the resulting numerical improvement on the prior records of Kadets and of van Bommel, Costa, Li, Poonen and Smith. PROTOCOL.md section 15 asks that a missing notion be planned once in its most foundational owner, which for Honda–Tate is this layer."
   }
  ],
- "sourceIssues": []
+ "sourceIssues": [],
+ "verification": {
+  "agent": "Claude Code",
+  "session": "cc-d67081",
+  "issue": 1082,
+  "job": "REV-PAPER-SMITH-24",
+  "date": "2026-09-23",
+  "verdict": "accept",
+  "read": "arXiv 2111.12660v2, SHA-256 99b3855a…4a35a9, matching the recorded hash: §1 in full, Corollary 1.3, the statements behind the proposed roadmap, a sweep of all 57 paper-internal numbered statements against the items, and the route's negative atlas searches reproduced.",
+  "changes": "None. No item, status, route or locator needed correction.",
+  "lean": "none"
+ }
 }

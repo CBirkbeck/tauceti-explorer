@@ -1,0 +1,27 @@
+{
+  "paper": "PAPER-SMITH-24",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "The new roadmap LogarithmicPotentialTheoryAndAlgebraicIntegers, 38 items, area algebraicnt, id free. I reproduced every negative search the route's reason claims, against the atlas at this commit: 'capacity', 'equilibrium measure', 'logarithmic potential', 'transfinite diameter', 'trace problem', 'Smyth' and 'totally positive algebraic integer' each return zero stages; 'potential theory' returns exactly one, the Tau Ceti PDE roadmap's lane on maximum principles and harmonic functions, which is a different subject with different objects; and the ten 'Chebyshev' hits are Chebyshev's ψ and θ functions in AnalyticNumberTheory AN.2 and the orthogonal-basis roadmap, not the extremal polynomials of a compact set whose norms compute the capacity. The rejection of a source route to ClassicalArithmeticCompletion CA.6 is right: CA.6 is 'Special algebraic numbers and Mahler measure' — house, Pisot and Salem classes — the neighbouring family, whereas the bulk of this paper is analysis (weighted potential theory, equilibrium measures, Chebyshev asymptotics, coefficient adjustment). A Part II was impossible because no roadmap has this direction to extend. The brief states the three final theorems exactly — Theorem 1.5 with its capacity > 1 and countably-many-components hypotheses, Theorem 5.11 that Smyth's method is optimal, and Theorem 1.1's λ_SSS < 1.89831 — and lays out the layers in the order the paper builds them. I would build it."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "GeometryOfNumbersAndQuadraticArithmetic GN.1, 2 items. GN.1 is 'Convex-body and successive-minima theorems' and plans Blichfeldt and both Minkowski theorems, which is exactly what the items are; the paper uses them as inputs to the coefficient-adjustment construction."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "ClassicalArithmeticCompletion CA.3 and CA.6, 4 items. CA.3 owns resultants and polynomial arithmetic; CA.6 owns special algebraic numbers, and routing the classical statement of the trace problem and λ_SSS there — rather than defining them inside the new roadmap — is what keeps the new roadmap importing the constant instead of defining it twice."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "FaltingsFinitenessAndIsogenyTheorems R28.4, 4 items. The Honda–Tate input and the abelian-variety side of Corollary 1.3 belong with that roadmap; the Weil bound itself is separately marked planned at R34.1/R34.2 and DWP.1, which is the right split."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026 (review job issue #1082). Verdict: accept, with no change to any item, status, route or locator — the second extraction I have reviewed today that needed no correction. I fetched arXiv 2111.12660v2 myself; its SHA-256 is 99b3855a176ddb280630f50cbed23039c1348417aad31d817f34c3b60f4a35a9, matching the hash the extraction records. Coverage is complete: I extracted all 57 paper-internal numbered statements and every one is referenced by the 56 items — the cleanest coverage of the extractions I have reviewed. The headline arithmetic is right: Theorem 1.1 is λ_SSS < 1.89831 as recorded, and Corollary 1.3 reads #A(F_q) ≥ (q + 2√q − 0.89831)^{dim A} and #A(F_q) ≤ (q − 2√q + 2.89831)^{dim A}, which the item reproduces exactly, with the two constants 1.89831 ∓ 1 as they should be. Statuses: the 3 library items' declarations all resolve at the pinned commits (Polynomial.content/IsPrimitive, Eisenstein's criterion, Tonelli with monotone convergence) and are apt; the 5 planned items cite layers that plan them — weak* compactness of probability measures at Tau Ceti's OptimalTransport layer 1 with ArithmeticStatistics ST.0, resultants and minimal polynomials at CA.3 with the Tau Ceti number-field and Galois-group roadmaps, Minkowski at GN.0/GN.1, and the Weil bound at WeightsInEtaleCohomology R34.1/R34.2 with DeligneWeightsAndPurity DWP.1. All 48 missing items are routed exactly once. The extraction records no sourceIssues. I checked the historical constants and the headline statements of §1 and Corollary 1.3 and found nothing to record; I did not read all 47 pages hunting for mistakes, and record none — an empty sourceIssues is a claim about what the extraction found, and this review does not turn it into a claim that the paper is error-free. python3 scripts/check_paper.py reports ok."
+}
