@@ -42867,9 +42867,9 @@
    "owner": "PAPER-ESNAULT-GROECHENIG-20",
    "file": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
    "citation": "Esnault–Groechenig, \"Rigid connections and F-isocrystals\", Acta Mathematica (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ESNAULT-GROECHENIG-20",
+   "reviewReason": "Confirmed. The introduction on p.106 prints 'An irreducible flat connection (E,∇) with torsion determinant L is called cohomologically rigid, if [(E,∇)] is a reduced isolated [point of] M_dR(X,L,r). This is equivalent to vanishing of H¹_dR(X,(End(E),∇)) = 0', with the full endomorphism bundle, while §7 on p.148 writes 'an irreducible connection (E,∇) with determinant L on X over C is called cohomologically rigid if H¹(X, End⁰(E,∇)) = 0'. On a fixed-determinant moduli space the trace-free version is the right one, so the introduction's End(E) should be End⁰(E)."
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20/E2",
@@ -42891,9 +42891,9 @@
    "owner": "PAPER-ESNAULT-GROECHENIG-20",
    "file": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
    "citation": "Esnault–Groechenig, \"Rigid connections and F-isocrystals\", Acta Mathematica (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ESNAULT-GROECHENIG-20",
+   "reviewReason": "Confirmed at the locator. Page 118 prints 'It is clear that there is at most one such a ∈ A_{Z′,r}(S) with this property, since a and b are monic polynomials', in the construction of the degree-r factor a of b with M scheme-theoretically supported on Z′_a. Monicity gives uniqueness of a factorisation only over a reduced base; over a non-reduced S a monic polynomial can factor in several ways, so both the uniqueness claim and the essential-image half of Theorem 2.17 need the hypothesis the correction adds."
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20/E3",
@@ -42915,9 +42915,9 @@
    "owner": "PAPER-ESNAULT-GROECHENIG-20",
    "file": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
    "citation": "Esnault–Groechenig, \"Rigid connections and F-isocrystals\", Acta Mathematica (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ESNAULT-GROECHENIG-20",
+   "reviewReason": "Confirmed as a gap. Page 127 prints 'By construction, the family (E_{T^{(m−1)}_t}, ∇_{T^{(m−1)}_t}) has the property that χ_dR(…) is a morphism T^{(m−1)}_t → A⁰, and therefore it factors through A⁰(m−1), but not through A(k−1) for k < m.' The first half is automatic for the (m−1)-st order neighbourhood; the second is not, since truncating a deformation can lower the order at which its Hitchin invariant becomes non-constant, as the correction records."
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20/E4",
@@ -42939,9 +42939,9 @@
    "owner": "PAPER-ESNAULT-GROECHENIG-20",
    "file": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
    "citation": "Esnault–Groechenig, \"Rigid connections and F-isocrystals\", Acta Mathematica (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ESNAULT-GROECHENIG-20",
+   "reviewReason": "Confirmed. Definition 5.2 on p.139 prints 'One denotes by Def_ϱ: Art_F → Sets the functor sending a finite-dimensional commutative local F-algebra A to the set of isomorphism classes of continuous representations ϱ′: Γ → GL(r,A), such that there exists a finite field extension F′/F, an F-morphism A → F′, and an isomorphism (ϱ′)_{F′} ≅ ϱ_{F′}', with no determinant condition, while the rest of the paper — and Lemma 5.6's comparison with the fixed-determinant moduli space — works with fixed determinant."
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20/E5",
@@ -42963,9 +42963,9 @@
    "owner": "PAPER-ESNAULT-GROECHENIG-20",
    "file": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
    "citation": "Esnault–Groechenig, \"Rigid connections and F-isocrystals\", Acta Mathematica (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ESNAULT-GROECHENIG-20",
+   "reviewReason": "Confirmed as a gap. Page 154 prints 'On the other hand, m*θ − r*θ ∈ Ker(H⁰((Z′_a)_p, Ω¹_{(Z′_a)_p/Spec k[t]/(t−1)^p}) → H⁰(Z′_a, Ω¹_{Z′_a})). Thus, m*θ − r*θ has support in Z′_p ⊂ T*Z′ ×_k G_m, where Z′ ⊂ T*Z′ is the zero-section.' Vanishing after restriction along that map does not localise the form to the zero-section, so the support assertion does not follow, and what the argument needs is the statement about φ(m*θ − r*θ) the correction gives."
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20/E6",
@@ -42987,9 +42987,9 @@
    "owner": "PAPER-ESNAULT-GROECHENIG-20",
    "file": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
    "citation": "Esnault–Groechenig, \"Rigid connections and F-isocrystals\", Acta Mathematica (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ESNAULT-GROECHENIG-20",
+   "reviewReason": "Confirmed as a gap. Page 146 prints 'Since there are infinitely many prime numbers p such that there exists a good closed point s ∈ S (Lemma 5.11), we conclude that the Kodaira–Spencer class vanishes everywhere on X_S.' Vanishing of gr(∇_s) at the good points of infinitely many fibres does not by itself give vanishing on X_S; the repair the correction records — invert a non-zero coefficient of gr(∇_S), that is shrink S, which Lemma 5.11's own proof allows — is what makes the deduction work."
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20/E7",
@@ -43011,9 +43011,9 @@
    "owner": "PAPER-ESNAULT-GROECHENIG-20",
    "file": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
    "citation": "Esnault–Groechenig, \"Rigid connections and F-isocrystals\", Acta Mathematica (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ESNAULT-GROECHENIG-20",
+   "reviewReason": "Confirmed. Remark 2.16(a) on p.116 prints 'The vector space of degree-r sections in H⁰(Z′, Sym^• Ω¹_{Z′}[λ]) is isomorphic to A_{Z′,r}(k)', where the Hitchin base parametrises monic characteristic polynomials with vanishing subleading term; the space of all degree-r sections is larger, and the right statement is the one in the correction."
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20/E8",
@@ -43035,9 +43035,9 @@
    "owner": "PAPER-ESNAULT-GROECHENIG-20",
    "file": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
    "citation": "Esnault–Groechenig, \"Rigid connections and F-isocrystals\", Acta Mathematica (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ESNAULT-GROECHENIG-20",
+   "reviewReason": "Confirmed. Definition 4.1(b) on p.129 defines C₁ as the composition C^{−1} ∘ (w^{−1})* ∘ ι, i.e. as an inverse-Cartier functor, and (c) then writes the fixed-point isomorphism as φ: C₁^{−1}(gr_F(H), gr_F(∇)) ≅ (H,∇), applying the inverse of that functor; Theorem 4.5 names the level-n version C_n^{−1}. One of the two namings has to change, as the correction says."
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20/E9",
@@ -43059,9 +43059,9 @@
    "owner": "PAPER-ESNAULT-GROECHENIG-20",
    "file": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
    "citation": "Esnault–Groechenig, \"Rigid connections and F-isocrystals\", Acta Mathematica (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ESNAULT-GROECHENIG-20",
+   "reviewReason": "Confirmed at the locator. Proposition 4.10 and the two displays after it are printed on p.133 as quoted, with the index a absent from the term it is supposed to index and with d and R where d−1 and r are meant."
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20/E10",
@@ -43083,9 +43083,9 @@
    "owner": "PAPER-ESNAULT-GROECHENIG-20",
    "file": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
    "citation": "Esnault–Groechenig, \"Rigid connections and F-isocrystals\", Acta Mathematica (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ESNAULT-GROECHENIG-20",
+   "reviewReason": "Confirmed. Page 108 prints 'A Higgs bundle on Z is a pair (V,θ), where V is a vector bundle and θ: V → V ⊗ Ω¹_X is an O-linear map satisfying the integrality condition θ ∧ θ = 0', and repeats 'integrality condition' for ∇² = 0 in the next sentence: the condition is integrability, and the base is Z, not X. The remaining index slips in the list are of the same kind."
   },
   {
    "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E1",
@@ -49882,9 +49882,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed. Page 9 prints 'Since the action of θ on V is of finite order, each θ-orbit on Ω is a finite set. Therefore (a) Each θ-twisted conjugacy class of W̃ intersects only finitely many W_a cosets.' The image in Ω = W̃/W_a of the θ-twisted class of w is not a θ-orbit but the coset [w] + (1 − θ)Ω, since Ω is abelian and [xwθ(x)^{-1}] = [w] + (1 − θ)[x]. That set is finite exactly when (1 − θ)Ω is finite, which is the hypothesis the correction adds; finiteness of the θ-orbits does not give it, as Ω = Z² with θ swapping the factors shows, where (1 − θ)Ω is infinite while every θ-orbit has at most two elements."
   },
   {
    "id": "PAPER-HE-18/E2",
@@ -49904,9 +49904,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed. Page 20 prints 'By the Newton decomposition G = ⊔_{ν∈ℵ} G(ν), we have that J(G) = ⊕_{ν∈ℵ} J(G(ν))'. J is the R-dual of the Hecke module, and the dual of a direct sum is the product of the duals, so both this display and the target of the restriction map in Theorem 22 are products."
   },
   {
    "id": "PAPER-HE-18/E3",
@@ -49926,9 +49926,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed. Theorem 20 states that J(G(ν))|_{H_R(G,I_n)} 'is generated by N_ν[I : I_n] elements', while the proof on p.21 bounds the number of generators of H̄_R(G, I_n; ν) by N_ν[I : I_n] and passes to the R-dual. A dual of a module generated by N elements embeds in R^N but need not be finitely generated over a general commutative Z[1/p]-algebra, so the statement as printed needs R noetherian, as the correction records."
   },
   {
    "id": "PAPER-HE-18/E4",
@@ -49948,9 +49948,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed. Page 24 prints H_{(P,τ),(Q,γ),x} = {(f, −^{ẋ}f); f ∈ H_R(Pτ̇) with support in Pτ̇ ∩ ẋQγ̇θ(ẋ)^{-1}}, where the support condition transports from Pτ̇ by ẋ^{-1}, so the second entry has to be the ẋ^{-1}-translate with the ω(ẋ)^{-1} the twisted action carries."
   },
   {
    "id": "PAPER-HE-18/E5",
@@ -49970,9 +49970,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed as a gap. Page 17 prints 'Note that Ĭ_n ∩ gĬ_ng^{-1} is a pro-p subgroup of Ĭ_n. Thus any element in (Ĭ_n/(Ĭ_n ∩ gĬ_ng^{-1}))^σ can be lifted to an element in Ĭ_n^σ = I_n.' Being pro-p gives no σ-descent by itself; what makes σ-fixed points lift is Lang's theorem for a connected (pro-)unipotent group over the residue field, which is the hypothesis the correction supplies."
   },
   {
    "id": "PAPER-HE-18/E6",
@@ -49992,9 +49992,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed as a gap over the printed coefficient ring. The proof of Theorem 23 argues through finite dimensionality and duality — p.25 already says 'For any standard pair (P,τ), H_R(Pτ̇, I_n) is finite dimensional' and deduces that a restriction is finite dimensional — but R is only a commutative Z[1/p]-algebra, where 'dimension' and the detection of relations by the R-dual are unavailable. Over a field the argument is the standard one."
   },
   {
    "id": "PAPER-HE-18/E7",
@@ -50014,9 +50014,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed. On p.13 the conclusion reads 'there exists y, y′ ∈ W_a with ℓ(y), ℓ(y′) ≤ N_0 such that t^{lλ_2} = y t^{lλ_1} y′', and the next sentence writes y = y_0t^μ and y′ = t^{μ′}y″ with y_0, y″ ∈ W_0 and μ, μ′ in the cocharacter lattice — elements of W̃, not of W_a."
   },
   {
    "id": "PAPER-HE-18/E8",
@@ -50036,9 +50036,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed. Page 6 prints 'Set V = X_*(Z)_{Gal(F̄/F)} ⊗ R' and 'by [10] W̃ ≅ X_*(Z)_{Gal(F̄/F)} ⋊ W_0'. For G not quasi-split, Z = Z_G(A) is not a torus and X_*(Z) is not the right object; the Iwahori–Weyl group is built from Λ = Z(F)/Z_0, as the correction says."
   },
   {
    "id": "PAPER-HE-18/E9",
@@ -50058,9 +50058,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed. Page 10 prints '(2) G ·_θ IẇI = G ·_θ IṡẇI ⊔ G ·_θ Iṡẇθ(ṡ)I for s ∈ S̃ with sws < w', where the twisted setting makes the relevant length condition swθ(s) < w; the same twisted-product slips recur in Lemma 17 and §6.2 as the correction lists."
   },
   {
    "id": "PAPER-HE-18/E10",
@@ -50080,9 +50080,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed. The contracted-product action printed on p.17 reads (i_1,…,i_k)·(g_1,…,g_k) = (g_1i_1^{-1}, i_1g_1i_2^{-1}, …, i_{k−1}g_ki_k^{-1}), where the second entry repeats g_1 instead of g_2; the remaining slips are of the same kind."
   },
   {
    "id": "PAPER-HE-18/E11",
@@ -50102,9 +50102,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed. The displays after the definition of N_0 on p.13 print θ^{nl}(ż)^{-1}, while n_0 is the integer fixed two lines above by (x_iθ)^{n_0} = t^{λ_i}, and the surrounding displays use θ^{n_0l}."
   },
   {
    "id": "PAPER-HE-18/E12",
@@ -50124,9 +50124,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed. Page 6 prints 'we define a Z[1/p]-valued Haar measure µ_G by µ_G(K, µ) = [K : K ∩ I′]/[I′ : K ∩ I′] for any open compact subgroup K of G' and then 'Thus µ_G(K, µ) ∈ Z[1/p] for all K': the measure takes one argument, and the stray µ appears twice."
   },
   {
    "id": "PAPER-HE-18/E13",
@@ -50146,9 +50146,9 @@
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
    "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HE-18",
+   "reviewReason": "Confirmed. Page 7 prints 'Since the volume of each double coset of K is a power of p, µ_G(p^{-1}(KgK))/µ_G(KgK) ∈ Z[1/p]', where p : X × Y → XY, so p^{-1}(KgK) is a subset of G × G and its measure is µ_{G×G}."
   },
   {
    "id": "PAPER-HE-21/E1",
