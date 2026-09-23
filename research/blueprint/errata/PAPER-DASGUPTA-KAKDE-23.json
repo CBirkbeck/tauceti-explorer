@@ -5,18 +5,27 @@
     {
       "id": "PAPER-DASGUPTA-KAKDE-23/E1",
       "kind": "misprint",
-      "locator": "Proposition 8.6, displayed formula, in arXiv 2010.00657v3 (5 September 2022; the authors' final version, source dated 14 May 2022) and in the 14 May 2022 PDF on M. Kakde's homepage, p.52. The February 2022 version on S. Dasgupta's homepage (p.53) does not have it. The published version, Annals of Mathematics 197 (2023), 289–388, could not be checked (paywalled).",
+      "locator": "Proposition 8.6, displayed formula: arXiv 2010.00657v3 (5 September 2022; PDF/source dated 14 May 2022), p.52, and Kakde’s 14 May 2022 author PDF, p.52. Dasgupta’s 15 February 2022 author PDF, p.53, has no stray factor. All three retrieved PDFs have 99 pages. Scope: confirmed in the named preprints only; the published Annals of Mathematics 197 (2023), 289–388 version was not accessible for comparison.",
       "printed": "\"For a cusp [𝒜] ∈ C₀(𝔠, 𝔫), the normalized constant term c_𝒜(0, W_k(ψ_𝔓, 1)) equals 𝔱 · τ(ψ)/N𝔠₀^k · sgn(N(−c)) ψ(𝔠_𝒜) · L(ψ^{−1}, 1−k)/2^n · ∏_{𝔭|𝔓}(1 − ψ(𝔭)/N𝔭^k) · ∏_{𝔩∈J_𝔱}(1 − ψ(𝔩)) · ∏_{𝔩∈J_𝔱^c}(1 − N𝔩^k).\"",
       "correction": "Delete the leading 𝔱: c_𝒜(0, W_k(ψ_𝔓, 1)) = τ(ψ)/N𝔠₀^k · sgn(N(−c)) ψ(𝔠_𝒜) · L(ψ^{−1}, 1−k)/2^n · ∏_{𝔭|𝔓}(1 − ψ(𝔭)/N𝔭^k) · ∏_{𝔩∈J_𝔱}(1 − ψ(𝔩)) · ∏_{𝔩∈J_𝔱^c}(1 − N𝔩^k).",
-      "reason": "𝔱 is an integral ideal (the auxiliary modulus of §8.1), not a scalar, so the printed product has no meaning. The proof computes the constant term as the displayed expression with Σ_{𝔪|𝔱} μ(𝔪) ∏_{𝔩∈J_𝔪^c} N𝔩^k ∏_{𝔩∈J_𝔪} ψ(𝔩) in place of the last two products, and evaluates that sum by the Möbius identity; no factor 𝔱 appears. The February 2022 version prints the formula without it (with 𝔮 for 𝔩). Checked on the page images of both author versions and in the arXiv v3 source (`\\ft` at the start of the display). Noted by the extraction (item 221).",
+      "reason": "The auxiliary ideal 𝔱=∏_{𝔩∈T}𝔩 in §8.1 is not a scalar. More decisively, applying Proposition 8.4 to Definition 8.2 gives the common scalar prefactor times Σ_{𝔪|𝔱} μ(𝔪)∏_{𝔩∈J_𝔪}ψ(𝔩)∏_{𝔩∈J_𝔪^c}(N𝔩)^k. Since 𝔱 is squarefree, this sum is ∏_{𝔩∈J_𝔱}(1−ψ(𝔩))∏_{𝔩∈J_𝔱^c}(1−(N𝔩)^k). Thus deletion, not replacement by N𝔱, is the correction. The proof on p.53 has exactly this scalar expression. In the earlier February copy, the auxiliary ideal is named 𝔩 and the prime index is 𝔮; its p.53 display has no extra auxiliary-ideal factor. The arXiv TeX at label p:nop literally begins the display with \\ft. Extraction item 221 already uses the corrected statement.",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals of Mathematics article page https://annals.math.princeton.edu/2023/197-1/p05, checked 22 September 2026: no erratum is linked; the published text itself is paywalled",
         "arXiv 2010.00657: v1 (1 October 2020), v2 (6 November 2020), v3 (5 September 2022, the latest); v3 has the slip",
         "authors' pages: S. Dasgupta's homepage PDF (February 2022, no slip) and M. Kakde's homepage PDF (14 May 2022, has the slip); neither lists a correction",
-        "web search for an erratum, corrigendum or correction, 22 September 2026: none found"
-      ]
+        "web search for an erratum, corrigendum or correction, 22 September 2026: none found",
+        "Independent review, 23 September 2026: https://annals.math.princeton.edu/2023/197-1/p05 links no erratum; its published full-text destination could not be read. The attempted Project Euclid PDF returned an HTML access challenge, not article text. No claim about the journal formula follows.",
+        "Independent review, 23 September 2026: https://arxiv.org/abs/2010.00657 still lists v3 (5 September 2022) as latest; freshly retrieved https://arxiv.org/pdf/2010.00657v3 and https://arxiv.org/src/2010.00657v3 both contain the slip.",
+        "Independent review, 23 September 2026: https://sites.math.duke.edu/~dasgupta/ and https://math.iisc.ac.in/~maheshkakde/research.html list no correction; fetched https://sites.math.duke.edu/~dasgupta/papers/Brumer-Stark.pdf (15 February 2022, no slip) and https://math.iisc.ac.in/~maheshkakde/brumerstark.pdf (14 May 2022, slip present). The correct earlier copy is not a later correction.",
+        "Independent web searches, 23 September 2026: title with erratum/correction; exact Brumer-Stark + Proposition 8.6 + correction; DOI with erratum/corrigendum. No correction found. New means none found in this bounded search, not priority of discovery."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked fresh PDF page images in all three named preprints, arXiv TeX, Definitions 8.2–8.3, Proposition 8.4, Remark 8.5, and the Proposition 8.6 proof. Expanding the squarefree divisor sum proves the proposed deletion. Proposition 8.11 equation (101) uses the corrected value, so misprint/affects nothing is appropriate in §18’s intended-mathematics sense. Kept the correction and reach; clarified the older notation, page count, search scope, and that the journal version remains unverified. This verdict confirms E1 only in arXiv v3 and the May author copy, not persistence in the published article. No additional finding established in the inspected passages.",
+        "by": "REV-ERRATA-PAPER-DASGUPTA-KAKDE-23"
+      }
     }
   ]
 }
