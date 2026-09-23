@@ -578,8 +578,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CALMES-ETAL-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1055"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1055",
+   "finishedAt": "2026-09-23T10:30:24Z"
   },
   {
    "id": "REV-PAPER-CALMES-ETAL-26",
