@@ -822,8 +822,9 @@
    ],
    "avoidAccountOf": "PAPER-LAWRENCE-SAWIN-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-LAWRENCE-SAWIN-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1068"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1068",
+   "finishedAt": "2026-09-23T15:45:01Z"
   },
   {
    "id": "PAPER-KISIN-ZHOU-25",
@@ -860,7 +861,8 @@
    ],
    "avoidAccountOf": "PAPER-KISIN-ZHOU-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-KISIN-ZHOU-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1070"
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24",
@@ -1159,8 +1161,9 @@
    ],
    "avoidAccountOf": "PAPER-CAI-FRIEDBERG-KAPLAN-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-CAI-FRIEDBERG-KAPLAN-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1086"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1086",
+   "finishedAt": "2026-09-23T15:45:04Z"
   },
   {
    "id": "PAPER-SCHROER-23",
@@ -1197,7 +1200,8 @@
    ],
    "avoidAccountOf": "PAPER-SCHROER-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHROER-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1088"
   },
   {
    "id": "PAPER-DASGUPTA-KAKDE-23",
@@ -11446,7 +11450,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #128"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight",
@@ -11627,8 +11632,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #133"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #133",
+   "finishedAt": "2026-09-23T15:45:08Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -11808,8 +11814,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #138"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #138",
+   "finishedAt": "2026-09-23T15:45:12Z"
   },
   {
    "id": "BP-K3BlochGroups",
