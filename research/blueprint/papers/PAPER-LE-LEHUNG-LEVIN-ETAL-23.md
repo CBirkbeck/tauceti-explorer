@@ -1,3 +1,106 @@
+# LLHLM23 base-change continuation — Codex, codex-a71f92
+
+23 September 2026. Refs #1254. Continues the reconciled #2317/#2318 checkpoint, not either pre-merge branch.
+
+Partial: **510 items (61 library, 18 planned, 431 missing), 19 routes, 42 unchanged unreviewed findings.** Of 156 definitions/constructions, 91 have literal itemwise uses/API and at least three typed tests; 65 remain. No Lean file is required or compiled, and no implementation or independent review is claimed.
+
+## What this continuation establishes
+
+A59–A62 separate four inputs previously hidden in A30's global supplier boundary:
+
+| Item | Contract | Existing owner |
+| --- | --- | --- |
+| A59 | Compact-unitary base change, discrete constituents and comparison at split places, with the actual degree restriction | EndoscopicTransferAndUnitaryTraceComparison ET.7a, using ET.4 |
+| A60 | Discrete Speh quotient with the symmetric normalized exponent string; consumer-derived API and four typed tests | ET.7a |
+| A61 | Number-field discrete GL spectrum classified by these quotients, including genuinely residual blocks | ET.7a |
+| A62 | Given the actual compatible Galois direct-sum isomorphism, absolute residual irreducibility forces one block of length one | AutomorphicGaloisRepresentationsPartII AG2.2/AG2.7, importing A50 |
+
+The first three share one new source route to the existing endoscopic roadmap; A62 extends the existing AG2 source route. No new roadmap or alternate automorphic/Galois carrier is proposed. The old eighteen route identities and every missing item's unique route are preserved. A30 alone receives additional prerequisites and a qualified proof-outline continuation; no previous item's statement, status, API or tests changed.
+
+## Source result versus missing comparison
+
+Labesse's Corollary 5.3 gives a discrete base-change decomposition with local comparison at split/unramified places. Compact infinity supplies its sign condition. Its standing restriction [F+:Q]>1 is available: LLHLM Section 9.1 explicitly excludes F+=Q. Discrete summands must not silently be called cuspidal. The stronger nonsplit-place conclusion of Labesse5.9 assumes cuspidality and the stated quasi-split condition; it is not needed to manufacture a split-place comparison. [Labesse author preprint, pp.1–2,42–44,49–50](https://www.imj-prg.fr/fa/bpFiles/Labesse2.pdf)
+
+A60/A61 preserve the residual alternative: the normalized exponents are (b−1)/2, (b−3)/2, ..., (1−b)/2, and the representation is the irreducible **quotient**. The rank-one/b=2 local example is the character of GL2, not Steinberg; this prevents confusing a residual Speh quotient with the other constituent's nonzero monodromy. The classification is a named existing ET.7a proof target, not a fresh proof of the entire spectral theorem. [Mœglin–Waldspurger, printed605–607](https://www.numdam.org/article/ASENS_1989_4_22_4_605_0.pdf)
+
+A62 is an explicit elementary adapter, conditional on the missing Galois realization. By A50, the stable lattice's absolutely irreducible residual representation makes its characteristic-zero representation absolutely irreducible. In an equivariant direct sum with at least two nonzero summands, any one summand is a proper invariant subspace. Therefore the sum of the positive block lengths is one. This rules out both multiple isobaric constituents and a single residual block of length greater than one. Repeated characters cause no exception.
+
+The premise matters: a rank equation or an automorphic decomposition alone is not a Galois-equivariant isomorphism. Still required are the algebraic normalization of each cuspidal factor, the exact character/cyclotomic twists in its Galois representation, Frobenius-polynomial comparison and semisimple uniqueness. The global Whittaker-to-local-genericity step, sigma(lambda,tau)^* coefficient/type dictionary, and integral deformation-quotient point criterion also remain open. A55's monodromy inequality must not be upgraded to equality using EGH's semisimplified coefficient-prime comparison.
+
+## White version warning, not a new erratum verdict
+
+The author-hosted EGH proof of Theorem7.2.1 cites White Theorem6.1 and Remark6.3. White's June2011 IHES PDF lacks that remark; arXiv v7 contains it, while v8 is an author withdrawal dated2012-12-07 citing an error in the main proof. Neither historical copy is treated as an unqualified proof certificate here. [EGH, p.56](https://math.uchicago.edu/~emerton/pdffiles/egh.pdf), [White version history and withdrawal](https://arxiv.org/abs/1106.1127)
+
+I have not located the precise faulty White argument or audited subsequent repairs. The withdrawal does not by itself show that White6.3, EGH7.2.1 or LLHLM's theorem is false. Accordingly this is recorded in source provenance and the explicit source-version gap, not appended as a newly confirmed sourceIssue. All forty-two inherited findings remain verbatim, unreviewed.
+
+## Reading and library scope
+
+Fresh targeted main-paper reading: published LLHLM PDF49–53,180–182,188–190,196–198. The inherited full main-paper reading remains attributed to codex-7e92bd.
+
+Fresh suppliers:
+
+- EGH PDF51–56 and Section4.1.1 coefficient convention.
+- Labesse author-preprint selected passages on pp.1–3,41–44,48–50, including the full Corollary5.3 proof and Theorem5.9 proof. Image p.43 checked. This is not a published-pagination equivalence claim or a full trace-formula audit.
+- Mœglin–Waldspurger printed605–607/PDF2–4, including the introduction theorem and normalized induction convention; image printed605 checked. The rest of the seventy-page proof is not claimed read.
+- White v7 Section6 through the displayed spectral-decomposition argument, the earlier IHES Proposition2.1/6.1/6.2 comparison, and the arXiv withdrawal metadata, solely to qualify the citation chain.
+
+The source URLs, retrieval dates and SHA-256 values are in source.continuationReadings. New PDF hashes:
+
+| Source | SHA-256 |
+| --- | --- |
+| Labesse53-page author preprint | `c85a0fde13266e3ed6c76d34330b4c51023376f8fe25406da0370fa47c5a45d2` |
+| Mœglin–Waldspurger published scan | `a46e3549d05d2cd39f396ef326840f4484f3935ff3daa17e6339091962de9e94` |
+| White v7, withdrawn work | `348488c5c066038b2425117bb946243767fe62171791c4786f80381dbef36710` |
+| White earlier IHES copy | `f7513bf17a48535ea73a7a776e5d198e3a75a79767de7865912c8534ec97fa89` |
+
+The EGH bytes match the earlier recorded `1a5f6d23149f530603d961e239ef9990bd02e9aca912a6e4483978da6f2689b0`. LLHLM uses the already fetched published PDF with hash `e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`.
+
+Read the relevant reviewed AG2 coverage entries, ET.4/6/7a and AG2.0/1a/2/5/6/7 stage contracts, and alternative AF/SR/GL2-form ownership candidates. Exact-family keyword searches across both pinned Lean trees found no corresponding base-change/Speh implementation; the only Whittaker hit was the analyst's name in a bibliography. This narrow search is not an exhaustive absence theorem. All four new items are **planned** because the specific existing layers explicitly own them. No new library declaration is asserted. Existing ET.7a supplies the automorphic branch without IG/Igusa concentration.
+
+## Validation and reproducibility
+
+Base snapshot: `eb1e3cd2954d8c15df51f330604a9c9c490d8fc0`.
+
+Guarded original deliverables:
+
+- Result: `4cdff1507f305fea2d5155f8d888810c5b3a593109be0b67a220a99dbce2cb3f`.
+- Report: `1c87f6d9402a8115a4aa4dd636fccce94cf70a806fe8ae1bddc2ee8ea5e1ffc6`.
+- Handoff: `c43d3316b09652b40efbfb73a4d3df2d2ccd32d7c24ec9f8ecb874ead2e8e7ec`.
+
+The paper checker passes. Unit suites test_check_paper, test_papers_queue and test_intake pass: 9 + 3 + 29 = 41 tests. The separate standard-library audit checks all item IDs, one route per missing item, all 506 old statements/statuses/APIs/tests, every original finding, all AppendixB data and ownership reconciliation. The only changed old item is A30's prerequisites/proofOutline. The recorded internal dependency graph has 288 edges and is acyclic.
+
+Fresh finite diagnostics check 4,339 positive-dimension block configurations of total rank at most12: four single-summand cases and 4,335 proper-summand controls. Twelve symmetric rational exponent strings and eighty-four uniform-twist checks pass. They test the rank/exponent arithmetic, not automorphic or Galois theorems. Core diagnostic:
+
+```python
+from fractions import Fraction
+from itertools import product
+for r in range(1, 5):
+    for pairs in product(list(product(range(1, 5), repeat=2)), repeat=r):
+        n = sum(m*b for m, b in pairs)
+        if n > 12:
+            continue
+        if sum(b for m, b in pairs) == 1:
+            assert r == 1 and pairs[0][1] == 1 and n == pairs[0][0]
+        else:
+            assert 0 < pairs[0][0] < n
+for b in range(1, 13):
+    e = [Fraction(b-1, 2)-j for j in range(b)]
+    assert sum(e) == 0 and e == [-x for x in reversed(e)]
+    assert all(e[j]-e[j+1] == 1 for j in range(b-1))
+    for t in range(-3, 4):
+        shifted = [x+t for x in e]
+        assert sum(shifted) == b*t
+        assert all(shifted[j]-shifted[j+1] == 1 for j in range(b-1))
+```
+
+The final intake check passes: 3 files, 0 problems. Fresh main `f9d7f937e0a52bd35d154725f40bf76094f73abc` retained all three original deliverables and all 309 guarded inputs (atlas, reviewed coverage, binding instructions, content Markdown and existing roadmap/packet JSON) byte-for-byte. The three-file patch was replayed and retested on that base. No Lean elaboration was attempted.
+
+## Resume
+
+Start with the exact Speh-factor algebraic/Galois twist realization into AG2.2, then complete the local genericity, dual-coefficient/type occurrence and integral point criterion. Do not repeat the Labesse/Mœglin–Waldspurger statement search or infer it from the withdrawn White source. Retain every other inherited gap and the sixty-five remaining definition APIs. The following earlier reports are preserved verbatim as history.
+
+---
+
 # LLHLM23 continuation — Claude Code, cc-442dc5, 23 September 2026
 
 This is a **partial checkpoint**, continuing PR #2301. It is now merged with the concurrent codex-7e92bd checkpoint #2317. It keeps that checkpoint's 506 items (61 library, 14 planned, 431 missing), 18 routes and 40 unreviewed source findings unchanged, and adds two new unreviewed findings, E41 and E42. No statement, status, route, inherited finding or ID was altered, and no Lean file was written or compiled.

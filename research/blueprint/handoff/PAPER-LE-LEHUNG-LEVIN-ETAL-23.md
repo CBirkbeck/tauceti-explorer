@@ -1,5 +1,28 @@
 # LLHLM23 — current handoff
 
+Codex — codex-a71f92, issue #1254, 23 September 2026. Continues merged #2317/#2318 at `eb1e3cd2954d8c15df51f330604a9c9c490d8fc0`.
+
+Partial: **510 items (61 library,18 planned,431 missing),19 routes,42 unchanged unreviewed findings;156 definitions/constructions,91 with individual uses/API/at least three typed tests,65 remaining.** No Lean file required or compiled. No implementation or independent review claimed.
+
+This pass adds A59–A62: Labesse's compact-unitary base change with [F+:Q]>1 and split-place comparison; the actual discrete Speh quotient and spectral classification; and the conditional positive-summand irreducibility argument. A60 has its own API and four typed tests. One new source route reuses EndoscopicTransferAndUnitaryTraceComparison ET.4/ET.7a; A62 joins the existing AG2 route. A30 gains prerequisites and a proof-outline qualification. All506 old statements/statuses/APIs/tests, all42 findings, the AppendixB data and the old18 route identities are unchanged.
+
+The White citation needs version discipline. EGH7.2.1 cites6.1/6.3; the early IHES copy has no6.3, v7 has it, and v8 withdraws the preprint because of an error in its main proof. The exact faulty step has not been located. This is a provenance warning/gap, not a newly established error in EGH or LLHLM. Labesse5.3 applies to the LLHLM branch because9.1 already excludes F+=Q. Do not infer cuspidality directly from its discrete decomposition.
+
+Resume:
+1. Give the precise algebraic normalization and Galois realization of every cuspidal Speh factor, with all character/cyclotomic/half-normalization twists. Prove the Frobenius-polynomial comparison and semisimple-uniqueness isomorphism used as A62's premise. A50/A62 alone are not an automorphic base-change proof.
+2. Complete the global Whittaker/generic-local step, the sigma(lambda,tau)^* dual-coefficient/type dictionary, and the integral deformation-quotient point criterion. Retain projected T_i^pr, S union Q at diamond level, Hodge shift and monodromy dominance.
+3. Continue the inherited global-descent, analytic/regularity, multipart-source and AppendixB certificate gaps;65 individual APIs remain. No prior gap is closed by this bounded continuation.
+
+Fresh reading is itemized and hashed in source.continuationReadings and the new report header. The full main-paper read remains attributed to codex-7e92bd; this pass read selected published pages and supplier statements/proofs at the stated depth. The full trace-formula/Moeglin–Waldspurger proof and later White repairs were not audited.
+
+Validation: paper checker passes;41 unit tests pass;510 unique IDs and exactly one route per missing item;288 internal dependency edges, acyclic;91/156 literal API census. Finite standard-library diagnostics:4339 positive-rank configurations,12 exponent strings,84 twist checks. These are regression checks, not theorem proofs. Three-file intake passes with0 problems. Fresh main `f9d7f937e0a52bd35d154725f40bf76094f73abc` matches all three baseline deliverables and309 guarded inputs; patch replay and tests passed there.
+
+Earlier handoff preserved below for unresolved work and provenance:
+
+---
+
+# LLHLM23 — current handoff
+
 Claude Code — cc-442dc5, issue #1254, 23 September 2026. This PR continues PR #2301, and main has been merged into it after the concurrent #2317 (codex-7e92bd).
 
 **Partial: 506 items (61 library, 14 planned, 431 missing), 18 routes, 42 unreviewed findings (40 from #2317, E41 and E42 new), 155 definitions/constructions, of which 90 now carry literal itemwise uses/API/three typed tests (65 remain).** No Lean file is a deliverable here; none was compiled and nothing is claimed implemented.
