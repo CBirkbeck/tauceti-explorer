@@ -1,22 +1,36 @@
-# PAPER-WITASZEK-22 — published-source and surface-proof continuation
+# PAPER-WITASZEK-22 — Stein factorization and surface Euler correction
 
-Status: **partial checkpoint**. Codex session `codex-c83e7a`, 22 September 2026. Refs [#1101](https://github.com/CBirkbeck/tauceti-explorer/issues/1101). Continues codex-a71f92 ([PR1680](https://github.com/CBirkbeck/tauceti-explorer/pull/1680)) and cc-fb70e5 ([PR1834](https://github.com/CBirkbeck/tauceti-explorer/pull/1834)).
+Status: **partial checkpoint**. Codex `codex-c83e7a`, 23 September 2026. Refs [#1101](https://github.com/CBirkbeck/tauceti-explorer/issues/1101). Continues [PR2012](https://github.com/CBirkbeck/tauceti-explorer/pull/2012), retaining the earlier codex-a71f92 and cc-fb70e5 work without reviewing it.
 
-169 items: 14 pinned-library imports, 6 existing-stage imports and 149 missing items, each routed exactly once. All157 earlier IDs and six ownership routes are retained. The38 definitions/constructions retain114 API entries and114 mathematical test plans. The326 prerequisite edges are resolved and acyclic. None of these counts asserts transitive mathematical closure.
+195 items: 21 pinned-library imports, 9 existing-stage imports and 165 missing items, each routed once. There are 40 definitions/constructions with 120 API contracts and 120 proposed tests, 371 internal prerequisite edges and 19 external stage edges. The internal graph is acyclic. Seven routes and 14 source findings are recorded. These counts do not assert transitive closure or formalization.
 
-## Published source and reading boundaries
+## What this continuation establishes
 
-The complete [published paper](https://par.nsf.gov/servlets/purl/10429755), Annals of Mathematics195(2),655–705, was acquired and read through all51 pages, proofs and references. SHA-256:
+The old Stein node stated an algebraic-space theorem while citing the scheme tag03H2. Its source is now [Stacks0A1C](https://stacks.math.columbia.edu/tag/0A1C), with [0A1B](https://stacks.math.columbia.edu/tag/0A1B) supplying the locally Noetherian case. The scheme specializations remain03H2/03H0.
 
-`d71bd9254d80145a84f13059f18d37d6f777008900ab907b14d195bb61414ea0`.
+For proper f:X→Y, form Y′=Spec_Y(f_*O_X). The first map h is proper and surjective with canonical h_*O_X=O_Y′; the second is integral. Formation commutes with **flat** base change. Over a locally Noetherian target, coherent proper pushforward makes the second map finite. To prove the first map has geometrically connected fibres, a hypothetical clopen decomposition gives compatible nontrivial idempotents on every infinitesimal neighbourhood. Formal functions puts their limit in a completed strictly local ring. Its locality rules out such an idempotent. The fibre need not be affine: the existing connected-spectrum criterion alone cannot prove this step.
 
-The [journal record](https://annals.math.princeton.edu/2022/195-2/p04) supplies DOI10.4007/annals.2022.195.2.4. The separately pinned [arXivv2](https://arxiv.org/pdf/2002.11915v2),23January2022, has46 pages and SHA-256 `5ab792128995b0735311a5284620e5d14549ecc6c5be08595c5d8cdffedda842`. The earlier worker read it fully; this continuation reread pp.1–12 and selected diagnostic/version passages. Images of published662,664,673,677,679,697,701,703 were checked.
+The general-base theorem uses Noetherian approximation and descent of clopen decompositions. Those transitive limit inputs remain open. The finite conclusion is restricted to the Noetherian case; the general interface promises integrality.
 
-The prior acquisition obstruction is resolved. Principal statements and every diagnosed passage have been checked against publication. Exhaustive statement-by-statement collation remains open: automated heading extraction misidentifies line-wrapped citations and repeated theorem references. In particular, it must not mistake the BCHM citation3.9.1 for a theorem of Witaszek. The bibliography demonstrably differs: publication loses the distinction between the two2003 Keel/Keeler references.
+The normal-target specialization keeps all hypotheses: Y normal integral, X reduced, all generic points of X dominating Y, and generic global functions equal to κ(Y). The Stein algebra embeds integrally in this fraction field and equals the normal base algebra. Consequently a proper birational map of integral schemes to a normal target preserves functions. Cusp normalization, a closed-point square-zero thickening and a disjoint vertical component expose the three respective guards.
 
-The complete JSON reading log retains the earlier supporting-source boundaries. This continuation reread [Keel99](https://arxiv.org/pdf/math/9901149), printed279–282, in full, including the Euler calculation, Lemma5.2, adjunction and Lemma5.4. This does not claim that the underlying Hartshorne/Kollár duality and dévissage proofs were acquired.
+The finite locally free projection formula then identifies every line-bundle section space under a contraction, canonically and compatibly with products. If a surjective map pulls back all sections isomorphically, generation descends: any common zero downstairs remains a common zero after the residue-field extension upstairs. No flatness of the resolution is needed.
 
-## Mathematical scope
+## The surface calculation, including its differential
+
+For the given projective resolution π:T→S of a normal projective integral surface, proper coherent pushforward and regularity in codimension one give a coherent R¹π_*O_T with finite support. Fibres have dimension at most one. [Stacks02V7](https://stacks.math.columbia.edu/tag/02V7) deduces R^qπ_*O_T=0 for q≥2 from formal functions and the Noetherian **Zariski** dimension bound. Resolution existence and its normality/dimension inputs remain explicit suppliers.
+
+Let Q_m=R¹π_*O_T⊗L^m, and let ℓ=dim H⁰(S,Q_m), independent of m. More generally this dimension is the sum of local lengths weighted by residue-field degrees. A local frame preserves each length; no canonical trivialization of Q_m is asserted. The finite-support sheaf has no positive cohomology. With the canonical H⁰ comparison, Leray gives
+
+0 → H¹(S,L^m) → H¹(T,π*L^m) → H⁰(S,Q_m) → H²(S,L^m) → H²(T,π*L^m) → 0.
+
+The middle connecting map is d₂. Writing r_m for its rank,
+
+h¹(T,π*L^m)=h¹(S,L^m)+ℓ−r_m, and h²(T,π*L^m)=h²(S,L^m)−r_m.
+
+Thus **χ(S,L^m)−χ(T,π*L^m)=ℓ**. Subtract the equality at m=0 to obtain the constant correction used below. Neither vanishing of R¹π_*O_T nor vanishing of d₂ is needed. The existing Tau Ceti `AlgebraicGeometry.Scheme.Modules.eulerCharBelow` supplies the carrier with cutoff3, after proving finite-dimensionality and higher vanishing. Cutoff2 omits H²; unconstrained `finrank` is not a substitute for finiteness.
+
+## Retained paper mechanism and surface application
 
 The algebraic mechanism starts with **direct-limit multiplicative perfection**. Over mixed characteristic the p-power map need not preserve addition; the construction is a commutative monoid, and perfected line-bundle sections form sheaves of sets. The two halves of Lemma3.4 are separated: integral finite generation clears one common denominator for surjectivity, while kernel p-torsion and nilpotence, combined with binomial divisibility, yield eventual equality for injectivity.
 
@@ -34,7 +48,7 @@ Theorem6.1 proves the semiample criterion over an excellent base. Its EWM analog
 
 ## Surface Riemann–Roch and the repaired application
 
-The previous continuation gave the fibration proof for nef numerical and Iitaka dimensions one. The new decomposition first passes to a smooth projective resolution before taking moving and fixed divisors. This ensures these divisors are Cartier and supplies an explicit semiampleness descent step. The stronger usable input is two independent sections of one positive power.
+PR2012 gave the fibration proof for nef numerical and Iitaka dimensions one. That decomposition first passes to a smooth projective resolution before taking moving and fixed divisors. This ensures these divisors are Cartier and supplies an explicit semiampleness descent step. The stronger usable input is two independent sections of one positive power.
 
 Let S be a normal projective integral surface over an algebraically closed field and π:T→S a projective resolution. Normality gives π_*O_T=O_S. By projection formula, all section spaces of L^m and π*L^m agree. Generation descends because π is surjective: a common zero downstairs would remain a common zero upstairs.
 
@@ -50,7 +64,7 @@ This cancellation needs no rational-singularity hypothesis and no assumption tha
 
 −L·K_S=L·Δ+L·A>0.
 
-The last strict inequality uses Hodge index. Thus χ grows with positive slope c. The bounded H² from Keel5.4 gives h⁰(L^m)≥χ(O_S)+cm−C, so some power has at least two independent sections. The packet now separates the resolution Euler correction, normal Cartier formula, positive slope and elementary cohomology inequality.
+The last strict inequality uses Hodge index. Thus χ grows with positive slope c. The bounded H² from Keel5.4 gives h⁰(L^m)≥χ(O_S)+cm−C, so some power has at least two independent sections. The packet separates the resolution Euler correction, normal Cartier formula, positive slope and elementary cohomology inequality.
 
 On T write |mL_T|=|M|+F. Nefness gives L_T·M=L_T·F=0, followed by M²=M·F=F²=0. Two moving members with no common component and intersection zero are disjoint, so |M| is generated. Its nonconstant image is a curve; Stein factorization gives M=f*A with A ample on the base. The equality M·F=0 makes F vertical.
 
@@ -62,11 +76,20 @@ proves negative semidefiniteness and identifies the kernel with Q·m. Group F by
 
 `gap-surface-nef-repair` is resolved at this application level. The exact general resolution, Hodge index, intersection projection, cohomological-dimension, duality and dévissage inputs remain under the named foundation gaps. This is an explicit conditional proof plan, not a claim that these prerequisites are formalized or transitively closed.
 
-The `surface-h2-bound` supplier now states the actual line-bundle theorem in Keel5.4. The old arbitrary-coherent-F top-cohomology statement was an unverified strengthening. Keel’s auxiliary coherent-sheaf assertion instead concerns sections of F tensored with negative nef powers.
+The retained `surface-h2-bound` supplier states the actual line-bundle theorem in Keel5.4. The old arbitrary-coherent-F top-cohomology statement was an unverified strengthening. Keel’s auxiliary coherent-sheaf assertion instead concerns sections of F tensored with negative nef powers.
 
-## Source findings
 
-The JSON now records11 `sourceIssues` according to PROTOCOL§18, with precise locators, short source excerpts, corrections, reasons and bounded correction searches. All await independent review; no reviewer verdict is supplied. The previous diagnostics D1–D9 remain, with explicit continuation assessments rather than silent deletion.
+## Source acquisition and reading boundaries
+
+PR2012 acquired and read all 51 pages of the [published paper](https://par.nsf.gov/servlets/purl/10429755), printed655–705, including proofs and references. Its SHA-256 is `d71bd9254d80145a84f13059f18d37d6f777008900ab907b14d195bb61414ea0`. This continuation freshly read printed661–664 and700–701. It does not claim a second complete reading. The eight inspected publication images and Keel99 printed279–282 reading remain historical PR2012 evidence.
+
+The [arXivv2](https://arxiv.org/pdf/2002.11915v2) has 46 pages, SHA-256 `5ab792128995b0735311a5284620e5d14549ecc6c5be08595c5d8cdffedda842`. The earlier worker's full reading and PR2012's pp1–12/targeted comparisons remain separately attributed. Exhaustive version collation is still open. Automated heading extraction must not turn wrapped BCHM3.9.1 citations into Witaszek declarations.
+
+Fresh statements and displayed proofs were read in 20 archived Stacks pages: 0A18,0A1B,0A1C,08B1,08AR,01E7,01E8,0AY8,03H0,03H2,0E7D,02V7,08AZ,073K,0A0X,0AYI,08AV,08AY,02OD and02UZ. Their hashes and links are in `steinContinuation.sources`. This includes the Noetherian formal-functions filtration argument and general proper approximation. Their cited transitive proofs, omitted details, Chow/dévissage and limit engines have not all been closed.
+
+## Source findings awaiting independent review
+
+E1–E11 are retained from PR2012 with their original bounded correction searches. They concern Witaszek or Keel. E12–E14 are newly observed typing/index errors in **external Stacks prerequisite proofs**, not errors attributed to Witaszek. All remain unreviewed; the earlier D1–D9 records are preserved.
 
 **E1 — misprint; Published p.662, EWM definition; arXivv2 p.8.** Reverse the inequality: dim f(V)<dim V. Quantify over all integral closed subvarieties, not just curves. An image cannot have larger dimension. A constant map contracts a positive-dimensional variety; the printed inequality never detects it. Image inspected. BMPSTWW Remark2.49 addresses a different curve-only-definition issue.
 
@@ -94,29 +117,29 @@ E3 narrows the earlier diagnosis: formal Corollary1.3 is correctly guarded by lo
 
 The author publication entry, journal article page, arXiv history and targeted correction searches were checked on22September2026. No matching correction for E1–E10 was located within that scope. This does not prove absence of a correction. E11 records the earlier correct v2 bibliography.
 
-## Ownership and pinned-library reuse
 
-| Supplier | Missing items |
-| --- | ---: |
-| SchemeAndStackFoundations:SF.0 | 24 |
-| SchemeAndStackFoundations:SF.1 | 64 |
-| SchemeAndStackFoundations:SF.4 | 4 |
-| SchemeAndStackFoundations:SF.5 | 8 |
-| SchemeAndStackFoundationsMixedCharacteristicPositivity | 48 |
-| NumericalPicardAndContractionDescent | 1 |
+**E12 — external prerequisite misprints, [Stacks08AR](https://stacks.math.columbia.edu/tag/08AR).** The projective embedding should be i′=(i,π):Z′→P^n_A×_A Z=P^n_Z. In the last full-support argument, G=π_*L^d lives on Z. Use the point π∘z̄ of Z and the adjunction π*π_*L^d→L^d, with the target stalk of L^d. The printed g′:Z′→Spec A has the wrong type there. These are local typing repairs.
 
-The six existing routes remain. Surface resolution/section comparison refine SF.4; the normal Cartier formula and fibre intersection argument refine SF.5; the mixed-characteristic positivity Part II consumes these shared lemmas. Smooth surface Riemann–Roch itself is imported from the already explicit SF.5 target. NumericalPicardAndContractionDescent remains the SAME pending proposal shared with PAPER-SCHROER-23, with no new competing design.
+**E13 — external prerequisite index shift, [Stacks08AY](https://stacks.math.columbia.edu/tag/08AY), final bound in part(3).** The proof obtains m≥c₃(n)+c₁+n and uses k=n+m. A sufficient absolute-index threshold is therefore c₂(n)=c₃(n)+c₁+2n. The displayed smaller threshold is not justified by that estimate; this does not assert it always fails. Enlarging an existential constant leaves the theorem and its application intact.
 
-The continuation refreshed485 input hashes, reread reviewed AUDIT-01 foundation targets and current stages, and checked the StableReduction scope. Its shared-intersection instruction prevents placing general surface theory inside a curve-specific namespace. Abstract GrothendieckEulerForms does not supply geometric surface Riemann–Roch. The pinned algebraic-geometry trees were searched for the newly exposed surface interfaces; no exact implementations were found at that scope.
+**E14 — external prerequisite sheaf subscript, [Stacks08B1](https://stacks.math.columbia.edu/tag/08B1), final displayed equality.** Replace i_n,*F by i_n,*F_n because the closed immersion pushes forward a sheaf on X_n. The analogous scheme proof02OD already has the corrected expression and a2022 correction comment. The space page inspected on23September2026 still has the typo.
 
-At Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, the actual statements and proofs of `IsPurelyInseparable.bijective_algebraMap_of_isSeparable`, `PerfectField.ofCharZero`, and `Algebra.IsAlgebraic.isSeparable_of_perfectField` were read. They supply a direct repair for the characteristic-zero residue extension argument. Do not plan these algebraic facts again. Tau Ceti remains pinned to f790474821cf4256814db967cb154e7af3d0c369.
+Current pages and comments were inspected, and targeted tag/typo searches found no further matching corrections in the returned results. This is a bounded search. No external source comment was posted.
 
-The old carrier distinctions remain: monoid perfection is a direct limit, whereas Mathlib Perfection is an inverse limit; the full invertible-sheaf category must be restricted to its core for Picard groupoids; scheme-level properties do not by themselves provide algebraic-space infrastructure.
+## Ownership and existing libraries
 
-## Verification and remaining work
+The new nodes reuse the current owners: SF.1 owns the algebraic-space Stein supplier; SF.0 owns section-generation descent; SF.4 owns resolution geometry; SF.5 owns the surface Euler/intersection application. The added source route SF.2 owns Zariski vanishing, the proper-fibre bound, finite-support length and cohomology. The two existing continuation proposals are retained unchanged.
 
-The repository paper validator passes. A separate audit verifies169 unique IDs,326 acyclic edges,149 missing items routed exactly once,38 definitions with114 API entries and114 test plans, valid gap consumers and485 input hashes. Exact standard-library Python calculations passed55,157 cases:3,734 sharp positive-range binomial checks,13,120 fixed-range checks,20 zero-index counterexamples,29,322 connected-fibre matrix identities,8,960 Euler identities and one exact cubic factorization. These calculations test formulas and boundaries; they do not prove the geometric suppliers.
+Formal functions is imported from **AdicSpacesPartII:F0**, finite locally free projection/coherent cohomology from **StableReduction layer2**, and ordinary Leray from **DiamondsAndVStacks:D0**. The algebraic-space formal-functions node adapts the same engine to spaces; it does not infer that an étale cover of the target makes the source a scheme. Benoist19/173 and185 already request the same Stein/cohomology suppliers. The refreshed Gille–Parimala/119 is another finite-scheme consumer; it does not require a competing owner.
 
-No Lean file was required, supplied or compiled. The114 mathematical definition tests remain planning assertions. Eleven gaps remain open, including exhaustive version collation, primary Stacks/Kollár/Artin/Temkin chains, dimension induction over an excellent base, corrected Keeler proof inputs, adjunction/BPF, general intersection/duality, numerical Picard finiteness and the final transitive closure audit. The Lean-prototype marker is a downstream design obligation, not an extra unauthorized paper deliverable.
+The current ownership snapshot is `277594a65a53ae5f7530539524add19c453b4e19` with 531 input hashes. Fresh relevant stage descriptions, SF foundation audits and SR2 audits were checked; no direct reviewed F0/D0 record was located. Earlier full upstream-roadmap readings remain recorded under the prior ownership audit. The changed and newly added paper inputs were screened by summaries, routes and relevant item statements, not claimed as full-paper readings.
 
-See the [handoff](../handoff/PAPER-WITASZEK-22.md) for the ordered resumption work.
+Pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` supply the integrally closed fraction criterion, local-ring unit dichotomy, unit-idempotent lemma, connected-spectrum criteria, truncated Euler carrier, Artin–Rees, controlled Artin–Rees lifts and locality of adic completion. Eleven exact declaration records include source excerpts and hashes. These algebraic facts are **already built**; the geometric formal-functions comparison remains a supplier request. Both algebraic-geometry trees and relevant ring/cohomology files were searched. A full Lazard flat-module colimit theorem was not located in that scope; its proof and cohomology-colimit adapter remain explicit requests.
+
+## Verification and open work
+
+The paper checker, three-file intake check and structural audit pass. The structural audit checks unique IDs, every missing item routed once, resolved acyclic recorded edges, definition APIs/tests, 531 input hashes and 11 declaration hashes. The 120 mathematical tests are plans, not compiled examples.
+
+Fresh exact arithmetic/linear-algebra diagnostics pass **11,236 cases**, including local idempotents, cusp guards, the formal-functions index shift, nonzero Leray ranks and cancellation, and length invariance. The executable certificate is embedded in JSON. PR2012's **55,157** cases remain historical evidence and were **not rerun here**. Finite calculations do not establish the geometric theorems. No Lean file was required, supplied or compiled.
+
+The packet remains partial: version collation, transitive formal-functions/approximation/coherence roots, resolution/intersection/duality, Keeler/adjunction/BPF inputs, quotients, arbitrary-excellent-base induction and numerical Picard finiteness remain open. The earlier application-level surface repair remains resolved, conditionally on its named suppliers. See the [handoff](../handoff/PAPER-WITASZEK-22.md).
