@@ -684,8 +684,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LESLIE-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1061"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1061",
+   "finishedAt": "2026-09-23T05:39:20Z"
   },
   {
    "id": "REV-PAPER-LESLIE-25",
@@ -2478,7 +2479,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DOSPINESCU-LEBRAS-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1159"
   },
   {
    "id": "REV-PAPER-DOSPINESCU-LEBRAS-17",
