@@ -2432,8 +2432,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CADORET-HUI-TAMAGAWA-17.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1157"
+   "state": "external",
+   "note": "claimed on GitHub issue #1157"
   },
   {
    "id": "REV-PAPER-CADORET-HUI-TAMAGAWA-17",
@@ -6214,8 +6214,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ICHINO-PRASANNA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1375"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1375",
+   "finishedAt": "2026-09-23T01:40:26Z"
   },
   {
    "id": "REV-PAPER-ICHINO-PRASANNA-23",
