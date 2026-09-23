@@ -1,109 +1,129 @@
-# PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20: ninth checkpoint
+# PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20: tenth checkpoint handoff
 
-Claude Code — `cc-d67081`, issue #1420, 2026-09-22. Status: partial.
+Codex, session `codex-a71f92`, 23 September 2026. Issue #1420.
+Continues PR #1964 and all earlier checkpoints. Status remains **partial**.
 
-## Done in this checkpoint
+## What this checkpoint supplies
 
-Two things, both small and both additive. **No item was added, removed or
-edited**: the items array is byte-identical to the base blob, all 129 ids and
-the status counts 27 library / 8 planned / 94 missing are unchanged, and so are
-the six routes, the prerequisites, `selectedProofEdges` and every boundary except
-`sourceIssueBoundary`. The base blobs on current main were result
-`fd80b64ac7b1799e41b301dbdffa81f2f0a76c0a`, report
-`7266f7b625b16d7718bb5e7a0914ee612ca77828` and handoff
-`84733d337ecf4623065c860e0adeb62f9c224cd6`.
+The result has 138 items: 30 library, eight planned and 100 missing.
+All 129 inherited IDs survive; exactly six inherited item objects change.
+The other 123 objects, all seven proposed source issues, all paper
+prerequisites and five of the six route objects remain unchanged.
+The determinant-method route gains six missing application adapters and
+an appended brief refinement. It now takes 26 items; all six routes take
+93 missing items exactly once. The same seven diagnostic claims remain
+unrouted, so this is not a complete extraction.
 
-**1. Resume item 3 is closed with a negative result.** The final publisher text
-is not reachable from this environment, for a structural rather than a transient
-reason, and G0's detail now records the evidence: both Crossref full-text links
-(`S0894-0347-2020-00945-6.pdf` and the accepted manuscript `jams945_AM.pdf`)
-return HTTP 403 directly and the AMS application shell under a browser user
-agent; the DOI resolves to a page whose only article link is `/Account/Login`;
-and the AMS metadata records the journal's open-access type as GREEN, i.e.
-self-archiving only — JAMS is not in a free-after-N-years programme. The arXiv
-listing still shows only v1. **Do not spend another checkpoint on public
-retrieval**; it needs an institutional subscription or an author copy.
+Three exact generic library suppliers are added: rank-nullity, the
+HasDerivAt form of Rolle, and compact maximum attainment. Six missing
+application lemmas are added, with proof steps and exact prerequisite leaves:
 
-**2. Three new proposed source issues, E5–E7, against arXiv v1.** arXiv
-v1 was read in full, independently of the inherited extraction, and checked on
-page images. Almost everything an independent reading finds is already in this
-file, which is the main finding and is written out in the new report section:
-the √π volume display is E4; the `i ≤ n−2` restriction in the quoted Minkowski
-basis property is why `reduced-integral-basis` carries its own statement with the
-comparison at `i = n−1`; the loose "length equals the sum of the squares" is
-answered by `trace-metric-normalization`; the unreferenced genus-theory step is
-`relative-genus-source-claim` with G2; and §7's two silent inputs are already
-`degree-one-divisor` and `picard-divisor-comparison`. What is new:
+1. Restricted-support coefficient equivalence and evaluation compatibility.
+2. Repeated Rolle via strictly interleaving zeros.
+3. The leading interpolation coefficient as a derivative divided by n!.
+4. Newton's lower-triangular evaluation factorization.
+5. The eighth checkpoint's ordinary Taylor endpoint adapter, integrated and
+   credited rather than claimed as new work.
+6. An upper Taylor remainder bound using the maximum absolute derivative.
 
-- **E5** (§5.1 p.7): `B ≤ …` and `C ≤ …` are printed without absolute values,
-  though A is not and all three take both signs.
-- **E6** (Remark 7.2 p.10): the class number formula omits the factor
-  `1 − |k|^{-1}`; the residue computation is given in the new report section.
-- **E7** (Remark 7.3 p.10): in characteristic 2 the 2-torsion of the Jacobian
-  over k̄ is said to "have size 2^g", where it has size at most 2^g.
+The monomial-system and scaled-derivative-norm definitions now have
+structured APIs, uses and four tests each. The evaluation-kernel theorem
+is explicitly rectangular and allows empty point/support types. The
+derivative determinant proof retains a different witness for every prefix
+and column, the zero-order case, factorials and the signed exponent.
+The short-interval theorem uses the **lower** kth-derivative bound at
+Taylor's witness; it is not inferred merely from the separate upper
+remainder estimate.
 
-All three affect nothing. They are located in **arXiv v1 only** — the February
-2017 author copy behind E1–E4 and the publisher text were not consulted for them
-— and `sourceIssueBoundary` says so. Like E1–E4 they are proposed records, not
-reviewed errata.
+Ordinary derivatives at interval endpoints are used only under smoothness
+on an open neighbourhood. The source's broader classical closed-interval
+notation is not silently identified with arbitrary Mathlib ContDiffOn on
+a closed set. The actual graph application uses compact hulls inside
+smooth open branches; constructing those branches is still G7.
 
-## Checks
+The report's new section is “Tenth checkpoint: rectangular kernels and
+analytic determinant adapters”, with arguments R1–R6. All earlier report
+text is retained contiguously.
 
-`python3 scripts/check_paper.py` reports ok and `python3
-research/blueprint/intake.py check-files` reports 2 files, 0 problems on the
-edited result and report. Before and after the edit the item ids and status
-counts were compared programmatically (129 → 129, identical), and the items
-array was checked to be byte-identical to the base blob, as were `routes`,
-`prerequisites`, `summary`, `source`, `selectedProofEdges` and the other
-boundaries. The JSON was re-emitted at the file's original two-space indent so
-that the diff is 99 insertions and 27 deletions rather than a whole-file
-rewrite. No Lean artifact was written or compiled, and no earlier checkpoint's
-regression script was rerun; their recorded results stand unchanged. These
-checks do not establish mathematical completeness, and this worker did not
-review the inherited items, routes, gaps or the proposed issues E1–E4.
+## Evidence and checks
 
-One spot check was done in passing and is recorded in the report: the arithmetic
-of `feedback-constants` was recomputed independently (β = .27823867,
-a = .27843374, c = .11176708, and 1/2 + a = .77843374) and agrees with that
-item's test intervals and with the four decimals printed in the paper. That is a
-spot check, not a review of the item.
+Read the complete 13-page February 18, 2017 Taniguchi author copy and the
+Bombieri–Pila author preprint pp.1–6 and all §3 pp.10–17. Fresh hashes match
+the inherited records. No fresh visual page inspection and no final
+publisher comparison are claimed. Do not conflate the public MPG preprint
+with its restricted publisher-version deposit.
 
-## Resume here
+The Mathlib pin is `082e2d37e8b0463410cdb532e111cd43d5a66174`;
+Tau Ceti is `f790474821cf4256814db967cb154e7af3d0c369`.
+The result's verification.declarationsRead gives 34 actual statement
+reads and exact module/line locators. Historical classifications for
+unrelated inherited library/planned items are preserved, not independently
+re-audited. Read upstream Completed/EffectiveBounds and AlgebraicCurves
+completely and the relevant reviewed EffectiveBounds and SF.0/SF.5 audit
+rows. No route owner changes.
 
-The eighth handoff's list stands, with item 3 replaced:
+Checks run:
 
-1. Close a second G7 interface. Three of the four named in the seventh handoff
-remain: rectangular evaluation-rank/kernel equivalence; the repeated-Rolle
-derivative witness with its factorial bounds; nonzero specialization and degree
-bounds. Read actual pinned statements and instantiate their hypotheses, as the
-eighth checkpoint does for the Taylor adapter.
-2. Instantiate the two suppliers named in the eighth checkpoint's table to finish
-BP2's scaled inequality — apply `IsCompact.exists_isMaxOn` to
-`fun y => |iteratedDeriv (n+1) f y|` rather than to the derivative itself.
-3. **Superseded.** Public acquisition of the final 2019/2020 text has now been
-tried twice and fails structurally (see G0). Either obtain an authorized copy
-through a subscription, or leave G0 open and keep every locator qualified by its
-version. Do not treat a restricted deposit as accessible, and do not equate the
-author copy, arXiv v1 and the publisher text.
-4. For the graph cover, establish proper Bézout through SF.5, smooth branch
-continuation in open strips, and inversion of steep graphs. Do not promote the
-weaker 8d³ finite-point cover to the source's stronger O(d²) whole-curve
-decomposition.
-5. Other substantial gaps remain, unchanged: G1 primitive-prefix generic
-interfaces; G2 relative-genus diagnostic/source reconciliation; G3 original
-Brumer–Kramer and HV proof interiors; G4 torus/resolvent transfer; G5
-hyperelliptic descent and bad-prime/model discriminants; G6 del Pezzo height
-normalization and singular fibers; G8 counting originals; G9 q-uniformity,
-epsilon, gonality and characteristic-two/inseparability issues. G10 retains
-recursive closure and the incomplete source-issue inventory.
-6. E1–E7 are proposed issues, not accepted errata. E1–E4 were not reviewed in
-this checkpoint; E5–E7 are new here and unreviewed. Preserve source-version
-qualifiers: E1–E3 are against the Bombieri–Pila author preprint, E4 against the
-February 2017 author copy, E5–E7 against arXiv v1.
+- Exact-rational scratch diagnostics: 11,765 assertions passed.
+- Data preservation, route uniqueness, supplier references and selected
+  graph acyclicity: 535 assertions passed; 32 selected edges.
+- Paper checker: ok.
+- Paper, paper-queue, source-issue and intake regressions: all 48 passed.
+- Three-deliverable intake: three files, zero problems. The complete
+  historical report is preserved contiguously after a current-status notice;
+  remote deliverable blobs match the claim base before publication.
 
-Current generic owners stay unchanged: determinant methods imports generic
-linear algebra/calculus and SF.5 intersection theory; basis reduction belongs to
-GN.5; arithmetic torsion applications extend completed EffectiveBounds. Never
-re-plan the inherited library objects. Do not reapply the obsolete guarded patch
-and do not overwrite the 129-item result. The complete historical report, source
-metadata and verification history must survive the next continuation.
+Finite arithmetic checks are not proofs of real-analytic statements.
+No Lean was authored, compiled or claimed formalized; a paper job does
+not authorize a suggested Lean artifact. No review verdict was added.
+
+## Resume with a genuinely remaining input
+
+Depth before breadth. Keep the 138-item result, stable IDs, full historical
+report and verification history. Do not restore an obsolete smaller result.
+
+1. Finish G7's exact **full-column-rank to nonzero square row-minor**
+   interface for the rectangular matrix in Bombieri–Pila Lemmas 2 and 4.
+   R1 only proves the rank/kernel equivalence; it does not supply this
+   minor-selection lemma. Match the actual generic declaration or give its
+   complete reduction without creating a rival linear-algebra owner.
+2. Give the **nonzero specialization and degree** adapters for F(a,Y).
+   Irreducible total degree d≥2 excludes a vertical-line factor: if the
+   specialization is zero, X−a divides F, forcing F to be that line up to
+   a unit. Still match the coefficient/specialization and degree interfaces
+   at the pin. Use the finite-root supplier only after these hypotheses
+   are proved. Likewise address horizontal specializations.
+3. Decompose the normalized product/monomial derivative estimates needed by
+   bp-integral-determinant. The norm API states the intended estimate; R6
+   proves maximum attainment, not that product estimate.
+4. Close the proper-intersection request at **SchemeAndStackFoundations:SF.5**
+   and match smooth root continuation across open strips and inverse-graph
+   construction. Keep singular/critical fibres, horizontal boundaries and
+   finite integral-point hulls. Do not replace the established 8d³ finite
+   cover with an unproved O(d²) whole-curve cover.
+5. Continue another substantial source interior from G1–G6 or G8–G10 if
+   it has a reachable primary source. G0 remains a version-comparison
+   gap; the ninth checkpoint already repeated final-publisher retrieval.
+   Another retrieval-only checkpoint would not close the proof.
+
+Do not redo R1–R6 as if absent. They still need independent verification and
+eventual implementation, but their proof-plan and supplier boundaries are
+now explicit. Generic calculus and linear algebra remain Mathlib inputs;
+Bézout remains SF.5. The application owner is the already proposed
+IntegralPointDeterminantMethods, not a new duplicate roadmap.
+
+## Other gaps that survive
+
+G1 retains primitive/free-quotient and geometry-of-numbers supplier work.
+G2 retains the unverified literal one-factor genus bound; the later
+Klüners–Wang squared-factor replacement is not a proof of that literal
+claim. G3 needs the original Brumer–Kramer and HV proof interiors.
+G4 concerns torus transfer and resolvent orders. G5 concerns hyperelliptic
+models/local conditions; G6 del Pezzo geometry and heights. G8 needs the
+original counting inputs. G9 concerns Sedunova's q-uniformity, epsilon loss
+and characteristic-two/inseparability issues. G10 is recursive closure and
+the incomplete source-issue inventory.
+
+E1–E7 remain proposed and unchanged. Do not self-review this continuation,
+silently declare the publisher text checked, or treat structural checker
+success as mathematical completeness.
