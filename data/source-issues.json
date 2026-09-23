@@ -37009,6 +37009,90 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-NEWTON-THORNE-21/E1",
+   "kind": "misprint",
+   "locator": "§3, Lemma 3.3, p. 61",
+   "printed": "Let z ∈ Z^{pc}_0 ∩ ℰ_0(b), and suppose z ∈ X_i. Let z′ = τ(z) be the twin of z. Then z ∈ X_{i′}, where i′ satisfies the relation i + i′ = (k − 1)/v_p(w(z)).",
+   "correction": "… Then z′ ∈ X_{i′}, where …",
+   "reason": "z lies in X_i by hypothesis; the conclusion is about the twin, as the proof says ('z′ lies in ℰ_0(b), so in X_{i′} for a unique i′') and as Lemma 3.7(5) uses it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s10240-021-00127-3: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 1912.11261: v3 (27 September 2021) is the last version and matches the published text",
+    "The article page on pmihes.centre-mersenne.org and Springer, 23 September 2026: no correction or erratum notice"
+   ],
+   "owner": "PAPER-NEWTON-THORNE-21",
+   "file": "research/blueprint/papers/PAPER-NEWTON-THORNE-21.result.json",
+   "citation": "Newton–Thorne, \"Symmetric power functoriality for holomorphic modular forms\", Publications Mathématiques de l'IHÉS (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NEWTON-THORNE-21/E2",
+   "kind": "misprint",
+   "locator": "§7, proof of Proposition 7.4, inductive hypothesis (2), p. 99",
+   "printed": "For each embedding τ : F_{−1} → Q̄_p, we have HT_τ(r_{π,ι}) = HT_τ(ω^{n−3}|_{G_E} ⊗ Sym^{n−3} r_{σ_0,ι}|_{G_E}).",
+   "correction": "HT_τ(r_{π,ι}) = HT_τ(ω^{n−3}|_{G_{F_{−1}}} ⊗ Sym^{n−3} r_{σ_0,ι}|_{G_{F_{−1}}})",
+   "reason": "The representations are of G_{F_{−1}}, as in part (1) of the same hypothesis and in Theorem 7.1(b); E is the coefficient field.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s10240-021-00127-3: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 1912.11261: v3 (27 September 2021) is the last version and matches the published text",
+    "The article page on pmihes.centre-mersenne.org and Springer, 23 September 2026: no correction or erratum notice"
+   ],
+   "owner": "PAPER-NEWTON-THORNE-21",
+   "file": "research/blueprint/papers/PAPER-NEWTON-THORNE-21.result.json",
+   "citation": "Newton–Thorne, \"Symmetric power functoriality for holomorphic modular forms\", Publications Mathématiques de l'IHÉS (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NEWTON-THORNE-21/E3",
+   "kind": "misprint",
+   "locator": "§8, proof of Proposition 8.3, condition (e), p. 109",
+   "printed": "The algebra map A^T_𝒮 → R^T_{𝒮_{Q_N}} extends to a surjective algebra homomorphism A^T_𝒮[[X_1, …, X_g]] → R_{𝒮^T_{Q_N}}, where g = q + |T| − 1.",
+   "correction": "… where g = q_0 + |T| − 1",
+   "reason": "q_0 = |Q_N| is the number of Taylor–Wiles primes fixed just before; no q is in play. The count on p. 110, dim R_∞ = dim A^T_𝒮 − 1 + g = 4|T| + q_0 − 1 (with dim A^T_𝒮 = 1 + 3|T|), holds only with g = q_0 + |T| − 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s10240-021-00127-3: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 1912.11261: v3 (27 September 2021) is the last version and matches the published text",
+    "The article page on pmihes.centre-mersenne.org and Springer, 23 September 2026: no correction or erratum notice"
+   ],
+   "owner": "PAPER-NEWTON-THORNE-21",
+   "file": "research/blueprint/papers/PAPER-NEWTON-THORNE-21.result.json",
+   "citation": "Newton–Thorne, \"Symmetric power functoriality for holomorphic modular forms\", Publications Mathématiques de l'IHÉS (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NEWTON-THORNE-21/E4",
+   "kind": "misprint",
+   "locator": "Labels and indices: §1.17, before Lemma 1.21, p. 23; §6, hypothesis (5), p. 86",
+   "printed": "a representation ρ̄_ṽ : G_{F_ṽ} → GL_n(k) of the form ρ̄_v = σ̄_{ṽ,1} ⊕ σ̄_{ṽ,2} (p. 23); the second condition in hypothesis (5) of §6 is labelled '(nb)' (p. 86)",
+   "correction": "ρ̄_ṽ = σ̄_{ṽ,1} ⊕ σ̄_{ṽ,2}; label (b), between (a) and (c)",
+   "reason": "The representation is ρ̄_ṽ throughout §1.17; the conditions of hypothesis (5) run (a)–(d), and (d) is the one used in §6.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s10240-021-00127-3: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 1912.11261: v3 (27 September 2021) is the last version and matches the published text",
+    "The article page on pmihes.centre-mersenne.org and Springer, 23 September 2026: no correction or erratum notice"
+   ],
+   "owner": "PAPER-NEWTON-THORNE-21",
+   "file": "research/blueprint/papers/PAPER-NEWTON-THORNE-21.result.json",
+   "citation": "Newton–Thorne, \"Symmetric power functoriality for holomorphic modular forms\", Publications Mathématiques de l'IHÉS (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-NGODAC-21/E1",
    "kind": "misprint",
    "locator": "HAL v1, printed p.9, sentence preceding Proposition 2.5",
