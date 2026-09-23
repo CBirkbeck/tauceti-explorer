@@ -182,7 +182,8 @@
         "pages": 11,
         "note": "Haines–Rapoport, 'On parahoric subgroups', the appendix to Pappas–Rapoport cited as [10]; read at its opening hypotheses (a connected reductive group over a strictly henselian discretely valued field) and at Proposition 13, for finding E8."
       }
-    ]
+    ],
+    "sha256Note": "Added by REV-PAPER-HE-18: the Cambridge PDF is stamped per download, so this sha256 cannot be reproduced. Two downloads seconds apart on 23 September 2026 gave 45002919153add6051e5f44587d5ea5c263c4ca0777c5ef5e8ae0e473d57bd77 and 90b506ca70c470c08814934b2bb35dbf2f4cb3ded84cd4981a093f097f1d46d5, identical in length (399727 bytes) and differing only in the /ModDate (D:20260923174853 against D:20260923174854) and the ~10 KB of downstream bytes that depend on it; this file itself records a different value in source.continuation. The reproducible pin for this paper is comparisonVersion.sha256 = 605d7e9cbf381d482969cd5ced70eb501d13df7614f91145d3986a3eb6115b7c for arXiv 1610.04791v3, which does reproduce."
   },
   "summary": "Continuation of the He18 extraction with explicit integral compact-open volume, finite-sum convolution and local-unit proofs; a twisted-commutator proof without stable-subgroup assumptions; the actual rational-character apartment and finite affine kernel; and compatible Lang solutions via finite inverse systems. All earlier items, routes, source findings and central-twist/rigid-presentation repairs are preserved. Actual BT/congruence producers and the HN14 transfer remain open, so the extraction stays partial.",
   "conventions": {
@@ -7168,7 +7169,7 @@
       "route": "part-ii",
       "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
       "roadmap": "RootSystemsPartIIDominanceAndDemazure",
-      "title": "Root systems, Weyl groups, and the Cartan–Killing classification, Part II: dominant subtraction and Demazure reduction",
+      "title": "Root systems, Weyl groups, and the Cartan-Killing classification, Part II: dominant subtraction and Demazure reduction",
       "area": "grouptheory",
       "items": [
         "PAPER-HE-18/C1",
@@ -7193,7 +7194,7 @@
         "PAPER-HE-18/N19",
         "PAPER-HE-18/C18"
       ],
-      "reason": "Reuse the RootSystemsPartIIDominanceAndDemazure candidate from PAPER-HE-21 and PAPER-KISIN-PAPPAS-ZHOU-26. Its existing RedMin lane is the supplier; add the straight-class, finite-parabolic and central-kernel scope here instead of duplicating affine Coxeter theory in Newton harmonic analysis.",
+      "reason": "Reuse the RootSystemsPartIIDominanceAndDemazure candidate from PAPER-HE-21 and PAPER-KISIN-PAPPAS-ZHOU-26. Its existing RedMin lane is the supplier; add the straight-class, finite-parabolic and central-kernel scope here instead of duplicating affine Coxeter theory in Newton harmonic analysis. Title corrected by REV-PAPER-HE-18: the parent's atlas title spells it 'Cartan-Killing' with a hyphen, as do the same route in PAPER-HE-21, PAPER-KISIN-PAPPAS-ZHOU-26 and PAPER-ZHU-17; this file had an en dash, so the prefix did not reproduce the parent title exactly.",
       "brief": "Continue the candidate RootSystemsPartIIDominanceAndDemazure already routed by PAPER-HE-21 and reused by PAPER-KISIN-PAPPAS-ZHOU-26; do not mint another root-system roadmap. Begin with Root systems, Weyl groups, and the Cartan–Killing classification (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), importing its root data, chambers, affine Coxeter/length and parabolic APIs. Preserve the existing Demazure and dominant-subtraction targets and the consolidation of the Kisin–Zhou RootSystemsDominancePartII alias. Add κ in Ω/(1−θ)Ω, Newton vectors by powers, twisted reduction, straight elements, Newton affine axes and standard triples. Decompose HN14's gradient-descent and partial-conjugation inputs; prove RedMin (He18 Theorem4), straight-class classification (Theorem6), and standard-triple reduction (Theorem7), with a verified adapter from the actual local Iwahori–Weyl datum supplied by ReductiveGroupsPartII. Keep the finite-minima assertion guarded, but prove C17: normalize Ω by twisted length-zero conjugation into a fixed Ω-coset, where the uniform length bound gives a finite set. Deduce finite conjugacy-class fibres without that guard. Supply N19’s elementary finite affine-error separation, including central translations; the split-torus inversion counterexample must be a regression test, not excluded silently. Supply the finite-parabolic minimality and central-Newton/parahoric containment needed for Proposition21 while retaining central translations and torsion kernels. Keep group-theoretic Ω and the reduced apartment action separate. Test ordinary/inverted G_m, GL2 central length-zero translations, rank-one reflection nonstraightness, affine s0 and empty/infinite parabolics. The output feeds SmoothRepresentationsPartIINewtonCocenters; no distribution algebra, generic affine-Hecke carrier or local building is rebuilt here. Continuation c83e7a: use the actual full-apartment affine action imported from RG2.1. Newton displacement is the average of an affine power with finite-order linear part; no splitting of N/Z_c or faithful action is required. Preserve the finite kernel and Tits valuation-sign dictionary, and finish the HN14 transfer separately."
     },
     {
@@ -7378,7 +7379,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 9 prints 'Since the action of θ on V is of finite order, each θ-orbit on Ω is a finite set. Therefore (a) Each θ-twisted conjugacy class of W̃ intersects only finitely many W_a cosets.' The image in Ω = W̃/W_a of the θ-twisted class of w is not a θ-orbit but the coset [w] + (1 − θ)Ω, since Ω is abelian and [xwθ(x)^{-1}] = [w] + (1 − θ)[x]. That set is finite exactly when (1 − θ)Ω is finite, which is the hypothesis the correction adds; finiteness of the θ-orbits does not give it, as Ω = Z² with θ swapping the factors shows, where (1 − θ)Ω is infinite while every θ-orbit has at most two elements.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E2",
@@ -7394,7 +7400,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 20 prints 'By the Newton decomposition G = ⊔_{ν∈ℵ} G(ν), we have that J(G) = ⊕_{ν∈ℵ} J(G(ν))'. J is the R-dual of the Hecke module, and the dual of a direct sum is the product of the duals, so both this display and the target of the restriction map in Theorem 22 are products.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E3",
@@ -7410,7 +7421,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Theorem 20 states that J(G(ν))|_{H_R(G,I_n)} 'is generated by N_ν[I : I_n] elements', while the proof on p.21 bounds the number of generators of H̄_R(G, I_n; ν) by N_ν[I : I_n] and passes to the R-dual. A dual of a module generated by N elements embeds in R^N but need not be finitely generated over a general commutative Z[1/p]-algebra, so the statement as printed needs R noetherian, as the correction records.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E4",
@@ -7426,7 +7442,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 24 prints H_{(P,τ),(Q,γ),x} = {(f, −^{ẋ}f); f ∈ H_R(Pτ̇) with support in Pτ̇ ∩ ẋQγ̇θ(ẋ)^{-1}}, where the support condition transports from Pτ̇ by ẋ^{-1}, so the second entry has to be the ẋ^{-1}-translate with the ω(ẋ)^{-1} the twisted action carries.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E5",
@@ -7442,7 +7463,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. Page 17 prints 'Note that Ĭ_n ∩ gĬ_ng^{-1} is a pro-p subgroup of Ĭ_n. Thus any element in (Ĭ_n/(Ĭ_n ∩ gĬ_ng^{-1}))^σ can be lifted to an element in Ĭ_n^σ = I_n.' Being pro-p gives no σ-descent by itself; what makes σ-fixed points lift is Lang's theorem for a connected (pro-)unipotent group over the residue field, which is the hypothesis the correction supplies.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E6",
@@ -7458,7 +7484,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap over the printed coefficient ring. The proof of Theorem 23 argues through finite dimensionality and duality — p.25 already says 'For any standard pair (P,τ), H_R(Pτ̇, I_n) is finite dimensional' and deduces that a restriction is finite dimensional — but R is only a commutative Z[1/p]-algebra, where 'dimension' and the detection of relations by the R-dual are unavailable. Over a field the argument is the standard one.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E7",
@@ -7474,7 +7505,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. On p.13 the conclusion reads 'there exists y, y′ ∈ W_a with ℓ(y), ℓ(y′) ≤ N_0 such that t^{lλ_2} = y t^{lλ_1} y′', and the next sentence writes y = y_0t^μ and y′ = t^{μ′}y″ with y_0, y″ ∈ W_0 and μ, μ′ in the cocharacter lattice — elements of W̃, not of W_a.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E8",
@@ -7490,7 +7526,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 6 prints 'Set V = X_*(Z)_{Gal(F̄/F)} ⊗ R' and 'by [10] W̃ ≅ X_*(Z)_{Gal(F̄/F)} ⋊ W_0'. For G not quasi-split, Z = Z_G(A) is not a torus and X_*(Z) is not the right object; the Iwahori–Weyl group is built from Λ = Z(F)/Z_0, as the correction says.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E9",
@@ -7506,7 +7547,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 10 prints '(2) G ·_θ IẇI = G ·_θ IṡẇI ⊔ G ·_θ Iṡẇθ(ṡ)I for s ∈ S̃ with sws < w', where the twisted setting makes the relevant length condition swθ(s) < w; the same twisted-product slips recur in Lemma 17 and §6.2 as the correction lists.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E10",
@@ -7522,7 +7568,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The contracted-product action printed on p.17 reads (i_1,…,i_k)·(g_1,…,g_k) = (g_1i_1^{-1}, i_1g_1i_2^{-1}, …, i_{k−1}g_ki_k^{-1}), where the second entry repeats g_1 instead of g_2; the remaining slips are of the same kind.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E11",
@@ -7538,7 +7589,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The displays after the definition of N_0 on p.13 print θ^{nl}(ż)^{-1}, while n_0 is the integer fixed two lines above by (x_iθ)^{n_0} = t^{λ_i}, and the surrounding displays use θ^{n_0l}.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E12",
@@ -7554,7 +7610,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 6 prints 'we define a Z[1/p]-valued Haar measure µ_G by µ_G(K, µ) = [K : K ∩ I′]/[I′ : K ∩ I′] for any open compact subgroup K of G' and then 'Thus µ_G(K, µ) ∈ Z[1/p] for all K': the measure takes one argument, and the stray µ appears twice.",
+        "by": "REV-PAPER-HE-18"
+      }
     },
     {
       "id": "PAPER-HE-18/E13",
@@ -7570,7 +7631,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
         "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
         "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 7 prints 'Since the volume of each double coset of K is a power of p, µ_G(p^{-1}(KgK))/µ_G(KgK) ∈ Z[1/p]', where p : X × Y → XY, so p^{-1}(KgK) is a subset of G × G and its measure is µ_{G×G}.",
+        "by": "REV-PAPER-HE-18"
+      }
     }
   ],
   "libraryAudit": {
