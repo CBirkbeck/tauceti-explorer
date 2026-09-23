@@ -1,0 +1,1478 @@
+{
+ "paper": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Cohomologie p-adique de la tour de Drinfeld : le cas de la dimension 1",
+  "authors": "Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł",
+  "venue": "Journal of the American Mathematical Society 33 (2020), 311–362",
+  "doi": "10.1090/jams/935",
+  "arxiv": "1704.08928",
+  "url": "https://www.ams.org/journals/jams/2020-33-02/S0894-0347-2019-00935-5/S0894-0347-2019-00935-5.pdf",
+  "sha256": "db810ee0b4017eba2f30801c8cc76df6d61f3b32a6ef07cb891586e4121f0a16",
+  "accessed": "2026-09-23",
+  "version": "The published version, read in full: the AMS PDF of JAMS 33 (2020), 311–362, 52 pages, SHA-256 db810ee0b4017eba2f30801c8cc76df6d61f3b32a6ef07cb891586e4121f0a16. JAMS opens its back content six years after publication, so volume 33 (2020) is now freely available and the published text could be read directly rather than through a preprint. Locators are printed pages (the article runs from p. 311 to p. 362) and the paper is in French. The authors' final version (webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf, 60 pp., SHA-256 2cdb1de25b5201ed46f8af6c06c19b72fdc5cbe1dd2037b4e1d24dee30155776) agrees with the published text word for word — same reference numbering, same statement numbers — and its text layer extracts far more cleanly, so it was used for reading; every quotation and every finding below was then checked in the AMS PDF. arXiv:1704.08928v2 (57 pp., 7 June 2018, SHA-256 15e4868f5b11ad113e2806b5e9884d7b100f529e67c6cd6030f24cf8e3ae9073) is the earlier submitted version — the paper was received 24 May 2017 and revised 5 August 2019 — and was used only for its LaTeX source; it is not authoritative.",
+  "readSections": [
+   "Introduction §§0.1–0.7",
+   "§1 La cohomologie du demi-plan de Drinfeld et la steinberg",
+   "§2 Cohomologie étale p-adique et correspondance de Langlands locale",
+   "§3 Méthodes perfectoïdes",
+   "§4 Cohomologie de de Rham à support compact de M_∞",
+   "§5 Applications de la compatibilité local-global",
+   "Annexe A Modèles semi-stables équivariants des revêtements du demi-plan de Drinfeld",
+   "Références"
+  ]
+ },
+ "summary": "Let F/Q_p be finite, Ω_Dr = P^1_C ∖ P^1(F) the Drinfeld half-plane and (M_n) Drinfeld's tower of coverings, carrying commuting actions of G = GL_2(F), of the units Ǧ of the quaternion algebra and of W_F. For ℓ ≠ p the ℓ-adic cohomology of this tower realises the classical local Langlands and Jacquet–Langlands correspondences; this paper shows that the p-adic étale cohomology realises the p-adic local Langlands correspondence. Its main theorem: for F = Q_p and V an absolutely irreducible representation of Gal_{Q_p} of dimension ≥ 2, Hom_{W_{Q_p}}(V, H^1_ét(M_∞,Q_p(1))) = JL(V) ⊗ Π(V)^* when V is supercuspidal of dimension 2 with Hodge–Tate weights 0 and 1, and 0 otherwise — a geometric construction of Colmez's Π(V) for those V, and a proof that only they (and smooth characters from Ω_Dr × π_0) appear in the socle. The proof runs through four independent pieces: (i) étale cohomology is the G-bounded part of pro-étale cohomology; (ii) a fundamental diagram, valid for any Stein curve, computing H^1_proét(X,Q_p(1)) as an extension of ~HK(X) by O(X) compatibly with the de Rham row, obtained from the fundamental exact sequence of pro-étale period sheaves and Scholze's Lemma 3.24 (an alternative syntomic route is sketched); (iii) the Hyodo–Kato and de Rham cohomology of the tower in terms of the classical correspondences, proved by p-adic uniformisation of Shimura curves, the local–global compatibility of Carayol and T. Saito, and — where the p-adic correspondence is unavailable — a new comparison H^1_{dR,c}(LT^ϖ_∞) ≅ H^1_{dR,c}(M^ϖ_∞) of the compactly supported de Rham cohomologies of the Lubin–Tate and Drinfeld towers, proved through the isomorphism of the completed towers as perfectoid spaces; and (iv) the Breuil–Strauch conjecture, proved by Dospinescu–Le Bras. An appendix constructs a G × Ǧ × Gal_F-equivariant semi-stable model of every level of the tower, using Berkovich triangulations to get around the non-compactness. What the atlas lacks: everything about a non-proper p-adic curve. The period sheaves, the comparison theorems, perfectoid geometry, the two towers with their actions and duality, non-abelian Lubin–Tate theory, Banach–Colmez spaces, the Drinfeld half-plane and its formal model, Čerednik–Drinfeld uniformisation, local–global compatibility and Colmez's functor are all planned; the Stein package (affinoid exhaustions, R^1 lim vanishing, Serre duality, R^1ν_*Ô), the resulting fundamental diagram, the Steinberg representation in its three forms, and every cohomological computation for the tower are not.",
+ "conventions": "The paper is in French; locators are printed pages of JAMS 33 (2020), 311–362. Numbering is by section with a single counter, the introduction being §0, and displayed equations share it ((0.10), (0.12), (3.4), (5.3) are equations, which is why those numbers are missing from the statements). C is the completion of an algebraic closure of F, F̆ = \\hat{F}^{nr}, Q̆_p = \\hat{Q}_p^{nr}. All duals are topological, with the weak topology, and ⊗̂ is the completed tensor product. M_∞ is the non-completed projective system, M̂_∞ its completion (a perfectoid space), and H̃^1_ét the completed cohomology; the three differ. A superscript ϖ denotes the quotient by ϖ acting through the centre of Ǧ. [1] on a (φ,N,Gal_F)-module multiplies φ by p. Z[M] = Hom_{L[Ǧ]}(JL(M), L ⊗ Z), with Gal_F-invariants taken for Z = O(M_∞), Ω^1(M_∞).",
+ "items": [
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.1-drinfeld-tower",
+   "kind": "construction",
+   "name": "The Drinfeld tower M̆_n of coverings of the p-adic upper half plane",
+   "statement": "F is a finite extension of Q_p with uniformiser ϖ, G = GL_2(F), Ǧ the units of the quaternion algebra D of centre F with maximal order O_D. The Drinfeld half plane P^1_F ∖ P^1(F) is a rigid analytic space Ω_{Dr,F} over F with the G-action by homographies, and Drinfeld's tower (M̆_n)_{n∈N} of coverings satisfies: M̆_n is defined over F̆ = \\hat{F}^{nr} with a W_F-action compatible with the natural one on F̆; M̆_n carries commuting actions of G and Ǧ commuting with W_F, and the transition maps M̆_{n+1} → M̆_n → Ω_{Dr,F} are W_F-, Ǧ- and G-equivariant (Ǧ acting trivially on Ω_{Dr,F}); M̆_0 = Z × Ω_{Dr,F}, and for n ≥ 1, M̆_n is a Galois covering of M̆_0 with group O_D^*/(1+ϖ^n O_D). One writes M_n = C ×_{F̆} M̆_n and M_∞ for the (non-completed) projective system, so that H^•(M_∞) = colim_n H^•(M_n) for a contravariant cohomology theory.",
+   "locator": "§0.1, pp. 313–314",
+   "status": "planned",
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+   ],
+   "note": "ET.6a constructs the Drinfeld tower with its level maps and commuting actions, starting from the formal-module deformation owners. What a design job must add from this paper is the precise normalisation used here: M̆_0 = Z × Ω_{Dr,F}, the Galois group O_D^*/(1+ϖ^n O_D) at level n, and the W_F-action compatible with the one on F̆."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.1-components",
+   "kind": "theorem",
+   "name": "The connected components of M_∞ form a principal homogeneous space under F^*",
+   "statement": "For H = G, Ǧ, W_F there is a natural morphism ν_H: H → F^*, with ν_G = det, ν_Ǧ the reduced norm and ν_{W_F} the composite of W_F → W_F^{ab} with the local class field theory isomorphism W_F^{ab} ≅ F^*. The set π_0(M_∞) of connected components is a principal homogeneous space under F^*, and H = G, Ǧ, W_F acts on it through ν_H. In particular Ǧ acts on π_0(M_∞) through the reduced norm.",
+   "locator": "§0.1, p. 314",
+   "status": "missing",
+   "note": "Deduced from Strauch and the comparison with the Lubin–Tate tower. This is used throughout: it makes Z[π_0(M^ϖ_n)][M] = 0 for every supercuspidal M, which is what kills the left-hand terms of the fundamental diagram."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.2-objects-of-V",
+   "kind": "construction",
+   "name": "The five objects attached to a 2-dimensional de Rham representation of weights 0 and 1",
+   "statement": "For L/Q_p finite and V an L-representation of Gal_{Q_p} of dimension 2, de Rham with Hodge–Tate weights 0 and 1, one attaches: the L-(φ,N,Gal_{Q_p})-module D_pst(V) of rank 2 over L ⊗_{Q_p} Q_p^{nr}; the L-representation WD(V) := WD(D_pst(V)[1]) of the Weil–Deligne group of dimension 2 (Fontaine's recipe, where [1] multiplies the φ-action by p); the irreducible smooth infinite-dimensional L-representation LL(V) := LL(WD(V)) of G (classical local Langlands); the irreducible smooth finite-dimensional JL(V) := JL(LL(V)) of Ǧ (local Jacquet–Langlands); and the continuous unitary L-representation Π(V) of G of the p-adic local Langlands correspondence, with weak dual Π(V)^*. Only Π(V) depends on V rather than on D_pst(V), and LL(V) = Π(V)^{lisse}. V is called supercuspidal when WD(V) is irreducible, which forces N = 0 on D_pst(V), i.e. V potentially crystalline.",
+   "locator": "§0.2, p. 315",
+   "status": "planned",
+   "note": "Footnote 5 records the central characters: those of LL(V) and JL(V) agree with det WD(V)·|·| and with the restriction of det V·χ_cyclo^{-1} to W_{Q_p}, using WD(V) = WD(D_pst(V)) ⊗ |·|^{-1}. The five objects attached to V are each planned: D_pst and WD by R06.3, LL by R16.3, JL by R17.1 and Π(V) by R30.3. What is not planned is the compatibility package the paper needs: that LL(V) = Π(V)^{lisse}, and the central-character identities of footnote 5.",
+   "planned": [
+    "PadicHodgeTheory:R06.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+    "PadicLocalLanglandsForGL2Qp:R30.3"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.2-thm-0-2",
+   "kind": "theorem",
+   "name": "Theorem 0.2: the p-adic étale cohomology of the Drinfeld tower realises the p-adic local Langlands correspondence",
+   "statement": "Let V be an absolutely irreducible L-representation of Gal_{Q_p} of dimension ≥ 2. (i) If V is supercuspidal of dimension 2 with Hodge–Tate weights 0 and 1, then Hom_{W_{Q_p}}(V, L ⊗_{Q_p} H^1_ét(M_∞, Q_p(1))) = JL(V) ⊗_L Π(V)^*. (ii) Otherwise Hom_{W_{Q_p}}(V, L ⊗_{Q_p} H^1_ét(M_∞, Q_p(1))) = 0.",
+   "locator": "Théorème 0.2, p. 314 (proved as Corollaire 2.16, p. 334)",
+   "status": "missing",
+   "note": "The main theorem: a geometric construction of Π(V) for these V. The analogous statement for ℓ-adic étale cohomology holds for every F, every n and every irreducible Q_ℓ-representation of W_F of dimension n; the p-adic statement here is for F = Q_p, n = 2 and weights 0, 1."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.2-remark-0-3",
+   "kind": "theorem",
+   "name": "Remark 0.3: what the theorem does and does not say",
+   "statement": "(i) That H^1_ét(M_∞,Q_p(1)) contains only de Rham representations of weights 0 and 1 — as if M_∞ were an algebraic curve — is striking, and is in sharp contrast with the Lubin–Tate tower, where every finite-dimensional representation with 0 as a generalised Hodge–Tate weight occurs, with infinite multiplicity. (ii) The theorem should extend to supercuspidal representations of arbitrary weights on replacing Q_p(1) by the symmetric powers of the Tate module of the universal p-divisible group over M_∞. (iii) The full structure of H^1_ét(M_∞) as a G × Ǧ × W_{Q_p}-module is not determined here; an Emerton-style answer involving the universal deformation ring of a residual ρ̄ with fixed weights and type is expected. (iv) For a geometric construction of Π(V) for a V that is not de Rham one should consider the completed tower M̂_∞ (a perfectoid space) or the completed cohomology H̃^1_ét, which differ by an interchange of a colimit and a limit because the M_n are not compact.",
+   "locator": "Remarque 0.3, pp. 314–315",
+   "status": "missing",
+   "note": "(ii),(iii),(iv) are expectations and programme, not results; a design job must not plan them as targets. The sequel announced there is Colmez–Dospinescu–Nizioł, ‘Cohomologie de la tour de Drinfeld et correspondance de Langlands locale p-adique en famille’ (in preparation at the time)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.2-mPi-knight",
+   "kind": "theorem",
+   "name": "The functors m(Π(V)) and J(V), and what the paper improves",
+   "statement": "For the completed tower, m(Π(V)) := Hom_{L[G]}(Π(V)^*, H^1_ét(M̂_∞,L(1))) = Hom_{L[G]}(Π(V)^*, H̃^1_ét(M_∞,L(1))) is a representation of Ǧ × W_{Q_p}, admissible as a Ǧ-representation, extending by continuity to Ǧ × Gal_{Q_p}. Knight studied V ↦ J(V) := Hom_{L[W_{Q_p}]}(V, m(Π(V))) and proved, among other things, that if V comes from a global situation then J(V) has the right locally algebraic vectors. The present results remove the global hypothesis (still assuming weights 0 and 1) and are finer: they describe the G-module of Ǧ-smooth vectors of Hom_{L[W_{Q_p}]}(V, H̃^1_ét(M_∞,L(1))) rather than merely showing that it contains Π(V)^* ⊗_L JL(V).",
+   "locator": "Remarque 0.3 (iv), pp. 315–316",
+   "status": "missing",
+   "note": "Also recorded there: m(Π(V)) is expected to agree with Scholze's functor S(Π(V)) — proved in the sequel when the mod p reduction of Π(V) is an extension of two generic principal series, and in general up to finite-dimensional kernel and cokernel — and factorisations m(Π(V)) = JL_p(V) ⊗_L V are hoped for, i.e. a p-adic Jacquet–Langlands correspondence. None of this is proved here."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.3-phiNGal-recipes",
+   "kind": "construction",
+   "name": "WD, LL and JL for a (φ,N,Gal_F)-module of rank 2, and supercuspidality",
+   "statement": "For M an L-(φ,N,Gal_F)-module of rank 2 — an L ⊗ Q_p^{nr}-module with a semilinear Frobenius φ, an operator N with Nφ = pφN and a smooth semilinear Gal_F-action — one attaches a 2-dimensional L-representation WD(M) of the Weil–Deligne group, an irreducible smooth L-representation LL(M) of G and an irreducible smooth finite-dimensional L-representation JL(M) of Ǧ; for M = D_pst(V)[1] these are WD(V), LL(V), JL(V). M is supercuspidal when WD(M) is irreducible, and then all the slopes of φ are equal to one rational number, the slope of M.",
+   "locator": "§0.3, p. 316",
+   "status": "planned",
+   "note": "The paper works with M rather than V because the results of §§4–5 hold for every F, while only F = Q_p has a p-adic local Langlands correspondence to compare with. R06.3 attaches a potentially semi-stable Weil–Deligne parameter to a de Rham representation (Fontaine's recipe); R16.3 is local Langlands for GL_2 and R17.1 the quaternionic local transfer, i.e. LL and JL. The paper needs them for (φ,N,Gal_F)-modules of rank 2 rather than for representations, and in the two-variable form M ↦ (WD(M), LL(M), JL(M)).",
+   "planned": [
+    "PadicHodgeTheory:R06.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.1"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.3-semistable-model-Mn",
+   "kind": "theorem",
+   "name": "Every level of the tower has an equivariant semi-stable model",
+   "statement": "For every n ∈ N, M_n admits a G × Ǧ × W_F-equivariant semi-stable model over the ring of integers O_K of a finite extension K of F̆: choose a cocompact subgroup Γ of G acting freely and without fixed points on the Bruhat–Tits tree, so that X_n(Γ) = Γ∖M_n is a proper smooth curve; choose K so that X_n(Γ) has a semi-stable model over O_K, and take the fibre product of the minimal semi-stable models of X_n(Γ) and Ω_Dr over O_K above that of X(Γ) = Γ∖Ω_Dr.",
+   "locator": "§0.3, p. 316 (proved as Proposition A.1, p. 357)",
+   "status": "missing",
+   "note": "This is what makes Hyodo–Kato cohomology of M_∞ available. The construction is the reason for Appendix A."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.3-HK-dR-M-infty",
+   "kind": "construction",
+   "name": "The de Rham and Hyodo–Kato cohomologies of M_∞ and the Hyodo–Kato isomorphism",
+   "statement": "H^1_dR(M_∞) is a C-vector space and H^1_HK(M_∞) a (φ,N,Gal_F)-module over Q̆_p, both ind-Fréchet, related by the natural Hyodo–Kato isomorphism ι_HK: C ⊗̂_{Q̆_p} H^1_HK(M_∞) ≅ H^1_dR(M_∞).",
+   "locator": "§0.3, p. 316",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.3-thm-0-4",
+   "kind": "theorem",
+   "name": "Theorem 0.4: the Hyodo–Kato and de Rham cohomologies of M_∞ in terms of classical local Langlands",
+   "statement": "For M supercuspidal of rank 2 there is a natural commutative diagram of G-Fréchet spaces with horizontal isomorphisms Hom_{L[Ǧ]}(JL(M), L ⊗_{Q_p} H^1_HK(M_∞)) ≅ M̆ ⊗̂_L LL(M)^* and Hom_{L[Ǧ]}(JL(M), L ⊗_{Q_p} H^1_dR(M_∞)) ≅ C ⊗̂_F M_dR ⊗̂_L LL(M)^*, the left vertical map induced by the Hyodo–Kato isomorphism and the right one by M_dR ⊗_F C = M ⊗_{Q_p^{nr}} C = M̆ ⊗_{Q̆_p} C; all maps are W_F-equivariant and the top one is also φ-equivariant. Here M̆ = Q̆_p ⊗_{Q_p^{nr}} M and M_dR = (Q̄_p ⊗_{Q_p^{nr}} M)^{Gal_F} is free of rank 2 over L ⊗_{Q_p} F.",
+   "locator": "Théorème 0.4, p. 316 (proved as Théorème 5.10, p. 352)",
+   "status": "missing",
+   "note": "Remarque 0.5: the de Rham part for F = Q_p is Dospinescu–Le Bras; the proof here adapts theirs, but replaces the use of the p-adic local Langlands correspondence (unavailable for F ≠ Q_p) by the comparison with the Lubin–Tate tower (Theorem 0.6) and non-abelian Lubin–Tate theory. Lue Pan proved the statement for the first level M_1 by purely local methods."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.3-thm-0-6",
+   "kind": "theorem",
+   "name": "Theorem 0.6: the compactly supported de Rham cohomologies of the two towers agree",
+   "statement": "With (LT_j)_{j≥0} the Lubin–Tate tower, LT_∞ its projective system, and LT^ϖ_∞, M^ϖ_∞ the quotients by the action of ϖ as a central element of Ǧ, there is a natural isomorphism H^1_{dR,c}(LT^ϖ_∞) ≅ H^1_{dR,c}(M^ϖ_∞) which makes both sides smooth C[G × Ǧ]-modules, admissible already as G-modules.",
+   "locator": "Théorème 0.6, p. 317 (proved as Théorème 4.1, p. 342)",
+   "status": "missing",
+   "note": "Remarque 0.7: surprising, because the completed towers are isomorphic perfectoid spaces but perfectoid spaces have no sensible de Rham cohomology (extracting p^∞-th roots and completing makes differentiation problematic). The ℓ-adic analogue is Scholze's duality theorem; the statement is expected to hold in any dimension."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.4-Zbracket",
+   "kind": "definition",
+   "name": "The M-part Z[M] of a Ǧ-module",
+   "statement": "For M an L-(φ,N,Gal_F)-module supercuspidal of rank 2 and Z a Q_p[Ǧ]-module, Z[M] := Hom_{L[Ǧ]}(JL(M), L ⊗_{Q_p} Z). For Z = O(M_∞) or Ω^1(M_∞) one takes in addition the Gal_F-invariants, and the resulting O[M], Ω^1[M] are L ⊗_{Q_p} F-modules while H^1_proét[M] is only an L-module.",
+   "locator": "§0.4, p. 317 and §2.1, p. 326",
+   "status": "missing",
+   "note": "Footnote 12: when M has slope 1/2 the central character of JL(M) is unitary, so the W_F-action on Hom(JL(M),X) extends to Gal_F."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.4-thm-0-8",
+   "kind": "theorem",
+   "name": "Theorem 0.8: the fundamental diagram for the Drinfeld tower",
+   "statement": "For M an L-(φ,N,Gal_F)-module supercuspidal of rank 2, with X^+_st(M) = (B^+_st ⊗_{Q_p^{nr}} M)^{N=0,φ=p}, there is a commutative diagram of G × W_F-Fréchet spaces with exact rows: 0 → O(M_∞)[M] --exp--> H^1_proét(M_∞,L(1))[M] → X^+_st(M) ⊗̂_L LL(M)^* → 0 over 0 → O(M_∞)[M] --d--> Ω^1(M_∞)[M] → (C ⊗_F M_dR) ⊗̂_L LL(M)^* → 0, the middle vertical map being dlog and the right one θ.",
+   "locator": "Théorème 0.8, p. 317 (proved as Théorème 5.11, p. 353)",
+   "status": "missing",
+   "note": "The technical heart of the paper: it computes the pro-étale cohomology of the tower as an extension of a Banach–Colmez type space by functions, compatibly with the de Rham realisation."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.5-VML",
+   "kind": "construction",
+   "name": "The representation V_{M,L} attached to a line L ⊂ M_dR",
+   "statement": "For F = Q_p and M supercuspidal of rank 2, M_dR = (Q̄_p ⊗_{Q_p^{nr}} M)^{Gal_{Q_p}} is an L-space of rank 2; for an L-line L ⊂ M_dR one sets V_{M,L} = Ker((B^+_cris ⊗_{Q_p^{nr}} M)^{φ=p} → C ⊗_{Q_p} (M_dR/L)). Then V_{M,L} is a supercuspidal representation of Gal_{Q_p} of dimension 2 with Hodge–Tate weights 0 and 1, and every such representation is V_{M,L} for a unique pair (M,L).",
+   "locator": "§0.5, p. 318 and §2.1.4, p. 329",
+   "status": "missing",
+   "note": "The classification of such V by pairs (M,L) is Colmez–Fontaine. For general F the same recipe gives supercuspidal V of dimension 2, but Remarque 2.6 shows that not every V of weights 0 and 1 is of this form when F ≠ Q_p."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.5-prop-0-9",
+   "kind": "theorem",
+   "name": "Proposition 0.9: the Breuil–Strauch conjecture",
+   "statement": "For F = Q_p, the inclusion of L in M_dR gives a commutative diagram of G-Fréchet spaces with exact rows: 0 → O(M_n)[M] → C ⊗̂_{Q_p} (Π(V_{M,L})^an)^* → (C ⊗_{Q_p} L) ⊗̂ LL(M)^* → 0 over 0 → O(M_n)[M] --d--> Ω^1(M_n)[M] → (C ⊗_{Q_p} M_dR) ⊗̂_L LL(M)^* → 0, where Π(V_{M,L})^an is the space of locally analytic vectors of Π(V_{M,L}).",
+   "locator": "Proposition 0.9, p. 318",
+   "status": "missing",
+   "note": "Conjectured by Breuil and Strauch (unpublished) and proved by Dospinescu–Le Bras, ‘Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique’ (Ann. of Math. 2017); it is ‘le premier résultat tangible reliant la correspondance de Langlands locale p-adique à la tour de Drinfeld’. It is an input here, not a result of this paper (quoted again as Proposition 2.9)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.5-deduction",
+   "kind": "theorem",
+   "name": "How Theorem 0.2 follows from Theorem 0.8 and Proposition 0.9",
+   "statement": "One uses dim_L Hom_{L[Gal_{Q_p}]}(V_{M,L}, L ⊗_{Q_p} C) = 1 = dim_L Hom_{L[Gal_{Q_p}]}(V_{M,L}, X^+_st(M)) and compares the diagram obtained by applying Hom_{L[Gal_{Q_p}]}(V_{M,L}, −) to the diagram of Theorem 0.8 with that of Proposition 0.9, getting Hom_{L[Ǧ × W_{Q_p}]}(JL(M) ⊗_L V_{M,L}, H^1_proét(M_∞,L(1))) = (Π(V_{M,L})^an)^*; then H^1_ét(M_∞,L(1)) is the set of G-bounded elements of H^1_proét(M_∞,L(1)) (Proposition 2.12) and Π(V_{M,L}) is the universal completion of Π(V_{M,L})^an (Colmez–Dospinescu), which dually says that Π(V_{M,L})^* is the set of G-bounded elements of (Π(V_{M,L})^an)^*, whence Hom_{L[Ǧ × W_{Q_p}]}(JL(M) ⊗_L V_{M,L}, H^1_ét(M_∞,L(1))) = Π(V_{M,L})^*. The remaining half of Theorem 0.2 rests on the combinatorial argument of §2.2.3, which uses that for V irreducible and not of the form V_{M,L} one has dim Hom(V, L ⊗ C) > dim Hom(V, X^+_st(M)) unless both vanish.",
+   "locator": "§0.5, pp. 318–319",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.6-syntomic-route",
+   "kind": "theorem",
+   "name": "The syntomic route to the fundamental diagram, and the diagram (0.10)",
+   "statement": "For X an analytic curve over C with a semi-stable model X over the integers of a closed discretely valued subfield, and finitely many connected components, the definition of syntomic cohomology gives a commutative diagram of distinguished triangles relating RΓ_syn(X,Q_p(1)), RΓ_cris(X)^{φ=p} and RΓ_cris(X)/Fil^1 to (0 → Ω^1), (O → Ω^1) and (O → 0); passing to cohomology and using the comparison of (pro)étale and syntomic cohomology gives the diagram (0.10) with rows 0 → C ⊗ Z[π_0(X)] → O(X) → H^1_proét(X,Q_p(1)) → HK^1_1(X) → H^1(X,O) and its de Rham analogue, where HK^1_1(X) = H^1(RΓ_cris(X)^{φ=p}). For X affinoid or Stein, H^1(X,O) = 0; for X proper the semi-stable comparison theorem gives HK^1_1(X) ≅ (B^+_st ⊗ H^1_HK(X))^{N=0,φ=p}, and the same holds for a Stein curve with a completed tensor product, while for an affinoid HK^1_1(X) is badly behaved (not even a separated topological space).",
+   "locator": "§0.6.1, pp. 319–320",
+   "status": "missing",
+   "note": "This is the approach ‘développée dans [19]’ (Colmez–Dospinescu–Nizioł, Cohomologie des courbes analytiques p-adiques, in preparation at the time) and the one that generalises to higher dimension [20]; the article itself uses the second route. Recorded because the design job must choose one."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.6-remark-0-11",
+   "kind": "theorem",
+   "name": "Remark 0.11: the integral statement and the size of H^1(M°_n,O)",
+   "statement": "The étale–syntomic comparison theorems hold, up to bounded torsion, with integral coefficients, so they can be used for étale cohomology: the top row of Theorem 0.8's diagram becomes 0 → H^1_ét(M_∞,L(1))[M] → X^+_st(M) ⊗_L \\hat{LL}(M)^* → (L ⊗ H^1(M°_n,O))[M], where \\hat{LL}(M) is the universal unitary completion of LL(M), n is such that 1 + ϖ^n_D O_D acts trivially on JL(M), and M°_n is a Ǧ × G-equivariant semi-stable model of M_n. Since there are irreducible representations V of Gal_{Q_p} of arbitrary dimension with Hom(V, X^+_st(M)) ≠ 0, Theorem 0.2 shows that H^1(M°_n,O) is very far from zero (at least for F = Q_p), in contrast with H^1(M_n,O) = 0, and O(M°_n) = O_C ⊗ Z[π_0(M_n)].",
+   "locator": "Remarque 0.11, p. 319",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.6-fontaine-sheaves-route",
+   "kind": "construction",
+   "name": "The route by relative Fontaine rings: the fundamental exact sequence of pro-étale sheaves and ~HK",
+   "statement": "The second approach, the one used in the article because it fits the global methods, uses the relative Fontaine rings and the comparison theorems of Faltings and Scholze: on the pro-étale site there is a diagram of sheaves with exact rows 0 → Q_p(1) → (B^+_cris)^{φ=p} → Ô → 0 and 0 → Ô(1) → B^+_dR/t^2 → Ô → 0; Ω^1(X)(−1) is naturally a quotient of H^1_proét(X,Ô), and for a Stein curve H^0_proét(X,Ô) = O(X) and H^1_proét(X,Ô) = Ω^1(X)(−1). One defines ~HK(X) := Ker(H^1_proét(X,(B^+_cris)^{φ=p}) → H^1_proét(X,Ô) → Ω^1(X)(−1)), which for a proper curve is (B^+_st ⊗ H^1_HK(X))^{N=0,φ=p}, and obtains the diagram (0.12) with rows 0 → C ⊗ Z[π_0(X)] → O(X) --exp--> H^1_proét(X,Q_p(1)) → ~HK(X) → 0 and its de Rham analogue.",
+   "locator": "§0.6.2, pp. 320–321 and §3.2, p. 336",
+   "status": "missing",
+   "note": "The whole of §3 is the construction of this diagram; §5 identifies ~HK(M^ϖ_n)[M]."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.6-plan",
+   "kind": "construction",
+   "name": "The plan of the proof of Theorem 0.8 for the tower",
+   "statement": "Applying the Stein-curve diagram to X = M^ϖ_n and the functor Z ↦ Z[M] reduces Theorem 0.8 to computing ~HK(M^ϖ_n)[M]. One first shows that ι_can identifies ~HK(M^ϖ_n)[M] with a closed subspace of H^1_dR(M^ϖ_n)[M]; with Theorem 0.4 and Proposition 5.14 this gives ~HK(M^ϖ_n)[M] ≅ Z ⊗̂ LL(M)^* for some Z, and Z is computed using the quotients of M^ϖ_n by well-chosen cocompact congruence subgroups of G (in a quaternion algebra over a number field one of whose completions is F), the local–global compatibility theorems of Carayol and T. Saito, and the proper-curve case of ~HK(X) ≅ (B^+_st ⊗ H^1_HK(X))^{N=0,φ=p}.",
+   "locator": "§0.6.2, p. 321",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.1-affinoid-units",
+   "kind": "theorem",
+   "name": "Proposition 1.1: units on a connected affinoid of P^1",
+   "statement": "Let U be a connected affinoid of P^1 over C, written U = P^1 ∖ ⋃_{x∈X} B^-(x,r_x) with X finite and ∞ ∉ X, where B^-(x,r) is the open ball of centre x and valuation r (with the local parameter z − x replaced by z^{-1} − x^{-1} for x ∉ O_C). Then every f ∈ O(U)^* can be written f = c·u·∏_{x∈X}(z−x)^{m_x} with c ∈ C^*, u ∈ O(U)^{**} = 1 + O^{++}(U), m_x ∈ Z and Σ_x m_x = 0; the expression is unique up to c ↦ u_0 c, u ↦ u_0^{-1}u with u_0 ∈ 1 + m_C.",
+   "locator": "Proposition 1.1, p. 322",
+   "status": "missing",
+   "note": "Quoted from Fresnel–van der Put, Prop. 2.5.10. O^+(U), O^{++}(U) and the spectral valuation v_U are defined just above."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.1-cor-1-2",
+   "kind": "theorem",
+   "name": "Corollary 1.2: units modulo constants as measures on the boundary",
+   "statement": "There is an exact sequence of abelian groups 0 → O(U)^{**}/(1+m_C) → O(U)^*/C^* → LC(X,Z)^* --μ↦∫μ--> Z → 0, in which the image of (z−x)/(z−y) in LC(X,Z)^* is Dir_x − Dir_y.",
+   "locator": "Corollaire 1.2, p. 322",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.2-half-plane-models",
+   "kind": "construction",
+   "name": "The Drinfeld half plane, its affinoid exhaustion and its standard formal semi-stable model",
+   "statement": "Ω_{Dr,F} = P^1_F ∖ P^1(F) with the G-action by homographies, Ω_Dr = C ×_F Ω_{Dr,F}. For n ≥ 1, P_n = P^1(O_F/ϖ^n) and U_n = P^1 ∖ ⋃_{x∈P_n} B^-(x, n v_p(ϖ)); the U_n are affinoid opens with increasing union Ω_Dr, and there is a G-equivariant reduction map r: Ω_Dr → T to the Bruhat–Tits tree of G under which U_n is the preimage of the subtree of vertices and edges at distance ≤ n from the central vertex. On the formal side, X_0 = P^1_{O_F} and X_n is obtained from X_{n−1} by blowing up the smooth points of X_{n−1}(k_F); U_n ⊂ X_n is obtained by removing the smooth points of X_n(k_F), its generic fibre is U_{n,F}, and the increasing union U_∞ is a semi-stable model of Ω_{Dr,F} to which the G-action extends.",
+   "locator": "§1.2, pp. 322–323",
+   "status": "planned",
+   "planned": [
+    "HilbertModularVarietiesAndShimuraCurves:R18.5"
+   ],
+   "note": "R18.5 constructs the Drinfeld upper half-plane with its formal model and descent datum and identifies dual graphs and monodromy pairings. What this paper needs on top is the explicit affinoid exhaustion U_n = P^1 ∖ ⋃_{x∈P_n} B^-(x,nv_p(ϖ)) and the G-equivariant reduction map to the Bruhat–Tits tree, and the presentation of the standard model as an iterated blow-up of P^1_{O_F}."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.2-lemma-1-3",
+   "kind": "theorem",
+   "name": "Lemma 1.3: a vanishing function is divisible by ϖ",
+   "statement": "If f ∈ O^+(U_{n+1}) vanishes at at least one point of U_n(C), then f ∈ ϖ O^+(U_n).",
+   "locator": "Lemme 1.3, p. 323",
+   "status": "missing",
+   "note": "Proved by reduction mod ϖ on the non-extremal irreducible components of the special fibre, which are P^1's, so that f mod ϖ is constant on each."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.2-lemma-1-4",
+   "kind": "theorem",
+   "name": "Lemma 1.4: the rings A_n = O(U_n) and their limits",
+   "statement": "(i) Pic(A_n) = 0 for every n (the U_n are connected affinoids of P^1_C, so the A_n are principal ideal rings). (ii) R^1 lim A_n^* = 0. (iii) lim A_n^{**} = 1 + m_C and R^1 lim A_n^{**} = 0.",
+   "locator": "Lemme 1.4, p. 323",
+   "status": "missing",
+   "note": "(ii) and (iii) use Lemma 1.3; (iii) also shows the product ∏_{k≥n} f_k/f_k(Q) converges. Reference: Fresnel–van der Put §2.7, in particular the proof of Thm. 2.7.6."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.3-steinberg",
+   "kind": "definition",
+   "name": "The smooth, continuous and locally analytic Steinberg representations and their duals",
+   "statement": "For a topological ring Λ, LC(P^1(F),Λ) (resp. C(P^1(F),Λ)) is the space of locally constant (resp. continuous) functions on P^1(F), and for a closed subfield L of C containing F, LA(P^1(F),L) is the space of locally F-analytic ones. Their quotients by the constants are the smooth, continuous and locally F-analytic Steinberg representations St^{lisse}_Λ, St^{cont}_Λ, St^{an}_L of G. St^{cont}_L is a Banach space, St^{an}_L a compact inductive limit of Banach spaces, St^{lisse}_L is the space of smooth vectors of St^{cont}_L, and St^{cont}_L is the universal unitary completion of St^{lisse}_L. Dually, (St^{cont}_L)^*, (St^{an}_L)^* and (St^{lisse}_L)^* are the spaces of measures and of algebraic distributions of total mass 0 on P^1(F); (St^{cont}_L)^* is a weak Banach dual and the other two are Fréchet spaces, the Dir_a − Dir_b span a dense subspace of all three, and (St^{cont}_L)^* → (St^{lisse}_L)^* is injective with image the set of G-bounded vectors.",
+   "locator": "§1.3, pp. 323–324",
+   "status": "missing",
+   "note": "The last statement — the continuous dual is the G-bounded part of the smooth dual — is the model, at the level of Ω_Dr, of Proposition 2.12 for the whole tower."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.4-prop-1-5",
+   "kind": "theorem",
+   "name": "Proposition 1.5: units of the half plane are the smooth Steinberg dual",
+   "statement": "There is a natural isomorphism A^*/C^* ≅ (St^{lisse}_Z)^*, where A = O(Ω_Dr), sending (z−a)/(z−b) to Dir_a − Dir_b.",
+   "locator": "Proposition 1.5, p. 324",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.4-prop-1-6",
+   "kind": "theorem",
+   "name": "Proposition 1.6: differentials and de Rham cohomology of the half plane",
+   "statement": "(i) μ ↦ ∫_{P^1(F)} dz/(z−x) μ(x) induces an isomorphism (St^{an}_C)^* ≅ Ω^1(Ω_Dr). (ii) f ↦ (f)_dR = df/f induces an isomorphism C ⊗̂ (A^*/C^*) ≅ H^1_dR(Ω_Dr). (iii) These fit into a commutative diagram of G-representations relating (St^{an}_C)^*, Ω^1(Ω_Dr), (St^{lisse}_C)^*, C ⊗̂ (St^{lisse}_Z)^* and H^1_dR(Ω_Dr).",
+   "locator": "Proposition 1.6, p. 324",
+   "status": "missing",
+   "note": "The descriptions of Ω^1(Ω_Dr) and H^1_dR(Ω_Dr) by Steinberg representations are standard (Morita; Schneider–Teitelbaum)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.5-thm-1-7",
+   "kind": "theorem",
+   "name": "Theorem 1.7 (Drinfeld): the p-adic étale cohomology of the half plane",
+   "statement": "For every k ≥ 1 there are isomorphisms of G × Gal_F-modules H^1_ét(Ω_Dr, Z/p^k(1)) ≅ (St^{lisse}_{Z/p^k})^*, and hence H^1_ét(Ω_Dr, Z_p(1)) ≅ (St^{cont}_{Z_p})^* and H^1_ét(Ω_Dr, Q_p(1)) ≅ (St^{cont}_{Q_p})^*.",
+   "locator": "Théorème 1.7, p. 325 (= Proposition 0.1, p. 312)",
+   "status": "missing",
+   "note": "Proved here by Kummer theory: H^1_ét(Ω_Dr,Z/p^k(1)) ≅ A^*/(A^*)^{p^k} because H^1_ét(Ω_Dr,G_m) = 0 by Lemma 1.4, and then Proposition 1.5. Footnote 3 of the introduction records that Drinfeld stated the result for all ℓ including ℓ = p but that, as Grosse-Klönne and Berkovich pointed out to the authors, his proof for ℓ = p ‘laisse beaucoup à désirer’."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.6-thm-1-8",
+   "kind": "theorem",
+   "name": "Theorem 1.8: the p-adic pro-étale cohomology of the half plane",
+   "statement": "There is an exact sequence of G × Gal_F-modules 0 → O(Ω_Dr)/C --exp--> H^1_proét(Ω_Dr,Q_p(1)) → (St^{lisse}_{Q_p})^* → 0.",
+   "locator": "Théorème 1.8, p. 325",
+   "status": "missing",
+   "note": "The proof identifies H^1_proét(Ω_Dr,Q_p(1)) with lim_n A_n^* ⊗̂ Q_p, tensors the sequence of Corollary 1.2 with Q_p and passes to the limit, using R^1 lim A_n = 0 (the A_n define a Fréchet–Stein algebra) and the isomorphism of pro-systems ((A_n^{**}/(1+m_C)) ⊗̂ Q_p)_n ≅ (A_n/C)_n given by log and exp together with Lemma 1.3."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.6-cor-1-9",
+   "kind": "theorem",
+   "name": "Corollary 1.9: the fundamental diagram for the half plane",
+   "statement": "The exact sequence of Theorem 1.8 sits in a commutative diagram of G × Gal_F-representations over 0 → O(Ω_Dr)/C --d--> Ω^1(Ω_Dr) → (St^{lisse}_C)^* → 0, the middle vertical map being dlog = lim_n dlog and the right one the evident inclusion ι.",
+   "locator": "Corollaire 1.9, p. 326",
+   "status": "missing",
+   "note": "Remark 1.10 identifies, in hindsight, (St^{lisse}_{Q_p})^* with (B^+_st ⊗ H^1_HK(Ω_Dr))^{N=0,φ=p} and ι with θ ⊗ ι_HK; this is the n = 0 case of the fundamental diagram of Theorem 0.8."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-cor-2-1",
+   "kind": "theorem",
+   "name": "Corollary 2.1: the fundamental diagram in its M-isotypic form",
+   "statement": "For M an L-(φ,N,Gal_F)-module supercuspidal of slope 1/2 and rank 2 there is a commutative diagram of (G × Gal_F)-Fréchet spaces with exact rows 0 → C ⊗̂_F O[M] → H^1_proét[M] → (B^+_cris ⊗_{Q_p^{nr}} M)^{φ=p} ⊗̂_L LL(M)^* → 0 and 0 → C ⊗̂_F O[M] → C ⊗̂_F Ω^1[M] → (C ⊗_{Q_p^{nr}} M) ⊗̂_L LL(M)^* → 0, whose vertical maps are injective with closed image. (N = 0 on M, so B_st may be replaced by B_cris.)",
+   "locator": "Corollaire 2.1, p. 327",
+   "status": "missing",
+   "note": "This is Theorem 0.8 after taking the M-part; the bottom row consists of L ⊗_{Q_p} F-modules while the top row is only an L-module."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-kummer-symbols",
+   "kind": "construction",
+   "name": "Kummer theory on an affinoid curve and the étale symbol",
+   "statement": "For Y a one-dimensional affinoid over C the Kummer sequence gives 0 → (O(Y)^*/C^*)/(O(Y)^*/C^*)^{p^n} → H^1_ét(Y,Z/p^n(1)) → Pic(Y)[p^n] → 0 and, in the limit, 0 → (O(Y)^*/C^*)^∧ → H^1_ét(Y,Z_p(1)) → T_p(Pic(Y)) → 0 and its Q_p-version with V_p(Pic(Y)); (f)_ét ∈ H^1_ét(Y,Z_p(1)) denotes the symbol of f ∈ O(Y)^*. Consequently H^1_ét(Y,Z_p(1)) is torsion free and H^1_ét(Y,Q_p(1)) is a Banach space, and for a Stein curve Y = ∪Y_n one has H^1_proét(Y,Q_p(1)) = lim_n H^1_ét(Y_n,Q_p(1)), a Fréchet space independent of the exhaustion.",
+   "locator": "§2.1.1 and Remarque 2.2, pp. 327–328",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-HM-HC",
+   "kind": "definition",
+   "name": "The multiplicity spaces H_M(V) and H_C(V) and the injection ι",
+   "statement": "For M supercuspidal of rank 2 and slope 1/2 with M_dR = (C ⊗_{Q_p^{nr}} M)^{Gal_F} and X^+_st(M) = (B^+_cris ⊗_{Q_p^{nr}} M)^{φ=p}, and V an L-representation of Gal_F, set H_M(V) = Hom_{L[Gal_F]}(V, X^+_st(M)) and H_C(V) = Hom_{L[Gal_F]}(V, L ⊗_{Q_p} C) = (C ⊗_{Q_p} V^*)^{Gal_F}. H_M(V) is a finite-dimensional L-space and H_C(V) a finite type L ⊗ F-module; since M has positive slope, (B^+_cris ⊗ M)^{φ=1} = 0, so the natural map X^+_st(M) → M_dR ⊗_F C is injective and induces an injection ι: H_M(V) → M_dR ⊗_{L⊗F} H_C(V). X^+_st(M) is a Banach Space in the sense of Colmez of Dimension ([L:Q_p],2).",
+   "locator": "§2.1.2 and Remarque 2.3, p. 328",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-prop-2-4",
+   "kind": "theorem",
+   "name": "Proposition 2.4: the multiplicity of V in the fundamental diagram",
+   "statement": "For every L-representation V of Gal_F there is a commutative diagram of G-Fréchet spaces with exact rows 0 → H_C(V) ⊗_{L⊗F} O[M] → Hom_{L[Gal_F]}(V, H^1_proét[M]) → H_M(V) ⊗_L LL(M)^* → 0 and 0 → H_C(V) ⊗_{L⊗F} O[M] → H_C(V) ⊗_{L⊗F} Ω^1[M] → H_C(V) ⊗_{L⊗F} M_dR ⊗_L LL(M)^* → 0, the vertical maps being injective with closed image.",
+   "locator": "Proposition 2.4, p. 328",
+   "status": "missing",
+   "note": "The exactness after applying Hom(V,−) comes from the injectivity of H^1(Gal_F, C ⊗̂_F O[M] ⊗ V^*) → H^1(Gal_F, C ⊗̂_F Ω^1[M] ⊗ V^*), itself obtained by tensoring over L ⊗ F with the finite rank module H^1(Gal_F, C ⊗ V^*)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-prop-2-5",
+   "kind": "theorem",
+   "name": "Proposition 2.5: which V can appear in X_st(M)",
+   "statement": "Let W be a supercuspidal L-representation of Gal_F of dimension d, M = D_pst(W) and X_st(M) = (B_st ⊗_{Q_p^{nr}} M)^{N=0,φ=p}. Then (i) Hom_{L[Gal_F]}(V, X_st(M)) = Hom_{L[WD_F]}(M[−1]^*, D_pst(V^*)) for every L-representation V; (ii) if V has dimension d and Hom_{L[Gal_F]}(V, X_st(M)) ≠ 0, then V is supercuspidal, D_pst(V) ≅ M[−1], and Hom_{L[Gal_F]}(V, X_st(M)) is one-dimensional over L.",
+   "locator": "Proposition 2.5, p. 329",
+   "status": "missing",
+   "note": "M[k] multiplies the φ-action by p^k. The proof is a chain of identifications of (B_st ⊗ M ⊗ V^*)^{N=0,φ=p,Gal_F} using D_pst and the fact that M is irreducible."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-remark-2-6",
+   "kind": "theorem",
+   "name": "Remark 2.6: the shape of a V with Hom(V, X^+_st(M)) ≠ 0, and the role of F = Q_p",
+   "statement": "If dim V = 2 and Hom_{L[Gal_F]}(V, X^+_st(M)) ≠ 0 then V is supercuspidal with D_pst(V) ≅ M[−1], and V = Ker(X^+_st(M) → (B^+_dR ⊗_F M_dR)/Fil^1) for a filtration of M_dR by L ⊗ F-submodules, not necessarily free. Decomposing L ⊗ F = ∏_{σ: F→L} L and M_dR = ⊕_σ M_{dR,σ}, such a filtration is a filtration of each M_{dR,σ}, with Hodge–Tate weights κ_{1,σ} ≤ κ_{2,σ}; admissibility and the use of B^+_cris force κ_{i,σ} ≥ 0 and Σ_{i,σ} κ_{i,σ} = [F:Q_p]. For F = Q_p this leaves no choice and V = V_{M,L} for a unique L; for F ≠ Q_p the V_{M,L} are those with κ_{1,σ} = 0 and κ_{2,σ} = 1 for every σ, and other possibilities occur, including with weights 0 and 1.",
+   "locator": "Remarque 2.6, pp. 329–330",
+   "status": "missing",
+   "note": "This is exactly where the restriction to F = Q_p in the main theorem comes from, and it is a precise statement of what would have to be added for general F."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-lemma-2-7",
+   "kind": "theorem",
+   "name": "Lemma 2.7: one-dimensionality, and the converse for F = Q_p",
+   "statement": "(i) Hom_{L[Gal_F]}(V_{M,L}, X^+_st(M)) is one-dimensional over L. (ii) If F = Q_p and V is a 2-dimensional L-representation of Gal_F, then Hom_{L[Gal_F]}(V, X^+_st(M)) ≠ 0 if and only if V ≅ V_{M,L} for a (unique) L.",
+   "locator": "Lemme 2.7, p. 330",
+   "status": "missing",
+   "note": "Remark 2.8 adds that C ⊗_{Q_p} V_{M,L} ≅ (L ⊗ C) ⊕ (L ⊗ C)(1), so that by Tate's computations H^0(Gal_F, C ⊗ V) and H^1(Gal_F, C ⊗ V) are (L ⊗ F)-modules of rank 1 for V = V_{M,L}, V^*_{M,L}."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-WML",
+   "kind": "construction",
+   "name": "The G-representations W'_{M,L} and W_{M,L}",
+   "statement": "Taking Gal_F-invariants of the bottom row of Corollary 2.1 gives 0 → O[M] → Ω^1[M] → M_dR ⊗_L LL(M)^* → 0 as L ⊗ F-representations of G; W'_{M,L} is the inverse image of L ⊗ LL(M)^* in Ω^1[M], an extension of L ⊗_L LL(M)^* by O[M]. With M^*_dR the L ⊗ F-dual, L^⊥ ⊂ M^*_dR the orthogonal of L and L^{-1} := M^*_dR/L^⊥, one has (M^*_dR/L^⊥) ⊗_{L⊗F} L ≅ L ⊗ F, and tensoring the sequence by L^{-1} and pulling back along L ↪ L ⊗ F produces an L-representation W_{M,L} of G, an extension of LL(M)^* by L^{-1} ⊗_{L⊗F} O[M] ≅ O[M].",
+   "locator": "§2.1.5, pp. 330–331",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-prop-2-9",
+   "kind": "theorem",
+   "name": "Proposition 2.9: W_{M,L} is the dual of the locally analytic vectors of Π(V_{M,L})",
+   "statement": "If F = Q_p then W_{M,L} = (Π(V_{M,L})^an)^*.",
+   "locator": "Proposition 2.9, p. 330",
+   "status": "missing",
+   "note": "This is the main result of Dospinescu–Le Bras (their Thm. 1.4), i.e. the Breuil–Strauch conjecture of Proposition 0.9. It is the only place where the p-adic local Langlands correspondence enters the local argument, and the reason the main theorem is restricted to F = Q_p."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-prop-2-10",
+   "kind": "theorem",
+   "name": "Proposition 2.10: the multiplicity of V_{M,L} in the pro-étale cohomology",
+   "statement": "There is an isomorphism W_{M,L} ≅ Hom_{L[Gal_F]}(V_{M,L}, H^1_proét[M]).",
+   "locator": "Proposition 2.10, p. 331",
+   "status": "missing",
+   "note": "Proved from Proposition 2.4 together with the computation H_C(V_{M,L}) = L^{-1}, which itself comes from Lemma 2.7 (H_M is of rank 1) and Remark 2.8 (H_C is of rank 1 over L ⊗ F). Remark 2.11 defines Π^an_geo(V_{M,L}) := Hom_{L[Gal_F]}(V_{M,L}, H^1_proét[M])^* and notes that for F = Q_p it equals Π(V_{M,L})^an, so that for F ≠ Q_p it is a candidate for the F-analytic vectors of the hypothetical correspondence."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-bounded",
+   "kind": "definition",
+   "name": "Bounded subsets and G-bounded vectors of a Fréchet space",
+   "statement": "A subset X of a locally convex Q_p-vector space E is bounded if p^n x_n → 0 for every sequence (x_n) in X; for a Banach space with valuation v this means v is bounded below on X, and for a Fréchet space defined by valuations (v_k) that each v_k is bounded below on X. If a group G acts continuously on E, an element x is G-bounded when its orbit is bounded.",
+   "locator": "§2.2.1, p. 332",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-prop-2-12",
+   "kind": "theorem",
+   "name": "Proposition 2.12: étale cohomology is the G-bounded part of pro-étale cohomology",
+   "statement": "(i) H^1_ét(M_n,L(1)) is the space of G-bounded vectors of H^1_proét(M_n,L(1)). (ii) For M supercuspidal, free of rank 2 over L ⊗_{Q_p} Q_p^{nr}, H^1_ét[M] is the space of G-bounded vectors of H^1_proét[M].",
+   "locator": "Proposition 2.12, pp. 331–333",
+   "status": "missing",
+   "note": "The key geometric input of §2 and the first of the four ingredients of Theorem 0.2. The proof uses a cocompact Γ ⊂ G acting freely on the tree, a finite family of affinoids Y_1,…,Y_r whose Γ-translates cover M_n with empty triple intersections, and the two Mayer–Vietoris sequences; boundedness of the orbit under Γ alone already forces the class to be integral on each translate."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-cor-2-13",
+   "kind": "theorem",
+   "name": "Corollary 2.13: the multiplicity of V_{M,L} in the étale cohomology",
+   "statement": "For F = Q_p and L an L-line of M_dR, Hom_{L[Gal_{Q_p}]}(V_{M,L}, H^1_ét[M]) ≅ Π(V_{M,L})^*; in particular it is non-zero.",
+   "locator": "Corollaire 2.13, p. 333",
+   "status": "missing",
+   "note": "Obtained from Proposition 2.12 and Proposition 2.10 by passing to G-bounded vectors, using that Π(V_{M,L}) is the universal unitary completion of Π(V_{M,L})^an (Colmez–Dospinescu, Thm. VII.11), which dually says that Π(V)^* is the G-bounded part of (Π(V)^an)^*. Remark 2.14 proposes Π_geo(V_{M,L}) := Hom(V_{M,L}, H^1_ét[M])^* as the candidate for a p-adic local Langlands correspondence for GL_2(F), F ≠ Q_p."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-thm-2-15",
+   "kind": "theorem",
+   "name": "Theorem 2.15: exactly which V occur, and the shape of the multiplicity space",
+   "statement": "Let V be an L-representation of Gal_{Q_p}. (i) Hom_{L[Gal_{Q_p}]}(V, H^1_ét[M]) ≠ 0 if and only if V_{M,L} is a quotient of V for some L (after a finite extension of L if necessary). (ii) The G-Banach space Π_M(V) = Hom_{L[Gal_{Q_p}]}(V, H^1_ét[M])^* is admissible of finite length, with Jordan–Hölder factors isomorphic to representations Π(V_{M,L}).",
+   "locator": "Théorème 2.15, p. 333",
+   "status": "missing",
+   "note": "The proof of (i) is the combinatorial argument of §2.2.3: if Hom(V,V_{M,L}) = 0 for every L then, writing H_M = {m_1 ⊗ A(x) + m_2 ⊗ x : x ∈ S}, no subspace of S is stable under A, and Lemma 2.18 extends A to a diagonalisable endomorphism with arbitrary distinct eigenvalues, embedding Hom(V,H^1_ét[M]) into a sum of the topologically simple Π(V_{M,L_i})^*, which forces it to vanish. (ii) uses the properties of the category of admissible unitary representations (Schneider–Teitelbaum)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-lemma-2-17",
+   "kind": "theorem",
+   "name": "Lemma 2.17: the criterion for Hom(V, V_{M,L}) = 0",
+   "statement": "For an L-line L of M_dR the following are equivalent: (i) Hom_{L[Gal_{Q_p}]}(V, V_{M,L}) = 0; (ii) ι: H_M → M_dR ⊗_L H_C induces an injection H_M → (M_dR/L) ⊗_L H_C.",
+   "locator": "Lemme 2.17, p. 334",
+   "status": "missing",
+   "note": "Obtained by applying Hom(V,−) to 0 → V_{M,L} → X^+_st(M) → C ⊗ (M_dR/L) → 0."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-lemma-2-18",
+   "kind": "theorem",
+   "name": "Lemma 2.18: a linear algebra extension lemma",
+   "statement": "Let A: S → H_C be linear with no non-zero A-stable subspace of S, and let λ_1,…,λ_n ∈ L be pairwise distinct with n = dim_L H_C. Then A extends to an endomorphism of H_C with eigenvalues λ_1,…,λ_n.",
+   "locator": "Lemme 2.18, p. 335",
+   "status": "missing",
+   "note": "Proved by induction on n using the largest k(v) with v, Av, …, A^{k(v)}v ∈ S; the case k(v) = n−2 is an explicit companion-matrix construction."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-cor-2-16",
+   "kind": "theorem",
+   "name": "Corollary 2.16: the socle of the étale cohomology of the tower",
+   "statement": "For V an absolutely irreducible L-representation of Gal_{Q_p} of dimension ≥ 2: if V is supercuspidal of dimension 2 with weights 0 and 1, then Hom_{L[W_{Q_p}]}(V, L ⊗_{Q_p} H^1_ét(M_∞,Q_p(1))) = JL(V) ⊗_L Π(V)^*, and otherwise this space is 0. Hence, apart from the smooth characters coming from Ω_Dr × π_0(M_∞), the socle of H^1_ét(M_∞) contains only supercuspidal representations of dimension 2 with weights 0 and 1, and the p-adic étale cohomology of the Drinfeld tower encodes the p-adic local Langlands correspondence for those.",
+   "locator": "Corollaire 2.16, p. 334 (= Théorème 0.2)",
+   "status": "missing",
+   "note": "Uses that every supercuspidal 2-dimensional representation with weights 0 and 1 is of the form V_{M,L} (Remarque 2.6)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-O-no-bounded",
+   "kind": "theorem",
+   "name": "O(M_∞) has no non-constant G-bounded elements",
+   "statement": "The restrictions on which V appear in the étale cohomology come in part from the fact that O(M_∞) has no non-constant G-bounded elements; for F = Q_p this follows from the universal completion arguments used above, and for general F it can be checked directly (Remark A.2: on a connected Stein curve with a semi-stable model over O_K the bounded functions are constant).",
+   "locator": "§2.2, p. 331 and Remarque A.2, p. 359",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.1-lemma-3-2",
+   "kind": "theorem",
+   "name": "Lemma 3.2: the pro-étale cohomology of Ô on a curve",
+   "statement": "There is a canonical exact sequence 0 → H^1_ét(X,O_X) → H^1_proét(X,Ô_X) → Ω^1(X)(−1) → H^2_ét(X,O_X), and if X is affinoid or Stein there is a canonical isomorphism H^1_proét(X,Ô_X) ≅ Ω^1(X)(−1).",
+   "locator": "Lemme 3.2, p. 336",
+   "status": "missing",
+   "note": "From Scholze's Lemma 3.24 (O_{X,ét} ≅ ν_*Ô_X and Ω^1_{X,ét} ≅ R^1ν_*Ô_X(1)) and the Leray spectral sequence, plus Kiehl's theorem in the Stein case and Tate's in the affinoid case."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-HKtilde",
+   "kind": "definition",
+   "name": "The group ~HK(X)",
+   "statement": "For X a smooth rigid analytic variety over C, with the sheafified Fontaine rings on the pro-étale site, ~HK(X) := Ker(H^1_proét(X,(B^+_cris)^{φ=p}) → H^1_proét(X,Ô) → Ω^1(X)(−1)).",
+   "locator": "§3.2, p. 336",
+   "status": "missing",
+   "note": "This is the object that plays, for the tower, the role that (B^+_st ⊗ H^1_HK)^{N=0,φ=p} plays for a proper curve; the whole of §5.4 computes ~HK(M^ϖ_n)[M]."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-thm-3-3",
+   "kind": "theorem",
+   "name": "Theorem 3.3: the fundamental diagram for a Stein curve",
+   "statement": "Let X/C be a smooth Stein curve with finitely many connected components. There is a canonical commutative diagram with exact rows 0 → C ⊗ Z[π_0(X)] → O(X) --exp--> H^1_proét(X,Q_p(1)) → ~HK(X) → 0 and 0 → C ⊗ Z[π_0(X)] → O(X) --d--> Ω^1(X) --π_dR--> H^1_dR(X) → 0, with middle vertical map dlog and right vertical map ι_can. Moreover every map has closed image, and Ker ι_can = Ker dlog is naturally a closed subspace of H^1_dR(X)(1).",
+   "locator": "Théorème 3.3, p. 337",
+   "status": "missing",
+   "note": "The proof also yields H^0_proét(X,(B^+_cris)^{φ=p}) = (B^+_cris)^{φ=p} ⊗ Z[π_0(X)] (formula (3.4)) and identifies ~DR(X) = Ker(H^1_proét(X,B^+_dR/t^2) → H^1_proét(X,Ô)) with H^1_dR(X). The exponential is defined affinoid by affinoid by p^{-n} ⊗ exp(p^n g) for n ≫ 0."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-prop-3-5",
+   "kind": "theorem",
+   "name": "Proposition 3.5: the open disc",
+   "statement": "For D = {|z| < 1} over C, exp and log induce an isomorphism O(D)/C ≅ H^1_proét(D,Q_p(1)), under which dlog is d ∘ log; in particular dlog: H^1_proét(D,Q_p(1)) → Ω^1(D) is a homeomorphism onto its closed image.",
+   "locator": "Proposition 3.5, p. 338",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-prop-3-6",
+   "kind": "theorem",
+   "name": "Proposition 3.6: the open annulus",
+   "statement": "For C an open annulus over C there is an exact sequence 0 → O(C)/C → H^1_proét(C,Q_p(1)) → Q_p → 0, and dlog: H^1_proét(C,Q_p(1)) → Ω^1(C) is a homeomorphism onto its closed image.",
+   "locator": "Proposition 3.6, p. 338",
+   "status": "missing",
+   "note": "These two local computations are what make the Mayer–Vietoris arguments of Propositions 3.8 and 3.10 work: they control the behaviour on the discs and annuli of a semi-stable covering."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-prop-3-8",
+   "kind": "theorem",
+   "name": "Proposition 3.8: the key finiteness for a strict inclusion of affinoids",
+   "statement": "Let U ⋐ V be a strict inclusion of smooth affinoids of dimension 1 over C. (a) If c_n ∈ H^1_proét(V,Q_p(1)) satisfy dlog(c_n) → 0 in Ω^1(V), then there are d_n ∈ H^1_proét(U,Q_p(1))^{dlog=0} with c_n|_U + d_n → 0 in H^1_proét(U,Q_p(1)). (b) The image of H^1_proét(V,Q_p(1))^{dlog=0} in H^1_proét(U,Q_p(1))^{dlog=0} is finite-dimensional over Q_p.",
+   "locator": "Proposition 3.8, pp. 338–339",
+   "status": "missing",
+   "note": "Proved by embedding U as the complement of finitely many open discs in a proper smooth connected curve Z (possible by van der Put), and comparing the Mayer–Vietoris sequences for Z = D ∪ U(r) in pro-étale cohomology and in Ω^1. Lemme 3.9 (the open mapping theorem: a continuous map of Fréchet spaces with finite-dimensional cokernel has closed image and induces a homeomorphism on the quotient by its kernel) is the functional-analytic ingredient."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-dlog-closed",
+   "kind": "theorem",
+   "name": "The image of dlog is closed",
+   "statement": "For X a Stein curve exhausted by affinoids U_k, dlog: H^1_proét(X,Q_p(1)) → Ω^1(X) has closed image; equivalently ι_can has closed image.",
+   "locator": "§3.2.2, pp. 339–340",
+   "status": "missing",
+   "note": "A limit argument: Proposition 3.8 (a) corrects the approximating classes level by level, and Proposition 3.8 (b) gives R^1 lim H^1(U_k)^{dlog=0} = 0, which lets the corrected classes be glued into a global section."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-prop-3-10",
+   "kind": "theorem",
+   "name": "Proposition 3.10: the kernel of ι_can embeds in de Rham cohomology",
+   "statement": "For X/C smooth Stein of dimension 1, the natural map λ_X: H^1_proét(X,Q_p(1))^{dlog=0} → ~DR(1) ≅ H^1_dR(X)(1), induced by the factorisation Q_p(1) → (B^+_dR/t^2)(1) → Ô(1), is injective with closed image.",
+   "locator": "Proposition 3.10, p. 340",
+   "status": "missing",
+   "note": "Reduced to the affinoid statement Lemme 3.11: for U ⋐ V smooth affinoids of dimension 1 and c ∈ H^1_proét(V,Q_p(1))^{dlog=0} with λ_V(c) = 0, one has c|_U = 0. That in turn uses the same compactification Z and the injectivity of H^1_proét(Z,Q_p(1)) → H^1_proét(Z,Ô(1))."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.3-prop-3-12",
+   "kind": "theorem",
+   "name": "Proposition 3.12: ~HK for a proper curve is the semi-stable Banach Space",
+   "statement": "If X = X_K ⊗_K C with K/Q_p finite and X_K a proper smooth curve over K, then there are natural isomorphisms ~HK(X) ≅ (B^+_st ⊗_{Q_p^{nr}} D_pst(H^1_ét(X,Q_p)))^{φ=p,N=0} = (B^+_st ⊗_{Q_p^{nr}} H^1_HK(X))^{φ=p,N=0}.",
+   "locator": "Proposition 3.12, p. 341",
+   "status": "missing",
+   "note": "Uses that H^1_ét(X,Q_p) is potentially semi-stable with weights 0,−1, Fil^1 D_dR ≅ Ω^1(X_K) and D_pst ≅ H^1_HK by the semi-stable comparison theorem; then Scholze's comparison gives (B^+_cris)^{φ=p} ⊗ H^1_ét ≅ H^1_proét(X,(B^+_cris)^{φ=p}), and the kernel of the map to Ω^1(X_K)(−1) is computed inside B_dR."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.1-thm-4-1",
+   "kind": "theorem",
+   "name": "Theorem 4.1: the two towers have the same compactly supported de Rham cohomology",
+   "statement": "With G_j = GL_2(O_F) for j = 0 and 1 + ϖ^j M_2(O_F) for j ≥ 1, and Ǧ_n = O_D^* for n = 0 and 1 + ϖ^n_D O_D for n ≥ 1, there are natural isomorphisms for all j,n ∈ N: H^1_{dR,c}(M^ϖ_n)^{G_j} ≅ H^1_c(M̂^ϖ_∞,O)^{G_j × Ǧ_n} ≅ H^1_c(LT̂^ϖ_∞,O)^{G_j × Ǧ_n} ≅ H^1_{dR,c}(LT^ϖ_j)^{Ǧ_n}, hence a natural isomorphism H^1_{dR,c}(LT^ϖ_∞) ≅ H^1_{dR,c}(M^ϖ_∞) making both sides smooth C[Ǧ × G]-modules, admissible already as G-modules.",
+   "locator": "Théorème 4.1, p. 342 (= Théorème 0.6)",
+   "status": "missing",
+   "note": "The middle isomorphism is the Scholze–Weinstein isomorphism of the completed towers as G × Ǧ-perfectoid spaces; the outer two are Corollary 4.7 together with Proposition 4.8."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.2-LT-tower",
+   "kind": "construction",
+   "name": "The Lubin–Tate tower and its G × Ǧ-action",
+   "statement": "Lubin–Tate theory gives a formal scheme Spf(A_0) over O_{F̆} classifying deformations by quasi-isogenies of the unique formal O_F-module of dimension 1 and height 2 over F̄_p; adding level structures gives Drinfeld's tower (Spf(A_n))_{n≥1}. The adic generic fibre L̆T_n is a finite étale Galois covering of L̆T_0 with group GL_2(O_F/ϖ^n), and L̆T_0 is a countable disjoint union of copies of the open unit disc over F̆. One sets LT_n = L̆T_n ×_{F̆} C; there is an action of G × Ǧ on the tower (not on each level, unlike the Drinfeld tower).",
+   "locator": "§4.2, p. 342",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.2-prop-4-2",
+   "kind": "theorem",
+   "name": "Proposition 4.2: preimages of affinoids in the completed towers are affinoid perfectoid",
+   "statement": "(i) If U is an affinoid of LT_j, its preimage in LT̂^ϖ_∞ is affinoid perfectoid. (ii) If U is an affinoid of M_j, its preimage in M̂^ϖ_∞ is affinoid perfectoid.",
+   "locator": "Proposition 4.2, p. 342",
+   "status": "missing",
+   "note": "From Weinstein's Lemma 2.10.1 (the loci |X_1|^n ≤ |ϖ| and |Y_1|^n ≤ |ϖ| are affinoid perfectoid), so LT̂^ϖ_∞ is an increasing union of affinoid perfectoids and every quasi-compact rational domain is affinoid perfectoid (Scholze); (ii) follows by the isomorphism of the two completed towers."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.2-remark-4-3",
+   "kind": "theorem",
+   "name": "Remark 4.3: the exhaustions used throughout §4",
+   "statement": "Each connected component X_0 of M_0 or LT_0 carries a strictly increasing family of affinoids U_λ, λ ∈ Q_+, with U_λ ∖ U̇_{λ'} affinoid for λ' < λ, X_0 = ∪_λ U_λ and U_λ = ∩_{λ'>λ} U_{λ'} (closed balls on the Lubin–Tate side, preimages of balls of the tree on the Drinfeld side). Hence for j ≥ 1 and X = LT^ϖ_j or M^ϖ_j, X has an increasing affinoid exhaustion such that X ∖ U_n also has one; and X̂ = LT̂^ϖ_∞ ≅ M̂^ϖ_∞ has an increasing exhaustion by affinoid perfectoids that are preimages of affinoids of LT^ϖ_j (resp. M^ϖ_j) with the same property for the complements.",
+   "locator": "Remarque 4.3, pp. 342–343",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-lemma-4-4",
+   "kind": "theorem",
+   "name": "Lemma 4.4: Galois cohomology of the structure sheaf of a perfectoid covering",
+   "statement": "Let X be an affinoid or a Stein curve and X̂ a pro-étale perfectoid covering of X, Galois with group K; in the Stein case assume X is a strictly increasing union of affinoids whose preimages in X̂ are affinoid perfectoid. Then there are canonical isomorphisms H^0_cont(K,O(X̂)) = O(X) and H^1_cont(K,O(X̂)) ≅ Ω^1(X).",
+   "locator": "Lemme 4.4, p. 343",
+   "status": "missing",
+   "note": "For an affinoid this is the Čech computation of H^j_proét(X,Ô) for the covering X̂ → X together with Lemma 3.2; the Stein case follows from R^1 lim O(X_n) = 0 and R^1 lim O(X̂_n) = 0, X̂ being Stein of generalised type."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-prop-4-5",
+   "kind": "theorem",
+   "name": "Proposition 4.5: functions and differentials on the two towers as Galois cohomology",
+   "statement": "H^0_cont(G_j, O(LT̂^ϖ_∞)) = O(LT^ϖ_j) and H^1_cont(G_j, O(LT̂^ϖ_∞)) = Ω^1(LT^ϖ_j); H^0_cont(Ǧ_j, O(M̂^ϖ_∞)) = O(M^ϖ_j) and H^1_cont(Ǧ_j, O(M̂^ϖ_∞)) = Ω^1(M^ϖ_j).",
+   "locator": "Proposition 4.5, p. 344",
+   "status": "missing",
+   "note": "Lemma 4.4 applied to (LT^ϖ_j, LT̂^ϖ_∞, G_j) and (M^ϖ_j, M̂^ϖ_∞, Ǧ_j), the hypotheses being supplied by Remark 4.3."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-compact-support",
+   "kind": "definition",
+   "name": "Compactly supported cohomology of the structure sheaf, by boundary sections",
+   "statement": "For X one of LT^ϖ_j, M^ϖ_j one sets O(∂X) = colim_U O(X ∖ U) over the affinoids of a Stein covering, similarly Ω^1(∂X), and defines H^1_c(X,O) := O(∂X)/O(X); for X̂ = LT̂^ϖ_∞ ≅ M̂^ϖ_∞ one takes the colimit over rational domains and defines H^1_c(X̂,O) by 0 → O(X̂) → O(∂X̂) → H^1_c(X̂,O) → 0.",
+   "locator": "§4.3.2, pp. 344–345",
+   "status": "missing",
+   "note": "Remark 4.6 checks that these ad hoc definitions agree with the natural one — RΓ(∂Z,F) = colim RΓ(Z∖U,F) and RΓ_c(Z,F) = cone(RΓ(Z,F) → RΓ(∂Z,F)) — because H^0_c(Z,O) = 0 and H^1(Z,O) = 0, and with the usual definition of compactly supported de Rham cohomology."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-cor-4-7",
+   "kind": "theorem",
+   "name": "Corollary 4.7: descent of compactly supported cohomology of O",
+   "statement": "H^1_c(LT^ϖ_j,O) = H^1_c(LT̂^ϖ_∞,O)^{G_j} and H^1_c(M^ϖ_n,O) = H^1_c(M̂^ϖ_∞,O)^{Ǧ_n}.",
+   "locator": "Corollaire 4.7, p. 344",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-serre-duality",
+   "kind": "theorem",
+   "name": "Serre duality for the levels of the towers and the resulting exact sequence",
+   "statement": "For X one of LT^ϖ_j, M^ϖ_j, Serre duality gives natural isomorphisms H^i_dR(X) ≅ (H^{2−i}_{dR,c}(X))^*, H^i_{dR,c}(X) ≅ (H^{2−i}_dR(X))^* and Ω^1(X)^* ≅ H^1_c(X,O_X); dualising 0 → O(X)/H^0_dR(X) → Ω^1(X) → H^1_dR(X) → 0 gives the exact sequence of compact type spaces 0 → H^1_{dR,c}(X) → Ω^1(X)^* ≅ H^1_c(X,O) → O(X)^* → H^0_dR(X)^* → 0.",
+   "locator": "§4.3.2, p. 345",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-prop-4-8",
+   "kind": "theorem",
+   "name": "Proposition 4.8: the vanishing that identifies the two compactly supported theories",
+   "statement": "(i) [O(M^ϖ_n)^*]^{G_j} = 0 and [O(LT^ϖ_j)^*]^{Ǧ_n} = 0. (ii) Consequently H^1_{dR,c}(M^ϖ_n)^{G_j} = H^1_c(M^ϖ_n,O)^{G_j} and H^1_{dR,c}(LT^ϖ_j)^{Ǧ_n} = H^1_c(LT^ϖ_j,O)^{Ǧ_n}.",
+   "locator": "Proposition 4.8, p. 345",
+   "status": "missing",
+   "note": "On the Drinfeld side one derives the G_j-action and uses u^+(f) = −f′, a^+(f) = −zf′ to show that a functional killed by Lie(G) vanishes. On the Lubin–Tate side the same is done with the Gross–Hopkins period map π_GH = A/B: with g = AB′ − A′B invertible and f_1 = A²/g, f_2 = B²/g, f_3 = AB/g, the operators ∂_i = f_i d/dz give the infinitesimal action of Ǧ/Z(Ǧ), one computes f_1f_2′ − f_2f_1′ = 2f_3, and the ideal generated by f_1,f_2,f_3 is dense because the f_i have no common zero."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.1-special-modules",
+   "kind": "definition",
+   "name": "Special (φ,N,Gal_F)-modules and the representations WD_i, LL_i, JL_i",
+   "statement": "A rank 2 indecomposable (φ,N,Gal_F)-module is either supercuspidal or special, i.e. a twist Sp ⊗ η by a smooth character of F^* of Sp = Q_p^{nr}e_1 ⊕ Q_p^{nr}e_2 with φ(e_1) = e_1, φ(e_2) = pe_2, Ne_1 = 0, Ne_2 = e_1. For i = 0,1 one sets WD_i, LL_i, JL_i: for M supercuspidal, WD_0 = LL_0 = JL_0 = 0 and WD_1 = WD(M), LL_1 = LL(M), JL_1 = JL(M); for M = Sp ⊗ η special, WD_0(M) = L(N_{F/Q_p}η), WD_1(M) = L(η), LL_0(M) = η∘ν_G, LL_1(M) = St^{lisse} ⊗ (η∘ν_G), JL_0(M) = JL_1(M) = η∘ν_Ǧ.",
+   "locator": "§5.1, pp. 346–347",
+   "status": "missing",
+   "note": "Not only supercuspidal M contribute to the cohomology of M_∞: every indecomposable M of rank 2 does, but a non-supercuspidal one has its contribution ‘éparpillée façon puzzle’ between H^0 and H^1, and to reassemble the pieces one would have to pass to the derived category."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.1-phiNvarpi",
+   "kind": "definition",
+   "name": "ϖ-compatible modules and the reduction to M^ϖ_∞",
+   "statement": "M is ϖ-compatible when ϖ, as a central element of Ǧ, acts trivially on JL_i(M); this forces M to have slope 1/2, and for F = Q_p it forces ϖ, as a central element of G, to act trivially on Π(V_{M,L}) for every line L. ΦN^ϖ denotes the set of rank 2 indecomposable ϖ-compatible modules. For any indecomposable M of rank 2, twisting by an unramified character nr_α with α^{-2} = λ (λ the scalar by which ϖ acts on JL_i(M)) gives Hom_Ǧ(JL_i(M), H^i(M_∞)) = Hom_Ǧ(JL_i(M) ⊗ nr_{α,Ǧ}, H^i(M^ϖ_∞)) ⊗ (nr^{-1}_{α,G} ⊗ nr^{-1}_{α,W_F}) as G × W_F-representations, so one may prove Theorems 0.4 and 0.8 for M^ϖ_∞ and ϖ-compatible M.",
+   "locator": "§5.1, p. 347",
+   "status": "missing",
+   "note": "Working with M^ϖ_n also has the advantage that M^ϖ_n is defined over F rather than F̆."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.1-prop-5-1",
+   "kind": "theorem",
+   "name": "Proposition 5.1: non-abelian Lubin–Tate theory in the ℓ-adic case",
+   "statement": "For ℓ ≠ p and i = 0,1, Q̄_ℓ ⊗_{Q_ℓ} H^i_{ét,c}(M^ϖ_∞,Q_ℓ) = ⊕_{M∈ΦN^ϖ} JL_i(M) ⊗ WD_i(M) ⊗ LL_i(M)^∨ as representations of Ǧ × W_F × G, where LL_i(M)^∨ is the contragredient.",
+   "locator": "Proposition 5.1, p. 347",
+   "status": "planned",
+   "note": "Quoted from non-abelian Lubin–Tate theory (Carayol; Harris–Taylor / Boyer as summarised by Weinstein). Theorem 5.8 is the de Rham analogue proved here, and the comparison of the two is what pins down the G-action. This is exactly ET.6a's supercuspidal isotypic realisation, in the compactly supported form for the Drinfeld tower and including the special (non-supercuspidal) M through WD_i, LL_i, JL_i for i = 0,1.",
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.2-shimura-setup",
+   "kind": "construction",
+   "name": "The global setting: a totally real field, two quaternion algebras and the Shimura curves",
+   "statement": "One chooses a totally real field E with a place p above p such that E_p = F, an infinite place ∞_0, a quaternion algebra B̌ over E split at ∞_0, compact modulo the centre at the other infinite places and ramified at p, and B with the same invariants as B̌ away from ∞_0 and p, compact modulo the centre at ∞_0 and split at p; G, Ǧ are the associated algebraic groups and Γ = G(E), Γ̌ = Ǧ(E), with fixed isomorphisms G(E_p) ≅ G, Ǧ(E_p) ≅ Ǧ and Ǧ(A^p_f) ≅ G(A^p_f). SD_2(Ǧ) is the set of automorphic representations π of Ǧ(A) whose infinite component is the holomorphic discrete series of weight 2 with trivial central character at ∞_0 and trivial elsewhere, and SD_{2,n} those with Ǧ_n acting trivially on π_p. For n ≥ 1 and U ⊂ Ǧ(A^p_f) small enough, Sh_n(U)_E is the Shimura curve with Sh_n(U)_E(C) = Γ̌∖[(C∖R) × (Ǧ(A_f)/(U × Ǧ_n))], which is compact, and H(Sh_n) := colim_U H(Sh_n(U)) for H = H^1_dR, H^1_HK or H^1_ét(−,L).",
+   "locator": "§5.2.1, pp. 347–348",
+   "status": "planned",
+   "note": "Footnote 21: globalising may require adjusting the central character, hence twisting everything by a character (and changing ϖ), and possibly enlarging L; the globalisation input is Clozel's limit multiplicity theorem. R18.5 owns the Shimura curves at a bad prime and their uniformisation; R17.3 the global Jacquet–Langlands correspondence and the strong multiplicity one statements that the paper uses to pass between Π and Π̌. The specific globalisation — a totally real E with E_p = F and two quaternion algebras differing exactly at ∞_0 and p — and Clozel's limit multiplicity input are what a design job must add.",
+   "planned": [
+    "HilbertModularVarietiesAndShimuraCurves:R18.5",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.2-prop-5-2",
+   "kind": "theorem",
+   "name": "Proposition 5.2: local–global compatibility for the Shimura curves",
+   "statement": "With M supercuspidal in ΦN^ϖ, Π̌ ∈ SD_{2,n} defined over L with Π̌_p = JL(M), and Π the automorphic representation of G(A) matching Π̌ under the global Jacquet–Langlands correspondence (so Π^p_f = Π̌^p_f and Π_p = LL(M)), one has Hom_{Ǧ(A^p_f)}(Π̌^p_f, L ⊗_{Q_p} H^1_HK(Sh_n)) = JL(M) ⊗_L M and, for F ⊂ K, Hom_{Ǧ(A^p_f)}(Π̌^p_f, L ⊗_{Q_p} H^1_dR(Sh_{n,K})) = JL(M) ⊗_L (K ⊗_F M_dR).",
+   "locator": "Proposition 5.2, p. 348",
+   "status": "planned",
+   "note": "This is the consequence of the local–global compatibility theorems of Carayol and T. Saito: H^1_ét(Sh_{n,Q̄},L) ⊗_L Q̄_p ≅ ⊕_{π∈SD_{2,n}} (π_f ⊗ ρ_π(−1)) with π_v ≅ JL(WD(ρ_{π,v})) at every finite place v; one restricts to Gal_F, applies D_pst and D_dR, and uses strong multiplicity one to see that Π̌^p_f determines Π̌_p. R19.4 proves local–global compatibility away from p and R19.5 at the coefficient prime, for the Hilbert and quaternionic representations; Carayol's and T. Saito's theorems in the form quoted here (π_v ≅ JL(WD(ρ_{π,v})) at every finite place, including v = p) are those stages' output, and the paper's use of them is the application of D_pst and D_dR to that isomorphism.",
+   "planned": [
+    "AutomorphicGaloisRepresentations:R19.4",
+    "AutomorphicGaloisRepresentations:R19.5"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.2-prop-5-4",
+   "kind": "theorem",
+   "name": "Proposition 5.4: p-adic uniformisation of the Shimura curves",
+   "statement": "With S_p(U) = G(A^p_f)/U, a discrete set with a Γ-action, there is a family of isomorphisms of rigid analytic spaces Sh_n(U)^an ≅ Γ∖[M_n × S_p(U)], compatible with the variation of U and n.",
+   "locator": "Proposition 5.4, p. 349",
+   "status": "planned",
+   "note": "Čerednik–Drinfeld and Boutot–Zink in this context. Remark 5.5 spells out the consequences: S_p(U) has finitely many Γ-orbits Γx_1,…,Γx_r with cocompact discrete stabilisers Γ_i ⊂ G, so Sh_n(U)^an = ⨆_i Γ_i∖M_n; the Hochschild–Serre spectral sequence H^p(Γ, H^q(M_n × S_p(U))) ⇒ H^{p+q}(Sh_n(U)) gives, since Ǧ acts on H^0 through the reduced norm and so H^0(M_n × S_p(U))[M] = 0, an isomorphism H^1(Sh_n(U))[M] ≅ H^0(Γ, H^1(M_n × S_p(U))[M]). R18.5 proves ‘the actual uniformisation theorem in the Shimura-curve cases’ — Čerednik–Drinfeld and Boutot–Carayol. The paper needs it in the Boutot–Zink form, for the whole tower and compatibly with the variation of the level and of n, together with the Hochschild–Serre consequences of Remark 5.5.",
+   "planned": [
+    "HilbertModularVarietiesAndShimuraCurves:R18.5"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.2-lemma-5-6",
+   "kind": "theorem",
+   "name": "Lemma 5.6: a Frobenius reciprocity for distribution algebras",
+   "statement": "Let D(G) (resp. D^alg(G)) be the algebra of compactly supported distributions (resp. algebraic distributions) on G, i.e. the dual of LA(G,L) (resp. LC(G,L)); D^alg(G) is the quotient of D(G) by the ideal generated by the Lie algebra, so a D^alg(G)-module is a D(G)-module killed by g, and the Dirac masses are dense in both. With S(U) = Γ∖(G × S_p(U)) = Γ∖G(A_f)/U, a compact p-adic manifold, for every D^alg(G)-Fréchet space F one has H^0(Γ, C(S_p(U), F)) = H^0(G, Hom(LC(S(U))^*, F)).",
+   "locator": "Lemme 5.6, p. 350",
+   "status": "missing",
+   "note": "Proved by the explicit mutually inverse assignments φ ↦ λ_φ, λ_φ(μ ⊗ δ_x) = ι(μ)·φ(x), and λ ↦ φ_λ, φ_λ(x) = λ(δ_1 ⊗ δ_x), using the density of Dirac masses."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.2-prop-5-7",
+   "kind": "theorem",
+   "name": "Proposition 5.7: the Hyodo–Kato cohomology of a finite level in terms of M",
+   "statement": "There is an isomorphism of (φ,N,Gal_F)-modules M̆ ≅ Hom_G(LL(M)^*, H^1_HK(M^ϖ_n)[M]) fitting in a commutative diagram of Gal_F-modules with M_dR ⊗_F C ≅ Hom_G(LL(M)^*, H^1_dR(M^ϖ_n)[M]) below it, the vertical maps being the Hyodo–Kato isomorphisms.",
+   "locator": "Proposition 5.7, p. 351",
+   "status": "missing",
+   "note": "This is the ‘global input’: it is obtained by combining Lemma 5.6 (for F = H^1_dR(M^ϖ_n)) and Remark 5.5 with Proposition 5.2 and strong multiplicity one, i.e. by producing the right-hand side inside the cohomology of the Shimura curves. Proving that there is nothing more in the left-hand side is the point of §5.3."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.3-thm-5-8",
+   "kind": "theorem",
+   "name": "Theorem 5.8: the compactly supported de Rham cohomology of the Drinfeld tower",
+   "statement": "H^1_{dR,c}(M^ϖ_∞) = ⊕_{M∈ΦN^ϖ} JL_1(M) ⊗_C WD_1(M) ⊗_C LL_1(M)^∨ as a representation of Ǧ × G (coefficients extended to C).",
+   "locator": "Théorème 5.8, p. 352",
+   "status": "missing",
+   "note": "The de Rham analogue of Proposition 5.1. The surjection onto the right-hand side comes from Proposition 5.7 by duality; that it is an isomorphism is proved by passing to the Lubin–Tate side with Theorem 4.1, where dim_C H^1_{dR,c}(LT^ϖ_j) = dim_{Q_ℓ} H^1_{ét,c}(LT^ϖ_j,Q_ℓ) is finite (van der Put / Schneider–Stuhler for an open analytic curve) and non-abelian Lubin–Tate theory computes the ℓ-adic side. Remark 5.9 records that the special M contribute exactly the cohomology of Ω_Dr × π_0(M^ϖ_∞), and nothing else."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.3-thm-5-10",
+   "kind": "theorem",
+   "name": "Theorem 5.10: Theorem 0.4 for the whole tower",
+   "statement": "For M ∈ ΦN^ϖ supercuspidal there is an isomorphism of G-Fréchet spaces Hom_Ǧ(JL(M), L ⊗_{Q_p} H^1_HK(M^ϖ_∞)) ≅ M̆ ⊗̂_L LL(M)^*, compatible with the actions of φ and Gal_F, fitting in a commutative diagram with Hom_Ǧ(JL(M), L ⊗_{Q_p} H^1_dR(M^ϖ_∞)) ≅ C ⊗̂_F M_dR ⊗̂_L LL(M)^* below it.",
+   "locator": "Théorème 5.10, p. 352",
+   "status": "missing",
+   "note": "The de Rham row follows from Theorem 5.8 by C-duality after applying Z ↦ Z[M]; the rest follows from Proposition 5.7."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-thm-5-11",
+   "kind": "theorem",
+   "name": "Theorem 5.11: the fundamental diagram at a finite level",
+   "statement": "For M ∈ ΦN^ϖ supercuspidal and n ≥ 1 with M ∈ ΦN^ϖ_n, there is a commutative diagram of G-Fréchet spaces with exact rows 0 → O(M^ϖ_n)[M] --exp--> H^1_proét(M^ϖ_n,L(1))[M] → X^+_st(M) ⊗̂_L LL(M)^* → 0 and 0 → O(M^ϖ_n)[M] --d--> Ω^1(M^ϖ_n)[M] → (C ⊗_F M_dR) ⊗̂_L LL(M)^* → 0, with X^+_st(M) = (B^+_st ⊗_{Q_p^{nr}} M)^{φ=p,N=0}.",
+   "locator": "Théorème 5.11, p. 353 (= Théorème 0.8)",
+   "status": "missing",
+   "note": "Obtained from Theorem 3.3 for X = M^ϖ_n after applying Z ↦ Z[M], using Z[π_0(M^ϖ_n)][M] = 0 and Theorem 5.10; the content is the identification ~HK(M^ϖ_n)[M] ≅ X^+_st(M) ⊗̂_L LL(M)^*, proved in §5.4.2."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-prop-5-12",
+   "kind": "theorem",
+   "name": "Proposition 5.12: ~HK-valued functions on the tower and the Shimura curves",
+   "statement": "For U a small enough compact open subgroup of G(A^p_f), C(S_p(U), ~HK(M^ϖ_n))^Γ[M] = (B^+_st ⊗_{Q̆_p} H^1_HK(Sh_n(U)))^{N=0,φ=p}[M].",
+   "locator": "Proposition 5.12, p. 353",
+   "status": "missing",
+   "note": "The right-hand side is ~HK(Sh_n(U))[M] by Proposition 3.12. The proof reduces to H^1_proét(M^ϖ_n × S_p(U), U)^Γ[M] = H^1_proét(Sh_n(U), U)[M] via the Hochschild–Serre spectral sequence and the vanishing H^0_proét(M^ϖ_n, (B^+_cris)^{φ=p})[M] = 0, which follows from formula (3.4) and the fact that Ǧ acts on π_0(M^ϖ_n) through the reduced norm."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-isotypic",
+   "kind": "definition",
+   "name": "π-isotypic Fréchet spaces and their stability under subobjects",
+   "statement": "For π a smooth irreducible representation of G, an L-Fréchet space F with a continuous G-action is π-isotypic when there is an L-Banach space X with trivial G-action and an isomorphism of topological L[G]-modules F ≅ π^* ⊗̂_L X (Definition 5.13). Proposition 5.14: every G-stable Fréchet subspace of a π-isotypic Fréchet space is π-isotypic.",
+   "locator": "Définition 5.13 and Proposition 5.14, p. 354",
+   "status": "missing",
+   "note": "Proposition 5.14 is proved with Jacobson's density theorem: a functional vanishing on the subspace must kill each λ_i in a finite expansion L = Σ v_i ⊗ λ_i, hence vanish. This is the abstract device that turns ‘~HK(M^ϖ_n)[M] embeds into an isotypic space’ into ‘it is isotypic’, which is what makes the final computation possible."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-cor-5-15",
+   "kind": "theorem",
+   "name": "Corollary 5.15: the image and kernel of ι_can are LL(M)-isotypic",
+   "statement": "The image and the kernel of ι_can: ~HK(M^ϖ_n)[M] → H^1_dR(M^ϖ_n)[M] are π-isotypic for π = LL(M).",
+   "locator": "Corollaire 5.15, p. 354",
+   "status": "missing",
+   "note": "Uses that M^ϖ_n is defined over F, so H^1_dR(M^ϖ_n) = C ⊗̂ H^1_dR(M^ϖ_{n,F}) and the bottom rows of Proposition 5.7 and Theorem 5.10 come by base change from F; then Theorem 3.3, Proposition 3.10 and Proposition 5.14."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-prop-5-16",
+   "kind": "theorem",
+   "name": "Proposition 5.16: Frobenius reciprocity for an isotypic Fréchet space",
+   "statement": "For π a smooth irreducible representation of G and F = π^* ⊗̂_L X a π-isotypic L-Fréchet space, and U a compact open subgroup of G(A^p_f), C(S_p(U), F) = H^0(G, Hom(π, LC(S(U)))) ⊗ X.",
+   "locator": "Proposition 5.16, p. 355",
+   "status": "missing",
+   "note": "From Lemma 5.6, pulling X out of the Hom and using that Hom(π, LC(S(U))) is finite-dimensional because S(U) is compact, so that LA(S(U)) is an admissible representation of G."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-end-of-proof",
+   "kind": "theorem",
+   "name": "The computation of ~HK(M^ϖ_n)[M]",
+   "statement": "Writing Ker(ι_can) = π^* ⊗̂_L X by Corollary 5.15, Proposition 5.2 shows H^1_HK(Sh_n(U)) is a sum of copies of M, and since M has slope 1/2 the kernel t(B^+_st ⊗ M)^{N=0,φ=1} of θ vanishes; with Proposition 5.12 this gives X = 0, so ι_can identifies ~HK(M^ϖ_n)[M] with a closed Fréchet subspace of the π-isotypic H^1_dR(M^ϖ_n)[M], hence ~HK(M^ϖ_n)[M] = π^* ⊗̂_L Z. Combining Propositions 5.16 and 5.12 gives Hom_G(π, LC(S(U))) ⊗_L Z ≅ (B^+_st ⊗_{Q̆_p} H^1_HK(Sh_n(U))[M])^{φ=p,N=0}; passing to the limit over U, applying Hom_{G(A^p_f)}(Π^p_f,−) and using Proposition 5.2 yields Z ≅ X^+_st(M), which proves Theorem 5.11.",
+   "locator": "§5.4.2, pp. 355–356",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/A.1-models-of-curves",
+   "kind": "theorem",
+   "name": "Appendix A.1: minimal, semi-stable and stable models of an algebraic curve",
+   "statement": "For K complete with discrete valuation of characteristic 0 and X a smooth projective geometrically irreducible curve over K: proper regular models exist (Lipman), every one contracts to a minimal model, and there is a finite extension K′/K such that for every finite L/K′ every minimal model of X_L is étale semi-stable; such a model is unique for genus ≥ 1 and receives a unique morphism from any proper regular model, so the action of Aut_K(X) × Gal(K′/K) extends to it, and blowing up the self-intersection points of its special fibre gives the minimal semi-stable model, again equivariantly. For genus ≥ 2 the stable model is obtained from the minimal semi-stable model by contracting the exceptional curves of self-intersection −2; it is stable under base change and equivariant, and is functorial for morphisms of curves.",
+   "locator": "§A.1, pp. 356–357",
+   "status": "planned",
+   "note": "A summary of the classical theory (Liu's book), recalled because the equivariance statements are exactly what the appendix needs. A Tau Ceti roadmap plans regular and minimal models, semi-stable reduction and the canonical contraction to the stable model; a source route may not re-plan a Tau Ceti roadmap, so this item is left unrouted. What the appendix adds is the equivariance of each step under Aut_K(X) × Gal(K′/K), which a Part II of that roadmap would have to supply.",
+   "planned": [
+    "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/A.2-berkovich",
+   "kind": "definition",
+   "name": "Appendix A.2: the analytic skeleton, nodes and triangulations of a Berkovich curve",
+   "statement": "Points of a K-analytic curve X fall into four types by the form of their completed residual field; the set of points with a neighbourhood that is a virtual open disc is open, and its complement S^an(X) is the analytic skeleton, a closed, locally finite subgraph contained in every analytically admissible subgraph, and consisting of points of type 2 or 3 when X is smooth and S^an(X) meets every connected component. A point x of a locally finite analytically admissible subgraph Γ ⊂ X^{[2,3]} is a node when it has genus ≥ 1, or is a topological vertex of Γ, or lies on the analytic boundary, or s(x) ⊊ s(β) for a branch β of Γ at x; the nodes form a closed discrete subset. A triangulation of a smooth curve is a closed discrete S ⊂ X^{[2,3]} such that every connected component of X ∖ S is a virtual open disc or annulus, relatively compact in X. For a flat normal formal curve X over O_K, S(X) is the set of preimages of the generic points of the components of the special fibre; any automorphism of the pair (X_K, S(X)) extends uniquely to X, and if X is semi-stable in the wide sense then S(X) is a triangulation. If X is the stable model of the analytification of a smooth projective curve of genus ≥ 2, then S(X) = Σ^an(X) and the skeleton of S(X) is S^an(X^an).",
+   "locator": "§A.2, pp. 357–358",
+   "status": "planned",
+   "note": "Quoted from Ducros's book, from Baker–Payne–Rabinoff and from Berkovich; these are the tools that make the equivariance argument of Proposition A.1 work without compactness. TB.1 builds discs, annuli and metric trees with the classification of points, and TB.2 the semi-stable models and skeletons of curves with the retraction of the analytification. What the paper needs beyond them is the theory of triangulations (semistable vertex sets) for a NON-compact curve, the notion of a node, and the statement that an automorphism of the pair (X_K, S(X)) extends to the formal model.",
+   "planned": [
+    "TropicalAndBerkovichArithmetic:TB.1",
+    "TropicalAndBerkovichArithmetic:TB.2"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/A.3-prop-A-1",
+   "kind": "theorem",
+   "name": "Proposition A.1: an equivariant semi-stable model of M^ϖ_{n,L}",
+   "statement": "Let Γ ⊂ G/ϖ^Z be a congruence subgroup small enough to act freely and discretely on the Bruhat–Tits tree, X = Γ∖Ω_{Dr,F}, and Ω^+_{Dr,F} the standard semi-stable model of Ω_Dr, so that X^+ = Γ∖Ω^+_{Dr,F} is the minimal semi-stable model of X and also its stable model. Let X_n = Γ∖M^ϖ_{n,F} and choose a finite Galois L/F such that X_{n,L} has a stable model X^+_{n,L}, with X^◦_{n,L} the minimal semi-stable model. Define (M^ϖ_{n,L})^+ as the fibre product of X^+_{n,L} and Ω^+_{Dr,L} over X^+_L and (M^ϖ_{n,L})^◦ as that of X^◦_{n,L} and Ω^+_{Dr,L} over X^◦_L. Then (M^ϖ_{n,L})^◦ is a semi-stable model of M^ϖ_{n,L} to which the action of G × Ǧ × Gal_F extends compatibly with the action on Ω^+_{Dr,L}.",
+   "locator": "Proposition A.1, p. 357",
+   "status": "missing",
+   "note": "The proof shows Σ^an(M^ϖ_{n,L}) = S((M^ϖ_{n,L})^+): because Γ acts freely on the tree, the covering M^ϖ_{n,L} → X_{n,L} is étale with equal residue fields, so nodes and skeleta correspond, and the triangulation is therefore Aut_F-invariant. Since M^ϖ_n is not compact, this equivariant semi-stable reduction does not follow from the classical theorem — the G-action is what reduces it to the compact case."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/A.3-remark-A-2",
+   "kind": "theorem",
+   "name": "Remark A.2: bounded functions on a Stein curve with a semi-stable model are constant",
+   "statement": "If Y is a connected Stein curve with a semi-stable model over O_K, then every bounded f ∈ O(Y) is constant: after scaling, f ∈ O^+(Y) reduces to a function on the special fibre, constant on each proper irreducible component and hence on the connected special fibre; subtracting a lift of that constant and iterating shows f is constant modulo π^n for every n.",
+   "locator": "Remarque A.2, p. 359",
+   "status": "missing",
+   "note": "This is the general-F substitute for the universal-completion argument showing that O(M_∞) has no non-constant G-bounded elements."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-proetale-site",
+   "kind": "definition",
+   "name": "The pro-étale site of a smooth adic space and the projection to the étale site",
+   "statement": "For a smooth adic space X/C one has Scholze's pro-étale site X_proét with the projection ν: X_proét → X_ét, the pullback of O^+_X and its completions Ô^+_X = lim_n O^+_X/p^n and Ô_X = Ô^+_X ⊗_{Z_p} Q_p, and the sheaves Z_p = lim_n Z/p^n and Z_p(1) = lim_n μ_{p^n}, with F(1) = F ⊗_{Z_p} Z_p(1).",
+   "locator": "§3.1, p. 336",
+   "status": "planned",
+   "planned": [
+    "AdicEtaleGeometry:A1"
+   ],
+   "note": "Footnote 16 warns that this site is not the more recent one of Scholze's ‘Étale cohomology of diamonds’. A1 constructs the small étale and finite étale sites and, for the pro-étale extension, Scholze's corrected transfinite-tower definition."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-prop-3-1",
+   "kind": "theorem",
+   "name": "Proposition 3.1 (Scholze): O_ét ≅ ν_*Ô and Ω^1_ét ≅ R^1ν_*Ô(1)",
+   "statement": "The natural morphism O_{X,ét} → ν_*Ô_X is an isomorphism, and there is a canonical O_{X,ét}-linear isomorphism Ω^1_{X,ét} ≅ R^1ν_*Ô_X(1).",
+   "locator": "Proposition 3.1, p. 336 (Scholze, ‘p-adic Hodge theory for rigid-analytic varieties’, Lemma 3.24)",
+   "status": "missing",
+   "note": "Used ‘systématiquement dans la suite’: it is what turns H^1_proét(X,Ô) into Ω^1(X)(−1) for an affinoid or Stein curve (Lemma 3.2) and what makes dlog compatible with symbols. No atlas stage proves it: PadicHodgeTheory:P8 builds the period sheaves and HodgeTateAndCanonicalSubgroups:T2 the Hodge–Tate sequence, but neither computes R^1ν_*Ô."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-period-sheaves",
+   "kind": "construction",
+   "name": "The sheafified Fontaine rings and the fundamental exact sequences of pro-étale sheaves",
+   "statement": "The rings A_inf, B^+_cris, B^+_dR sheafify on the pro-étale site of a smooth rigid space, and there are exact sequences of pro-étale sheaves 0 → Q_p(1) → (B^+_cris)^{φ=p} → Ô → 0 and 0 → Ô(1) → B^+_dR/t^2 → Ô → 0, with t the p-adic 2iπ of Fontaine; together with Scholze's and Faltings's comparison theorems these give the diagram of §0.6.2.",
+   "locator": "§3.2, p. 336 and §0.6.2, p. 320",
+   "status": "planned",
+   "planned": [
+    "PadicHodgeTheory:P8"
+   ],
+   "note": "P8 imports the integral A_inf sheaf and constructs the rational structural, de Rham and crystalline/semi-stable period sheaves; the paper needs exactly those two four-term sequences and the comparison for a proper curve (used in Proposition 3.12)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-hyodo-kato",
+   "kind": "construction",
+   "name": "Hyodo–Kato cohomology and the Hyodo–Kato isomorphism",
+   "statement": "For a semi-stable model over the ring of integers of a discretely valued subfield of C, log-crystalline cohomology gives the Hyodo–Kato complex, a (φ,N)-module over Q̆_p, and the Hyodo–Kato map induces an isomorphism C ⊗̂_{Q̆_p} H^•_HK ≅ H^•_dR after base change.",
+   "locator": "§0.3, p. 316; used for M_∞ and for the Shimura curves throughout §5",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.6"
+   ],
+   "note": "CR.6 forms the rational Hyodo–Kato complex, constructs the Hyodo–Kato to log-de-Rham map and proves its comparison theorem — precisely the input here, except that the paper needs it for the ind-Fréchet cohomology of a Stein curve and of the tower."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-cst",
+   "kind": "theorem",
+   "name": "The semi-stable comparison theorem for a proper curve",
+   "statement": "For X_K a proper smooth curve over a finite extension K of Q_p, H^1_ét(X,Q_p) is potentially semi-stable with Hodge–Tate weights 0, −1, D_pst(H^1_ét(X,Q_p)) ≅ H^1_HK(X) and Fil^1 D_dR ≅ Ω^1(X_K).",
+   "locator": "used in the proof of Proposition 3.12, p. 341",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.4"
+   ],
+   "note": "CP.4 constructs the B_st comparison for proper flat semi-stable formal models with the compatibilities of the Galois action, Frobenius, monodromy and filtration — the C_st theorem in the form used here."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-syntomic",
+   "kind": "theorem",
+   "name": "Syntomic cohomology and its comparison with pro-étale cohomology",
+   "statement": "The syntomic complex RΓ_syn(X,Q_p(1)) with its defining distinguished triangle relating RΓ_cris(X)^{φ=p} and RΓ_cris(X)/Fil^1, and the comparison of syntomic and (pro)étale cohomology, valid up to bounded torsion with integral coefficients.",
+   "locator": "§0.6.1, pp. 319–320 and Remarque 0.11, p. 319",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.4"
+   ],
+   "note": "PR.4 constructs the comparison from generic-fibre étale cohomology to the Frobenius-fixed part of prismatic cohomology and the syntomic/Tate-twist fibres. The paper's own syntomic route (§0.6.1) is a alternative to the one it actually uses, and its integral form is what Remark 0.11 needs."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-perfectoid",
+   "kind": "definition",
+   "name": "Perfectoid spaces, tilting, and the acyclicity of the structure sheaf on an affinoid perfectoid",
+   "statement": "Perfectoid Tate rings and their tilts, affinoid perfectoid Huber pairs and perfectoid spaces, the sheafiness and almost acyclicity of the structure sheaf in all degrees on an affinoid perfectoid, and the fact that every quasi-compact rational domain of an increasing union of affinoid perfectoids is affinoid perfectoid.",
+   "locator": "§4.1 and §4.2, pp. 341–343",
+   "status": "planned",
+   "planned": [
+    "PerfectoidSpaces:P1",
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "P1 builds perfectoid Tate rings, tilts and untilts, P2 rational localisation, sheafiness and the all-degree almost acyclicity on affinoids. The vanishing of higher cohomology of Ô on an affinoid perfectoid is what makes the Čech computation of Lemma 4.4 work."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-two-towers",
+   "kind": "construction",
+   "name": "The Lubin–Tate and Drinfeld towers with their actions, and their isomorphism at infinite level",
+   "statement": "The Lubin–Tate tower of deformations with level structure of the formal O_F-module of dimension 1 and height 2, with its GL_2(F), D^* and W_F actions and its period morphisms; the Drinfeld tower with its level maps; and the isomorphism of the completed towers L̂T_∞ ≅ M̂_∞ as perfectoid spaces equivariant for G × Ǧ, which refines the Faltings–Fargues isomorphism.",
+   "locator": "§0.1, §4.1 and §4.2, pp. 313–314 and 341–343",
+   "status": "planned",
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+   ],
+   "note": "ET.6a constructs both towers with their GL_n(E), D^× and W_E actions, their level maps and period morphisms, and proves ‘the infinite-level moduli description and duality isomorphism’ from Scholze–Weinstein §§6–7. The paper uses the equivariance of that isomorphism in an essential way (‘nous utiliserons pleinement ce raffinement’)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-nonabelian-LT",
+   "kind": "theorem",
+   "name": "Non-abelian Lubin–Tate theory",
+   "statement": "For ℓ ≠ p the ℓ-adic compactly supported cohomology of the tower realises the classical local Langlands and Jacquet–Langlands correspondences: for a supercuspidal π and σ = JL(π) the corresponding isotypic part of the tower cohomology is π ⊗ ρ_π on one side and σ ⊗ ρ_π^∨ on the other, in the precise form quoted as Proposition 5.1.",
+   "locator": "Proposition 5.1, p. 347",
+   "status": "planned",
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+   ],
+   "note": "ET.6a's second half is exactly this supercuspidal isotypic realisation, with the Harris–Taylor global route. The paper consumes it twice: to prove Theorem 5.8 (the de Rham analogue) by comparing dimensions with the ℓ-adic side, and in Remark 0.5 to control the invariants under compact open subgroups."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-gross-hopkins",
+   "kind": "construction",
+   "name": "The Gross–Hopkins period map and the infinitesimal action of Ǧ on the Lubin–Tate tower",
+   "statement": "The period map π_GH: LT^ϖ_0 → P^1, written π_GH(z) = A(z)/B(z) with A, B analytic without common zeros; g = AB′ − A′B is invertible in O(LT^ϖ_0) and the operators ∂_i = f_i d/dz with f_1 = A²/g, f_2 = B²/g, f_3 = AB/g give the infinitesimal action of Ǧ/Z(Ǧ) on O(LT^ϖ_j).",
+   "locator": "proof of Proposition 4.8, p. 346 (Gross–Hopkins, last page)",
+   "status": "planned",
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+   ],
+   "note": "ET.6a's ‘period morphisms’ for the two towers is the natural home; the paper needs the explicit Gross–Hopkins coordinates and the identity f_1f_2′ − f_2f_1′ = 2f_3, which a design job should record as the concrete output."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-banach-colmez",
+   "kind": "definition",
+   "name": "Banach Spaces of Colmez and the space X^+_st(M)",
+   "statement": "Colmez's finite-dimensional Banach Spaces, with their Dimension (a pair of integers), and the statement that X^+_st(M) = (B^+_cris ⊗_{Q_p^{nr}} M)^{φ=p} is an L-Banach Space of L-Dimension ([L:Q_p],2) for M of rank 2.",
+   "locator": "§2.1.2, p. 328",
+   "status": "planned",
+   "planned": [
+    "VectorBundlesAndIsocrystals:VB3"
+   ],
+   "note": "VB3 builds Banach–Colmez geometry (the sheaf of sections of a bundle on the Fargues–Fontaine curve, its diamond representability, dimension and cohomological smoothness), of which the spaces (B^+_cris ⊗ M)^{φ=p} are the basic positive-slope examples. The paper uses only the dimension count, which is what makes Lemma 2.7's dimension 1 statements work."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-plnl-gl2",
+   "kind": "construction",
+   "name": "The p-adic local Langlands correspondence for GL_2(Q_p) and universal unitary completions",
+   "statement": "The correspondence V ↦ Π(V) of Colmez for 2-dimensional representations of Gal_{Q_p}, the categories of admissible unitary Banach and locally analytic representations of GL_2(Q_p) with their duals, the identification LL(V) = Π(V)^{lisse}, the locally analytic vectors Π(V)^an, and the theorem of Colmez–Dospinescu that Π(V) is the universal unitary completion of Π(V)^an (equivalently, that Π(V)^* is the G-bounded part of (Π(V)^an)^*).",
+   "locator": "§0.2, p. 315; Proposition 2.9, p. 330; Corollaire 2.13, p. 333",
+   "status": "planned",
+   "planned": [
+    "PadicLocalLanglandsForGL2Qp:R30.2",
+    "PadicLocalLanglandsForGL2Qp:R30.3"
+   ],
+   "note": "R30.2 builds the representation categories and their duals, R30.3 Colmez's construction. The universal completion statement (Colmez–Dospinescu, ‘Complétions unitaires de représentations de GL_2(Q_p)’, Thm. VII.11) is the precise form needed to pass from pro-étale to étale cohomology, and a design job should add it to R30.2's exports."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-stein-spaces",
+   "kind": "definition",
+   "name": "Stein spaces in rigid geometry and their coherent cohomology",
+   "statement": "A Stein curve is a rigid analytic curve exhausted by an increasing family of affinoids U_n with U_n ⋐ U_{n+1}; then O(X) = lim_n O(U_n) is a Fréchet–Stein algebra, R^1 lim O(U_n) = 0, H^1(X,O) = 0 by Kiehl's theorem, and H^1_proét(X,Q_p(1)) = lim_n H^1_ét(U_n,Q_p(1)) is a Fréchet space independent of the exhaustion.",
+   "locator": "§1.2, §2.1.1 and §3.1, pp. 322, 327–328, 336",
+   "status": "missing",
+   "note": "No atlas stage builds Stein spaces or their exhaustions: AdicSpacesPartII:R3 proves Kiehl-type coherence and affinoid acyclicity, which is the input, but the Stein package — the vanishing of R^1 lim, the Fréchet structure, and the fact that a Stein curve behaves like a proper curve rather than like an affinoid — is what this paper runs on."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-serre-duality-rigid",
+   "kind": "theorem",
+   "name": "Serre duality for the levels of the towers",
+   "statement": "For X one of LT^ϖ_j, M^ϖ_j, Serre duality for coherent sheaves on rigid spaces gives H^i_dR(X) ≅ (H^{2−i}_{dR,c}(X))^*, H^i_{dR,c}(X) ≅ (H^{2−i}_dR(X))^* and Ω^1(X)^* ≅ H^1_c(X,O_X).",
+   "locator": "§4.3.2, p. 345 (Bayer; Chiarellotto; van der Put)",
+   "status": "missing",
+   "note": "Not planned anywhere for rigid analytic spaces; the atlas has Serre duality only for algebraic curves (SchemeAndStackFoundations:SF.3 and the Tau Ceti curve roadmaps). It is used to convert Theorem 5.8 into Theorem 5.10 and to define the compactly supported theory."
+  }
+ ],
+ "routes": [
+  {
+   "route": "new",
+   "roadmap": "ProetaleCohomologyOfPAdicCurvesAndTowers",
+   "title": "Pro-étale cohomology of p-adic curves and of the Drinfeld tower",
+   "area": "padic",
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.1-components",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.3-semistable-model-Mn",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.3-HK-dR-M-infty",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.3-thm-0-4",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.3-thm-0-6",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.4-thm-0-8",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.6-syntomic-route",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.6-remark-0-11",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.6-fontaine-sheaves-route",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.6-plan",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.1-affinoid-units",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.1-cor-1-2",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.2-lemma-1-3",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.2-lemma-1-4",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.4-prop-1-5",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.4-prop-1-6",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.5-thm-1-7",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.6-thm-1-8",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.6-cor-1-9",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.1-lemma-3-2",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-HKtilde",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-thm-3-3",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-prop-3-5",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-prop-3-6",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-prop-3-8",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-dlog-closed",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.2-prop-3-10",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/3.3-prop-3-12",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.1-thm-4-1",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.2-LT-tower",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.2-prop-4-2",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.2-remark-4-3",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-lemma-4-4",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-prop-4-5",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-compact-support",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-cor-4-7",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-serre-duality",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/4.3-prop-4-8",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.1-special-modules",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.1-phiNvarpi",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.2-lemma-5-6",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.2-prop-5-7",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.3-thm-5-8",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.3-thm-5-10",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-thm-5-11",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-prop-5-12",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-isotypic",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-cor-5-15",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-prop-5-16",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.4-end-of-proof",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/A.3-prop-A-1",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/A.3-remark-A-2",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-prop-3-1",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-stein-spaces",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-serre-duality-rigid"
+   ],
+   "reason": "Nothing in the atlas computes the p-adic (pro-)étale cohomology of a non-proper rigid analytic curve. AdicEtaleGeometry and ClassicalAdicEtaleCohomology build the sites and the ℓ-adic and torsion theory; PadicHodgeTheory P8 builds the period sheaves; CohomologyComparisons and CrystallineCohomology prove the comparison theorems for proper (formal) models. None of them provides the Stein package this paper runs on — affinoid exhaustions, the vanishing of R^1 lim, Serre duality for a Stein curve, Scholze's computation of R^1ν_*Ô, and the resulting fundamental diagram relating H^1_proét(X,Q_p(1)) to O(X), Ω^1(X) and a semi-stable Banach–Colmez term — nor the computation of these invariants for the Drinfeld tower. ET.6a owns the ℓ-adic cohomology of the two towers; the de Rham, Hyodo–Kato and pro-étale computations proved here are new and have no home.",
+   "brief": "Final theorems, as the paper states them. (1) The fundamental diagram for a smooth Stein curve X over C with finitely many components (Theorem 3.3): with ~HK(X) := Ker(H^1_proét(X,(B^+_cris)^{φ=p}) → H^1_proét(X,Ô) → Ω^1(X)(−1)), commutative rows 0 → C ⊗ Z[π_0(X)] → O(X) --exp--> H^1_proét(X,Q_p(1)) → ~HK(X) → 0 and 0 → C ⊗ Z[π_0(X)] → O(X) --d--> Ω^1(X) → H^1_dR(X) → 0, all maps with closed image, and Ker ι_can = Ker dlog a closed subspace of H^1_dR(X)(1). Plan the analytic package it needs: Stein curves and their affinoid exhaustions with R^1 lim O(U_n) = 0, Kiehl's theorem, Serre duality on a Stein curve with Ω^1(X)^* ≅ H^1_c(X,O), Scholze's Lemma 3.24 (O_ét ≅ ν_*Ô and Ω^1_ét ≅ R^1ν_*Ô(1)) and its consequence H^1_proét(X,Ô) ≅ Ω^1(X)(−1), the two local computations for an open disc and an open annulus (Propositions 3.5 and 3.6), the closedness of the image of dlog and the injectivity of λ_X (Propositions 3.8 and 3.10, with the open mapping theorem as Lemma 3.9), and the identification ~HK(X) ≅ (B^+_st ⊗ H^1_HK(X))^{φ=p,N=0} for a proper curve (Proposition 3.12). (2) The Drinfeld half-plane: H^1_ét(Ω_Dr,Q_p(1)) ≅ (St^{cont}_{Q_p})^* (Theorem 1.7, Drinfeld's theorem, proved here by Kummer theory) and the exact sequence 0 → O(Ω_Dr)/C → H^1_proét(Ω_Dr,Q_p(1)) → (St^{lisse}_{Q_p})^* → 0 with its de Rham companion (Theorem 1.8 and Corollary 1.9), together with the description of O(Ω_Dr)^*/C^*, Ω^1(Ω_Dr) and H^1_dR(Ω_Dr) by Steinberg duals (Propositions 1.5 and 1.6). (3) The tower: an equivariant semi-stable model of M^ϖ_n over a finite extension of F for every n (Proposition A.1), the compactly supported comparison H^1_{dR,c}(LT^ϖ_∞) ≅ H^1_{dR,c}(M^ϖ_∞) with both sides admissible as G-modules (Theorem 4.1), the Galois-cohomology computation H^i_cont(K,O(X̂)) for a perfectoid Galois covering (Lemma 4.4, Proposition 4.5), the vanishing [O(M^ϖ_n)^*]^{G_j} = 0 and [O(LT^ϖ_j)^*]^{Ǧ_n} = 0 (Proposition 4.8), the decomposition H^1_{dR,c}(M^ϖ_∞) = ⊕_{M∈ΦN^ϖ} JL_1(M) ⊗ WD_1(M) ⊗ LL_1(M)^∨ (Theorem 5.8), the Hyodo–Kato and de Rham computations Hom_Ǧ(JL(M), H^1_HK(M^ϖ_∞)) ≅ M̆ ⊗̂ LL(M)^* (Theorem 5.10 = Theorem 0.4) and the fundamental diagram for the tower (Theorem 5.11 = Theorem 0.8). (4) The global method that proves them: p-adic uniformisation, the Frobenius reciprocity of Lemma 5.6 for D^alg(G)-Fréchet spaces, π-isotypic Fréchet spaces with the Jacobson-density stability theorem (Definition 5.13, Propositions 5.14 and 5.16), and Proposition 5.12. Import the period sheaves from PadicHodgeTheory P8, Hyodo–Kato from CrystallineCohomology CR.6, the semi-stable comparison from CohomologyComparisons CP.4, perfectoid geometry from PerfectoidSpaces P1–P2, the two towers and non-abelian Lubin–Tate from EndoscopicTransferAndUnitaryTraceComparison ET.6a, Banach–Colmez spaces from VectorBundlesAndIsocrystals VB3, the Shimura curves and their uniformisation from HilbertModularVarietiesAndShimuraCurves R18.5, local–global compatibility from AutomorphicGaloisRepresentations R19.4/R19.5, and stable reduction of algebraic curves from the Tau Ceti stable reduction roadmap. Do not plan the p-adic local Langlands correspondence here: it is the Part II below."
+  },
+  {
+   "route": "part-ii",
+   "parent": "PadicLocalLanglandsForGL2Qp",
+   "roadmap": "PadicLocalLanglandsForGL2QpPartIIGeometricRealisation",
+   "title": "P-adic local Langlands for GL₂(Q_p), Part II: the geometric realisation in the Drinfeld tower",
+   "area": "langlands",
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.2-thm-0-2",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.2-remark-0-3",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.2-mPi-knight",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.4-Zbracket",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.5-VML",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.5-prop-0-9",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.5-deduction",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.3-steinberg",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-cor-2-1",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-kummer-symbols",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-HM-HC",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-prop-2-4",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-prop-2-5",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-remark-2-6",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-lemma-2-7",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-WML",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-prop-2-9",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.1-prop-2-10",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-bounded",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-prop-2-12",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-cor-2-13",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-thm-2-15",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-lemma-2-17",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-lemma-2-18",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-cor-2-16",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/2.2-O-no-bounded"
+   ],
+   "reason": "The parent roadmap constructs the correspondence V ↦ Π(V) through Colmez's functor (R30.3) and the representation categories it lives in (R30.2), and R30.6 exports the local results consumed by modularity lifting. What this paper adds is in exactly that direction and in no other: a geometric construction of Π(V) for the supercuspidal V of weights 0 and 1, as the multiplicity space of V in the p-adic étale cohomology of the Drinfeld tower, together with the representation theory that the construction needs (the Steinberg representation in its smooth, continuous and locally analytic forms, the representations W_{M,L}, the classification of the V that can occur and the finite length of the multiplicity spaces). It is new layers of the parent, not a new roadmap, and not a source of an existing layer: no stage of the parent mentions the tower.",
+   "brief": "Final theorems. (1) Theorem 0.2 (= Corollary 2.16): for V an absolutely irreducible L-representation of Gal_{Q_p} of dimension ≥ 2, Hom_{W_{Q_p}}(V, L ⊗ H^1_ét(M_∞,Q_p(1))) = JL(V) ⊗_L Π(V)^* if V is supercuspidal of dimension 2 with Hodge–Tate weights 0 and 1, and 0 otherwise. (2) The two ingredients that make it a statement about the correspondence: Proposition 2.12, that H^1_ét(M_n,L(1)) is the space of G-bounded vectors of H^1_proét(M_n,L(1)), and the Breuil–Strauch conjecture in the form of Proposition 2.9, W_{M,L} = (Π(V_{M,L})^an)^*, proved by Dospinescu–Le Bras and quoted here. (3) The classification statements: V_{M,L} = Ker(X^+_st(M) → C ⊗ (M_dR/L)) is supercuspidal of dimension 2 with weights 0 and 1 and every such representation is V_{M,L} for a unique pair (M,L) (Colmez–Fontaine); Proposition 2.5 and Lemma 2.7, that Hom_{Gal_F}(V, X_st(M)) = Hom_{WD_F}(M[−1]^*, D_pst(V^*)) and that for dim V = 2 it is at most one-dimensional and forces D_pst(V) ≅ M[−1]; and Remark 2.6, which determines exactly which filtrations occur for a general F and is where the restriction to F = Q_p comes from. (4) Theorem 2.15: Hom(V, H^1_ét[M]) ≠ 0 if and only if some V_{M,L} is a quotient of V, and Π_M(V) = Hom(V,H^1_ét[M])^* is admissible of finite length with Jordan–Hölder factors among the Π(V_{M,L}); with the linear-algebra Lemma 2.18 that the proof needs. (5) The representation theory to plan alongside: the smooth, continuous and locally F-analytic Steinberg representations of GL_2(F) and their duals, with St^{cont}_L the universal unitary completion of St^{lisse}_L and (St^{cont}_L)^* the G-bounded part of (St^{lisse}_L)^*; the multiplicity functors Z ↦ Z[M] = Hom_{L[Ǧ]}(JL(M), L ⊗ Z); and the construction of W'_{M,L} and W_{M,L} out of the de Rham row of the fundamental diagram. Import Colmez's functor and the universal completion theorem from R30.2/R30.3, the classical local Langlands and Jacquet–Langlands correspondences from GL2AutomorphicRepresentationsAndTransfer R16.3/R17.1, Banach–Colmez spaces from VectorBundlesAndIsocrystals VB3, and the whole cohomological input — the fundamental diagram and the cohomology of the tower — from the roadmap proposed above; plan none of it again. Record as expectations, not targets: that Π_geo(V_{M,L}) = Hom(V_{M,L},H^1_ét[M])^* is the right object for a p-adic local Langlands correspondence for GL_2(F) with F ≠ Q_p (Remarks 2.11 and 2.14), and everything in Remark 0.3 about the completed tower, Scholze's functor and a p-adic Jacquet–Langlands correspondence."
+  },
+  {
+   "route": "source",
+   "roadmap": "EndoscopicTransferAndUnitaryTraceComparison",
+   "stages": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.1-drinfeld-tower",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-two-towers",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-nonabelian-LT",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-gross-hopkins",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.1-prop-5-1"
+   ],
+   "reason": "ET.6a is the two-tower cohomological realization in mixed characteristic: it constructs the Lubin–Tate tower with its GL_n(E), D^× and W_E actions, the Drinfeld tower with its level maps and period morphisms, the infinite-level moduli description and the Scholze–Weinstein duality isomorphism, and proves the supercuspidal isotypic realization — that is, non-abelian Lubin–Tate theory. This paper is a source for all four: it uses the equivariance of the Scholze–Weinstein isomorphism ‘pleinement’, it consumes the ℓ-adic isotypic decomposition twice (to prove the de Rham analogue in Theorem 5.8 and to bound invariants under compact open subgroups), and its Proposition 4.8 needs the explicit Gross–Hopkins coordinates, with the identity f_1f_2′ − f_2f_1′ = 2f_3, which that stage should export. Note also that this paper's Theorem 0.6 and Theorem 5.8 are the de Rham analogues of ET.6a's ℓ-adic statements, which is new mathematics and is routed below, not here."
+  },
+  {
+   "route": "source",
+   "roadmap": "PadicHodgeTheory",
+   "stages": [
+    "PadicHodgeTheory:P8",
+    "PadicHodgeTheory:R06.3"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-period-sheaves",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.3-phiNGal-recipes",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/0.2-objects-of-V"
+   ],
+   "reason": "P8 constructs the shared relative period sheaves — the integral A_inf sheaf and the rational structural, de Rham and crystalline/semi-stable period sheaves — and R06.3 attaches a potentially semi-stable Weil–Deligne parameter to a de Rham representation (Fontaine's recipe). The paper needs from P8 exactly the two fundamental four-term sequences of pro-étale sheaves, 0 → Q_p(1) → (B^+_cris)^{φ=p} → Ô → 0 and 0 → Ô(1) → B^+_dR/t² → Ô → 0, and from R06.3 the recipe in its (φ,N,Gal_F)-module form M ↦ WD(M) with the effect of the twist M[1] on the parameter."
+  },
+  {
+   "route": "source",
+   "roadmap": "CrystallineCohomology",
+   "stages": [
+    "CrystallineCohomology:CR.6"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-hyodo-kato"
+   ],
+   "reason": "CR.6 forms the rational Hyodo–Kato complex and proves the comparison theorem for the Hyodo–Kato to log-de-Rham map. This paper is a source for the shape that comparison must take for a non-proper curve and for a tower: an ind-Fréchet (φ,N,Gal_F)-module over Q̆_p with ι_HK: C ⊗̂ H^1_HK ≅ H^1_dR, and the identification of H^1_HK of a Stein curve as a projective limit of finite-dimensional spaces."
+  },
+  {
+   "route": "source",
+   "roadmap": "CohomologyComparisons",
+   "stages": [
+    "CohomologyComparisons:CP.4"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-cst"
+   ],
+   "reason": "CP.4 constructs the B_st comparison for proper flat semi-stable formal models with the Galois, Frobenius, monodromy and filtration compatibilities. Proposition 3.12 is a direct consumer: it uses the potential semi-stability of H^1_ét of a proper curve with weights 0, −1, the identification of D_pst with Hyodo–Kato cohomology, and Fil^1 D_dR ≅ Ω^1."
+  },
+  {
+   "route": "source",
+   "roadmap": "PrismaticCohomology",
+   "stages": [
+    "PrismaticCohomology:PR.4"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-syntomic"
+   ],
+   "reason": "PR.4 builds the syntomic/Tate-twist fibres and the comparison from generic-fibre étale cohomology to the Frobenius-fixed prismatic cohomology. The paper's §0.6.1 sketches the syntomic route to its fundamental diagram — the route that generalises to higher dimension — and Remark 0.11 needs the integral form of that comparison, up to bounded torsion; both are statements PR.4 must export."
+  },
+  {
+   "route": "source",
+   "roadmap": "PerfectoidSpaces",
+   "stages": [
+    "PerfectoidSpaces:P1",
+    "PerfectoidSpaces:P2"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-perfectoid"
+   ],
+   "reason": "P1 builds perfectoid Tate rings, tilts and untilts and P2 rational localisation, sheafiness and all-degree almost acyclicity on affinoid perfectoids. §4 consumes precisely the acyclicity (for the Čech computation of Lemma 4.4) and the fact that a quasi-compact rational domain in an increasing union of affinoid perfectoids is affinoid perfectoid (Proposition 4.2)."
+  },
+  {
+   "route": "source",
+   "roadmap": "PadicLocalLanglandsForGL2Qp",
+   "stages": [
+    "PadicLocalLanglandsForGL2Qp:R30.2",
+    "PadicLocalLanglandsForGL2Qp:R30.3"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-plnl-gl2"
+   ],
+   "reason": "R30.2 builds the smooth mod-p, admissible unitary Banach and locally analytic categories for GL_2(Q_p) with their duals, and R30.3 Colmez's construction V ↦ Π(V). The paper is a source for the two facts about them that its argument turns on: LL(V) = Π(V)^{lisse}, and that Π(V) is the universal unitary completion of Π(V)^an, equivalently that Π(V)^* is the G-bounded part of (Π(V)^an)^* (Colmez–Dospinescu). The geometric realisation of the correspondence itself is the Part II proposed below."
+  },
+  {
+   "route": "source",
+   "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
+   "stages": [
+    "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.2-shimura-setup"
+   ],
+   "reason": "R16.3 is local Langlands for GL_2 with its normalisation bridge, R17.1 the quaternionic local transfer (local Jacquet–Langlands) and R17.3 the global Jacquet–Langlands correspondence with the strong multiplicity one statements. §5 uses all three: the local ones to define LL(M) and JL(M), and the global ones to match Π̌ with Π and to know that Π̌^p_f determines Π̌_p. The paper is a good source for the definite-quaternion globalisation it needs, including Clozel's limit multiplicity input."
+  },
+  {
+   "route": "source",
+   "roadmap": "AutomorphicGaloisRepresentations",
+   "stages": [
+    "AutomorphicGaloisRepresentations:R19.4",
+    "AutomorphicGaloisRepresentations:R19.5"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.2-prop-5-2"
+   ],
+   "reason": "R19.4 proves local–global compatibility away from p and R19.5 at the coefficient prime. Proposition 5.2 is exactly their consequence for the Shimura curves of a quaternion algebra over a totally real field — Carayol's and T. Saito's theorems, in the form π_v ≅ JL(WD(ρ_{π,v})) at every finite place including v = p — combined with D_pst and D_dR and with strong multiplicity one."
+  },
+  {
+   "route": "source",
+   "roadmap": "HilbertModularVarietiesAndShimuraCurves",
+   "stages": [
+    "HilbertModularVarietiesAndShimuraCurves:R18.5"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/1.2-half-plane-models",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/5.2-prop-5-4"
+   ],
+   "reason": "R18.5 constructs the Drinfeld upper half-plane with its formal model and descent datum, identifies dual graphs and monodromy pairings, and proves the uniformisation theorem in the Shimura-curve cases. The paper is a source for the two refinements it needs: the explicit affinoid exhaustion of the half-plane with the G-equivariant reduction map to the Bruhat–Tits tree and the standard model as an iterated blow-up of P^1_{O_F}; and the uniformisation in the Boutot–Zink form, for every level of the Drinfeld tower and compatibly with the transition maps."
+  },
+  {
+   "route": "source",
+   "roadmap": "TropicalAndBerkovichArithmetic",
+   "stages": [
+    "TropicalAndBerkovichArithmetic:TB.1",
+    "TropicalAndBerkovichArithmetic:TB.2"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/A.2-berkovich"
+   ],
+   "reason": "TB.1 builds discs, annuli, metric trees and the classification of points of a Berkovich curve, TB.2 semi-stable models, skeletons and the retraction of the analytification. Appendix A needs the non-compact theory on top of that: triangulations (semistable vertex sets), the notion of a node, the analytic skeleton as the complement of the virtual-open-disc locus, and the statement that an automorphism of the pair (X_K, S(X)) extends uniquely to the formal model — which is what makes the equivariance argument work for a non-compact M^ϖ_n."
+  },
+  {
+   "route": "source",
+   "roadmap": "VectorBundlesAndIsocrystals",
+   "stages": [
+    "VectorBundlesAndIsocrystals:VB3"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-banach-colmez"
+   ],
+   "reason": "VB3 builds Banach–Colmez geometry — the sheaf of sections of a bundle on the Fargues–Fontaine curve, its diamond representability, dimension and cohomological smoothness — of which the spaces X^+_st(M) = (B^+_cris ⊗ M)^{φ=p} are the basic positive-slope examples. The paper uses only their Dimension ([L:Q_p],2), but uses it decisively: it is what makes the multiplicity spaces of Lemma 2.7 one-dimensional and hence what pins down V_{M,L}."
+  },
+  {
+   "route": "source",
+   "roadmap": "AdicEtaleGeometry",
+   "stages": [
+    "AdicEtaleGeometry:A1"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-proetale-site"
+   ],
+   "reason": "A1 constructs the small étale and finite étale sites of an adic space and, for the pro-étale extension, Scholze's corrected transfinite-tower definition. The paper needs the projection ν: X_proét → X_ét and the completed structure sheaves Ô^+_X, Ô_X on it, and is a source for the warning that this is the older pro-étale site, not the one of ‘Étale cohomology of diamonds’ (its footnote 16)."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "P. Scholze, p-adic Hodge theory for rigid-analytic varieties, Forum Math. Pi 1 (2013), e1, and its erratum [60], [61]",
+   "link": "10.1017/fmp.2013.1",
+   "why": "The most load-bearing input. It supplies the pro-étale site with the period sheaves, Lemma 3.24 (O_ét ≅ ν_*Ô and Ω^1_ét ≅ R^1ν_*Ô(1)) which is quoted as Proposition 3.1 and used ‘systématiquement’, the primitive comparison theorem used in Proposition 3.12, and the injectivity of H^1(Z,Q_p(1)) → H^1_proét(Z,Ô(1)) used in Lemma 3.11."
+  },
+  {
+   "citation": "P. Scholze and J. Weinstein, Moduli of p-divisible groups, Camb. J. Math. 1 (2013), 145–237 [63]",
+   "link": "10.4310/CJM.2013.v1.n2.a1",
+   "why": "Theorem 6.5.4 makes the completed towers perfectoid and Theorem 7.2.3 identifies them G × Ǧ-equivariantly; the paper says explicitly that it uses this refinement of the Faltings–Fargues isomorphism ‘pleinement’, and Theorem 4.1 — hence Theorem 0.6 — rests on it."
+  },
+  {
+   "citation": "V. Drinfeld, Coverings of p-adic symmetric domains, Funkcional. Anal. i Priložen. 10 (1976) [29], and Elliptic modules, Mat. Sb. 94 (1974) [28]",
+   "link": "https://zbmath.org/?q=an%3A0346.14010",
+   "why": "The construction of the tower M̆_n with its actions and Galois groups (§0.1), the theorem H^1_ét(Ω_Dr,Z/p^k(1)) ≅ (St^{lisse}_{Z/p^k})^* quoted as Proposition 0.1 and reproved here as Theorem 1.7, and the formal-scheme description of the Lubin–Tate tower with level structure."
+  },
+  {
+   "citation": "G. Dospinescu and A.-C. Le Bras, Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique, Ann. of Math. 186 (2017), 321–411 [27]",
+   "link": "10.4007/annals.2017.186.2.1",
+   "why": "Its Theorem 1.4 is the Breuil–Strauch conjecture, quoted as Proposition 0.9 and Proposition 2.9: W_{M,L} = (Π(V_{M,L})^an)^*. Without it the main theorem would not be a statement about the p-adic local Langlands correspondence. Its §3.2 also supplies the compactly supported de Rham cohomology of the levels and the derivation argument reused in Proposition 4.8."
+  },
+  {
+   "citation": "P. Colmez and G. Dospinescu, Complétions unitaires de représentations de GL_2(Q_p), Algebra Number Theory 8 (2014), 1447–1519 [18]",
+   "link": "10.2140/ant.2014.8.1447",
+   "why": "Theorem VII.11: Π(V) is the universal unitary completion of Π(V)^an. Dually, Π(V)^* is the set of G-bounded elements of (Π(V)^an)^*, which is exactly what converts the pro-étale computation into the étale one in Corollary 2.13."
+  },
+  {
+   "citation": "P. Colmez, Espaces de Banach de dimension finie, J. Inst. Math. Jussieu 1 (2002), 331–439 [14], and Espaces vectoriels de dimension finie et représentations de de Rham, Astérisque 319 (2008), 117–186 [15]",
+   "link": "10.1017/S1474748002000117",
+   "why": "The theory of finite-dimensional Banach Spaces, which gives X^+_st(M) its Dimension ([L:Q_p],2); this dimension count is what makes the multiplicity spaces of Lemma 2.7 one-dimensional and hence what makes V_{M,L} detectable."
+  },
+  {
+   "citation": "P. Colmez and J.-M. Fontaine, Construction des représentations p-adiques semi-stables, Invent. Math. 140 (2000), 1–43 [23]",
+   "link": "10.1007/s002220000042",
+   "why": "It gives the classification used in §0.5 and §2.1.4: V_{M,L} is supercuspidal of dimension 2 with weights 0 and 1, and every such representation is V_{M,L} for a unique pair (M,L)."
+  },
+  {
+   "citation": "O. Hyodo and K. Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles, Astérisque 223 (1994), 221–268 [41]",
+   "link": "https://zbmath.org/?q=an%3A0852.14004",
+   "why": "The Hyodo–Kato isomorphism C ⊗̂ H^1_HK ≅ H^1_dR, used for the tower (§0.3) and for the Shimura curves throughout §5; it is the reason the appendix has to produce equivariant semi-stable models."
+  },
+  {
+   "citation": "H. Carayol, Sur les représentations ℓ-adiques associées aux formes modulaires de Hilbert, Ann. Sci. École Norm. Sup. 19 (1986), 409–468 [6], and Non-abelian Lubin-Tate theory, in Automorphic forms, Shimura varieties and L-functions II (1990), 15–39 [7]; T. Saito, Hilbert modular forms and p-adic Hodge theory, Compos. Math. 145 (2009) [56]",
+   "link": "10.24033/asens.1512",
+   "why": "The local–global compatibility theorems that give Proposition 5.2 — the identification of the cohomology of the Shimura curves in terms of automorphic representations with π_v ≅ JL(WD(ρ_{π,v})) at every finite place, including v = p — and non-abelian Lubin–Tate theory, quoted as Proposition 5.1."
+  },
+  {
+   "citation": "J.-F. Boutot and T. Zink, The p-adic uniformization of Shimura curves, preprint (2000) [4]; J.-F. Boutot and H. Carayol, Uniformisation p-adique des courbes de Shimura, Astérisque 196–197 (1991), 45–158 [3]",
+   "link": "https://www.math.uni-bielefeld.de/~zink/p-adicuni.ps",
+   "why": "The uniformisation Sh_n(U)^an ≅ Γ∖[M_n × S_p(U)] of Proposition 5.4, compatibly with the level and with n; it is what lets the global input of Proposition 5.2 be transported to the tower. Boutot–Carayol also supplies the standard semi-stable model of Ω_Dr used in Appendix A."
+  },
+  {
+   "citation": "B. H. Gross and M. J. Hopkins, Equivariant vector bundles on the Lubin-Tate moduli space, Contemp. Math. 158 (1994), 23–88 [39]",
+   "link": "10.1090/conm/158/01453",
+   "why": "The period map π_GH = A/B on the Lubin–Tate tower, the invertibility of g = AB′ − A′B and the fact that the operators f_i d/dz give the infinitesimal action of Ǧ/Z(Ǧ); this is the whole content of the Lubin–Tate half of Proposition 4.8."
+  },
+  {
+   "citation": "J. Weinstein, Semistable models for modular curves of arbitrary level, Invent. Math. 205 (2016), 459–526 [70]",
+   "link": "10.1007/s00222-015-0641-5",
+   "why": "Lemma 2.10.1, that the loci |X_1|^n ≤ |ϖ| and |Y_1|^n ≤ |ϖ| in the completed Lubin–Tate tower are affinoid perfectoid — the starting point of Proposition 4.2 and hence of all of §4."
+  },
+  {
+   "citation": "M. van der Put, Cohomology on affinoid spaces, Compos. Math. 45 (1982), 165–198 [69], and Serre duality for rigid analytic spaces, Indag. Math. 3 (1992), 219–235 [68]; B. Chiarellotto, Duality in rigid analysis, Lecture Notes in Math. 1454 (1990), 142–172 [8]; P. Bayer, On Serre duality for coherent sheaves on rigid-analytic spaces, Manuscripta Math. 93 (1997), 219–245 [2]",
+   "link": "https://zbmath.org/?q=an%3A0516.14021",
+   "why": "Serre duality on rigid spaces, used in §4.3.2 to define the compactly supported theory and to dualise Theorem 5.8 into Theorem 5.10, and the embedding of an affinoid as the complement of finitely many open discs in a proper curve, which is the geometric input of Propositions 3.8 and 3.10."
+  },
+  {
+   "citation": "A. Ducros, La structure des courbes analytiques, book in preparation [30]; M. Baker, S. Payne and J. Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves, Algebr. Geom. 3 (2016), 63–105 [1]",
+   "link": "10.14231/AG-2016-004",
+   "why": "The Berkovich theory of Appendix A: the four types of points, the analytic skeleton, nodes, triangulations (semistable vertex sets) and the statement that an automorphism of the pair (X_K, S(X)) extends to the formal model — the tools that make the equivariant semi-stable model of a non-compact M^ϖ_n possible."
+  },
+  {
+   "citation": "Q. Liu, Algebraic geometry and arithmetic curves, Oxford (2002) [50]",
+   "link": "https://zbmath.org/?q=an%3A0996.14005",
+   "why": "The classical theory summarised in §A.1: Lipman's resolution, minimal models, étale semi-stable models after a finite extension, uniqueness in genus ≥ 1 and the stable model in genus ≥ 2, with the functoriality that gives the equivariance."
+  },
+  {
+   "citation": "L. Clozel, On limit multiplicities of discrete series representations in spaces of automorphic forms, Invent. Math. 83 (1986), 265–284 [9]",
+   "link": "10.1007/BF01388963",
+   "why": "The globalisation input of §5.2.1 (footnote 21): it produces the automorphic Π̌ ∈ SD_{2,n} with prescribed local component JL(M), possibly after adjusting the central character."
+  },
+  {
+   "citation": "P. Colmez, G. Dospinescu and W. Nizioł, Cohomology of p-adic Stein spaces, arXiv:1801.06686 (2018) [20], and Cohomologie des courbes analytiques p-adiques, in preparation [19]",
+   "link": "arXiv:1801.06686",
+   "why": "The companion papers: [19] develops the syntomic route to the fundamental diagram sketched in §0.6.1 and proves ~HK(X) ≅ (B^+_st ⊗̂ H^1_HK(X))^{N=0,φ=p} for a Stein curve, and [20] is the higher-dimensional generalisation, also quoted for the universal unitary completion of the smooth Steinberg (its Corollary 5.4). A design job must decide which of the two routes to plan."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E1",
+   "kind": "misprint",
+   "locator": "proof of Proposition 4.8, p. 345",
+   "printed": "Démonstration. Le (ii) est une conséquence directe du (i) et de suite exacte ci-dessus. Pour montrer le (ii), on montre d'abord que l'action de G_j (resp., Ǧ_n) sur O(M^ϖ_n)^* (resp., O(LT^ϖ_j)^*) peut se dériver",
+   "correction": "‘Pour montrer le (i)’, and ‘et de la suite exacte ci-dessus’.",
+   "reason": "The first sentence deduces (ii) from (i); the rest of the proof then establishes (i) — that the invariants of the duals vanish — by deriving the action and showing that a functional killed by the Lie algebra is zero. As printed the proof announces twice that it proves (ii) and never that it proves (i).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E2",
+   "kind": "misprint",
+   "locator": "proof of Proposition 5.2, p. 349",
+   "printed": "l'isomorphisme D_pst(ρ_{Π̌,p}(−1)) = M (qui découle de l'hypothèse Π_p ≃ JL(M))",
+   "correction": "qui découle de l'hypothèse Π̌_p ≃ JL(M).",
+   "reason": "The choices fixed on p. 348 are Π̌ ∈ SD_{2,n} with Π̌_p = JL(M), and Π the automorphic representation of G(A) matching Π̌ under the global Jacquet–Langlands correspondence, so that Π_p = LL(M). The hypothesis invoked here concerns ρ_{Π̌,p}, so it is the one on Π̌_p; as printed it names the representation whose local component is LL(M), not JL(M).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E3",
+   "kind": "misprint",
+   "locator": "§5.4.2, p. 355",
+   "printed": "comme M est de pente 1/2, le noyau t(B^+_st ⊗ M)^{N=0,φ=1} de θ: (B^+_st ⊗ M)^{N=0,φ=1} → C ⊗ M_dR est réduit à 0",
+   "correction": "θ: (B^+_st ⊗ M)^{N=0,φ=p} → C ⊗ M_dR, i.e. θ defined on X^+_st(M).",
+   "reason": "θ is the map whose kernel is being computed, so its source cannot equal its kernel. Throughout the paper θ is defined on X^+_st(M) = (B^+_st ⊗_{Q_p^{nr}} M)^{N=0,φ=p} (§0.4, §2.1, §5.4), and the kernel of θ on that space is indeed t(B^+_st ⊗ M)^{N=0,φ=1}, which vanishes because M has slope 1/2 > 0. Only the superscript on the source is wrong.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E4",
+   "kind": "misprint",
+   "locator": "Proposition 5.16, p. 355",
+   "printed": "C(S_p(U), F) = H^0(G, Hom(π, LC(S(U)))⊗X",
+   "correction": "C(S_p(U), F) = H^0(G, Hom(π, LC(S(U)))) ⊗ X.",
+   "reason": "A closing parenthesis of H^0(G, −) is missing, so the displayed formula is unbalanced. That the tensor factor X is outside the invariants is exactly the content of the proof, which pulls X out of the Hom because G acts trivially on it; and it is how the proposition is applied three lines later, where Hom_G(π, LC(S(U))) ⊗_L Z appears.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E5",
+   "kind": "misprint",
+   "locator": "§5.4.2, p. 355, the display after ‘En combinant les prop. 5.16 et 5.12’",
+   "printed": "Hom_G(π, LC(U^p)) ⊗_L Z ≃ (B^+_st ⊗_{Q̆_p} H^1_HK(Sh_n(U)[M]))^{φ=p,N=0}",
+   "correction": "Hom_G(π, LC(S(U))) ⊗_L Z ≃ (B^+_st ⊗_{Q̆_p} H^1_HK(Sh_n(U))[M])^{φ=p,N=0}.",
+   "reason": "Two slips in one display. First, U^p is not defined in the paper: the compact open subgroup is U ⊂ G(A^p_f) and the space S(U) = Γ∖G(A_f)/U is the one whose locally constant functions appear in Proposition 5.16, which is being applied here. Second, the M-part is taken of the cohomology of the Shimura curve, as in Proposition 5.12 — H^1_HK(Sh_n(U))[M] — so the bracket closes after Sh_n(U).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E6",
+   "kind": "misprint",
+   "locator": "Lemma 4.4, p. 343",
+   "printed": "Si X est une courbe Stein, on suppose de plus que l'on peut écrire X comme une réunion croissante stricte d'affinoïdes X_n dont les images inverses dans X sont des affinoïdes perfectoïdes.",
+   "correction": "dont les images inverses dans X̂ sont des affinoïdes perfectoïdes.",
+   "reason": "X̂ is the perfectoid covering; the inverse image of X_n in X is X_n itself, which is an affinoid but never perfectoid, so the hypothesis as printed is either vacuous or absurd. The proof states the intended reading: ‘l'image inverse X̂_n de X_n dans X̂ est affinoïde perfectoïde’, and that is also how the lemma is applied in Proposition 4.5 through Remark 4.3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "id": "companion-papers-carry-two-steps",
+   "detail": "Two ingredients are quoted from papers that were unpublished when this one appeared. The isomorphism ~HK(X) ≅ (B^+_st ⊗̂ H^1_HK(X))^{N=0,φ=p} for a Stein curve — the statement that makes the syntomic route of §0.6.1 work — is attributed to [19] (Colmez–Dospinescu–Nizioł, ‘Cohomologie des courbes analytiques p-adiques’), listed as ‘en préparation’; and the expectations of Remark 0.3 (iv) about the completed tower are attributed to [21], also ‘en préparation’. The route actually used in the paper (§0.6.2, relative Fontaine rings) is self-contained, and Proposition 3.12 proves the identification for a proper curve, so nothing in the main line depends on [19]; a design job should plan the proper-curve statement and treat the Stein-curve statement as belonging to the companion paper."
+  },
+  {
+   "id": "expectations-not-targets",
+   "detail": "Remark 0.3 is a programme, not a set of results: that the theorem should extend to supercuspidal representations of arbitrary weights by replacing Q_p(1) with symmetric powers of the Tate module (ii); that the full G × Ǧ × W_{Q_p}-structure of H^1_ét(M_∞) should have an Emerton-style description through a universal deformation ring (iii); and everything about the completed tower — that m(Π(V)) agrees with Scholze's functor S(Π(V)), that m(Π(V)) ≠ 0 for every absolutely irreducible V of dimension 2, and the factorisations m(Π(V)) = JL_p(V) ⊗ V realising a p-adic Jacquet–Langlands correspondence (iv). Remarks 2.11 and 2.14 likewise only propose Π^an_geo(V_{M,L}) and Π_geo(V_{M,L}) as candidates for a correspondence for GL_2(F) with F ≠ Q_p. None of these may be planned as a target."
+  },
+  {
+   "id": "what-restricts-F-to-Qp",
+   "detail": "The restriction F = Q_p in the main theorem is not cosmetic and Remark 2.6 says exactly where it bites: for a 2-dimensional V with Hom(V, X^+_st(M)) ≠ 0 the admissibility constraints leave only κ_{i,σ} ≥ 0 and Σ_{i,σ} κ_{i,σ} = [F:Q_p], which for F = Q_p forces V = V_{M,L} for a unique line L but for F ≠ Q_p allows other filtrations, including further representations of weights 0 and 1. Everything proved for a general F — Theorems 0.4, 0.6, 0.8 and all of §§3–5 — is stated for a general F in the items; only the identification with the p-adic local Langlands correspondence (which needs Proposition 2.9, hence the correspondence itself) is restricted to Q_p. A plan must keep the two apart."
+  },
+  {
+   "id": "drinfeld-proof-for-ell-equals-p",
+   "detail": "Footnote 3, p. 312, records that Drinfeld stated Proposition 0.1 for the ℓ-adic étale cohomology for every prime ℓ including ℓ = p, but that ‘comme nous l'ont signalé Grosse-Klönne et Berkovich, la preuve de Drinfeld de ce résultat pour ℓ = p laisse beaucoup à désirer’. The paper therefore gives its own proof (Theorem 1.7). A layer that cites Drinfeld's paper for the p-adic statement must cite this one instead; the defect is in a published source and is recorded in the errata log rather than here, since it is not a mistake of this paper."
+  },
+  {
+   "id": "ad-hoc-definitions-to-be-reconciled",
+   "detail": "Remark 4.6 admits that the definitions of O(∂X), Ω^1(∂X) and H^1_c(X,O) used in §4.3.2 are ‘parfaitement ad hoc’, and checks only that they agree with the natural definition — RΓ(∂Z,F) = colim_U RΓ(Z∖U,F) and RΓ_c(Z,F) = cone(RΓ(Z,F) → RΓ(∂Z,F)) — because H^0_c(Z,O) = 0 and H^1(Z,O) = 0 in the cases at hand, the second for the perfectoid tower by a lemma of Kedlaya–Liu. A formalisation should plan the natural definition and prove the comparison, not adopt the ad hoc one."
+  },
+  {
+   "id": "notation-that-must-be-disambiguated",
+   "detail": "Three distinct objects are written with almost the same symbol and are genuinely different: M_∞ (the non-completed projective system, whose cohomology is a colimit), M̂_∞ (its completion, a perfectoid space) and the completed cohomology H̃^1_ét(M_∞) — Remark 0.3 (iv) stresses that the last two differ by an interchange of a colimit and a limit, because the M_n are not compact, and that H^1_ét(M̂_∞,L(1)) is ‘beaucoup plus gros’ than H̃^1_ét(M_∞,L(1)). Similarly ~HK(X), HK^1_1(X) and (B^+_st ⊗ H^1_HK(X))^{N=0,φ=p} agree for a proper curve but not for an affinoid, where HK^1_1(X) is not even separated. A plan must name these apart before stating any comparison."
+  }
+ ]
+}
