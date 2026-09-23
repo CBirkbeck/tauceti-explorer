@@ -30017,7 +30017,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-YUAN-26",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-YUAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1763"
   },
   {
    "id": "ERRATA-PAPER-NEWTON-THORNE-26",
@@ -30243,7 +30244,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-SCHROER-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-SCHROER-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1776"
   },
   {
    "id": "ERRATA-PAPER-DASGUPTA-KAKDE-23",
@@ -30509,8 +30511,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-MOK-PILA-TSIMERMAN-19",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1782"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1782",
+   "finishedAt": "2026-09-23T13:38:41Z"
   },
   {
    "id": "ERRATA-PAPER-TSIMERMAN-18",
@@ -30661,8 +30664,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-CHARLES-16",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CHARLES-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1788"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1788",
+   "finishedAt": "2026-09-23T13:38:46Z"
   },
   {
    "id": "ERRATA-PAPER-GILLE-PARIMALA-26",
