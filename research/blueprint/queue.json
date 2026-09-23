@@ -5440,8 +5440,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1328"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1328",
+   "finishedAt": "2026-09-23T08:03:19Z"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-19",
@@ -7318,8 +7319,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-17.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1434"
+   "state": "external",
+   "note": "claimed on GitHub issue #1434"
   },
   {
    "id": "REV-PAPER-KISIN-17",
