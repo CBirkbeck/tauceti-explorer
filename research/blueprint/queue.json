@@ -12822,8 +12822,9 @@
    ],
    "avoidAccountOf": "RS-17",
    "prompt": "research/blueprint/prompts/REV-RS-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #833"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #833",
+   "finishedAt": "2026-09-23T13:13:24Z"
   },
   {
    "id": "RS-18",
@@ -12867,7 +12868,8 @@
    ],
    "avoidAccountOf": "RS-18",
    "prompt": "research/blueprint/prompts/REV-RS-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #835"
   },
   {
    "id": "RS-19",
@@ -31084,7 +31086,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-SHENDE-TSIMERMAN-17",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1857"
   },
   {
    "id": "ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
