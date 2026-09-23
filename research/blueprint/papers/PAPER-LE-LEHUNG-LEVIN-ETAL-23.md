@@ -1,3 +1,76 @@
+# LLHLM23 continuation: split-place genericity and Hilbert–Samuel suppliers
+
+Codex — codex-7e92bd, issue #1254, 23 September 2026. The bot confirmed claim comment5802518636 in comment5802521177. The extraction remains **partial**: **604 items (101 library,25 planned,478 missing),24 routes,53 unreviewed source findings**. All580 inherited item IDs and their sourceData are preserved. All164 definitions/constructions have use sites, an API and at least three typed tests. This is a source-based mathematical plan; no Lean file was requested or compiled and no new formalization or independent review is claimed.
+
+This pass adds24 items: fifteen pinned imports L87–L101 and nine Hilbert–Samuel suppliers Z67–Z75. It changes seven inherited items, A70–A73 and Z64–Z66. The previous reports below remain as attributed history; their counts and the corresponding open genericity/Hilbert–Samuel statements are superseded here.
+
+## Split-place genericity
+
+A73 now states the actual hypotheses needed by the argument. LLHLM §9.1 fixes a CM extension F/F+, degree [F+:Q]>1, a unitary group compact at infinity, and an F-splitting G_F≅GL_n. Labesse’s comparison consequently supplies an actual intertwiner at a split finite place, including a ramified split place or a place over the coefficient prime. A general inner-form transfer would not by itself be such an intertwiner.
+
+The Galois realization initially identifies the **semisimplification** of R⊗Kbar with the direct sum of the normalized positive-rank Speh constituents. A50 first makes R⊗Kbar irreducible using its absolutely irreducible residual lattice. Only then can one identify R with its semisimplification and invoke A62’s actual direct-sum argument. Positive ranks force exactly one summand, hence one block of length one; the algebraic normalization exponent in A79 is then zero.
+
+The rest of A73 explicitly follows that same cuspidal representation: A70 gives a detecting global functional, A71/A107 select a detecting pure tensor at the chosen finite place, the split-place intertwiner transports it to sigma_v, and A72 keeps the functional unchanged under a determinant twist because the unipotent subgroup has determinant one. An abstract coefficient-field isomorphism transports **both the representation and its character**. The equivariance equation and nonvanishing survive algebraically; no continuity of the field isomorphism, archimedean globalization, finite-field descent or p-adic Hodge assertion follows.
+
+While this claim was active, PR2495 was opened by cc-7b31c4 and became unmergeable. Its head `0d1387e3ce089383e0a74e0cd0961b19ed58d883` changes precisely A71/A72/A73 relative to the common580-item base. This pass compares those changes, preserves A71’s frozen-vector proof and A72’s identity-on-the-carrier proof with their added tests and original attribution, retains the A107 dependency, and strengthens A73 as above. The test about an abstract bijection has been narrowed: such a bijection preserves nonvanishing, although it does not identify the very same chosen functional. No other worker’s branch is modified.
+
+## A bounded supplementary-source correction
+
+E53 records the unqualified dimension assertion in Cogdell’s author-hosted Fields notes, printed32/PDF36, remark(ii). It cannot hold for every irreducible admissible representation: for the trivial representation of GL₂(R), the root Lie algebra acts by zero, whereas a nontrivial Whittaker character has nonzero derivative. Its Whittaker functional equation therefore forces the functional to vanish. The dimension is zero rather than2.
+
+The record concerns that general reading of the **author notes**, not the unmatched published book or LLHLM’s own statement. It does not rule out a theorem with suitable generic/principal-series hypotheses. The author page and targeted errata searches yielded no identified correction; E53 remains unreviewed. A70 and the preserved A71 now justify their continuity boundary directly and no longer rely on a universal dimension formula. Their existence proofs do not need any dimension formula.
+
+## The Hilbert–Samuel dependency chain
+
+The pinned `Polynomial.hilbertPoly` computes eventual coefficients of a rational series p(T)/(1−T)^e, but its file explicitly leaves Hilbert polynomials of finite graded modules as future work. It does not already prove Hilbert–Serre or Hilbert–Samuel. L87 imports exactly the existing formula and uniqueness. The coefficient field used here is Q, receiving integral module lengths; the local ring and its residue field may have positive characteristic.
+
+L88–L101 additionally import exact-sequence length additivity, surjective scalar restriction, vector-space length, Artin–Rees, the Noetherian dimension-zero criterion, minimal primes and prime avoidance, polynomial Noetherianity, homogeneous-piece finiteness, ideal-power generation, stars-and-bars, and finite-length/Artinian-module facts. Each actual declaration and its ambient hypotheses was read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The Tau Ceti baseline `f790474821cf4256814db967cb154e7af3d0c369` has a word-filtration associated graded; its increasing filtration is a different carrier from the descending ideal filtration needed here.
+
+The new source nodes separate the remaining work:
+
+| Item | Exact contribution |
+| --- | --- |
+| Z67 | gr_I(M) over gr_I(R), using quotient scalars R/I and no coefficient-ring section; finite homogeneous generator map, API and four tests |
+| Z68 | Rational Hilbert series for finite graded modules over an Artinian coefficient ring, by induction on variables with the shifted kernel term |
+| Z69 | Eventual cumulative Hilbert–Samuel polynomial, finite lengths and positivity |
+| Z70 | The finite-colength squeeze with its correct index shift, preserving the positive-degree leading term |
+| Z71 | Artin–Rees exact-sequence degree comparison, including a lower-degree defect and the finite-length-kernel case |
+| Z72 | Independence of degree from the ideal of definition, without equality of multiplicities |
+| Z73 | The parameter-number growth bound, with the empty-generator case separate |
+| Z74 | Degree zero exactly when a nonzero finite module has finite length |
+| Z75 | The finite free monomial basis and its rank, including the zero-variable boundary |
+
+Z68’s proof uses the exact degreewise sequence for multiplication by the final variable x. If K=ker(x) has its unshifted grading and C=N/xN, the generating-series identity is
+
+`(1−T) H_N(T) = H_C(T) − T H_K(T)`.
+
+The T on the kernel term is essential. For N=k[T]/T^q, it gives numerator1−T^q. After this identity has produced a rational series, L87 supplies the eventual polynomial. The finite-length specialization here is sufficient for R/I; R09.1 keeps ownership of the wider Noetherian and coherent-sheaf versions.
+
+Z71 also keeps a necessary defect. For the exact sequence given by multiplication by t on k[[t]], the two free modules both have cumulative polynomial n+1, and the residue-field quotient has polynomial1. Their defect is−1, of smaller degree. Exact additivity of the three Hilbert–Samuel polynomials would be false. Artin–Rees supplies the shifted intersection filtration from which the actual degree statement follows.
+
+Z64 now assembles a complete mathematical proof of degree=dimension. It first inducts on the polynomial degree and a prime chain, passes to a domain quotient, and uses injective multiplication by a nonzero element to lower the degree. It then constructs at most dim(R) parameters by avoiding finitely many minimal primes, applies the monomial growth bound, and changes back to the maximal ideal. Degree zero and zero modules are handled explicitly. Taking a finite difference proves the graded-piece degree statement; at dimension zero the graded pieces eventually vanish. Z65 imports the monomial-rank and length suppliers, while Z66 specializes the single construction Z67.
+
+## Shared ownership and remaining work
+
+The full R09.1 description includes Hilbert polynomials in the Noetherian setting. Its reviewed AUDIT-01 entry specifically identifies Hilbert–Serre for finite graded modules as the missing part. **New source route24** therefore sends planned Z68/Z75 to `AlgebraicModuliForArithmeticGeometry:R09.1`. Route7 sends only the seven new local adapters to `SchemeAndStackFoundations:SF.4`. The cross-owner requests name their exact statements and consumers. The atlas and its sole current packet contain no finer supplying node. No new roadmap or duplicate Hilbert-polynomial owner is proposed.
+
+This closes the previously unnamed Hilbert–Samuel premises at the mathematical-proof-plan level. The extraction is still partial because regular-map descent, finite-type G-ring stability/formal fibers, the flat local dimension formula, affinoid presentation topology, remaining bundled source results and proof leaves, full item-by-item ownership/declaration audit, and the uniform Appendix B certificates still need work. The global Fourier/Haar/globalization/Flath suppliers are named imports at A104–A107; this continuation does not implement their owners’ theorems.
+
+## Evidence and validation
+
+The already attributed full main-paper reading is retained. Fresh bounded reads covered the hash-matched published PDF180–181 and196–198; Labesse PDF1–2 and42–44; and Cogdell Fields PDF35–37. The Labesse PDF hash is `c85a0fde13266e3ed6c76d34330b4c51023376f8fe25406da0370fa47c5a45d2`; the Fields-notes hash is `2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7`. The Fields PDF page offset is4.
+
+The statements and full relevant proofs of Stacks tags00K0,00K1,00K3,00K6,00K8,00KB,00KC,00KI,00KQ,00NO,00JZ,00JD, example00K2 and full section00K4 were read. The result stores dated URLs and SHA-256 hashes for all14 captured pages. The proof of Z68 is the stated kernel/cokernel specialization, rather than an assertion that Mathlib implements the full source theorem.
+
+The mathematical regression checks passed:480 independently enumerated homogeneous hypersurface-quotient counts,480 cumulative counts,30 degree/leading-coefficient checks,1078 finite-colength inequalities,80 nonzero bilinear functional cases and4 character transports. Additional checks cover a nonprincipal Artinian quotient of length4, the shifted kernel for14 nilpotent examples, and the nonzero exact-sequence defect. These finite checks catch convention and indexing errors; they are not proofs of the general statements.
+
+The paper checker and intake file checks pass. The604-item dependency graph is acyclic; all478 missing items are routed exactly once; all25 planned items and24 route stages resolve. All164 definitions/constructions retain uses, API and three or more typed tests. Baseline source trees are clean at the required pins. Only the result, report and handoff are submitted.
+
+---
+
+The prior report follows with its original worker attributions. Its current-status counters are historical.
+
+
 # LLHLM23 continuation: residual recognition and coefficient topology
 
 Codex — codex-hjdg0j, issue #1254, 23 September 2026. Claim5801479550 was confirmed by bot comment5801482105, and the whole issue was reread. Base main: `713360d7f9daf3804fda79874399973194dc9f19`.

@@ -537,6 +537,138 @@
             ]
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-7e92bd",
+        "date": "2026-09-23",
+        "main": "Fresh bounded reading of already acquired, hash-matched published PDF180–181 and196–198. Prior full212-page main reading remains attributed; no repeat full-paper reading claimed.",
+        "sources": [
+          {
+            "name": "labesse",
+            "url": "https://www.imj-prg.fr/fa/bpFiles/Labesse2.pdf",
+            "sha256": "c85a0fde13266e3ed6c76d34330b4c51023376f8fe25406da0370fa47c5a45d2",
+            "bytes": 356020,
+            "readSections": [
+              "PDF1–2 and42–44; Corollary5.3 and its full local proof, with the upstream trace formula left imported."
+            ]
+          },
+          {
+            "name": "cogdell-fields",
+            "url": "https://people.math.osu.edu/cogdell.1/fields-www.pdf",
+            "sha256": "2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7",
+            "bytes": 688257,
+            "readSections": [
+              "PDF35–37, printed31–33; Whittaker model and functional, Theorem4.1 and remarks, Corollaries4.1.1–4.1.3."
+            ]
+          }
+        ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-7e92bd",
+        "date": "2026-09-23",
+        "scope": "Statements and full proofs of Stacks 00K0/00K1/00K3/00K6/00K8/00KB/00KC/00KI/00KQ/00NO/00JZ/00JD; 00K2 example and full section00K4. Bounded supplier reading, not a new claim of full-main-paper reading.",
+        "sources": [
+          {
+            "tag": "00K0",
+            "url": "https://stacks.math.columbia.edu/tag/00K0",
+            "sha256": "02fc37161ed59fa2b222bcb1b355c580d535c37a821f0d32acb672abcfc9bb15",
+            "date": "2026-09-23",
+            "bytes": 13947
+          },
+          {
+            "tag": "00K1",
+            "url": "https://stacks.math.columbia.edu/tag/00K1",
+            "sha256": "f421fbc2dc074fc0ae392c392f06c6223f60740703e9ccb28d6bd18c5d57afc3",
+            "date": "2026-09-23",
+            "bytes": 15747
+          },
+          {
+            "tag": "00K2",
+            "url": "https://stacks.math.columbia.edu/tag/00K2",
+            "sha256": "d9475f9a15ba63f1a4a30faefdbb88f6504b9de9bc4ab4d1b91e49c7a47d7a3c",
+            "date": "2026-09-23",
+            "bytes": 13614
+          },
+          {
+            "tag": "00K3",
+            "url": "https://stacks.math.columbia.edu/tag/00K3",
+            "sha256": "ac8819c575b0ea59f037a00f9792ae01b950eb5d70860b81b5bcd1497b7cd45c",
+            "date": "2026-09-23",
+            "bytes": 14352
+          },
+          {
+            "tag": "00K4",
+            "url": "https://stacks.math.columbia.edu/tag/00K4",
+            "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+            "date": "2026-09-23",
+            "bytes": 25159
+          },
+          {
+            "tag": "00K6",
+            "url": "https://stacks.math.columbia.edu/tag/00K6",
+            "sha256": "0ba7c36e01df15f7525a13f83ca6e93f2f93b0d5fd214aebe7525cc1d724d8d0",
+            "date": "2026-09-23",
+            "bytes": 15206
+          },
+          {
+            "tag": "00K8",
+            "url": "https://stacks.math.columbia.edu/tag/00K8",
+            "sha256": "dfc94f78cacf7bdd43ab44abc06b1edc56260614061e8dfcfe8bb98a28764d64",
+            "date": "2026-09-23",
+            "bytes": 16319
+          },
+          {
+            "tag": "00KB",
+            "url": "https://stacks.math.columbia.edu/tag/00KB",
+            "sha256": "4817eaecbd76e0bf8871e821388f4936088e13f1770b27dafbaa19233ba70070",
+            "date": "2026-09-23",
+            "bytes": 14075
+          },
+          {
+            "tag": "00KC",
+            "url": "https://stacks.math.columbia.edu/tag/00KC",
+            "sha256": "221a7b7e057201da2372b87ea73d0fc17ec352d76daed7eee148af5a33d1a9e9",
+            "date": "2026-09-23",
+            "bytes": 16969
+          },
+          {
+            "tag": "00KI",
+            "url": "https://stacks.math.columbia.edu/tag/00KI",
+            "sha256": "11131f871ce151887159ca97825b39945d59cef0ba856a0798c447c003f6e8ae",
+            "date": "2026-09-23",
+            "bytes": 13886
+          },
+          {
+            "tag": "00KQ",
+            "url": "https://stacks.math.columbia.edu/tag/00KQ",
+            "sha256": "b78f985c922ea320bc89848fb965b0d67af935eb5466a9fb2b2cacf9d7e1c703",
+            "date": "2026-09-23",
+            "bytes": 19259
+          },
+          {
+            "tag": "00NO",
+            "url": "https://stacks.math.columbia.edu/tag/00NO",
+            "sha256": "dc1ed92007c55bf51a3bd8e3e706758336cd1a3c8d3b205c90eefdf080ab8192",
+            "date": "2026-09-23",
+            "bytes": 16118
+          },
+          {
+            "tag": "00JZ",
+            "url": "https://stacks.math.columbia.edu/tag/00JZ",
+            "sha256": "9e111a9d48c6a3bb8ede444e6f7e92c4b4bd0ec28898427bea06b1da4e6dccf8",
+            "date": "2026-09-23",
+            "bytes": 14286
+          },
+          {
+            "tag": "00JD",
+            "url": "https://stacks.math.columbia.edu/tag/00JD",
+            "sha256": "d5ab2beddecdc816947d7fae7e371ba0352505e2bc9891c5231647a95e3ab23e",
+            "date": "2026-09-23",
+            "bytes": 13937
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -15621,12 +15753,14 @@
       "statement": "For a commutative local ring (R,m,k), construct gr_m(R)=⊕_{n≥0} m^n/m^(n+1) as an N-graded commutative k-algebra. Scalar multiplication uses R→k since m annihilates each quotient; multiplication sends the classes of a∈m^i,b∈m^j to ab modulo m^(i+j+1). No choice of a coefficient-field section k→R is required.",
       "locator": "Stacks 00NO construction in proof; 00IP supplies separation when R is Noetherian.",
       "status": "missing",
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z67"
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source obligation for SchemeAndStackFoundations:SF.4, shared with its regularity/formal-completion consumers. No matching declaration found in the pinned trees; no implementation claimed.",
+      "note": "Source obligation for SchemeAndStackFoundations:SF.4, shared with its regularity/formal-completion consumers. No matching declaration found in the pinned trees; no implementation claimed. General descending ideal filtration now belongs to Z67; the existing Tau Ceti word-filtration associated graded uses an increasing filtration and is not the same carrier.",
       "proofSteps": [
-        "Changing a by an element of m^(i+1), or b by an element of m^(j+1), changes ab by an element of m^(i+j+1). This defines the graded product; the direct-sum ring laws follow from those of R.",
-        "The degree-zero quotient is R/m=k. For any finite generating set x1,…,xe of m, its degree-one classes generate this graded k-algebra, by expanding products of ideal generators."
+        "Specialize Z67 to I=m and M=R. The coefficient quotient R/m is the residue field, and all ring/module operations, well-definedness and functoriality come from that single construction.",
+        "Its finite-generator polynomial map is the API already described here; Z67 proves its surjectivity. This specialization remains useful for the regular-local consumer and retains its residue-field and mixed-characteristic tests."
       ],
       "uses": [
         {
@@ -15701,14 +15835,28 @@
       "locator": "Stacks 00KQ Proposition10.60.9 with 10.59.10; statement and full outer proof read 23 September 2026.",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z69",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z71",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z72",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z73",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z74",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L89",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L90",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L93",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L94",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L100"
       ],
       "implementationStatus": "unchecked",
-      "note": "Source obligation for SchemeAndStackFoundations:SF.4, shared with its regularity/formal-completion consumers. No matching declaration found in the pinned trees; no implementation claimed.",
+      "note": "Source obligation for SchemeAndStackFoundations:SF.4, shared with its regularity/formal-completion consumers. No matching declaration found in the pinned trees; no implementation claimed. The former unnamed Hilbert–Samuel premises are now Z67–Z75 with pinned length, Artin–Rees and polynomial suppliers L87–L99. This is a mathematical proof plan, not a checked Lean proof.",
       "proofSteps": [
-        "Use the finite-length Hilbert polynomial and its invariance under change of ideal of definition. Bound the degree above by the number of generators of an ideal of definition using monomials.",
-        "Induct on dimension, using finite minimal primes and prime avoidance to choose a parameter and lower dimension. In the other direction use a prime chain and multiplication by a nonzero parameter in a domain quotient to lower the Hilbert polynomial degree. These give equality of Krull dimension, polynomial degree and minimal parameter number, as 00KQ.",
-        "Take the first finite difference of the cumulative length polynomial. The d=0 case is treated separately; it does not assert a polynomial of degree minus one. Exact suppliers for finite-length Hilbert polynomial existence and the degree-lowering exact sequence remain in analytic-regularity-suppliers."
+        "Existence is Z69 with I=m,M=R. Write h(R) for its nonnegative degree; I-independence is Z72. All quotient-ring/module degree comparisons below use L89 so that the lengths computed over R and over R/J agree. Nonzero quotient local rings remain in the hypotheses.",
+        "First show dim(R)≤h(R), by strong induction on h(R), uniformly in Noetherian local rings. If h=0, Z74 makes R finite length, hence every prime is maximal and the local spectrum has one point. For h>0, take any nontrivial prime chain p0<p1<…<pe=m and choose x∈p1 minus p0. Z71 gives h(R/p0)≤h(R). The domain R/p0 has positive dimension and infinite length, since the chain is nontrivial.",
+        "Multiplication by the nonzero class of x on R/p0 is injective. Apply Z71 to 0→R/p0 --x→R/p0→R/(p0,x)→0: the first two Hilbert–Samuel polynomials cancel, so h(R/(p0,x))<h(R/p0)≤h(R). The quotient is nonzero and contains the chain p1/(p0,x)<…<pe/(p0,x). Induction gives e−1≤h(R/(p0,x))≤h(R)−1. Thus every chain has length at most h(R). The same proof covers e=1; no unstated dimension-one theorem is needed.",
+        "Construct an ideal of definition on at most dim(R) generators by induction on finite dimension d, whose finiteness also follows independently from L18. At d=0, the local spectrum is {m}, so √0=m and the empty tuple works. At d>0, L93 and L94 give x∈m outside every minimal prime: m is not minimal and cannot be contained in any minimal prime. Any chain in R/(x) lifts to one in R beginning at a nonminimal prime, and using L100 to prepend a minimal prime makes it one term longer. Hence dim(R/(x))≤d−1. Apply induction there, lift its generators and adjoin x.",
+        "If the resulting ideal of definition has e≤d generators, Z73 gives deg P_(I,R)≤e≤d; Z72 changes I back to m. Together with the prime-chain bound this gives h(R)=d. This closes the polynomial-existence and exact-sequence-degree premises of the earlier outer argument at the source-proof level.",
+        "Finally L88 applied to successive quotients, and L89/L90 on the m-annihilated piece, identify dim_k(m^n/m^(n+1))=χ(n)−χ(n−1). For d≥1 the finite difference has degree d−1 and nonzero leading coefficient d times that of P. At d=0 it is eventually zero, as also follows from Z74. Do not assign the zero polynomial the natural-number degree d−1."
       ]
     },
     {
@@ -15718,7 +15866,11 @@
       "statement": "Let k be a field, d≥1, A=k[X1,…,Xd] with standard grading, and I a homogeneous ideal containing a nonzero homogeneous element f of degree e≥1. For n≥e, dim_k(A/I)_n ≤ binom(n+d−1,d−1)−binom(n−e+d−1,d−1). In particular its eventual Hilbert polynomial, if nonzero, has degree at most d−2 when d≥2; when d=1 the quotient has zero degree-n piece for all n≥e. If I contains a nonzero constant then I=A and all pieces vanish.",
       "locator": "Stacks 00K3 Lemma10.58.10, proof read 23 September 2026.",
       "status": "missing",
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z75",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L88",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L90"
+      ],
       "implementationStatus": "unchecked",
       "note": "Source obligation for SchemeAndStackFoundations:SF.4, shared with its regularity/formal-completion consumers. No matching declaration found in the pinned trees; no implementation claimed.",
       "proofSteps": [
@@ -16925,7 +17077,7 @@
       ],
       "proofOutline": "Choose nonzero phi. A69 gives g with W_phi(g)≠0. Right-translation stability and A66 yield Lambda(Pi(g)phi)=W_phi(g)≠0. The unipotent equivariance is A66's identity at g=1. Compact integration is continuous in the smooth automorphic topology supplied by AF.1/AF.0. No uniqueness theorem for Whittaker models is needed to prove nonvanishing. A chosen phi can satisfy Lambda(phi)=0; nonvanishing is a property of the functional on the representation, not of every vector.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-fb70e5, 23 September 2026, from the chain's own inputs (A66–A68, A104–A106) and read against Cogdell's Fields Institute notes, Lecture 4: printed 31 (PDF 35) for the injectivity remark, printed 32 (PDF 36) for the functional/model dictionary and the archimedean continuity remark, printed 33 (PDF 37) for Corollary 4.1.2 and the displayed global functional. Both inherited locators are correct as recorded.",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-fb70e5, 23 September 2026, from the chain's own inputs (A66–A68, A104–A106) and read against Cogdell's Fields Institute notes, Lecture 4: printed 31 (PDF 35) for the injectivity remark, printed 32 (PDF 36) for the functional/model dictionary and the archimedean continuity remark, printed 33 (PDF 37) for Corollary 4.1.2 and the displayed global functional. Both inherited locators are correct as recorded. Continuation codex-7e92bd removes the universal n! dimension claim from the preceding proof/test. The needed continuous-functional argument is unchanged and relies directly on A106; E53 records the precise supplementary-source scope error.",
       "tests": [
         {
           "name": "GlobalGeneric.translate_to_detect",
@@ -16945,14 +17097,14 @@
         {
           "name": "GlobalGeneric.archimedean_needs_continuity",
           "kind": "non-example",
-          "statement": "At an archimedean place the algebraic Whittaker functionals on the K-finite vectors have dimension n!, and only one of them extends continuously to the smooth moderate-growth Frechet topology (Cogdell, Fields notes, printed 32, remark (ii)). An arbitrary algebraic functional therefore does not witness this statement."
+          "statement": "An algebraic functional on K-finite vectors is not, merely by its definition, a continuous functional on the smooth globalization. A70 uses A106’s compact-integral continuity. Do not justify this using a universal n! dimension formula: for the trivial GL_2(R) representation and a nontrivial Whittaker character the algebraic Whittaker space is zero (E53)."
         }
       ],
       "proofSteps": [
         "Lambda is defined and continuous. Lambda(phi)=W_psi(phi)(1)=int_{N_n(F)\\N_n(A)} phi(n) psi_N(n)^{-1} dn is an integral over a compact quotient taken with A105's probability measure, so it converges for every smooth phi, and A106 gives its continuity for the smooth moderate-growth topology on V_Pi. The same display appears in Cogdell's Fields notes, printed 33: 'Lambda(phi) = W_phi(e) = int_{N(k)\\N(A)} phi(n) psi^{-1}(n) dn'.",
         "Equivariance. For u in N_n(A_F), Lambda(Pi(u)phi) = int phi(nu) psi_N(n)^{-1} dn = psi_N(u) Lambda(phi), by translating the variable and using invariance of the measure; this is A66's defining identity evaluated at g=1.",
         "Nonvanishing, by translation. Pi is nonzero, so choose phi in V_Pi with phi != 0. A69 gives a g with W_psi(phi)(g) != 0, and W_psi(phi)(g) = Lambda(Pi(g)phi) because the transform is the orbit map of Lambda under right translation. Hence Lambda(Pi(g)phi) != 0 and Lambda is not the zero functional. Cogdell records the dictionary in the local setting (printed 32): 'A model xi_v ↦ W_{xi_v} gives a functional by Lambda_v(xi_v)=W_{xi_v}(e) and a functional Lambda_v gives a model by setting W_{xi_v}(g)=Lambda_v(pi_v(g)xi_v)'; the global direction used here is the first half applied to the translate.",
-        "Why the functional must be the continuous one. At an archimedean place the algebraic Whittaker functionals on the K-finite vectors form an n!-dimensional space, of which only one extends continuously to the smooth moderate-growth Frechet completion (Cogdell, printed 32, remark (ii)). So the statement is about the functional supplied by the compact integral together with AF.1's globalization, not about an arbitrary algebraic functional on a Harish-Chandra module.",
+        "The continuous functional is the one just constructed by compact integration and A106. No dimension formula for all algebraic Whittaker functionals on arbitrary Harish–Chandra modules is needed. In particular Cogdell’s unqualified n! remark cannot be used universally: the trivial representation of GL_2(R) has no functional for a nontrivial Whittaker character. Keep the continuity requirement while leaving any more specialized algebraic-dimension theorem to its exact hypotheses (E53).",
         "Scope. No uniqueness is claimed or used here: local uniqueness (Gelfand–Kazhdan and Shalika, Cogdell Theorem 4.1) and its global corollary are separate imports, and this item needs only existence. Genericity of the local components — Cogdell's Corollary 4.1.2, 'if (pi,V_pi) is cuspidal with pi = tensor' pi_v then pi and each of its local components pi_v are generic' — is reached from here through A71's one-place factorization, not asserted at this step."
       ]
     },
@@ -16964,14 +17116,15 @@
       "locator": "Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, Fields Institute notes (2003), Lecture4, printed32–33/PDF36–37, local-component restriction and Corollary4.1.2; explicit nonvanishing adapter.",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L68",
         "AutomorphicFormsOnReductiveGroups:AF.2",
-        "SmoothRepresentationsOfLocalGroups:SR.5",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A107"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A107",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L68",
+        "SmoothRepresentationsOfLocalGroups:SR.5"
       ],
       "proofOutline": "Transport Lambda across the one-place factorization. If it vanished on every x tensor w, L68 would identify it with zero. Choose a detecting pure tensor and freeze its second factor; TensorProduct.mk/curry give linearity, and equivariance holds because the local unipotent acts only on x. Flath's factorization, including the passage from global smooth vectors to the algebraic tensor at one finite place, is imported from AF.2, not proved by L68. Only finite-place genericity is claimed, so no archimedean completed-tensor inference is hidden here. Neither local uniqueness nor an Euler-product factorization of Lambda is needed.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-d67081, 23 September 2026, against Cogdell Fields notes printed33 (Corollaries 4.1.1–4.1.3 and the suitable-family normalisation).",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-7b31c4, 23 September 2026, against Cogdell's Fields Institute notes, Lecture 4, printed 32–33 (PDF 36–37): the functional/model dictionary and Definition 4.1 on printed 32, the archimedean remark (ii) on the same page, and Corollary 4.1.2 on printed 33. Author PDF SHA-256 2c5ec050…18a7 re-downloaded and re-read; note that for this PDF printed page = PDF page − 4, not − 3 as an earlier handoff line said (the item locators already use − 4 and are right). Codex — codex-7e92bd preserves the independent frozen-vector argument and tests from pending PR2495 at 0d1387e3ce089383e0a74e0cd0961b19ed58d883, while paraphrasing the source and removing the universal dimension assertion identified in E53. This is continuation work, not an independent review.",
       "tests": [
         {
           "name": "LocalGeneric.choose_good_frozen_vector",
@@ -16987,14 +17140,29 @@
           "name": "LocalGeneric.scalar_ambiguity",
           "kind": "compatibility",
           "statement": "Replacing the detecting w by c w for c≠0 multiplies lambda_v by c; the existence conclusion has no preferred normalization."
+        },
+        {
+          "name": "A71.finite_sum_linear_independence",
+          "kind": "computation",
+          "statement": "Every element of V_(Pi_v) tensor_C V^v is a finite sum sum_j x_j tensor w_j with the w_j linearly independent; if all the frozen functionals lambda_(w_j) vanished, Lambda would vanish on that element. This is the whole of the nonvanishing step, and it uses only linearity."
+        },
+        {
+          "name": "A71.archimedean_place_excluded",
+          "kind": "non-example",
+          "statement": "A functional on a Harish–Chandra module is algebraic data; extension to a continuous functional on the smooth globalization requires a separate theorem. This finite-place argument supplies no such extension. E53 explains why an unqualified n! dimension assertion cannot justify it."
+        },
+        {
+          "name": "A71.no_uniqueness_claimed",
+          "kind": "non-example",
+          "statement": "The construction produces one nonzero functional and says nothing about the dimension of the space of them; local uniqueness is a separate theorem (Gelfand-Kazhdan, Shalika) and is not used, so this item must not be cited for multiplicity one."
         }
       ],
       "proofSteps": [
-        "Pick the frozen vector from a point where Lambda is nonzero. Lambda is nonzero by hypothesis, so there is some v in V_Pi with Lambda(v) nonzero. Under the isomorphism of A107, V_Pi is isomorphic to V_(Pi_v) tensor_C V^v, and elementary tensors span that tensor product, so Lambda cannot vanish on all of them: there are x_0 in V_(Pi_v) and w in V^v with Lambda(x_0 tensor w) nonzero. Fix that w. This is the step the statement warns about — the choice must be made to detect Lambda, since for a general w the functional x -> Lambda(x tensor w) can be identically zero (take Lambda supported, in the dual pairing, on tensors involving a complementary vector).",
-        "Define lambda_v(x) = Lambda(x tensor w). It is linear because Lambda is and because x -> x tensor w is, and it is nonzero because lambda_v(x_0) = Lambda(x_0 tensor w) is nonzero by the choice of w.",
-        "Equivariance. Let u be in N_n(F_v). The hypothesis of the statement, which is what A107 supplies, is that N_n(F_v) acts only on the first factor, so the image of x tensor w under Pi(u) is (Pi_v(u)x) tensor w. Hence lambda_v(Pi_v(u)x) = Lambda(Pi(u)(x tensor w)) = psi_N(u) Lambda(x tensor w) = psi_v(u) lambda_v(x), using the psi_N-equivariance of Lambda and that psi_N restricted to N_n(F_v) is psi_v. No property of Lambda beyond that equivariance is used.",
-        "Genericity. A nonzero psi_v-equivariant linear functional on an irreducible admissible representation of GL_n(F_v) is by definition a Whittaker functional for psi_v, so Pi_v is generic. This is the one-place form of Cogdell's Corollary 4.1.2 — 'If (pi, V_pi) is cuspidal with pi isomorphic to a restricted tensor product of pi_v then pi and each of its local components pi_v are generic' — read at Fields notes printed 33.",
-        "What is NOT claimed, and why the item stops here. Cogdell's Corollary 4.1.1 gives global uniqueness (the space of Whittaker functionals is at most one-dimensional) and his Corollary 4.1.3 factorises W_phi as a product of local Whittaker functions for decomposable phi, but the latter needs the normalisation stated just above those corollaries: a family {Lambda_v} is suitable only when Lambda_v(xi_v^0) = 1 for the distinguished K_v-fixed vectors giving the restricted tensor product. This item asserts existence of a nonzero local functional at ONE place and neither the product formula nor that normalisation, so it does not need them. Cogdell's own caveat on the same page is the reason to keep the distinction: 'the cusp form phi(g) itself does not factor. The G(k)-invariance mixes the various places together. Only W_phi factors for decomposable phi.'"
+        "A107 supplies an abstract equivariant isomorphism V_Pi≅V_(Pi_v)⊗C V^v, with the finite-place group acting on the first factor. This is sufficient for the argument. It gives neither a product decomposition of automorphic functions nor a distinguished detecting vector in the other factor.",
+        "Every frozen vector gives an equivariant functional. For w in V^v set lambda_w(x) = Lambda(x tensor w); this is C-linear in x because the tensor map is. For u in N_n(F_v), embedded at v with trivial components elsewhere, Pi(u)(x tensor w) = (Pi_v(u)x) tensor w, since GL_n(F_v) acts through the first factor only; and psi_N(u) = psi_v(u) for such a u, the other local components of psi_N being evaluated at 1. Hence lambda_w(Pi_v(u)x) = Lambda(Pi(u)(x tensor w)) = psi_N(u)Lambda(x tensor w) = psi_v(u) lambda_w(x). So lambda_w is a psi_v-equivariant Whittaker functional on V_(Pi_v) for every w, with no hypothesis on w at all. Only nonvanishing is at stake.",
+        "Some frozen vector detects Lambda. Lambda is nonzero, so fix xi in V_Pi with Lambda(xi) != 0. Under the isomorphism of A107, xi is a finite sum xi = sum_(j=1)^m x_j tensor w_j, and we may take the w_j linearly independent in V^v by rewriting the sum over a basis of the span of its second factors. Then 0 != Lambda(xi) = sum_j lambda_(w_j)(x_j) by linearity of Lambda, so lambda_(w_j) != 0 for at least one j; take w to be that w_j and lambda_v = lambda_w. Linearity of Lambda is all that is used here, and L68 is the pinned form of the fact that a linear map on a tensor product is determined by its values on pure tensors, so no continuity or topology on V^v enters. This step is the content of the item's own warning that an arbitrary reference tensor need not work: the test A71 records for Lambda(x tensor y) = x_1 y_1 on C^2 tensor C^2, where freezing e_1 succeeds and freezing e_2 gives zero, is a two-dimensional instance of exactly this.",
+        "The constructed lambda_v is nonzero and psi_v-equivariant. For irreducible admissible Pi_v, the map x↦[g↦lambda_v(Pi_v(g)x)] has invariant kernel and is nonzero, hence is injective and realizes a Whittaker model. Thus Pi_v is generic, as in Cogdell Corollary4.1.2. This construction uses no local multiplicity-one theorem.",
+        "Only one finite-place functional is constructed. No uniqueness, normalized restricted tensor product or factorization of all Whittaker functionals is asserted. At an archimedean place an algebraic functional on K-finite vectors does not automatically extend continuously to a smooth globalization; that is an additional requirement. No universal n! dimension assertion is used (E53)."
       ]
     },
     {
@@ -17009,7 +17177,7 @@
       ],
       "proofOutline": "For u∈N_n(K), det(u)=1, so the twisted and untwisted actions of u coincide. Hence exactly the same linear maps satisfy the character-equivariance equation. This is an identity of Hom spaces on a fixed carrier, not a statement about a Galois character, its cyclotomic normalization, or continuity under an isomorphism of coefficient fields.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-7b31c4, 23 September 2026, from the item's own outline; the only input is that unitriangular matrices have determinant one, so no source reading beyond the recorded locator was required. Preserved from pending PR2495 at 0d1387e3ce089383e0a74e0cd0961b19ed58d883 when preparing this continuation against fresh main. Its original worker attribution is retained.",
       "tests": [
         {
           "name": "WhittakerTwist.unipotent_determinant",
@@ -17025,14 +17193,30 @@
           "name": "WhittakerTwist.not_automatic_genericity",
           "kind": "non-example",
           "statement": "For n>=2 a one-dimensional determinant representation has no nonzero functional for a nontrivial psi_N; determinant twisting does not turn this nongeneric representation into a generic one."
+        },
+        {
+          "name": "WhittakerTwist.same_subspace_not_just_iso",
+          "kind": "characterisation",
+          "statement": "On the unchanged carrier, the two equivariance conditions define the same subset of Hom_C(V_pi,C), so the identity preserves the chosen functional. An arbitrary abstract bijection also preserves nonvanishing but does not by itself identify that same functional."
+        },
+        {
+          "name": "WhittakerTwist.psi_change_is_different",
+          "kind": "non-example",
+          "statement": "Replacing psi_K by a conjugate psi_K^t for t in the diagonal torus does change the Hom space in general; the invariance proved here is under determinant twists only."
         }
+      ],
+      "proofSteps": [
+        "The twisted action on the same carrier. By definition pi tensor (chi o det) has the same underlying complex vector space as pi, with (pi tensor (chi o det))(g)x = chi(det g) pi(g) x. So Hom_C(V_pi, C) is one and the same space for the two representations, and the two Whittaker Hom spaces are subsets of it rather than merely isomorphic spaces.",
+        "Unipotent matrices have determinant one. An element u of N_n(K) is upper triangular with all diagonal entries 1, so det(u) = 1 and chi(det u) = chi(1) = 1. Hence (pi tensor (chi o det))(u) = pi(u) as endomorphisms of V_pi, for every u in N_n(K). Nothing about chi is used beyond its being a homomorphism on K^x.",
+        "The two equivariance conditions are the same equation. A linear lambda : V_pi -> C lies in Hom_(N_n(K))(pi, psi_K) exactly when lambda(pi(u)x) = psi_K(u) lambda(x) for all u in N_n(K) and x in V_pi, and by the previous step that is verbatim the condition for lambda to lie in Hom_(N_n(K))(pi tensor (chi o det), psi_K). The two subsets of Hom_C(V_pi, C) therefore coincide, which is the asserted equality.",
+        "Consequences and their limits. Genericity, being nonvanishing of that space, transfers in both directions, and the statement covers every modulus twist |det|^s at a fixed convention, in particular s = (1-n)/2, since |det|^s is a smooth character of K^x composed with det. What the argument does not give: it says nothing about whether pi is generic to begin with, nothing about a change of the additive character psi_K (conjugating psi_K by a diagonal torus element permutes the Hom spaces, and that is a different statement), and nothing about a Galois-side cyclotomic normalization or about continuity under an isomorphism of coefficient fields, both of which the item's statement already excludes."
       ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A73",
       "kind": "theorem",
       "name": "Cuspidal compact-unitary base change supplies generic split local factors",
-      "statement": "In A59's compact-unitary setting with [F+:Q]>1, assume the exact Galois realization of all discrete Speh constituents needed by A62 has been proved and the stable residual lattice is absolutely irreducible. Then A62 gives one cuspidal GL_n(A_F) base-change constituent Pi. At every finite split place v=ww^c of F+, the representation sigma_v transported by G(F_v+)≅GL_n(F_w) is generic; so is its twist by |det|^((1-n)/2). This includes places above the coefficient prime. If coefficients are transported along a chosen abstract field isomorphism Qpbar≅C, the same nonzero algebraic smooth Whittaker Hom is transported; no topological isomorphism or descent to a finite coefficient field is asserted.",
+      "statement": "Let F/F+ be a CM extension with [F+:Q]>1, n≥1, and G/F+ a unitary form compact at infinity equipped with an F-isomorphism G_F≅GL_n, as in LLHLM §9.1. Let sigma be an irreducible discrete automorphic representation to which the Labesse comparison A59 applies, and write its weak base change as an isobaric sum of Speh(pi_i,b_i), with pi_i cuspidal of positive rank m_i and n=Σ_i m_i b_i. Let R:G_F→GL_n(K) be continuous, K/Q_p finite, with a stable free O_K-lattice whose residual representation is absolutely irreducible. Assume the actual equivariant realization (R⊗Kbar)^ss≅⊕_i⊕_(j=0)^(b_i−1) R_i⊗ε^(−j), where dim R_i=m_i>0 and the summands are the normalized cuspidal factors of A79–A81. For every split finite v=ww^c of F+, assume the actual local base-change isomorphism Pi_w≅sigma_v transported through the chosen G(F+_v)≅GL_n(F_w), supplied by A59. Then the isobaric sum has exactly one block of length one and is cuspidal. Each such transported sigma_v has a nonzero smooth algebraic Whittaker functional for a nondegenerate character of N_n(F_w), and so does its determinant twist |det|^((1−n)/2). This includes v|p. Under a chosen coefficient-field isomorphism Qpbar≅C, transport both the representation and its Whittaker character; the same nonzero algebraic Hom space is transported. No coefficient-field topology, continuous archimedean transport, finite coefficient-field descent, temperedness or p-adic Hodge/monodromy conclusion is asserted.",
       "locator": "LLHLM23 TheoremA.4.1 PDF196–198 and EGH7.2.1 PDF55–56; Labesse5.3 split-place comparison as A59; Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, Fields Institute notes (2003), Lecture4, Corollary4.1.2 printed33/PDF37.",
       "status": "missing",
       "prerequisites": [
@@ -17040,11 +17224,14 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A70",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A71",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A72"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A72",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A50",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A78",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A107"
       ],
-      "proofOutline": "First discharge A62's input isomorphism; its positive-summand argument makes the base change cuspidal. Apply A70 and A71 to Pi, then transport along A59's actual split-place isomorphism, including ramified split places. A72 preserves genericity under the normalization twist. Whittaker nonvanishing does not prove the missing Speh/Galois isomorphism, does not force temperedness, and does not replace the sigma(lambda,tau)^* occurrence dictionary or the p-adic Hodge/monodromy hypotheses used by A55/A65.",
+      "proofOutline": "Apply A50 before A62: absolute residual irreducibility makes R⊗Kbar irreducible, hence identical to its semisimplification. Compose with the hypothesized A78 realization. A62 then forces r=b_1=1. Apply A70 and A71 to the resulting cuspidal Pi; carry the functional through the actual split-place isomorphism, and use A72 for the determinant twist. Semilinear coefficient transport carries both sides of the character-equivariance equation and preserves nonvanishing and open stabilizers.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Continuation Codex — codex-7e92bd, 23 September 2026: explicit hypotheses and ten proof steps replace the conditional prose. Fresh main PDF180–181 and196–198, Labesse PDF1–2 and42–44, Cogdell Fields PDF35–37 were read. The F-splitting and the simple-to-semisimple bridge are now explicit. General supplier proofs remain at their existing owners. PR2495’s A107 dependency and the finite-place assembly have also been compared; its source-scope distinctions are retained, with the realized-semisimplification and transported-character hypotheses now explicit.",
       "tests": [
         {
           "name": "SplitGeneric.not_residual_genericity",
@@ -17060,7 +17247,62 @@
           "name": "SplitGeneric.no_type_dictionary",
           "kind": "non-example",
           "statement": "Whittaker nonvanishing alone does not imply Hom_K(sigma(tau),pi)≠0 for a prescribed tau, nor a specified Hodge type."
+        },
+        {
+          "name": "SplitGeneric.semisimplification_bridge",
+          "kind": "compatibility",
+          "statement": "A78 initially gives an isomorphism only for R^ss. A50 first identifies an absolutely irreducible R with R^ss; without that step the input is not literally A62’s actual decomposition."
+        },
+        {
+          "name": "SplitGeneric.split_model_required",
+          "kind": "non-example",
+          "statement": "For a general inner form at a split place, do not replace its local transfer by a GL_n intertwining isomorphism without a split-model hypothesis. LLHLM supplies G_F≅GL_n."
+        },
+        {
+          "name": "SplitGeneric.transport_character_too",
+          "kind": "compatibility",
+          "statement": "Under complex conjugation, the C4-character sending a generator to i becomes the character sending it to −i. The transported one-dimensional functional is equivariant for the transported character; keeping the original i-character would make the equation fail."
+        },
+        {
+          "name": "SplitGeneric.rank_one",
+          "kind": "degenerate",
+          "statement": "At n=1 there is one length-one rank-one block, the determinant exponent is zero and the unipotent group is trivial; a nonzero linear functional suffices."
         }
+      ],
+      "previousStatement": "In A59's compact-unitary setting with [F+:Q]>1, assume the exact Galois realization of all discrete Speh constituents needed by A62 has been proved and the stable residual lattice is absolutely irreducible. Then A62 gives one cuspidal GL_n(A_F) base-change constituent Pi. At every finite split place v=ww^c of F+, the representation sigma_v transported by G(F_v+)≅GL_n(F_w) is generic; so is its twist by |det|^((1-n)/2). This includes places above the coefficient prime. If coefficients are transported along a chosen abstract field isomorphism Qpbar≅C, the same nonzero algebraic smooth Whittaker Hom is transported; no topological isomorphism or descent to a finite coefficient field is asserted.",
+      "hypotheses": [
+        {
+          "id": "split-unitary-model",
+          "statement": "F/F+ is CM, [F+:Q]>1, G is compact at infinity and an explicit F-isomorphism G_F≅GL_n is fixed. At a chosen split place, use the resulting group isomorphism, not a Jacquet–Langlands transfer from a nonsplit inner form."
+        },
+        {
+          "id": "discrete-base-change",
+          "statement": "A59–A61 supply the same weak base-change representation Pi=boxplus_i Speh(pi_i,b_i), with r,b_i,m_i≥1 and n=Σm_i b_i; at the finite split place its component is isomorphic to the transported sigma_v."
+        },
+        {
+          "id": "stable-residual-lattice",
+          "statement": "R is a continuous representation over a finite extension K/Q_p with a free stable O_K-lattice of rank n and absolutely irreducible reduction."
+        },
+        {
+          "id": "realized-semisimplification",
+          "statement": "A proved equivariant isomorphism identifies (R⊗Kbar)^ss with the direct sum of the positive-rank normalized factors R_i⊗ε^(−j), not merely a rank identity or a proposed automorphic parameter. A78 produces this isomorphism from its separate realization, polynomial and density inputs."
+        },
+        {
+          "id": "analytic-imports",
+          "statement": "Use the actual global functional from A70 and finite-place tensor comparison from A71/A107. These consume their Fourier, measure and globalization suppliers; neither global uniqueness nor a normalized product of all local functionals is required."
+        }
+      ],
+      "proofSteps": [
+        "Local carrier. Fix a split finite v and one w|v. The projection F⊗F+ F+_v→F_w and the stipulated F-splitting of G give iota_w:G(F+_v)≅GL_n(F_w). The LLHLM §9.1 source explicitly supplies this splitting. The argument is only for this carrier; being a unitary inner form compact at infinity alone would not assert a GL_n identification at every split place.",
+        "Remove the semisimplification ambiguity. By A50, a stable lattice with absolutely irreducible residual representation makes R absolutely irreducible. Hence R⊗Kbar is simple and its semisimplification is isomorphic to it. Compose that isomorphism with the realized-semisimplification hypothesis. This is the actual isomorphism required by A62; a Hecke polynomial identity without A78 is insufficient.",
+        "Exclude all residual blocks. If Σ_i b_i>1, the image of one positive-dimensional direct summand is a nonzero proper invariant subspace of R⊗Kbar. This contradicts irreducibility. Since r and every b_i are positive, Σ_i b_i=1 forces r=1 and b_1=1; the dimension identity then gives m_1=n. Repeated or isomorphic summands still give proper subspaces, so no eigenvalue-distinctness condition is used.",
+        "Identify the cuspidal representation. Speh(pi_1,1)=pi_1 by A60, and pi_1 is cuspidal by construction. Thus the same Pi delivered by base change is a cuspidal GL_n automorphic representation. Its algebraic normalization exponent from A79 is (m_1+b_1−n−1)/2=0. There is no remaining half-cyclotomic character or change of the automorphic carrier.",
+        "Produce a global detecting functional. A70 gives nonzero Lambda on Pi, equivariant for psi_N. Its proof chooses a translate detected by the injective Whittaker transform and obtains continuity at infinity from A106. The present conclusion uses existence, not local/global uniqueness or an Euler-product factorization.",
+        "Pass to one finite place. Under A71/A107, write V_Pi≅V_(Pi_w) tensor V^w. Since pure tensors span and Lambda is nonzero, choose x0,w0 with Lambda(x0 tensor w0)≠0. Then lambda_w(x)=Lambda(x tensor w0) is nonzero and satisfies lambda_w(Pi_w(u)x)=psi_w(u)lambda_w(x). The nontrivial local character and local action conventions are those of the imported Whittaker carrier.",
+        "Transport through local base change. For an intertwining isomorphism T:V_(sigma_v transported)→V_(Pi_w), put lambda_sigma=lambda_w∘T. Surjectivity of T preserves nonvanishing, and its intertwining property proves the same N-equivariance. The split-place comparison holds at ramified as well as unramified split places. No step used residue characteristic different from the coefficient prime, so this finite-place argument includes v|p.",
+        "Normalize the determinant twist. For u∈N_n(F_w), det(u)=1. The actions before and after |det|^((1−n)/2) therefore coincide on N, so exactly the same functional works by A72. This is a characteristic-zero field statement and does not invoke an integral co-Whittaker theorem in residue characteristic p.",
+        "Transport coefficients algebraically. Write iota:k→C for the chosen field isomorphism and V^iota for the transported vector space. If T is the iota-semilinear identification, define lambda_k=iota^(-1)∘lambda_C∘T and psi_k=iota^(-1)∘psi_C. Additivity, scalar linearity and lambda_k(rho_k(u)x)=psi_k(u)lambda_k(x) follow by applying iota^(-1) to the equation over C; nonzero values remain nonzero. The inverse construction gives the Hom-space identification. The group stabilizers of vectors and kernel of psi are unchanged, so smoothness at the finite place survives. This makes no continuity claim for iota or for an archimedean globalization.",
+        "Boundary of the conclusion. The result is characteristic-zero local Whittaker genericity. It neither implies residual adequacy/noncyclotomic Frobenius ratios nor supplies a prescribed K-type occurrence or Hodge/monodromy type. Those remain the separate A74–A76 and A55/A65 consumers."
       ]
     },
     {
@@ -18465,6 +18707,522 @@
       ],
       "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
       "note": "Continuation Claude Code — cc-d67081, 23 September 2026. Owner: AutomorphicFormsOnReductiveGroups."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L87",
+      "kind": "theorem",
+      "name": "Eventual coefficients of a rational Hilbert series",
+      "statement": "For a characteristic-zero field F, p∈F[T], e≥0, and n>natDegree(p), the coefficient of T^n in p(T)/(1−T)^e equals Polynomial.hilbertPoly p e evaluated at n; this eventual polynomial is unique. Apply with F=Q to integer-valued length series. The ring or residue field whose module lengths are counted may have arbitrary characteristic.",
+      "locator": "Mathlib/RingTheory/Polynomial/HilbertPoly.lean:174,207 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Polynomial.coeff_mul_invOneSubPow_eq_hilbertPoly_eval",
+        "mathlib:Polynomial.existsUnique_hilbertPoly"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L88",
+      "kind": "theorem",
+      "name": "Length additivity in an exact sequence",
+      "statement": "For R-modules and R-linear maps N→M→P with the first injective, the second surjective and the pair exact, length_R(M)=length_R(N)+length_R(P) in N∪{∞}. Passing to natural or rational numbers requires proving these lengths finite.",
+      "locator": "Mathlib/RingTheory/Length.lean:170 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Module.length_eq_add_of_exact"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L89",
+      "kind": "theorem",
+      "name": "Length under a surjective scalar map",
+      "statement": "Let S→R be a surjective homomorphism of commutative rings, M an R-module with compatible restricted S-action. Then length_S(M)=length_R(M). In particular use S→S/I only on a module actually annihilated by I.",
+      "locator": "Mathlib/RingTheory/Length.lean:136 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Module.length_eq_of_surjective"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L90",
+      "kind": "theorem",
+      "name": "Length of a finite-dimensional vector space",
+      "statement": "For a division ring K and a finite K-module V, length_K(V) equals finrank_K(V), with the latter cast to N∪{∞}.",
+      "locator": "Mathlib/RingTheory/Length.lean:294 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Module.length_eq_finrank"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L91",
+      "kind": "theorem",
+      "name": "Artin–Rees stabilization of an induced ideal filtration",
+      "statement": "For a commutative Noetherian ring R, ideal I, finite R-module M and submodule N, there is c≥0 such that for every n≥c, I^n M∩N=I^(n−c)(I^c M∩N). No assertion that the induced filtration equals I^n N is made.",
+      "locator": "Mathlib/RingTheory/Filtration.lean:388 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Ideal.exists_pow_inf_eq_pow_smul"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L92",
+      "kind": "theorem",
+      "name": "Zero-dimensional Noetherian rings are Artinian",
+      "statement": "A commutative Noetherian ring of Krull dimension at most zero is Artinian. Use this for R/I when R is Noetherian local and √I is its maximal ideal.",
+      "locator": "Mathlib/RingTheory/HopkinsLevitzki.lean:161 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L93",
+      "kind": "theorem",
+      "name": "Finiteness of the minimal primes",
+      "statement": "The set of minimal prime ideals of a commutative Noetherian ring is finite.",
+      "locator": "Mathlib/RingTheory/Ideal/MinimalPrime/Noetherian.lean:43 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:minimalPrimes.finite_of_isNoetherianRing"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L94",
+      "kind": "theorem",
+      "name": "Finite prime avoidance",
+      "statement": "For a finite set of prime ideals p_i in a commutative ring, an ideal J contained setwise in their union is contained in one p_i. The pinned statement permits two exceptional nonprime ideals; only its all-prime specialization is used here.",
+      "locator": "Mathlib/RingTheory/Ideal/Operations.lean:1217 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Ideal.subset_union_prime_finite"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L95",
+      "kind": "theorem",
+      "name": "Noetherianity of a finite-variable polynomial ring",
+      "statement": "For a finite variable type and a commutative Noetherian coefficient ring A, MvPolynomial variables A is Noetherian. Consequently a finite module over it is Noetherian and its submodules are finite.",
+      "locator": "Mathlib/RingTheory/Polynomial/Basic.lean:934 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:MvPolynomial.isNoetherianRing"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L96",
+      "kind": "theorem",
+      "name": "Finiteness of homogeneous polynomial pieces",
+      "statement": "Over a commutative semiring A, with a finite variable type, the degree-n homogeneous submodule of the multivariate polynomial algebra is finitely generated as an A-module.",
+      "locator": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean:111 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:MvPolynomial.homogeneousSubmodule_fg"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L97",
+      "kind": "theorem",
+      "name": "Ideal powers from homogeneous polynomials in generators",
+      "statement": "For a tuple x:ι→R in a commutative semiring and n≥0, the nth power of the ideal generated by x is the image, under polynomial evaluation at x, of the degree-n homogeneous polynomial submodule. This identifies the actual powers used in the descending filtration.",
+      "locator": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean:657 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Ideal.span_pow_eq_map_homogeneousSubmodule"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L98",
+      "kind": "theorem",
+      "name": "Counting monomials by multisets",
+      "statement": "For a finite type α and n≥0, the number of multisets of size n on α is binom(card(α)+n−1,n), with natural subtraction. For e=card(α)≥1 this is binom(n+e−1,e−1). The zero-variable case is treated directly: one monomial in degree zero and none in positive degree.",
+      "locator": "Mathlib/Data/Sym/Card.lean:113 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Sym.card_sym_eq_choose"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L99",
+      "kind": "theorem",
+      "name": "Finite length from the two chain conditions",
+      "statement": "An R-module has finite length if and only if it is both Noetherian and Artinian. In particular finite modules over an Artinian commutative ring have finite length.",
+      "locator": "Mathlib/RingTheory/FiniteLength.lean:73 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:isFiniteLength_iff_isNoetherian_isArtinian"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual statement and ambient hypotheses read at the pinned commit. This imports existing mathematics; no new Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z67",
+      "kind": "construction",
+      "name": "Ideal-adic associated graded module",
+      "statement": "For a commutative ring R, ideal I and R-module M, construct gr_I(M)=⊕_(n≥0) I^n M/I^(n+1)M over gr_I(R)=⊕_(n≥0) I^n/I^(n+1). The degree-zero coefficient ring is R/I, acting through quotient scalars. If I and M are finite, generators of I in degree one and of M/IM in degree zero give a surjection (R/I)[X1,…,Xe]^r→gr_I(M) of graded modules. Every degree is finite over R/I. No section R/I→R is assumed.",
+      "locator": "Stacks 00K8, proof of Proposition10.59.5; 00K0, Lemma10.58.6; explicit quotient-carrier adapter.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L96",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L97"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Use the quotient of the submodule I^n M by the embedded submodule I^(n+1)M, not a quotient of unrelated ambient types. For a∈I^i and m∈I^j M, changing either representative by one filtration step changes am by an element of I^(i+j+1)M. The product and module action therefore descend, and their laws follow on representatives.",
+        "I annihilates every degree quotient. Define the R/I-action by quotient lifting of the R-action; independence of lifts uses precisely this annihilation. The identity of degree zero acts as the identity, also when I=R and all pieces vanish.",
+        "Evaluate homogeneous polynomials in a fixed finite generating tuple of I. L97 shows their degree-n images generate I^n. Multiply by fixed generators of M, then pass modulo I^(n+1)M. Coefficients reduce modulo I, proving surjectivity of the displayed graded free-module map.",
+        "Each source degree is a finite direct sum of L96 homogeneous pieces, so its quotient is finite. Module maps and compatible maps of ring/ideal/module triples descend degree by degree. Taking M=R and I=m gives Z66; it must consume this construction rather than independently invent it."
+      ],
+      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, consumed by the regular-local/analytic-regularity chain. Import the general graded Hilbert-polynomial supplier from R09.1.",
+      "tests": [
+        {
+          "name": "Z67.zero_ideal",
+          "kind": "degenerate",
+          "statement": "If I=0, gr_I(M) is M concentrated in degree zero, over R; positive-degree pieces vanish."
+        },
+        {
+          "name": "Z67.mixed_characteristic",
+          "kind": "compatibility",
+          "statement": "For R=Z_(p), I=(p), M=R, gr_I(M) is F_p[T] with p^n mapping to T^n. No ring section F_p→R exists or is required."
+        },
+        {
+          "name": "Z67.non_field_base",
+          "kind": "computation",
+          "statement": "For R=k[[t]], I=(t^2), gr_I(R)≅(k[t]/(t^2))[T] with T the initial class of t^2. Replacing R/I by the residue field would give the wrong length, by a factor of two."
+        },
+        {
+          "name": "Z67.finite_torsion_module",
+          "kind": "non-example",
+          "statement": "For R=k[[t]], I=(t), M=R/(t^q), the graded module has one-dimensional pieces in degrees 0,…,q−1 and zero thereafter; it is not a free module over gr_I(R)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z69",
+          "how": "Makes the Hilbert–Samuel length function a sum of finite graded-piece lengths."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66",
+          "how": "Provides the maximal-ideal special case without a residue-field section."
+        }
+      ],
+      "api": [
+        {
+          "name": "IdealAdicGraded.mk",
+          "role": "constructor",
+          "statement": "Send x∈I^n M to its degree-n class in gr_I(M)."
+        },
+        {
+          "name": "IdealAdicGraded.mk_eq_zero",
+          "role": "characterisation",
+          "statement": "The degree-n class of x vanishes if and only if x∈I^(n+1)M."
+        },
+        {
+          "name": "IdealAdicGraded.smul_mk",
+          "role": "simp",
+          "statement": "The degree-i class of a∈I^i times the degree-j class of x∈I^j M is the degree-(i+j) class of ax."
+        },
+        {
+          "name": "IdealAdicGraded.degreeZeroEquiv",
+          "role": "equivalence",
+          "statement": "The degree-zero piece is M/IM as an R/I-module."
+        },
+        {
+          "name": "IdealAdicGraded.generatorMap_surjective",
+          "role": "universal-property",
+          "statement": "The graded polynomial-module evaluation from chosen finite ideal and module generators is surjective."
+        },
+        {
+          "name": "IdealAdicGraded.map",
+          "role": "functoriality",
+          "statement": "Compatible ring, ideal and module maps induce semilinear graded maps; identity and composition are preserved."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z68",
+      "kind": "theorem",
+      "name": "Hilbert–Serre for finite graded modules with finite-length coefficients",
+      "statement": "Let A be an Artinian commutative ring and N a finite N-graded module over A[X1,…,Xe], with every Xi of degree one. Put H_N(T)=Σ_n length_A(N_n)T^n. There is p∈Z[T] with H_N=p/(1−T)^e in Q[[T]], and the graded-piece lengths eventually agree with a rational polynomial. For e=0 the series is a polynomial and its eventual coefficient polynomial is zero. This is a finite-length specialization of R09.1’s general Noetherian graded Hilbert-polynomial supplier; no restriction on char(A) is imposed.",
+      "locator": "Stacks 00K1 Proposition10.58.7 and 00K0; direct kernel/cokernel rational-series proof of the finite-length specialization, using pinned L87.",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L87",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L88",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L95",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L96",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L99",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L101"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Replace a finite generating set by the finite collection of its homogeneous components. In each degree the module is a quotient of finitely many homogeneous polynomial pieces L96; these have finite A-length by L99. Thus every coefficient is an integer before casting to Q.",
+        "Induct on e. When e=0, the finitely many homogeneous generators and the degree-zero scalar action imply that only finitely many degrees are nonzero. This gives the polynomial numerator directly.",
+        "For e>0 set x=Xe, K=ker(x:N→N) and C=N/xN, with K carrying its unshifted inherited grading. Both are finite by L95; x annihilates both, so they are finite graded modules over A[X1,…,X_(e−1)]. The multiplication-by-x map shifts degree by one.",
+        "For each n≥0, with N_(−1)=K_(−1)=0, the exact sequence 0→K_(n−1)→N_(n−1)→N_n→C_n→0 gives l(N_n)−l(N_(n−1))=l(C_n)−l(K_(n−1)). Split at the image and apply L88 twice. Summing yields (1−T)H_N=H_C−T H_K. In particular the kernel term has a T factor; dropping it gives false coefficients for nilpotent x.",
+        "Use the induction numerators to obtain p=p_C−T p_K and denominator (1−T)^e. Apply L87 over Q. The characteristic-zero hypothesis is on Q, which receives natural lengths, and not on A. Uniqueness follows from L87. The general K0-valued or coherent-sheaf versions stay at R09.1; this local consumer does not duplicate them."
+      ],
+      "note": "Shared supplier already promised by AlgebraicModuliForArithmeticGeometry:R09.1, whose AUDIT-01 row explicitly identifies the missing graded-module Hilbert–Serre theorem. Source addition, not a second Hilbert-polynomial owner.",
+      "planned": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1"
+      ],
+      "tests": [
+        {
+          "name": "Z68.one_variable_free",
+          "kind": "computation",
+          "statement": "For N=A[T] with length(A)=a, H_N=a/(1−T), so every degree has length a."
+        },
+        {
+          "name": "Z68.nilpotent_generator",
+          "kind": "non-example",
+          "statement": "For N=k[T]/T^q, C=k in degree zero and K=k in degree q−1; (1−T)H_N=1−T^q, which detects the missing-shift error."
+        },
+        {
+          "name": "Z68.positive_characteristic",
+          "kind": "compatibility",
+          "statement": "For A=F_p, the same rational polynomial in Q counts lengths. It is not evaluated in F_p, where sufficiently large factorial denominators are unavailable."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z69",
+      "kind": "theorem",
+      "name": "Existence of the Hilbert–Samuel polynomial for a finite module",
+      "statement": "Let (R,m) be Noetherian local, I a proper ideal with √I=m, and M a finite R-module. The functions h(n)=length_R(I^n M/I^(n+1)M) and χ(n)=length_R(M/I^(n+1)M) are finite and eventually rational-polynomial-valued; χ(n)=Σ_(j=0)^n h(j) for every n. Write P_(I,M) for the unique eventual cumulative polynomial. If M≠0, this polynomial is nonzero and has positive leading coefficient; if M=0 it is zero.",
+      "locator": "Stacks 00K8 Proposition10.59.5 and 00K4 definitions; adapter from Z67/Z68 to the pinned rational-series formula.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z67",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z68",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L87",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L88",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L89",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L92",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L99",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L101"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "R/I is Noetherian and has just one prime, m/I, so L92 makes it Artinian. Apply Z67 to gr_I(M); its finite homogeneous pieces have finite length over R/I, and L89 identifies this with their R-length.",
+        "The successive quotients in 0⊂I^n M/I^(n+1)M⊂…⊂M/I^(n+1)M and L88 give the displayed cumulative identity and finite length of every quotient. No length is cast out of N∪{∞} before this finiteness proof.",
+        "By Z68 the graded series is p/(1−T)^e. Its cumulative series is p/(1−T)^(e+1), since multiplication by Σ_(n≥0)T^n takes partial sums. L87 supplies P_(I,M) and its eventual uniqueness; this also handles e=0, when I=0 and M has finite length.",
+        "If M≠0, Nakayama L23 and I⊂m imply M/IM≠0. Hence every χ(n)≥1, so its eventual polynomial is nonzero and its leading coefficient is positive by elementary polynomial growth over Q. Do not identify its degree with dimension until Z64."
+      ],
+      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, consumed by the regular-local/analytic-regularity chain. Import the general graded Hilbert-polynomial supplier from R09.1."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z70",
+      "kind": "theorem",
+      "name": "Finite-colength inclusions preserve the leading Hilbert–Samuel term",
+      "statement": "For R,I as in Z69 and finite M with submodule M′ of finite colength l=length(M/M′), choose c with I^c M⊂M′. For n≥c, l+χ_(I,M′)(n−c)≤χ_(I,M)(n)≤l+χ_(I,M′)(n). If M′ has infinite length, P_(I,M) and P_(I,M′) have the same positive degree and leading coefficient, and their difference has smaller degree.",
+      "locator": "Stacks 00K4 Lemma10.59.2 and 00KB Lemma10.59.9; full finite-colength squeeze.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z69",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z74",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L88"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "A finite-length module over a local ring is annihilated by a power of m: every simple composition factor is R/m, and induction on the length multiplies the annihilators. Since I⊂m this yields the required c on M/M′.",
+        "For n≥c, I^(n+1)M⊂M′, and length additivity gives χ_M(n)=l+length(M′/I^(n+1)M). The inclusions I^(n+1)M′⊂I^(n+1)M⊂I^(n+1−c)M′ give precisely the two inequalities, with the stated shifts.",
+        "If M′ has infinite length, Z74 gives positive degree. Both bounding polynomials have the same degree and leading coefficient, since translation and addition of a constant preserve those data in positive degree. Their difference from P_M therefore has lower degree. The finite-length case must not claim strict degree drop below zero."
+      ],
+      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, consumed by the regular-local/analytic-regularity chain. Import the general graded Hilbert-polynomial supplier from R09.1."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z71",
+      "kind": "theorem",
+      "name": "Exact-sequence degree comparison for Hilbert–Samuel polynomials",
+      "statement": "Let R,I be as in Z69 and 0→M′→M→M″→0 an exact sequence of finite modules. With deg(0)=−∞, deg P_(I,M)=max(deg P_(I,M′),deg P_(I,M″)). If M′ has infinite length, the defect P_(I,M)−P_(I,M′)−P_(I,M″) has degree strictly smaller than deg P_(I,M′). If M′ has finite length, the defect is eventually zero and P_(I,M)−P_(I,M″)=length(M′).",
+      "locator": "Stacks 00K6 Lemma10.59.3 and 00KC Lemma10.59.10, including the finite-length case.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z69",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z70",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z74",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L88",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L91"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Identify M′ with the injected submodule. L91 gives c and N=M′∩I^c M such that M′∩I^(n+1)M=I^(n+1−c)N for n≥c. M′/N embeds in M/I^c M, hence has finite length l.",
+        "Taking the exact quotient sequence and splitting M′/I^(n+1−c)N through M′/N gives χ_M(n)=χ_M″(n)+χ_N(n−c)+l for n≥c. This is an exact equality of finite lengths; replacing the induced filtration by I^(n+1)M′ without Artin–Rees is not valid.",
+        "If M′ has infinite length, N also does. Z70 makes P_M′−P_N lower degree. Translation makes P_N(n)−P_N(n−c) lower degree, and Z74 ensures this degree is positive so the added constant is also lower degree. Subtract the displayed identity to obtain the defect bound.",
+        "If M′ has finite length, a power of I kills N. The stabilized intersection is therefore zero for n sufficiently large, so the kernel of M/I^(n+1)M→M″/I^(n+1)M″ is exactly M′ and the difference is its length.",
+        "Nonzero cumulative polynomials have positive leading coefficients by Z69, so the degree of their sum is the maximum. The lower-degree defect cannot change this. Handle zero modules with deg(0)=−∞, which also makes the all-zero sequence correct."
+      ],
+      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, consumed by the regular-local/analytic-regularity chain. Import the general graded Hilbert-polynomial supplier from R09.1.",
+      "tests": [
+        {
+          "name": "Z71.dvr_multiplication",
+          "kind": "computation",
+          "statement": "For 0→k[[t]] --t→k[[t]]→k→0 and I=(t), P_R(n)=n+1 and P_k(n)=1; the defect is −1 of degree zero, strictly below degree one."
+        },
+        {
+          "name": "Z71.finite_length_kernel",
+          "kind": "degenerate",
+          "statement": "For 0→k→k⊕R→R→0, the cumulative-polynomial difference is exactly 1, and the defect after subtracting P_k is zero."
+        },
+        {
+          "name": "Z71.not_exact_additivity",
+          "kind": "non-example",
+          "statement": "The DVR multiplication example disproves exact additivity P_M=P_M′+P_M″ for all finite modules; only the lower-degree defect theorem applies."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z72",
+      "kind": "theorem",
+      "name": "Independence of the Hilbert–Samuel degree from an ideal of definition",
+      "statement": "For a nonzero finite module over a Noetherian local ring, the degree of P_(I,M) is independent of the proper ideal I with radical m.",
+      "locator": "Stacks 00K4 Lemmas10.59.4 and10.59.7.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z69"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "For I and J choose a,b≥1 with J^a⊂I and I^b⊂J, using finite generators and equality of radicals. Then J^(a(n+1))M⊂I^(n+1)M and I^(b(n+1))M⊂J^(n+1)M.",
+        "The quotient surjections imply χ_I(n)≤χ_J(a(n+1)−1) and the reversed inequality with b. Substitute eventual polynomials; all nonzero leading coefficients are positive, and positive affine rescaling preserves degree. The two inequalities force equality of degrees. This does not assert equality of leading coefficients or polynomials."
+      ],
+      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, consumed by the regular-local/analytic-regularity chain. Import the general graded Hilbert-polynomial supplier from R09.1.",
+      "tests": [
+        {
+          "name": "Z72.powers_change_multiplicity",
+          "kind": "non-example",
+          "statement": "For R=k[[t]], I=(t), J=(t^q), χ_I(n)=n+1 and χ_J(n)=q(n+1). Both have degree one but their leading coefficients differ when q>1."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z73",
+      "kind": "theorem",
+      "name": "An ideal of definition bounds cumulative growth by its generator number",
+      "statement": "For a Noetherian local R and an ideal of definition I generated by e≥1 elements, length_R(I^n/I^(n+1))≤length_R(R/I) binom(n+e−1,e−1), and deg P_(I,R)≤e. If e=0, I=0, R is Artinian and P_(I,R) is the positive constant length(R).",
+      "locator": "Stacks 00KQ, parameter-number-to-polynomial-degree step, with Z75 making the monomial count explicit.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z67",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z69",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z75",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L88",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L89",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L92"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The generator map of Z67 surjects from the degree-n homogeneous piece of (R/I)[X1,…,Xe] to I^n/I^(n+1). Z75 identifies its finite free rank as the stated binomial. Restrict scalars by L89 and use L88 to bound quotient length by source length.",
+        "Sum in degrees 0,…,n. The elementary binomial recurrence gives Σ_j binom(j+e−1,e−1)=binom(n+e,e); alternatively telescope Pascal’s identity. This is a degree-e polynomial in n with positive leading coefficient. The nonnegative eventual polynomial P_(I,R) is bounded by it and hence has degree at most e.",
+        "For e=0 there are no positive powers to count: I=0 and √0=m implies that R is zero-dimensional, so L92 makes it Artinian. The cumulative quotient is R for every n."
+      ],
+      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, consumed by the regular-local/analytic-regularity chain. Import the general graded Hilbert-polynomial supplier from R09.1."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z74",
+      "kind": "theorem",
+      "name": "Degree-zero Hilbert–Samuel polynomials detect finite length",
+      "statement": "For R,I,M as in Z69 with M≠0, deg P_(I,M)=0 if and only if M has finite length. In that case P_(I,M)=length_R(M).",
+      "locator": "Stacks 00K4 discussion after Lemma10.59.7 and 00KI; explicit Nakayama boundary argument.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z69",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L88"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "If P is constant, χ(n)−χ(n−1)=length(I^n M/I^(n+1)M) is zero for large n. Set N=I^n M, finite by Noetherianity. Then N=IN⊂mN⊂N, so Nakayama L23 forces N=0. M is now one of the finite-length quotients from Z69.",
+        "If M has finite length, its local composition factors are residue-field modules. Induction on the length shows m^s M=0 for some s, hence I^s M=0. Thus χ is eventually the positive constant length(M). Include the nonzero hypothesis: for M=0 the polynomial is zero, of degree −∞."
+      ],
+      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, consumed by the regular-local/analytic-regularity chain. Import the general graded Hilbert-polynomial supplier from R09.1."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z75",
+      "kind": "theorem",
+      "name": "Rank of a homogeneous polynomial piece",
+      "statement": "For a commutative ring A and e≥1 variables of degree one, the homogeneous degree-n piece of A[X1,…,Xe] is finite free on the monomials X^a with Σ_i a_i=n, a family of cardinality binom(n+e−1,e−1). With no variables the degree-zero piece is A and all positive pieces vanish.",
+      "locator": "Stacks 00K2 Example10.58.9; monomial-basis adapter to the pinned stars-and-bars count L98.",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L96",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L98"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "A homogeneous polynomial is the finite sum of its degree-n monomials with their coefficients. Coefficient extraction proves independence of those monomials over an arbitrary coefficient ring; no division or field hypothesis is used.",
+        "Identify an exponent tuple with the multiset containing a_i copies of variable i. The total-degree condition is exactly multiset cardinality n, and the inverse records multiplicities. L98 gives the cardinality; binomial symmetry gives the displayed form when e≥1.",
+        "Treat the empty variable set directly rather than applying a formula involving e−1. The basis contains just 1 in degree zero, and has no elements in any positive degree."
+      ],
+      "note": "Shared supplier already promised by AlgebraicModuliForArithmeticGeometry:R09.1, whose AUDIT-01 row explicitly identifies the missing graded-module Hilbert–Serre theorem. Source addition, not a second Hilbert-polynomial owner.",
+      "planned": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L100",
+      "kind": "theorem",
+      "name": "A prime ideal contains a minimal prime",
+      "statement": "For ideals I≤J with J prime in a commutative ring, there is a prime minimal over I contained in J. Use I=0 to prepend a minimal prime to a chain whose first prime is not minimal.",
+      "locator": "Mathlib/RingTheory/Ideal/MinimalPrime/Basic.lean:75 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Ideal.exists_minimalPrimes_le"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Statement and ambient hypotheses read at the pinned commit; no new Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L101",
+      "kind": "theorem",
+      "name": "Finite modules over Artinian rings are Artinian",
+      "statement": "Over an Artinian ring, every finitely generated module is Artinian. Together with the Noetherian module instance in the commutative setting, L99 gives finite length.",
+      "locator": "Mathlib/RingTheory/Artinian/Module.lean:394 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:isArtinian_of_fg_of_artinian'"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Statement and ambient hypotheses read at the pinned commit; no new Lean implementation."
     }
   ],
   "prerequisites": [
@@ -18816,9 +19574,16 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z64",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z65",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z63"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z63",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z67",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z69",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z70",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z71",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z72",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z73",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z74"
       ],
-      "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs. Z45–Z47 supply algebraic connectedness with a rational section without unnecessary normality; Z57–Z59/Z61–Z62 isolate the G-ring/regularity inputs consumed by AdicSpacesPartII. These are source-level additions to the existing owner, with deeper supplier gaps retained.",
+      "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs. Z45–Z47 supply algebraic connectedness with a rational section without unnecessary normality; Z57–Z59/Z61–Z62 isolate the G-ring/regularity inputs consumed by AdicSpacesPartII. These are source-level additions to the existing owner, with deeper supplier gaps retained. Z67 and Z69–Z74 supply the descending ideal filtration and local Hilbert–Samuel comparisons. Import the shared graded Hilbert–Serre and homogeneous-rank suppliers Z68/Z75 from R09.1, reusing pinned length, Artin–Rees and rational Hilbert-series results.",
       "stages": [
         "SchemeAndStackFoundations:SF.0",
         "SchemeAndStackFoundations:SF.1",
@@ -19297,6 +20062,18 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A105"
       ],
       "reason": "AA.2 states in terms that it will 'construct invariant quotient measures by Weil's integral formula and prove their independence of measurable fundamental-domain choices'. A105 is the specialisation to unipotent radicals: the quotient is compact so the invariant measure normalises to a probability measure, and the normalisations along a filtration with abelian successive quotients agree, which is what licenses the iterated integration of A67 and A68. Route 20's reason already named 'AA.2 quotient measures' as an import; this route supplies that item. The unimodularity hypothesis is recorded, since the Borel gives no invariant quotient measure."
+    },
+    {
+      "route": "source",
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "stages": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z68",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z75"
+      ],
+      "reason": "The existing R09.1 description includes Hilbert polynomials in the Noetherian setting, and its reviewed AUDIT-01 row explicitly assigns the missing graded-module Hilbert–Serre theorem here. These items give the finite-length coefficient specialization and monomial-rank bridge needed by SF.4’s local Hilbert–Samuel proof. Plan once here and import into SF.4; retain the full Noetherian/coherent-sheaf scope for R09.1’s other consumers. This source addition neither duplicates the library rational-series formula nor creates a private local Hilbert-polynomial owner."
     }
   ],
   "sourceIssues": [
@@ -20109,6 +20886,23 @@
         "https://math.uni.lu/wiese/teaching/GalReps.html (course page linking current notes)",
         "Web queries: site.math.uni.lu/~wiese \"Galois Representations\" errata; \"Gabor Wiese\" \"2.4.7\" correction; no dedicated correction located"
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E53",
+      "source": "Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, author-hosted Fields Institute notes (Spring2003), SHA256 2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7",
+      "kind": "error",
+      "locator": "Printed32/PDF36, remark(ii) following Theorem4.1; supplementary author notes, not a statement in LLHLM23. Published book text not independently matched.",
+      "printed": "would have dimension n!",
+      "correction": "Do not assert dimension n! for all irreducible admissible archimedean representations. A dimension theorem needs a restricted representation class and an exact algebraic Whittaker convention. For this application use the continuous functional constructed by the integral; no algebraic dimension count is needed.",
+      "reason": "Take the one-dimensional trivial irreducible admissible representation of GL_2(R). On its Harish–Chandra module the positive-root Lie algebra acts by zero. For ψ(x)=exp(2πix), an algebraic Whittaker functional λ would satisfy 0=λ(dπ(E12)v)=dψ(E12)λ(v)=2πiλ(v), so λ=0. Thus the dimension is zero, not 2!=2. The group-equivariant version likewise vanishes since ψ is nontrivial. This disproves the unqualified generality; it does not dispute a theorem for an appropriately restricted generic/principal-series class.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: current author-hosted Fields notes and Cogdell’s publications/notes page https://people.math.osu.edu/cogdell.1/; no linked correction to this remark found.",
+        "2026-09-23 targeted searches for Cogdell, Whittaker, n!, correction/errata and author-domain errata produced no identified correction. The published book version was not independently acquired or matched."
+      ],
+      "url": "https://people.math.osu.edu/cogdell.1/fields-www.pdf",
+      "publicationScope": "Only the unqualified reading of this author-note remark is checked. New means no identified correction in the searched locations, not a priority claim. Independent review pending."
     }
   ],
   "gaps": [
@@ -20127,7 +20921,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18"
       ],
-      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed. CHT2.1.1/2.1.4/2.1.5/2.1.8–2.1.12 and3.4.4 descent have now been freshly read and split as A34–A50, with fixed multiplier explicit. Bellaïche–Chenevier published1.2 and BLGGT l=p II1.1 supply A51/A53. Historical supplier list: lattice maximality and Carayol descent were refined by A86–A97, and A98–A103 now supply residual recognition, split-prime density and finite coefficient topology. The normalized discrete base-change realization is A78–A81. The remaining generic-local-component branch still needs the explicit global analytic suppliers of A66–A73. Do not mark the latter implication closed merely from A50. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open."
+      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed. CHT2.1.1/2.1.4/2.1.5/2.1.8–2.1.12 and3.4.4 descent have now been freshly read and split as A34–A50, with fixed multiplier explicit. Bellaïche–Chenevier published1.2 and BLGGT l=p II1.1 supply A51/A53. Historical supplier list: lattice maximality and Carayol descent were refined by A86–A97, and A98–A103 now supply residual recognition, split-prime density and finite coefficient topology. The normalized discrete base-change realization is A78–A81. The remaining generic-local-component branch still needs the explicit global analytic suppliers of A66–A73. Do not mark the latter implication closed merely from A50. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open. Current frontier correction: A104–A107 are the explicitly named existing-owner imports and A73 now spells out the realized-semisimplification/A50 bridge and all split-place transports. The historical sentence describing the entire analytic chain as unexplained is superseded by those nodes; their owners still owe implementation."
     },
     {
       "id": "split-and-hypotheses",
@@ -20578,7 +21372,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62"
       ],
-      "detail": "The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Z06 now has the explicit Z30–Z39/L24–L33 finite algebra and congruence-limit proof decomposition, including witness persistence and a strict-threshold counterexample. The smooth-locus/radical power-witness interface is now decomposed into Z40–Z44 with L34–L49: finite denominator clearing, a split conormal module selecting original equations and columns, the inverse-coordinate standard-smooth chart, the full ideal criterion, and the universal power identity. Z07 distinguishes this choice from complete-ring evaluation. These are proof plans, not implementations; no new theorem is implemented. Z10/Z13/Z14 analytic Galois descent, Nullstellensatz, rational fibers, flat formal models and smooth generic product regularity remain open. Do not infer arbitrary localization–inverse-limit commutation. Analytic continuation: Z45–Z56 now decompose the pointed connectedness, inseparable reduction, strict-affinoid Nullstellensatz, finite scalar comparison, rational fibers and finite-type integral-product flatness. Z57–Z62 expose the regularity route. The former normality requirement of Z10 is unnecessary. Remaining analytic supplier audit: finite-type G-ring stability/formal fibers, regular-map faithful-flat descent, flat local dimension formula and regular-local associated graded polynomial theorem, plus closed-ideal/presentation/topological equivalence adapters. None is a formal implementation."
+      "detail": "The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Z06 now has the explicit Z30–Z39/L24–L33 finite algebra and congruence-limit proof decomposition, including witness persistence and a strict-threshold counterexample. The smooth-locus/radical power-witness interface is now decomposed into Z40–Z44 with L34–L49: finite denominator clearing, a split conormal module selecting original equations and columns, the inverse-coordinate standard-smooth chart, the full ideal criterion, and the universal power identity. Z07 distinguishes this choice from complete-ring evaluation. These are proof plans, not implementations; no new theorem is implemented. Z10/Z13/Z14 analytic Galois descent, Nullstellensatz, rational fibers, flat formal models and smooth generic product regularity remain open. Do not infer arbitrary localization–inverse-limit commutation. Analytic continuation: Z45–Z56 now decompose the pointed connectedness, inseparable reduction, strict-affinoid Nullstellensatz, finite scalar comparison, rational fibers and finite-type integral-product flatness. Z57–Z62 expose the regularity route. The former normality requirement of Z10 is unnecessary. Remaining analytic supplier audit: finite-type G-ring stability/formal fibers, regular-map faithful-flat descent, flat local dimension formula and regular-local associated graded polynomial theorem, plus closed-ideal/presentation/topological equivalence adapters. None is a formal implementation. The Hilbert–Samuel portion is now decomposed and proved at the mathematical-plan level in Z64/Z67–Z75. Preserve the remaining G-ring, flat-dimension and analytic carrier obligations."
     },
     {
       "id": "analytic-regularity-suppliers",
@@ -20592,11 +21386,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z60",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z61",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z64",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62"
       ],
-      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and Hilbert–Samuel polynomial existence/dimension comparison (including the finite-length exact-sequence degree estimate). Z63–Z66 now expose the associated-graded construction, homogeneous-relation growth bound and regular-local proof; 00NO,00KQ,00K3 and00IP were freshly read. Their Hilbert–Samuel supplier chain still requires atom/declaration closure. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope."
+      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and Hilbert–Samuel polynomial existence/dimension comparison (including the finite-length exact-sequence degree estimate). Z63–Z66 now expose the associated-graded construction, homogeneous-relation growth bound and regular-local proof; 00NO,00KQ,00K3 and00IP were freshly read. Their Hilbert–Samuel supplier chain still requires atom/declaration closure. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope. Hilbert–Samuel continuation codex-7e92bd: Z67–Z75 and L87–L99 now replace the unnamed polynomial-existence, finite-colength, exact-sequence-degree and dimension-comparison premises. Z64 includes a complete prime-chain/parameter induction with degree-zero and zero-module boundaries, and Z66 is a specialization of Z67. The generic graded supplier belongs to existing R09.1. This closes that source-proof branch, not the remaining regular-map/G-ring/flat-local-dimension or affinoid-topology branches and not Lean elaboration."
     },
     {
       "id": "auxiliary-projector-global-input",
@@ -20606,7 +21398,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30"
       ],
-      "detail": "The bounded Thorne, CHT and EGH sources recorded in the reading log have been read. A30–A33 use projected Hecke images; E38 remains the missing unprojected implication. A74–A76 give the coefficient/type dictionary and actual Hecke-image point criterion, building on A63–A65. A79–A81 now supply the algebraically normalized Speh/Galois realization needed by A62; A54/A58/A82–A84 give the monodromy comparison with the whole-isotypic convention. Do not retain those as unexplained hypotheses. Still finish the atom/declaration closure of CHT2.1.4/2.1.5/2.1.12 integral polarized descent, its prescribed multiplier sign, the global analytic suppliers of A66–A73, and the imported BLGGT comparison. EGH semisimplified compatibility alone supplies no equality of monodromy. Exact-type points imply membership in their closure, while the reverse implication is not asserted. The White withdrawal boundary is recorded separately."
+      "detail": "The bounded Thorne, CHT and EGH sources recorded in the reading log have been read. A30–A33 use projected Hecke images; E38 remains the missing unprojected implication. A74–A76 give the coefficient/type dictionary and actual Hecke-image point criterion, building on A63–A65. A79–A81 now supply the algebraically normalized Speh/Galois realization needed by A62; A54/A58/A82–A84 give the monodromy comparison with the whole-isotypic convention. Do not retain those as unexplained hypotheses. Still finish the atom/declaration closure of CHT2.1.4/2.1.5/2.1.12 integral polarized descent, its prescribed multiplier sign, the global analytic suppliers of A66–A73, and the imported BLGGT comparison. EGH semisimplified compatibility alone supplies no equality of monodromy. Exact-type points imply membership in their closure, while the reverse implication is not asserted. The White withdrawal boundary is recorded separately. Continuation codex-7e92bd now supplies A73’s explicit F-split model, realized semisimplification, A50 bridge and full local-genericity assembly. A104–A107 name the Fourier/Haar/globalization/Flath imports; the previously missing assembly is no longer an unexplained premise. This does not claim all original generic supplier proofs are closed. No unchecked White transfer is used."
     },
     {
       "id": "global-descent-supplier-atoms",
@@ -20629,7 +21421,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A80",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A81"
       ],
-      "detail": "The Speh realization interface is now explicit in A79–A81 and corrected A78: Pi_i=pi_i|det|^((m_i+b_i−n−1)/2) is regular algebraic cuspidal and polarized; A80 imports its Galois representation from AG2.2; the rank-n local Langlands normalization leaves only ε^(−j), with geometric Frobenius polynomial factors q_w^j. A77 now includes Hausdorffness and an arbitrary-group image-algebra proof. These discharge the former unproved existence/algebraicity and even-b_i half-twist hypotheses at the source-interface level. The residual-positive-rank argument A62 and Whittaker consequence A73 can consume the resulting decomposition. A74–A76 already supply the coefficient/type dictionary and the actual Hecke-image point criterion. A37's two named suppliers are now closed: L75 pins Mathlib's Baire lemma in the form 'one of countably many closed covering sets has interior', with the compact-Hausdorff instance, and A85 proves countability of the finite extensions of Q_p inside a fixed algebraic closure from the pinned Krasner lemma L76. Supplier continuation codex-7e92bd closes the lattice construction at the proof-plan level through A86–A90/L80, with A89 imported from existing LocalFieldsRamification Layer3; density and trace pairing through L78/L79/A91; algebraic scalar centralizers and conjugacy through A92/A96; prescribed-congruence Carayol descent through the trace algebra A95 and compatible idempotent/matrix-coordinate construction A93–A94; induced-topology continuity through A97; and principal-unit Hensel through L77. The old arbitrary Artinian-conjugator recursion is no longer the proof used. Continuation codex-hjdg0j now supplies residual polynomial recognition A98–A101, with split-prime conjugacy density imported from Chebotarev Layer10 and both places above split primes retained. Finite-O completeness, adic cofinality, compactness and closed integral trace rings are A102–A103/L82–L86. A77 no longer misidentifies the characteristic-zero lifting lemma A50 as residual recognition. Remaining supplier obligations: compact additive character duality/completeness, compatible Haar/Fubini, smooth globalization continuity and finite-place Flath factorization for A66–A73. The BC sign and BLGGT monodromy statements remain imports from existing owners. The withdrawn White preprint is not used as an unchecked replacement for these suppliers. None of these source-interface repairs certifies formal implementation. A54 now uses the explicit special-block inertia rank formula A82 and the nilpotent chain/rank suppliers A83–A84, built from pinned L69–L71. The unnecessary Clifford-orbit classification requirement is removed. The whole-isotypic versus multiplicity-space factor dim θ is explicit in A58. A93 uses an explicit error-squaring sequence and inherited L03/L27/L28, not merely the claim that unrelated idempotent lifts converge. All statements remain extraction-level proof plans."
+      "detail": "The Speh realization interface is now explicit in A79–A81 and corrected A78: Pi_i=pi_i|det|^((m_i+b_i−n−1)/2) is regular algebraic cuspidal and polarized; A80 imports its Galois representation from AG2.2; the rank-n local Langlands normalization leaves only ε^(−j), with geometric Frobenius polynomial factors q_w^j. A77 now includes Hausdorffness and an arbitrary-group image-algebra proof. These discharge the former unproved existence/algebraicity and even-b_i half-twist hypotheses at the source-interface level. The residual-positive-rank argument A62 and Whittaker consequence A73 can consume the resulting decomposition. A74–A76 already supply the coefficient/type dictionary and the actual Hecke-image point criterion. A37's two named suppliers are now closed: L75 pins Mathlib's Baire lemma in the form 'one of countably many closed covering sets has interior', with the compact-Hausdorff instance, and A85 proves countability of the finite extensions of Q_p inside a fixed algebraic closure from the pinned Krasner lemma L76. Supplier continuation codex-7e92bd closes the lattice construction at the proof-plan level through A86–A90/L80, with A89 imported from existing LocalFieldsRamification Layer3; density and trace pairing through L78/L79/A91; algebraic scalar centralizers and conjugacy through A92/A96; prescribed-congruence Carayol descent through the trace algebra A95 and compatible idempotent/matrix-coordinate construction A93–A94; induced-topology continuity through A97; and principal-unit Hensel through L77. The old arbitrary Artinian-conjugator recursion is no longer the proof used. Continuation codex-hjdg0j now supplies residual polynomial recognition A98–A101, with split-prime conjugacy density imported from Chebotarev Layer10 and both places above split primes retained. Finite-O completeness, adic cofinality, compactness and closed integral trace rings are A102–A103/L82–L86. A77 no longer misidentifies the characteristic-zero lifting lemma A50 as residual recognition. Remaining supplier obligations: compact additive character duality/completeness, compatible Haar/Fubini, smooth globalization continuity and finite-place Flath factorization for A66–A73. The BC sign and BLGGT monodromy statements remain imports from existing owners. The withdrawn White preprint is not used as an unchecked replacement for these suppliers. None of these source-interface repairs certifies formal implementation. A54 now uses the explicit special-block inertia rank formula A82 and the nilpotent chain/rank suppliers A83–A84, built from pinned L69–L71. The unnecessary Clifford-orbit classification requirement is removed. The whole-isotypic versus multiplicity-space factor dim θ is explicit in A58. A93 uses an explicit error-squaring sequence and inherited L03/L27/L28, not merely the claim that unrelated idempotent lifts converge. All statements remain extraction-level proof plans. Continuation codex-7e92bd now supplies A73’s explicit F-split model, realized semisimplification, A50 bridge and full local-genericity assembly. A104–A107 name the Fourier/Haar/globalization/Flath imports; the previously missing assembly is no longer an unexplained premise. This does not claim all original generic supplier proofs are closed. No unchecked White transfer is used."
     },
     {
       "id": "unitary-base-change-source-version",
@@ -20639,7 +21431,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62"
       ],
-      "detail": "EGH7.2.1 cites White6.1/6.3; arXiv v8 withdraws White due to an error in the main proof, and the earlier IHES copy differs in numbering. For the LLHLM branch, the read Labesse5.3 applies: LLHLM9.1 (published PDF180–181) assumes [F+:Q]>1 and compactness at infinity. A59–A62 and A77–A81 now give the needed transfer, normalized Speh realization and residual-irreducibility argument; A66–A76 separately expose genericity and the coefficient/Hecke dictionary. Thus exact constituent twists are no longer an open interface. Remaining analytic and Galois suppliers are named in global-descent-supplier-atoms. The specific faulty step in White and the full EGH generality outside LLHLM’s setting have not been audited. This is a bounded source-reliability record, not a confirmed error in EGH/LLHLM and not a requirement to prove the stronger external setting before using the valid LLHLM branch."
+      "detail": "EGH7.2.1 cites White6.1/6.3; arXiv v8 withdraws White due to an error in the main proof, and the earlier IHES copy differs in numbering. For the LLHLM branch, the read Labesse5.3 applies: LLHLM9.1 (published PDF180–181) assumes [F+:Q]>1 and compactness at infinity. A59–A62 and A77–A81 now give the needed transfer, normalized Speh realization and residual-irreducibility argument; A66–A76 separately expose genericity and the coefficient/Hecke dictionary. Thus exact constituent twists are no longer an open interface. Remaining analytic and Galois suppliers are named in global-descent-supplier-atoms. The specific faulty step in White and the full EGH generality outside LLHLM’s setting have not been audited. This is a bounded source-reliability record, not a confirmed error in EGH/LLHLM and not a requirement to prove the stronger external setting before using the valid LLHLM branch. Continuation codex-7e92bd now supplies A73’s explicit F-split model, realized semisimplification, A50 bridge and full local-genericity assembly. A104–A107 name the Fourier/Haar/globalization/Flath imports; the previously missing assembly is no longer an unexplained premise. This does not claim all original generic supplier proofs are closed. No unchecked White transfer is used."
     }
   ],
   "sourceData": {
@@ -22102,6 +22894,129 @@
         "Read existing Chebotarev Layer10 and AGR R01.1/R01.5, IHG.1/IHG.4 scope. Chebotarev density is planned, not present in the pins."
       ],
       "scope": "New supplier atoms and changed consumers only; not a renewed audit of all inherited565 items."
+    },
+    "hilbertSamuelContinuation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "date": "2026-09-23",
+      "pins": {
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "tauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
+      },
+      "declarations": [
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L87",
+          "locator": "Mathlib/RingTheory/Polynomial/HilbertPoly.lean:174,207 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:Polynomial.coeff_mul_invOneSubPow_eq_hilbertPoly_eval",
+            "mathlib:Polynomial.existsUnique_hilbertPoly"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L88",
+          "locator": "Mathlib/RingTheory/Length.lean:170 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:Module.length_eq_add_of_exact"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L89",
+          "locator": "Mathlib/RingTheory/Length.lean:136 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:Module.length_eq_of_surjective"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L90",
+          "locator": "Mathlib/RingTheory/Length.lean:294 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:Module.length_eq_finrank"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L91",
+          "locator": "Mathlib/RingTheory/Filtration.lean:388 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:Ideal.exists_pow_inf_eq_pow_smul"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L92",
+          "locator": "Mathlib/RingTheory/HopkinsLevitzki.lean:161 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L93",
+          "locator": "Mathlib/RingTheory/Ideal/MinimalPrime/Noetherian.lean:43 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:minimalPrimes.finite_of_isNoetherianRing"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L94",
+          "locator": "Mathlib/RingTheory/Ideal/Operations.lean:1217 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:Ideal.subset_union_prime_finite"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L95",
+          "locator": "Mathlib/RingTheory/Polynomial/Basic.lean:934 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:MvPolynomial.isNoetherianRing"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L96",
+          "locator": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean:111 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:MvPolynomial.homogeneousSubmodule_fg"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L97",
+          "locator": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean:657 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:Ideal.span_pow_eq_map_homogeneousSubmodule"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L98",
+          "locator": "Mathlib/Data/Sym/Card.lean:113 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:Sym.card_sym_eq_choose"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L99",
+          "locator": "Mathlib/RingTheory/FiniteLength.lean:73 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:isFiniteLength_iff_isNoetherian_isArtinian"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L100",
+          "locator": "Mathlib/RingTheory/Ideal/MinimalPrime/Basic.lean:75 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:Ideal.exists_minimalPrimes_le"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L101",
+          "locator": "Mathlib/RingTheory/Artinian/Module.lean:394 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "declarations": [
+            "mathlib:isArtinian_of_fg_of_artinian'"
+          ]
+        }
+      ],
+      "nearMisses": [
+        "Polynomial.hilbertPoly computes eventual coefficients once a rational power series is known; its file explicitly leaves graded-module Hilbert polynomials as TODO.",
+        "Tau Ceti Algebra/WordFiltration/AssociatedGraded.lean defines an increasing word filtration, not the descending ideal-adic filtration on arbitrary modules.",
+        "Mathlib homogeneous polynomial pieces exist, but the exact monomial-rank bridge is still an adapter; finite generation alone is not a rank formula."
+      ],
+      "owner": "AlgebraicModuliForArithmeticGeometry:R09.1 full stage and reviewed AUDIT-01 Hilbert-polynomial target; local adapters at SchemeAndStackFoundations:SF.4."
     }
   },
   "validation": {
@@ -22905,6 +23820,151 @@
           "Mathlib/Topology/Separation/Hausdorff.lean"
         ]
       }
+    },
+    "codex7e92bdSplitGenericity": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 1254,
+      "claimComment": 5802518636,
+      "claimConfirmation": 5802521177,
+      "base": "4df0572d09b41e36b66a7055a8664bd7f2557983",
+      "status": "partial",
+      "scope": "A73 explicit hypotheses/proof, A70/A71 removal of unqualified n! assertion, supplementary finding E53. A71/A72 changes from pending PR2495 are preserved with attribution; A73 is further strengthened. The original baseline had580 items; the Hilbert–Samuel addition is counted separately.",
+      "searches": [
+        {
+          "library": "mathlib",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "query": "Whittaker|Speh|cuspidal.{0,40}generic|generic.{0,40}split.place",
+          "hits": [
+            "Mathlib/MeasureTheory/Integral/IntervalIntegral/MeanValue.lean"
+          ]
+        },
+        {
+          "library": "mathlib",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "query": "semisimplification|absolutely.irreducible.*lattice",
+          "hits": []
+        },
+        {
+          "library": "tauceti",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+          "query": "Whittaker|Speh|cuspidal.{0,40}generic|generic.{0,40}split.place",
+          "hits": []
+        },
+        {
+          "library": "tauceti",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+          "query": "semisimplification|absolutely.irreducible.*lattice",
+          "hits": []
+        }
+      ],
+      "ownerRead": "AG2.2/5/6/7 and their reviewed rows, AF.1/2 with reviewed rows, SR.5 and AL.1–3 descriptions. SR.5 has no reviewed row; its integral ℓ≠p family theorem is not invoked for the characteristic-zero finite-place identity. AL.3 explicitly requests the classical comparison. No new library declaration claimed.",
+      "lean": "Not requested, written or compiled. Source proof plan only.",
+      "checks": {
+        "uniqueItems": 604,
+        "statuses": {
+          "missing": 478,
+          "planned": 25,
+          "library": 101
+        },
+        "internalEdges": 472,
+        "acyclic": true,
+        "routes": 24,
+        "missingExactlyOnce": 478,
+        "definitionsWithUsesApiAndTests": 164,
+        "inheritedIdsPreserved": 580,
+        "inheritedSourceDataPreserved": true,
+        "sourceFindings": 53,
+        "regression": {
+          "status": "passed",
+          "counts": {
+            "homogeneous_quotient_counts": 480,
+            "cumulative_quotient_counts": 480,
+            "degree_checks": 30,
+            "finite_colength_bounds": 1078,
+            "pure_tensor_functionals": 80,
+            "character_transports": 4
+          },
+          "boundaries": [
+            "positive-characteristic length values stay in Q",
+            "nonprincipal Artinian quotient length4",
+            "Hilbert–Serre shifted kernel",
+            "exact-sequence defect −c, not zero",
+            "finite-colength indexing",
+            "detecting frozen vector",
+            "transported character"
+          ]
+        },
+        "changedExistingItems": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z64",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z65",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A70",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A71",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A72",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A73"
+        ]
+      },
+      "overlap": {
+        "pr": 2495,
+        "head": "0d1387e3ce089383e0a74e0cd0961b19ed58d883",
+        "stateAtRead": "open, mergeable_state dirty",
+        "resolution": "Compared every changed item A71/A72/A73 with the common580-item base. Preserve A71/A72 proofs and added tests, correct their dimension/identity wording, and retain A107 edge in strengthened A73. This submission is prepared against fresh main; it does not modify the other worker’s branch."
+      }
+    },
+    "codex7e92bdHilbertSamuel": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "status": "partial",
+      "scope": "Fifteen pinned imports L87–L101, nine source adapters Z67–Z75, full Z64 proof, Z65 supplier edges, Z66 specialization, shared R09.1 source route.",
+      "ownerRead": "Full R09.1 stage and reviewed AUDIT-01 targets, SF.4 description and reviewed targets, and atlas-wide Hilbert-polynomial/Hilbert–Samuel/associated-graded searches. Mathlib HilbertPoly TODO is explicit; Tau Ceti word-filtration associated graded is a different carrier.",
+      "checks": {
+        "uniqueItems": 604,
+        "statuses": {
+          "missing": 478,
+          "planned": 25,
+          "library": 101
+        },
+        "internalEdges": 472,
+        "acyclic": true,
+        "routes": 24,
+        "missingExactlyOnce": 478,
+        "definitionsWithUsesApiAndTests": 164,
+        "inheritedIdsPreserved": 580,
+        "inheritedSourceDataPreserved": true,
+        "sourceFindings": 53,
+        "regression": {
+          "status": "passed",
+          "counts": {
+            "homogeneous_quotient_counts": 480,
+            "cumulative_quotient_counts": 480,
+            "degree_checks": 30,
+            "finite_colength_bounds": 1078,
+            "pure_tensor_functionals": 80,
+            "character_transports": 4
+          },
+          "boundaries": [
+            "positive-characteristic length values stay in Q",
+            "nonprincipal Artinian quotient length4",
+            "Hilbert–Serre shifted kernel",
+            "exact-sequence defect −c, not zero",
+            "finite-colength indexing",
+            "detecting frozen vector",
+            "transported character"
+          ]
+        },
+        "changedExistingItems": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z64",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z65",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A70",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A71",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A72",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A73"
+        ]
+      },
+      "lean": "No Lean file requested or compiled; proof plans only.",
+      "publicationBase": "739164f8cebc120f257d2bd270ef074707c0cb95"
     }
   },
   "definitionApiGroups": [
@@ -23452,6 +24512,32 @@
         "research/blueprint/handoff/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md": "3195914fcaa5c89f144df43688ae3b4876bfdb4c"
       },
       "scope": "Fresh source-owner and relevant decomposition/audit reads. Earlier 758-input snapshot remains historical; these are the current continuation guards."
+    },
+    "hilbertSamuel": {
+      "basis": "Full R09.1 and SF.4 descriptions and reviewed rows, atlas-wide Hilbert-polynomial/Hilbert–Samuel/associated-graded search, and packet search; no finer supplying packet node found.",
+      "requests": [
+        {
+          "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
+          "statement": "Let A be an Artinian commutative ring and N a finite N-graded module over A[X1,…,Xe], with every Xi of degree one. Put H_N(T)=Σ_n length_A(N_n)T^n. There is p∈Z[T] with H_N=p/(1−T)^e in Q[[T]], and the graded-piece lengths eventually agree with a rational polynomial. For e=0 the series is a polynomial and its eventual coefficient polynomial is zero. This is a finite-length specialization of R09.1’s general Noetherian graded Hilbert-polynomial supplier; no restriction on char(A) is imposed.",
+          "consumers": [
+            "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z69",
+            "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z73",
+            "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z65"
+          ],
+          "sourceItem": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z68"
+        },
+        {
+          "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
+          "statement": "For a commutative ring A and e≥1 variables of degree one, the homogeneous degree-n piece of A[X1,…,Xe] is finite free on the monomials X^a with Σ_i a_i=n, a family of cardinality binom(n+e−1,e−1). With no variables the degree-zero piece is A and all positive pieces vanish.",
+          "consumers": [
+            "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z69",
+            "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z73",
+            "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z65"
+          ],
+          "sourceItem": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z75"
+        }
+      ],
+      "decision": "Route24 adds these planned shared suppliers as sources. Route7 owns only descending ideal-adic/local comparisons and consumes them. No new roadmap or duplicated owner is introduced."
     }
   }
 }
