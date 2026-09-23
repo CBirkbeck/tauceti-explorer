@@ -1,3 +1,17 @@
+# PAPER-CHARLES-16 — current independent-review state
+
+**Partial; independent review: revise (Codex — codex-7e92bd, 23 September 2026).** The endpoint inventory has 173 items: 16 library,17 planned,140 missing, each missing item routed exactly once. Four source routes (5,6,8,9) are accepted; routes1–4 and7 require revision. See [the independent review](../reviews/REV-PAPER-CHARLES-16.md) for the source evidence and precise obligations.
+
+The prior completeness claim is withdrawn. Supplier proofs remain undecomposed; the characteristic-two birationality step is reopened, and the final partner nonsuperspeciality and integral twisted comparison remain unverified. Definition APIs/tests also need revision. The current JSON governs over historical progress notes below.
+
+Clear corrections made by the review include the deformation-ideal factor in item74, the rational/integral norm restriction in item95, the full-space eigenvalue condition in item113, the finite-type scope in item58, and a single-owner split of rational Tate descent from K3 integral saturation. Items6/7 are on p.492. The broader briefs now coordinate the shared K3/orthogonal and field period/index proposals.
+
+The source register now has **25 reviewed findings:24 confirmed, E15 rejected**. E15 treated an imported fixed-determinant definition as a gap; its separate citation typo is E23. New findings E22–E25 record the obstruction coefficient, two cross-reference slips and the failed rational-Chow inclusion for arbitrary ℓ-adic B-fields. The latter is distinct from Charles’s integral-preimage error and does not refute his integral-norm application. Every finding carries its independent reason and fresh correction searches in the JSON.
+
+The paper checker,139 independent arithmetic/symbolic assertions and the inherited154556-assertion arithmetic certificate pass. These are structural/arithmetic checks, not a proof of the geometric endpoints; no Lean compilation is claimed.
+
+## Historical extraction reports (superseded where inconsistent with the review)
+
 # Charles (2016): extraction and routing
 
 Issue [#1188](https://github.com/CBirkbeck/tauceti-explorer/issues/1188). Status: **complete**. Implementation and proof closure are not claimed.

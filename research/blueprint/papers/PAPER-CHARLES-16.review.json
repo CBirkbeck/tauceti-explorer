@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-CHARLES-16",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The new K3 direction is justified, but G1/G3/G4/G6 leave major paths to its exact final theorems open. In particular the final partner hypothesis and integral twisted comparison are not supplied; G7 prevents treating the inherited definition contracts as a complete API."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "A stable/twisted-sheaf Part II is a sensible boundary, but precise geometric Brauer order, B-field norm and integral comparison hypotheses and original moduli proof decomposition remain incomplete. Reuse field period/index and gerbe owners rather than duplicating them."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "The orthogonal KS continuation is a shared proposal, not an established supplier. The good-prime integral-model and special-endomorphism lifting proofs, including the 2013 erratum hypotheses, need decomposition and reconciliation with the general integral-model proposal before building on this brief."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "Existing discriminant and overlattice imports are correctly preserved, and the elementary arithmetic repairs check. However, the Nikulin embedding/orbit and hyperbolic-genus supplier proofs and Cassels finiteness are still deferred. Primary Nikulin acquisition failed in this independent review. Accepting all 29 items as a buildable source would overstate that evidence."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "R09.1 explicitly owns projective boundedness and R09.3 line-bundle descent. Items45,56,58 are well-scoped source refinements after making item58 finite-type over C. This adds source requirements to those owners; it does not certify their supplier proofs or a new theorem in the library."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "V2/V3 explicitly own Baily–Borel and Borel algebraicity. The orthogonal complex application supplies a concrete consumer of those statements and does not duplicate a Shimura quotient construction."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "The MC.7 ownership is appropriate, but it still requires an actual separation of the early independent Lefschetz(1,1) input from the late K3 Tate outputs. The late outputs depend on rejected route1. Do not use the undivided stage as both premise and conclusion."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "SF.5 explicitly owns surface intersection theory, Riemann–Roch, adjunction and Hodge index. The four items give the required smooth projective/Cartier scopes, including nonreduced Cartier adjunction; use the generic owner and specialize in the K3 consumer."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "A5 owns the complex abelian/integral-Hodge equivalence, whose contravariant Hom comparison is exactly item135. Existing Tau Ceti Hodge carriers and morphisms are retained as imports and do not by themselves implement this geometric equivalence."
+    }
+  ],
+  "notes": "Independent review by Codex — codex-7e92bd. 173 statements checked; 26 cited declarations read at the two pinned commits; fresh atlas/library searches performed. Four bounded source routes accepted; five routes rejected pending the named work. Source findings: 24 confirmed, E15 rejected. Overall extraction remains partial. See REV-PAPER-CHARLES-16.md and independentReviewAudit for evidence, corrections and limits."
+}
