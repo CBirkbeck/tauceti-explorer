@@ -2398,7 +2398,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The sentence prints « the punctured spectrum Spec 𝔖 ∖ {s}, where s ∈ Spec R is the closed point »: the punctured spectrum is of 𝔖, so the closed point is that of Spec 𝔖.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E2",
@@ -2414,7 +2419,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The induction's d = 1 case lists three fractional ideals and then writes « for a principal fraction field J »; J is a principal fractional ideal, as the other two members of the list are.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E3",
@@ -2430,7 +2440,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the paper never names the map. The paragraph before Lemma 4.30 introduces « the map 𝔖 → A_inf that sends T to [π^♭]^p and is the Frobenius on W(k) » without a symbol, and Lemma 4.30 refers to it as « the map 𝔖 → A_inf above »; the proof of Proposition 4.32 then writes f(E) with f undefined. The same sentence also prints « is a Breuil–Kisin–Fargues modules » for « module », which the entry quotes but its correction does not mention.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E4",
@@ -2446,7 +2461,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The Koszul complex is on f_1, …, f_d and no index set I occurs in the passage, so the shift is by d.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E5",
@@ -2462,7 +2482,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The sentence maps the resolution into M and then computes RΓ_cont(Γ, N); the module being resolved into is N.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E6",
@@ -2478,7 +2503,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The example sets E_2 := RΓ(Γ_disc, R) and then E_1 = Lη_{q−1}E_1, which defines E_1 in terms of itself; the intended right-hand side is E_2.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E7",
@@ -2494,7 +2524,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed by the paper against itself. The displayed differential two lines above is (x,y) ↦ (dx, dy + (−1)^n g x), while the description of the subcomplex writes (dx, dy + (−1)^n g y) in both the forward and the converse direction.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E8",
@@ -2510,7 +2545,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Part (ii) of Theorem 9.4 is the one whose quasi-isomorphisms identify W̃_rΩ^□_R with the (pro)étale versions and with RΓ(𝔛, W̃_rΩ_𝔛), i.e. the sheaf property being invoked; part (iii) is the same statement for AΩ.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E9",
@@ -2526,7 +2566,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the sentence's own logic decides it: the hypothesis is used « only to guarantee that W_r(R) → W_r(R′) is étale », so it is a condition on R, not on S.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E10",
@@ -2542,7 +2587,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in both halves. P_a is defined with partitions (I_0, …, I_n), so the « (I_0, …, I_d) ∈ P_a » of the construction is a slip; and the case distinction runs over j = ρ_1 + 1, …, ρ_2, the printed « ρ » being undefined, only ρ_1 and ρ_2 having been introduced.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E11",
@@ -2558,7 +2608,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the frequency argument makes it unarguable. §11.1 works over the perfectoid ring S: in the passage concerned the base appears as (S) fifty-four times against the five stray A's the entry records — « if A is 2-adic », « W_rΩ^•_{B/A} », and the three W_{r+1}(A)'s in Proposition 11.5(iv) — and Remark 11.3 itself writes W_rΩ^•_{B/S}. The W_{r+1}(A) instances in §10's definition of an F-V-procomplex are correct there; only their repetition in §11.1 carries the wrong base.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E12",
@@ -2574,7 +2629,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The identity is Fdλ_{r+1}([b]) = λ_r([b])^{p−1}dλ_r([b]), quantified over the Teichmüller lifts of elements b of B, so « for all x ∈ B » should name b.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E13",
@@ -2590,7 +2650,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed by the two neighbouring lines. The proof establishes R(α) ∈ (η_μ D)^n and computes d(R(α)) ∈ ξ̃_r μ^{n+1} D^{n+1}, and the conclusion it draws is about H^n((η_μ D^•)/ξ̃_r); the « (η_{φ(μ)}D)^{n+1}/ξ̃_r » in between is the slip.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E14",
@@ -2606,7 +2671,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The proof prints « 𝒲_r^n(D) is Tor-independent from W_r(O) over W_r(k) », but W_r(k) is the quotient one base-changes to and W_r(O) the base, so the two rings are the wrong way round.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E15",
@@ -2622,7 +2692,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. « log(μ) = μv for some unit v » cannot be meant, since μ is not a unit and log(μ) is not defined; the element with that property is log([ε]), and the operator is g_u = log([ε]) ∂/∂log(x_u).",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E16",
@@ -2638,7 +2713,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The sentence introduces the analogues A_{0,crys} and A_{0,crys}^{(m)} and then says « for example, A_crys is the p-adic completion of the PD envelope of A_0 → A_0/ξ_0 »; the object being described over A_0 is A_{0,crys}.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E17",
@@ -2654,7 +2734,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, decisively: Proposition 13.15 has exactly two parts, (1) the algebra R with 𝔛_R and (2) the map η with the isomorphism ψ. So « (i) and (ii) are clear from the construction » and « the proof of (iii) » cannot both be right; the proof that follows constructs η and ψ, which is part (ii).",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E18",
@@ -2670,7 +2755,12 @@
     "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
     "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
     "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed by the display immediately above, which reads AΩ_R ⊗̂_{A_inf} φ^r(A_crys^{(m)}); the cohomology line then prints AΩ_r, and R is the ring in play throughout.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
+   }
   }
  ]
 }
