@@ -8,9 +8,9 @@ preprint is [arXiv:1812.09269v3](https://arxiv.org/abs/1812.09269v3).
 
 Issue #2164 · Claude Code · session `cc-7b31c4` · 2026-09-23 · **complete**.
 
-158 items (2 library, 16 planned, 140 missing), eight routes taking all 140 missing items exactly once,
-three recorded source issues, twenty-two prerequisites. No formalisation is claimed; no Lean file is part of
-this job.
+332 items (3 library, 33 planned, 296 missing), 33 routes taking all 296 missing items exactly once, 159 recorded source issues, 19 prerequisites. No formalisation is claimed; no Lean file is part of this job.
+
+**Corrected in place by the independent review REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-21 (issue #2165).** The review corrected item statements and statuses, added the definitions and results the extraction missed, rebuilt the routes, fixed the prerequisites and recorded the mistakes it found. Every change is listed in `research/blueprint/reviews/REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-21.md`. The sections below that describe the routes and the source issues describe the corrected file.
 
 ## The source read
 
@@ -35,8 +35,8 @@ counter. Re-deriving the numbering from the LaTeX gives **405 numbered statement
 405 was located at its predicted number in the arXiv PDF and, independently, in the published PDF**. (A
 word-level diff of the two PDFs is not informative: they use different fonts and hyphenate differently, so
 the extracted word streams disagree almost everywhere for typographical reasons. The statement-by-statement
-check, together with targeted checks of the three findings below, is the version comparison that carries
-weight.) Note that the main statements are numbered 1.1.1–1.1.7, not by letters.
+check, together with targeted checks of the extraction's three findings (E1–E3), is the version comparison
+that carries weight.) Note that the main statements are numbered 1.1.1–1.1.7, not by letters.
 
 **Mechanical audits**, after normalising whitespace inside label names: no duplicate `\label`, no undefined
 `\ref`, `\Cref` or `\eqref`, no leftover `\need`, `\mar`, `query` environment, FIXME or TODO. Exactly one
@@ -96,135 +96,138 @@ unirational — applied to the cover rather than to `A₂(3)` itself, because on
 `PSp₄(F₃)`-equivariant birational map to `P³` over `Q`.
 
 §1.4 is unusually informative and is extracted as items: the conditional status of Arthur's multiplicity
-formula (§1.4.1), why genus `≥ 3` is out of reach and why Picard curves might not be (§1.4.2), and the
-comparison with the ten-author paper (§1.4.4).
+formula (§1.4.1), and why genus `≥ 3` is out of reach and why Picard curves might not be (§1.4.2).
 
 ## Routing
 
 | Route | Target | Items |
 | --- | --- | --- |
-| Part II | `HilbertSiegelModularVarieties` — *Hilbert Modular Varieties And Shimura Curves, Part II: Hilbert–Siegel modular varieties for GSp_4 and their coherent cohomology* (`arithmeticgeometry`) | 15 |
-| new | `HigherHidaAndColemanTheory` — *Higher Hida and higher Coleman theory for Hilbert–Siegel modular forms* (`automorphic`) | 33 |
-| new | `PotentialModularityOfAbelianSurfaces` — *Potential modularity of abelian surfaces and genus two curves* (`langlands`) | 61 |
-| Part II | `GSp4LocalLanglandsAndGaloisRepresentations` — *Modularity, automorphy and Langlands endpoint extensions, Part II: GSp_4, its local Langlands correspondence and Galois representations* (`automorphic`) | 19 |
-| source | `SchemeAndStackFoundations` — SF.2, SF.5 | 3 |
-| source | `ModularityAndLanglandsExtensions` — ML.4 | 2 |
-| source | `LocalGaloisDeformationRings` — R08.1, R08.2, L7 | 5 |
-| source | `PotentialModularityAndCompatibleSystems` — R23.2, R24.5:operations | 2 |
+| 1. part-ii | `HilbertSiegelModularVarieties` — *Hilbert Modular Varieties And Shimura Curves, Part II: Hilbert–Siegel modular varieties for GSp_4 over a totally real field* (`arithmeticgeometry`) | 19 |
+| 2. part-ii | `HigherHidaAndColemanTheory` — *Hida and Coleman families, period modules, and family L-functions, Part II: higher Hida and higher Coleman theory for coherent cohomology* (`padic`) | 86 |
+| 3. new | `AbelianSurfacesPotentialModularity` — *Abelian surfaces over totally real fields are potentially modular* (`langlands`) | 60 |
+| 4. part-ii | `GSp4LocalLanglandsAndGaloisRepresentations` — *Modularity, automorphy and Langlands endpoint extensions, Part II: GSp_4, its local Langlands correspondence and Galois representations* (`langlands`) | 23 |
+| 5. part-ii | `IntegralCoherentHeckeComplexes` — *Automorphic bundles and classical automorphic forms, Part II: integral coherent cohomology and Hecke-equivariant perfect complexes* (`langlands`) | 9 |
+| 6. source | `LocalGaloisDeformationRings` — L7, L8, R08.1, R08.2 | 22 |
+| 7. source | `ArithmeticGaloisRepresentations` — G7, R01.1 | 15 |
+| 8. source | `ModularityAndLanglandsExtensions` — ML.0, ML.1, ML.4 | 8 |
+| 9. source | `GlobalGaloisDeformations` — G7, R04.1, R04.2, R04.3, R04.5 | 7 |
+| 10. source | `AdicSpacesPartII` — R2, R3 | 4 |
+| 11. source | `AlgebraicModuliForArithmeticGeometry` — A0-extension | 4 |
+| 12. source | `DeformationAndDerivedPatchingAlgebra` — P7, P9, R03.1, R03.6 | 4 |
+| 13. source | `HodgeTateAndCanonicalSubgroups` — T0, T5 | 4 |
+| 14. source | `PeriodsAndSpecialValues` — PS.1 | 4 |
+| 15. source | `PotentialModularityAndCompatibleSystems` — R23.1, R23.2, R23.3, R23.5, R24.5:operations | 3 |
+| 16. source | `AutomorphicGaloisRepresentationsPartII` — AG2.5 | 2 |
+| 17. source | `GL2AutomorphicRepresentationsAndTransfer` — R16.2, R17.5 | 2 |
+| 18. source | `PadicFamilies` — L0a, L2a | 2 |
+| 19. source | `SchemeAndStackFoundations` — SF.2 | 2 |
+| 20. source | `ShimuraData` — D5 | 2 |
+| 21. source | `SmoothRepresentationsOfLocalGroups` — SR.1, SR.2 | 2 |
+| 22. source | `AbelianSchemesAndArithmeticModuli` — A4 | 1 |
+| 23. source | `ArithmeticGaloisDuality` — R02.2, R02.4 | 1 |
+| 24. source | `AutomorphicFormsOnReductiveGroups` — AF.1, AF.3, AF.4 | 1 |
+| 25. source | `AutomorphicSpectralTheory` — AS.4, AS.5 | 1 |
+| 26. source | `FaltingsFinitenessAndIsogenyTheorems` — R28.4 | 1 |
+| 27. source | `FiniteFlatGroupsAndIntegralPadicHodgeTheory` — R07.1 | 1 |
+| 28. source | `LocallyAnalyticDistributions` — L4 | 1 |
+| 29. source | `NeronModelsAndSemistableAbelianVarieties` — R11.5 | 1 |
+| 30. source | `OrdinaryAutomorphicFormsAndModularityLifting` — R21.2 | 1 |
+| 31. source | `PerfectoidShimuraVarieties` — S1, S3 | 1 |
+| 32. source | `PotentialAutomorphyInfrastructure` — PA.5 | 1 |
+| 33. source | `ShimuraCompactifications` — C3, C5 | 1 |
 
-This follows the maintainer's own worked example for this paper: *"a new roadmap (DESIGN-BCGP18) importing
-Siegel and PEL moduli, toroidal compactifications, Galois deformation rings, patching, potential modularity
-and Hida and Coleman families from their roadmaps; higher Coleman theory, if missing, proposed as its own
-roadmap."*
+The review rebuilt the routes submitted with this extraction. What changed, and why:
 
-**The reconnaissance.** The atlas has essentially no GSp₄: searching every layer description in
-`data/atlas.json` for `GSp` returns a single hit, in `MetaplecticAutomorphicForms:MP.8`. The searches for
-`higher Coleman`, `higher Hida`, `Coleman famil`, `abelian surface`, `genus two`, `paramodular`, `Q-curve`,
-`partial Frobenius`, `Grothendieck duality`, `coherent duality` and `dualizing sheaf` return **nothing**.
-What the atlas does have, and what is imported rather than re-planned, is substantial:
-`AbelianSchemesAndArithmeticModuli` A1–A4, `ShimuraCompactifications` C4–C5, `AutomorphicBundles` B2–B3,
-`HodgeTateAndCanonicalSubgroups` T2–T5, `AdicSpacesPartII` R0–R3, `LocallyAnalyticDistributions` L4 and
-`PadicFamilies` L2, `GlobalGaloisDeformations` R04.1–R04.5, `LocalGaloisDeformationRings` R08.1–R08.3,
-`ArithmeticGaloisDuality` R02.3–R02.6, `DeformationAndDerivedPatchingAlgebra` R03.5/P8/P9,
-`GL2AutomorphicRepresentationsAndTransfer` R16.3/R17.4 and `PotentialModularityAndCompatibleSystems`
-R23.1/R24.5.
-
-**Why the Shimura varieties are a Part II and not a new roadmap.** `HilbertModularVarietiesAndShimuraCurves`
-plans exactly this package for `GL₂` over a totally real field — H1 the polarization modules and
-Hilbert–Blumenthal moduli, H2 integral models at arbitrary `p`, H4 finite `p`-level structures, R18.2
-compactification and integral models, R18.4 cohomology and Hecke correspondences — and plans nothing for
-GSp₄. The Hilbert–Siegel varieties are the same moduli of abelian schemes with real multiplication, now of
-relative dimension `2[F:Q]` with a symplectic level structure. Note in particular that
-`ShimuraCompactifications` C5 *explicitly* keeps the good-prime assumption on the PEL datum, so the
-compactifications at Klingen, Siegel and Iwahori level are new work.
-
-**Why one roadmap for higher Hida *and* higher Coleman theory.** They are two halves of one argument here:
-§4 constructs the complexes, §6 proves their `H⁰` is classical and that they are balanced, and §5 is the
-geometric input both feed. `PadicFamilies` owns Hida and Coleman families but is the `GL₂` theory over an
-affine ordinary locus where the ordinary part is a projective module — the whole point here is that it is
-not. `OverconvergentAutomorphicForms:O8` is an invitation to examples beyond Hilbert, but plans no complexes
-and no stratification beyond the ordinary locus.
-
-**Why the GSp₄ background is a Part II of `ModularityAndLanglandsExtensions`.** That roadmap owns the
-endpoints beyond the rank two infrastructure (ML.0 the endpoint registry, ML.4 the classical-group
-classification and trace sources, ML.5 the known functorial transfers); the GSp₄ package — Gan–Takeda, the
-Iwahori–Hecke algebra of GSp₄, ordinary `p`-distinguished representations, and the Galois representations of
-Theorems 2.7.1–2.7.3 — is a new layer in exactly that direction, and `AutomorphicGaloisRepresentationsPartII`
-is the `GL_n` construction which it imports rather than duplicates.
-
-**The four source routes** carry what belongs to existing owners: coherent Grothendieck duality with `f^!`,
-fundamental classes and traces, cohomological correspondences, and Kempf's Cousin complex into
-`SchemeAndStackFoundations`, which nothing else owns; Arthur's classification for GSp₄ and the record of its
-conditional status into ML.4; the GSp₄ local deformation rings away from `p`, including the whole Ihara
-avoidance package and the nilpotent orbit analysis, into `LocalGaloisDeformationRings`; and the
-Moret-Bailly/restriction-of-scalars constructions of Propositions 9.1.11 and 9.1.12 into
-`PotentialModularityAndCompatibleSystems`.
+- **Higher Hida and higher Coleman theory joins an existing proposal.** The extraction proposed a *new* roadmap under the id `HigherHidaAndColemanTheory`. That id already belongs to the Part II of PadicFamilies proposed by the extraction of Pilloni, Duke Math. J. 169 (2020), and joined by the Boxer–Calegari–Gee–Pilloni (2025) and Boxer–Pilloni (2026) extractions. The maintainer's guide asks for higher Coleman theory as its own roadmap only if it is missing, and it is not. Route 2 is therefore that Part II, with its id, parent, title and area, and its brief lists what this paper adds: the Hilbert–Siegel generalisation, place by place, and the doubling layer.
+- **The paper's own roadmap is the maintainer's.** The extraction proposed `PotentialModularityOfAbelianSurfaces`. The maintainer's guide sends this paper to the new roadmap `AbelianSurfacesPotentialModularity`, built by the queued design job DESIGN-BCGP18, and other extractions (Boxer–Calegari–Gee–Pilloni 2025 among them) already name it. Route 3 uses that id and title, and its brief is meant as DESIGN-BCGP18's instructions. Items that existing layers own (Galois deformation problems, residual-image conditions, local deformation rings) moved to them by source.
+- **The Hilbert–Siegel varieties are narrowed.** Route 1 keeps only the construction for G_1 = Res_{F/Q}GSp_4 that nothing else owns. The genus-two integral models, local models and compactifications at parahoric level already belong to the proposals ShimuraVarietiesHondaTatePartII and ShimuraCompactificationsPartIIHodgeTypeIntegralBoundary, and the Hecke action on integral coherent cohomology to IntegralCoherentHeckeComplexes.
+- **Integral coherent cohomology joins IntegralCoherentHeckeComplexes.** Route 5 joins the Part II of AutomorphicBundles proposed by the Calegari–Geraghty (2018) extraction, which owns cohomological correspondences and Hecke operators on integral coherent cohomology.
+- **Grothendieck duality goes to its owner.** The submitted source route to SchemeAndStackFoundations SF.2/SF.5 is replaced: f^!, traces and fundamental classes go to AlgebraicModuliForArithmeticGeometry A0-extension, where the Pilloni and Calegari–Geraghty extractions already send them; SF.2 keeps only Kempf's Cousin complexes.
+- **GSp_4 local Langlands is corrected.** Route 4 keeps its id and title; several of its item statements were wrong and are corrected (for instance Theorem 2.7.1's local–global compatibility and Proposition 2.4.24's type IIa), and the Gan–Takeda correspondence itself goes to ModularityAndLanglandsExtensions ML.4, as the Gan–Savin extraction already routes it.
+- **The review added the missing items and routed each once.** Its new items (definitions and results the extraction did not list) are routed with the others; the source routes above name the covering stages.
 
 ## Library and planned items
 
-**Two items are in the libraries**, both in Tau Ceti and neither in Mathlib: abelian varieties over a field
-(`TauCeti.AlgebraicGeometry.AbelianVariety` with about two hundred declarations around it), and the
-symplectic group scheme `Sp_{2m}` with its coordinate Hopf algebra, its identification with the symplectic
-matrices and the Chevalley commutator relations for its root subgroups
-(`TauCeti.Symplectic.groupScheme` and relatives). Neither covers what the paper needs: there are no abelian
-*schemes* over a base, no duals and no polarizations, and there is **no similitude group** — a search of the
-pinned libraries for `similitude` returns nothing.
+**Three items are in the libraries.**
+* Abelian varieties over a field are in Tau Ceti (`TauCeti.AlgebraicGeometry.AbelianVariety`, with about two
+  hundred declarations around it), not in Mathlib.
+* The symplectic group scheme is in Tau Ceti. `TauCeti.ConstantForm.groupScheme R n C` is the closed subgroup
+  scheme of `GL_n` preserving a constant matrix `C`; with `n = 4` and `C` the paper's antidiagonal `J` it is
+  the paper's `Sp_4` over `Z`. `TauCeti.Symplectic.groupScheme` specialises it to Mathlib's form and adds the
+  identification of points with symplectic matrices, the diagonal torus and the Chevalley commutator
+  relations; the paper's `J` is carried to Mathlib's form by a permutation of the basis.
+* The Artin–Rees lemma for modules, used in the proof of Lemma 4.2.10, is in Mathlib
+  (`Ideal.exists_pow_inf_eq_pow_smul`).
 
-**Sixteen items are planned** by existing layers, each with the citation in the `note` field: abelian schemes
-and the Weil pairing (A1–A3); Serre–Tate and Grothendieck–Messing deformation theory (A4); automorphic
-bundles with their canonical and subcanonical extensions and the integral PEL compactifications (B2, B3, C4,
-C5); canonical subgroups and the degree function (T3, T4); the Hodge–Tate map and the modified integral
-lattice (T2, T5); adic spaces, formal models and finite traces (R0, R2, R3); Fredholm theory and slope
-decompositions (L4, L2); Moret-Bailly's theorem (R23.1); Chebotarev and the mechanism for Taylor–Wiles
-primes (R04.5); the patching construction with complexes in several degrees and the balanced-module
-criterion (R03.5, P8, P9); global deformation functors and presentations (R04.1–R04.3, G7); Poitou–Tate
-duality and Selmer groups (R02.3–R02.6); local deformation rings away from `p` (R08.1–R08.3); solvable base
-change for `GL₂` (R17.4); local Langlands for `GL₂` (R16.2, R16.3); and compatible systems with their
-operations (R19.3, R24.5, R24.5:operations).
+None of them covers what the paper needs from them. There are no abelian *schemes* over a base, no duals and
+no polarizations; `GSp_4` is in neither library; and neither library passes from Artin–Rees to coherent
+sheaves on a Noetherian scheme.
+
+**Thirty-three items are planned** by existing layers. Each `note` quotes the stage and names what it must
+add for this paper.
+* The groups and level structures: `GSp_4` with its similitude character, neat level and the parahoric
+  subgroups (PELModuli M0, ShimuraData D5, ReductiveGroupsPartII RG2.3).
+* The geometry:
+  * abelian schemes with duals, polarizations and the Weil pairing (A1–A3);
+  * Serre–Tate theory with relative de Rham cohomology (A4);
+  * automorphic bundles with canonical and subcanonical extensions and the PEL compactifications
+    (B2, B3, C4, C5);
+  * admissible cone decompositions (C0, C1, C5);
+  * the Hodge–Tate map and Barsotti–Tate groups (T0);
+  * adic spaces and formal models (R0, R2, R3);
+  * slope decompositions for compact operators (L4, L2a).
+* The Galois side:
+  * Moret-Bailly's theorem (R23.1);
+  * Chebotarev and the choice of Taylor–Wiles primes (R04.5);
+  * global and local deformation functors (R04.1–R04.3, R08.1, R08.2, L7);
+  * Poitou–Tate duality and Selmer groups (R02.3–R02.6);
+  * the normalisation of the Artin map and of Weil–Deligne representations (ClassFieldTheory Layer 7,
+    R01.2, R06.2, R06.3);
+  * compatible systems (R19.3, R24.5:operations, AG2.6) and purity for Hilbert modular forms (R19.2–R19.5).
+* The automorphic side:
+  * local Langlands for `GL_n` (EndoscopicTransferAndUnitaryTraceComparison ET.6, with R16.2 and R16.3 for
+    `GL_2`);
+  * solvable base change, descent, isobaric sums and automorphic induction (R17.4, ET.7a, AG2.2,
+    ModularityAndLanglandsExtensions ML.5);
+  * potential automorphy of rank-two compatible systems (ML.2);
+  * the Rankin–Selberg and exterior-square transfers (ML.5);
+  * standard L-functions of `GL_n` (AL.2);
+  * Hilbert irreducibility (IG.2);
+  * abstract Hecke algebras (SmoothRepresentationsOfLocalGroups SR.1).
+* Patching:
+  * the balanced-module criterion and the patching criterion of Proposition 7.10.1 (R03.5, P9);
+  * Nakayama's lemma for complexes (P7, DD.1);
+  * freeness of maximal Cohen–Macaulay patched modules (R03.3).
 
 ## Source issues
 
-Three findings, all misprints, all affecting nothing, and **all three checked in the published version as
-well as in arXiv v3 and present in both**. For a paper of 349 journal pages with 405 numbered statements,
-several referees and a copyediting pass, that is what one would expect.
+`sourceIssues` records 159 mistakes: 119 misprints, 25 errors and 15 gaps. Of these, 11 affect a stated result, 17 affect a proof, and 131 affect nothing downstream. Each was checked at its locator in both arXiv v3 and the published version. No erratum to the paper is known. One issue, the gap E149 in Theorem 10.2.1, is already addressed in the authors' later paper (arXiv:2502.20645, Remark 9.4.4 and Lemma 9.3.7); the other 158 are new.
 
-**E1 — a Lemma cited as a Theorem.** The proof of Corollary 7.6.3 (published p. 406) begins "By Proposition
-7.2.1 and **Theorem 7.6.1**, the claim holds with `g` instead equal to …", but 7.6.1 is a Lemma. The cause
-is visible in the source: the statement is `\begin{lem}\label{thm:TWprimes}`, and the citation is written out
-as `Theorem~\ref{...}` rather than with `\Cref`, so the automatic environment name is not used. A mechanical
-check of every cross-reference against the environment carrying its target label found this to be the only
-such mismatch in the paper.
+- **E1–E3** were recorded by the extraction: a Lemma cited as a Theorem in the proof of Corollary 7.6.3, a missing superscript w⁻ in Corollary 6.4.3, and a missing hypothesis [F:Q] > 1 in Remark 5.8.5. The review confirmed all three.
+- **E4–E159** were found by the review. Each misprint was confirmed on the page images. Each error and gap was confirmed by two independent verifications, one of which tried to defend the paper under its own conventions and cited sources; where the two differed on kind, reach or correction, a third reading settled the record.
 
-**E2 — `𝓕^{κ,w}` for `𝓕^{κ,w⁻}` in Corollary 6.4.3.** The sheaf `𝓕^{κ,w⁻} = colim_{w'<w}𝓕^{κ,w'}` is defined
-immediately before Proposition 6.4.2, which resolves `ω^κ(−D)` by the `𝓕^{s•κ,w⁻}`; the sentence between the
-proposition and the corollary says the Hecke operators act on `𝓕^{κ,w⁻} ⊗ (det ω_𝓖)²(−D)`; and inside the
-proof of Corollary 6.4.3 the differentials `θ_{s,s'}` are again written between the `𝓕^{s•κ,w⁻}`. But the
-*statement* of Corollary 6.4.3 and the spectral sequence in the first line of its proof both drop the minus.
-This is exactly the slip the authors themselves correct in the paper they are citing: the proof of
-Proposition 6.4.2 says in parentheses that in Andreatta–Iovita–Pilloni §7.2 "one needs to replace `𝓕^{κ,w}`
-with `𝓕^{κ,w⁻}` as defined above". The distinction is visible in both PDFs' content streams.
+**Stated results affected.**
+- **Lemma 2.1.3** (p. 171): a semisimple GSp₄-valued representation is determined by its GL₄-valued composite and similitude only when char L ≠ 2 (E6).
+- **Lemma 2.5.1** (p. 189): pure N maximises n(r, N), but the maximiser is unique only in the four-dimensional symplectic case that Corollary 8.2.2 uses (E16).
+- **Lemma 3.8.5** (pp. 219–221) needs #G invertible on S, and Proposition 3.8.3 then needs p ∤ #Δ(K^p), a hypothesis that must be carried to §4.2, Proposition 4.4.3 and §6.3.8 (E36).
+- **Lemma 4.2.20** (p. 255): the second identity for T̃_w is unproved at l_w = p + 1; it holds for l_w ≥ p + 2 (E46).
+- **Corollary 6.4.3** (pp. 338–339): the isomorphism for i = 1 is proved only for k_v − l_v ≥ 3N; its one use, in Proposition 6.6.2, can take that bound (E83).
+- **Lemma 9.1.10(3)** (pp. 457–458) asserts more than [ACC+18] gives: the image contains a conjugate of SL₂(F_l) (E136). **Proposition 9.1.12** (pp. 458–459) should assert only that L′/K′ is Galois (E137).
+- **Lemma 9.2.7** (pp. 462–463) is false as printed: the local data at the auxiliary prime q must be chosen differently. With the corrected choices Theorem 9.2.8 and the results drawn from it survive (E139).
+- **Theorem 9.3.4** (p. 466): its "more precisely" clause must exclude elliptic curves with End_K(E) ≠ Z (E144).
+- **Proposition 10.1.3** (pp. 473–474), and Proposition 10.1.1 and Theorem 10.1.4 with it: "unramified and ordinary" should read "ordinary"; with that change Theorem 1.1.7 and Theorem 10.1.4 still follow (E147).
+- **Lemma 10.4.6** (p. 490): the statement should read D × D (E156).
 
-**E3 — a hypothesis omitted in Remark 5.8.5.** Remark 5.8.5 announces a strengthening of the doubling
-theorem and says "In the case `p>3`, we will sketch a proof of this result in §5.9". What §5.9 proves is
-Proposition 5.9.1, which assumes `p > 3` **and** `[F:Q] > 1`, and Remark 5.9.2 immediately afterwards says
-in as many words "We also have a sketch of an argument for `F = Q`" — so `F = Q` is in exactly the same
-position as `p = 3`, and only the latter is named. Nothing depends on it: §5.9 opens by saying the result
-"partially strengthens Corollary 5.4.5 **but is not needed in this paper**", and the doubling theorem
-actually used, Theorem 5.8.4, is proved for all `p ≥ 3` and all totally real `F` from Corollary 5.4.5 alone.
-
-Nothing else was found. Every numbered statement was read against its proof; the arguments checked in detail
-— the weight bookkeeping in Corollary 5.4.5 and Theorem 5.8.4 (where `l_w = 3−p ≤ 0` after twisting by
-`ω_w^{1−p}`, so the hypothesis `l_w ≤ 0` is met and the argument works down to `p = 3`), the two regimes of
-the identity relating `U_{Kli(w),1}`, `U_{Iw(w),1}` and `Z_w`, and the scope of the restrictions in §5.9 —
-are correct as printed.
+The full list, with every printed text, correction and reason, is in the result file.
 
 ## Notes for the reviewer and for later blueprint work
 
-* **Order of the four roadmaps.** `GSp4LocalLanglandsAndGaloisRepresentations` and
-  `HilbertSiegelModularVarieties` are logically prior; `HigherHidaAndColemanTheory` builds on the second;
-  `PotentialModularityOfAbelianSurfaces` builds on all three. If they are planned by different workers, the
-  first two should go first, or at least fix the names `GSp₄`, `ν`, `Kli(v)`, `Iw(v)`, `ω^κ`, `T_w`,
-  `T_{w,1}`, `U_{w,1}`, `U_{w,2}`, `Z_w`.
+* **Order of the roadmaps.** `GSp4LocalLanglandsAndGaloisRepresentations` and
+  `HilbertSiegelModularVarieties` are logically prior. `IntegralCoherentHeckeComplexes` supplies the Hecke
+  action on integral coherent cohomology. `HigherHidaAndColemanTheory` builds on these, and
+  `AbelianSurfacesPotentialModularity` builds on all of them. If different workers plan them, the first two
+  should go first, or should at least fix the names `GSp₄`, `ν`, `Kli(v)`, `Iw(v)`, `ω^κ`, `T_w`, `T_{w,1}`,
+  `U_{w,1}`, `U_{w,2}` and `Z_w`.
 * **The whole result is conditional on Arthur.** §1.4.1 says the Gee–Taïbi proof of the multiplicity formula
   for GSp₄ is only as unconditional as Arthur's book and the stabilisation of the twisted trace formula, and
   in particular depends on cases of the twisted weighted fundamental lemma whose proofs had not appeared.
@@ -240,23 +243,33 @@ are correct as printed.
   The whole doubling argument is about that difference.
 * **Classical `T` and `p`-adic `U` are different operators.** They agree only after the explicit congruence
   of Lemma 4.6.16 and only in a weight range; §4.6 is that comparison and it cannot be assumed.
-* **Coherent Grothendieck duality is unowned in the atlas.** The source route to `SchemeAndStackFoundations`
-  is the honest place for it, but a restructure may prefer a dedicated layer: `f^!` for lci morphisms,
-  fundamental classes, traces for finite flat morphisms and the Grothendieck–Cousin complex will be needed
-  by every future consumer of coherent cohomology on a Shimura variety.
-* **Two prerequisite papers dominate**: Pilloni's *Higher coherent cohomology and p-adic modular forms of
-  singular weights* (Duke 169 (2020)), cited over thirty times and without which §§3–4 cannot be built, and
-  Lan's compactification monograph and its ramified-characteristic sequel, without which Theorem 3.5.1
-  cannot. A later paper job on each would be the natural way to supply them.
+* **Coherent Grothendieck duality.** The review sends `f^!` for embeddable and lci morphisms, fundamental
+  classes and traces to AlgebraicModuliForArithmeticGeometry A0-extension, where the Pilloni and
+  Calegari–Geraghty extractions already send them. Kempf's Cousin complexes and the Cousin complex of a
+  filtration go to SchemeAndStackFoundations SF.2. A restructure may still prefer a dedicated layer, since
+  every future consumer of coherent cohomology on a Shimura variety will need these.
+* **Prerequisite papers.** Pilloni's *Higher coherent cohomology and p-adic modular forms of singular
+  weights* (Duke 169 (2020)) is cited over thirty times, and §§3–4 cannot be built without it. It is extracted
+  as PAPER-PILLONI-20. This paper's `HigherHidaAndColemanTheory` route joins that extraction's proposal, and
+  its `IntegralCoherentHeckeComplexes` route joins the proposal of PAPER-CALEGARI-GERAGHTY-18, which
+  PAPER-PILLONI-20 also joins. Lan's compactification monograph and its sequel on ramified
+  characteristic are still needed for Theorem 3.5.1; a paper job on each would supply them.
 * **The companion papers.** Issue #2166 is the same authors' *Modularity theorems for abelian surfaces*
-  (arXiv:2502.20645), which builds on this paper and on the ten-author paper; this extraction should be
-  read first, and the two should share the four roadmaps proposed here.
+  (arXiv:2502.20645), which builds on this paper and on the ten-author paper. Its extraction
+  (PAPER-BOXER-CALEGARI-GEE-PILLONI-25) joins `HigherHidaAndColemanTheory` and
+  `GSp4LocalLanglandsAndGaloisRepresentations` with the same ids, parents, titles and areas as here.
 
 ## Checks
 
 `python3 scripts/check_paper.py research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-21.result.json`
-and `python3 research/blueprint/intake.py check-files` both pass. The routing was validated by a script that
-checks every planned layer id against `data/atlas.json`, every source roadmap for origin and stage ownership,
-each Part II title against its parent's title, the areas against `data/galaxies.json`, and that every missing
-item is taken by exactly one route and every non-missing item by none. The job is complete, so no handoff
-note is written; only the two named deliverables change. No Lean deliverable is part of a paper job.
+and `python3 research/blueprint/intake.py check-files` both pass on the corrected file.
+
+The extraction's routing was validated by a script that checks:
+* every planned layer id against `data/atlas.json`;
+* every source roadmap for origin and stage ownership;
+* each Part II title against its parent's title;
+* the areas against `data/galaxies.json`;
+* that every missing item is taken by exactly one route and every non-missing item by none.
+
+The review repeated these checks on the corrected file, and also checked the joined proposals' ids, parents
+and titles against the extractions that proposed them. No Lean deliverable is part of a paper job.

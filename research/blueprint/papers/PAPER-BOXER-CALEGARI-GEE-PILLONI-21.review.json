@@ -1,0 +1,172 @@
+{
+ "paper": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accepted as narrowed by the review. Section 3 does for G_1 = Res_{F/Q}GSp_4 what HilbertModularVarietiesAndShimuraCurves H0 and H3 do for Res_{F/Q}GL_2: the subgroup with rational similitude, a PEL moduli problem for it, the action of the totally positive units on polarizations, the arithmetic quotient and the descent of automorphic bundles. No layer or proposal owns this. The submitted brief also took in the genus-two integral models, local models and compactifications at parahoric level and the Hecke action on integral coherent cohomology, which the proposals ShimuraVarietiesHondaTatePartII, ShimuraCompactificationsPartIIHodgeTypeIntegralBoundary and IntegralCoherentHeckeComplexes already own. The review removed them from the brief, moved five of the submitted items to their owners and rewrote the title, brief and reason."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accepted after the review converted it into a join. The extraction proposed a new roadmap under an id that already belongs to the Part II of PadicFamilies proposed by the extraction of Pilloni (Duke Math. J. 169 (2020)) and joined by the Boxer–Calegari–Gee–Pilloni (2025) and Boxer–Pilloni (2026) extractions; the same id with another kind, parent and title would give the mathematics two owners. The route now uses that id, parent, title and area, and its brief states this paper's additions (the Hilbert–Siegel generalisation place by place, the Klingen and Iwahori operators at p, the doubling layer and the classicality theorems) with the final results checked against the page images."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accepted after the review renamed it to the maintainer's roadmap. The maintainer's guide sends this paper to the new roadmap AbelianSurfacesPotentialModularity of the queued design job DESIGN-BCGP18, and other extractions already name that id; a second id would create a second roadmap and design job for the same paper. The brief, checked against the page images, states the paper's final theorems exactly (Theorems 1.1.2–1.1.5, 1.1.7, 8.4.1, 9.3.1, 9.3.4, 10.2.6) and should be delivered as DESIGN-BCGP18's instructions. Deformation problems, residual-image conditions and local deformation rings that existing layers own moved to them by source."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accepted with the review's corrections. No layer owns the GSp_4-specific local theory (Hecke parameters, Iwahori and Klingen U-eigenvalues of principal series, ordinary and p-distinguished representations) or the GSp_4 Galois representations of §2.7; the parent ModularityAndLanglandsExtensions registers normalizations and owns Arthur's classification, and this Part II extends it. Several item statements were wrong and are corrected, among them Theorem 2.7.1's local–global compatibility and purity, and Proposition 2.4.24's type IIa. Gan–Takeda's correspondence itself goes to ML.4, as the Gan–Savin extraction routes it, and is imported here."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Added by the review as a join of the Part II of AutomorphicBundles proposed by the Calegari–Geraghty (2018) extraction and joined by Calegari–Geraghty (2020), Pilloni (2020) and Boxer–Pilloni (2026). It takes the cohomological correspondences of §3.9 (Pilloni's Definition 4.3.1(2) and Remark 4.3.2), the prime-to-p Hecke action and Hecke relations on integral coherent cohomology of the Hilbert–Siegel varieties (Propositions 3.9.11, 3.9.15), and the automorphic description of §3.10, which that proposal owns for Siegel threefolds."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accepted. Stages L7, L8, R08.1 and R08.2 of LocalGaloisDeformationRings cover these 22 items. R08.1 owns 'framed local representability and the tangent/obstruction description', R08.2 conditions away from p with 'dimensions, smoothness and irreducible components', L7 'ordinary deformation functors with a full invariant flag' under 'distinguishedness assumptions' and rank-n analogues away from p 'preserving the nilpotent monodromy operator', and L8 the flag-bearing functor against its image."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accepted. Stages G7 and R01.1 of ArithmeticGaloisRepresentations cover these 15 items. G7 must 'Construct ... tensor induction and restriction of scalars', define polarizations 'using an actual pairing and multiplier' and prove their 'behavior under twisting/extension', and 'Prove dimension-general residual-image criteria needed for Taylor–Wiles primes' with 'separate verification lemmas'."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accepted. Stages ML.0, ML.1 and ML.4 of ModularityAndLanglandsExtensions cover these 8 items. ML.4 must 'Give Arthur/Mok/KMSW classification inputs explicit proof-source owners' for 'transfer, fundamental lemma, packets, multiplicities' and 'Preserve any source-specific conditional hypotheses'; ML.0 gives each endpoint 'an explicit known/conditional/conjectural status' and registers 'normalization conversions'."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Accepted. Stages G7, R04.1, R04.2, R04.3 and R04.5 of GlobalGaloisDeformations cover these 7 items. G7 must 'Include fixed determinant/multiplier variants, local framing', treat local conditions 'as representable subfunctors or quotient rings', build 'presentations over completed tensor products' and 'Prove the arbitrary-n auxiliary-prime lemma with prescribed distinct Frobenius eigenvalues'; R04.1–R04.2 give framed and unframed deformations and compare them 'with the correct number of variables', R04.3 bounds 'the number of relations over the completed tensor product of local rings', and R04.5 chooses Taylor–Wiles primes."
+  },
+  {
+   "route": 10,
+   "verdict": "accept",
+   "reason": "Accepted. Stages R2 and R3 of AdicSpacesPartII cover these 4 items. R2 is to 'Construct admissible formal schemes, formal completion, admissible blow-ups, and the adic generic-fibre functor', identifying 'precisely the integral/good-reduction locus', and to 'Establish the transition maps as the radius changes'; R3 is to 'Prove the affinoid coherent-sheaf equivalence, acyclicity and the comparison needed for finite affinoid covers'."
+  },
+  {
+   "route": 11,
+   "verdict": "accept",
+   "reason": "Accepted. Stage A0-extension of AlgebraicModuliForArithmeticGeometry covers these 4 items. A0-extension is to 'Extend proper-flat coherent cohomology and base change beyond curves, with finite presentation, Tor-amplitude and flatness hypotheses in each statement'."
+  },
+  {
+   "route": 12,
+   "verdict": "accept",
+   "reason": "Accepted. Stages P7, P9, R03.1 and R03.6 of DeformationAndDerivedPatchingAlgebra cover these 4 items. P7 plans perfect complexes over complete Noetherian local O-algebras with 'duals, derived tensor products'; P9 'algebraic derived Ihara-avoidance lemmas comparing support when auxiliary local types change', whose 'arithmetic verification' belongs to a consuming roadmap (here AbelianSurfacesPotentialModularity); R03.1 'completed tensor products over O' and when they 'remain Noetherian and local'; R03.6 support, components and 'the torsion-free/reduced quotient at which an R=T argument concludes'."
+  },
+  {
+   "route": 13,
+   "verdict": "accept",
+   "reason": "Accepted. Stages T0 and T5 of HodgeTateAndCanonicalSubgroups cover these 4 items. T0 extends the p-divisible-group API 'to the generic-fibre Tate modules and the integral differential calculations here', must extend its local construction 'to semi-abelian degeneration charts' and 'Build the finite-level Hodge–Tate map using Cartier duality'; T5 constructs a modified integral lattice 'by its finite-level Hodge–Tate image' with 'the cokernel estimates'."
+  },
+  {
+   "route": 14,
+   "verdict": "accept",
+   "reason": "Accepted. Stage PS.1 of PeriodsAndSpecialValues covers these 4 items. PS.1 is to 'Define completed motivic L-functions from local Weil–Deligne data in admitted cases and derive critical integers from archimedean factors', and its known/conjectural boundary says that general Deligne conjectures 'remain conditional statements'; Serre's conjectures are to be kept the same way."
+  },
+  {
+   "route": 15,
+   "verdict": "accept",
+   "reason": "Accepted. Stages R23.1, R23.2, R23.3, R23.5 and R24.5:operations of PotentialModularityAndCompatibleSystems cover these 3 items. Proposition 9.1.11 is potential residual modularity for GL_2 over totally real fields with prescribed local behaviour: a q-ordinary weight-0 cuspidal π on GL_2(A_{F_1F′}), unramified above pq, with r̄_{π,q} ≅ r̄|G_{F_1F′}, over a totally real Galois F′/F split at p and q and linearly disjoint from F_1F^{(avoid)}."
+  },
+  {
+   "route": 16,
+   "verdict": "accept",
+   "reason": "Accepted. Stage AG2.5 of AutomorphicGaloisRepresentationsPartII covers these 2 items. AG2.5 must 'Implement the partial order on nilpotent monodromy types and distinguish equality of semisimplifications, Frobenius-semisimplified Weil–Deligne equality retaining N, and a bound on monodromy', and prove 'the Caraiani/Taylor–Yoshida upgrades'."
+  },
+  {
+   "route": 17,
+   "verdict": "accept",
+   "reason": "Accepted. Stages R16.2 and R17.5 of GL2AutomorphicRepresentationsAndTransfer cover these 2 items. R16.2 must 'Specialize these constructions to GL₂' and prove the newvector theorem 'including dimensions of congruence-invariants'. It gets Lemma 2.4.15, the GL_2 case of the centre of the Iwahori–Hecke algebra: Z(H_{Iw(v)'}[1/p]) is generated by U_{v,0} and q_vU_{v,0}U_{v,1}^{−1} + U_{v,1}, and f ↦ e_Sph f is an isomorphism onto H_Sph[1/p] sending them to T_{v,0} and T_{v,1}."
+  },
+  {
+   "route": 18,
+   "verdict": "accept",
+   "reason": "Accepted. Stages L0a and L2a of PadicFamilies cover these 2 items. L0a, the 'group-independent supplier' of ordinary projectors, is to 'Apply the result degreewise to finite perfect/cohomological complexes', and L2a is to 'Construct the Fredholm hypersurface, finite-projective slope summands on adapted affinoids'."
+  },
+  {
+   "route": 19,
+   "verdict": "accept",
+   "reason": "Accepted. Stage SF.2 of SchemeAndStackFoundations covers these 2 items. SF.2 is to 'construct sheaf cohomology, localization, proper/smooth base change and compact support'. It receives Kempf's Cousin complexes, in the cohomology-with-supports package that the Benoist–Wittenberg (2020) extraction asks of this layer, beside local cohomology as a colimit of Ext sheaves (Kings–Sprang 2025) and the SGA 2 depth statement (Pilloni 2020)."
+  },
+  {
+   "route": 20,
+   "verdict": "accept",
+   "reason": "Accepted. Stage D5 of ShimuraData covers these 2 items. D5 is to 'Define neatness with representation independence and the arithmetic subgroup attached to a compact open level' and to construct 'all Siegel data' with explicit examples."
+  },
+  {
+   "route": 21,
+   "verdict": "accept",
+   "reason": "Accepted. Stages SR.1 and SR.2 of SmoothRepresentationsOfLocalGroups cover these 2 items. The paper states §2.4.1 for an arbitrary split reductive group ('It costs us nothing to recall these in a more general setting'). SR.1 must 'Construct compactly supported locally constant functions and convolution' and 'integral double-coset operators by finite correspondences'; SR.2 must build 'normalized induction/Jacquet functors using a specified square root of the modulus character'."
+  },
+  {
+   "route": 22,
+   "verdict": "accept",
+   "reason": "Accepted. Stage A4 of AbelianSchemesAndArithmeticModuli covers its one item. A4 is to 'Prove the Serre–Tate equivalence for deformations of abelian schemes with endomorphism and polarization structures; identify its tangent map with the Hodge filtration'."
+  },
+  {
+   "route": 23,
+   "verdict": "accept",
+   "reason": "Accepted. Stages R02.2 and R02.4 of ArithmeticGaloisDuality cover its one item. R02.2 is to 'Prove restriction/corestriction identities and the precise descent consequences for finite extensions of number fields', and R02.4 to 'Prove the finite-module duality and exact sequence from the global class-field-theory and local-duality inputs'."
+  },
+  {
+   "route": 24,
+   "verdict": "accept",
+   "reason": "Accepted. Stages AF.1, AF.3 and AF.4 of AutomorphicFormsOnReductiveGroups cover its one item. AF.1 defines '(g,K)-modules' and 'relative Lie algebra cochains Hom_K(∧^q(g/k),V)', AF.3 cusp forms and their square integrability, and AF.4 'algebraic highest weights, infinitesimal characters and cohomological representations'."
+  },
+  {
+   "route": 25,
+   "verdict": "accept",
+   "reason": "Accepted. Stages AS.4 and AS.5 of AutomorphicSpectralTheory cover its one item. AS.4 is to 'Construct discrete cuspidal and residual subspaces' with 'the separation of residual and continuous terms', and AS.5 to compare 'relative Lie algebra cohomology of automorphic forms' with that of all smooth functions."
+  },
+  {
+   "route": 26,
+   "verdict": "accept",
+   "reason": "Accepted. Stage R28.4 of FaltingsFinitenessAndIsogenyTheorems covers its one item. R28.4 is to 'Derive semisimplicity of V_ℓ(A) and the comparison Hom_F(A,B)⊗Q_ℓ ≅ Hom_{G_F}(V_ℓ(A),V_ℓ(B))'. Serre's theorem, that for an abelian surface A over a number field F with End_C(A) = Z the image of ρ̄_{A,l} is GSp_4(F_l) for all sufficiently large l, starts from these results, but its proof goes beyond R28.4, and R28.6 explicitly avoids it."
+  },
+  {
+   "route": 27,
+   "verdict": "accept",
+   "reason": "Accepted. Stage R07.1 of FiniteFlatGroupsAndIntegralPadicHodgeTheory covers its one item. R07.1 is to 'Develop Cartier duality, connected–étale sequences over the allowed bases, generic and special fibres, finite-flat subgroup and quotient constructions, and fpqc descent'."
+  },
+  {
+   "route": 28,
+   "verdict": "accept",
+   "reason": "Accepted. Stage L4 of LocallyAnalyticDistributions covers its one item. L4 is to 'Prove continuity and compactness ..., nuclear/Fredholm determinants in the precise compact-operator setting, slope decompositions, and compatibility with specialization on slope-adapted affinoids'."
+  },
+  {
+   "route": 29,
+   "verdict": "accept",
+   "reason": "Accepted. Stage R11.5 of NeronModelsAndSemistableAbelianVarieties covers its one item. R11.5 is to 'Prove Néron–Ogg–Shafarevich and the good/semistable Galois comparisons required here' and to 'Relate monodromy and component data to the characteristic-zero local Euler polynomial'."
+  },
+  {
+   "route": 30,
+   "verdict": "accept",
+   "reason": "Accepted. Stage R21.2 of OrdinaryAutomorphicFormsAndModularityLifting covers its one item. R21.2 imports Hida control and must 'Prove the additional nearly ordinary totally real ... control statements', 'specifying p-distinguishedness, tame characters'; the Newton–Thorne (2026) extraction routes Barnet-Lamb–Gee–Geraghty's ordinary lifts of Hilbert modular forms (in a form with a Steinberg place) here, with Hida families for Hilbert modular forms."
+  },
+  {
+   "route": 31,
+   "verdict": "accept",
+   "reason": "Accepted. Stages S1 and S3 of PerfectoidShimuraVarieties cover its one item. S1 is to 'Extend the construction to the minimal compactification using the boundary/normalization construction of the source', and S3 to extend the Hodge–Tate period map 'to the compactification in the precise Hodge-type form provided by the source, distinguishing auxiliary normalized compactifications from the canonical minimal one'."
+  },
+  {
+   "route": 32,
+   "verdict": "accept",
+   "reason": "Accepted. Stage PA.5 of PotentialAutomorphyInfrastructure covers its one item. PA.5 ('Compatible systems and reusable transport') provides 'comparison lemmas for restriction to field extensions, tensor products, duals, characters and symmetric powers using the compatible-system owner', stating properties 'only where proved'."
+  },
+  {
+   "route": 33,
+   "verdict": "accept",
+   "reason": "Accepted. Stages C3 and C5 of ShimuraCompactifications cover its one item. C3 is to 'Prove the structure-sheaf pushforward and the normality statements used to compare sections under refinements', and C5 builds the integral toroidal and minimal compactifications with 'the Hodge-line positivity'."
+  }
+ ],
+ "notes": "The extraction was corrected in place, and this verdict applies to the corrected file. The review checked every item against the paper (arXiv v3 and the published version), every status against the pinned libraries and the atlas, every route, the prerequisites and the recorded mistakes. Items: 448 field corrections to 141 of the 158 items (statements, locators, names, notes and a few statuses), and 172 new items for definitions and key results the extraction did not list separately, many of them split out of bundled items. Routes: the submitted route 1 (Hilbert–Siegel varieties) was narrowed; route 2 became a join of HigherHidaAndColemanTheory, a Part II of PadicFamilies; route 3 took the maintainer's id AbelianSurfacesPotentialModularity (DESIGN-BCGP18); route 4 was corrected; route 5 (SchemeAndStackFoundations SF.2/SF.5) was replaced by source routes to AlgebraicModuliForArithmeticGeometry A0-extension and SF.2 and by a join of IntegralCoherentHeckeComplexes; the source routes were rebuilt so that every missing item has one owner. Prerequisites: Pilloni (2020) and Calegari–Geraghty (2018, 2020) were removed because they are extracted; six DOI links were corrected, five of which pointed to other papers and one to a sequel instead of the monograph. Mistakes: E1–E3 are confirmed; the review adds E4–E159, each confirmed by it. Routes 3 and 4 now use the area langlands, as the maintainer's DESIGN-BCGP18 and the Boxer–Calegari–Gee–Pilloni (2025) extraction do. For the maintainer: the brief of AbelianSurfacesPotentialModularity is meant for the queued design job DESIGN-BCGP18."
+}
