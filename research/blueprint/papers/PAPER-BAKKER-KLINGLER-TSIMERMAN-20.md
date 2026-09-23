@@ -1,4 +1,84 @@
-# Bakker–Klingler–Tsimerman: tame arithmetic quotients and Hodge loci
+# Bakker–Klingler–Tsimerman (2020): tame topology of arithmetic quotients and algebraicity of Hodge loci, extraction and routing
+
+Issue [#1422](https://github.com/CBirkbeck/tauceti-explorer/issues/1422). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints (Codex and Claude Code), whose report follows below as history.
+- **The paper.** B. Bakker, B. Klingler and J. Tsimerman, *Tame topology of arithmetic quotients and algebraicity of Hodge loci*, J. Amer. Math. Soc. 33 (2020), 917–939, with the official erratum in J. Amer. Math. Soc. 36 (2023).
+  - The published text (NSF PAR, 23 pages) was re-fetched.
+- **Items.** The result has **124 items: 12 library, 12 planned and 100 missing**. Every missing item is routed exactly once, and every numbered statement is an item. Theorem 4.13 (Peterzil–Starchenko) is now named on the definable-Chow item.
+- **Mistakes.** Twenty-nine are recorded under `sourceIssues`. The official erratum covers E5–E7.
+
+## This continuation (cc-442dc5)
+
+**E1 rechecked.**
+- **The problem.** Theorem 4.1 as printed, for the whole punctured polydisk, is false.
+- **Why the rest survives.** Its proof says "after maybe shrinking the polydisk", and §4.1 needs only finitely many shrunken charts, so Theorem 1.3 is unaffected. The finding still affects a stated result.
+
+**Reclassified to affect nothing.**
+- **E20.** The comparison is meant for u ≠ 0.
+- **E28.** §5's description of the exceptional locus includes the identity image. §1.4 and Theorem 1.6 use exceptional Hodge tensors.
+
+**Verification gaps.** Each now has a status.
+- G1 and G4 are resolved.
+- G2, G5 and G6 are recorded as findings.
+- G3 (the Schmid, CKS and Kashiwara inputs) is deferred.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (error; affects a stated result), Theorem 4.1, JAMS p.928, proof p.929; author p.13–14. *Printed:* "Theorem 4.1. Let V be a polarized variation of pure Hodge structures of weight k over the punctured polydisk (∆*)^n, with period map Φ: (∆*)^n → S_{Γ,G,M}. Then Φ is R_an,exp-definable." (∆ is the unit disk, p.4.) *Correction:* Definability holds only after shrinking. For some radius 0 < ρ < 1, the restriction of Φ to (∆*_ρ)^n is R_an,exp-definable, and then for every ρ < 1 by compactness of the remaining annular pieces. The reduction in §4.1 must use charts whose shrunken polydisks still cover the compactification.
+- **E2** (gap; affects the proof), Lemma 4.5 proof, JAMS p.930; author p.15. *Printed:* "Consider for each positive integer m and real number c the function f_{m,c} which we obtain from f by setting z_1 = mz_2 + c. Note that the assumptions of the lemma still apply to f_{m,c}, and it follows by induction on n that f_{m,c} ≪ 1 on all of Σ_{n−1}" *Correction:* State the lemma, and verify its curve hypothesis, on wider sectors Σ_n^R={|x_i|<R,y₁≥⋯≥y_n>1} for every R, with constants depending on R. The substitution maps Σ_(n−1)^R′ into Σ_n^(mR′+|c|). The application needs original-source bounded-real-width uniformity for Schmid Corollary 5.29 and the CKS/Kashiwara norm estimates; G3 records that this is still unverified. The R-quantifier of the target Theorem 1.5 is not evidence for its prerequisites.
+- **E3** (error; affects nothing), §4.5, JAMS p.933; author p.18. *Printed:* "Moreover, if b is (e′, C′)-reduced and e is a basis for which condition (3) of Definition 4.11 holds for some C > 0, then b will also be (e, C″)-reduced for some C″ = C″(e, C, e′, C′) > 0." *Correction:* Condition (2), the ordering b(e_i) < C b(e_j) for i < j, transfers only up to a permutation of e. Conclude that b is (σe, C″)-reduced for some permutation σ, which is one of finitely many.
+- **E4** (misprint; affects nothing), Appendix A.1, JAMS p.934, contrasted with A.3 p.936; author p.20–22. *Printed:* "Given X a real-analytic n-manifold with corners, one defines its boundary ∂X (cf. [Joy12, def. 2.6]. This is a real-analytic n-manifold with corners for n > 0" *Correction:* ∂X is a real-analytic (n − 1)-manifold with corners.
+- **E5** (error; affects a stated result), Theorem 1.1(1), JAMS p.919; Definition 2.5 and Proposition 2.7, p.924. *Printed:* "(1) The arithmetic quotient S_{Γ,G,M} := Γ\G/M admits a natural structure of R_alg-definable manifold, characterized by the following property. ... S ⊂ G/M a semi-algebraic Siegel set ..." *Correction:* The definable structure depends on a choice of maximal compact subgroup K ⊃ M. For each such K there is a structure S_{Γ,G,M,K}, characterized by the Siegel sets associated to K. Definition 2.5 must fix K, and Proposition 2.7 holds when all Siegel sets use the same K (Erratum, Theorem 1.2(1)).
+- **E6** (error; affects a stated result), Theorem 1.1(2), JAMS p.919. *Printed:* "(2) Any morphism f: S_{Γ′,G′,M′} → S_{Γ,G,M} of arithmetic quotients is R_alg-definable." *Correction:* Only morphisms compatible with the chosen maximal compacts are definable: maps Γ′h′M′ ↦ Γφ(h′)gM with φ(Γ′) ⊂ Γ, φ(M′) ⊂ gMg^{−1}, φ(K′) ⊂ gKg^{−1}, and θ_{gKg^{−1}} preserving φ(g′) (Erratum, Theorem 1.2(2)).
+- **E7** (error; affects the proof), §4.5, JAMS p.932; author p.17. *Printed:* "By [B-HC62, 7.5] the preimage of any Siegel set S ⊂ X is contained in the union of finitely many Siegel sets of D." *Correction:* Cite Bakker–Grimm–Schnell–Tsimerman, Proposition 28.1, instead. [B-HC62, 7.5] concerns real Siegel sets and does not give this rational statement.
+- **E8** (error; affects the proof), Lemma 2.1 first proof, JAMS p.923; author §2.1. *Printed:* G/M ≃ p(G·v) *Correction:* The displayed invariant-polynomial map need not separate right M-cosets. Use the second, proper semialgebraic-quotient proof, with its external quotient theorem explicitly imported.
+- **E9** (misprint; affects nothing), Lemma 2.1 second proof, JAMS p.923. *Printed:* E ⊂ G × M *Correction:* The ambient product is G×G.
+- **E10** (misprint; affects nothing), §2.2, JAMS p.923, equation (2.3). *Printed:* right action *Correction:* The displayed formula is left multiplication by p∈P.
+- **E11** (misprint; affects nothing), Theorem 1.5, JAMS p.921. *Printed:* |Re z_i| ≤ C *Correction:* Use R in the definition of H_(R,η), consistently with the quantified parameter.
+- **E12** (misprint; affects nothing), §4.2 after Remark 4.3, JAMS p.929. *Printed:* Theorem 1.1(2) *Correction:* Refer to Theorem 1.1(1), with fixed K as in the erratum.
+- **E13** (misprint; affects nothing), Proof following Theorem 4.8, JAMS p.931. *Printed:* part (1) of Proposition 4.6 *Correction:* Refer to Lemma 4.7(1).
+- **E14** (misprint; affects nothing), §4.6 heading, JAMS p.933. *Printed:* Theorem 1.1 *Correction:* Theorem 1.3 is the direct period-map input in the proof.
+- **E15** (misprint; affects nothing), §5, JAMS p.933. *Printed:* Theorem 1.1(3) *Correction:* Use Theorem 1.1(2), as restricted to Hodge morphisms by erratum Corollary 1.3.
+- **E16** (misprint; affects nothing), §5, JAMS p.934, definability of Φ_S. *Printed:* Theorem 1.1 *Correction:* Use Theorem 1.3.
+- **E17** (gap; affects the proof), Appendix A.3 proof of Proposition A.2, JAMS pp.935–936. *Printed:* relatively compact *Correction:* Choose smaller semialgebraic corner boxes whose closures lie inside larger analytic charts. Prove definability of the compact matching graph and cover it by finitely many neighborhoods of analytic transition extensions. Mere boundedness of the smaller domains is insufficient.
+- **E18** (gap; affects the proof), §3.2 reduction to g=e, JAMS p.927. *Printed:* Int(g⁻¹) *Correction:* Keep the rational homomorphism φ unchanged and factor through compact data M_g=gMg⁻¹, K_g=gKg⁻¹ in the target, followed by right translation by g. Justify transport of the fixed-K quotient structures.
+- **E19** (error; affects the proof), §3.2 surjective case, JAMS p.928. *Printed:* S_(Γ′,G′,M′) = S_(Γ₁,G,M₁) × S_(Γ_H,H,M_H) *Correction:* A product decomposition of the semisimple group does not decompose an arbitrary compact stabilizer. Supply a compact-stabilizer quotient adapter in addition to the finite-index arithmetic step.
+- **E20** (error; affects nothing), Lemma 4.7(1),(2) and Theorem 4.8(1),(2), JAMS p.931. *Printed:* u ∈ J_σ *Correction:* Require u≠0 for positive two-sided monomial comparisons.
+- **E21** (misprint; affects nothing), Lemma 4.7 proof, JAMS p.931, definition of B. *Printed:* Hermitian *Correction:* B(u,v)=Q(u,conj v) is (−1)^k-Hermitian in weight k. For odd weight it is skew-Hermitian; i^kB is Hermitian. Retain phase factors in all determinant and Hodge-metric formulas.
+- **E22** (misprint; affects nothing), Lemma 4.5 proof, JAMS p.930, finite difference F_m. *Printed:* (1/r₁!) ∑_i (−1)^i binom(r₁,i) f_(m,i) *Correction:* This normalization extracts (−1)^r₁ times the leading coefficient; either include that factor in the next identity or use (−1)^(r₁−i) in the definition.
+- **E23** (gap; affects the proof), §3.1 first paragraph, JAMS p.926. *Printed:* open real analytic charts *Correction:* Choose open buffered pieces and establish a finite local slice/chart refinement after the finite proper relation construction. Do not identify entire Siegel pieces with injective coordinate charts.
+- **E24** (misprint; affects nothing), §3.1, JAMS p.926, two occurrences. *Printed:* cl(F_i) *Correction:* Use cl(S_i).
+- **E25** (misprint; affects nothing), Appendix A.2, JAMS p.935, mixed atlas transitions. *Printed:* ψ_j ∘ φ_i⁻¹ *Correction:* Use ψ_j⁻¹∘φ_i on the coordinate overlap.
+- **E26** (misprint; affects nothing), §4.5, JAMS p.932 first line and p.933 claim. *Printed:* S_H^b; H_Q *Correction:* Use S_H^n and V_Q, respectively.
+- **E27** (gap; affects the proof), §1.3 and §4.2, JAMS pp.920 and 928. *Printed:* G(Z) ⊂ GL(V_Z) *Correction:* Use a group that acts on the variation's rational representation, or explicitly pass to a faithful adjoint/central-cover representation and compare the resulting arithmetic quotients and period maps.
+- **E28** (error; affects nothing), §5, JAMS pp.933–934, definition of the target Hodge locus. *Printed:* union of special subvarieties *Correction:* For the exceptional locus use the proper Mumford–Tate-drop subdata, excluding the generic identity image. Establish its correspondence with exceptional tensors.
+- **E29** (gap; affects the proof), Theorem 4.12 and proof, JAMS p.933. *Printed:* smooth complex algebraic manifold S×S_(Γ,G,K) *Correction:* Either restrict this proof to smooth S or supply algebraicity descent through a resolution/stratification and the necessary singular-source analytic comparison.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G1, Published-version access and statement/locator collation** (resolved). Resolved by the earlier continuation.
+- **G2, Arithmetic reduction and quotient foundations** (recorded). E8, E18, E19 and E23 record the paper's own reduction gaps. Borel–Harish-Chandra, Borel–Serre/Borel–Ji and Orr are cited suppliers.
+- **G3, Hodge analytic prerequisites** (deferred). Schmid, Cattani–Kaplan–Schmid and Kashiwara are cited suppliers, including the R-uniformity needed by the repaired Lemma 4.5 (E2).
+- **G4, Rough-polynomial curve test** (resolved). Resolved by the earlier continuation (E2).
+- **G5, Reducedness and local-scope repairs** (recorded). E1 and E3; the shrunken-chart form is the corrected statement.
+- **G6, Definable algebraization and Hodge locus inputs** (recorded). E29 records the singular-source gap in Theorem 4.12; E28 now affects nothing. Peterzil–Starchenko and the o-minimality inputs are cited suppliers.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## Bakker–Klingler–Tsimerman: tame arithmetic quotients and Hodge loci
 
 Partial continuation by Codex, session `codex-a71f92`, 23 September 2026. Refs #1422.
 Builds on Codex `codex-c83e7a` (PR #1670) and Claude Code `cc-fb70e5` (PR #1840).
@@ -7,7 +87,7 @@ The extraction now contains **124 items: 12 library imports, 12 existing plans a
 
 This continuation supplies explicit proofs for fixed-basis off-diagonal transfer, finite-permutation reducedness, properness of a finite Siegel relation, and buffered analytic transition graphs. It also obtains the published paper and expands the unreviewed source-issue ledger from seven to 29 entries. The extraction remains partial: original reduction and Hodge-analytic inputs, finite chart refinement, finite boundary/level adapters and definable algebraization are not closed.
 
-## Sources and attribution
+### Sources and attribution
 
 The complete [published JAMS paper](https://par.nsf.gov/servlets/purl/10200187), printed pages 917–939, was read, including the references. Published page images 921, 923, 926–928, 930–933 and 935 were inspected for symbols and formulas. The [author copy](https://benjamin-bakker.github.io/DefArith.pdf) was compared at the main statements and recorded findings. This resolves the missing-published-copy gate G1; it is not a claim of exhaustive glyph-by-glyph editorial collation.
 
@@ -15,7 +95,7 @@ The entire four-page [official erratum](https://benjamin-bakker.github.io/DefAri
 
 The earlier contributors' source work is preserved and attributed, not represented as a new full reread: the complete author paper and Orr–Schnell correction; BGST author pages 13–15, including Proposition 28.1's proof; Schmid printed pages 230, 232–233, 244–245; selected Kashiwara pages 863–866 and 870–875, with remaining OCR/image gaps; and selected arXiv v2 passages. Exact URLs, SHA-256 hashes, dates and read extents are in `provenance`. A bibliography entry is not a completed prerequisite extraction.
 
-## Corrected scope and existing owners
+### Corrected scope and existing owners
 
 A general arithmetic quotient Γ\G/M retains a chosen maximal compact K containing M. Siegel comparisons use the same K. A morphism [h′] ↦ [φ(h′)g] has rational φ, compatible levels and stabilizers, φ(K′) contained in gKg⁻¹, and the target Cartan involution preserving the image Lie algebra. Definability is a theorem, not part of the definition. General fixed-quotient K-independence and unrestricted morphism functoriality are not asserted.
 
@@ -38,7 +118,7 @@ The full upstream HodgeStructures and UniversalCovers documents were read, with 
 
 The proposed IDs remain `ArithmeticQuotientDefinability` and `DegeneratingHodgeStructures`. Current roadmap/packet/decomposition/reserved-ID screening found no competing accepted roadmap with these IDs. Benoist and Gao–Habegger paper briefs already reference the shared Hodge successor and remain coordinated consumers/additional tranches, not new generic owners. Upstream LieGroups Layer 9 supplies Cartan/Iwasawa decompositions. Existing Hodge carriers, the single mixed-Hodge Deligne decomposition and period-domain points are imported; none is mistaken for simultaneous Kashiwara splittings or a period-domain manifold.
 
-## Quantitative basis-transfer proof
+### Quantitative basis-transfer proof
 
 Let B be the Gram matrix in a fixed reduced basis e′, d_k=B_kk, and suppose ∏d_k≤D det B. Cholesky gives Hadamard's inequality for B and each principal minor. The diagonal cofactor formula then gives
 
@@ -58,7 +138,7 @@ Thus the explicit transfer bound is
 
 This unordered bound does not need determinant control in the new basis. If additionally ∏b(e_i,e_i)≤C det(b in e), sort the diagonal lengths and choose C″ strictly larger than 1, C and all the displayed constants. All three strict reducedness inequalities follow, including ties. Only finitely many permutations occur. This resolves the quantitative portion of G5 and preserves E3's reversed-basis counterexample.
 
-## Other proof repairs and their limits
+### Other proof repairs and their limits
 
 For finitely many closed semialgebraic pieces C_i with finite overlap witnesses, the orbit relation is a finite union of graphs of group elements restricted to closed sets C_i∩γ⁻¹C_j. Each coordinate projection over a compact set has compact inverse image. The relation is therefore closed, semialgebraic and proper. This proves the finite-relation step; it does **not** turn entire Siegel images into injective coordinate charts. The finite local refinement remains G2.
 
@@ -68,7 +148,7 @@ The earlier widened-sector repair of Lemma 4.5 remains. Its finite difference mu
 
 Preserve nonzero vectors in two-sided monomial comparisons, the centered-weight shift, the library's conjugate-first metric convention, and the parity B(v,u)=(−1)^k conjugate(B(u,v)). Positive Hodge norms are not the possibly indefinite/skew-Hermitian polarization pairing. A faithful adjoint/central-cover representation adapter is still required. The exceptional Hodge locus is a countable union of individually algebraic proper special pullbacks, not an asserted definable whole union.
 
-## Source findings awaiting independent review
+### Source findings awaiting independent review
 
 All locators below are printed JAMS pages. Detailed checks, corrections and prior-correction searches are in `sourceIssues`. E1–E7 keep their stable IDs; E5–E7 are already corrected in the official erratum. No entry has an independent-review verdict.
 
@@ -92,7 +172,7 @@ For E8 take W=Sym₂(R)⊕R, v=(I,1), G=SL₂(R), M=SO₂(R). Its line stabilize
 
 For E19 take PSL₂×PSL₂, projection to the first factor, product arithmetic level and diagonal SO₂ stabilizer. The original quotient has dimension 5; the displayed product using stabilizer intersections has dimension 6. Finite-index arithmetic changes cannot remove that discrepancy. Neither example refutes the corrected main quotient theorem.
 
-## Validation and resumption
+### Validation and resumption
 
 `check_paper.py` passes. Exact rational diagnostics cover 300 positive-definite matrices and fixed-basis transfers in ranks 1–4, empty minors, seven signed finite differences, seven inverse-power Vandermonde matrices, and the SL₂ and odd-weight examples. The custom structural audit checks the 124-node acyclic graph, API/test coverage, all 100 missing-item routes and absence of self-assigned review verdicts. These are diagnostics and proposed tests, not formal proofs.
 
