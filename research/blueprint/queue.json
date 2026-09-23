@@ -1590,8 +1590,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-NGODAC-21.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1111"
+   "state": "external",
+   "note": "claimed on GitHub issue #1111"
   },
   {
    "id": "REV-PAPER-NGODAC-21",
@@ -3717,8 +3717,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BRESCIANI-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1233"
+   "state": "pending",
+   "note": "released on GitHub issue #1233"
   },
   {
    "id": "REV-PAPER-BRESCIANI-24",
