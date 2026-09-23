@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-BENOIST-WITTENBERG-20",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "SchemeAndStackFoundations at SF.2 (source, 21 items) — Accept. SF.2 exists, and the 21 items are the scheme-theoretic foundations the paper uses rather than proves. Several routes into one roadmap, split by stage, is the established convention in this corpus rather than a defect — 55 papers do it — so the pairing with the SF.5 route below is regular."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "SchemeAndStackFoundations at SF.5 (source, 5 items) — Accept. SF.5 exists and owns a different layer from SF.2, which is exactly why the split into two routes is the right shape: one route per stage-group keeps the import record legible."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "MotivesAndAlgebraicCycles at MC.0 (source, 4 items) — Accept. MC.0 exists and owns the basic cycle-theoretic vocabulary the four items take as given."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "MotivesAndAlgebraicCycles at MC.2 (source, 28 items) — Accept. MC.2 exists and owns Chow groups and cycle class maps, the subject of these 28 items."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "MotivesAndAlgebraicCycles at MC.7 (source, 67 items) — Accept, and it is the largest route for the right reason: MC.7 owns the integral Hodge conjecture circle of ideas over C, which is what this paper transposes to the real setting. Routing the complex-side inputs here rather than into the new Part IIs keeps the paper's own contribution — the real, equivariant statements — separate from what it imports."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "EquivariantTopologyRealVarieties (part-ii, 49 items) — Accept, and it is a joined proposal, not a second owner. The parent tauceti:TauCetiRoadmap/AlgebraicTopology exists and is titled 'Algebraic topology of spaces and manifolds'; the Part II title reproduces it exactly before the colon — 'Algebraic topology of spaces and manifolds, Part II: involutions and real-locus cohomology' — as PROTOCOL section 15 requires. PAPER-BENOIST-19 (The period-index problem for real surfaces) proposes the same id with 29 items under the same parent, and this brief says so in terms: 'Coalesce this proposal with the same ID from PAPER-BENOIST-19; it is not a second owner.' The subject — C2-equivariant real-locus theory and Steenrod squares — begins strictly after the parent's eight upstream stages, which stop at ordinary local-coefficient cohomology, products, finite-cover descent and manifold duality."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "QuadraticFormsRealFunctionFields (part-ii, 3 items) — Accept. The parent tauceti:TauCetiRoadmap/QuadraticFormInvariants exists, titled 'Quadratic forms and cohomological invariants', and the Part II title again reproduces it before the colon. The id is shared with PAPER-BENOIST-19 (14 items) and PAPER-JANNSEN-16 (2 items), and the brief explicitly avoids both the upstream Witt-ring material and 'the higher-Pfister owner proposed in PAPER-DITTMANN-POP-23'. Three items is a small route, but it is reuse of an existing proposal for the statements this paper actually needs, which is the behaviour the protocol wants."
+    }
+  ],
+  "notes": "Independent review of issue #1296's extraction; the paper job carries /claim comments from codex-a71f92, cc-7b31c4, codex-c83e7a and cc-442dc5, and cc-fb70e5 is not among them. All seven routes accepted and all ten findings confirmed; nothing corrected in place and nothing added. Provenance: the recorded sha256 of the author-hosted published PDF matches byte for byte, and the paper is 77 pages — read from the linearization dictionary's /N, since the page tree here sits in a compressed object stream and a /Count scan returns nothing. **The version discipline is what makes this extraction checkable, and it deserves recording.** The extraction states that it read the author-hosted published version 'with Inventiones pagination and DOI; not the 67-page revised preprint'. Simulating the arXiv v3 numbering instead contradicts six of the findings' locators — Theorem 3.16 comes out a Question, Lemma 2.14 a Proposition, Example 4.4 a Lemma, Lemma 3.4 a Remarks, and Remarks 5.10 does not exist at all, since section 5 of the preprint ends at 5.9. Every one of those locators is correct in the published text, which I checked directly. A reviewer who compared the preprint against the findings would have filed six false accusations. Coverage: all 193 items carry a numbered locator. A precise statement total cannot be extracted reliably from this PDF's text layer — it glues page and equation numbers onto statement names, so that 'Lemma 1.5' followed by equation (1.43) reads as 'Lemma 1.43' — but of the statement numbers that do resolve, the only genuinely uncited one is Remark 2.7. Library evidence is recorded in libraryAudit.actualDeclarationsRead rather than in baseline.declarations, which is a thinner record: names, with a module and line range for only one item. It is nonetheless accurate — all twelve declarations exist, ten in Mathlib and two in Tau Ceti at the pinned f790474, and the single detailed citation is exact, Complex.normSq_eq_conj_mul_self and normSq_nonneg at Mathlib/Basic/Complex/Basic.lean lines 544 and 554, inside the recorded range 544-555."
+}
