@@ -1657,7 +1657,7 @@
    "locator": "Published Lemma9.4.4 pp.517–518; author version targeted collation; journal p.517 image checked",
    "printed": "length C(Υ) = within(Υ)+within(Υc)−(1/2)length(C/D_B/A C)",
    "correction": "Reverse the sign: length equals the cross-pair valuation sum, hence half-discriminant minus the two within-subset sums. First split by embeddings of B0. In the proof n1(Υ)=cross+within(Υc), and C⊗_B A must read C⊗_A B.",
-   "reason": "Take A=Z3, B=C=Z3[π], π²=3, Υ={π↦π}. K(Υ)=(t−π), K(Υc)=(t+π), so the quotient is C/(2π), length1. Both within sums are0 and v_C(discriminant12)=2, giving the printed value−1. A negative module length is impossible. For a nontrivial unramified part, distinct embeddings can agree on π; only same-B0 embedding pairs belong in the ramified formula.",
+   "reason": "Take A=Z3, B=C=Z3[π], π²=3, Υ={π↦π}. K(Υ)=(t−π), K(Υc)=(t+π), so the quotient is C/(2π), length1. Both within sums are0 and v_C(discriminant12)=2, giving the printed value−1. A negative module length is impossible. For a nontrivial unramified part, distinct embeddings can agree on π; only same-B0 embedding pairs belong in the ramified formula. (cc-442dc5) Rechecked: with X the sum of v_C(τ(π_B) − σ(π_B)) over τ ∈ Υ and σ ∈ Υ^c, the cokernel of K(Υ) → ∏_{Υ^c} C has length X plus half the Υ^c-internal sum, so length C(Υ) = X; the printed right side is −X. Proposition 9.4.1 is unaffected: the final values in (9.4.12) and (9.4.13) are the positive ones the corrected sign gives.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -1665,7 +1665,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1680,7 +1681,7 @@
    "locator": "Published Proposition9.4.5 p.519 and equation(9.4.13) p.522; author version same sign; p.519 image checked",
    "printed": "length C(M,Υ) = −(e_P/2)(μ_p(a_Υ)+μ_p(a_Υc))",
    "correction": "Use +(e_P/2) with the positively defined Artin-conductor functional; the corresponding minus in(9.4.13) also changes. Recheck the local total-reflex cancellation before accepting9.4.1.",
-   "reason": "For K=Q3(√3), each singleton indicator is(1+χ)/2 on its quadratic Galois quotient. Its conductor functional is1/2, e_P=2, so the printed result is−1, whereas E1 computes length1. Formula(9.4.12) already has positive length and supports the intended correction.",
+   "reason": "For K=Q3(√3), each singleton indicator is(1+χ)/2 on its quadratic Galois quotient. Its conductor functional is1/2, e_P=2, so the printed result is−1, whereas E1 computes length1. Formula(9.4.12) already has positive length and supports the intended correction. (cc-442dc5) Rechecked on K = Q_3(√3), Υ a singleton: a_Υ = a_{Υ^c} = (1+χ)/2, μ_3 = 1/2 each, e_P = 2, so the printed value is −1 while the length is 1. The intermediate '−e_P μ_p' in (9.4.13) has the same sign slip; its final value e(P/E_q)·ord_q(d_{E/Q}) is right.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -1688,7 +1689,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1711,7 +1713,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1726,15 +1729,16 @@
    "locator": "Published §9.4 p.514 definition of the metric on ω0; journal image checked",
    "printed": "||z||²_0=−[z,bar z]_0",
    "correction": "For the positive standard space V0=End_conj(E), use its positive Hermitian form (or explicitly change the form's sign before applying the orthogonal convention). Recompute the determinant and orthogonal metric adapters, rather than changing one sign without proof.",
-   "reason": "Writing f_a(x)=a c(x), its square is a c(a), so Q0=Tr_F/Q(a c(a)) is positive definite. Thus [z,bar z]_0>0 for any nonzero complexified vector, and the printed negative value is not a squared norm. The orthogonal V has a negative real plane and is different.",
-   "affects": "a stated result",
+   "reason": "Writing f_a(x)=a c(x), its square is a c(a), so Q0=Tr_F/Q(a c(a)) is positive definite. Thus [z,bar z]_0>0 for any nonzero complexified vector, and the printed negative value is not a squared norm. The orthogonal V has a negative real plane and is different. (cc-442dc5) Reclassified to affect nothing: −[z, z̄]_0 is negative on the positive definite V0, so the only reading that gives a metric is ||z||_0² = [z, z̄]_0. That is the reading the paper uses: in the proof of Proposition 9.5.1, (9.5.2) carries the metric of ω (from V = (E, Tr ξ Nm), ξ < 0 at ι0) to |ι(ξ)| times that of ω0.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1757,7 +1761,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1772,7 +1777,7 @@
    "locator": "Published equation(9.5.3), p.523",
    "printed": "Λ_p=ξ d_Fp/Qp^−1 L0,p",
    "correction": "Do not use this equality of full lattices. Compute the actual maximal OE,p-stable lattice from ξ and its norm valuation, then prove the required filtered Hodge-line comparison directly; a complete replacement proof has not been established in this checkpoint.",
-   "reason": "Take F_p=Q_p and unramified quadratic E_q/F_p with ξ=p². Then d_F=1 and L0,p=OE,q. For Q=p²Nm a maximal OE-stable integral lattice is p^−1OE,q, whereas the printed expression is p²OE,q. The latter is strictly smaller and is not maximal. Weak approximation allows this local ξ valuation with the required global signs.",
+   "reason": "Take F_p=Q_p and unramified quadratic E_q/F_p with ξ=p². Then d_F=1 and L0,p=OE,q. For Q=p²Nm a maximal OE-stable integral lattice is p^−1OE,q, whereas the printed expression is p²OE,q. The latter is strictly smaller and is not maximal. Weak approximation allows this local ξ valuation with the required global signs. (cc-442dc5) Degree check in the unramified case: a self-dual O_E-stable lattice in (E_p, ξ Nm) is t·L0,p with t t̄ generating (ξ d_F)^{-1}; with this lattice the finite and archimedean ξ-terms cancel by the product formula and the degree difference is log|D_F| per point, as (9.5.1) asserts. The ramified case is not rechecked.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -1780,7 +1785,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1795,15 +1801,16 @@
    "locator": "Published equation(9.5.1), p.523",
    "printed": "[omegahat:Y]−deg_hat_Y(omegahat0)−log|D_F|≈_L0",
    "correction": "Divide the difference of arithmetic degrees by deg_C(Y), or multiply log|D_F| by that degree. Keep the normalization compatible with9.4.2 and8.3.4.",
-   "reason": "A finite étale level cover multiplies both degree terms but not log|D_F|. The surrounding formulas are normalized by deg_C(Y); the printed equation is not invariant under level change.",
-   "affects": "the proof",
+   "reason": "A finite étale level cover multiplies both degree terms but not log|D_F|. The surrounding formulas are normalized by deg_C(Y); the printed equation is not invariant under level change. (cc-442dc5) Reclassified to affect nothing: the surrounding formulas (Theorems 8.3.4 and 9.4.2, Proposition 9.5.1) are normalized by deg_C(Y), and (9.5.1) is used only in that normalized form.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1818,15 +1825,16 @@
    "locator": "Published §4.2 p.435, Kuga–Satake dimension sentence",
    "printed": "relative dimension 2^(n+2)",
    "correction": "For the full Clifford representation H=C(V), use relative dimension2^(n+1). Its degree-one homological realization has rank2^(n+2).",
-   "reason": "dim_Q V=n+2, so dim_Q C(V)=2^(n+2), whereas H_1 of an abelian variety has rank twice its dimension. This corrects the numerical dimension, not the chosen full-Clifford construction.",
-   "affects": "a stated result",
+   "reason": "dim_Q V=n+2, so dim_Q C(V)=2^(n+2), whereas H_1 of an abelian variety has rank twice its dimension. This corrects the numerical dimension, not the chosen full-Clifford construction. (cc-442dc5) Reclassified to affect nothing: dim_Q C(V) = 2^{n+2} is the rank of H_1, so the abelian scheme has dimension 2^{n+1}; the index of the Siegel stack is only a label and nothing downstream uses the number.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1849,7 +1857,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1872,7 +1881,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1895,7 +1905,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1918,7 +1929,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1933,15 +1945,16 @@
    "locator": "Published §4.3 opening and Propositions4.3.7/4.5.4 scalar-norm phrasing",
    "printed": "L_(p)→H_(p); Q:V(A_S)→Z",
    "correction": "The special representation embeds into End_C(H), not H. State the scalar quadratic form over connected S or as a locally constant integer on components.",
-   "reason": "Special tensors are endomorphisms of the Clifford representation. On a disjoint union one may choose a zero endomorphism on one component and a nonzero special one on another, so a single globally constant integer need not exist.",
-   "affects": "a stated result",
+   "reason": "Special tensors are endomorphisms of the Clifford representation. On a disjoint union one may choose a zero endomorphism on one component and a nonzero special one on another, so a single globally constant integer need not exist. (cc-442dc5) Reclassified to affect nothing: every application is to a connected base or reads Q(x) = m as x∘x = m·id, which makes sense on any S (Definition 4.5.6); End_C(H) for H in §4.3 is the evident intent.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1964,7 +1977,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -1987,7 +2001,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2010,7 +2025,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2033,7 +2049,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2045,18 +2062,19 @@
   {
    "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E18",
    "kind": "misprint",
-   "locator": "Published §7.5 definition of m(p); Lemma7.5.3 congruence",
+   "locator": "Published §7.5 definition of m(p) (p.491); proof of Lemma 7.5.3, last sentence (p.494, image checked)",
    "printed": "m(p)=ord_q(d_F/Qp); x_cris≡u",
    "correction": "Use m(p)=ord_p(d_F/Qp) as in7.1 and the specified coset μ in the congruence.",
-   "reason": "At a ramified quadratic prime ord_q restricted to F is2ord_p, so the change would double m. The congruence is meant to encode μ, not an unrelated u.",
-   "affects": "the proof",
+   "reason": "At a ramified quadratic prime ord_q restricted to F is2ord_p, so the change would double m. The congruence is meant to encode μ, not an unrelated u. (cc-442dc5) Reclassified to affect nothing: §7.5 says 'As in Section 7.1', where m(p) is the p-adic valuation of d_{F_p/Q_p}. The stray u is in the last sentence of the proof of Lemma 7.5.3; the lemma itself prints η(1⊗μ).",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2079,7 +2097,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2102,7 +2121,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2125,7 +2145,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2140,15 +2161,16 @@
    "locator": "Published §8.3 vertical error support and Theorem8.3.4 denominator",
    "printed": "p²∤D_L; division by c_f(0,0)",
    "correction": "The possible odd-prime error support is p²|D_L#, with sharp lattice/dimension indices throughout; require c_f(0,0)≠0 for the divided formula.",
-   "reason": "Theorem4.8.1 makes the error vanish at odd primes with p²∤D_L#. The division is undefined for zero constant term, which Hypothesis8.3.1 alone does not exclude.",
-   "affects": "a stated result",
+   "reason": "Theorem4.8.1 makes the error vanish at odd primes with p²∤D_L#. The division is undefined for zero constant term, which Hypothesis8.3.1 alone does not exclude. (cc-442dc5) Reclassified to affect nothing: Theorem 4.8.1, which is what is used, gives E_p(f) = 0 for odd p with p²∤D_L, so the support sentence after (8.3.1) has a dropped negation. Theorem 8.3.4 is applied only to f with c_f(0,0) ≠ 0 (proof of Theorem 9.5.5, p.526).",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2163,15 +2185,16 @@
    "locator": "Published §9.4 p.518 class-function space preceding Proposition9.4.5",
    "printed": "Continuous class functions have a basis of irreducible finite-dimensional characters",
    "correction": "Restrict to locally constant class functions (finite-quotient functions) for the algebraic character expansion and Artin-conductor linear functional used here.",
-   "reason": "A general continuous class function on a profinite group need not factor through a finite quotient or be a finite character sum. The functions a_(K,Υ) used in the proof are locally constant, so the required application lies in the corrected space.",
-   "affects": "a stated result",
+   "reason": "A general continuous class function on a profinite group need not factor through a finite quotient or be a finite character sum. The functions a_(K,Υ) used in the proof are locally constant, so the required application lies in the corrected space. (cc-442dc5) Reclassified to affect nothing: μ_p is only applied to the locally constant functions a_(K,Υ), and on locally constant class functions the Artin characters are a basis.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2186,15 +2209,16 @@
    "locator": "Published equation(9.5.5), p.526",
    "printed": "Σ_p b_E(p)log p=[Ehat#(f):Y]/(4c_f(0,0)deg_C(Y))",
    "correction": "Retain ≈_L, or assert equality only of coefficients at primes not dividing D_bad,L. The proof needs only the chosen good prime's coefficient.",
-   "reason": "Proposition9.5.1 provides a congruence modulo bad-prime logarithms. Replacing it by a global equality erases an uncontrolled term; Q-linear independence permits the required coefficientwise argument.",
-   "affects": "the proof",
+   "reason": "Proposition9.5.1 provides a congruence modulo bad-prime logarithms. Replacing it by a global equality erases an uncontrolled term; Q-linear independence permits the required coefficientwise argument. (cc-442dc5) Reclassified to affect nothing: the proof of Theorem 9.5.5 goes on to show, for each prime p separately, that E(f) misses M_{F_p} for a suitable L and f, which uses only the ≈_L form of Proposition 9.5.1.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2217,7 +2241,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2240,7 +2265,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -2263,7 +2289,8 @@
     "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
     "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
     "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+    "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
    ],
    "owner": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "file": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
@@ -20606,6 +20633,258 @@
    "owner": "PAPER-CARAIANI-SCHOLZE-17",
    "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-17.result.json",
    "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of compact unitary Shimura varieties\", Annals of Mathematics 186 (2017), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E1",
+   "kind": "misprint",
+   "locator": "§2.1, Proposition 2.1.2, p. 12 (arXiv v2)",
+   "printed": "The group G satisfies the Hasse principle, i.e. the map H^1(Q, G) → ∏_v H^1(Q_v, G) is injective, where v runs over all places of F.",
+   "correction": "where v runs over all places of Q",
+   "reason": "G is a group over Q and the product is over the completions Q_v; the equivalent formulation in the same statement also speaks of 'any local field Q_v of Q'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E2",
+   "kind": "misprint",
+   "locator": "§2.5.4, the order on cusp labels, p. 26 (arXiv v2)",
+   "printed": "Let us write Z ≤ Z′ if Z = (Z_N, X), Z′ = (Z_{N′}, X′) are cusp labels at level K that admit lifts (Z, X), (Z′, X′) such that Z_{−2} ⊂ Z′_{−2} and X^∨ ⊂ (X′)^∨. In that case, fixing such a lift, the injection X^∨ → (X′)^∨ induces a surjection X′ → X and then inclusions M_{Z′} ⊂ M_Z and P_{Z′} ⊂ P_Z.",
+   "correction": "such that Z′_{−2} ⊂ Z_{−2} and (X′)^∨ ⊂ X^∨. In that case, fixing such a lift, the injection (X′)^∨ → X^∨ induces a surjection X → X′ and then inclusions M_{Z′} ⊂ M_Z and P_{Z′} ⊂ P_Z",
+   "reason": "Theorem 2.5.8(2) says S_Z lies in the closure of S_{Z′} iff Z ≤ Z′, so the deeper label Z must have the larger torus part; for n = 1 the cusps (rk X = 1) lie in the closure of the open stratum (X = 0), and the printed condition would require X^∨ ⊂ 0. The sentence is also inconsistent with itself: hermitian forms pulled back along X′ → X give M_Z ⊂ M_{Z′}, not the stated M_{Z′} ⊂ M_Z, which is the inclusion used for compatible cone decompositions ('for each σ ∈ Σ_{Z′} we also have σ ∈ Σ_Z').",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E3",
+   "kind": "misprint",
+   "locator": "§2.5.7, Theorem 2.5.9(4), p. 28 (arXiv v2)",
+   "printed": "S^tor_{K,Σ,(Z,[σ])} lies in the closure of S^tor_{K,Σ,(Z′,[σ′])} if and only if Z ≤ Z′ and there are representatives σ, σ′ such that via the inclusion M_Z ⊆ M_{Z′}, σ′ is a face of σ.",
+   "correction": "via the inclusion M_{Z′} ⊆ M_Z",
+   "reason": "σ ∈ Σ_Z lies in P_Z ⊂ M_Z and σ′ ∈ Σ_{Z′} in P_{Z′} ⊂ M_{Z′}, so σ′ can be a face of σ only once M_{Z′} is regarded inside M_Z. For Z ≤ Z′ p. 26 states the inclusion M_{Z′} ⊂ M_Z and defines compatible cone decompositions through it ('for each σ ∈ Σ_{Z′} we also have σ ∈ Σ_Z').",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E4",
+   "kind": "misprint",
+   "locator": "§5.1, the Hecke operators T_{i,v}, p. 64 (arXiv v2)",
+   "printed": "G(Q_q) = GL_{2n}(F_v) × ∏_{w|𝔮,w≠v} GL_{2n}(F_w) × Q_q^×. For any i = 1, …, 2n, we define T_{i,v} ∈ T^S as the Hecke operator corresponding to the G(Z_q)-double coset GL_{2n}(O_{F_v})diag(ϖ_v, …, ϖ_v, 1, …, 1)GL_{2n}(O_{F_v}) × ∏_{w|𝔭,w≠v} GL_{2n}(O_{F_w}) × Z_q^×",
+   "correction": "∏_{w|𝔮,w≠v} GL_{2n}(O_{F_w})",
+   "reason": "The operator lives at the prime q (and the prime 𝔮 | q of F_0 fixed by v) named in the display just above; §5.1 reserves p for the auxiliary prime of the Igusa varieties, which is excluded from the Hecke algebra. The introduction (p. 4) states the same definition with the Hecke prime called p throughout, where ∏_{w|𝔭} is correct.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E5",
+   "kind": "misprint",
+   "locator": "§5.4, proof of Lemma 5.4.3, p. 71 (arXiv v2)",
+   "printed": "Every element of D_{M,l}(Q_p) is the norm of some element in 𝔇_{M,l}(Q_p), where 𝔇_{M,l} := Res_{F_0/Q_p}(D_{M,l} ×_{Q_p} F_0).",
+   "correction": "Every element of D_{M,l}(Q_v) is the norm of some element in 𝔇_{M,l}(Q_v), where 𝔇_{M,l} := Res_{F_{0,w}/Q_v}(D_{M,l} ×_{Q_v} F_{0,w})",
+   "reason": "Lemma 5.4.3 concerns semisimple elements of G_n⃗(Q_v), and at this point of its proof v is inert or ramified in F_0 with w the place of F_0 above it; the auxiliary prime p splits in F_0 (§5.1), and F_0 is not an extension of Q_p.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E6",
+   "kind": "misprint",
+   "locator": "§5.5, the group 𝒢^+_n⃗, p. 72 (arXiv v2); the same formula is in [CS17] (Ann. of Math. 186 (2017)), §5.3, p. 736",
+   "printed": "θ(λ, g)θ^{−1} = (λ^c, λ^c g^♯) and g^♯ = Φ_n⃗ ᵗg^c Φ_n⃗^{−1}.",
+   "correction": "g^♯ = Φ_n⃗ ᵗg^{−c} Φ_n⃗^{−1}, i.e. Φ_n⃗ (ᵗg^c)^{−1} Φ_n⃗^{−1}",
+   "reason": "As printed g ↦ g^♯ reverses products, so θ would not act by a group automorphism; the fixed points of θ must be G_n⃗, defined on p. 67 by gΦ_n⃗ ᵗg^c = λΦ_n⃗, i.e. g = λΦ_n⃗ ᵗg^{−c}Φ_n⃗^{−1}, and the action of Gal(F_0/Q) on the L-group on p. 67 uses ᵗg^{−1}. PAPER-CARAIANI-SCHOLZE-17 (merged) did not record the same slip in the compact paper.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E7",
+   "kind": "misprint",
+   "locator": "§5.6, proof of Lemma 5.6.2, p. 75 (arXiv v2)",
+   "printed": "we simplify the spectral side I^{𝒢_n⃗θ}_spec(f^n⃗θ) as in Section of [Shi11] and Section 5.3 of [CS17].",
+   "correction": "as in Section ⟨n⟩ of [Shi11], with the section number supplied",
+   "reason": "The number after 'Section' is lost. [Shi11] was not read here, so the missing number is not supplied; the passage cited alongside, [CS17, §5.3], simplifies the same spectral side 'with the following notation from [Shi11]' without a section reference.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E8",
+   "kind": "misprint",
+   "locator": "§5.7, proof of Theorem 5.7.1, p. 77 (arXiv v2)",
+   "printed": "This is proved just as Theorem 5.5.3 of [CS17].",
+   "correction": "Theorem 5.5.4 of [CS17]",
+   "reason": "The bibliography cites [CS17] as Ann. of Math. 186 (2017), where the Galois representations r_i : Gal(F̄/F) → GL_{n_i}(Q̄_ℓ) are Theorem 5.5.4 and 5.5.3 is a remark; Theorem 5.5.3 is the numbering of arXiv 1511.02418v1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E9",
+   "kind": "misprint",
+   "locator": "§6.1, before Theorem 6.1.1, p. 80 (arXiv v2)",
+   "printed": "This induces a parabolic subgroup P_b(Q_p) ⊂ J_b(Q_p) of the self-quasi-isogenies preserving this filtration, and a p-divisible group X_P = Z_{b,−2}/Z_{b,−1} with G_{2(n−r)}-structure",
+   "correction": "X_P = Z_{b,−1}/Z_{b,−2}",
+   "reason": "The filtration is Z_{b,−2} ⊂ Z_{b,−1} ⊂ X_b (displayed just above), so Z_{b,−2}/Z_{b,−1} is not defined; the p-divisible group with G_{2(n−r)}-structure is the middle graded piece Gr_{−1} = Z_{b,−1}/Z_{b,−2}, which carries the induced polarization, as B[p^∞] ≅ Gr_{−1} in Proposition 3.2.11.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E10",
+   "kind": "misprint",
+   "locator": "§6.2.1, p. 81 (arXiv v2)",
+   "printed": "Both maps will by construction be P_b(A^p_f) × G(A^p_f)-equivariant, where the action on the left-hand side will factor over J_{b_P}(Q_p) × G_{2(n−r)}(A^p_f) respectively GL_r(A_{F,f})",
+   "correction": "P_b(Q_p) × P(A^p_f)-equivariant",
+   "reason": "P_b is the parabolic of J_b over Q_p, and the preceding paragraph reduces Theorem 6.1.1 to 'a statement about P_b(Q_p) × P(A^p_f)-representations'; the actions factor through the Levi quotients of P_b(Q_p) and P(A^p_f), and §6.2.3 ends with 'natural P_b(Q_p) × P(A^p_f)-actions'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E11",
+   "kind": "misprint",
+   "locator": "§6.4, before Lemma 6.4.2, p. 85, and in the proof of Theorem 6.4.1, p. 87 (arXiv v2)",
+   "printed": "Let M = Res_{F/Q} GL_r × G_{n−r,Q} be the Levi and N be the unipotent radical of P […] Using the decomposition M = Res_{F/Q} GL_r × G_{n−r,Q}, we find that there are maximal ideals m_1 of the Hecke algebra for Res_{O_F/Z} GL_r and m_2 of the Hecke algebra for G_{2(n−r)}",
+   "correction": "M = Res_{F/Q} GL_r × G_{2(n−r)}",
+   "reason": "The Levi of P_r is Res GL_r times the similitude group of the 2(n−r)-dimensional hermitian space Gr_{−1}, which §6.1 (p. 79) and the same sentence on p. 87 call G_{2(n−r)} (K^S_M = K^{S,GL_r} × K^{S,G_{2(n−r)}}); G_{n−r} would be a group of rank n − r.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24/E12",
+   "kind": "misprint",
+   "locator": "§6.4, end of the proof of Theorem 6.4.1, p. 87 (arXiv v2)",
+   "printed": "Possibly changing b, we can then ensure, using Proposition 2.8.4 and Corollary 2.8.2, that these cohomology groups are concentrated in one degree.",
+   "correction": "using Lemma 2.8.4 and Proposition 2.8.2",
+   "reason": "On pp. 34–35 the upper bound for H_{c−∂} (from affineness) is Proposition 2.8.2 and the lower bound at a minimal stratum is Lemma 2.8.4; there is no Corollary 2.8.2 or Proposition 2.8.4.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2024.199.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2024.199.2.1, 23 September 2026)",
+    "arXiv 1909.01898: v1 (4 September 2019) and v2 (22 November 2023, 'accepted version'); the recorded passages were read in v2",
+    "The Annals article page (Ann. of Math. 199 (2024), no. 2, 483–590), 23 September 2026: no erratum or corrigendum listed"
+   ],
+   "owner": "PAPER-CARAIANI-SCHOLZE-24",
+   "file": "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of non-compact unitary Shimura varieties\", Annals of Mathematics 199 (2024), no. 2",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
