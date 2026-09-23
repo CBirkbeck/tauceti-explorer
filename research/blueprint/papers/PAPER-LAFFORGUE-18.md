@@ -75,3 +75,29 @@ Varshavsky (the moduli of F-bundles, and the Lefschetz–Verdier trace formula);
 - The existing extractions that route into the same roadmap were read first, so that this one builds on them rather than duplicating: `PAPER-FENG-24` (source of GS.1/GS.2/GS.4/GS.5, and the Part II `ShtukaTateCohomologyAndGlobalBaseChange`), `PAPER-CIUBOTARU-HARRIS-26` (the Part II `GlobalShtukasPartIIRamanujanArthur`, whose design job should cross-reference Conjecture 12.7 rather than restate it), `PAPER-YUN-ZHANG-17` and `PAPER-FENG-YUN-ZHANG-24` (the Part II `ShtukaSpecialCyclesAndHigherSiegelWeil`), `PAPER-SCHIFFMANN-16`, `PAPER-ZHU-17`, `PAPER-SHENDE-TSIMERMAN-17` and `PAPER-KISIN-ZHOU-25`.
 - The four chapters' readings were produced with the help of four subagents working from the same PDF, and every misprint they proposed was re-verified here — in the text layer for letter-level claims and on rendered page images for the superscript-dependent ones — before being recorded; the ones that could not be confirmed were dropped.
 - No Lean was written, as none is a deliverable of this job.
+
+## Review (REV-PAPER-LAFFORGUE-18, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1433](https://github.com/CBirkbeck/tauceti-explorer/issues/1433). **Verdict: accept.**
+No item, status, route or locator changed.
+
+- **The "published version unreachable" claim was checked, not assumed** — the same claim had
+  proved false in the paper reviewed immediately before. Here it holds: Unpaywall reports the
+  DOI as bronze OA, but the AMS PDF URL returns 403 to curl and an HTML bot interstitial to a
+  browser user-agent, and the jina proxy returns the issue listing. A
+  `publishedVersionCheck` record was added so the next worker need not repeat it.
+- **All 12 mistakes confirmed**, four decisively: E3 (p. 86 prints `pr₁*` twice where the line
+  above names `pr₁` and `pr₂`); E6 (p. 154 cites (12.1), which is an inclusion with no sum —
+  the decomposition indexed by `ker¹(F,G)` is (12.2)); E8 (`Q̄_ℓ` on the left, `E` on the
+  right of one equality); E12 (`éventuellemement` and `mais mais` each occur exactly once in
+  184 pages). For the other eight the verdict states what rests on the extraction.
+- **Items and routes:** no library items; 41 planned resolving; 10 missing routed exactly
+  once. The unusual planned/missing split is correct — this paper *is* the named source of
+  `GlobalShtukasAndFunctionFieldLanglands`, stage by stage.
+- **Cross-paper check:** route 3 routes the *characteristic-zero* invariant theory to
+  `LanglandsParameterStacks` and asks that LP2 and GS.5 both import it, while
+  PAPER-BOCKLE-HARRIS-KHARE-ETAL-19 routes the *integral* form to the same stage and says so.
+  The two are mutually consistent and cross-referencing.
+
+Full report: `research/blueprint/reviews/REV-PAPER-LAFFORGUE-18.md`.
