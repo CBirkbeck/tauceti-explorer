@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-CLAUSEN-MATHEW-21",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The EDS Part II parent is appropriate, but this brief is not yet safe to build: general prestable foundations are falsely imported wholesale from E2, Corollary 4.39's genuine-equivariant supplier was optional, and /080 confused torsion with all-𝒫-local coefficients. The corrections and /196–197 expose rather than close these gaps. Resolve G1–G4 and G11 with atomic contracts and explicit suppliers."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "The Selmer/étale comparison belongs in a MotivicEtaleKTheory Part II, but generic chromatic/equivariant spectra, E_2 spectral geometry, motives, TC descent and spectral K-continuity must be supplied by their owning roadmaps. The current broad brief duplicates/relocates those directions and has unresolved connectivity and proof issues. G4–G10 give the required split; do not implement the old ownership instructions."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Reuse the independently accepted RefinedTraceMethodsPartIIHenselianPairs proposal, not a second owner. /156 and /158 now explicitly use connective K. The brief states a noncircular prefix order and imports the shared TC-descent extension rather than making CMM rigidity depend on Selmer. This is acceptance of the source contribution and owner; the overall revise verdict still gates application."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "EnhancedDerivedSheaves:E2 plans the derived-sheaf/Postnikov case, not arbitrary Grothendieck prestable categories and all sheaves of spectra. General statements /012–027 must be separated from specializations and placed in the EDS Part II with E0/E3/E5 imports. A source route cannot silently enlarge a stage into a different general theorem."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Rydh stratification and étale dévissage of qcqs algebraic spaces are suitable sources for SchemeAndStackFoundations:SF.1. Preserve their qcqs and étale hypotheses; split the bundled item /066 during the global atomicity revision. No parallel algebraic-space foundation is needed."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Henselizations, strict henselizations and noetherian approximation fit SchemeAndStackFoundations:SF.0's commutative-algebra/limit interface, with SF.1 importing them. Added /200 records the pinned henselian predicates and complete-case instance that this work must reuse."
+    }
+  ],
+  "notes": "Completed independent review REV-PAPER-CLAUSEN-MATHEW-21 by Codex codex-a71f92; input PR #1990 was authored by Claude Code cc-442dc5. Read all 96 published pages and all 195 original items, route briefs and prerequisites; checked the arXiv v3 source at findings. Corrected 27 original items and added /196–200; current counts 200 items, 5 library, 11 planned, 184 missing, each missing item assigned once. The original 21 prerequisite sources remain. Confirmed/narrowed all five original source issues (E3 only the variable typo), added 17 independently checked findings, total 22. E21 disproves a proof step of Theorem 6.18(2), not the theorem; E22 records the supplied proof's connective scope, not a counterexample to an unrestricted extension. Twelve explicit coverage gaps keep the extraction partial. Check_paper, relevant repository tests and focused regression checks are recorded in the review/handoff. No Lean file was produced or compiled."
+}
