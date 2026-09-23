@@ -1,533 +1,1589 @@
 {
- "paper": "PAPER-FINTZEN-21",
- "protocol": "paper-v1",
- "status": "complete",
- "source": {
-  "title": "Types for tame p-adic groups",
-  "authors": "Jessica Fintzen",
-  "venue": "Annals of Mathematics 193 (2021), no. 1",
-  "doi": "10.4007/annals.2021.193.1.4",
-  "arxiv": "1810.04198",
-  "url": "https://arxiv.org/pdf/1810.04198v2",
-  "sha256": "bd332fd73956082656d767870566fdafd0fce3d834cccb223779a7724c3da8cc",
-  "readDate": "2026-09-22",
-  "version": "arXiv:1810.04198v2, posted 3 November 2020, 39 pages, whose arXiv comment reads '39 pages, accepted for publication in Annals of Mathematics'; v1 is from 9 October 2018. The published text is behind the journal's paywall and was not consulted, so every locator gives the section, theorem, lemma or definition number together with the page of the arXiv v2 PDF, and any finding would be recorded against that version. No erratum or corrigendum is listed on the arXiv abstract page or in Crossref.",
-  "readSections": [
-   "Abstract and §1 Introduction, pp. 1–6: the statements of both main theorems, the theory of types after Bushnell–Kutzko, the comparison with Kim's approach, and the history for GL_n, SL_n, classical groups and inner forms",
-   "§2 Assumption on the residue field characteristic, pp. 7–8: Assumption 2.1 and Lemma 2.2 with its five consequences",
-   "§3 Almost strongly stable and generic elements, pp. 8–14: Definitions 3.1, 3.3, 3.5, Lemmas 3.2, 3.4, 3.6, 3.11, Corollaries 3.7, 3.8, Remarks 3.9, 3.10 and Proposition 3.12",
-   "§4 The datum, pp. 14–17: Definitions 4.1, 4.2, 4.5, 4.6, Remark 4.3 and Lemma 4.4",
-   "§5 Some results used to exhibit data, pp. 17–21: Lemma 5.1 and Corollaries 5.2, 5.3, 5.4",
-   "§6 Every irreducible representation contains a datum, pp. 21–25: Theorem 6.1 with Lemmas 6.1.1, 6.1.2, 6.1.3 and Remark 6.2",
-   "§7 From a datum to types, pp. 25–35: Lemmas 7.1, 7.3, 7.5, 7.6, 7.7, 7.8, 7.10, Corollaries 7.2, 7.4, 7.9, Theorem 7.12 and Remarks 7.11, 7.13",
-   "§8 Exhaustion of supercuspidal representations, pp. 35–37: Theorem 8.1, Remark 8.2 and Corollary 8.3",
-   "References, pp. 37–39, read in full to identify the inputs listed under prerequisites"
+  "paper": "PAPER-FINTZEN-21",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Types for tame p-adic groups",
+    "authors": "Jessica Fintzen",
+    "venue": "Annals of Mathematics 193 (2021), no. 1",
+    "doi": "10.4007/annals.2021.193.1.4",
+    "arxiv": "1810.04198",
+    "url": "https://arxiv.org/pdf/1810.04198v2",
+    "sha256": "bd332fd73956082656d767870566fdafd0fce3d834cccb223779a7724c3da8cc",
+    "readDate": "2026-09-23",
+    "version": "arXiv:1810.04198v2, 3 November 2020, 39 pages. Independently read all pages, including proofs and references; PDF SHA-256 unchanged from the extraction. Source findings are checked against rendered v2 pages. The Annals version was not read. On 23 September 2026 no correction was found on the arXiv version listing, journal landing page or author publication page.",
+    "readSections": [
+      "Abstract and §1 Introduction, pp. 1–6: the statements of both main theorems, the theory of types after Bushnell–Kutzko, the comparison with Kim's approach, and the history for GL_n, SL_n, classical groups and inner forms",
+      "§2 Assumption on the residue field characteristic, pp. 7–8: Assumption 2.1 and Lemma 2.2 with its five consequences",
+      "§3 Almost strongly stable and generic elements, pp. 8–14: Definitions 3.1, 3.3, 3.5, Lemmas 3.2, 3.4, 3.6, 3.11, Corollaries 3.7, 3.8, Remarks 3.9, 3.10 and Proposition 3.12",
+      "§4 The datum, pp. 14–17: Definitions 4.1, 4.2, 4.5, 4.6, Remark 4.3 and Lemma 4.4",
+      "§5 Some results used to exhibit data, pp. 17–21: Lemma 5.1 and Corollaries 5.2, 5.3, 5.4",
+      "§6 Every irreducible representation contains a datum, pp. 21–25: Theorem 6.1 with Lemmas 6.1.1, 6.1.2, 6.1.3 and Remark 6.2",
+      "§7 From a datum to types, pp. 25–35: Lemmas 7.1, 7.3, 7.5, 7.6, 7.7, 7.8, 7.10, Corollaries 7.2, 7.4, 7.9, Theorem 7.12 and Remarks 7.11, 7.13",
+      "§8 Exhaustion of supercuspidal representations, pp. 35–37: Theorem 8.1, Remark 8.2 and Corollary 8.3",
+      "References, pp. 37–39, read in full to identify the inputs listed under prerequisites"
+    ]
+  },
+  "summary": "Independent review corrected and expanded the original 33 bundled items to 108 items (0 library, 9 planned, 99 missing), with each missing item routed once. Under tame splitting and residue characteristic prime to the absolute Weyl-group order, the paper constructs a contained datum for every irreducible smooth complex representation, extracts a Kim–Yu type after verifying all datum conditions, and proves exhaustion of supercuspidals by Yu compact induction. The field may have positive characteristic; tori are separate. Four routes distinguish general types/data/exhaustion, existing local-structure layers, the finite Weil extension of the metaplectic owner, and the good-characteristic/coadjoint extension of the upstream reductive-group owner. Existing SR category/Bernstein theory, mixed-characteristic GL_m type/segment theory, finite GL₂ character theory, group/root carriers and tame field arithmetic are imported. Five directly checked notational corrections in v2 are recorded, without a claim about the unread journal version. This is an extraction and routing review, not a completed proof blueprint or Lean build.",
+  "items": [
+    {
+      "id": "PAPER-FINTZEN-21/1",
+      "kind": "theorem",
+      "name": "Bernstein decomposition",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. The smooth complex representation category is the product of blocks indexed by inertial classes of pairs (L,σ), with L a parabolic Levi and σ irreducible supercuspidal.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1, pp.2–3",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/1a",
+      "kind": "definition",
+      "name": "An s-type",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For an inertial class s, a compact open K⊂G(k) and an irreducible smooth complex K-representation ρ form an s-type when every irreducible smooth π belongs to block s exactly when π restricted to K contains ρ.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1, p.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/1b",
+      "kind": "theorem",
+      "name": "The type Hecke equivalence",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For an s-type (K,ρ), the Bernstein block R^s(G) is equivalent to unital left modules over the algebra of compactly supported ρ-spherical functions. Use the chosen dual/convolution convention when realizing this equivalence.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1, p.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "SR.1 supplies the ambient locally unital Hecke equivalence, not this type-specific unital block equivalence."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/2",
+      "kind": "definition",
+      "name": "Standing tame and Weyl-order hypotheses",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. Fix a nontrivial additive character ϕ:k→C× of conductor the maximal ideal P, normalize val on k and extend that valuation to splitting fields without renormalizing. Sections 2–8 treat non-tori; the torus case consists of smooth characters and is handled separately.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1 conventions, pp.6–7; §2 and Assumption 2.1, p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/2a",
+      "kind": "theorem",
+      "name": "Tameness of the tori",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. Every k-torus in G splits over a tame extension.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §2 after Assumption 2.1, p.7, citing [Fin19, Theorem 2.4 and Corollary 2.6]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Only the sufficient assertion is required. Optimality of the main bound is an expectation, not a necessity theorem about all representations."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/3",
+      "kind": "theorem",
+      "name": "Weyl-order restriction for Levi subgroups",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For every Levi subgroup of a parabolic of G over an algebraic closure, p does not divide its Weyl-group order.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 2.2(a), pp.7–8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/3b",
+      "kind": "theorem",
+      "name": "The bond-order bound",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. The prime p is larger than every bond order of the absolute Dynkin diagram, where bond order is the square of the ratio of the two root lengths.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 2.2(b), p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/3c",
+      "kind": "theorem",
+      "name": "No bad prime for the coroot system",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For every closed subsystem Ψ of the coroot system Φ∨, ZΦ∨/ZΨ has no p-torsion.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 2.2(c), p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/3d",
+      "kind": "theorem",
+      "name": "No torsion prime for either root system",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For every closed root subsystem Φ₀ of Φ, ZΦ∨/Z(Φ₀∨) has no p-torsion. The analogous assertion holds with Φ and Φ∨ interchanged.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 2.2(d), p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Closure in Φ and closure in Φ∨ are different conditions; this item is distinct from /3c."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/3e",
+      "kind": "theorem",
+      "name": "Prime-to-p indices of connection",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. The index [weight lattice:root lattice] of every root subsystem generated by a subset of a base of Φ is prime to p.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 2.2(e), p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/4",
+      "kind": "theorem",
+      "name": "Every irreducible contains a Kim–Yu type",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. Every irreducible smooth complex representation of G(k) contains an s-type constructed by Kim and Yu.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Theorem 7.12, pp.34–35; §1, pp.3–4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/5",
+      "kind": "theorem",
+      "name": "Yu exhausts supercuspidals",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. Every irreducible smooth supercuspidal complex representation of G(k) arises from Yu’s compact-induction construction.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Theorem 8.1 and proof, p.36",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/6",
+      "kind": "theorem",
+      "name": "Supercuspidality criterion from a maximal datum",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For any maximal datum (x,(X_i),ρ₀) contained in an irreducible smooth complex π, set G_{n+1}=Cent_G(ΣX_i). Then π is supercuspidal if and only if the facet containing x has minimal dimension in B(G_{n+1},k) and Z(G_{n+1})/Z(G) is anisotropic.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 8.3, pp.36–37",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/7",
+      "kind": "construction",
+      "name": "Moy–Prasad group filtration",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For x in the enlarged building and r≥0 define G_{x,r}, with G_{x,0} the connected parahoric, and G_{x,r+}=⋃_{s>r}G_{x,s}; deeper groups are normal in the shallower groups. The group filtration is not asserted at negative r.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1, p.3; §3, p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/7a",
+      "kind": "construction",
+      "name": "Lie and dual Moy–Prasad lattices",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For every real r define g_{x,r} and g*_{x,r}, with the dual lattice characterized by X(g_{x,(-r)+})⊂P. Its elements also satisfy X(g_{x,-r})⊂O. Set g_r=⋃_x g_{x,r} and similarly for the dual. For an extension E with the extended k-normalized valuation, the tame comparison is (g_E)_{x,r}∩g=g_{x,r}.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §3, p.8, equation (1), citing [Adl98, Proposition 1.4.1]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/7b",
+      "kind": "definition",
+      "name": "Depth of a smooth representation",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For a nonzero smooth representation π, its depth is the least r≥0 for which V_π^{G_{x,r+}}≠0 at some building point x.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1, pp.3–4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/7c",
+      "kind": "definition",
+      "name": "Depth of a coadjoint element",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For nonzero X in g_E*, d_E(x,X) is the largest r with X∈(g_E)*_{x,r}; put d_E(x,0)=∞ and d_E(X)=sup_x d_E(x,X). Omit E when E=k.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §3, p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/7d",
+      "kind": "construction",
+      "name": "Graded Lie spaces and the reductive-quotient action",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. G_x is the connected reductive quotient of the special fibre of the connected parahoric at x; its residue-field points are G_{x,0}/G_{x,0+}, compatibly with unramified extensions. It acts on V_{x,r}=g_{x,r}/g_{x,r+}. A dual element of depth r reduces to V_{x,-r}* via the chosen lattice pairing.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §3, pp.8–9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/8",
+      "kind": "definition",
+      "name": "Twisted Levi subgroups",
+      "statement": "A smooth closed subgroup H′ of a reductive group H over F is a twisted Levi if it becomes a Levi of a parabolic after a finite field extension.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 3.3, p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/8a",
+      "kind": "construction",
+      "name": "Images of twisted-Levi buildings",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For a twisted Levi G′⊂G, all relevant tori are tame. The embeddings over a tame splitting extension descend to B(G′,k)→B(G,k); the image is independent of the translation ambiguity of the embedding. It is the image, not a unique map, that is fixed.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Remark 3.9, p.11",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/9",
+      "kind": "theorem",
+      "name": "Adler–Roche invariant lattice-compatible form",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. There is a nondegenerate G-equivariant symmetric k-bilinear form B on g whose isomorphism g→g* carries g_{x,r} onto g*_{x,r} for every x and r and whose restriction to every twisted-Levi Lie algebra is nondegenerate. Use B to embed (g′)* in g*.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Remark 3.10, p.11; [AR00, Proposition 4.1]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Keep the full Weyl-order hypothesis and Lemma 2.2; prime-to-index-of-connection alone was an unsupported weakening in the original item."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/10",
+      "kind": "definition",
+      "name": "Almost stable and almost strongly stable",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. A coadjoint element is almost stable if its geometric G-orbit is closed. It is almost strongly stable at x if it is almost stable and its depth reduction in V_{x,-d(x,X)}* is semistable for G_x, meaning that the geometric orbit closure does not contain zero.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 3.1, p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/10a",
+      "kind": "theorem",
+      "name": "An almost strongly stable nonzero element attains its depth",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. If 0≠X∈g* is almost strongly stable at x, then d(x,X)=d(X).",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 3.2, p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/10b",
+      "kind": "theorem",
+      "name": "Centralizers of almost stable coadjoint elements",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. If X∈g* is almost stable, Cent_G(X) is a twisted Levi subgroup.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 3.4, pp.9–10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The proof uses the invariant form and good-characteristic root/centralizer arguments, not a general characteristic-zero assertion transferred without hypotheses."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/11",
+      "kind": "definition",
+      "name": "Generic coadjoint elements",
+      "statement": "An element X ∈ 𝔤* is generic of depth r at x ∈ B(G, k) if X is almost stable and there are a tamely ramified E/k and a split maximal torus T ⊂ Cent_G(X) ×_k E with x ∈ 𝒜(T, E) ∩ B(G, k), X ∈ 𝔤*_{x,r}, and for every α ∈ Φ(G, T) either X(H_α) = 0 or val(X(H_α)) = r, where H_α = dα̌(1); and if X(H_α) = 0 for all α then d(x, X) = r.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 3.5, p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "All standing hypotheses of /2 apply. Preserve the final central-case depth condition; it is essential."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/11a",
+      "kind": "theorem",
+      "name": "Rootwise consequences of genericity",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. If X is generic of depth r at x and T is any split maximal torus in Cent_G(X) after extension, X(H_α)=0 on centralizer roots, val(X(H_α))=r on the complementary roots.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 3.6, p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/11b",
+      "kind": "theorem",
+      "name": "Generic nonzero elements attain their depth",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. If X≠0 is generic of depth r at x, then d(x,X)=d(X)=r.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 3.7, p.11",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/11c",
+      "kind": "theorem",
+      "name": "Generic nonzero elements are almost strongly stable",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. If X≠0 is generic at x, then X is almost strongly stable at x.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 3.8 and proof, p.11",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/12",
+      "kind": "theorem",
+      "name": "Depth drops away from the centralizer building",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. Let X be generic of depth r at x and G′=Cent_G(X). For X′∈(g′)*_{r+} (the union of the deeper lattices over B(G′,k)) and y∈B(G,k) outside B(G′,k), d(y,X+X′)<d(X).",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 3.11, p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is an inequality off a building, not the original extraction’s unspecified coset decomposition. Fintzen extends the proof of [KM03, Lemma 2.3.3] using /9 under the present hypotheses."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/13",
+      "kind": "theorem",
+      "name": "Generic perturbation with a nearby building point",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. Let r∈R and X be almost strongly stable at x with r=d(x,X). For every ε>0 there are x′ with d(x,x′)<ε and X̃∈X+g*_{x′,r+} such that X∈g*_{x′,r}, X̃ is generic of depth r at x′, and both x and x′ lie in B(Cent_G(X̃),k).",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Proposition 3.12 and proof, pp.12–14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No positive-depth restriction and no conjugacy assertion. The point may move; a deeper additive perturbation is required."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/14",
+      "kind": "definition",
+      "name": "Extended data",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). An extended datum of G of length n is a tuple (x, (r_i), (X_i), (G_i), (ρ₀, V_{ρ₀})) with r₁ > ⋯ > r_n > 0 real, X_i ∈ 𝔤*_{x,−r_i} \\ 𝔤*_{x,(−r_i)+}, twisted Levi subgroups G = G₁ ⊇ G₂ ⊋ ⋯ ⊋ G_{n+1}, x ∈ B(G_{n+1}, k), and (ρ₀, V_{ρ₀}) an irreducible representation of (G^der_{n+1})_{x,0}/(G^der_{n+1})_{x,0+}, subject to X_i ∈ 𝔤*_i, X_i generic of depth −r_i at x as an element of 𝔤*_i, and G_{i+1} = Cent_{G_i}(X_i). Allow n=0; then only x, G and an irreducible representation of the depth-zero derived quotient remain.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 4.1, p.15",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/14a",
+      "kind": "definition",
+      "name": "Data and truncated data",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). A datum is (x,(X_i),ρ₀), with ρ₀ an irreducible representation of (Cent_G(ΣX_i)^der(k)∩G_{x,0})/(Cent_G(ΣX_i)^der(k)∩G_{x,0+}), admitting an extended datum as in /14. A truncated datum omits ρ₀. The depths and centralizers determine the extension uniquely. The depth-zero ρ₀ need not be cuspidal.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 4.2 and Remark 4.3, pp.15–16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/14b",
+      "kind": "theorem",
+      "name": "Moving the point of a truncated datum",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). If (x,(X_i)) is a truncated datum, then (y,(X_i)) is a truncated datum for every y∈B(G_{n+1},k), with the same depths and twisted-Levi tower.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 4.4, p.16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/14c",
+      "kind": "construction",
+      "name": "Derived groups and mixed-depth filtration",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For a truncated datum set H₁=G₁ if G₁=G₂, otherwise H₁=G₁^der, and H_i=G_i^der for i>1; put r_{n+1}=0. Define (H_i)_{x,s}=H_i(k)∩G_{x,s}. For extended real indices s≥t>0 with s/2≤t, (G_i)_{x,s,t} is the intersection with G(k) of the subgroup generated over a tame splitting field by T_s, roots in G_{i+1} at depth s and complementary roots in G_i at depth t. Put (H_i)_{x,s,t}=H_i(k)∩(G_i)_{x,s,t}; define the Lie lattices analogously. These groups are independent of the torus and splitting field.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §4 after Lemma 4.4, pp.16–17; [Yu01, pp.585–586]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/15",
+      "kind": "definition",
+      "name": "A representation contains a datum",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). With a datum as in /14a, π contains it if a subspace V′ of the vectors fixed by all (H_i)_{x,r_i+}, 1≤i≤n+1, realizes ρ₀ under (H_{n+1})_{x,0}, and each (H_i)_{x,r_i,r_i/2+}/(H_i)_{x,r_i+} acts on V′ by ϕ∘X_i under its Lie-quotient identification.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 4.5, p.17",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/15a",
+      "kind": "definition",
+      "name": "A representation contains a truncated datum",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). π contains (x,(X_i)) if the vectors fixed by every (H_i)_{x,r_i+}, 1≤i≤n, contain a one-dimensional subspace on which each mixed-depth quotient at (r_i,r_i/2+) acts by ϕ∘X_i.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 4.5, p.17",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/15b",
+      "kind": "definition",
+      "name": "Maximal datum",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). A contained datum is maximal when the dimension of its point’s facet in the building of its terminal centralizer is at least the corresponding facet dimension for every other datum contained in π. This is facet-dimension maximality, not maximal sequence length.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 4.6, p.17",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/16",
+      "kind": "theorem",
+      "name": "The commutator linear map and its lattice shift",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For r>0 and nonzero X generic of depth −r at x, choose a tame split maximal torus of G′=Cent_G(X). Let r″ be the k-subspace of complementary root spaces and j* the annihilator of g′ in g*. Then Y↦(Z↦X([Y,Z])) is an isomorphism r″→j* taking r″∩g_{x,s} onto j*∩g*_{x,s-r} for every real s.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 5.1(a), p.18",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/16a",
+      "kind": "theorem",
+      "name": "Conjugating away a deeper coadjoint error",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. With /16, let r/2≤d<r and 0<ε<(r−d)/2. For C∈j*∩g*_{x,-(d+ε)} there is g∈G_{x,r-d-ε} such that Ad*(g)(X+C) agrees with X on g_{x,r} and vanishes on r″∩g_{x,d+}.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 5.1(b)(i–ii), pp.18–19",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/16b",
+      "kind": "theorem",
+      "name": "The representation compatibility of the correction",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. With /16a, suppose V′ is fixed by G(k)∩⟨T(E)_{r+},U_α(E)_{x,(d+ε)+},U_β(E)_{x,r+}⟩, where α runs over roots outside G′ and β over roots in G′. If H⊂G′^der(k)∩G_{x,(2d-r+2ε)+} stabilizes V′, then g⁻¹Hg preserves V′ and its conjugate action is the original H-action on V′.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 5.1(b)(iii), pp.18–19",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/16c",
+      "kind": "construction",
+      "name": "Mock exponential and its first-order adjoint estimate",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. At positive depth s the mock exponential used in Lemma 5.1 maps g_{x,s} to G_{x,s}; in chosen root coordinates it agrees with the ordered root-group product modulo G(E)_{x,2s}. Its adjoint action has linear term [Y,Z] modulo g_{x,t+2s} for Z∈g_{x,t}. This is a positive-depth approximation, not a convergent characteristic-zero exponential assumed in equal characteristic.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 5.1 proof, pp.18–19; [Adl98, §§1.5–1.6]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/17",
+      "kind": "theorem",
+      "name": "Correcting the j-th character",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Let a truncated datum have length n>0, 1≤j≤n, r_j/2≤d<r_j and 0<ε<(r_j−d)/2. Choose T_j in Cent_{H_j}(X_j) as in Corollary 5.2. Let 0≠V′ be fixed by (H_i)_{x,r_i+}, i≤j; let the mixed-depth characters for i<j be ϕ∘X_i, and the action on (H_j)_{x,r_j−ε,d+}/(H_j)_{x,r_j+} be ϕ∘(X_j+C), where C∈h_j*_{x,-(d+ε)} vanishes on t_j+h_{j+1}. There is g∈(H_j)_{x,r_j-d-ε} such that V″=π(g)V′ remains fixed by those deeper groups, preserves the earlier characters, and has character ϕ∘X_j on the (r_j,d+) quotient. Any stabilizing subgroup of (H_{j+1})_{x,(2d-r_j+2ε)+} also stabilizes V″, with isomorphic action.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 5.2, pp.19–20",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/17a",
+      "kind": "theorem",
+      "name": "Simultaneous correction",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Let n>0, choose a maximal torus T of G_{n+1} with x in its splitting apartment, and 0<ε<r_n/4 with (H_i)_{x,r_i−ε,r_i/2+}=(H_i)_{x,r_i,r_i/2+} for every i. Suppose 0≠V′ is fixed by all (H_i)_{x,r_i+}, and each mixed-depth quotient acts by ϕ∘(X_i+C_i), where C_i∈h_i*_{x,-(r_i/2+ε)} vanishes on (t∩h_i)+h_{i+1}. There is g∈G_{x,r_n/2−ε} such that π(g)V′ has the same deeper invariance and all exact characters ϕ∘X_i. Every stabilizing subgroup of (H_{n+1})_{x,2ε+} retains its action up to isomorphism.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 5.3, p.20",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/17b",
+      "kind": "theorem",
+      "name": "Promoting the last ordinary-depth character",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Let n>0 and 0<ε<r_n/4 with (H_n)_{x,r_n−2ε}=(H_n)_{x,r_n}. Suppose 0≠V′ is fixed by all (H_i)_{x,r_i+}, has the exact mixed-depth characters for i<n, and has character ϕ∘X_n on (H_n)_{x,r_n}/(H_n)_{x,r_n+}. Then a nonzero subspace with the same deeper invariance has all exact mixed-depth characters, including i=n.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 5.4, pp.20–21",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/18",
+      "kind": "theorem",
+      "name": "Every irreducible contains a datum",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Every irreducible smooth complex representation contains a datum in the sense of Definition 4.5.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Theorem 6.1, pp.21–25",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/19",
+      "kind": "construction",
+      "name": "The recursive depth function",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). At recursion step j, on B_j=B(G_j,k) define f(y) as the least r_j≥0 for which the previous truncated datum is contained at y, an almost stable X_j∈g_j*_{y,-r_j} exists, and a nonzero subspace realizes its depth-r_j character (when r_j>0), is fixed by (H_j)_{y,r_j+}, and preserves the previous mixed-depth characters and deeper invariance. Put f(y)=∞ if these requirements fail.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Theorem 6.1 proof, pp.21–22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/19a",
+      "kind": "theorem",
+      "name": "Equivariance of the recursive depth function",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For the recursion data in /19, f(gx)=f(x) for every x∈B_j and g∈G_j(k).",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 6.1.1(i), p.22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/19b",
+      "kind": "theorem",
+      "name": "The minimizing coadjoint element is almost strongly stable",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). In the recursion case r_j=f(x_j)>0, the almost stable X_j chosen at a minimizing x_j is almost strongly stable there; otherwise a rational destabilizing cocharacter and the simultaneous correction give a point of smaller f.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 6.1.2, p.24",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/19c",
+      "kind": "theorem",
+      "name": "Extending a contained truncated datum",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). In the positive case r_j>0, x_j and X_j can be chosen so (x_j,(X_i)_{i≤j}) is a contained truncated datum, by Proposition 3.12 and Corollaries 5.3–5.4. Later centralizer inclusions are strict, so the recursion terminates. At r_j=0 choose an irreducible constituent of the finite derived quotient on the invariant subspace, giving the final datum.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 6.1.3 and Case 2, pp.24–25",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/20",
+      "kind": "theorem",
+      "name": "Exact positive-depth filtration of tame tori",
+      "statement": "Let r>0 and 1→A→B→C→1 be an exact sequence of k-tori split by a tame extension. Then 1→A(k)_r→B(k)_r→C(k)_r→1 is exact.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.1, p.26, quoting [Kal19, Lemma 3.1.3]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/20a",
+      "kind": "theorem",
+      "name": "Generation by a torus and the derived part",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For the Section 7 torus T⊂M_{n+1}⊂G_{n+1}, every r>0 and 1≤j≤n+1, (G_j)_{x,r} is generated by T(k)_r and (H_j)_{x,r}.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 7.2, p.26",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/20b",
+      "kind": "construction",
+      "name": "Depth-zero Levi and the intermediate subgroup",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For a maximal datum, Moy–Prasad attach a k-Levi M_{n+1}⊂G_{n+1} containing x in its building, with (M_{n+1})_{x,0} maximal parahoric and the same reductive quotient as (G_{n+1})_{x,0}. Let (M_{n+1})_x stabilize the enlarged-building point and K_{G_{n+1}}=⟨(M_{n+1})_x,(G_{n+1})_{x,0}⟩. Choose an irreducible K_{G_{n+1}}-subrepresentation Ṽ containing the datum space; it retains the deeper invariance and T(k)_{0+} acts on it through a scalar character ϕ_T.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7, pp.25–26, citing [MP96, §§6.3–6.4] and [KY17, §§7.1–7.3]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/21",
+      "kind": "construction",
+      "name": "Recursive extension of torus characters",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Using /20b, construct ϕ_j:G_{j+1}(k)→C× in the order j=n,…,1: divide ϕ_T by the characters already constructed on T(k)_{0+}, descend to (G_{j+1}/H_{j+1})(k)_{0+}, extend its character, and divide by a character extended from (G_j/H_j)(k)_{r_j+}. Take the latter character trivial at j=1. This cancels the undesired deeper part and gives depth r_j.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7, pp.26–27 before Lemma 7.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/21a",
+      "kind": "theorem",
+      "name": "Triviality of the recursive characters",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Each ϕ_j constructed in /21 is trivial on (G_{j+1})_{x,r_j+} and on H_{j+1}(k).",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.3(i), p.27",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/21b",
+      "kind": "theorem",
+      "name": "The prescribed character on the intersection quotient",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). The restriction of ϕ_j to (H_j)_{x,r_j}∩G_{j+1}(k) factors through its depth-r_j quotient and is ϕ∘X_j on the corresponding Lie quotient.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.3(ii), p.27",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/21c",
+      "kind": "theorem",
+      "name": "Yu genericity of the recursive characters",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Each ϕ_j is G_j-generic of depth r_j relative to x in the full sense of [Yu01, §9]. The root valuation condition and the non-torsion dual-root-datum hypothesis of [Yu01, Lemma 8.1] establish this.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.3(iii), p.27",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Do not reduce full genericity to GE1 alone; the original note omitted the additional root-datum argument."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/21d",
+      "kind": "theorem",
+      "name": "The scalar positive-depth action on Ṽ",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). The group (G_{n+1})_{x,0+} acts on Ṽ by ∏_iϕ_i restricted to that group.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.3(iv), p.27",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/21e",
+      "kind": "theorem",
+      "name": "Removing positive-depth characters from Ṽ",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). The irreducible K_{G_{n+1}}-representation (∏ϕ_i⁻¹)·π on Ṽ is trivial on (G_{n+1})_{x,0+}; its restriction to (H_{n+1})_{x,0} contains ρ₀.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 7.4, p.28",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/22",
+      "kind": "construction",
+      "name": "The five compact filtration products",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Set K=K_{G_{n+1}}(G_n)_{x,r_n/2}⋯(G_1)_{x,r_1/2}, K_{0+}=(G_{n+1})_{x,0+}(G_n)_{x,r_n/2}⋯(G_1)_{x,r_1/2}, and K_+ with the positive-depth factors replaced by r_i/2+. Define K^H_{0+} and K^H_+ by replacing each G_i with H_i in the latter two products. Reverse the tower/depth/character lists for Yu’s convention; omit the repeated first group when G₁=G₂, otherwise append the final trivial character as on p.28.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7 notation before Lemma 7.5, p.28",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/22a",
+      "kind": "theorem",
+      "name": "The plus-product identity",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For /22, K_+=(G_{n+1})_{x,0+}(H_n)_{x,r_n/2+}⋯(H_1)_{x,r_1/2+}=(G_{n+1})_{x,0+}K^H_+.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.5, first identity, pp.28–29",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/22b",
+      "kind": "theorem",
+      "name": "The half-depth product identity",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For /22, K_{0+}=(G_{n+1})_{x,0+}(H_n)_{x,r_n/2}⋯(H_1)_{x,r_1/2}=(G_{n+1})_{x,0+}K^H_{0+}.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.5, second identity, pp.28–29",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/22c",
+      "kind": "theorem",
+      "name": "The mixed-depth H product",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). K^H_{0+}=(H_{n+1})_{x,0+}(H_n)_{x,r_n,r_n/2}⋯(H_1)_{x,r_1,r_1/2}.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.5, third identity, pp.28–29",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/22d",
+      "kind": "theorem",
+      "name": "The mixed-depth plus H product",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). K^H_+=(H_{n+1})_{x,0+}(H_n)_{x,r_n,r_n/2+}⋯(H_1)_{x,r_1,r_1/2+}.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.5, fourth identity, pp.28–29",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/22e",
+      "kind": "construction",
+      "name": "The extended characters and their common kernel",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Extend ϕ_i to the character ϕ̂_i of K_{G_{n+1}}(G_{i+1})_{x,0}G_{x,r_i/2+}: on the first two factors use ϕ_i, and on the last use the Lie-quotient projection g=g_{i+1}⊕r″→g_{i+1}. Put θ=∏ϕ̂_i|_{K_+} and N^H=ker(θ|_{K^H_+}).",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7, pp.29–30, citing [Yu01, §4]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/22f",
+      "kind": "theorem",
+      "name": "The individual finite Heisenberg groups",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For each i, J_i=(G_i)_{x,r_i,r_i/2}/((G_i)_{x,r_i,r_i/2+}∩kerϕ̂_i) is a Heisenberg p-group with center the image of (G_i)_{x,r_i,r_i/2+}. Its quotient symplectic form is the nondegenerate commutator pairing through ϕ̂_i. Positive and negative roots give a polarization and a special isomorphism to V_i×F_p with half-pairing group law.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7, pp.30 and 33, citing [Yu01, Proposition 11.4]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/22g",
+      "kind": "theorem",
+      "name": "The combined Heisenberg group",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). If the datum length n>0, K^H_{0+}/N^H is a Heisenberg p-group with center K^H_+/N^H of order p, and the pairing on K^H_{0+}/K^H_+ is the orthogonal sum of the individual nondegenerate commutator pairings.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.7, pp.30–31",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/22h",
+      "kind": "theorem",
+      "name": "The length-zero quotient",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). If n=0, K^H_{0+}/N^H=K^H_+/N^H; the empty tensor product in the oscillator factor is the trivial one-dimensional representation.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.7 and preceding discussion, pp.30–31",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/23",
+      "kind": "construction",
+      "name": "The preliminary Yu representation",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For the reversed tower/depth/character data and an irreducible ρ_Yu of K_{G_{n+1}} whose parahoric restriction has a cuspidal constituent, conditions D1,D3,D4,D5 of Kim–Yu are verified and the construction yields π_K=ρ_Yu⊗κ on K. Here ρ_Yu is inflated trivially on the positive half-depth factors, and κ depends on the tower, depths and characters. This constructs a representation before D2 is proved; it does not yet prove it is a type.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7, p.29 and footnotes 1–2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "D2 requires the later generic embedding argument. Footnote 2 reports a correction of KY17 D5 to genericity at the specified point."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/23a",
+      "kind": "theorem",
+      "name": "The oscillator restriction",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). The restriction of κ to K_{0+} is irreducible, on ⊗_{i=1}^n V_{ω_i}. On (G_i)_{x,r_i,r_i/2}, it acts through the Heisenberg representation ω_i with central character ϕ̂_i on its own factor and through the characters ϕ̂_j on the other factors. On K_+, π_K is θ-isotypic.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7, pp.29–30, citing [Yu01, Proposition 4.4 and Theorem 11.5]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/23b",
+      "kind": "theorem",
+      "name": "Matching the K-plus character",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). π restricted to K_+ on Ṽ contains a one-dimensional subrepresentation isomorphic to the θ-character occurring in π_K|_{K_+}.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.6, p.30",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/23c",
+      "kind": "theorem",
+      "name": "Extracting the depth-zero tensor factor",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Let V̂ be the chosen irreducible K-subrepresentation of V_π containing Ṽ. There is an irreducible K-representation ρ, trivial on K_{0+}, with (ρ⊗κ,V_ρ⊗V_κ)≅(π|_K,V̂).",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.8, p.31",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "V̂ is a selected subrepresentation. No assertion identifies ρ⊗κ with the entire restriction (π|_K,V_π)."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/24",
+      "kind": "theorem",
+      "name": "Cuspidality of the extracted depth-zero constituents",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Every irreducible constituent of ρ|_{(G_{n+1})_{x,0}} from /23c is cuspidal as a representation of (G_{n+1})_{x,0}/(G_{n+1})_{x,0+}.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.10 and proof, pp.32–34",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The independent proof uses maximal facet dimension and the finite Weil restriction with its quadratic factor. Remark 7.11 warns against importing Kim07 Proposition 17.2(2) here."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/24a",
+      "kind": "theorem",
+      "name": "The extracted subspace retains the datum characters",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). V̂ is fixed by every (H_i)_{x,r_i+}, 1≤i≤n+1, and the mixed-depth quotients for i≤n act by ϕ∘X_i.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 7.9, pp.31–32",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/24b",
+      "kind": "construction",
+      "name": "The generic building-embedding condition",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Let Z_s(M_{n+1}) be the maximal split central torus and M_i=Cent_{G_i}(Z_s(M_{n+1})). The diagram B(M_i,k)⊂B(G_i,k) is (r_{n+1}/2,…,r_1/2)-generic at x when Σ_{i=1}^n(dim((G_i)_{x,r_i/2}/(G_i)_{x,r_i/2+})−dim((M_i)_{x,r_i/2}/(M_i)_{x,r_i/2+}))=0.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7, diagram (3) and its definition, p.34",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/24c",
+      "kind": "theorem",
+      "name": "The missing D2 condition can be achieved",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Choose among maximal contained data one minimizing the nonnegative defect in /24b. If the defect were positive, a small shift along a cocharacter of Z_s(M_{n+1}) and suitable isotropic invariants in the Heisenberg factors would give another maximal contained datum with defect zero. Thus the minimizing datum satisfies D2 and all Kim–Yu type hypotheses.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Theorem 7.12 proof, pp.34–35",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Maximality alone is not asserted to satisfy D2; the second minimization must be retained."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/25",
+      "kind": "construction",
+      "name": "Yu’s supercuspidal construction with its input conditions",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Start with tame twisted-Levi data satisfying Yu’s hypotheses: the terminal center modulo Z(G) is anisotropic, the depth-zero representation has irreducible supercuspidal compact induction to the terminal group, the point has maximal parahoric there, and the ordered depths and characters satisfy the prescribed genericity conditions. The construction forms a representation of the open compact-mod-center subgroup K̃=(G_{n+1})_[x](G_n)_{x,r_n/2}⋯(G_1)_{x,r_1/2}; its compact induction to G(k) is irreducible supercuspidal. Here [x] is in the reduced building.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7, pp.29–30; Theorem 8.1 proof, p.36, citing [Yu01, §§3–4]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/25a",
+      "kind": "theorem",
+      "name": "The cover and Frobenius-reciprocity exhaustion argument",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For supercuspidal π the Kim–Yu cover property forces M₁=G, hence M_{n+1}=G_{n+1} and Z(G_{n+1})/Z(G) anisotropic. Replace the enlarged-point stabilizer with the reduced-point stabilizer and construct ρ̃; compact induction of its depth-zero restriction to G_{n+1}(k) is irreducible supercuspidal by MP96 Proposition 6.6. Yu then gives an irreducible supercuspidal compact induction to G(k), and its nonzero Frobenius-reciprocity map to π is an isomorphism.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Theorem 8.1 proof, p.36",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The first compact-induction target is G_{n+1}(k); see source issue E1 for the preprint’s printed G(k)."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/26",
+      "kind": "construction",
+      "name": "Kim–Yu types and G-covers",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Under all Kim–Yu datum conditions D1–D5, including the generic embedding condition D2, the modified Yu construction produces a type which is a G-cover of a type for M₁=Cent_G(Z_s(M_{n+1})). The cover theorem supplies the supercuspidal-support restriction used in /25a.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1, p.4; §7, pp.29,34–35; §8, p.36, citing [KY17, Theorem 7.5] and [BK98]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "D1,D3,D4,D5 suffice for the preliminary representation, not for its type conclusion. ET.6 already owns mixed-characteristic GL_m type/segment theory; import that case and prove compatibility rather than claiming it is absent."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/27",
+      "kind": "theorem",
+      "name": "Finite Stone–von Neumann theorem",
+      "statement": "Let p be odd and H a finite Heisenberg p-group with center of order p and nondegenerate alternating commutator pairing on H/Z(H). For a fixed nontrivial complex character of Z(H), there is a unique irreducible complex H-representation with that central character, up to isomorphism.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7, pp.30–31, the Heisenberg-theory input to Lemma 7.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The trivial central character does not have this uniqueness property. MP.1 treats locally compact characteristic-zero fields, not this finite theorem."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/27a",
+      "kind": "construction",
+      "name": "Finite Weil–Heisenberg representation",
+      "statement": "For a finite-dimensional symplectic F_p-space V, p odd, and a nontrivial character of F_p, form H(V)=V×F_p with (v,a)(w,b)=(v+w,a+b+⟨v,w⟩/2). Choose the special isomorphisms and construct the genuine finite Weil extension to Sp(V)⋉H(V) used by Yu. A projective symplectic action alone does not supply this extension.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7, pp.30,32–33, citing [Yu01, Theorem 11.5] and [Gér77]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/27b",
+      "kind": "theorem",
+      "name": "Finite Weil restriction to a parabolic with its quadratic factor",
+      "statement": "For the finite Weil–Heisenberg representation in /27a, let V=V⁺⊕V⁰⊕V⁻ be a polarized decomposition with V⁰ nondegenerate, and P the stabilizer of V⁺. The V⁺-invariant subspace contains the representation of P obtained from its maps to GL(V⁺) and Sp(V⁰) by tensoring the quadratic determinant character on GL(V⁺) with the Weil representation of V⁰. The quadratic factor must be retained.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.10 proof, p.33, citing [Gér77, Lemma 2.3(c), Theorem 2.4(b)] and footnote 3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/27c",
+      "kind": "theorem",
+      "name": "Unipotent fixed vectors used in the cuspidality proof",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). In Lemma 7.10, for the image of the finite unipotent radical U_f in P_i⊂Sp(V_i), the quadratic character on GL(V_i⁺) is trivial, and a further parabolic restriction on V_i⁰ produces a line fixed by that image. Hence each oscillator factor has a nonzero subspace fixed by U_f and by the positive-root isotropic subgroup U_i,f; their tensor product is used with a noncuspidal constituent of ρ to contradict maximality.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.10 proof, pp.32–34",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/28",
+      "kind": "definition",
+      "name": "The smooth complex representation category",
+      "statement": "For a locally profinite group, a complex representation is smooth when every vector has open stabilizer; use its abelian category and subrepresentation/invariant-subspace operations.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1, pp.2–3 and throughout",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category"
+      ],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/28a",
+      "kind": "construction",
+      "name": "The ambient Hecke algebra and smooth modules",
+      "statement": "For the locally pro-p group G(k) with complex coefficients, compactly supported locally constant convolution functions form a locally unital Hecke algebra and smooth representations correspond to its nondegenerate modules.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1, p.3, background to the type Hecke algebra",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SmoothRepresentationsOfLocalGroups:SR.1"
+      ],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/28b",
+      "kind": "theorem",
+      "name": "Compact induction and its reciprocity",
+      "statement": "For an open subgroup J of a locally profinite group and a smooth complex J-representation τ, compact induction consists of equivariant locally constant functions supported compactly modulo J; Hom_G(c-Ind_J^G τ,π)≅Hom_J(τ,π|_J).",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Theorem 8.1 proof, p.36",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/28c",
+      "kind": "definition",
+      "name": "Admissibility and supercuspidal support",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. Use admissibility of irreducible smooth complex representations and supercuspidal support with its inertial equivalence class.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1, pp.2–4 and Theorem 8.1 proof",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/29",
+      "kind": "construction",
+      "name": "Enlarged buildings and connected parahorics",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. Use B(G,k) with apartments, facets, the group action, reduced/enlarged comparison, connected parahoric models and their reductive special-fibre quotients. A full point stabilizer is distinguished from the connected parahoric.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1 conventions, pp.6–8 and §3, pp.8–11",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ReductiveGroupsPartII:RG2.2",
+        "ReductiveGroupsPartII:RG2.3"
+      ],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/30",
+      "kind": "definition",
+      "name": "Absolute root data and their subgroup structure",
+      "statement": "For a reductive group and maximal torus use its absolute roots, coroots, Weyl group, root lattices, bases, parabolics and Levi subgroups, with the standard root-combinatorial identities.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1 conventions, pp.6–7; Lemma 2.2, pp.7–8",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange"
+      ],
+      "note": "This planned item excludes bad/torsion-prime definitions and index-of-connection arithmetic, now separately missing in /30a–c and /3–3e."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/30a",
+      "kind": "definition",
+      "name": "Bad primes for a root system",
+      "statement": "For a finite reduced crystallographic root system Ψ, p is not bad in the convention used here when ZΨ/ZΨ₀ has no p-torsion for every closed subsystem Ψ₀⊂Ψ. In Lemma 2.2(c) take Ψ=Φ∨.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 2.2(c), p.8, after [SS70, §4.1]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/30b",
+      "kind": "definition",
+      "name": "Torsion primes for a root system",
+      "statement": "For a finite reduced crystallographic root system Φ, p is not a torsion prime in the convention used here when ZΦ∨/Z(Φ₀∨) has no p-torsion for every closed subsystem Φ₀⊂Φ.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 2.2(d), p.8, after [Ste75, Definition 1.3]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/30c",
+      "kind": "definition",
+      "name": "The index of connection",
+      "statement": "The index of connection of a finite root system is the finite index of its root lattice in its weight lattice. Use the same definition on root subsystems generated by subsets of a base.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 2.2(e), p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/31",
+      "kind": "definition",
+      "name": "Tame local-field extensions",
+      "statement": "For a nonarchimedean local field k with residue characteristic p, a finite extension is tame when its ramification index is prime to p (the residue fields are perfect). Use the tame absolute-Galois quotient with its wild-inertia kernel.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Assumption 2.1, p.7",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group"
+      ],
+      "note": "This field-theoretic item excludes tame descent of buildings, which is /8a."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/32",
+      "kind": "definition",
+      "name": "Geometric semistability and closed orbits",
+      "statement": "For a rational representation of a reductive group over a field, a vector is semistable in the affine convention used here when the closure of its geometric orbit avoids zero. A closed geometric orbit is the separate condition used for almost stability.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 3.1, p.9; Corollary 3.8 proof, p.11",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "LP3’s good filtrations and invariant cohomology do not assert this orbit theory."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/32a",
+      "kind": "theorem",
+      "name": "Rational destabilizing cocharacters over a perfect field",
+      "statement": "Let a reductive group over a perfect field act rationally on a finite-dimensional vector space. If a rational vector is unstable, there is a cocharacter defined over that field whose limit on the vector at zero is zero. This is used over the finite residue field.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 3.8 proof, p.11; Lemma 6.1.2 proof, p.24, citing [Kem78, Corollary 4.3]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/32b",
+      "kind": "construction",
+      "name": "Lifting destabilizing cocharacters and moving building points",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For a residue-field cocharacter in the parahoric reductive quotient, choose a split torus in the parahoric lifting a maximal split torus containing its image, lift the cocharacter, and choose a tame maximal torus of the generic fibre containing it. Its apartment contains x; small shifts x+ελ give the root-filtration inequalities used in §§3,6,7.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 3.8 proof, p.11; Lemma 6.1.2 proof, p.24; Lemma 7.10 proof, p.32",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/33",
+      "kind": "definition",
+      "name": "Cuspidality for a finite reductive quotient",
+      "statement": "For a connected reductive group Q over a finite field f, an irreducible complex representation of Q(f) is cuspidal if its invariants under U(f) vanish for the unipotent radical U of every proper f-parabolic. Apply this to the connected reductive quotients of parahorics.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.10 and proof, p.32",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Finite GL₂ character theory is an existing special case; Clifford theory does not supply this general parabolic predicate. No Deligne–Lusztig classification is needed here."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/34",
+      "kind": "definition",
+      "name": "Unrefined minimal K-types",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. At depth zero an unrefined minimal K-type is a cuspidal irreducible representation of G_{x,0}/G_{x,0+}; at positive depth it is a nondegenerate character of G_{x,r}/G_{x,r+}, where nondegeneracy means the corresponding dual coset has no unstable element (equivalently no nilpotent element after the invariant-form identification).",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §1, p.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Introductory background; the proof uses the finer contained data rather than assuming these minimal types already determine a Bernstein block."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/35",
+      "kind": "theorem",
+      "name": "Existence of maximal data",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). Every irreducible smooth complex π has a maximal contained datum: Theorem 6.1 gives a contained datum and the integral facet dimensions are bounded, so one can maximize the dimension. This is independent of the subsequent minimization of the genericity defect.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Opening of §7, p.25; Theorem 7.12 proof, p.34",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/36",
+      "kind": "theorem",
+      "name": "A datum alone need not determine a Bernstein component",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). A maximal datum can occur in different Bernstein components. Enhancing the datum to the relevant representation of (M_{n+1})_x determines the Bernstein component, using KY17 Theorem 10.3 with the HM08 hypothesis removed by Kal19 Corollary 3.5.5.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Remark 6.2, p.25",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Do not confuse a bare datum with an s-type; this prevents a false classification claim."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/37",
+      "kind": "theorem",
+      "name": "Smooth character extension for the torus quotients",
+      "statement": "For the locally compact abelian torus-quotient groups used on pp.26–27, a smooth complex character on the indicated open positive-depth subgroup extends to the whole group. The restriction agrees with the given character and the extension remains smooth since its kernel contains the original open kernel.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), §7 character construction, pp.26–27, Pontryagin-duality input",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/38",
+      "kind": "construction",
+      "name": "Parabolics and unipotent radicals from cocharacters",
+      "statement": "For a connected reductive group over the finite residue field, use an f-defined cocharacter λ with the unipotent radical of a given f-parabolic characterized by lim_{t→0}λ(t)gλ(t)⁻¹=1. Its lift supplies the apartment direction in Lemma 7.10.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.10 proof, p.32, citing [CGP15, Corollary 2.2.5 and Proposition 2.2.9]",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ],
+      "note": "The upstream structure-theory layer explicitly includes the dynamic cocharacter approach to parabolics/Levis/unipotent radicals; the parahoric lift is a separate /32b obligation."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/39",
+      "kind": "theorem",
+      "name": "A nonoptimal-depth coset has unstable reduction",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. If a coadjoint element has d(x,X)<d(X), the deeper-lattice coset at x is degenerate (contains an unstable element); its image in the corresponding dual graded space is unstable. Use the Adler–DeBacker result with the non-simply-connected qualification recorded at the start of their §3 and the Moy–Prasad graded-coset comparison.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 3.2 proof, p.9; Proposition 3.12 proof, p.14, citing [AD02, Corollary 3.2.6] and [MP94, Proposition 4.3]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/40",
+      "kind": "theorem",
+      "name": "Almost stable representatives of filtration cosets",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For a building point y and real r, every coset modulo g*_{y,r+} has an almost stable representative; via the invariant form choose a semisimple representative. This supplies the representatives used to define f in the recursion.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Theorem 6.1 proof, p.22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/41",
+      "kind": "theorem",
+      "name": "Closed orbits of semisimple Lie elements",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. Under the invariant form g≃g*, an element in the Lie algebra of a maximal torus is semisimple and has closed geometric adjoint orbit; the corresponding coadjoint orbit is closed. This proves almost stability of the generic perturbation.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Proposition 3.12 proof, p.14, citing [Bor91, §9.2]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/11d",
+      "kind": "theorem",
+      "name": "A generic element annihilates root spaces",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For X generic and any split maximal torus of Cent_G(X) after extension, X vanishes on every root subspace of g over that extension.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 3.6, final assertion, p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/19d",
+      "kind": "theorem",
+      "name": "Continuity on the finite locus",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For f in /19 the subset f⁻¹(R≥0) is open in B_j and f is continuous on it, by comparing nearby root filtrations and applying simultaneous correction.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 6.1.1(ii), pp.22–23",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/19e",
+      "kind": "theorem",
+      "name": "The finite locus is closed and is the whole building",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). For f in /19 its finite locus is closed; since it is nonempty and open and B_j is connected, f is finite everywhere.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 6.1.1(iii), p.23",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    },
+    {
+      "id": "PAPER-FINTZEN-21/19f",
+      "kind": "theorem",
+      "name": "Attainment of the recursive minimum",
+      "statement": "Let k be a nonarchimedean local field of arbitrary characteristic with residue characteristic p, and G a connected reductive k-group split over a tame extension, with p not dividing its absolute Weyl-group order. For the non-torus construction assume G is not a torus (hence p is odd). The G_j(k)-invariant continuous nonnegative function f in /19 attains a minimum on B_j, using a bounded fundamental domain. Choose x_j minimizing f and r_j=f(x_j)≤f(x_{j−1})≤r_{j−1}.",
+      "locator": "arXiv:1810.04198v2 (3 November 2020), After Lemma 6.1.1, p.23",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Independently checked against the cited public-preprint passage; see the review report for the owner and library search."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Jiu-Kang Yu, Construction of tame supercuspidal representations, J. Amer. Math. Soc. 14 (2001), 579–622",
+      "link": "https://doi.org/10.1090/S0894-0347-01-00363-0",
+      "why": "The general tame twisted-Levi construction and its Heisenberg special isomorphisms, full genericity conditions, irreducibility and restriction theorems. Current ET.6 already owns mixed-characteristic GL_m type/segment theory, which is a special case to import and compare."
+    },
+    {
+      "citation": "Ju-Lee Kim and Jiu-Kang Yu, Construction of tame types, in Representation Theory, Number Theory, and Invariant Theory, Progr. Math. 323 (2017), 337–357",
+      "link": "https://doi.org/10.1007/978-3-319-59728-7_12",
+      "why": "The general tame twisted-Levi construction and its Heisenberg special isomorphisms, full genericity conditions, irreducibility and restriction theorems. Current ET.6 already owns mixed-characteristic GL_m type/segment theory, which is a special case to import and compare."
+    },
+    {
+      "citation": "Colin J. Bushnell and Philip C. Kutzko, Smooth representations of reductive p-adic groups: structure theory via types, Proc. London Math. Soc. 77 (1998), 582–634",
+      "link": "https://doi.org/10.1112/S0024611598000574",
+      "why": "General reductive-group s-types, the unital type-Hecke block equivalence and G-covers. Import the already planned Bernstein decomposition SR.3 and the ET.6 mixed-characteristic GL_m case."
+    },
+    {
+      "citation": "Allen Moy and Gopal Prasad, Unrefined minimal K-types for p-adic groups, Invent. Math. 116 (1994), 393–408, and Jacquet functors and unrefined minimal K-types, Comment. Math. Helv. 71 (1996), 98–121",
+      "link": "https://doi.org/10.1007/BF01231566",
+      "why": "The filtration subgroups G_{x,r} and lattices 𝔤_{x,r} and the notion of the depth of a representation, in which the entire paper is written; the atlas plans parahorics and congruence subgroups but not this filtration."
+    },
+    {
+      "citation": "Ju-Lee Kim, Supercuspidal representations: an exhaustion theorem, J. Amer. Math. Soc. 20 (2007), 273–320",
+      "link": "https://doi.org/10.1090/S0894-0347-06-00544-3",
+      "why": "The previous exhaustion theorem, in characteristic zero and for very large p, by matching summands of the Plancherel formula. Remark 7.11 records that its Proposition 17.2(2) is false as stated, so this paper's Lemma 7.10 cannot cite it."
+    },
+    {
+      "citation": "Jeffrey D. Adler and Alan Roche, An intertwining result for p-adic groups, Canad. J. Math. 52 (2000), 449–467",
+      "link": "https://doi.org/10.4153/CJM-2000-021-8",
+      "why": "AR00 Proposition 4.1 gives the invariant lattice-compatible form used in Remarks 3.10 and Lemmas 3.4/3.11. Corollary 3.2.6 belongs to Adler–DeBacker (AD02), not this paper."
+    },
+    {
+      "citation": "Ju-Lee Kim and Fiona Murnaghan, Character expansions and unrefined minimal K-types, Amer. J. Math. 125 (2003), 1199–1234",
+      "link": "https://doi.org/10.1353/ajm.2003.0043",
+      "why": "Lemma 2.3.3 is the off-centralizer-building depth inequality. Fintzen Lemma 3.11 explains why its proof works under the present weaker characteristic hypotheses."
+    },
+    {
+      "citation": "Tasho Kaletha, Regular supercuspidal representations, J. Amer. Math. Soc. 32 (2019), 1071–1170",
+      "link": "https://doi.org/10.1090/jams/925",
+      "why": "The exactness of the depth filtration on a short exact sequence of tori that are tame over k, quoted as Lemma 7.1 and used to compare the filtration subgroups of a twisted Levi with those of its derived group."
+    },
+    {
+      "citation": "Jessica Fintzen, Tame tori in p-adic groups and good semisimple elements, Int. Math. Res. Not. 2021 (2021), 14882–14904",
+      "link": "https://doi.org/10.1093/imrn/rnz234",
+      "why": "Theorem 2.4 and Corollary 2.6 there show that Assumption 2.1 forces all tori of G to be tame, and that outside a short list of types the assumption is also necessary — the evidence that the bound on p is optimal."
+    },
+    {
+      "citation": "Mark Reeder and Jiu-Kang Yu, Epipelagic representations and invariant theory, J. Amer. Math. Soc. 27 (2014), 437–477",
+      "link": "https://doi.org/10.1090/S0894-0347-2013-00780-8",
+      "why": "The general tame twisted-Levi construction and its Heisenberg special isomorphisms, full genericity conditions, irreducibility and restriction theorems. Current ET.6 already owns mixed-characteristic GL_m type/segment theory, which is a special case to import and compare."
+    },
+    {
+      "citation": "Colin J. Bushnell and Philip C. Kutzko, The Admissible Dual of GL(N) via Compact Open Subgroups, Ann. of Math. Stud. 129, Princeton, 1993",
+      "link": "https://doi.org/10.1515/9781400882496",
+      "why": "The model case: the construction of all supercuspidal representations of GL_n(k) and the existence of types for every irreducible representation, which underlies the explicit local Langlands correspondence for GL_n and which the general theorems here reproduce."
+    },
+    {
+      "citation": "Tonny A. Springer and Robert Steinberg, Conjugacy classes, in Seminar on Algebraic Groups and Related Finite Groups, Lecture Notes in Math. 131 (1970); Robert Steinberg, Torsion in reductive groups, Adv. Math. 15 (1975), 63–92",
+      "link": "https://doi.org/10.1007/BFb0081546",
+      "why": "The definitions of bad and torsion primes used in Lemma 2.2(c) and (d); the atlas plans root data but names neither notion."
+    },
+    {
+      "citation": "Paul Gérardin, Weil representations associated to finite fields, J. Algebra 46 (1977), 54–101",
+      "link": "https://doi.org/10.1016/0021-8693(77)90394-5",
+      "why": "Finite Weil–Heisenberg representations and parabolic restriction. Fintzen p.33 footnote 3 explicitly restores the quadratic factor missing from the printed statement of Gérardin Theorem 2.4(b). The present review checks Fintzen’s use, not a new independent audit of Gérardin."
+    },
+    {
+      "citation": "Jeffrey D. Adler and Stephen DeBacker, Some applications of Bruhat–Tits theory to harmonic analysis on the Lie algebra of a reductive p-adic group, Michigan Math. J. 50 (2002), 263–286",
+      "link": "https://websites.umich.edu/~smdbackr/MATH/algebra.pdf",
+      "why": "Corollary 3.2.6 and the beginning-of-§3 qualification are used in Fintzen Lemma 3.2 and Proposition 3.12. This corrects the misattribution to Adler–Roche."
+    },
+    {
+      "citation": "Jeffrey D. Adler, Refined anisotropic K-types and supercuspidal representations, Pacific J. Math. 185 (1998), 1–32",
+      "link": "https://msp.org/pjm/1998/185-1/pjm-v185-n1-p01-s.pdf",
+      "why": "Tame lattice base change (1.4.1), mock exponentials (§1.5) and the adjoint approximation (1.6.3), used in §3 and Lemma 5.1."
+    },
+    {
+      "citation": "George R. Kempf, Instability in invariant theory, Ann. of Math. 108 (1978), 299–316",
+      "link": "https://annals.math.princeton.edu/1978/108-2/p04",
+      "why": "Corollary 4.3 supplies a rational destabilizing cocharacter over the perfect residue field. Current LP3 good-filtration theory is not a substitute for this missing theorem."
+    },
+    {
+      "citation": "Jeffrey Hakim and Fiona Murnaghan, Distinguished tame supercuspidal representations, IMRP 2008, rpn005",
+      "link": "https://doi.org/10.1093/imrp/rpn005",
+      "why": "The enhanced-datum equivalence used through KY17 Theorem 10.3 in Remark 6.2; retain the removal of the additional hypothesis by Kal19 Corollary 3.5.5."
+    },
+    {
+      "citation": "Nicolas Bourbaki, Lie Groups and Lie Algebras, Chapters 4–6, Springer, 2002",
+      "link": "https://link.springer.com/book/9783540691716",
+      "why": "Fintzen cites VI.1 Proposition 24 for extending the rationally closed subsystem to a base, VI.2 Proposition 7 for the index dividing the Weyl order, and VI.4.5–VI.4.13 for Weyl orders. Reuse existing root carriers; the missing prime/denominator consequences remain to prove."
+    },
+    {
+      "citation": "Armand Borel, Linear Algebraic Groups, second edition, Springer, 1991",
+      "link": "https://link.springer.com/book/10.1007/978-1-4612-0941-6",
+      "why": "Fintzen cites §9.2 for closed semisimple orbits and §14.25 in the coadjoint-centralizer argument. The general upstream group structure is already an import; the specific orbit/centralizer comparison is additional. Bibliographic locators are recorded from Fintzen, not claimed as a full reread of the book."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "roadmap": "SmoothRepresentationsPartII",
+      "parent": "SmoothRepresentationsOfLocalGroups",
+      "title": "Smooth representations of local groups, Part II: types, depth and the construction of supercuspidal representations",
+      "area": "representations",
+      "items": [
+        "PAPER-FINTZEN-21/1a",
+        "PAPER-FINTZEN-21/1b",
+        "PAPER-FINTZEN-21/2",
+        "PAPER-FINTZEN-21/4",
+        "PAPER-FINTZEN-21/5",
+        "PAPER-FINTZEN-21/6",
+        "PAPER-FINTZEN-21/7b",
+        "PAPER-FINTZEN-21/10",
+        "PAPER-FINTZEN-21/10a",
+        "PAPER-FINTZEN-21/11",
+        "PAPER-FINTZEN-21/11a",
+        "PAPER-FINTZEN-21/11b",
+        "PAPER-FINTZEN-21/11c",
+        "PAPER-FINTZEN-21/12",
+        "PAPER-FINTZEN-21/13",
+        "PAPER-FINTZEN-21/14",
+        "PAPER-FINTZEN-21/14a",
+        "PAPER-FINTZEN-21/14b",
+        "PAPER-FINTZEN-21/15",
+        "PAPER-FINTZEN-21/15a",
+        "PAPER-FINTZEN-21/15b",
+        "PAPER-FINTZEN-21/16",
+        "PAPER-FINTZEN-21/16a",
+        "PAPER-FINTZEN-21/16b",
+        "PAPER-FINTZEN-21/17",
+        "PAPER-FINTZEN-21/17a",
+        "PAPER-FINTZEN-21/17b",
+        "PAPER-FINTZEN-21/18",
+        "PAPER-FINTZEN-21/19",
+        "PAPER-FINTZEN-21/19a",
+        "PAPER-FINTZEN-21/19b",
+        "PAPER-FINTZEN-21/19c",
+        "PAPER-FINTZEN-21/20b",
+        "PAPER-FINTZEN-21/21",
+        "PAPER-FINTZEN-21/21a",
+        "PAPER-FINTZEN-21/21b",
+        "PAPER-FINTZEN-21/21c",
+        "PAPER-FINTZEN-21/21d",
+        "PAPER-FINTZEN-21/21e",
+        "PAPER-FINTZEN-21/22",
+        "PAPER-FINTZEN-21/22a",
+        "PAPER-FINTZEN-21/22b",
+        "PAPER-FINTZEN-21/22c",
+        "PAPER-FINTZEN-21/22d",
+        "PAPER-FINTZEN-21/22e",
+        "PAPER-FINTZEN-21/22f",
+        "PAPER-FINTZEN-21/22g",
+        "PAPER-FINTZEN-21/22h",
+        "PAPER-FINTZEN-21/23",
+        "PAPER-FINTZEN-21/23a",
+        "PAPER-FINTZEN-21/23b",
+        "PAPER-FINTZEN-21/23c",
+        "PAPER-FINTZEN-21/24",
+        "PAPER-FINTZEN-21/24a",
+        "PAPER-FINTZEN-21/24b",
+        "PAPER-FINTZEN-21/24c",
+        "PAPER-FINTZEN-21/25",
+        "PAPER-FINTZEN-21/25a",
+        "PAPER-FINTZEN-21/26",
+        "PAPER-FINTZEN-21/27c",
+        "PAPER-FINTZEN-21/33",
+        "PAPER-FINTZEN-21/34",
+        "PAPER-FINTZEN-21/35",
+        "PAPER-FINTZEN-21/36",
+        "PAPER-FINTZEN-21/37",
+        "PAPER-FINTZEN-21/39",
+        "PAPER-FINTZEN-21/40",
+        "PAPER-FINTZEN-21/11d",
+        "PAPER-FINTZEN-21/19d",
+        "PAPER-FINTZEN-21/19e",
+        "PAPER-FINTZEN-21/19f"
+      ],
+      "brief": "Begin with Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) as the first prerequisite. Import its early smooth abelian category SR.0:abelian-category, ambient Hecke algebra SR.1, compact induction and reciprocity SR.2, and complex admissibility, supercuspidal support and Bernstein decomposition SR.3. Do not depend on the late integral SR.6 or rebuild these objects. The targets, for k any nonarchimedean local field, G connected reductive split over a tame extension and p prime to the absolute Weyl-group order, are Fintzen Theorem 7.12 (every irreducible smooth complex representation contains a Kim–Yu s-type), Theorem 8.1 (every irreducible smooth supercuspidal is a Yu compact induction), and Corollary 8.3 (for a maximal contained datum, supercuspidality is equivalent to minimal facet dimension in the terminal-centralizer building and anisotropy of its center modulo Z(G)). Separate tori; the non-torus construction has p odd. Do not claim necessity or optimality of the bound, an algorithm classifying all representations, or that a bare datum determines a block.\n\nBuild general s-types, their unital type-Hecke block equivalence and G-covers. Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6) already owns the mixed-characteristic GL_m supercuspidal/type and segment theory: import that special case and compare the general theory to it; construct no second GL_m classification, segment theory or local Langlands correspondence. The general tame-group/equal-characteristic extension here remains necessary. The finite-reductive cuspidality predicate needed at depth zero is a parabolic-invariant predicate on the existing finite-representation carrier; compare its GL₂ case to Tau Ceti CharacterTheory layer 9 and reuse its finite induction/restriction infrastructure. No Deligne–Lusztig classification is required.\n\nDevelop depth, almost strong stability and generic dual elements; prove the off-centralizer-building inequality and the nearby-point generic-perturbation theorem with its epsilon quantifier and deeper additive coset. Define extended, truncated and contained data including the exceptional H₁ convention, length zero and facet-dimension maximality. Prove all parts of Lemma 5.1 and Corollaries 5.2–5.4 with their depth bounds and preserved subgroup actions. Construct the recursive function f, prove its equivariance, finite open/closed locus, continuity, minimum and almost strongly stable minimizer, then extend truncated data until the strict centralizer chain terminates. Keep the Adler–DeBacker degeneracy comparison and mock-exponential inputs explicit.\n\nConstruct the depth-zero Levi and intermediate subgroup, extend the torus characters, and prove every part of Lemma 7.3, including full Yu genericity. Define all five K-products, extended characters and the common kernel; prove all four product identities and construct the individual and combined Heisenberg quotients on those actual groups. Import finite oscillator theory from the finite extension proposed in route 3; do not rebuild it here. Extract ρ⊗κ only on the chosen irreducible K-subrepresentation V̂. Prove its depth-zero constituents cuspidal using the corrected quadratic-factor finite Weil restriction and the maximal-facet contradiction. Then minimize the genericity defect among maximal data and prove D2; D1,D3,D4,D5 alone produce a representation, not the final type. Use the cover property, reduced-building stabilizer, depth-zero compact induction to G_{n+1}(k), Yu irreducibility, and Frobenius reciprocity to prove exhaustion.\n\nImport buildings, valued roots, parahorics and the local inputs in route 2 from Reductive groups, Part II: local structure and arithmetic models (ReductiveGroupsPartII:RG2.1–3). Import rational orbit instability and good-characteristic root/centralizer facts from route 4, retaining its staged dependencies. Import tame ramification from Tau Ceti LocalFieldsRamification layers 3–4. Use the public v2 paper’s precise locators and corrected sourceIssues; its reported warnings about Kim07, KY17 D5 and Gérardin must accompany the dependency contracts. Formalizers must read those prerequisite papers before closing their leaves.",
+      "reason": "The existing SR.0–3 contracts provide ambient category theory and Bernstein blocks but no general tame-group data or exhaustion construction. The original route’s GL_m absence claim is stale: ET.6 already owns that special case. The revised route imports it and removes generic finite oscillator and reductive orbit theory into their own foundational extensions. The local structural input remains in RG2.1–3."
+    },
+    {
+      "route": "source",
+      "roadmap": "ReductiveGroupsPartII",
+      "stages": [
+        "ReductiveGroupsPartII:RG2.1",
+        "ReductiveGroupsPartII:RG2.2",
+        "ReductiveGroupsPartII:RG2.3"
+      ],
+      "items": [
+        "PAPER-FINTZEN-21/2a",
+        "PAPER-FINTZEN-21/7",
+        "PAPER-FINTZEN-21/7a",
+        "PAPER-FINTZEN-21/7c",
+        "PAPER-FINTZEN-21/7d",
+        "PAPER-FINTZEN-21/8",
+        "PAPER-FINTZEN-21/8a",
+        "PAPER-FINTZEN-21/9",
+        "PAPER-FINTZEN-21/14c",
+        "PAPER-FINTZEN-21/16c",
+        "PAPER-FINTZEN-21/20",
+        "PAPER-FINTZEN-21/20a",
+        "PAPER-FINTZEN-21/32b"
+      ],
+      "reason": "RG2.1 owns valued root-group filtrations and commutator estimates, RG2.2 buildings and their reduced/enlarged geometry, and RG2.3 connected parahorics, reductive quotients and congruence subgroups. Supply their blueprint with the exact real-indexed Moy–Prasad group/Lie/dual refinements, tame base-change and twisted-Levi building images, invariant form with lattice compatibility, mixed-depth groups and mock-exponential estimates, positive-depth exact sequences of tame tori, torus/derived generation and lifting of cocharacters. These are missing proofs within the existing local-structure layers, not a claim that those layers already prove them. Keep r≥0 for groups, r real for Lie lattices, r>0 for torus exactness, the valuation normalized on k, and the full Weyl-order hypothesis for the form. Import absolute root data from Tau Ceti and the new good-prime consequences from route 4. Representation depth, contained data, characters, types and exhaustion remain in route 1."
+    },
+    {
+      "route": "part-ii",
+      "roadmap": "FiniteWeilRepresentationsPartII",
+      "parent": "MetaplecticAutomorphicForms",
+      "title": "Metaplectic groups, Weil representations and automorphic theta kernels, Part II: finite Weil–Heisenberg representations",
+      "area": "representations",
+      "items": [
+        "PAPER-FINTZEN-21/27",
+        "PAPER-FINTZEN-21/27a",
+        "PAPER-FINTZEN-21/27b"
+      ],
+      "brief": "Take Metaplectic groups, Weil representations and automorphic theta kernels (MetaplecticAutomorphicForms) as the parent and first prerequisite. Its current MP.0–2 scope begins with characteristic-zero local fields; it does not supply finite fields or the genuine finite symplectic action needed in Fintzen §7. Extend the shared Heisenberg/polarization definitions to finite symplectic spaces in odd characteristic, proving compatibility with the existing half-pairing algebraic construction rather than creating a second abstract central-extension carrier. This finite branch must use finite sums and algebraic complex representations; it must not wait for Haar integration, local metaplectic double covers or automorphic theta analysis. Import finite-group representation, induction, tensor and Schur/Clifford infrastructure from Tau Ceti RepresentationTheory/InductionRestriction and the pinned libraries after checking exact hypotheses.\n\nThe endpoints are finite Stone–von Neumann uniqueness for a specified nontrivial central character, a genuine Weil–Heisenberg representation of Sp(V) semidirect H(V) after the prescribed special isomorphism and normalization, and Gérardin’s parabolic restriction with the quadratic determinant character retained. For V=V⁺⊕V⁰⊕V⁻, identify the V⁺-invariant model under the parabolic with the quadratic GL(V⁺) factor tensor the Weil representation of V⁰. Supply the iterated isotropic fixed-vector consequence consumed in Fintzen Lemma 7.10. Do not identify an arbitrary projective action with a linear Weil extension or import the local-field nonsplitting conclusion into the finite setting. Require p odd and the central character nontrivial; the trivial-character uniqueness claim is false. Source the precise theorem from Gérardin 1977, with Fintzen v2 p.33 footnote 3’s correction, and Yu 2001 §§10–11. The p-adic filtration groups, their special isomorphisms and the assembly of κ across a twisted-Levi tower remain in SmoothRepresentationsPartII; this extension exports only their reusable finite representation theory. Check a symplectic plane, zero-dimensional V, changes of polarization and the quadratic factor in a parabolic restriction.",
+      "reason": "An independent atlas-wide search finds the common oscillator owner MP.0–2, contrary to the original extraction’s claim of no Heisenberg/Weil owner. Its full README explicitly restricts its starting field to characteristic zero and requires a separately sourced extension for other characteristics. A finite Part II preserves that boundary and prevents a second oscillator theory hidden in the tame-types roadmap."
+    },
+    {
+      "route": "part-ii",
+      "roadmap": "ReductiveCoadjointInvariantTheoryPartII",
+      "parent": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "title": "Reductive algebraic groups, Part II: good characteristic and coadjoint invariant theory",
+      "area": "representations",
+      "items": [
+        "PAPER-FINTZEN-21/3",
+        "PAPER-FINTZEN-21/3b",
+        "PAPER-FINTZEN-21/3c",
+        "PAPER-FINTZEN-21/3d",
+        "PAPER-FINTZEN-21/3e",
+        "PAPER-FINTZEN-21/10b",
+        "PAPER-FINTZEN-21/30a",
+        "PAPER-FINTZEN-21/30b",
+        "PAPER-FINTZEN-21/30c",
+        "PAPER-FINTZEN-21/32",
+        "PAPER-FINTZEN-21/32a",
+        "PAPER-FINTZEN-21/41"
+      ],
+      "brief": "Start with Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups) as the first prerequisite: its rational representations, Lie/adjoint objects, tori, parabolics, Levi subgroups and absolute root data are fixed suppliers, especially layers 1–7. Import root combinatorics from Tau Ceti RepresentationTheory/RootSystems. This extension owns only the missing root-prime arithmetic and orbit-theoretic statements required by Fintzen §§2–3 and §6. Do not rebuild group schemes, a reductive-group classification, or the dynamic construction of parabolics. Do not claim LanglandsParameterStacks:LP3 already supplies this theory: its integral good filtrations and invariant cohomology have a different contract.\n\nFirst define bad primes, torsion primes and the index of connection with the distinct root/coroot closure conditions. Prove each part of Fintzen Lemma 2.2 separately under p prime to the absolute Weyl-group order: inheritance for geometric Levi subgroups, the bond-order bound, no bad prime for the coroot system, no torsion prime for either system, and prime-to-p indices for base-generated root subsystems. Keep the root-lattice/weight-lattice denominator and coroot differential consequences used in Proposition 3.12 explicit. Export these early results to ReductiveGroupsPartII’s invariant-form construction; this early branch must not depend on that form.\n\nDefine geometric orbit closure and affine semistability for rational representations. Prove the rational destabilizing-cocharacter theorem over a perfect field in Kempf Corollary 4.3’s setting, in particular over the finite residue fields in the paper. Separate this residue-field theorem from assertions over the possibly imperfect local field k. On the actual adjoint/coadjoint representation, prove the closed-orbit result for semisimple toral elements and Fintzen Lemma 3.4: under the tame/Weyl-order hypotheses an almost stable coadjoint element has a twisted-Levi centralizer. The latter branch may import the already-constructed Adler–Roche identification from ReductiveGroupsPartII and the upstream dynamic/semisimple centralizer theory; it must not feed back into the early good-prime proof. Prove root-subsystem and connected-centralizer identifications rather than assuming an arbitrary stabilizer is Levi. Export the orbit statements to SmoothRepresentationsPartII’s generic perturbation and recursive-depth arguments. Building points, parahoric cocharacter lifts and filtration inequalities stay with ReductiveGroupsPartII, and type/cuspidality constructions stay with SmoothRepresentationsPartII. Sources are Fintzen’s explicit proofs, Kempf 1978, Springer–Steinberg/Steinberg, Borel, and Bourbaki at the locators recorded in the extraction.",
+      "reason": "Full reads of the upstream reductive-groups document and LP3 show that the former owns carriers, tori, parabolics and root data and the latter good-filtration/cohomology statements. Neither plans rational orbit destabilization or the stated bad/torsion-prime arithmetic. These reusable missing foundations should extend the foundational reductive-group owner, not be declared supplied by LP3 or rebuilt inside a single smooth-representation construction."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-FINTZEN-21/E1",
+      "kind": "misprint",
+      "locator": "arXiv:1810.04198v2, Theorem 8.1 proof, p.36, the compact induction immediately before the citation to MP96 Proposition 6.6; no claim about the journal version",
+      "printed": "ind^{G(k)}_{(G_{n+1})_[x]} ρ̃|_{(G_{n+1})_[x]}",
+      "correction": "The superscript of this depth-zero compact induction is G_{n+1}(k). The later compact induction of π_K̃ to G(k) is unchanged.",
+      "reason": "This sentence verifies the depth-zero input for Yu on the terminal group G_{n+1}. MP96 is invoked before adding the positive-depth oscillator factors; induction to G(k) occurs only after that construction. When G_{n+1} is a proper twisted Levi, its point stabilizer is not the open subgroup of G(k) required for this depth-zero assertion.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/1810.04198 — v1/v2 listed, no later version",
+        "2026-09-23: https://annals.math.princeton.edu/2021/193-1/p04 — no linked correction seen; published PDF not inspected",
+        "2026-09-23: https://www.math.uni-bonn.de/people/fintzen/research.html — no correction listed for this paper",
+        "2026-09-23: title/arXiv-id searches with erratum and correction found no matching correction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked in the rendered PDF page against the adjoining definitions and proof: This sentence verifies the depth-zero input for Yu on the terminal group G_{n+1}. MP96 is invoked before adding the positive-depth oscillator factors; induction to G(k) occurs only after that construction. When G_{n+1} is a proper twisted Levi, its point stabilizer is not the open subgroup of G(k) required for this depth-zero assertion.",
+        "by": "REV-PAPER-FINTZEN-21"
+      }
+    },
+    {
+      "id": "PAPER-FINTZEN-21/E2",
+      "kind": "misprint",
+      "locator": "arXiv:1810.04198v2, Lemma 7.8 proof, p.31, opening sentence; no claim about the journal version",
+      "printed": "K_{0+}=G_{x,0+}K^H_{0+}; G_{x,0+}⊂K_+",
+      "correction": "Replace G_{x,0+} in this opening sentence, including its character restriction, by (G_{n+1})_{x,0+}.",
+      "reason": "Lemma 7.5 gives exactly K_{0+}=(G_{n+1})_{x,0+}K^H_{0+}; the same terminal-group positive parahoric lies in K_+ by its definition on p.28. The proof only uses this smaller scalar-acting subgroup. G_{x,0+} is not generally contained in the deeper half-depth product.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/1810.04198 — v1/v2 listed, no later version",
+        "2026-09-23: https://annals.math.princeton.edu/2021/193-1/p04 — no linked correction seen; published PDF not inspected",
+        "2026-09-23: https://www.math.uni-bonn.de/people/fintzen/research.html — no correction listed for this paper",
+        "2026-09-23: title/arXiv-id searches with erratum and correction found no matching correction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked in the rendered PDF page against the adjoining definitions and proof: Lemma 7.5 gives exactly K_{0+}=(G_{n+1})_{x,0+}K^H_{0+}; the same terminal-group positive parahoric lies in K_+ by its definition on p.28. The proof only uses this smaller scalar-acting subgroup. G_{x,0+} is not generally contained in the deeper half-depth product.",
+        "by": "REV-PAPER-FINTZEN-21"
+      }
+    },
+    {
+      "id": "PAPER-FINTZEN-21/E3",
+      "kind": "misprint",
+      "locator": "arXiv:1810.04198v2, Theorem 6.1 proof, p.24, first line of Case 1; no claim about the journal version",
+      "printed": "X_j∈(g_j)*_{x,r_j}",
+      "correction": "Read X_j∈(g_j)*_{x_j,−r_j}.",
+      "reason": "The function f on p.22 chooses a dual element at negative depth −r_j. The ensuing pairing is with the positive-depth quotient of h_j, and the same p.24 proof explicitly uses g_j*_{x_j+ελ,−r_j}. Both the missing minus sign and the unspecialized point are notational slips.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/1810.04198 — v1/v2 listed, no later version",
+        "2026-09-23: https://annals.math.princeton.edu/2021/193-1/p04 — no linked correction seen; published PDF not inspected",
+        "2026-09-23: https://www.math.uni-bonn.de/people/fintzen/research.html — no correction listed for this paper",
+        "2026-09-23: title/arXiv-id searches with erratum and correction found no matching correction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked in the rendered PDF page against the adjoining definitions and proof: The function f on p.22 chooses a dual element at negative depth −r_j. The ensuing pairing is with the positive-depth quotient of h_j, and the same p.24 proof explicitly uses g_j*_{x_j+ελ,−r_j}. Both the missing minus sign and the unspecialized point are notational slips.",
+        "by": "REV-PAPER-FINTZEN-21"
+      }
+    },
+    {
+      "id": "PAPER-FINTZEN-21/E4",
+      "kind": "misprint",
+      "locator": "arXiv:1810.04198v2, Corollary 5.2 proof, p.20, first sentence and final quotient calculation; no claim about the journal version",
+      "printed": "depth r_j; (H_j)_{x,r_i−ε,d+}; (h_j)_{x,r_ji+}",
+      "correction": "The generic element has depth −r_j; the numerator index is r_j−ε, and the final Lie denominator is (h_j)_{x,r_j+}.",
+      "reason": "Definition 4.1 and the invocation of Lemma 5.1 use depth −r_j. Corollary 5.2’s hypothesis on p.19 has numerator r_j−ε and denominator r_j+. The index i is not bound in the last sentence and r_ji is undefined; the correction agrees with the adjacent group quotient and the stated conclusion.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/1810.04198 — v1/v2 listed, no later version",
+        "2026-09-23: https://annals.math.princeton.edu/2021/193-1/p04 — no linked correction seen; published PDF not inspected",
+        "2026-09-23: https://www.math.uni-bonn.de/people/fintzen/research.html — no correction listed for this paper",
+        "2026-09-23: title/arXiv-id searches with erratum and correction found no matching correction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked in the rendered PDF page against the adjoining definitions and proof: Definition 4.1 and the invocation of Lemma 5.1 use depth −r_j. Corollary 5.2’s hypothesis on p.19 has numerator r_j−ε and denominator r_j+. The index i is not bound in the last sentence and r_ji is undefined; the correction agrees with the adjacent group quotient and the stated conclusion.",
+        "by": "REV-PAPER-FINTZEN-21"
+      }
+    },
+    {
+      "id": "PAPER-FINTZEN-21/E5",
+      "kind": "misprint",
+      "locator": "arXiv:1810.04198v2, Lemma 7.7 proof, p.31, notation for the scalar extension and its polarized quotient; no claim about the journal version",
+      "printed": "K^H_0(E); K^H_{0+}/K^H_0",
+      "correction": "The occurrences of K^H_0 and K^H_0(E) in the polarization quotient refer to K^H_+ and K^H_+(E); the kernel denoted N(E) in the setup is N^H(E) in the subsequent formulas.",
+      "reason": "Only K^H_{0+}, K^H_+ and N^H were defined. The symplectic quotient is K^H_{0+}/K^H_+ on p.30; quotienting the Heisenberg group by its center must give that same space over E. No subgroup K^H_0 was introduced.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/1810.04198 — v1/v2 listed, no later version",
+        "2026-09-23: https://annals.math.princeton.edu/2021/193-1/p04 — no linked correction seen; published PDF not inspected",
+        "2026-09-23: https://www.math.uni-bonn.de/people/fintzen/research.html — no correction listed for this paper",
+        "2026-09-23: title/arXiv-id searches with erratum and correction found no matching correction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked in the rendered PDF page against the adjoining definitions and proof: Only K^H_{0+}, K^H_+ and N^H were defined. The symplectic quotient is K^H_{0+}/K^H_+ on p.30; quotienting the Heisenberg group by its center must give that same space over E. No subgroup K^H_0 was introduced.",
+        "by": "REV-PAPER-FINTZEN-21"
+      }
+    }
   ]
- },
- "summary": "Complete extraction of the 39-page paper. For k a non-archimedean local field of arbitrary characteristic with residue characteristic p and G a connected reductive group over k that splits over a tamely ramified extension with p not dividing the order of the Weyl group, Fintzen proves that every smooth irreducible complex representation of G(k) contains an s-type of the form constructed by Kim and Yu, and that every irreducible supercuspidal representation arises from Yu's construction. Both statements were previously known only in characteristic zero and for an ineffective 'very large' p, by Kim; here the bound is explicit and expected to be optimal, since when it fails G generally has tori that are not tame and Reeder–Yu's construction suggests supercuspidal representations outside Yu's list. The method is different from Kim's: instead of matching summands of the Plancherel formula for the group and the Lie algebra, the paper works explicitly with the action of one-parameter subgroups on the Bruhat–Tits building, so the input for the construction can be extracted from a given representation. The argument has two halves — every irreducible representation contains a datum, a skeleton consisting of a point of the building, a sequence of generic elements of the dual Lie algebra cutting out a tower of twisted Levi subgroups, and a depth-zero representation (Theorem 6.1); and a datum, once maximal, can be converted into the input for Yu's construction and the resulting type shown to be contained in the representation (Theorem 7.12). Of the 39 items, none is in the pinned libraries, 7 are planned by existing layers, and 26 are missing. The paper becomes a Part II of SmoothRepresentationsOfLocalGroups, whose layers stop exactly where the constructions begin, with the Moy–Prasad filtration, twisted Levi subgroups, the Adler–Roche form and the depth filtration of tame tori routed to ReductiveGroupsPartII RG2.2 and RG2.3, which own the building and the parahorics. No mistakes were found in the paper itself; Remark 7.11 records a correction to the published literature, namely that the claim of Kim's Proposition 17.2(2) is false as stated, which is why Lemma 7.10 is proved afresh here. This is a paper inventory and routing, not a proof blueprint: the results quoted from Yu, Kim, Kim–Yu, Bushnell–Kutzko, Moy–Prasad, Adler–Roche, Kim–Murnaghan and Kaletha are recorded as items with their own prerequisite entries and are not decomposed here.",
- "items": [
-  {
-   "id": "PAPER-FINTZEN-21/1",
-   "kind": "definition",
-   "name": "s-types and the Bernstein decomposition",
-   "statement": "By Bernstein, the category R(G) of smooth complex representations of G(k) decomposes as a product ∏_{s∈I} R^s(G) over the set I of inertial equivalence classes of pairs (L, σ) with L a Levi subgroup of a parabolic of G and σ an irreducible supercuspidal representation of L(k). Following Bushnell and Kutzko, a pair (K, ρ) with K ⊂ G(k) compact open and ρ an irreducible smooth representation of K is an s-type if, for every irreducible smooth π, one has π ∈ R^s(G) if and only if π|_K contains ρ. In that case R^s(G) is isomorphic to the category of unital left modules over the Hecke algebra of compactly supported ρ-spherical functions on G(k).",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), §1, pp. 2–3",
-   "status": "planned",
-   "library": [],
-   "planned": [
-    "SmoothRepresentationsOfLocalGroups:SR.3",
-    "SmoothRepresentationsOfLocalGroups:SR.1"
-   ],
-   "note": "SR.3 plans the Bernstein decomposition and the Bernstein centre together with supercuspidal support, and SR.1 the Hecke algebras with the correspondence between smooth representations and nondegenerate modules. The notion of an s-type itself and the Hecke-algebra isomorphism it yields are not planned: a search of every stage description in the atlas for 's-type' and 'Bushnell' returns nothing relevant."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/2",
-   "kind": "definition",
-   "name": "The tameness and residual-characteristic assumption",
-   "statement": "Assumption 2.1: G is a connected reductive group over a non-archimedean local field k with residue characteristic p, G splits over a tamely ramified extension of k, and p does not divide the order of the Weyl group W of G.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Assumption 2.1, p. 7",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "By the author's earlier work these hypotheses imply that all tori of G are tame, and for absolutely simple groups other than certain non-split inner forms of split groups of type A_n (n ≥ 2), D_l (l ≥ 4 prime) or E_6 the assumption is also necessary. The few primes dividing |W| are listed in Table 1, and the paper expects the bound to be optimal: if either hypothesis fails, G generally has tori not splitting over a tame extension, and Reeder–Yu's construction suggests these produce supercuspidal representations outside Yu's list."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/3",
-   "kind": "theorem",
-   "name": "Consequences of p ∤ |W|",
-   "statement": "The assumption p ∤ |W| implies: (a) p divides the order of the Weyl group of no Levi subgroup of a parabolic of G_{k̄}; (b) p exceeds the order of any bond of the Dynkin diagram of G_{k̄}, i.e. the square of the ratio of two root lengths; (c) p is not a bad prime for the coroot system Φ̌(G); (d) p is not a torsion prime for Φ(G), hence not for Φ̌(G); (e) p does not divide the index of connection of any root subsystem generated by a subset of a basis of Φ(G).",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 2.2, pp. 7–8",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The root-theoretic consequences on which everything else rests; (e) is what makes H_α = dα̌(1) nonzero and lets the Adler–Roche bilinear form exist. Bad and torsion primes are classical notions of Springer–Steinberg, but the atlas plans neither: a search for 'torsion prime' and 'bad prime' in every stage description returns nothing."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/4",
-   "kind": "theorem",
-   "name": "Existence of types for tame p-adic groups",
-   "statement": "Let k be a non-archimedean local field of arbitrary characteristic with residue characteristic p, and let G be a connected reductive group over k splitting over a tamely ramified extension with p ∤ |W|. Then every smooth irreducible complex representation of G(k) contains an s-type of the form constructed by Kim and Yu.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Theorem 7.12, p. 34, and §1, pp. 3–4",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "Previously known only for k of characteristic zero and p very large, by Kim and Yu's deduction from Kim's work; here the bound on p is explicit and expected to be optimal, and positive characteristic is allowed. The approach is also more explicit: an interested reader can extract the input of the construction from a given representation, rather than matching summands of the Plancherel formula as Kim does."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/5",
-   "kind": "theorem",
-   "name": "Exhaustion of supercuspidal representations by Yu's construction",
-   "statement": "Under the same hypotheses, every smooth irreducible supercuspidal representation of G(k) arises from Yu's construction.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Theorem 8.1, p. 36",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "Previously known, by Kim, only in characteristic zero and for p sufficiently large in a sense depending on k. Yu's construction is the most general known construction of supercuspidal representations of a general reductive group, and the many results proved for representations produced by it — distinction, character formulas, an explicit local Langlands correspondence, the theta correspondence — now apply to all of them."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/6",
-   "kind": "theorem",
-   "name": "Recognising supercuspidality from a maximal datum",
-   "statement": "Let (π, V_π) be a smooth irreducible representation of G(k) and (x, (X_i)_{1≤i≤n}, (ρ₀, V_{ρ₀})) a maximal datum for it. Then π is supercuspidal if and only if x lies in a facet of minimal dimension in B(G_{n+1}, k) and Z(G_{n+1})/Z(G) is anisotropic, where G_{n+1} = Cent_G(Σ_i X_i).",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 8.3, p. 36",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "A criterion readable off the combinatorial data, and the reason the proof of Theorem 8.1 is a corollary of §7 rather than a separate argument."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/7",
-   "kind": "definition",
-   "name": "The Moy–Prasad filtration and the depth of a representation",
-   "statement": "For every point x of the Bruhat–Tits building B(G, k) and every real number r, Moy and Prasad define a compact open subgroup G_{x,r} ⊂ G(k) and a lattice 𝔤_{x,r} ⊂ 𝔤 = Lie(G)(k), with G_{x,r} ⊴ G_{x,s} and 𝔤_{x,r} ⊆ 𝔤_{x,s} for r > s, together with G_{x,r+} = ∪_{s>r}G_{x,s}. The depth of a smooth representation (π, V_π) is the least r ≥ 0 for which there is x ∈ B(G, k) with V_π^{G_{x,r+}} ≠ 0. The dual lattices 𝔤*_{x,r} are defined by 𝔤*_{x,r} = {X : X(𝔤_{x,(−r)+}) ⊂ 𝔓}.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), §1, pp. 3–4, and §3, following Moy–Prasad",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "ReductiveGroupsPartII RG2.3 plans the parahoric and congruence group schemes attached to a facet, with the pro-unipotent radical and the pro-p congruence subgroups, but not the real-indexed Moy–Prasad filtration or its Lie-algebra and dual counterparts: a search of every stage description for 'Moy–Prasad' returns nothing. The whole of this paper is written in this filtration."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/8",
-   "kind": "definition",
-   "name": "Twisted Levi subgroups and their buildings",
-   "statement": "A smooth closed subgroup H′ of a reductive group H over F is a twisted Levi subgroup if H′ ×_F E is a Levi subgroup of a parabolic of H ×_F E for some finite extension E/F. Since all tori of G are tame under Assumption 2.1, every twisted Levi subgroup becomes a Levi subgroup over a finite tamely ramified extension, so tame Galois descent gives a well-defined image of B(G′, k) in B(G, k) for every twisted Levi subgroup G′ — unique even though the embedding is only unique up to translation.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 3.3, p. 9, and Remark 3.9, p. 11",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The class of subgroups along which Yu's construction is built. RG2.2 plans the building with its apartments, facets and group action, but neither twisted Levi subgroups nor the functorial embedding of their buildings is planned."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/9",
-   "kind": "theorem",
-   "name": "The Adler–Roche bilinear form",
-   "statement": "Since p does not divide the index of connection of Φ(G), there is a non-degenerate G-equivariant symmetric bilinear form B : 𝔤 × 𝔤 → k whose induced identification of 𝔤 with 𝔤* carries 𝔤_{x,r} to 𝔤*_{x,r} for all x and r, and which stays non-degenerate on the Lie algebra of any twisted Levi subgroup of G.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Remark 3.10, p. 11, quoting Adler–Roche",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "What lets the paper work with elements of 𝔤* throughout and still regard (𝔤′)* as a subset of 𝔤* for a twisted Levi G′. It is a statement about the local structure of reductive groups and belongs with the Moy–Prasad material."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/10",
-   "kind": "definition",
-   "name": "Almost stable and almost strongly stable elements",
-   "statement": "For X ∈ 𝔤*, write X̄ for the induced map V_{x,−d(x,X)} := 𝔤_{x,−d(x,X)}/𝔤_{x,(−d(x,X))+} → 𝔽. Say X is almost stable if its G-orbit is closed, and almost strongly stable at x if it is almost stable and X̄ ∈ (V_{x,−d(x,X)})* is semistable under the action of G_x. If X ≠ 0 is almost strongly stable at x then d(x, X) = d(X).",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 3.1 and Lemma 3.2, p. 9",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The geometric-invariant-theory condition that controls when the depth of X at a point of the building equals its global depth. The centralizer of an almost stable element is a twisted Levi subgroup (Lemma 3.4)."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/11",
-   "kind": "definition",
-   "name": "Generic elements of a given depth",
-   "statement": "An element X ∈ 𝔤* is generic of depth r at x ∈ B(G, k) if X is almost stable and there are a tamely ramified E/k and a split maximal torus T ⊂ Cent_G(X) ×_k E with x ∈ 𝒜(T, E) ∩ B(G, k), X ∈ 𝔤*_{x,r}, and for every α ∈ Φ(G, T) either X(H_α) = 0 or val(X(H_α)) = r, where H_α = dα̌(1); and if X(H_α) = 0 for all α then d(x, X) = r.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Definition 3.5, p. 10",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The dual-Lie-algebra form of Yu's genericity condition GE1. Lemma 3.6 shows that for any split maximal torus of Cent_G(X) one has X(H_α) = 0 exactly on the roots of the centralizer and val(X(H_α)) = r off it, and that X vanishes on every root subspace; Corollaries 3.7 and 3.8 then give d(x, X) = d(X) = r and almost strong stability at x."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/12",
-   "kind": "theorem",
-   "name": "The Kim–Murnaghan lemma in the dual setting",
-   "statement": "For r ∈ ℝ, x ∈ B and X ∈ 𝔤*_{x,r} generic of depth r at x with centralizer G′, one has the coset decomposition of 𝔤*_{x,r} governed by X, in the form obtained by translating Kim–Murnaghan Lemma 2.3.3 into the dual setting using the Adler–Roche form.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 3.11, p. 12",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "One of the two results of §3 imported from the literature, and the input to Proposition 3.12."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/13",
-   "kind": "theorem",
-   "name": "Almost strongly stable elements of positive depth are generic after conjugation",
-   "statement": "Let r ∈ ℝ and x ∈ B. If X ∈ 𝔤* is almost strongly stable at x with X ∈ 𝔤*_{x,r} and the stated depth condition, then X is, after an explicit adjustment, generic of depth r at x in the sense of Definition 3.5.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Proposition 3.12, pp. 12–14",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The technical heart of §3, proved by a case analysis over the fundamental coweights ω̌_α, using that p does not divide the index of connection so that ω̌_α ∈ (1/|W|)ℤΦ̌, and a coset argument of Adler–Roche. It is what converts the semistability coming from the representation into Yu's genericity."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/14",
-   "kind": "definition",
-   "name": "Extended data, data and truncated data",
-   "statement": "An extended datum of G of length n is a tuple (x, (r_i), (X_i), (G_i), (ρ₀, V_{ρ₀})) with r₁ > ⋯ > r_n > 0 real, X_i ∈ 𝔤*_{x,−r_i} \\ 𝔤*_{x,(−r_i)+}, twisted Levi subgroups G = G₁ ⊇ G₂ ⊋ ⋯ ⊋ G_{n+1}, x ∈ B(G_{n+1}, k), and (ρ₀, V_{ρ₀}) an irreducible representation of (G^der_{n+1})_{x,0}/(G^der_{n+1})_{x,0+}, subject to X_i ∈ 𝔤*_i, X_i generic of depth −r_i at x as an element of 𝔤*_i, and G_{i+1} = Cent_{G_i}(X_i). A datum is the tuple (x, (X_i), (ρ₀, V_{ρ₀})) for which such an extension exists, and a truncated datum is (x, (X_i)) alone.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Definitions 4.1 and 4.2, pp. 15–16",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "Remark 4.3 explains the two differences from Yu's input: only elements X_i ∈ 𝔤* are used rather than characters of G_{i+1}(k), and (ρ₀, V_{ρ₀}) need not be cuspidal — it is a placeholder from which a cuspidal representation must later be extracted (Lemmas 7.8 and 7.10). A datum is thus a skeleton of the input for Yu's construction. Lemma 4.4 records that a truncated datum stays one when x is moved inside B(G_{n+1}, k)."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/15",
-   "kind": "definition",
-   "name": "Data contained in a representation, and maximal data",
-   "statement": "A datum (x, (X_i), (ρ₀, V_{ρ₀})) is contained in a smooth irreducible (π, V_π) if V_π^{∪_i (H_i)_{x,r_i+}} contains a subspace V′ on which (π|_{(H_{n+1})_{x,0}}, V′) ≅ (ρ₀, V_{ρ₀}) as a representation of (H_{n+1})_{x,0}/(H_{n+1})_{x,0+} and on which (H_i)_{x,r_i,r_i/2+}/(H_i)_{x,r_i+} ≅ (𝔥_i)_{x,r_i,r_i/2+}/(𝔥_i)_{x,r_i+} acts by the character φ ∘ X_i, where φ : k → ℂ^× is a fixed additive character of conductor 𝔓. A datum contained in π is maximal if the facet of B(G_{n+1}, k) containing x has dimension at least that of the facet for any other contained datum.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Definitions 4.5 and 4.6, p. 17",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The maximality is what pins down the point of the building, and by Corollary 8.3 it is also what detects supercuspidality."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/16",
-   "kind": "theorem",
-   "name": "Moving a subspace by a small group element to kill an error term",
-   "statement": "Let x ∈ B(G, k), r > 0, and X ∈ 𝔤* \\ {0} generic of depth −r at x with G′ = Cent_G(X). With 𝔯′ and 𝔯″ the sums of the root spaces inside and outside 𝔤′, and 𝔧* the elements of 𝔤* vanishing on 𝔱 ⊕ 𝔯′ = 𝔤′: (a) the map f_X : 𝔯″ → 𝔤*, Y ↦ (Z ↦ X([Y, Z])), is an isomorphism onto 𝔧* carrying 𝔯″ ∩ 𝔤_{x,r′} onto 𝔧* ∩ 𝔤*_{x,r′−r}; (b) for r/2 ≤ d < r and 0 < ε < (r−d)/2, every C ∈ 𝔧* ∩ 𝔤*_{x,−(d+ε)} admits g ∈ G_{x,r−d−ε} ⊂ G_{x,0+} with Ad(g)(X+C)|_{𝔤_{x,r}} = X|_{𝔤_{x,r}}, with Ad(g)(X+C) vanishing on 𝔯″ ∩ 𝔤_{x,d+}, and with the corresponding statement for a subspace of a representation.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 5.1, pp. 18–19",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The key computational lemma: an approximate generic element can be corrected to an exact one by conjugating by a small element of the group, and the correction can be made compatible with a given subspace of a representation. Corollaries 5.2, 5.3 and 5.4 package it for use inside the induction of §6."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/17",
-   "kind": "theorem",
-   "name": "Correcting one, all, or the last step of a truncated datum",
-   "statement": "Corollary 5.2 corrects the j-th character of a partially built truncated datum by an element of (H_j)_{x,r_j−d−ε}, preserving the earlier characters and the action of any subgroup of (H_{j+1})_{x,(2d−r_j+2ε)+} that stabilizes the subspace. Corollary 5.3 corrects all n characters simultaneously by an element of G_{x,r_n/2−ε}. Corollary 5.4 produces, from a subspace on which the last character is given only modulo a coarser filtration step, a subspace on which all n characters act exactly.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Corollaries 5.2, 5.3 and 5.4, pp. 19–21",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The three forms in which Lemma 5.1 is actually invoked in §6; keeping them separate is what makes the induction in the proof of Theorem 6.1 manageable."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/18",
-   "kind": "theorem",
-   "name": "Every irreducible representation contains a datum",
-   "statement": "Let (π, V_π) be a smooth irreducible representation of G(k). Then (π, V_π) contains a datum.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Theorem 6.1, p. 21; proved on pp. 21–25",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The first half of the paper's argument, and the point at which the explicit approach replaces Kim's Plancherel-formula matching. The proof builds the datum one step at a time, using a function f on the buildings B_j that is G_j(k)-invariant (Lemma 6.1.1), the almost strong stability of the successive X_j (Lemma 6.1.2), and the correction corollaries of §5 to arrange that the partial data are genuine truncated data (Lemma 6.1.3)."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/19",
-   "kind": "construction",
-   "name": "The one-parameter-subgroup function on the buildings of the twisted Levi tower",
-   "statement": "In the proof of Theorem 6.1 one constructs, at stage j, a function f on B_j = B(G_j, k) which is invariant under the action of G_j(k) and whose behaviour under the action of one-parameter subgroups on the Bruhat–Tits building detects where the next generic element can be found; together with the semistability statement of Lemma 6.1.2 and the choice of Lemma 6.1.3 this produces a datum of maximal length.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Lemmas 6.1.1, 6.1.2 and 6.1.3, pp. 22–25",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The use of one-parameter subgroups acting on the building is what the author contrasts with Kim's analytic approach, and is the reason the argument is effective."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/20",
-   "kind": "theorem",
-   "name": "Depth filtration of an exact sequence of tame tori",
-   "statement": "If r > 0 and 1 → A → B → C → 1 is an exact sequence of tori defined over k and split over a tamely ramified extension of k, then 1 → A(k)_r → B(k)_r → C(k)_r → 1 is exact. Consequently (G_j)_{x,r} is generated by T(k)_r and (H_j)_{x,r} for r > 0 and 1 ≤ j ≤ n+1.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.1, quoting Kalethe, and Corollary 7.2, pp. 26–27",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The bookkeeping that relates the filtration subgroups of a twisted Levi subgroup to those of its derived group together with the torus, which is what lets the characters φ_j be defined and analysed."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/21",
-   "kind": "construction",
-   "name": "The characters φ_j attached to the generic elements",
-   "statement": "For 1 ≤ j ≤ n one constructs a character φ_j : G_{j+1}(k) → ℂ^× which is trivial on (G_{j+1})_{x,r_j+} and on H_{j+1}(k); whose restriction to (H_j)_{x,r_j} ∩ G_{j+1}(k) factors through ((𝔥_j)_{x,r_j} ∩ 𝔤_{j+1})/((𝔥_j)_{x,r_j+} ∩ 𝔤_{j+1}) and is given by φ ∘ X_j; which is G_j-generic of depth r_j relative to x in Yu's sense; and such that (G_{n+1})_{x,0+} acts on Ṽ via ∏_i φ_i.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.3, p. 27, and Corollary 7.4, p. 28",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The translation from the Lie-algebra data X_i to the group-theoretic characters that Yu's construction actually takes as input. Property (iii) is exactly Yu's genericity condition GE1, so §3's work pays off here."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/22",
-   "kind": "theorem",
-   "name": "The groups K, K₊ and the Heisenberg structure",
-   "statement": "The compact open groups satisfy K₊ = (G_{n+1})_{x,0+}(H_n)_{x,r_n/2+}⋯(H₁)_{x,r₁/2+} = (G_{n+1})_{x,0+}K^H_+ and the three companion identities of Lemma 7.5. For n > 0 the quotient K^H_{0+}/N^H is a Heisenberg p-group with centre K^H_+/N^H; for n = 0 the two quotients agree.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Lemmas 7.5 and 7.7, pp. 28–30",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The Heisenberg structure is what makes Yu's Weil–Heisenberg representation κ_φ⃗ available. The proof over a tame splitting extension exhibits a complete polarization by positive and negative root groups, following Yu's Proposition 11.4."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/23",
-   "kind": "theorem",
-   "name": "Yu's construction applied to the datum produces the type",
-   "statement": "The tuple (G⃗, x, r⃗, ρ_Yu, φ⃗) satisfies conditions D1, D3, D4 and D5 of Kim–Yu, so Yu's construction yields a representation (π_K, V_{π_K}) of K of the form ρ_Yu ⊗ κ_φ⃗, where κ_φ⃗ depends only on (G⃗, φ⃗). There is an irreducible K₊-subrepresentation of (π|_{K₊}, Ṽ) isomorphic to any one-dimensional K₊-subrepresentation of (π_K|_{K₊}, V_{π_K}) (Lemma 7.6), and there is an irreducible representation (ρ, V_ρ) of K, trivial on K_{0+}, with (ρ ⊗ κ_φ⃗, V_ρ ⊗ V_κ) ≅ (π|_K, V̂) (Lemma 7.8).",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Lemmas 7.6 and 7.8 and the discussion on p. 29, pp. 29–31",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The matching of the paper's datum with the five-tuple that Kim and Yu's Remark 7.3 requires, and the extraction of the ρ that will become the depth-zero part of the type. Note p ≠ 2 follows from p ∤ |W| for G not a torus."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/24",
-   "kind": "theorem",
-   "name": "The depth-zero component is cuspidal",
-   "statement": "The irreducible components of (ρ|_{(G_{n+1})_{x,0}}, V_ρ) provided by Lemma 7.8 are cuspidal representations of (G_{n+1})_{x,0}/(G_{n+1})_{x,0+}; and the subspace V̂ lies in V_π^{∪_i(H_i)_{x,r_i+}} with (H_i)_{x,r_i,r_i/2+}/(H_i)_{x,r_i+} acting by φ ∘ X_i.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Corollary 7.9 and Lemma 7.10, pp. 31–32",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The main difficulty of §7. Remark 7.11 records that one cannot simply cite Kim here: contrary to the claim of Kim's Proposition 17.2(2), the representation ρ|_{(G_{n+1})_{x,0}} ⊗ κ_φ⃗|_{(G_{n+1})_{x,0}} ⊗ ∏_i φ_i^{-1} need not be cuspidal as a representation of (G_{n+1})_{x,0}/(G_{n+1})_{x,0+}, so the proof there is not correct and a different argument is given. This is a correction to the published literature, not to this paper."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/25",
-   "kind": "construction",
-   "name": "Yu's construction of supercuspidal representations",
-   "statement": "Yu's construction takes a tower of twisted Levi subgroups with a point of the building, a sequence of depths, a depth-zero cuspidal representation and a sequence of generic characters, and produces a representation of a compact-mod-centre open subgroup of G(k) whose compact induction is irreducible supercuspidal; it generalises Adler's earlier construction and uses Weil–Heisenberg representations of the Heisenberg p-groups attached to the successive filtration quotients.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), used throughout §7, quoting Yu 2001",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The construction whose exhaustiveness is Theorem 8.1. Nothing in the atlas plans it: a search of every stage description for 'Yu's construction' and 'supercuspidal' finds only the excursion-operator layers, which treat supercuspidal support on the spectral side rather than any construction."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/26",
-   "kind": "construction",
-   "name": "The Kim–Yu construction of types and Bushnell–Kutzko G-covers",
-   "statement": "Kim and Yu showed that by omitting some of the conditions Yu imposed on his input data, the same construction produces s-types rather than only supercuspidal representations, using the theory of G-covers of Bushnell and Kutzko; their conditions on the input tuple are D1, D3, D4 and D5.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), used in §7, quoting Kim–Yu 2017 and Bushnell–Kutzko 1998",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The construction that Theorem 7.12 shows to be exhaustive. Neither the Kim–Yu construction nor Bushnell–Kutzko's theory of G-covers is planned anywhere in the atlas."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/27",
-   "kind": "theorem",
-   "name": "Weil–Heisenberg representations of a Heisenberg p-group",
-   "statement": "A Heisenberg p-group with a fixed central character has a unique irreducible representation with that central character, and the symplectic group of the quotient acts on it projectively, giving the Weil representation; this is the source of the factor κ_φ⃗ in Yu's construction and of the restriction statements used in Lemmas 7.6 and 7.8.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), used in §7, pp. 29–33, quoting Yu Theorem 11.5 and Gérardin",
-   "status": "missing",
-   "library": [],
-   "planned": [],
-   "note": "The Stone–von Neumann theorem and the Weil representation in the finite Heisenberg setting. A search of every stage description in the atlas for 'Heisenberg' and 'Weil representation' returns nothing in this sense."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/28",
-   "kind": "definition",
-   "name": "Smooth representations of a p-adic group and their Hecke algebras",
-   "statement": "The category of smooth complex representations of a locally profinite group, compact induction, admissibility, and the Hecke algebra of compactly supported locally constant functions with its module correspondence.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), §1 and throughout",
-   "status": "planned",
-   "library": [],
-   "planned": [
-    "SmoothRepresentationsOfLocalGroups:SR.0",
-    "SmoothRepresentationsOfLocalGroups:SR.1",
-    "SmoothRepresentationsOfLocalGroups:SR.2",
-    "SmoothRepresentationsOfLocalGroups:SR.3"
-   ],
-   "note": "SR.0 plans the smooth category with its complete basic API, SR.1 the Hecke algebras over rings with the correspondence between smooth representations and nondegenerate modules, SR.2 induction, compact induction and Jacquet functors, and SR.3 admissibility, supercuspidal support and the Bernstein decomposition."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/29",
-   "kind": "definition",
-   "name": "The Bruhat–Tits building and parahoric subgroups",
-   "statement": "The Bruhat–Tits building B(G, k) of a reductive group over a non-archimedean local field, with its apartments, facets, the G(k)-action and the fixed-point theorem for bounded subgroups, and the parahoric group schemes attached to facets with their pro-unipotent radicals and congruence subgroups.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), §1 and §3, pp. 3 and 9–11",
-   "status": "planned",
-   "library": [],
-   "planned": [
-    "ReductiveGroupsPartII:RG2.2",
-    "ReductiveGroupsPartII:RG2.3"
-   ],
-   "note": "ReductiveGroupsPartII RG2.2 plans the building — apartments glued by the Bruhat–Tits equivalence, the building axioms, the group action, facets, closure order, fixers and the fixed-point statement — and RG2.3 the parahoric and congruence group schemes with their characterisation by integral points and their pro-unipotent radicals."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/30",
-   "kind": "definition",
-   "name": "Root systems, bad and torsion primes, and the index of connection",
-   "statement": "Root and coroot systems of a reductive group, closed subsystems, the index of connection as the order of the root lattice in the weight lattice, bad primes in the sense of Springer–Steinberg and torsion primes in the sense of Steinberg.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 2.2, pp. 7–8",
-   "status": "planned",
-   "library": [],
-   "planned": [
-    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange"
-   ],
-   "note": "The Tau Ceti roadmap on reductive groups plans the structure theory and root data at layers 6 and 7, and the root-systems roadmap plans root combinatorics; bad and torsion primes themselves are not named in any stage description and are recorded in the item on Lemma 2.2."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/31",
-   "kind": "definition",
-   "name": "Tame ramification and tamely ramified extensions",
-   "statement": "Tamely ramified extensions of a non-archimedean local field, the tame quotient of the absolute Galois group, and tame Galois descent for group schemes and buildings.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Assumption 2.1 and Remark 3.9, pp. 7 and 11",
-   "status": "planned",
-   "library": [],
-   "planned": [
-    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
-    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group"
-   ],
-   "note": "The Tau Ceti local-fields roadmap plans ramification with the tame and wild cases and the filtration at layer 3, and the tame quotient of the absolute Galois group at layer 4."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/32",
-   "kind": "theorem",
-   "name": "Geometric invariant theory: closed orbits and semistability",
-   "statement": "Closed orbits and semistable points for the action of a reductive group on a vector space, and the criterion detecting them by one-parameter subgroups.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Definitions 3.1 and 3.3 and §6, pp. 9 and 21–25",
-   "status": "planned",
-   "library": [],
-   "planned": [
-    "LanglandsParameterStacks:LP3"
-   ],
-   "note": "Semistability and the one-parameter-subgroup criterion are the Hilbert–Mumford theory. LanglandsParameterStacks LP3 plans integral reductive invariant theory, which is the closest existing owner; the specific notions of almost stable and almost strongly stable elements are items of their own."
-  },
-  {
-   "id": "PAPER-FINTZEN-21/33",
-   "kind": "definition",
-   "name": "Cuspidal representations of a finite reductive group",
-   "statement": "Cuspidal irreducible representations of the finite reductive quotient (G_{n+1})_{x,0}/(G_{n+1})_{x,0+} of a parahoric, that is, those with no nonzero invariants under the unipotent radical of any proper parabolic.",
-   "locator": "arXiv:1810.04198v2 (3 November 2020), Lemma 7.10 and Definition 4.1(e), pp. 15 and 32",
-   "status": "planned",
-   "library": [],
-   "planned": [
-    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-9-the-representation-theory-of-gl₂𝔽_q",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup"
-   ],
-   "note": "The finite-group input to Yu's construction. The Tau Ceti character-theory roadmap plans the representation theory of GL₂(𝔽_q) at layer 9 and the general character theory at layers 0–3; Deligne–Lusztig theory, which is what classifies cuspidal representations in general, is not planned, and the paper needs only the definition and the cuspidality criterion."
-  }
- ],
- "prerequisites": [
-  {
-   "citation": "Jiu-Kang Yu, Construction of tame supercuspidal representations, J. Amer. Math. Soc. 14 (2001), 579–622",
-   "link": "https://doi.org/10.1090/S0894-0347-01-00363-0",
-   "why": "The construction whose exhaustiveness is Theorem 8.1, together with the genericity condition GE1 used in Lemma 7.3(iii), the Heisenberg structure of Proposition 11.4 and the restriction statement of Theorem 11.5. Nothing in the atlas plans it."
-  },
-  {
-   "citation": "Ju-Lee Kim and Jiu-Kang Yu, Construction of tame types, in Representation Theory, Number Theory, and Invariant Theory, Progr. Math. 323 (2017), 337–357",
-   "link": "https://doi.org/10.1007/978-3-319-59728-7_12",
-   "why": "The variant of Yu's construction producing s-types, with the conditions D1, D3, D4, D5 on the input tuple that §7 verifies, and the derivation in their 9.1 Theorem of the type statement from Kim's work under far more restrictive hypotheses."
-  },
-  {
-   "citation": "Colin J. Bushnell and Philip C. Kutzko, Smooth representations of reductive p-adic groups: structure theory via types, Proc. London Math. Soc. 77 (1998), 582–634",
-   "link": "https://doi.org/10.1112/S0024611598000574",
-   "why": "The definition of an s-type, the equivalence of a Bernstein block with modules over the ρ-spherical Hecke algebra, and the theory of G-covers that Kim and Yu use. The atlas plans the Bernstein decomposition at SR.3 but not types."
-  },
-  {
-   "citation": "Allen Moy and Gopal Prasad, Unrefined minimal K-types for p-adic groups, Invent. Math. 116 (1994), 393–408, and Jacquet functors and unrefined minimal K-types, Comment. Math. Helv. 71 (1996), 98–121",
-   "link": "https://doi.org/10.1007/BF01231566",
-   "why": "The filtration subgroups G_{x,r} and lattices 𝔤_{x,r} and the notion of the depth of a representation, in which the entire paper is written; the atlas plans parahorics and congruence subgroups but not this filtration."
-  },
-  {
-   "citation": "Ju-Lee Kim, Supercuspidal representations: an exhaustion theorem, J. Amer. Math. Soc. 20 (2007), 273–320",
-   "link": "https://doi.org/10.1090/S0894-0347-06-00544-3",
-   "why": "The previous exhaustion theorem, in characteristic zero and for very large p, by matching summands of the Plancherel formula. Remark 7.11 records that its Proposition 17.2(2) is false as stated, so this paper's Lemma 7.10 cannot cite it."
-  },
-  {
-   "citation": "Jeffrey D. Adler and Alan Roche, An intertwining result for p-adic groups, Canad. J. Math. 52 (2000), 449–467",
-   "link": "https://doi.org/10.4153/CJM-2000-021-8",
-   "why": "Proposition 4.1 there provides the non-degenerate G-equivariant symmetric bilinear form on 𝔤 identifying 𝔤_{x,r} with 𝔤*_{x,r}, which is what lets the paper work in the dual Lie algebra throughout; their Corollary 3.2.6 is used in the proof of Proposition 3.12."
-  },
-  {
-   "citation": "Ju-Lee Kim and Fiona Murnaghan, Character expansions and unrefined minimal K-types, Amer. J. Math. 125 (2003), 1199–1234",
-   "link": "https://doi.org/10.1353/ajm.2003.0043",
-   "why": "Lemma 2.3.3 there, translated into the dual setting as Lemma 3.11, which is the coset statement on which Proposition 3.12 rests."
-  },
-  {
-   "citation": "Tasho Kaletha, Regular supercuspidal representations, J. Amer. Math. Soc. 32 (2019), 1071–1170",
-   "link": "https://doi.org/10.1090/jams/925",
-   "why": "The exactness of the depth filtration on a short exact sequence of tori that are tame over k, quoted as Lemma 7.1 and used to compare the filtration subgroups of a twisted Levi with those of its derived group."
-  },
-  {
-   "citation": "Jessica Fintzen, Tame tori in p-adic groups and good semisimple elements, Int. Math. Res. Not. 2021 (2021), 14882–14904",
-   "link": "https://doi.org/10.1093/imrn/rnz234",
-   "why": "Theorem 2.4 and Corollary 2.6 there show that Assumption 2.1 forces all tori of G to be tame, and that outside a short list of types the assumption is also necessary — the evidence that the bound on p is optimal."
-  },
-  {
-   "citation": "Mark Reeder and Jiu-Kang Yu, Epipelagic representations and invariant theory, J. Amer. Math. Soc. 27 (2014), 437–477",
-   "link": "https://doi.org/10.1090/S0894-0347-2013-00780-8",
-   "why": "The construction whose ingredients exist even when p divides |W|, and which the paper expects to produce supercuspidal representations of Levi subgroups outside Yu's list when the hypotheses fail."
-  },
-  {
-   "citation": "Colin J. Bushnell and Philip C. Kutzko, The Admissible Dual of GL(N) via Compact Open Subgroups, Ann. of Math. Stud. 129, Princeton, 1993",
-   "link": "https://doi.org/10.1515/9781400882496",
-   "why": "The model case: the construction of all supercuspidal representations of GL_n(k) and the existence of types for every irreducible representation, which underlies the explicit local Langlands correspondence for GL_n and which the general theorems here reproduce."
-  },
-  {
-   "citation": "Tonny A. Springer and Robert Steinberg, Conjugacy classes, in Seminar on Algebraic Groups and Related Finite Groups, Lecture Notes in Math. 131 (1970); Robert Steinberg, Torsion in reductive groups, Adv. Math. 15 (1975), 63–92",
-   "link": "https://doi.org/10.1007/BFb0081546",
-   "why": "The definitions of bad and torsion primes used in Lemma 2.2(c) and (d); the atlas plans root data but names neither notion."
-  },
-  {
-   "citation": "Paul Gérardin, Weil representations associated to finite fields, J. Algebra 46 (1977), 54–101",
-   "link": "https://doi.org/10.1016/0021-8693(77)90394-5",
-   "why": "The Weil–Heisenberg representations of the finite Heisenberg groups appearing in Yu's construction, whose restriction properties are used in Lemmas 7.6 and 7.8."
-  }
- ],
- "routes": [
-  {
-   "route": "part-ii",
-   "roadmap": "SmoothRepresentationsPartII",
-   "parent": "SmoothRepresentationsOfLocalGroups",
-   "title": "Smooth representations of local groups, Part II: types, depth and the construction of supercuspidal representations",
-   "area": "representations",
-   "items": [
-    "PAPER-FINTZEN-21/2",
-    "PAPER-FINTZEN-21/3",
-    "PAPER-FINTZEN-21/4",
-    "PAPER-FINTZEN-21/5",
-    "PAPER-FINTZEN-21/6",
-    "PAPER-FINTZEN-21/10",
-    "PAPER-FINTZEN-21/11",
-    "PAPER-FINTZEN-21/12",
-    "PAPER-FINTZEN-21/13",
-    "PAPER-FINTZEN-21/14",
-    "PAPER-FINTZEN-21/15",
-    "PAPER-FINTZEN-21/16",
-    "PAPER-FINTZEN-21/17",
-    "PAPER-FINTZEN-21/18",
-    "PAPER-FINTZEN-21/19",
-    "PAPER-FINTZEN-21/21",
-    "PAPER-FINTZEN-21/22",
-    "PAPER-FINTZEN-21/23",
-    "PAPER-FINTZEN-21/24",
-    "PAPER-FINTZEN-21/25",
-    "PAPER-FINTZEN-21/26",
-    "PAPER-FINTZEN-21/27"
-   ],
-   "brief": "Extend the roadmap Smooth representations of local groups from the general category theory of smooth representations to the explicit construction and classification of them, following Jessica Fintzen, Annals of Mathematics 193 (2021), no. 1. The parent plans the smooth category (SR.0), Hecke algebras (SR.1), induction and Jacquet functors (SR.2), admissibility with supercuspidal support and the Bernstein decomposition (SR.3), the Satake isomorphism (SR.4) and integral families for GL_n (SR.5–6); it stops exactly where the constructions begin. The final theorems are these, for k a non-archimedean local field of arbitrary characteristic with residue characteristic p and G connected reductive over k splitting over a tamely ramified extension with p ∤ |W|. (1) Every smooth irreducible complex representation of G(k) contains an s-type of the form constructed by Kim and Yu (Theorem 7.12). (2) Every smooth irreducible supercuspidal representation of G(k) arises from Yu's construction (Theorem 8.1). (3) A representation is supercuspidal precisely when a maximal datum for it has its point in a facet of minimal dimension in B(G_{n+1}, k) and Z(G_{n+1})/Z(G) is anisotropic (Corollary 8.3). The bound on p is explicit and expected to be optimal; the previously known statements required characteristic zero and an ineffective 'very large' p. Cover, in layers: the theory of types after Bushnell and Kutzko — s-types, the equivalence of the Bernstein block with modules over the ρ-spherical Hecke algebra, and G-covers; the Moy–Prasad filtration of a p-adic group and its Lie algebra with the depth of a representation, imported from the source route proposed alongside this one, together with twisted Levi subgroups, the embeddings of their buildings and the Adler–Roche bilinear form; the geometric-invariant-theory notions of almost stable and almost strongly stable elements of the dual Lie algebra, and Yu's genericity condition in its dual form, with the theorem that an almost strongly stable element of positive depth becomes generic after an explicit correction; extended data, data and truncated data, what it means for a datum to be contained in a representation and for it to be maximal; the correction lemma that moves a subspace by a small group element to replace an approximate character by an exact one, in its three packaged forms; the theorem that every irreducible representation contains a datum, proved by an explicit induction using the action of one-parameter subgroups on the Bruhat–Tits building; the passage from a datum to Yu's input — the characters φ_j with Yu's genericity condition GE1, the group identities for K and K₊, the Heisenberg p-group structure of K^H_{0+}/N^H with its complete polarization by root groups, and the Weil–Heisenberg representation κ_φ⃗; and the two hard extraction steps, that the depth-zero part ρ exists and that its components are cuspidal. Yu's construction and the Kim–Yu variant producing types are themselves layers here: they are the constructions whose exhaustiveness the main theorems assert, and the atlas plans neither. Record explicitly that Remark 7.11 corrects the literature: the claim of Kim's Proposition 17.2(2) is false as stated, so Lemma 7.10 must be proved afresh. Import, never re-plan: the smooth category, compact induction, admissibility and the Bernstein decomposition from SR.0–SR.3 and the Hecke-algebra module correspondence from SR.1; the Bruhat–Tits building with its apartments, facets, group action and fixed-point theorem, and the parahoric and congruence group schemes, from ReductiveGroupsPartII RG2.2 and RG2.3, together with the Moy–Prasad and twisted-Levi material this extraction routes there; root data, closed subsystems and the index of connection from the Tau Ceti reductive-groups and root-systems roadmaps; tame ramification and the tame quotient of the absolute Galois group from the Tau Ceti local-fields roadmap; closed orbits and semistability from LanglandsParameterStacks LP3; and cuspidal representations of a finite reductive group from the Tau Ceti character-theory and induction-restriction roadmaps. Record as out of scope the cases where the hypotheses fail: when p divides |W| or G does not split tamely, G generally has tori that are not tame, and the construction of Reeder and Yu suggests supercuspidal representations outside Yu's list.",
-   "reason": "SmoothRepresentationsOfLocalGroups plans the general theory — the smooth category, Hecke algebras, induction and Jacquet functors, admissibility, supercuspidal support, the Bernstein decomposition and centre, the Satake isomorphism and integral families for GL_n — and stops precisely where this paper begins. Everything here is a strengthening of that roadmap in its own direction and of nothing else: the Moy–Prasad filtration refines the congruence subgroups it already needs, types refine the Bernstein blocks it already constructs, and Yu's construction produces the supercuspidal representations whose support SR.3 already uses. None of it fits inside an existing layer: a text search of every stage description in the atlas for 'Moy–Prasad', 'Yu's construction', 'G-cover', 'Bushnell' and 'Heisenberg' returns nothing, and 's-type' returns only an unrelated occurrence in a Shimura-variety layer. A new roadmap was rejected because every layer consumes SR.0–SR.3 and nothing else at the same level; a source route was rejected because no layer of the parent plans a construction of representations at all. The parent is a campaign roadmap, so either route was formally available."
-  },
-  {
-   "route": "source",
-   "roadmap": "ReductiveGroupsPartII",
-   "stages": [
-    "ReductiveGroupsPartII:RG2.2",
-    "ReductiveGroupsPartII:RG2.3"
-   ],
-   "items": [
-    "PAPER-FINTZEN-21/7",
-    "PAPER-FINTZEN-21/8",
-    "PAPER-FINTZEN-21/9",
-    "PAPER-FINTZEN-21/20"
-   ],
-   "reason": "RG2.2 builds the Bruhat–Tits building with its apartments, facets, group action, fixers and the fixed-point theorem for bounded subgroups, and RG2.3 the parahoric and congruence group schemes attached to a facet, with their characterisation by integral points, their pro-unipotent radicals and their pro-p congruence subgroups. The four items routed here are the statements of exactly that kind which the paper needs and those layers do not yet plan: the Moy–Prasad filtration G_{x,r} of the group together with the lattices 𝔤_{x,r} and their duals 𝔤*_{x,r}, which refine RG2.3's congruence subgroups to a real-indexed filtration; twisted Levi subgroups, with the tame Galois descent that gives a well-defined image of B(G′, k) in B(G, k), which refines RG2.2's building theory; the Adler–Roche non-degenerate G-equivariant bilinear form identifying 𝔤 with 𝔤* and 𝔤_{x,r} with 𝔤*_{x,r}, which exists because p does not divide the index of connection and stays non-degenerate on every twisted Levi subalgebra; and the exactness of the depth filtration on a short exact sequence of tame tori, with the consequence that (G_j)_{x,r} is generated by T(k)_r and (H_j)_{x,r}. All four are general local-structure facts with no representation theory in them, and every consumer of Bruhat–Tits theory in the atlas will want them, not only the Part II proposed alongside. A search of every stage description for 'Moy–Prasad' and 'twisted Levi' returns nothing."
-  }
- ],
- "sourceIssues": []
 }
