@@ -2612,7 +2612,8 @@
    ],
    "avoidAccountOf": "PAPER-DOSPINESCU-LEBRAS-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-DOSPINESCU-LEBRAS-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1160"
   },
   {
    "id": "PAPER-CARAIANI-SCHOLZE-17",
@@ -4110,8 +4111,8 @@
    ],
    "avoidAccountOf": "PAPER-NAKAMURA-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-NAKAMURA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1244"
+   "state": "pending",
+   "note": "released on GitHub issue #1244"
   },
   {
    "id": "PAPER-LI-23",
@@ -5573,7 +5574,8 @@
    ],
    "avoidAccountOf": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1323"
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20",
