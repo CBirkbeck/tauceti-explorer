@@ -1,0 +1,48 @@
+{
+  "paper": "PAPER-ANDRE-18-B",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "The full atlas screen found no existing direct-summand or infinite big-CM existence direction. Retain the proposed new direction for ordinary purity, Ext/retraction descent, Hochster modifications, homological-conjecture applications and generic commutative-algebra adapters not supplied at the required generality elsewhere. Existing complete-local and finite-CM owners receive the extracted inputs in routes 5 and 7; generic Banach inputs go to route 6. P7 concerns finite/perfect bounded deformation complexes and does not cover arbitrary-module Tor filtered colimits. Pending paper proposals are imports by id, not implemented suppliers."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Appendix A.4 supplies almost purity, Hom lifting and extension-class annihilation within P0’s generic tensor/Hom theory. Reuse the companion’s adjoints and base-change contracts, and import the ordinary purity prefix rather than redeclaring the almost category."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The cyclotomic/coordinate perfectoid examples and the perfectoid rational integral model belong to P1–P2. Generic nonperfectoid Banach and Weierstrass inputs are separated into route 6, following the companion’s owner."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Reuse precisely the Part II id/title already proposed by PAPER-ANDRE-18. This paper adds the specified normalized Kummer flatness theorem and application adapters without duplicating the generic root algebra, tubular comparison or Abhyankar theorem. The original ownership screen found no actual roadmap definition yet, so the proposed imports remain missing, not falsely planned. It also adds the §2.3–2.4 integral-closure, spectral-norm and idempotent-prime inputs of the normalized tower and the §2.6.1 variants — normality, the Capelli–Vahlen domain criterion, multiplicativity of the norm, several ramified elements, a possibly ramified regular base and the modulo-p^m reduction — all of which are ramification statements about this tower and not generic perfectoid theory. The final continuation adds the proof spine of Theorem 2.5.2 at declaration size: the untilt approximation of T − g (Scholze 6.7(i), planned in P2), the colimit description of the tubular unit balls (Scholze 6.4), descent to Noetherian stages, flatness of their generic and special fibres, their faithful flatness, and the almost faithful flatness of each tubular neighbourhood; also the perfectoidness of Â_∞∞ (companion Propositions 3.6.1 and 3.6.2; both valid, E17 rejected) and the faithfulness adapter for the Abhyankar lemma."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Add the paper’s exact parameter-system consumer to the existing shared CM/depth direction; do not move infinite big-CM existence into a finite-module patching layer. Also refine the existing R03.3 Matlis/local-cohomology supplier already proposed by PAPER-BHATT-ETAL-23 and PAPER-HACON-WITASZEK-23; reuse the pinned localCohomology and Tau Ceti envelope carriers. It also takes the invariance of Cohen–Macaulayness under completion, used to reduce Theorem 4.4.2 to complete rings; it belongs with the finite depth theory. The same stage owns parameter systems, finite projective dimension/rank and the excellence/Nagata normalization prerequisite; AUDIT-17 explicitly lists the latter as absent. The infinite big-CM construction remains in the new direction."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Reuse the companion PAPER-ANDRE-18 ownership of generic uniform-Banach norm/completion comparisons and localization adapters. These statements allow nonperfectoid Banach algebras, so P1–P2 are not their generic owner. Import upstream AdicSpaces Layer 0 weighted series, Huber/Tate carriers and Layer 4 flatness; only the additional norm/integral-model comparisons are missing source material at R0."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "R03.1 owns complete local coefficient rings, residue-field changes, completed tensor products and Artinian quotient limits. Add the exact Cohen presentation/compatibility and flat-completion adapters used here, with possibly non-Noetherian flat algebra S explicitly retained. The reviewed AUDIT-17 reports the coefficient/residue/completed-tensor interfaces partial or absent; pinned completion of R itself does not cover all these contracts."
+    }
+  ],
+  "notes": [
+    "Independent review by Codex — codex-c83e7a; no prior extraction authorship. All 23 main-paper pages and all 188 submitted items read; 191 items after in-place corrections.",
+    "Twenty confirmed and five rejected source findings; see each sourceIssues.review. E21 is a later counterexample, E25 an omitted coordinate-root tower in the introductory identity.",
+    "Generic Banach inputs now reuse AdicSpacesPartII:R0; coefficient/completion inputs use R03.1; finite CM/Matlis/normalization use R03.3. The companion PerfectoidRamification proposal is reused once.",
+    "Pinned Mathlib 082e2d3 and TauCeti f790474 checked; missing contracts searched individually with candidate exclusions and exact owners. No proposed supplier is treated as implemented.",
+    "Detailed proof boundaries, source provenance and validation are in the independent review report. No Lean file requested or compiled."
+  ]
+}
