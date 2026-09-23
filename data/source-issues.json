@@ -52111,9 +52111,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim in the source: 'Let \\Groth(G_b(F)) be the Grothendieck group of the category of finite length admissible representations of $G(F)$'. The mismatch is inside one sentence, and the next sentence defines Groth(G(F) x W_E) with G(F), so the first must be G_b(F) - which is also what Mant_{b,mu} takes as input."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E2",
@@ -52132,9 +52132,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim: Remark 2.4.4 reads 'each $H^{i,j}(G,b,\\mu)[\\rho]$ is an admissible representation of $G_b(F)$, by the analysis in [FarguesScholze]'. The displayed definition just above forms Ext^i over G_b(F) and takes the colimit over level subgroups K of G(F), so what survives is a smooth G(F)-representation, as the entry says."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E3",
@@ -52153,9 +52153,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim: the proof of Lemma 3.1.1 opens 'The set $H^1(F,N(T,G))$ classifies conjugacy classes of $F$-rational tori, as follows: given a $F$-rational torus $T'$, we must have $T'=xTx^{-1}$...'. The correction is the standard statement - the map lands in, and is a bijection onto, the kernel of H^1(F,N(T,G)) -> H^1(F,G), because the class of x^{-1}x^sigma is the coboundary of x; for G = PGL_2 the remaining classes are tori of the inner form. The entry is also right that the proof needs only well-definedness and finiteness, so nothing downstream moves."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E4",
@@ -52174,9 +52174,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim: 'Therefore $T_{b,\\mu}^{G \\to G_b}f(g')=-2f(g)$. Setting $f=\\Theta_\\rho$...'. Theta_rho is a function on G_b(F), so it can only be fed to T^{G_b -> G}, the map Theorem 3.2.9 is about; and the displayed conclusion Theta_rho(g') = -Theta_pi(g) is what the corrected reading gives."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E5",
@@ -52195,9 +52195,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed, and settled by the paper against itself three times over. At (3.3.3) on p. 18 the published text reads '=(-1)^{<2rho_G,mu>}, where rho_G is the sum of the positive roots', while on p. 12 and again on p. 15 the same paper writes '2rho_G is the sum of the positive roots (of G)'. The exponent is the d of Definition 3.2.7, so the p. 18 sentence is the misprint."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E6",
@@ -52216,9 +52216,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim, and again settled internally: the end of section 3.4 announces the operator with target $C_c(G_b(F)_{ell},\\Lambda)_{G(F)}$, while Definition 6.3.2's displayed definition of the same map has target $C_c(G_b(F)_{ell},\\Lambda)_{G_b(F)}$. G(F) does not act on G_b(F), so the announcement is the slip."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E7",
@@ -52237,9 +52237,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim: 'The source of this morphism is the correspondence $\\In_S(X_1)\\times_{\\In_S(T_1)} \\In_S(X_2)\\to S\\times_S S$'. Theorem 4.5.3 has a single base T and defines no T_1."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E8",
@@ -52258,9 +52258,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim: 'Then $R_1\\subset R$ is a finite-type $k$-algebra stable under $g$, with $R_1^{\\mathrm{perf}}=A$'. R = O(X) is what R_1 is a deperfection of - the next clause says 'so $X_1=\\Spec R_1$ is a deperfection of $X$' - while A is the coefficient complex, so R is meant."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E9",
@@ -52279,9 +52279,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim on both counts. The closure is printed '$\\overline{S_{\\nu}}=\\cup_{\\nu'\\leq\\nu}S_{\\nu}$', with S_nu where S_{nu'} is meant, and the following sentence reads 'so $\\chi_{c}(U,\\mathcal{S}_{V})$ coincides with the trace of $g$ on $R\\Gamma_{c}(X_\\nu,\\mathcal{S}_{V})$' although no U is defined and the very next display computes with chi_c(X_nu, S_V)."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E10",
@@ -52300,9 +52300,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed, and precisely located: inside the three-line display in the proof of Proposition 6.3.3 the first and third lines carry rank V_mu[lambda] and the middle line - the one the entry quotes - carries rank V_mu[lambda']. The sentence above the display has already converted rank V_mu^vee[lambda'] into rank V_mu[lambda], so the middle line is the misprint."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E11",
@@ -52321,9 +52321,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim: '\\cite[Theorem 1.9.6.viii-ix]{FarguesScholze}'. Fargues-Scholze number that result I.9.6, and the same proof and Theorem 6.5.1 cite it correctly elsewhere."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E12",
@@ -52342,9 +52342,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim on both counts: 'We have an isomorphism of $\\Lambda$-modules $\\mf{m}^{m-1}\\Lambda \\to \\kappa$' and 'We can apply the inductive hypothesis to the $(\\Lambda/\\mf{m}^{m-1})$-module $\\mf{m}M$'. Lambda = R/m^k and the induction is on k, so m is undefined and k is meant in both places."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E13",
@@ -52363,9 +52363,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim: 'the constant group diamonds $\\ul{G(\\Q_p)}$ and $\\ul{G_b(\\Q_p)}$ respectively, the space $\\Sht_{G,b,\\mu}$ is equipped with commuting actions of $G(\\Q_p)$ and $G_b(\\Q_p)$'. G is a reductive group over the finite extension F/Q_p throughout, and the introduction states the actions of G(F) and G_b(F)."
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22/E14",
@@ -52384,9 +52384,9 @@
    "owner": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "file": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
    "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "reviewReason": "Confirmed verbatim: the composite in Definition 4.3.4 ends '\\to (c_2\\times_S d_2)^! (A_2\\boxtimes A_2')'. The target object of the tensor product of 1-morphisms is (X_1' x_S X_2', A_1' boxtimes_S A_2'), and the kappa quoted in the same definition is adjoint to the Kuenneth isomorphism for (c_2)_!B_1 boxtimes (d_2)_!B_2, so A_1' boxtimes_S A_2' is meant."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-16/E1",
