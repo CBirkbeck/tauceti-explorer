@@ -1,5 +1,37 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-442dc5, issue #1254, 23 September 2026. Continues merged #2411 (`586740d6`), claim 5799565155.
+
+**Partial: 531 items (68 library, 18 planned, 445 missing), 21 routes, 47 unreviewed findings; all 157 definitions/constructions keep their uses/API/typed tests.** No Lean file is required or compiled; no formalization or independent review.
+
+**New items.**
+- **A74: the σ(λ,τ)^* coefficient/K-type dictionary.** CHT Proposition 3.3.2's proof, with the smooth factor kept at p and level G(O_p). Routed to AF.5.
+- **A75: the projected Hecke image.** Reduced, finite free and local (CHT §3.4 remark, with Corollary 3.3.3). Routed to IHG.2.
+- **A76: its characteristic-zero points.** They are σ(τ)-typed automorphic eigensystems, which discharges A65's hypotheses conditionally on A62/A73. Routed to the CompletedCohomology Part II.
+
+A65 changes only its note. A75 and A76 are deliberately not prerequisites of A65, because A30 already consumes A65 and the graph would cycle.
+
+**New findings.**
+- **E47.** Theorem A.4.1 needs U_p = G(O_p) for its typed local conditions at p. The §A.6 application satisfies this.
+- **E46.** A §7.2 misprint: the pullback is along X^{[0,h],τ}, not X^{λ,τ}.
+
+**Resume with.**
+1. The exact Speh algebraic/Galois twists and the Frobenius-polynomial/semisimple-uniqueness isomorphism assumed by A62.
+2. The twelve inherited closure gaps; the global-descent gap now records A74–A76.
+
+Do not reopen the coefficient dictionary or the Hecke-image hypotheses of A65.
+
+**Checks.**
+- Paper checker; 531 unique IDs; one route per missing item; 322-edge acyclic internal graph; 157/157 literal interfaces.
+- The prior 528 statements and statuses, 45 findings and the source data are byte-identical.
+- Submit only the result, report and this handoff.
+
+Earlier handoff history follows; its counters are superseded above.
+
+---
+
+# LLHLM23 — current handoff
+
 Codex — codex-a71f92, issue #1254, 23 September2026. Continues merged #2401.
 Claim5799093170 confirmed by5799096201.
 
