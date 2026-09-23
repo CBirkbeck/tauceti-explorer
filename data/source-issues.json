@@ -76578,9 +76578,9 @@
    "owner": "PAPER-LI-LIU-22",
    "file": "research/blueprint/papers/PAPER-LI-LIU-22.result.json",
    "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups, II\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-LIU-22",
+   "reviewReason": "Confirmed decisively, and by the paper printing the same formula six times with the letter differing exactly where the finding says. On published p. 27 the expression 1 + q + … + q^j + (b_2 − j)q^j appears four times correctly — in the ∂Den(𝑳) display, in the sentence 'the number of L ∈ 𝔏 with j(L) = j … equals …', in the |𝔏| display and in the Int(𝑳) = ∂Den(𝑳) display. Then (2.17) on the same page prints 'length_{O_Ĕ} W_{x_1E,j} ∩ N(x_2) = 2(1 + q + ⋯ + q^j + (b_2 − l)q^j)' and the following display, on p. 28, prints 'Int(𝑳) = length_{O_Ĕ} N(x_1) ∩ N(x_2) = Σ 2(1 + q + ⋯ + q^j + (b_2 − l)q^j)'. Four j against two l, in one formula, with the two l exactly at the two places the finding identifies. The summation index is j throughout, so l is the slip. Verified against the published open-access text, Forum of Mathematics Pi 10 (2022), e5, 71 pp., re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2022.2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LI-LIU-22/E2",
@@ -76598,9 +76598,9 @@
    "owner": "PAPER-LI-LIU-22",
    "file": "research/blueprint/papers/PAPER-LI-LIU-22.result.json",
    "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups, II\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-LIU-22",
+   "reviewReason": "Confirmed, both halves, and the second decisively by the line it sits on. Published p. 33 prints 'Let θ the unique element in U(𝑽)(F) satisfying θ(x_i) = 1 for 1 ⩽ i ⩽ n − 1 and θ(x_n) = −x_n': θ is an element of the unitary group, so it acts on the basis vectors and θ(x_i) = x_i is meant, not the scalar 1. Published p. 35 prints '◦ If (x,x)_𝑽 ∈ u^{e_i−1}O_F, then (b_1, b_2) = (a_i − 1, a_i − 1)' and '◦ If (x,x)_𝑽 ∉ u^{e_i−1}O_F, then b_1 ⩽ a_i − 2' — the condition is written with e_i while the conclusion on the very same line is in terms of a_i, so u^{a_i−1} is meant in both conditions. (The same sentence on p. 33 also drops a 'be' after 'Let θ', which the extraction does not record and which this review does not add.) Verified against the published open-access text, Forum of Mathematics Pi 10 (2022), e5, 71 pp., re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2022.2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LI-LIU-22/E3",
@@ -76618,9 +76618,9 @@
    "owner": "PAPER-LI-LIU-22",
    "file": "research/blueprint/papers/PAPER-LI-LIU-22.result.json",
    "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups, II\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-LIU-22",
+   "reviewReason": "Confirmed, both halves, and both decisively. Lemma 2.15 on published p. 12 prints its summation range as 'L ⊆ L′ ⊆ L′𝑣𝑒𝑒' — the literal characters v, e, e set in math italic where the dual ∨ belongs, exactly as the finding describes; this is visible in the text layer and is not an extraction artefact, since every other superscript on the line renders normally. And published p. 60 prints 'For 0 ⩽ h ⩽ g − 1, we denote by σ(i) the sequence starting …', where the quantifier introduces h and no i is in scope, so σ(h) is meant. Verified against the published open-access text, Forum of Mathematics Pi 10 (2022), e5, 71 pp., re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2022.2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LI-LIU-22/E4",
@@ -76641,9 +76641,9 @@
    "owner": "PAPER-LI-LIU-22",
    "file": "research/blueprint/papers/PAPER-LI-LIU-22.result.json",
    "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups, II\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-LIU-22",
+   "reviewReason": "Confirmed as printed at published p. 64: 'Proof. Part (1) is proved in the same way as [LL21, Proposition 8.1]. Part (2) is proved in the same way as [LL21, Proposition 9.1].' The substance of the finding — that Proposition 4.27(2), and with it Theorems 1.4 and 1.5 and Corollary 1.7 whenever S_π ≠ ∅, should carry Li–Zhang Conjecture 10.4.1 as a hypothesis, because the cited [LL21, Proposition 9.1] does — rests on the extraction's reading of that cited proposition, which this review did not fetch. I confirm that the proof is a bare appeal to it with no hypothesis carried across, which is what makes the finding a gap rather than a misprint, and that 'affects a stated result' is the right classification. Verified against the published open-access text, Forum of Mathematics Pi 10 (2022), e5, 71 pp., re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2022.2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LI-LIU-22/E5",
@@ -76661,9 +76661,9 @@
    "owner": "PAPER-LI-LIU-22",
    "file": "research/blueprint/papers/PAPER-LI-LIU-22.result.json",
    "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups, II\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-LIU-22",
+   "reviewReason": "Confirmed as printed, at all three locators, and the locator is exactly right — I checked it carefully because the three passages differ. Published p. 55 has the admissibility bullet 'for i = 1, 2, s_i is a product of two elements in (S^R_{Q^ac})_{L_ℓ^R}', and the set-minus form the finding quotes appears in the two proofs: published p. 57, 'there exist elements s_{u1}, s_{u2} ∈ S^R_{Q^ac} \\ 𝔪^R_π such that …', and published p. 64, the same phrase. The correction — that the elements should be taken in S^R_{Q^ac} \\ 𝔪^R_{π^∨} and that [LL21, Proposition 6.10(1)] should be quoted with χ^R_{π^∨}(s), because it is the dual representation whose Hecke character acts — rests on the extraction's analysis of that argument, which this review did not re-derive. Verified against the published open-access text, Forum of Mathematics Pi 10 (2022), e5, 71 pp., re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2022.2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LI-ZHANG-22-B/E1",
