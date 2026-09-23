@@ -54,13 +54,13 @@ footer { max-width: 1280px; margin: 0 auto; padding: 0 16px 40px; color: var(--f
   <p class="eyebrow">Tau Ceti Atlas</p>
   <h1>What the papers use and prove</h1>
   <p class="lede">Every definition, construction and theorem that the atlas's workers found while reading the papers, with the statement, where it is in the paper, and whether Mathlib or Tau Ceti already has it, a roadmap already plans it, or nothing covers it yet.</p>
-  <p class="meta">28,112 items from 206 papers ·
-    5,301 definitions · 3,420 constructions · 19,391 theorems ·
-    22,838 missing · 4,151 planned · 1,123 in the libraries ·
+  <p class="meta">28,537 items from 207 papers ·
+    5,409 definitions · 3,469 constructions · 19,659 theorems ·
+    23,215 missing · 4,191 planned · 1,131 in the libraries ·
     <a href="index.html">the atlas</a></p>
 </header>
 <div class="bar"><div class="bar-inner">
-  <input id="search" type="search" placeholder="Search 28,112 items: a name, or words from a statement" autocomplete="off" spellcheck="false" aria-label="Search items">
+  <input id="search" type="search" placeholder="Search 28,537 items: a name, or words from a statement" autocomplete="off" spellcheck="false" aria-label="Search items">
   <div class="chips" role="group" aria-label="Kind"><button data-kind="all" aria-pressed="true">All</button><button data-kind="definition" aria-pressed="false">Definitions</button><button data-kind="construction" aria-pressed="false">Constructions</button><button data-kind="theorem" aria-pressed="false">Theorems</button></div>
   <select id="status-filter" aria-label="Status"><option value="all">Anywhere</option><option value="missing">Missing</option><option value="planned">Planned</option><option value="library">Library</option></select>
   <select id="paper-filter" aria-label="Paper"><option value="">Every paper</option></select>
@@ -128,7 +128,10 @@ async function show(i) {
   if (chosen !== i) return;
   const item = data.items[index.rows.slice(0, i).filter(r => r[3] === p).length];
   if (!item) { panel.innerHTML = '<p class="empty">Not found.</p>'; return; }
-  const list = (label, xs) => xs && xs.length ? '<p class="sub">' + label + '</p><ul>' + xs.map(x => '<li>' + esc(typeof x === 'string' ? x : JSON.stringify(x)) + '</li>').join('') + '</ul>' : '';
+  const list = (label, xs) => {
+    const all = xs == null ? [] : Array.isArray(xs) ? xs : [xs];
+    return all.length ? '<p class="sub">' + label + '</p><ul>' + all.map(x => '<li>' + esc(typeof x === 'string' ? x : JSON.stringify(x)) + '</li>').join('') + '</ul>' : '';
+  };
   panel.innerHTML = '<h2>' + esc(item.name) + '</h2>' +
     '<p class="where"><span class="tag ' + esc(item.status) + '">' + esc(item.status) + '</span> <span class="tag">' + esc(item.kind) + '</span> · ' +
     esc(item.locator || '') + '</p>' +
