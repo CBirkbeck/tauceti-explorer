@@ -1,0 +1,344 @@
+{
+  "family": "RS-24",
+  "roadmaps": {
+    "IntegralHeckeAndGaloisDeterminants": {
+      "action": "keep",
+      "reason": "Keep the independent reusable algebra owner, including the separate integral Ribet branch. Narrow imports and make supplier/consumer contracts explicit; no whole-roadmap merge is justified."
+    },
+    "TorsionCohomologyInfrastructure": {
+      "action": "keep",
+      "reason": "Keep the complementary geometric comparison owner, with its own formal-model, bundle, completed-cohomology, boundary-factor and validation work. It uses IHG algebra but does not duplicate its scope or require its Ribet branch."
+    }
+  },
+  "layers": {
+    "IntegralHeckeAndGaloisDeterminants:IHG.0": {
+      "action": "narrow",
+      "keeps": "Extend the existing PolynomialLaw and DividedPowerAlgebra carriers with homogeneous degree-n and multiplicative laws, the degree-n representability/base-change theorem, characteristic-polynomial identities, continuity and the finite-projective representation comparison. Retain arbitrary commutative coefficients and the restricted trace comparison; do not rebuild the bare carriers.",
+      "suppliedBy": [
+        "UPSTREAM:Mathlib:CommutativeAlgebra"
+      ],
+      "reason": "Pinned Mathlib supplies PolynomialLaw and DividedPowerAlgebra, not the whole determinant theory. The sentinel is the existing atlas prerequisite; exact files and inspected definitions are recorded in the report."
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.1": {
+      "action": "keep",
+      "reason": "Retain Cayley-Hamilton quotient/descent, reconstruction and reducibility/extension algebra. Residual multiplicity-freeness and absolute irreducibility remain explicit; do not infer an actual representation from an arbitrary determinant."
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.2": {
+      "action": "keep",
+      "reason": "Sole owner of the abstract chain/derived/cohomology Hecke-image comparison and amplitude-dependent ghost-ideal nilpotence, given a bounded action. TC.2 proves the geometric hypotheses on actual complexes; it does not supply this generic theorem."
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.3": {
+      "action": "narrow",
+      "keeps": "Import the local spherical algebra and Satake transform. Retain the integral GL_n Hecke polynomial, its relation to determinant character and Tate twist, arithmetic/geometric Frobenius conversion and the n=1/2 checks. Do not construct another Satake isomorphism or assert the GL_n polynomial for an unspecified L-group representation.",
+      "suppliedBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.4"
+      ],
+      "reason": "SR.4 already owns Satake and its coefficient and q-half conventions; IHG.3 specializes them to the determinant-facing integral polynomial."
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.4": {
+      "action": "keep",
+      "reason": "Retain generic determinant existence through finite quotients and uniform congruence bounds, Chebotarev uniqueness, continuity, finite ramification and justified inverse limits. Neither characteristic-zero density nor pointwise polynomial factorization proves existence over a nonreduced ring."
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.5": {
+      "action": "keep",
+      "reason": "Retain the generic theorem schemas on an actual supplied geometric comparison, quantified quotient ideals, products/extensions, residual specialization and local-condition/lattice compatibility. The schema is proved independently of the TC application; TC.2 supplies its geometric premise at application time. Do not add a TC.2-to-IHG.5 construction dependency."
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.6": {
+      "action": "keep",
+      "reason": "Retain the independent DKSW integral Ribet branch, including residual coincidence and p=2, both source versions, local factors and extra generators, the Fitting bound in the extension ring, and the matrix-invariant/algebraic-group-cohomology/complex proof inputs. Preserve IHG.6 to IntegralIwasawaTheory:I.7. The alleged TC.4 overlap is rejected."
+    },
+    "TorsionCohomologyInfrastructure:TC.0": {
+      "action": "keep",
+      "reason": "Retain actual formal-model/power-bounded/site comparisons, boundary-ideal transport and extension on the specified covers, with hypotheses and almost or p-power errors. Imported general geometry is not reconstructed, and almost errors are not nilpotent Hecke ideals."
+    },
+    "TorsionCohomologyInfrastructure:TC.1": {
+      "action": "keep",
+      "reason": "Retain integral automorphic-bundle/Hodge-Tate pullback comparisons, equivariance, boundary-sensitive approximation by finite-level classical sections and all twists and congruence exponents. A period map alone does not supply these sections."
+    },
+    "TorsionCohomologyInfrastructure:TC.2": {
+      "action": "narrow",
+      "keeps": "Construct the actual finite-level/completed/perfectoid-Cech/section comparison and prove its Hecke and coefficient naturality, geometric amplitude and all instance-specific limit hypotheses. Apply the imported generic ghost-ideal theorem to that one bounded object and export the resulting geometric nilpotent ideal with compatible quotient maps. Do not reprove generic nilpotence, reconstruct completed cohomology, or discard almost and integral errors.",
+      "suppliedBy": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "CompletedCohomologyPartII:CC.1",
+        "CompletedCohomologyPartII:CC.2",
+        "CompletedCohomologyPartII:CC.4",
+        "CompletedCohomologyPartII:CC.8"
+      ],
+      "reason": "Separate the generic algebraic theorem from its geometric instance. General completed towers come from CC.1/2/4/8, built from the early ALS prefix, not from this finished comparison or the GL_2/Q_p local-global theorem."
+    },
+    "TorsionCohomologyInfrastructure:TC.3": {
+      "action": "narrow",
+      "keeps": "Import the determinant carrier, reconstruction/interpolation/quotient schemas, GL_n polynomial conventions and actual ALS boundary/Levi complex. Retain the symplectic/unitary boundary specialization, precise ambient-to-Levi/contragredient/twist identities, and the abstract factor-separation theorem with actual auxiliary characters, choice independence, change of coefficients and nilpotent quotients. Preserve the conditional symplectic arithmetic application separately from input-parametrized algebra.",
+      "suppliedBy": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.0",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "IntegralHeckeAndGaloisDeterminants:IHG.4",
+        "IntegralHeckeAndGaloisDeterminants:IHG.5",
+        "ArithmeticLocallySymmetricSpaces:ALS.4"
+      ],
+      "reason": "The shared normalization and determinant APIs are prerequisites, not duplicate outputs. TC.3 still owns the nontrivial factor extraction and its geometric normalization bridge; a GL_n formula alone does not determine the ambient group polynomial."
+    },
+    "TorsionCohomologyInfrastructure:TC.4": {
+      "action": "narrow",
+      "keeps": "Prove commutativity of all four concrete routes after the quantified quotient, retaining coefficient/level uniformity only where proved, compatible inverse systems and every GL_1, GL_2 and genuinely nonlifting torsion test. Instantiate the generic nilpotent descent and limit theorems rather than reprove them. No all-group Galois theorem or Ribet extension theorem is added.",
+      "suppliedBy": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.4",
+        "IntegralHeckeAndGaloisDeterminants:IHG.5"
+      ],
+      "reason": "This is a real comparison theorem and regression suite, not a duplicate of generic algebra and not IHG.6. The CM/unitary source input and symplectic qualification remain visible."
+    }
+  },
+  "links": [
+    {
+      "source": "UPSTREAM:Mathlib:CommutativeAlgebra",
+      "target": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+      "reason": "Retain the existing Mathlib prerequisite; use the named carrier declarations in the report."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "target": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+      "reason": "Retain the canonical Satake supplier and its coefficient/normalization restrictions."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.2",
+      "target": "TorsionCohomologyInfrastructure:TC.2",
+      "reason": "Apply generic amplitude-dependent ghost-ideal nilpotence only to the constructed bounded geometric action."
+    },
+    {
+      "source": "CompletedCohomologyPartII:CC.1",
+      "target": "TorsionCohomologyInfrastructure:TC.2",
+      "reason": "Preserve the supplier of torsion colimits; TC proves the comparison and instance hypotheses."
+    },
+    {
+      "source": "CompletedCohomologyPartII:CC.2",
+      "target": "TorsionCohomologyInfrastructure:TC.2",
+      "reason": "Preserve the supplier of completion and derived-limit topology; TC proves the comparison and instance hypotheses."
+    },
+    {
+      "source": "CompletedCohomologyPartII:CC.4",
+      "target": "TorsionCohomologyInfrastructure:TC.2",
+      "reason": "Preserve the supplier of finite-level chain models; TC proves the comparison and instance hypotheses."
+    },
+    {
+      "source": "CompletedCohomologyPartII:CC.8",
+      "target": "TorsionCohomologyInfrastructure:TC.2",
+      "reason": "Preserve the supplier of actual Shimura-tower Hecke adapters; TC proves the comparison and instance hypotheses."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+      "target": "TorsionCohomologyInfrastructure:TC.3",
+      "reason": "Supply the common determinant carrier before TC.3 proves the boundary factor comparison."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+      "target": "TorsionCohomologyInfrastructure:TC.3",
+      "reason": "Supply Cayley-Hamilton and hypothesis-qualified reconstruction before TC.3 proves the boundary factor comparison."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+      "target": "TorsionCohomologyInfrastructure:TC.3",
+      "reason": "Supply the integral GL_n polynomial and Frobenius conversion before TC.3 proves the boundary factor comparison."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+      "target": "TorsionCohomologyInfrastructure:TC.3",
+      "reason": "Supply continuous determinant interpolation with congruence hypotheses before TC.3 proves the boundary factor comparison."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.5",
+      "target": "TorsionCohomologyInfrastructure:TC.3",
+      "reason": "Supply generic quantified-quotient descent before TC.3 proves the boundary factor comparison."
+    },
+    {
+      "source": "ArithmeticLocallySymmetricSpaces:ALS.4",
+      "target": "TorsionCohomologyInfrastructure:TC.3",
+      "reason": "Supply actual boundary strata, Levi cohomology, induced Hecke action and shifts; TC.3 specializes and compares them."
+    },
+    {
+      "source": "TorsionCohomologyInfrastructure:TC.2",
+      "target": "TorsionCohomologyInfrastructure:TC.3",
+      "reason": "Preserve the actual geometric comparison and quotient maps, not a field-valued shadow."
+    },
+    {
+      "source": "TorsionCohomologyInfrastructure:TC.3",
+      "target": "TorsionCohomologyInfrastructure:TC.4",
+      "reason": "Preserve factor extraction and its normalization in the four-route comparison."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+      "target": "TorsionCohomologyInfrastructure:TC.4",
+      "reason": "Apply the generic compatible-limit theorem with the geometric uniformity hypotheses proved in TC."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.5",
+      "target": "TorsionCohomologyInfrastructure:TC.4",
+      "reason": "Apply generic quotient descent; retain concrete comparison and acceptance tests here."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentationsPartII:AG2.2",
+      "target": "TorsionCohomologyInfrastructure:TC.4",
+      "reason": "Preserve the independently constructed characteristic-zero unitary systems; no symplectic classification is inferred."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+      "target": "ArithmeticGaloisRepresentations:R01.5",
+      "reason": "Preserve reconstruction as input to Frobenius recognition."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "reason": "Preserve the early Hecke/Frobenius normalization input."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+      "reason": "Preserve hypothesis-qualified reconstruction for the definite-unitary family."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.6",
+      "reason": "Preserve determinant interpolation in the Igusa boundary argument."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+      "target": "IntegralIwasawaTheory:I.7",
+      "reason": "Preserve the independent residual-coincidence Ribet theorem; I.7 proves the actual arithmetic hypotheses and Fitting comparison."
+    },
+    {
+      "source": "TorsionCohomologyInfrastructure:TC.4",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.6",
+      "reason": "Preserve the complete torsion/Hecke comparison used in the boundary argument, not an assumed concentration theorem."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+      "target": "AutomorphicCongruences:L0",
+      "reason": "Make its explicit import of general extension/reducibility algebra a stage-level dependency; source-specific local conditions and lower bounds stay in L0."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+      "target": "PadicFamilies:L4",
+      "reason": "Use the common determinant-to-representation theorem only under the residual hypotheses of the actual arithmetic family."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+      "target": "PadicFamilies:L4",
+      "reason": "Supply generic interpolation to the later arithmetic family, not to the independent eigenvariety engine L2a."
+    },
+    {
+      "source": "TorsionCohomologyInfrastructure:TC.3",
+      "target": "PotentialAutomorphyInfrastructure:PA.0",
+      "reason": "Implement the source-to-owner matrix import of TC.3 boundary/Levi comparisons; PA.0 still proves its source-specific splitting and degree shifts."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Bare Roby polynomial-law and divided-power-algebra carriers",
+      "owner": "UPSTREAM:Mathlib:CommutativeAlgebra",
+      "formerly": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.0"
+      ]
+    },
+    {
+      "target": "Homogeneous multiplicative determinant laws and their common operations",
+      "owner": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+      "formerly": [
+        "TorsionCohomologyInfrastructure:TC.3"
+      ]
+    },
+    {
+      "target": "Cayley-Hamilton descent and hypothesis-qualified reconstruction",
+      "owner": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+      "formerly": [
+        "TorsionCohomologyInfrastructure:TC.3"
+      ]
+    },
+    {
+      "target": "Generic derived Hecke-image comparison and amplitude-dependent ghost-ideal nilpotence",
+      "owner": "IntegralHeckeAndGaloisDeterminants:IHG.2",
+      "formerly": [
+        "TorsionCohomologyInfrastructure:TC.2"
+      ]
+    },
+    {
+      "target": "Local spherical algebra and Satake transform, with coefficient conventions",
+      "owner": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "formerly": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.3"
+      ]
+    },
+    {
+      "target": "Determinant-facing integral GL_n Hecke polynomial and Frobenius conversion",
+      "owner": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+      "formerly": [
+        "TorsionCohomologyInfrastructure:TC.3"
+      ]
+    },
+    {
+      "target": "Generic continuous determinant interpolation and coefficient/limit compatibility",
+      "owner": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+      "formerly": [
+        "TorsionCohomologyInfrastructure:TC.3",
+        "TorsionCohomologyInfrastructure:TC.4"
+      ]
+    },
+    {
+      "target": "Generic determinant descent on quantified nilpotent quotients and residual specialization",
+      "owner": "IntegralHeckeAndGaloisDeterminants:IHG.5",
+      "formerly": [
+        "TorsionCohomologyInfrastructure:TC.2",
+        "TorsionCohomologyInfrastructure:TC.4"
+      ]
+    },
+    {
+      "target": "Actual geometric Hecke comparison, its bounded action and instantiated nilpotent quotient",
+      "owner": "TorsionCohomologyInfrastructure:TC.2",
+      "formerly": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.5"
+      ]
+    },
+    {
+      "target": "General completed-tower torsion colimits",
+      "owner": "CompletedCohomologyPartII:CC.1",
+      "formerly": [
+        "TorsionCohomologyInfrastructure:TC.2"
+      ]
+    },
+    {
+      "target": "General completed-tower completion and derived inverse limits",
+      "owner": "CompletedCohomologyPartII:CC.2",
+      "formerly": [
+        "TorsionCohomologyInfrastructure:TC.2"
+      ]
+    },
+    {
+      "target": "General completed-tower finite-level chain model",
+      "owner": "CompletedCohomologyPartII:CC.4",
+      "formerly": [
+        "TorsionCohomologyInfrastructure:TC.2"
+      ]
+    },
+    {
+      "target": "General completed-tower Shimura and Hecke adapter",
+      "owner": "CompletedCohomologyPartII:CC.8",
+      "formerly": [
+        "TorsionCohomologyInfrastructure:TC.2"
+      ]
+    },
+    {
+      "target": "General arithmetic boundary/Levi complex and induced Hecke action",
+      "owner": "ArithmeticLocallySymmetricSpaces:ALS.4",
+      "formerly": [
+        "TorsionCohomologyInfrastructure:TC.3"
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-24",
+    "date": "2026-09-23",
+    "notes": "Claude Code, session cc-442dc5, independently reviewed the proposal; the author was ChatGPT Pro, session gpt-20260921-c74f2a. The reviewer read both member documents and all twelve layer descriptions, the eight (unreviewed-audit) leads, the RS-24 report, the supplier and consumer stages, and the neighbouring proposals RS-12, RS-16 and RS-21. Those three assign the same owners for the Cayley–Hamilton reconstruction (IHG.1), the spherical Hecke polynomial (IHG.3), interpolation (IHG.4), the integral Ribet theorem (IHG.6) and Satake (SR.4). Duplication: the four leads are supplier–consumer handoffs (generic algebra in IHG, its geometric instances in TC), and the fourteen owner entries give each shared target exactly one owner; the alleged IHG.6/TC.4 overlap is correctly rejected. The upstream-owner claim was checked at Mathlib 082e2d3: Mathlib/RingTheory/PolynomialLaw/Basic.lean (PolynomialLaw) and Mathlib/RingTheory/DividedPowerAlgebra/Init.lean exist. Nothing lost: the narrowings of IHG.0, IHG.3, TC.2, TC.3 and TC.4 remove only constructions supplied elsewhere, with supplier links, and every recorded external export (R01.5, AG2.0, AG2.3, IG.6, I.7) is preserved. AG2.0 relied on IHG.3 for the Hecke polynomial and Frobenius conversion, which IHG.3 keeps. Links: all 28 endpoints resolve; nine are new edges and a whole-atlas reachability check shows no cycle. There are no anchors and no extensions. The format follows PROTOCOL §15, and check_restructure.py passes. No corrections were needed. A minor point, left unchanged: the owner entry \"Actual geometric Hecke comparison…\" lists IHG.5 under formerly, although IHG.5 only states it as a hypothesis built by TC.",
+    "corrections": []
+  }
+}
