@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-YANG-ZHAO-25",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Cohomological Milnor formula and Saito’s conjecture on characteristic classes",
     "authors": "Enlin Yang and Yigeng Zhao",
@@ -15,10 +15,11 @@
       "Codex codex-c83e7a: entire arXiv2209.11086v4, pp.1–51, all sections/proofs/references; downloaded bytes match prior SHA-256. Page45 additionally inspected as an image.",
       "Inherited from codex-a71f92/PR1963: all eleven PFF alternative-proof image pages; no renewed full PFF read in this continuation.",
       "Journal landing page inspected; ordinary and encoded Springer PDF endpoints returned HTML previews, not the full journal PDF. Journal numbering and seven inherited version-specific findings remain uncollated.",
-      "Third checkpoint codex-c83e7a: fresh downloaded v4 bytes match the fully read PR2029 source. Reused that same-session full pp.1–51 reading and freshly reread pp.48–49; this is not represented as a second new full read. Saito2021 and Kato–Saito2004 selected reading scopes below are new."
+      "Third checkpoint codex-c83e7a: fresh downloaded v4 bytes match the fully read PR2029 source. Reused that same-session full pp.1–51 reading and freshly reread pp.48–49; this is not represented as a second new full read. Saito2021 and Kato–Saito2004 selected reading scopes below are new.",
+      "Independent review codex-hjdg0j: complete arXiv v4 pp.1–51; all eleven PFF image pages (printed31–41); source-finding images pp.8,15,16,21,27,28,45,50. Full journal PDF unavailable."
     ]
   },
-  "summary": "Yang–Zhao prove a cohomological Milnor formula and a fibration formula for relative cohomological characteristic classes, and deduce Saito's conjecture that the cohomological characteristic class equals the cycle class of the characteristic class for smooth quasi-projective schemes over a perfect field (Theorem 6.13), with the curve case first (Corollary 6.6). Complete (cc-442dc5): every numbered statement is an item (Saito's conjecture added as a statement), every missing item is routed exactly once, and nine findings are recorded against arXiv v4. The proof errors E6 and E8 are repaired; none affects a stated result. Not formalised.",
+  "summary": "Yang–Zhao construct the supported non-acyclicity class, prove its coherent fibration formula and cohomological Milnor/conductor formulas, and prove the smooth quasi-projective case of Saito's characteristic-class comparison. Independent review confirms all nine version-specific findings and accepts all six corrected ownership routes. Recursive supplier closure, journal reconciliation and the quasi-projective pencil input remain open. Numbered-statement coverage alone does not establish completion. No formalization is claimed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -27,67 +28,129 @@
         "ref": "mathlib:SSet.Quasicategory",
         "module": "Mathlib/AlgebraicTopology/Quasicategory/Basic.lean",
         "lines": "34–63",
-        "checked": "Declaration and horn-filling API read at the pinned commit; no stable-category claim."
+        "checked": "Declaration and horn-filling API read at the pinned commit; no stable-category claim.",
+        "independentReview": "Declaration and standing hypotheses read by codex-hjdg0j; seven distinct files byte-match raw GitHub content at the exact pins. Generic carriers/algebra only; no geometric theorem inferred."
       },
       {
         "ref": "mathlib:DerivedCategory",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "lines": "73–103",
-        "checked": "Localization definition and Q read at the pinned commit; no ctf or infinity-category claim."
+        "checked": "Localization definition and Q read at the pinned commit; no ctf or infinity-category claim.",
+        "independentReview": "Declaration and standing hypotheses read by codex-hjdg0j; seven distinct files byte-match raw GitHub content at the exact pins. Generic carriers/algebra only; no geometric theorem inferred."
       },
       {
         "ref": "tauceti:TauCeti.TriangulatedK0",
         "module": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
         "lines": "115–210",
-        "checked": "Full hypotheses, definition, triangle relation, zero/biproduct and shift signs read at the pinned commit."
+        "checked": "Full hypotheses, definition, triangle relation, zero/biproduct and shift signs read at the pinned commit.",
+        "independentReview": "Declaration and standing hypotheses read by codex-hjdg0j; seven distinct files byte-match raw GitHub content at the exact pins. Generic carriers/algebra only; no geometric theorem inferred."
       },
       {
         "ref": "mathlib:AdjoinRoot.powerBasis'",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "lines": "625–686",
-        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23."
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23.",
+        "independentReview": "Declaration and standing hypotheses read by codex-hjdg0j; seven distinct files byte-match raw GitHub content at the exact pins. Generic carriers/algebra only; no geometric theorem inferred."
       },
       {
         "ref": "mathlib:IsArtinianRing.localization_surjective",
         "module": "Mathlib/RingTheory/Artinian/Ring.lean",
         "lines": "75–94",
-        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23."
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23.",
+        "independentReview": "Declaration and standing hypotheses read by codex-hjdg0j; seven distinct files byte-match raw GitHub content at the exact pins. Generic carriers/algebra only; no geometric theorem inferred."
       },
       {
         "ref": "mathlib:Module.free_of_flat_of_isLocalRing",
         "module": "Mathlib/RingTheory/LocalRing/Module.lean",
         "lines": "299–308",
-        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23."
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23.",
+        "independentReview": "Declaration and standing hypotheses read by codex-hjdg0j; seven distinct files byte-match raw GitHub content at the exact pins. Generic carriers/algebra only; no geometric theorem inferred."
       },
       {
         "ref": "mathlib:IsLocalRing.split_injective_iff_lTensor_residueField_injective",
         "module": "Mathlib/RingTheory/LocalRing/Module.lean",
         "lines": "329–383",
-        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23."
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23.",
+        "independentReview": "Declaration and standing hypotheses read by codex-hjdg0j; seven distinct files byte-match raw GitHub content at the exact pins. Generic carriers/algebra only; no geometric theorem inferred."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle",
         "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
         "lines": "35–77",
-        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred."
+        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred.",
+        "independentReview": "Declaration and standing hypotheses read by codex-hjdg0j; seven distinct files byte-match raw GitHub content at the exact pins. Generic carriers/algebra only; no geometric theorem inferred."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.mapCoeff",
         "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
         "lines": "35–77",
-        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred."
+        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred.",
+        "independentReview": "Declaration and standing hypotheses read by codex-hjdg0j; seven distinct files byte-match raw GitHub content at the exact pins. Generic carriers/algebra only; no geometric theorem inferred."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.map",
         "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
         "lines": "35–77",
-        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred."
+        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred.",
+        "independentReview": "Declaration and standing hypotheses read by codex-hjdg0j; seven distinct files byte-match raw GitHub content at the exact pins. Generic carriers/algebra only; no geometric theorem inferred."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.map_id",
         "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
         "lines": "35–77",
-        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred."
+        "checked": "Whole pinned file read in this third checkpoint. Existing cycle carrier and weighted quasi-compact map only; no Chow quotient, composition or refined intersection is inferred.",
+        "independentReview": "Declaration and standing hypotheses read by codex-hjdg0j; seven distinct files byte-match raw GitHub content at the exact pins. Generic carriers/algebra only; no geometric theorem inferred."
+      }
+    ],
+    "independentFiles": [
+      {
+        "path": "Mathlib/AlgebraicTopology/Quasicategory/Basic.lean",
+        "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/Quasicategory/Basic.lean",
+        "sha256": "fb1d3692ab7bb183877f5be55d49b1cd3dbb939249d922e625cf6a4a927e0bfe",
+        "byteMatch": true
+      },
+      {
+        "path": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+        "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+        "sha256": "fb849d911197dbcf364a20cfdc524cf8bbd9180d408bff7d8407d58e019d8cbc",
+        "byteMatch": true
+      },
+      {
+        "path": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdjoinRoot.lean",
+        "sha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef",
+        "byteMatch": true
+      },
+      {
+        "path": "Mathlib/RingTheory/Artinian/Ring.lean",
+        "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Artinian/Ring.lean",
+        "sha256": "ddab87b8e52f72a513ccfb0b5ca9a9addc21b9545812dd667100509c91d1af45",
+        "byteMatch": true
+      },
+      {
+        "path": "Mathlib/RingTheory/LocalRing/Module.lean",
+        "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalRing/Module.lean",
+        "sha256": "7aad1df3c0b0105a55d98d5b2fa521f9ac73b5ad63267d7ac6a23f47c5e1d907",
+        "byteMatch": true
+      },
+      {
+        "path": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+        "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+        "sha256": "cef6ac0e8f2cebca80d4eb67271db481d7cc5f21fdef6a469eeac15031ff9518",
+        "byteMatch": true
+      },
+      {
+        "path": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
+        "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
+        "sha256": "89ad9cdef952a42244bf100ecb4956b260e2d926067938b7dee1caa6ae31cac9",
+        "byteMatch": true
       }
     ]
   },
@@ -3586,7 +3649,22 @@
           "where": "PAPER-YANG-ZHAO-25/Q09",
           "how": "Supplies the explicitly named Total dimension of a vanishing-cycle complex input for Swan and total dimension invariant under coefficient enlargement."
         }
-      ]
+      ],
+      "externalInputs": [
+        {
+          "owner": "ArithmeticGaloisRepresentationsPartIIGeometricArtin",
+          "items": [
+            "PAPER-ABE-25/B21",
+            "PAPER-ABE-25/B03",
+            "PAPER-ABE-25/B06",
+            "PAPER-ABE-25/B07"
+          ],
+          "statement": "Import the early geometric-trait numerical conductor and projective integral Swan module, its torsion scalar extension and exactness. For each finite residue coefficient field κ, identify dimκ(SwΔ⊗Zℓ[Δ]V) with the weighted wild-invariant codimension sum, prove quotient independence and compatibility with coefficient enlargement. This interface is needed before A01; it does not follow just from R01.3 arithmetic conductors. The char-zero statement B21 alone is insufficient for finite κ.",
+          "scope": "After the geometric strict-local reduction of §6.4, use K=Frac(k{t}) with k algebraically closed. Track the chosen geometric point and descent to the original perfect field.",
+          "status": "open supplier interface; shared Abe review accepts this owner but does not claim it built"
+        }
+      ],
+      "proofBoundary": "The integer Swan construction, integrality and finite-coefficient comparison are imported from the explicit early supplier above. A01 defines the alternating total dimension once it exists; Q09 proves its coefficient invariance. No late Artin representation theorem enters."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/A02",
@@ -3888,7 +3966,7 @@
         {
           "name": "YangZhao25.M01.test1",
           "kind": "computation",
-          "statement": "id_X is C-transversal."
+          "statement": "For the incoming map h=id_X: X→X, ker(dh)=0, so h is C-transversal for every closed conical C."
         },
         {
           "name": "YangZhao25.M01.test2",
@@ -3899,6 +3977,11 @@
           "name": "YangZhao25.M01.test3",
           "kind": "non-example",
           "statement": "For outgoing f:A1→A1, x↦x² in char≠2, zero-section transversality fails at 0."
+        },
+        {
+          "name": "YangZhao25.M01.outgoing_identity",
+          "kind": "non-example",
+          "statement": "For the outgoing map f=id_X, the inverse image of C under df is C itself; C-transversality holds exactly when C lies in the zero section. Take C=T*X on a positive-dimensional smooth X to reject an unconditional outgoing identity test."
         }
       ],
       "uses": [
@@ -4876,6 +4959,9 @@
       "acceptance": [
         "A trivial rank-r complex in degree zero keeps total dimension r, not [κB:κ]r.",
         "Shifting by one negates both integer invariants."
+      ],
+      "externalInputs": [
+        "A01 imports the geometric numerical/projective Swan prefix and the finite-coefficient dimension comparison. Its weighted codimension sum has to be proved before the field-extension argument here is used."
       ]
     },
     {
@@ -5406,14 +5492,61 @@
       "id": "PAPER-YANG-ZHAO-25/M19",
       "kind": "definition",
       "name": "Saito's conjecture on characteristic classes (statement only)",
-      "statement": "For a closed subscheme X of a smooth scheme over a perfect field k and F ∈ D_ctf(X, Λ), C_{X/k}(F) = cl(cc_X(F)) in H⁰(X, K_{X/k}). Not proved in general; Theorem 6.13 (M16) is the smooth quasi-projective case.",
+      "statement": "Define the proposition asserting cl(cc_X(F))=C_X/k(F) in H0(X,K_X/k) for every F in Dctf(X,Λ), when k is perfect, Λ is finite local of residue characteristic invertible in k, and X is a closed subscheme of a smooth k-scheme. Conjecture1.2 states this scope; §6 assumes characteristic p>0. The proposition is not proved for general embeddable X. Theorem6.13 supplies the smooth quasi-projective characteristic-p instance.",
       "locator": "Conjecture 6.12 (= Conjecture 1.2; Saito [22, Conjecture 6.8.1])",
       "status": "missing",
       "prerequisites": [
-        "PAPER-YANG-ZHAO-25/M16"
+        "PAPER-YANG-ZHAO-25/C04",
+        "PAPER-YANG-ZHAO-25/M04",
+        "PAPER-YANG-ZHAO-25/M05"
       ],
       "ownerCandidate": "MIC",
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "claimStatus": "conjecture",
+      "api": [
+        {
+          "name": "YangZhao25.M19.proposition",
+          "role": "definition",
+          "statement": "Form the universally quantified equality using the actual C_X/k, integral cc_X and étale cycle map, with their coefficient and embeddability hypotheses."
+        },
+        {
+          "name": "YangZhao25.M19.evaluate",
+          "role": "characterisation",
+          "statement": "Given a proof of this proposition for X, specialize it to any F in Dctf(X,Λ); defining the proposition supplies no such proof."
+        },
+        {
+          "name": "YangZhao25.M19.smooth_quasiprojective_instance",
+          "role": "compatibility",
+          "statement": "After M16 is proved, instantiate the proposition for smooth quasi-projective X in characteristic p>0. This is a later consumer of the definition, not its prerequisite."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YangZhao25.M19.zero",
+          "kind": "degenerate",
+          "statement": "The equality at F=0 has both sides zero by additivity; this does not prove the universal proposition."
+        },
+        {
+          "name": "YangZhao25.M19.known_instance",
+          "kind": "compatibility",
+          "statement": "The M16 theorem instantiates the proposition only with its smooth quasi-projective and characteristic-p hypotheses."
+        },
+        {
+          "name": "YangZhao25.M19.singular_boundary",
+          "kind": "non-example",
+          "statement": "For arbitrary singular embeddable X the declaration forms a proposition; neither the constructor nor M16 provides its proof."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-YANG-ZHAO-25/M16",
+          "how": "The smooth quasi-projective comparison proves a restricted instance of this proposition after the microlocal suppliers are constructed."
+        },
+        {
+          "where": "Conjecture6.12 and conjecturalBoundaries",
+          "how": "Names the general embeddable target without making it an available theorem."
+        }
+      ]
     }
   ],
   "routes": [
@@ -5544,8 +5677,8 @@
         "PAPER-YANG-ZHAO-25/J08",
         "PAPER-YANG-ZHAO-25/J09"
       ],
-      "reason": "Reuse the same pending continuation proposed in PAPER-ABE-25, not a parallel non-acyclicity roadmap. Yang–Zhao adds the general-base transversality defect, supported characteristic classes and coherent infinity-categorical fibration proof beyond EDC.8 and beyond Abe's two-categorical trace prefix.",
-      "brief": "Extend the pending RelativeTraces brief from PAPER-ABE-25 without duplicating it. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0, EDC.1:adjoint, EDC.2:trace-purity, EDC.3, EDC.4, EDC.8), Enhanced derived categories of sheaves (EnhancedDerivedSheaves:E0,E1,E3,E5:abstract), and the generic existing triangulated K0. First close the Noetherian-base/coefficient six-operation and ULA-dualizability interfaces; ordinary field duality does not suffice. Construct generalized transversality c, its diagonal evaluation condition C1, the explicit closed-diagonal defect functor and K_X/Y/S. Build relative characteristic classes with ULA globally or uniquely extended across H0/H1 support vanishing. Define Ctilde with coefficients K_X/Y/S under C1,C3, and only then C^Z with coefficients K_X/S under C2. Prove base change, proper pushforward, independent étale locality in X and Y, and trait specialization with the exact source/target vanishings. Upgrade the six-functor correspondence construction to the coherent infinity setting, importing all generic stable-category, lifting and nine-diagram machinery from EDS. Prove the fibration equality C_X/S=δ!C_X/Y+C^Z under C1–C3 by either fully recorded proof. Under perfect char-p k, finite local ℓ≠p coefficients, separated f:X→smooth curve and ULA off a closed x, prove C^{x}=−dimtot RΦ_x without smoothness of X; deduce the finite-Z and cohomological GOS formulas. For proper f and ULA off f^−1(y), prove ν_Y^−1 f*Ctilde=−a_y(Rf*F) without imposing source C2. Import the earlier local-Fourier/ULA-extension prefix from LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier. Do not import the late Artin theorem or Saito comparison back into that prefix. The non-isolated localized-Bloch equality stays conjectural; only its stated global pushforward comparison is a theorem here. Prove finite faithfully free coefficient transport of ULA, transversality, supported non-acyclicity classes and local Milnor descent (Q04–Q07,Q10). Import the generic coefficient functor and split-detection facts from EnhancedDerivedSheaves:E1/E3. Preserve the supported factorization itself. Do not multiply a B-valued trace by rankΛB, or divide by that rank; a Λ-linear retraction detects equality even for F2→F4. For A14, use J08’s smooth-proper trace calculation and J09’s integral Whitney/projection calculation after applying the cycle map. Retain only the global pushed equality; do not require the late microlocal Saito comparison or a projective global index theorem."
+      "reason": "Reuse the same shared continuation proposed in PAPER-ABE-25, not a parallel non-acyclicity roadmap. Yang–Zhao adds the general-base transversality defect, supported characteristic classes and coherent infinity-categorical fibration proof beyond EDC.8 and beyond Abe's two-categorical trace prefix.",
+      "brief": "Extend the shared RelativeTraces brief from PAPER-ABE-25 without duplicating it. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0, EDC.1:adjoint, EDC.2:trace-purity, EDC.3, EDC.4, EDC.8), Enhanced derived categories of sheaves (EnhancedDerivedSheaves:E0,E1,E3,E5:abstract), and the generic existing triangulated K0. First close the Noetherian-base/coefficient six-operation and ULA-dualizability interfaces; ordinary field duality does not suffice. Construct generalized transversality c, its diagonal evaluation condition C1, the explicit closed-diagonal defect functor and K_X/Y/S. Build relative characteristic classes with ULA globally or uniquely extended across H0/H1 support vanishing. Define Ctilde with coefficients K_X/Y/S under C1,C3, and only then C^Z with coefficients K_X/S under C2. Prove base change, proper pushforward, independent étale locality in X and Y, and trait specialization with the exact source/target vanishings. Upgrade the six-functor correspondence construction to the coherent infinity setting, importing all generic stable-category, lifting and nine-diagram machinery from EDS. Prove the fibration equality C_X/S=δ!C_X/Y+C^Z under C1–C3 by either fully recorded proof. Under perfect char-p k, finite local ℓ≠p coefficients, separated f:X→smooth curve and ULA off a closed x, prove C^{x}=−dimtot RΦ_x without smoothness of X; deduce the finite-Z and cohomological GOS formulas. For proper f and ULA off f^−1(y), prove ν_Y^−1 f*Ctilde=−a_y(Rf*F) without imposing source C2. Import the earlier local-Fourier/ULA-extension prefix from LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier. Do not import the late Artin theorem or Saito comparison back into that prefix. The non-isolated localized-Bloch equality stays conjectural; only its stated global pushforward comparison is a theorem here. Prove finite faithfully free coefficient transport of ULA, transversality, supported non-acyclicity classes and local Milnor descent (Q04–Q07,Q10). Import the generic coefficient functor and split-detection facts from EnhancedDerivedSheaves:E1/E3. Preserve the supported factorization itself. Do not multiply a B-valued trace by rankΛB, or divide by that rank; a Λ-linear retraction detects equality even for F2→F4. For A14, use J08’s smooth-proper trace calculation and J09’s integral Whitney/projection calculation after applying the cycle map. Retain only the global pushed equality; do not require the late microlocal Saito comparison or a projective global index theorem. The generic 2-categorical trace prefix PAPER-ABE-25/A01–A03 has one home here, also imported by the accepted VStackSheavesLefschetzVerdierPartII. Its decent-v-stack operations stay with that geometric owner. Yang–Zhao’s coherent infinity diagrams extend the shared prefix; they are not supplied merely by the ordinary 2-category."
     },
     {
       "route": "part-ii",
@@ -5567,8 +5700,8 @@
         "PAPER-YANG-ZHAO-25/Q08",
         "PAPER-YANG-ZHAO-25/Q09"
       ],
-      "reason": "Reuse PAPER-ABE-25's same pending continuation. Yang–Zhao invokes the same exponential deformation, finite-cover ULA extension and Laumon identity. LPV.0's ordinary trait nearby cycles do not cover absolute integral closures and descent over coherent/infinite bases.",
-      "brief": "Extend, rather than duplicate, the GeneralBasesFourier continuation proposed in PAPER-ABE-25. Import Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.0) for ordinary strict-local RΨ/RΦ, Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0) for coefficients, and Enhanced derived categories of sheaves (EnhancedDerivedSheaves:E0–E3) for the actual enhancement. Retain the existing early Swan-module and modular K0/decomposition interfaces; no late geometric Artin theorem is needed. Construct general-base geometric-specialization nearby cycles and prove the applicable goodness, constructibility and base-change results from their primary sources. In the perfect char-p finite-local coefficient setting, construct the chosen nontrivial additive-character kernel, and prove coefficient enlargement/descent when the original ring lacks that character. Prove the precise alternating identity −dimtot RΦ_0(F,id)=χΨ_pr2(pr1*F⊗Lψ,!(t/t')) at (0,0'). Construct the absolute-integral-closure Rj* extension with finite Tor and ULA, then descend both complex and open identification to a finite integral cover of the parameter curve. Prove support at the isolated point and the strict-local Fourier stalk comparison using Ψ-goodness. Export those identities to RelativeTraces' cohomological Milnor proof. Tests must distinguish a full-trait constant sheaf from j! of its generic restriction, preserve the degree-one negative sign, and reject the nonexistent character F3→F2×. The pure Fourier theorem precedes both the late Artin theorem and all characteristic-cycle comparisons. Before choosing ψ, construct a finite local coefficient enlargement via a maximal localization of Λ[T]/Φp, importing the pinned monic power basis, Artinian-localization surjectivity and finite-flat local freeness. Establish nearby-cycle coefficient comparison and invariance of the integer Swan/total dimension through residue-field extension. The extension degree need not be prime to ℓ. General local Fourier and modular-to-adic lifting proofs remain required; coefficient descent alone does not prove them."
+      "reason": "Reuse PAPER-ABE-25's same shared continuation. Yang–Zhao invokes the same exponential deformation, finite-cover ULA extension and Laumon identity. LPV.0's ordinary trait nearby cycles do not cover absolute integral closures and descent over coherent/infinite bases.",
+      "brief": "Extend, rather than duplicate, the GeneralBasesFourier continuation proposed in PAPER-ABE-25. Import Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.0) for ordinary strict-local RΨ/RΦ, Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0) for coefficients, and Enhanced derived categories of sheaves (EnhancedDerivedSheaves:E0–E3) for the actual enhancement. Retain the existing early Swan-module and modular K0/decomposition interfaces; no late geometric Artin theorem is needed. Construct general-base geometric-specialization nearby cycles and prove the applicable goodness, constructibility and base-change results from their primary sources. In the perfect char-p finite-local coefficient setting, construct the chosen nontrivial additive-character kernel, and prove coefficient enlargement/descent when the original ring lacks that character. Prove the precise alternating identity −dimtot RΦ_0(F,id)=χΨ_pr2(pr1*F⊗Lψ,!(t/t')) at (0,0'). Construct the absolute-integral-closure Rj* extension with finite Tor and ULA, then descend both complex and open identification to a finite integral cover of the parameter curve. Prove support at the isolated point and the strict-local Fourier stalk comparison using Ψ-goodness. Export those identities to RelativeTraces' cohomological Milnor proof. Tests must distinguish a full-trait constant sheaf from j! of its generic restriction, preserve the degree-one negative sign, and reject the nonexistent character F3→F2×. The pure Fourier theorem precedes both the late Artin theorem and all characteristic-cycle comparisons. Before choosing ψ, construct a finite local coefficient enlargement via a maximal localization of Λ[T]/Φp, importing the pinned monic power basis, Artinian-localization surjectivity and finite-flat local freeness. Establish nearby-cycle coefficient comparison and invariance of the integer Swan/total dimension through residue-field extension. The extension degree need not be prime to ℓ. General local Fourier and modular-to-adic lifting proofs remain required; coefficient descent alone does not prove them. Explicitly import ArithmeticGaloisRepresentationsPartIIGeometricArtin’s early geometric numerical/projective Swan and torsion scalar-extension prefix (PAPER-ABE-25/B21,B03,B06,B07). Identify finite-coefficient Swan dimension and the wild-invariant sum before A01/Q09; this remains a supplier obligation. Do not import that continuation’s late Artin-character endpoint."
     },
     {
       "route": "part-ii",
@@ -5600,8 +5733,8 @@
         "PAPER-YANG-ZHAO-25/J05",
         "PAPER-YANG-ZHAO-25/J06"
       ],
-      "reason": "Reuse the pending microlocal continuation from PAPER-SHENDE-TSIMERMAN-17. Its brief already demands a separately sourced positive-characteristic Beilinson–Saito branch. This extraction supplies that branch's precise characteristic-class comparison target; it does not infer it from characteristic-zero conormal topology.",
-      "brief": "Extend the existing pending Microlocal brief, preserving its characteristic-zero polar-bound branch and its single ownership. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0,EDC.3,EDC.4,EDC.8), Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.0 and pencil geometry), and the earlier outputs of EtaleDualityAndPerverseSheavesPartIIRelativeTraces. Over a perfect field of characteristic p>0 with finite local coefficients of residue characteristic ℓ≠p, construct cotangent C-transversality, micro-support, Beilinson's singular support and the integral Saito characteristic cycle characterized by the isolated Milnor formula. Prove CC(Λ_X)=(-1)^dimX[zero section], shift/additivity, étale locality and finite-free lisse rank twisting. Construct the degree-zero class cc_X=0_X!CC(F); distinguish it from the total characteristic class for embeddable singular schemes. Import integral Chow/refined-Gysin/Chern operations and the rank-threshold localized-perfect-complex construction from SchemeAndStackFoundations:SF.5 (J01–J03/J10); EDC.3 supplies their étale cycle realization. Own only the cotangent presentation and microlocal applications J04–J06/M08. Prove good-pencil existence and the two matched Chow/cohomological induction identities, retaining smooth properly transversal fibers for divω and the actual quasi-projective reduction, prime-to-ℓ field extension and smooth codimension-two center hypotheses. Repair finite étale descent with F⊗σ*Λ and rank twisting, not the false constant-direct-sum identification. Final theorem: for smooth quasi-projective X/k and F∈Dctf(X,Λ), cl(cc_X(F))=C_X/k(F) in H0(X,K_X/k). This is not the full embeddable-singular conjecture. Define the non-isolated candidate (f*dt)!CC(F), prove its finite-support comparison only, and retain Conjecture6.10 and the supported Bloch formula as explicit non-theorems. Obtain the final UYZ journal pencil/blowup statements before closing this route. Use Saito18 Lemma2 in the finite étale domain for the cycle pushforward step, then commute the zero-section refined Gysin with proper pushforward to obtain the Chow class identity (M17–M18). Retain the independent quasi-projective good-pencil gap."
+      "reason": "Reuse the shared microlocal continuation from PAPER-SHENDE-TSIMERMAN-17. Its brief already demands a separately sourced positive-characteristic Beilinson–Saito branch. This extraction supplies that branch's precise characteristic-class comparison target; it does not infer it from characteristic-zero conormal topology.",
+      "brief": "Extend the existing Microlocal brief, preserving its characteristic-zero polar-bound branch and its single ownership. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0,EDC.3,EDC.4,EDC.8), Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.0 and pencil geometry), and the earlier outputs of EtaleDualityAndPerverseSheavesPartIIRelativeTraces. Over a perfect field of characteristic p>0 with finite local coefficients of residue characteristic ℓ≠p, construct cotangent C-transversality, micro-support, Beilinson's singular support and the integral Saito characteristic cycle characterized by the isolated Milnor formula. Prove CC(Λ_X)=(-1)^dimX[zero section], shift/additivity, étale locality and finite-free lisse rank twisting. Construct the degree-zero class cc_X=0_X!CC(F); distinguish it from the total characteristic class for embeddable singular schemes. Import integral Chow/refined-Gysin/Chern operations and the rank-threshold localized-perfect-complex construction from SchemeAndStackFoundations:SF.5 (J01–J03/J10); EDC.3 supplies their étale cycle realization. Own only the cotangent presentation and microlocal applications J04–J06/M08. Prove good-pencil existence and the two matched Chow/cohomological induction identities, retaining smooth properly transversal fibers for divω and the actual quasi-projective reduction, prime-to-ℓ field extension and smooth codimension-two center hypotheses. Repair finite étale descent with F⊗σ*Λ and rank twisting, not the false constant-direct-sum identification. Final theorem: for smooth quasi-projective X/k and F∈Dctf(X,Λ), cl(cc_X(F))=C_X/k(F) in H0(X,K_X/k). This is not the full embeddable-singular conjecture. Define the non-isolated candidate (f*dt)!CC(F), prove its finite-support comparison only, and retain Conjecture6.10 and the supported Bloch formula as explicit non-theorems. Obtain the final UYZ journal pencil/blowup statements before closing this route. Use Saito18 Lemma2 in the finite étale domain for the cycle pushforward step, then commute the zero-section refined Gysin with proper pushforward to obtain the Chow class identity (M17–M18). Retain the independent quasi-projective good-pencil gap. M19 is the proposition expressing the embeddable Saito conjecture. Its definition precedes M16; only M16’s smooth quasi-projective characteristic-p instance is a theorem target in this source. Do not generate a proof obligation claiming the general conjecture proved. The Shende–Tsimerman review rejects its route14 pending original Massey/local Euler-obstruction proofs and version conventions. This review accepts only Yang–Zhao’s separately sourced characteristic-p addition to the shared owner; it does not reverse that other verdict or certify the characteristic-zero branch."
     },
     {
       "route": "source",
@@ -5693,7 +5826,7 @@
     {
       "citation": "T. Saito, Characteristic cycles and the conductor of direct image (2021)",
       "link": "https://arxiv.org/abs/1704.04832",
-      "why": "The localized Chern identities cited in Remark6.8 and alternate perverse ULA-extension input; not read directly."
+      "why": "Selected arXiv v4 §2.1 pp.28–31 freshly read in independent review; localized section-intersection input with complete Lemma2.1.4 proof. Full paper and journal collation remain open."
     },
     {
       "citation": "Kazuya Kato and Takeshi Saito, On the conductor formula of Bloch, Publ. Math. IHÉS100 (2004),5–151",
@@ -5716,8 +5849,14 @@
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
         "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+        "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "E1: p.8 image and (2.3.4) endpoints checked. The prose and (2.3.5) contain δ!Λ while the quantified input and diagram require δ!G. The G=0 type/zero test confirms the local correction.",
+        "by": "REV-PAPER-YANG-ZHAO-25"
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/E2",
@@ -5733,8 +5872,14 @@
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
         "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+        "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "E2: p.16 image checked. Both descriptions in §3.6 dualize F instead of G. At a point, F=Λ and G=Λ² distinguish the rank-two correspondence space from the printed rank-one tensor.",
+        "by": "REV-PAPER-YANG-ZHAO-25"
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/E3",
@@ -5750,8 +5895,14 @@
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
         "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+        "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "E3: p.21 image checked. The prose after (3.14.5) drops p2*G and uses K_X′/Y; the lower row supplies the correctly typed S-relative evaluation.",
+        "by": "REV-PAPER-YANG-ZHAO-25"
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/E4",
@@ -5767,8 +5918,14 @@
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
         "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+        "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "E4: p.27 image checked against diagram(4.12.1). Y′ is undefined in this proper-pushforward setup. Use Y. The target ν inverse is a typing clarification; no new source C2 hypothesis is required.",
+        "by": "REV-PAPER-YANG-ZHAO-25"
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/E5",
@@ -5784,8 +5941,14 @@
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
         "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+        "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "E5: p.28 image checked. f′ and e0 compose as e0∘f′. The displayed adjacent pullbacks have the corrected order.",
+        "by": "REV-PAPER-YANG-ZHAO-25"
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/E6",
@@ -5801,8 +5964,14 @@
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
         "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+        "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "E6: p.50 image checked. For Spec(F4)→Spec(F2) and Λ=F3, Frobenius on the pushforward has swap matrix, trace0 and one-dimensional invariants, unlike Λ². Projection formula, lisse rank twisting and finite étale characteristic-cycle pushforward repair the endpoints. Degree cancellation occurs only in Λ-cohomology.",
+        "by": "REV-PAPER-YANG-ZHAO-25"
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/E7",
@@ -5810,17 +5979,24 @@
       "locator": "Lemma3.2, p.15, final specialization, arXiv v4",
       "printed": "C_X/S(L)=rankL·C_X/S(Λ)",
       "correction": "For the stated general base add Λ_X∈Dctf(X/S,Λ) to this specialization, or restrict to the field-base applications where it holds. For nonlocal coefficient rings specify trace-rank or constant finite-free rank.",
-      "reason": "The preceding formula quantifies F in the ULA subcategory; substituting Λ is not licensed without that hypothesis. Example X={0}→S=A1 with L=Λ: the constant sheaf on X is not ULA over S, so neither relative class in that specialization is defined by(3.1.14). The field-base uses are unaffected. (cc-442dc5) Reclassified to affect nothing: the specialization needs Λ_X ULA over S, which holds over a field base, and the one use of Lemma 3.2 in the paper (Lemma 3.15) is over a perfect field.",
-      "affects": "nothing",
+      "reason": "The main lemma quantifies F in the ULA subcategory. Its final specialization F=Λ omits that domain hypothesis for a general base. The closed origin X→A1 with L=Λ supplies an undefined specialization under (3.1.14), not a counterexample to a correctly defined class equality. The field-base uses remain valid.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
         "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+        "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
       ],
-      "previousAffects": "a stated result"
+      "previousAffects": "a stated result",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "E7: p.15 image and §3.1 domain checked. Substituting Λ into the ULA-only trace formula needs Λ_X ULA over S; the closed origin in A1 fails. This affects the stated general-base specialization, although the field-base uses and main theorem are unaffected. Definition3.5 offers a different extension only under additional H0/H1 support vanishing; it does not justify the unrestricted specialization.",
+        "by": "REV-PAPER-YANG-ZHAO-25"
+      },
+      "priorAffects": "nothing"
     },
     {
       "id": "PAPER-YANG-ZHAO-25/E8",
@@ -5835,8 +6011,14 @@
         "2026-09-23: arXiv2209.11086 history still lists v4 as latest; full v4 read, especially p.45 image.",
         "2026-09-23: Springer DOI10.1007/s00222-025-01319-y landing page; PDF endpoints returned HTML. No linked correction located, and no assertion about the inaccessible journal passage.",
         "2026-09-23: Enlin Yang https://yelmath.github.io/, which labels PFF.pdf an alternative fibration proof; title plus correction/erratum search found no matching correction. PFF full reading is inherited from PR1963, not repeated.",
-        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+        "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "E8: p.45 image and §6.1 checked. p=3,Λ=F2 satisfies the coefficient assumptions but Λ× is trivial. Q01–Q10 give a valid conditional repair through a finite faithfully free local character extension and an unnormalized linear retraction. F2→F4 shows that dividing by its degree is invalid. Fourier and geometric proof suppliers remain open.",
+        "by": "REV-PAPER-YANG-ZHAO-25"
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/E9",
@@ -5851,8 +6033,14 @@
       "searched": [
         "2026-09-23: Saito author bibliography https://www.ms.u-tokyo.ac.jp/~t-saito/publ.html, entry for this paper has no linked correction. Its separately listed corrections concern other papers.",
         "2026-09-23: arXiv1607.03156 history lists only v1; p.3 image inspected. The 2018 journal text was not compared.",
-        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
-      ]
+        "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages.",
+        "The inherited cc-442dc5 check of the Yang–Zhao Inventiones DOI was removed from E9: it was not evidence about the Saito paper. The independent check uses Saito’s own v1 history and bibliography."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "E9: Saito1607.03156v1 p.3 image checked, with pp.1–4 including Lemma2’s proof. For F=0 on nonempty smooth X, the base of SS(F) is empty, not the support of X. The following conjecture and lemma use the correct support. This is a harmless version-specific prose slip.",
+        "by": "REV-PAPER-YANG-ZHAO-25"
+      }
     }
   ],
   "gaps": [
@@ -5866,7 +6054,12 @@
       ],
       "detail": "Read the complete journal PDF and map its numbering to arXiv v4; current published access yielded a subscription preview, not the full text. Findings are asserted only for the specified arXiv version. On 2026-09-23 both ordinary and encoded Springer PDF URLs again returned HTML previews; no journal-PDF reading is claimed.",
       "status": "unavailable",
-      "resolution": "The Inventiones text is closed (Unpaywall, Springer previews only); arXiv v4 was read in full."
+      "priorStatus": "unavailable",
+      "priorResolution": "The Inventiones text is closed (Unpaywall, Springer previews only); arXiv v4 was read in full.",
+      "review": {
+        "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+        "reason": "The detailed remaining task is still substantive. Its supplier citation does not discharge the proof or scope verification."
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G02",
@@ -5879,8 +6072,13 @@
         "PAPER-YANG-ZHAO-25/S08"
       ],
       "detail": "Read and decompose Gaitsgory–Rozenblyum Part III, Hemo–Richarz–Scholbach§7.2, HTT3.1.2.1/4.3.2.15 and the actual enhanced étale realization. The main/PFF cube proofs are read, but their external foundational proofs are not recursively closed.",
-      "status": "deferred",
-      "resolution": "Gaitsgory–Rozenblyum, Hemo–Richarz–Scholbach and Lurie are cited suppliers."
+      "status": "open",
+      "priorStatus": "deferred",
+      "priorResolution": "Gaitsgory–Rozenblyum, Hemo–Richarz–Scholbach and Lurie are cited suppliers.",
+      "review": {
+        "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+        "reason": "The detailed remaining task is still substantive. Its supplier citation does not discharge the proof or scope verification."
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G03",
@@ -5894,8 +6092,13 @@
         "PAPER-YANG-ZHAO-25/C01"
       ],
       "detail": "Close Saito's strong local-acyclicity and converse criteria, Illusie's external-product theorem, and Lu–Zheng's ULA duality. Selected Lu–Zheng statements/proofs were read in the preceding Abe audit; this does not close all their prerequisites.",
-      "status": "deferred",
-      "resolution": "Saito, Illusie and Lu–Zheng are cited suppliers; the Lemma 3.2 scope is E7."
+      "status": "open",
+      "priorStatus": "deferred",
+      "priorResolution": "Saito, Illusie and Lu–Zheng are cited suppliers; the Lemma 3.2 scope is E7.",
+      "review": {
+        "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+        "reason": "The detailed remaining task is still substantive. Its supplier citation does not discharge the proof or scope verification."
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G04",
@@ -5906,8 +6109,13 @@
         "PAPER-YANG-ZHAO-25/C08"
       ],
       "detail": "Check Fujiwara and ILO XVI primary proofs and exact regular-immersion hypotheses. Distinguish existence of Cl from the purity isomorphism, and field semipurity from arbitrary-base absolute purity.",
-      "status": "deferred",
-      "resolution": "Fujiwara and ILO are cited suppliers."
+      "status": "open",
+      "priorStatus": "deferred",
+      "priorResolution": "Fujiwara and ILO are cited suppliers.",
+      "review": {
+        "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+        "reason": "The detailed remaining task is still substantive. Its supplier citation does not discharge the proof or scope verification."
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G05",
@@ -5916,9 +6124,14 @@
         "PAPER-YANG-ZHAO-25/A07",
         "PAPER-YANG-ZHAO-25/A06"
       ],
-      "detail": "Theorem4.1 and Corollary4.2 plus selected categorical/valuative criteria were read, but the full proof of4.1 and the constructible continuity/finite-cover descent are not decomposed to closed leaves. The normalization of an absolute integral closure is used locally through valuation rings, not asserted itself an affine valuation spectrum.",
-      "status": "deferred",
-      "resolution": "Hansen–Scholze is a cited supplier."
+      "detail": "Theorem4.1 and Corollary4.2 plus selected categorical/valuative criteria were read, but the full proof of4.1 and the constructible continuity/finite-cover descent are not decomposed to closed leaves. The normalization of an absolute integral closure is used locally through valuation rings, not asserted itself an affine valuation spectrum. Independent review freshly read HS pp.2–3 and19–21, including the full displayed proof of Theorem4.1. Its use of semistable reduction, approximation and Lemma4.3 still needs recursive decomposition; reading that proof is not closure.",
+      "status": "open",
+      "priorStatus": "deferred",
+      "priorResolution": "Hansen–Scholze is a cited supplier.",
+      "review": {
+        "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+        "reason": "The detailed remaining task is still substantive. Its supplier citation does not discharge the proof or scope verification."
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G06",
@@ -5931,8 +6144,13 @@
         "PAPER-YANG-ZHAO-25/A08"
       ],
       "detail": "Reconcile each henselian-trait constructibility/duality/specialization assertion with the excellence or finite-presentation hypotheses of its exact primary source. Read Zheng's Ψ-goodness Appendix A.2(1) and the requisite strict-local projection/base-change proof. An unqualified arbitrary nonproper base-change theorem is not available.",
-      "status": "deferred",
-      "resolution": "The nearby-cycle finiteness results are cited suppliers."
+      "status": "open",
+      "priorStatus": "deferred",
+      "priorResolution": "The nearby-cycle finiteness results are cited suppliers.",
+      "review": {
+        "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+        "reason": "The detailed remaining task is still substantive. Its supplier citation does not discharge the proof or scope verification."
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G07",
@@ -5942,9 +6160,14 @@
         "PAPER-YANG-ZHAO-25/A03",
         "PAPER-YANG-ZHAO-25/A04"
       ],
-      "detail": "Q01–Q10 now give an explicit finite local character extension and coefficient descent relative to the existing derived-operation/ramification suppliers. The choice of ψ itself is resolved, including the degree-divisible-by-ℓ case. Still read and decompose UYZ final5.2.6 and Laumon local Fourier exactness/rank statements and the finite-local reduction argument used in A03/A04. No claim that these external Fourier proofs, G02/G03 or G06 are closed.",
-      "status": "recorded",
-      "resolution": "The missing character is E8, with its coefficient-extension repair; UYZ and Laumon are cited suppliers."
+      "detail": "Q01–Q10 now give an explicit finite local character extension and coefficient descent relative to the existing derived-operation/ramification suppliers. The choice of ψ itself is resolved, including the degree-divisible-by-ℓ case. Still read and decompose UYZ final5.2.6 and Laumon local Fourier exactness/rank statements and the finite-local reduction argument used in A03/A04. No claim that these external Fourier proofs, G02/G03 or G06 are closed. Import the early geometric numerical/projective Swan and torsion-reduction interfaces from ArithmeticGaloisRepresentationsPartIIGeometricArtin (PAPER-ABE-25/B21,B03,B06,B07), including the finite-residue-coefficient dimension comparison; do not confuse the geometric trait with an arithmetic local field or use the late Artin theorem.",
+      "status": "open",
+      "priorStatus": "recorded",
+      "priorResolution": "The missing character is E8, with its coefficient-extension repair; UYZ and Laumon are cited suppliers.",
+      "review": {
+        "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+        "reason": "The detailed remaining task is still substantive. Its supplier citation does not discharge the proof or scope verification."
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G08",
@@ -5955,8 +6178,13 @@
         "PAPER-YANG-ZHAO-25/M06"
       ],
       "detail": "Selected Saito arXivv4 definitions and Milnor/étale-local/additivity statements and proofs were read. Beilinson existence, integrality and the characteristic-cycle construction still need full primary proof decomposition. Singular support cannot be replaced by the support of CC: cancellation is a test.",
-      "status": "deferred",
-      "resolution": "Beilinson and Saito's characteristic-cycle theory are cited suppliers."
+      "status": "open",
+      "priorStatus": "deferred",
+      "priorResolution": "Beilinson and Saito's characteristic-cycle theory are cited suppliers.",
+      "review": {
+        "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+        "reason": "The detailed remaining task is still substantive. Its supplier citation does not discharge the proof or scope verification."
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G09",
@@ -5969,8 +6197,13 @@
         "PAPER-YANG-ZHAO-25/M16"
       ],
       "detail": "Obtain UYZ's final journal Lemma4.2.7, Lemma3.3.2/Remark3.3.3 and Proposition5.3.7. Its arXivv4 Lemma4.9 explicitly treats projective X, and Proposition5.21 requires smooth properly SS-transversal divisor fibers. Verify the quasi-projective extension, prime-to-ℓ field extension, smooth center and all transversality requirements before declaring Theorem6.13's proof closed. This is a source gap, not an assertion that the journal theorem is false. On 2026-09-23 the author-linked final AMS PDF again returned HTTP403; the distinction from the older public version remains explicit.",
-      "status": "deferred",
-      "resolution": "UYZ's journal Lemma 4.2.7 is a cited supplier. Its final text returned HTTP 403, and the accessible arXiv version treats projective X, so item M15 keeps the quasi-projective form as a verification point."
+      "status": "open",
+      "priorStatus": "deferred",
+      "priorResolution": "UYZ's journal Lemma 4.2.7 is a cited supplier. Its final text returned HTTP 403, and the accessible arXiv version treats projective X, so item M15 keeps the quasi-projective form as a verification point.",
+      "review": {
+        "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+        "reason": "The detailed remaining task is still substantive. Its supplier citation does not discharge the proof or scope verification."
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G10",
@@ -5984,8 +6217,13 @@
         "PAPER-YANG-ZHAO-25/J10"
       ],
       "detail": "Saito18 finite étale input remains as established in the prior checkpoint. Now Saito1704.04832v4 §2.1, pp.28–31 through Lemma2.1.4, and Kato–Saito2004 §2.3 printed pp.50–51 (Proposition2.3.1, Lemma2.3.2 with complete proof, Corollary2.3.3) are read. J01–J10 decompose the section-intersection, cotangent-cycle and global Chern/trace bridges. The rank-(n−1) condition replaces the erroneous extraction requirement of exactness off the fiber. Remaining: Bloch§1/Fulton graph construction, proof of the bivariant properties and localized Whitney formula, full generic deformation/excess suppliers, and journal collation of Saito2021. Kato–Saito states Proposition2.3.1 with references, so its statements alone are not proof closure.",
-      "status": "deferred",
-      "resolution": "Saito's localized Chern input is a cited supplier."
+      "status": "open",
+      "priorStatus": "deferred",
+      "priorResolution": "Saito's localized Chern input is a cited supplier.",
+      "review": {
+        "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+        "reason": "The detailed remaining task is still substantive. Its supplier citation does not discharge the proof or scope verification."
+      }
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G11",
@@ -5994,11 +6232,17 @@
         "PAPER-YANG-ZHAO-25/B02",
         "PAPER-YANG-ZHAO-25/B05",
         "PAPER-YANG-ZHAO-25/M05",
-        "PAPER-YANG-ZHAO-25/S05"
+        "PAPER-YANG-ZHAO-25/S05",
+        "PAPER-YANG-ZHAO-25/M04"
       ],
-      "detail": "These foundational interface entries record exact needed domains but collect several operations already assigned to their supplier roadmaps. Expand them against actual supplier blueprint nodes and promote every nonroutine API used as a prerequisite. No claim that the present paper checkpoint is recursively gap-free. This continuation splits M05’s integral intersection supplier into J01/SF.5 and leaves the geometric étale realization in EDC.3. Atomic source decomposition of the foundational supplier implementations is still required; J02 records the localized graph-construction boundary explicitly.",
-      "status": "deferred",
-      "resolution": "Prerequisite granularity is design work."
+      "detail": "These foundational interface entries record exact needed domains but collect several operations already assigned to their supplier roadmaps. Expand them against actual supplier blueprint nodes and promote every nonroutine API used as a prerequisite. No claim that the present paper checkpoint is recursively gap-free. This continuation splits M05’s integral intersection supplier into J01/SF.5 and leaves the geometric étale realization in EDC.3. Atomic source decomposition of the foundational supplier implementations is still required; J02 records the localized graph-construction boundary explicitly. M04 bundles smooth characteristic-cycle existence with the degree-zero class for embeddable singular schemes; its singular extension needs its own precise construction leaves before closure.",
+      "status": "open",
+      "priorStatus": "deferred",
+      "priorResolution": "Prerequisite granularity is design work.",
+      "review": {
+        "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+        "reason": "The detailed remaining task is still substantive. Its supplier citation does not discharge the proof or scope verification."
+      }
     }
   ],
   "conjecturalBoundaries": [
@@ -6122,6 +6366,76 @@
       "accessed": "2026-09-23",
       "readBy": "Codex codex-c83e7a",
       "read": "Complete one-page author correction: faithfully flat quasi-compact condition p.94 and strict étale map p.101. Neither targets §2.3; no new correction proposed."
+    },
+    {
+      "id": "YZ_REVIEW",
+      "url": "https://arxiv.org/pdf/2209.11086v4",
+      "sha256": "e3da9817bc372ce4b72e475ed790ba3e4346de83ccda9751fe37bd02c0e1eb2e",
+      "read": "All51 pages, all numbered statements and proof paragraphs; the eight source-finding pages additionally inspected as images.",
+      "readBy": "Codex codex-hjdg0j independent review",
+      "accessed": "2026-09-23"
+    },
+    {
+      "id": "PFF_REVIEW",
+      "url": "https://yelmath.github.io/PFF.pdf",
+      "sha256": "ca34631829a5eba95d58d7d3488fc7bc8fa00e63906b11568e0437c7f6c1fb58",
+      "read": "All11 scanned image pages, printed31–41. Nine-diagram lemma, simultaneous cartesian/cocartesian lifts and the final supported comparison read.",
+      "readBy": "Codex codex-hjdg0j independent review",
+      "accessed": "2026-09-23"
+    },
+    {
+      "id": "HS_REVIEW",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/RelativePerverse.pdf",
+      "sha256": "7fcca4cf382b20503f4f428b1268d2cd181488c96b362f34150c4f3daba9544e",
+      "read": "Only pp.2–3 coefficient settings and pp.19–21: Theorem4.1 with complete displayed proof, Corollary4.2 with proof, Lemma4.3 statement and initial proof. The rest of Lemma4.3 and the whole paper are not claimed read.",
+      "readBy": "Codex codex-hjdg0j independent review",
+      "accessed": "2026-09-23"
+    },
+    {
+      "id": "UYZ_REVIEW",
+      "url": "https://arxiv.org/pdf/1701.02841v4",
+      "sha256": "bd22e5b85043be666661b79906cf3f1360b12c078f8667f118a6883c3c633a96",
+      "read": "Only pp.15–16 Lemmas4.6/4.8/4.9 with proofs; p.23 Proposition5.21 with proof and Lemma5.22; p.27 decomposition homomorphism and Corollary5.26 proof. Lemma4.9 assumes projectivity. Author-linked AMS journal PDF again returns403.",
+      "readBy": "Codex codex-hjdg0j independent review",
+      "accessed": "2026-09-23"
+    },
+    {
+      "id": "SAITO18_REVIEW",
+      "url": "https://arxiv.org/pdf/1607.03156v1",
+      "sha256": "315c7d251040f3b0b339f7acc38b133c719f7d9da50dbdbf3a194e9fbf9e6c27",
+      "read": "Only pp.1–4, including complete Lemma2 proof; p.3 image checked for E9. No journal comparison.",
+      "readBy": "Codex codex-hjdg0j independent review",
+      "accessed": "2026-09-23"
+    },
+    {
+      "id": "SAITO21_REVIEW",
+      "url": "https://arxiv.org/pdf/1704.04832v4",
+      "sha256": "8c696aa05412910849ba02695f80f7136f24c7dd4fa6942edc3dd6b856838bc2",
+      "read": "Only pp.28–31: Lemmas2.1.1–2.1.4 with full displayed proofs and context. No full-source closure or journal collation.",
+      "readBy": "Codex codex-hjdg0j independent review",
+      "accessed": "2026-09-23"
+    },
+    {
+      "id": "KS_REVIEW",
+      "url": "https://www.numdam.org/item/PMIHES_2004__100__5_0.pdf",
+      "sha256": "615b41f4219ef2da4dce7373a86f219c8243a5268fc0e626fe6cb1ed94b68ff6",
+      "read": "Only PDF46–47 (printed50–51): entire §2.3 passage, Proposition2.3.1 statements, Lemma2.3.2 with complete proof and Corollary2.3.3. Underlying graph construction is cited, not proved here.",
+      "readBy": "Codex codex-hjdg0j independent review",
+      "accessed": "2026-09-23"
+    },
+    {
+      "id": "KS_CORRECTION_REVIEW",
+      "url": "https://www.ms.u-tokyo.ac.jp/~t-saito/bcor.pdf",
+      "sha256": "6b48db8aeb7ad31b37e8ac7015bdceed37c7dc94451212698856663b26de20c5",
+      "read": "Entire one-page correction; its changes on printed94/101 do not concern §2.3.",
+      "readBy": "Codex codex-hjdg0j independent review",
+      "accessed": "2026-09-23"
+    },
+    {
+      "id": "SAME_SESSION_ABE_REUSE",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/pull/2528",
+      "readBy": "Codex codex-hjdg0j",
+      "read": "Same-session preceding Abe review: full18-page published Abe paper; selected Lu–Zheng v4 pp.17,18,20; Laumon printed163–164,170–171; Saito1510.03018v4 pp.45–46 and both linked author corrections in full. This is reuse of my own bounded readings, not a fresh full read of the suppliers."
     }
   ],
   "ownershipAudit": {
@@ -6148,13 +6462,80 @@
     "upstreamReadingProvenance": "At least two relevant upstream documents were read in earlier codex-c83e7a programme work (GrothendieckEulerForms and CharacterTheory); the older checkpoint also records its own full readings. A partial GrothendieckEulerForms reread in this continuation is not represented as a new full read.",
     "thirdCheckpointSnapshot": "c43ee0b12d70c8c7fdc710b5647c2794e6068729",
     "thirdCheckpoint": "Read complete SchemeAndStackFoundations owner document, EDC.3 description, reviewed AUDIT01 SF.5 and AUDIT18 EDC.3 coverage. Read the complete pinned algebraic-cycle file and searched both pinned geometric libraries for Chow/Gysin/Chern/localized/intersection implementations; generic cycle data is reused in L09. Screened current paper item names/statements, pending roadmaps/packets/decompositions and selected link hits for localized-Chern overlap. SF.5 is the generic supplier, EDC.3 its étale realization, MIC only the cotangent application; all five earlier route IDs are retained, with one source route to existing SF.5 added.",
-    "publicationScreen": "555 input files verified at c43ee0b12d70c8c7fdc710b5647c2794e6068729. Changed AKY22, CHT17, Fu24, Tsuzuki23 and Yuan26 entries screened; no new localized-Chern owner. The later Qian23 update changes completion/source-gap metadata only, with all item and route contracts unchanged. Newly added Zavyalov25 routes and trace-related items screened: mixed-characteristic rigid mod-p/almost duality and coherent duality are separate from the present scheme-theoretic prime-to-characteristic localized Chern bridge. Its scheme Poincare-duality introduction uses the same existing EDC supplier."
+    "publicationScreen": "555 input files verified at c43ee0b12d70c8c7fdc710b5647c2794e6068729. Changed AKY22, CHT17, Fu24, Tsuzuki23 and Yuan26 entries screened; no new localized-Chern owner. The later Qian23 update changes completion/source-gap metadata only, with all item and route contracts unchanged. Newly added Zavyalov25 routes and trace-related items screened: mixed-characteristic rigid mod-p/almost duality and coherent duality are separate from the present scheme-theoretic prime-to-characteristic localized Chern bridge. Its scheme Poincare-duality introduction uses the same existing EDC supplier.",
+    "independentReview": {
+      "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+      "snapshot": "abe9bce4aa659b5c95a10c97aa69058af30de9d4",
+      "sharedAbeSnapshot": "28ba4def4e122bac9c7a71d0b51768419bcec21a",
+      "read": [
+        "Complete EDS, EDC, LPV and SchemeAndStackFoundations READMEs; all8 cited planned-stage descriptions byte-match those passages.",
+        "AUDIT22 E0/E1/E3/E5:abstract; AUDIT18 EDC.0/3/4/1:adjoint/2:trace-purity/8; AUDIT19 LPV.0/3; AUDIT01 SF.5, complete selected entries.",
+        "Shared Abe RelativeTraces/GeneralBasesFourier and early GeometricArtin contracts; accepted HKW v-stack trace route; reviewed Shende–Tsimerman microlocal route.",
+        "Same-session full upstream GrothendieckEulerForms and CharacterTheory readings from Abe review reused."
+      ],
+      "searches": [
+        "All121 missing item names searched in both pinned Lean trees, followed by source-family ULA/transversality, relative trace, stable coherence, Chow/Gysin/localized Chern/microlocal, Fourier/conductor and coefficient-algebra searches. No full missing geometric result located; generic algebra and category inputs retained.",
+        "Atlas owner descriptions, reviewed audits and25 matching pending/shared route contracts screened. Complex/p-adic D-modules and imperfect-residue Kato conductors have different scope; the relevant shared scheme owners are retained."
+      ],
+      "nonDuplication": "Keep6 route identifiers. The accepted shared proposals have no fabricated built-stage declarations; missing items stay missing. Generic integral Chow/Chern lives in SF.5, its étale realization in EDC.3; relative-trace and Fourier prefixes are common with Abe, abstract trace prefix common with HKW, positive-characteristic microlocal branch common with Shende–Tsimerman.",
+      "crossReviewBoundary": "The Shende–Tsimerman review rejects its route14 pending original Massey/local Euler-obstruction proofs and version conventions. This review accepts only Yang–Zhao’s separately sourced characteristic-p addition to the shared owner; it does not reverse that other verdict or certify the characteristic-zero branch."
+    }
   },
   "validation": {
-    "structural": "141 unique items, 298 dependency edges; statuses {'library': 9, 'planned': 12, 'missing': 120}; 52 definitions/constructions with 158 API entries and 156 proposed specification tests. All inherited IDs/statuses retained; three inherited entries refined; six routes, all missing items routed once.",
+    "structural": "Superseded historical count: see independentReviewCounts and the executed review validation in the handoff.",
     "lean": "No Lean deliverable is authorized for this paper extraction; no Lean compilation or formalization is claimed.",
     "continuationChecks": "Recorded in handoff after execution; finite algebra examples validate selected identities, not general sheaf theorems.",
-    "thirdCheckpointChecks": "Paper checker, three-file intake, preserved-item/DAG/route audit and exact finite polynomial/Chern/sign diagnostics recorded in the handoff after execution. These are not Lean proofs."
+    "thirdCheckpointChecks": "Paper checker, three-file intake, preserved-item/DAG/route audit and exact finite polynomial/Chern/sign diagnostics recorded in the handoff after execution. These are not Lean proofs.",
+    "independentReviewCounts": {
+      "items": 142,
+      "statuses": {
+        "library": 9,
+        "planned": 12,
+        "missing": 121
+      },
+      "edges": 301,
+      "definitionsAndConstructions": 53,
+      "apiEntries": 161,
+      "planningTests": 160,
+      "routes": 6,
+      "sourceFindings": 9,
+      "gaps": 11
+    },
+    "independentReviewChecks": {
+      "paperChecker": "passed",
+      "intake": "5 files, 0 problems",
+      "internalGraph": "301 edges, DAG",
+      "routeCoverage": "all121 missing items routed exactly once",
+      "api": "all53 definitions/constructions have API/use/test lists;161 API entries and160 planning tests",
+      "fileScope": "exactly5 authorized files differ from archive, no deletions",
+      "diagnostics": {
+        "coefficientAlgebras": [
+          {
+            "coefficientModulus": 2,
+            "extensionCardinality": 4,
+            "characterOrder": 3,
+            "linearRetractionOfOne": 1,
+            "coefficientCharacteristicPreserved": true
+          },
+          {
+            "coefficientModulus": 4,
+            "extensionCardinality": 16,
+            "characterOrder": 3,
+            "linearRetractionOfOne": 1,
+            "coefficientCharacteristicPreserved": true
+          }
+        ],
+        "pushforwardSwapTraceMod3": 0,
+        "constantRankTwoTraceMod3": 2,
+        "pushforwardFixedVectors": 3,
+        "constantFixedVectors": 9,
+        "degreeTwoWhitneyChecks": 729,
+        "skyscraperMinusTotalDimension": 1,
+        "scope": "Exact finite algebra and sign diagnostics only; no derived sheaf, Chow, general conductor or Lean theorem is verified by these computations."
+      },
+      "pinFiles": 7,
+      "lean": "not required; not compiled; no formalization claimed"
+    }
   },
   "continuation": {
     "agent": "Codex",
@@ -6250,7 +6631,7 @@
     }
   ],
   "summaryBefore": "Continuation of PR1963: complete arXivv4 reread; explicit character-admitting finite local coefficient extension, scalar transport of ULA/traces/supported non-acyclicity/nearby cycles, Swan invariance and Milnor descent without division by extension degree. Saito18 finite étale characteristic-cycle/Chow pushforward input is now explicit. Journal/pencil and recursive geometric/Fourier source gaps remain; status partial. Third checkpoint isolates the localized Chern rank threshold, section/excess-intersection comparison, cotangent cycle pushforward and the global Whitney/trace bridge, importing integral operations from SF.5 and preserving the conjectural supported boundary.",
-  "completion": {
+  "previousCompletion": {
     "agent": "Claude Code",
     "session": "cc-442dc5",
     "issue": 1218,
@@ -6258,5 +6639,90 @@
     "status": "complete",
     "reading": "arXiv v4 re-fetched (hash matches); the introduction statements mapped to their body results; Unpaywall and Crossref checked.",
     "changes": "Conjecture 6.12 (= 1.2) added; introduction statements mapped; E7 reclassified to affect nothing; gap statuses recorded; status complete."
+  },
+  "review": {
+    "verdict": "revise",
+    "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+    "agent": "Codex",
+    "session": "codex-hjdg0j",
+    "reason": "All six ownership routes are usable after the corrections recorded here. The extraction is partial: named external proof obligations have not been closed merely by citing their suppliers."
+  },
+  "reviewChanges": [
+    "Restore partial extraction and10 open supplier gaps plus1 unavailable journal comparison; retain previous completion and gap dispositions as history.",
+    "Confirm E1–E9 independently; restore E7 impact on the stated general-base specialization and remove unrelated YZ journal search evidence from Saito E9.",
+    "Replace M19→M16 dependency by the prerequisite constructions C04/M04/M05; add its proposition-only API, uses and3 tests with explicit coefficient/characteristic scope.",
+    "Disambiguate incoming identity transversality in M01 and add the outgoing-identity negative test.",
+    "Add A01/Q09 explicit early geometric Swan and finite-coefficient supplier contract shared with Abe, leaving its unclosed comparison visible.",
+    "Synchronize the common Abe/HKW trace prefix, Fourier owner and Shende–Tsimerman microlocal conjectural boundary; preserve6 routes.",
+    "Record fresh primary readings, exact pin verification, ownership search and current validation separately from inherited history."
+  ],
+  "publicationRefresh": {
+    "commit": "1269c94c885da44e5d8860388bd0b77792955d6f",
+    "files": [
+      {
+        "path": "content/tau-ceti/GrothendieckEulerForms/README.md",
+        "unchanged": true
+      },
+      {
+        "path": "content/tau-ceti/RepresentationTheory/CharacterTheory/README.md",
+        "unchanged": true
+      },
+      {
+        "path": "content/campaign/EtaleDualityAndPerverseSheaves/README.md",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/atlas/roadmaps/EtaleDualityAndPerverseSheaves.json",
+        "unchanged": true
+      },
+      {
+        "path": "content/campaign/LefschetzPencilsAndVanishingCycles/README.md",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/atlas/roadmaps/LefschetzPencilsAndVanishingCycles.json",
+        "unchanged": true
+      },
+      {
+        "path": "content/campaign/SchemeAndStackFoundations/README.md",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/atlas/roadmaps/SchemeAndStackFoundations.json",
+        "unchanged": true
+      },
+      {
+        "path": "content/campaign/EnhancedDerivedSheaves/README.md",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/atlas/roadmaps/EnhancedDerivedSheaves.json",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-ABE-25.result.json",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.review.json",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.review.json",
+        "unchanged": true
+      },
+      {
+        "path": "data/library-coverage.json",
+        "unchangedLayers": 54
+      }
+    ]
   }
 }

@@ -1,0 +1,39 @@
+{
+  "paper": "PAPER-YANG-ZHAO-25",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "EDS E0/E1/E3/E5:abstract explicitly own stable cofibers, the necessary straightening, monoidal enhancement and coherent mates. The generic nine-diagram and coefficient interfaces belong there. Existing ordinary Mathlib carriers are inputs, not another enhancement."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "EDC.0/3/4 own the specified field-domain support/semipurity, étale cycle realization and smooth-center blowup interfaces. Generic integral Chow/Chern operations are imported from SF.5. General-base duality remains route3."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Use the shared RelativeTraces continuation accepted in the Abe review. Its generic 2-categorical prefix also serves the HKW v-stack continuation; Yang–Zhao adds the coherent supported defect and fibration/Milnor/conductor applications. C1/C2/C3 and source/target support vanishings are retained separately."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Use the same GeneralBasesFourier continuation as Abe. Ordinary LPV.0 does not supply general-base ULA extension or local Fourier. The corrected brief imports the early geometric numerical/projective Swan and finite-coefficient prefix, before local Fourier and the late Artin theorem. Q01–Q10 correctly distinguish coefficient extension from geometric field extension."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Use the reviewed Microlocal continuation shared with Shende–Tsimerman, preserving its separate positive-characteristic branch. Its exact target is the smooth quasi-projective characteristic-p Saito comparison. M19 is only the general conjecture proposition; the quasi-projective pencil reconciliation G09 and foundational microlocal proofs remain explicit design obligations, not assumed theorems. The Shende–Tsimerman review rejects its route14 pending original Massey/local Euler-obstruction proofs and version conventions. This review accepts only Yang–Zhao’s separately sourced characteristic-p addition to the shared owner; it does not reverse that other verdict or certify the characteristic-zero branch."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "SF.5 owns generic integral Chow, refined Gysin, Chern and excess intersection. The rank-threshold localized construction and section-intersection normalization extend that existing source scope; EDC.3 and the microlocal route import it. No second generic Chern or Chow theory is planned."
+    }
+  ],
+  "notes": "Independent review by Codex, codex-hjdg0j, issue1219. All142 incoming items, all53 definition/construction entries and existing API/use/test lists, all6 routes and all9 source findings checked. Corrected result keeps142 items (9 library,12 planned,121 missing), supplies the previously absent M19 API/tests, and restores partial status with11 explicit gaps. All9 source findings confirmed in the inspected public versions. See the review report for exact reading and verification limits.",
+  "by": "independent-review-REV-PAPER-YANG-ZHAO-25",
+  "status": "complete"
+}
