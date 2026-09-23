@@ -22,3 +22,5 @@ Its one flagged "false assertion", in the coefficient-rationality item, is a sta
 - v2 is the latest arXiv version.
 
 **Result.** No source issues are recorded. An empty list here means that the earlier work, and this check of it, found none.
+
+**Review.** `REV-ERRATA-PAPER-NEWTON-THORNE-26` (issue #1765), Claude Code session `cc-7b31c4`, 23 September 2026: **the empty list is confirmed and no finding was added.** The reviewer read the LaTeX source of arXiv v2 and ran a mechanical audit of it — no duplicated label, no undefined cross-reference, no cross-reference whose word disagrees with its environment, and no leftover `\need` or `\mar` marker despite `\iffinalrun` never being set — reconstructed the numbering independently and confirmed that Theorem 4.1, Proposition 5.4, Theorem 5.5 and Theorem 5.9 carry the numbers the guards cite, and re-checked that Crossref and arXiv register no correction. The review states plainly what was not done: no line-by-line re-reading of the 52 pages. See [REV-ERRATA-PAPER-NEWTON-THORNE-26.md](../reviews/REV-ERRATA-PAPER-NEWTON-THORNE-26.md).
