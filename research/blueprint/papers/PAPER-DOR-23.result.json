@@ -16,7 +16,8 @@
    "§3 Symmetric monoidal structure on modules of GL(2)",
    "§4 Global automorphic forms",
    "Appendix A Spin structures",
-   "References"
+   "References",
+   "Review REV-PAPER-DOR-23 (Claude Code, cc-39fac3, 23 September 2026): the published article read in full again from a fresh open-access download from Cambridge Core (52 pages; SHA-256 769b496610ae47df51c97f12c463dde0b88d4321cc23316ffe6d8a4338c606bd, which differs from the extraction's because Cambridge Core stamps each download); every item checked against it, formulas on page images."
   ],
   "accessed": "2026-09-22",
   "artifacts": [
@@ -43,7 +44,7 @@
   "atlasChecked": "b38fc0e (tauceti-explorer main, 22 September 2026)",
   "note": "Declarations read at the pinned Mathlib: CategoryTheory.SymmetricCategory (Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean:367), CategoryTheory.CommMon (Mathlib/CategoryTheory/Monoidal/CommMon_.lean:27), CategoryTheory.ModObj (Mathlib/CategoryTheory/Monoidal/Mod.lean:59), and SchwartzMap.tsum_eq_tsum_fourier (Mathlib/Analysis/Fourier/PoissonSummation.lean:219, Poisson summation on R^n only). Neither library has p-adic groups, smooth representations, Kirillov or Whittaker models, the Weil representation, Bernstein centres, adeles of function fields with Poisson summation, automorphic forms, or weak symmetric monoidal categories. One item is a library item."
  },
- "summary": "Dor reinterprets the equality of Godement–Jacquet and Jacquet–Langlands L-functions for GL(2) as structure. Over a non-archimedean local field F, the Weil representation of the metaplectic cover of Sp(M_2(F) ⊗ W) gives Y = S(M_2(F) × F^×) a third, hidden GL_2(F)-action, part of a triality S_3 ⋉ GL_2(F)³ (Proposition 2.12). Ṽ ⊗_G Y ⊗_G V is then the Kirillov model of V for generic V, compatibly with zeta integrals (Theorem 2.2, Proposition 2.5). Reading Y as a bifunctor V ⊛ V' = V ⊗_G Y ⊗_G V' gives a unital weak symmetric monoidal structure on Mod(GL_2(F)) with unit the Whittaker space. It is the tensor product over the Bernstein centre on degeneracy-free representations (Theorem 3.26) and on spherical ones (Theorem 3.42), and extends uniquely to a symmetric monoidal structure (Theorem 3.52), in which generic irreducibles are idempotent algebras. Over a global function field, a theta functional makes the automorphic functions orthogonal to characters a commutative ⊛-algebra ℐ, whose unit, given by Poincaré series, is surjective (Proposition 4.19, Corollary 4.22). ℐ-modules form a full subcategory, the abstractly automorphic representations, which contains all automorphic representations and is closed under subquotients and contragredients. A spin structure yields a convolution algebra of spherical automorphic functions (Appendix A). The ingredients are planned in the atlas (MetaplecticAutomorphicForms, AL.2, SR.3, SR.5, R16.2/R16.5, and Mathlib's categorical notions), but the structure itself goes in no existing direction and is routed to a new roadmap. One misprint is recorded.",
+ "summary": "Dor reinterprets the equality of Godement–Jacquet and Jacquet–Langlands L-functions for GL(2) as structure. Over a non-archimedean local field F, the Weil representation of the metaplectic cover of Sp(M_2(F) ⊗ W) gives Y = S(M_2(F) × F^×) a third, hidden GL_2(F)-action, part of a triality S_3 ⋉ GL_2(F)³ (Proposition 2.12). Ṽ ⊗_G Y ⊗_G V is then the Kirillov model of V for generic V, compatibly with zeta integrals (Theorem 2.2, Proposition 2.5). Reading Y as a bifunctor V ⊛ V' = V ⊗_G Y ⊗_G V' gives a unital weak symmetric monoidal structure on Mod(GL_2(F)) with unit the Whittaker space. It is the tensor product over the Bernstein centre on degeneracy-free representations (Theorem 3.26) and on spherical ones (Theorem 3.42), and extends uniquely to a symmetric monoidal structure (Theorem 3.52), in which generic irreducibles are idempotent algebras. Over a global function field, a theta functional makes the automorphic functions orthogonal to characters a commutative ⊛-algebra ℐ, whose unit, given by Poincaré series, is surjective (Proposition 4.19, Corollary 4.22). ℐ-modules form a full subcategory, the abstractly automorphic representations, which contains all automorphic representations and is closed under subquotients and contragredients. A spin structure yields a convolution algebra of spherical automorphic functions (Appendix A). The ingredients are planned in the atlas (MetaplecticAutomorphicForms, AL.2, SR.3, SR.5, R16.2/R16.5, and Mathlib's categorical notions), but the structure itself goes in no existing direction and is routed to a new roadmap. After the review, of the 59 items 1 is in the library, 7 are planned and 51 are missing, all routed to the new roadmap. Seven source issues are recorded: six misprints and a gap in Claim A.6, whose global counit is never defined.",
  "items": [
   {
    "id": "PAPER-DOR-23/001",
@@ -55,46 +56,46 @@
    "library": [
     "mathlib:CategoryTheory.SymmetricCategory",
     "mathlib:CategoryTheory.CommMon",
-    "mathlib:CategoryTheory.ModObj"
+    "mathlib:CategoryTheory.IsCommMonObj",
+    "mathlib:CategoryTheory.ModObj",
+    "mathlib:CategoryTheory.Mod",
+    "mathlib:CategoryTheory.Mod.forget"
    ],
-   "note": "Read at the pinned Mathlib: SymmetricCategory (Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean:367), CommMon (Mathlib/CategoryTheory/Monoidal/CommMon_.lean:27, commutative monoid objects), ModObj (Mathlib/CategoryTheory/Monoidal/Mod.lean:59, module objects over a monoid object). The paper also uses the Lurie tensor product of C-linear presentable categories (Remark 3.54), which is not in the libraries."
+   "note": "Read at the pinned Mathlib: SymmetricCategory (Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean:367), CommMon (Mathlib/CategoryTheory/Monoidal/CommMon_.lean:27, commutative monoid objects), ModObj (Mathlib/CategoryTheory/Monoidal/Mod.lean:59, module objects over a monoid object). The paper also uses the Lurie tensor product of C-linear presentable categories (Remark 3.54), which is not in the libraries. Review (REV-PAPER-DOR-23): confirmed at Mathlib 082e2d3. ModObj (Monoidal/Mod.lean:59) is only the module structure on an object; the category of A-modules and the forgetful functor used in Claim 4.28 are CategoryTheory.Mod (Mod.lean:227, Category instance at :313) and CategoryTheory.Mod.forget (:347), and commutativity of a monoid object is CategoryTheory.IsCommMonObj (Monoidal/Mon.lean:1220). These were added to the library list."
   },
   {
    "id": "PAPER-DOR-23/002",
    "kind": "definition",
    "name": "Godement–Jacquet zeta integrals for GL(2)",
-   "statement": "Locally, for a matrix coefficient β of V and Ψ ∈ S(M_2(F)), Z_GJ(β, Ψ, s) = ∫_{GL_2(F)} β(g)Ψ(g)|det g|^{s+1/2} d^×g; globally, for an automorphic representation V, Ψ ∈ S(M_2(A)) and β ∈ V ⊗ Ṽ, the adelic integral (1.1); and for φ, φ' ∈ S, Z_GJ(φ', φ, Ψ, s) = ∫_{GL_2(A)} (∫_{GL_2(F)\\GL_2(A)} φ'(h^{−T})φ(hg) d^×h) Ψ(g)|det g|^{s+1/2} d^×g. The Godement–Jacquet L-function is the gcd of these integrals.",
-   "locator": "(1.1), p. 3; Proposition 2.5, p. 10; §4.1, p. 39",
+   "statement": "Locally, for F non-archimedean, a matrix coefficient β of V and Ψ ∈ S(M_2(F)): Z_GJ(β, Ψ, s) = ∫_{GL_2(F)} β(g)Ψ(g)|det g|^{s+1/2} d^×g. Globally, for an automorphic representation (π, V), a matrix coefficient β ∈ V ⊗ Ṽ and Ψ ∈ S(M_2(A)): Z_GJ(β, Ψ, s) = ∫_{GL_2(A)} β(g)Ψ(g)|det g|^{s+1/2} d^×g (1.1). The Godement–Jacquet L-function is the gcd of these integrals.",
+   "locator": "(1.1), p. 3; Proposition 2.5, p. 10",
    "status": "planned",
    "planned": [
     "AutomorphicLFunctionsAndLocalFactors:AL.2"
    ],
-   "note": "AutomorphicLFunctionsAndLocalFactors AL.2 plans Godement–Jacquet local zeta integrals from Schwartz functions on M_n and matrix coefficients, and the adelic global integral."
+   "note": "AutomorphicLFunctionsAndLocalFactors AL.2 plans Godement–Jacquet local zeta integrals from Schwartz functions on M_n and matrix coefficients, and the adelic global integral. Review (REV-PAPER-DOR-23): AL.2 plans the local integral from Schwartz functions on M_n and matrix coefficients and the adelic integral for cuspidal representations over number fields. The function-field integrals Z_GJ(φ′, φ, Ψ, s) for φ, φ′ ∈ S of §4.1 are planned nowhere; the review moved them to a separate missing item (global zeta integrals on S), routed to the new roadmap."
   },
   {
    "id": "PAPER-DOR-23/003",
    "kind": "definition",
    "name": "Kirillov and Whittaker models of generic representations of GL(2) via the Bernstein–Zelevinsky functors Φ^±",
-   "statement": "Let F be a non-archimedean local field with char(F) ≠ 2, G = GL_2(F) with the Haar measure giving a maximal compact subgroup volume 1, e: F → C^× a nontrivial additive character and θ(1 u; 0 1) = e(u) on U = U_2(F). Let P be the mirabolic subgroup, Φ^−: Mod(P) → Vect the θ-equivariant quotient and Φ^+ its left adjoint (θ-equivariant compact induction; Bernstein–Zelevinsky 1977, Proposition 3.2). For generic irreducible V, Φ^−Ṽ is one-dimensional; a vector in it gives S(F^×) ≅ Φ^+C → Ṽ and dually an injective map of P-modules V → S(F^×) (P acting by (a b; 0 1)·f(y) = e(by)f(ay)), unique up to scalar, whose image is the Kirillov model K(V), with its canonical G-action. The Whittaker space 1 is the compact induction of S(F^×) from P to G, and the Whittaker model is the image of the dual map V → 1̃. V(n) denotes the twist by |det|^n.",
+   "statement": "Let F be a non-archimedean local field with char(F) ≠ 2, G = GL_2(F) with the Haar measure giving a maximal compact subgroup volume 1, e: F → C^× a nontrivial additive character and θ(1 u; 0 1) = e(u) on U = U_2(F). Let P = {(a b; 0 1)} be the mirabolic subgroup, Φ^−: Mod(P) → Vect the θ-coinvariant functor and Φ^+: Vect → Mod(P) its left adjoint (θ-equivariant compact induction; [BZ77, Proposition 3.2]). For generic irreducible V, Φ^−Ṽ is one-dimensional. A vector C → Φ^−Ṽ gives, by adjunction, a P-map S(F^×) ≅ Φ^+C → Ṽ, and dually a P-map V → S̃(F^×), where S̃(F^×) is the space of uniformly smooth functions on F^× with (a b; 0 1)·f(y) = e(by)f(ay). This is the unique nonzero P-map V → S̃(F^×) up to scalar; all such maps are injective with the same image, the Kirillov model K(V), which acquires a canonical G-action ([Goldfeld–Hundley, Theorem 6.7.2]). The Whittaker space 1 is cInd_P^G S(F^×); the P-map S(F^×) → Ṽ extends to a G-map 1 → Ṽ, and the image of the dual map V → 1̃ is the Whittaker model. V(n) denotes V ⊗ |det|^n.",
    "locator": "Recollection 2.1, p. 8",
-   "status": "planned",
-   "planned": [
-    "SmoothRepresentationsOfLocalGroups:SR.5",
-    "GL2AutomorphicRepresentationsAndTransfer:R16.2"
-   ],
-   "note": "SmoothRepresentationsOfLocalGroups SR.5 plans Bernstein–Zelevinsky derivatives and Whittaker functionals for GL_n, and GL2AutomorphicRepresentationsAndTransfer R16.2 their specialisation to GL_2."
+   "status": "missing",
+   "note": "SmoothRepresentationsOfLocalGroups SR.5 plans Bernstein–Zelevinsky derivatives and Whittaker functionals for GL_n, and GL2AutomorphicRepresentationsAndTransfer R16.2 their specialisation to GL_2. Review (REV-PAPER-DOR-23): statement corrected against the published text: The Kirillov embedding is stated with the wrong target: V → S(F^×). The published text (p. 9, checked on the page image) has V → S̃(F^×), the smooth dual of S(F^×), identified with the uniformly smooth functions on F^×. The Kirillov model contains S(F^×) but is not contained in it (for example, principal series Kirillov functions do not vanish near 0). Review (REV-PAPER-DOR-23): status changed from planned to missing. SR.5 plans Bernstein–Zelevinsky derivatives and Whittaker functionals for integral families, AL.3 their complex specialisation and R16.2 their GL₂ case, but no stage names the Kirillov model (the injectivity of V → S̃(F^×) and the G-action on its image). The functors Φ^± are the new planned item (Bernstein–Zelevinsky, Proposition 3.2) and uniqueness of Whittaker functionals the new planned item on generic irreducibles; this item routes to the new roadmap."
   },
   {
    "id": "PAPER-DOR-23/004",
    "kind": "definition",
    "name": "Jacquet–Langlands (Hecke) zeta integrals for GL(2)",
-   "statement": "Globally, for an automorphic form φ with Whittaker function W_φ, Z_JL(φ, s) = ∫_{A^×/F^×} φ((y 0; 0 1))|y|^{s−1/2} d^×y (1.2), equivalently ∫_{A^×} W_φ((y 0; 0 1))|y|^{s−1/2} d^×y; locally, for w in a Kirillov model, Z_JL(w, s) = ∫_{F^×} w(y)|y|^{s−1/2} d^×y.",
-   "locator": "(1.2) and Remark 1.1, p. 4; Proposition 2.5, p. 10; §4.1, p. 39",
+   "statement": "Globally (introduction), for an automorphic form φ: Z_JL(φ, s) = ∫_{A^×/F^×} φ(diag(y, 1))|y|^{s−1/2} d^×y (1.2). Locally, for w in the Kirillov model of a generic irreducible V: Z_JL(w, s) = ∫_{F^×} w(y)|y|^{s−1/2} d^×y. For cusp forms, unfolding the Whittaker expansion turns (1.2) into ∫_{A^×} W_φ(diag(y, 1))|y|^{s−1/2} d^×y; for general φ the two differ by the constant-term contribution.",
+   "locator": "(1.2) and Remark 1.1, p. 4; Proposition 2.5, p. 10",
    "status": "planned",
    "planned": [
-    "GL2AutomorphicRepresentationsAndTransfer:R16.5"
+    "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+    "AutomorphicLFunctionsAndLocalFactors:AL.3"
    ],
-   "note": "GL2AutomorphicRepresentationsAndTransfer R16.5 plans 'the GL₂ global Whittaker expansion and its identification with those integral models'."
+   "note": "GL2AutomorphicRepresentationsAndTransfer R16.5 plans 'the GL₂ global Whittaker expansion and its identification with those integral models'. Review (REV-PAPER-DOR-23): statement corrected against the published text: 'equivalently ∫_{A^×} W_φ(diag(y,1))|y|^{s−1/2} d^×y' is not in the paper and is false in general. Unfolding φ = φ_N + Σ_{a∈F^×} W_φ(diag(a,1)·) shows the two integrals differ by the constant-term contribution ∫ φ_N(diag(y,1))|y|^{s−1/2} d^×y, so they agree only for cuspidal φ. The paper uses (1.2) for an automorphic form φ in the introduction and the Whittaker version for φ'' ∈ S̃ in §4.1 and Remark 4.11, as two separate formulas. Review (REV-PAPER-DOR-23): the extraction's 'equivalently ∫_{A^×} W_φ …' is not in the paper and holds only for cusp forms. R16.5 plans the GL₂ global Whittaker expansion and its identification with the integral models; the local integral is the n = 2, m = 1 case of the GL_n × GL_m local zeta integrals of AL.3, which was added to the planned stages. The Whittaker form for φ″ ∈ S over a function field (§4.1, Remark 4.11) moved to the new item on global zeta integrals on S."
   },
   {
    "id": "PAPER-DOR-23/005",
@@ -108,24 +109,25 @@
     "MetaplecticAutomorphicForms:MP.1",
     "MetaplecticAutomorphicForms:MP.2"
    ],
-   "note": "MetaplecticAutomorphicForms MP.0–MP.2 plan the Heisenberg group, Schrödinger models, Stone–von Neumann, the metaplectic extension and explicit operator formulas."
+   "note": "MetaplecticAutomorphicForms MP.0–MP.2 plan the Heisenberg group, Schrödinger models, Stone–von Neumann, the metaplectic extension and explicit operator formulas. Review (REV-PAPER-DOR-23): MP.0–MP.2 plan these objects over characteristic-zero local fields only ('Positive-characteristic … covers require a separately sourced extension'). The paper needs them at every place of a global function field in Part II, so the review added a missing item for local fields of odd positive characteristic, routed to the new roadmap; this item stays planned for the characteristic-zero case."
   },
   {
    "id": "PAPER-DOR-23/006",
    "kind": "theorem",
    "name": "Theta functionals are invariant under rational points, by adelic Poisson summation (function-field case)",
-   "statement": "For a global function field F of characteristic ≠ 2 and a Schwartz function Φ on the adelic points of a rational symplectic datum, the theta functional Φ ↦ Σ_{ξ ∈ M_2(F)} Φ(ξ) on S(M_2(A)) is invariant under the rational points of the metaplectic group used to construct Y_A; in particular Poisson summation Σ_ξ Ψ(ξ, q) = Σ_ξ ∫_{M_2(A)} Ψ(h, q) e(−tr(ξ^T h)) dh holds.",
-   "locator": "Proof of Proposition 4.9, pp. 42–43",
+   "statement": "Let F be a global function field of characteristic ≠ 2, A its adeles and e: A/F → C^× nontrivial. For Ψ ∈ S(M_2(A) × A^×) and q ∈ F^× (so |q| = 1), Poisson summation holds: Σ_{ξ∈M_2(F)} Ψ(ξ, q) = Σ_{ξ∈M_2(F)} ∫_{M_2(A)} Ψ(h, q) e(−tr(ξ^T h)) dh, with dh self-dual for e(tr(x^T y)). Equivalently, the theta functional Ψ ↦ Σ_{ξ∈M_2(F)} Ψ(ξ) on S(M_2(A)) is invariant under the rational points of the metaplectic group used to construct Y_A, in particular under the middle action of w = (0 −1; 1 0) ∈ GL_2(F).",
+   "locator": "Proof of Proposition 4.9, p. 43",
    "status": "missing",
-   "note": "AutomorphicLFunctionsAndLocalFactors AL.0 ('adelic Poisson summation, with the diagonal lattice and volume from GlobalNumberFields') and MetaplecticAutomorphicForms MP.4–MP.5 (the rational splitting and theta series) plan this over number fields; the paper works over function fields, which those layers do not state."
+   "note": "AutomorphicLFunctionsAndLocalFactors AL.0 ('adelic Poisson summation, with the diagonal lattice and volume from GlobalNumberFields') and MetaplecticAutomorphicForms MP.4–MP.5 (the rational splitting and theta series) plan this over number fields; the paper works over function fields, which those layers do not state. Review (REV-PAPER-DOR-23): statement corrected against the published text: Loose formulation. It mixes Φ and Ψ, and 'a rational symplectic datum' is vague. It also omits the measure: dh must be the Haar measure on M_2(A) that is self-dual for e(tr(x^T y)) (equivalently for e(⟨x,y⟩), since ⟨ξ,h⟩ = tr(w^{−1}ξ^T w h)), for which vol(M_2(A)/M_2(F)) = 1. The paper's displayed identity integrates over M_2(F), a misprint recorded as a new issue. The item silently uses M_2(A), which is correct. Review (REV-PAPER-DOR-23): FunctionFieldArithmetic FA.2 ('Adeles, ideles and global Fourier analysis') plans function-field adeles, residue characters from a rational differential, self-dual Haar measures and Poisson summation, which gives the Poisson-summation half on M_2(A) ≅ A^4; invariance of the theta functional under rational metaplectic points in positive characteristic is planned nowhere, so the item stays missing."
   },
   {
    "id": "PAPER-DOR-23/007",
    "kind": "definition",
    "name": "The G-bimodule Y = S(M_2(F) × F^×), its open part Y° and the isomorphism μ",
-   "statement": "Let F be a non-archimedean local field with char(F) ≠ 2, G = GL_2(F) with the Haar measure giving a maximal compact subgroup volume 1, e: F → C^× a nontrivial additive character and θ(1 u; 0 1) = e(u) on U = U_2(F). Y = S(M_2(F) × F^×) with h·(g, y)·h' = (hgh', y·det(hh')^{−1}) (2.1), a G-bimodule; Ṽ ⊗_G S(M_2(F)) ⊗_G V is the space of F^×-coinvariants of Ṽ ⊗_G Y ⊗_G V. For Y° = S(GL_2(F) × F^×) ⊂ Y there is a canonical isomorphism μ: Ṽ ⊗_G Y° ⊗_G V ≅ S(F^×), ṽ ⊗ Ψ ⊗ v ↦ ∫_{GL_2(F)} ⟨ṽ, π(g)v⟩ Ψ(g, y det(g)^{−1}) d^×g (2.2).",
+   "statement": "Let F be a non-archimedean local field with char(F) ≠ 2, G = GL_2(F) with the Haar measure giving a maximal compact subgroup volume 1. Y = S(M_2(F) × F^×) with h·(g, y)·h' = (hgh', y·det(hh')^{−1}) (2.1) is a G-bimodule. For irreducible (π, V), Ṽ ⊗_G S(M_2(F)) ⊗_G V is canonically the space of F^×-coinvariants of Ṽ ⊗_G Y ⊗_G V (F^× acting on the second factor). For the G×G-submodule Y° = S(GL_2(F) × F^×) ⊂ Y and irreducible (π, V) there is a canonical isomorphism μ: Ṽ ⊗_G Y° ⊗_G V ≅ S(F^×), ṽ ⊗ Ψ ⊗ v ↦ (y ↦ ∫_{GL_2(F)} ⟨ṽ, π(g)v⟩ Ψ(g, y det(g)^{−1}) d^×g) (2.2).",
    "locator": "§2.1, (2.1)–(2.2), p. 8",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: Hypothesis missing. μ is an isomorphism onto S(F^×) only for irreducible (π, V), which the paper assumes throughout §2.1 (p. 7: '(π, V) irreducible … generic'). For general V the left side is not S(F^×)."
   },
   {
    "id": "PAPER-DOR-23/008",
@@ -148,9 +150,10 @@
    "id": "PAPER-DOR-23/010",
    "kind": "construction",
    "name": "Construction 2.13: the middle action of G on Y",
-   "statement": "Identify Y = S(M_2(F) × F^×) = cInd_{S_3⋉G^{3,det=1}}^{S_3⋉G^3} S(M_2(F)) via the section y ↦ (1, diag(y, 1), 1) with a determinant twist: for Ψ(m, y) = Φ(m)f(y), ((g_1, g_2, g_3)·Ψ)(m, y) = |det(g_1g_2g_3)|·((g_1, diag(y,1)^{−1} g_2 diag(y det(g_1g_2g_3)^{−1}, 1), g_3)·Φ)(m) f(y det(g_1g_2g_3)) (2.4). This extends Proposition 2.12 to an action of S_3 ⋉ G³ on Y; the middle copy of G is the middle action. (g_1, 1, g_3)Ψ(g, y) = Ψ(g_1^{−1} g g_3^{−T}, y det(g_1g_3^T)) and (1, 3)Ψ(g, y) = Ψ(g^T, y).",
+   "statement": "Identify Y = S(M_2(F) × F^×) = cInd_{S_3⋉G^{3,det=1}}^{S_3⋉G^3} S(M_2(F)) via the section G^{3,det=1}\\G^3 = F^× → G^3, y ↦ (1, diag(y,1), 1), with a determinant twist. For Ψ(m, y) = Φ(m)f(y) with Φ ∈ S(M_2(F)) and f ∈ S(F^×): ((g_1,g_2,g_3)·Ψ)(m,y) = |det(g_1g_2g_3)|·((g_1, diag(y,1)·g_2·diag(y^{−1}det(g_1g_2g_3)^{−1}, 1), g_3)·Φ)(m)·f(y·det(g_1g_2g_3)) (2.4). Here the inner action is the Weil representation of Proposition 2.12. This extends Proposition 2.12 to an action of S_3 ⋉ G³ on Y, and the middle copy of G gives the middle action. Explicitly: (g_1,1,g_3)Ψ(g,y) = Ψ(g_1^{−1}gg_3^{−T}, y det(g_1g_3^T)) (Example 2.14); (1,3)Ψ(g,y) = Ψ(g^T,y) (Example 2.15); and the middle (a b; 0 1) acts by |a|e(b det(g)y)Ψ(g, ay) (2.12).",
    "locator": "Construction 2.13, p. 12; Example 2.14, p. 12; Example 2.15, p. 13; Remark 2.16, p. 13",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: Formula (2.4) is transcribed wrongly. The page image (p. 12; arXiv v2 (4) is identical) shows the middle entry as diag(y,1)·g_2·diag(y^{−1}det(g_1g_2g_3)^{−1}, 1). The item has diag(y,1)^{−1}·g_2·diag(y·det(g_1g_2g_3)^{−1}, 1). Check with g_1 = g_3 = 1 and g_2 = (a b; 0 1): the printed form gives the middle entry (1 yb; 0 1) and, by (2.6), the action |a|e(b det(m) y)Ψ(m, ay), which is (2.12). The item's form gives (1 b/y; 0 1), that is, e(b det(m)/y), contradicting (2.12)."
   },
   {
    "id": "PAPER-DOR-23/011",
@@ -165,9 +168,10 @@
    "id": "PAPER-DOR-23/012",
    "kind": "theorem",
    "name": "Proposition 2.5: ν intertwines Godement–Jacquet and Jacquet–Langlands zeta integrals",
-   "statement": "For Ψ ⊗ f ∈ S(M_2(F)) ⊗ S(F^×) = Y, a matrix coefficient β of V and the canonical j: K(V(−1))(1) ≅ K(V), Z_JL(j ∘ ν(β ⊗ Ψ ⊗ f), s) = Z_GJ(β, Ψ, s) · ∫_{F^×} f(y)|y|^{s+1/2} d^×y. Hence the two constructions give the same L-function.",
-   "locator": "Proposition 2.5, p. 10; Remark 2.6",
-   "status": "missing"
+   "statement": "Let (π, V) be generic irreducible. For Ψ ⊗ f ∈ S(M_2(F)) ⊗_C S(F^×) ⊂ Y (the function Ψ(g)f(y)), a matrix coefficient β of V and the canonical isomorphism j: K(V(−1))(1) ≅ K(V): Z_JL(j ∘ ν(β ⊗ Ψ ⊗ f), s) = Z_GJ(β, Ψ, s)·∫_{F^×} f(y)|y|^{s+1/2} d^×y, where Z_JL(w, s) = ∫_{F^×} w(y)|y|^{s−1/2} d^×y and Z_GJ(β, Ψ, s) = ∫_{GL_2(F)} β(g)Ψ(g)|det g|^{s+1/2} d^×g. Hence the two constructions give the same L-function.",
+   "locator": "Proposition 2.5, p. 10 (proof: follows from Remark 2.21, p. 17)",
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: Hypothesis missing. Proposition 2.5 concerns a generic irreducible (π, V), since ν of Theorem 2.2 is defined only for these. Remark 2.6 is not the source of the proof; the paper says it follows from Remark 2.21."
   },
   {
    "id": "PAPER-DOR-23/013",
@@ -224,9 +228,10 @@
    "id": "PAPER-DOR-23/019",
    "kind": "construction",
    "name": "Construction 3.10 and Construction 3.16: the unit 1 (the Whittaker space) and the unit isomorphism 1 ⊛ M ≅ M",
-   "statement": "1 is the space of θ-coinvariants of S(G) for the right action (Φ^− applied to S(G)), with left action (π(h)f)(g) = f(gh); a Haar measure on U identifies it with cInd_U^G(θ) (Remark 3.15). There is a canonical natural isomorphism 1 ⊛ M ≅ M, built from the isomorphism φ: I_RL(1) ⊗_G Y ≅ S(G) (middle action), f ⊗ Ψ ↦ ∫_G f(h)·(wh^{−T}·Ψ)(g^{−1}, −det g) d^×h (3.3); and Φ^−(M ⊛ N) ≅ I_RL(M) ⊗_G N (Remark 3.17).",
+   "statement": "1 is the space of θ-coinvariants of S(G) for the right action in the convention of Warning 3.13, i.e. smooth compactly supported f: G → C modulo f(ug) − θ(u)f(g) (u ∈ U), with left action (π(h)f)(g) = f(gh) (Remark 3.14). A Haar measure on U identifies it with cInd_U^G(θ) (Remark 3.15). There is a canonical natural isomorphism 1 ⊛ M ≅ M (Construction 3.16). It is built from Remark 3.5 and the isomorphism φ: I_RL(1) ⊗_G Y ≅ S(G) (tensor product over the middle action), f ⊗ Ψ ↦ ∫_G f(h)·(wh^{−T}·Ψ)(g^{−1}, −det g) d^×h with w = (0 −1; 1 0) (3.3). Also Φ^−(M ⊛ N) ≅ I_RL(M) ⊗_G N (Remark 3.17).",
    "locator": "Construction 3.10, p. 22; Construction 3.16, p. 22; Remarks 3.11–3.17, pp. 22–23; (3.3)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: Imprecise about which action is meant. 'Right action' is in the convention of Warning 3.13, (g_L·f·g_R)(h) = f(g_R h g_L), so 1 is S(G) modulo f(ug) − θ(u)f(g). Also w = (0 −1; 1 0) in (3.3) is not defined in the item."
   },
   {
    "id": "PAPER-DOR-23/020",
@@ -249,34 +254,37 @@
    "id": "PAPER-DOR-23/022",
    "kind": "definition",
    "name": "Definitions 3.22–3.23: degenerate and degeneracy-free representations",
-   "statement": "M ∈ Mod(G) is degenerate if Φ^−(M) = 0; N is degeneracy-free if Ext^i(N, M) = 0 for all degenerate M and i = 0, 1; Mod^{deg-free}(G) is the full subcategory. Equivalently it is the smallest full subcategory containing 1 and closed under colimits, and it is equivalent (via the left adjoint of the quotient functor) to the quotient of Mod(G) by degenerate representations. Most generic irreducibles are degeneracy-free, but the Steinberg representation St is not, while the non-trivial extension 1_G^St of St and 1_G is (Warning 3.25).",
+   "statement": "M ∈ Mod(G) is degenerate if Φ^−(M) = 0. N is degeneracy-free if Ext^i(N, M) = 0 for all degenerate M and i = 0, 1; Mod^{deg-free}(G) is the full subcategory of such N. Equivalently (Remark 3.24): it is the smallest full subcategory containing 1 and closed under colimits (Claim 3.33), and the left adjoint of the quotient functor Mod(G) → Mod(G)/(degenerate) identifies that quotient with Mod^{deg-free}(G) (Claim 3.30, Theorem 3.26). Most generic irreducibles are degeneracy-free, but the Steinberg representation St (trivial central character) is not. The unique non-split extension 0 → 1_G → (St over 1_G) → St → 0 is degeneracy-free (Warning 3.25).",
    "locator": "Definition 3.22, p. 25; Definition 3.23, p. 25; Remark 3.24; Warning 3.25",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: The extension is described ambiguously ('the non-trivial extension of St and 1_G'). For degeneracy-freeness, 1_G must be the subrepresentation and St the quotient: Hom(N, 1_G) = 0 is required, and the other extension surjects onto 1_G. The paper's own sentence is garbled (new issue)."
   },
   {
    "id": "PAPER-DOR-23/023",
    "kind": "definition",
    "name": "The quasi-unital ring Z = ⊕_c Z_c of Bernstein centres and its smooth modules",
-   "statement": "Z = ⊕_c Z_c, the direct sum of the Bernstein centres of the Bernstein components c of Mod(G), is quasi-unital (Z ⊗_Z Z ≅ Z); Mod(Z) is the symmetric monoidal category of smooth Z-modules (Z ⊗_Z M ≅ M) with the relative tensor product ⊗_Z, and it acts on Mod(G). Φ^− factors through Φ^−_enh: Mod(G) → Mod(Z), and Hom(M, N) ⊆ Hom(M, N) denotes morphisms supported on finitely many components, Hom(M, N) = Z ⊗_{Z(Mod(G))} Hom(M, N).",
+   "statement": "Z = ⊕_c Z_c, the direct sum of the Bernstein centres of the Bernstein components c of Mod(G), is quasi-unital (Z ⊗_Z Z ≅ Z). Mod(Z) is the symmetric monoidal category of smooth Z-modules (Z ⊗_Z M ≅ M) under the relative tensor product ⊗_Z, and it acts on Mod(G). Φ^− factors as Mod(G) → Mod(Z) → Vect through Φ^−_enh. For M, N ∈ Mod(G), Hom̲(M, N) ⊆ Hom(M, N) is the subspace of morphisms supported on finitely many Bernstein components, an object of Mod(Z) (the enriched inner Hom); Hom̲(M, N) = Z ⊗_{Z(Mod(G))} Hom(M, N).",
    "locator": "§3.4, pp. 25–27",
    "status": "missing",
-   "note": "Quasi-unital rings and their smooth modules are from Dor, The Dixmier–Malliavin theorem and bornological vector spaces (arXiv:2001.05694), §3; the Bernstein centre is planned in SmoothRepresentationsOfLocalGroups SR.3."
+   "note": "Quasi-unital rings and their smooth modules are from Dor, The Dixmier–Malliavin theorem and bornological vector spaces (arXiv:2001.05694), §3; the Bernstein centre is planned in SmoothRepresentationsOfLocalGroups SR.3. Review (REV-PAPER-DOR-23): statement corrected against the published text: The underline that distinguishes Hom̲ (finitely supported morphisms) from Hom is lost, so 'Hom(M, N) ⊆ Hom(M, N)' reads as a tautology."
   },
   {
    "id": "PAPER-DOR-23/024",
    "kind": "theorem",
    "name": "Claims 3.30, 3.32, 3.33 and Lemma 3.35: the adjunction for 1, End(1) = Z, and generation of degeneracy-free representations",
-   "statement": "Claim 3.30: − ⊗_Z 1: Mod(Z) → Mod(G) is left adjoint to Φ^−_enh (equivalently Φ^−_enh M ≅ Hom(1, M); the adjunction depends on the Haar measure on U). Lemma 3.35: for M in a single Bernstein component, M → S(P) ⊗_{S(P)} Hom_G(S(G), M) becomes an isomorphism after Φ^−. Claim 3.32: Z → Hom(1, 1) is an isomorphism. Claim 3.33: the smallest full subcategory of Mod(G) containing 1 and closed under colimits is Mod^{deg-free}(G).",
+   "statement": "Claim 3.30: − ⊗_Z 1: Mod(Z) → Mod(G) is left adjoint to Φ^−_enh; equivalently (Remark 3.34) Φ^−_enh M ≅ Hom̲(1, M) naturally. The adjunction depends on the Haar measure on U (Remark 3.31). Lemma 3.35: for M in a single Bernstein component, M → S(P) ⊗_{S(P)} Hom_G(S(G), M) becomes an isomorphism after Φ^−. Claim 3.32: Z → Hom̲(1, 1) is an isomorphism. Claim 3.33: the smallest full subcategory of Mod(G) containing 1 and closed under colimits is Mod^{deg-free}(G).",
    "locator": "Claim 3.30, p. 27; Claim 3.32, p. 27; Claim 3.33, p. 27; Lemma 3.35, p. 29; Remark 3.29",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: Same lost underline. Claim 3.30 is Φ^−_enh M ≅ Hom̲(1, M), and Claim 3.32 is Z ≅ Hom̲(1, 1), the finitely supported Hom, not the full Hom (which would give the full centre ∏_c Z_c)."
   },
   {
    "id": "PAPER-DOR-23/025",
    "kind": "theorem",
    "name": "Theorem 3.26 and Corollary 3.27: ⊛ on degeneracy-free representations is the tensor product over the centre",
-   "statement": "The functor − ⊗_Z 1: Mod(Z) → Mod(G) is fully faithful with essential image Mod^{deg-free}(G), and it is weak symmetric monoidal (so ⊛ restricted to Mod^{deg-free}(G) is ⊗_Z). Consequently ⊛ on Mod^{deg-free}(G) extends to a symmetric monoidal structure, uniquely up to unique isomorphism. (⊛ does not descend to the quotient by degenerate representations: 1_G ⊛ 1_G = 1_G^St, Remark 3.28.)",
+   "statement": "The functor − ⊗_Z 1: Mod(Z) → Mod(G) is fully faithful with essential image Mod^{deg-free}(G), and it is weak symmetric monoidal (Theorem 3.26), so ⊛ restricted to Mod^{deg-free}(G) is ⊗_Z. Consequently the weak symmetric monoidal structure ⊛ on Mod^{deg-free}(G) extends to a symmetric monoidal structure, uniquely up to unique isomorphism (Corollary 3.27). ⊛ does not descend to the quotient of Mod(G) by degenerate representations: 1_G ⊛ 1_G is an extension 0 → St → 1_G ⊛ 1_G → 1_G → 0, which is nondegenerate although 1_G is degenerate (Remark 3.28).",
    "locator": "Theorem 3.26, p. 26; Corollary 3.27, p. 26; Remark 3.28",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: '1_G ⊛ 1_G = 1_G^St' reuses the notation that item 022 gives to the other extension. Remark 3.28 says 1_G ⊛ 1_G is an extension of 1_G by a Steinberg representation with 1_G as the quotient, and that it is nondegenerate."
   },
   {
    "id": "PAPER-DOR-23/026",
@@ -290,9 +298,10 @@
    "id": "PAPER-DOR-23/027",
    "kind": "construction",
    "name": "Constructions 3.44–3.45: the counit ε: E → 1 and the comultiplication μ: E → E ⊛ E",
-   "statement": "Let ν(e) be the largest integer with e(ϖ^{−ν(e)}O) = 1. ε is defined by the SL_2(O)-invariant, right θ-equivariant distribution f(g) = e(b)δ_1(det k) on g = (1 b; 0 1)(0 1; −ϖ^{ν(e)} 0)k (0 elsewhere); μ by the S_3 ⋉ SL_2(O)³-invariant distribution q^{−ν(e)}·1_{M_2(O)}(g)δ_{ϖ^{−ν(e)}}(y) on M_2(F) × F^× (for ν(e) = 0, the distinguished Godement–Jacquet test function 1_{M_2(O)} times δ_1). μ is symmetric (Remark 3.48); the choices amount to an unramified spin structure (Remark 3.47).",
+   "statement": "Let π be a uniformizer and ν(e) the largest integer with e(π^{−ν(e)}O) = 1. The counit ε: E → cInd_U^G(θ) ≅ 1 is given, via Remark 3.39, by the SL_2(O)-invariant element of the roughening defined by the distribution f(g) = e(b)δ_1(det k) for g = (1 b; 0 1)·diag(1, −π^{ν(e)})·k with k ∈ GL_2(O), and f(g) = 0 otherwise. This f is compactly supported mod U, left SL_2(O)-invariant and right θ-equivariant in the convention of Warning 3.13. Explicitly, φ ↦ ∫_U ∫_{SL_2(O)} e(−b)φ(k^{−1}·diag(1, −π^{−ν(e)})·(1 b; 0 1)·g) d^×k db; the result is independent of the measure on U. The comultiplication μ: E → Y^{SL_2(O)×SL_2(O)} ≅ E ⊛ E is given by the S_3 ⋉ SL_2(O)³-invariant distribution q^{−ν(e)}·1_{M_2(O)}(g)δ_{π^{−ν(e)}}(y) on M_2(F) × F^×; for ν(e) = 0 this is the Godement–Jacquet test function 1_{M_2(O)} times δ_1. μ is symmetric (Remark 3.48). Any h with hKh^{−1} ∩ U = ker θ may replace diag(1, −π^{ν(e)}), with μ changed to π(wh^Tw^{−1})·1_{M_2(O)}(g)δ_1(−y); these choices relate to unramified spin structures (Remark 3.47).",
    "locator": "Construction 3.44, p. 31; Construction 3.45, p. 32; Remarks 3.46–3.48, pp. 32–33",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: The matrix in the counit is transcribed wrongly. The page image (p. 32) shows g = (1 b; 0 1)·diag(1, −π^{ν(e)})·k, a diagonal matrix, and the explicit formula uses its inverse diag(1, −π^{−ν(e)}). The item has the antidiagonal (0 1; −ϖ^{ν(e)} 0). With h = diag(1, −π^{ν}) the paper is consistent: w h^{−T} = (0 π^{−ν}; 1 0) = diag(−π^{−ν}, 1)·w with w ∈ SL_2(O), which gives the simplification in the proof of Claim 3.49 (p. 34); and w h^T w^{−1} = diag(−π^ν, 1) turns 1_{M_2(O)}(g)δ_1(−y) (Remark 3.47) into q^{−ν}1_{M_2(O)}(g)δ_{π^{−ν}}(y) (Construction 3.45)."
   },
   {
    "id": "PAPER-DOR-23/028",
@@ -314,10 +323,10 @@
    "id": "PAPER-DOR-23/030",
    "kind": "theorem",
    "name": "The idempotent theorem of Gurevich–Hadani",
-   "statement": "For an idempotent object E (with an isomorphism E ≅ E ⊗ E compatible with a counit), any associator on E ⊗ E ⊗ E compatible with the pentagon axiom is forced, a map a: E → E satisfying a² = a³ being the identity; consequently an idempotent counital coalgebra is coassociative (Gurevich–Hadani, The categorical Weil representation, Theorem 3.1.2).",
+   "statement": "Let E be an object of a monoidal category with an isomorphism E ≅ E ⊗ E. After identifying (E ⊗ E) ⊗ E ≅ E ≅ E ⊗ (E ⊗ E) through it, any associator on E corresponds to an automorphism a of E, and the pentagon axiom forces a² = a³, hence a = id. So the associator on E is forced, and an idempotent counital coalgebra (comultiplication invertible) is coassociative. (Gurevich–Hadani, The categorical Weil representation, arXiv:1108.0351, Theorem 3.1.2, the 'idempotent theorem'; the paper uses it in this form.)",
    "locator": "Proof of Claim 3.58, pp. 36–37; Remark 3.56; Claim A.6",
    "status": "missing",
-   "note": "Imported from Gurevich–Hadani (arXiv:1108.0351); a prerequisite."
+   "note": "Imported from Gurevich–Hadani (arXiv:1108.0351); a prerequisite. Review (REV-PAPER-DOR-23): statement corrected against the published text: 'a map a: E → E satisfying a² = a³ being the identity' holds only for an automorphism; for a general endomorphism it fails (a = 0). In the paper, a is an isomorphism E ≅ E."
   },
   {
    "id": "PAPER-DOR-23/031",
@@ -340,9 +349,10 @@
    "id": "PAPER-DOR-23/033",
    "kind": "theorem",
    "name": "Example 3.55: generic irreducible representations are idempotent commutative algebras for ⊛",
-   "statement": "For V ∈ Mod(G) there is a canonical map 1 ⊗ Hom_G(1, V) → V ⊛ V; for V generic irreducible it is an isomorphism, so V ⊛ V ≅ V after a choice of Whittaker functional (the reformulation of Theorem 2.2). Moreover, a nonzero v_gen ∈ Φ^−V = Hom_G(1, V) makes V a unital commutative ⊛-algebra, by the general fact that in a symmetric monoidal abelian category with right exact tensor product a surjection 1 ↠ X gives X ≅ X ⊗ X and a commutative unital algebra structure on X.",
+   "statement": "For every V ∈ Mod(G) there is a canonical morphism V ⊗ Hom_G(1, V) ≅ V ⊛ 1 ⊗ Hom_G(1, V) → V ⊛ V. Theorem 2.2 is equivalent to this being an isomorphism for generic irreducible V, so a choice of Whittaker functional (Hom_G(1, V) ≅ C) gives V ≅ V ⊛ V. Moreover, a nonzero v_gen ∈ Φ^−V = Hom_G(1, V) makes a generic irreducible V a unital commutative ⊛-algebra. This is an instance of the general principle: in a symmetric monoidal abelian category with right exact tensor product, a surjection 1 ↠ X induces X ≅ X ⊗ X and a commutative unital algebra structure on X.",
    "locator": "Example 3.55, p. 35; Remark 2.6, p. 10",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: The canonical map has the wrong source. The page image (p. 35) shows V ⊗ Hom_G(1, V) ≅ V ⊛ 1 ⊗ Hom_G(1, V) → V ⊛ V, not 1 ⊗ Hom_G(1, V) → V ⊛ V."
   },
   {
    "id": "PAPER-DOR-23/034",
@@ -366,7 +376,8 @@
    "name": "The space S of automorphic functions and its subspace ℐ orthogonal to characters",
    "statement": "Let F be a global function field of characteristic ≠ 2, A its adeles, G = GL_2(A) with the Haar measures giving the maximal compact subgroups volume 1, and e: A/F → C^× a fixed nontrivial additive character. S = S(GL_2(F)\\GL_2(A)) is the space of smooth compactly supported functions on the automorphic quotient, p: S → S(A^×/F^×) the projection along det, and ℐ = ker p, the functions orthogonal to all χ(det g); S̃ (the smoothening of the dual) is the space of smooth functions on GL_2(F)\\GL_2(A) with no growth condition.",
    "locator": "§4.1, pp. 38–39; §4.3, p. 41",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review note on status: Missing is right. Function-field adeles and Haar measures are planned in FunctionFieldArithmetic FA.2. ExcursionOperatorsAndSpectralAction ES7:function-field-automorphic plans automorphic quotients over function fields only for LRS's division algebra, not S(GL_2(F)\\GL_2(A))."
   },
   {
    "id": "PAPER-DOR-23/037",
@@ -381,7 +392,7 @@
    "kind": "theorem",
    "name": "Proposition 4.9: μ is invariant under S_3 ⋉ GL_2(F)³",
    "statement": "The functional μ: Y_A → C is invariant under the S_3 ⋉ GL_2(F)³-action of Remark 3.5; in particular under the middle action of GL_2(F).",
-   "locator": "Proposition 4.9, p. 42; Remark 4.8; proof pp. 42–43",
+   "locator": "Proposition 4.9, p. 42; Remark 4.8, p. 42; proof p. 43",
    "status": "missing",
    "note": "By Remark 4.6 it suffices to treat w = (0 −1; 1 0); with ⟨ξ, h⟩ = tr(w^{−1}ξ^T w h) and |q| = 1 for q ∈ F^×, this is Poisson summation (item 006)."
   },
@@ -405,16 +416,17 @@
    "id": "PAPER-DOR-23/041",
    "kind": "theorem",
    "name": "Proposition 4.16 and Corollary 4.18: unitality of m, through the Petersson pairing",
-   "statement": "The composite S ⊗_G S ≅ 1 ⊗_G (S ⊛ S) → S ⊗_G (S ⊛ S) → C (via e ⊗ id and μ) is the Petersson pairing ρ(f ⊗ f') = ∫_{GL_2(A)} f(g)f'(g^{−T}) d^×g (independently of the slot, by Proposition 4.9). Hence S ≅ 1 ⊛ S → S ⊛ S → S̃ (via e and m) is the inclusion S ⊆ S̃.",
+   "statement": "The composite S ⊗_G S ≅ 1 ⊗_G (S ⊛ S) → S ⊗_G (S ⊛ S) → C, via e ⊗ id and then μ of Definition 4.5, is the Petersson pairing ρ(f ⊗ f') = ∫_{GL_2(F)\\GL_2(A)} f(g)f'(g^{−T}) d^×g (equivalently the functional f ↦ Σ_{ξ∈GL_2(F)} f(ξ) on the GL_2(F)×GL_2(F)-coinvariants of S(GL_2(A))). This holds whichever of the three slots receives 1, by Proposition 4.9 (Remark 4.17). Hence S ≅ 1 ⊛ S → S ⊛ S → S̃, via e and then m, is the inclusion S ⊆ S̃ adjoint to ρ (Corollary 4.18).",
    "locator": "Proposition 4.16, p. 46; Corollary 4.18, p. 46; Remark 4.17",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: The Petersson pairing is copied with the published misprint ∫_{GL_2(A)}. The integrand f(g)f'(g^{−T}) is left GL_2(F)-invariant, so the integral must be over GL_2(F)\\GL_2(A) (new issue)."
   },
   {
    "id": "PAPER-DOR-23/042",
    "kind": "theorem",
    "name": "Proposition 4.19: the image of the unit e: 1 → S is ℐ",
    "statement": "The image of e: 1 → S is ℐ: dually, a smooth function φ on GL_2(F)\\GL_2(A) with W_φ = 0 is invariant under the subgroup generated by U(A) and GL_2(F), which contains SL_2(A), so it factors through det.",
-   "locator": "Proposition 4.19, p. 46; Remark 4.20",
+   "locator": "Proposition 4.19, p. 46; Remark 4.20, p. 47; proof p. 48",
    "status": "missing",
    "note": "Remark 4.20 compares this with multiplicity one."
   },
@@ -463,7 +475,7 @@
    "kind": "theorem",
    "name": "Results announced from the sequel: irreducible abstractly automorphic representations and the Eisenstein–cuspidal decomposition",
    "statement": "The irreducible objects of Mod^aut(GL_2(A)) are exactly the irreducible automorphic representations (subquotients of S̃), and Mod^aut(GL_2(A)) decomposes into components induced from GL(1) × GL(1) (Eisenstein) and cuspidal components, with constant terms and Eisenstein series as adjoint functors.",
-   "locator": "§1.2, p. 5 (proofs in Dor, Global parabolic induction and abstract automorphicity, arXiv:2102.11820)",
+   "locator": "§1.2, p. 5 (and p. 2 for constant terms and Eisenstein series as adjoint functors); proofs in Dor, arXiv:2102.11820",
    "status": "missing",
    "note": "Stated, not proved, in this paper; recorded so the new roadmap plans them with their actual source."
   },
@@ -479,17 +491,105 @@
    "id": "PAPER-DOR-23/050",
    "kind": "construction",
    "name": "Definition A.4, Construction A.5 and Claim A.6: the global spherical coalgebra E_A",
-   "statement": "Fix (L, η) and a rational section s with e corresponding to η(s ⊗ s) via the sum of residues; e has even valuation at every place, so there is a unique self-dual O_A-lattice Λ ⊂ A. E_A = cInd_{SL_2(O_A)}^G(1), with comultiplication μ: E_A → E_A ⊛ E_A induced by the S_3 ⋉ SL_2(O_A)³-invariant distribution 1_{M_2(Λ)}(g)δ_1(y); E_A is a counital cocommutative coassociative coalgebra.",
-   "locator": "Definition A.4, p. 51; Construction A.5, p. 51; Claim A.6, p. 51; Remark A.3",
-   "status": "missing"
+   "statement": "Fix an unramified spin structure (L, η) and a rational section s of L. Take e: A/F → C^× to be the character corresponding to η(s⊗s) ∈ F ⊗ Ω under the sum-of-residues duality. Then e has even valuation at every place, so there is a unique O_A-submodule Λ ⊂ A that is self-dual for e. E_A = cInd_{SL_2(O_A)}^{G}(1), with comultiplication μ: E_A → E_A ⊛ E_A induced, as in Construction 3.45, by the S_3 ⋉ SL_2(O_A)³-invariant distribution 1_{M_2(Λ)}(g)δ_1(y) on M_2(A) × A^×. With the counit ε_A = ⊗'_v ε_v, where ε_v is Construction 3.44 modified as in Remark 3.47 by a matrix h_v with h_vK_vh_v^{−1} ∩ U_v = ker θ_v compatible with Λ_v (not written out in the paper), E_A is a counital, cocommutative and coassociative coalgebra. Coassociativity follows from the idempotent theorem.",
+   "locator": "Definition A.4, Construction A.5, Claim A.6, p. 51; set-up and Remark A.3, p. 50",
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: The item calls E_A counital, but the paper never defines a global counit E_A → 1. Definition A.4 and Construction A.5 give only E_A and μ, and the proof of Claim A.6 appeals to 'the adjustments described in Remark 3.47' (a gap, new issue). The item should say what the counit is. The set-up (s, e = η(s⊗s), even valuations, Λ) is on p. 50. Review note on status: Partly planned. The residue character attached to a rational differential is planned in FunctionFieldArithmetic FA.2. Spin structures and the global coalgebra are missing."
   },
   {
    "id": "PAPER-DOR-23/051",
    "kind": "theorem",
    "name": "Construction A.7 and Remark A.8: the convolution algebra of spherical automorphic functions",
-   "statement": "ℐ_{SL_2(O_A)} = Hom(E_A, ℐ) acquires a canonical quasi-unital commutative algebra structure over the centre of Mod(G) for the usual tensor product, independent of the section s; it is invariant under ι(f)(g) = |det g|^{−2} f(g^{−T}). This is the 'spectral Fourier transform' of §1.3: it identifies spherical automorphic functions with functions on the unramified automorphic spectrum.",
+   "statement": "Given an unramified spin structure and a section s as in item 050, the space of spherical automorphic functions ℐ/SL_2(O_A) = Hom̲(E_A, ℐ) acquires a canonical quasi-unital commutative algebra structure, over the centre of Mod(GL_2(A)) and for the usual tensor product ⊗. It comes from the coalgebra E_A (Claim A.6) and the ⊛-algebra ℐ (Corollary 4.22). The paper asserts without proof that the structure is independent of s (Construction A.7) and invariant under ι(f)(g) = |det g|^{−2}f(g^{−T}) (Remark A.8). §1.3 interprets it heuristically as a spectral convolution product.",
    "locator": "Construction A.7, p. 51; Remark A.8; §1.3, p. 6",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-DOR-23): statement corrected against the published text: The last sentence ('identifies spherical automorphic functions with functions on the unramified automorphic spectrum') is the informal heuristic of §1.3 and is not a result of the paper. Independence of s ('by a direct computation') and the ι-invariance (Remark A.8, 'it is also possible to show') are asserted without proof. The item should record them as asserted."
+  },
+  {
+   "id": "PAPER-DOR-23/052",
+   "kind": "theorem",
+   "name": "Bernstein–Zelevinsky functors Φ^±, Ψ^± on mirabolic modules (BZ77, Proposition 3.2, case n = 2)",
+   "statement": "Let F be a non-archimedean local field, P = {(a b; 0 1)} ⊂ GL_2(F) the mirabolic subgroup, U = {(1 b; 0 1)} its unipotent radical, and θ(1 u; 0 1) = e(u) for a nontrivial additive character e. Define Ψ^−: Mod(P) → Mod(F^×) as U-coinvariants and Ψ^+: Mod(F^×) → Mod(P) as inflation. Define Φ^−: Mod(P) → Vect as (U, θ)-coinvariants, Φ^+: Vect → Mod(P) as compact induction of θ from U to P (so Φ^+C ≅ S(F^×) with (a b; 0 1)f(y) = e(by)f(ay)), and Φ̂^+ as full induction; normalisations are as in BZ77 (modulus twists do not affect the statements). Then: (a) all these functors are exact; (b) Ψ^− is left adjoint to Ψ^+, Φ^+ is left adjoint to Φ^−, and Φ^− is left adjoint to Φ̂^+, so Φ^− preserves all colimits; (c) Φ^−Ψ^+ = 0 and Ψ^−Φ^+ = 0; (d) Ψ^−Ψ^+ ≅ id and Φ^−Φ^+ ≅ id; (e) for every M ∈ Mod(P) there is a natural exact sequence 0 → Φ^+Φ^−M → M → Ψ^+Ψ^−M → 0. The paper applies (e) to Y with the middle P-action (Lemma 2.19), and exactness and the right adjoint of Φ^− for Mod(G) → Vect by restriction (Remarks 3.28–3.29).",
+   "locator": "Recollection 2.1, p. 8; proof of Lemma 2.19, p. 15; Remark 3.28, p. 26; Remark 3.29, p. 27 (all citing [3] = Bernstein–Zelevinsky 1977, Proposition 3.2)",
+   "status": "planned",
+   "planned": [
+    "SmoothRepresentationsOfLocalGroups:SR.5",
+    "AutomorphicLFunctionsAndLocalFactors:AL.3"
+   ],
+   "note": "Added by the review REV-PAPER-DOR-23 (coverage of the published text): The exactness of Φ^±, the adjunctions, the right adjoint of Φ^− and the exact sequence 0 → Φ^+Φ^− → id → Ψ^+Ψ^− → 0 (part (e)) are used in Lemma 2.19 (hence Theorem 2.2), Remark 3.28, Remark 3.29 (Φ^− preserves colimits) and Claims 3.30 and 3.33. Item 003 records only Φ^− and its left adjoint."
+  },
+  {
+   "id": "PAPER-DOR-23/053",
+   "kind": "definition",
+   "name": "Bernstein components and the Bernstein centre of Mod(GL_2(F))",
+   "statement": "Let F be a non-archimedean local field and G = GL_2(F). Mod(G) decomposes as a product ∏_c Mod_c(G) over Bernstein components c (inertial classes of cuspidal data). Its centre Z(Mod(G)) = End(id_{Mod(G)}) = ∏_c Z_c, where Z_c is the commutative ring of regular functions on the variety of cuspidal supports in c. Z(Mod(G)) acts on every object by natural endomorphisms and on an irreducible V by a character (its infinitesimal character). An irreducible principal series or supercuspidal representation is the only irreducible with its infinitesimal character, whereas a twisted Steinberg representation shares its infinitesimal character with the corresponding one-dimensional representation. Each Z_c is fixed by g ↦ g^T (Remark 2.18) and acts identically from both sides of S(G).",
+   "locator": "§2.1, p. 7; Lemma 2.17 and Remark 2.18, pp. 14–15; proof of Theorem 2.2, pp. 15–16; §3.4, pp. 25–27",
+   "status": "planned",
+   "planned": [
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R16.2"
+   ],
+   "note": "Added by the review REV-PAPER-DOR-23 (coverage of the published text): Used in Lemma 2.17, in the proof of Theorem 2.2 (irreducibles other than the Steinberg/trivial pair are determined by their infinitesimal character) and throughout §3.4–3.6 (Z = ⊕ Z_c, Claim 3.32). Item 023 mentions it only in a note."
+  },
+  {
+   "id": "PAPER-DOR-23/054",
+   "kind": "definition",
+   "name": "The Jacquet functor of GL_2(F) for the upper-triangular Borel",
+   "statement": "Let P' = {(a b; 0 d)} ⊂ G = GL_2(F), with Levi T = {diag(a, d)} ≅ F^× × F^× and unipotent radical U. The Jacquet functor (parabolic restriction) Jac: Mod(G) → Mod(F^× × F^×) sends V to its U-coinvariants V_U with the induced T-action. It is exact and left adjoint to parabolic induction from P'. Moreover S(U\\G) ⊗_G V ≅ Jac(V) naturally, which is the form used in the proof of Lemma 2.20.",
+   "locator": "Before Lemma 2.20, p. 16; proof of Lemma 2.20, pp. 16–17; proof of Theorem 2.2, p. 16",
+   "status": "planned",
+   "planned": [
+    "SmoothRepresentationsOfLocalGroups:SR.2"
+   ],
+   "note": "Added by the review REV-PAPER-DOR-23 (coverage of the published text): Defined on p. 16 and used in Lemma 2.20 and in the Steinberg case of the proof of Theorem 2.2; no item defines it."
+  },
+  {
+   "id": "PAPER-DOR-23/055",
+   "kind": "theorem",
+   "name": "Generic irreducible representations of GL_2(F): classification and uniqueness of Whittaker functionals",
+   "statement": "Let F be a non-archimedean local field (char F ≠ 2 in this paper) and G = GL_2(F). An irreducible smooth representation V is generic if Φ^−V ≠ 0; then dim Φ^−V = dim Φ^−Ṽ = 1, which is uniqueness of Whittaker models. The non-generic irreducibles are exactly the one-dimensional representations χ∘det. Every generic irreducible is isomorphic to an irreducible principal series, a supercuspidal representation, or a twist St ⊗ χ∘det of the Steinberg representation. A generic irreducible V, and hence Ṽ, admits no nonzero SL_2(F)-invariant linear functional.",
+   "locator": "Recollection 2.1, p. 8; proof of Theorem 2.2, pp. 15–16; Lemma 2.20, p. 16",
+   "status": "planned",
+   "planned": [
+    "GL2AutomorphicRepresentationsAndTransfer:R16.2"
+   ],
+   "note": "Added by the review REV-PAPER-DOR-23 (coverage of the published text): The proof of Theorem 2.2 splits generic irreducibles into irreducible principal series and supercuspidals versus (twisted) Steinberg representations. It uses dim Φ^−V = 1 and that generic V admit no SL_2(F)-invariant functional (the hypothesis of Lemma 2.20). No item states these."
+  },
+  {
+   "id": "PAPER-DOR-23/056",
+   "kind": "definition",
+   "name": "Relative tensor product of smooth G-modules",
+   "statement": "Let G be an l-group (here GL_2(F) or GL_2(A)), M a smooth right G-module and N a smooth left G-module. M ⊗_G N is the quotient of M ⊗_C N by the span of mg ⊗ n − m ⊗ gn. It is the universal space through which G-invariant bilinear pairings M × N → C factor, and it is right exact and preserves colimits in each variable. For bimodules and trimodules the remaining actions pass to the quotient, and iterated products over G × G and G × G × G are formed in the same way. For every smooth N and a fixed Haar measure, S(G) ⊗_G N ≅ N. Left modules are made into right modules by I_RL (g ↦ g^T, Definition 3.2).",
+   "locator": "§1.1, p. 4; §2.1, pp. 7–8; Construction 3.3, p. 20; Construction 3.16, p. 23",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-DOR-23 (coverage of the published text): ⊗_G is the basic operation of the whole paper (V ⊛ V' = V ⊗_G Y ⊗_G V', Φ^−(M ⊛ N) ≅ I_RL(M) ⊗_G N, S(G) ⊗_G N ≅ N). The atlas plans only N-coinvariants (SR.2), not the relative tensor product of a right and a left module. Route: the new roadmap."
+  },
+  {
+   "id": "PAPER-DOR-23/057",
+   "kind": "theorem",
+   "name": "Transposition acts trivially on the θ-coinvariants of S(M_2(F) × F^×) (the Gelfand–Kazhdan step of Claim 3.18)",
+   "statement": "Let F be a non-archimedean local field with char(F) ≠ 2, G = GL_2(F), U its upper unipotent subgroup and θ(1 u; 0 1) = e(u) for a nontrivial additive character e. Then the θ-coinvariants of Y = S(M_2(F) × F^×) under the left and right actions of U (in the conventions of Warning 3.13 and Definition 3.2) are invariant under the transposition (g, y) ↦ (g^T, y) of M_2(F) × F^×; equivalently, the transposition acts as the identity on (I_RL(1) ⊗ I_RL(1)) ⊗_{G×G} Y.",
+   "locator": "Proof of Claim 3.18, p. 24",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-DOR-23 (coverage of the published text): this is the input of Claim 3.18 (λ = id, item 020), on which Corollaries 3.20–3.21 and so the whole monoidal structure rest. The paper proves it by the Gelfand–Kazhdan technique, citing Bernstein–Zelevinsky 1976, Theorem 6.10, but says it lacks a reference for this case and writes the argument out. It filters Y with graded pieces S(G × F^×) and S(M_2^{det=0}(F) × F^×), splits the first by the Bruhat decomposition into U × U-orbits, and identifies the coinvariants of the second with S(F^× × F^×) by an explicit integral that is visibly symmetric. No stage plans the Gelfand–Kazhdan technique or Bernstein's localisation principle. Route: the new roadmap."
+  },
+  {
+   "id": "PAPER-DOR-23/058",
+   "kind": "definition",
+   "name": "Global Godement–Jacquet and Jacquet–Langlands zeta integrals on automorphic functions over a function field",
+   "statement": "Let F be a global function field of characteristic ≠ 2, A its adeles and S = S(GL_2(F)\\GL_2(A)). For φ, φ′ ∈ S and Ψ ∈ S(M_2(A)), Z_GJ(φ′, φ, Ψ, s) = ∫_{GL_2(A)} (∫_{GL_2(F)\\GL_2(A)} φ′(h^{−T})φ(hg) d^×h) Ψ(g)|det g|^{s+1/2} d^×g. For φ″ ∈ S with Whittaker function W_{φ″} (Construction 4.13, U(A)/U(F) of volume 1), Z_JL(φ″, s) = ∫_{A^×} W_{φ″}(diag(y, 1))|y|^{s−1/2} d^×y; the same formula is used for φ″ ∈ S̃ in Remark 4.11, where the multiplication m of Construction 4.10 satisfies Z_JL(m(φ′ ⊗ Ψ ⊗ f ⊗ φ), s) = Z_GJ(φ′, φ, Ψ, s)·∫_{A^×} f(y)|y|^{s+1/2} d^×y for Ψ ⊗ f ∈ Y_A.",
+   "locator": "§4.1, p. 39; Remark 4.11, p. 44",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-DOR-23 (coverage of the published text): Split from items 002 and 004: AL.2 and R16.5 plan these integrals over number fields only, and the paper's global statements are over a global function field. Route: the new roadmap."
+  },
+  {
+   "id": "PAPER-DOR-23/059",
+   "kind": "construction",
+   "name": "The Weil representation over non-archimedean local fields of odd positive characteristic",
+   "statement": "Let F be a non-archimedean local field of characteristic p > 2 (in Part II, a completion of a global function field of characteristic ≠ 2) and e: F → C^× a nontrivial additive character. For a symplectic F-space V, the Heisenberg group H(V) = V × F has a unique irreducible smooth representation with central character e (Stone–von Neumann); the group Mp(V) of pairs (g, γ), g ∈ Sp(V) and γ: π ≅ π^g, is a C^×-extension of Sp(V) acting on it; and in a Schrödinger model S(L) the Heisenberg operators are given by the formula of item 005. Recollection 2.10 and Proposition 2.12 apply over such F, and Part II uses them at every place.",
+   "locator": "Recollection 2.10, p. 11; §4.2, p. 40",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-DOR-23 (coverage of the published text): Split from item 005: MetaplecticAutomorphicForms plans the Weil representation over characteristic-zero local fields only, and its scope says the positive-characteristic case needs a separately sourced extension. Weil's construction (Acta Math. 111 (1964)) covers local fields of characteristic ≠ 2. Route: the new roadmap."
   }
  ],
  "prerequisites": [
@@ -591,9 +691,14 @@
     "PAPER-DOR-23/048",
     "PAPER-DOR-23/049",
     "PAPER-DOR-23/050",
-    "PAPER-DOR-23/051"
+    "PAPER-DOR-23/051",
+    "PAPER-DOR-23/003",
+    "PAPER-DOR-23/056",
+    "PAPER-DOR-23/057",
+    "PAPER-DOR-23/058",
+    "PAPER-DOR-23/059"
    ],
-   "brief": "Final theorems (Dor, Exotic monoidal structures and abstractly automorphic representations for GL(2), Forum Math. Pi 11 (2023) e20), for F non-archimedean local (char ≠ 2) and G = GL_2(F): Theorem 2.2 — Y = S(M_2(F) × F^×) carries a third ('middle') G-action commuting with the left and right actions, uniquely determined by Ṽ ⊗_G Y ⊗_G V ≅ K(V(−1))(1) for generic irreducible V compatibly with the open part Y°; Proposition 2.5 — this isomorphism turns Godement–Jacquet into Jacquet–Langlands zeta integrals; Theorems 3.26, 3.42, 3.52 — V ⊛ V' = V ⊗_G Y ⊗_G V' with unit the Whittaker space 1 extends uniquely to a symmetric monoidal structure on Mod(G), equal to ⊗_Z on degeneracy-free and to ⊗_{Z_sph} on spherical representations; Example 3.55 — generic irreducibles are idempotent commutative ⊛-algebras; and, for F a global function field (char ≠ 2), Corollary 4.22 and Proposition 4.19 — the space ℐ of automorphic functions orthogonal to characters is a unital commutative ⊛-algebra whose unit 1 → ℐ (Poincaré series) is surjective; Claim 4.28, Definition 4.29, Proposition 4.32 — the category Mod^aut(GL_2(A)) of ℐ-modules is a full subcategory closed under subquotients and contragredients containing every automorphic representation; Construction A.7 — a spin structure gives a commutative convolution algebra of spherical automorphic functions.\n\nCover, in order: the triality embedding S_3 ⋉ G^{3,det=1} → Sp(M_2(F) ⊗ W) and its unique metaplectic lift (Proposition 2.12, with the explicit formulas (2.5)–(2.11)); the middle action by compact induction (Construction 2.13) and Lemmas 2.17–2.20; Theorem 2.2 and Proposition 2.5; left/right conventions via transposition and the bifunctor ⊛; weak symmetric monoidal categories (associativity-free, operadic description); the unit 1 and Claim 3.18 (Gelfand–Kazhdan); degeneracy-free representations, the quasi-unital ring Z of Bernstein centres and Theorem 3.26; the spherical coalgebra E, its counit and comultiplication, Claim 3.49 and Theorem 3.42; the Gurevich–Hadani idempotent theorem and Theorem 3.52; Remark 3.54's Frobenius structure (a stated remark, requiring presentable categories); then the global part: Y_A and the global ⊛, the theta functional μ and Proposition 4.9, the multiplication m and its zeta-integral compatibility, the Poincaré-series unit and the Petersson pairing, Proposition 4.19, the algebra ℐ, abstract automorphicity and its closure properties; and Appendix A. The results announced for the sequel (irreducible abstractly automorphic = automorphic, and the cuspidal/Eisenstein decomposition) are later layers sourced from Dor, Global parabolic induction and abstract automorphicity.\n\nImport, never re-plan: Metaplectic groups, Weil representations and automorphic theta kernels (MetaplecticAutomorphicForms) MP.0–MP.2 for Heisenberg groups, the metaplectic extension, Schrödinger models and explicit Weil operators, and MP.4–MP.5 for the adelic Weil representation and theta invariance, extended from number fields to function fields; Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors) AL.0 for Schwartz–Bruhat spaces and adelic Poisson summation (same extension) and AL.2 for Godement–Jacquet zeta integrals; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.0–SR.3 for the smooth category, compact induction, Jacquet functors and the Bernstein centre, and SR.5 for the Bernstein–Zelevinsky functors Φ^±; GL₂ Automorphic Representations And Transfer (GL2AutomorphicRepresentationsAndTransfer) R16.2 and R16.5 for Kirillov and Whittaker models and Jacquet–Langlands (Hecke) integrals; and Mathlib's monoidal, symmetric and module-object categories (CategoryTheory.SymmetricCategory, CommMon, ModObj).\n\nTests: the Steinberg representation (generic but not degeneracy-free) and 1_G ⊛ 1_G = 1_G^St; unramified principal series against the spherical calculation with 1_{M_2(O)}; the explicit middle action of (a b; 0 1) and of w; the commutative analogue of Remark 3.1 (the relative tensor product over an abelian group, V ⊗_H V ≅ V).",
+   "brief": "Final theorems (Dor, Exotic monoidal structures and abstractly automorphic representations for GL(2), Forum Math. Pi 11 (2023) e20), for F non-archimedean local (char ≠ 2) and G = GL_2(F): Theorem 2.2 — Y = S(M_2(F) × F^×) carries a third ('middle') G-action commuting with the left and right actions, uniquely determined by Ṽ ⊗_G Y ⊗_G V ≅ K(V(−1))(1) for generic irreducible V compatibly with the open part Y°; Proposition 2.5 — this isomorphism turns Godement–Jacquet into Jacquet–Langlands zeta integrals; Theorems 3.26, 3.42, 3.52 — V ⊛ V' = V ⊗_G Y ⊗_G V' with unit the Whittaker space 1 extends uniquely to a symmetric monoidal structure on Mod(G), equal to ⊗_Z on degeneracy-free and to ⊗_{Z_sph} on spherical representations; Example 3.55 — generic irreducibles are idempotent commutative ⊛-algebras; and, for F a global function field (char ≠ 2), Corollary 4.22 and Proposition 4.19 — the space ℐ of automorphic functions orthogonal to characters is a unital commutative ⊛-algebra whose unit 1 → ℐ (Poincaré series) is surjective; Claim 4.28, Definition 4.29, Proposition 4.32 — the category Mod^aut(GL_2(A)) of ℐ-modules is a full subcategory closed under subquotients and contragredients containing every automorphic representation; Construction A.7 — a spin structure gives a commutative convolution algebra of spherical automorphic functions.\n\nCover, in order: the triality embedding S_3 ⋉ G^{3,det=1} → Sp(M_2(F) ⊗ W) and its unique metaplectic lift (Proposition 2.12, with the explicit formulas (2.5)–(2.11)); the middle action by compact induction (Construction 2.13) and Lemmas 2.17–2.20; Theorem 2.2 and Proposition 2.5; left/right conventions via transposition and the bifunctor ⊛; weak symmetric monoidal categories (associativity-free, operadic description); the unit 1 and Claim 3.18 (Gelfand–Kazhdan); degeneracy-free representations, the quasi-unital ring Z of Bernstein centres and Theorem 3.26; the spherical coalgebra E, its counit and comultiplication, Claim 3.49 and Theorem 3.42; the Gurevich–Hadani idempotent theorem and Theorem 3.52; Remark 3.54's Frobenius structure (a stated remark, requiring presentable categories); then the global part: Y_A and the global ⊛, the theta functional μ and Proposition 4.9, the multiplication m and its zeta-integral compatibility, the Poincaré-series unit and the Petersson pairing, Proposition 4.19, the algebra ℐ, abstract automorphicity and its closure properties; and Appendix A. The results announced for the sequel (irreducible abstractly automorphic = automorphic, and the cuspidal/Eisenstein decomposition) are later layers sourced from Dor, Global parabolic induction and abstract automorphicity.\n\nImport, never re-plan: Metaplectic groups, Weil representations and automorphic theta kernels (MetaplecticAutomorphicForms) MP.0–MP.2 for Heisenberg groups, the metaplectic extension, Schrödinger models and explicit Weil operators, and MP.4–MP.5 for the adelic Weil representation and theta invariance, all over characteristic-zero local fields and number fields (that roadmap's scope excludes positive characteristic, so the function-field versions are built here from Weil's construction); Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors) AL.0 for Schwartz–Bruhat spaces, AL.2 for Godement–Jacquet zeta integrals and AL.3 for the local GL₂ × GL₁ (Hecke) integrals; Function-field arithmetic (FunctionFieldArithmetic) FA.2 for function-field adeles, self-dual measures and Poisson summation; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.0–SR.3 for the smooth category, compact induction, Jacquet functors and the Bernstein centre, and SR.5 for the Bernstein–Zelevinsky functors Φ^±; GL₂ Automorphic Representations And Transfer (GL2AutomorphicRepresentationsAndTransfer) R16.2 for Whittaker functionals and the classification of generic irreducibles, and R16.5 for the global Hecke integral (no stage plans the Kirillov model, the relative tensor product ⊗_G or the Gelfand–Kazhdan criterion, so they are built here); and Mathlib's monoidal, symmetric and module-object categories (CategoryTheory.SymmetricCategory, CommMon, IsCommMonObj, ModObj, and the bundled category Mod with Mod.forget).\n\nTests: the Steinberg representation (generic but not degeneracy-free) and 1_G ⊛ 1_G, an extension 0 → St → 1_G ⊛ 1_G → 1_G → 0 (Remark 3.28); unramified principal series against the spherical calculation with 1_{M_2(O)}; the explicit middle action of (a b; 0 1) and of w; the commutative analogue of Remark 3.1 (the relative tensor product over an abelian group, V ⊗_H V ≅ V).\n\nThe review (REV-PAPER-DOR-23) found misprints to correct when formalising (sourceIssues): the Petersson pairing is an integral over GL_2(F)\\GL_2(A); the Poisson-summation integrals in the proof of Proposition 4.9 are over M_2(A); formula (2.4) is as printed (the extraction's first transcription inverted it). It also found a gap: Claim A.6 asserts a counital coalgebra but Appendix A defines no global counit. Define ε_A = ⊗′_v ε_v with the local modifications of Remark 3.47 matched to 1_{M_2(Λ)}(g)δ_1(y), and check that μ is an isomorphism at every place before applying the idempotent theorem.",
    "reason": "Nothing in the atlas goes in this direction. Its ingredients are planned — the Weil representation and theta kernels in MetaplecticAutomorphicForms, Godement–Jacquet integrals in AutomorphicLFunctionsAndLocalFactors AL.2, Kirillov and Whittaker models in SmoothRepresentationsOfLocalGroups SR.5 and GL2AutomorphicRepresentationsAndTransfer R16.2/R16.5, and the Bernstein centre in SR.3 — but no layer plans a monoidal structure on Mod(GL_2(F)) built from the triality Weil representation, degeneracy-free and spherical subcategories, an algebra of automorphic functions, or a category of abstractly automorphic representations. MetaplecticAutomorphicForms (MP.3 dual pairs and theta modules) is the nearest roadmap, but the paper's outputs are categorical statements about representations of GL(2) and automorphic representations, not theta correspondences, and it also needs representation-theoretic and categorical layers that roadmap does not own; a Part II there would mix directions. The author's sequels (arXiv:2102.11820, and the announced quaternionic version) would extend this roadmap."
   }
  ],
@@ -611,7 +716,132 @@
     "arXiv 2011.03313 listing (v1 6 November 2020; v2 28 September 2022, 'Expanded and clarified section 2') and the v2 TeX source and PDF",
     "the published article, Forum Math. Pi 11 (2023) e20, https://doi.org/10.1017/fmp.2023.18 (open access; received 29 September 2022, revised 3 June 2023, accepted 29 June 2023; read in full)",
     "Crossref metadata for DOI 10.1017/fmp.2023.18 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "A triple (a, b, c) is not an element of F^×. The group is the kernel of the product map on (F^×)^3; it is the quotient of G^{3,det=1} by SL_2(F)^3 in the split exact sequence above it, embedded via (a,b,c) ↦ (diag(a,1), diag(b,1), diag(c,1)) as in (2.9). The extraction's record is accurate.",
+    "by": "REV-PAPER-DOR-23"
+   }
+  },
+  {
+   "id": "PAPER-DOR-23/E2",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.9, p. 43: all four displayed integrals (arXiv v2 p. 51 the same)",
+   "printed": "Σ_{(ξ,q)∈M_2(F)×F^×} Ψ(ξ, q) = Σ_{(ξ,q)∈M_2(F)×F^×} |q|^2 ∫_{M_2(F)} Ψ(h, q)·e(−q·⟨ξ, h⟩) dh … = Σ ∫_{M_2(F)} Ψ(h, q)·e(−tr(ξ^T h)) dh",
+   "correction": "Each integral is over M_2(A), with the Haar measure self-dual for e(⟨−,−⟩) (equivalently for e(tr(x^T y))), for which vol(M_2(A)/M_2(F)) = 1. The middle step also uses |q|_A = 1 for q ∈ F^× (product formula) and the bijection ξ ↦ q w^T ξ w^{−T} of M_2(F).",
+   "reason": "Ψ ∈ Y_A = S(M_2(A) × A^×) is a function on M_2(A), and the global middle action of w is Remark 2.24's formula at every place, the Fourier transform on M_2(A). An integral over the discrete set M_2(F) is not a Fourier transform, and Poisson summation Σ_{M_2(F)} Ψ = Σ_{M_2(F)} Ψ̂ needs Ψ̂(ξ) = ∫_{M_2(A)} Ψ(h) e(−tr(ξ^T h)) dh. Item 006 already uses M_2(A).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-DOR-23"
+   }
+  },
+  {
+   "id": "PAPER-DOR-23/E3",
+   "kind": "misprint",
+   "locator": "§4.4, definition of the Petersson pairing before Proposition 4.16, p. 45 (arXiv v2 p. 54 the same)",
+   "printed": "f(g) ⊗ f′(g′) ↦ ∫_{GL_2(A)} f(g) f′(g^{−T}) d^×g",
+   "correction": "f ⊗ f′ ↦ ∫_{GL_2(F)\\GL_2(A)} f(g) f′(g^{−T}) d^×g",
+   "reason": "For f, f′ ∈ S = S(GL_2(F)\\GL_2(A)), the integrand is left GL_2(F)-invariant, because f′((γg)^{−T}) = f′(γ^{−T}g^{−T}) = f′(g^{−T}). GL_2(F) is an infinite discrete subgroup, so the integral over GL_2(A) diverges for nonzero integrands. The paper's own equivalent description (the functional Σ_{ξ∈GL_2(F)} f(ξ) on S(GL_2(A))_{GL_2(F)\\ /GL_2(F)}) and the inner integral of Z_GJ(φ′,φ,Ψ,s) on p. 39 both use the quotient.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-DOR-23"
+   }
+  },
+  {
+   "id": "PAPER-DOR-23/E4",
+   "kind": "misprint",
+   "locator": "Proof of Claim 4.3, p. 41 (arXiv v2 p. 48 the same)",
+   "printed": "under the counit E_v → 𝟙_{⊛,v} of Construction 3.44, the vector f_v maps to the distinguished vector 𝟙_{GL_2(F_v)} of 𝟙_{⊛,v}",
+   "correction": "… the distinguished vector 𝟙_{GL_2(O_v)} (its image in the θ-coinvariants 𝟙_{⊛,v})",
+   "reason": "𝟙_{GL_2(F_v)} is not compactly supported, so it is not in S(G_v) or its θ-coinvariants. For ν(e_v) = 0, the matrix of Construction 3.44 is diag(1, −1) ∈ GL_2(O_v), so ε_v(𝟙_{GL_2(O_v)}) is the θ-equivariant function supported on U_v GL_2(O_v), the image of 𝟙_{GL_2(O_v)}. Claim 4.3(1) likewise needs 𝟙_{GL_2(O_v)} as the distinguished vector of S(G_v).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-DOR-23"
+   }
+  },
+  {
+   "id": "PAPER-DOR-23/E5",
+   "kind": "misprint",
+   "locator": "Warning 3.25, p. 25",
+   "printed": "let us denote by (St over 𝟙_G) the unique nontrivial extension of the trivial representation St by 𝟙_G",
+   "correction": "the unique nontrivial extension of the Steinberg representation St by the trivial representation 𝟙_G, i.e. 0 → 𝟙_G → (St over 𝟙_G) → St → 0",
+   "reason": "St is not the trivial representation. A degeneracy-free N needs Hom(N, 𝟙_G) = 0, so 𝟙_G must be the subrepresentation; the other extension surjects onto the degenerate 𝟙_G. This matches Remark 3.28's convention (upper entry = quotient).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-DOR-23"
+   }
+  },
+  {
+   "id": "PAPER-DOR-23/E6",
+   "kind": "misprint",
+   "locator": "Title of §3, p. 17, and the table of contents, p. 1 (published version only; arXiv v2 reads 'modules')",
+   "printed": "3. Symmetric monoidal structure on mdules of GL(2)",
+   "correction": "3. Symmetric monoidal structure on modules of GL(2)",
+   "reason": "Typographical slip, checked on the page image; the arXiv v2 title is correct.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-DOR-23"
+   }
+  },
+  {
+   "id": "PAPER-DOR-23/E7",
+   "kind": "gap",
+   "locator": "Definition A.4, Construction A.5, Claim A.6 and its proof, p. 51",
+   "printed": "Claim A.6. The map μ: E_A → E_A ⊛ E_A of Construction A.5 turns E_A into a counital, cocommutative and coassociative coalgebra. Proof. Counitality follows immediately from the local Claim 3.49, using the adjustments described in Remark 3.47.",
+   "correction": "A global counit must be defined, for example ε_A = ⊗'_v ε_v: E_A → 𝟙, where ε_v is Construction 3.44 with diag(1, −π^{ν(e_v)}) replaced by a matrix h_v satisfying h_vK_vh_v^{−1} ∩ U_v = ker θ_v and chosen so that the local comultiplication π(wh_v^Tw^{−1})·1_{M_2(O_v)}(g)δ_1(−y) of Remark 3.47 equals 1_{M_2(Λ_v)}(g)δ_1(y). One must also check that ε_v(𝟙_{GL_2(O_v)}) is the distinguished vector for almost all v, so that ε_A is defined on the restricted product. The same local identification is needed for μ to be an isomorphism (Claim 3.49 at each place), which the idempotent theorem requires for coassociativity.",
+   "reason": "Appendix A defines only E_A and μ; no counit E_A → 𝟙 appears. Remark 3.47 describes the local modification only informally ('would have worked after appropriate modifications'), and the match between 1_{M_2(Λ)}(g)δ_1(y) and that recipe is not carried out. Counitality and the isomorphism property used for coassociativity are therefore asserted, not proved.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-DOR-23"
+   }
   }
  ]
 }
