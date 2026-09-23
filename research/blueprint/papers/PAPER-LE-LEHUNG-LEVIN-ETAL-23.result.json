@@ -242,6 +242,56 @@
             "readSections": "§A.3.3 only (the ad r̄ sentence), located by text search."
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-23",
+        "main": "Fresh targeted reading of published LLHLM23 PDF49-53,180-182,188-190,196-198. Full main-paper reading remains attributed to codex-7e92bd. This continuation does not claim a fresh full-paper read.",
+        "sources": [
+          {
+            "title": "EGH Weight cycling",
+            "url": "https://math.uchicago.edu/~emerton/pdffiles/egh.pdf",
+            "sha256": "1a5f6d23149f530603d961e239ef9990bd02e9aca912a6e4483978da6f2689b0",
+            "retrieved": "2026-09-23",
+            "readSections": "PDF51-56 and Section4.1.1 coefficient convention; exact White citation in the proof of7.2.1."
+          },
+          {
+            "title": "Labesse, Changement de base CM et series discretes",
+            "url": "https://www.imj-prg.fr/fa/bpFiles/Labesse2.pdf",
+            "sha256": "c85a0fde13266e3ed6c76d34330b4c51023376f8fe25406da0370fa47c5a45d2",
+            "retrieved": "2026-09-23",
+            "pages": 53,
+            "readSections": "Selected passages on author-preprint pp.1-3,41-44 and48-50: standing degree restriction,5.1,5.2,5.3 with full corollary proof,5.9 with proof. Image p.43 checked. Not a claim of published-pagination equivalence or full trace-formula proof reading."
+          },
+          {
+            "title": "Moeglin-Waldspurger, Le spectre residuel de GL(n)",
+            "url": "https://www.numdam.org/article/ASENS_1989_4_22_4_605_0.pdf",
+            "sha256": "a46e3549d05d2cd39f396ef326840f4484f3935ff3daa17e6339091962de9e94",
+            "retrieved": "2026-09-23",
+            "readSections": "Printed605-607/PDF2-4, introduction theorem and I.1.1 normalized induction. Image of printed605 checked. Full proof not read."
+          },
+          {
+            "title": "White historical preprint, not a proof certificate",
+            "url": "https://arxiv.org/pdf/1106.1127v7",
+            "sha256": "348488c5c066038b2425117bb946243767fe62171791c4786f80381dbef36710",
+            "retrieved": "2026-09-23",
+            "readSections": "Section6, Theorem6.1/Remarks6.2-6.3 and displayed proof through the spectral decomposition. The arXiv v8 record says withdrawn due to an error in the main proof; the precise affected step has not been located here."
+          },
+          {
+            "title": "White earlier IHES copy, comparison only",
+            "url": "https://preprints.ihes.fr/storage/trug.pdf",
+            "sha256": "f7513bf17a48535ea73a7a776e5d198e3a75a79767de7865912c8534ec97fa89",
+            "retrieved": "2026-09-23",
+            "readSections": "Proposition2.1 and Theorem6.1/Remark6.2; this June2011 copy lacks the later Remark6.3, so it cannot substitute for the version cited by EGH."
+          },
+          {
+            "title": "White withdrawal metadata",
+            "url": "https://arxiv.org/abs/1106.1127",
+            "retrieved": "2026-09-23",
+            "readSections": "Version history and author's withdrawal notice dated2012-12-07; bibliographic warning only, not evidence that LLHLM's conclusion is false."
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -260,7 +310,7 @@
       ]
     }
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Global-descent continuation by codex-7e92bd adds26 items A34–A58 and L61: pairing/sign, integral trace descent, common-residue gluing, positive automorphic sign and the p-adic monodromy bound. A06 and A26 now import the carrier and image condition from ArithmeticGaloisRepresentations; three source routes reuse existing supplier owners. N57 transitivity and power-rank facts are promoted as A57/A58; L61 imports the pinned partition order. Five definition/construction APIs have itemwise consumers and typed tests. E39 records an adjacent CHT scalar-inverse misprint; E40 repairs the unjustified Galois-closure step in the adjacent sign paper. The extraction remains partial. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial. A second cc-442dc5 pass adds itemwise interfaces for the §6 patching and §9 global definitions (P01–P08, V01–V06, V08, V10). A third cc-442dc5 pass adds itemwise interfaces for the §8 Breuil–Mézard definitions and records E41 (Lemma 8.4.9 notation). A fourth cc-442dc5 pass adds itemwise interfaces for the Appendix A deformation and patching definitions (A05–A11, A13, A15, A16, A19, A20, A22, A23) and records E42 (the adjoint representation of G_n).",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Global-descent continuation by codex-7e92bd adds26 items A34–A58 and L61: pairing/sign, integral trace descent, common-residue gluing, positive automorphic sign and the p-adic monodromy bound. A06 and A26 now import the carrier and image condition from ArithmeticGaloisRepresentations; three source routes reuse existing supplier owners. N57 transitivity and power-rank facts are promoted as A57/A58; L61 imports the pinned partition order. Five definition/construction APIs have itemwise consumers and typed tests. E39 records an adjacent CHT scalar-inverse misprint; E40 repairs the unjustified Galois-closure step in the adjacent sign paper. The extraction remains partial. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial. A second cc-442dc5 pass adds itemwise interfaces for the §6 patching and §9 global definitions (P01–P08, V01–V06, V08, V10). A third cc-442dc5 pass adds itemwise interfaces for the §8 Breuil–Mézard definitions and records E41 (Lemma 8.4.9 notation). A fourth cc-442dc5 pass adds itemwise interfaces for the Appendix A deformation and patching definitions (A05–A11, A13, A15, A16, A19, A20, A22, A23) and records E42 (the adjoint representation of G_n). Continuation codex-a71f92 adds A59-A62: a source-qualified Labesse compact-unitary branch, the discrete Speh quotient/classification and the conditional positive-summand irreducibility adapter. The White withdrawal is recorded as a source-provenance warning, not a newly proved error in LLHLM. The complete Speh-factor Galois twist realization, coefficient/type dictionary and genericity interface remain open.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -11360,9 +11410,12 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A50",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A51",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A52",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A61",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62"
       ],
-      "proofOutline": "Thorne first defines H_i,Q and its image Hecke algebra T_i,Q. Proposition5.9 identifies the projected level0 module with the original-level module. Proposition5.12 supplies the scalar-inertia splitting on the projected level1 image algebra. Apply these at each v∈Q; the operators at distinct places commute. The raw global representation and its local compatibility remain explicit global suppliers, rather than being inferred from the projector calculation alone. EGH supplies characteristic-zero representations in the correct arbitrary-rank compact-unitary setting, with Frobenius-semisimplified compatibility away from p and only semisimplified compatibility at p. CHT glues constituent representations over the reduced integral Hecke algebra using its Lemmas2.1.4,2.1.5,2.1.12; those exact descent declarations, the polarization sign and the requisite genericity consequence still need individual supplier checks. CHT3.4.4(8) itself also passes to a selected Hecke image T(Y). The integral descent is now split into A34–A50, the prescribed sign into A51–A52, and the p-adic monodromy bound into A53–A55. The unitary-to-cuspidal base-change identification and its generic local constituents are still required: A50 supplies irreducibility of the Galois representation but is not by itself an automorphic base-change theorem.",
+      "proofOutline": "Thorne first defines H_i,Q and its image Hecke algebra T_i,Q. Proposition5.9 identifies the projected level0 module with the original-level module. Proposition5.12 supplies the scalar-inertia splitting on the projected level1 image algebra. Apply these at each v∈Q; the operators at distinct places commute. The raw global representation and its local compatibility remain explicit global suppliers, rather than being inferred from the projector calculation alone. EGH supplies characteristic-zero representations in the correct arbitrary-rank compact-unitary setting, with Frobenius-semisimplified compatibility away from p and only semisimplified compatibility at p. CHT glues constituent representations over the reduced integral Hecke algebra using its Lemmas2.1.4,2.1.5,2.1.12; those exact descent declarations, the polarization sign and the requisite genericity consequence still need individual supplier checks. CHT3.4.4(8) itself also passes to a selected Hecke image T(Y). The integral descent is now split into A34–A50, the prescribed sign into A51–A52, and the p-adic monodromy bound into A53–A55. The unitary-to-cuspidal base-change identification and its generic local constituents are still required: A50 supplies irreducibility of the Galois representation but is not by itself an automorphic base-change theorem. Continuation codex-a71f92 splits the compact-unitary base-change input as A59, the residual-spectrum carrier/theorem as A60-A61, and the positive-summand irreducibility argument as A62. LLHLM Section9.1 already assumes F+ is not Q, so Labesse's degree restriction is available. The exact algebraic normalization and Galois realization of all Speh factors, and the local genericity/type dictionary, remain explicit gaps; the withdrawn White preprint is not used as an unqualified closure certificate.",
       "implementationStatus": "unchecked",
       "note": "Exact cited supplier, freshly read in continuation codex-c83e7a. No Lean implementation."
     },
@@ -12092,6 +12145,152 @@
       "implementationStatus": "unchecked",
       "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: SmoothRepresentationsPartII.",
       "proofOutline": "For a decreasing Jordan partition λ set S_i=Σ_(j≤i)λ_j and R_a=Σ_j max(λ_j−a,0). Then R_a=max_i(S_i−ia) and S_i=min_(a≥0)(ia+R_a), so prefix-sum order is equivalent to all R_a inequalities. A Jordan block of size d contributes max(d−a,0) to rank(N^a). The Jordan-basis supplier remains to audit at the pins; only the partition order is imported as already implemented."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
+      "kind": "theorem",
+      "name": "Compact-unitary base change retains discrete constituents and split-place comparison",
+      "locator": "Labesse, Changement de base CM et series discretes, author PDF pp.1-2,42-44, Corollary5.3 and its proof; LLHLM23 Section9.1 PDF180-181.",
+      "statement": "Let F+ be totally real with [F+:Q]>1, F/F+ CM, and G an inner form of U(n) compact at every infinite place. For a discrete automorphic representation sigma of G(A_F+), Labesse's sign condition (*) is automatic. There exist n=sum_i n_i and conjugate-self-dual discrete automorphic representations Delta_i of GL_(n_i)(A_F) whose isobaric sum is a weak base change of sigma, agreeing with local base change at split and unramified places. Its infinite component is cohomological with the source's coefficient and infinitesimal-character comparison. If every Delta_i is cuspidal, the infinite component is the actual archimedean base change. Do not replace discrete by cuspidal without that additional argument.",
+      "status": "planned",
+      "planned": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofOutline": "Use ET.4's stable/twisted trace identity, separate finite Hecke characters, and use the common-sign condition to prevent cancellation of the selected discrete packet. Labesse5.3 then uses the GL residual-spectrum classification and rigidity. Compact infinity gives (*). The LLHLM field restriction supplies [F+:Q]>1; no extension to F+=Q is inferred. The trace-formula and spectral proofs remain with their existing owners.",
+      "note": "Codex — codex-a71f92 source continuation, 2026-09-23. This explicitly sourced Labesse branch avoids treating the withdrawn White preprint as an unqualified proof certificate. It does not settle the later Galois twist/constituent assembly."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A60",
+      "kind": "construction",
+      "name": "Discrete Speh quotient with normalized exponents",
+      "locator": "Moeglin-Waldspurger, Le spectre residuel de GL(n), printed605-607/PDF2-4; introduction and I.1.1.",
+      "statement": "For a unitary cuspidal automorphic representation pi of GL_m(A_F), F a number field, and b>=1, define Speh(pi,b) as the unique irreducible quotient of normalized parabolic induction of pi|det|^((b-1)/2), pi|det|^((b-3)/2), ..., pi|det|^((1-b)/2) to GL_(mb)(A_F). This is the discrete residual-spectrum quotient, not the generalized Steinberg subrepresentation with the opposite quotient convention.",
+      "status": "planned",
+      "planned": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A61",
+          "how": "Parameterizes every discrete GL constituent supplied by A59, including noncuspidal ones."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62",
+          "how": "Provides the positive block length whose multiple Galois summands must be excluded, after their exact twists have been proved."
+        }
+      ],
+      "api": [
+        {
+          "name": "DiscreteSpeh.quotient",
+          "role": "constructor",
+          "statement": "Construct the normalized induced representation, its unique irreducible quotient and the quotient morphism for m,b>=1; keep the ordered exponents as part of the comparison theorem."
+        },
+        {
+          "name": "DiscreteSpeh.rank",
+          "role": "projection",
+          "statement": "The ambient general linear group has rank m*b."
+        },
+        {
+          "name": "DiscreteSpeh.length_one",
+          "role": "relation",
+          "statement": "Speh(pi,1) is canonically isomorphic to pi."
+        },
+        {
+          "name": "DiscreteSpeh.character_twist",
+          "role": "functoriality",
+          "statement": "For a unitary idele-class character chi, twisting pi by chi composed with det twists Speh(pi,b) by the same chi composed with the larger determinant."
+        },
+        {
+          "name": "DiscreteSpeh.unramified_support",
+          "role": "characterisation",
+          "statement": "At a finite place where pi is unramified, the quotient is spherical and its Satake multiset is the union of the Satake parameters of the displayed b normalized twists; this does not assert a nonzero monodromy block."
+        }
+      ],
+      "tests": [
+        {
+          "name": "DiscreteSpeh.b_one",
+          "kind": "degenerate",
+          "statement": "At b=1 the single exponent is zero and the quotient is pi, not a new carrier."
+        },
+        {
+          "name": "DiscreteSpeh.GL2_character",
+          "kind": "computation",
+          "statement": "At a nonarchimedean place, the unique irreducible quotient of normalized induction of chi|.|^(1/2), chi|.|^(-1/2) is chi composed with det."
+        },
+        {
+          "name": "DiscreteSpeh.not_Steinberg",
+          "kind": "non-example",
+          "statement": "For unramified chi in the preceding GL2 case, the quotient is spherical with zero WD monodromy; it is not the Steinberg twist, which is the other constituent and has rank-one monodromy."
+        },
+        {
+          "name": "DiscreteSpeh.twist_then_form",
+          "kind": "compatibility",
+          "statement": "Twisting every inducing factor by the same character commutes with forming the quotient; b and the ambient rank m*b are unchanged."
+        }
+      ],
+      "note": "Source theorem and carrier are planned in the existing ET.7a residual-spectrum target. The full Moeglin-Waldspurger proof was not reread here."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A61",
+      "kind": "theorem",
+      "name": "Discrete GL spectrum consists of Speh quotients",
+      "locator": "Moeglin-Waldspurger, Le spectre residuel de GL(n), introduction theorem printed605-606/PDF2-3.",
+      "statement": "Over a number field F, an irreducible representation in the discrete automorphic spectrum of GL_N(A_F) with fixed unitary central character occurs with multiplicity one and is a Speh(pi,b) for N=m*b and a unitary cuspidal representation pi of GL_m(A_F), with the matching central character. The cuspidal-support class determines the corresponding Speh quotient. Thus a discrete constituent in A59 need not itself be cuspidal: b>1 is a genuine residual possibility.",
+      "status": "planned",
+      "planned": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A60"
+      ],
+      "implementationStatus": "unchecked",
+      "proofOutline": "Import the existing ET.7a Moeglin-Waldspurger proof target. The introduction identifies the only nonzero discrete cuspidal-support classes as repeated equal cuspidal factors and their unique irreducible quotient at the symmetric exponent string. Its number-field assertion gives one constituent in each such class. This continuation verified the theorem statement and quotient normalization, not the seventy-page proof.",
+      "note": "Keep the spectral theorem separate from the Galois representation attached to its algebraically normalized cuspidal factors; the latter belongs to AG2.2."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62",
+      "kind": "theorem",
+      "name": "Absolute residual irreducibility excludes every nontrivial discrete block decomposition",
+      "locator": "Explicit adapter for LLHLM23 TheoremA.4.1; A50 plus the constituent interface of Labesse5.3 and the Moeglin-Waldspurger introduction.",
+      "statement": "Let O be the integers of a finite extension K/Qp, let R be a continuous n-dimensional representation with a stable free O-lattice whose reduction is absolutely irreducible, and suppose a proved Galois-equivariant isomorphism over Kbar identifies R with the direct sum over 1<=i<=r and 0<=j<b_i of Q_(i,j) tensor chi_(i,j), where r,b_i>=1, each Q_(i,j) has positive dimension m_i and each chi_(i,j) is a character. Then r=1 and b_1=1 (hence m_1=n). In particular a compatible Galois realization of A59's Speh blocks forces exactly one cuspidal block. Equality of ranks or a proposed automorphic decomposition alone is not the required isomorphism.",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7"
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A50",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A61"
+      ],
+      "implementationStatus": "unchecked",
+      "proofOutline": "A50 makes R absolutely irreducible. If sum_i b_i>1, the image of any one nonzero direct summand is a proper nonzero invariant subspace because all remaining summands have positive dimension. Hence sum_i b_i=1; positivity yields r=b_1=1. Repeated or isomorphic summands still give such subspaces. To apply this in A30, separately prove the algebraic normalization of each cuspidal factor, attach its Galois representation, match the exact cyclotomic/half-normalization twists on Frobenius polynomials, and invoke a proved density plus semisimple-uniqueness theorem. Those automorphic-to-Galois assembly inputs are not supplied by this elementary argument.",
+      "tests": [
+        {
+          "name": "SingleBlock.two_isobaric_parts",
+          "kind": "non-example",
+          "statement": "Dimensions 1+3 give total rank4 but an invariant rank1 summand; rank equality alone does not imply irreducibility."
+        },
+        {
+          "name": "SingleBlock.residual_Speh_length_two",
+          "kind": "non-example",
+          "statement": "One Speh block with m=2,b=2 still gives two nonzero Galois summands after the realization theorem, so r=1 alone is insufficient."
+        },
+        {
+          "name": "SingleBlock.repeated_characters",
+          "kind": "non-example",
+          "statement": "The sum chi direct-sum chi is reducible despite identical Frobenius eigenvalues; distinct eigenvalues are not needed in the proof."
+        },
+        {
+          "name": "SingleBlock.n_one",
+          "kind": "degenerate",
+          "statement": "If n=1 and all summand dimensions are positive, the count forces r=b_1=m_1=1."
+        }
+      ],
+      "note": "A consumer-specific use of AG2.2's rank/discrete-parameter comparison and AG2.7's residual interface, not a second general residual-irreducibility theorem. No claim of genericity or full monodromy compatibility is deduced here."
     }
   ],
   "prerequisites": [
@@ -12812,9 +13011,24 @@
       "items": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A51",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A53",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62"
       ],
       "reason": "The automorphic sign and coefficient-prime monodromy comparison belong to the existing polarized automorphic-system layers. The LLHLM consumer still needs the explicit unitary-to-cuspidal transfer hypotheses."
+    },
+    {
+      "route": "source",
+      "roadmap": "EndoscopicTransferAndUnitaryTraceComparison",
+      "stages": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A61"
+      ],
+      "reason": "Reuse the pure automorphic base-change and GL residual-spectrum owners. Labesse5.3 supplies the compact-unitary branch with [F+:Q]>1 and split-place comparison; Speh classification remains ET.7a, not a new patching or Galois roadmap. Exact Galois realization and twist comparison stay in AG2.2."
     }
   ],
   "sourceIssues": [
@@ -13491,7 +13705,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18"
       ],
-      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed. CHT2.1.1/2.1.4/2.1.5/2.1.8–2.1.12 and3.4.4 descent have now been freshly read and split as A34–A50, with fixed multiplier explicit. Bellaïche–Chenevier published1.2 and BLGGT l=p II1.1 supply A51/A53. Remaining fine inputs include the self-dual-lattice maximality argument, the complete-local Carayol recursion, split-prime Chebotarev, residual Brauer–Nesbitt and, critically, the unitary strong-base-change decomposition identifying these constituents with RACSDC cuspidal systems and proving generic local components. Do not mark the latter implication closed merely from A50."
+      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed. CHT2.1.1/2.1.4/2.1.5/2.1.8–2.1.12 and3.4.4 descent have now been freshly read and split as A34–A50, with fixed multiplier explicit. Bellaïche–Chenevier published1.2 and BLGGT l=p II1.1 supply A51/A53. Remaining fine inputs include the self-dual-lattice maximality argument, the complete-local Carayol recursion, split-prime Chebotarev, residual Brauer–Nesbitt and, critically, the unitary strong-base-change decomposition identifying these constituents with RACSDC cuspidal systems and proving generic local components. Do not mark the latter implication closed merely from A50. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs."
     },
     {
       "id": "split-and-hypotheses",
@@ -13553,7 +13767,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G22",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q02"
       ],
-      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement. A06,A34,A35,A46,N57 now have separate consumer-derived APIs and at least three typed tests. The latest validation census supersedes earlier numerical counts. Current literal census: 15 of 155 entries complete in that form; 140 remain. Continuation cc-442dc5 (Claude Code), in four passes, supplied itemwise uses, API and at least three typed tests for the §2 entries N01–N66 that lacked them (published PDF24–53), the §6/§9 entries P01–P08, V01–V06, V08 and V10 (PDF125–131, PDF180–186), the §8 entries B01–B07, B09, B12–B14, B18, B19, B22, B27, B34 and B36 (PDF162–180) and the Appendix A entries A05, A07–A11, A13, A15, A16, A19, A20, A22 and A23 (PDF188–201). Its N57 and A06 interfaces were superseded by the concurrent codex-7e92bd versions from #2317, which are kept. After merging #2317, the literal census is 90 of 155 entries complete in that form; 65 remain."
+      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement. A06,A34,A35,A46,N57 now have separate consumer-derived APIs and at least three typed tests. The latest validation census supersedes earlier numerical counts. Current literal census: 15 of 155 entries complete in that form; 140 remain. Continuation cc-442dc5 (Claude Code), in four passes, supplied itemwise uses, API and at least three typed tests for the §2 entries N01–N66 that lacked them (published PDF24–53), the §6/§9 entries P01–P08, V01–V06, V08 and V10 (PDF125–131, PDF180–186), the §8 entries B01–B07, B09, B12–B14, B18, B19, B22, B27, B34 and B36 (PDF162–180) and the Appendix A entries A05, A07–A11, A13, A15, A16, A19, A20, A22 and A23 (PDF188–201). Its N57 and A06 interfaces were superseded by the concurrent codex-7e92bd versions from #2317, which are kept. After merging #2317, the literal census is 90 of 155 entries complete in that form; 65 remain. A60 has its own uses/API/four typed tests in continuation codex-a71f92. Updated literal census:91 of156 definitions/constructions,65 outstanding; earlier counts are historical."
     },
     {
       "id": "library-item-audit",
@@ -13983,7 +14197,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30"
       ],
-      "detail": "Thorne projector statements/proofs, EGH Theorem7.2.1 with its §7.1 setting, and CHT Proposition3.4.4 with proof and the projected use on PDF114–115 have now been read. Do not list these bounded sources as wholly unread. Finish exact atom closure for CHT2.1.4/2.1.5/2.1.12 integral polarized descent, the prescribed multiplier sign, generic local constituents and the at-p monodromy-dominance passage in the arbitrary-away-level setting. EGH gives only semisimplified compatibility at p, so it cannot silently supply equality of monodromy. E38 remains the missing unprojected implication; use A30–A33 on projected Hecke images."
+      "detail": "Thorne projector statements/proofs, EGH Theorem7.2.1 with its §7.1 setting, and CHT Proposition3.4.4 with proof and the projected use on PDF114–115 have now been read. Do not list these bounded sources as wholly unread. Finish exact atom closure for CHT2.1.4/2.1.5/2.1.12 integral polarized descent, the prescribed multiplier sign, generic local constituents and the at-p monodromy-dominance passage in the arbitrary-away-level setting. EGH gives only semisimplified compatibility at p, so it cannot silently supply equality of monodromy. E38 remains the missing unprojected implication; use A30–A33 on projected Hecke images. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs."
     },
     {
       "id": "global-descent-supplier-atoms",
@@ -14002,7 +14216,17 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55"
       ],
-      "detail": "Source statements and proof decompositions are established at the recorded reading depth; formal supplier closure is not. Audit Baire/countability of finite p-adic extensions; the self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology. For A54 prove the precise inertia Clifford decomposition and equivalence of Jordan-partition dominance with all power ranks. For A30/A55 audit White/Labesse strong unitary base change, the decomposition into regular algebraic cuspidal systems with twists, cuspidality/genericity from the absolutely irreducible residual eigensystem, the σ(λ,τ)^* coefficient/constituent dictionary, and the deformation quotient point criterion. BC sign and BLGGT monodromy theorem statements are imported from their existing owners, not newly proved. The whole BC eigenvariety proof has not been read in this continuation."
+      "detail": "Source statements and proof decompositions are established at the recorded reading depth; formal supplier closure is not. Audit Baire/countability of finite p-adic extensions; the self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology. For A54 prove the precise inertia Clifford decomposition and equivalence of Jordan-partition dominance with all power ranks. For A30/A55 audit White/Labesse strong unitary base change, the decomposition into regular algebraic cuspidal systems with twists, cuspidality/genericity from the absolutely irreducible residual eigensystem, the σ(λ,τ)^* coefficient/constituent dictionary, and the deformation quotient point criterion. BC sign and BLGGT monodromy theorem statements are imported from their existing owners, not newly proved. The whole BC eigenvariety proof has not been read in this continuation. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs."
+    },
+    {
+      "id": "unitary-base-change-source-version",
+      "neededBy": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62"
+      ],
+      "detail": "EGH7.2.1 cites White6.1/6.3; the v8 arXiv record withdraws that preprint due to an error in its main proof. The June2011 IHES copy also differs from v7 and has no6.3. For the LLHLM branch use the now-read Labesse5.3 under its actual degree/compactness hypotheses, with ET.4/ET.7a as owners. Finish exact constituent twists and the automorphic/Galois comparison; do not infer full cuspidality or genericity merely from a weak transfer. The specific faulty step in White, later repairs, and the full generality of EGH outside LLHLM's F+!=Q setting have not been audited. This is a source-reliability boundary, not a confirmed new error finding or a refutation of EGH/LLHLM."
     }
   ],
   "sourceData": {
@@ -15506,6 +15730,52 @@
         "remainingDefinitionConstructionCensus": 65,
         "sourceIssues": 42,
         "note": "The per-pass counts above were taken on the pre-#2317 base of 152 entries; this subkey supersedes them."
+      }
+    },
+    "codexA71f92BaseChange": {
+      "date": "2026-09-23",
+      "base": "eb1e3cd2954d8c15df51f330604a9c9c490d8fc0",
+      "scope": "A59-A62, A30 dependency/proof refinement, one source route to existing ET.4/ET.7a, and source-version/gap/provenance updates. All506 previous items retained; no old statement/status/API/test changed; all42 sourceIssues unchanged.",
+      "libraryScope": "Read the reviewed AG2 coverage rows and all named supplier descriptions. Fresh exact-family keyword searches in both pinned trees found no corresponding automorphic base-change/Speh implementation; the sole Whittaker match was a bibliography name in an interval-integral file. New items are classified planned by their explicit stage contracts, not declared missing from this keyword result. No new library declaration is claimed.",
+      "lean": "Not run; no Lean deliverable for this paper extraction.",
+      "status": "partial",
+      "checks": {
+        "paper": "ok",
+        "intake": "3 files, 0 problems",
+        "unitTests": {
+          "test_check_paper": 9,
+          "test_papers_queue": 3,
+          "test_intake": 29
+        },
+        "structural": {
+          "items": 510,
+          "statuses": {
+            "missing": 431,
+            "planned": 18,
+            "library": 61
+          },
+          "routes": 19,
+          "sourceIssues": 42,
+          "definitions": 156,
+          "withApiUsesTests": 91,
+          "remainingApis": 65,
+          "internalEdges": 288,
+          "acyclic": true,
+          "oldItemChanges": {
+            "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30": [
+              "prerequisites",
+              "proofOutline"
+            ]
+          },
+          "positiveRankConfigurations": 4339,
+          "singleSummandCases": 4,
+          "properSummandControls": 4335,
+          "exponentStrings": 12,
+          "twistChecks": 84
+        },
+        "freshMain": "f9d7f937e0a52bd35d154725f40bf76094f73abc",
+        "guardedInputs": 309,
+        "guardedDeliverables": "All3 unchanged from the claimed base before replay."
       }
     }
   },
