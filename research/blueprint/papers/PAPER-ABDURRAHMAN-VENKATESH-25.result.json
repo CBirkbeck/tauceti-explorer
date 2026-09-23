@@ -14,6 +14,11 @@
       "Page numbers and statement numbers are those of arXiv v1. The published version (123 pp.) is paywalled and was not read."
     ]
   },
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "note": "Added by the review (issue #1210): the extraction recorded no pinned commits. All five declarations cited by the single library item were re-read at these commits: mathlib:groupHomology (Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean:230), mathlib:groupCohomology (.../GroupCohomology/Basic.lean:186), mathlib:legendreSym.quadratic_reciprocity (Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean:107), mathlib:QuadraticForm.discr (Mathlib/LinearAlgebra/QuadraticForm/Basic.lean:1280) and mathlib:Sylow (Mathlib/GroupTheory/Sylow.lean:55). No Tau Ceti declaration is cited."
+  },
   "summary": "Abdurrahman and Venkatesh prove that the central value of a symplectic L-function over a curve over a finite field is, up to squares, a global cohomological invariant. For X/F_q and ρ : π_1(X) → Sp_{2r}(ℓ) geometrically surjective, ℓ a finite field with #ℓ ≡ ±1 (mod 8) and q ≡ 1 (mod 8) a square in the prime field of ℓ and prime to #Sp_{2r}(ℓ), L(X, ρ, q^{−1/2}) ≡ trace_X(ρ^*c_et) in ℓ^×/2, where c_et ∈ H^3(Sp_{2r}(ℓ), ℓ^×/2) is Soulé's étale Chern class (Theorem 3.1). The key input is a topological theorem (Theorem 2.1): for a closed oriented 3-manifold with a symplectic local system over any field of characteristic ≠ 2, the Reidemeister torsion square class equals ±∫ρ^*c_et. It is proved by bordism invariance, K-theory of number fields (Merkurjev–Suslin, Hutchinson–Tao), Chebotarev and an explicit example over Q(i). The arithmetic theorem is deduced from the topological one on Hurwitz stacks of Sp_{2r}(ℓ)-covers: their difference is a Dirichlet character (Step A), shown unramified outside 2ℓ by slicing Hilbert–Siegel modular varieties (Step B). The atlas plans the étale Chern class, Merkurjev–Suslin, spinor norms, Witt groups, PEL moduli and their compactifications, Weil II and tame specialization. It has nothing on Reidemeister torsion, Poincaré complexes, determinant functors with signs, oriented bordism, L-functions and ε-factors with torsion coefficients, Hurwitz stacks of unramified covers of curves, or the paper's moment-method slicing. Two new plans are proposed: the topological half (route A, new) and the arithmetic half (route B, a Part II of FunctionFieldArithmetic). Source routes send the finite-field Sp/SL homology lemmas to KTheoryFiniteLocalFields L.1, Suslin's Hurewicz theorem and Hutchinson–Tao to K3BlochGroups, Chebotarev for arithmetic schemes to AnalyticNumberTheory AN.4, and L-functions with finite coefficients to FunctionFieldArithmetic FA.5. Two gaps in arXiv v1 reach the main theorem: Lemma 5.1.1 (and with it the proof of Theorem 3.1) fails for r = 1, #ℓ = 9, since H_2(SL_2(F_9), Z) = Z/3; and Lemma 5.2.1 applies (1.5) with finite coefficients, where the paper proves it only in characteristic 0. The base-change statement of Appendix B.10 holds only for the normalized torsion.",
   "items": [
     {
@@ -1118,7 +1123,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. TeX l. 802-810 prints the form as <e_i,f_j> = delta_ij and <e_i,e_j> = <f_i,f_j> = 1, which is not alternating, so its automorphism group is not Sp; and the same paragraph indexes the basis by 1 <= i <= g, takes the limit over g and writes R^{2g}, while g is the genus of the curve or surface everywhere else in the paper and the rank parameter is r. Both are typographical.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E2",
@@ -1134,7 +1144,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Theorem 2.2 (TeX l. 1302-1307) says 'oriented 4r-manifold', but r is fixed by the paper's notation as the half-rank of the Sp_{2r}-valued local system, so as printed the hypothesis ties the dimension of N to the rank of rho. Appendix B.8, where the theorem is proved (l. 8792-8794), assumes N of dimension 2k with k even, and every application takes dim N = 4 with M a closed 3-manifold.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E3",
@@ -1150,7 +1165,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the exception is exactly the one named. Lemma 2.7.1 (TeX l. 1484) asserts that Sp_{2r}(F_q) and SL_{2r}(F_q) have vanishing integral H_2 for odd q, citing Steinberg. The Schur multiplier of the universal Chevalley group A_1(q) is trivial except for q = 4 and q = 9; for q = 9, SL_2(9) = 2.A_6, the Schur multiplier of A_6 is Z/6 and the universal central extension is 6.A_6, so H_2(SL_2(F_9), Z) = Z/3. The extraction's independent Sylow computation gives the same answer, and q = 4 is even, hence outside the lemma. Within Lemma 2.7.1 nothing is lost, since only H_2/2 = 0 is used, and odd order suffices; the consequence is in Lemma 5.1.1 (E4).",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E4",
@@ -1166,7 +1186,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and this is the finding that matters most. Lemma 5.1.1 (TeX l. 4596-4601) deduces irreducibility of the geometric fibre of the Hurwitz stack from Dunfield-Thurston Theorem 6.25 'since H_2(G, Z) is trivial in the case at hand', with G = Sp_{2r}(ell) (l. 4498) and ell any finite field of characteristic other than 2 and p (l. 2928). By E3, H_2(G, Z) = Z/3 when r = 1 and #ell = 9, and the Livingston/Dunfield-Thurston theorem the proof cites classifies the mapping class group orbits by the invariant phi_*[Sigma_g] in H_2(G, Z), so for g large the fibre has at least three components. The case is inside Theorem 3.1: #ell = 9 is 1 mod 8 as its hypothesis requires (l. 3276), and admissible pairs exist there - take q = 73, which is 1 mod 8, prime to #SL_2(F_9) = 720, and a square in the prime field F_3 since 73 = 1 mod 3. So the proof of step (A) does not cover r = 1, #ell = 9, and the design job must exclude that case or run the argument component by component. The route brief already carries this instruction.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E5",
@@ -1182,7 +1207,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and I redid the computation. With n = dim H^1 and the symplectic self-duality <Fx,Fy> = q<x,y>, the eigenvalues of F pair as alpha and q/alpha, so L(1/(qt)) = (-1/(qt))^n det(F) L(t) and hence epsilon(t) = L(t)/L(1/(qt)) = (-qt)^n det(F)^{-1}. Since det F = q^{n/2} det Fbar with det Fbar = +-1 and n is even, this is (-sqrt(q) t)^n det Fbar, the paper's own right-hand side. The printed middle expression (TeX l. 3016) has det(F|H^1) in the numerator rather than its inverse, so it is q^n times too large. The conclusion epsilon(rho, 1/sqrt(q)) = det Fbar is unaffected.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E6",
@@ -1198,7 +1228,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The conditions are listed at TeX l. 3477-3480: (c) is 'rho-bar_lambda is geometrically surjective' and (d) is 'lambda has degree one'. The bullet at l. 3486 attributes geometric surjectivity to (d), and (d) is used for its own purpose two bullets later (l. 3491). The other half of the finding is equally clear: J_lambda is the image of the residual representation, so it lies in GSp_{2r}(k_lambda), not in Sp_{2r}(o_lambda).",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E7",
@@ -1214,7 +1249,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Pic(X) for X a curve over a finite field is infinite - the degree map gives Pic(X) -> Z with finite kernel Pic^0(X)(k) - so Hom(Pic(X), A) contains Hom(Z, A) = A and the displayed map to the product of local Hom's cannot be injective; those extra homomorphisms are the constant-field extensions. What the argument needs is surjectivity, which holds because Pic(X) = Z + Pic^0(X)(k) with #Pic^0(X)(k) prime to #A once condition (a) bounds m by the class number rather than by the size of Pic(X), which is what the extraction's correction says. The conclusion is unaffected.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E8",
@@ -1230,7 +1270,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The choice 'let D be the smallest integer such that E = dim Gamma(S-circ, O(D)) >= 6N' puts no lower bound on D itself: for a surface embedded in a large projective space, hyperplane sections already give E >= 6N with D = 1, and distinct points need not impose independent conditions on hyperplanes (three collinear points impose two). Lemma 6.4.2 needs the r <= 2N chosen points to impose independent conditions, which Poonen's Lemma 2.1, the source the paper cites, supplies once D >= r - 1. Taking D >= max(D_E, 2N - 1) restores the argument, and Lemma 6.4.1 allows every sufficiently large D, so nothing else changes.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E9",
@@ -1246,7 +1291,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. TeX l. 6187 defines f-gothic(h) as the trace of geometric Frobenius on H^1(X_h, rho_lambda), and l. 6190 then equates it with the sum of f(x) over the F_q-points. Grothendieck-Lefschetz gives that sum as the alternating sum of traces on H^i_c, which under the paper's own vanishing of H^0 and H^2 (stated on l. 6191) is minus the trace on H^1. Only even powers f-gothic(h)^{2N} are used afterwards, so nothing downstream changes.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E10",
@@ -1262,7 +1312,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. At TeX l. 6357-6360 the quantity estimated is the sum of f(x)^2, which is the trace of Frobenius on rho_lambda tensor rho_lambda, so the relevant geometric invariants are those of rho_lambda tensor rho_lambda - one-dimensional, by irreducibility and self-duality - and not those of rho_lambda, which are zero because H^0 vanishes. The estimate itself is right.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E11",
@@ -1278,7 +1333,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 6.5.1 (TeX l. 6477) says 'unramified outside m', while the parallel Lemma 6.5.2 three lines later (l. 6498) says 'unramified at m', and the proof takes M_1 to be the field M of Lemma 6.3.2, which is unramified outside 2Delta and in particular at m. Section 6.5 uses the 'at m' form.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E12",
@@ -1294,7 +1354,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. TeX l. 7430-7432 says the skew form <dx,y> 'descends to a perfect skew-symmetric pairing on the cokernel of d. Therefore, this cokernel is even dimensional'. The radical of that form on C_0 is ker d, so what it descends to is the perfect pairing on C_0/ker d, isomorphic to the image of d; what follows is that rank d is even, which is what (A.11) needs. The printed claim about the cokernel is false in general, and the extraction's two-term complex with zero differential is a clean witness. (A.11) itself stands.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E13",
@@ -1310,7 +1375,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. In the splitting table of Appendix A.7, every entry of the two rows sits one degree to the left of where the header places it: E_0 and Z_0 are subspaces of C_0 and so belong in degree 0, B_1 and E_1 in degree 1, and the surrounding text says R is supported in degrees 0 and 1.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E14",
@@ -1326,7 +1396,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, all four. TeX l. 7789 writes 'for n >= 1 we iterate theta ... and for n <= 1 we invert', where n <= -1 is meant, n = 1 being in the first case. TeX l. 7833 fixes a basis a_1,...,a_m for A, while every later formula writes a_1,...,a_n. The brutal truncation sequence at l. 8058 ends in C_r[-r] where the quotient of sigma_{>=r-1} by sigma_{>=r} is C_{r-1} in degree r-1, that is C_{r-1}[1-r]. And 'the three entries of (B.3)' is an eqref of the subsection label, which prints as an equation number rather than the sequence meant.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E15",
@@ -1342,7 +1417,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. D = cone(f) contains C^vee[-n], not C, as the subcomplex that (A.9) exhibits as Lagrangian, and the Lagrangian used in Appendix B.8 is the analogous one. No d is in scope where the sign (-1)^d is written, and the conclusion of the same computation reads (-1)^r. The labels D_1 and D_2 are also interchanged: the two-term complex [V -> V^*] is acyclic, which is what the proof asserts of the object it calls D_2, while Q + Q^vee[1-n] is not.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E16",
@@ -1358,7 +1438,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Section B.5.2 has no item (c); the list (a)-(c) is in B.6, and the proof of Lemma C.2.1 cites it correctly. The second half is the same eqref-of-a-subsection-label defect: TeX l. 8796 writes 'defined as in \\\\eqref{RTdef0}', which prints as an equation number although the subsection B.7 is meant.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E17",
@@ -1374,7 +1459,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, all four. The complex being split at TeX l. 9025-9030 is V -> V (W having been split off earlier as the non-(+-1) part), and the acyclic summand's target is the span of Ne_i,...,N^{m_i}e_i, which the display at l. 9033-9034 itself uses; that display also prints N^{m_2-1}e_1 where e_2 is meant. The first alternative of the display at l. 9041-9042 is a bare matrix where a determinant is intended, as 'the determinant of the matrix ... that is' requires. And l. 9063 writes <M^m e, f> = -<M^{m-1}e, Me>, which should end in Mf; the identity follows from <Mx,y> = -<x,My>.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E18",
@@ -1390,7 +1480,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The left-hand side of (B.30) is RT(S^1,rho), and bordism invariance in the paper's own form gives (-1)^{chi_{1/2}/2} RT = 1, that is RT = (-1)^{h/2}, not 1. What is trivial is the spinor norm on the right-hand side, which is exactly what the displayed conclusion (B.37) asserts; only the sentence introducing it (TeX l. 9095-9096) names the wrong side.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E19",
@@ -1406,7 +1501,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and I verified it in the paper's own setting rather than relying on the computer calculation the extraction reports. Take the orthogonal circle example: V = H + H over R = Q[s]_(s), A_s = diag(1+s,(1+s)^{-1}) on the first hyperbolic plane and the identity on the second. Over the fraction field, the fixed space has h = 2, W is the first plane, det(1-A)|_W = -s^2/(1+s) = -(1+s) mod squares, disc(V^+) = disc(H) = -1, so the paper's formula (B.30) gives RT = (-1)^{h/2} spinor(A) = -(1+s). At s = 0 the automorphism is the identity, h = 4, W = 0, spinor = disc(H+H) = 1 and RT = +1, while the image of -(1+s) is -1, a nonsquare. So RT is not compatible with base change; the discrepancy is exactly (-1)^{(h_S-h_K)/2}, which is the normalizing sign of Theorem 2.2, and the normalized class is what base-changes. The printed proof's 'sign depending only on the dimension data of the complexes' is therefore too weak: it depends on the rank of the middle differential, which jumps under specialization. I note the limits of my check: this witness is orthogonal, and B.10 is stated for skew-symmetric rho with k even, where the paper says the other case 'should be identical'; the symplectic genus-two witness the extraction gives rests on a computation I did not redo. The main text uses only the normalized class, as Section 2.4 does, so nothing downstream is affected.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E20",
@@ -1422,7 +1522,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Zassenhaus's formula, as the paper states it at TeX l. 8950, gives the spinor norm as det(1-A)|_W times the discriminant of the form on the generalized 1-eigenspace, and (C.2) is deduced from it three lines below (l. 9905), so delta must be that discriminant. The form restricted to the actual fixed space is degenerate as soon as T is not semisimple there: for x = (1-T)y with x fixed and z fixed, <x,z> = <y,z> - <y,T^{-1}z> = 0, so ker(1-T) meets the radical. The examples of C.4 have h = 0, so nothing there is affected.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E21",
@@ -1438,7 +1543,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The vertical arrow of the diagram at TeX l. 10020 is labelled phi -> M^{-1} phi T, while T is defined three lines earlier (l. 9999) as the induced operator and the map being described composes with the mapping class t. TeX l. 10030 writes T : H^1(M,rho) -> H^1(M,rho), where T acts on H^1 of the fibre S (l. 9891) and H^1(M,rho) is zero in the examples. The word t = T_4^2T_2T_3T_1 at l. 10136 has to be read leftmost-twist-first for the matrices printed just after it to come out as printed, which the extraction checked and which I accept as its reading of the numerical appendix.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E22",
@@ -1454,7 +1564,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. chi is defined at TeX l. 10514 only on the index-two subgroup H, so chi(g) for g in G - H is undefined, and condition (i) at l. 10521 must read chi(ghg^{-1}) = chi(h)^{-1} for h in H; that is also what the transfer reformulation at l. 10528-10530 needs.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E23",
@@ -1470,7 +1585,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. TeX l. 10646 writes beta'(z^2 cup -1) in H^3(X, Z/2); beta' raises degree by one, so that class would live in H^4, which vanishes. The class the argument needs is beta'(z cup -1) = z^2 cup (-1), computed just above, which lies in the image of beta' and therefore dies in H^3(X, mu_4).",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E24",
@@ -1486,7 +1606,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, on every count. TeX l. 10694 makes alpha a character of Pic(X) while D.3 defines it on Pic(X-tilde) and the Dirichlet series at l. 10698 runs over divisors of X-tilde. TeX l. 10700 asks that alpha restricted to Pic^0 be trivial, and l. 10704 then uses 'the nontriviality of alpha on Pic^0' for the very next step, so 'trivial' is the slip. The count (h^0 - 1)/(q - 1) of effective divisors in a class needs h^0 to be the number of sections, which l. 10704 indeed says it is, so the extraction's parenthetical is right.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     },
     {
       "id": "PAPER-ABDURRAHMAN-VENKATESH-25/E25",
@@ -1502,7 +1627,12 @@
         "Crossref record of the published article, doi:10.1007/s00222-025-01349-6 (Invent. Math. 241 (2025), 717–839): no correction or update relation; a Crossref search for a correction found none",
         "The published version is not open access and was not read; whether it corrects these points is unknown",
         "Venkatesh's IAS web page: no revised version found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the paper flags the issue itself. Lemma C.2.1 (TeX l. 9889-9891) assumes the characteristic of ell is zero, and Section 2.3.2 (l. 1192) says the circle formula 'is true when the characteristic of K is zero, and likely holds in general'; the characteristic-zero input is the Jacobson-Morozov decomposition at l. 8972-8978 and the logarithm M = -log(A) at l. 9057. The proof of Lemma 5.2.1 (l. 4764) then applies that corollary to rho : pi_1(M) -> Sp_{2r}(ell) with ell the finite field of G = Sp_{2r}(ell) (l. 4750). So the topological input is used in positive characteristic and proved only in characteristic zero. The extraction's route brief already instructs the design job to plan (B.30) and Lemma C.2.1 over every field of characteristic other than 2, which is the right resolution.",
+        "by": "REV-PAPER-ABDURRAHMAN-VENKATESH-25"
+      }
     }
   ]
 }
