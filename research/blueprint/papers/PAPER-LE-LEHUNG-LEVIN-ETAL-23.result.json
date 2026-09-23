@@ -511,6 +511,32 @@
             ]
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-hjdg0j",
+        "date": "2026-09-23",
+        "main": "Bounded supplier continuation; preserve the inherited full212-page main-paper read attribution. No new full reading of LLHLM or CHT is claimed.",
+        "sources": [
+          {
+            "title": "Clozel–Harris–Taylor author manuscript",
+            "url": "https://virtualmath1.stanford.edu/~rltaylor/twugfin.pdf",
+            "sha256": "622e51ed167c35a05cdd002f867f6ba0d116da40f35386571c17a7b2fb60d7a2",
+            "readSections": [
+              "Fresh complete text reading of PDF107–108, Proposition3.4.4 proof and gluing step."
+            ]
+          },
+          {
+            "title": "Gabor Wiese, Galois Representations",
+            "url": "https://math.uni.lu/~wiese/notes/GalRep.pdf",
+            "version": "13 February2012,71 pages",
+            "sha256": "c8ee4f34ae5869b174bc16c6f41a14797c86a22b9791b3c4d236830008f92a58",
+            "readSections": [
+              "Fresh complete text reading of printed/PDF34–37, Theorem2.4.4 and Theorem2.4.6 with proofs, Remark2.4.7 and Corollary2.4.8; PDF37 checked as image.",
+              "Only the algebraically closed group version and its explicit p-divisibility proof are used. General arbitrary-field scalar-extension steps are not certified here. E52 excludes the generator-only assertion."
+            ]
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -529,7 +555,7 @@
       ]
     }
   },
-  "summary": "Partial extraction: 565 items (81 library, 21 planned, 463 missing), 21 routes and 51 unreviewed source findings. This continuation supplies explicit twisted self-dual lattices and continuous finite trace-algebra descent, with pinned duality/Burnside/trace/Hensel imports. Prescribed-congruence conjugators and the induced-topology comparison have explicit proof plans; other supplier queues and uniform Appendix B certificates remain open. No formal implementation or independent review is asserted.",
+  "summary": "Partial extraction: 576 items (86 library, 23 planned, 467 missing), 21 routes and 52 unreviewed source findings. This continuation supplies residual characteristic-polynomial recognition, split-prime conjugacy density and finite coefficient-module topology. It reuses pinned compactness and semisimple algebra, existing reconstruction/recognition and Chebotarev owners. Global analytic suppliers, other proof leaves and uniform Appendix B certificates remain open. No formal implementation or independent review is asserted.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -16031,10 +16057,13 @@
       "statement": "Let O be a complete DVR with finite residue field k. For a finite nonempty family of finite extensions K_i/Frac(O), write O_i for their rings of integers and k_i for their residue fields, with fixed embeddings k→k_i. Define A={(a,(x_i))∈k×∏O_i : x_i mod m_i is the image of a for every i}. Its coordinatewise operations make it a complete Noetherian local O-algebra with residue k and maximal ideal0×∏m_i. It is O-finite and O-torsionfree; projections to O_i and k are continuous.",
       "locator": "CHT Proposition3.4.4 proof, PDF108; explicit finite-O algebra adapter",
       "status": "missing",
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A102",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A103"
+      ],
       "implementationStatus": "unchecked",
       "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
-      "proofOutline": "The congruence condition defines an O-submodule of a finite O-module, hence a finite algebra. A tuple is a unit exactly when its common residue is nonzero; componentwise inverses have the same residue. Completeness follows from finite O-module completeness and equivalence of its adic topologies.",
+      "proofOutline": "The congruence condition defines an O-submodule of a finite O-module, hence a finite algebra. A tuple is a unit exactly when its common residue is nonzero; componentwise inverses have the same residue. Completeness follows from finite O-module completeness and equivalence of its adic topologies. A102 now supplies finite-module completeness and the explicit m^(da)⊂pi^a A⊂m^a comparison; A103 identifies the intrinsic topology with the coefficient-product subspace topology. Torsionfreeness follows by forgetting the redundant k coordinate into the nonempty product of torsionfree O_i.",
       "uses": [
         {
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
@@ -16105,11 +16134,12 @@
       "status": "missing",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A36",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A38"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A101"
       ],
       "implementationStatus": "unchecked",
       "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
-      "proofOutline": "First conjugate the residual GL_n representations. A36 makes the remaining difference a scalar square class on the nonidentity component. Enlarge the residue field to contain its square root, lift the residual conjugating matrix integrally, and conjugate. Equality of characteristic polynomials is converted to the residual isomorphism by Brauer–Nesbitt, a separate supplier; traces alone in arbitrary modular characteristic are not substituted."
+      "proofOutline": "First conjugate the residual GL_n representations. A36 makes the remaining difference a scalar square class on the nonidentity component. Enlarge the residue field to contain its square root, lift the residual conjugating matrix integrally, and conjugate. When the input residual isomorphism is obtained from the CHT split-prime polynomial data, A101 supplies it, including the upgrade from a simple semisimplification to the actual reduction and the finite coefficient extension. Traces alone in arbitrary modular characteristic are not substituted."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
@@ -16121,7 +16151,9 @@
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A45",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A46",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A47"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A47",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A102",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A103"
       ],
       "implementationStatus": "unchecked",
       "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
@@ -16134,10 +16166,13 @@
       "statement": "Let T⊂A be a closed subring of a topological ring and ρ:Δ→GL_n(A) continuous. If a subset C⊂Δ has dense conjugacy saturation and trρ(c)∈T for all c∈C, then trρ(Δ)⊂T. In the CM application C consists of Frobenius elements at the unramified split primes outside a finite set; the required density is the split-prime Chebotarev statement, not an assumption about all Frobenius elements being dense as selected representatives.",
       "locator": "CHT Proposition3.4.4 proof, PDF107–108; explicit continuity adapter",
       "status": "missing",
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A100",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A103"
+      ],
       "implementationStatus": "unchecked",
       "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
-      "proofOutline": "Trace is continuous and conjugation invariant, so its inverse image of T is closed and contains a dense subset. For finite-O T⊂A, compactness makes T closed in the Hausdorff A. Split-prime Chebotarev remains an imported arithmetic supplier."
+      "proofOutline": "Trace is continuous and conjugation invariant, so its inverse image of a closed coefficient subring contains the closure of the conjugacy saturation of C. A100 proves exactly that saturation is dense for both places above every good split base prime, with any finite exceptional set removed. A103 proves that a finite-O integral Hecke algebra inside the Hausdorff coefficient product is closed and has its intrinsic topology. These are explicit imports/adapters; the selected Frobenius representatives alone need not be dense."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A50",
@@ -17033,13 +17068,14 @@
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A77",
       "kind": "theorem",
       "name": "Frobenius characteristic polynomials on a conjugacy-dense set determine a semisimple representation",
-      "statement": "Let Delta be a topological group, C a subset of Delta whose conjugacy saturation is dense (the hypothesis of A49), and L an algebraically closed Hausdorff topological field of characteristic zero. Let rho_1,rho_2:Delta→GL_n(L) be continuous semisimple representations with det(1−rho_1(c)X)=det(1−rho_2(c)X) in L[X] for every c in C. Then rho_1 is isomorphic to rho_2. Equal characteristic polynomials give equal traces on C, hence on its conjugacy saturation, hence on Delta by continuity and density; in characteristic zero the trace of a semisimple representation determines it up to isomorphism, by linear independence of the irreducible characters. Both hypotheses are needed: without semisimplicity only the semisimplifications agree, and no modular (Brauer–Nesbitt) statement in characteristic p is claimed here — the residual statement used by this extraction is A50's.",
+      "statement": "Let Delta be a topological group, C a subset of Delta whose conjugacy saturation is dense (the hypothesis of A49), and L an algebraically closed Hausdorff topological field of characteristic zero. Let rho_1,rho_2:Delta→GL_n(L) be continuous semisimple representations with det(1−rho_1(c)X)=det(1−rho_2(c)X) in L[X] for every c in C. Then rho_1 is isomorphic to rho_2. Equal characteristic polynomials give equal traces on C, hence on its conjugacy saturation, hence on Delta by continuity and density; in characteristic zero the trace of a semisimple representation determines it up to isomorphism, by linear independence of the irreducible characters. Both hypotheses are needed: without semisimplicity only the semisimplifications agree, and no modular (Brauer–Nesbitt) statement in characteristic p is claimed here — the residual polynomial-recognition statement is A101, whereas A50 concerns lifting irreducibility to characteristic zero.",
       "locator": "LLHLM23 TheoremA.4.1 PDF196–197, where each of r(U,W), r(U_0(Q),W) and r(U_1(Q),W) is 'uniquely determined by' the displayed Frobenius characteristic-polynomial equations over the Hecke algebra; the density input is A49 (CHT Proposition3.4.4 proof, PDF107–108).",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A49"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A49",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A98"
       ],
-      "proofOutline": "Equal characteristic polynomials give equal traces. The traces are continuous conjugation-invariant functions into a Hausdorff field, so their equality set is closed and contains the dense conjugacy saturation of C. For the algebraic step, take the finite-dimensional image algebra of L[Delta] in End(V_1⊕V_2). Both V_i are semisimple modules over it; pass to its semisimple quotient and decompose into matrix blocks over algebraically closed L. On a diagonal matrix unit in each simple block the trace is the multiplicity of its simple module. Equal traces therefore give equal multiplicities because characteristic zero embeds the integers injectively. This is valid for arbitrary Delta and does not assume a finite group or finite Galois image.",
+      "proofOutline": "Equal characteristic polynomials give equal traces. The traces are continuous conjugation-invariant functions into a Hausdorff field, so their equality set is closed and contains the dense conjugacy saturation of C. For the algebraic step, take the finite-dimensional image algebra of L[Delta] in End(V_1⊕V_2). Both V_i are semisimple modules over it; pass to its semisimple quotient and decompose into matrix blocks over algebraically closed L. On a diagonal matrix unit in each simple block the trace is the multiplicity of its simple module. Equal traces therefore give equal multiplicities because characteristic zero embeds the integers injectively. This is valid for arbitrary Delta and does not assume a finite group or finite Galois image. A98 now isolates the arbitrary-group character-independence step with pinned L84/L85, so no finite-group character-pairing theorem is imported here.",
       "implementationStatus": "Not implemented. Stated as the uniqueness half of the Hecke-algebra-valued construction; the determinant/Cayley–Hamilton machinery of IHG.1 is the intended carrier.",
       "note": "Continuation cc-fb70e5, 23 September 2026: supplies the isomorphism A62 assumes, which the previous handoff left as resume point 1. No Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants. Continuation codex-c83e7a adds Hausdorffness, which the dense-set argument needs, and uses a finite-dimensional image algebra for character recognition. The pinned finite-group character-independence theorem has [Finite G] and is not an arbitrary-Galois-group supplier. The dense continuous-equality step reuses mathlib:Continuous.ext_on (Hausdorff.lean:509), with its T2Space hypothesis. The arbitrary-group semisimple character-recognition step is the image-algebra argument in this item, not a use of the finite-group character theorem."
     },
@@ -17935,6 +17971,310 @@
       "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
       "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Owner: DeformationAndDerivedPatchingAlgebra.",
       "proofOutline": "For each b, the images of J_a in the finite-length module S/m_S^b form a descending chain, hence stabilize to E_b. The maps E_(b+1)→E_b are surjective: choose a beyond both stabilization indices and use the image of J_a. If some E_b contains a nonzero x_b, recursively lift along these surjections to compatible x_c for c≥b (and project below b). Completeness L27 gives x∈S with these residues. For each fixed a, all its residues lie in the image of J_a; L03 on the finite S-module S/J_a gives x∈J_a. Thus x∈∩J_a=0, contradicting its nonzero residue. Hence E_b=0 and some J_a⊂m_S^b. For the local embedding take J_a=S∩m_R^a; separation of R by L03 makes their intersection zero, and locality gives the reverse-continuity inclusion m_S^a⊂S∩m_R^a. This finite-length stabilization argument works over infinite residue fields and constructs compatible residues explicitly."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L82",
+      "kind": "theorem",
+      "name": "Compactness of finite modules and finitely generated submodules",
+      "statement": "Let R be a compact commutative semiring and M a topological R-module with continuous addition and scalar multiplication. Every finitely generated R-submodule N⊂M is compact. In particular a module-finite M is compact. If M is Hausdorff, such N is closed. These statements do not require M to be free or torsionfree.",
+      "locator": "Mathlib/Topology/Algebra/Module/Compact.lean:24; Mathlib/Topology/Algebra/Module/Compact.lean:40 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Submodule.isCompact_of_fg",
+        "mathlib:Module.Finite.compactSpace"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "Pinned statements read; no new Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L83",
+      "kind": "theorem",
+      "name": "Compactness criterion for a rank-one valuation ring",
+      "statement": "For a field K with a rank-one valuation, its valuation ring O is compact if and only if O is complete, is a discrete valuation ring, and has finite residue field. Use the valuation topology, not an arbitrary topology on the underlying ring.",
+      "locator": "Mathlib/Topology/Algebra/Valued/LocallyCompact.lean:315 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Valued.integer.compactSpace_iff_completeSpace_and_isDiscreteValuationRing_and_finite_residueField"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "Pinned statements read; no new Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L84",
+      "kind": "theorem",
+      "name": "Finite-dimensional split semisimple algebras are products of matrices",
+      "statement": "A finite-dimensional semisimple algebra B over an algebraically closed field k is k-algebra isomorphic to a finite product of matrix algebras M_(d_i)(k), with every d_i nonzero. No characteristic-zero or group-order invertibility hypothesis is present.",
+      "locator": "Mathlib/RingTheory/SimpleModule/IsAlgClosed.lean:33 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsSemisimpleRing.exists_algEquiv_pi_matrix_of_isAlgClosed"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "Pinned statements read; no new Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L85",
+      "kind": "theorem",
+      "name": "Radical annihilation and Artinian semisimplicity",
+      "statement": "The Jacobson radical of an arbitrary ring B annihilates every semisimple B-module. For an Artinian ring B, B is semisimple if and only if its Jacobson radical is zero. Thus the finite-dimensional image algebra acting faithfully on a semisimple module is semisimple.",
+      "locator": "Mathlib/RingTheory/Jacobson/Semiprimary.lean:44; Mathlib/RingTheory/Artinian/Module.lean:650 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsSemisimpleModule.jacobson_le_annihilator",
+        "mathlib:IsArtinianRing.isSemisimpleRing_iff_jacobson"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "Pinned statements read; no new Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L86",
+      "kind": "theorem",
+      "name": "Compact-to-Hausdorff embeddings and quotient maps",
+      "statement": "A continuous injective map from a compact space to a Hausdorff space is a closed embedding. A continuous surjective map between such spaces is a quotient map. These results retain the given topologies.",
+      "locator": "Mathlib/Topology/Separation/Hausdorff.lean:677; Mathlib/Topology/Separation/Hausdorff.lean:683 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Continuous.isClosedEmbedding",
+        "mathlib:Topology.IsQuotientMap.of_surjective_continuous"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "Pinned statements read; no new Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A98",
+      "kind": "theorem",
+      "name": "Independence of simple characters for an arbitrary group",
+      "statement": "Let k be algebraically closed, G any group, and S_1,…,S_r pairwise nonisomorphic nonzero finite-dimensional simple k[G]-modules. Their k-valued trace characters on G are k-linearly independent, in every characteristic. G need not be finite.",
+      "locator": "Wiese, Galois Representations (13 February 2012), Theorem2.4.4 and Remark2.4.2(i), printed/PDF34–35; explicit arbitrary-group image-algebra specialization.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L84",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L85"
+      ],
+      "proofSteps": [
+        "Let V be the direct sum of the S_i and B the image of k[G] in End_k(V). This is finite-dimensional, acts faithfully, and V is semisimple over B because B-invariant and G-invariant subspaces agree. L85 makes B semisimple.",
+        "Apply L84. The simple B-modules are the column modules of its matrix blocks. Distinct S_i occupy different blocks. For a chosen i, take a matrix unit E_11 in its block and zero in all other blocks, and lift this element to k[G]. Its trace on S_i is 1 and on every other S_j is 0.",
+        "A linear relation among characters on G extends linearly to k[G], since group elements span that algebra. Evaluating at these lifted matrix units kills each coefficient. This uses trace 1 on E_11, not trace dim(S_i) on the central idempotent, which may vanish in characteristic p."
+      ],
+      "tests": [
+        {
+          "name": "A98.modular_dimension",
+          "kind": "non-example",
+          "statement": "In characteristic p, the identity of M_p(k) has trace0 while E_11 has trace1; central idempotents alone cannot perform this separation."
+        },
+        {
+          "name": "A98.infinite_group",
+          "kind": "compatibility",
+          "statement": "The argument applies to the infinite cyclic group with distinct one-dimensional characters; no finite-group orthogonality or division by |G| is used."
+        },
+        {
+          "name": "A98.repeated_simple",
+          "kind": "non-example",
+          "statement": "Two copies of the same simple module have the same character; pairwise nonisomorphism is required."
+        }
+      ],
+      "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
+      "note": "Continuation Codex — codex-hjdg0j, 23 September 2026. Owner: IntegralHeckeAndGaloisDeterminants."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A99",
+      "kind": "theorem",
+      "name": "Brauer–Nesbitt by cancellation and division of multiplicities",
+      "statement": "Let k be algebraically closed, G any group, and V,W finite-dimensional k[G]-modules. If det(T−g|V)=det(T−g|W) for every g∈G, then V and W have isomorphic semisimplifications. If both are semisimple they are isomorphic. This holds in every characteristic and imposes no bound on dimension.",
+      "locator": "Wiese Theorem2.4.6, printed/PDF36, cancellation and p-divisibility proof, and Remark2.4.7(iii), PDF37; algebraically closed group version. Do not use the generator-only assertion in Remark2.4.7(iv); E52.",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A98"
+      ],
+      "proofSteps": [
+        "Pass to composition factors: a basis adapted to a composition series makes every operator block upper triangular, so its characteristic polynomial is the product of the factor polynomials. Cancel common simple summands using that k[T] is an integral domain. The remaining semisimple modules have disjoint simple supports and equal characteristic polynomials at every g.",
+        "Equal characteristic polynomials give equal traces. A98 shows that the multiplicity of each remaining simple factor is zero as an element of k. In characteristic zero the multiplicities are zero integers, finishing the proof.",
+        "In characteristic p>0 every remaining multiplicity is divisible by p. Write V=V_1^(⊕p), W=W_1^(⊕p). Their characteristic polynomials satisfy P_(V_1,g)^p=P_(W_1,g)^p for every g. In k[T], (P−Q)^p=0 implies P=Q, so the smaller modules again satisfy the same hypothesis.",
+        "Use strong induction on the common dimension after cancellation: division by p strictly decreases every positive dimension. Hence the disjoint remainders are zero. At no point is equality of characteristic polynomials extended by linearity from G to its group algebra; only equality of traces is extended. Only semisimplification is recovered."
+      ],
+      "tests": [
+        {
+          "name": "A99.trace_loss",
+          "kind": "non-example",
+          "statement": "For G=C2 in characteristic3, 1^(⊕3) and sign^(⊕3) both have identically zero trace, but at the nontrivial element their polynomials are T^3−1 and T^3+1. Trace equality is insufficient."
+        },
+        {
+          "name": "A99.extension_loss",
+          "kind": "non-example",
+          "statement": "For G=C_p in characteristic p, a nontrivial two-dimensional unipotent Jordan block and the two-dimensional trivial action have identical characteristic polynomials at every element; their semisimplifications agree but the representations need not."
+        },
+        {
+          "name": "A99.zero_rank",
+          "kind": "degenerate",
+          "statement": "The zero-dimensional representation has polynomial1 at the identity. Equality forces the other dimension to be zero."
+        },
+        {
+          "name": "A99.generators_do_not_span",
+          "kind": "non-example",
+          "statement": "E52 gives two irreducible representations of C2*C2 with identical polynomials for all powers of each chosen generator but different trace on their product. All group elements, or a spanning subset of the image of the group algebra, are required."
+        }
+      ],
+      "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
+      "note": "Continuation Codex — codex-hjdg0j, 23 September 2026. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "planned": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.1"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A100",
+      "kind": "theorem",
+      "name": "Frobenius classes above split primes are conjugacy-dense",
+      "statement": "Let F/F+ be a quadratic extension of number fields, S a finite set of finite places of F+, and G_F⊂G_(F+) the absolute Galois groups in a common closure. Let C contain Frobenius lifts for both places w of F above every v∉S that splits in F, with each lift taken using a decomposition group. The G_F-conjugacy saturation of C is dense in G_F. In a quotient unramified outside S one may use Frobenius classes directly. Both arithmetic and geometric conventions work after simultaneous inversion.",
+      "locator": "CHT Proposition3.4.4 proof, author PDF107–108, split-prime polynomial input; explicit application of existing Chebotarev Layer10 and the residue-degree-one tower law.",
+      "status": "missing",
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ],
+      "proofSteps": [
+        "To hit a basic open coset gU in G_F, shrink the open normal subgroup U of G_F to U∩cUc^(−1), for a lift c of the nontrivial quadratic automorphism. It is normal in G_(F+): c² lies in G_F. Let L be its fixed field. Then L/F+ is finite Galois and contains F.",
+        "Apply the existing Chebotarev infinitude theorem to the conjugacy class of the image of g in Gal(L/F+), excluding S and the finitely many primes ramified in L. Its restriction to F is trivial, so the resulting base prime v splits in F.",
+        "Choose a prime of L above v whose Frobenius is exactly the selected image of g, using conjugation of primes above v. Its contraction w to F is one of the two split places. Because f(w/v)=1, the Frobenius in L/F equals the Frobenius in L/F+, with no additional power. A representative from C for this w is G_F-conjugate to it modulo U; every Frobenius lift has the same image because L is unramified at v.",
+        "Thus the G_F-conjugacy saturation meets gU. This does not assert that arbitrarily selected individual representatives themselves form a dense set. Inversion carries the arithmetic statement to the geometric one, and exclusion of any further finite set is built into Chebotarev infinitude."
+      ],
+      "tests": [
+        {
+          "name": "A100.two_split_places",
+          "kind": "non-example",
+          "statement": "In the finite quotient S3 with index-two subgroup A3, the S3 class of a 3-cycle contains g and g^(−1), but these are different A3 classes. One arbitrarily chosen place over every split base prime can select only one class; retaining both places avoids the loss."
+        },
+        {
+          "name": "A100.inert_places",
+          "kind": "non-example",
+          "statement": "Frobenius of a base prime inert in F restricts nontrivially to Gal(F/F+); it cannot replace the kernel-class argument."
+        },
+        {
+          "name": "A100.orientation",
+          "kind": "compatibility",
+          "statement": "In A3 the two nonidentity classes are interchanged by inversion. Geometric Frobenius requires inverting the class as well as the cyclotomic convention."
+        }
+      ],
+      "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
+      "note": "Continuation Codex — codex-hjdg0j, 23 September 2026. Owner: ArithmeticGaloisRepresentations."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A101",
+      "kind": "theorem",
+      "name": "Residual recognition gives an actual isomorphism when one side is absolutely irreducible",
+      "statement": "Let F/F+ and S be as in A100. Let rho_1,rho_2:G_F→GL_n(kbar) be continuous with kbar an algebraic closure of a finite field carrying the discrete topology, unramified above every split v∉S. If their characteristic polynomials agree at both w above each such v, their semisimplifications over kbar are isomorphic. If rho_1 is absolutely irreducible, rho_2 itself is isomorphic to rho_1. If both are originally over finite coefficient fields, the conjugating matrix is defined over a common finite extension; no descent to a smaller field is asserted.",
+      "locator": "CHT Proposition3.4.4, author PDF107–108, implicit residual recognition before Lemma2.1.4; Wiese Corollary2.4.8 PDF37 and the explicit absolutely irreducible upgrade.",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A99",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A100"
+      ],
+      "proofSteps": [
+        "For each coefficient, its equality set is closed, since the representations are continuous and the coefficient field is Hausdorff discrete. It is conjugation invariant and contains C. A100 therefore extends equality to every element of G_F.",
+        "Apply A99 over kbar. If one semisimplification is the single simple module rho_1, the other module has composition length one, so it is already simple and isomorphic, without a separate semisimplicity assumption on the chosen lattice reduction.",
+        "An intertwining matrix has finitely many entries algebraic over the common finite field; they generate a finite extension. Its determinant is nonzero there. In A47 this produces the actual residual GL_n isomorphism before the polarized square-class alignment; p>2 is needed by that later polarized step, not by this recognition argument."
+      ],
+      "tests": [
+        {
+          "name": "A101.unipotent_boundary",
+          "kind": "non-example",
+          "statement": "A reducible semisimplification cannot upgrade to an isomorphism of original modules: the C_p Jordan-block example in A99 remains a counterexample."
+        },
+        {
+          "name": "A101.rank_one",
+          "kind": "degenerate",
+          "statement": "For n=1 characteristic polynomial equality gives equality of the characters on the dense Frobenius set and then on all of G_F."
+        },
+        {
+          "name": "A101.no_small_prime_exclusion",
+          "kind": "compatibility",
+          "statement": "The recognition step remains valid in characteristic2; only the later polarized square-root statements retain their p>2 hypothesis."
+        }
+      ],
+      "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
+      "note": "Continuation Codex — codex-hjdg0j, 23 September 2026. Owner: ArithmeticGaloisRepresentations.",
+      "planned": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A102",
+      "kind": "theorem",
+      "name": "Finite modules over complete coefficient DVRs have the expected topology",
+      "statement": "Let O be a complete DVR with finite residue field and uniformizer pi, equipped with its valuation topology. For every finite O-module M, the pi-adic topology is Hausdorff, compact and complete and equals the quotient topology for every O-linear surjection O^r→M. Every O-linear map between finite such modules is continuous. If T is a nonzero finite local O-algebra with maximal ideal m, its pi-adic and m-adic topologies coincide, so T is a complete Noetherian local ring. T and M may have O-torsion.",
+      "locator": "CHT Proposition3.4.4 author PDF108 and A46/A48 coefficient-ring topology; explicit finite-module adapter to pinned L03/L07/L83.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L83",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L86"
+      ],
+      "proofSteps": [
+        "Choose finite generators and q:O^r→M. For every a≥0, q(pi^a O^r)=pi^a M. These submodules are neighborhood bases and q is surjective, continuous and open for the pi-adic topology, proving precisely the quotient-topology assertion.",
+        "L03 gives separation because M is finite over the Noetherian local ring O. L07 identifies its completion with O-hat tensor_O M=M; thus completeness is inherited from O. L83 makes O compact, so M is compact as a continuous image of O^r. An O-linear f maps pi^a M into pi^a N, proving continuity directly; no unverified module-topology instance is needed.",
+        "T is Noetherian because it is finite over O. The element pi is not a unit in a nonzero finite O-algebra: otherwise pi T=T and Nakayama over O gives T=0. Hence pi∈m. The finite-dimensional local k-algebra T/pi T is Artinian. The descending powers of its maximal ideal stabilize, and Nakayama for that stabilized finite module forces it to vanish. Thus m^d⊂pi T for some d≥1.",
+        "Taking a-th powers yields m^(da)⊂pi^a T⊂m^a for every a≥0. The two topologies therefore coincide. This also applies to the common-residue ring A46 and to T in A48. Finite residue is used for compactness, not for the displayed cofinality inclusions or finite-module completeness."
+      ],
+      "tests": [
+        {
+          "name": "A102.torsion",
+          "kind": "computation",
+          "statement": "M=O/(pi^2) has the finite discrete topology and is complete; freeness is unnecessary."
+        },
+        {
+          "name": "A102.dual_numbers",
+          "kind": "computation",
+          "statement": "For T=O[e]/(e^2), m=(pi,e) and m^2⊂pi T; in general m^a is not equal to pi^a T."
+        },
+        {
+          "name": "A102.infinite_residue",
+          "kind": "non-example",
+          "statement": "For O=C[[t]], O is complete and separated but not compact: its continuous residue quotient is the infinite discrete field C. Compactness requires the finite residue hypothesis."
+        },
+        {
+          "name": "A102.embedding_not_open",
+          "kind": "non-example",
+          "statement": "The diagonal O→O×O is a closed embedding but not an open map. The quotient-map assertion above is for surjections."
+        }
+      ],
+      "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
+      "note": "Continuation Codex — codex-hjdg0j, 23 September 2026. Owner: DeformationAndDerivedPatchingAlgebra."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A103",
+      "kind": "theorem",
+      "name": "Finite integral Hecke algebras are closed in their coefficient products",
+      "statement": "Let O be as in A102 and T a finite O-algebra with its pi-adic topology. Let A be a Hausdorff topological O-algebra with continuous addition and scalar multiplication, and j:T→A an injective O-algebra map. Then j is continuous and a closed embedding. Equivalently, a finite O-subalgebra of such A is closed. If A is the finite coefficient product or the common-residue subring in A46, its intrinsic coefficient topology agrees with the induced topology.",
+      "locator": "CHT Proposition3.4.4 author PDF108, closed integral trace-ring step; explicit finite-O coefficient adapter.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A102",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L82",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L86"
+      ],
+      "proofSteps": [
+        "Write T as a quotient of O^r using finite generators t_i. The composite O^r→A is (a_i)↦sum a_i j(t_i), hence continuous by finite sums and scalar continuity. A102 identifies the topology on T with the quotient topology, so j is continuous.",
+        "A102 makes T compact. L86 applied to j gives the closed embedding. Alternatively view j(T) as a finitely generated O-submodule of A and apply L82, then compact sets are closed in a Hausdorff space.",
+        "For A46, the finite O-module congruence subring has its pi-adic topology and the injective coordinate map into the Hausdorff product. This argument identifies that topology with the subspace topology. Combining A102 with its explicit unit criterion gives the m-adic topology required by A45/A48."
+      ],
+      "tests": [
+        {
+          "name": "A103.proper_congruence_ring",
+          "kind": "computation",
+          "statement": "T={(x,y)∈O²:x≡y mod pi} is closed in O² and has the induced topology, although it is not the full product."
+        },
+        {
+          "name": "A103.hausdorff_required",
+          "kind": "non-example",
+          "statement": "The injective identity from compact O with its valuation topology to the same ring with indiscrete topology is continuous but is not an embedding; the target Hausdorff hypothesis matters."
+        },
+        {
+          "name": "A103.finite_generation_required",
+          "kind": "non-example",
+          "statement": "The prime subring Z⊂Z_p is dense and proper, so an arbitrary subring need not be closed. It is not a finite Z_p-submodule."
+        }
+      ],
+      "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
+      "note": "Continuation Codex — codex-hjdg0j, 23 September 2026. Owner: IntegralHeckeAndGaloisDeterminants."
     }
   ],
   "prerequisites": [
@@ -18012,6 +18352,11 @@
       "citation": "Cogdell, L-functions and Converse Theorems for GL_n (PCMI2002), Lecture1; compared with Fields Institute2003 Lecture4",
       "link": "https://people.math.osu.edu/cogdell.1/pcmi-www.pdf",
       "why": "Provides the explicit mirabolic induction and global-to-local Whittaker argument required after cuspidal unitary base change. Fourier uniqueness, quotient measures and Flath factorization retain their existing foundational owners; this extraction supplies the precise consumer-facing lemmas."
+    },
+    {
+      "citation": "Gabor Wiese, Galois Representations, lecture notes, version13 February2012, §2.4",
+      "link": "https://math.uni.lu/~wiese/notes/GalRep.pdf",
+      "why": "Bounded source for A98–A99 arbitrary-group character independence and the cancellation/p-divisibility proof of residual polynomial recognition. E52 records a false generator-only variant; this is not used. Existing IHG.1 and AGR R01.5 remain the owners."
     }
   ],
   "routes": [
@@ -18313,7 +18658,8 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z26",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z27",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A97"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A97",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A102"
       ],
       "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route. Z15–Z24 refine the R03.1 coefficient-tensor argument. Keep its regular complete-local coordinate lemmas in the early foundational part; do not make this construction depend on later arithmetic patching. Z23 and Z28 import the existing upstream ModularCurves §4D local completion/dimension atom. Only general adic Noetherianity, finite-variable coefficient calculations and coefficient-preserving coordinate adapters are additional R03.1 obligations. Their algebraic dependency graph precedes the arithmetic and modular applications; no whole-roadmap cycle is introduced.",
       "stages": [
@@ -18615,7 +18961,8 @@
       "roadmap": "ArithmeticGaloisRepresentations",
       "stages": [
         "ArithmeticGaloisRepresentations:G7",
-        "ArithmeticGaloisRepresentations:R01.1"
+        "ArithmeticGaloisRepresentations:R01.1",
+        "ArithmeticGaloisRepresentations:R01.5"
       ],
       "items": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A06",
@@ -18632,7 +18979,8 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A85",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A87",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A88",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A90"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A90",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A100"
       ],
       "reason": "Actual polarized representations, their signs and integral lattices precede polarized deformation functors. Reuse this existing common carrier and import it into GlobalGaloisDeformations G7."
     },
@@ -18663,7 +19011,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A93",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A94",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A95",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A96"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A96",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A98",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A103"
       ],
       "reason": "Trace descent and gluing actual representations over a reduced integral Hecke algebra refine the existing reconstruction and finite-image-algebra layers. These are suppliers of patching, not a second automorphic construction."
     },
@@ -19528,6 +19878,22 @@
         "https://numdam.org/articles/10.24033/asens.2212/ and its published PDF; checked the corresponding printed passages",
         "Targeted title/author erratum search on2026-09-23; no separate correction found for E49/E50 in these sources"
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E52",
+      "kind": "error",
+      "locator": "Gabor Wiese, Galois Representations, version13 February2012, Remark2.4.7(iv), printed/PDF37.",
+      "printed": "traces of powers of generators of G uniquely characterize V",
+      "correction": "Use all group elements (and only claim semisimplification without a semisimplicity hypothesis); powers of a chosen generating set are insufficient.",
+      "reason": "Over C let G=C2*C2=<s,t|s²=t²=1>. Put rho_a(s)=diag(1,−1) and rho_a(t)=[[a,1],[1−a²,−a]] for a=0,2. Both matrices are involutions with eigenvalues1,−1. Thus every power of either generator has the same trace in the two representations. Both representations are irreducible: the only s-invariant lines are the coordinate axes, and neither is t-invariant since both off-diagonal entries are nonzero. Yet tr rho_a(st)=2a is0 versus4, so the representations are not isomorphic. This falsifies even the semisimple version of the generator-only sentence. A99 uses all group elements and extends only traces linearly in the induction.",
+      "affects": "a stated result",
+      "known": "No correction found in the bounded search on23 September2026; the author notes index says these lecture notes should be reworked. Finding is unreviewed.",
+      "searched": [
+        "https://math.uni.lu/~wiese/notes/GalRep.pdf (current71-page author PDF, cover version13 February2012; PDF37 text and image checked)",
+        "https://math.uni.lu/wiese/notes/index.html (author notes index)",
+        "https://math.uni.lu/wiese/teaching/GalReps.html (course page linking current notes)",
+        "Web queries: site.math.uni.lu/~wiese \"Galois Representations\" errata; \"Gabor Wiese\" \"2.4.7\" correction; no dedicated correction located"
+      ]
     }
   ],
   "gaps": [
@@ -19546,7 +19912,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18"
       ],
-      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed. CHT2.1.1/2.1.4/2.1.5/2.1.8–2.1.12 and3.4.4 descent have now been freshly read and split as A34–A50, with fixed multiplier explicit. Bellaïche–Chenevier published1.2 and BLGGT l=p II1.1 supply A51/A53. Remaining fine inputs include the self-dual-lattice maximality argument, the complete-local Carayol recursion, split-prime Chebotarev, residual Brauer–Nesbitt and, critically, the unitary strong-base-change decomposition identifying these constituents with RACSDC cuspidal systems and proving generic local components. Do not mark the latter implication closed merely from A50. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open."
+      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed. CHT2.1.1/2.1.4/2.1.5/2.1.8–2.1.12 and3.4.4 descent have now been freshly read and split as A34–A50, with fixed multiplier explicit. Bellaïche–Chenevier published1.2 and BLGGT l=p II1.1 supply A51/A53. Historical supplier list: lattice maximality and Carayol descent were refined by A86–A97, and A98–A103 now supply residual recognition, split-prime density and finite coefficient topology. The normalized discrete base-change realization is A78–A81. The remaining generic-local-component branch still needs the explicit global analytic suppliers of A66–A73. Do not mark the latter implication closed merely from A50. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open."
     },
     {
       "id": "split-and-hypotheses",
@@ -19595,7 +19961,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q07",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z02"
       ],
-      "detail": "Literal coverage: all159 definitions/constructions have use sites, API outlines and at least three typed tests, including the imported polynomial-action and monic-quotient carriers L70/L71. This is a structural census, not semantic closure. Split any remaining compound constructions, promote used API facts to individually sourced supplier nodes, audit their pinned declarations, and reconcile each with the common owner."
+      "detail": "Literal coverage: all163 definitions/constructions have use sites, API outlines and at least three typed tests, including the imported polynomial-action and monic-quotient carriers L70/L71. This is a structural census, not semantic closure. Split any remaining compound constructions, promote used API facts to individually sourced supplier nodes, audit their pinned declarations, and reconcile each with the common owner."
     },
     {
       "id": "library-item-audit",
@@ -20048,7 +20414,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A80",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A81"
       ],
-      "detail": "The Speh realization interface is now explicit in A79–A81 and corrected A78: Pi_i=pi_i|det|^((m_i+b_i−n−1)/2) is regular algebraic cuspidal and polarized; A80 imports its Galois representation from AG2.2; the rank-n local Langlands normalization leaves only ε^(−j), with geometric Frobenius polynomial factors q_w^j. A77 now includes Hausdorffness and an arbitrary-group image-algebra proof. These discharge the former unproved existence/algebraicity and even-b_i half-twist hypotheses at the source-interface level. The residual-positive-rank argument A62 and Whittaker consequence A73 can consume the resulting decomposition. A74–A76 already supply the coefficient/type dictionary and the actual Hecke-image point criterion. A37's two named suppliers are now closed: L75 pins Mathlib's Baire lemma in the form 'one of countably many closed covering sets has interior', with the compact-Hausdorff instance, and A85 proves countability of the finite extensions of Q_p inside a fixed algebraic closure from the pinned Krasner lemma L76. Supplier continuation codex-7e92bd closes the lattice construction at the proof-plan level through A86–A90/L80, with A89 imported from existing LocalFieldsRamification Layer3; density and trace pairing through L78/L79/A91; algebraic scalar centralizers and conjugacy through A92/A96; prescribed-congruence Carayol descent through the trace algebra A95 and compatible idempotent/matrix-coordinate construction A93–A94; induced-topology continuity through A97; and principal-unit Hensel through L77. The old arbitrary Artinian-conjugator recursion is no longer the proof used. Remaining supplier obligations: residual polynomial recognition and split-prime Chebotarev; finite-O module topology; compact additive character duality/completeness, compatible Haar/Fubini, smooth globalization continuity and finite-place Flath factorization for A66–A73. The BC sign and BLGGT monodromy statements remain imports from existing owners. The withdrawn White preprint is not used as an unchecked replacement for these suppliers. None of these source-interface repairs certifies formal implementation. A54 now uses the explicit special-block inertia rank formula A82 and the nilpotent chain/rank suppliers A83–A84, built from pinned L69–L71. The unnecessary Clifford-orbit classification requirement is removed. The whole-isotypic versus multiplicity-space factor dim θ is explicit in A58. A93 uses an explicit error-squaring sequence and inherited L03/L27/L28, not merely the claim that unrelated idempotent lifts converge. All statements remain extraction-level proof plans."
+      "detail": "The Speh realization interface is now explicit in A79–A81 and corrected A78: Pi_i=pi_i|det|^((m_i+b_i−n−1)/2) is regular algebraic cuspidal and polarized; A80 imports its Galois representation from AG2.2; the rank-n local Langlands normalization leaves only ε^(−j), with geometric Frobenius polynomial factors q_w^j. A77 now includes Hausdorffness and an arbitrary-group image-algebra proof. These discharge the former unproved existence/algebraicity and even-b_i half-twist hypotheses at the source-interface level. The residual-positive-rank argument A62 and Whittaker consequence A73 can consume the resulting decomposition. A74–A76 already supply the coefficient/type dictionary and the actual Hecke-image point criterion. A37's two named suppliers are now closed: L75 pins Mathlib's Baire lemma in the form 'one of countably many closed covering sets has interior', with the compact-Hausdorff instance, and A85 proves countability of the finite extensions of Q_p inside a fixed algebraic closure from the pinned Krasner lemma L76. Supplier continuation codex-7e92bd closes the lattice construction at the proof-plan level through A86–A90/L80, with A89 imported from existing LocalFieldsRamification Layer3; density and trace pairing through L78/L79/A91; algebraic scalar centralizers and conjugacy through A92/A96; prescribed-congruence Carayol descent through the trace algebra A95 and compatible idempotent/matrix-coordinate construction A93–A94; induced-topology continuity through A97; and principal-unit Hensel through L77. The old arbitrary Artinian-conjugator recursion is no longer the proof used. Continuation codex-hjdg0j now supplies residual polynomial recognition A98–A101, with split-prime conjugacy density imported from Chebotarev Layer10 and both places above split primes retained. Finite-O completeness, adic cofinality, compactness and closed integral trace rings are A102–A103/L82–L86. A77 no longer misidentifies the characteristic-zero lifting lemma A50 as residual recognition. Remaining supplier obligations: compact additive character duality/completeness, compatible Haar/Fubini, smooth globalization continuity and finite-place Flath factorization for A66–A73. The BC sign and BLGGT monodromy statements remain imports from existing owners. The withdrawn White preprint is not used as an unchecked replacement for these suppliers. None of these source-interface repairs certifies formal implementation. A54 now uses the explicit special-block inertia rank formula A82 and the nilpotent chain/rank suppliers A83–A84, built from pinned L69–L71. The unnecessary Clifford-orbit classification requirement is removed. The whole-isotypic versus multiplicity-space factor dim θ is explicit in A58. A93 uses an explicit error-squaring sequence and inherited L03/L27/L28, not merely the claim that unrelated idempotent lifts converge. All statements remain extraction-level proof plans."
     },
     {
       "id": "unitary-base-change-source-version",
@@ -21469,6 +21835,58 @@
         "Idempotents.lean nil-kernel lifting and TauCeti semiprimary/semiperfect theorems were read; they do not alone give the complete finite-free relative lift. A93 gives the compatible polynomial iteration with existing adic completeness/separation.",
         "All atlas roadmap descriptions, current paper inventories, 58 packet/decomposition/reserved-id files searched for self-dual/stable lattices, Burnside/density, Carayol, idempotent lifting and Hensel. Existing shared owners retained."
       ]
+    },
+    "codexHjdg0jResidualContinuation": {
+      "mathlibPin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauCetiPin": "f790474821cf4256814db967cb154e7af3d0c369",
+      "snapshot": "713360d7f9daf3804fda79874399973194dc9f19",
+      "reviewedRowsRead": [
+        "ArithmeticGaloisRepresentations:R01.1",
+        "ArithmeticGaloisRepresentations:R01.5",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ],
+      "absentReviewedRows": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.1"
+      ],
+      "files": [
+        {
+          "path": "Mathlib/Topology/Algebra/Module/Compact.lean",
+          "sha256": "ce08d25d01505be405ba3f029ea96b17470015f8b8c40328d82e7ccf15f6ebf6",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/Compact.lean"
+        },
+        {
+          "path": "Mathlib/Topology/Algebra/Valued/LocallyCompact.lean",
+          "sha256": "2dba22b338876575ac7086807f9c2658550e447376cd6d2feeb0b0c89a9617f5",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Valued/LocallyCompact.lean"
+        },
+        {
+          "path": "Mathlib/RingTheory/SimpleModule/IsAlgClosed.lean",
+          "sha256": "8aad8ccf2ff3d759d788a8f965745d70ca376712b5cd5139f1d3148ec2f00a50",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/SimpleModule/IsAlgClosed.lean"
+        },
+        {
+          "path": "Mathlib/RingTheory/Jacobson/Semiprimary.lean",
+          "sha256": "3350f9c63ddb5022d3ab2a5480d3ce04742670063e5e136b9c7926516eec0108",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Jacobson/Semiprimary.lean"
+        },
+        {
+          "path": "Mathlib/RingTheory/Artinian/Module.lean",
+          "sha256": "930f5a20bcc1f04f427fe3f598363401f2e6bdd31c6c85ec51b7ae54b6b47ff7",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Artinian/Module.lean"
+        },
+        {
+          "path": "Mathlib/Topology/Separation/Hausdorff.lean",
+          "sha256": "b5fca6ab7c5d0cc90b8661f188089eae707cf0c22d99d620b74ac6139d3f7679",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Separation/Hausdorff.lean"
+        }
+      ],
+      "searches": [
+        "Read the exact pinned compact-module, compact-DVR, split Wedderburn, radical-annihilation and compact-Hausdorff declarations listed in L82–L86.",
+        "Read TauCeti/RepresentationTheory/CharacterTable/Independence.lean:87–115: its character independence requires Finite G and invertible |G|, so it does not supply A98 in modular characteristic.",
+        "Searches in pinned Mathlib and Tau Ceti found no Brauer–Nesbitt theorem. Reuse IHG.1 reconstruction and AGR R01.5 recognition; do not create another owner.",
+        "Read existing Chebotarev Layer10 and AGR R01.1/R01.5, IHG.1/IHG.4 scope. Chebotarev density is planned, not present in the pins."
+      ],
+      "scope": "New supplier atoms and changed consumers only; not a renewed audit of all inherited565 items."
     }
   },
   "validation": {
@@ -22236,6 +22654,42 @@
         "changedOrNewFiles": 10,
         "result": "All new/changed paper/review files scanned for lattice/descent/cofinality terms; no matching item or new owner. Cited owner and reviewed audit files unchanged. All snapshot inputs, refreshed files and three claimed deliverables guarded at publication."
       }
+    },
+    "codexHjdg0jResidualContinuation": {
+      "agent": "Codex — codex-hjdg0j",
+      "status": "passed",
+      "lean": "No Lean file requested or compiled; this is source extraction and planning.",
+      "proofScope": "Explicit algebraic and topological proof plans A98–A103, with exact imports. No claim of recursive closure for remaining global analytic suppliers or all565 inherited items.",
+      "structuralChecks": "Paper checker and intake pass. All565 inherited IDs preserved among576 unique items;407 internal prerequisite edges are acyclic; supplier stages resolve; all467 missing items have exactly one route;163 definition/construction APIs and typed tests remain complete;51 inherited findings and sourceData unchanged; exact three-file archive scope; all three deliverables unchanged on refreshed main.",
+      "finiteDiagnostics": {
+        "E52": "PASS: two irreducible C2*C2 representations; both generators involutions; product traces0/4",
+        "C2_modular_recognition": {
+          "representations": 91,
+          "distinct_polynomial_classes": 91,
+          "trace_collisions": 55
+        },
+        "nonsemisimple_boundary": "PASS: equal polynomials for every C3 element, unequal actions",
+        "split_place_classes": "PASS: one S3 class contains two distinct A3 classes",
+        "finite_topology_boundaries": {
+          "dual_number_products_checked": 9825698,
+          "prime_cases": [
+            2,
+            3,
+            5
+          ],
+          "status": "PASS; finite diagnostics only, not a proof of compactness"
+        }
+      },
+      "pinnedFiles": {
+        "verified": [
+          "Mathlib/Topology/Algebra/Module/Compact.lean",
+          "Mathlib/Topology/Algebra/Valued/LocallyCompact.lean",
+          "Mathlib/RingTheory/SimpleModule/IsAlgClosed.lean",
+          "Mathlib/RingTheory/Jacobson/Semiprimary.lean",
+          "Mathlib/RingTheory/Artinian/Module.lean",
+          "Mathlib/Topology/Separation/Hausdorff.lean"
+        ]
+      }
     }
   },
   "definitionApiGroups": [
@@ -22760,6 +23214,10 @@
         "topic": "Polarized integral descent suppliers",
         "decision": "A06 carrier, A26 adequacy and A34–A38/A47/A50/A52 use ArithmeticGaloisRepresentations G7/R01.1; A39–A46/A48–A49 use IntegralHeckeAndGaloisDeterminants IHG.1/IHG.2; A51/A53/A54 use AutomorphicGaloisRepresentationsPartII AG2.2/AG2.5/AG2.6. GlobalGaloisDeformations keeps deformation conditions and adequate-prime applications. The three new routes are source routes to existing owners, not new roadmaps.",
         "evidence": "Reviewed AUDIT-31 rows for ArithmeticGaloisRepresentations G7/R01.1 and AutomorphicGaloisRepresentationsPartII AG2.2/AG2.5/AG2.6; current stage text and integrated decompositions read. No exact polarized trace-descent node found in the read decompositions; the existing AG2.6 coefficient-prime node is the supplier, not an independent construction."
+      },
+      {
+        "topic": "Residual recognition and finite coefficient topology",
+        "decision": "A99 imports existing IHG.1; A101 imports AGR R01.5. A98 is the arbitrary-group proof refinement of IHG.1, not a second finite character table. A100 belongs to AGR R01.5 and consumes existing Chebotarev Layer10. A102 belongs to general complete coefficient algebra R03.1; A103 is its IHG.2 trace-ring application. Compactness, radical and matrix-block suppliers L82–L86 are existing Mathlib."
       }
     ],
     "remaining": "Convert these directions to final fine-grained supplier/request IDs during shared design; whole-roadmap arrows alone can conceal the known globalization/lattice cycle.",
