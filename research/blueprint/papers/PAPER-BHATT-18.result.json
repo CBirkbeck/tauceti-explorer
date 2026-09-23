@@ -1,0 +1,2449 @@
+{
+  "paper": "PAPER-BHATT-18",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "On the direct summand conjecture and its derived variant",
+    "authors": "Bhargav Bhatt",
+    "venue": "Inventiones Mathematicae 212 (2018), 297–317",
+    "doi": "10.1007/s00222-017-0768-7",
+    "arxiv": "1608.08882v2",
+    "url": "https://arxiv.org/pdf/1608.08882v2",
+    "version": "arXiv v2, 11 November 2017, 12 PDF pages; public published metadata/footnotes checked, full publication not collated",
+    "accessed": "2026-09-23",
+    "sha256": "08578ca15b17f51ee12c398ef305af3446057063c015e2bc8beb6012bcc26430",
+    "readSections": [
+      "All of §§1–6, all footnotes and references; PDF pages 1–12 read in full",
+      "Rendered arXiv pages 1, 9 and 11 inspected for E3, E2 and E1; André published pp. 90–92 rendered for E6–E8",
+      "André adjacent direct-summand arXiv v1, all 15 pages; published §2.5 and Appendix A.1–A.4 checked",
+      "Scholze Perfectoid spaces: Lemma 6.4 proof, Corollary 6.7, Proposition 6.14 and Theorem 7.9 statements/proofs read; source-closure limits below"
+    ]
+  },
+  "summary": "Full main-paper reading with a partial proof-level extraction. Routes import existing perfectoid/derived infrastructure, extend the shared pending PerfectoidRamification proposal, and propose regular-ring splitting layers. Eight source findings are recorded, including missing surjectivity in arXiv Proposition 6.2 and five adjacent André slips. Original-input and publication-collation gaps prevent completion.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarationReadFiles": [
+      "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+      "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+      "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+      "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+      "Mathlib/RingTheory/Filtration.lean",
+      "TauCeti/RingTheory/Ideal/ArtinRees.lean"
+    ],
+    "auditsRead": [
+      "AUDIT-17 R03.1–R03.6 (including fresh R03.3 read)",
+      "AUDIT-22 E0–E5:animation, with fresh E1/E2/E4 reads",
+      "AUDIT-01 SF.0 and SF.2"
+    ],
+    "auditLimits": "No reviewed library-coverage entry for PerfectoidSpaces, PerfectoidQuotients or DD.1 was found at this snapshot; accepted partial PerfectoidSpaces decomposition and partial PerfectoidQuotients decomposition were checked. No absence is claimed from an audit that does not exist."
+  },
+  "items": [
+    {
+      "id": "PAPER-BHATT-18/regular",
+      "kind": "definition",
+      "name": "Regular Noetherian rings",
+      "statement": "IsRegularRing R means R is Noetherian and every prime localization is a regular local ring; the local class uses equality of the finite spanning rank of the maximal ideal and the Krull dimension.",
+      "locator": "1.1, 5.2, 5.4, 6.1; library RegularLocalRing/Defs.lean",
+      "status": "library",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "Use the existing predicates in the main theorem statements; do not silently identify a local instance with the global predicate without proving localization regularity."
+      ],
+      "library": [
+        "mathlib:IsRegularRing",
+        "mathlib:IsRegularLocalRing"
+      ],
+      "api": [
+        {
+          "name": "IsRegularLocalRing.iff_finrank_cotangentSpace",
+          "role": "characterisation",
+          "statement": "Use the existing cotangent-space characterization."
+        },
+        {
+          "name": "BhattRegular.localize",
+          "role": "compatibility",
+          "statement": "Request the separate regularity-of-localizations theorem before converting a regular local ring to the global class."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "regular.test_1",
+          "statement": "A field has dimension and cotangent dimension zero.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "regular.test_2",
+          "statement": "The dual numbers over a field have dimension zero and cotangent dimension one, so are not regular.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "1.1, 5.2, 5.4, 6.1; library RegularLocalRing/Defs.lean",
+          "how": "Use the existing predicates in the main theorem statements; do not silently identify a local instance with the global predicate without proving localization regularity."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/faithful",
+      "kind": "definition",
+      "name": "Faithfully flat module",
+      "statement": "An R-module M is faithfully flat if it is flat and I M is proper for every maximal ideal I of R.",
+      "locator": "5.1–5.2; Mathlib Flat/FaithfullyFlat/Basic.lean",
+      "status": "library",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "Ordinary faithful flatness is distinguished from the almost Tor and detection conditions in Proposition 5.2."
+      ],
+      "library": [
+        "mathlib:Module.FaithfullyFlat"
+      ],
+      "api": [
+        {
+          "name": "Module.FaithfullyFlat.iff_flat_and_rTensor_faithful",
+          "role": "characterisation",
+          "statement": "Flatness together with preservation of nonzero modules under tensor is equivalent to faithful flatness."
+        },
+        {
+          "name": "Module.FaithfullyFlat.rTensor_reflects_triviality",
+          "role": "compatibility",
+          "statement": "An ordinary faithfully flat tensor product detects the zero module."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "faithful.test_1",
+          "statement": "R is faithfully flat over itself.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "faithful.test_2",
+          "statement": "Q is flat over Z but kills Z/2 under tensor, hence is not faithfully flat.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "5.1–5.2; Mathlib Flat/FaithfullyFlat/Basic.lean",
+          "how": "Ordinary faithful flatness is distinguished from the almost Tor and detection conditions in Proposition 5.2."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/completion",
+      "kind": "construction",
+      "name": "Ordinary adic completion",
+      "statement": "For a commutative ring R, ideal I and R-module M, AdicCompletion I M is the module of compatible elements of M/I^n M. IsAdicComplete includes separatedness and convergence of all I-adic Cauchy sequences.",
+      "locator": "2.2, 5.1; Mathlib AdicCompletion/Basic.lean",
+      "status": "library",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "Use the existing underived limit; derived completion and preservation of flatness are separate theorems."
+      ],
+      "library": [
+        "mathlib:AdicCompletion",
+        "mathlib:IsAdicComplete"
+      ],
+      "api": [
+        {
+          "name": "AdicCompletion.transitionMap",
+          "role": "projection",
+          "statement": "Use the existing quotient transition maps."
+        },
+        {
+          "name": "BhattCompletion.limit_comparison",
+          "role": "compatibility",
+          "statement": "Identify the completion with the inverse limit of its quotient diagram; do not identify it with a derived limit without hypotheses."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "completion.test_1",
+          "statement": "Completion at the zero ideal returns M.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "completion.test_2",
+          "statement": "Completion of Z at (p) gives the usual compatible residue sequences.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "2.2, 5.1; Mathlib AdicCompletion/Basic.lean",
+          "how": "Use the existing underived limit; derived completion and preservation of flatness are separate theorems."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/derived-category",
+      "kind": "construction",
+      "name": "Ordinary derived category",
+      "statement": "For an abelian category C with a chosen HasDerivedCategory instance, DerivedCategory C is the localization of cochain complexes at quasi-isomorphisms.",
+      "locator": "1.2, 3.2, 5.4, 6.1; Mathlib DerivedCategory/Basic.lean",
+      "status": "library",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reuse the triangulated derived category for splitting obstructions; its existence supplies neither derived tensor nor derived inverse limits."
+      ],
+      "library": [
+        "mathlib:DerivedCategory",
+        "mathlib:DerivedCategory.Q"
+      ],
+      "api": [
+        {
+          "name": "DerivedCategory.Q",
+          "role": "constructor",
+          "statement": "Use the existing localization functor on cochain complexes."
+        },
+        {
+          "name": "BhattDerived.retraction",
+          "role": "characterisation",
+          "statement": "A retraction of the unit is an actual morphism in D(A), with composite the identity."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "derived-category.test_1",
+          "statement": "A module retraction gives a derived retraction of complexes in degree zero.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "derived-category.test_2",
+          "statement": "Equality of H^0 alone is not the datum of a derived retraction.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "1.2, 3.2, 5.4, 6.1; Mathlib DerivedCategory/Basic.lean",
+          "how": "Reuse the triangulated derived category for splitting obstructions; its existence supplies neither derived tensor nor derived inverse limits."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/artin-rees",
+      "kind": "theorem",
+      "name": "Artin–Rees",
+      "statement": "For Noetherian R, finite M, submodule N and ideal I, there is k such that for all n≥k, I^n M∩N=I^(n−k)(I^k M∩N).",
+      "locator": "5.3 proof; Mathlib RingTheory/Filtration.lean",
+      "status": "library",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "Read the actual statement with its finite-module and Noetherian hypotheses."
+      ],
+      "library": [
+        "mathlib:Ideal.exists_pow_inf_eq_pow_smul"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/controlled-lift",
+      "kind": "theorem",
+      "name": "Uniform Artin–Rees lifting",
+      "statement": "For Noetherian R, finite M, ideal I and N⊂M, there is k independent of P and the surjection φ:P→N such that every v∈N∩I^(m+k)M lifts through φ to I^m P for every m.",
+      "locator": "5.3 proof input; TauCeti/RingTheory/Ideal/ArtinRees.lean",
+      "status": "library",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/artin-rees"
+      ],
+      "proofSteps": [
+        "The library quantifies k before P, φ and m. This is an available stronger control lemma, not a claim that 5.3 itself is already formalized."
+      ],
+      "library": [
+        "tauceti:TauCeti.ArtinRees.exists_controlled_lift"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/krull",
+      "kind": "theorem",
+      "name": "Krull intersection for a proper ideal",
+      "statement": "For a Noetherian local ring R, finite R-module M and proper ideal I, the intersection of I^n M is zero; in particular the intersection of I^n in R is zero.",
+      "locator": "5.2 and 5.4; Mathlib RingTheory/Filtration.lean",
+      "status": "library",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "Use this to detect a nonzero obstruction before adjoining roots, and to force a proper ideal containing all roots of p to be impossible."
+      ],
+      "library": [
+        "mathlib:Ideal.iInf_pow_smul_eq_bot_of_isLocalRing",
+        "mathlib:Ideal.iInf_pow_eq_bot_of_isLocalRing"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/root-system",
+      "kind": "definition",
+      "name": "Chosen compatible roots and their almost ideal",
+      "statement": "Fix a prime p and a nonzerodivisor t in A with specified elements t_n, t_0=t and t_(n+1)^p=t_n. The ideal m_t is generated by all t_n. Almost zero means m_t M=0; the root choices are data.",
+      "locator": "1.4 and 3.1",
+      "status": "planned",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "Use the same chosen root system throughout each transition estimate; the ideals m_t, m_g and m_(tg) are separately named."
+      ],
+      "planned": [
+        "PerfectoidSpaces:P0",
+        "PerfectoidSpaces:P1"
+      ],
+      "api": [
+        {
+          "name": "RootSystem.root_zero",
+          "role": "simp",
+          "statement": "The zeroth root is t."
+        },
+        {
+          "name": "RootSystem.root_pow",
+          "role": "relation",
+          "statement": "The p-th power of root n+1 is root n."
+        },
+        {
+          "name": "RootSystem.almostIdeal_idempotent",
+          "role": "structure",
+          "statement": "Prove m_t²=m_t, and verify the flatness/tensor assumptions for almost mathematics."
+        },
+        {
+          "name": "RootSystem.map",
+          "role": "functoriality",
+          "statement": "Transport the entire compatible system along a ring map, with identity and composition laws."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "root-system.test_1",
+          "statement": "The chosen roots of t in the completed perfection of F_p((t)) satisfy the relations.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "root-system.test_2",
+          "statement": "Unrelated roots chosen independently at each level do not supply this structure.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "1.4 and 3.1",
+          "how": "Use the same chosen root system throughout each transition estimate; the ideals m_t, m_g and m_(tg) are separately named."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/almost-category",
+      "kind": "construction",
+      "name": "Almost modules and adjoints",
+      "statement": "For an almost base (V,m) with m²=m and the required flatness of m⊗_V m, form the Serre quotient by m-annihilated modules, almostification, its right adjoint (*) and left adjoint (!); for algebras use the distinct (!!) adjoint.",
+      "locator": "1.4 footnote 5, 5.2; GR and Scholze §4",
+      "status": "planned",
+      "note": "Field-base supplier: PerfectoidSpaces:P0/almost-modules-over-perfectoid-base. General reusable-base scope is in the current P0 stage; its stronger adjoint details remain a request.",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/root-system"
+      ],
+      "proofSteps": [
+        "The module adjoint and algebra adjoint must not be interchanged in the proof of faithful detection."
+      ],
+      "planned": [
+        "PerfectoidSpaces:P0"
+      ],
+      "api": [
+        {
+          "name": "Almostification.zero_iff",
+          "role": "characterisation",
+          "statement": "M becomes zero precisely when mM=0."
+        },
+        {
+          "name": "AlmostElements.hom",
+          "role": "universal-property",
+          "statement": "Give the right-adjoint Hom equivalence; for a module N, (N^a)_*=Hom_V(m,N)."
+        },
+        {
+          "name": "AlmostAlgebra.leftAdjoint_reduction",
+          "role": "compatibility",
+          "statement": "Supply (!!) commuting with the reductions used in 5.2, under its actual hypotheses."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "almost-category.test_1",
+          "statement": "A module killed by m becomes zero.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "almost-category.test_2",
+          "statement": "An almost isomorphism need not be an ordinary isomorphism.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "1.4 footnote 5, 5.2; GR and Scholze §4",
+          "how": "The module adjoint and algebra adjoint must not be interchanged in the proof of faithful detection."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/almost-flat",
+      "kind": "definition",
+      "name": "Almost flat and almost faithful maps modulo t",
+      "statement": "An algebra map modulo t is almost flat when its positive Tor groups vanish in the specified almost category, and almost faithfully flat when tensor is also conservative there.",
+      "locator": "2.3 and 5.2",
+      "status": "planned",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/almost-category",
+        "PAPER-BHATT-18/faithful"
+      ],
+      "proofSteps": [
+        "The 5.2 conclusion detecting ordinary A0-modules is stronger than conservativity only on almost modules and is extracted separately."
+      ],
+      "planned": [
+        "PerfectoidSpaces:P0"
+      ],
+      "api": [
+        {
+          "name": "AlmostFlat.tor_vanish",
+          "role": "characterisation",
+          "statement": "Translate almost flatness into almost vanishing of positive Tor."
+        },
+        {
+          "name": "AlmostFaithfullyFlat.tensor_reflects_zero",
+          "role": "characterisation",
+          "statement": "Reflect zero in the specified almost category."
+        },
+        {
+          "name": "AlmostFaithfullyFlat.comp",
+          "role": "functoriality",
+          "statement": "Compose maps with the same explicitly transported almost base."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "almost-flat.test_1",
+          "statement": "The identity is almost faithfully flat.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "almost-flat.test_2",
+          "statement": "The zero algebra over a non-almost-zero base is not almost faithful.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "2.3 and 5.2",
+          "how": "The 5.2 conclusion detecting ordinary A0-modules is stronger than conservativity only on almost modules and is extracted separately."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/integral-perfectoid",
+      "kind": "definition",
+      "name": "Bhatt's field-based integral perfectoid algebra",
+      "statement": "Let K be perfectoid and t∈K° a topologically nilpotent unit with compatible p-roots and |t|=|p| in characteristic zero. An integral perfectoid K°-algebra is K°-flat, t-adically complete, satisfies A=A_*, and Frobenius A/t^(1/p)→A/t is an isomorphism.",
+      "locator": "1.4",
+      "status": "planned",
+      "note": "Exact dictionary supplier: PerfectoidSpaces:P1/almost-integral-dictionary.",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/completion",
+        "PAPER-BHATT-18/almost-category"
+      ],
+      "proofSteps": [
+        "This is the star-normalized field-based convention of the paper, not every modern general integral perfectoid ring."
+      ],
+      "planned": [
+        "PerfectoidSpaces:P1"
+      ],
+      "api": [
+        {
+          "name": "IntegralPerfectoid.invert",
+          "role": "compatibility",
+          "statement": "A[1/t] is a perfectoid K-algebra with power-bounded ring A."
+        },
+        {
+          "name": "IntegralPerfectoid.frobenius_quotient",
+          "role": "projection",
+          "statement": "Export the indicated Frobenius isomorphism."
+        },
+        {
+          "name": "IntegralPerfectoid.almostElements",
+          "role": "compatibility",
+          "statement": "Replacing an almost integral model by its star produces the stated convention."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "integral-perfectoid.test_1",
+          "statement": "K° itself is an example.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "integral-perfectoid.test_2",
+          "statement": "An unnormalized almost integral model must pass through star before claiming A=A_*.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "1.4",
+          "how": "This is the star-normalized field-based convention of the paper, not every modern general integral perfectoid ring."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/general-perfectoid",
+      "kind": "definition",
+      "name": "General integral perfectoid ring",
+      "statement": "Use the integral perfectoid notion of PerfectoidQuotients Q0:integral-algebra, allowing rings which do not contain the valuation ring of a perfectoid field; keep its comparison to Bhatt's field-based convention explicit.",
+      "locator": "5.2 ramified construction; [SW] Definition 6.1.1",
+      "status": "planned",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/integral-perfectoid"
+      ],
+      "proofSteps": [
+        "The ramified construction first produces this broader object. Exact SW-to-BS convention comparison remains G3; this item does not assert an unverified equivalence."
+      ],
+      "planned": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "api": [
+        {
+          "name": "GeneralPerfectoid.toTate",
+          "role": "compatibility",
+          "statement": "Under the torsion and pseudouniformizer hypotheses used in 5.2, identify the inverted ring as perfectoid."
+        },
+        {
+          "name": "GeneralPerfectoid.fieldBaseComparison",
+          "role": "compatibility",
+          "statement": "After adjoining the unit roots and applying star, construct the K°-structure rather than assume it."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "general-perfectoid.test_1",
+          "statement": "A root tower with π^p=pv for a unit v fits the ramified input.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "general-perfectoid.test_2",
+          "statement": "The datum π^p=pv does not by itself specify compatible roots of p.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "5.2 ramified construction; [SW] Definition 6.1.1",
+          "how": "The ramified construction first produces this broader object. Exact SW-to-BS convention comparison remains G3; this item does not assert an unverified equivalence."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/root-disc",
+      "kind": "construction",
+      "name": "Perfectoid root disc",
+      "statement": "For integral perfectoid A, let A⟨T^(1/p^∞)⟩ be the t-adic completion of the compatible-root polynomial algebra and Y=Spa(A⟨T^(1/p^∞)⟩[1/t],A⟨T^(1/p^∞)⟩).",
+      "locator": "2.1",
+      "status": "planned",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/integral-perfectoid",
+        "PAPER-BHATT-18/root-system",
+        "PAPER-BHATT-18/completion"
+      ],
+      "proofSteps": [
+        "The universal root T supplies compatible roots of g after shrinking neighborhoods."
+      ],
+      "planned": [
+        "PerfectoidSpaces:P1",
+        "PerfectoidSpaces:P2"
+      ],
+      "api": [
+        {
+          "name": "PerfectoidRootDisc.root",
+          "role": "data",
+          "statement": "Export T^(1/p^n) and their power relations."
+        },
+        {
+          "name": "PerfectoidRootDisc.lift",
+          "role": "universal-property",
+          "statement": "A bounded compatible-root family gives the continuous evaluation map, uniquely."
+        },
+        {
+          "name": "PerfectoidRootDisc.map",
+          "role": "functoriality",
+          "statement": "Base change on coefficients preserves the named roots."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "root-disc.test_1",
+          "statement": "Evaluation at a chosen root system of 0 is defined.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "root-disc.test_2",
+          "statement": "A value for T without compatible roots is insufficient for evaluation.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "2.1",
+          "how": "The universal root T supplies compatible roots of g after shrinking neighborhoods."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/rational-model",
+      "kind": "construction",
+      "name": "Integral rational localization with roots",
+      "statement": "For a rational domain in the tilt given by f_i/g, with f_i,g integral and one f_i a power of the tilted pseudouniformizer, its untilted integral ring is almost the completed root-ratio algebra from Scholze Lemma 6.4.",
+      "locator": "2.3, 2.6 and 4.2; Scholze Lemma 6.4(i)–(iii)",
+      "status": "planned",
+      "note": "Supplier: PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids.",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/integral-perfectoid"
+      ],
+      "proofSteps": [
+        "Retain the domain and invertibility hypotheses; abstract quotient, torsion-free image and star model are related by almost comparison, not equality."
+      ],
+      "planned": [
+        "PerfectoidSpaces:P2"
+      ],
+      "api": [
+        {
+          "name": "PerfectoidRational.restrict",
+          "role": "functoriality",
+          "statement": "Nested rational domains give compatible restriction maps."
+        },
+        {
+          "name": "PerfectoidRational.rootPresentation",
+          "role": "compatibility",
+          "statement": "Identify the completed root-ratio presentation up to the stated almost isomorphism."
+        },
+        {
+          "name": "PerfectoidRational.tilt",
+          "role": "compatibility",
+          "statement": "Tilting identifies this domain with its rational domain in the tilt."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "rational-model.test_1",
+          "statement": "The whole rational domain recovers A up to the integral convention.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "rational-model.test_2",
+          "statement": "Relations with zero divisors are checked by the derived presentation item, not ordinary cancellation.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "2.3, 2.6 and 4.2; Scholze Lemma 6.4(i)–(iii)",
+          "how": "Retain the domain and invertibility hypotheses; abstract quotient, torsion-free image and star model are related by almost comparison, not equality."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/approximation",
+      "kind": "theorem",
+      "name": "Tilt approximation preserving a rational neighborhood",
+      "statement": "For perfectoid affinoid R, f∈R, c≥0 and ε>0, there is h in the tilt with |f(x)−h♯(x)|≤|ϖ|^(1−ε) max(|f(x)|,|ϖ|^c) for all x. For ε<1 the two maxima agree.",
+      "locator": "2.3; Scholze Corollary 6.7(i), Lemma 6.5",
+      "status": "planned",
+      "note": "Supplier: PerfectoidSpaces:P2/approximation-lemma. Source Corollary 6.7 and packet proof read; the entire Lemma 6.5 proof was not independently reread.",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/root-disc",
+        "PAPER-BHATT-18/rational-model"
+      ],
+      "proofSteps": [
+        "Apply to T−g so the same small rational neighborhood has an equation with compatible roots; do not use additivity of sharp."
+      ],
+      "planned": [
+        "PerfectoidSpaces:P2"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/neighborhood",
+      "kind": "construction",
+      "name": "Shrinking neighborhood algebra B_l",
+      "statement": "For l>0, B_l is O^+ on {|T−g|≤|t|^l} in the perfectoid root disc. Restrictions B_l→B_(l+1) are the direct-system maps.",
+      "locator": "2.1–2.2",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/root-disc",
+        "PAPER-BHATT-18/rational-model"
+      ],
+      "proofSteps": [
+        "Use the actual restriction maps to pass from local almost flatness to adjoining roots."
+      ],
+      "proposedOwner": "PerfectoidQuotients:Q3",
+      "api": [
+        {
+          "name": "RootNeighborhood.restrict",
+          "role": "functoriality",
+          "statement": "Restrictions compose and preserve the root coordinate."
+        },
+        {
+          "name": "RootNeighborhood.divisibility",
+          "role": "relation",
+          "statement": "T−g is divisible by t^l in B_l."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "neighborhood.test_1",
+          "statement": "If g has a root system in A, evaluation T↦g gives a compatible map back to A.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "neighborhood.test_2",
+          "statement": "Shrinking the domain reverses the direction of the ring maps.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "2.1–2.2",
+          "how": "Use the actual restriction maps to pass from local almost flatness to adjoining roots."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/root-extension",
+      "kind": "construction",
+      "name": "Completed neighborhood extension",
+      "statement": "Set A∞ to the t-adic completion of colim_l B_l; use its star-normalization when necessary. Then T=g in A∞, giving a specified compatible p-root system of g.",
+      "locator": "2.2 and footnote 6",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/neighborhood",
+        "PAPER-BHATT-18/completion",
+        "PAPER-BHATT-18/integral-perfectoid"
+      ],
+      "proofSteps": [
+        "Divisibility of T−g by every t^l and separatedness make T=g. Footnote 6 is essential: integral perfectoidness may initially hold only almost."
+      ],
+      "proposedOwner": "PerfectoidQuotients:Q3",
+      "api": [
+        {
+          "name": "RootExtension.map",
+          "role": "constructor",
+          "statement": "Construct A→A∞."
+        },
+        {
+          "name": "RootExtension.root_pow",
+          "role": "relation",
+          "statement": "The image of T^(1/p^n) has p^n-th power g."
+        },
+        {
+          "name": "RootExtension.star_comparison",
+          "role": "compatibility",
+          "statement": "Record the almost isomorphism to the normalized integral model."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "root-extension.test_1",
+          "statement": "The image of T−g is zero.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "root-extension.test_2",
+          "statement": "Root adjunction is not the ordinary quotient A⟨T roots⟩/(T−g) without completion and comparison.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "2.2 and footnote 6",
+          "how": "Divisibility of T−g by every t^l and separatedness make T=g. Footnote 6 is essential: integral perfectoidness may initially hold only almost."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/neighborhood-flat",
+      "kind": "theorem",
+      "name": "Almost faithful flatness of each neighborhood",
+      "statement": "For integral perfectoid A and each l>0, A/t→B_l/t is almost faithfully flat with respect to m_t.",
+      "locator": "Theorem 2.3, first assertion",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/neighborhood",
+        "PAPER-BHATT-18/approximation",
+        "PAPER-BHATT-18/derived-rational"
+      ],
+      "proofSteps": [
+        "Approximate T−g by a sharp element; use the completed root-relation presentation.",
+        "At root level k reduce modulo t^ε for ε=1/p^(k+1); Frobenius identifies the quotient with a free, faithful polynomial-root algebra modulo T−g.",
+        "Pass through filtered colimits and derived completion using the precise DD.1 comparisons; the source's almost category remains m_t."
+      ],
+      "proposedOwner": "PerfectoidQuotients:Q3"
+    },
+    {
+      "id": "PAPER-BHATT-18/extension-flat",
+      "kind": "theorem",
+      "name": "Almost faithful flatness after adjoining roots",
+      "statement": "For the extension A→A∞ of 2.2, A/t→A∞/t is almost faithfully flat with respect to m_t.",
+      "locator": "Theorem 2.3, second assertion; introductory Theorem 1.5",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/neighborhood-flat",
+        "PAPER-BHATT-18/root-extension",
+        "PAPER-BHATT-18/derived-completion"
+      ],
+      "proofSteps": [
+        "Pass to the completed filtered colimit with the reduction comparison; normalization does not change the almost assertion."
+      ],
+      "proposedOwner": "PerfectoidQuotients:Q3"
+    },
+    {
+      "id": "PAPER-BHATT-18/derived-completion",
+      "kind": "construction",
+      "name": "Derived completion and Koszul models",
+      "statement": "Import derived completion for a finitely generated ideal, its Koszul model and the bounded-torsion or regularity hypotheses identifying it with a derived inverse limit of ordinary quotients.",
+      "locator": "2.6 and 5.1",
+      "status": "planned",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/derived-category",
+        "PAPER-BHATT-18/completion"
+      ],
+      "proofSteps": [
+        "Do not replace derived quotients by ordinary quotients over arbitrary non-Noetherian rings."
+      ],
+      "planned": [
+        "DerivedDeRhamCohomology:DD.1"
+      ],
+      "api": [
+        {
+          "name": "DerivedCompletion.adjunction",
+          "role": "universal-property",
+          "statement": "Export the completion reflector and its adjunction."
+        },
+        {
+          "name": "DerivedCompletion.koszul",
+          "role": "compatibility",
+          "statement": "Compare with the inverse limit of derived Koszul quotients."
+        },
+        {
+          "name": "DerivedCompletion.reduce",
+          "role": "compatibility",
+          "statement": "Reduction and completed filtered colimits commute only under the verified hypotheses."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "derived-completion.test_1",
+          "statement": "The derived quotient by a zero divisor retains its negative homology.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "derived-completion.test_2",
+          "statement": "The bounded-torsion complete flat situation in 5.1 is a positive comparison test.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "2.6 and 5.1",
+          "how": "Do not replace derived quotients by ordinary quotients over arbitrary non-Noetherian rings."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/simplicial-perfection",
+      "kind": "theorem",
+      "name": "Perfection of a simplicial F_p-algebra is discrete",
+      "statement": "For a simplicial commutative F_p-algebra C, its filtered colimit along Frobenius is discrete and identifies with the perfection of π_0(C).",
+      "locator": "2.6; [BS] Lemma 3.16 or Proposition 5.6",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "Needed for discreteness of the perfected derived relation algebra. Exact original statement and proof are an open source-closure task G2."
+      ],
+      "proposedOwner": "EnhancedDerivedSheaves:E5:animation"
+    },
+    {
+      "id": "PAPER-BHATT-18/perfect-torsion",
+      "kind": "theorem",
+      "name": "Root annihilation of torsion in a perfect ring",
+      "statement": "If R is a perfect F_p-algebra with compatible roots of t and tx=0, then t^(1/p^n)x=0 for every n.",
+      "locator": "2.6 proof",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/root-system"
+      ],
+      "proofSteps": [
+        "Taking inverse Frobenius gives t^(1/p^n)x^(1/p^n)=0; multiply by x^(1−1/p^n), represented by a nonnegative power of x^(1/p^n)."
+      ],
+      "proposedOwner": "PerfectoidSpaces:P0"
+    },
+    {
+      "id": "PAPER-BHATT-18/derived-rational",
+      "kind": "theorem",
+      "name": "Almost discreteness of the derived root presentation",
+      "statement": "For integral perfectoid A and f_1,…,f_n,g in its integral tilt, let B be the filtered colimit over r of the Koszul complexes over A[T_i^(1/p∞)] on the relations (g^(1/p^r))♯ T_i^(1/p^r)−(f_i^(1/p^r))♯. Then Kos(B;t) is almost discrete. For an admissible rational presentation, derived t-completion of B is almost its integral rational localization.",
+      "locator": "Lemma 2.6",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/rational-model",
+        "PAPER-BHATT-18/derived-completion",
+        "PAPER-BHATT-18/simplicial-perfection",
+        "PAPER-BHATT-18/perfect-torsion"
+      ],
+      "proofSteps": [
+        "Reduce to the characteristic-p tilt, perfect the derived polynomial relation algebra, then use root annihilation of its t-torsion.",
+        "Recover the completed comparison from reduction modulo t via DD.1. Split the discreteness and completion clauses in the final blueprint. The source's unqualified rational notation and its admissibility interface still need matching in G2; no extra rational-domain assumption is imposed on the discreteness assertion."
+      ],
+      "proposedOwner": "PerfectoidSpaces:P2"
+    },
+    {
+      "id": "PAPER-BHATT-18/aic-extension",
+      "kind": "theorem",
+      "name": "Functorial almost faithful absolutely integrally closed extension",
+      "statement": "For every integral perfectoid K°-algebra A there is a functorial extension A→B(A), almost faithfully flat modulo t, with every monic polynomial over B(A) admitting a root.",
+      "locator": "Remark 2.7; [Bh4] Corollary 9.4.7",
+      "status": "missing",
+      "note": "Existing node PerfectoidQuotients:Q3/andre-flatness-lemma read. Its statement does not explicitly give the functorial choice required here.",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/extension-flat"
+      ],
+      "proofSteps": [
+        "Q3 already owns the stronger p-completely faithfully flat existence theorem for general perfectoid rings. Request only the functoriality and exact field-based comparison of this source, not a second AIC construction."
+      ],
+      "proposedOwner": "PerfectoidQuotients:Q3"
+    },
+    {
+      "id": "PAPER-BHATT-18/pro-zero",
+      "kind": "definition",
+      "name": "Almost-pro-zero tower",
+      "statement": "For a tower of A-modules M_n, almost-pro-zero means: for every k≥0 and n≥1 there exists m≥n such that t^(1/p^k) kills the image M_m→M_n. The later index may depend on both k and n.",
+      "locator": "Definition 3.2",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/root-system"
+      ],
+      "proofSteps": [
+        "This quantifier order is the input to all inverse-limit arguments."
+      ],
+      "proposedOwner": "PerfectoidSpaces:P0",
+      "api": [
+        {
+          "name": "AlmostProZero.iff_torsion_proIso",
+          "role": "characterisation",
+          "statement": "For each k the inclusion of the t^(1/p^k)-torsion tower is a pro-isomorphism."
+        },
+        {
+          "name": "AlmostProZero.cofinal",
+          "role": "functoriality",
+          "statement": "A cofinal reindexing preserves this condition."
+        },
+        {
+          "name": "AlmostProZero.eventual_transition",
+          "role": "data",
+          "statement": "Export the later index with its annihilation witness."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "pro-zero.test_1",
+          "statement": "A pro-zero tower is almost-pro-zero.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "pro-zero.test_2",
+          "statement": "Example 3.3 shows almost-pro-zero need not be zero in Pro(almost modules).",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "Definition 3.2",
+          "how": "This quantifier order is the input to all inverse-limit arguments."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/pro-iso",
+      "kind": "definition",
+      "name": "Almost-pro-isomorphism of bounded derived towers",
+      "statement": "A map of pro-objects in D^b(A) is an almost-pro-isomorphism if each cohomology tower of a cone is almost-pro-zero, with m_t fixed.",
+      "locator": "Definition 3.2",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/pro-zero",
+        "PAPER-BHATT-18/derived-category"
+      ],
+      "proofSteps": [
+        "Use functorial representatives/coherent towers for taking cones and Rlim; state the boundedness used for the cohomological argument."
+      ],
+      "proposedOwner": "PerfectoidSpaces:P0",
+      "api": [
+        {
+          "name": "AlmostProIso.cone",
+          "role": "characterisation",
+          "statement": "Characterize by almost-pro-zero cohomology of the cone, independently of cone choice."
+        },
+        {
+          "name": "AlmostProIso.comp",
+          "role": "functoriality",
+          "statement": "Prove closure under composition using the cone triangle and annihilator bookkeeping."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "pro-iso.test_1",
+          "statement": "An isomorphism of towers is an almost-pro-isomorphism.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "pro-iso.test_2",
+          "statement": "A degreewise isomorphism on H^0 alone does not satisfy the definition.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "Definition 3.2",
+          "how": "Use functorial representatives/coherent towers for taking cones and Rlim; state the boundedness used for the cohomological argument."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/separating-example",
+      "kind": "construction",
+      "name": "Tower separating two almost notions",
+      "statement": "For a nontrivial root-valued base such as K°, let M_n=A/(t^(1/p^n)) with transition 1↦t^(1/p^n−1/p^(n+1)). These maps are injective, the tower is almost-pro-zero, and its pro-object in almost modules is nonzero.",
+      "locator": "Example 3.3",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/pro-zero"
+      ],
+      "proofSteps": [
+        "For fixed k, M_m is killed by t^(1/p^k) once m≥k. For any fixed transition into M_n, a sufficiently small positive root fails to kill its image in the valuation-ring example."
+      ],
+      "proposedOwner": "PerfectoidSpaces:P0",
+      "api": [
+        {
+          "name": "AlmostProExample.transition",
+          "role": "constructor",
+          "statement": "Define the transition multiplication and prove compatibility."
+        },
+        {
+          "name": "AlmostProExample.transition_injective",
+          "role": "relation",
+          "statement": "Use regularity of roots to prove injectivity."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "separating-example.test_1",
+          "statement": "For m≥k the annihilator comparison is 1/p^k≥1/p^m.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "separating-example.test_2",
+          "statement": "Taking A with t invertible makes every quotient zero; the nonzero conclusion needs the nontrivial valuation example, not that degenerate base.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "Example 3.3",
+          "how": "For fixed k, M_m is killed by t^(1/p^k) once m≥k. For any fixed transition into M_n, a sufficiently small positive root fails to kill its image in the valuation-ring example."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/rlim-zero",
+      "kind": "theorem",
+      "name": "Derived inverse limit of an almost-pro-zero tower",
+      "statement": "If M_n is almost-pro-zero, every cohomology group of Rlim_n M_n is almost zero.",
+      "locator": "Lemma 3.4",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/pro-zero",
+        "PAPER-BHATT-18/derived-category"
+      ],
+      "proofSteps": [
+        "For each k replace the tower by its root-torsion subtower through a pro-isomorphism; Rlim is unchanged and its cohomology is killed by that root. Invariance of Rlim under pro-isomorphism is an explicit E2 request."
+      ],
+      "proposedOwner": "PerfectoidSpaces:P0"
+    },
+    {
+      "id": "PAPER-BHATT-18/rlim-iso",
+      "kind": "theorem",
+      "name": "Almost-pro-isomorphisms induce almost inverse-limit isomorphisms",
+      "statement": "An almost-pro-isomorphism of the bounded derived towers of 3.2 induces an almost isomorphism on Rlim.",
+      "locator": "Lemma 3.5",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/pro-iso",
+        "PAPER-BHATT-18/rlim-zero"
+      ],
+      "proofSteps": [
+        "Apply 3.4 to cohomology of the cone, proving the required bounded/convergence passage. The source's short cone argument is not a substitute for that interface."
+      ],
+      "proposedOwner": "PerfectoidSpaces:P0"
+    },
+    {
+      "id": "PAPER-BHATT-18/linear-functor",
+      "kind": "theorem",
+      "name": "A-linear functors preserve almost-pro-zero",
+      "statement": "If F:Mod_A→Mod_A is A-linear and M_n is almost-pro-zero, then F(M_n) is almost-pro-zero.",
+      "locator": "Lemma 3.6",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/pro-zero"
+      ],
+      "proofSteps": [
+        "Factor a sufficiently late transition through M_n[t^(1/p^k)]; A-linearity makes its image under F factor through F(M_n)[t^(1/p^k)]. No exactness assumption on F is needed."
+      ],
+      "proposedOwner": "PerfectoidSpaces:P0"
+    },
+    {
+      "id": "PAPER-BHATT-18/annular-tower",
+      "kind": "construction",
+      "name": "Rational annular tower",
+      "statement": "For integral perfectoid A and g with compatible roots, put A_n=O^+({|t|^n≤|g|}⊂Spa(A[1/t],A)). The transition is A_(n+c)→A_n. Theorem 4.2 first assumes g is an almost nonzerodivisor modulo each t^m.",
+      "locator": "Notation 4.1",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/integral-perfectoid",
+        "PAPER-BHATT-18/rational-model",
+        "PAPER-BHATT-18/root-system"
+      ],
+      "proofSteps": [
+        "The restriction direction and almost base must survive the quotient by t^m."
+      ],
+      "proposedOwner": "PerfectoidRamification",
+      "api": [
+        {
+          "name": "PerfectoidAnnulus.transition",
+          "role": "functoriality",
+          "statement": "Restriction maps compose."
+        },
+        {
+          "name": "PerfectoidAnnulus.root_transition",
+          "role": "simp",
+          "statement": "The root u_(n+c)^e of t^(n+c)/g maps to t^(ce)u_n^e."
+        },
+        {
+          "name": "PerfectoidAnnulus.base_map",
+          "role": "data",
+          "statement": "The maps A→A_n commute with transitions."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "annular-tower.test_1",
+          "statement": "For g a unit, the rational domains are the whole space.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "annular-tower.test_2",
+          "statement": "The rational comparison has m_t error, whereas the uniform cokernel estimate uses m_g.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "Notation 4.1",
+          "how": "The restriction direction and almost base must survive the quotient by t^m."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/riemann-kernel",
+      "kind": "theorem",
+      "name": "Pointwise almost-zero kernels",
+      "statement": "Under Notation 4.1, for every m≥0 and n≥1, ker(A/t^m→A_n/t^m) is m_t-almost zero.",
+      "locator": "Theorem 4.2(1)",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/annular-tower",
+        "PAPER-BHATT-18/derived-rational"
+      ],
+      "proofSteps": [
+        "In the root-relation model, almost regularity of g modulo t^m controls the kernel; transport through the m_t-almost comparison."
+      ],
+      "proposedOwner": "PerfectoidRamification"
+    },
+    {
+      "id": "PAPER-BHATT-18/riemann-cokernel",
+      "kind": "theorem",
+      "name": "Uniform root annihilation of cokernel transitions",
+      "statement": "Under Notation 4.1, working in m_t-almost modules, for every m,k≥0 the transition coker(f_(n+c))→coker(f_n) is annihilated by g^(1/p^k) for all n, where c=p^k m.",
+      "locator": "Theorem 4.2(2)",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/annular-tower",
+        "PAPER-BHATT-18/derived-rational"
+      ],
+      "proofSteps": [
+        "Represent monomials by u^e. For e≥p^(−k), the factor t^(ce) vanishes modulo t^m.",
+        "For e<p^(−k), multiply by g^(1/p^k) and rewrite it as a base element with exponents g^(p^(−k)−e)t^((n+c)e). The shift c is independent of n."
+      ],
+      "proposedOwner": "PerfectoidRamification"
+    },
+    {
+      "id": "PAPER-BHATT-18/riemann-pro",
+      "kind": "theorem",
+      "name": "Quantitative Riemann extension",
+      "statement": "Under Notation 4.1, {A/t^m}_n→{A_n/t^m}_n is an almost-pro-isomorphism for the ideal generated by compatible roots of tg.",
+      "locator": "Theorem 4.2 final assertion; Theorem 1.6",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/riemann-kernel",
+        "PAPER-BHATT-18/riemann-cokernel",
+        "PAPER-BHATT-18/pro-iso"
+      ],
+      "proofSteps": [
+        "Combine the m_t kernel comparison and m_g cokernel estimate after explicit change of almost base."
+      ],
+      "proposedOwner": "PerfectoidRamification"
+    },
+    {
+      "id": "PAPER-BHATT-18/derived-uniform",
+      "kind": "theorem",
+      "name": "Uniform derived tensor version",
+      "statement": "With the hypotheses of 4.2 and fixed m, the same tower comparison remains a uniform almost-pro-isomorphism after derived tensor over A/t^m with any complex; bounds can be chosen uniformly in the tensor factor as in Remark 4.3.",
+      "locator": "Remark 4.3",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/riemann-kernel",
+        "PAPER-BHATT-18/riemann-cokernel",
+        "PAPER-BHATT-18/derived-category"
+      ],
+      "proofSteps": [
+        "The source asserts uniform kernel and cokernel control on all cohomology. A chain-level annihilation/factorization proof is still required; do not infer derived annihilation merely from zero maps on cohomology. G4 records the exact unfinished task."
+      ],
+      "proposedOwner": "PerfectoidRamification"
+    },
+    {
+      "id": "PAPER-BHATT-18/koszul-uniform",
+      "kind": "theorem",
+      "name": "Uniform estimates for Koszul homology",
+      "statement": "For a regular sequence in A/t^m in the setup of 4.2, nonzero-degree Koszul homology of its base change to A_n/t^m forms uniformly almost-pro-zero towers. The underlying comparison applies to any finite Koszul complex, but vanishing of the source homology uses regularity.",
+      "locator": "Remark 4.3 example",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/derived-uniform",
+        "PAPER-BHATT-18/derived-completion"
+      ],
+      "proofSteps": [
+        "Import generic Koszul construction from DD.1; specialize its derived base-change map."
+      ],
+      "proposedOwner": "PerfectoidRamification"
+    },
+    {
+      "id": "PAPER-BHATT-18/remove-regularity",
+      "kind": "theorem",
+      "name": "Riemann extension without regularity of g",
+      "statement": "For integral perfectoid A and g with compatible roots, the final almost-pro-isomorphism of 4.2 holds without the almost nonzerodivisor hypothesis on g modulo t^m.",
+      "locator": "Remark 4.4",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/derived-uniform",
+        "PAPER-BHATT-18/derived-rational"
+      ],
+      "proofSteps": [
+        "Apply the regular universal case K°⟨T^(1/p∞)⟩ with T, derived base change T↦g, and take H^0. This does not assert the separate pointwise kernel statement for arbitrary g."
+      ],
+      "proposedOwner": "PerfectoidRamification"
+    },
+    {
+      "id": "PAPER-BHATT-18/limit-extension",
+      "kind": "theorem",
+      "name": "Riemann extension after limits",
+      "statement": "Under the introductory setup, A∞→lim_n A∞⟨p^n/g⟩ is almost an isomorphism with respect to roots of pg, using the reductions and limits over m of 1.6.",
+      "locator": "Remark 1.7",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/riemann-pro",
+        "PAPER-BHATT-18/rlim-iso",
+        "PAPER-BHATT-18/derived-completion"
+      ],
+      "proofSteps": [
+        "Recover completeness by the limit over m and account for derived inverse-limit terms; this is weaker information than the quantitative tower theorem."
+      ],
+      "proposedOwner": "PerfectoidRamification"
+    },
+    {
+      "id": "PAPER-BHATT-18/complete-flat",
+      "kind": "theorem",
+      "name": "Lifting flatness from one complete reduction",
+      "statement": "For A Noetherian and A→B, if π is a nonzerodivisor on both rings, both are π-adically complete and A/π→B/π is flat, then A→B is flat.",
+      "locator": "Proposition 5.1, flatness",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/completion",
+        "PAPER-BHATT-18/derived-completion",
+        "PAPER-BHATT-18/faithful"
+      ],
+      "proofSteps": [
+        "Resolve a finite A-module by finite free modules; compare tensor with Rlim of reductions.",
+        "Finite generation bounds π-power torsion, making the extra Tor tower pro-zero. Lift flatness to all π^n reductions, then use left t-exactness of Rlim."
+      ],
+      "proposedOwner": "DerivedDeRhamCohomology:DD.1"
+    },
+    {
+      "id": "PAPER-BHATT-18/complete-faithful",
+      "kind": "theorem",
+      "name": "Lifting faithful flatness from one complete reduction",
+      "statement": "Under the same hypotheses as 5.1, faithful flatness of A/π→B/π implies faithful flatness of A→B.",
+      "locator": "Proposition 5.1, faithfulness",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/complete-flat",
+        "PAPER-BHATT-18/faithful"
+      ],
+      "proofSteps": [
+        "Every maximal ideal of π-complete A contains π. Its residue field remains nonzero after tensor with B/π; use the existing faithful-flatness criterion."
+      ],
+      "proposedOwner": "DerivedDeRhamCohomology:DD.1"
+    },
+    {
+      "id": "PAPER-BHATT-18/unramified-cover",
+      "kind": "construction",
+      "name": "Unramified regular local perfectoid cover",
+      "statement": "For an unramified p-torsionfree Noetherian regular local A0 of residue characteristic p, there is a faithfully flat map to a field-based integral perfectoid algebra over the completed Q_p(p^(1/p∞)).",
+      "locator": "Proposition 5.2, unramified proof",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/regular",
+        "PAPER-BHATT-18/integral-perfectoid",
+        "PAPER-BHATT-18/complete-faithful"
+      ],
+      "proofSteps": [
+        "Pass faithfully flatly to a complete ring with algebraically closed residue field; use Cohen presentation W(k)[[x_2,…,x_d]], adjoin compatible roots of parameters and p, and complete."
+      ],
+      "proposedOwner": "RegularRingSplittings",
+      "api": [
+        {
+          "name": "RegularPerfectoidCover.map",
+          "role": "data",
+          "statement": "Export the A0-algebra structure."
+        },
+        {
+          "name": "RegularPerfectoidCover.flat",
+          "role": "projection",
+          "statement": "Export ordinary faithful flatness in the unramified case."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "unramified-cover.test_1",
+          "statement": "Dimension one specializes to a Witt DVR root tower.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "unramified-cover.test_2",
+          "statement": "No unramified conclusion is silently applied to the ramified Cohen presentation.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "Proposition 5.2, unramified proof",
+          "how": "Pass faithfully flatly to a complete ring with algebraically closed residue field; use Cohen presentation W(k)[[x_2,…,x_d]], adjoin compatible roots of parameters and p, and complete."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/ramified-general-cover",
+      "kind": "construction",
+      "name": "Ramified general perfectoid cover",
+      "statement": "For p-torsionfree Noetherian regular local A0 of residue characteristic p, the construction in 5.2 gives a faithfully flat general integral perfectoid cover A′ before imposing a field-based root-of-p structure.",
+      "locator": "Proposition 5.2, ramified proof",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/general-perfectoid",
+        "PAPER-BHATT-18/complete-faithful",
+        "PAPER-BHATT-18/regular"
+      ],
+      "proofSteps": [
+        "After coefficient extension write A0=W(k)[[x_1,…,x_d]]/(p−f), f∈(x)^2 and p∤f.",
+        "Adjoin parameter roots and complete. A root π satisfies π^p=pv for a unit v; establish general perfectoidness by the cited SW criterion."
+      ],
+      "proposedOwner": "RegularRingSplittings",
+      "api": [
+        {
+          "name": "RamifiedPerfectoidCover.parameter_roots",
+          "role": "data",
+          "statement": "Export compatible roots of the Cohen parameters."
+        },
+        {
+          "name": "RamifiedPerfectoidCover.p_relation",
+          "role": "relation",
+          "statement": "Export π^p=pv with v a unit."
+        },
+        {
+          "name": "RamifiedPerfectoidCover.faithful",
+          "role": "projection",
+          "statement": "Export faithful flatness before star-normalization."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "ramified-general-cover.test_1",
+          "statement": "A ramified regular equation with p in the square of the maximal ideal uses this branch.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "ramified-general-cover.test_2",
+          "statement": "A root of pv is not already a root of p.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "Proposition 5.2, ramified proof",
+          "how": "After coefficient extension write A0=W(k)[[x_1,…,x_d]]/(p−f), f∈(x)^2 and p∤f."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/field-normalization",
+      "kind": "construction",
+      "name": "Field-based normalization of the ramified cover",
+      "statement": "Adjoin compatible p-power roots of the unit v to A′[1/p], take the completed integral closure A, and normalize by the almost-elements convention. The newly constructed A carries the K°-structure from compatible roots of p.",
+      "locator": "5.2 p. 9, corrected by E2",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/ramified-general-cover",
+        "PAPER-BHATT-18/almost-purity",
+        "PAPER-BHATT-18/almost-category"
+      ],
+      "proofSteps": [
+        "Almost purity supplies the almost faithful map. The root-containing ring at this point is A, not the original A′."
+      ],
+      "proposedOwner": "RegularRingSplittings",
+      "api": [
+        {
+          "name": "RamifiedFieldCover.root_p",
+          "role": "data",
+          "statement": "Construct roots of p from roots of π and v with the required compatibility."
+        },
+        {
+          "name": "RamifiedFieldCover.almostComparison",
+          "role": "compatibility",
+          "statement": "Record the almost isomorphism involved in star-normalization."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "field-normalization.test_1",
+          "statement": "The displayed K° action must land in A.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "field-normalization.test_2",
+          "statement": "The source's A′ spelling cannot justify a K°-structure on A′.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "5.2 p. 9, corrected by E2",
+          "how": "Almost purity supplies the almost faithful map. The root-containing ring at this point is A, not the original A′."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/cover-tor",
+      "kind": "theorem",
+      "name": "Almost Tor vanishing for regular local covers",
+      "statement": "For p-torsionfree Noetherian regular local A0 with residue characteristic p, there exists field-based integral perfectoid A as in 5.2 with Tor_i^A0(M,A) m_p-almost zero for every A0-module M and i>0.",
+      "locator": "Proposition 5.2(1),(2)(a)",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/unramified-cover",
+        "PAPER-BHATT-18/field-normalization"
+      ],
+      "proofSteps": [
+        "Compose the faithfully flat first cover with the almost flat integral normalization; retain quantification over all M."
+      ],
+      "proposedOwner": "RegularRingSplittings"
+    },
+    {
+      "id": "PAPER-BHATT-18/cover-detection",
+      "kind": "theorem",
+      "name": "Ordinary-module detection by an almost cover",
+      "statement": "For the same A0→A in 5.2, if M⊗_A0 A is m_p-almost zero then the ordinary A0-module M is zero.",
+      "locator": "Proposition 5.2(2)(b)",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/field-normalization",
+        "PAPER-BHATT-18/complete-faithful",
+        "PAPER-BHATT-18/krull",
+        "PAPER-BHATT-18/almost-category"
+      ],
+      "proofSteps": [
+        "Use the algebra left adjoint (!!), commuting with reductions, to recover a faithfully flat intermediate model.",
+        "Reduce a nonzero M to a cyclic submodule and use almost flatness; containing every root of p would put p in all powers of a proper ideal, contrary to Krull intersection.",
+        "This ordinary detection conclusion is distinct from faithfulness in the almost category."
+      ],
+      "proposedOwner": "RegularRingSplittings"
+    },
+    {
+      "id": "PAPER-BHATT-18/hom-pro",
+      "kind": "theorem",
+      "name": "Adic Hom comparison as a pro-isomorphism",
+      "statement": "For Noetherian R, ideal I and finite R-modules M,N, {Hom_R(M,N)/I^n Hom_R(M,N)}→{Hom_R(M,N/I^n N)} is a pro-isomorphism.",
+      "locator": "Lemma 5.3, first assertion",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/artin-rees",
+        "PAPER-BHATT-18/controlled-lift"
+      ],
+      "proofSteps": [
+        "Choose a finite presentation of M and compare kernel filtrations using Artin–Rees; distinguish ideal quotients of Hom from pointwise quotients of N."
+      ],
+      "proposedOwner": "DeformationAndDerivedPatchingAlgebra:R03.1"
+    },
+    {
+      "id": "PAPER-BHATT-18/hom-lim-one",
+      "kind": "theorem",
+      "name": "Vanishing lim-one for the adic Hom tower",
+      "statement": "Under the hypotheses of 5.3, lim¹_n Hom_R(M,N/I^n N)=0.",
+      "locator": "Lemma 5.3, final assertion",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/hom-pro"
+      ],
+      "proofSteps": [
+        "The comparison tower has surjective transition maps; transport derived limits through the pro-isomorphism."
+      ],
+      "proposedOwner": "DeformationAndDerivedPatchingAlgebra:R03.1"
+    },
+    {
+      "id": "PAPER-BHATT-18/obstruction",
+      "kind": "construction",
+      "name": "Splitting obstruction",
+      "statement": "For a map A→C in D(A), form its cone Q and the connecting morphism α:Q→A[1]. The unit splits if and only if α=0. For a finite injective ring extension C=B in degree zero, Q is B/A.",
+      "locator": "5.4 and 6.1 proof",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/derived-category"
+      ],
+      "proofSteps": [
+        "The proof works with this morphism itself and its annihilator, not only a cohomology class of H^0(C)."
+      ],
+      "proposedOwner": "EnhancedDerivedSheaves:E1",
+      "api": [
+        {
+          "name": "SplittingObstruction.zero_iff",
+          "role": "characterisation",
+          "statement": "Give the equivalence between vanishing and a left inverse in the distinguished triangle."
+        },
+        {
+          "name": "SplittingObstruction.baseChange",
+          "role": "functoriality",
+          "statement": "Derived base change transports the triangle and α coherently."
+        },
+        {
+          "name": "SplittingObstruction.annihilator",
+          "role": "data",
+          "statement": "The A-module Hom(Q,A[1]) supplies the annihilator ideal of α."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "obstruction.test_1",
+          "statement": "For the identity map the obstruction is zero.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "obstruction.test_2",
+          "statement": "For projection A1×A2→A1 with A2 nonzero, a left inverse is impossible.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "5.4 and 6.1 proof",
+          "how": "The proof works with this morphism itself and its annihilator, not only a cohomology class of H^0(C)."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/local-complete-reduction",
+      "kind": "theorem",
+      "name": "Reduction to complete mixed-characteristic regular local rings",
+      "statement": "To prove the finite splitting theorem, use localization, faithful flat completion and residue-field extension to reduce the mixed-characteristic branch to a complete regular local ring with perfect residue field and a finite domain extension generically étale after some nonzero pg.",
+      "locator": "5.2–5.4; introductory reductions",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/regular",
+        "PAPER-BHATT-18/faithful"
+      ],
+      "proofSteps": [
+        "Prove descent of existence of a retraction via the finite obstruction module, the component/domain reductions and existence of a discriminant element. These are named unfinished inputs G5, not automatic changes of hypotheses."
+      ],
+      "proposedOwner": "RegularRingSplittings"
+    },
+    {
+      "id": "PAPER-BHATT-18/obstruction-detection",
+      "kind": "theorem",
+      "name": "Detecting a surviving finite splitting obstruction",
+      "statement": "In the complete local finite-extension setup of 5.4, a nonzero splitting obstruction remains nonzero modulo p^m for some m≥3, and after the two almost faithful extensions there is k such that (pg)^(1/p^k) does not annihilate the resulting obstruction.",
+      "locator": "5.4 proof, first half",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/obstruction",
+        "PAPER-BHATT-18/hom-lim-one",
+        "PAPER-BHATT-18/krull",
+        "PAPER-BHATT-18/cover-tor",
+        "PAPER-BHATT-18/cover-detection",
+        "PAPER-BHATT-18/extension-flat"
+      ],
+      "proofSteps": [
+        "Use finite Hom and vanishing lim¹ to detect nonzero reduction; choose k with p²g outside the relevant annihilator power; account for the loss of one factor p in almost-flat base change.",
+        "The p²g→pg calculation must be expanded at declaration level; retain it as G5 rather than suppressing its bound."
+      ],
+      "proposedOwner": "RegularRingSplittings"
+    },
+    {
+      "id": "PAPER-BHATT-18/almost-purity",
+      "kind": "theorem",
+      "name": "Almost purity for finite étale perfectoid extensions",
+      "statement": "For a perfectoid K-algebra R and finite étale R-algebra S, S is perfectoid and S° is almost finite étale and uniformly almost finitely generated over R°. Faithfulness is a separate hypothesis when a cover or almost retraction is needed.",
+      "locator": "5.2, 5.4, 6.2; Scholze Theorem 7.9(iii)",
+      "status": "planned",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/integral-perfectoid",
+        "PAPER-BHATT-18/almost-category"
+      ],
+      "proofSteps": [
+        "Import the accepted partial node PerfectoidSpaces:P3/almost-purity-theorem, preserving its proof gaps."
+      ],
+      "planned": [
+        "PerfectoidSpaces:P3"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/almost-splitting",
+      "kind": "theorem",
+      "name": "Almost splitting of a finite generically étale cover",
+      "statement": "For the finite injective extensions over the rational perfectoid algebras in 5.4, finite étale after inverting p, the unit is almost split with respect to m_p.",
+      "locator": "5.4; [Bh2] Lemma 2.7",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/almost-purity",
+        "PAPER-BHATT-18/almost-category"
+      ],
+      "proofSteps": [
+        "Almost purity plus the finite-presentation almost-purity-to-splitting lemma annihilates the extension class. Original Bhatt 2014 Lemma 2.7 and exact finite hypotheses remain G3."
+      ],
+      "proposedOwner": "PerfectoidSpaces:P3"
+    },
+    {
+      "id": "PAPER-BHATT-18/annular-obstruction",
+      "kind": "theorem",
+      "name": "Annihilation of the finite obstruction on each annulus",
+      "statement": "For fixed m,n in the setup of 5.4, the obstruction after base change to A∞⟨p^n/g⟩/p^m is m_p-almost zero.",
+      "locator": "5.4 proof, second half",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/almost-splitting",
+        "PAPER-BHATT-18/obstruction",
+        "PAPER-BHATT-18/annular-tower"
+      ],
+      "proofSteps": [
+        "The rational inequality makes g invertible after p is inverted, so the chosen generic étaleness applies."
+      ],
+      "proposedOwner": "RegularRingSplittings"
+    },
+    {
+      "id": "PAPER-BHATT-18/obstruction-limit",
+      "kind": "theorem",
+      "name": "Recovering almost vanishing over A∞",
+      "statement": "In the setup of 5.4, annular almost vanishing implies that the obstruction over A∞/p^m is m_(pg)-almost zero.",
+      "locator": "5.4 final paragraph",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/annular-obstruction",
+        "PAPER-BHATT-18/riemann-pro",
+        "PAPER-BHATT-18/linear-functor",
+        "PAPER-BHATT-18/rlim-iso"
+      ],
+      "proofSteps": [
+        "Apply the A∞-linear Hom functor to the tower; it becomes almost-pro-isomorphic to a constant system. Lemma 3.5 removes the lim¹ obstruction, contradicting detection."
+      ],
+      "proposedOwner": "RegularRingSplittings"
+    },
+    {
+      "id": "PAPER-BHATT-18/direct-summand",
+      "kind": "theorem",
+      "name": "Direct summand theorem",
+      "statement": "For a finite injective map A0→B0 of Noetherian commutative rings with A0 regular, there exists an A0-linear map B0→A0 whose composite with the unit is the identity.",
+      "locator": "Theorems 1.1 and 5.4",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/local-complete-reduction",
+        "PAPER-BHATT-18/obstruction-detection",
+        "PAPER-BHATT-18/obstruction-limit",
+        "PAPER-BHATT-18/equal-characteristic"
+      ],
+      "proofSteps": [
+        "Combine the mixed-characteristic contradiction with the separately supplied equal-characteristic cases and descent. The retraction is module-linear, not a ring homomorphism."
+      ],
+      "proposedOwner": "RegularRingSplittings"
+    },
+    {
+      "id": "PAPER-BHATT-18/proper-cohomology",
+      "kind": "theorem",
+      "name": "Perfect proper coherent cohomology over a regular local base",
+      "statement": "For proper X→Spec(A0) with A0 Noetherian regular local, RΓ(X,O_X) is bounded with finite cohomology, hence perfect over A0. Its derived scalar extension is compared with cohomology of the derived base change; ordinary base change needs a separately verified Tor/flatness hypothesis.",
+      "locator": "6.1 proof input",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/regular",
+        "PAPER-BHATT-18/derived-category"
+      ],
+      "proofSteps": [
+        "Request proper coherent finiteness, finite cohomological dimension and finite global dimension of a regular local ring. The almost-flat passage to the ordinary scheme in this proof needs G6.",
+        "The existing étale proper-base-change target does not prove this coherent assertion."
+      ],
+      "proposedOwner": "SchemeAndStackFoundations:SF.2"
+    },
+    {
+      "id": "PAPER-BHATT-18/generic-multisection",
+      "kind": "theorem",
+      "name": "Generic multisection reduction",
+      "statement": "Over a characteristic-zero fraction field, a proper surjective scheme has a closed point with finite separable residue extension. Its closure gives a proper dominating scheme which becomes finite étale after inverting a suitable nonzero pg.",
+      "locator": "6.1 proof",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/regular"
+      ],
+      "proofSteps": [
+        "Use existence of a closed point, its integral closure in X and shrinking of the quasi-finite proper generically separable map. Splitting for the composite dominating morphism implies splitting for the original unit."
+      ],
+      "proposedOwner": "SchemeAndStackFoundations:SF.4"
+    },
+    {
+      "id": "PAPER-BHATT-18/proper-integral-h0",
+      "kind": "theorem",
+      "name": "Integral global functions in the perfectoid proper case",
+      "statement": "For proper surjective Y→Spec(A) in the corrected 6.2 setup, B=H^0(Y,O_Y) is an integral A-algebra; B[1/p] is the finite étale generic algebra, and Y maps naturally to Spec(B).",
+      "locator": "6.2 first paragraph",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "proofSteps": [
+        "Non-Noetherian A is permitted here. Verify the proper/global-functions integrality theorem and localization comparison in this generality before importing them; G6."
+      ],
+      "proposedOwner": "SchemeAndStackFoundations:SF.2"
+    },
+    {
+      "id": "PAPER-BHATT-18/formal-domination",
+      "kind": "theorem",
+      "name": "Admissible blowup domination of a generic isomorphism",
+      "statement": "In the p-torsionfree perfectoid-base situation after the finite-cover reduction of 6.2, a proper morphism whose generic fiber is an isomorphism is dominated after p-adic completion by an admissible blowup of Spf(A).",
+      "locator": "6.2 and footnote 8; [GR2] §15.4",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/proper-integral-h0"
+      ],
+      "proofSteps": [
+        "This is the non-Noetherian formal-model input, not merely invariance of a known blowup's generic fiber. Read and match GR2 hypotheses; current F0 Noetherian scope alone is insufficient."
+      ],
+      "proposedOwner": "AdicSpacesPartII:R2"
+    },
+    {
+      "id": "PAPER-BHATT-18/generic-fiber-map",
+      "kind": "construction",
+      "name": "Integral generic-fiber factorization",
+      "statement": "The integral locally ringed space (Spa(A[1/p],A),O^+) maps to every admissible blowup of Spf(A); using domination it maps to Y over Spec(A).",
+      "locator": "6.2 final paragraph",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/formal-domination",
+        "PAPER-BHATT-18/rational-model"
+      ],
+      "proofSteps": [
+        "Take the induced maps on derived global sections, retaining the integral sheaf."
+      ],
+      "proposedOwner": "AdicSpacesPartII:R2",
+      "api": [
+        {
+          "name": "IntegralGenericFiber.factor",
+          "role": "constructor",
+          "statement": "Construct the factorization through an admissible blowup."
+        },
+        {
+          "name": "IntegralGenericFiber.cohomology_map",
+          "role": "functoriality",
+          "statement": "Export A→RΓ(Y,O_Y)→RΓ(Sη,O^+) and identify its composite with the unit."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "generic-fiber-map.test_1",
+          "statement": "The identity model gives the usual specialization map.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "generic-fiber-map.test_2",
+          "statement": "Replacing O^+ by O would lose integral almost information.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "6.2 final paragraph",
+          "how": "Take the induced maps on derived global sections, retaining the integral sheaf."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/acyclicity",
+      "kind": "theorem",
+      "name": "Integral almost acyclicity of a perfectoid affinoid",
+      "statement": "For an affinoid perfectoid (R,R^+), O is a sheaf and H^i(Spa(R,R^+),O^+) is almost zero for i>0; in the normalized integral convention H^0 is the stated integral ring.",
+      "locator": "6.2; Scholze Proposition 6.14 and Theorem 6.3",
+      "status": "planned",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/integral-perfectoid"
+      ],
+      "proofSteps": [
+        "Supplier PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity includes the rational Čech calculation and the sheaf-cohomology comparison request."
+      ],
+      "planned": [
+        "PerfectoidSpaces:P2"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/perfectoid-proper-split",
+      "kind": "theorem",
+      "name": "Almost derived splitting over a perfectoid base",
+      "statement": "Let K be a mixed-characteristic perfectoid field, A an integral perfectoid K°-algebra, and f:Y→Spec(A) proper with f[1/p] finite étale and surjective. Then A→RΓ(Y,O_Y) has a left inverse in the almost derived category for m_p.",
+      "locator": "Proposition 6.2, corrected by E1",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/proper-integral-h0",
+        "PAPER-BHATT-18/almost-purity",
+        "PAPER-BHATT-18/generic-fiber-map",
+        "PAPER-BHATT-18/acyclicity"
+      ],
+      "proofSteps": [
+        "Normalize the generic finite étale cover by almost purity and reduce to a generic isomorphism.",
+        "The composite A→RΓ(Y,O_Y)→RΓ(Sη,O^+) is an almost isomorphism by acyclicity, so the first arrow is almost split.",
+        "The change of base along the almost finite étale cover must be descended with its faithful hypothesis."
+      ],
+      "proposedOwner": "RegularRingSplittings"
+    },
+    {
+      "id": "PAPER-BHATT-18/derived-summand",
+      "kind": "theorem",
+      "name": "Derived direct summand theorem",
+      "statement": "For any Noetherian regular ring A0 and proper surjective morphism f0:X0→Spec(A0), the unit A0→RΓ(X0,O_X0) admits a left inverse in D(A0).",
+      "locator": "Theorems 1.2 and 6.1",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/proper-cohomology",
+        "PAPER-BHATT-18/generic-multisection",
+        "PAPER-BHATT-18/perfectoid-proper-split",
+        "PAPER-BHATT-18/obstruction-detection",
+        "PAPER-BHATT-18/obstruction-limit",
+        "PAPER-BHATT-18/equal-characteristic"
+      ],
+      "proofSteps": [
+        "Replace the finite-module cone argument by the perfect-complex cone, use the generic multisection, then apply 6.2 on each annulus.",
+        "Expand the derived Hom/lim¹ and almost base-change analogues, and import the equal-characteristic branches. These remain G5–G6."
+      ],
+      "proposedOwner": "RegularRingSplittings"
+    },
+    {
+      "id": "PAPER-BHATT-18/equal-characteristic",
+      "kind": "theorem",
+      "name": "Equal-characteristic splitting inputs",
+      "statement": "For regular Noetherian Q-algebras, the finite direct-summand theorem follows from normalized trace and the derived statement from the characteristic-zero rational-singularity splitting result. For regular Noetherian F_p-algebras use the positive-characteristic direct/derived splinter results cited in the introduction.",
+      "locator": "1.1–1.2, 6.1; [Ko], [Bh1] Theorem 2.12 and Theorem 1.4 with Example 2.3",
+      "status": "missing",
+      "note": "",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/regular"
+      ],
+      "proofSteps": [
+        "Read exact hypotheses and reduction from the original cited cases before treating these branches as closed; G7. Characteristic zero here must mean a Q-algebra/equal-characteristic reduction, not merely char(A)=0."
+      ],
+      "proposedOwner": "RegularRingSplittings"
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "PerfectoidSpaces",
+      "stages": [
+        "PerfectoidSpaces:P0",
+        "PerfectoidSpaces:P1",
+        "PerfectoidSpaces:P2",
+        "PerfectoidSpaces:P3"
+      ],
+      "items": [
+        "PAPER-BHATT-18/root-system",
+        "PAPER-BHATT-18/almost-category",
+        "PAPER-BHATT-18/almost-flat",
+        "PAPER-BHATT-18/integral-perfectoid",
+        "PAPER-BHATT-18/root-disc",
+        "PAPER-BHATT-18/rational-model",
+        "PAPER-BHATT-18/approximation",
+        "PAPER-BHATT-18/perfect-torsion",
+        "PAPER-BHATT-18/derived-rational",
+        "PAPER-BHATT-18/pro-zero",
+        "PAPER-BHATT-18/pro-iso",
+        "PAPER-BHATT-18/separating-example",
+        "PAPER-BHATT-18/rlim-zero",
+        "PAPER-BHATT-18/rlim-iso",
+        "PAPER-BHATT-18/linear-functor",
+        "PAPER-BHATT-18/almost-purity",
+        "PAPER-BHATT-18/almost-splitting",
+        "PAPER-BHATT-18/acyclicity"
+      ],
+      "reason": "Reuse almost algebra, the field/integral dictionary, rational localization and almost purity. Add the general almost-pro estimates and the derived rational presentation inside these existing scopes. Existing detailed supplier nodes are recorded in the item notes; their partial status is retained."
+    },
+    {
+      "route": "source",
+      "roadmap": "PerfectoidQuotients",
+      "stages": [
+        "PerfectoidQuotients:Q0:integral-algebra",
+        "PerfectoidQuotients:Q3"
+      ],
+      "items": [
+        "PAPER-BHATT-18/general-perfectoid",
+        "PAPER-BHATT-18/neighborhood",
+        "PAPER-BHATT-18/root-extension",
+        "PAPER-BHATT-18/neighborhood-flat",
+        "PAPER-BHATT-18/extension-flat",
+        "PAPER-BHATT-18/aic-extension"
+      ],
+      "reason": "Q3 already owns André flatness and absolutely integrally closed extensions. Bhatt supplies an alternative geometric proof and a functorial variant, not a competing owner. The field-based/general integral comparison is a separate obligation."
+    },
+    {
+      "route": "source",
+      "roadmap": "DerivedDeRhamCohomology",
+      "stages": [
+        "DerivedDeRhamCohomology:DD.1"
+      ],
+      "items": [
+        "PAPER-BHATT-18/derived-completion",
+        "PAPER-BHATT-18/complete-flat",
+        "PAPER-BHATT-18/complete-faithful"
+      ],
+      "reason": "DD.1 owns generic Koszul models, derived completion, bounded-torsion criteria and complete faithful-flat descent. Add Proposition 5.1 there; EDS E4 only reexports it."
+    },
+    {
+      "route": "source",
+      "roadmap": "EnhancedDerivedSheaves",
+      "stages": [
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E2",
+        "EnhancedDerivedSheaves:E5:animation"
+      ],
+      "items": [
+        "PAPER-BHATT-18/simplicial-perfection",
+        "PAPER-BHATT-18/obstruction"
+      ],
+      "reason": "Use its derived tensor/Hom and coherent tower foundations. Supply the simplicial perfection discreteness input to animation, and the splitting-obstruction triangle to the module specialization of E1. Rlim invariance is an exact E2 request."
+    },
+    {
+      "route": "source",
+      "roadmap": "DeformationAndDerivedPatchingAlgebra",
+      "stages": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1"
+      ],
+      "items": [
+        "PAPER-BHATT-18/hom-pro",
+        "PAPER-BHATT-18/hom-lim-one"
+      ],
+      "reason": "The finite adic Hom comparison and vanishing lim-one belong with complete local coefficient algebra. Import Artin–Rees and Krull intersection already in the pinned libraries."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "items": [
+        "PAPER-BHATT-18/proper-cohomology",
+        "PAPER-BHATT-18/generic-multisection",
+        "PAPER-BHATT-18/proper-integral-h0"
+      ],
+      "reason": "Request the coherent global-section and proper-modification interfaces used by 6.1–6.2, explicitly distinguished from étale proper base change. General non-Noetherian and almost base-change hypotheses remain open requests, not existing theorem claims."
+    },
+    {
+      "route": "source",
+      "roadmap": "AdicSpacesPartII",
+      "stages": [
+        "AdicSpacesPartII:R2"
+      ],
+      "items": [
+        "PAPER-BHATT-18/formal-domination",
+        "PAPER-BHATT-18/generic-fiber-map"
+      ],
+      "reason": "R2 owns admissible blowups and formal generic fibers. Request the precise non-Noetherian domination/factorization input from GR2; do not reconstruct the upstream AdicSpaces carrier or infer this from F0's Noetherian statements."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PerfectoidSpaces",
+      "roadmap": "PerfectoidRamification",
+      "title": "Perfectoid rings and spaces, Part II: ramification and Riemann extension",
+      "area": "padic",
+      "items": [
+        "PAPER-BHATT-18/annular-tower",
+        "PAPER-BHATT-18/riemann-kernel",
+        "PAPER-BHATT-18/riemann-cokernel",
+        "PAPER-BHATT-18/riemann-pro",
+        "PAPER-BHATT-18/derived-uniform",
+        "PAPER-BHATT-18/koszul-uniform",
+        "PAPER-BHATT-18/remove-regularity",
+        "PAPER-BHATT-18/limit-extension"
+      ],
+      "reason": "Reuse the identically named pending proposal in PAPER-ANDRE-18, not a second Riemann-extension roadmap. It has no registered stages or review at this snapshot, so these items are missing rather than planned. Merge this incremental brief with that proposal during design.",
+      "brief": "Extend the pending PerfectoidRamification brief from PAPER-ANDRE-18 with Bhatt's quantitative version. Import Perfectoid rings and spaces (PerfectoidSpaces) P0 almost-pro mathematics, P1 integral/tilted conventions, P2 rational root presentations and P3 almost purity; import generic derived completion and Koszul complexes from Derived de Rham cohomology (DerivedDeRhamCohomology) DD.1 and derived tensor/Hom from Enhanced derived sheaves (EnhancedDerivedSheaves). For integral perfectoid A with chosen compatible roots of t and g, first assume g is an almost nonzerodivisor modulo every t^m. For f_n:A/t^m→A⟨t^n/g⟩/t^m prove separately the m_t-almost-zero kernel, uniform m_g-almost-zero cokernel with shift c=p^k m independent of n, and the resulting m_(tg)-almost-pro-isomorphism. Construct all transition maps on root monomials. Prove Remark 4.3's derived tensor uniformity with its actual annihilator bounds before using it to remove the regularity assumption in Remark 4.4. Recover the inverse-limit Riemann extension only after the quantitative result, retaining lim-one. Do not infer arbitrary pointwise kernel vanishing from the final theorem without g-regularity. This strengthens the shared André ramification direction; it does not duplicate his completed integral-closure theorem or create a second perfectoidization. The standalone derived-uniformity proof is a mandatory design obligation, not established by this partial extraction."
+    },
+    {
+      "route": "part-ii",
+      "parent": "DeformationAndDerivedPatchingAlgebra",
+      "roadmap": "RegularRingSplittings",
+      "title": "Commutative algebra for deformation theory and patching, Part II: regular-ring splitting theorems",
+      "area": "commutative",
+      "items": [
+        "PAPER-BHATT-18/unramified-cover",
+        "PAPER-BHATT-18/ramified-general-cover",
+        "PAPER-BHATT-18/field-normalization",
+        "PAPER-BHATT-18/cover-tor",
+        "PAPER-BHATT-18/cover-detection",
+        "PAPER-BHATT-18/local-complete-reduction",
+        "PAPER-BHATT-18/obstruction-detection",
+        "PAPER-BHATT-18/annular-obstruction",
+        "PAPER-BHATT-18/obstruction-limit",
+        "PAPER-BHATT-18/direct-summand",
+        "PAPER-BHATT-18/perfectoid-proper-split",
+        "PAPER-BHATT-18/derived-summand",
+        "PAPER-BHATT-18/equal-characteristic"
+      ],
+      "reason": "The existing parent owns Noetherian, regular-sequence, dimension and complete local algebra, but not either direct-summand theorem. These are new layers in its commutative-algebra direction. Coordinate with PAPER-ANDRE-18-B; PAPER-ANDRE-18 is the different Abhyankar paper.",
+      "brief": "Build on Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra), importing its complete local coefficient and regular local homological algebra rather than recreating those foundations. The first final theorem is: every finite injective map A0→B0 of Noetherian commutative rings with A0 regular admits an A0-linear retraction. The second is: for every proper surjective f0:X0→Spec(A0) with A0 Noetherian regular, the unit A0→RΓ(X0,O_X0) splits in D(A0). Neither retraction is required to be multiplicative. Import PerfectoidSpaces P0–P3, PerfectoidQuotients Q0:integral-algebra and Q3, the shared pending PerfectoidRamification quantitative tower theorem, DerivedDeRhamCohomology DD.1, EnhancedDerivedSheaves E1/E2, and the precise proper-coherent and formal-model suppliers requested from SchemeAndStackFoundations and AdicSpacesPartII R2. Construct the unramified and ramified regular local perfectoid covers separately, prove both positive Tor almost vanishing and detection of ordinary modules, and track the (!!) and star normalization steps. Prove the localization/completion, component, Cohen presentation and discriminant reductions, obstruction detection modulo p^m and its p²g-to-pg annihilator calculation, and almost vanishing on every annulus with its lim-one removal. For the derived theorem prove the perfectness of proper coherent cohomology, generic multisection reduction and corrected Proposition 6.2 with generic finite-étale SURJECTIVITY in mixed characteristic. Do not replace coherent base change by étale proper base change or ordinary base change without Tor control. Read the original equal-characteristic inputs and GR2 non-Noetherian domination theorem before closing the graph. Coordinate ownership of any splinter predicate with PAPER-BHATT-ETAL-23's pending birational proposal; these statements can use explicit retractions and need no duplicate singularity vocabulary. Remark 5.5 is a question in this source, not a proved acceptance target."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BHATT-18/E1",
+      "kind": "error",
+      "locator": "Bhatt arXiv:1608.08882v2, Proposition 6.2, p. 11; rendered page checked. Published full text not collated.",
+      "printed": "proper morphism such that f[1/p] is finite étale",
+      "correction": "Require the generic finite étale map to be surjective; state the mixed-characteristic setting used in the proof.",
+      "reason": "Take mixed-characteristic perfectoid K, A=K°×K°, Y=Spec(K°) as the first component. The morphism is finite, proper and étale, but the unit A→K° is projection. The second idempotent is nonzero even in the m_p-almost category, since multiplication by every p-root on its K° component is nonzero. A projection with this kernel has no almost left inverse. The proof explicitly upgrades to an almost finite étale cover and needs faithfulness.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1608.08882 (version history and v2)",
+        "https://link.springer.com/article/10.1007/s00222-017-0768-7 (public metadata, abstract and footnotes; no full published PDF)",
+        "https://www.math.ias.edu/~bhatt/ (author publication link)",
+        "Title with erratum/correction; Proposition 6.2 with surjective, web search 2026-09-23; no dedicated correction found in this scoped search"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/E2",
+      "kind": "misprint",
+      "locator": "Bhatt arXiv v2, Proposition 5.2 proof, p. 9, paragraph after adjoining roots of v; rendered page checked.",
+      "printed": "so A′ can also be viewed",
+      "correction": "The newly constructed A contains the required roots of p and carries the field-based K°-algebra structure; replace the final A′ by A and clarify that the roots lie in A.",
+      "reason": "The preceding construction adjoins roots of v to A′[1/p] and names its completed integral closure A. The following almost-flat diagram also uses that A. Merely p∈A′ is true; the mistaken claim is where its compatible roots and resulting K°-structure have been obtained.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1608.08882 (version history and v2)",
+        "https://link.springer.com/article/10.1007/s00222-017-0768-7 (public metadata, abstract and footnotes; no full published PDF)",
+        "https://www.math.ias.edu/~bhatt/ (author publication link)",
+        "Title with erratum/correction; Proposition 6.2 with surjective, web search 2026-09-23; no dedicated correction found in this scoped search"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/E3",
+      "kind": "misprint",
+      "locator": "Bhatt arXiv v2, introduction p. 1, sentence after Theorem 1.1.",
+      "printed": "has characteristic 0",
+      "correction": "For the normalized trace shortcut, say contains Q (or the equal-characteristic-zero local reduction).",
+      "reason": "Characteristic zero by itself includes Z. In Z→Z[(1+√5)/2], the degree-two field trace of (1+√5)/2 is 1, so trace divided by 2 is not Z-valued. This does not contradict the direct-summand theorem; it corrects the claimed scope of that proof shortcut. The same wording in the derived introduction must be read with the equal-characteristic convention.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1608.08882 (version history and v2)",
+        "https://link.springer.com/article/10.1007/s00222-017-0768-7 (public metadata, abstract and footnotes; no full published PDF)",
+        "https://www.math.ias.edu/~bhatt/ (author publication link)",
+        "Title with erratum/correction; Proposition 6.2 with surjective, web search 2026-09-23; no dedicated correction found in this scoped search"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/E4",
+      "kind": "misprint",
+      "locator": "Adjacent source André arXiv:1609.00345v1, §5.1 p. 12; corrected in published Appendix A.1 p. 89.",
+      "printed": "P → P ⊗R S",
+      "correction": "For purity of a submodule M⊂N the map is P⊗_R M→P⊗_R N.",
+      "reason": "S is not a datum of that definition. The published version supplies the correct tensor map.",
+      "affects": "nothing",
+      "known": "André published Appendix A.1, DOI 10.1007/s10240-017-0097-9",
+      "searched": [
+        "https://arxiv.org/abs/1609.00345 and v1 PDF",
+        "https://numdam.org/articles/10.1007/s10240-017-0097-9/ and published PDF",
+        "Title with erratum/correction and Hom, web search 2026-09-23; no separate corrigendum found"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/E5",
+      "kind": "misprint",
+      "locator": "Adjacent source André arXiv v1, §5.5 p. 14; corrected in published Appendix A.4 p. 92.",
+      "printed": "P → P ⊗R S",
+      "correction": "For almost purity of M→N use P⊗_R M→P⊗_R N being almost injective.",
+      "reason": "The definition has modules M,N, not an algebra S; the publication repairs the formula.",
+      "affects": "nothing",
+      "known": "André published Appendix A.4, DOI 10.1007/s10240-017-0097-9",
+      "searched": [
+        "https://arxiv.org/abs/1609.00345 and v1 PDF",
+        "https://numdam.org/articles/10.1007/s10240-017-0097-9/ and published PDF",
+        "Title with erratum/correction and Hom, web search 2026-09-23; no separate corrigendum found"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/E6",
+      "kind": "misprint",
+      "locator": "Adjacent source André arXiv v1 Lemma 5.2.1 proof, p. 13; persists in published Lemma A.2.1(4), p. 90.",
+      "printed": "HomS(S,R)",
+      "correction": "Use Hom_R(S,R).",
+      "reason": "Only an R-algebra S is given; R has no specified S-module structure. The desired retraction and all functionals in the argument are R-linear.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1609.00345 and v1 PDF",
+        "https://numdam.org/articles/10.1007/s10240-017-0097-9/ and published PDF",
+        "Title with erratum/correction and Hom, web search 2026-09-23; no separate corrigendum found"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/E7",
+      "kind": "misprint",
+      "locator": "Adjacent source André arXiv v1 Proposition 5.4.1 proof, p. 14; persists in published Proposition A.3.1 proof, p. 91.",
+      "printed": "sur N",
+      "correction": "The linear form is on M.",
+      "reason": "M is the finite free direct summand containing λ(1); the next clause extends the form by zero on a complement of M. No N is defined in this argument.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1609.00345 and v1 PDF",
+        "https://numdam.org/articles/10.1007/s10240-017-0097-9/ and published PDF",
+        "Title with erratum/correction and Hom, web search 2026-09-23; no separate corrigendum found"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/E8",
+      "kind": "misprint",
+      "locator": "Adjacent source André arXiv v1, §5.5 p. 14; persists before published Lemma A.4.1, p. 92; rendered publication checked.",
+      "printed": "M′ → M",
+      "correction": "Specify the intermediate factorization M→M′→N. The backward-arrow parenthesis can be omitted; if an almost-injective second arrow is intended, it must be M′→N.",
+      "reason": "The intermediate module has the forward factorization M→M′→N, not a given map back to M. Almost purity of the composite already implies almost purity of the first arrow: any kernel after tensor maps into the almost-zero kernel of the composite. No additional almost-injectivity condition on the second arrow is required for that conclusion.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1609.00345 and v1 PDF",
+        "https://numdam.org/articles/10.1007/s10240-017-0097-9/ and published PDF",
+        "Title with erratum/correction and Hom, web search 2026-09-23; no separate corrigendum found"
+      ]
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "André, La conjecture du facteur direct",
+      "link": "https://doi.org/10.1007/s10240-017-0097-9",
+      "why": "Maintainer-adjacent PAPER-ANDRE-18-B; whole arXiv v1 read, published §2.5 and Appendix A checked. Its full roadmap extraction is separate."
+    },
+    {
+      "citation": "Bhatt–Scholze, Projectivity of the Witt vector affine Grassmannian, cited [BS]",
+      "link": "https://arxiv.org/abs/1507.06490",
+      "why": "Exact simplicial-perfection discreteness proof and version-specific locators in 2.6 are not closed here; animation owns the general result."
+    },
+    {
+      "citation": "Bhatt, Almost direct summands",
+      "link": "https://doi.org/10.1215/00277630-2648180",
+      "why": "Lemma 2.7 almost splitting input in 5.4; original proof and precise hypotheses still to read. DOI checked against the Cambridge published PDF."
+    },
+    {
+      "citation": "Bhatt, Derived splinters in positive characteristic",
+      "link": "https://arxiv.org/abs/1109.0354",
+      "why": "Original equal-characteristic branches cited as Theorems 1.4, 2.12 and Example 2.3; not read in this checkpoint."
+    },
+    {
+      "citation": "Gabber–Ramero, Foundations for almost ring theory, cited GR2",
+      "link": "https://arxiv.org/abs/math/0409584",
+      "why": "The §15.4 non-Noetherian formal-model input must be matched to the exact version; not yet read."
+    },
+    {
+      "citation": "Scholze–Weinstein, Berkeley lectures on p-adic geometry, cited SW",
+      "link": "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf",
+      "why": "General perfectoid convention and ramified construction inputs in 5.2 require original statement/proof matching."
+    },
+    {
+      "citation": "Gabber–Ramero, Almost ring theory",
+      "link": "https://arxiv.org/abs/math/0201175",
+      "why": "The (!!) and faithful-flat reduction interfaces are within existing P0 ownership but original version matching remains unfinished."
+    },
+    {
+      "citation": "Bhatt, lecture notes cited Bh4, Corollary 9.4.7",
+      "link": "https://www.math.ias.edu/~bhatt/",
+      "why": "Exact lecture edition and functorial AIC statement must be acquired; this is an acquisition pointer, not a verified theorem URL."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "PAPER-BHATT-18/G1",
+      "title": "Version collation",
+      "task": "Read the complete published Bhatt article (Inventiones 212, 297–317) and collate with arXiv v2. Metadata, abstract, displayed public footnotes and references agree, but full line-by-line publication identity is not established.",
+      "affects": [
+        "PAPER-BHATT-18/perfectoid-proper-split"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/G2",
+      "title": "Derived rational presentation",
+      "task": "Read BS Lemma 3.16/Proposition 5.6 in the correct cited version, and expand the simplicial Frobenius discreteness proof and derived-completion/reduction comparisons in 2.6. Read the remaining Scholze approximation proof leaves via their existing supplier graph.",
+      "affects": [
+        "PAPER-BHATT-18/simplicial-perfection",
+        "PAPER-BHATT-18/derived-rational",
+        "PAPER-BHATT-18/neighborhood-flat"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/G3",
+      "title": "General integral and almost algebra interfaces",
+      "task": "Read original SW general-perfectoid criterion, GR (!!) base-change/flatness statements, Bhatt 2014 Lemma 2.7 and Bhatt lecture Corollary 9.4.7. Verify the exact field-based, torsion, faithfulness and functoriality hypotheses; the modern Q3 theorem is not a proof of every source variant.",
+      "affects": [
+        "PAPER-BHATT-18/aic-extension",
+        "PAPER-BHATT-18/ramified-general-cover",
+        "PAPER-BHATT-18/field-normalization",
+        "PAPER-BHATT-18/cover-detection",
+        "PAPER-BHATT-18/almost-splitting"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/G4",
+      "title": "Coherent derived towers and uniformity",
+      "task": "Supply Rlim invariance under pro-isomorphism, coherent cone models and bounded-convergence argument for 3.5. Expand Remark 4.3 into chain-level annihilator statements with exact shifts and any annihilator products; do not claim a proof from cohomological annihilation alone.",
+      "affects": [
+        "PAPER-BHATT-18/rlim-zero",
+        "PAPER-BHATT-18/rlim-iso",
+        "PAPER-BHATT-18/derived-uniform",
+        "PAPER-BHATT-18/remove-regularity"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/G5",
+      "title": "Regular local obstruction proof closure",
+      "task": "Decompose completion/residue-field/Cohen/discriminant reductions, localization regularity and finite global dimension. Prove the annihilator detection calculation, then its perfect-complex version for 6.1, at declaration granularity.",
+      "affects": [
+        "PAPER-BHATT-18/local-complete-reduction",
+        "PAPER-BHATT-18/obstruction-detection",
+        "PAPER-BHATT-18/direct-summand",
+        "PAPER-BHATT-18/derived-summand"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/G6",
+      "title": "Proper and non-Noetherian geometry",
+      "task": "Acquire GR2 §15.4 in the cited version and match domination hypotheses. Prove integrality of H^0 over the non-Noetherian perfectoid base, coherent finiteness/perfectness, generic multisections and the almost-flat derived-to-ordinary base-change comparison. Assign exact supplier nodes; SF.2 and R2 routes are precise requests, not assertions that their narrower existing packets already close this.",
+      "affects": [
+        "PAPER-BHATT-18/proper-cohomology",
+        "PAPER-BHATT-18/generic-multisection",
+        "PAPER-BHATT-18/proper-integral-h0",
+        "PAPER-BHATT-18/formal-domination",
+        "PAPER-BHATT-18/generic-fiber-map",
+        "PAPER-BHATT-18/perfectoid-proper-split"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/G7",
+      "title": "Equal-characteristic branches",
+      "task": "Read Kovács and Bhatt Derived splinters in positive characteristic in their original versions, including local/excellence and reduction hypotheses, and extract the actual leaves needed here.",
+      "affects": [
+        "PAPER-BHATT-18/equal-characteristic"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/G8",
+      "title": "Coverage and routing closure",
+      "task": "Complete a line-by-line proof-leaf inventory of all cited inputs, allocate supplier nodes instead of stage placeholders wherever possible, check all active reservations/accepted restructurings, and coordinate the two pending Part II briefs with PAPER-ANDRE-18 and PAPER-ANDRE-18-B. No claim of complete coverage is made.",
+      "affects": [
+        "PAPER-BHATT-18/direct-summand",
+        "PAPER-BHATT-18/derived-summand"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/G9",
+      "title": "Adjacent-source question awaiting diagnosis",
+      "task": "André published A.3.1's local-duality argument for possibly infinite integral S and its completion scope needs independent mathematical checking. This is an unresolved reading question, not a certified additional source error and not an input silently used in this extraction.",
+      "affects": []
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "EnhancedDerivedSheaves:E2",
+      "statement": "Derived inverse limits of countable A-module towers are invariant under pro-isomorphism, with coherent cone compatibility and the bounded convergence argument used in 3.4–3.5.",
+      "consumers": [
+        "PAPER-BHATT-18/rlim-zero",
+        "PAPER-BHATT-18/rlim-iso"
+      ]
+    },
+    {
+      "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "statement": "Regular local localization/completion and finite global dimension with exact Noetherian/local hypotheses; import upstream regularity suppliers and avoid duplicate definitions.",
+      "consumers": [
+        "PAPER-BHATT-18/local-complete-reduction",
+        "PAPER-BHATT-18/proper-cohomology"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "statement": "Proper coherent finiteness, non-Noetherian integral H^0, and the Tor-qualified derived base-change statements identified in G6; these are not étale proper base change.",
+      "consumers": [
+        "PAPER-BHATT-18/proper-cohomology",
+        "PAPER-BHATT-18/proper-integral-h0"
+      ]
+    },
+    {
+      "supplier": "AdicSpacesPartII:R2",
+      "statement": "GR2 non-Noetherian admissible blowup domination and integral generic-fiber factorization under exact p-adic hypotheses.",
+      "consumers": [
+        "PAPER-BHATT-18/formal-domination",
+        "PAPER-BHATT-18/generic-fiber-map"
+      ]
+    }
+  ],
+  "boundaries": [
+    "Question in Remark 5.5 is not promoted to a theorem.",
+    "No new splinter predicate duplicates the pending PAPER-BHATT-ETAL-23 proposal.",
+    "No Lean file is among this issue's deliverables; no Lean compilation or formalization is claimed.",
+    "The item DAG records proof dependencies and explicit gaps; supplier stage placeholders are not closed proofs."
+  ]
+}
