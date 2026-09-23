@@ -1996,7 +1996,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YUN-ZHANG-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1133"
   },
   {
    "id": "REV-PAPER-YUN-ZHANG-19",
@@ -6142,8 +6143,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1371"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1371",
+   "finishedAt": "2026-09-23T01:44:19Z"
   },
   {
    "id": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
