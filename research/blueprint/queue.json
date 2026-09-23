@@ -8381,8 +8381,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDRE-18-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2188"
+   "state": "pending",
+   "note": "released on GitHub issue #2188"
   },
   {
    "id": "REV-PAPER-ANDRE-18-B",
@@ -12904,7 +12904,8 @@
    ],
    "avoidAccountOf": "RS-19",
    "prompt": "research/blueprint/prompts/REV-RS-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #837"
   },
   {
    "id": "RS-20",
@@ -13170,8 +13171,9 @@
    ],
    "avoidAccountOf": "RS-24",
    "prompt": "research/blueprint/prompts/REV-RS-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #847"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #847",
+   "finishedAt": "2026-09-23T12:31:03Z"
   },
   {
    "id": "RS-25",
@@ -31544,8 +31546,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-ANDRE-18",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-ANDRE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1881"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1881",
+   "finishedAt": "2026-09-23T12:31:10Z"
   },
   {
    "id": "ERRATA-DESIGN-LV",
