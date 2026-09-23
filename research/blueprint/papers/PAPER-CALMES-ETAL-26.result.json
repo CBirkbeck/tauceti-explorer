@@ -1084,7 +1084,7 @@
       "kind": "theorem",
       "name": "L-theory of the sphere compared with that of the integers",
       "statement": "The universal Poincare structure Q^u agrees with the Tate Poincare structure Q^t on Mod^omega_S, so L^u_n(S) -> L^t_n(Z) is an isomorphism for n <= 0 and surjective for n = 1. Considering instead the canonical Poincare functor from (Mod^omega_S, Q^u) to (D^p(Z), Q^gs_Z): both structures are 0-quadratic and the map on linear parts is S -> tau_{>=0} Z^{tC_2}, which is 0-connective, so Proposition 1.2.29 gives that L^u_n(S) -> L^gs_n(Z) is an isomorphism for n <= -1 and a surjection for n = 0.",
-      "locator": "Example 1.2.35, p. 26",
+      "locator": "Example 1.2.35, p. 27",
       "status": "missing",
       "uses": [
         "PAPER-CALMES-ETAL-26/252",
@@ -1223,7 +1223,7 @@
       "kind": "theorem",
       "name": "Examples of hearts: projectives, and torsion modules",
       "statement": "If R has global dimension 0 the heart of D^p(R) is Proj(R) and W of the heart is the classical Witt group of symmetric forms of Remark 1.2.4. Another example is given by certain torsion modules over a 1-dimensional ring, which is elaborated and exploited in Theorem 2.2.4.",
-      "locator": "Example 1.3.7, p. 29",
+      "locator": "Example 1.3.7, p. 30",
       "status": "missing",
       "uses": [
         "PAPER-CALMES-ETAL-26/269"
@@ -1234,7 +1234,7 @@
       "kind": "theorem",
       "name": "Symmetric L-groups of a t-structured category as Witt groups of the heart",
       "statement": "In the above situation, with Q^s_D the symmetric Poincare structure associated to D, there are canonical isomorphisms L_n(C;Q^s_D) ≅ W(C^heart,Q^gs) for n congruent to 0 mod 4, ≅ W(C^heart,Q^gs_{-D}) for n congruent to 2 mod 4, and 0 otherwise, where -D denotes the duality with the structural isomorphism negated. In particular every element of pi_0 Pn(C^heart,Q^gs) which vanishes in the Witt group is metabolic. The proof applies Proposition 1.3.1 with r infinite and d = 0, taking (a,b) = (0,0) for n even and (-1,0) for n odd.",
-      "locator": "Corollary 1.3.8, p. 29",
+      "locator": "Corollary 1.3.8, p. 30",
       "status": "missing",
       "note": "The 4-periodic Witt-theoretic computation of symmetric L-theory in global dimension zero, and the engine of the devissage theorem of section 2.2.",
       "uses": [
@@ -1947,7 +1947,7 @@
       "kind": "theorem",
       "name": "The conclusion for all global fields of characteristic different from 2",
       "statement": "The conclusion of Theorem 3.1.7 therefore holds for every Dedekind ring whose field of fractions is a global field of characteristic different from 2: in the odd characteristic case [BKSO15] applies directly, and the characteristic zero case is Theorem 3.1.7.",
-      "locator": "Remark 3.1.8, p. 53",
+      "locator": "Remark 3.1.8, p. 52",
       "status": "missing",
       "uses": [
         "PAPER-CALMES-ETAL-26/406",
