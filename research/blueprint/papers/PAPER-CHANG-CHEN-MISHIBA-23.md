@@ -131,3 +131,33 @@ Three misprints, recorded under `sourceIssues`; each was compared with the publi
   writes `dim_k` everywhere else, and `dim_w` is not defined. **Still present in the published version.**
 
 No erratum exists: arXiv 2205.09929 has versions v1 and v2 only, and the Cambridge Core article carries none.
+
+## Independent review (`REV-PAPER-CHANG-CHEN-MISHIBA-23`, issue #1381)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, both routes accepted, all three
+findings confirmed, **one finding added**. The full review is in
+[`reviews/REV-PAPER-CHANG-CHEN-MISHIBA-23.md`](../reviews/REV-PAPER-CHANG-CHEN-MISHIBA-23.md).
+
+The recorded e-print hash matches byte for byte, and recording no hash for the Cambridge PDF is right:
+Cambridge Core watermarks each download, so no such hash is reproducible. The numbering needed care —
+every statement environment hangs on the `equation` counter with `\numberwithin{equation}{subsection}`, so
+numbered displays consume numbers too. A display-aware simulation gives **43 numbered statements** and
+reproduces the extraction's numbers exactly, including the appendix's A.1.1–A.3.8 once `\appendix` is
+handled. **Coverage is complete.** The dual numbering the extraction carries (preprint by subsection,
+published by section) was checked in the published text for Theorem 1.5, Remark 1.6, Proposition A.1,
+Theorem A.5 and Theorem A.7; carrying both numbers in every locator is what makes the file checkable
+against either version. The `library` item's four declarations exist at pinned Mathlib `082e2d3`, and all
+cited layers exist. The Part II reproduces its parent's title verbatim and is a joined proposal with
+`PAPER-NGODAC-21` and `PAPER-IM-KIM-LE-ETAL-24`.
+
+All three findings are confirmed verbatim and each is settled by the paper against itself: `S^ζ_d(s)`
+defined with exponent `d` beside `S^{Li}_d(s)` with exponent `s`; the condition `(q−1) | k` where `k` is
+the function field and the divisibility belongs on the index `j`; and `dim_w Z_w` where every other
+statement writes `dim_k`.
+
+**One finding added (E4).** An audit of all **89** `<word>~\ref{…}` citations against the target
+environment found two mismatches. The one that survives into the version of record is E4 — the appendix
+proof says "It follows by **Theorem A.4**" of a statement printed "**Proposition A.4**", which §1.3 cites
+correctly. The other is preprint-only (§1.3's "See Theorem …" for Proposition 2.3.5, reworded to
+"stated as Proposition 2.7" in the published version), so it is recorded in the review rather than as a
+finding. No duplicate labels, no undefined references.
