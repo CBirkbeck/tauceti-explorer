@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-BINYAMINI-22",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The functional-transcendence import is not stated precisely enough in the original extraction. The 2010 Masser–Zannier citation is wrong, and the proof needs algebraic independence over the period/base field, not the weaker original assertion. Obtain the exact 2012 Lemma 5.1 and the original modular Ax–Lindemann input; /70–71 are application lemmas."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "The ownership direction DT.0/DT.1/DT.3 is appropriate, but the exact real matrix norm, interpolation constants and Brownawell bound/source are not yet pinned. An accepted source route must supply those statements before the blueprint builds on them."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "After separating /89, /34 is a concrete Legendre Picard–Fuchs calculation with the moving-endpoint boundary term; the exact differential identity is independently checked. PS.8 receives the family-specific calculation and imports C5 relative Gauss–Manin comparison."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Narrowed to the explicit number/function-field height-comparison adapter at RP.0, building on the existing pinned canonical-height construction. The Faltings/Legendre comparison is separately imported from R35.5 as /54."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "AN.4 is the owner for the analytic Siegel class-number lower bound. The revised item explicitly imports CM.3 for the orbit identification and the order conductor/class-number formula, and retains the ineffective constant."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "Do not create a design job from the current brief. E10–E12 leave essential local-resultant and general-position/complete-intersection proof obligations, /48 is only an announced-covering sketch, and /44 must reuse the quantitative CM-height direction. Main targets are retained without claiming their supplied proofs are complete."
+    }
+  ],
+  "notes": "Completed independent review of all 52 original items and the full published article, with pinned library searches and supplier checks. Corrected in place to 89 items, 17 definition/construction API outlines and 51 planning tests; reviewed 23 source issues, including 15 additional findings. Clear corrections are applied; the extraction remains partial with explicit G1–G6. Routes 3–5 can be used as narrowed sources. Routes 1,2,6 require revision. No Lean deliverable was written or compiled."
+}

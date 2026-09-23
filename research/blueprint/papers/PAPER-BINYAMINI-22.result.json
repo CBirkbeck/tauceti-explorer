@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BINYAMINI-22",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Point counting for foliations over number fields",
     "authors": "Gal Binyamini",
@@ -11,9 +11,17 @@
     "url": "https://doi.org/10.1017/fmp.2021.20",
     "readSections": [
       "The entire published open-access article (§§1–10, Appendix A, references), 39 pages, read 2026-09-22 (PDF from Cambridge Core, SHA-256 99b1ad7f92a8eba6b8b61799b2f3769fc2a56201e37810d0e276c1cf45371b4d)."
-    ]
+    ],
+    "reviewRead": {
+      "by": "REV-PAPER-BINYAMINI-22",
+      "date": "2026-09-23",
+      "sections": "Published §§1–10, Appendix A and references, pp.1–39, read in full; mathematical page images checked at pp.4,9–11,14–15,19,30,35–37. arXiv v1 consulted for selected comparisons, not claimed as a second full reading.",
+      "sha256": "496daec438801763434e5ee4c5046708b3c309576e27b9c857a4250e192b379f",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D8B743946064FC7DDE59131375AF9465/S2050508621000202a.pdf/point_counting_for_foliations_over_number_fields.pdf",
+      "note": "Cambridge dynamically stamps downloaded PDFs; the hash differs from the original worker’s timestamped download."
+    }
   },
-  "summary": "For a foliation on an affine variety over a number field, the paper bounds the number of intersections of a leaf ball with an algebraic variety of complementary dimension polynomially in the degree and height data and log dist^{-1} to the unlikely intersection locus (Theorem 1). It covers such intersections by boundedly many Weierstrass polydiscs of bounded degree (Theorem 2). It deduces an effective polylogarithmic Pila–Wilkie theorem with blocks from nearby leaves and poly(g, h) bounds (Theorem 3), which sharpens Wilkie's conjecture for ℝ_RE (Theorem 4). The tools are multiplicity operators, Gabrielov–Khovanskii estimates, Brownawell's Łojasiewicz inequality, volume and Crofton arguments, and Thue–Siegel interpolation. Applications are an effective Masser–Zannier theorem for simultaneous torsion on elliptic squares (Theorem 6), polynomial-time André–Oort for ℂⁿ (Theorem 7) and Galois-orbit lower bounds for torsion points by counting (Theorem 8). The atlas plans qualitative o-minimal counting and some inputs. It lacks the entire effective counting theory.",
+  "summary": "Independent review requires revision. The paper states effective counting, interpolation and Diophantine applications, but the extraction needs source-proof repairs for local resultants and general position, exact imported statements, and complete definition APIs. Clear statement, ownership and coverage corrections are applied; none is a formalization. The published main theorems remain targets, not results disproved merely by a gap in the supplied proof.",
   "items": [
     {
       "id": "PAPER-BINYAMINI-22/1",
@@ -22,28 +30,150 @@
       "statement": "M ⊂ 𝔸^N_K an irreducible affine variety over a number field K with the Euclidean metric and balls B_R; ξ = (ξ₁,…,ξ_n) commuting, generically independent rational vector fields over K generating a singular foliation F, with Σ_F the polar loci and dependency locus; for p ∉ Σ_F the leaf germ L_p with ξ-chart φ_p : (ℂⁿ,0) → L_p, ∂φ_p/∂x_i = ξ_i; ξ-balls B = φ_p(B) and the notation A^δ for radius δ^{-1}r.",
       "locator": "§§1.1.1–1.1.3, p.2, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "api": [
+        {
+          "name": "FoliatedAffine.singularLocus",
+          "role": "projection",
+          "statement": "The singular locus is the union of pole loci and failure of rank n."
+        },
+        {
+          "name": "FoliatedAffine.chart_derivative",
+          "role": "characterisation",
+          "statement": "At a regular base point, the chart sends 0 to the point and its ith partial derivative equals ξi along the chart."
+        },
+        {
+          "name": "FoliatedAffine.ball_rescale",
+          "role": "compatibility",
+          "statement": "Replacing the chart ball radius r by r/δ gives the paper’s B^δ."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "FoliatedAffine.test_coordinate_fields",
+          "kind": "computation",
+          "statement": "On A² with ξ1=∂x, ξ2=∂y, the singular locus is empty and charts are translations."
+        },
+        {
+          "name": "FoliatedAffine.test_dependent_fields",
+          "kind": "non-example",
+          "statement": "The pair (∂x,2∂x) on A² is rank deficient everywhere and does not define a regular two-dimensional leaf."
+        },
+        {
+          "name": "FoliatedAffine.test_half_ball",
+          "kind": "computation",
+          "statement": "B² has half the ξ-coordinate radius of B, not twice the radius."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Theorems 1–3 and §4",
+          "how": "Controls the regular chart, derivative operations and shrinking convention."
+        }
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/2",
       "kind": "definition",
       "name": "Complexity of polynomials, varieties and vector fields",
-      "statement": "δ(P) = max(deg P, h(P)); for V ⊂ M, deg V in the standard projective embedding and h(V) the height of its Chow coordinates; δ_M = max([K:ℚ], deg M, h(M)), δ(V) = max(δ_M, deg V, h(V)), δ(ξ) = max(δ_M, deg ξ, h(ξ)). Lemma 21: V is set-theoretically cut out by S = O(1) polynomials with δ = poly(δ_V) (Chow–van der Waerden canonical equations).",
-      "locator": "§1.1.4, (1)–(3), p.2; Lemma 21, p.15, Forum Math. Pi 10 (2022) e6",
+      "statement": "δ(P) = max(deg P, h(P)); for V ⊂ M, deg V in the standard projective embedding and h(V) the height of its Chow coordinates; δ_M = max([K:ℚ], deg M, h(M)), δ(V) = max(δ_M, deg V, h(V)), δ(ξ) = max(δ_M, deg ξ, h(ξ)).",
+      "locator": "§1.1.4, (1)–(3), p.2 (published version)",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "api": [
+        {
+          "name": "FoliationComplexity.polynomial_eq_max",
+          "role": "simp",
+          "statement": "δP=max(deg P,h(P)) with the fixed absolute coefficient height."
+        },
+        {
+          "name": "FoliationComplexity.variety_ge_base",
+          "role": "relation",
+          "statement": "δV≥δM for a subvariety of the fixed ambient data."
+        },
+        {
+          "name": "FoliationComplexity.vectorField_coordinates",
+          "role": "data",
+          "statement": "Record degree and height bounds for the rational coordinate functions of ξ on the chosen localized affine presentation."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "FoliationComplexity.test_rational_linear",
+          "kind": "computation",
+          "statement": "For P(T)=T over Q, δP=1."
+        },
+        {
+          "name": "FoliationComplexity.test_base_field_degree",
+          "kind": "non-example",
+          "statement": "For ambient data over K of degree d, δM≥d even when the coordinate equations have height zero."
+        },
+        {
+          "name": "FoliationComplexity.test_zero_height_degree",
+          "kind": "computation",
+          "statement": "For P(T)=T^m with m≥1, h(P)=0 and δP=m."
+        }
+      ],
+      "uses": [
+        {
+          "where": "§2.2 and Theorems 1–3",
+          "how": "Separates ambient dimension, degree, field degree and logarithmic height."
+        }
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/3",
       "kind": "construction",
-      "name": "Absolute logarithmic Weil height on Q̄",
-      "statement": "h(x) = d^{-1}(log|a₀| + Σ log⁺|x_i|) for x with minimal polynomial a₀Π(x − x_i); H = e^h; height of a vector = max over coordinates.",
+      "name": "Absolute logarithmic height of an algebraic element",
+      "statement": "For an algebraic element x in a characteristic-zero field, h_abs(x) is log of the multiplicative height of the generator in Q(x), raised to 1/[Q(x):Q]. This is the existing scalar construction. The minimal-polynomial formula and the tuple maximum used by the paper are the separate comparison item /53.",
       "locator": "§1.1.4, (1), p.2, Forum Math. Pi 10 (2022) e6",
       "status": "library",
       "library": [
-        "mathlib:Projectivization.logHeight"
+        "mathlib:NumberField.absMulHeight₁",
+        "mathlib:NumberField.absLogHeight₁"
       ],
-      "note": "Mathlib `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51); the Q̄ extension is RP.0 work."
+      "note": "Read NumberTheory/Height/NumberField.lean:135–147 at 082e2d3. Projectivization.logHeight is a relative projective height and does not supply the original combined item. The scalar construction itself already exists; do not rebuild it.",
+      "dependsOn": [],
+      "api": [
+        {
+          "name": "AbsoluteHeight.eq_existing",
+          "role": "compatibility",
+          "statement": "The planned scalar notation is exactly NumberField.absLogHeight₁, not a second definition."
+        },
+        {
+          "name": "AbsoluteHeight.multiplicative_eq_exp",
+          "role": "relation",
+          "statement": "For algebraic x the multiplicative height is exp of the logarithmic height."
+        },
+        {
+          "name": "AbsoluteHeight.minpoly_comparison",
+          "role": "compatibility",
+          "statement": "Use comparison /53 to pass from the existing number-field construction to formula (1)."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "AbsoluteHeight.test_height_zero",
+          "kind": "degenerate",
+          "statement": "h_abs(0)=0."
+        },
+        {
+          "name": "AbsoluteHeight.test_height_two",
+          "kind": "computation",
+          "statement": "h_abs(2)=log 2."
+        },
+        {
+          "name": "AbsoluteHeight.test_height_sqrt_two",
+          "kind": "computation",
+          "statement": "h_abs(√2)=(log 2)/2, so an unnormalized quadratic-field height fails this test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "(10), Lemma 27",
+          "how": "Supplies absolute scalar heights and normalization checks; new comparison lemmas belong to DT.0."
+        }
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/4",
@@ -52,7 +182,47 @@
       "statement": "For V ⊂ M pure-dimensional of codimension ≤ n, Σ_V = Σ_F ∪ {p : dim(V ∩ L_p) > n − codim V} (4); for arbitrary codimension Σ = Σ_F ∪ {p : dim(V ∩ L_p) > 0} (6).",
       "locator": "§1.1.5, (4), p.3; (6), p.3, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "api": [
+        {
+          "name": "UnlikelyIntersection.mem_regular_iff",
+          "role": "characterisation",
+          "statement": "Outside ΣF, membership means dim(V∩Lp)>n−codim V."
+        },
+        {
+          "name": "UnlikelyIntersection.singular_subset",
+          "role": "relation",
+          "statement": "ΣF is included in ΣV."
+        },
+        {
+          "name": "UnlikelyIntersection.isolated_variant",
+          "role": "data",
+          "statement": "The arbitrary-codimension variant uses dim(V∩Lp)>0, separately from ΣV."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "UnlikelyIntersection.test_transverse_line",
+          "kind": "computation",
+          "statement": "For ξ=∂x on A² and V={x=0}, ΣV is empty."
+        },
+        {
+          "name": "UnlikelyIntersection.test_invariant_line",
+          "kind": "computation",
+          "statement": "For ξ=∂x and V={y=0}, ΣV={y=0}."
+        },
+        {
+          "name": "UnlikelyIntersection.test_full_rank_point",
+          "kind": "computation",
+          "statement": "For the coordinate two-dimensional foliation and V={(0,0)}, the intersection has expected dimension zero and ΣV is empty."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Theorems 1–2, Corollary 2, Proposition 13",
+          "how": "Specifies which distance controls each theorem."
+        }
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/5",
@@ -61,7 +231,47 @@
       "statement": "For an analytic X ⊂ B of pure dimension m and unitary coordinates x = z × w, a polydisc Δ = Δ_z × Δ_w with Δ̄ ⊂ B, dim Δ_z = m and X ∩ (Δ̄_z × ∂Δ_w) = ∅; then Δ ∩ X → Δ_z is a proper ramified cover of degree e(Δ, X).",
       "locator": "§1.1.6, p.3, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "api": [
+        {
+          "name": "WeierstrassPolydisc.boundary_avoiding",
+          "role": "characterisation",
+          "statement": "In unitary z,w coordinates, X avoids Δ̄z×∂Δw and dim z=dim X."
+        },
+        {
+          "name": "WeierstrassPolydisc.projection_finite",
+          "role": "structure",
+          "statement": "Projection of X∩Δ to Δz is finite proper with degree e."
+        },
+        {
+          "name": "WeierstrassPolydisc.degree_fibre",
+          "role": "data",
+          "statement": "The fibre multiplicities sum to e, including ramified fibres."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "WeierstrassPolydisc.test_flat_graph",
+          "kind": "computation",
+          "statement": "For X={w=0}, any product disc centred at 0 inside the domain is Weierstrass of degree 1."
+        },
+        {
+          "name": "WeierstrassPolydisc.test_branched_double",
+          "kind": "computation",
+          "statement": "For X={w²=z}, choose radii with sqrt(rz)<rw; the projection has degree 2 including at z=0."
+        },
+        {
+          "name": "WeierstrassPolydisc.test_boundary_intersection",
+          "kind": "non-example",
+          "statement": "If X meets Δ̄z×∂Δw, the selected product disc is not a Weierstrass polydisc for X."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Definition 10; Proposition 24",
+          "how": "Produces the finite fibres, multiplicities and analytic expansion domain."
+        }
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/6",
@@ -70,7 +280,20 @@
       "statement": "If codim V = n and B ⊂ B_R is a ξ-ball of radius ≤ R, then #(B² ∩ V) = poly(δ_ξ, δ_V, log R, log dist^{-1}(B, Σ_V)), counted with multiplicity.",
       "locator": "Theorem 1, p.3; proof §5.1, pp.16–17, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Induction with Theorem 2 in dimension n: a Weierstrass polydisc for V(P₁,…,P_{n−1}), the analytic resultant of P_n, a Jensen-type zero count and lower bounds via multiplicity operators (Lemma 11, Corollary 14). Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Induction with Theorem 2 in dimension n: a Weierstrass polydisc for V(P₁,…,P_{n−1}), the analytic resultant of P_n, a Jensen-type zero count and lower bounds via multiplicity operators (Lemma 11, Corollary 14). Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/1",
+        "PAPER-BINYAMINI-22/4",
+        "PAPER-BINYAMINI-22/15",
+        "PAPER-BINYAMINI-22/17",
+        "PAPER-BINYAMINI-22/22",
+        "PAPER-BINYAMINI-22/23",
+        "PAPER-BINYAMINI-22/24",
+        "PAPER-BINYAMINI-22/25",
+        "PAPER-BINYAMINI-22/85",
+        "PAPER-BINYAMINI-22/86",
+        "PAPER-BINYAMINI-22/88"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/7",
@@ -79,7 +302,11 @@
       "statement": "For V of arbitrary codimension, #(B² ∩ V) = poly(δ_ξ, δ_V, log R, log dist^{-1}(B, Σ)) with Σ as in (6).",
       "locator": "Corollary 2, p.3; proof §5.2, p.17, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Proposition 22 with m = n, then Theorem 1. Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Proposition 22 with m = n, then Theorem 1. Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/6",
+        "PAPER-BINYAMINI-22/23"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/8",
@@ -88,16 +315,35 @@
       "statement": "If codim V ≤ n and B ⊂ B_R is a ξ-ball of radius ≤ R, there are Weierstrass polydiscs {Δ_α ⊂ B} for B ∩ V with ⋃Δ_α² ⊃ B² and #{Δ_α}, max_α e(B ∩ V, Δ_α) = poly(δ_ξ, δ_V, log R, log dist^{-1}(B, Σ_V)).",
       "locator": "Theorem 2, p.4; proof §5.3, p.17, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Corollary 18 reduces to bounding vol(B ∩ V), which Crofton reduces to Theorem 1 for linear subfoliations in general position. Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Corollary 18 reduces to bounding vol(B ∩ V), which Crofton reduces to Theorem 1 for linear subfoliations in general position. Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/1",
+        "PAPER-BINYAMINI-22/4",
+        "PAPER-BINYAMINI-22/5",
+        "PAPER-BINYAMINI-22/19",
+        "PAPER-BINYAMINI-22/20",
+        "PAPER-BINYAMINI-22/22",
+        "PAPER-BINYAMINI-22/23",
+        "PAPER-BINYAMINI-22/26",
+        "PAPER-BINYAMINI-22/88"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/9",
       "kind": "theorem",
-      "name": "Theorem 3 (counting algebraic points, blocks from nearby leaves) and Definition 4",
-      "statement": "For Φ ∈ O(M)^ℓ over K, V ⊂ M and a ξ-ball B ⊂ B_R, let A = Φ(B² ∩ V) and A(g,h) its points of degree ≤ g and log-height ≤ h. Let Σ(V, W; Φ) be the points p where Φ|_{L_p ∩ V} is not finite or Φ(L_p ∩ V) contains an analytic component of the germ W_{Φ(p)}. For ε > 0 there are irreducible Q̄-varieties W_α ⊂ ℂ^ℓ with dist(B, Σ(V, W_α)) < ε, A(g,h) ⊂ ⋃W_α, and #{W_α}, max δ_{W_α} = poly(δ_ξ, δ_V, δ_Φ, g, h, log R, log ε^{-1}).",
+      "name": "Theorem 3: algebraic points covered by blocks from nearby leaves",
+      "statement": "With the foliated data /1, regular K-map Φ : M → C^ℓ, K-subvariety V, and ξ-ball B ⊂ B_R of ξ-radius at most R, put A=Φ(B²∩V). For g≥1, h≥0 and ε>0, there are subvarieties defined and irreducible over Q (not necessarily geometrically irreducible) Wα of C^ℓ covering A(g,h) of /56, with dist(B,Σ(V,Wα;Φ))<ε, and number and complexities bounded by poly(δξ,δV,δΦ,g,h,log R,log ε^−1). Σ is /55. All logarithmic size parameters are bounded below by a fixed positive constant for the polynomial-bound convention.",
       "locator": "Definition 4 and Theorem 3, p.4; proof §6.2, pp.19–20, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "An effective polylogarithmic Pila–Wilkie in the blocks formulation (Remark 5). Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "The published page 4 says Q-subvarieties, not Qbar-subvarieties. Degree means joint field degree. This is a stated target with unresolved proof dependencies /15, /23, /80; see review gaps, not an accepted proof.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/1",
+        "PAPER-BINYAMINI-22/8",
+        "PAPER-BINYAMINI-22/31",
+        "PAPER-BINYAMINI-22/32",
+        "PAPER-BINYAMINI-22/55",
+        "PAPER-BINYAMINI-22/56"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/10",
@@ -106,7 +352,11 @@
       "statement": "If Φ|_{L_p ∩ V} is finite and Φ(L_p ∩ V) contains no algebraic curve germ for every p, then #A(g,h) = poly_ℓ(δ_ξ, δ_V, δ_Φ, log R, g, h).",
       "locator": "Corollary 6, p.5, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/9",
+        "PAPER-BINYAMINI-22/55"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/11",
@@ -115,7 +365,11 @@
       "statement": "For A ⊂ ℝ^m definable in ℝ_RE = (ℝ, <, +, ·, exp|_{[0,1]}, sin|_{[0,π]}), #A^trans(g,h) = poly_{A,g}(h), where A^alg is the union of positive-dimensional connected semialgebraic subsets and A^trans = A ∖ A^alg.",
       "locator": "§1.4, (14), p.5, citing Binyamini–Novikov [12, Thm. 2], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/76",
+        "PAPER-BINYAMINI-22/77"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/12",
@@ -124,34 +378,89 @@
       "statement": "If A ⊂ ℝ^m is ℝ_RE-definable, then #A^trans(g,h) = poly_A(g,h).",
       "locator": "Theorem 4, p.5, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Replace [12, Prop. 12] by Proposition 28. Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Replace [12, Prop. 12] by Proposition 28. Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/11",
+        "PAPER-BINYAMINI-22/31"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/13",
       "kind": "construction",
       "name": "Multiplicity operators (Binyamini–Novikov)",
-      "statement": "For F = (F₁,…,F_n) holomorphic on Ω ⊂ ℂⁿ, the basic multiplicity operators M^{(k)} of order k are polynomial combinations of F and its derivatives up to order k with mult_p F > k iff M_p^{(k)}F = 0 for all of them (Proposition 7 [10, Prop. 5]); along F they are computed with ξ-derivatives, and δ(M^{(k)}P) = poly(δ_P, δ_ξ, k) (Lemma 12).",
+      "statement": "The basic multiplicity operators of order k for an n-tuple F of holomorphic germs are the determinantal polynomial differential operators in its k-jet, as constructed in Binyamini–Novikov [10]. Use basic operators only, not their convex hull, to retain number-field height bounds. Zero multiplicity means a nonzero germ value; a nonisolated common zero has infinite multiplicity.",
       "locator": "§2, Proposition 7, p.9; §2.2, Lemma 12, p.10, citing [10], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Definition/construction only. Vanishing criterion and arithmetic complexity are /68 and /67. Source E9 corrects the nonisolated-zero convention. A full determinant-level construction and API remain required from [10].",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/1"
+      ],
+      "api": [
+        {
+          "name": "BasicMultiplicityOperator.depends_on_jet",
+          "role": "characterisation",
+          "statement": "An order-k basic operator depends polynomially only on the k-jet of F."
+        },
+        {
+          "name": "BasicMultiplicityOperator.vanishing_criterion",
+          "role": "relation",
+          "statement": "Import /68 for the simultaneous vanishing criterion."
+        },
+        {
+          "name": "BasicMultiplicityOperator.along_fields",
+          "role": "compatibility",
+          "statement": "For commuting coordinate fields, the leafwise operator agrees with the usual partial-derivative operator."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "BasicMultiplicityOperator.test_simple_zero",
+          "kind": "computation",
+          "statement": "For F=(z1,…,zn), the origin has multiplicity 1, so some order-1 basic operator is nonzero."
+        },
+        {
+          "name": "BasicMultiplicityOperator.test_double_zero",
+          "kind": "computation",
+          "statement": "For the one-variable F=z², all order-1 operators vanish and some order-2 operator is nonzero."
+        },
+        {
+          "name": "BasicMultiplicityOperator.test_nonisolated_zero",
+          "kind": "degenerate",
+          "statement": "For F=(z,0) in two variables, all finite-order basic operators vanish; the multiplicity is infinite."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Proposition 13; Lemmas 8–12",
+          "how": "Determines local intersection multiplicity and bounds heights of its tests."
+        }
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/14",
       "kind": "theorem",
-      "name": "Lemmas 8–9 (lower bounds and Weierstrass polydiscs from multiplicity operators)",
-      "statement": "If F : B → D(1)ⁿ with s = |M₀^{(k)}F| ≠ 0, then for unit ℓ ∈ (ℂⁿ)* and 0 < ρ < s there are a ball of radius ≥ s/poly_n(k) and ≤ k discs U_ρ of total radius poly_n(k)ρ with log‖F(z)‖ ≥ (k+1) log ρ − poly_n(k) off ℓ^{-1}(U_ρ) (Lemma 8); for n − 1 functions with an (n−1)-dimensional operator in the w-variables, {F = 0} has a Weierstrass polydisc with all log r_i ≥ poly_n(k) log s (Lemma 9).",
-      "locator": "Lemmas 8–9 and proofs, pp.9–10, Forum Math. Pi 10 (2022) e6",
+      "name": "Local lower bound away from exceptional coordinate discs",
+      "statement": "If F : B → D(1)ⁿ with s = |M₀^{(k)}F| ≠ 0, then for unit ℓ ∈ (ℂⁿ)* and 0 < ρ < s there are a ball of radius ≥ s/poly_n(k) and ≤ k discs U_ρ of total radius poly_n(k)ρ with log‖F(z)‖ ≥ (k+1) log ρ − poly_n(k) off ℓ^{-1}(U_ρ) (Lemma 8).",
+      "locator": "Lemma 8, p.9 (published version)",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/13",
+        "PAPER-BINYAMINI-22/68"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/15",
       "kind": "theorem",
-      "name": "Definition 10 and Lemma 11 (analytic resultants)",
-      "statement": "For a Weierstrass polydisc Δ = D_z × Δ_w for a curve Γ and G holomorphic on Δ, R_{Δ,Γ}(G)(z) = Π_{w : (z,w) ∈ Γ ∩ Δ} G(z,w); if Γ = {F₁ = ⋯ = F_{n−1} = 0} has multiplicity µ in Δ and s = |M₀^{(k)}(F)| ≠ 0, then log|R_{Δ,Γ}(F_n)(z)| > µ((k+1) log ρ − poly_n(k)) on a ball of radius Ω_n(s) outside balls of radius O_n(ρ).",
+      "name": "Local resultant lower bound with fibre containment",
+      "statement": "Let F:B→D(1)^n, Γ={F1=…=F(n−1)=0}, and s=|M0^(k)F|>0. Choose the ball B′ and exceptional set Uρ from Lemma 8 for the z-coordinate. If Δ is a Weierstrass polydisc of degree μ and every point of the fibre over z lies in B′, then outside Uρ one has log|RΔ,Γ(Fn)(z)|≥μ((k+1)logρ−poly_n(k)). The estimate holds only where the resultant is defined and the fibre-containment hypothesis holds.",
       "locator": "Definition 10 and Lemma 11, p.10, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Corrected E10 by adding precisely the hypothesis used in the product proof. The printed arbitrary-Δ version is false. Constructing all local polydiscs required in §5.1 with this property and quantitative radii remains G1; no claim that this repairs the whole theorem is made.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/14",
+        "PAPER-BINYAMINI-22/69"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/16",
@@ -160,16 +469,26 @@
       "statement": "For P = (P₁,…,P_n) and p ∈ M ∖ Σ_V(P), mult_p P < poly(deg ξ, deg P) (Theorem 5 [26]).",
       "locator": "Theorem 5, p.10, citing Gabrielov–Khovanskii [26], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/1",
+        "PAPER-BINYAMINI-22/4",
+        "PAPER-BINYAMINI-22/68"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/17",
       "kind": "theorem",
-      "name": "Proposition 13 and Corollary 14 (equations for Σ_V and lower bounds)",
-      "statement": "For a complete intersection V = V(P₁,…,P_m), m ≤ n, δ(Σ_V) = poly(δ_ξ, δ_V); for m = n, Σ_V is cut out by the M^{(k)}(P) with k = poly(deg ξ, deg P); hence for p ∈ B some multiplicity operator has log|M_p^{(k)}(P)| ≥ poly(δ_ξ, δ_V)·log dist(p, Σ_V).",
-      "locator": "Proposition 13 and Corollary 14, pp.10–11, Forum Math. Pi 10 (2022) e6",
+      "name": "Complexity of the unlikely-intersection locus",
+      "statement": "For a complete intersection V=V(P1,…,Pm), m≤n, the unlikely-intersection locus has δ(ΣV)≤poly(δξ,δV). On the regular foliation locus when m=n, equations are supplied by all basic multiplicity operators of a polynomially bounded order; restore ΣF globally.",
+      "locator": "Proposition 13, pp.10–11 (published version)",
       "status": "missing",
-      "note": "Uses Brownawell's Diophantine Łojasiewicz inequality. Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "The proof through the displayed generators first bounds complexity using δP. Passing to intrinsic δV requires a bounded normalized defining tuple; keep this obligation explicit, in particular for the Corollary-14 application E23.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/16",
+        "PAPER-BINYAMINI-22/67",
+        "PAPER-BINYAMINI-22/68"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/18",
@@ -178,73 +497,139 @@
       "statement": "If polynomials f_j over a number field with degrees and heights ≤ δ cut out Z set-theoretically, then max_j |f_j(p)| ≥ (dist(p, Z)/c)^{poly(δ)} on a bounded region, with effective constants ([20]).",
       "locator": "Proof of Corollary 14, p.11; §1.6.1, p.7, citing Brownawell [20], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "An effective Nullstellensatz-type inequality from transcendence theory. Routed to DiophantineApproximationAndTranscendence DT.3 as a source."
+      "note": "An effective Nullstellensatz-type inequality from transcendence theory. Routed to DiophantineApproximationAndTranscendence DT.3 as a source.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/53"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/19",
       "kind": "theorem",
-      "name": "Lemmas 15–16 (nets on analytic sets)",
-      "statement": "For X ⊂ B of pure dimension m and ε ≤ 1, the maximal ε-separated set in X ∩ B² has size ≤ 2^{2m} c(m)^{-1} vol(X) ε^{-2m}, using vol(X ∩ B(p, r)) ≥ c(m) r^{2m} for p ∈ X (Lelong; [19, Thm. 15.3]); and N(S¹·A, 2ε) ≤ (1 + ⌊π/ε⌋)N(A, ε).",
-      "locator": "Lemmas 15–16, pp.11–12, citing Chirka [19, Thm. 15.3], Forum Math. Pi 10 (2022) e6 (misprint E1)",
+      "name": "Packing an analytic set using its volume",
+      "statement": "Let X be a closed pure m-dimensional complex analytic subset of the unit ball and 0<ε≤1. Then S(X∩B²,ε)≤2^(2m)c(m)^−1 vol(X) ε^(−2m), by the Lelong lower bound vol(X∩B(p,ε/2))≥c(m)(ε/2)^(2m) for p∈X∩B².",
+      "locator": "Lemma 15, p.11; corrected E1",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/63"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/20",
       "kind": "theorem",
-      "name": "Proposition 17 and Corollary 18 (Weierstrass polydiscs from volume)",
-      "statement": "There is a ball B′ ⊂ B of radius ε disjoint from S¹·X with 1/ε = O_n(vol(X)^{1/α}), α = 2n − 2m − 1; hence there is a Weierstrass polydisc Δ ⊂ B for X containing B^η with η = poly_n(vol X) and e(X, Δ) = poly_n(vol X).",
-      "locator": "Proposition 17 and Corollary 18, p.12, citing [12, Thm. 7], Forum Math. Pi 10 (2022) e6",
+      "name": "A complementary ball controlled by analytic volume",
+      "statement": "For a pure m-dimensional complex analytic X in the unit ball of C^n with m<n and finite volume, there is a ball disjoint from S¹·X whose reciprocal radius is bounded by Cn(1+vol X)^(1/(2n−2m−1)). Use the packing estimate in a smaller concentric ball; the 1+ convention also covers empty or very small-volume sets.",
+      "locator": "Proposition 17, p.12",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Require m<n. The printed bound suppresses the lower cutoff; the full-dimensional case has no complementary ball and must be handled separately in the covering corollary. Source E20 records both the full-dimensional and vanishing-volume failures.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/19",
+        "PAPER-BINYAMINI-22/87"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/21",
       "kind": "construction",
       "name": "Linear subfoliations and polynomial reparametrisation",
-      "statement": "L_k M = A(n,k) × M with fields α_i·ξ parametrizes k-dimensional linear subfoliations (41); P_D(M) ⊂ M_D × ℂⁿ_s × M with fields ∂/∂s_i + (∂Φ/∂s)·ξ reparametrizes leaves by polynomial maps Φ of degree ≤ D, with chart (46).",
+      "statement": "For 1≤k≤n, let A(n,k) be the full-rank matrix locus. On L_k M=A(n,k)×M, extend each commuting vector field by the linear combination sum_j α_ji ξ_j, keeping α constant. Leaves project to k-dimensional linear subfoliations in the ξ-charts.",
       "locator": "§§4.1, 4.3, (41), (45)–(46), pp.13–14, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Full-rank matrices form a quasi-affine open locus, not generally an affine variety without an auxiliary chart cover. The localized-chart arithmetic and comparison are a design obligation.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/1"
+      ],
+      "api": [
+        {
+          "name": "LinearSubfoliation.rank_required",
+          "role": "constructor",
+          "statement": "Choose an n×k coefficient matrix of rank k and form the k constant linear combinations of ξ."
+        },
+        {
+          "name": "LinearSubfoliation.commuting",
+          "role": "structure",
+          "statement": "Constant combinations of commuting fields commute."
+        },
+        {
+          "name": "LinearSubfoliation.coordinate_image",
+          "role": "compatibility",
+          "statement": "The projected leaf germ is the image of the chosen linear map in the ξ-chart."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "LinearSubfoliation.test_identity_matrix",
+          "kind": "compatibility",
+          "statement": "For k=n and the identity matrix recover the original fields."
+        },
+        {
+          "name": "LinearSubfoliation.test_first_coordinate",
+          "kind": "computation",
+          "statement": "For coordinate fields on A² and column (1,0), leaves project to horizontal lines."
+        },
+        {
+          "name": "LinearSubfoliation.test_zero_column",
+          "kind": "non-example",
+          "statement": "A zero column does not provide a rank-one subfoliation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "§§4.1,5.3",
+          "how": "Provides lower-dimensional leaves used in the induction."
+        }
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/22",
       "kind": "theorem",
       "name": "General position (§4.2, Lemmas 19–20)",
-      "statement": "There are M̃ = N × M and fields ξ̃ generating the same foliation with charts close to the identity (‖Φ_{a,p} − id‖_{B²} < 0.1), deg ξ̃ = deg ξ + O(1), h(ξ̃) = poly(δ_ξ, deg V), and no new unlikely intersections on linear subfoliations (π_M(Σ_Ṽ) ⊂ Σ_V). Lemma 19: the Φ creating unlikely intersection at p ∉ Σ_V form a set of codimension ≥ D; Lemma 20: a variety of degree ≤ d in 𝔸^N misses some x ∈ ℚ^N with ‖x‖_∞ ≤ 1 and H(x) ≤ d.",
+      "statement": "There are M̃ = N × M and fields ξ̃ generating the same foliation with charts close to the identity (‖Φ_{a,p} − id‖_{B²} < 0.1), deg ξ̃ = deg ξ + O(1), h(ξ̃) = poly(δ_ξ, deg V), and no new unlikely intersections on linear subfoliations (π_M(Σ_Ṽ) ⊂ Σ_V).",
       "locator": "§4.2, (42)–(44), p.13; Lemmas 19–20, p.14, Forum Math. Pi 10 (2022) e6 (misprint E2)",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "The requested simultaneous general-position construction depends on /80. Restrict the exceptional incidence to good points as E2 requires, and repair the image/inverse mismatch E12 before treating the proof as established.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/78",
+        "PAPER-BINYAMINI-22/79",
+        "PAPER-BINYAMINI-22/80"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/23",
       "kind": "theorem",
       "name": "Proposition 22 (a well-chosen complete intersection)",
-      "statement": "For 0 ≤ m ≤ dim M there is a complete intersection W ⊃ V of pure codimension m with δ_W = poly(δ_ξ, δ_V) and Σ_W = {p : dim(V ∩ L_p) > n − m}.",
+      "statement": "For a containing complete intersection W⊃V of pure codimension m to exist globally it is necessary that m≤codim_M V. In this range, the intended effective statement asks for δW≤poly(δξ,δV) and, off ΣF, bad-intersection locus equal to {p:dim(V∩Lp)>n−m}. The unrestricted statement for 0≤m≤dim M is false. Uses requiring larger m need a separately proved construction on the good locus after removing forced components; that construction is a recorded gap.",
       "locator": "Proposition 22 and proof, p.15, Forum Math. Pi 10 (2022) e6 (misprint E2)",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "E11 gives a dimension counterexample. Adding m≤codim V does not by itself establish the equality or the applications in §5.2 and Proposition 29. A repaired proof must also address E2 and restore the singular locus.",
+      "statementStatus": "gap",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/66",
+        "PAPER-BINYAMINI-22/79"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/24",
       "kind": "theorem",
       "name": "Jensen's inequality for zeros",
-      "statement": "If f is analytic on the closed disc of radius R about c, |f| ≤ M on its boundary and f(c) ≠ 0, then the number of zeros in the disc of radius r < R is ≤ log(M/|f(c)|)/log(R/r).",
+      "statement": "Let 0 < r < R, M ≥ 1 and f : C → C be analytic on a neighbourhood of the closed disc with centre c and radius R, with f(c) ≠ 0 and |f(z)| ≤ M on the boundary. The sum of zero orders on the closed r-disc is at most log(M/|f(c)|)/log(R/r).",
       "locator": "§5.1, p.16, Forum Math. Pi 10 (2022) e6",
       "status": "library",
       "library": [
         "mathlib:AnalyticOnNhd.sum_divisor_le"
       ],
-      "note": "Mathlib `AnalyticOnNhd.sum_divisor_le` (Mathlib/Analysis/Complex/JensenFormula.lean:390)."
+      "note": "Exact specialization of AnalyticOnNhd.sum_divisor_le, JensenFormula.lean:390. A bound 0<M<1 requires rescaling f first. Divisors count multiplicities; this is not an arbitrary set-cardinality theorem."
     },
     {
       "id": "PAPER-BINYAMINI-22/25",
       "kind": "theorem",
       "name": "Proposition 23 (zeros from maximum ratio)",
-      "statement": "For f holomorphic on D̄ with M = max_{D̄}|f| and m = max_{D̄²}|f|, #{z ∈ D² : f(z) = 0} ≤ C log(M/m).",
+      "statement": "For f not identically zero and holomorphic on D̄ with M = max_{D̄}|f| and m = max_{D̄²}|f|, #{z ∈ D² : f(z) = 0} ≤ C log(M/m).",
       "locator": "Proposition 23, p.16, citing [30], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Follows from the library Jensen inequality by moving the centre to a point of maximal modulus on D̄² and covering. Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Follows from the library Jensen inequality by moving the centre to a point of maximal modulus on D̄² and covering. Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/24"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/26",
@@ -262,88 +647,128 @@
       "statement": "For a Weierstrass polydisc Δ for X of dimension m and F ∈ O(Δ̄), on Δ² one has F = Σ_{α ∈ ℕ^m × {0,…,e(X,Δ)−1}^{n−m}} c_α x^α + Q with Q vanishing on Δ² ∩ X and ‖c_α x^α‖_{Δ²} = O(2^{−|α|}‖F‖_Δ).",
       "locator": "Proposition 24, pp.17–18, citing [12, Thm. 3] and [11, Prop. 8], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/5"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/28",
       "kind": "theorem",
       "name": "Lemma 25 (approximate Thue–Siegel lemma)",
-      "statement": "For A ∈ Mat_{µ×ν}(ℝ) and N ∈ ℕ there is v ∈ ℤ^ν ∖ {0} with ‖v‖_∞ ≤ N + 1 and ‖Av‖_∞ ≤ N^{(µ−ν)/µ}‖A‖_∞.",
+      "statement": "For a real μ×ν matrix A with μ,ν≥1 and integer N≥1, there is v∈Z^ν\\{0} with ||v||∞≤N+1 and ||Av||∞≤N^((μ−ν)/μ)||A||∞, using the induced row-sum matrix infinity norm. The exact integer-kernel Siegel lemma has a different input and conclusion.",
       "locator": "Lemma 25, p.18, citing Waldschmidt [51, Lemma 4.11], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Mathlib has the exact integer Siegel lemma `Int.Matrix.exists_ne_zero_int_vec_norm_le` (Mathlib/NumberTheory/SiegelsLemma.lean:155), not this real Dirichlet-box version. Routed to DT.0 as a source."
+      "note": "Mathlib has the exact integer Siegel lemma `Int.Matrix.exists_ne_zero_int_vec_norm_le` (Mathlib/NumberTheory/SiegelsLemma.lean:155), not this real Dirichlet-box version. Routed to DT.0 as a source. The original-source norm convention and box-bound endpoints must be checked before accepting this source route.",
+      "dependsOn": []
     },
     {
       "id": "PAPER-BINYAMINI-22/29",
       "kind": "theorem",
       "name": "Lemma 26 (an interpolating polynomial)",
-      "statement": "For d, N ∈ ℕ there is P ∈ ℤ[y₁,…,y_{m+1}] ∖ {0} of degree ≤ d and coefficients ≤ N with ‖(P∘Φ)|_{X ∩ Δ²}‖ ≤ poly(d)^E ‖Φ‖_Δ^d (N log N) 2^{−d(E^{−1} log N)^{1/(m+1)}}, E = e(X,Δ)^{n−m}.",
+      "statement": "For d≥1, N≥2 there is P ∈ ℤ[y₁,…,y_{m+1}] ∖ {0} of degree ≤ d and coefficients ≤ N with ‖(P∘Φ)|_{X ∩ Δ²}‖ ≤ poly(d)^E max(1,‖Φ‖_Δ)^d (N log N) 2^{−d(E^{−1} log N)^{1/(m+1)}}, E = e(X,Δ)^{n−m}.",
       "locator": "Lemma 26 and proof, pp.18–19, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "State the nontrivial parameter range and normalize function norms. The constants in the small-value exponent and the tail summation in (68) need verification from the original interpolation sources; route 6 is not accepted. E22 records the N=1 counterexample.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/27",
+        "PAPER-BINYAMINI-22/28"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/30",
       "kind": "theorem",
       "name": "Lemma 27 (Liouville-type lower bound)",
-      "statement": "If P ∈ ℤ[y₁,…,y_{m+1}] has degree d and coefficients ≤ N, y ∈ Q̄^{m+1} and P(y) ≠ 0, then |P(y)| ≥ (d^{m+1} N H(y)^{d(m+1)})^{−[ℚ(y):ℚ]}.",
+      "statement": "For P∈Z[y1,…,y_(m+1)] of total degree d≥0, coefficients bounded by N≥1, and algebraic tuple y with P(y)≠0, the product formula gives |P(y)|≥((d+1)^(m+1) N H_max(y)^(d(m+1)))^(−[Q(y):Q]). This conservative monomial-count bound suffices for Proposition 28.",
       "locator": "Lemma 27, p.19, citing Habegger [29, Lemma 14], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to DT.1 (Liouville bounds) as a source."
+      "note": "Corrected E21. The original d^(m+1) coefficient count is false for a fifth root of unity. The product formula proves the stated (d+1) bound, including degree zero.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/53"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/31",
       "kind": "theorem",
       "name": "Proposition 28 (interpolation of algebraic points)",
-      "statement": "The set (Δ² ∩ X)(g, h; Φ) lies in the zero locus of P∘Φ with P ∈ ℤ[y] ∖ {0}, deg P ∼ g·E·(gh + log‖Φ‖_Δ)^m and h(P) ∼ E·(gh + log‖Φ‖_Δ)^{m+1}.",
+      "statement": "The set (Δ² ∩ X)(g, h; Φ) lies in the zero locus of P∘Φ with P ∈ ℤ[y] ∖ {0}, deg P ≪ g·E·(1+gh+log^+‖Φ‖_Δ)^m and h(P) ≪ E·(1+gh+log^+‖Φ‖_Δ)^{m+1}.",
       "locator": "Proposition 28 and proof, p.19, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Lemmas 26–27 with d, log N as in (74)–(75). Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Specify g≥1, h≥0, finite Weierstrass degree e≥1, bounded holomorphic Φ and Δ̄ in its domain. The estimates are upper bounds, with lower cutoffs; /29 constants remain to be checked.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/29",
+        "PAPER-BINYAMINI-22/30",
+        "PAPER-BINYAMINI-22/56"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/32",
       "kind": "theorem",
       "name": "Proposition 29 (inductive step for Theorem 3)",
-      "statement": "If W ⊂ ℂ^ℓ is an irreducible Q̄-variety of positive dimension with ε = dist(B, Σ(V, W)) > 0, there are codimension-1 subvarieties W_α ⊂ W covering W ∩ A(g,h) with #{W_α}, max δ_{W_α} = poly(δ_ξ, δ_V, δ_W, δ_Φ, g, h, log ε^{-1}).",
+      "statement": "If W ⊂ ℂ^ℓ is an irreducible Q-variety of positive dimension with ε = dist(B, Σ(V, W)) > 0, there are irreducible Q-subvarieties of codimension 1 W_α ⊂ W covering W ∩ A(g,h) with #{W_α}, max δ_{W_α} = poly(δ_ξ, δ_V, δ_W, δ_Φ, g, h, log ε^{-1}).",
       "locator": "Proposition 29 and proof, p.20, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Uses joint degree /56 and Q-blocks. The complete-intersection reduction invoked on p.20 needs the corrected /23, which remains a proof gap.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/8",
+        "PAPER-BINYAMINI-22/23",
+        "PAPER-BINYAMINI-22/31",
+        "PAPER-BINYAMINI-22/55",
+        "PAPER-BINYAMINI-22/56"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/33",
       "kind": "theorem",
       "name": "Theorem 6 (effective simultaneous torsion on elliptic squares)",
-      "statement": "Let T be the fibred square of the Legendre family and C ⊂ T an irreducible curve over K with non-constant λ and no identical relation nP = mQ, (n,m) ≠ 0. At any c ∈ C with P(c), Q(c) both torsion, their orders are effectively bounded by poly(δ_C, [K:ℚ]); the set of such points is computable in polynomial time.",
+      "statement": "Let T be the fibred square of the Legendre family and C ⊂ T an irreducible curve over K with non-constant λ and no identical relation nP = mQ, (n,m) ∈ Z² \\ {(0,0)}. At any c ∈ C with P(c), Q(c) both torsion, their orders are effectively bounded by poly(δ_C, [K:ℚ]); the set of such points is computable in polynomial time.",
       "locator": "Theorem 6, pp.20–21; proof §8, pp.22–28, Forum Math. Pi 10 (2022) e6 (misprints E4–E5)",
       "status": "missing",
-      "note": "Effective Masser–Zannier. Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "The relation must allow all integer signs, including P=−Q; see E18. Effective polynomial dependence is a stated target, with the counting proof gaps explicitly retained.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/35",
+        "PAPER-BINYAMINI-22/37",
+        "PAPER-BINYAMINI-22/57",
+        "PAPER-BINYAMINI-22/70",
+        "PAPER-BINYAMINI-22/71",
+        "PAPER-BINYAMINI-22/82",
+        "PAPER-BINYAMINI-22/83",
+        "PAPER-BINYAMINI-22/84"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/34",
       "kind": "theorem",
       "name": "Picard–Fuchs equations for Legendre periods and elliptic logarithms",
-      "statement": "Periods I(λ) = ∮ dx/y of E_λ satisfy Lf = 0 with L = λ(1−λ)∂² + (1−2λ)∂ − 1/4 (87); elliptic logarithms Î(λ) = ∫_∞^{P(λ)} dx/y satisfy LÎ = R with R = B + ½ y₁(λ)/(x₁(λ) − λ)² regular away from Σ (90); the resulting foliation on C × (Mat₂ₓ₂ ⋊ GL₂) is a flat structure of a principal bundle.",
-      "locator": "§8.1, (82)–(91), pp.22–23, Forum Math. Pi 10 (2022) e6",
+      "statement": "For Eλ:y²=x(x−1)(x−λ), λ away from 0,1 and the chosen section singularities, periods of dx/y satisfy L I=0 for L=λ(1−λ)∂λ²+(1−2λ)∂λ−1/4. For a local section x=x(λ), put q=1/y. Its elliptic logarithm I=∫∞^x(λ) q dx satisfies L I=B+(1/2)y/(x−λ)², where B=λ(1−λ)(2qλ x′+qx(x′)²+q x′′)+(1−2λ)q x′, evaluated at the section. Work on a simply connected regular branch with compatible integration paths.",
+      "locator": "§8.1, (87) and (90), pp.22–23 (published version); boundary term expanded by the chain rule",
       "status": "missing",
-      "note": "Routed to PeriodsAndSpecialValues PS.8 (Picard–Fuchs equations of families) as a source."
+      "note": "The source’s boundary term B is spelled out by twice differentiating the moving-endpoint integral. The total-exact-differential identity is checked algebraically. PS.8 receives this specific Picard–Fuchs calculation; import relative Gauss–Manin comparison from ComplexComparisonPartII:C5. The counting-specific principal-bundle construction is /89.",
+      "dependsOn": []
     },
     {
       "id": "PAPER-BINYAMINI-22/35",
       "kind": "theorem",
-      "name": "Masser–Zannier degree, height and distribution lemmas (Lemmas 30–33)",
-      "statement": "If P(c) or Q(c) is torsion of order n then n ≤ poly(δ_C, [ℚ(λ(c)):ℚ], h(λ(c))) and h(λ(c)) ≤ poly(δ_C); at least half the Galois conjugates of λ lie in Λ_δ with δ = 2^{−poly(δ_C, h(λ))}; hence a disc and branch carry ≥ N(c)/poly(δ_C) conjugates.",
-      "locator": "Lemmas 30–33, pp.23–24, citing Masser–Zannier [38, Lemmas 7.1, 8.1, 8.2], Forum Math. Pi 10 (2022) e6",
+      "name": "Torsion order in terms of parameter height and degree",
+      "statement": "Under the nondependent sections hypotheses of Theorem 6, if P(c) or Q(c) has torsion order n then n≤poly(δC,[Q(λ(c)):Q],h(λ(c))).",
+      "locator": "Lemma 30, p.23 (published version)",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/36"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/36",
       "kind": "theorem",
       "name": "Zimmer's explicit Néron–Tate versus Weil height estimates",
-      "statement": "The difference between the Néron–Tate height and the Weil height on an elliptic curve is bounded explicitly (number-field and function-field versions, Zimmer, Math. Z. 147 (1976)); in Legendre form h_Fal(E_λ) = poly(max(h(λ), [K:ℚ])).",
+      "statement": "For an elliptic curve with a specified Weierstrass equation, compare its naive x-coordinate height and twice its Néron–Tate height, with an explicit error in the heights of the coefficients; include the corresponding function-field estimate used in Lemma 31. Fix the absolute-height normalization before using the error bound.",
       "locator": "Proof of Lemma 31, p.24; §10.3, pp.32–33, citing Zimmer [56], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to HeightsRationalPointsAndObstructions RP.0 as a source."
+      "note": "RP.0 is the supplier of the explicit height-comparison adapter. The pinned Tau Ceti canonicalHeight and bounded-difference theorem already exist, but their existential constant does not give Zimmer’s explicit coefficient dependence. Faltings/Legendre comparison has been separated as /54.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/53"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/37",
@@ -352,16 +777,26 @@
       "statement": "For λ ∈ D^{1/2}, |f|, |f′|, |g|, |g′|, |z|, |z′|, |w|, |w′|, 1/Im(f/g) ≤ e^{poly(δ_C)}; so the ball lies in M_R with log R = poly(δ_C).",
       "locator": "§8.4, Lemma 35, pp.24–26, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Theorem 9 along chains of discs, and Schwarz–Pick for f/g. Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Theorem 9 along chains of discs, and Schwarz–Pick for f/g. Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/34",
+        "PAPER-BINYAMINI-22/52",
+        "PAPER-BINYAMINI-22/64",
+        "PAPER-BINYAMINI-22/84",
+        "PAPER-BINYAMINI-22/89"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/38",
       "kind": "theorem",
       "name": "Masser–Zannier functional transcendence for periods and logarithms",
-      "statement": "The elliptic logarithms z, w of P, Q are not algebraic over the periods f, g along a curve with no identical relation ([38, Lemma 5.1]); hence Φ = U is finite on every leaf (Lemma 36) and positive-dimensional blocks lie in affine spaces (z, w)(λ₀) = (f, g)(λ₀)U with complex angle (Lemma 37).",
+      "statement": "For the nonconstant Legendre family and two sections independent over Z as in Theorem 6, the two elliptic logarithms are algebraically independent over the field obtained by adjoining the periods to the algebraic function field of the base curve. Import the precise functional-transcendence statement [38, Lemma 5.1] with its base field and branch conventions.",
       "locator": "Lemmas 36–37 and proofs, pp.26–27, citing [38, Lemma 5.1], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to LogicAndDefinabilityInNumberTheory LD.6 (functional-transcendence theorems) as a source."
+      "note": "[38] is Masser–Zannier 2012, not the 2010 paper in the old prerequisite list. The weaker phrase “not algebraic” did not provide the algebraic independence used on p.27. This import still requires reading the original lemma before this route can be accepted. Local consequences are /70 and /71.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/34"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/39",
@@ -370,73 +805,104 @@
       "statement": "For V ⊂ ℂⁿ over K, the degrees of all maximal special subvarieties and the discriminants of their special coordinates are bounded by poly_n(δ_V, [K:ℚ]) (implied constant ineffective, from Siegel); there is an algorithm computing all maximal special subvarieties in poly_n(δ_V, [K:ℚ]) steps.",
       "locator": "Theorem 7, p.21; proof §9, pp.28–31, Forum Math. Pi 10 (2022) e6 (misprint E3)",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/9",
+        "PAPER-BINYAMINI-22/41",
+        "PAPER-BINYAMINI-22/42",
+        "PAPER-BINYAMINI-22/44",
+        "PAPER-BINYAMINI-22/45",
+        "PAPER-BINYAMINI-22/46",
+        "PAPER-BINYAMINI-22/62",
+        "PAPER-BINYAMINI-22/81"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/40",
       "kind": "theorem",
       "name": "The j-function as a solution of a Schwarzian equation",
-      "statement": "χ(f) = S(f) + R(f)(f′)² with R(f) = (f² − 1968f + 2654208)/(2f²(f − 1728)²) vanishes exactly on the functions j(g^{-1}τ), g ∈ PGL₂(ℂ); the associated vector field on ℂ × (ℂ³ ∖ Σ) gives the product foliation on Mⁿ whose leaves are graphs of (j(g₁τ₁),…,j(g_nτ_n)).",
+      "statement": "On a connected local domain, for f holomorphic with f′≠0 and f avoiding 0,1728, set χ(f)=S(f)+R(f)(f′)², R(f)=(f²−1968f+2654208)/(2f²(f−1728)²). Its solutions are locally f(τ)=j(g^−1τ) for a Möbius transformation with g^−1τ in H. The vector field in (115) on the regular locus and its n-fold product encode these solution graphs.",
       "locator": "§9.1, (113)–(116), p.28, citing [33, p.20], [24], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/1"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/41",
       "kind": "theorem",
       "name": "Modular Ax–Lindemann (Pila)",
-      "statement": "An algebraic W ⊂ ℍⁿ with W ∩ ℍⁿ ⊂ J^{-1}(V) is contained in a pre-weakly-special subvariety whose J-image lies in V; so blocks from the standard leaf map into V^ws ([45]).",
+      "statement": "Let V⊂C^n be algebraic, and let an irreducible complex algebraic W have a nonempty analytic branch in H^n mapping into V under J=(j,…,j). Modular Ax–Lindemann places this branch in a pre-weakly-special variety W′ with J(W′∩H^n)⊂V. For the block consequence assume dim W>0.",
       "locator": "Proof of Proposition 39, p.29, citing Pila [45], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to LD.6 (functional-transcendence theorems and proven André–Oort cases) as a source."
+      "note": "Use a branch or connected analytic component, not an algebraic subset literally contained in H^n. Import the exact Pila 2011 Ax–Lindemann statement; /75 excludes points from V^ws.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/75"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/42",
       "kind": "theorem",
       "name": "Effective weakly special locus (Binyamini)",
-      "statement": "The weakly special locus V^ws is effectively computable with δ(V^ws) = poly_n(δ_V), and computing maximal special subvarieties reduces to special points outside V^ws of poly_n(δ_V) auxiliary varieties ([8, Thm. 4]).",
+      "statement": "The positive-dimensional weakly special locus V^ws is effectively computable with δ(V^ws) = poly_n(δ_V), and computing maximal special subvarieties reduces to special points outside V^ws of poly_n(δ_V) auxiliary varieties ([8, Thm. 4]).",
       "locator": "§9.2, p.29, citing [8, Thm. 4], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Use /75; the empty positive-dimensional locus for a zero-dimensional V is necessary. Source issue E17.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/75"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/43",
       "kind": "theorem",
-      "name": "Proposition 39 and Lemma 40 (blocks from nearby leaves avoid special points)",
-      "statement": "A positive-dimensional block from a leaf at distance ε satisfies J(W ∩ π_τ(B)) ⊂ N_δ(V^ws) with δ = O_B(ε); and for a special p ∉ V^ws, log dist^{-1}(p^σ, V^ws) = poly_n(δ_V)·O_ε(Δ(p)^ε) for ≥ 2/3 of its Galois conjugates.",
-      "locator": "Proposition 39, p.29; Lemma 40, p.30, Forum Math. Pi 10 (2022) e6 (misprint E3)",
+      "name": "Nearby blocks lie close to the weakly special locus",
+      "statement": "For a fixed precompact ξ-ball B in the standard j-leaf and a positive-dimensional irreducible algebraic block W from a sufficiently nearby leaf at distance ε, J(W∩πτ(B)) is contained in the O_B(ε)-neighbourhood of the positive-dimensional V^ws.",
+      "locator": "Proposition 39, pp.29–30 (published version)",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/40",
+        "PAPER-BINYAMINI-22/41",
+        "PAPER-BINYAMINI-22/75"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/44",
       "kind": "theorem",
       "name": "Heights of CM points",
-      "statement": "For a special point p ∈ ℂⁿ with Δ(p) = Π|disc(p_i)|, h(p) = O_ε(Δ(p)^ε) (Chowla–Selberg with estimates for L′/L at 1).",
+      "statement": "For a CM tuple p=(p1,…,pn), let Δ(p)=sum_i |disc End(E_pi)|. For every ε>0, h_max(p)≤C(n,ε) Δ(p)^ε, using Chowla–Selberg and logarithmic-derivative bounds.",
       "locator": "(121), p.30, citing [28, Lemma 4.1] and Tsimerman [50, Cor. 3.3], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Corrected the product to the sum printed in (120), p.29. Quantitative CM-height arithmetic must be imported from the CM-height direction already proposed by PAPER-TSIMERMAN-18, not rebuilt in this counting Part II; a concrete current supplier stage is still required.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/53"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/45",
       "kind": "theorem",
       "name": "Duke's equidistribution of CM points",
-      "statement": "Galois orbits of CM points of large discriminant equidistribute in the modular curve; in particular ≥ 2/3 of the conjugates lie in a fixed compact K ⊂ Ωⁿ of volume ≥ 2/3 vol(Ωⁿ) once |disc| ≫ 1.",
+      "statement": "For a single modular curve, full Galois orbits of CM points equidistribute for normalized hyperbolic area as the order discriminant tends to infinity. For the application choose a compact continuity set K0⊂Ω with measure >1−1/(4n), enlarge it by the finitely many small-discriminant CM representatives, and set K=K0^n. The marginal Duke estimates and a union bound then place at least 2/3 of each sufficiently large CM tuple orbit in K. This does not assert product equidistribution or the same property for an arbitrary K of product measure 2/3.",
       "locator": "§9.3, p.30, citing Duke [23], Forum Math. Pi 10 (2022) e6",
       "status": "planned",
       "planned": [
         "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
       ],
-      "note": "GeometryOfNumbersAndQuadraticArithmetic GN.4 plans lattice-point equidistribution and the proofs needed for Oppenheim/Duke-type arithmetic applications."
+      "note": "GN.4 supplies the one-coordinate Duke theorem. The elementary marginal/union-bound adapter repairs the use on p.30; source issue E14.",
+      "dependsOn": []
     },
     {
       "id": "PAPER-BINYAMINI-22/46",
       "kind": "theorem",
       "name": "Siegel's lower bound for class numbers (Brauer–Siegel)",
-      "statement": "[ℚ(p):ℚ] ≥ Δ(p)^c for CM points, from h(D) ≫_ε |D|^{1/2−ε} (ineffective).",
+      "statement": "For any ε>0, imaginary quadratic orders of negative discriminant D have h(D) ≥ cε |D|^(1/2−ε), with ineffective cε>0. The ring-class-field theorem and marginal orbit projection imply [Q(p):Q] ≥ c(n,ε) max_i |Di|^(1/2−ε), hence a positive power bound in Δ(p)=sum_i|Di| for large Δ.",
       "locator": "(126), p.30, citing Brauer–Siegel [18], Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to AnalyticNumberTheory AN.4 (analytic class-number formula interfaces) as a source."
+      "note": "AN.4 supplies the analytic lower-bound input. Import the nonmaximal-order class-number formula and CM.3 ring-class-field action; do not infer this orbit statement from the analytic class-number formula alone.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/53"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/47",
@@ -445,52 +911,914 @@
       "statement": "For an elliptic curve E over K and a torsion point p ∈ E(K̄) of order n, n = poly([K:ℚ], h_Fal(E), [K(p):K]).",
       "locator": "Theorem 8, p.21; proof §§10.1, 10.3, pp.31–34, Forum Math. Pi 10 (2022) e6 (misprint E6)",
       "status": "missing",
-      "note": "Lemmas 44–47: cover by poly(h) ξ′-balls, count the multiples p, p², …, pⁿ on the graph of the uniformization via Theorem 3. Previously due to David by transcendence. Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Lemmas 44–47: cover by poly(h) ξ′-balls, count the multiples p, p², …, pⁿ on the graph of the uniformization via Theorem 3. Previously due to David by transcendence. Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/9",
+        "PAPER-BINYAMINI-22/54",
+        "PAPER-BINYAMINI-22/58",
+        "PAPER-BINYAMINI-22/59",
+        "PAPER-BINYAMINI-22/60",
+        "PAPER-BINYAMINI-22/61"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/48",
       "kind": "theorem",
       "name": "Sketch for principally polarized abelian varieties (§10.4)",
-      "statement": "For principally polarized A of dimension g over K and torsion p of order n, n = poly_g([K:ℚ], [K(p):K], h_Fal(A)), using theta heights (≈ Faltings heights [43, Cor. 1.3]), quadratic theta equations and invariant vector fields in terms of Θ(0) [36], and a covering of Θ(A) by poly_g(h) polydiscs (announced work with Novikov and Zack).",
+      "statement": "Conditional extension of the §10.3 counting argument: for principally polarized A/K of fixed dimension g, the stated target is n≤poly_g([K:Q],[K(p):K],1+max(0,h_Fal(A))) for torsion p of order n. The sketch requires a uniform poly_g(height) covering by suitable complex polydiscs, which §10.4 explicitly says is work in progress; it is not a proved theorem of this paper.",
       "locator": "§10.4, p.34, Forum Math. Pi 10 (2022) e6 (a sketch)",
       "status": "missing",
-      "note": "Only sketched; the covering step is stated as work in progress. Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Import theta/Faltings comparisons from R35.5 and the existing abelian-variety/moduli owners. Acquire a published covering theorem with exactly the needed quantitative domain control before scheduling this proof.",
+      "statementStatus": "conditional",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/9",
+        "PAPER-BINYAMINI-22/54"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/49",
       "kind": "theorem",
       "name": "Lemma 48 (Gronwall for monic linear ODEs)",
-      "statement": "For L = ∂ⁿ + a₁∂^{n−1} + ⋯ + a_n with |a_j| ≤ A and |b| ≤ B on D̄, solutions of Lf = b satisfy ‖jⁿf(t)‖ ≤ e^{O_n(A)}(O_n(B) + ‖jⁿf(0)‖) on D.",
+      "statement": "On the unit disc centred at 0, let L=∂^n+a1∂^(n−1)+…+an with n≥1, coefficients holomorphic near the closed disc, |aj|≤A and |b|≤B. Set J=(f,…,f^(n−1)). For Lf=b, Gronwall on radial paths gives ||J(t)||≤exp(Cn(1+A))(||J(0)||+B). The nth derivative is then bounded using the differential equation. For a general radius retain path-length and derivative-rescaling factors.",
       "locator": "Lemma 48 and proof, p.35, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Corrected Lemma 48 using E13. Import /65; do not rebuild Gronwall or apply an n×n companion matrix to an (n+1)-entry jet.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/65",
+        "PAPER-BINYAMINI-22/74"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/50",
       "kind": "theorem",
-      "name": "Definition 49 and Propositions 50–51 (slopes of Fuchsian operators)",
-      "statement": "The slope ∠L = max_j ‖a_j‖/‖a₀‖ and invariant slope ∢L = sup_{φ ∈ Aut(ℙ¹)} ∠(φ*L); for Fuchsian L over a number field ∢L = e^{poly_n(δ_L)} (Proposition 50) and inf_φ ‖a₀(φ*L)‖ = e^{−poly_n(δ_L)} (Proposition 51).",
+      "name": "Effective upper bound for invariant slope",
+      "statement": "For a Fuchsian operator L over a number field, with the rational coefficient norm and literal pullback of /72, invariantAngle(L)≤exp(poly_n(δL)); this uses the finiteness theorem [14, Proposition 32] and effective semialgebraic bounds.",
       "locator": "Definition 49, Propositions 50–51, p.36, citing [14], Forum Math. Pi 10 (2022) e6 (Proposition 51 needs a normalization, sourceIssues E8; misprint E7)",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Proposition 50 only. The normalization-sensitive leading-coefficient lower bound is /73. Rational-coefficient versus polynomial-normalized slope comparison must be made explicit in the blueprint.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/72"
+      ]
     },
     {
       "id": "PAPER-BINYAMINI-22/51",
       "kind": "theorem",
       "name": "Lemma 52 (rational functions on discs)",
-      "statement": "If r has no poles in D^{1/2} then max_D |r| ≤ e^{O(deg r)}‖r‖, and if no zeros in D^{1/2} then min_D |r| ≥ e^{−O(deg r)}‖r‖.",
+      "statement": "Let D be the unit disc and r a reduced rational function, with ||r|| equal to the ratio of coefficient l1 norms. If r has no poles in the doubled disc D^(1/2), then sup_D |r|≤exp(C deg r)||r||; if it has no zeros there, then inf_D |r|≥exp(−C deg r)||r|| (at regular evaluation points).",
       "locator": "Lemma 52 and proof, pp.36–37, Forum Math. Pi 10 (2022) e6",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "Routed to the new Part II EffectivePointCountingOnFoliations.",
+      "dependsOn": []
     },
     {
       "id": "PAPER-BINYAMINI-22/52",
       "kind": "theorem",
       "name": "Theorem 9 (growth for inhomogeneous Fuchsian equations)",
-      "statement": "For Fuchsian L over a number field, a disc D = D_r(t₀) with D^{1/2} ⊂ ℂ ∖ Σ, natural coordinate z and Lf = b with |b| ≤ B on D^{1/2}: ‖jⁿ_z f(t₁)‖ ≤ e^{c_L}(B + ‖jⁿ_z f(t₀)‖), c_L = e^{poly_n(δ_L)}; chaining discs gives polynomial growth toward the singular points.",
+      "statement": "Assume L and L+1 are Fuchsian with the normalization of /72–73, and defined over a number field. For D=Dr(t0) with its double disc avoiding Σ, put z=(t−t0)/r. If Lf=b and |b|≤B on the double disc, the natural-coordinate jet through order n satisfies ||j_z^n f(t1)||≤exp(cL)(B+||j_z^n f(t0)||), cL=exp(poly_n(δL)), for t1∈D. Iteration along a controlled chain of discs yields growth polynomial in inverse distance with an additive contribution of the forcing b as well as the initial jet.",
       "locator": "Theorem 9 and proof, p.37, Forum Math. Pi 10 (2022) e6 (holds under the normalization of sourceIssues E8)",
       "status": "missing",
-      "note": "Routed to the new Part II EffectivePointCountingOnFoliations."
+      "note": "E8 normalization is now in the statement, not only the locator. Use the n-dimensional companion jet through order n−1 and recover derivative n from the equation (E13); retain the forcing term in chaining (E16).",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/49",
+        "PAPER-BINYAMINI-22/50",
+        "PAPER-BINYAMINI-22/51",
+        "PAPER-BINYAMINI-22/73",
+        "PAPER-BINYAMINI-22/74"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/53",
+      "kind": "theorem",
+      "name": "Absolute-height formula and coordinate-maximum convention",
+      "statement": "For algebraic x with primitive irreducible minimal polynomial a0 product_i(T-x_i) in Z[T] and positive leading coefficient, h_abs(x)=(log a0 + sum_i log max(1,|x_i|))/d. For a finite tuple define h_max to be the maximum of the scalar absolute heights (0 for the empty tuple); this is the convention in A(g,h), not the relative projective height.",
+      "locator": "§1.1.4, (1), p.2 (published version)",
+      "status": "planned",
+      "planned": [
+        "DiophantineApproximationAndTranscendence:DT.0"
+      ],
+      "note": "The absolute scalar height exists. Its minimal-polynomial comparison API was not found in the pinned tree. Import the common height normalization from DT.0; RP.0 is a consumer.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/3"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/54",
+      "kind": "theorem",
+      "name": "Legendre parameter versus stable Faltings height",
+      "statement": "After a bounded-degree extension putting E in Legendre form, bound h(λ) in terms of 1+max(0,h_Fal(E)) and the field degree, and bound h_Fal(Eλ) in terms of h(λ). The reverse comparison h(λ)≪1+max(0,h_Fal(E)) (with the stated normalization and allowable field extension) is the direction needed to turn the h=max(h(λ),[K:Q]) bound in §10.3 into Theorem 8.",
+      "locator": "§10.3, (134), p.32 (published version)",
+      "status": "planned",
+      "planned": [
+        "ArakelovGeometryAndAbelianHeights:R35.5"
+      ],
+      "note": "The published sentence writes only the forward bound. The extraction must record the reverse supplier and the degree at most six for ordering the 2-torsion points; this review does not certify an unstated constant. Ordering the 2-torsion requires degree at most six; an additional quadratic extension can remove the twist to obtain the displayed Legendre equation, so degree at most twelve suffices for the full presentation.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/53"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/55",
+      "kind": "definition",
+      "name": "Bad locus for algebraic blocks and a map",
+      "statement": "For irreducible algebraic W⊂C^ℓ, Σ(V,W;Φ) consists of regular leaf points p where the germ Φ on Lp∩V is not finite, or its image contains an analytic component of the germ of W at Φ(p); include the foliation singular locus when using global distance estimates. Germs and the finite-map condition refer to the chosen analytic branch.",
+      "locator": "Definition 4, p.4 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/1"
+      ],
+      "api": [
+        {
+          "name": "BlockBadLocus.nonfinite_mem",
+          "role": "relation",
+          "statement": "Failure of finiteness of the map germ places the base point in Σ(V,W;Φ)."
+        },
+        {
+          "name": "BlockBadLocus.component_mem",
+          "role": "characterisation",
+          "statement": "With a finite map germ, membership means its image contains an analytic component of W at Φ(p)."
+        },
+        {
+          "name": "BlockBadLocus.singular_mem",
+          "role": "relation",
+          "statement": "For the global distance convention, singular foliation points belong to the bad locus."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "BlockBadLocus.test_identity_line",
+          "kind": "computation",
+          "statement": "For V=M=C, Φ=id and W=C with the full leaf, every point is in the block bad locus."
+        },
+        {
+          "name": "BlockBadLocus.test_constant_map",
+          "kind": "degenerate",
+          "statement": "A constant map from a positive-dimensional leaf germ is nonfinite, hence bad."
+        },
+        {
+          "name": "BlockBadLocus.test_transverse_curve",
+          "kind": "non-example",
+          "statement": "For Φ(z)=(z,0), V=C and W={x=0} at 0, the map is finite and its horizontal image contains no component of the vertical W germ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Theorem 3; Proposition 29",
+          "how": "Separates the two reasons a block may persist on a nearby leaf."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/56",
+      "kind": "definition",
+      "name": "Algebraic points of bounded joint degree and height",
+      "statement": "For A⊂C^ℓ, A(g,h) consists of p∈A∩Qbar^ℓ with [Q(p1,…,pℓ):Q]≤g and max_i h_abs(pi)≤h. For an analytic map Φ define A(g,h;Φ) by the same conditions on Φ(p). It uses one compositum field, not a coordinatewise degree bound.",
+      "locator": "(10), p.4; (70), p.19 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/53"
+      ],
+      "api": [
+        {
+          "name": "BoundedAlgebraicPoints.mem_iff",
+          "role": "characterisation",
+          "statement": "Membership requires the joint compositum degree and the maximum scalar height bounds."
+        },
+        {
+          "name": "BoundedAlgebraicPoints.mono",
+          "role": "functoriality",
+          "statement": "Enlarging A, g or h enlarges A(g,h)."
+        },
+        {
+          "name": "BoundedAlgebraicPoints.map_version",
+          "role": "compatibility",
+          "statement": "A(g,h;Φ) is the inverse image of the bounded algebraic tuples under Φ, restricted to A."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "BoundedAlgebraicPoints.test_rational_pair",
+          "kind": "computation",
+          "statement": "For g=1, every admitted tuple has all coordinates rational."
+        },
+        {
+          "name": "BoundedAlgebraicPoints.test_independent_quadratics",
+          "kind": "non-example",
+          "statement": "The tuple (√2,√3) is not admitted with g=2, although both coordinates individually have degree 2."
+        },
+        {
+          "name": "BoundedAlgebraicPoints.test_height_zero",
+          "kind": "computation",
+          "statement": "The tuple (0,1,−1) is admitted with g=1 and h=0 when it belongs to A."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Theorems 3–4; (127)",
+          "how": "Prevents replacing joint degree by coordinatewise degree."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/57",
+      "kind": "theorem",
+      "name": "Rational coordinates of simultaneous torsion points",
+      "statement": "Under the hypotheses and the chosen disc/branch of Lemma 33, for Rhat=exp(poly(δC)), each conjugate cσ in that branch determines a rational matrix U in (z,w)=(f,g)U. Its coordinate denominators are at most the respective torsion orders and its logarithmic height is poly(δC,log n); the matrix lies in the counting domain A⊂Mat2x2(R).",
+      "locator": "Lemma 38, p.27 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/37",
+        "PAPER-BINYAMINI-22/84"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/58",
+      "kind": "theorem",
+      "name": "Growth on the elliptic uniformization charts",
+      "statement": "In §10.3, h=max(h(λ),[K:Q]) and δ=exp(−poly(h)). On each selected doubled x-disc away from {0,1,λ,∞}, a chosen branch of y and a chosen normalized primitive z=∫dx/y yield a ξ′=ξ/y leaf ball contained in an ambient ball of radius exp(poly(h)). The initial lift must have the same bound.",
+      "locator": "Lemma 44 and (137), p.33 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/34"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/59",
+      "kind": "theorem",
+      "name": "Many bounded-height torsion points on one chart",
+      "statement": "For a point p of order n, with N(p)=[K(p):K], the Galois conjugates of its multiples contain at least n/2 distinct torsion points of order at most n, height poly(h), degree over K at most N(p), and x-coordinate in Λδ. One of the poly(h) discs and one y-branch contains at least n/poly(h) of them. Use the Galois-stable union of the multiples and its orbits, counting distinct points.",
+      "locator": "Lemma 45, p.33 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/36",
+        "PAPER-BINYAMINI-22/58"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/60",
+      "kind": "theorem",
+      "name": "Algebraic blocks in the elliptic covering graph",
+      "statement": "For the foliation on E×Cz×C²u×C²ω in §10.3 with V={z=u1ω1+u2ω2} and Φ=(x,y,u1,u2), any positive-dimensional irreducible block from a leaf has u1ω1+u2ω2 constant. Otherwise it would make a nonconstant elliptic function algebraic over its covering coordinate.",
+      "locator": "Lemma 46, p.33 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/58"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/61",
+      "kind": "theorem",
+      "name": "Height and joint degree of elliptic torsion lifts",
+      "statement": "Every point selected in Lemma 45 lifts to A⊂C²×R² with log-height poly(h,log n) and joint field degree at most [K:Q]N(p). The u-coordinates are rational with denominators at most n; the x,y coordinates lie in the field of the chosen torsion point.",
+      "locator": "Lemma 47, p.34 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/59",
+        "PAPER-BINYAMINI-22/60"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/62",
+      "kind": "theorem",
+      "name": "Degree and height of CM representatives",
+      "statement": "For a CM tuple p in C^n, its representative τ in Ω^n has each coordinate imaginary quadratic, joint degree [Q(τ):Q]≤2^n and H_max(τ)≤poly_n(Δ(p)), where Δ is the sum of absolute order discriminants. Use g=2^n in Theorem 3.",
+      "locator": "(127), p.30 and application p.31; corrected E15 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/56"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/63",
+      "kind": "theorem",
+      "name": "Metric packing-covering comparisons",
+      "statement": "In a metric space, with packing at strict separation and covering by closed balls, S(A,2ε)≤N(A,ε)≤S(A,ε) for ε≥0, allowing infinity. Specialize the extended-natural counts to finite values on the compact sets used by the paper.",
+      "locator": "(33), p.11 (published version)",
+      "status": "library",
+      "library": [
+        "mathlib:Metric.packingNumber_two_mul_le_externalCoveringNumber",
+        "mathlib:Metric.externalCoveringNumber_le_coveringNumber",
+        "mathlib:Metric.coveringNumber_le_packingNumber"
+      ],
+      "note": "CoveringNumbers.lean:128,330,354 at 082e2d3; names checked in the namespace. Combine the first inequality with externalCoveringNumber≤coveringNumber.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/64",
+      "kind": "theorem",
+      "name": "Schwarz–Pick metric contraction",
+      "statement": "A holomorphic self-map of the unit disc, represented as a map of PoincareDisc, does not increase Poincaré distance. Apply by disc/half-plane coordinate changes to the period ratio f/g in (100).",
+      "locator": "(100), p.25 (published version)",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.PoincareDisc.dist_map_le"
+      ],
+      "note": "SchwarzPick.lean:132 at f790474. The period-ratio and coordinate-change application still belongs to /37.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/65",
+      "kind": "theorem",
+      "name": "Norm Gronwall inequality",
+      "statement": "If a normed-space-valued function is continuous on [a,b], has a right derivative there, has initial norm ≤δ, and satisfies ||f′(t)||≤K||f(t)||+ε, then ||f(t)||≤gronwallBound δ K ε (t−a).",
+      "locator": "Lemma 48 proof, p.35 (published version)",
+      "status": "library",
+      "library": [
+        "mathlib:norm_le_gronwallBound_of_norm_deriv_right_le"
+      ],
+      "note": "Gronwall.lean:134 at 082e2d3. The complex path and companion-system adapter is /49.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/66",
+      "kind": "theorem",
+      "name": "Chow–van der Waerden equations with complexity control",
+      "statement": "A K-subvariety V admits a set-theoretic defining collection P1,…,PS with δ(Pα)≤poly(δV), where S depends only on the fixed ambient dimension; heights are measured in Chow coordinates.",
+      "locator": "Lemma 21, p.15 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/2"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/67",
+      "kind": "theorem",
+      "name": "Arithmetic complexity of a multiplicity operator",
+      "statement": "For a basic operator of order k applied to P along commuting rational vector fields ξ, δ(M^(k)P)≤poly(δP,δξ,k), on the regular localized chart. The determinant size and derivative orders give the bound.",
+      "locator": "Lemma 12, p.10 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/13"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/68",
+      "kind": "theorem",
+      "name": "Multiplicity detected by basic operators",
+      "statement": "For a holomorphic n-tuple F and k≥0, its local intersection multiplicity is >k if and only if every basic multiplicity operator of order k vanishes. Use multiplicity infinity for nonisolated common zeros and 0 outside the zero set.",
+      "locator": "Proposition 7, p.9; E9 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/13"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/69",
+      "kind": "definition",
+      "name": "Analytic resultant on a finite Weierstrass projection",
+      "statement": "For a curve Γ with finite proper projection Γ∩Δ→Dz of degree μ and G holomorphic near Δ, define RΔ,Γ(G)(z) as the product of G(z,w) over the fibre, with analytic multiplicities. This is holomorphic, including at branch values.",
+      "locator": "Definition 10, (26), p.10 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/5"
+      ],
+      "api": [
+        {
+          "name": "AnalyticResultant.fibre_product",
+          "role": "simp",
+          "statement": "At an unramified fibre the resultant is the product of the values at all sheets."
+        },
+        {
+          "name": "AnalyticResultant.multiplicative",
+          "role": "relation",
+          "statement": "R(GH)=R(G)R(H) with multiplicities."
+        },
+        {
+          "name": "AnalyticResultant.holomorphic",
+          "role": "structure",
+          "statement": "The product extends holomorphically across branch values for the finite proper projection."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "AnalyticResultant.test_one_sheet",
+          "kind": "computation",
+          "statement": "On Γ={w=0}, R(G)(z)=G(z,0)."
+        },
+        {
+          "name": "AnalyticResultant.test_ramified_square",
+          "kind": "computation",
+          "statement": "On Γ={w²=z}, R(w)(z)=−z."
+        },
+        {
+          "name": "AnalyticResultant.test_remote_zero_sheet",
+          "kind": "non-example",
+          "statement": "For Γ={w=0 or w=1/4}, R(z(w−1/4)) is identically zero, even if the pair of defining functions has an isolated zero at the origin."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Lemma 11; §5.1",
+          "how": "Transfers zero counting to the base disc without losing a sheet or a multiplicity."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/70",
+      "kind": "theorem",
+      "name": "Finiteness of the Betti-coordinate map on every leaf",
+      "statement": "In the principal G-bundle of §8.1 and enlarged space of §8.5, the germ Φ=U on each leaf intersected with V={(z,w)=(f,g)U} is finite. A positive-dimensional fibre contradicts the Masser–Zannier functional-transcendence input; transfer from the standard leaf by G-equivariance.",
+      "locator": "Lemma 36, p.26 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/38",
+        "PAPER-BINYAMINI-22/89"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/71",
+      "kind": "theorem",
+      "name": "Blocks have fixed base parameter in the elliptic square",
+      "statement": "A positive-dimensional irreducible algebraic block from the standard leaf in §8.5 lies in {(z(λ0),w(λ0))=(f(λ0),g(λ0))U} for a single λ0 in the selected domain. Since f/g is nonreal, each such affine space has at most one real matrix point; sufficiently nearby leaves retain this property.",
+      "locator": "Lemma 37 and following paragraph, pp.26–27 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/38",
+        "PAPER-BINYAMINI-22/70"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/72",
+      "kind": "definition",
+      "name": "Slope and invariant slope of a rational differential operator",
+      "statement": "For L=sum_{j=0}^n a_j(t)∂^(n−j), a0≠0, let ||p/q||=||p||1/||q||1 for a reduced rational function. Define angle(L)=max_{1≤j≤n}||aj||/||a0|| and invariantAngle(L)=sup_{φ∈Aut(P1)}angle(φ*L). The pullback is the operator acting on f∘φ, with no arbitrary scalar renormalization.",
+      "locator": "Definition 49, (153)–(154), p.36; E7 (published version)",
+      "status": "missing",
+      "dependsOn": [],
+      "api": [
+        {
+          "name": "DifferentialSlope.rational_norm",
+          "role": "data",
+          "statement": "Use the ratio of coefficient l1 norms in a reduced numerator and denominator."
+        },
+        {
+          "name": "DifferentialSlope.slope_eq",
+          "role": "simp",
+          "statement": "The slope is the maximum of the n lower coefficient norms divided by the leading norm."
+        },
+        {
+          "name": "DifferentialSlope.pullback",
+          "role": "functoriality",
+          "statement": "Compute the literal operator under Möbius change of variable; do not independently rescale its leading coefficient."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "DifferentialSlope.test_derivative_slope",
+          "kind": "computation",
+          "statement": "For L=∂t, angle(L)=0."
+        },
+        {
+          "name": "DifferentialSlope.test_euler_slope",
+          "kind": "computation",
+          "statement": "For L=t∂t+1, angle(L)=1."
+        },
+        {
+          "name": "DifferentialSlope.test_scaling_leading",
+          "kind": "non-example",
+          "statement": "For φ(s)=κs, a0(φ*∂t)=κ^−1, so a universal positive lower bound requires additional hypotheses."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Propositions 50–51; Theorem 9",
+          "how": "Makes the normalization relevant to the forcing term explicit."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/73",
+      "kind": "theorem",
+      "name": "Lower bound for pulled-back leading coefficients with normalization",
+      "statement": "Assume L and L+1 are Fuchsian, L is defined over a number field, and the literal pullback/coefficient norm convention of /72 is fixed. Then inf_{φ∈Aut(P1)}||a0(φ*L)||≥exp(−poly_n(δL)). The extra assumption excludes L=∂t and applies to the Legendre operator λ(1−λ)∂²+(1−2λ)∂−1/4.",
+      "locator": "Proposition 51, p.36; corrected E8 (published version)",
+      "status": "missing",
+      "note": "The review confirms the counterexample and the needed normalization. A detailed reduced-rational-coefficient norm comparison remains part of the source-complete proof obligation.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/50",
+        "PAPER-BINYAMINI-22/72"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/74",
+      "kind": "definition",
+      "name": "Jets for the companion system",
+      "statement": "For a holomorphic scalar f and integer n≥1, the companion vector is J_n f=(f,f′,…,f^(n−1)) in C^n. The full n-jet is j^n f=(f,…,f^n) in C^(n+1). Under t=t0+rz the derivative of order j is multiplied by r^j; do not identify these two vectors.",
+      "locator": "Appendix A, (147)–(150), p.35; corrected E13 (published version)",
+      "status": "missing",
+      "dependsOn": [],
+      "api": [
+        {
+          "name": "CompanionJet.coordinate",
+          "role": "projection",
+          "statement": "The jth coordinate of J_n f is f^(j), for 0≤j<n."
+        },
+        {
+          "name": "CompanionJet.companion_equation",
+          "role": "compatibility",
+          "statement": "For monic order-n L, J_n solves the n×n companion first-order system."
+        },
+        {
+          "name": "CompanionJet.change_scale",
+          "role": "functoriality",
+          "statement": "Under t=t0+rz, the jth derivative becomes r^j times the original derivative."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "CompanionJet.test_order_one",
+          "kind": "computation",
+          "statement": "J_1 f contains only f, while j^1 f contains f and f′."
+        },
+        {
+          "name": "CompanionJet.test_quadratic_jet",
+          "kind": "computation",
+          "statement": "For f(t)=t², J_2 f(0)=(0,0) but j^2 f(0)=(0,0,2)."
+        },
+        {
+          "name": "CompanionJet.test_scaled_quadratic",
+          "kind": "computation",
+          "statement": "For f(t)=t² and t=rz, the second derivative in z is 2r²."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Lemma 48; Theorem 9",
+          "how": "Avoids the matrix-size error and tracks radius powers."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/75",
+      "kind": "definition",
+      "name": "Positive-dimensional weakly special locus",
+      "statement": "For V⊂Y(1)^n, V^ws is the union of its positive-dimensional weakly special subvarieties. A weakly special subvariety is obtained by fixing coordinates and imposing modular relations in disjoint coordinate blocks. Excluding zero-dimensional weakly special points is essential: otherwise V^ws=V.",
+      "locator": "§9.2, p.29; corrected E17 (published version)",
+      "status": "missing",
+      "dependsOn": [],
+      "api": [
+        {
+          "name": "PositiveWeaklySpecialLocus.mem_iff",
+          "role": "characterisation",
+          "statement": "Membership means lying on a positive-dimensional weakly special subvariety contained in V."
+        },
+        {
+          "name": "PositiveWeaklySpecialLocus.subset",
+          "role": "relation",
+          "statement": "V^ws is a subset of V."
+        },
+        {
+          "name": "PositiveWeaklySpecialLocus.monotone",
+          "role": "functoriality",
+          "statement": "For V⊂W, V^ws⊂W^ws."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "PositiveWeaklySpecialLocus.test_point_empty",
+          "kind": "degenerate",
+          "statement": "For a singleton V, V^ws is empty."
+        },
+        {
+          "name": "PositiveWeaklySpecialLocus.test_whole_modular_line",
+          "kind": "computation",
+          "statement": "For V=Y(1), V^ws=V."
+        },
+        {
+          "name": "PositiveWeaklySpecialLocus.test_diagonal",
+          "kind": "computation",
+          "statement": "For V={(x,x)}⊂Y(1)², V^ws=V."
+        }
+      ],
+      "uses": [
+        {
+          "where": "§9.2; Proposition 39",
+          "how": "Defines the locus removed to leave isolated special points."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/76",
+      "kind": "definition",
+      "name": "Restricted elementary o-minimal structure",
+      "statement": "R_RE expands the ordered real field by exp restricted to [0,1] and sin restricted to [0,π], with fixed conventions outside those intervals. “Definable” allows parameters, so constants in Theorem 4 may depend on the definable set.",
+      "locator": "§1.4, p.5 (published version)",
+      "status": "planned",
+      "planned": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "dependsOn": [],
+      "api": [
+        {
+          "name": "RestrictedElementary.restricted_exp",
+          "role": "data",
+          "statement": "On [0,1], the named restricted exponential agrees with the real exponential."
+        },
+        {
+          "name": "RestrictedElementary.restricted_sin",
+          "role": "data",
+          "statement": "On [0,π], the named restricted sine agrees with real sine."
+        },
+        {
+          "name": "RestrictedElementary.definable_parameters",
+          "role": "structure",
+          "statement": "Definable sets are closed under Boolean operations, projection and real parameters."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "RestrictedElementary.test_exp_at_zero",
+          "kind": "computation",
+          "statement": "The restricted exponential at 0 is 1."
+        },
+        {
+          "name": "RestrictedElementary.test_sin_at_pi",
+          "kind": "computation",
+          "statement": "The restricted sine at π is 0."
+        },
+        {
+          "name": "RestrictedElementary.test_interval_definable",
+          "kind": "compatibility",
+          "statement": "Every semialgebraic interval is definable in the expanded ordered field."
+        }
+      ],
+      "uses": [
+        {
+          "where": "§1.4, Theorem 4",
+          "how": "Imports the chosen o-minimal structure from LD.6."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/77",
+      "kind": "definition",
+      "name": "Algebraic and transcendental parts of a definable set",
+      "statement": "For A⊂R^m, A^alg is the union of all connected positive-dimensional semialgebraic subsets of A; A^trans=A\\A^alg. Zero-dimensional semialgebraic subsets do not contribute.",
+      "locator": "§1.4, p.5 (published version)",
+      "status": "planned",
+      "planned": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "dependsOn": [],
+      "api": [
+        {
+          "name": "DefinableAlgebraicPart.mem_iff",
+          "role": "characterisation",
+          "statement": "x∈A^alg exactly when x lies in a connected positive-dimensional semialgebraic subset of A."
+        },
+        {
+          "name": "DefinableAlgebraicPart.trans_part",
+          "role": "simp",
+          "statement": "A^trans=A\\A^alg."
+        },
+        {
+          "name": "DefinableAlgebraicPart.mono",
+          "role": "functoriality",
+          "statement": "A⊂B implies A^alg⊂B^alg."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "DefinableAlgebraicPart.test_finite_set",
+          "kind": "degenerate",
+          "statement": "A finite A has empty algebraic part."
+        },
+        {
+          "name": "DefinableAlgebraicPart.test_open_interval",
+          "kind": "computation",
+          "statement": "For A=(0,1), A^alg=A."
+        },
+        {
+          "name": "DefinableAlgebraicPart.test_interval_and_point",
+          "kind": "non-example",
+          "statement": "For A=(0,1)∪{2}, the algebraic part is (0,1), and 2 remains in A^trans."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Theorems 4 and the imported Wilkie estimate",
+          "how": "Separates semialgebraic components from isolated algebraic points."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/78",
+      "kind": "construction",
+      "name": "Polynomial reparametrization of a foliation",
+      "statement": "On the determinant-nonzero locus of M_D×C^n_s×M, with Φ fixed on each leaf, set P_D(ξ)_i=∂si+sum_j(∂Φj/∂si)ξj. The chart is (Φ,a+x,φp(Φ(a+x)−Φ(a))). The projection to M reparametrizes the original leaf.",
+      "locator": "§4.3, (45)–(46), pp.13–14 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/1"
+      ],
+      "api": [
+        {
+          "name": "PolynomialReparametrization.chart",
+          "role": "simp",
+          "statement": "The chart projects to φp(Φ(a+x)−Φ(a))."
+        },
+        {
+          "name": "PolynomialReparametrization.jacobian_invertible",
+          "role": "constructor",
+          "statement": "Require det DΦ(a)≠0 to obtain a local reparametrization of the full leaf."
+        },
+        {
+          "name": "PolynomialReparametrization.commuting",
+          "role": "structure",
+          "statement": "The lifted fields commute because the original fields commute and mixed partials of Φ agree."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "PolynomialReparametrization.test_identity",
+          "kind": "compatibility",
+          "statement": "For Φ=id recover the original chart after projection."
+        },
+        {
+          "name": "PolynomialReparametrization.test_shear",
+          "kind": "computation",
+          "statement": "For Φ(u,v)=(u,v+u²), the first-coordinate subleaf projects to (u,u²)."
+        },
+        {
+          "name": "PolynomialReparametrization.test_singular_polynomial",
+          "kind": "non-example",
+          "statement": "For Φ(u,v)=(u,0), the Jacobian condition fails, so it is not a full leaf reparametrization."
+        }
+      ],
+      "uses": [
+        {
+          "where": "§4.3; Lemma 19",
+          "how": "Distinguishes polynomial image leaves from inverse-image equations."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/79",
+      "kind": "theorem",
+      "name": "A small rational point outside a proper variety",
+      "statement": "For a proper closed subvariety Z⊊A^N of total degree ≤d, d≥1, there exists x∈Q^N\\Z with ||x||∞≤1 and coordinate-maximum multiplicative height H(x)≤d. Slice successively with rational coordinates; properness and d≥1 are necessary.",
+      "locator": "Lemma 20, p.14; properness made explicit (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/53"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/80",
+      "kind": "theorem",
+      "name": "Codimension of bad polynomial reparametrizations",
+      "statement": "For p outside ΣV, fixed full-rank A and a, the proposed Lemma 19 bound is that the polynomial reparametrizations producing improper intersection have codimension at least D on the invertible-Jacobian parameter locus. The polynomial image parameterization of (46) must be used. A proof with this parameterization is missing: (49) uses inverse images instead.",
+      "locator": "Lemma 19, p.14; E12 (published version)",
+      "status": "missing",
+      "statementStatus": "gap",
+      "note": "Do not schedule the printed proof as an established lemma. Repair the incidence family and prove the claimed codimension, including passage to the determinant-nonzero locus.",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/17",
+        "PAPER-BINYAMINI-22/78"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/81",
+      "kind": "theorem",
+      "name": "Most CM conjugates avoid the weakly special locus quantitatively",
+      "statement": "For special p∈V\\V^ws and ε>0, at least two-thirds of its Galois conjugates over the field of definition satisfy log^+ dist(pσ,V^ws)^−1 ≤poly_n(δV) Oε(Δ(p)^ε). Use a polynomial vanishing on V^ws but not p, bounds for its value and for the absolute sizes of pσ, and the mean-value inequality.",
+      "locator": "Lemma 40, p.30; E3 and E19 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/42",
+        "PAPER-BINYAMINI-22/44"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/82",
+      "kind": "theorem",
+      "name": "Height bound for a torsion specialization",
+      "statement": "For the curve and sections of Theorem 6, if P(c) or Q(c) is torsion then h(λ(c))≤poly(δC), with absolute logarithmic height.",
+      "locator": "Lemma 31, p.24 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/36"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/83",
+      "kind": "theorem",
+      "name": "Many conjugates stay away from singular parameters",
+      "statement": "With the finite algebraic exceptional set Σ in §8.1 and λ∉Σ, for δ=2^−poly(δC,h(λ)) at least half the Galois conjugates of λ lie in Λδ={|λ|<δ^−1, |λ−σ|>δ for all σ∈Σ}. Work over the field defining the data or account for its degree.",
+      "locator": "Lemma 32, p.24 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/53",
+        "PAPER-BINYAMINI-22/82"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/84",
+      "kind": "theorem",
+      "name": "One disc and branch contain many conjugates",
+      "statement": "For a simultaneous torsion specialization c, a logarithmic cover of Λδ by poly(δC) discs, with expanded discs away from Σ, has one disc and one branch of C containing at least [Q(c):Q]/poly(δC) conjugates in the Q-defined presentation of §8.",
+      "locator": "Lemma 33, p.24 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/83"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/85",
+      "kind": "theorem",
+      "name": "A small Weierstrass polydisc from a multiplicity operator",
+      "statement": "For n−1 holomorphic functions bounded by 1 on the unit ball and a nonzero order-k multiplicity operator in the w-variables at 0, construct a standard-coordinate Weierstrass polydisc for their zero set whose logarithmic reciprocal radii are bounded polynomially in k and log(1/s), with size parameters bounded below. Its radii may be decreased within the construction to satisfy the local ball restriction needed by /15, but quantitative compatibility must be proved.",
+      "locator": "Lemma 9, pp.9–10 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/14"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/86",
+      "kind": "theorem",
+      "name": "A nonvanishing multiplicity operator has a distance bound",
+      "statement": "For a complete intersection V=V(P1,…,Pn) on a fixed bounded regular chart and p outside ΣV, there is a basic multiplicity operator of order k≤poly(degξ,degP) with log|Mp^(k)P|≥−poly(δξ,δP)(1+log^+dist(p,ΣV)^−1). To replace δP by δV, first choose and prove a bound for normalized defining equations.",
+      "locator": "Corollary 14, p.11 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/17",
+        "PAPER-BINYAMINI-22/18"
+      ],
+      "note": "Corrected E23: rescaling defining equations leaves V unchanged but rescales all multiplicity determinants. Propagate the equation-height bound through the general-position and complete-intersection construction."
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/87",
+      "kind": "theorem",
+      "name": "Covering the circle saturation",
+      "statement": "For A in the unit ball of C^n and ε>0, N(S¹·A,2ε)≤(1+floor(π/ε))N(A,ε). Multiply an ε-net of A by an ε-net of the unit circle.",
+      "locator": "Lemma 16, p.12 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/63"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/88",
+      "kind": "theorem",
+      "name": "A Weierstrass polydisc controlled by volume",
+      "statement": "For a pure m-dimensional analytic subset X of the unit ball with finite volume, construct a Weierstrass polydisc Δ containing a concentric ball of reciprocal radius poly_n(1+vol X) and with degree e(X,Δ)≤poly_n(1+vol X). For m=n use the full-dimensional trivial projection; for m<n use the complementary-ball induction.",
+      "locator": "Corollary 18, p.12 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/20"
+      ]
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/89",
+      "kind": "construction",
+      "name": "The elliptic-square Picard–Fuchs principal bundle",
+      "statement": "On the regular part of C, form M=C×G with G=Mat2x2⋊GL2 and (ML,MP)(NL,NP)=(ML+MP NL,MP NP). Encode the two period solutions in MP and the two inhomogeneous logarithm solutions in ML together with their first derivatives. The lifted λ-vector field given by the second-order equations defines a flat principal G-bundle under right multiplication. The standard leaf uses a period basis and logarithms of P,Q.",
+      "locator": "§8.1, (82)–(91), pp.22–23 (published version)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-BINYAMINI-22/1",
+        "PAPER-BINYAMINI-22/34"
+      ],
+      "api": [
+        {
+          "name": "EllipticSquarePeriodBundle.mul",
+          "role": "simp",
+          "statement": "The multiplication is (ML,MP)(NL,NP)=(ML+MP NL,MP NP)."
+        },
+        {
+          "name": "EllipticSquarePeriodBundle.leaf_translate",
+          "role": "functoriality",
+          "statement": "Right translation changes the period basis by an invertible constant matrix and logarithms by constant period combinations."
+        },
+        {
+          "name": "EllipticSquarePeriodBundle.standard_leaf",
+          "role": "constructor",
+          "statement": "A compatible period basis and two elliptic logarithms determine the distinguished local horizontal leaf."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "EllipticSquarePeriodBundle.test_identity",
+          "kind": "degenerate",
+          "statement": "(0,I) is the two-sided identity."
+        },
+        {
+          "name": "EllipticSquarePeriodBundle.test_translation",
+          "kind": "computation",
+          "statement": "Right multiplication by (N,I) changes ML to ML+MP N and leaves MP unchanged."
+        },
+        {
+          "name": "EllipticSquarePeriodBundle.test_period_change",
+          "kind": "compatibility",
+          "statement": "Right multiplication by (0,A) sends MP to MP A and preserves ML."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Lemmas 36–37",
+          "how": "Transfers functional transcendence and finite-map properties from the standard leaf to all leaves."
+        }
+      ]
     }
   ],
   "prerequisites": [
@@ -515,9 +1843,9 @@
       "why": "The Diophantine Łojasiewicz inequality in Corollary 14."
     },
     {
-      "citation": "D. Masser, U. Zannier, Torsion anomalous points and families of elliptic curves, Amer. J. Math. 132 (2010), 1677–1691",
-      "link": "https://doi.org/10.1353/ajm.2010.a404145",
-      "why": "Lemmas 5.1, 7.1, 8.1, 8.2 used for Theorem 6."
+      "citation": "D. Masser and U. Zannier, Torsion points on families of squares of elliptic curves, Math. Ann. 352 (2012), 453–484",
+      "link": "https://doi.org/10.1007/s00208-011-0645-4",
+      "why": "Actual bibliography [38]: Lemmas 5.1, 7.1, 8.1 and 8.2. Replaces the wrong 2010 reference; acquire exact functional-transcendence and height statements."
     },
     {
       "citation": "J. Pila, O-minimality and the André–Oort conjecture for ℂⁿ, Ann. Math. 173 (2011), 1779–1840",
@@ -564,7 +1892,9 @@
       ],
       "items": [
         "PAPER-BINYAMINI-22/38",
-        "PAPER-BINYAMINI-22/41"
+        "PAPER-BINYAMINI-22/41",
+        "PAPER-BINYAMINI-22/76",
+        "PAPER-BINYAMINI-22/77"
       ],
       "reason": "LD.6 builds Pila–Zannier-type applications from functional-transcendence theorems and records proven André–Oort cases. The paper uses two such theorems: Masser–Zannier's transcendence of elliptic logarithms over periods, and Pila's modular Ax–Lindemann. Both control the blocks coming from nearby leaves."
     },
@@ -592,7 +1922,7 @@
       "items": [
         "PAPER-BINYAMINI-22/34"
       ],
-      "reason": "PS.8 constructs the Gauss–Manin connection and Picard–Fuchs equation of a selected family. The Legendre family's homogeneous Picard–Fuchs equation for periods, and its inhomogeneous version for elliptic logarithms, are exactly such equations."
+      "reason": "PS.8 receives the homogeneous Legendre Picard–Fuchs equation and its explicit moving-endpoint inhomogeneous calculation as a source-selected family calculation. Import general relative de Rham/Gauss–Manin comparison from ComplexComparisonPartII:C5; /89 keeps the counting-specific flat principal bundle in the counting extension."
     },
     {
       "route": "source",
@@ -603,7 +1933,7 @@
       "items": [
         "PAPER-BINYAMINI-22/36"
       ],
-      "reason": "RP.0 compares Néron–Tate and Weil heights. Zimmer's explicit comparison, and the resulting polynomial bound of the Faltings height in the Legendre parameter, are height-machine inputs."
+      "reason": "RP.0 supplies the explicit coefficient-dependent and function-field height comparison, extending the pinned elliptic canonical-height API. The Faltings comparison is already planned by R35.5 and is imported as item /54."
     },
     {
       "route": "source",
@@ -663,10 +1993,40 @@
         "PAPER-BINYAMINI-22/49",
         "PAPER-BINYAMINI-22/50",
         "PAPER-BINYAMINI-22/51",
-        "PAPER-BINYAMINI-22/52"
+        "PAPER-BINYAMINI-22/52",
+        "PAPER-BINYAMINI-22/55",
+        "PAPER-BINYAMINI-22/56",
+        "PAPER-BINYAMINI-22/57",
+        "PAPER-BINYAMINI-22/58",
+        "PAPER-BINYAMINI-22/59",
+        "PAPER-BINYAMINI-22/60",
+        "PAPER-BINYAMINI-22/61",
+        "PAPER-BINYAMINI-22/62",
+        "PAPER-BINYAMINI-22/66",
+        "PAPER-BINYAMINI-22/67",
+        "PAPER-BINYAMINI-22/68",
+        "PAPER-BINYAMINI-22/69",
+        "PAPER-BINYAMINI-22/70",
+        "PAPER-BINYAMINI-22/71",
+        "PAPER-BINYAMINI-22/72",
+        "PAPER-BINYAMINI-22/73",
+        "PAPER-BINYAMINI-22/74",
+        "PAPER-BINYAMINI-22/75",
+        "PAPER-BINYAMINI-22/78",
+        "PAPER-BINYAMINI-22/79",
+        "PAPER-BINYAMINI-22/80",
+        "PAPER-BINYAMINI-22/81",
+        "PAPER-BINYAMINI-22/82",
+        "PAPER-BINYAMINI-22/83",
+        "PAPER-BINYAMINI-22/84",
+        "PAPER-BINYAMINI-22/85",
+        "PAPER-BINYAMINI-22/86",
+        "PAPER-BINYAMINI-22/87",
+        "PAPER-BINYAMINI-22/88",
+        "PAPER-BINYAMINI-22/89"
       ],
-      "brief": "LD.6 plans the qualitative Pila–Wilkie theorem. This Part II builds the effective, polylogarithmic counting theory for leaves of algebraic foliations over number fields, and its effective Diophantine applications.\n\nImport:\n- o-minimality and functional transcendence (Masser–Zannier, modular Ax–Lindemann) from LogicAndDefinabilityInNumberTheory LD.6;\n- the Thue–Siegel lemma, Liouville bounds and Brownawell's inequality from DiophantineApproximationAndTranscendence DT.0, DT.1 and DT.3;\n- the Legendre Picard–Fuchs equations from PeriodsAndSpecialValues PS.8;\n- heights and Zimmer's estimates from HeightsRationalPointsAndObstructions RP.0;\n- Duke's equidistribution from GeometryOfNumbersAndQuadraticArithmetic GN.4, and Siegel's class-number bound from AnalyticNumberTheory AN.4;\n- Jensen's inequality from Mathlib.\n\nConstruct multiplicity operators and the Gabrielov–Khovanskii estimate, Weierstrass polydiscs and analytic resultants, the Lelong volume bound and complex Crofton formula, general position by polynomial reparametrisation, and Chow–van der Waerden equations.\n\nState and prove, as in Binyamini (Forum Math. Pi 10 (2022) e6):\n- Theorem 1, #(B² ∩ V) = poly(δ_ξ, δ_V, log R, log dist^{-1}(B, Σ_V)), and Corollary 2;\n- Theorem 2, covering by Weierstrass polydiscs, by simultaneous induction;\n- Propositions 24 and 28 and Theorem 3, blocks from nearby leaves with poly(g, h) bounds, Corollary 6, and Theorem 4 (the Wilkie conjecture for ℝ_RE with poly(g, h));\n- Appendix A: Gronwall, slopes and Theorem 9, for operators normalized so that L + 1 is Fuchsian (sourceIssues E8);\n- Theorem 6, the effective Masser–Zannier theorem;\n- Theorem 7, the polynomial André–Oort bound and algorithm for ℂⁿ;\n- Theorem 8, Galois orbits of torsion points by Schmidt's strategy.\n\nExport the effective applications to LD.6. Acceptance: all constants are explicit except Siegel's in Theorem 7; for ℝ_RE the bound agrees with Binyamini–Novikov.",
-      "reason": "No atlas layer plans effective point counting: multiplicity operators, Weierstrass-polydisc coverings and polylogarithmic Pila–Wilkie bounds. This is a new direction for the definability roadmap, and the existing LogicAndDefinability Part IIs (Ax–Schanuel, finitely generated fields) have other subjects. The effective applications depend on Theorem 3, so they live here too."
+      "brief": "LD.6 plans the qualitative Pila–Wilkie theorem. This Part II builds the effective, polylogarithmic counting theory for leaves of algebraic foliations over number fields, and its effective Diophantine applications.\n\nImport:\n- o-minimality and functional transcendence (Masser–Zannier, modular Ax–Lindemann) from LogicAndDefinabilityInNumberTheory LD.6;\n- the Thue–Siegel lemma, Liouville bounds and Brownawell's inequality from DiophantineApproximationAndTranscendence DT.0, DT.1 and DT.3;\n- the Legendre Picard–Fuchs equations from PeriodsAndSpecialValues PS.8;\n- heights and Zimmer's estimates from HeightsRationalPointsAndObstructions RP.0;\n- Duke's equidistribution from GeometryOfNumbersAndQuadraticArithmetic GN.4, and Siegel's class-number bound from AnalyticNumberTheory AN.4;\n- Jensen's inequality from Mathlib.\n\nConstruct multiplicity operators and the Gabrielov–Khovanskii estimate, Weierstrass polydiscs and analytic resultants, the Lelong volume bound and complex Crofton formula, general position by polynomial reparametrisation, and Chow–van der Waerden equations.\n\nState and prove, as in Binyamini (Forum Math. Pi 10 (2022) e6):\n- Theorem 1, #(B² ∩ V) = poly(δ_ξ, δ_V, log R, log dist^{-1}(B, Σ_V)), and Corollary 2;\n- Theorem 2, covering by Weierstrass polydiscs, by simultaneous induction;\n- Propositions 24 and 28 and Theorem 3, blocks from nearby leaves with poly(g, h) bounds, Corollary 6, and Theorem 4 (the Wilkie conjecture for ℝ_RE with poly(g, h));\n- Appendix A: Gronwall, slopes and Theorem 9, for operators normalized so that L + 1 is Fuchsian (sourceIssues E8);\n- Theorem 6, the effective Masser–Zannier theorem;\n- Theorem 7, the polynomial André–Oort bound and algorithm for ℂⁿ;\n- Theorem 8, Galois orbits of torsion points by Schmidt's strategy.\n\nExport the effective applications to LD.6. Acceptance: all polynomial bounds are effective in principle except Siegel's in Theorem 7; for ℝ_RE the bound agrees with Binyamini–Novikov.\n\nREVISION GATE: this route is rejected by REV-PAPER-BINYAMINI-22. Before designing it, repair E10–E12 (local resultant and general-position/complete-intersection arguments), state all imports exactly, supply every definition API/test, and resolve the quantitative CM-height ownership of /44 using PAPER-TSIMERMAN-18. Import R35.5 for /54 and Mathlib/Tau Ceti for /3, /24, /63–65. Do not assert the announced higher-genus covering in /48. Use Q-blocks, joint degree, the sum discriminant convention and the corrected Duke adapter. Section 4 and the simultaneous induction must be decomposed with a well-founded dimension parameter; the list of dependencies is not a formal proof.",
+      "reason": "No atlas layer plans effective point counting: multiplicity operators, Weierstrass-polydisc coverings and polylogarithmic Pila–Wilkie bounds. This is a new direction for the definability roadmap, and the existing LogicAndDefinability Part IIs (Ax–Schanuel, finitely generated fields) have other subjects. The effective applications depend on Theorem 3, so they live here too. The direction is plausible, but the review has found proof and ownership blockers; this route is not ready to become a design job."
     }
   ],
   "sourceIssues": [
@@ -680,25 +2040,37 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 2009.00892 (v1, 2 September 2020, the only version)",
-        "Forum of Mathematics, Pi 10 (2022) e6 article page (open access): no correction notice",
-        "Crossref metadata for 10.1017/fmp.2021.20: no update or correction relation"
-      ]
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the displayed factors in the page-11 image. The disjoint ε/2-ball argument yields c(m)(ε/2)^(2m) per centre and hence 2^(2m)/c(m). This confirms the correction of the proof constants, not a counterexample to every possible sharper packing inequality.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
     },
     {
       "id": "PAPER-BINYAMINI-22/E2",
-      "kind": "misprint",
+      "kind": "error",
       "locator": "§4.4, p.14 and proof of Proposition 22, p.15 (published version)",
       "printed": "\"by a dimension-counting argument using Lemma 19, the codimension of π_Φ(Σ_Ṽ) is positive\" … \"Set Z = Clo π(Σ_{W̃_{k+1}}) … Z has positive codimension\"",
       "correction": "Restrict to the part of Σ_Ṽ lying over M ∖ Σ_V (resp. over the p with dim(V ∩ L_p) < n − k): Z := Clo π_Φ(Σ_Ṽ ∖ π_M^{-1}(Σ_V)).",
       "reason": "Over points p ∈ Σ_V every Φ lies in Σ_Ṽ, so π_Φ(Σ_Ṽ) is all of M_D whenever Σ_V ≠ ∅. Lemma 19 and the target condition (44) concern only p ∉ Σ_V.",
-      "affects": "nothing",
+      "affects": "the proof",
       "known": "new",
       "searched": [
-        "arXiv 2009.00892 (v1, 2 September 2020, the only version)",
-        "Forum of Mathematics, Pi 10 (2022) e6 article page (open access): no correction notice",
-        "Crossref metadata for 10.1017/fmp.2021.20: no update or correction relation"
-      ]
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the projections on pp.14–15. A bad base point makes the unrestricted parameter projection full. Lemma 19 only concerns good base points, so the incidence must be restricted before projection. This affects the proof, and does not repair the separate issues E11 and E12.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
     },
     {
       "id": "PAPER-BINYAMINI-22/E3",
@@ -710,10 +2082,16 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 2009.00892 (v1, 2 September 2020, the only version)",
-        "Forum of Mathematics, Pi 10 (2022) e6 article page (open access): no correction notice",
-        "Crossref metadata for 10.1017/fmp.2021.20: no update or correction relation"
-      ]
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed δW where only V is defined in Lemma 40, and the p.31 reference to Corollary 39, which is Proposition 39. These are locator/variable slips.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
     },
     {
       "id": "PAPER-BINYAMINI-22/E4",
@@ -725,10 +2103,16 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 2009.00892 (v1, 2 September 2020, the only version)",
-        "Forum of Mathematics, Pi 10 (2022) e6 article page (open access): no correction notice",
-        "Crossref metadata for 10.1017/fmp.2021.20: no update or correction relation"
-      ]
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed (108) on p.27. Theorem 3 supplies polynomial dependence on log Rhat; replacing Rhat by exp(poly δC) in the printed bound would lose the needed polynomial conclusion.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
     },
     {
       "id": "PAPER-BINYAMINI-22/E5",
@@ -740,10 +2124,16 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 2009.00892 (v1, 2 September 2020, the only version)",
-        "Forum of Mathematics, Pi 10 (2022) e6 article page (open access): no correction notice",
-        "Crossref metadata for 10.1017/fmp.2021.20: no update or correction relation"
-      ]
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the two four-coordinate maps in (103)–(105) and (140)–(141). The real conditions are respectively all four entries of U and only u1,u2; the proposed ambient corrections are exact.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
     },
     {
       "id": "PAPER-BINYAMINI-22/E6",
@@ -755,10 +2145,16 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 2009.00892 (v1, 2 September 2020, the only version)",
-        "Forum of Mathematics, Pi 10 (2022) e6 article page (open access): no correction notice",
-        "Crossref metadata for 10.1017/fmp.2021.20: no update or correction relation"
-      ]
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed Theorem 8 on p.21 and its separate genus-g sketch in (143). E and dimension one are the objects of this theorem.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
     },
     {
       "id": "PAPER-BINYAMINI-22/E7",
@@ -770,25 +2166,1157 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 2009.00892 (v1, 2 September 2020, the only version)",
-        "Forum of Mathematics, Pi 10 (2022) e6 article page (open access): no correction notice",
-        "Crossref metadata for 10.1017/fmp.2021.20: no update or correction relation"
-      ]
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed i versus j in the page-36 image of (153).",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
     },
     {
       "id": "PAPER-BINYAMINI-22/E8",
       "kind": "error",
       "locator": "Proposition 51 and Theorem 9, Appendix A, pp.36–37 (published version)",
       "printed": "\"Proposition 51. Suppose L is defined over a number field. Then inf_{φ ∈ Aut(ℙ¹)} ‖a₀(φ*L)‖ = e^{−poly_n(δ_L)}. Proof. … Now the operator L′ := L + 1 is also Fuchsian …\"",
-      "correction": "Assume in addition that L + 1 is Fuchsian. This holds when every finite zero of a₀ has order ≤ n and deg a₀ ≥ n, and in particular for the Legendre Picard–Fuchs operator (87), a₀ = λ(1−λ), n = 2, which is the only operator to which the paper applies Theorem 9. Under this normalization the proof of Proposition 51 is correct, and Theorem 9 follows as written.",
-      "reason": "For a general Fuchsian operator, L + 1 need not be Fuchsian, and both statements fail. Take L = ∂_t, which is Fuchsian: its only singular point ∞ is regular singular (∂_t = −z(z∂_z), z = 1/t). Then φ(s) = κs gives φ*L = κ^{-1}∂_s and inf_φ ‖a₀(φ*L)‖ = 0. In Theorem 9 take b(t) = (t − t₀)/(2r) (|b| ≤ 1 on D^{1/2}) and f = (t − t₀)²/(4r), so j_z f(t₀) = 0 while |∂_z f(t₀ + r/2)| = r/4, unbounded in r. Here L + 1 = ∂ + 1 has an irregular singularity at ∞. Theorems 1–8 are unaffected.",
+      "correction": "For the proposed repair assume that L and L+1 are Fuchsian, and fix the literal pullback and reduced-rational-coefficient norm. This holds for the Legendre operator (87). Complete the rational-norm comparison and use the corrected companion-jet argument E13. Retain the inhomogeneous forcing when chaining estimates (E16). No blanket assertion about Theorems 1–8 follows from this local repair.",
+      "reason": "For a general Fuchsian operator, L + 1 need not be Fuchsian, and both statements fail. Take L = ∂_t, which is Fuchsian: its only singular point ∞ is regular singular (∂_t = −z(z∂_z), z = 1/t). Then φ(s) = κs gives φ*L = κ^{-1}∂_s and inf_φ ‖a₀(φ*L)‖ = 0. In Theorem 9 take b(t) = (t − t₀)/(2r) (|b| ≤ 1 on D^{1/2}) and f = (t − t₀)²/(4r), so j_z f(t₀) = 0 while |∂_z f(t₀ + r/2)| = r/4, unbounded in r. Here L + 1 = ∂ + 1 has an irregular singularity at ∞.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "arXiv 2009.00892 (v1, 2 September 2020, the only version)",
-        "Forum of Mathematics, Pi 10 (2022) e6 article page (open access): no correction notice",
-        "Crossref metadata for 10.1017/fmp.2021.20: no update or correction relation"
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the scaling counterexample under the usual regular-singular convention for a Fuchsian equation: φ(s)=κs pulls ∂t back to κ^−1∂s, and L+1 has an irregular point at infinity. For the theorem’s full jet through order 1, f=(t−t0)^2/(4r), b=(t−t0)/(2r) has initial jet zero, |b|≤1 on the doubled disc, and ∂z f(t0+r/2)=r/4. L+1 Fuchsian is a necessary extra normalization for the proposed repair; the statement now includes it. The review removes the unqualified claim that the entire paper’s other proofs are unaffected, in view of the separately recorded issues.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E9",
+      "kind": "misprint",
+      "locator": "§2 before Proposition 7, p.9 (published version)",
+      "printed": "“mult_p F = 0 if p is a nonisolated zero”",
+      "correction": "Use multiplicity infinity at a nonisolated common zero; retain multiplicity zero outside the common zero set.",
+      "reason": "For the zero tuple all basic multiplicity operators vanish, so Proposition 7 would require 0>k for k≥0 under the printed convention. The local-algebra length is infinite.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the cited published passage and the argument/counterexample stated here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E10",
+      "kind": "error",
+      "locator": "Lemma 11 and proof, p.10 (published version)",
+      "printed": "“In particular, this is true for the μ points (z1,w) where F1,…,F(n−1) vanish.”",
+      "correction": "Require every point of the resultant fibre to lie in the local ball B′ on which Lemma 8 controls F. Replace Ω_n(s) and O_n(ρ) claims by the actual polynomial-in-k ball and exceptional-set bounds until proved. Quantitative construction of the polydiscs needed later remains a gap.",
+      "reason": "Take n=2, a=1/4, F1(z,w)=w(w−a)/4, F2(z,w)=z(w−a)/4 on the Euclidean unit ball. Both norms are <1. At (0,0) the Jacobian determinant is −a²/16≠0, so multiplicity is 1 and some order-1 basic operator is nonzero by Proposition 7. The polydisc |z|<1/4, |w|<1/2 has closure in the ball and is Weierstrass for Γ={w=0 or w=a}, of degree 2. F2 is identically zero on the second sheet, hence the full resultant is identically zero. A finite exceptional union with total radius tending to zero cannot produce the claimed lower bound on a nonempty disc.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the cited published passage and the argument/counterexample stated here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E11",
+      "kind": "error",
+      "locator": "Proposition 22, (50), p.15; uses in §§5.2 and 6.2 (published version)",
+      "printed": "“Let 0 ≤ m ≤ dim M … W of pure codimension m that contains V”",
+      "correction": "A global containment statement requires m≤codim_M V. For applications with larger m, formulate and prove a replacement on the good locus, removing components forced into the bad locus. Restore ΣF in the global bad-locus equality. The necessary dimension restriction alone is not a proved repair.",
+      "reason": "Take M=A², its full-dimensional regular foliation, V={y=0}, and m=2. A pure codimension-2 closed subvariety of A² is zero-dimensional and cannot contain the line V. The published quantifier allows these data. This counterexample does not disprove Theorems 1–3, but prevents accepting their supplied unrestricted reduction.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the cited published passage and the argument/counterexample stated here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E12",
+      "kind": "error",
+      "locator": "Proof of Lemma 19, (49), p.14, compared with (46) (published version)",
+      "printed": "“L′_p = L_p ∩ {Φ′_(k+1)=…=Φ′_n=0}”",
+      "correction": "Use the image of the selected linear subspace under Φ(x)−Φ(0), as (46) gives. Equations of that image use the local inverse of Φ, whose coefficients are not generally degree-D polynomials. Supply a codimension proof for the actual image-parameterized family.",
+      "reason": "For n=2, k=1, a=p=0, coordinate vector fields, and Φ(u,v)=(u,v+u²), (46) maps the first coordinate line to (u,u²), whereas (49) cuts out y+x²=0. The two germs are different. The Jacobian determinant is 1, so the example lies in the permitted parameter locus. Merely replacing Φ by its inverse in (49) does not justify the subsequent degree-D linear-condition argument.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the cited published passage and the argument/counterexample stated here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E13",
+      "kind": "error",
+      "locator": "Lemma 48, (147)–(150), p.35 (published version)",
+      "printed": "“j_t^n f := (f,∂t f,…,∂t^n f)^T” with the displayed n×n companion matrix and radius-free (149)",
+      "correction": "Use the n-dimensional vector (f,…,f^(n−1)) for the companion system. Recover derivative n from Lf=b. State the displayed radius-free estimate on a normalized unit disc, or retain the path-length factor on general discs; use 1+A to bound the companion entries.",
+      "reason": "The matrix in (150) cannot act on the n+1 entries in (147). Differentiating the last entry of the latter would require b′ and coefficient derivatives. Also f(t)=e^t solves f′−f=0 on arbitrary discs, with A=1, B=0 and fixed initial full jet, while its value at r/2 is unbounded as r→∞. The printed introduction permits an arbitrary disc D.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the cited published passage and the argument/counterexample stated here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E14",
+      "kind": "error",
+      "locator": "§9.3 after (125), p.30 (published version)",
+      "printed": "“Let K⊂Ω^n … vol(K)≥(2/3)vol(Ω^n). According to Duke … at least two-thirds … in K.”",
+      "correction": "Choose K as a product of one-coordinate compact continuity sets with a strict measure margin, and apply Duke to each marginal with a union bound. Include the finite set of representatives for bounded coordinate discriminants. Do not assert arbitrary-product-set equidistribution.",
+      "reason": "For n=2, a tuple (j(τ),j(τ)) has every joint conjugate on the diagonal. That diagonal has zero product hyperbolic measure. There exists a compact subset of Ω² of product measure greater than 2/3 disjoint from a neighbourhood of the diagonal, so its orbit contributes no points there, at arbitrarily large discriminants. Marginal equidistribution gives no such assertion for arbitrary K.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the cited published passage and the argument/counterexample stated here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E15",
+      "kind": "misprint",
+      "locator": "(127), p.30, and the choice of g on p.31 (published version)",
+      "printed": "“[Q(τ^σ):Q] ≤ 2n” and “Counting with g=2n”",
+      "correction": "Use the joint-degree bound 2^n and g=2^n. Polynomial asymptotics with n fixed are unchanged.",
+      "reason": "A tuple of n quadratic elements can generate a degree-2^n compositum. For n=3, τ=(i,i√2,i√3) lies in Ω³ and generates Q(i,√2,√3) of degree 8, exceeding 2n=6. The square classes −1,−2,−3 are independent; the bound in (10) is joint field degree.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the cited published passage and the argument/counterexample stated here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E16",
+      "kind": "error",
+      "locator": "Appendix A after Theorem 9, (163), p.37 (published version)",
+      "printed": "“f(t1)=poly_L(1/δ)||j_t^n f(t0)||” for Lf=b",
+      "correction": "Carry an additive term controlled by the forcing b through the chain of discs. The homogeneous expression is available only when b=0 (or an explicit bound absorbs the forcing into the initial data).",
+      "reason": "Even with L+1 Fuchsian, take L=t∂t, f=(t−1)² and b=2t(t−1). At t0=1 the full order-1 jet is zero, but f(t1)≠0 for t1≠1. Work in any compact simply connected domain away from 0; b is bounded there. Thus the forcing cannot disappear from the right-hand side.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the cited published passage and the argument/counterexample stated here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E17",
+      "kind": "misprint",
+      "locator": "Definition of V^ws, §9.2, p.29 (published version)",
+      "printed": "“the union of all weakly special subvarieties of V”",
+      "correction": "Specify positive-dimensional weakly special subvarieties.",
+      "reason": "Points are weakly special in a power of Y(1): all coordinates may be fixed. The literal union therefore equals V. The reduction to isolated special points outside V^ws and Proposition 39 require the positive-dimensional convention.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the cited published passage and the argument/counterexample stated here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E18",
+      "kind": "gap",
+      "locator": "Theorem 6, pp.20–21; functional-transcendence use pp.26–27 (published version)",
+      "printed": "“no relation nP=mQ … (n,m)∈N²\\{0}”",
+      "correction": "Exclude relations for all (n,m)∈Z²\\{(0,0)}, as needed for independence of the two sections.",
+      "reason": "The printed nonnegative-sign condition fails to exclude P=−Q with P non-torsion. Then z+w is a period combination, so the two logarithms cannot satisfy the algebraic-independence input used in Lemma 37. The issue confirmed here is this failure to supply the proof hypothesis; no independent claim about all simultaneous-torsion specializations is needed.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the cited published passage and the argument/counterexample stated here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E19",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 40, (123)–(124), p.30 (published version)",
+      "printed": "“−log |p_σ| = O_ε(Δ(p)^ε)” used to bound the derivative of P near p_σ",
+      "correction": "Use an upper bound for log^+||pσ|| (and the lower bound for log|P(pσ)|) for the gradient estimate. The absolute-height averaging argument supplies both on a suitable large subset.",
+      "reason": "A bound on −log||pσ|| prevents pσ from being too small and gives no upper bound on ||pσ||. For a polynomial such as P(X)=X², its derivative 2X grows without bound as X→∞ although −log|X| is bounded above. The upper-size inequality is the direction needed in (124).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the cited published passage and the argument/counterexample stated here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E20",
+      "kind": "error",
+      "locator": "Proposition 17, p.12, under the §3 setup of a pure m-dimensional analytic set (published version)",
+      "printed": "“There exists a ball B′⊂B … disjoint from S¹·X” with α:=2n−2m−1.",
+      "correction": "Require m<n for this complementary-ball assertion. Treat m=n separately when proving Corollary 18. Use 1+vol(X) in the quantitative bound unless a positive volume lower bound is assumed.",
+      "reason": "The setup allows X=B with m=n. Then S¹·X=B, so no positive-radius ball B′⊂B is disjoint. The comparison of packing exponents in the proof also requires 2n>2m+1. Even with m<n the positive cutoff is needed: in the unit ball of C² the affine slice X={z2=a}, 0<a<1, has area π(1−a²)→0, whereas any contained ball has radius at most 1. Hence 1/ε cannot be O(vol X) uniformly as the printed α=1 formula states.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read §3 and Proposition 17; the full unit ball gives the direct counterexample.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E21",
+      "kind": "error",
+      "locator": "Lemma 27, (69), p.19 (published version)",
+      "printed": "“|P(y)| ≥ (d^(m+1) N H(y)^(d(m+1)))^(−[Q(y):Q])”",
+      "correction": "Replace d^(m+1) by a valid bound on the monomial count, for example (d+1)^(m+1), or use the coefficient l1 norm. The product-formula proof then gives the bound in item /30.",
+      "reason": "Take m=1, P(y1,y2)=1+y1, d=N=1, and y=(ζ5²,0), where ζ5=exp(2πi/5). Every coordinate has multiplicative height 1, so the printed right side is 1. But |1+ζ5²|=(√5−1)/2<1 and is nonzero. The corrected coefficient-count factor fixes this failure and leaves the polynomial interpolation asymptotics unchanged.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the published statement and the explicit counterexample given here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E22",
+      "kind": "misprint",
+      "locator": "Lemma 26, (62), p.18 (published version)",
+      "printed": "“Set d,N∈N” with the factor “N log N” in the upper bound",
+      "correction": "State a nontrivial parameter range N≥2 and d≥1, or insert positive cutoffs and reprove the bound. Also use max(1,||Φ||) in estimates for all monomials up to degree d.",
+      "reason": "At N=1, the displayed bound is zero. On a one-dimensional analytic disc take Φ(z)=(z,e^z) and d=1. No nonzero polynomial of total degree ≤1 annihilates Φ: a+bz+ce^z≡0 forces c=0 by two derivatives, then a=b=0. The lemma would force such a polynomial by a zero norm bound.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the published statement and the explicit counterexample given here.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    },
+    {
+      "id": "PAPER-BINYAMINI-22/E23",
+      "kind": "error",
+      "locator": "Corollary 14, (32), p.11, with the height convention of §1.1.4 (published version)",
+      "printed": "“log |M_p^(k)(P)| ≥ poly(δξ,δV) · log dist(p,ΣV)” for V=V(P1,…,Pn)",
+      "correction": "Include the complexity of the chosen tuple P in the lower bound, or require a specified normalization and δP≤poly(δξ,δV). Intrinsic Chow height of V alone cannot control the size of an operator applied to arbitrary defining equations.",
+      "reason": "Let M=A¹, ξ=x∂x, V={x=1}, and P_N=(x−1)/N. The ambient, foliation and variety complexities are fixed, ΣV={0}, and p=1 stays a fixed positive distance from ΣV. Every positive-order jet coordinate of P_N along ξ at p is a fixed coefficient times 1/N; the zero-order value is zero. For each fixed k, every basic multiplicity determinant tends to zero as N→∞, while the proposed order bound and right-hand side are independent of N. The tuple height grows like log N even though V is unchanged.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-23: Cambridge article landing page for DOI 10.1017/fmp.2021.20, no erratum/corrigendum notice found.",
+        "arXiv https://arxiv.org/abs/2009.00892 lists only v1 (2020-09-02), so no later arXiv correction; selected v1 passages compared, not the whole preprint.",
+        "Author publications page https://binyamini.wordpress.com/publications/ links the paper to arXiv and lists no correction.",
+        "Crossref https://api.crossref.org/works/10.1017/fmp.2021.20 has empty relation and no update-to/updated-by; exact-title correction searches found no correction. This is a search record, not a proof of absence."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked Corollary 14, its appeal to Lemma 12, and scalar rescaling of the basic determinantal operators. The missing equation-height normalization is essential.",
+        "by": "REV-PAPER-BINYAMINI-22"
+      }
+    }
+  ],
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "review": {
+    "verdict": "revise",
+    "by": "independent-review-REV-PAPER-BINYAMINI-22",
+    "note": "Completed independent review; revised extraction remains partial. Route verdicts are in the review JSON."
+  },
+  "reviewGaps": [
+    {
+      "id": "G1",
+      "items": [
+        "PAPER-BINYAMINI-22/15",
+        "PAPER-BINYAMINI-22/6",
+        "PAPER-BINYAMINI-22/8",
+        "PAPER-BINYAMINI-22/9"
+      ],
+      "need": "Prove a quantitative local-polydisc construction with all resultant fibres in the Lemma-8 control ball; track k-dependence and radii throughout §5.1. E10 is not repaired by an unrelated smallness assertion. Include the chosen-equation heights in Corollary 14 or prove the normalization bound required by E23."
+    },
+    {
+      "id": "G2",
+      "items": [
+        "PAPER-BINYAMINI-22/22",
+        "PAPER-BINYAMINI-22/23",
+        "PAPER-BINYAMINI-22/80",
+        "PAPER-BINYAMINI-22/7",
+        "PAPER-BINYAMINI-22/32"
+      ],
+      "need": "Repair the image/inverse incidence in Lemma 19, the good-point projections, and the over-codimension use of Proposition 22. State the replacement with all ambient and singular-locus hypotheses."
+    },
+    {
+      "id": "G3",
+      "items": [
+        "PAPER-BINYAMINI-22/28",
+        "PAPER-BINYAMINI-22/29",
+        "PAPER-BINYAMINI-22/31",
+        "PAPER-BINYAMINI-22/38",
+        "PAPER-BINYAMINI-22/41",
+        "PAPER-BINYAMINI-22/46"
+      ],
+      "need": "Acquire exact full proofs of the imported Thue–Siegel/interpolation, functional-transcendence and CM orbit inputs; pin norm conventions, constants, independent base fields and nonmaximal orders. Original extraction cites the wrong Masser–Zannier paper."
+    },
+    {
+      "id": "G4",
+      "items": [
+        "PAPER-BINYAMINI-22/1",
+        "PAPER-BINYAMINI-22/2",
+        "PAPER-BINYAMINI-22/4",
+        "PAPER-BINYAMINI-22/5",
+        "PAPER-BINYAMINI-22/13",
+        "PAPER-BINYAMINI-22/21",
+        "PAPER-BINYAMINI-22/34",
+        "PAPER-BINYAMINI-22/40",
+        "PAPER-BINYAMINI-22/55",
+        "PAPER-BINYAMINI-22/69",
+        "PAPER-BINYAMINI-22/72",
+        "PAPER-BINYAMINI-22/75",
+        "PAPER-BINYAMINI-22/78"
+      ],
+      "need": "Finish declaration-level definitions, uses, APIs and at least three discriminating tests for every definition/construction, including definitions still hidden inside theorem bundles. This review adds concrete API/test outlines; it does not certify source-complete determinant, bundle, j-foliation or affine-chart constructions."
+    },
+    {
+      "id": "G5",
+      "items": [
+        "PAPER-BINYAMINI-22/44",
+        "PAPER-BINYAMINI-22/48",
+        "PAPER-BINYAMINI-22/54"
+      ],
+      "need": "Reuse the quantitative CM-height direction of PAPER-TSIMERMAN-18 and the R35.5 height-comparison supplier; acquire the higher-genus covering merely announced in §10.4 before treating /48 as proved."
+    },
+    {
+      "id": "G6",
+      "items": [
+        "PAPER-BINYAMINI-22/6",
+        "PAPER-BINYAMINI-22/8",
+        "PAPER-BINYAMINI-22/9",
+        "PAPER-BINYAMINI-22/33",
+        "PAPER-BINYAMINI-22/39",
+        "PAPER-BINYAMINI-22/47",
+        "PAPER-BINYAMINI-22/50",
+        "PAPER-BINYAMINI-22/52"
+      ],
+      "need": "Decompose the mutual dimension induction and effective slope argument with explicit constant dependence. The current dependencies name mathematical inputs, not an elaborated well-founded proof."
+    }
+  ],
+  "itemReview": [
+    {
+      "item": "PAPER-BINYAMINI-22/1",
+      "statementAndStatus": "The definitions on p.2 match. Add regular-locus and shrinking APIs; affine localization of rational fields is still part of the construction gap.",
+      "search": "foliat|integralCurve|IsIntegralCurve",
+      "librarySearchHits": 747,
+      "atlasCandidateStages": [
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-10-foliations-and-their-euler-class",
+        "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map"
       ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/2",
+      "statementAndStatus": "Separate Lemma 21 as /66; do not conflate scalar coefficient height and Chow height.",
+      "search": "Chow|[Hh]eight.*[Vv]ariet",
+      "librarySearchHits": 31,
+      "atlasCandidateStages": [
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "ArakelovGeometryAndAbelianHeights:R35.2",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeights:R35.6",
+        "ComplexComparisonPartII:C3",
+        "ComplexComparisonPartII:C4",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GrossZagierAndArithmeticHeights:GZ.1",
+        "GrossZagierAndArithmeticHeights:GZ.2",
+        "GrossZagierAndArithmeticHeights:GZ.6",
+        "GrossZagierAndArithmeticHeights:GZ.8",
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "MotivesAndAlgebraicCycles:MC.0",
+        "MotivesAndAlgebraicCycles:MC.3",
+        "MotivesAndAlgebraicCycles:MC.4",
+        "MotivicEtaleKTheory:KU-continuous",
+        "MotivicEtaleKTheory:KU-duality",
+        "MotivicEtaleKTheory:KU-etalehigher",
+        "MotivicEtaleKTheory:KU-motivic",
+        "MotivicEtaleKTheory:KU-motivicspectral",
+        "MotivicEtaleKTheory:KU-normresidue",
+        "MotivicEtaleKTheory:KU-tate2",
+        "MotivicEtaleKTheory:M.4",
+        "PELModuli:M6",
+        "ProbabilisticAndMetricNumberTheory:PM.5",
+        "RankZeroOneBSD:BSD.5",
+        "SchemeAndStackFoundations:SF.5",
+        "SchemeKTheoryOperations:S.7",
+        "ShimuraVarieties:V2",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-11-basic-stable-map-api-and-map-aware-stabilization",
+        "RingStacksAndTransmutation:RS.2"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/3",
+      "statementAndStatus": "Wrong declaration replaced by the existing NumberField absolute scalar construction; formula/tuple comparison is /53.",
+      "search": "absLogHeight|absMulHeight|Projectivization.logHeight",
+      "librarySearchHits": 8,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/4",
+      "statementAndStatus": "Keep expected-dimension and isolated-intersection variants distinct; tests detect a tangent invariant leaf.",
+      "search": "unlikely.intersection",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": [
+        "ArithmeticDynamics:DY.6",
+        "DiophantineApproximationAndTranscendence:DT.5",
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/5",
+      "statementAndStatus": "Finite proper projection and ramification degree are preserved; tests include w²=z.",
+      "search": "Weierstrass.*(poly|disc)|proper.*ramif",
+      "librarySearchHits": 162,
+      "atlasCandidateStages": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "GeneralizedHeegnerCycles:GH.5",
+        "HeegnerPointEulerSystems:HE.0",
+        "IntegralIwasawaTheory:L1",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+        "LocalGaloisDeformationRings:L7",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1",
+        "PadicHodgeRegulators:D.5",
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "SelmerIwasawaCohomology:L1",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-2-isogenies-duality-and-the-weil-pairing",
+        "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/6",
+      "statementAndStatus": "Main statement retained as a target with explicit local-resultant/general-position proof gaps.",
+      "search": "foliat|Noetherian.intersection",
+      "librarySearchHits": 4,
+      "atlasCandidateStages": [
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-10-foliations-and-their-euler-class"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/7",
+      "statementAndStatus": "The arbitrary-codimension reduction cannot use unrestricted Proposition 22 after E11.",
+      "search": "foliat|Noetherian.intersection",
+      "librarySearchHits": 4,
+      "atlasCandidateStages": [
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-10-foliations-and-their-euler-class"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/8",
+      "statementAndStatus": "The source covers B² by the halved polydiscs, not merely B∩V; main proof remains conditional on repaired induction inputs.",
+      "search": "Weierstrass.*(poly|disc)",
+      "librarySearchHits": 148,
+      "atlasCandidateStages": [
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-2-isogenies-duality-and-the-weil-pairing",
+        "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/9",
+      "statementAndStatus": "Correct Qbar to Q, joint degree and ξ-radius; split Definitions 4 and (10) as /55–56.",
+      "search": "Pila|algebraic.*point.*count",
+      "librarySearchHits": 143,
+      "atlasCandidateStages": [
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "PeriodsAndSpecialValues:PS.8",
+        "TropicalAndBerkovichArithmetic:TB.4"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/10",
+      "statementAndStatus": "No-positive-dimensional-block specialization matches p.5; it depends on Theorem 3.",
+      "search": "Pila|algebraic.*point.*count",
+      "librarySearchHits": 143,
+      "atlasCandidateStages": [
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "PeriodsAndSpecialValues:PS.8",
+        "TropicalAndBerkovichArithmetic:TB.4"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/11",
+      "statementAndStatus": "Separate R_RE and algebraic part as /76–77. The imported logarithmic-height estimate is weaker in degree than Theorem 4.",
+      "search": "Wilkie|restricted.elementary",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/12",
+      "statementAndStatus": "The proof on p.5 uses Proposition 28 and the earlier Wilkie paper directly; do not introduce a false dependence on Theorems 1–3.",
+      "search": "Wilkie|restricted.elementary",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/13",
+      "statementAndStatus": "Split Proposition 7 and Lemma 12; fix infinite multiplicity and record determinant-level construction gap.",
+      "search": "multiplicity.operator",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/14",
+      "statementAndStatus": "Split Lemmas 8 and 9 (/85); preserve polynomial k-dependence and exceptional-set total radius.",
+      "search": "multiplicity.operator",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/15",
+      "statementAndStatus": "Counterexample to the printed arbitrary-polydisc statement; add fibre-containment hypothesis, separate resultant /69, and retain G1.",
+      "search": "analytic.resultant|Weierstrass.*disc",
+      "librarySearchHits": 15,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/16",
+      "statementAndStatus": "Matches Theorem 5 on regular proper-intersection points; not a library theorem.",
+      "search": "Gabrielov|Khovanskii|Noetherian.intersection",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/17",
+      "statementAndStatus": "Separate Corollary 14 as /86; equations are on the regular chart and singular points must be restored.",
+      "search": "unlikely.intersection|multiplicity.operator",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": [
+        "ArithmeticDynamics:DY.6",
+        "DiophantineApproximationAndTranscendence:DT.5",
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/18",
+      "statementAndStatus": "No Diophantine Brownawell theorem found. Tau Ceti’s Morse gradient inequality is a different statement. Retain DT.3 route for revision with exact bound and source.",
+      "search": "Brownawell|ojasiewicz",
+      "librarySearchHits": 10,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/19",
+      "statementAndStatus": "Split circle covering /87; import baseline metric counts /63; retain the corrected Lelong packing constant.",
+      "search": "Lelong|coveringNumber|packingNumber|IsSeparated",
+      "librarySearchHits": 538,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/20",
+      "statementAndStatus": "Split Corollary 18 as /88; require m<n for the complementary ball, add a positive size cutoff.",
+      "search": "Weierstrass.*disc|Lelong",
+      "librarySearchHits": 15,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/21",
+      "statementAndStatus": "Split polynomial reparametrization /78; full-rank matrices require a quasi-affine/affine-chart treatment.",
+      "search": "foliat|reparametri",
+      "librarySearchHits": 191,
+      "atlasCandidateStages": [
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-10-foliations-and-their-euler-class",
+        "tauceti:TauCetiRoadmap/HopfRinow#layer-0-the-reconciled-riemannian-distance",
+        "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map",
+        "tauceti:TauCetiRoadmap/HopfRinow#layer-2-normal-neighbourhoods-the-gauss-lemma-and-minimizing-geodesics"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/22",
+      "statementAndStatus": "Separate /79 and /80; E2 alone does not repair the image/inverse error.",
+      "search": "general.position|rational.point.*height",
+      "librarySearchHits": 3,
+      "atlasCandidateStages": [
+        "GrossZagierAndArithmeticHeights:GZ.1",
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-4-knot-theory-done-properly-owned-here",
+        "MordellLawrenceVenkatesh:LV.7"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/23",
+      "statementAndStatus": "Dimension counterexample establishes a false published quantifier; repaired good-locus statement is not established.",
+      "search": "complete.intersection",
+      "librarySearchHits": 1,
+      "atlasCandidateStages": [
+        "AutomorphicCongruences:L3",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "LanglandsParameterStacks:LP1",
+        "PotentialModularityAndCompatibleSystems:R24.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "AnalyticStacks:AS.3"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/24",
+      "statementAndStatus": "The pinned Jensen declaration is read; add 0<r<R, M≥1, analytic-neighbourhood hypothesis and multiplicities.",
+      "search": "sum_divisor_le",
+      "librarySearchHits": 1,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/25",
+      "statementAndStatus": "Require f not identically zero; maximum-ratio Jensen adapter remains missing.",
+      "search": "sum_divisor_le",
+      "librarySearchHits": 1,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/26",
+      "statementAndStatus": "Preserve the complex radial Crofton formula for analytic sets in the unit ball as cited, rather than substituting real affine Crofton. No library match found; obtain Chirka’s full proof.",
+      "search": "Crofton",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/27",
+      "statementAndStatus": "Matches Proposition 24; this is analytic division with bounded transverse monomials, not polynomial division or nonarchimedean Weierstrass preparation.",
+      "search": "Weierstrass.*division|Weierstrass.*polydisc",
+      "librarySearchHits": 87,
+      "atlasCandidateStages": [
+        "ComplexComparisonPartII:C0",
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-2-isogenies-duality-and-the-weil-pairing",
+        "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/28",
+      "statementAndStatus": "Real small-value approximation is not the pinned integer exact-kernel theorem. Add positive dimensions/parameter and record matrix-norm/source check.",
+      "search": "Siegel|Dirichlet.*(approx|norm)",
+      "librarySearchHits": 100,
+      "atlasCandidateStages": [
+        "AbelianSchemesAndArithmeticModuli:A5",
+        "AdelicAlgebraicGroups:AA.3",
+        "AnalyticNumberTheory:AN.0",
+        "AutomorphicBundles:B4",
+        "AutomorphicCongruences:L1",
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "BorelRegulators:R.5",
+        "CompletedCohomologyPartII:CC.8",
+        "DiophantineApproximationAndTranscendence:DT.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+        "HeightsRationalPointsAndObstructions:RP.4",
+        "IntegralIwasawaTheory:I.3",
+        "KatoEulerSystems:L0",
+        "KatoEulerSystems:L1",
+        "KatoEulerSystems:L2",
+        "OverconvergentAutomorphicForms:O8",
+        "PELModuli:M5",
+        "PELModuli:M6",
+        "PerfectoidShimuraVarieties:S1",
+        "PerfectoidShimuraVarieties:S2",
+        "ShimuraData:D4",
+        "ShimuraData:D5",
+        "ShimuraVarieties:V0",
+        "ShimuraVarieties:V5",
+        "SpecialValuesBirchTate:B.3",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/29",
+      "statementAndStatus": "Normalize small parameters and norm. The interpolation exponent/tail constants need a full source check before route acceptance.",
+      "search": "Thue|interpolating.polynomial",
+      "librarySearchHits": 2,
+      "atlasCandidateStages": [
+        "DiophantineApproximationAndTranscendence:DT.4",
+        "EffectiveDiophantineMethods:ED.2",
+        "EffectiveDiophantineMethods:ED.6",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/30",
+      "statementAndStatus": "The printed d^(m+1) constant fails for P=1+y1 and a fifth root of unity (E21). Replace it by (d+1)^(m+1), proved by the product formula; keep joint degree and maximum scalar height.",
+      "search": "Liouville|[Hh]eight.*eval|eval.*[Hh]eight",
+      "librarySearchHits": 402,
+      "atlasCandidateStages": [
+        "DiophantineApproximationAndTranscendence:DT.1",
+        "EffectiveDiophantineMethods:ED.2",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+        "tauceti:TauCetiRoadmap/PDE#lane-d-linear-elliptic-existence-the-energy-method",
+        "tauceti:TauCetiRoadmap/PDE#milestone-d-19"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/31",
+      "statementAndStatus": "Specify upper bounds and positive cutoffs; relies on the unresolved interpolation constants, not a library theorem.",
+      "search": "Wilkie|interpolating.polynomial",
+      "librarySearchHits": 1,
+      "atlasCandidateStages": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/32",
+      "statementAndStatus": "Correct Q-blocks; its use of Proposition 22 with codimension n−m+1 needs G2.",
+      "search": "Pila|unlikely.intersection",
+      "librarySearchHits": 140,
+      "atlasCandidateStages": [
+        "ArithmeticDynamics:DY.6",
+        "DiophantineApproximationAndTranscendence:DT.5",
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/33",
+      "statementAndStatus": "Make the relation an all-integer relation; no claims that the proof is already repaired.",
+      "search": "Masser.Zannier|simultaneous.torsion",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": [
+        "HilbertModularVarietiesAndShimuraCurves:H6",
+        "PotentialModularityAndCompatibleSystems:R23.2"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/34",
+      "statementAndStatus": "Separate the principal bundle as /89, spell out the boundary term, verify the exact differential identity; PS.8 with C5 import.",
+      "search": "Picard.Fuchs|Gauss.Manin|Legendre",
+      "librarySearchHits": 619,
+      "atlasCandidateStages": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "ComplexComparisonPartII:C5",
+        "CrystallineCohomology:CR.7",
+        "PeriodsAndSpecialValues:PS.8",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-0-scheme-theoretic-prerequisites",
+        "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-4-the-katzmazur-moduli-formalism",
+        "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-9-γ_h-quotients-quotient-regularity-and-coarse-moduli",
+        "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+        "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+        "tauceti:TauCetiRoadmap/Multiquadratic#layer-1-the-prime-splitting-law",
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+        "tauceti:TauCetiRoadmap/OptimalTransport#layer-5-convex-analysis-brenier-and-polar-factorization",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+        "MordellLawrenceVenkatesh:LV.2",
+        "MordellLawrenceVenkatesh:LV.3",
+        "MordellLawrenceVenkatesh:LV.4",
+        "MordellLawrenceVenkatesh:LV.5",
+        "MordellLawrenceVenkatesh:LV.6",
+        "MordellLawrenceVenkatesh:LV.10"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/35",
+      "statementAndStatus": "Split Lemmas 30–33 into /35,/82–84 and correct the Masser–Zannier reference.",
+      "search": "Masser.Zannier|torsion.*[Hh]eight",
+      "librarySearchHits": 3,
+      "atlasCandidateStages": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "AutomorphicCongruences:L2",
+        "AutomorphicCongruences:L2s",
+        "GrossZagierAndArithmeticHeights:GZ.1",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "IntegralIwasawaTheory:I.1",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/36",
+      "statementAndStatus": "Do not rebuild the existing canonical height. Explicit dependence is an RP.0 adapter; Faltings comparison is /54 at R35.5.",
+      "search": "heightDiff|height.*[Cc]anonical|Zimmer|Faltings",
+      "librarySearchHits": 38,
+      "atlasCandidateStages": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "ArakelovGeometryAndAbelianHeights:R35.2",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeights:R35.5",
+        "EllipticCurveModularity:R29.1",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.3",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+        "GrossZagierAndArithmeticHeights:GZ.1",
+        "GrossZagierAndArithmeticHeights:GZ.2",
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "HeightsRationalPointsAndObstructions:RP.4",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "PELModuli:M6",
+        "ShimuraCompactifications:C5",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+        "WeightsInEtaleCohomology:R34.6",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+        "MordellLawrenceVenkatesh:LV.1",
+        "MordellLawrenceVenkatesh:LV.6",
+        "MordellLawrenceVenkatesh:LV.7",
+        "MordellLawrenceVenkatesh:LV.11"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/37",
+      "statementAndStatus": "Separate baseline Schwarz–Pick /64; the period/logarithm growth remains the application, with normalized ODE and paths.",
+      "search": "Schwarz.Pick|Fuchsian|Picard.Fuchs",
+      "librarySearchHits": 26,
+      "atlasCandidateStages": [
+        "PeriodsAndSpecialValues:PS.8",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+        "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l2--schwarz-lemma-extensions",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas",
+        "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+        "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+        "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/38",
+      "statementAndStatus": "Separate local consequences /70–71; an algebraic-independence input is needed, not merely nonalgebraicity. Exact original lemma still required.",
+      "search": "Masser.Zannier|functional.transcend",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": [
+        "DiophantineApproximationAndTranscendence:DT.5",
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/39",
+      "statementAndStatus": "Preserve fixed n and the ineffective Siegel constant. It depends on corrected joint CM degree, weakly special locus and Duke adapter.",
+      "search": "Andr.*Oort",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/40",
+      "statementAndStatus": "The Schwarzian construction is on the regular locus f′ f(f−1728)≠0 and local domains where the transformed argument lies in H; no Schwarzian/j-equation library match found.",
+      "search": "Schwarzian|jInvariant|kleinJ",
+      "librarySearchHits": 22,
+      "atlasCandidateStages": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/41",
+      "statementAndStatus": "Use a complex algebraic branch in H^n, with irreducibility and positive dimension for the block consequence; original Pila proof must be imported.",
+      "search": "Ax.Lindemann",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/42",
+      "statementAndStatus": "Specify positive-dimensional weakly special locus /75; the effective auxiliary-variety bound is not supplied by qualitative LD.6 alone.",
+      "search": "weakly.special",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/43",
+      "statementAndStatus": "Split Proposition 39 and Lemma 40 (/81); include precompactness and sufficiently small perturbation.",
+      "search": "weakly.special|nearby.lea",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/44",
+      "statementAndStatus": "Δ is a sum in (120), not the extraction’s product. Quantitative CM-height ownership must agree with the accepted PAPER-TSIMERMAN-18 route.",
+      "search": "Chowla.Selberg|Colmez|CM.height",
+      "librarySearchHits": 3,
+      "atlasCandidateStages": [
+        "BunGAndNewtonStrata:BG3",
+        "PadicHodgeTheory:P7",
+        "PadicHodgeTheory:P7:annulus-foundations",
+        "PadicLocalLanglandsForGL2Qp:R30.1",
+        "PadicLocalLanglandsForGL2Qp:R30.3",
+        "PhiGammaModulesAndIwasawaCohomology:PG.2",
+        "VectorBundlesAndIsocrystals:VB3",
+        "VectorBundlesAndIsocrystals:VB3:general-BC"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/45",
+      "statementAndStatus": "GN.4 plans one-coordinate Duke, not arbitrary product-orbit equidistribution. Repair by marginal union bounds with a strict compact-volume margin.",
+      "search": "Duke|equidistrib",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": [
+        "ArithmeticDynamics:DY.4",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "IntegralIwasawaTheory:L4",
+        "ModularityAndLanglandsExtensions:ML.3",
+        "ProbabilisticAndMetricNumberTheory:PM.2",
+        "TropicalAndBerkovichArithmetic:TB.6",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/46",
+      "statementAndStatus": "Separate analytic class-number lower bound from CM.3 orbit identification and the nonmaximal-order formula; retain ineffective constant.",
+      "search": "Brauer.Siegel|Siegel.*class|class.*Siegel",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": [
+        "AbelianSchemesAndArithmeticModuli:A5",
+        "KatoEulerSystems:L1",
+        "KatoEulerSystems:L2",
+        "PELModuli:M6"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/47",
+      "statementAndStatus": "Add omitted Lemmas 44–47 and the reverse Faltings/Legendre comparison. Counting arguments alone do not supply that height comparison.",
+      "search": "torsion.*(degree|orbit)|David",
+      "librarySearchHits": 407,
+      "atlasCandidateStages": [
+        "AInfCohomology:AI.1",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ArithmeticKTheory:N.7",
+        "CohomologyComparisons:CP.5",
+        "CompletedCohomologyPartII:CC.1",
+        "DeformationAndDerivedPatchingAlgebra:P9",
+        "DrinfeldModulesAndTModules:DM.1",
+        "HabiroRings:HR.4",
+        "IgusaVarietiesAndTorsionConcentration:IG.5",
+        "PotentialAutomorphyInfrastructure:PA.2",
+        "RankZeroOneBSD:BSD.5",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/48",
+      "statementAndStatus": "An announced higher-genus covering is not a theorem proved in this paper; mark conditional.",
+      "search": "Faltings|theta.height|complex.cell",
+      "librarySearchHits": 22,
+      "atlasCandidateStages": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "ArakelovGeometryAndAbelianHeights:R35.2",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeights:R35.5",
+        "EllipticCurveModularity:R29.1",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.3",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+        "GrossZagierAndArithmeticHeights:GZ.2",
+        "HeightsRationalPointsAndObstructions:RP.4",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "PELModuli:M6",
+        "ShimuraCompactifications:C5",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+        "WeightsInEtaleCohomology:R34.6",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+        "MordellLawrenceVenkatesh:LV.1",
+        "MordellLawrenceVenkatesh:LV.6",
+        "MordellLawrenceVenkatesh:LV.7",
+        "MordellLawrenceVenkatesh:LV.11"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/49",
+      "statementAndStatus": "Correct companion jet and radius normalization; import pinned Gronwall /65.",
+      "search": "gronwall|Gronwall",
+      "librarySearchHits": 66,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/50",
+      "statementAndStatus": "Split definition /72 and leading-coefficient bound /73; normalization and rational-norm comparison must remain explicit.",
+      "search": "invariant.slope|Fuchsian",
+      "librarySearchHits": 14,
+      "atlasCandidateStages": [
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas",
+        "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+        "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+        "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas"
+      ]
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/51",
+      "statementAndStatus": "Fix the unit/double-disc convention and reduced coefficient norm; no direct library result found.",
+      "search": "rational.function.*disc|polynomial.*oscillation",
+      "librarySearchHits": 0,
+      "atlasCandidateStages": []
+    },
+    {
+      "item": "PAPER-BINYAMINI-22/52",
+      "statementAndStatus": "Put L+1 Fuchsian in the statement and retain forcing in chains. The printed unrestricted theorem is false; do not claim the added assumptions complete the whole source audit.",
+      "search": "Fuchsian|gronwall",
+      "librarySearchHits": 80,
+      "atlasCandidateStages": [
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas",
+        "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+        "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+        "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas"
+      ]
+    }
+  ],
+  "libraryReview": [
+    {
+      "reference": "mathlib:Projectivization.logHeight",
+      "path": "Mathlib/NumberTheory/Height/Projectivization.lean:51",
+      "verdict": "near miss",
+      "reason": "Relative projective height; not absolute scalar height or the coordinate-maximum tuple convention."
+    },
+    {
+      "reference": "mathlib:NumberField.absLogHeight₁",
+      "path": "Mathlib/NumberTheory/Height/NumberField.lean:146",
+      "verdict": "exact scalar construction",
+      "reason": "Defined via NumberField.absMulHeight₁ at line 137, normalized over Q(x); comparison API is separate."
+    },
+    {
+      "reference": "mathlib:AnalyticOnNhd.sum_divisor_le",
+      "path": "Mathlib/Analysis/Complex/JensenFormula.lean:390",
+      "verdict": "exact with item /24 hypotheses",
+      "reason": "Requires M≥1, nonzero centre value and analyticity near the closed disc."
+    },
+    {
+      "reference": "mathlib:Int.Matrix.exists_ne_zero_int_vec_norm_le",
+      "path": "Mathlib/NumberTheory/SiegelsLemma.lean:155",
+      "verdict": "near miss",
+      "reason": "An integer matrix with more columns than rows and an exact kernel vector; not real approximate small values."
+    },
+    {
+      "reference": "mathlib:Metric.packingNumber_two_mul_le_externalCoveringNumber",
+      "path": "Mathlib/Topology/MetricSpace/CoveringNumbers.lean:330",
+      "verdict": "exact component",
+      "reason": "Combine with externalCoveringNumber_le_coveringNumber (128) and coveringNumber_le_packingNumber (354)."
+    },
+    {
+      "reference": "tauceti:TauCeti.PoincareDisc.dist_map_le",
+      "path": "TauCeti/Analysis/Complex/Conformal/Poincare/SchwarzPick.lean:132",
+      "verdict": "exact disc metric contraction",
+      "reason": "The period-ratio application also needs coordinate changes and the selected branch."
+    },
+    {
+      "reference": "mathlib:norm_le_gronwallBound_of_norm_deriv_right_le",
+      "path": "Mathlib/Analysis/ODE/Gronwall.lean:134",
+      "verdict": "exact real-path bound",
+      "reason": "The complex radial path and companion-system adapter are still /49."
+    },
+    {
+      "reference": "tauceti:WeierstrassCurve.Affine.Point.abs_canonicalHeight_sub_naiveHeight_le",
+      "path": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean:196",
+      "verdict": "near miss for explicit Zimmer dependence",
+      "reason": "Exists a bound for the fixed curve, comparing canonical height with half the naive x-height. Does not state the required coefficient-height bound."
     }
   ]
 }
