@@ -75350,23 +75350,25 @@
   {
    "id": "PAPER-COUVEIGNES-20/E1",
    "kind": "misprint",
-   "locator": "§3, p.493, in the published version, Annals of Mathematics 192 (2020), 487–497 (publisher PDF, SHA-256 as recorded by the extraction); the same line is in arXiv 1907.13617v2",
-   "printed": "\"This is a free Z-module 𝓛 ⊂ V_R of rank ℓ = C(d+r, d) − n. We set L = 𝓛 ⊗_Q R as the underlying R-vector space and L^⊥ as its orthogonal complement in V_R.\"",
+   "locator": "§3, published p.493 (PDF p.7), Annals of Mathematics 192 (2020), 487–497; arXiv 1907.13617v1/v2 p.5; HAL hal-02375397v1 PDF p.7 (manuscript p.6).",
+   "printed": "We set L = 𝓛 ⊗_Q R as the underlying R-vector space",
    "correction": "L = 𝓛 ⊗_Z R, the real span of 𝓛 in V_R (equivalently (𝓛 ⊗_Z Q) ⊗_Q R).",
-   "reason": "𝓛 is defined one sentence earlier as a free Z-module, so a tensor product over Q is not defined for it; the intended object, used in the rest of the section, is its real span. Checked on the page image of p.493 and in the arXiv source (\\cL\\otimes_\\QQ \\RR). Noted by the extraction (item relation-lattice).",
+   "reason": "The preceding definition makes 𝓛 the kernel of integral polynomial evaluation in the finite free Z-module V_Z. Its rank ℓ = C(d+r,d) − n is positive: the standing assumptions give ℓ ≥ nr ≥ 1. A basis vector of a nonzero finite free Z-module is not divisible by 2, so this Z-module admits no compatible Q-module structure. Thus the displayed tensor product needs Z as its base ring. Extending the integral evaluation matrix to R identifies 𝓛 ⊗_Z R with its real kernel and real span in V_R. This supplies the space used for orthogonality and successive minima.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals of Mathematics article page https://annals.math.princeton.edu/2020/192-2/p04, checked 22 September 2026: no erratum is linked",
-    "arXiv 1907.13617: v1 (31 July 2019) and v2 (29 August 2019); v2 has the same line, and there is no later version",
-    "web search for an erratum, corrigendum or correction, 22 September 2026: none found"
+    "2026-09-23: Annals article page https://annals.math.princeton.edu/2020/192-2/p04 links no correction; freshly read publisher PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf retains the typo on p.493.",
+    "2026-09-23: https://arxiv.org/abs/1907.13617 lists only v1 (31 July 2019) and v2 (29 August 2019). Both PDFs p.5 retain the typo; the v2 TeX source nf.tex line 568 explicitly tensors over Q.",
+    "2026-09-23: author page https://www.math.u-bordeaux.fr/~jcouveig/ links the publication list https://cv.hal.science/jean-marc-couveignes; neither supplies a correction for this article. The linked record https://hal.science/hal-02375397v1 lists version 1 (16 February 2021); its PDF https://hal.science/hal-02375397v1/file/nf.pdf also retains the typo on PDF p.7.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007/annals.2020.192.2.4 has no update-to or updated-by entries and an empty relation object.",
+    "2026-09-23: exact-title/author searches with erratum, corrigendum and correction, including an Annals-domain search, located no relevant correction. New means not located in these checked sources, not a claim of discovery priority."
    ],
    "owner": "PAPER-COUVEIGNES-20",
    "file": "research/blueprint/errata/PAPER-COUVEIGNES-20.json",
    "citation": "Jean-Marc Couveignes, \"Enumerating number fields\", Annals of Mathematics 192 (2020), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-COUVEIGNES-20",
+   "reviewReason": "Independently checked the published p.493 page image, arXiv v1/v2 p.5, v2 TeX and HAL manuscript PDF p.7. The positive-rank free abelian group is not a Q-module; tensoring over Z gives exactly the required real span. Retain misprint / affects nothing and the original correction. Shortened the quotation and made the version locators and correction search explicit. Separately corrected the companion report’s transcription of the volume inequality: the paper prints ≥, not >; that is not an additional source error."
   },
   {
    "id": "PAPER-DASGUPTA-KAKDE-23/E1",
