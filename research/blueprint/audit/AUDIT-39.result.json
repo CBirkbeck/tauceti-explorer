@@ -3,7 +3,7 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "RelativeFarguesFontaine": {
-   "summary": "Nothing in this roadmap is in the libraries. Neither Mathlib nor Tau Ceti has perfectoid spaces, diamonds, v-sheaves or any Fargues-Fontaine curve, and ramified Witt vectors W_{O_E} do not exist at all; Mathlib's Witt theory is p-typical only. What does exist and is genuinely usable is upstream infrastructure: Mathlib's `WittVector` with Frobenius, Teichmuller lifts, p-adic completeness and the W(k)-is-a-DVR theorem; Fontaine's theta with surjectivity; and an absolute `BDeRhamPlus`/`BDeRham` for a single p-adically complete ring (with principality of ker theta, the theta-extension and the DVR property all still open TODOs in that file). On the geometric side Tau Ceti supplies the entire Huber-ring and adic-spectrum layer RF0 presupposes — Huber pairs, Spa(A,A+) with spectrality, rational subsets and their basis/refinement calculus, completed rational localisation A<T/s> with its integrally closed plus ring, and the identification of Spa of that pair with the rational subset — all sorry-free. Genuinely missing is everything the roadmap names: the ramified Witt algebra and its universal property, 𝒴_S and Y_S, the perfectoidness of the charts and their tilt, sheafiness, the phi-quotient X_S, Div^d and B_D, relative B_dR, O(n) and the graded algebra, and Beauville-Laszlo patching in both its linear and Tannakian forms.",
+   "summary": "Nothing in this roadmap is in the libraries. Neither Mathlib nor Tau Ceti has perfectoid spaces, diamonds, v-sheaves or any Fargues-Fontaine curve, and ramified Witt vectors W_{O_E} do not exist at all; Mathlib's Witt theory is p-typical only. What does exist and is genuinely usable is upstream infrastructure: Mathlib's `WittVector` with Frobenius, Teichmuller lifts, p-adic completeness and the W(k)-is-a-DVR theorem; Fontaine's theta with surjectivity; and an absolute `BDeRhamPlus`/`BDeRham` for a single p-adically complete ring (with principality of ker theta, the theta-extension and the DVR property all still open TODOs in that file). On the geometric side Tau Ceti supplies the entire Huber-ring and adic-spectrum layer RF0 presupposes — Huber pairs, Spa(A,A+) with spectrality, rational subsets and their basis/refinement calculus, completed rational localisation A<T/s> with its integrally closed plus ring (whose openness is not yet proved), and, for the uncompleted localisation A(T/s), the identification of Spa with the rational subset — all sorry-free. Genuinely missing is everything the roadmap names: the ramified Witt algebra and its universal property, 𝒴_S and Y_S, the perfectoidness of the charts and their tilt, sheafiness, the phi-quotient X_S, Div^d and B_D, relative B_dR, O(n) and the graded algebra, and Beauville-Laszlo patching in both its linear and Tannakian forms.",
    "layers": {
     "RelativeFarguesFontaine:RF0": {
      "verdict": "not built",
@@ -39,9 +39,23 @@
          "file": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
          "line": 106,
          "fit": "special case"
+        },
+        {
+         "name": "Perfection.teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Teichmuller.lean",
+         "line": 101,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.teichmuller",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
+         "line": 100,
+         "fit": "special case"
         }
        ],
-       "note": "`WittVector.teichmuller` is the multiplicative monoid hom R ->* W(R) in the p-typical case only; the O_E-version is absent."
+       "note": "`WittVector.teichmuller` is the p-typical Teichmüller map R →* W(R). Mathlib also has the Teichmüller map `Perfection.teichmuller : Perfection (R ⧸ I) p →* R` for any I-adically complete ring with R/I of characteristic p, which gives Teichmüller representatives in W_{O_E}(R) as soon as that π-adically complete ring exists; Tau Ceti's `teichmuller` is the case R = F_q (W_{O_E}(F_q) = O_E), on units. The ramified Witt algebra itself is absent, so the target is partial."
       },
       {
        "target": "Frobenius on W_{O_E}(R) (the q-Frobenius)",
@@ -81,9 +95,30 @@
          "file": "Mathlib/RingTheory/WittVector/Truncated.lean",
          "line": 437,
          "fit": "related"
+        },
+        {
+         "name": "WittVector.eq_zero_of_p_mul_eq_zero",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Complete.lean",
+         "line": 55,
+         "fit": "special case"
+        },
+        {
+         "name": "WittVector.quotientPEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Complete.lean",
+         "line": 105,
+         "fit": "special case"
+        },
+        {
+         "name": "WittVector.eq_of_apply_teichmuller_eq",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/TeichmullerSeries.lean",
+         "line": 118,
+         "fit": "special case"
         }
        ],
-       "note": "Mathlib proves p-adic completeness of W(R) for a perfect ring (`isAdicCompleteIdealSpanP`) and a universal property only as the inverse limit of truncated Witt vectors (`WittVector.lift`). The strict-lift universal property (unique pi-adically complete flat O_E-algebra with W/pi = R) is not stated, in either the p-typical or the ramified case."
+       "note": "In the p-typical case Mathlib proves the ingredients of the universal property except existence: W(k) is p-adically complete (`isAdicCompleteIdealSpanP`) and p-torsion-free (`eq_zero_of_p_mul_eq_zero`), W(k)/p ≅ k (`quotientPEquiv`), and ring maps out of W(R) into a ring where p is nilpotent are determined by their values on Teichmüller lifts (`eq_of_apply_teichmuller_eq`, the uniqueness half). Existence of lifts, and the whole statement for ramified O_E, are missing; `WittVector.lift` is the inverse-limit universal property of truncations."
       },
       {
        "target": "Mixed-characteristic comparison with the completed scalar extension of W(-) over W(F_q)",
@@ -133,8 +168,12 @@
        "note": "AI.0 constructs A_inf = W(O_C^flat) with Frobenius and theta and states it reuses the common Witt-vector definitions; the p-typical part of RF0 is the same construction."
       },
       {
-       "layer": "GeometricSatakeAndFusion:GS0:Witt-geometry",
-       "note": "GS0:Witt-geometry says outright it will 'reuse RF0's ramified Witt algebra rather than a second coefficient ring'."
+       "layer": "RelativeFarguesFontaine:RF0:integral-Y",
+       "note": "RF0's own text contains this sub-stage's text verbatim, so every target is stated twice in the atlas."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF0:annuli",
+       "note": "RF0's own text contains this sub-stage's text verbatim."
       }
      ]
     },
@@ -164,7 +203,7 @@
          "library": "mathlib",
          "file": "Mathlib/RingTheory/WittVector/Complete.lean",
          "line": 116,
-         "fit": "special case"
+         "fit": "related"
         }
        ],
        "note": "Tau Ceti has the full Huber-ring/pair-of-definition API and Mathlib has W(R) with p-adic completeness, but nobody assembles W(O_F) (let alone W_{O_E}(R^+)) into a Huber ring with the (pi,[varpi])-adic topology; the AdicSpaces roadmap itself lists this as unbuilt Layer 6 work."
@@ -234,7 +273,7 @@
          "library": "tauceti",
          "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Plus.lean",
          "line": 464,
-         "fit": "more general"
+         "fit": "related"
         },
         {
          "name": "TauCeti.ValuationSpectrum.spaLocalizationHomeomorph",
@@ -244,7 +283,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti builds A<T/s> as the separated completion of the topological localisation, defines its plus ring as the integral closure of the image of A^+ adjoined the fractions, proves it is a ring of integral elements, and identifies Spa of the pair with the rational subset. This is exactly the general construction the layer needs, but it is never applied to the Witt chart rings and nothing perfectoid is proved about them."
+       "note": "Tau Ceti builds A⟨T/s⟩ as the separated completion of the topological localisation and its plus ring as an integral closure, which is integrally closed and consists of power-bounded elements; its openness is not proved, so the completed pair is not yet a Huber pair. The ring-of-integral-elements theorem (`isRingOfIntegralElements_integralClosure_adjoin_plus`) and the identification of Spa with the rational subset (`spaLocalizationHomeomorph`) are for the uncompleted localisation A(T/s); Localization/Homeomorph.lean says the completed ring 'is intentionally not identified here'. None of this is applied to the Witt chart rings, and nothing perfectoid is proved about them."
       },
       {
        "target": "FS II.1.1: after O_E -> O_{E_infty} the charts are perfectoid and their tilt glues to the perfected open unit disc over S",
@@ -291,8 +330,12 @@
        "note": "F0 reuses Y_F = D(p) ∩ D([varpi]) and its rational annuli from AdicSpaces Layer 6; RF0:integral-Y is the relative-base, general-E version of the same space."
       },
       {
-       "layer": "PerfectoidSpaces:P3",
-       "note": "The perfectoidness of the chart rings after the compatible-root extension is the kind of statement P3 owns; RF0:integral-Y lists P3 as a prerequisite and re-derives the tilt computation for these particular charts."
+       "layer": "FarguesFontaineDiamonds:F1",
+       "note": "F1 constructs the fixed-field isomorphism α_F : Y_F^♢ ≅ S × Spd(ℚ_p), the E = ℚ_p case of this stage's FS II.1.2 untilt formula (T6)."
+      },
+      {
+       "layer": "FarguesFontaineDiamonds:F4",
+       "note": "F4 performs the compatible-root base extension of period annuli, proves their perfectoidness and computes the tilt, the fixed-field case of this stage's FS II.1.1 (T4)."
       }
      ]
     },
@@ -367,7 +410,7 @@
          "fit": "related"
         }
        ],
-       "note": "Restriction morphisms between rational localisations and the base-change isomorphism M ⊗_A A<X> = M<X> are proved in Tau Ceti in general; the annulus instance is absent. Completed tensor products over a general base are not available."
+       "note": "Tau Ceti's restriction flatness and the base-change isomorphism M ⊗_A A⟨X⟩ ≅ M⟨X⟩ are proved only for noetherian Tate rings: `flat_restrictionRingHomOfSubset` asks the source to be Tate and noetherian (Wedhorn 8.31), and `restrictedMvPowerSeriesBaseChangeEquiv` works over a complete noetherian Tate ring with M finite. This layer's relative annuli need not be noetherian, so these results supply the shape of the statement, not the statement; completed tensor products over a general base are not available."
       },
       {
        "target": "Independence of the pseudouniformiser varpi",
@@ -400,10 +443,6 @@
       {
        "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
        "note": "Layer 6.3 constructs Kedlaya's interval rings B^I, their unit balls and strong noetherianness for E = Q_p; RF0:annuli is the same construction relative and for general E."
-      },
-      {
-       "layer": "PadicHodgeTheory:P7:annulus-foundations",
-       "note": "P7's early analytic coefficient rings are the Robba-style annulus rings over a fixed field; RF0:annuli builds the same rings over a perfectoid base."
       }
      ]
     },
@@ -433,7 +472,7 @@
          "library": "mathlib",
          "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
          "line": 221,
-         "fit": "special case"
+         "fit": "related"
         }
        ],
        "note": "Witt Frobenius exists as a ring map in Mathlib; its action on a period space and the wandering property of annuli are not formalised."
@@ -483,6 +522,10 @@
       {
        "layer": "FarguesFontaineDiamonds:F3",
        "note": "RF1 explicitly asks for the comparison of its Q_p specialisation with F1-F3."
+      },
+      {
+       "layer": "FarguesFontaineDiamonds:F1",
+       "note": "RF1 asks to compare its ℚ_p fixed-field specialisation with FarguesFontaineDiamonds F1–F3; F1's α_F is the diamond formula underlying RF1 T4."
       }
      ]
     },
@@ -553,7 +596,7 @@
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
          "line": 77,
-         "fit": "special case"
+         "fit": "related"
         }
        ],
        "note": "`BDeRham.lean`'s own TODO list records that extending theta to B_dR^+ and showing B_dR^+ is a discrete valuation ring are not done; there is no filtration or residue map."
@@ -684,10 +727,6 @@
       {
        "layer": "GeometricSatakeAndFusion:GS0:loop-geometry",
        "note": "GS0:loop-geometry takes Div^d_𝒴 and B_D^+ ⊂ B_D from RF2 as inputs and builds L^+G/LG over them; the two stages share the divisor rings."
-      },
-      {
-       "layer": "HeckeStacksAndLocalShtukas:HS0",
-       "note": "HS0 imports RF2:integral-divisors for its leg divisors and formal neighbourhoods."
       }
      ]
     },
@@ -727,7 +766,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib defines theta : W(R^flat) -> R and proves it surjective for R p-adically complete with p not a unit, and `PreTilt.untilt` gives the multiplicative section. It does not prove ker theta is principal or primitive of degree one (explicit TODO in BDeRham.lean), and there is no notion of a marked untilt of a perfectoid space."
+       "note": "Mathlib defines θ : W(R^♭) → R and proves it surjective (`surjective_fontaineTheta`) for R p-adically complete with p not a unit and Frobenius surjective on R/p, and `PreTilt.untilt` gives the multiplicative section. It does not prove ker θ principal or primitive of degree one (an explicit TODO in BDeRham.lean), and there is no notion of a marked untilt of a perfectoid space."
       },
       {
        "target": "The divisor of the untilt on Y_S and X_S; injectivity and closed image of multiplication by a local generator",
@@ -771,7 +810,7 @@
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
          "line": 77,
-         "fit": "special case"
+         "fit": "related"
         }
        ],
        "note": "None of these is proved; the file's TODO list is 'extend theta to B_dR^+', 'B_dR^+ is a DVR', 'ker theta is principal'."
@@ -868,14 +907,14 @@
          "library": "mathlib",
          "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/StructureSheaf.lean",
          "line": 374,
-         "fit": "related"
+         "fit": "more general"
         },
         {
          "name": "ProjectiveSpectrum",
          "library": "mathlib",
          "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Topology.lean",
          "line": 54,
-         "fit": "related"
+         "fit": "more general"
         }
        ],
        "note": "Mathlib has Proj of an arbitrary graded commutative ring as a scheme, so the target of the comparison map exists in full generality; the graded algebra of sections of O(n) on X_S and the map of locally ringed spaces do not."
@@ -988,14 +1027,6 @@
       {
        "layer": "GeometricSatakeAndFusion:GS0:loop-geometry",
        "note": "Overlapping: GS0's descent of finite projective modules on the completed divisor rings is the same patching statement, taken over Div^d_𝒴."
-      },
-      {
-       "layer": "AInfCohomology:AI.2",
-       "note": "AI.2's finite-free BKF-module classification uses 'the analytic annulus/patching arguments of BMS1 §4' and says explicitly that it reuses the existing Fargues-Fontaine patching carriers rather than rebuilding them."
-      },
-      {
-       "layer": "BunGAndNewtonStrata:BG2:smooth-Artin",
-       "note": "BG2:smooth-Artin consumes the Beauville-Laszlo covering of Bun_G, which is the G-torsor form of this patching."
       }
      ]
     },
@@ -1012,9 +1043,16 @@
          "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Reconstruction.lean",
          "line": 89,
          "fit": "related"
+        },
+        {
+         "name": "Torsor",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Torsor/Defs.lean",
+         "line": 70,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti's Tannakian package (reconstruction of algebra-valued points from tensor automorphisms of finite comodules, Milne §9.4) is the closest thing in either library; G-torsors on adic/perfectoid spaces do not exist at all, and the Mathlib `torsor` namespace is `AddTorsor` (affine spaces)."
+       "note": "Tau Ceti's Tannakian package (reconstruction of algebra-valued points from tensor automorphisms of finite comodules, Milne §9.4) is the closest thing in either library. Mathlib has set-level torsors (`AddTorsor` and the multiplicative `Torsor` class), but G-torsors on adic or perfectoid spaces do not exist at all."
       },
       {
        "target": "Independence of the chosen faithful representation",
@@ -1053,17 +1091,13 @@
       {
        "layer": "GeometricSatakeAndFusion:GS0:loop-geometry",
        "note": "GS0:loop-geometry imports RF4:G-torsors and restates the torsor interpretation of modifications over Div^d."
-      },
-      {
-       "layer": "HeckeStacksAndLocalShtukas:HS0",
-       "note": "HS0 imports RF4:G-torsors for its two-bundle-plus-isomorphism stacks."
       }
      ]
     }
    }
   },
   "TropicalAndBerkovichArithmetic": {
-   "summary": "Nothing in this roadmap exists in either library, and the gap is unusually clean: 'Berkovich', 'tropicalization' in the geometric sense, 'balancing', 'Baker-Norine', 'Mumford', 'Schottky', 'Tate curve', 'Coleman integration' and 'metrized line bundle' all return zero hits across Mathlib and Tau Ceti. Mathlib's `Tropical` is only the min-plus semiring. What is available is adjacent infrastructure of real use: Tau Ceti's complete adic-spectrum layer (Spa(A,A+) with arbitrary-rank valuative points, rational subsets, analytic points, residue-field valuations, the closed polydisc with its classical points), its models of curves over a DVR with finite DVR extensions, its numerical types (the weighted dual graph with vertex genera, the arithmetic-genus formula, and Pic(T) = coker of the weighted intersection matrix, proved of rank one with finite torsion — the combinatorial Jacobian TB.3 wants), its PL/convex-polyhedron and toric-cone machinery, and the full function-field Riemann-Roch theorem. Genuinely missing is every stage's own content: the Berkovich spectrum and its comparison with Spa, the point-type classification and the skeleton metric, analytification and retraction, the graph Laplacian/specialization/slope formula and Baker-Norine, tropicalization with weights and balancing, faithful tropicalization, model metrics and measures, local heights, and Tate/Mumford uniformization with its integration interfaces.",
+   "summary": "Nothing in this roadmap exists in either library, and the gap is unusually clean: 'Berkovich', 'tropicalization' in the geometric sense, 'balancing', 'Baker-Norine', 'Mumford', 'Schottky', 'Tate curve', 'Coleman integration' and 'metrized line bundle' all return zero hits across Mathlib and Tau Ceti. Mathlib's `MinTropical`/`MaxTropical` (formerly `Tropical`) are only the min-plus and max-plus semirings. What is available is adjacent infrastructure of real use: Tau Ceti's complete adic-spectrum layer (Spa(A,A+) with arbitrary-rank valuative points, rational subsets, analytic points, residue-field valuations, the closed polydisc with its classical points), its models of curves over a DVR with finite DVR extensions, its numerical types (the weighted dual graph with vertex genera, the arithmetic-genus formula, and Pic(T) = coker of the weighted intersection matrix, proved of rank one with finite torsion — the combinatorial Jacobian TB.3 wants), its PL/convex-polyhedron and toric-cone machinery, and the full function-field Riemann-Roch theorem. Genuinely missing is every stage's own content: the Berkovich spectrum and its comparison with Spa, the point-type classification and the skeleton metric, analytification and retraction, the graph Laplacian/specialization/slope formula and Baker-Norine, tropicalization with weights and balancing, faithful tropicalization, model metrics and measures, local heights, and Tate/Mumford uniformization with its integration interfaces.",
    "layers": {
     "TropicalAndBerkovichArithmetic:TB.0": {
      "verdict": "not built",
@@ -1092,9 +1126,16 @@
          "file": "Mathlib/Topology/Algebra/Module/Spaces/CharacterSpace.lean",
          "line": 43,
          "fit": "related"
+        },
+        {
+         "name": "contraction_of_isPowMul_of_boundedWrt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Unbundled/IsPowMulFaithful.lean",
+         "line": 36,
+         "fit": "related"
         }
        ],
-       "note": "The word 'Berkovich' does not occur in either library: `grep -rn -i berkovich` over Mathlib and Tau Ceti returns nothing. Mathlib has the bundled `MulRingSeminorm`/`RingSeminorm` that would be its points, and `WeakDual.characterSpace` is the archimedean Gelfand analogue (continuous unital algebra homs with the weak-* topology), but no nonarchimedean spectrum is formed from them."
+       "note": "The word 'Berkovich' does not occur in either library: `grep -rn -i berkovich` over Mathlib and Tau Ceti returns nothing. Mathlib has the bundled `MulRingSeminorm`/`RingSeminorm` that would be its points, and `contraction_of_isPowMul_of_boundedWrt` (a bounded map into a power-multiplicative seminorm is a contraction), the standard input for boundedness by the norm. `WeakDual.characterSpace` (continuous unital algebra homs with the weak-* topology) is defined over any topological field and is compact for a complete normed algebra over a proper field, ℚ_p included, but it consists of homomorphisms, not seminorms; no seminorm spectrum is formed."
       },
       {
        "target": "The topology of M(A) and its compactness",
@@ -1127,6 +1168,13 @@
          "file": "Mathlib/Analysis/Normed/Unbundled/SpectralNorm.lean",
          "line": 381,
          "fit": "related"
+        },
+        {
+         "name": "AbsoluteValue.Completion",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Field/WithAbs.lean",
+         "line": 107,
+         "fit": "related"
         }
        ],
        "note": "Tau Ceti builds the residue ring and the induced valuation on the residue field of a point of Spa (`residueFieldValuation`), which is the adic counterpart; the Berkovich completed residue field H(x) is absent. Mathlib's `spectralNorm` is the norm on an algebraic extension of a nonarchimedean field, a different object."
@@ -1139,7 +1187,7 @@
       },
       {
        "target": "Comparison of a strictly affinoid algebra with its Huber adic spectrum by rank-one points / maximal generalizations, with continuity and the quotient topology",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.ValuationSpectrum.spa",
@@ -1168,9 +1216,16 @@
          "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Analytic.lean",
          "line": 69,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.IsAnalyticPoint.exists_coarsenByUnits_mem_spaAnalytic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Analytic.lean",
+         "line": 148,
+         "fit": "related"
         }
        ],
-       "note": "The adic side is fully available in Tau Ceti — `spa` for any Huber pair, its spectrality, the analytic locus — and Mathlib has `Valuation.RankOne`, but no map from Spa to a Berkovich spectrum exists because the target does not exist."
+       "note": "The adic side is available in Tau Ceti — `spa` for any Huber pair, its spectrality, the analytic locus — and so is the key step of the comparison: Wedhorn Remark 7.42(2), `IsAnalyticPoint.exists_coarsenByUnits_mem_spaAnalytic`, gives every continuous analytic point a height-one (rank-one) vertical generization in Spa(A,A⁺) with the same support. Still missing are uniqueness/maximality of that generization, the map to M(A) (which does not exist), its continuity and the quotient topology."
       },
       {
        "target": "Retaining integral-subring and higher-rank information on the adic side",
@@ -1238,6 +1293,13 @@
          "file": "Mathlib/RingTheory/Polynomial/GaussNorm.lean",
          "line": 54,
          "fit": "related"
+        },
+        {
+         "name": "Polynomial.gaussNorm_isAbsoluteValue",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/GaussNorm.lean",
+         "line": 283,
+         "fit": "related"
         }
        ],
        "note": "Tau Ceti constructs the closed polydisc Spa(A<T>, A<T>°) and its classical (type-1) points and proves distinct tuples give distinct points over a field; Mathlib has the Gauss norm of a polynomial and of a multivariate power series, which is the Gauss point's seminorm. Nobody proves the Gauss point is a non-classical point of a Berkovich disc."
@@ -1247,10 +1309,6 @@
       {
        "layer": "DiamondsAndVStacks:D5",
        "note": "D5 constructs the Berkovich/maximal-Hausdorff quotient functor of a diamond, which is the same rank-one-points comparison TB.0 asks for, taken in the diamond category."
-      },
-      {
-       "layer": "ArithmeticDynamics:DY.2",
-       "note": "DY.2 states it consumes TB.0 for 'the actual Berkovich analytic carrier', so it depends on rather than duplicates this stage."
       },
       {
        "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
@@ -1338,11 +1396,7 @@
      "duplicates": [
       {
        "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
-       "note": "Layer 5.4 constructs the closed and open unit discs as adic spaces and describes their points; TB.1 wants the same discs and their point classification on the Berkovich side."
-      },
-      {
-       "layer": "ArithmeticDynamics:DY.2",
-       "note": "DY.2's local dynamics needs the same analytic line and its point types as its carrier."
+       "note": "Layer 5.4 constructs the closed and open unit discs as adic spaces (and proves the open disc is not affinoid); TB.1 wants the same discs on the Berkovich side with their point classification, which Layer 5 does not give."
       }
      ]
     },
@@ -1394,9 +1448,16 @@
          "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
          "line": 153,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.intersectionGraph",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Topology.lean",
+         "line": 46,
+         "fit": "related"
         }
        ],
-       "note": "`TauCeti.NumericalType` is exactly the dual graph datum — components with multiplicities, weights, genera and a symmetric intersection matrix whose adjacency relation is required connected (Stacks 0C6Z). What is missing is the metric: no edge lengths, and no construction of a numerical type from an actual model."
+       "note": "`TauCeti.NumericalType` is the numerical shadow of the special fibre of a regular model (Stacks 0C6Z): components with multiplicities, weights, arithmetic genera over their constant fields (not normalization genera) and a symmetric intersection matrix with connected adjacency. Its `intersectionGraph` is a SimpleGraph on components, so repeated intersections collapse and there are no loops. What is missing is the dual graph of a semistable fibre with normalization genera and multi-edges, the metric (edge lengths), and any construction of a numerical type from an actual model."
       },
       {
        "target": "The retraction of the analytification onto the skeleton",
@@ -1406,7 +1467,7 @@
       },
       {
        "target": "Compatibility with refinement and with finite extension of the valued field",
-       "library": "partial",
+       "library": "absent",
        "declarations": [
         {
          "name": "TauCeti.FiniteDVRExtension",
@@ -1430,7 +1491,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti has the category of finite DVR extensions with towers, and reindexing/equivalence invariance of numerical types, but not subdivision-invariance of a metric realisation nor base-change of a skeleton."
+       "note": "No compatibility statement exists. `FiniteDVRExtension` and its `Hom` are data packages for towers of finite DVR extensions, and `NumericalType.Equiv` is an isomorphism of numerical types; there is no metric realisation to subdivide and no skeleton to base-change."
       },
       {
        "target": "Existence after the finite extension supplied by semistable reduction",
@@ -1475,6 +1536,13 @@
          "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean",
          "line": 189,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.topologicalGenus",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Topology.lean",
+         "line": 81,
+         "fit": "related"
         }
        ],
        "note": "`arithmeticGenus T = 1 + ∑ m_i (w_i (g_i - 1) - a_ii/2)` is defined and its division-free form proved, so the combinatorial side of the formula exists with the vertex-genus terms present. It is not compared with the genus of a generic fibre; Tau Ceti's `genus` is the function-field genus of a curve and no theorem links the two."
@@ -1496,6 +1564,22 @@
       {
        "layer": "NeronModelsAndSemistableAbelianVarieties:R11.3",
        "note": "R11.3 covers semistable reduction and uniformisation for abelian varieties, overlapping TB.2's extension-of-the-valued-field statements and TB.7's uniformization."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+       "note": "Tau Ceti's StableReduction Layer 1 builds nodes, normalization and dual graphs of nodal curves, the combinatorial half of TB.2's dual graph of the special fibre."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+       "note": "Layer 3 defines `SemistableFamily` and `StableFamily`, the semistability notion TB.2's semistable models are stated with."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion",
+       "note": "Layer 6 owns numerical types and asks to identify them with the model's fibres, which is the data behind TB.2's vertex genera and the genus formula (T6)."
+      },
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+       "note": "LPV.7 computes the dual graph and specialization sequence of a proper strictly semistable curve over a henselian trait, restating TB.2's dual graph of the special fibre."
       }
      ]
     },
@@ -1598,7 +1682,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti builds `Pic(T)` for a numerical type as the cokernel of the weighted intersection matrix acting on multidegrees — precisely the critical group / discrete Jacobian of the weighted dual graph (Stacks 0C7H) — and proves it has rank one (`finrank_pic`) with finite torsion. This is the combinatorial Jacobian of a weighted graph; the metric-graph (real torus) Jacobian and its relation to divisors of degree zero are absent."
+       "note": "Tau Ceti builds `Pic(T)` for a numerical type as the cokernel of the weighted intersection matrix acting on multidegrees (Stacks 0C7H) and proves it has rank one (`finrank_pic`) and finite ℓ-torsion for each ℓ ≠ 0 (`finite_torsion`); its degree-zero part is the discrete Jacobian (critical group) of the weighted dual graph. The metric-graph (real torus) Jacobian and its relation to divisors of degree zero are absent."
       },
       {
        "target": "The specialization map from divisors on a curve to divisors on the graph",
@@ -1663,12 +1747,16 @@
      ],
      "duplicates": [
       {
-       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-       "note": "The degree/duality/positivity apparatus for curves over a DVR that TB.3's specialization inequality consumes is owned there, and Tau Ceti's `NumericalType.Pic` was built for it."
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion",
+       "note": "Layer 6 defines Pic(T) as the cokernel of the weighted intersection matrix (Stacks 0C7H) and proves the specialization maps into the Picard group of the special fibre, the discrete counterpart of TB.3's graph Jacobian and specialization map; Tau Ceti's `NumericalType.Pic` was built for it."
       },
       {
-       "layer": "TropicalAndBerkovichArithmetic:TB.5",
-       "note": "TB.5 consumes TB.3's skeleton metric and rational functions; the slope formula is shared between the two."
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+       "note": "R11.4 constructs the degree-zero Picard of semistable curves and identifies the toric character group from the dual graph, which overlaps TB.3's graph Jacobian and specialization."
+      },
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.2",
+       "note": "GZ.2 constructs the reduction graph and its Laplacian at nonarchimedean semistable places, restating TB.3's Laplacian on the skeleton."
       }
      ]
     },
@@ -1680,14 +1768,14 @@
        "library": "absent",
        "declarations": [
         {
-         "name": "Tropical",
+         "name": "MinTropical",
          "library": "mathlib",
          "file": "Mathlib/Algebra/Tropical/Basic.lean",
-         "line": 63,
+         "line": 58,
          "fit": "related"
         }
        ],
-       "note": "Mathlib's `Tropical R` is only the min-plus semiring on `WithTop R` with its algebraic API (`Mathlib/Algebra/Tropical/`); there is no tropicalization map, no tropical variety and no tropical geometry."
+       "note": "Mathlib's `MinTropical R` (with its order dual `MaxTropical R`; the old name `Tropical` is deprecated since 2026-07-24) is only the min-plus semiring with its algebraic API (`Mathlib/Algebra/Tropical/`); there is no tropicalization map, no tropical variety and no tropical geometry."
       },
       {
        "target": "Initial degenerations",
@@ -1719,9 +1807,16 @@
          "file": "TauCeti/RingTheory/Valuation/ExtendToLocalization.lean",
          "line": 52,
          "fit": "related"
+        },
+        {
+         "name": "DivisibleHull",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/DivisibleHull.lean",
+         "line": 51,
+         "fit": "related"
         }
        ],
-       "note": "Value groups of valuations, their transport and extension of valuations to localizations are available (Mathlib's `ValuativeRel` plus Tau Ceti's extension API); the specific divisible-hull extension used in tropical geometry is not singled out."
+       "note": "Value groups of valuations, their transport and extension of valuations to localizations are available (Mathlib's `ValuativeRel` plus Tau Ceti's extension API), and Mathlib has the divisible hull of a monoid with its linear order and, for linearly ordered groups, its ordered ℚ-module structure (`DivisibleHull`). What is missing is its identification with the value group of an algebraic closure of the valued field."
       },
       {
        "target": "The fundamental theorem of tropical geometry (Kapranov / Bieri-Groves)",
@@ -1760,6 +1855,13 @@
          "file": "TauCeti/Geometry/Toric/Algebraic/Cone.lean",
          "line": 69,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.Fan",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Fan/Basic.lean",
+         "line": 81,
+         "fit": "related"
         }
        ],
        "note": "Mathlib has `PointedCone` and finite cone duality; Tau Ceti has convex polyhedra and lattice-rational toric cones and fans with subdivisions. None of this is assembled into a weighted balanced polyhedral complex, and the balancing condition is not stated anywhere."
@@ -1773,12 +1875,8 @@
      ],
      "duplicates": [
       {
-       "layer": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-6-global-algebraic--analytic-comparison",
-       "note": "The toric-chart and algebraic/analytic comparison apparatus TB.4 needs for its ambient torus overlaps that roadmap, whose cones/fans layer is the source of Tau Ceti's existing `Toric` code."
-      },
-      {
-       "layer": "TropicalAndBerkovichArithmetic:TB.5",
-       "note": "TB.5 is the curve case of the same tropicalization map, with the multiplicity-one criterion."
+       "layer": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+       "note": "AnalyticToricGeometry Layer 0 defines toric cones, finite fans, subdivisions and fan morphisms, the polyhedral structures TB.4's tropical complexes are built from; it is the source of Tau Ceti's existing `Toric` code."
       }
      ]
     },
@@ -1832,16 +1930,7 @@
        "note": "Absent."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "TropicalAndBerkovichArithmetic:TB.4",
-       "note": "TB.5 is the curve case of TB.4's tropicalization with multiplicities; both need the weights and the lattice indices."
-      },
-      {
-       "layer": "TropicalAndBerkovichArithmetic:TB.3",
-       "note": "The path metric preserved here is TB.3's skeleton metric and its slope formula."
-      }
-     ]
+     "duplicates": []
     },
     "TropicalAndBerkovichArithmetic:TB.6": {
      "verdict": "not built",
@@ -1896,22 +1985,41 @@
       {
        "target": "Local heights with integrability and normalization",
        "library": "absent",
-       "declarations": [],
-       "note": "Neither library has Weil or Arakelov heights: `grep -iP '\\t[^\\t]*height'` in the index returns only Lie-theoretic `heightMatrix`/`heightLevel` and similar."
+       "declarations": [
+        {
+         "name": "Height.logHeight",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 272,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 124,
+         "fit": "related"
+        }
+       ],
+       "note": "Global heights exist: Mathlib has Weil heights over a field with admissible absolute values (`Height.AdmissibleAbsValues`, `Height.mulHeight`, `Height.logHeight`) with Northcott over number fields, and Tau Ceti has the naive and Néron–Tate canonical heights of an elliptic curve (`canonicalHeight`, `neronTatePairing`). No local height, Néron function or height attached to a metrized line bundle on an analytic space exists, so the target is absent."
       }
      ],
      "duplicates": [
-      {
-       "layer": "ArithmeticDynamics:DY.4",
-       "note": "DY.4 says it consumes TB.6's model metrics, semipositive approximation and local measures for equidistribution; TB.6 explicitly holds back the equidistribution theorem itself."
-      },
       {
        "layer": "ArakelovGeometryAndAbelianHeights:R35.2",
        "note": "Metrized line bundles and their heights in the Arakelov setting overlap TB.6's local analytic objects at the archimedean/nonarchimedean interface."
       },
       {
-       "layer": "SchemeAndStackFoundations:SF.5",
-       "note": "SF.5 is a declared input and owns the intersection theory the model measures are weighted by."
+       "layer": "GrossZagierAndArithmeticHeights:GZ.2",
+       "note": "GZ.2 constructs the admissible measure, the Green kernel and the local height decomposition at nonarchimedean semistable places, restating TB.6's model measures and local heights."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.0",
+       "note": "RP.0 constructs line-bundle heights and compares Néron–Tate and local heights on abelian varieties, overlapping TB.6's local heights with normalization."
+      },
+      {
+       "layer": "ArithmeticDynamics:DY.2",
+       "note": "DY.2 constructs nonarchimedean local heights and escape rates, overlapping TB.6's local heights."
       }
      ]
     },
@@ -1928,9 +2036,16 @@
          "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
          "line": 77,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.HasSplitMultiplicativeReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 366,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has Weierstrass and elliptic curves but no Tate curve: `grep -rn -i 'tate curve\\|TateCurve'` returns nothing in either tree ('Tate' in Tau Ceti means Tate cohomology or Hodge-Tate)."
+       "note": "Mathlib has Weierstrass and elliptic curves and the reduction types of a minimal model over a DVR (`HasGoodReduction`, `HasMultiplicativeReduction`, `HasSplitMultiplicativeReduction`), which is the hypothesis side of Tate uniformization, but no Tate curve: `grep -rn -i 'tate curve\\|TateCurve'` returns nothing in either tree."
       },
       {
        "target": "The Schottky / Mumford-curve quotient in its totally degenerate range",
@@ -1979,6 +2094,14 @@
       {
        "layer": "NeronModelsAndSemistableAbelianVarieties:R11.3",
        "note": "Semistable reduction and (rigid-analytic) uniformisation of abelian varieties overlap TB.7's uniformization and period lattice."
+      },
+      {
+       "layer": "ShimuraCompactifications:C4",
+       "note": "C4 compares the Tate curve, its invariant differential du/u and its q-parameter under isogeny, restating TB.7's Tate uniformization and period."
+      },
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:R18.5",
+       "note": "R18.5 constructs the Drinfeld upper half-plane and Čerednik–Drinfeld uniformisation, a Mumford-type quotient overlapping TB.7's Schottky/Mumford-curve target."
       }
      ]
     }
@@ -2062,7 +2185,7 @@
       },
       {
        "target": "The Brauer invariant of the endomorphism algebra and its compatibility with the explicit cyclic algebra",
-       "library": "partial",
+       "library": "absent",
        "declarations": [
         {
          "name": "TauCeti.BrauerGroup.mk",
@@ -2119,19 +2242,23 @@
      "duplicates": [
       {
        "layer": "BunGAndNewtonStrata:BG0",
-       "note": "BG0 builds G-isocrystals with reductive structure group and the Kottwitz/Newton parametrisation, which contains this stage's GL_n Dieudonné–Manin classification as the linear case."
+       "note": "BG0 constructs G-torsors and G-isocrystals with reductive structure group and the comparison with B(G) as σ-conjugacy classes, whose GL_n case is this stage's category of isocrystals."
       },
       {
        "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
        "note": "That stage's Dieudonné theory over a perfect field is the same Witt-vector semilinear-algebra package, at the level of Dieudonné modules rather than isocrystals."
       },
       {
-       "layer": "CrystallineCohomology:CR.3",
-       "note": "CR.3's Frobenius-isogeny sub-stage needs the same slope decomposition of F-isocrystals over a perfect base."
-      },
-      {
        "layer": "IgusaVarietiesAndTorsionConcentration:IG.0",
        "note": "IG.0 restates Newton strata and central leaves, whose indexing set is this stage's classification of isocrystals by rational slopes with multiplicities."
+      },
+      {
+       "layer": "BunGAndNewtonStrata:BG1",
+       "note": "BG1 constructs the Kottwitz map and the rational dominant Newton cocharacter with the classification of B(G); for GL_n this is this stage's Dieudonné–Manin classification by slopes."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+       "note": "Tau Ceti's ClassFieldTheory Layer 5 owns the local Brauer group Br F = H²(G_F, F^sep×) with its invariant map normalised by arithmetic Frobenius, which is the invariant T3 asks to compute for the endomorphism algebras."
       }
      ]
     },
@@ -2143,10 +2270,10 @@
        "library": "absent",
        "declarations": [
         {
-         "name": "SheafOfModules.LocalGeneratorsData.IsLocallyFreeData",
+         "name": "SheafOfModules.IsLocallyFree",
          "library": "mathlib",
          "file": "Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean",
-         "line": 47,
+         "line": 61,
          "fit": "related"
         },
         {
@@ -2157,7 +2284,7 @@
          "fit": "related"
         }
        ],
-       "note": "The curve X_S does not exist in either library (zero hits for `Fargues` anywhere), so there is no O_X to take modules over. The generic notions — locally free sheaves of modules in Tau Ceti, finite projective modules in Mathlib — exist but carry none of the stage's content."
+       "note": "The curve X_S does not exist in either library (zero hits for `Fargues` anywhere), so there is no O_X to take modules over. The generic notions — Mathlib's locally free sheaves of modules over a site (`SheafOfModules.IsLocallyFree`) and finite projective modules — exist but carry none of the stage's content."
       },
       {
        "target": "Rational, pro-étale and v-descent for bundles, effective gluing, and preservation of tensor, Hom and duals",
@@ -2387,8 +2514,8 @@
        "note": "The parent stage VB2 contains this sub-stage's text verbatim."
       },
       {
-       "layer": "BunGAndNewtonStrata:BG0",
-       "note": "BG0's G-torsor classification over a geometric point is the reductive-group generalisation of this bundle classification."
+       "layer": "BunGAndNewtonStrata:BG2:uniformization",
+       "note": "BG2:uniformization proves the bijection |Bun_G| → B(G) with the κ/ν formulas, the reductive-group generalisation of this stage's classification of bundles at a geometric point."
       }
      ]
     },
@@ -2404,8 +2531,23 @@
       {
        "target": "The explicit positive line-bundle and Lubin–Tate universal-cover calculations of FS II.2.1",
        "library": "absent",
-       "declarations": [],
-       "note": "Neither library has Lubin–Tate formal groups or their universal covers; `grep -rn -i 'lubin'` over both trees returns nothing. Tau Ceti has formal groups for elliptic curves only."
+       "declarations": [
+        {
+         "name": "FormalGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/FormalGroup/Basic.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "FormalGroup.𝔾ₘ",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/FormalGroup/Basic.lean",
+         "line": 161,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has Lubin–Tate formal groups or their universal covers; `grep -rn -i 'lubin'` over both trees returns nothing. Mathlib has one-dimensional formal group laws (`FormalGroup`) and the multiplicative law `𝔾ₘ`, which is the E = ℚ_p Lubin–Tate law up to isomorphism, but no universal cover or section computation."
       },
       {
        "target": "Diamond representability, local spatiality and exact-sequence behaviour of these section spaces, by v-descent",
@@ -2526,8 +2668,23 @@
       {
        "target": "The explicit positive line-bundle and Lubin–Tate universal-cover calculations of FS II.2.1",
        "library": "absent",
-       "declarations": [],
-       "note": "Neither library has Lubin–Tate formal groups or their universal covers; `grep -rn -i 'lubin'` over both trees returns nothing. Tau Ceti has formal groups for elliptic curves only."
+       "declarations": [
+        {
+         "name": "FormalGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/FormalGroup/Basic.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "FormalGroup.𝔾ₘ",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/FormalGroup/Basic.lean",
+         "line": 161,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has Lubin–Tate formal groups or their universal covers; `grep -rn -i 'lubin'` over both trees returns nothing. Mathlib has one-dimensional formal group laws (`FormalGroup`) and the multiplicative law `𝔾ₘ`, which is the E = ℚ_p Lubin–Tate law up to isomorphism, but no universal cover or section computation."
       },
       {
        "target": "Diamond representability, local spatiality and exact-sequence behaviour of these section spaces, by v-descent",
@@ -2604,8 +2761,16 @@
       {
        "target": "Equivalence between everywhere slope-zero bundles and pro-étale E-local systems, with tensor and scalar-extension compatibility",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent; there is no pro-étale site and no local system on a diamond."
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.proetaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Proetale.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: Mathlib has the pro-étale site on schemes (`Scheme.proetaleTopology`, Bhatt–Scholze Def. 4.1.1), but there is no pro-étale site on perfectoid spaces or diamonds and no local system on a diamond."
       },
       {
        "target": "Construction of nowhere-vanishing sections after a v-cover, using the proper projectivized section space",
@@ -2617,22 +2782,22 @@
      "duplicates": [
       {
        "layer": "BunGAndNewtonStrata:BG3",
-       "note": "BG3 states the same Newton-stratification and semicontinuity for G-torsors; the vector-bundle HN polygon here is its GL_n shadow."
+       "note": "BG3 describes the basic strata as classifying stacks of J_b(E); for GL_n and the basic slope-zero class these are the pro-étale E-local systems of T3."
       },
       {
        "layer": "BunGAndNewtonStrata:BG2",
-       "note": "BG2's Bun_G needs the same pro-étale-local trivialisation of slope-zero objects and the same identification with local systems."
+       "note": "BG2:uniformization proves ν semicontinuous by faithful-representation Harder–Narasimhan theory, the G-torsor form of T0's semicontinuity of the HN polygon."
       },
       {
-       "layer": "VStackSheavesAndLisseCategories:VS1",
-       "note": "VS1's ULA and Jacobian-criterion material consumes the same relative HN stratification of the curve."
+       "layer": "BunGAndNewtonStrata:BG1",
+       "note": "BG1 defines the dominance comparison of Newton points 'pinning its orientation' and uses it for semicontinuity, which is T0's semicontinuity with the source's dominance convention."
       }
      ]
     }
    }
   },
   "tauceti:TauCetiRoadmap/AdicSpaces": {
-   "summary": "This is by some distance the most-built roadmap in the batch: Tau Ceti carries a ~28000-line, sorry-free development under `TauCeti/RingTheory/Huber/` and `TauCeti/AlgebraicGeometry/AdicSpace/` that covers Layers 0-2 almost completely. Layer 1 is finished - Spv A with its patch presentation and spectrality, the pro-constructible calculus, cofinal ideals and c-Gamma_v(I), Spv(A,I) with the retraction r_I and Lemma 7.5, Cont A with Theorem 7.10 and Corollary 7.12 - and Layer 0 and Layer 2 are complete apart from named gaps. What is genuinely missing, in order: Weierstrass division/preparation and the noetherianity of K<X_1,...,X_n>, so that BGR 5.2.6 is unproved and no nondiscrete ring is yet known to be strongly noetherian; the family-indexed topological localisation A(T/S) (only the singleton-denominator case exists); Wedhorn 6.9(1); Proposition 8.2(2) in full and Definition 7.56's affinoid algebras; the homeomorphism Spa(A_U,A_U+) = U for the *completed* localisation, which the library states as an open problem; the structure sheaf O_X itself, O_X+, stalks, the category V^pre and the three sheafiness predicates; Lemmas 8.33/8.34, the Cech statement, stable uniformity and Buzzard-Verberkmoes; the whole of Layer 5's adic-space geometry and gluing; and all of Layer 6 except Mathlib's Witt-vector package. The Layer 4 *algebra* - Remark 8.29, Lemma 8.31, Proposition 8.30 in full and Corollary 8.32 - is done, so Tate acyclicity is blocked only on its last two lemmas and on a sheafiness predicate to state the conclusion in.",
+   "summary": "This is by some distance the most-built roadmap in the batch: Tau Ceti carries a ~30000-line, sorry-free development under `TauCeti/RingTheory/Huber/` and `TauCeti/AlgebraicGeometry/AdicSpace/` that covers most of Layers 0-2. Layer 1 is finished - Spv A with its patch presentation and spectrality, the pro-constructible calculus, cofinal ideals and c-Gamma_v(I), Spv(A,I) with the retraction r_I and Lemma 7.5, Cont A with Theorem 7.10 and Corollary 7.12. What is genuinely missing, in order: in Layer 0, the topology and universal property of module-coefficient restricted series, two of the three implications of Wedhorn Theorem 6.16 and the converse of Proposition 6.17, Weierstrass division/preparation and the noetherianity of K<X_1,...,X_n> (so BGR 5.2.6 is unproved and no nondiscrete ring is yet known to be strongly noetherian), the family-indexed topological localisation A(T/S) (only the singleton-denominator case exists) and Wedhorn 6.9(1); in Layer 2, a statement of when Spa(phi) is spectral, Lemma 7.54 for complete non-Tate rings, Proposition 8.2(2) in full and Definition 7.56's affinoid algebras; in Layer 3, openness of A_U+ (so (A_U,A_U+) is not yet a Huber pair), the homeomorphism Spa(A_U,A_U+) = U for the *completed* localisation, which the library states as an open problem, the structure sheaf O_X itself, O_X+, stalks, the category V^pre and the three sheafiness predicates; in Layer 4, flatness of restriction maps between arbitrary rational subsets (only same-denominator numerator enlargements and A -> A<T/s> are proved), Lemmas 8.33/8.34, the Cech statement, preservation of strong noetherianness under completion, stable uniformity and Buzzard-Verberkmoes; the whole of Layer 5's adic-space geometry and gluing; and all of Layer 6 except Mathlib's Witt-vector package. Of the Layer 4 algebra, Remark 8.29, Lemma 8.31 and Corollary 8.32 are done and Proposition 8.30 is proved in those two cases, so Tate acyclicity also waits on the general restriction maps, its last two lemmas and a sheafiness predicate to state the conclusion in.",
    "layers": {
     "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras": {
      "verdict": "partly built",
@@ -2955,6 +3120,13 @@
          "file": "Mathlib/Topology/UniformSpace/Completion.lean",
          "line": 355,
          "fit": "more general"
+        },
+        {
+         "name": "UniformSpace.Completion.ker_coeRingHom",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/Nonarchimedean/Completion/Basic.lean",
+         "line": 108,
+         "fit": "exact"
         }
        ],
        "note": "The Huber and Tate structure on Â is constructed with an explicit pair of definition; the dense-image and embedding statements are Mathlib's general completion facts. What I could not find anywhere is Wedhorn Proposition 6.9(1), the base-change statement the layer asks to be recorded separately: grepping `6\\.9` over the whole Huber tree returns nothing."
@@ -3045,7 +3217,7 @@
       },
       {
        "target": "Restricted series with coefficients in a complete topological module; substitution and evaluation; quotient and iteration isomorphisms A⟨X⟩⟨Y⟩ ≅ A⟨X,Y⟩; compatibility with completed tensoring by a finitely generated module",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.Huber.restrictedMvPowerSeriesSubmodule",
@@ -3083,13 +3255,28 @@
          "fit": "exact"
         }
        ],
-       "note": "The iteration isomorphism is one of topological rings; `restrictedMvPowerSeriesBaseChange_bijective` is Wedhorn Remark 8.29, M ⊗_A A⟨X⟩ ≅ M⟨X⟩ for a finitely generated M. Evaluation and substitution are the `WeightedEval` files."
+       "note": "The ring-level package is built: the iteration isomorphism A⟨X⟩⟨Y⟩ ≅ A⟨X,Y⟩ of topological rings, evaluation and substitution (WeightedEval), completeness, and Remark 8.29, M ⊗_A A⟨X⟩ ≅ M⟨X⟩ for finitely generated M (`restrictedMvPowerSeriesBaseChange_bijective`). The module-coefficient series M⟨X⟩ of the roadmap's first milestone exist only as a submodule (`restrictedMvPowerSeriesSubmodule`, with functoriality): neither their topology nor their universal property is constructed. Quotient isomorphisms exist only for the Laurent-type quotients and along open quotient maps."
       },
       {
        "target": "Weierstrass division and preparation over a complete rank-one nonarchimedean field",
        "library": "absent",
-       "declarations": [],
-       "note": "`grep -rn -i weierstrass` over the Huber tree returns nothing, and the only Weierstrass declarations in either library are elliptic-curve Weierstrass equations. Mathlib has no Weierstrass division for Tate algebras either."
+       "declarations": [
+        {
+         "name": "PowerSeries.exists_isWeierstrassDivision",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 504,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.exists_isWeierstrassFactorization",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 813,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Weierstrass division and preparation for formal power series over a complete local ring (`PowerSeries.exists_isWeierstrassDivision`, `exists_isWeierstrassFactorization`, and an I-adic division theorem in the same file). Nothing covers the Tate algebra K⟨X₁,…,Xₙ⟩ over a complete rank-one nonarchimedean field: `grep -rn -i weierstrass` over the Huber tree returns nothing."
       },
       {
        "target": "Noetherianity of K⟨X₁,…,Xₙ⟩ for a complete rank-one nonarchimedean field K, and the conclusion from BGR 5.2.6 that every such K is strongly noetherian",
@@ -3142,7 +3329,7 @@
       },
       {
        "target": "Henkel's open mapping theorem and Wedhorn Theorem 6.16, Propositions 6.17–6.18: a continuous surjective linear map between completely metrisable modules over a complete Hausdorff Tate ring is open and induces the quotient topology",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.HasZeroSequenceOfUnits.isOpenMap",
@@ -3166,21 +3353,28 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.Huber.IsTateRing.isStrictMap_of_isClosed_range",
-         "library": "tauceti",
-         "file": "TauCeti/RingTheory/Huber/OpenMapping.lean",
-         "line": 199,
-         "fit": "exact"
-        },
-        {
          "name": "TauCeti.Huber.IsTateRing.isModuleTopology",
          "library": "tauceti",
          "file": "TauCeti/RingTheory/Huber/OpenMapping.lean",
          "line": 306,
          "fit": "exact"
+        },
+        {
+         "name": "LinearMap.isStrictMap_of_module_finite",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/StrictMorphism.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Huber.isClosed_of_isNoetherian",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/ClosedSubmodule.lean",
+         "line": 126,
+         "fit": "special case"
         }
        ],
-       "note": "Henkel's theorem is proved abstractly from a zero sequence of units, then specialised; `IsTateRing.hasZeroSequenceOfUnits` discharges the hypothesis. One clause is short of the source: `PowSmulBasis.lean` records that 6.18(1)'s *uniqueness* of the complete module topology is not proved, only that the constructed topology is an A-module topology and first countable."
+       "note": "Henkel's theorem is proved abstractly from a zero sequence of units and specialised to Tate rings (`IsTateRing.hasZeroSequenceOfUnits`), giving the form used later: a continuous surjective linear map between complete first-countable Hausdorff modules over a complete Hausdorff Tate ring is open and a quotient map. Proposition 6.18 is proved in full: (1) finite modules carry a complete Hausdorff module topology (`completeSpace_moduleTopology`, `IsTateRing.t2Space_moduleTopology`) and it is the only such topology (`IsTateRing.isModuleTopology`); (2) linear maps between finite modules over a complete noetherian Tate ring are strict (`LinearMap.isStrictMap_of_module_finite`); `IsTateRing.isStrictMap_of_isClosed_range`, which still assumes a closed range, is only related and is no longer cited. What is missing is the rest of Theorem 6.16 — only '(a) N complete and (b) u surjective imply (c) u open' is proved, not the other two implications — and the converse of Proposition 6.17: only 'noetherian ⇒ every submodule closed' (`isClosed_of_isNoetherian`) exists."
       },
       {
        "target": "Examples: a discrete ring is Huber; ℤ_p is Huber but not Tate; ℚ_p and F⸨t⸩ are Tate; ℚ_p⟨T₁,…,Tₙ⟩ is complete and strongly noetherian",
@@ -3526,7 +3720,7 @@
       },
       {
        "target": "The contravariant continuous map on adic spectra induced by a morphism of Huber pairs, with the hypotheses under which it is spectral",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.ValuationSpectrum.spaComap",
@@ -3543,7 +3737,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Continuity and contravariant functoriality are proved, together with the preimage formula for rational subsets. I did not find a statement isolating when `spaComap` is a *spectral* map; only continuity plus the closed-embedding case for quotients."
+       "note": "Continuity and contravariant functoriality are proved (`spaComap`, `Pair.Hom.spaComap`), together with the preimage formula for rational subsets and the closed embedding for quotient pairs. The roadmap also asks for 'the exact hypotheses under which this map is spectral': no statement that `spaComap` is a spectral map exists (the only `IsSpectralMap` results in the AdicSpace tree concern the retraction r_I)."
       },
       {
        "target": "Rational subsets R(T/s) under the open-ideal condition, the five parts of Remark 7.30 including finite intersections, and the basis of quasi-compact opens",
@@ -3599,7 +3793,7 @@
          "fit": "more general"
         }
        ],
-       "note": "Proved over an arbitrary Huber ring, dropping Wedhorn's complete Hausdorff affinoid hypothesis, with the perturbation measured either by a power of the ideal of definition or by a neighbourhood of zero."
+       "note": "Proved over an arbitrary Huber ring, dropping Wedhorn's complete Hausdorff hypothesis: perturbing numerators and denominator inside a power of the ideal of definition, or inside a neighbourhood of zero, leaves the rational subset unchanged, which is the roadmap's formulation. Wedhorn's statement also concludes that the perturbed numerators generate an open ideal; that clause is not proved, and it can fail without completeness, so the declarations generalise the set equality but not the whole proposition."
       },
       {
        "target": "Corollary 7.53 (T generates the unit ideal iff the standard family (R(T/t))_{t∈T} covers Spa(A,A⁺)) over a complete Hausdorff affinoid ring",
@@ -3623,25 +3817,25 @@
        "note": "The forward direction needs no hypothesis on A at all; completeness enters only in the converse, through the support criterion."
       },
       {
-       "target": "Lemma 7.54: over a complete Hausdorff Tate ring every open cover has a standard rational refinement",
-       "library": "tauceti",
+       "target": "Lemma 7.54: over a complete affinoid ring every open cover has a standard rational refinement",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.ValuationSpectrum.exists_span_eq_top_forall_rationalSubset_subset_of_isTateRing",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Refinement.lean",
          "line": 168,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "TauCeti.ValuationSpectrum.exists_span_eq_top_forall_rationalSubset_subset",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Refinement.lean",
          "line": 141,
-         "fit": "more general"
+         "fit": "special case"
         }
        ],
-       "note": "The general form asks only that each numerator set generate the unit ideal; the Tate hypothesis is used exactly to supply that, since in a Tate ring every open ideal is the unit ideal. Kept distinct from iterated localisation, as the layer requires."
+       "note": "The roadmap states Lemma 7.54 for complete A. It is proved for a complete Hausdorff Tate ring, for arbitrary open covers (`…_of_isTateRing`), and for any Huber ring only for covers by rational subsets whose numerator sets generate the unit ideal (Refinement.lean:141). Over a non-Tate ring the numerator ideals of rational subsets need only be open, so the general complete case is not covered."
       },
       {
        "target": "Wedhorn Remark 7.55, the descending chain of rational subsets adjoining one numerator at a time",
@@ -3694,7 +3888,7 @@
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Points.lean",
          "line": 96,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.ValuationSpectrum.exists_mem_spa_supp_eq",
@@ -3709,9 +3903,23 @@
          "file": "TauCeti/RingTheory/Huber/Continuous/ValuativeCriterion.lean",
          "line": 427,
          "fit": "more general"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.isUnit_iff_forall_mem_spa_notMem_supp",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Support.lean",
+         "line": 144,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.exists_mem_spa_supp_eq_of_isMaximal",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Support.lean",
+         "line": 114,
+         "fit": "exact"
         }
        ],
-       "note": "7.52(1) uses only openness and integral closedness of the plus ring, exactly as the layer demands; 7.52(2) is derived from Proposition 7.51, stated for prime rather than maximal ideals. The engine is Wedhorn Proposition 7.18(1), proved in full: integrality tested against continuous valuations only, with the refuting valuation from Stacks 090P coarsened and extended to become continuous."
+       "note": "7.52(1) (`mem_iff_forall_vle_one`) uses only openness and integral closedness of the plus ring, as the layer demands. 7.52(2) is `isUnit_iff_forall_mem_spa_notMem_supp` (Spa/Support.lean:144) for a complete Hausdorff Huber pair, via Proposition 7.51 (`exists_mem_spa_supp_eq_of_isMaximal`, `exists_mem_spa_le_supp_of_ne_top`). The engine is Wedhorn Proposition 7.18(1), proved in full. The earlier Points.lean variant `isUnit_of_forall_not_vle_zero` assumes every maximal ideal is open, which its own docstring notes is vacuous for nonzero Tate rings."
       },
       {
        "target": "Proposition 7.49(1): Spa(A,A⁺) = ∅ ↔ A/closure{0} = 0, with the Hausdorff form kept separate",
@@ -3849,9 +4057,16 @@
          "file": "TauCeti/RingTheory/Huber/TopologicallyFiniteType.lean",
          "line": 112,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.IsStrictlyTopologicallyFiniteType",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/TopologicallyFiniteType.lean",
+         "line": 128,
+         "fit": "related"
         }
        ],
-       "note": "The closed polydisc Spa(A⟨T⟩, A⟨T⟩°) and its classical points are built over an arbitrary complete nonarchimedean base, which is more general than Definition 7.56's field. What is missing is the class of affinoid algebras itself — there is no declaration for `quotient of K⟨T₁,…,Tₙ⟩` as a definition (only the general `IsTopologicallyFiniteType`) — and the classification of the non-classical points and of the rational subdomains of the closed unit disc in Example 7.57."
+       "note": "The closed polydisc Spa(A⟨T⟩, A⟨T⟩°) and its classical points are built over an arbitrary complete nonarchimedean base, more general than Definition 7.56's field. 'Quotient of a restricted power-series algebra' exists as `IsStrictlyTopologicallyFiniteType`, but Definition 7.56's class of affinoid algebras over a complete rank-one field is not singled out, and Example 7.57's classification of the non-classical points and rational subdomains of the closed unit disc is missing."
       }
      ],
      "duplicates": [
@@ -3866,6 +4081,10 @@
       {
        "layer": "TropicalAndBerkovichArithmetic:TB.0",
        "note": "TB.0 asks for the comparison between a strictly affinoid algebra and its Huber adic spectrum, so it restates Spa(A,A⁺) and its rank-one points as the object being compared with M(A)."
+      },
+      {
+       "layer": "AdicEtaleGeometry:A0",
+       "note": "A0 asks to construct the analytic locus and the Tate charts on which its fibre-product constructions are applied, restating this layer's analytic points and their Tate cover (T10)."
       }
      ]
     },
@@ -3902,7 +4121,7 @@
       },
       {
        "target": "A_U⁺ as the integral closure of the image of A⁺[T/s], and that (A_U,A_U⁺) is a Huber pair",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.Huber.PairOfDefinition.completedPlusSubring",
@@ -3933,7 +4152,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Integral closedness and containment in the power-bounded subring are both proved, so A_U⁺ is a ring of integral elements; openness of A_U⁺ is not, and it is carried as a hypothesis by the comparison results below."
+       "note": "Integral closedness and containment in the power-bounded subring are proved, so A_U⁺ satisfies two of the three conditions of a ring of integral elements. Openness of A_U⁺ in A⟨T/s⟩ is not proved (LocalizationTopology/Plus.lean: 'Openness is still not proved here'; Spa/Localization/PresentationIndependence.lean: 'not proved anywhere on main'), and `IsRingOfIntegralElements` has an `isOpen` field, so (A_U, A_U⁺) is not yet shown to be a Huber pair. Before completion all three conditions hold (`isRingOfIntegralElements_integralClosure_adjoin_plus`)."
       },
       {
        "target": "The natural homeomorphism Spa(A_U,A_U⁺) ≅ U, identifying valuations and rational subsets",
@@ -3986,6 +4205,20 @@
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/StructurePresheaf/Basic.lean",
          "line": 276,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.eq_comp_of_comp_toCompletionLoc_eq_three",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Presentation.lean",
+         "line": 304,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.Presentation.restrictionHom_comp",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/CompleteSeparated/RefinementCategory.lean",
+         "line": 147,
          "fit": "related"
         }
        ],
@@ -4049,7 +4282,7 @@
       },
       {
        "target": "Stalks: every stalk is a local ring, the support of the point valuation is its maximal ideal, and the valuation factors through the residue field",
-       "library": "partial",
+       "library": "absent",
        "declarations": [
         {
          "name": "TauCeti.ValuationSpectrum.residueRing",
@@ -4073,7 +4306,7 @@
          "fit": "related"
         }
        ],
-       "note": "The factorisation of a point's valuation through κ(v) = (supp v).ResidueField is complete. The statements about *stalks* of the structure presheaf are not there: `grep -rn -i stalk` over TauCeti/AlgebraicGeometry/AdicSpace returns nothing."
+       "note": "Nothing about stalks exists: `grep -rn -i stalk` over TauCeti/AlgebraicGeometry/AdicSpace and TauCeti/RingTheory/Huber returns nothing, and there is no structure sheaf whose stalks could be taken. What exists is the ring-level factorisation of a point's valuation through κ(v) = (supp v).ResidueField of A itself (`residueFieldValuation`), which a stalk statement would use."
       },
       {
        "target": "The category 𝒱^pre of pre-adic spaces (space, presheaf of complete separated topological rings, local stalks, residue-field valuations) with its morphisms, affinoid pre-adic spaces, and 𝒱",
@@ -4097,21 +4330,28 @@
          "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Trivial.lean",
          "line": 190,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.toCompletionLocEquivDenomOne",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Trivial.lean",
+         "line": 302,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.toCompletionLocHomeomorphDenomOne",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Trivial.lean",
+         "line": 328,
+         "fit": "related"
         }
        ],
        "note": "Trivial.lean proves the underlying computation — at denominator 1 the localisation topology is the topology A already carries, so A⟨T/1⟩ is the Hausdorff completion of A and the structure map is an isomorphism of topological rings when A is complete Hausdorff. Its own header says this is the Layer 3.5 target `at the level of the localisation construction the presheaf is built from`, i.e. not yet a statement about 𝒪_X, which does not exist."
       },
       {
        "target": "The basis sheaf criterion: rational subsets are a basis closed under finite intersections and quasi-compact, every cover of a rational subset has a finite rational refinement, the sheaf condition on the basis is equivalent to the sheaf condition on all opens, and the equalizer topology is the subspace topology",
-       "library": "tauceti",
+       "library": "both",
        "declarations": [
-        {
-         "name": "TauCeti.ValuationSpectrum.isSheaf_iff_isSheafFor_rationalCover",
-         "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/SheafCriterion.lean",
-         "line": 51,
-         "fit": "more general"
-        },
         {
          "name": "TauCeti.ValuationSpectrum.isTopologicalBasis_spaRationalFamily",
          "library": "tauceti",
@@ -4127,28 +4367,41 @@
          "fit": "exact"
         },
         {
-         "name": "TauCeti.ValuationSpectrum.exists_span_eq_top_forall_rationalSubset_subset_of_isTateRing",
+         "name": "TauCeti.ValuationSpectrum.exists_finite_spaRationalFamily_refinement",
          "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Refinement.lean",
-         "line": 168,
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basis.lean",
+         "line": 364,
          "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.isCompact_of_mem_spaRationalFamily",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basis.lean",
+         "line": 300,
+         "fit": "exact"
+        },
+        {
+         "name": "CategoryTheory.Functor.sheafInducedTopologyEquivOfIsCoverDense",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/DenseSubsite/InducedTopology.lean",
+         "line": 159,
+         "fit": "more general"
+        },
+        {
+         "name": "TopCat.Opens.coverDense_inducedFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Sheaves/SheafCondition/Sites.lean",
+         "line": 135,
+         "fit": "more general"
         }
        ],
-       "note": "The criterion is stated for an arbitrary presheaf valued in any category, so it is more general than the layer asks; the equalizer/subspace-topology clause is the closure-under-limits content of CompleteSeparated/Limits.lean."
+       "note": "Every clause is present once the right declarations are cited. Rational subsets form a basis closed under finite intersections (Basis.lean:255/197) and are quasi-compact (`isCompact_of_mem_spaRationalFamily`, any Huber ring). Every cover of a rational subset by opens has a finite rational refinement (`exists_finite_spaRationalFamily_refinement`, any Huber ring). Lemma 7.54 (Refinement.lean:168, dropped from the citations) is only the Tate special case for covers of the whole space. Sheaves on the basis are equivalent to sheaves on all opens by Mathlib's comparison lemma, `sheafInducedTopologyEquivOfIsCoverDense`, applied through `coverDense_inducedFunctor` to a basis; it needs a complete value category, which CompleteSeparatedTopCommRingCat is (Limits.lean). Tau Ceti's `isSheaf_iff_isSheafFor_rationalCover` (SheafCriterion.lean:51, dropped from the citations) is a different criterion: a presheaf on all opens is a sheaf iff it satisfies the sheaf condition for rational covers of every open. The equalizer/subspace-topology clause is the closure-under-limits content of CompleteSeparated/Limits.lean."
       }
      ],
      "duplicates": [
       {
        "layer": "PerfectoidSpaces:P2",
        "note": "P2 asks for perfectoid rational localizations and the sheaf theorem on affinoids, which is this layer's A⟨T/s⟩ and structure presheaf specialised to perfectoid pairs."
-      },
-      {
-       "layer": "AdicEtaleGeometry:A0",
-       "note": "A0's supplier contract names the plus subring obtained by integral closure of the image and the universal property for continuous morphisms of pairs, which is this layer's A_U⁺ and Lemma 8.1 in another roadmap's words."
-      },
-      {
-       "layer": "AdicSpacesPartII:R0",
-       "note": "R0 takes the sheafiness/localisation compatibility of this layer as an input and glues it to fibre products; the structure presheaf is assumed, not rebuilt."
       }
      ]
     },
@@ -4213,7 +4466,7 @@
       },
       {
        "target": "Proposition 8.30: restriction maps between rational localisations are flat, via the chain of Remark 7.55",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.Huber.PairOfDefinition.flat_restrictionRingHomOfSubset",
@@ -4227,7 +4480,7 @@
          "library": "tauceti",
          "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Flat.lean",
          "line": 576,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "TauCeti.Huber.PairOfDefinition.isStronglyNoetherian_completion_of_subset",
@@ -4235,9 +4488,23 @@
          "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/StronglyNoetherian.lean",
          "line": 209,
          "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.flat_toCompletionLoc",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Flat.lean",
+         "line": 762,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.exists_rationalSubset_chain",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Chain.lean",
+         "line": 87,
+         "fit": "related"
         }
        ],
-       "note": "The elementary one-numerator case, the chain, and the full statement asking strong noetherianness of A alone (for a presentation whose numerators span the unit ideal with s) are all proved; the file is explicit that the ordinary noetherian adic-completion route is not used."
+       "note": "Two cases are proved: the restriction A⟨T/s⟩ → A⟨T'/s⟩ for a numerator enlargement T ⊆ T' with the same denominator s (Laurent/Flat.lean:576, asking strong noetherianness of A alone when T ∪ {s} spans the unit ideal; the file calls this 'Proposition 8.30 in full'), and the structure map A → A⟨T/s⟩ for every presentation (`flat_toCompletionLoc`, Laurent/Flat.lean:762), the case U = Spa A. Flatness of 𝒪(U) → 𝒪(V) for an arbitrary containment V ⊆ U of rational subsets with different denominators is not stated: the comparison map for such a containment exists only under the extra hypotheses of `existsUnique_continuous_ringHom_of_rationalSubset_subset` (s invertible, A_U⁺ open). The Remark 7.55 chain is `exists_rationalSubset_chain`."
       },
       {
        "target": "Corollary 8.32: faithful flatness and injectivity of A → ∏ A⟨Tᵢ/sᵢ⟩ for a finite rational cover",
@@ -4298,6 +4565,20 @@
          "file": "TauCeti/RingTheory/Huber/ClosedSubmodule.lean",
          "line": 126,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.exists_span_eq_top_forall_rationalSubset_subset",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Refinement.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.exists_span_eq_top_forall_rationalSubset_subset_of_isTateRing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Refinement.lean",
+         "line": 168,
+         "fit": "exact"
         }
        ],
        "note": "The topological toolkit the layer names (open mapping, closed finitely generated submodules, quotient topology) is complete, but Lemma 8.34 itself and the reduction of a general finite rational cover to the Laurent case are not stated; `grep '8\\.34'` over the library returns nothing."
@@ -4305,8 +4586,16 @@
       {
        "target": "Conclusion: Huber.IsSheafyPair A A⁺ and exactness in every degree of the augmented Čech complex for every finite rational cover of a rational subset",
        "library": "absent",
-       "declarations": [],
-       "note": "Neither the sheafiness predicate nor any Čech complex for rational covers exists; `grep -i 'Čech|Cech'` over the AdicSpace and Huber trees returns nothing."
+       "declarations": [
+        {
+         "name": "CategoryTheory.cechComplexFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Cech.lean",
+         "line": 65,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither the sheafiness predicate nor a Čech complex for rational covers exists. The only Čech hits in the AdicSpace tree are two comments (RationalSubset/Basis.lean, Refinement.lean). Mathlib's generic `CategoryTheory.cechComplexFunctor` is available as infrastructure but is not specialised to rational covers or the structure presheaf."
       },
       {
        "target": "Completion preserves strong noetherianness and identifies rational localisations and structure presheaves; Theorem 8.28(b) and Corollary 8.35 (every strongly noetherian Tate ring is stably sheafy)",
@@ -4317,14 +4606,14 @@
          "library": "tauceti",
          "file": "TauCeti/RingTheory/Huber/LocalizationTopology/StronglyNoetherian.lean",
          "line": 104,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.Huber.PairOfDefinition.isStronglyNoetherian_completion_self",
          "library": "tauceti",
          "file": "TauCeti/RingTheory/Huber/LocalizationTopology/StronglyNoetherian.lean",
          "line": 60,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.Huber.isStronglyNoetherian_congr",
@@ -4341,7 +4630,7 @@
          "fit": "related"
         }
        ],
-       "note": "The propagation half is proved: a rational localisation A⟨T/s⟩ of a strongly noetherian Tate ring is again strongly noetherian (via its strictly topologically finite type presentation), independently of the carrier chosen for the localisation, and strong noetherianness transports along a bicontinuous isomorphism. What is still missing is the comparison of structure presheaves under completion, Theorem 8.28(b) and Corollary 8.35 — none of which can be stated until a sheafiness predicate exists."
+       "note": "What is proved is propagation to rational localisations: A⟨T/s⟩ of a strongly noetherian Tate ring is strongly noetherian when T ∪ {s} spans the unit ideal (`isStronglyNoetherian_completion`, LocalizationTopology/StronglyNoetherian.lean:104), independently of the carrier (`isStronglyNoetherian_completion_self`), and transport along bicontinuous isomorphisms. That the separated completion A ↦ Â preserves strong noetherianness is not stated anywhere, and neither is the comparison of structure presheaves under completion, Theorem 8.28(b) or Corollary 8.35."
       },
       {
        "target": "Uniformity (A° bounded), stable uniformity of a complete Hausdorff Tate pair, and the Buzzard–Verberkmoes theorem that uniformity of every rational subspace makes the structure presheaf a sheaf",
@@ -4368,6 +4657,14 @@
       {
        "layer": "AdicSpacesPartII:R0",
        "note": "R0's `sheafiness/localization compatibility for the affinoid products actually needed` is this layer's conclusion applied to completed tensor products."
+      },
+      {
+       "layer": "AdicSpacesPartII:R3",
+       "note": "R3 asks for the affinoid coherent-sheaf equivalence and acyclicity for finite affinoid covers, which is this layer's Tate acyclicity extended from 𝒪 to coherent modules; it should import the Čech exactness proved here."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF0:annuli",
+       "note": "RF0:annuli must prove complete separated sheafiness of relative period annuli by 'sousperfectoid/stably uniform arguments', which is the stably uniform route of 4.2 (Buzzard–Verberkmoes) applied to non-noetherian annulus rings."
       }
      ]
     },
@@ -4465,14 +4762,14 @@
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
          "line": 72,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.ValuationSpectrum.classicalPoint",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
          "line": 148,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.Huber.Padic.isTateRing",
@@ -4517,6 +4814,10 @@
       {
        "layer": "DiamondsAndVStacks:D6",
        "note": "D6 glues the affine objects Spd(A,A⁺) to define X^♢ for analytic adic spaces, which presupposes this layer's gluing of adic spaces as its input."
+      },
+      {
+       "layer": "AdicEtaleGeometry:A2",
+       "note": "A2 asks to 'construct finite-dimensional analytic balls and tori, locally finite-type morphisms', which restates this layer's closed polydiscs and morphisms topologically of finite type (its canonical owner is AdicSpacesPartII)."
       }
      ]
     },
@@ -4667,10 +4968,535 @@
       {
        "layer": "FarguesFontaineDiamonds:F1",
        "note": "F1's untilt product formula uses the universal property of Witt vectors of the perfect ring 𝒪_F and Fontaine's θ, i.e. the same Witt-vector package this layer's 6.1 asks to be packaged."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF1",
+       "note": "RF1 establishes the Frobenius action, the wandering annuli and the adic quotient X_S = Y_S/φ^ℤ over a perfectoid base, the relative version of this layer's windows, quotient space and charts (6.3–6.5)."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF0:annuli",
+       "note": "RF0:annuli constructs Y_S = 𝒴_S ∖ V(π) and the annulus rings with their plus subrings, the relative version of this layer's 𝒴 and interval rings B^I."
+      },
+      {
+       "layer": "FarguesFontaineDiamonds:F2",
+       "note": "F2 proves that the adic quotient map q is locally an isomorphism on the wandering charts and that its relation is the disjoint union of Frobenius graphs, which restates this layer's window-chart statements before diamondifying them."
       }
      ]
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-39",
+  "date": "2026-09-23",
+  "checked": 243,
+  "notes": "Checked all 243 targets of the 36 layers against the roadmap extracts and, for AdicSpaces Layers 0 and 2, Wedhorn's text. All 342 original citations (256 distinct) resolve at their file and line in declarations.tsv and the pinned sources; none is private, and no cited file contains a sorry outside comments (the AdicSpace/Huber trees, about 30,000 lines, are sorry-free). One citation was a deprecated alias (Mathlib `Tropical`, now `MinTropical`) and was replaced. Every presence and partial claim was re-read at source with its variable lines and hypotheses; every absent target was re-searched by concept over declarations.tsv and both source trees, except two with no standard name (TB.1 descent, TB.3 specialization inequality). Status changes (11 targets): six present targets are only partial — AdicSpaces L0 module-coefficient restricted series (no topology or universal property) and Theorem 6.16/Proposition 6.17 (one implication and one direction only), L2 spectrality of Spa(phi) and Lemma 7.54 for complete non-Tate rings, L3 the Huber pair (A_U, A_U+) (openness of A_U+ unproved), L4 Proposition 8.30 (only same-denominator enlargements and A -> A<T/s>); L3's basis sheaf criterion becomes 'both' with Mathlib's comparison lemma; TB.0's rank-one comparison goes from absent to partial (Wedhorn Remark 7.42(2)); three partial targets with nothing stated become absent (L3 stalks, TB.2 refinement compatibility, VB0 Brauer invariant). Several citations were wrong or missing: the audit cited a Tate-only Lemma 7.54 for the rational-subset refinement clause, a vacuous-on-Tate-rings 7.52(2), and a rational-localisation theorem as 'completion preserves strong noetherianness'. Five notes made false absence claims (Mathlib's power-series Weierstrass preparation, Weil and Néron–Tate heights, DivisibleHull, the multiplicative Torsor class, the scheme pro-étale site), and the RelativeFarguesFontaine summary credited the completed localisation with results proved only for the uncompleted one. Duplicates: all 101 resolve to live, non-retired stages. 22 were removed, being consumers or prerequisites (by their own notes), stages of the same roadmap that depend on each other, or wrong layers. 29 missed owners were added, among them Tau Ceti's StableReduction Layers 1, 3 and 6, ClassFieldTheory Layer 5, AnalyticToricGeometry Layer 0, BunGAndNewtonStrata BG1 and BG2:uniformization, and FarguesFontaineDiamonds F1, F2 and F4. No layer verdict changes: 29 not built, 6 partly built, 1 built (AdicSpaces Layer 1, confirmed target by target). The audit's overall picture — AdicSpaces Layers 0-2 largely built in Tau Ceti, nothing of Berkovich, tropical, relative Fargues–Fontaine or Banach–Colmez theory in either library — stands.",
+  "corrections": [
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+    "target": "Completion: A → Â has dense image, kernel closure{0}, is a topological embedding when A is Hausdorff; Â is Huber (Remark 6.8) and the Tate property is preserved; base change of Proposition 6.9(1)",
+    "was": "kernel clause uncited",
+    "now": "`UniformSpace.Completion.ker_coeRingHom` cited; still partial (Proposition 6.9(1) missing)",
+    "why": "Tau Ceti proves that the kernel of A → Â is the closure of {0} (Nonarchimedean/Completion/Basic.lean:108), the clause of the target the audit left uncited."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+    "target": "Restricted series with coefficients in a complete topological module; substitution and evaluation; quotient and iteration isomorphisms A⟨X⟩⟨Y⟩ ≅ A⟨X,Y⟩; compatibility with completed tensoring by a finitely generated module",
+    "was": "tauceti",
+    "now": "partial — topology and universal property of M⟨X⟩ missing",
+    "why": "The roadmap's milestone 1 asks for 'restricted series with coefficients in a complete topological module, including the topology and the universal property'. Restricted/PowerSeries.lean provides only the submodule M⟨X⟩ and its functoriality; no topology or universal property on it exists anywhere in the Huber tree."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+    "target": "Weierstrass division and preparation over a complete rank-one nonarchimedean field",
+    "was": "note: the only Weierstrass declarations in either library are elliptic-curve Weierstrass equations",
+    "now": "note corrected; Mathlib's power-series Weierstrass division and preparation cited as related; still absent",
+    "why": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean proves Weierstrass division (:504) and preparation (:813) for power series over complete local rings. They do not apply to restricted power series over a rank-one field, so the target stays absent."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+    "target": "Henkel's open mapping theorem and Wedhorn Theorem 6.16, Propositions 6.17–6.18: a continuous surjective linear map between completely metrisable modules over a complete Hausdorff Tate ring is open and induces the quotient topology",
+    "was": "tauceti — note: 6.18(1) uniqueness unproved",
+    "now": "partial — the other two implications of Theorem 6.16 and the converse of 6.17 missing; 6.18 cited in full",
+    "why": "The roadmap asks to formalise Wedhorn Theorem 6.16 ('any two of these properties imply the third') and Propositions 6.17 (an iff) and 6.18. Only one implication of 6.16 and one direction of 6.17 exist. The note's stated gap was wrong: `IsTateRing.isModuleTopology` is the uniqueness in 6.18(1), and StrictMorphism.lean:60 is 6.18(2). `isStrictMap_of_isClosed_range` still assumes a closed range, so it is related, not exact."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+    "target": "The contravariant continuous map on adic spectra induced by a morphism of Huber pairs, with the hypotheses under which it is spectral",
+    "was": "tauceti — note admitted no spectrality statement",
+    "now": "partial",
+    "why": "The roadmap asks to state the exact hypotheses under which Spa(φ) is spectral. That statement does not exist, as the audit's own note says, so the target cannot be present."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+    "target": "Proposition 7.34 (rational subsets are unchanged by small perturbations of their defining functions)",
+    "was": "note: 'more general' with no caveat",
+    "now": "note records the unproved openness clause of Wedhorn's statement; status unchanged",
+    "why": "Wedhorn 7.34 also asserts that t'_1,…,t'_n generate an open ideal. The Tau Ceti theorems conclude only the equality of rational subsets (which is what the roadmap states), so 'more general' holds for the hypotheses but not for the full conclusion."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+    "target": "Lemma 7.54: over a complete Hausdorff Tate ring every open cover has a standard rational refinement",
+    "was": "tauceti — target narrowed to Tate rings; the Huber-ring version labelled 'more general'",
+    "now": "partial — target restored to complete affinoid rings; both declarations special cases",
+    "why": "The roadmap asks for Lemma 7.54 'for complete A'. Refinement.lean:141 assumes the numerator sets generate the unit ideal, which Wedhorn's rational subsets do not require outside the Tate case, so it is a special case, not more general."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+    "target": "Proposition 7.52(1) (A⁺ is the sub-unit locus of Spa(A,A⁺), no completeness hypothesis) and 7.52(2) (the complete-case unit criterion), stated separately",
+    "was": "7.52(2) cited as `isUnit_of_forall_not_vle_zero` (exact)",
+    "now": "`isUnit_iff_forall_mem_spa_notMem_supp` and `exists_mem_spa_supp_eq_of_isMaximal` cited as exact; the Points.lean variant related",
+    "why": "`isUnit_of_forall_not_vle_zero` assumes that maximal ideals are open, which no nonzero Tate ring satisfies (its docstring says so); the usable 7.52(2) and 7.51 are in Spa/Support.lean. The target stays present."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+    "target": "Affinoid algebras over a complete rank-one nonarchimedean field (Definition 7.56), closed polydiscs from K⟨T₁,…,Tₙ⟩ with plus ring A°, and the elementary points and rational subdomains of the closed unit disc (Example 7.57)",
+    "was": "note: no declaration for 'quotient of K⟨T₁,…,Tₙ⟩'",
+    "now": "`IsStrictlyTopologicallyFiniteType` cited; note corrected; still partial",
+    "why": "TopologicallyFiniteType.lean:128 defines exactly a quotient of a restricted power-series algebra; what is missing is the rank-one-field specialisation and Example 7.57."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+    "target": "(layer duplicates)",
+    "was": "three duplicates",
+    "now": "AdicEtaleGeometry:A0 added",
+    "why": "A0's final paragraph restates this layer's analytic locus and Tate charts."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+    "target": "A_U⁺ as the integral closure of the image of A⁺[T/s], and that (A_U,A_U⁺) is a Huber pair",
+    "was": "tauceti — all four citations exact",
+    "now": "partial — openness of A_U⁺ missing",
+    "why": "The target asks that (A_U, A_U⁺) be a Huber pair, which needs A_U⁺ open. Plus.lean says 'Openness is still not proved here' and PresentationIndependence.lean says it is 'not proved anywhere on main'; the audit's own note concedes this, so the target cannot be present."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+    "target": "Canonical isomorphisms between the localisations of two presentations of the same rational subset, compatibility for three presentations, and restriction maps with identity and composition laws",
+    "was": "three-presentation compatibility and the identity/composition laws uncited",
+    "now": "`eq_comp_of_comp_toCompletionLoc_eq_three` and `Presentation.restrictionHom_comp` cited; still partial",
+    "why": "The cocycle condition for three presentations is proved when all three comparison maps are compatible with the structure maps from A, and the refinement restriction maps have identity and composition laws (`restrictionHom_refl`, `restrictionHom_comp`). Presentation independence itself still needs the two extra hypotheses the note describes."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+    "target": "Stalks: every stalk is a local ring, the support of the point valuation is its maximal ideal, and the valuation factors through the residue field",
+    "was": "partial — note called the factorisation through κ(v) complete",
+    "now": "absent — related citations kept",
+    "why": "All three clauses concern stalks of the structure presheaf (local ring, support = maximal ideal of the stalk, factorisation through the stalk's residue field); none is stated. `residueFieldValuation` factors through the residue field of supp v in A, not of a stalk."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+    "target": "𝒪_X(X) ≅ A as a topological ring for a complete Hausdorff pair",
+    "was": "only `locTopology_denom_one` cited",
+    "now": "the ring isomorphism and homeomorphism A ≅ A⟨T/1⟩ cited; still partial",
+    "why": "Trivial.lean:302/328 state the isomorphism of the structure map A → A⟨T/1⟩ as a ring equivalence and as a homeomorphism for complete Hausdorff A, which is the localisation-level content of the target. The target stays partial because 𝒪_X itself does not exist."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+    "target": "The basis sheaf criterion: rational subsets are a basis closed under finite intersections and quasi-compact, every cover of a rational subset has a finite rational refinement, the sheaf condition on the basis is equivalent to the sheaf condition on all opens, and the equalizer topology is the subspace topology",
+    "was": "tauceti — Lemma 7.54 cited as exact for the refinement clause; the rational-cover criterion cited as 'more general' for basis ⇔ opens",
+    "now": "both — finite refinement, quasi-compactness and Mathlib's comparison lemma cited; the Tate-only Lemma 7.54 and the rational-cover criterion no longer cited",
+    "why": "Refinement.lean:168 is Lemma 7.54 for covers of all of Spa over a Tate ring, not refinement of a cover of a rational subset; the latter is `exists_finite_spaRationalFamily_refinement` (Basis.lean:364). `isSheaf_iff_isSheafFor_rationalCover` quantifies over rational covers of every open (IsBasisCover), so it is not 'sheaf condition on the basis ⇔ on all opens'. That equivalence is Mathlib's comparison lemma for a cover-dense basis."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+    "target": "Proposition 8.30: restriction maps between rational localisations are flat, via the chain of Remark 7.55",
+    "was": "tauceti — `flat_restrictionRingHomOfSubset_of_span_eq_top` cited as the full statement",
+    "now": "partial — same-denominator enlargement and A → A⟨T/s⟩ cited as special cases; general restriction missing",
+    "why": "The roadmap asks that restriction maps between rational localisations be flat. The cited theorem keeps the denominator fixed (Laurent/Flat.lean:568: 'the restriction map A⟨T/s⟩ → A⟨T'/s⟩ attached to a numerator enlargement'); the file itself says the denominator-changing case is different and proves only A → A⟨T/s⟩ (Laurent/Flat.lean:31–33, 762). General V ⊆ U restrictions are not even constructed without extra hypotheses."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+    "target": "Lemma 8.34 and the passage from the Laurent case to an arbitrary finite rational cover, and the topological statements (closed images, quotient topology) via the open mapping theorem",
+    "was": "Lemma 7.54 uncited",
+    "now": "Lemma 7.54 cited for the refinement step; still partial",
+    "why": "The roadmap's step 6 first refines to a standard rational cover by Lemma 7.54, which is proved (Refinement.lean:141 for Huber rings with spanning numerators, :168 for Tate rings); Lemma 8.34 and the Laurent-to-general passage remain absent."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+    "target": "Conclusion: Huber.IsSheafyPair A A⁺ and exactness in every degree of the augmented Čech complex for every finite rational cover of a rational subset",
+    "was": "absent — note said a Čech grep returns nothing",
+    "now": "absent — note corrected; Mathlib's generic Čech complex cited as related",
+    "why": "`grep -i Cech` over the AdicSpace tree hits two comments, and Mathlib has `cechComplexFunctor` (SheafCohomology/Cech.lean:65), generic infrastructure the conclusion would use. Neither changes the status."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+    "target": "Completion preserves strong noetherianness and identifies rational localisations and structure presheaves; Theorem 8.28(b) and Corollary 8.35 (every strongly noetherian Tate ring is stably sheafy)",
+    "was": "`isStronglyNoetherian_completion` cited as exact for 'completion preserves strong noetherianness'",
+    "now": "fit related; the A ↦ Â clause recorded as missing; still partial",
+    "why": "Despite its name the theorem is about the completed rational localisation A⟨T/s⟩ ('A rational localisation of a strongly noetherian Tate ring is strongly noetherian', StronglyNoetherian.lean:95); nothing proves that A → Â preserves the property."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+    "target": "Examples: Spa(K,K°) for a complete rank-one nonarchimedean field, the closed unit disc and closed polydiscs",
+    "was": "`closedPolydisc` and `classicalPoint` fit exact",
+    "now": "fit related",
+    "why": "`closedPolydisc` is a set of valuations, the point set of Spa(A⟨T⟩, A⟨T⟩°), not an adic space, which is what a Layer 5 example is; the target stays partial."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+    "target": "(layer duplicates)",
+    "was": "duplicates AdicEtaleGeometry:A0 and AdicSpacesPartII:R0",
+    "now": "both removed",
+    "why": "A0 is about completed tensor products of Huber pairs, where the plus subring is the integral closure of the image of the tensor product of plus rings; that is an analogous construction, not this layer's A_U⁺ or Lemma 8.1. R0's own entry says the structure presheaf is 'assumed, not rebuilt', so it consumes this layer rather than restating it."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+    "target": "(layer duplicates)",
+    "was": "three duplicates",
+    "now": "AdicSpacesPartII:R3 and RelativeFarguesFontaine:RF0:annuli added",
+    "why": "R3 restates Tate acyclicity for coherent sheaves on affinoid covers, and RF0:annuli restates the stably uniform sheafiness of 4.2 for relative annuli."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+    "target": "(layer duplicates)",
+    "was": "three duplicates",
+    "now": "AdicEtaleGeometry:A2 added",
+    "why": "A2 restates the analytic balls and locally-finite-type morphisms of 5.3–5.4."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+    "target": "(layer duplicates)",
+    "was": "four duplicates",
+    "now": "RelativeFarguesFontaine:RF1, RelativeFarguesFontaine:RF0:annuli and FarguesFontaineDiamonds:F2 added",
+    "why": "All three restate parts of 6.2–6.5: RF1 and RF0:annuli in the relative setting, F2 for the quotient charts; RF1 and RF0:annuli already list this layer among their own duplicates."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF0",
+    "target": "Teichmuller representatives in W_{O_E}(R)",
+    "was": "only the p-typical `WittVector.teichmuller` cited; note: the O_E-version is absent",
+    "now": "`Perfection.teichmuller` (more general) and Tau Ceti's local-field `teichmuller` (special case) cited; still partial",
+    "why": "Mathlib/RingTheory/Teichmuller.lean:101 constructs Teichmüller lifts in any I-adically complete ring whose quotient has characteristic p, which covers W_{O_E}(R); TauCeti/NumberTheory/LocalField/Teichmuller.lean:100 is the residue-field case for O_E."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF0",
+    "target": "pi-adically complete flat O_E universal property of W_{O_E}",
+    "was": "note: the strict-lift universal property is not stated in either the p-typical or the ramified case",
+    "now": "p-torsion-freeness, W(k)/p ≅ k and the uniqueness half cited as special cases; still partial",
+    "why": "Mathlib/RingTheory/WittVector/Complete.lean:55/105 and TeichmullerSeries.lean:118 prove flatness, the residue ring and uniqueness for p-typical Witt vectors of a perfect ring; only existence of lifts and the ramified case are missing."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF0:integral-Y",
+    "target": "W_{O_E}(R^+) with the (pi,[varpi])-adic topology as a Huber ring",
+    "was": "`isAdicCompleteIdealSpanP` fit special case",
+    "now": "fit related",
+    "why": "p-adic completeness of W(k) for perfect k is not a Huber-ring statement with the (p,[ϖ])-adic topology."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF0:integral-Y",
+    "target": "Completed rational chart rings with integral-closure plus rings",
+    "was": "note: Tau Ceti proves the completed plus ring is a ring of integral elements and identifies Spa of the completed pair with the rational subset",
+    "now": "note corrected; the ring-of-integral-elements citation relabelled related; still partial",
+    "why": "Both theorems concern the uncompleted A(T/s) (Plus.lean:464: 'The integral closure is taken here in Aₛ, not in A⟨T/s⟩'; Homeomorph.lean leaves the completed ring unidentified). For the completed ring only integral closedness and power-boundedness are proved."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF0:annuli",
+    "target": "Restriction and completed base change for the annulus rings",
+    "was": "note: restriction and base change 'are proved in Tau Ceti in general'",
+    "now": "note records the noetherian Tate hypotheses; still partial",
+    "why": "Laurent/Flat.lean:263 and Restricted/BaseChange.lean:500–503 carry Tate and noetherian hypotheses, and the roadmap says relative annuli need not be noetherian."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF1",
+    "target": "The q-Frobenius action on Y_S and its wandering annuli",
+    "was": "`WittVector.frobenius` fit special case on an absent target",
+    "now": "fit related",
+    "why": "The Witt ring endomorphism is not an action on Y_S with wandering annuli; an absent target cannot have a special-case witness."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF2",
+    "target": "B_dR^+ filtration, residue map, graded pieces and the complete DVR at a geometric untilt",
+    "was": "`BDeRhamPlus` fit special case on an absent target",
+    "now": "fit related",
+    "why": "The file defines the ring only; its TODO list names the missing filtration, θ-extension and DVR property."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF2:untilts",
+    "target": "Marked untilts over E and the primitive kernel of theta",
+    "was": "note omitted the Frobenius hypothesis of `surjective_fontaineTheta`",
+    "now": "hypothesis added; still partial",
+    "why": "FontaineTheta.lean:195 assumes `hF : Function.Surjective (frobenius (ModP R p) p)`."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF2:untilts",
+    "target": "Functoriality, residue map, ideal filtration, graded pieces and base-change conditions for B_dR",
+    "was": "`BDeRhamPlus` fit special case on an absent target",
+    "now": "fit related",
+    "why": "None of the functoriality, residue or filtration statements exists; the ring definition is only related."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF3",
+    "target": "The graded algebra of global sections for affinoid S, its Proj, and the analytic-to-schematic map of locally ringed spaces",
+    "was": "Proj citations fit related",
+    "now": "fit more general",
+    "why": "Mathlib's Proj of an arbitrary graded ring covers the 'its Proj' clause in full generality; the graded algebra of sections and the comparison map remain missing."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF4:G-torsors",
+    "target": "Transfer of Beauville-Laszlo gluing to G-torsors via the exact tensor-functor comparison",
+    "was": "note: the Mathlib torsor namespace is only `AddTorsor`",
+    "now": "Mathlib's multiplicative `Torsor` cited as related; note corrected; still absent",
+    "why": "Mathlib/Algebra/Torsor/Defs.lean:70 defines `class Torsor`; it is set-level, so the status is unchanged."
+   },
+   {
+    "layer": "VectorBundlesAndIsocrystals:VB0",
+    "target": "The Brauer invariant of the endomorphism algebra and its compatibility with the explicit cyclic algebra",
+    "was": "partial, with only related citations and a note saying the needed objects are not there",
+    "now": "absent",
+    "why": "No cyclic or crossed-product algebra and no local invariant Br(E) ≅ ℚ/ℤ exist (the audit's own grep); Tau Ceti's Brauer group of central simple algebras is related infrastructure only."
+   },
+   {
+    "layer": "VectorBundlesAndIsocrystals:VB1",
+    "target": "Vector bundles as finite locally free O_X-modules on the relative Fargues–Fontaine curve, and their comparison with finite projective modules on annuli via Frobenius descent",
+    "was": "cites `LocalGeneratorsData.IsLocallyFreeData`; note credits Tau Ceti with locally free sheaves",
+    "now": "cites Mathlib's predicate `SheafOfModules.IsLocallyFree`; attribution corrected",
+    "why": "The cited declaration is Mathlib's, and the predicate itself is `SheafOfModules.IsLocallyFree` (LocallyFree.lean:61)."
+   },
+   {
+    "layer": "VectorBundlesAndIsocrystals:VB3",
+    "target": "The explicit positive line-bundle and Lubin–Tate universal-cover calculations of FS II.2.1",
+    "was": "note: 'Tau Ceti has formal groups for elliptic curves only'",
+    "now": "Mathlib's `FormalGroup` and `𝔾ₘ` cited as related; still absent",
+    "why": "Mathlib/RingTheory/FormalGroup/Basic.lean defines one-dimensional formal group laws and 𝔾ₘ; there is no Lubin–Tate construction, so the status is unchanged."
+   },
+   {
+    "layer": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples",
+    "target": "The explicit positive line-bundle and Lubin–Tate universal-cover calculations of FS II.2.1",
+    "was": "note: 'Tau Ceti has formal groups for elliptic curves only'",
+    "now": "Mathlib's `FormalGroup` and `𝔾ₘ` cited as related; still absent",
+    "why": "As for VB3 T1, whose text this sub-stage repeats."
+   },
+   {
+    "layer": "VectorBundlesAndIsocrystals:VB4",
+    "target": "Equivalence between everywhere slope-zero bundles and pro-étale E-local systems, with tensor and scalar-extension compatibility",
+    "was": "note: 'there is no pro-étale site'",
+    "now": "note corrected; Mathlib's scheme pro-étale topology cited as related; still absent",
+    "why": "Mathlib/AlgebraicGeometry/Sites/Proetale.lean:66 defines the big pro-étale topology on schemes; nothing exists for diamonds."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF0",
+    "target": "(layer duplicates)",
+    "was": "no parent-to-sub-stage duplicates; GeometricSatakeAndFusion:GS0:Witt-geometry listed",
+    "now": "RF0:integral-Y and RF0:annuli added; GS0:Witt-geometry removed",
+    "why": "As for RF2, RF4, VB2 and VB3, whose parent-to-sub-stage duplicates the audit records, RF0 repeats its sub-stages verbatim. GS0:Witt-geometry says it will 'reuse RF0's ramified Witt algebra', so it consumes RF0 rather than restating it."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF0:integral-Y",
+    "target": "(layer duplicates)",
+    "was": "duplicate PerfectoidSpaces:P3",
+    "now": "removed; FarguesFontaineDiamonds:F1 and F4 added",
+    "why": "P3 (almost purity and étale tilting) is a prerequisite of this stage, as its note says. F1 and F4 state the fixed-field versions of T6 and T4."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF0:annuli",
+    "target": "(layer duplicates)",
+    "was": "duplicate PadicHodgeTheory:P7:annulus-foundations",
+    "now": "removed",
+    "why": "P7 builds bounded, overconvergent and Robba rings of convergent Laurent series on annuli over a fixed p-adic field; these are not the Witt-vector annulus rings of Y_S. The AdicSpaces Layer 6 duplicate (interval rings B^I) is the right one."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF1",
+    "target": "(layer duplicates)",
+    "was": "F2 and F3 listed",
+    "now": "FarguesFontaineDiamonds:F1 added",
+    "why": "RF1's own text names F1–F3 and the audit listed only F2 and F3."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF2:integral-divisors",
+    "target": "(layer duplicates)",
+    "was": "duplicate HeckeStacksAndLocalShtukas:HS0",
+    "now": "removed",
+    "why": "The note itself says HS0 imports RF2:integral-divisors; HS0 does not restate the divisor targets."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF4:G-torsors",
+    "target": "(layer duplicates)",
+    "was": "duplicate HeckeStacksAndLocalShtukas:HS0",
+    "now": "removed",
+    "why": "The note itself says HS0 imports RF4:G-torsors for its stacks."
+   },
+   {
+    "layer": "RelativeFarguesFontaine:RF4:vector-bundles",
+    "target": "(layer duplicates)",
+    "was": "duplicates AInfCohomology:AI.2 and BunGAndNewtonStrata:BG2:smooth-Artin",
+    "now": "removed",
+    "why": "AI.2 'reuses the existing Fargues–Fontaine patching carriers' and BG2:smooth-Artin 'consumes the Beauville–Laszlo covering'; both are consumers of the patching statement, not restatements. GS0:loop-geometry, which restates it, stays."
+   },
+   {
+    "layer": "VectorBundlesAndIsocrystals:VB0",
+    "target": "(layer duplicates)",
+    "was": "BG0 credited with the Kottwitz/Newton parametrisation; CrystallineCohomology:CR.3 listed",
+    "now": "BG0's note corrected; BG1 and ClassFieldTheory Layer 5 added; CR.3 removed",
+    "why": "BG0 contains G-torsors, B(G) and G-isocrystals but no Kottwitz or Newton material, which is in BG1. CR.3's text never mentions slopes. The local invariant map VB0 T3 needs is Tau Ceti's ClassFieldTheory Layer 5."
+   },
+   {
+    "layer": "VectorBundlesAndIsocrystals:VB2:classification",
+    "target": "(layer duplicates)",
+    "was": "duplicate BunGAndNewtonStrata:BG0 ('G-torsor classification over a geometric point')",
+    "now": "replaced by BunGAndNewtonStrata:BG2:uniformization",
+    "why": "BG0 contains no classification over a geometric point; the bijection |Bun_G| → B(G) is in BG2:uniformization."
+   },
+   {
+    "layer": "VectorBundlesAndIsocrystals:VB4",
+    "target": "(layer duplicates)",
+    "was": "VS1 listed; the BG2 and BG3 notes described the wrong overlaps",
+    "now": "VS1 removed; BG1 added; BG2 and BG3 notes corrected",
+    "why": "VS1's text has no Harder–Narasimhan stratification; it only consumes it. BG2's overlap is 'ν semicontinuous by faithful-representation HN theory' (T0) and BG3's is the basic stratum [*/J_b(E)], i.e. slope-zero objects (T3)."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.0",
+    "target": "The Berkovich spectrum M(A) of a Banach algebra as the set of bounded multiplicative seminorms",
+    "was": "note called `WeakDual.characterSpace` the archimedean Gelfand analogue",
+    "now": "note corrected; `contraction_of_isPowMul_of_boundedWrt` cited as related; still absent",
+    "why": "`characterSpace` is defined over any topological semiring and Mathlib's compactness instance (Analysis/Normed/Algebra/Basic.lean) holds over any proper nontrivially normed field, so it is not specifically archimedean. The status is unchanged."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.0",
+    "target": "Completed residue fields at the points of M(A)",
+    "was": "only `residueFieldValuation` and `spectralNorm` cited",
+    "now": "`AbsoluteValue.Completion` added as related; still absent",
+    "why": "Mathlib's completion of a field for a real absolute value is the step that produces H(x) once the absolute value on Frac(A/ker x) exists; it is closer to the target than `spectralNorm`."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.0",
+    "target": "Comparison of a strictly affinoid algebra with its Huber adic spectrum by rank-one points / maximal generalizations, with continuity and the quotient topology",
+    "was": "absent",
+    "now": "partial — Wedhorn Remark 7.42(2) cited",
+    "why": "Analytic.lean:148 proves that a continuous analytic point has a height-one generization in Spa(A,A⁺) with the same support, which is the rank-one point the comparison map sends it to. The map itself does not exist, so the target is partial, not present."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.0",
+    "target": "Acceptance: nonclassical Gauss points on the closed disc",
+    "was": "only the Gauss-norm definitions cited",
+    "now": "`Polynomial.gaussNorm_isAbsoluteValue` added; still partial",
+    "why": "For a nonarchimedean absolute value the Gauss norm on R[X] is an absolute value (GaussNorm.lean:283), which is what makes the Gauss point a multiplicative seminorm."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.2",
+    "target": "The dual metric graph of the special fibre with vertex genera",
+    "was": "note: `NumericalType` 'is exactly the dual graph datum'",
+    "now": "note corrected; `intersectionGraph` cited; still partial",
+    "why": "NumericalType/Basic.lean says `genus i` is the arithmetic genus over the constant field, 'not the genus of its normalization', and the data describe a regular model; the dual graph of a semistable fibre needs normalization genera and multi-edges."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.2",
+    "target": "Compatibility with refinement and with finite extension of the valued field",
+    "was": "partial",
+    "now": "absent — related citations kept",
+    "why": "None of the cited declarations states compatibility with refinement or with extension of the valued field; they are the data such a statement would be about."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.2",
+    "target": "Graph genus plus vertex genera recovers the curve genus",
+    "was": "graph genus uncited",
+    "now": "`topologicalGenus` cited; still partial",
+    "why": "`topologicalGenus` is the first Betti number of the intersection graph (zero iff it is a tree), the graph-genus term of the formula; being computed on a simple graph it undercounts cycles from repeated intersections, and nothing compares it with a curve's genus."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.3",
+    "target": "The Jacobian of a metric graph",
+    "was": "note: Pic(T) is 'precisely the critical group' with finite torsion",
+    "now": "note corrected",
+    "why": "Pic(T) has rank one, so the critical group is its degree-zero part, and `finite_torsion` proves finiteness of each ℓ-torsion subgroup, not of the whole torsion subgroup."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.4",
+    "target": "Tropicalization of a subvariety of an algebraic torus by coordinate valuations",
+    "was": "cites `Tropical` (Mathlib/Algebra/Tropical/Basic.lean:63)",
+    "now": "cites `MinTropical` (line 58)",
+    "why": "`Tropical` is `@[deprecated MinTropical (since := \"2026-07-24\")]`; a deprecated alias is not the library's current name."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.4",
+    "target": "The appropriate value-group extension",
+    "was": "note: the divisible-hull extension 'is not singled out'",
+    "now": "`DivisibleHull` cited; still partial",
+    "why": "Mathlib/GroupTheory/DivisibleHull.lean defines the divisible hull with LinearOrder and ordered ℚ-module structure; only its identification with the value group of the algebraic closure is missing."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.4",
+    "target": "Polyhedral structure, weights and balancing with irreducibility/equidimensionality conditions",
+    "was": "fans mentioned in the note but not cited",
+    "now": "`TauCeti.Toric.Fan` cited; still absent",
+    "why": "The note relies on Tau Ceti's fans with subdivisions; the fan structure is at Fan/Basic.lean:81."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.6",
+    "target": "Local heights with integrability and normalization",
+    "was": "note: 'Neither library has Weil or Arakelov heights'",
+    "now": "note corrected; Mathlib's Weil height and Tau Ceti's Néron–Tate height cited as related; still absent",
+    "why": "Mathlib/NumberTheory/Height/Basic.lean defines Weil heights and Tau Ceti's CanonicalHeight.lean the Néron–Tate height. They are global heights, not the local heights the target asks for."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.7",
+    "target": "Tate uniformization of a totally degenerate curve, with descent and the period lattice",
+    "was": "note said 'Tate' in Tau Ceti means only Tate cohomology or Hodge–Tate",
+    "now": "split multiplicative reduction cited as related; note corrected; still absent",
+    "why": "Mathlib's Reduction.lean supplies the reduction-type predicates the uniformization theorem assumes, and 'Tate' also names Tate rings/algebras and Néron–Tate heights in Tau Ceti."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.0",
+    "target": "(layer duplicates)",
+    "was": "duplicate ArithmeticDynamics:DY.2",
+    "now": "removed",
+    "why": "DY.2 lists TB.0 as a dependency and consumes it for 'the actual Berkovich analytic carrier'; the audit's own note says it 'depends on rather than duplicates this stage'."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.1",
+    "target": "(layer duplicates)",
+    "was": "duplicate ArithmeticDynamics:DY.2",
+    "now": "removed",
+    "why": "DY.2 consumes the analytic line as its carrier; it does not restate TB.1's point classification or metric."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.2",
+    "target": "(layer duplicates)",
+    "was": "four duplicates",
+    "now": "StableReduction layers 1, 3 and 6 and LPV.7:semistable-curves added",
+    "why": "Each states part of TB.2's dual-graph and semistable-model targets: dual graphs (layer 1, LPV.7), semistable families (layer 3) and numerical types with the genus identification (layer 6)."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.3",
+    "target": "(layer duplicates)",
+    "was": "duplicates StableReduction layer 2 (note: `NumericalType.Pic` was built for it) and TB.5",
+    "now": "both removed; StableReduction layer 6, R11.4 and GZ.2 added",
+    "why": "Pic(T) and the specialization maps belong to StableReduction Layer 6, not Layer 2, whose degree/duality apparatus TB.3 only consumes. TB.5 requires TB.3, so the pair is a dependency, not a duplicate."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.4",
+    "target": "(layer duplicates)",
+    "was": "duplicates AnalyticToricGeometry layer 6 and TB.5",
+    "now": "AnalyticToricGeometry layer 0 instead; TB.5 removed",
+    "why": "Layer 6 is the complex algebraic–analytic comparison; the cones and fans the note refers to are Layer 0's (items 2–5). TB.5 requires TB.4, so it is a dependency, not a duplicate."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.5",
+    "target": "(layer duplicates)",
+    "was": "duplicates TB.4 and TB.3",
+    "now": "removed",
+    "why": "TB.5 requires TB.3 and TB.4; stages of the same roadmap that it builds on are dependencies, not duplicates."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.6",
+    "target": "(layer duplicates)",
+    "was": "duplicates DY.4 and SF.5",
+    "now": "removed; GZ.2, RP.0 and DY.2 added",
+    "why": "DY.4 says it consumes TB.6, and SF.5 is TB.6's declared input; neither restates TB.6's targets. GZ.2, RP.0 and DY.2 each construct local heights or model measures."
+   },
+   {
+    "layer": "TropicalAndBerkovichArithmetic:TB.7",
+    "target": "(layer duplicates)",
+    "was": "four duplicates",
+    "now": "ShimuraCompactifications:C4 and HilbertModularVarietiesAndShimuraCurves:R18.5 added",
+    "why": "Both restate a uniformization target of TB.7: the Tate curve (C4) and p-adic Mumford-type uniformisation (R18.5)."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AdicSpaces",
+    "target": "(roadmap summary)",
+    "was": "Layers 0-2 'complete apart from named gaps'; Proposition 8.30 'in full'",
+    "now": "summary lists the new Layer 0, 2, 3 and 4 gaps",
+    "why": "The corrections above add missing pieces to Layers 0, 2, 3 and 4 (Theorem 6.16/6.17, module-coefficient restricted series, spectrality of Spa(phi), Lemma 7.54 for complete rings, openness of A_U+, general Proposition 8.30, completion and strong noetherianness)."
+   }
+  ]
  }
 }
