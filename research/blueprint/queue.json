@@ -1293,8 +1293,9 @@
    ],
    "avoidAccountOf": "PAPER-YU-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-YU-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1092"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1092",
+   "finishedAt": "2026-09-23T16:29:20Z"
   },
   {
    "id": "PAPER-ALLEN-ETAL-23",
@@ -1370,7 +1371,8 @@
    ],
    "avoidAccountOf": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1096"
   },
   {
    "id": "PAPER-DADDEZIO-23",
@@ -1517,7 +1519,8 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-SCHOLZE-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-SCHOLZE-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1104"
   },
   {
    "id": "PAPER-FINTZEN-21",
@@ -9693,8 +9696,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_ModularCurves",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #79"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #79",
+   "finishedAt": "2026-09-23T16:29:23Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_ModularForms",
@@ -9859,8 +9863,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #83"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #83",
+   "finishedAt": "2026-09-23T16:29:26Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_GlobalNumberFields",
@@ -10024,7 +10029,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #87"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_Chebotarev",
@@ -31101,8 +31107,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1798"
+   "state": "external",
+   "note": "claimed on GitHub issue #1798"
   },
   {
    "id": "ERRATA-PAPER-CESNAVICIUS-19",
