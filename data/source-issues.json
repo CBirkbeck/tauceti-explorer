@@ -27065,11 +27065,13 @@
    "correction": "The reference to delta^± of Theorem 1.2 cannot be literal: these densities have CL masses. Identify the intended Malle/moment normalization before deriving any claim from this sentence.",
    "reason": "Distinct class-group isomorphism events are disjoint and their probabilities cannot each tend to one. Theorem1.2 itself gives c_ell/|Aut A|.",
    "affects": "nothing",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27086,11 +27088,13 @@
    "correction": "The three fibres are c^n, generating tuples in G^n, and generating tuples in c^n, in that order.",
    "reason": "Sur(pi,G) is not restricted to c while Sur^c(pi,G) is; the last two verbal descriptions are swapped.",
    "affects": "nothing",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27107,11 +27111,13 @@
    "correction": "Use R[U] tensor_R M, with R[U] a right module and M a left module, as in the next displayed exact sequence 4.6.3.",
    "reason": "R is noncommutative in general, and a merely left R-module M cannot be the first tensor factor over R with the asserted action.",
    "affects": "nothing",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27128,11 +27134,13 @@
    "correction": "Restrict this formula to 0≤q<n and put A_q empty for q≥n; face maps in positive degree have the corresponding range.",
    "reason": "For q≥n the displayed faces require nonexistent generators of B_n, while q+1 disjoint arcs need distinct puncture endpoints and cannot exist.",
    "affects": "nothing",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27149,11 +27157,13 @@
    "correction": "With the displayed unnormalized definition U_Q=sum_(g∈c∩Q) r_g^(D ord g), the diagonal exact-monodromy-Q action is U_Q itself. Remove the extra scalar in both displays; the subgroup induction still works.",
    "reason": "A term with g outside Q raises generated subgroup; each g inside Q contributes once. For G=S3, c the three transpositions and Q generated by one, the diagonal has coefficient1, not3. Checked finite witness; rendered formula inspected.",
    "affects": "the proof",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27170,11 +27180,13 @@
    "correction": "The lift set may be empty. Prove the aggregate enlargement inequality by the conjugate-partition surjection formula and least-column enlargement, as detailed in the report, instead of asserting all individual surjections lift.",
    "reason": "Take X=A'=C9×C3, A=C3², pi(x,y)=(x mod3,y), f(x,y)=(y,x mod3). The order3 element (0,1) would need an order9 image to lift, impossible. Exact enumeration gives 36 unliftable surjections out of48. The aggregate inequality remains true.",
    "affects": "the proof",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27191,11 +27203,13 @@
    "correction": "Proposition8.3 proves moment convergence implies convergence in distribution. The reverse needs uniform integrability or another family-specific tail estimate; do not infer it solely from distribution convergence.",
    "reason": "nu_n=(1−ell^-n)mu+ell^-n delta_((C_ell)^n) converges in total variation to mu but its C_ell moment tends to2, not1. This demonstrates the logical gap only, not failure of the number-field conjecture. The predecessor wrote a cyclic group here; this continuation corrects that witness to the elementary abelian group and separately records the checkpoint correction.",
    "affects": "the proof",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27212,11 +27226,13 @@
    "correction": "Require odd n≥3 for this formula; n=1 gives |S_1|=2q.",
    "reason": "There are q monic linear squarefree polynomials, not q−1. The eventual large-n theorem is unaffected.",
    "affects": "nothing",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27231,13 +27247,15 @@
    "locator": "Published Annals 2016 version, Theorem 8.8, p.777",
    "printed": "ℓ-group",
    "correction": "Retain the standing hypothesis that A is abelian; A=1 is a separately trivial case.",
-   "reason": "Every quotient of an abelian class group is abelian. For nonabelian A the mean surjection count is zero, so the written unrestricted inequality cannot tend to one.",
-   "affects": "a stated result",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "reason": "Every quotient of an abelian class group is abelian. For nonabelian A the mean surjection count is zero, so the written unrestricted inequality cannot tend to one. (cc-442dc5) Reclassified to affect nothing: §8.6 fixes 'A a nontrivial finite abelian ℓ-group' as a standing hypothesis, so Theorem 8.8's 'A an ℓ-group' is read under it.",
+   "affects": "nothing",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27254,11 +27272,13 @@
    "correction": "The unmarked cover's fibre is Sur(V,A)/{±1}, consistently with Proposition8.7. The marked set can be used for component orbits only after proving that −I∈Sp(V) makes their Sp-orbit sets identical.",
    "reason": "For V=F3²,A=F3 there are8 surjections but4 sign classes. Full-monodromy unmarked covers forget the hyperelliptic involution marking. The orbit-count conclusion survives the correction.",
    "affects": "the proof",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27273,13 +27293,15 @@
    "locator": "Published Annals 2016 version, Theorem 1.2, p.730; §§8.6–8.8",
    "printed": "q≠1(modℓ)",
    "correction": "The proof supplied in this extraction supports odd q with ell∤q(q−1). Either state those restrictions or supply the missing characteristic2 and characteristicell arguments before claiming the broader written domain.",
-   "reason": "The Kummer quadratic parametrization needs odd q; the Hurwitz/torsion comparison and Theorem8.8 exclude characteristicell. This is a supported-domain gap, not a proof that the broader assertion is false.",
-   "affects": "the proof",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "reason": "The Kummer quadratic parametrization needs odd q; the Hurwitz/torsion comparison and Theorem8.8 exclude characteristicell. This is a supported-domain gap, not a proof that the broader assertion is false. (cc-442dc5) Reclassified to affect a stated result. Theorem 1.2 asserts convergence 'as q → ∞ with q ≢ 1 (mod ℓ)', which includes q = 2^k and q = ℓ^k. §8, however, works under the standing hypothesis 'ℓ an odd prime not dividing q' (§8.6), uses tame A ⋊ Z/2-covers and K(√f), and Theorem 8.8 assumes ℓ ∤ q(q − 1). So the stated limit is established only along odd q prime to ℓ (item 109).",
+   "affects": "a stated result",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27296,11 +27318,13 @@
    "correction": "The basis vectors modified are indexed by k<i≤g, not i>g.",
    "reason": "The basis y_1,...,y_g has no vectors with index greater than g; the intended kernel adjustment applies to the remaining g−k vectors.",
    "affects": "nothing",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27317,11 +27341,13 @@
    "correction": "The displayed 1−product_(i≥1)(1−3^-i)≈0.440 is the probability of divisibility by3. Indivisibility has probability c_3≈0.560.",
    "reason": "The trivial3-primary group has CL mass c_3, so the complementary event is divisibility. The main theorem uses the correct normalization.",
    "affects": "nothing",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27338,11 +27364,13 @@
    "correction": "Define nu_n(A) using Cl(O_L)_ell≃A, the ell-primary part, rather than the entire class group.",
    "reason": "L is the set of finite abelian ell-group types. Whole class groups with another prime divisor otherwise contribute to no A, contradicting the asserted probability measure. Surjections to ell-groups factor through the ell-primary part, so the moment argument is unchanged.",
    "affects": "nothing",
-   "known": "No existing correction located in the sources searched; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
     "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
-    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+    "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+    "Earlier note: No existing correction located in the sources searched; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27359,11 +27387,13 @@
    "correction": "For (g,ell)=(1,3), prove a nonzero first congruence kernel or use a separate geometric argument. Vasiu directly supplies all g≥2,ell odd and g=1,ell≥5, enough for eventual n in EVW.",
    "reason": "The order24 subgroup of SL2(Z/9) generated by [[0,1],[8,0]],[[1,7],[6,7]] maps bijectively onto SL2(F3). Its inverse image is a proper closed subgroup of SL2(Z3) with full mod3 image. This refutes the unqualified group-theoretic implication, not the hyperelliptic monodromy theorem.",
    "affects": "the proof",
-   "known": "No existing correction located in the bounded search; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-23: inspected the author-hosted AP PDF at https://www.math.colostate.edu/~pries/Preprints/00DecPreprints/07finaltrielliptic.pdf; rendered PDF pages5,10,14. Publisher PDF has not been collated.",
     "2026-09-23: checked https://arxiv.org/abs/math/0608038 (v2,17Aug2006) and https://arxiv.org/abs/math/0209237 (v2,8Apr2004); read the Vasiu v2 theorem and selected proof dependencies.",
-    "2026-09-23: searched AP title with erratum, and Achter/Pries/Corollary3.5 with correction; no correction to these particular statements located. Vasiu title plus erratum search also made. Novelty not established."
+    "2026-09-23: searched AP title with erratum, and Achter/Pries/Corollary3.5 with correction; no correction to these particular statements located. Vasiu title plus erratum search also made. Novelty not established.",
+    "Earlier note: No existing correction located in the bounded search; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27380,11 +27410,13 @@
    "correction": "In the stack interpretation retain the deck-group gerbe over the labelled branch space, or explicitly pass to coarse moduli. In the hyperelliptic case it is a mu2-gerbe; irreducibility still follows.",
    "reason": "A smooth double cover with at least4 labelled ramification points has the nontrivial deck automorphism fixing every label. The corresponding labelled P1 has no automorphisms fixing its at least3 distinct labels. The branch functor therefore cannot be fully faithful. Item131 keeps this stabilizer.",
    "affects": "the proof",
-   "known": "No existing correction located in the bounded search; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-23: inspected the author-hosted AP PDF at https://www.math.colostate.edu/~pries/Preprints/00DecPreprints/07finaltrielliptic.pdf; rendered PDF pages5,10,14. Publisher PDF has not been collated.",
     "2026-09-23: checked https://arxiv.org/abs/math/0608038 (v2,17Aug2006) and https://arxiv.org/abs/math/0209237 (v2,8Apr2004); read the Vasiu v2 theorem and selected proof dependencies.",
-    "2026-09-23: searched AP title with erratum, and Achter/Pries/Corollary3.5 with correction; no correction to these particular statements located. Vasiu title plus erratum search also made. Novelty not established."
+    "2026-09-23: searched AP title with erratum, and Achter/Pries/Corollary3.5 with correction; no correction to these particular statements located. Vasiu title plus erratum search also made. Novelty not established.",
+    "Earlier note: No existing correction located in the bounded search; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27401,11 +27433,13 @@
    "correction": "Use the exact sequence in item137. Equality with the cyclotomic image holds if the geometric image is full Sp, as in the later Corollary3.6 application.",
    "reason": "Take F=C(t), S=Spec F and E:y²=x³−t²x, the t-twist of E0:y²=x³−x. Over F(sqrt(t)), x=t u,y=t sqrt(t) v identifies E with E0. The quadratic automorphism acts by−1 on every odd-primary Tate module. Thus arithmetic image is{±I}, geometric image is1, while F already contains all roots of unity.",
    "affects": "a stated result",
-   "known": "No existing correction located in the bounded search; novelty not established.",
+   "known": "new",
    "searched": [
     "2026-09-23: inspected the author-hosted AP PDF at https://www.math.colostate.edu/~pries/Preprints/00DecPreprints/07finaltrielliptic.pdf; rendered PDF pages5,10,14. Publisher PDF has not been collated.",
     "2026-09-23: checked https://arxiv.org/abs/math/0608038 (v2,17Aug2006) and https://arxiv.org/abs/math/0209237 (v2,8Apr2004); read the Vasiu v2 theorem and selected proof dependencies.",
-    "2026-09-23: searched AP title with erratum, and Achter/Pries/Corollary3.5 with correction; no correction to these particular statements located. Vasiu title plus erratum search also made. Novelty not established."
+    "2026-09-23: searched AP title with erratum, and Achter/Pries/Corollary3.5 with correction; no correction to these particular statements located. Vasiu title plus erratum search also made. Novelty not established.",
+    "Earlier note: No existing correction located in the bounded search; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27422,9 +27456,11 @@
    "correction": "Compute the Lie bracket using two independent first-order variables and the mixed coefficient, or the equivalent vector-field bracket. The kernel over a single dual-number variable has the additive Lie-algebra group law, so its group commutator is trivial.",
    "reason": "For S=GL2, take X=E12,Y=E21. In R[e]/(e²), (1+eX) and (1+eY) commute; nevertheless the Lie bracket XY−YX=diag(1,−1) is nonzero over Q. In R[e,d]/(e²,d²), their commutator is 1+ed[X,Y].",
    "affects": "a stated result",
-   "known": "No existing correction located in the bounded search; novelty not established.",
+   "known": "new",
    "searched": [
-    "2026-09-23: read Vasiu arXiv:math/0209237v2,PDF p.4,§2.2; checked its arXiv version history and title/erratum search. No correction to this preliminary paragraph located; publisher PDF not collated. These observations concern the general paragraph, not the odd-prime symplectic lifting theorem."
+    "2026-09-23: read Vasiu arXiv:math/0209237v2,PDF p.4,§2.2; checked its arXiv version history and title/erratum search. No correction to this preliminary paragraph located; publisher PDF not collated. These observations concern the general paragraph, not the odd-prime symplectic lifting theorem.",
+    "Earlier note: No existing correction located in the bounded search; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
@@ -27441,9 +27477,11 @@
    "correction": "For a smooth group scheme the Lie module is finite locally free; freeness needs an additional base or triviality hypothesis. The Witt-ring case used later has this property.",
    "reason": "Over a connected affine base with a nontrivial line bundle L, take S to be its additive vector group inside the reductive group GL(O⊕L), as the off-diagonal unipotent subgroup Hom(O,L). Then Lie(S)=L is locally free of rank1 but not free. For a concrete affine base, a nonprincipal invertible ideal over Z[sqrt(−5)] supplies L.",
    "affects": "a stated result",
-   "known": "No existing correction located in the bounded search; novelty not established.",
+   "known": "new",
    "searched": [
-    "2026-09-23: read Vasiu arXiv:math/0209237v2,PDF p.4,§2.2; checked its arXiv version history and title/erratum search. No correction to this preliminary paragraph located; publisher PDF not collated. These observations concern the general paragraph, not the odd-prime symplectic lifting theorem."
+    "2026-09-23: read Vasiu arXiv:math/0209237v2,PDF p.4,§2.2; checked its arXiv version history and title/erratum search. No correction to this preliminary paragraph located; publisher PDF not collated. These observations concern the general paragraph, not the odd-prime symplectic lifting theorem.",
+    "Earlier note: No existing correction located in the bounded search; novelty not established.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
    ],
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
