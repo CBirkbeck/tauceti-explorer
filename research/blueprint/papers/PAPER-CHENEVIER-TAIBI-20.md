@@ -208,3 +208,30 @@ All computations were done in the worker's scratch space. None of them is in the
 - **Automated checks.**
   - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-CHENEVIER-TAIBI-20.result.json`: ok.
   - `python3 research/blueprint/intake.py check-files` on the three files: 3 files, 0 problems.
+
+## Review (REV-PAPER-CHENEVIER-TAIBI-20, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1453), **accepted** this
+extraction and all twelve routes, and needed no correction. The full record is
+[REV-PAPER-CHENEVIER-TAIBI-20.md](../reviews/REV-PAPER-CHENEVIER-TAIBI-20.md).
+
+Most of the recorded findings are claims about the authors' computations rather than their prose, so
+the review fetched the primary material the bibliography points to — the data and source archive
+`levelone_src_data.tar.gz` — and the arXiv TeX, and checked them there. All eleven hold. E4, E5, E6,
+E7 and E8 come straight out of `log_w23_mult1`, `contradict_vect/db_w23_mult1` and
+`gp/sheet_w23_grh.gp`: 12293 elements with 12106 negative values and 187 not; the 181 entries
+carrying `I₂₃` twice are the `V` of Proposition 4.1(2), with dimensions 10 to 38 rather than the
+printed 14 to 42; the entry for `I₁+I₇+I₁₃+I₁₇+I₂₁+2I₂₃` has the non-negative value `+0.036`, so it
+is not excluded at `δ = m = 1` and the worksheet eliminates it separately; and that worksheet runs at
+`δ = 0, m = 2`. E2 and E10 follow from `ex_poids_connus()`, whose entry `[[0,0,23], 2]` carries
+multiplicity two. E3 follows from `CFnorminit`'s diagonal term `Σ v_i²/m_i`. E11 is visible in
+`mot23.tex`, which cites the same tail estimates as "(3) p.127" in one place and "(3) p. 277" in
+another. **E1 the reviewer recomputed**: the classes of Definition 3.1 in degree 14 number 1158, and
+the same program reproduces every other entry of Table 2 (3, 12, 32, 92, 219, 530, 2521), so 1157 is
+wrong only at `Sp₁₄`.
+
+Structure: 151 items, all 134 missing routed exactly once; all eleven source stage ids, all twelve
+planned layer ids and all twelve library declarations check out at the pins; 63 of 65 locator checks
+land exactly. The new roadmap's id appears in no other extraction, and a search of every layer
+description found nothing in the atlas on level one forms of classical groups or Siegel modular
+forms beyond the Tau Ceti SL₂ material.
