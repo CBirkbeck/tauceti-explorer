@@ -61991,9 +61991,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. Corollary C (TeX l. 325-331) writes H^i(X_eta, T), while Conjecture 1.1 (l. 272-279), which it answers, writes H^i(X_{et,Kbar}, Z_p), and Theorem B's notion of 'associated' base changes to the crystalline period ring of an affinoid perfectoid over Y_eta, which for Y = Spf O_K means Spa(C,O_C). The counterexample is decisive: for X = Spf O_K and T = Z_p, H^1(Spa K, Z_p) = H^1_cont(G_K, Z_p) has Z_p-rank [K:Q_p]+1 by local class field theory, while H^1_crys(Spec k/W(k)) = 0."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E2",
@@ -62012,9 +62012,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. The general definition is printed in the proof of Theorem 4.15 (l. 2235-2237): Y_[a,b] = {|[p^flat]|^{s_1} <= |p|^{r_1}, ...} for a = r_1/s_1. With a = 1/p this reads |[p^flat]|^p <= |p|, not |[p^flat]| <= |p| as in Example 1.8 (l. 426-427). The paper's own B_{[1/p,infty]} = Delta_{S,perf}<[p^{flat,p}]/p>[1/p] (l. 2242) confirms the exponent p."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E3",
@@ -62033,9 +62033,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. Theorem 1.13 (l. 540-551) uses n in R^{2n}f_{Delta,*} without introducing it; Theorems 7.8 (l. 3306) and 7.16 (l. 3634), which it restates, both assume relative equidimension n."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E4",
@@ -62054,9 +62054,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. Theorem 1.24 (l. 633) says 'smooth morphism'; the gamma it base changes comes from Corollary 1.23 (l. 622), stated for a smooth proper morphism, and Section 10.2 opens by fixing 'a proper smooth morphism' (l. 4958)."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E5",
@@ -62075,9 +62075,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. The notation is fixed on p. 10 (l. 669): 'We write A<I/p> for the p-completion of the A-algebra A[I/p]'. The list of period rings (l. 705) and the Section 3 diagram (l. 1441) both print Delta_S<I/p> := Delta_S[1/p]^p, whose p-completion is 0 since p is invertible. The neighbouring B_dR^+ := Delta_S[1/p]^I (l. 704) is correct as printed, which is presumably the source of the slip."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E6",
@@ -62096,9 +62096,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. theta-tilde = theta o phi^{-1} restricts on W(k) subset A_inf to the inverse Frobenius, so r (x) a -> r.theta-tilde(a) is not V_0-balanced on R_i^+ (x)_{V_0} A_inf when k is not F_p. The repair proposed (give A_inf its V_0-structure through phi) makes theta-tilde V_0-linear and is the only change needed; Definition 2.3 (l. 769-782) and Warning 2.4 (l. 784) otherwise stand."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E7",
@@ -62117,9 +62117,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. Definition 2.25 (l. 1044) says itself that 'A_crys(S,S^+) -> S^+/p is a pro-pd-thickening in (X_{p=0}/V_0)_crys', so the crystal is evaluated at the pair (S^+/p, A_crys/p^r), not at (A_crys/p, A_crys/p^r): Spec(A_crys/p) carries no natural map to X_{p=0} (the section R^+ -> A_crys of Construction 2.28 is exactly what is not available in general). Definition 9.13 (l. 4583) writes the pair correctly."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E8",
@@ -62138,9 +62138,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. The hypothesis printed at l. 1090 asks only that s' agree with s after A_crys -> S^+/p, whose kernel contains p, while l. 1095 needs s(x_i) - s'(x_i) in Fil^1 A_crys = ker(theta). The counterexample s'(x) = [x^flat] + p is legitimate under the printed hypothesis and gives difference -p, and p is not in ker(theta) since theta(p) = p is nonzero in the p-torsionfree S^+; the divided powers (-p)^{[alpha]} do not lie in A_crys either. Requiring theta o s' to be the structure map R^+ -> S^+ repairs it, and is what the construction's own section x_i -> [x_i^flat] satisfies."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E9",
@@ -62159,9 +62159,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed, and it is an error, not a slip. R is set to R^+[1/p] for the V_0-model (l. 1139), so R is a K_0-algebra, while (+_r S (x) C(r))^G = R (x)_{K_0} K = R_K: the H-invariants give +_r R (x)_{K_0} C(r) and Tate's theorem leaves R (x)_{K_0} C^{G_K} = R_K. The printed chain therefore ends one factor of K/K_0 too large, as the case X = Spf O_K, E trivial shows (B_crys^{G_K} = K_0, not K). The conclusion of Proposition 2.29 is correct; the step needs the extra argument the correction gives."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E10",
@@ -62180,9 +62180,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. The proof's first reduction (l. 1138) asserts Zariski descent for both sides. Take X the disjoint union of countably many copies of Spf O_K and E the unit: the left side is (prod_n W(k))[1/p], the right side prod_n B_crys^{G_K} = prod_n K_0, and the inclusion is strict because inverting p does not commute with infinite products. Proposition 2.29 as stated is therefore false without quasi-compactness, and Corollaries 2.30 and 2.35 inherit the hypothesis."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E11",
@@ -62201,9 +62201,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. The proof of Corollary 2.35 (l. 1283) prints (B^+_dR (x) L)/(B_dR (x) L), a quotient by the ambient module; Lemma 2.22(ii) (l. 985), which it cites, has B_dR/B^+_dR."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E12",
@@ -62222,9 +62222,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed, and it is an error in a stated result. Section 3 assumes only 'quasi-syntomic p-adic formal scheme over O_K' (l. 1420). For X = Spf k the initial prism of k is (W(k),(p)), its analytic locus is Spec W(k)[1/p], and End of the unit is Z_p on the left but Q_p on the right, so restriction is not full. The proof's step 'Delta_{O_C} -> Delta_S is (p,xi-tilde)-completely faithfully flat, so (p,xi-tilde) is a regular sequence of length 2' (l. 1591) presupposes an O_C-algebra structure that X_qrsp need not have; flatness of X over O_K restores it."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E13",
@@ -62243,9 +62243,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. In B^+_dR one has theta-tilde(mu) = zeta_p - 1, which is nonzero, so mu is already a unit there, while phi(mu) = mu.xi-tilde and xi-tilde generates the maximal ideal. Hence A_inf(E)[1/mu] (x)_{A_inf,phi} B^+_dR = phi^*A_inf(E) (x) B_dR, the whole module, not a lattice. The display just above (l. 1849) identifies M (x) B_dR with phi^*(A_inf(E)[1/mu]) (x) B_dR, so the lattice is phi^*A_inf(E) (x) B^+_dR."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E14",
@@ -62264,9 +62264,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. For a perfectoid S in X_qrsp, Delta_S = A_inf(S) = W(S^flat) with A_inf/p = S^flat perfect, hence reduced. A ring map s : R -> Delta_S restricts to O_K -> Delta_S; writing an Eisenstein relation pi^e = p.v with v a unit, the image of pi is nilpotent mod p, hence lies in pA, so p^{e-1}(image of pi/p)^e would be the unit image of v, impossible for e >= 2. So no such lift exists over ramified K, and Construction 2.28 lifts the V_0-model R^+ for exactly this reason."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E15",
@@ -62285,9 +62285,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. The construction in the proof (l. 2614-2616) evaluates at (B,J) as (j_{A,*}E_A) (x)^L_A B for the Breuil-Kisin prism (A,I) = (R-tilde[[u]],(E(u))), which is regular and noetherian; the statement's description by pushforward at every prism fails at a crystalline prism (W(k),(p)) in X_Delta, where Spec W(k) minus V(p,I) is Spec W(k)[1/p] and j_*O = W(k)[1/p] is not a perfect W(k)-complex."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E16",
@@ -62306,9 +62306,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. The same proof defines D^phi_perf(Z_crys) (l. 2876) as pairs (E', phi) with phi : F^*E'[1/p] -> E'[1/p], so the middle term of l. 2874 should be perfect A_crys(R)-complexes with an isomorphism after inverting p. As printed, for R = k the unit has endomorphisms Z_p on the left and Q_p in the middle. The analytic statement at l. 2902 legitimately has Vect(A_crys(R)[1/p])^{phi=1}."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E17",
@@ -62327,9 +62327,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed, and I verified the hypothesis in the cited source. Shiho, 'Relative log convergent cohomology and relative rigid cohomology I' (arXiv:0707.1742), fixes in its Convention a base log formal scheme separated and topologically of finite type over Spf W ('Note that B is Noetherian') and works throughout in the category of log formal schemes separated and topologically of finite type over it; Ogus's convergent topos is likewise developed for finite-type situations. Theorem 6.13 imposes only 'p-complete, p-torsionfree divided power thickening', and Corollary 6.14 evaluates at A = A_crys(S) for S quasiregular semiperfect, which is neither noetherian nor topologically of finite type over W."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E18",
@@ -62348,9 +62348,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. Corollary 6.8 (l. 2965-2972) takes Z quasi-syntomic over S and compares RGamma((Z/(A,J))_crys, E') with RGamma((Z_Abar/A)_Delta, E) for Z_Abar = Z x_{Spec S} Spec(Abar); with Z = X_Abar = X x_Y Spec(Abar) this base changes twice. With Z = X x_Y Spec(S) one gets Z_Abar = X_Abar and the crystalline side RGamma((X_S/(A,J))_crys, E'), which is exactly the right-hand side of Theorem 6.13(ii) for Z_{1,A/J} = X_S."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E19",
@@ -62369,9 +62369,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. In the displayed diagram (l. 3398) the left column prints H^n(X, R^n nu_* Obar_Delta{n}[-2n]) while the right column prints H^n(X, Omega^n_{X/Abar})[-2n]; the shift belongs outside H^n in both."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E20",
@@ -62390,9 +62390,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed by internal inconsistency. The arrow HT of the diagram (l. 3396) goes from R^n nu_* Obar_Delta{n}[-n] to Omega^n_{X/Abar}[-n], so if eta_X were the map printed at l. 3402 then HT would be eta_X itself and not its inverse. The Hodge-Tate comparison of [BS22, Thm 4.11] goes from the differential forms to the Hodge-Tate cohomology."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E21",
@@ -62411,9 +62411,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. The perfectness of RGamma((X_Abar/A)_Delta, E^vee{n}) as an A-complex is Proposition 5.11 (label 'perfectness', TeX l. 2659); the proof of Theorem 7.8 cites 'Higgs-coh', which is Proposition 5.12 (l. 2675), the Hodge-Tate/Higgs computation. Proposition 5.12 does record perfectness of the Hodge-Tate cohomology as an R-complex in the affine case, but the statement used here is 5.11."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E22",
@@ -62432,9 +62432,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. The reduction at l. 3616 fixes a finite index set J with X_eta x_{Y_eta} Spa(R,R^+) = Spa(prod_J R, prod_J R^+), and the displays that follow (l. 3621, 3623) write bigsqcup_I, prod_I R^+ and prod_I (A,I) while their right-hand sides correctly use +_J; I is at the same time the ideal of the prism (A,I)."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E23",
@@ -62453,9 +62453,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. Theorem 7.16 (l. 3634) says 'smooth proper morphism of formal O_K-schemes'; Proposition 7.1 (l. 3086), Theorem 7.8 (l. 3306) and Proposition 7.13 (l. 3551), which its proof uses, all say smooth formal O_K-schemes, as does Theorem 1.13."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E24",
@@ -62474,9 +62474,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. Proposition 7.1 (l. 3085-3088) assumes f_*O_X = O_Y; Theorem 7.16 does not, and its own conclusion (c') singles out the case f_*O_X = O_Y. The repair is the paper's own device in the proof of Proposition 7.13 (l. 3559): the Stein factorization X -> Y' -> Y with g_*O_X = O_{Y'} and h finite etale, then Lemma 7.12 and the finite etale trace."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E25",
@@ -62495,9 +62495,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. C is defined as the complement of phi^*E[1/I] inside E[1/I] (l. 3867-3869), an A[1/I]-complex, so the base change in Proposition 8.9(ii) (l. 3860) must be over A[1/I]; the proof of Theorem 8.1 uses it in exactly that form, as C_1 (x)^L_{A_1[1/I]} A_1{I/p}[1/p] (l. 3965)."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E26",
@@ -62516,9 +62516,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. Under A_inf(O_C) -> W(kbar) the element mu = [eps] - 1 goes to 0, but xi = [p^flat] - p goes to -p and so does xi-tilde = phi(xi), so the image of I is (p), not 0. The paper's own earlier version of the same remark (l. 1725) says only 'the image of mu is 0'. The displayed consequences at l. 4045 survive, since A_inf(V_j)[1/I]^p = W(V_j)[1/p]^p = 0."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E27",
@@ -62537,9 +62537,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. F_p^J is von Neumann regular, so its finitely generated ideals are generated by idempotents, but for infinite J a non-principal ultrafilter U on J gives a maximal ideal m_U = {(a_j) : {j : a_j = 0} in U} that is not finitely generated and not generated by an idempotent. The faithful-flatness criterion invoked at l. 4266 ranges over every maximal ideal of F_p^J, and l. 4267-4268 covers only the principal ones."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E28",
@@ -62558,9 +62558,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. A = prod_{j in J} A_j (Convention 9.2) has nontrivial idempotents as soon as |J| >= 2, so it is not local; what the argument needs, and what the end of the same proof supplies (l. 4382-4383), is that a finitely presented projective A-module of constant rank is a product of free A_j-modules of that rank, hence free."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E29",
@@ -62579,9 +62579,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. Membership in Gr_n (l. 4367) is p^n W^{+r} subset N subset p^{-n} W^{+r}. The first inclusion is supplied at l. 4368; multiplying W(V^flat[1/I])^{+r} subset p^{-n} E[1/I]^p (l. 4369) by p^n gives p^n W^{+r} subset E[1/I]^p, which is what is needed, and not the printed E[1/I]^p subset p^n W^{+r}."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E30",
@@ -62600,9 +62600,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. Definition 9.13 (l. 4583-4584) defines only B^+_crys(E_s) and then sets B_crys(E_s)(U) := A_crys(E_s)(U)[1/mu], a symbol it never defines; Definition 2.25 (l. 1047), of which this is the derived analogue, sets B_crys(E)(U) := B^+_crys(E)(U)[1/mu]."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E31",
@@ -62621,9 +62621,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. The proof of Theorem 9.15 (l. 4612) writes Rf_{s,*}E_s(A_crys(S,S^+),S^+)[1/mu]; the PD thickening is A_crys(S,S^+) -> S^+/p, as the same proof writes two displays earlier (l. 4607) and as Definition 9.13 requires."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E32",
@@ -62642,9 +62642,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. D_Sigma(R') is the completion of R<x_u^{+-1}; u in Sigma>_{B^+} -> R'_C, and by Convention 10.4 and the definition of an enlarged framing (l. 4737) the source has relative dimension |Sigma| and the target relative dimension d, with d of the elements of Sigma giving the etale map to the torus. The completion is therefore a power series ring in |Sigma| - d variables; with Sigma the d-element framing itself the printed formula would give d spurious variables instead of R'_{B^+}."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E33",
@@ -62663,9 +62663,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. The crystal F is being described degreewise, and the value at D_{Sigma^n}(R') must be a module over D_{Sigma^n}(R'); both l. 4895 and l. 4898 print the base change to D_Sigma(R')."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E34",
@@ -62684,9 +62684,9 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. In this paper the prism ideal is ker(theta-tilde) (Warning 2.4, l. 784; the Breuil-Kisin cover of (A_inf, ker(theta-tilde)) at l. 3945) and A_crys(S) = Delta_S{I/p} for that ideal (l. 704), and Lemma 2.22's proof builds B^+_{dR,K} from the O_K-linearization theta-tilde_K (l. 991). Proposition 10.11 completes along ker(theta-tilde_K) (l. 4931-4932), so the envelope defined at l. 4908 must be the one for theta-tilde_K."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E35",
@@ -62705,9 +62705,30 @@
    "owner": "PAPER-GUO-REINECKE-24",
    "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
    "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed. R' -> R'_infty adjoins p-power roots of the units of the enlarged framing; O_K<x^{+-1}> -> O_K<x^{+-1/p}> is not etale modulo p, since the derivative of T^p - x is pT^{p-1}. It is a G-torsor only on generic fibres, which is how the paper itself uses it later (l. 5248: 'the induced map of generic fibers ... is a G-torsor')."
+  },
+  {
+   "id": "PAPER-GUO-REINECKE-24/E36",
+   "kind": "misprint",
+   "locator": "Construction 10.6(2), p. 96 (arXiv 2203.09490v3)",
+   "printed": "dR(F_{D_Z(X)}) := (F_{D_Z(X)} → F_{D_Z(X)} ⊗_{O_Z} Ω^1_{Z/Y_K} → ⋯ → F_{D_Z(X)} ⊗_{O_Z} Ω^d_{Z/Y_K})",
+   "correction": "… → F_{D_Z(X)} ⊗_{O_Z} Ω^{dim(Z/Y_K)}_{Z/Y_K}, that is Ω^{|Σ|} for the Z attached to an enlarged framing Σ.",
+   "reason": "d is fixed by Convention 10.4 as the relative dimension of X over Y, whereas the complex displayed is the de Rham complex of Z over Y_K. In the case Construction 10.6(2) goes on to use, Z is the generic fibre of Spf(R⟨x_u^{±1}; u ∈ Σ⟩) and has relative dimension |Σ|, which exceeds d whenever the enlarged framing is larger than a framing; the complex as printed then stops short of its top term.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2203.09490 (v1 17 March 2022, v2, v3 27 October 2023; v3 is the current version)",
+    "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no update-to, updated-by or other correction relation)",
+    "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
+   ],
+   "owner": "PAPER-GUO-REINECKE-24",
+   "file": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
+   "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GUO-REINECKE-24",
+   "reviewReason": "Confirmed by the reviewer, and added here: the extraction noticed the printed exponent but left it unrecorded. Convention 10.4 (TeX l. 4725) fixes d as the relative dimension of R -> R', and Construction 10.6(2) (l. 4781) displays the de Rham complex of Z over Y_K, whose relative dimension is |Sigma| in the framed case of Example 10.5(2) (l. 4741), not d. Nothing downstream uses the printed top term: Theorem 10.7 works with Omega^b_{Z^{a+1}/Y_K} for all b."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E1",
