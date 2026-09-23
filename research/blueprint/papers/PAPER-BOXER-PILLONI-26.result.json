@@ -19,6 +19,10 @@
    "Pinned libraries read at the cited declarations: Mathlib 082e2d3 and Tau Ceti f790474 (the worker baseline); atlas data at tauceti-explorer commit 2b02515, after the merge of PAPER-PILLONI-20."
   ]
  },
+ "libraryPins": {
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+ },
  "summary": "Boxer and Pilloni build Hida theory for the coherent cohomology of Siegel Shimura varieties for GSp_{2g} in every cohomological degree, higher Hida theory. The theories are indexed by the Kostant set ^M W of minimal-length representatives of W_M\\W: for each w, RΓ_w(K^p, cusp/∅) is the ordinary part of the cohomology, with support conditions attached to w, of toroidal compactifications of the ordinary Igusa formal schemes. Theorem 1.4.3: these complexes are admissible; for g ≤ 2 they have integral amplitude [0, ℓ(w)] (cuspidal) and [ℓ(w), g(g+1)/2] (non-cuspidal), and rationally for all g; in regular weight they compute the ordinary part of classical coherent cohomology, and in any weight a Cousin spectral sequence computes it from the RΓ_w with w ∈ C(κ). Over Λ = Z_p⟦T(Z_p)⟧ the perfect complexes M^•_w interpolate these ordinary parts over the whole weight space (Proposition 1.4.7) and satisfy Serre duality (Theorem 1.4.8). The slope-0 part of the higher Coleman theory of [BP21] is the rational part of higher Hida theory (Theorems 6.2.9, 6.2.15); this proves the slope bounds conjectured in [BP21] in the Siegel case (Theorem 1.4.10), and gives the vanishing of the ordinary part of H^i(Γ, Q_p) for i < g(g+1)/2 for principal congruence subgroups of Sp_{2g}(Z) of level divisible by p (Theorem 1.5.1). The method rests on an abstract formalism of cohomology with partial support for dynamic correspondences on compactifications, in the solid quasi-coherent formalism of Clausen–Scholze (§2), on a tower of smooth ordinary Igusa formal schemes over finite-level groups K_{p,P} ⊆ P′(Q_p) (§3), and on integral models at deep Iwahori level with Hecke correspondences at p controlled by Fargues's degree function and integral cohomological correspondences from the fundamental class of Fakhruddin–Pilloni (§4). The atlas plans solid modules and localization (SolidAnalyticRings, AnalyticStacks), the Siegel datum and moduli at good level (ShimuraData, PELModuli, ShimuraCompactifications), Iwasawa algebras and weight spaces, perfect complexes and the Hodge–Tate period map, but no cohomology with support for correspondences, no Siegel Igusa formal schemes, no deep-level Siegel models with Hecke correspondences at p, and no higher Hida theory. Routes: additions to four proposals made by other extractions, and one new Part II: HigherHidaAndColemanTheory (the Part II of PadicFamilies proposed by PAPER-PILLONI-20; 247 items, the paper's core including its §2 formalism), IntegralCoherentHeckeComplexes (20), ShimuraVarietiesHondaTatePartII (4), ShimuraCompactificationsPartIIHodgeTypeIntegralBoundary (2), and a new Part II of IgusaVarietiesAndTorsionConcentration on ordinary Igusa formal schemes of Siegel varieties (31); and source routes to seventeen roadmaps, chiefly the draft AnalyticStacks (six-functor inputs of §2) and ShimuraData (the root data of GSp_{2g} and the Kostant set). 133 mistakes are recorded, none previously known. Among them: the Serre duality pairing of Theorem 1.4.8 is Λ-bilinear only after twisting one factor by the involution t ↦ w_0t^{−1}; Theorem 1.3.8 claims a uniqueness that the cohomological degree does not give; the concrete description of ^M W uses the wrong order on {1, …, 2g}; several §2 statements need extra hypotheses (p₁ proper in Proposition 2.9.9, bounded below in Lemma 2.10.1(4)); and the proof of the Cousin spectral sequence (Theorem 4.5.2) leaves the vanishing of the E₁ terms with w ∉ C(κ) and two comparisons unproved.",
  "items": [
   {
@@ -1164,10 +1168,9 @@
     "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot",
     "mathlib:IsLocalRing.jacobson_eq_maximalIdeal",
     "mathlib:IsLocalRing.map_mkQ_eq_top",
-    "mathlib:OrzechProperty.bijective_of_surjective_of_finrank_le",
-    "mathlib:CommRing.orzechProperty"
+    "mathlib:OrzechProperty.bijective_of_surjective_of_finrank_le"
    ],
-   "note": "All three assertions are in Mathlib: the lemma itself, surjectivity modulo the maximal ideal, and bijectivity of a surjection between free modules of the same finite rank. The paper uses it in the proof of Lemma 2.6.6 (pp. 21–22). External input: Nakayama's lemma (standard commutative algebra)."
+   "note": "All three assertions are in Mathlib: the lemma itself, surjectivity modulo the maximal ideal, and bijectivity of a surjection between free modules of the same finite rank. The paper uses it in the proof of Lemma 2.6.6 (pp. 21–22). External input: Nakayama's lemma (standard commutative algebra). Reviewer's correction (issue #1200): the citation mathlib:CommRing.orzechProperty was removed because no declaration of that name exists at the pinned Mathlib commit; a search of the declaration index finds the class OrzechProperty and its consequences (Mathlib/RingTheory/OrzechProperty.lean) but no instance supplying it, under any name. The remaining four citations give Nakayama's lemma, surjectivity modulo the maximal ideal and bijectivity of a surjection between free modules of the same finite rank; for the last of these, applying OrzechProperty.bijective_of_surjective_of_finrank_le to a commutative ring still needs the OrzechProperty instance, and IsNoetherian.bijective_of_surjective_endomorphism (Mathlib/RingTheory/Noetherian/Orzech.lean:62) covers the Noetherian case that the paper's applications use."
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/lemma-2-6-7-perfectness-criterion-modulo-maximal-ideal",
@@ -5847,7 +5850,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `it is clear thet $J_{\\mathrm{ord}}$ acts on the right on $\\mathfrak{IG}_{K^p}$'. A spelling slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E58",
@@ -5862,7 +5870,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. Page 37 proves $K_{p,P}=M_{K_{p,P}}\\ltimes U_{K_{p,P}}$ only `When $p>2$', the argument needing $\\chi_{\\mathrm{cycl}}(\\sigma)-1\\in\\Z_p^\\times$, yet the exact sequence stated just before Proposition 3.4.9 and point (5) of that proposition both use $M_{K_{p,P}}=K_{p,P}\\cap M(\\Q_p)$ as the quotient of $K_{p,P}$ by $U_{K_{p,P}}$, with no hypothesis on $p$; §3.3 fixes an arbitrary prime. For $p=2$ the intersection can be smaller than the image, and then the sequence is not exact and the covering group in (5) is the wrong one. Both repairs the finding gives are right, and the local one — take the image $K_{p,P}/U_{K_{p,P}}$, which is constant because Galois acts trivially on $M$ — is the smaller change.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E59",
@@ -5877,7 +5890,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. §3.4.12 forms $\\mathfrak{IG}_{K^pK_{p,P},\\Z_p^{\\mathrm{cycl}}}$ as a quotient `For any compact open subgroup $K_{p,P}$ of $P(\\Q_p)$', while Proposition 3.4.9, which produces those quotients and their smoothness, is stated over $\\Z_p$ for compact opens of $P'(\\Q_p)$ — that is, by §3.4.5, for the Galois-stable ones. §3.4.17 then takes $K_{p,P}=P(\\Q_p)\\cap xK_px^{-1}$, which need not be Galois stable, and the proof of Lemma 3.4.24 cites Proposition 3.4.9 for the normality of that source. So a $\\Z_p^{\\mathrm{cycl}}$ statement for all compact opens of $P(\\Q_p)$ is being used and is not proved. The finding's repair is correct and short, descending from a Galois-stable open normal subgroup by a free finite group action.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E60",
@@ -5892,7 +5910,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `This implies (3). Indeed, by (4) the formal schemes $\\mathfrak{IG}_{K^pK_{p,P}}$ are formally smooth'. Point (4) asserts only that the quotient by $U_{K_{p,P}}$ exists as a formal scheme; formal smoothness comes from point (6), which identifies the completions at closed points with the formal torus $\\hat T_{K_{p,P}}$, together with the profinite étale descent of (5), as Remark 3.4.10 spells out. The sentence also sits immediately after the deduction of (6), which makes the intended reference plain.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E61",
@@ -5907,7 +5930,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `Now we need to consider the fpqc quotient of $\\mathfrak{IG}_{K^pP(\\Z_p)_n}$ by the finite flat group scheme $\\overline{K_{p,P}}/\\overline{P(\\Z_p)_n}$', with $P$ in place of $P'$ twice. The sentence before reduces to $P'(\\Z_p)_n\\subseteq K_{p,P}\\subseteq P'(\\Z_p)$, and $P(\\Z_p)_n$ is not among the groups in play in §3.4.5, where the levels are compact opens of $P'(\\Q_p)$. Dropped primes.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E62",
@@ -5922,7 +5950,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, twice: §3.4.15 constructs the torsor `$\\mathfrak{IG}^{\\mathrm{tor}}_{K^pU_P(\\Z_p)(1),\\Sigma}\\to\\mathfrak{IG}^{\\mathrm{tor}}_{K^pP(\\Z_p),\\Sigma}$' and the proof of Proposition 3.4.16 opens `The map $\\mathfrak{IG}^{\\mathrm{tor}}_{K^p,\\Sigma}\\to\\mathfrak{IG}^{\\mathrm{tor}}_{K^pP(\\Z_p),\\Sigma}$ is profinite flat', in both cases with an unprimed $P$, although the space just defined in the preceding sentence is $\\mathfrak{IG}^{\\mathrm{tor}}_{K^pP'(\\Z_p),\\Sigma}$ and the rest of the passage uses the primed symbol. Dropped primes.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E63",
@@ -5937,7 +5970,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an error, and the smallest case settles it. §3.4.19 defines $\\mathcal A_{g,\\delta}\\to\\mathcal A_{g,d}$ as the locally closed substack `where the kernel of the polarization is isomorphic, locally in the étale topology, to $\\prod_i\\Z/\\delta_i\\Z\\times\\mu_{\\delta_i}$'. When $p\\mid\\delta_i$ the group $\\mu_{\\delta_i}$ is not étale locally constant in characteristic $p$, so read literally the substack has no points there; and $p\\mid d$ is precisely the case the paper needs, since §4.1.1 takes degrees $p^{2ng-2in}$. For $g=1$, $d=p$ the only polarization type is $\\delta=(p)$ and the kernel in characteristic $p$ is $\\mu_p\\times\\Z/p$ only in the ordinary case and $\\alpha_p$-like otherwise, so the étale-local condition is the wrong one. Reading it fppf-locally, as the finding proposes, leaves $\\mathcal A_{g,\\delta,\\Q}=S_{K_\\delta,\\Q}$ untouched and makes the decomposition of the ordinary locus correct.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E64",
@@ -5952,7 +5990,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `Let $n\\in\\Z_{\\geq0}$. Let $K_{p,n}\\subseteq G(\\Q_p)$ be the Iwahori subgroup of matrices in $G(\\Z_p)$, reducing modulo $p^n$ to $B(\\Z/p^n\\Z)$.' At $n=0$ the congruence is empty and $K_{p,0}=G(\\Z_p)$, which is hyperspecial, not Iwahori; and §4.1.1 immediately builds a chain of isogenies whose total composite is multiplication by $p^n$, which is trivial at $n=0$. The intended range is $n\\geq1$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E65",
@@ -5967,7 +6010,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, and §3.4.19 fixes the convention: it defines $\\mathcal A_{g,d}$ as the moduli of abelian varieties `with a degree $d^2$ polarization'. §4.1.1 then says `$\\mathcal A_{g+i}$ is equipped with a polarization of degree $p^{2ng-2in}=d_i$' and forms $\\prod_i\\mathcal A_{g,d_i}$, so the printed $d_i$ is the degree itself rather than its square root; the parameter wanted is $d_i=p^{n(g-i)}$. The $i=0$ factor is right as printed, the principal case.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E66",
@@ -5982,7 +6030,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the flag is $0\\subseteq H_{g+1}\\subseteq\\cdots\\subseteq H_{2g}=H_{2g}^\\perp\\subseteq H_1\\subseteq\\cdots\\subseteq A[p^n]=H_g$, indexed in the order $g+1,\\dots,2g,1,\\dots,g$, and the definition given is `$\\mathrm{Gr}_i=H_i/H_{i-1}$'. Read with the ordinary predecessor that fails twice: at $i=g+1$ it gives $H_{g+1}/H_g=H_{g+1}/A[p^n]$, and at $i=1$ it gives $H_1/H_0$ with no $H_0$ defined, where the flag's predecessor of $H_1$ is $H_{2g}$. Taking the predecessor in the flag's own order, as the finding says, gives the graded pieces of order $p^n$ that the sentence goes on to describe.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E67",
@@ -5997,7 +6050,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. §4.1 states that the $\\mathrm{Gr}_i$ `are finite flat group scheme of order $p^n$ over the interior of the Shimura variety', and §4.1.8 then defines $D_i$ as `the effective Cartier divisor on $\\mathcal S^{\\mathrm{tor}}_{K^pK_{p,n}}$ associated to the generically étale finite flat group scheme $\\mathrm{Gr}_i$' — over the whole toroidal compactification, where the finite flatness has only been asserted on the interior. Fargues's construction needs a finite locally free group scheme, and at the boundary $\\mathrm{Gr}_i$ is a subquotient of the $p^n$-torsion of a semi-abelian scheme, which is only quasi-finite flat. The finding is right that the divisor can still be produced, and that the paper does not say how.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E68",
@@ -6012,7 +6070,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: Corollary 4.1.14 says `The map $\\tilde{\\mathcal S}^{\\mathrm{tor}}_{K^pK_{p,n},=w_1,\\cdots,=w_g}\\to\\mathcal S^{\\mathrm{tor}}$ is an open immersion', using the bare symbol $\\mathcal S^{\\mathrm{tor}}$, which the very next sentence introduces as an abbreviation — and for the blow-up $\\tilde{\\mathcal S}^{\\mathrm{tor}}_{K^pK_{p,n}}$, not for the model. So at the point of use it is either undefined or, under the abbreviation about to be fixed, the wrong space; what Proposition 4.1.13(2) provides is an open immersion into $\\mathcal S^{\\mathrm{tor}}_{K^pK_{p,n}}$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E69",
@@ -6027,7 +6090,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, and the proposition contradicts the proof. The proof of Proposition 4.1.13 writes $Z_{k+1}-V(p^{n(j_k+1)})=-D_{g-k-1}=-Z_{k+1,<j_k+1}$, while part (3) of the same proposition states $Z_{k+1,<j_{k+1}}=D_{g-k}=V(p^n)-D_{g+k+1}$. The index in the proof is off by one, and $D_{g-k}$ is the divisor that makes the identity $Z_{k+1}-V(p^{n(j_k+1)})=-(V(p^n)-D_{g+k+1})$ come out right given $Z_{k+1}=Z_k+D_{g+k+1}$ and $Z_k=V(p^{nj_k})$ on that open.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E70",
@@ -6042,7 +6110,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap in the statement. Proposition 4.1.13(2) says of the open $\\tilde{\\mathcal S}^{\\mathrm{tor}}_{K^pK_{p,n},=j_1,\\dots,=j_k}$ that `This open subset is empty unless $j_i-j_{i-1}\\in\\{0,1\\}$'. It is not: the blow-up is an isomorphism over the generic fibre, so the open always contains a piece of $\\mathcal S^{\\mathrm{tor}}_{K^pK_{p,n},\\Q_p}$, and what is empty when the condition fails is its special fibre. The same qualification is needed in the proof, where $Z_{k+1,>j}=\\tilde{\\mathcal S}^{\\mathrm{tor}}_{k,=j_1,\\dots,=j_k}$ for $j<j_k$ holds as an identity of supports in the special fibre rather than of divisors. The rest of (2) and all of (3) are unaffected, and the paper only ever uses the special-fibre reading.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E71",
@@ -6057,7 +6130,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: §4.1.12 reads `We let $Z_i=\\sum_{i=1}^kD_{g+i}$', with $i$ free on the left and bound as the summation index on the right, and a $k$ that has not been introduced. §4.2.9 restates the same definition correctly as $Z_i=\\sum_{k=1}^iD_{g+k}$, which is also the form the proof of Proposition 4.1.13 uses when it writes $Z_{k+1}=Z_k+D_{g+k+1}$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E72",
@@ -6072,7 +6150,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an overstatement. The induction in the proof of Proposition 4.1.13 shows at each step only that $\\tilde{\\mathcal S}^{\\mathrm{tor}}_{k+1}\\to\\tilde{\\mathcal S}^{\\mathrm{tor}}_k$ is an isomorphism over $\\tilde{\\mathcal S}^{\\mathrm{tor}}_{k,=j_1,\\dots,=j_k}$, so what it proves is the open immersion at the $k$-th stage of the tower, whereas (2) asserts it for the final blow-up $\\tilde{\\mathcal S}^{\\mathrm{tor}}_{K^pK_{p,n}}=\\tilde{\\mathcal S}^{\\mathrm{tor}}_g$; the later centres need not miss that open once $k\\leq g-2$. The finding is right that the set-theoretic image, the emptiness claim in its corrected form, and parts (1) and (3) survive for every $k$, and that the paper only uses $k=g$, in Corollary 4.1.14 and Proposition 6.2.2(3). So nothing downstream is affected. E70 records the separate defect in the same statement; the two agree.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E73",
@@ -6087,7 +6170,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the base case reads `Therefore, we can take $\\tilde{\\mathcal S}^{\\mathrm{tor}}_{K^pK_{p,n},1}=\\mathcal S^{\\mathrm{tor}}_{K^pK_{p,n},1}$', naming a space $\\mathcal S^{\\mathrm{tor}}_{K^pK_{p,n},1}$ that is nowhere defined. The tower being built starts from $\\mathcal S^{\\mathrm{tor}}_{K^pK_{p,n}}$ itself, and the point of the base case is that the two divisors $Z_{1,>0}=D_{g+1}$ and $Z_{1,<1}=D_g$ already have disjoint support, so no blow-up is needed. A stray subscript.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E74",
@@ -6102,7 +6190,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: Lemma 4.1.18 reads `$F_i\\setminus F_{i-1}=\\coprod_{w,\\ell(w)=i}\\bigcap_{i=1}^g(Z_{i,>w_i-1}\\cap Z^c_{i,>w_i})$', with $i$ the free filtration index on the left and also the bound index of the intersection on the right. Lemma 4.5.7 restates the same identity with distinct letters. A clash of indices only.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E75",
@@ -6117,7 +6210,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The displayed decomposition prints $P(\\Q_p)wK_{p,n}=P(\\Q_p)w\\prod_{\\alpha\\in w^{-1}\\Phi^{-,M}\\cap\\phi^+}U_{\\alpha,n}\\prod_{\\alpha\\in w^{-1}\\Phi^{-,M}\\cap\\phi^-}U_{\\alpha,0}$, with a lower-case $\\phi$ that the paper never defines — $\\Phi$ is its set of roots — and the same two products reappear twice on the next page. On the level subscripts the finding is also right: $K_{p,n}$ is the Iwahori of matrices congruent to $B(\\Z/p^n)$, so it contains the full $U_{\\alpha,0}$ for $\\alpha\\in\\Phi^+$ and only $U_{\\alpha,n}$ for $\\alpha\\in\\Phi^-$, the opposite of what is printed; with the corrected assignment the set is $P(\\Q_p)w(K_{p,n}\\cap w^{-1}\\bar U_Pw)$ and the proof's conclusion, that $wxt\\in P(\\Q_p)wK_{p,n}$ iff $x\\in tK_{p,n}t^{-1}$, follows.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E76",
@@ -6132,7 +6230,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. §4.1.16 sets $Z_{>w-1}=\\bigcap_{i=1}^gZ_{i,>w_i-1}$, and since $w_1$ can be 0 this calls for $Z_{i,>-1}$, which Proposition 4.1.13(1) does not define, its range being $0\\leq j\\leq i$. The convention the finding supplies, $Z_{i,>-1}=Z_i+V(p^n)$ and $Z_{i,<-1}=0$, satisfies the defining identity of 4.1.13(1) with disjoint supports and makes $Z_{i,>-1}$ the whole special fibre, which is what Lemma 4.1.17, the equality $F_{g(g+1)/2}=\\mathcal S^{\\mathrm{tor}}_{\\F_p}$ and the inclusion noted just after Lemma 4.1.18 all need.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E77",
@@ -6147,7 +6250,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. Both proofs jump from equality of degrees to the assertion that $p_1^\\star H$ is a $\\mathrm{BT}_n$: Corollary 4.2.10 says `the groups … are $\\mathrm{BT}_n$'s and their degree is a multiple of $n$', and Proposition 4.2.15 says `We deduce from proposition 4.2.8 that $p_1^\\star H_{k',x}$ is a $\\mathrm{BT}_n$'. Proposition 4.2.8 concludes that only at a step with $i+s=h$, and in the factorisation of §4.2.5 that step is one particular one; the earlier and later steps give nothing directly about $p_1^\\star H$. The finding's repair keeps what is used — the degree lies in $n\\Z$, hence in $\\{0,n\\}$ for a graded piece, hence the piece is étale or multiplicative — and it is obtained exactly as it sets out, by locating the step with $i+s=2g$ and noting that every later step is a generic isomorphism of equal degrees, hence an isomorphism. Its three accompanying misprints are E79, E80 and E83, and I confirm them there.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E78",
@@ -6162,7 +6270,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on both slips. The proof of Proposition 4.2.8 prints `$\\deg p^{-1}H+\\deg p^{-n}L_K\\leq\\deg p^{-1}H\\cap p^{-n}L+\\deg G[p^{n+1}]$', where the second term carries a generic-fibre subscript although every other term is a degree of a finite flat group scheme over $V$; and it prints the exact sequence as `$0\\to H[p]\\to p^{-1}H\\to H\\to0$', where the kernel of $[p]^{-1}(H)\\to H$ is $G[p]$, not $H[p]$. With $G[p]$ the next display, $\\deg p^{-1}H=\\deg H+\\deg G[p]$, is exactly what is asserted, which confirms the reading. The conclusion is unaffected.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E79",
@@ -6177,7 +6290,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof of Corollary 4.2.10 says the isogeny `can be written as a composition of isogenies whose kernel is a finite flat group scheme killed by $p$ (see section 4.2.1)'. §4.2.1 defines the correspondence and its integral model and contains no such factorisation; the factorisation is built in §4.2.5, which is also where Remark 4.2.6 records the ranks the proof goes on to use.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E80",
@@ -6192,7 +6310,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `the groups $p_1^\\star H_{g+i,x}$ and $p_1^\\star H_{g+i,x}$ are $\\mathrm{BT}_n$'s', naming the same group twice. The sentence before compares $p_2^\\star$ with $p_1^\\star$ and `we have equality' refers to their degrees, so the second is $p_2^\\star H_{g+i,x}$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E81",
@@ -6207,7 +6330,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The proof of Corollary 4.2.10 opens `By normality, it suffices to check this in codimension 1', and that reduction is right for the inequality $p_2^\\star Z_i\\geq p_1^\\star Z_i$, which compares divisors on a normal scheme. It does not cover the `Moreover' clause, which asserts a containment of closed subsets and therefore has to be checked at every point, not only at the generic points of the special fibre; the proof produces nothing at a point of higher codimension. The finding's repair uses only the paper's own tools — a rank-one valuation ring through the point, disjointness of the supports of $Z_{i,>j}$ and $Z_{i,<j}$ to see that $\\deg p_1^\\star H_{g+i}$ is not a multiple of $n$, and then Proposition 4.2.8 at the step with $i+s=2g$ to contradict equality — and it is the argument the later proofs on pp. 46 and 47 in fact use. Its two accompanying misprints are E79 and E80.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E82",
@@ -6222,7 +6350,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof of Lemma 4.2.12 reads `this is just another way of writing the identity $p_2^\\star\\sum_{i=1}^kD_{g+i}\\geq p_1^\\star\\sum_{i=1}^kD_{g+i}$', with a letter $k$ that occurs nowhere in the lemma or its proof, and calling an inequality an identity. What the lemma reduces to is the case $i=g$ of Corollary 4.2.10, since the two sides differ by $(p_2^\\star-p_1^\\star)$ applied to a sum running over all of $\\{1,\\dots,g\\}$ once $D_i+D_{2g+1-i}=(p^n)$ is granted.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E83",
@@ -6237,7 +6370,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof of Proposition 4.2.15 assumes `for all $g+1\\leq k'\\leq k$', while the proposition begins `Let $t\\in T^{++}(\\Q_p)$ and let $1\\leq k\\leq g$', so the printed range is empty. The groups being compared are the $H_{g+k'}$ for $1\\leq k'\\leq k$, which is what the preceding sentence about $\\sum_{i=1}^{k'}D_{g+i}$ sets up. An index slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E84",
@@ -6252,7 +6390,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `$V_\\kappa$ … equipped with the action $m'.f(m)=f(m^{-1}m')$'. The defining equivariance $f(mb)=w_{0,M}\\kappa(b^{-1})f(m)$ is right-translation by $B\\cap M$, so the $M$-action has to be by left translation, $(m'.f)(m)=f(m'^{-1}m)$; the printed formula is not even a left action, since $m\\mapsto f(m^{-1}m')$ sends $f$ to a function whose composition rule reverses. The corrected formula is the one under which $V_\\kappa$ is the highest-weight $\\kappa$ representation the sentence claims.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E85",
@@ -6267,7 +6410,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and Lemma 4.3.6 contradicts its own proof. The statement of the lemma removes $\\sum_{i=1}^gD_i\\cap D_{2g+1-i}$, while its proof writes $\\sum_{i=1}^d$ three times and the paragraph defining $\\mathcal O(\\chi)$ and Lemma 4.3.16 write it twice more, with an upper limit $d$ that is nowhere defined in §4 — the only $d$ in the paper is the polarization degree of §3.4.19 and the undefined shift of Theorem 5.5.1. The divisors run $D_1,\\dots,D_{2g}$ and pair up as $D_i\\cap D_{2g+1-i}$ for $1\\leq i\\leq g$, which is the indexing of Lemma 4.1.9 and Proposition 4.2.14(1). So $g$ is meant in all five places.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E86",
@@ -6282,7 +6430,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. Lemma 4.3.6 has two assertions, and the printed proof argues only the first: it extends the $\\mathrm{Gr}_i$ to finite flat group schemes off $\\sum D_i\\cap D_{2g+1-i}$, produces an étale $U$ trivialising them, and concludes that the normalisation splits over $U$ — which gives the finite étale covering with group $T(\\Z/p^n\\Z)$. The `Moreover' clause, identifying the fibre product with the Igusa tower over the $w$-stratum with $\\mathfrak{IG}^{\\mathrm{tor}}_{K_{p,P,1,w}K^p}$, is never addressed. The finding's repair is the natural one and uses only results already in place — both sides are $T(\\Z/p^n\\Z)$-torsors over $\\mathfrak{IG}^{\\mathrm{tor}}_{K_{p,P,w}K^p}$ and Lemma 3.4.24 identifies them, the fixed $\\Z_p(1)\\cong\\Z_p$ entering only modulo $p^n$ so that the comparison descends to $\\Z_p(\\zeta_{p^n})$. The statement stands.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E87",
@@ -6297,7 +6450,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof of Lemma 4.3.8 writes the unipotent part as $\\prod_{\\alpha\\in\\Phi^{+,M}}p^{\\sup\\{0,\\alpha(w(v(t)))\\}}K_p\\alpha$, where $K_p\\alpha$ is a product of the level with a root rather than the root subgroup $K_{p,\\alpha}$ of Remark 3.4.11, which is the notation the proof is applying. A dropped comma in a subscript.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E88",
@@ -6312,7 +6470,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, in all the places the finding lists: Proposition 4.3.11 and its proof, and the definition of $t$ before Proposition 4.3.18, all remove $\\sum_{i=1}^gD_i\\cap D_{2g+i-1}$. The divisors are indexed $1,\\dots,2g$ and pair as $D_i$ with $D_{2g+1-i}$ — that is the pairing of Lemma 4.1.9, of Proposition 4.2.14(1), of $\\mathrm{Gr}_{2g-i+1}=\\mathrm{Gr}_i^D$ on p. 41 and of the source of the very map being defined, $\\mathcal C^{\\mathrm{tor}}_t\\setminus\\sum_ip_1^\\star D_i\\cap p_2^\\star D_{2g+1-i}$, which the same proposition writes correctly. At $i=g$ the printed index even gives $D_{3g-1}$, outside the range. A transposition.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E89",
@@ -6327,7 +6490,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: in Remark 4.3.12 the two pairings are written $\\langle(w')^{-1}(w_{0,M}(\\kappa+\\rho)+\\rho,t\\rangle$ and $\\langle w^{-1}(w_{0,M}(\\kappa+\\rho)+\\rho,t\\rangle$, and in Proposition 4.3.17 the normalisation is $\\langle-w^{-1}(w_{0,M}(\\kappa+\\rho)-\\rho,t\\rangle$; in each the bracket opened after the Weyl element is never closed. Deleting it gives the normalisation of Proposition 4.3.9, $\\langle-w^{-1}w_{0,M}(\\kappa+\\rho)-\\rho,t\\rangle$, which is what the definition of $t$ immediately after Proposition 4.3.17 uses, and makes the $\\rho$ terms cancel in $n_{w'}$ as Remark 4.3.12 needs for its conclusion that $n_{w'}>0$ off $C(\\kappa)$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E90",
@@ -6342,7 +6510,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `We let $\\mathcal S^{\\mathrm{tor}}_{\\F_p,(w-1,w+1)}=\\bigcap_iZ_{i,<w_i+1}\\cap Z_{i,>w_i+1}$', with $w_i+1$ in both factors. The name of the object announces the two indices $w-1$ and $w+1$, and the second factor has to be $Z_{i,>w_i-1}$ for the set to contain the $w$-stratum: §4.1.16 defines $Z_{>w-1}=\\bigcap_iZ_{i,>w_i-1}$ and notes $\\mathcal S^{\\mathrm{tor}}_{\\F_p,w}\\subseteq\\bigcap_i(Z_{i,>w_i-1}\\cap Z^c_{i,>w_i})$. With the printed index the intersection is not the neighbourhood Lemma 4.4.2 goes on to use. A sign in an index.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E91",
@@ -6357,7 +6530,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `We $D_{w,-}=\\cup Z_{i,>w_i}$ and $D_{w,+}=\\cup_iZ_{i,<w_i}$' — the verb is missing, and the first union has lost the index $i$ that the second one carries. The sentence is a definition parallel to the one before it. Typographical.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E92",
@@ -6372,7 +6550,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof of Lemma 4.4.2 asserts `$p_2^\\star Z_{i,>w_i}\\geq p_1^\\star Z_{i,>w_i}$ and $p_1^\\star Z_{i,<w_i}\\geq p_1^\\star Z_{i,<w_i}$', the second being trivially an equality of the same divisor with itself. Lemma 4.2.11 supplies $p_2^\\star Z_{i,<j}\\leq p_1^\\star Z_{i,<j}$, so the intended statement is $p_1^\\star Z_{i,<w_i}\\geq p_2^\\star Z_{i,<w_i}$, which is what the local computation that follows uses when it produces $sp_1^\\star Z_{i,<w_i}\\geq p_2^\\star Z_{i,<w_i}$. The finding's second item, the inclusion asserted from Corollary 4.2.10, is the same kind of slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E93",
@@ -6387,7 +6570,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The proof of Corollary 4.4.3 asserts that over $p_i^{-1}\\mathcal S^{\\mathrm{tor}}_{\\F_p,(w-1,w+1)}$ the divisors $p_2^\\star\\sum Z_i-p_1^\\star\\sum Z_i$ and $p_1^\\star D_{w,+}+p_2^\\star D_{w,+}$ `have the same support', and argues it by comparing complements; but what the comparison gives is one containment, the complement of the first being contained in the complement of the second, since a point off $p_1^\\star D_{w,+}+p_2^\\star D_{w,+}$ can still lie on the difference of the $Z$'s. Only that containment is used, in the factorisation the corollary asserts, so the correction costs nothing and the corollary stands.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E94",
@@ -6402,7 +6590,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof defines $a_{i,j}$ by $Y_i^n=a_{i,j}Y_j^n$ and then concludes `We deduce that $f_i=a_{i,j}f_j$'. Taking images of that relation gives $f_i^n=a_{i,j}f_j^n$; the printed form would need $Y_i=a_{i,j}Y_j$ instead. The corrected relation is the one the gluing computation two lines later uses.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E95",
@@ -6417,7 +6610,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the last sentence of the proof of Corollary 4.4.3 produces a map out of $\\mathcal O(-2m(p_2^\\star\\sum Z_i-p_1^\\star\\sum Z_i))$ after setting $m=2n$. Since $Y_i$ generates $\\mathcal O(-(p_2^\\star\\sum Z_i-p_1^\\star\\sum Z_i))$, the element $Y_i^m$ generates the $-m$ twist, so the source is the $-m$ twist; that is also the twist the corollary states and the one the doubling $m=2n$ is chosen to reach. A stray factor of 2.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E96",
@@ -6432,7 +6630,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed from the page, where the two letters are distinguishable in the text layer as well: Remark 4.5.3 says the differentials and abutment depend on `the integral models $\\mathcal S^{\\mathrm{tor}}$ and $\\tilde w^\\kappa$', with a Latin $w$, whereas the sheaf in Theorem 4.5.2 and in §4.5.1 is $\\tilde\\omega^\\kappa$. A font slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E97",
@@ -6447,7 +6650,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The proof of Proposition 4.4.4 forms $\\bar{\\mathcal S}^{\\mathrm{tor}}_{w,\\Z/p^s\\Z}$, the closure of the $w$-stratum, and says `When $s=1$, lemma 4.4.2 proves that this is a strict dynamical compactification'; but Lemma 4.4.2 is proved for a different space, the open $\\mathcal S^{\\mathrm{tor}}_{\\F_p,(w-1,w+1)}$ with $\\bar{\\mathcal C}=p_1^{-1}\\cap p_2^{-1}$ of it, not for the closure of the stratum inside it. The step from one to the other is Lemma 2.1.29, restricting a strict dynamic compactification along a strict map, and saying so is what is missing. Incidentally the same sentence prints `the the closure', which no finding records.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E98",
@@ -6462,7 +6670,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The complexes are introduced on p. 51 as $\\mathrm R\\Gamma_w(K^pK_{w,p,P},\\kappa)$ and its variants, indexed by the prime-to-$p$ level, and the Igusa varieties carry $K^p$ throughout §3.4; the places the finding lists print the level as a subscript $K_p$ instead. The text layer of this PDF does not separate subscripts from superscripts, so for the glyph positions I am relying on the finding's render; the substance is not in doubt, since no group $K_p$ is defined in §4.4 and the definitions two lines above each occurrence carry $K^p$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E99",
@@ -6477,7 +6690,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The proof of Proposition 4.4.5 says `the construction of a compactification $\\bar{\\mathcal S}^{\\mathrm{tor}}_{w,\\Z/p^s\\Z}$ … is independent of the choice of $t\\in T^+(\\Q_p)$. We deduce that $T^+(\\Q_p)$ acts on $\\mathrm R\\Gamma_{D_+,D_-}(\\bar{\\mathcal S}^{\\mathrm{tor}}_{w,\\Z/p^s\\Z},\\omega^\\kappa)$.' Independence of the compactification gives each operator $T_t$ a common home, but not that the assignment $t\\mapsto T_t$ is multiplicative; the cohomological correspondences of Proposition 4.3.9 are constructed one $t$ at a time, with normalisations depending on $t$, and nothing in §4.3 or §4.4 composes them. That the $T_t$ commute and compose correctly is what `acts' asserts, and it is used immediately afterwards to compare the $t$- and $t'$-ordinary parts. The conclusion is surely right; the justification is a step short.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E100",
@@ -6492,7 +6710,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The Cousin filtration $F_i=\\bigcup_{\\ell(w)\\leq i}Z_{>w-1}$ and Lemma 4.5.7 run over all of $^MW$, so the $E_1$ term is $\\bigoplus_{w,\\ell(w)=p}$ over every $w$ of that length, while Theorem 4.5.2 states the spectral sequence with the sum restricted to $w\\in C(\\kappa)$. The restriction is legitimate — Remark 4.3.12 shows the correspondence restricted to $\\mathcal C^{\\mathrm{tor}}_{t,w'}$ is $p^{n_{w'}}t_{w'}$ with $n_{w'}>0$ for $w'\\notin C(\\kappa)$ and $t\\in T^{++}$, so those summands have vanishing ordinary part — but the proof does not say it. That is the missing step, and with it the theorem is right as stated.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E101",
@@ -6507,7 +6730,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: Corollaries 4.5.4 and 4.5.5 both open `Let $\\kappa\\in X^\\star(T)^+$ be such that $C(\\kappa)=\\{w\\}$', with the plain dominant cone. By p. 34 that cone is $0\\geq k_1\\geq\\cdots\\geq k_g$, whereas the weights carrying the automorphic sheaves $\\omega^\\kappa$ from §4.3 onward are the $M$-dominant ones, $k_1\\geq\\cdots\\geq k_g$, which is where $C(\\kappa)$ and Theorem 4.5.2 place $\\kappa$; Theorem 1.4.3(4)–(5) and Proposition 1.4.7 also state the corresponding results for $X^\\star(T)^{M,+}$. Read with the printed cone the corollaries would exclude most of the weights they are meant to cover, so the omission of the $M$ matters.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E102",
@@ -6522,7 +6750,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. §4.5.6 recalls the filtration ending at $F_{g(g+1)/2}=\\mathcal S^{\\mathrm{tor}}_{\\F_p}$ and then says `By theorem 2.9.7, we have a spectral sequence $H^{p+q}_c(\\hat F_p\\setminus\\hat F_{p-1},\\tilde\\omega^\\kappa)\\Rightarrow H^{p+q}(\\mathcal S^{\\mathrm{tor}},\\tilde\\omega^\\kappa)$'. Theorem 2.9.7 is stated for a filtration of $X$ by closed subschemes with $Z_d=X$, and its proof uses that to identify $\\mathrm R\\Gamma_c(U_{-1},\\mathcal F)$ with $\\mathrm R\\Gamma(X,\\mathcal F)$; here the filtration exhausts only the special fibre, while the abutment is the cohomology of the $\\Z_p$-scheme. The special fibre is a closed subscheme of $\\mathcal S^{\\mathrm{tor}}$ cut out by $p$, so the identification needs the completion along it, which is what the formal-completion notation $\\hat F$ in the $E_1$ term already signals; but the appeal to Theorem 2.9.7 as stated does not deliver it.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E103",
@@ -6537,7 +6770,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The proof of Proposition 4.5.8 justifies the factorisation `by lemma 4.3.14, and an application of corollary 4.4.3', but Corollary 4.4.3 is proved over $p_i^{-1}\\mathcal S^{\\mathrm{tor}}_{\\F_p,(w-1,w+1)}$, while the sheaves here live over the formal completion along $Z_{>w-1}$, a different and larger locus. The corollary does hold there, for the reason the finding gives — its proof is local and uses only the disjointness of the supports of $Z_{i,>j}$ and $Z_{i,<j}$ — but it has to be restated for that base. E105 records the separate bracketing slip in the same display.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E104",
@@ -6552,7 +6790,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, in both places, and the direction is decidable. Remark 5.1.2 says `For $n$ large enough, $t_0^{-n}K_{p,P}t_0^n\\subseteq P'(\\Z_p)$' and the proof of Theorem 5.1.4 says `for $r$ large enough, $t_0^{-r}K_{p,P}t_0^r\\subseteq K'_{p,P}$', with $t_0=\\mathrm{diag}(1_g,p1_g)$. Since $P$ is the stabiliser of $\\langle e_{g+1},\\dots,e_{2g}\\rangle$ and so block lower triangular in these coordinates, conjugation by $t_0^{-n}$ expands the unipotent radical rather than contracting it; it is $t_0^nK_{p,P}t_0^{-n}$ that shrinks into $P'(\\Z_p)$ and into any given open. The exponents are inverted.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E105",
@@ -6567,7 +6810,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the display reads $\\mathcal O_{\\mathcal C^{\\mathrm{tor}}_t}((k'-k)\\sum_{i=1}^gp_2^\\star Z_i-\\sum_{i=1}^gp_1^\\star Z_i)$, so the coefficient $k'-k$ multiplies only the first sum. Lemma 4.3.14, which the same sentence cites, factors through $\\mathcal O((k'-k)(\\sum p_2^\\star Z_i-\\sum p_1^\\star Z_i))$, with the coefficient on the whole difference; that is also the only reading under which the twist is effective, the difference $\\sum p_2^\\star Z_i-\\sum p_1^\\star Z_i$ being the effective divisor of Proposition 4.2.15. A missing pair of brackets.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E106",
@@ -6582,7 +6830,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. Proposition 5.2.3 asserts that $\\mathrm R\\Gamma_w(K^pK_{p,P})$ is a perfect complex of $\\Z_p[T_w(\\Z_p)/T_{w,K_{p,P}}]$-modules and disposes of it with `This is a consequence of theorem 2.6.10'. Theorem 2.6.10 is for a finite abelian group $G$ acting linearly on the coherent sheaf and commuting with the cohomological correspondence, applied here with $G=T_w(\\Z_p)/T_{w,K_{p,P}}$; for that group to act on the Igusa variety at level $K_{p,P}$ one needs $T_w(\\Z_p)$ to normalise $K_{p,P}$, which the definition of decomposable does not give. The finding's repair supplies it, and it holds in the cases used, but the one-line proof does not.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E107",
@@ -6597,7 +6850,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof of Proposition 5.2.5 intersects with $\\{M\\in P'(\\Z_p),\\ M\\bmod p^n\\Z_p\\in B(\\Z/p^n\\Z)\\}$. The Iwahori decompositions in play throughout §5.1 are with respect to $B_w=wBw^{-1}$, and what the construction needs is a subgroup whose $N_w$-part shrinks while its $T$- and $\\bar N_w$-parts are unchanged, which is the congruence condition for the opposite Borel $\\bar B_w$; the printed $B$ is neither $B_w$ nor its opposite. A wrong Borel.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E108",
@@ -6612,7 +6870,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof of Proposition 5.3.3 states the isomorphism as `$T_p(A[p^\\infty]^{et})\\otimes_{\\Z_p}\\mathcal O_{\\mathfrak{IG}_{U_{K_{p,P}}}}\\to\\omega_{A^t}\\otimes\\mathcal O_{\\mathfrak{IG}_{K_{p,P}}}$', where the tensor sign on the right has a subscript but no second factor, so the formula is incomplete. What is meant is $\\omega_{A^t}$ pulled back to $\\mathfrak{IG}_{U_{K_{p,P}}}$, i.e.\\ $\\omega_{A^t}\\otimes_{\\mathcal O_{\\mathfrak{IG}_{K_{p,P}}}}\\mathcal O_{\\mathfrak{IG}_{U_{K_{p,P}}}}$, which is the only reading under which the two sides live on the same space and the map to $\\mathcal M_{dR}$ is produced.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E109",
@@ -6627,7 +6890,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on both counts, and the letters are separable in the text layer. The proof of Theorem 5.3.5 writes the lowest-weight projection and the two displays that follow with $\\omega_{0,M}\\kappa$, a Greek omega, where the paper's notation is the longest element $w_{0,M}$ of $W_M$, used in Roman throughout; and one display carries $\\pi_\\star\\mathcal O_{\\mathfrak{IG}_{K^pU(\\Z_p)}}$ where the torsor in play, named in the line before and the line after, is $\\mathfrak{IG}_{K^pN_{K_{p,P}}}$. Both are notational.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E110",
@@ -6642,7 +6910,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Remark 5.4.3 writes the specialisation as $M^\\bullet_w\\otimes_{\\Lambda,-\\nu}\\Z_p(\\zeta_{p^n})$ and introduces $\\nu^{\\mathrm{univ}}$ without a formula, while $\\Lambda=\\Z_p[[T(\\Z_p)]]$ acts on the two sides through $w_{0,M}\\kappa^{\\mathrm{univ}}$ and through the group-like elements respectively. With the tautological normalisation $[t]\\mapsto t$ the two do not match and the sign in $\\otimes_{\\Lambda,-\\nu}$ is not the one that recovers Proposition 1.4.7; taking $\\nu^{\\mathrm{univ}}(t)=[t^{-1}]$, as the finding proposes, makes the specialisation come out as stated. The finding is right that the paper leaves the convention unfixed, which is what makes the sign ambiguous.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E111",
@@ -6657,7 +6930,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof of Theorem 5.5.1 pairs $\\mathrm R\\Gamma(\\mathfrak{IG}^{\\mathrm{tor}}_{K^pK_{p,P}},\\omega^\\kappa)^{\\mathrm{ord}}$ with $\\mathrm R\\Gamma(\\mathfrak{IG}^{\\mathrm{tor}}_{K^pK_{p,P}},\\omega^{\\kappa-2\\rho_{nc}})^{-,\\mathrm{ord}}$, in all four of its occurrences. Serre duality pairs $\\omega^\\kappa$ with $\\mathbb D(\\omega^\\kappa)=\\omega^{-w_{0,M}\\kappa-2\\rho_{nc}}(-D)$, the dual of the irreducible $M$-representation of highest weight $\\kappa$ having highest weight $-w_{0,M}\\kappa$; and the statement of the theorem itself has the weight $-w_{0,M}\\kappa-2\\rho_{nc}$ and the cuspidal condition. So the proof's sheaf is missing both the $-w_{0,M}$ and the $(-D)$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E112",
@@ -6672,7 +6950,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the $g=2$ case says `We have locally principal subschemes $D_{w,+}=Z_{1,<1}$ and $D_{w,-}=Z_{2,>1}$'. §4.4.1 defines $D_{w,+}=\\bigcup_iZ_{i,<w_i}$, which for $(w_1,w_2)=(1,1)$ is $Z_{1,<1}\\cup Z_{2,<1}$, so the printed equality holds only on supports; the $D_{w,-}$ half is exact, since $Z_{1,>1}=0$. The argument uses only the support, so the correction is a matter of saying so.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E113",
@@ -6687,7 +6970,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The passage deduces that $\\mathrm R\\Gamma_w(K^pK_{w,p,P},\\kappa,\\mathrm{cusp})\\otimes\\Z/p\\Z$ is a direct summand of $\\mathrm R\\Gamma(\\mathcal S^{\\mathrm{tor}}_{(w-1,w+1)}\\setminus D_{w,+},\\omega^\\kappa(-\\mathrm{cusp}))$, with no twist along $D_{w,-}$. The ordinary part is by construction $\\mathrm R\\Gamma_{D_{w,+},D_{w,-}}$, and Proposition 2.5.4 identifies it with the cohomology of $\\omega^\\kappa(k_+D_{w,+}-k_-D_{w,-})$ for $k_\\pm\\gg0$; passing to the colimit over $k_+$ removes $D_{w,+}$ but leaves the $-k_-D_{w,-}$ twist, which the printed sheaf does not carry. The cohomological-dimension bound then has to be applied to the twisted sheaf, which it can be, so the proposition stands.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E114",
@@ -6702,7 +6990,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as to the discrepancy. The bibliography cites [BP21] as arXiv:2110.10251, which has only a v1, and §6.1 refers to `def. 2.5.23' and `lem. 2.5.19' of it while §6.1.8's proof refers to lem. 3.5.10.5, sect. 3.3.6 and coro. 3.3.14; those numbers do not all belong to the same version of that paper, so at least one set is against a revision not named in the bibliography. The finding's two consistent readings — renumber to v1, or cite the authors' revised version and renumber the §6.1.8 references — are both coherent. I have not opened [BP21] myself, so on which numbering matches which version I am relying on the finding's check; the internal inconsistency is what makes it a defect either way.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E115",
@@ -6717,7 +7010,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The proof of Proposition 6.1.7 reduces to the nested case by way of the *union* pair, `If $(\\mathcal U,\\mathcal Z)$ and $(\\mathcal U',\\mathcal Z')$ are two support conditions, then $(\\mathcal U\\cup\\mathcal U',\\mathcal Z\\cup\\mathcal Z')$ is also a support condition'. The reduction needs the limit set of the bigger pair to be contained in the smaller, and the union pair's limit set contains the mixed sets $\\mathcal U_\\infty\\cap\\mathcal Z'_\\infty$ and $\\mathcal U'_\\infty\\cap\\mathcal Z_\\infty$, which the hypothesis does not control. Comparing both pairs with the intersection $(\\mathcal U\\cap\\mathcal U',\\mathcal Z\\cap\\mathcal Z')$, as the finding proposes, keeps the limit set equal to the common one at every stage and the printed nested argument then applies unchanged. The proposition stands.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E116",
@@ -6732,7 +7030,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `We let $X_w=\\overline{C_w}=\\cup_{w'\\leq w}C_{w'}$ be the Schubert cell' and `We let $X^w$ be the opposite Schubert cell, equal to the closure of …'. Both are defined as closures of Bruhat cells, so they are Schubert varieties; the cell is $C_w$, which the sentence before names correctly. A wrong noun, twice.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E117",
@@ -6747,7 +7050,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof claims $]X_{w,\\F_p}[\\cdot t^n\\subseteq\\mathcal X_{w,n}$ and $]Y_{w,\\F_p}[\\cdot t^{-n}\\subseteq\\mathcal X^{w,n}$, while the objects defined two lines earlier are $\\mathcal X_{w,n}$ and $\\mathcal X^w_n$; no $\\mathcal X^{w,n}$ exists. The neighbouring inclusion $\\mathcal X^w_n\\subseteq]X^w_{\\ldots}[$ uses the correct name. A misplaced index.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E118",
@@ -6762,7 +7070,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: Proposition 6.1.9(3)–(4) say `there exists $n$ such that $T^n(\\mathcal U_{\\geq w-\\epsilon})\\subseteq\\mathcal U_{\\geq w-\\epsilon'}$' and likewise for $T^t$, while $n$ is already fixed in §6.1.8 as the level of $K_{p,n}$ — which appears in the very definition of $\\mathcal U_{\\geq w-\\epsilon}$ through $\\deg H_{g+i}(x)\\geq n(w_i-\\epsilon)$ — and is used again with that meaning in Proposition 6.1.10 and in the statement of 6.1.11. Two different quantities carry the same letter in the same paragraph.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E119",
@@ -6777,7 +7090,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. Proposition 6.1.11 asserts an equality between the limit set $\\bigcap_{m,n}T^m(\\pi^{-1}]X_{w,\\F_p}[)\\cap(T^t)^n(\\pi^{-1}\\overline{]Y_{w,\\F_p}[})$ and $\\overline{\\mathcal S^{\\mathrm{tor}}_w}$, and its proof stops once one inclusion has been obtained from the tubular-neighbourhood estimates; the reverse inclusion, that every point of the closure of the $w$-stratum survives every iterate, is not argued. The finding's added steps are the natural ones and use only the identifications already made, so the statement stands.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E120",
@@ -6792,7 +7110,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `$\\mathcal Z_{<w+\\epsilon}=\\overline{\\bigcup_{\\epsilon'<\\epsilon}\\mathcal U_{\\leq w+\\epsilon'}}$ and $\\mathcal Z_{>w-\\epsilon}=\\overline{\\bigcup_{\\epsilon'>\\epsilon}\\mathcal U_{\\geq w-\\epsilon'}}$'. Since $\\mathcal U_{\\geq w-\\epsilon'}$ grows with $\\epsilon'$, the printed union over $\\epsilon'>\\epsilon$ is an increasing union that overshoots, and its closure is not the complement of a quasi-compact open as the next sentence asserts; the mirror of the first definition is the union over $\\epsilon'<\\epsilon$, which gives the closure of the strict-inequality locus. A reversed inequality in an index.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E121",
@@ -6807,7 +7130,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, on both counts: the sentence reads `We let $\\mathcal U_{\\geq w-\\epsilon}$ whose rank 1 points are those $x\\in\\mathcal S^{\\mathrm{tor}}$ such that $\\deg H_{g+i}(x)\\geq n(w_i-\\epsilon)\\}$ for all $i$' — no verb, and a closing brace with no opening one — and the parallel sentence for $\\mathcal U_{\\leq w+\\epsilon}$ carries the same stray brace. Left over from set-builder notation that the revision rewrote in words.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E122",
@@ -6822,7 +7150,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an error. Read as inequalities of divisors, which is how `$\\geq$' is used in the rest of Proposition 6.2.3 and in Lemma 4.2.11, the second halves of (2) and (3) are false: part (1) of the same proposition gives $D_{+,\\epsilon'}\\geq D_{+,\\epsilon}$, so $p_1^\\star D_{+,\\epsilon}\\geq p_2^\\star D_{+,\\epsilon'}$ would force the pullback along $p_1$ of the smaller divisor to dominate the pullback along $p_2$ of the larger one, which the cited Proposition 6.1.9 and Lemma 4.2.11 do not give. What those results do give, and what §6.2 uses, is the corresponding inclusion of supports, i.e.\\ the dynamical statement $T(\\mathcal U_{\\geq w-\\epsilon})\\subseteq\\mathcal U_{\\geq w-\\epsilon'}$ transcribed to divisors. So the two clauses need to be weakened to inclusions.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E123",
@@ -6837,7 +7170,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: Proposition 6.2.2(1)–(2) are stated `for all $0\\leq i\\leq g$' but write the divisors as $Z_{i,>w_j}$, $Z_{i,<w_j}$ and $Z_{i,>w_j+\\eta}$, $Z_{i,<w_j+\\eta}$, with an index $j$ that is never bound; the same $w_j$ reappears in the definitions of $D_\\pm$ and $D_{\\pm,\\epsilon}$ just below, where the sum is over $i$. Every other occurrence in the paper, from §4.1.16 on, has $Z_{i,>w_i}$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E124",
@@ -6852,7 +7190,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. Proposition 6.2.2(2) asks for divisors with $Z_{i,>w_i+\\eta}-Z_{i,<w_i+\\eta}=Z_i-V(p^{n(w_i+\\eta)})$ for $\\eta\\in\\{\\pm\\epsilon,\\pm\\epsilon'\\}$ with $\\epsilon,\\epsilon'$ rational, so $n(w_i+\\eta)$ need not be an integer and $V(p^{n(w_i+\\eta)})$ is not a Cartier divisor on a $\\Z_p$-scheme; the one-line proof, `This is identical to the proof of proposition 4.1.13', does not address it, and 4.1.13 was stated for integers $0\\leq j\\leq i$. Reading these as $\\Q$-Cartier divisors after clearing denominators, as the finding proposes, is what makes the statement meaningful and leaves the blow-up construction intact.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E125",
@@ -6867,7 +7210,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the definition reads $\\mathrm R\\Gamma_{\\mathcal Z_{<w+\\epsilon}\\cap\\mathcal U_{\\geq w-\\epsilon}}(\\mathcal U_{\\geq w+\\epsilon},\\omega^\\kappa(\\chi))^{\\mathrm{int}}=\\lim_s\\mathrm R\\Gamma_{\\hat Z_{<w+\\epsilon}\\cap U_{\\geq w-\\epsilon,\\Z/p^s\\Z}}(U_{\\geq w+\\epsilon,\\Z/p^s\\Z},\\tilde\\omega^\\kappa(\\chi))$, with $+\\epsilon$ on the ambient space and $-\\epsilon$ in the support. The support has to lie inside the space, and every occurrence in Theorem 6.2.9 and in its proof writes $\\mathcal U_{\\geq w-\\epsilon}$; the triangle displayed just above the definition also uses $U_{\\geq w-\\epsilon,\\Z/p^s\\Z}$. A sign slip repeated twice in one line.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E126",
@@ -6882,7 +7230,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The proof of Corollary 6.2.10 says `It is also enough to check this for all $t\\in T^{++}(\\Q_p)$ as they generate $T(\\Q_p)$ as a group.' Generation as a group is not enough for a lower bound on slopes: the bound is not preserved under inverses, and the conjecture is about all of $T^+(\\Q_p)$. What is needed is the cone argument the finding gives — $T^{++}$ is dense in the cone $T^+$ and slope functions are additive and continuous along it, so a bound on $T^{++}$ propagates to $T^+$ without inverting anything. The same sentence is reused for Corollary 6.2.16.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E127",
@@ -6897,7 +7250,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the last sentence of the proof of Theorem 6.2.9 speaks of `a lattice in the finite slope part of cohomology', while part (3) of the theorem is about the slope $\\leq h$ part for each $h\\in\\Q$ — which is a finite dimensional $\\Q_p$-vector space, as the theorem's own parenthesis says, whereas the finite slope part is not, so a lattice there is not the assertion being proved. The two differ, and the statement's version is the one the argument gives.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E128",
@@ -6912,7 +7270,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: $\\mathcal{IW}_n(C,C^+)=\\{x\\in M(C^+),\\ x\\bmod p^n\\in M_{K_{p,P}}\\}$. The reduction $x\\bmod p^n$ lies in $M(C^+/p^nC^+)$, whereas $M_{K_{p,P}}=K_{p,P}\\cap M(\\Q_p)$ is a subgroup of $M(\\Q_p)$, so the membership as written compares objects of different types; what is meant is membership in the image of $M_{K_{p,P}}\\subseteq M(\\Z_p)$ in $M(\\Z/p^n\\Z)\\hookrightarrow M(C^+/p^nC^+)$ — exactly the shape of the parallel definition of $\\mathcal T_n$ on the same page, which does spell the embedding out.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E129",
@@ -6927,7 +7290,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof of Proposition 6.2.12 ends `See for example section 6.3.10 of [BP21]', where 6.3.10 is a numbered lemma rather than a section — the section is 6.3.9, on the definition of the Hecke action. A mislabelled cross-reference; for the numbering inside [BP21] I am relying on the finding's check, as with E114.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E130",
@@ -6942,7 +7310,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, and the proof corrects the statement: Proposition 6.2.13 ends `$\\mathrm R\\Gamma_{D_+,D_-}(\\mathcal S^{\\mathrm{tor}}_{w,\\Z/p^r\\Z},\\mathcal F^{\\nu_A}_r)^{\\mathrm{ord}}=M^\\bullet_w\\otimes A/p^n$', while its proof four lines below writes the same identity with $A/p^r$. In §6.2.11, $n$ is the analyticity level of $\\mathcal{IW}_n$ and $r$ the truncation; the sheaf on the left is the mod-$p^r$ reduction, so $r$ is meant.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E131",
@@ -6957,7 +7330,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: $\\mathcal T_n(C,C^+)=\\{x\\in T(C^+),\\ x\\bmod p^n\\in T(\\Z/pn\\Z)\\hookrightarrow T(C^+/p^nC^+)\\}$, with $pn$ on the baseline where the two neighbouring occurrences have $p^n$ as an exponent. The comparison is with $x\\bmod p^n$, so the group has to be $T(\\Z/p^n\\Z)$. A lost exponent.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E132",
@@ -6972,7 +7350,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the torsor is written $\\pi':\\mathfrak{IG}_{U_{K_p}}\\times^{M_{K_{p,n}}}\\mathfrak{IW}_n\\to\\mathfrak{IG}_{K_{p,n}}$, although the sentence before it fixes $K_{p,P}=wK_{p,n}w^{-1}\\cap P(\\Q_p)$ and describes the $M_{K_{p,P}}$-torsor $\\mathfrak{IG}_{U_{K_{p,P}}}\\to\\mathfrak{IG}_{K_{p,P}}=\\mathfrak S^{\\mathrm{tor}}_w$ that is being pushed out. $K_{p,n}$ is an Iwahori subgroup of $G(\\Z_p)$ and is not contained in $P$, so neither $\\mathfrak{IG}_{K_{p,n}}$ nor $M_{K_{p,n}}$ is defined; the subscripts should all be $K_{p,P}$, and the same substitution is needed in the display defining $\\mathcal F^{\\nu_A}$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E133",
@@ -6987,7 +7370,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `we tensor with the fundamental class to get a map $p_2^\\star\\tilde{\\mathcal F}^{\\nu_A,n}_r(-mD_-)\\to p_1^!\\tilde{\\mathcal F}^{\\nu_A,n}(mD_+)$', with the subscript $r$ on the source and not on the target. §6.2.11 defines the script sheaves with a subscript only as reductions modulo $p^r$, and the factorisation stated in Proposition 6.2.14 carries $r$ on both sides. A dropped subscript.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   }
  ]
 }
