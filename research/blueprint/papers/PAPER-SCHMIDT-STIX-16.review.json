@@ -1,0 +1,62 @@
+{
+  "paper": "PAPER-SCHMIDT-STIX-16",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "NC.1 explicitly requests separately sourced Hom/affine/local/finite-field curve variants. Accept /11,/33,/34 only. Pop's field reconstruction /35 has been removed."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "IG.1 is the scheme π_1, specialization and tame-inertia owner. Accept the corrected characteristic-zero product/finite-generation and proper-henselian-cover statements plus the ℓ-invertible elementary abelian inertia calculation; do not identify it with IG.3's characteristic-zero Riemann-existence method."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "IG.2's ordinary HIT does not establish the full absolute-Galois-group normal-subgroup assertion. Read FJ08 16.11.6 and its consequences and resolve the exact field range and ownership (G2)."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "AN.4 and RS-07 concern number-field analytic comparisons, not general arithmetic-scheme Frobenius density. /38 and /84 need a source-qualified supplier (G4)."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "R09.2 is the relative Hom/Isom owner. The source task is explicitly the marked-boundary extension of DM69's proper stable-curve result, with normal-base generic-section extension. This accepts ownership, not a claim that the affine adapter is already proved (G6)."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "SF.0 owns Jacobson/finite-presentation/spreading-out arithmetic scheme foundations; /39 and /85 are now distinct and the Mathlib partial transfer theorem is not mistaken for the full Z-case."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "Pro-space direction is plausible but source/API closure is incomplete. D0, H.1 and motivic owners must be imported; ordinary Kan–Quillen and homotopy-limit providers remain unresolved. Strict and Isaksen models, cohomology ranges and A¹ completion targets were conflated in the original (G1/G3/G7/G8)."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "The anabelian extension depends on rejected route 7 plus unresolved Pop/Hilbertian, arithmetic-scheme Chebotarev and general compactification imports. Quarantining /35 and /41 here does not assign this candidate their ownership (G1–G8)."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "D0 already owns size-aware pro-categories; source its cofinite directed reindexing and dual-Ind interface there, once. /1 is planned, /75 missing."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "H.1's ordinary nerve/bar/BG construction is the owner for discrete EG and group-surjection Kan fibrations. The pro-level variants are distinct downstream inputs."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "SF.2 owns scheme/site étale cohomology. Add exact F_ℓ Künneth and affine-limit continuity sources there, with explicit hypotheses; neither is a new étale-type carrier."
+    }
+  ],
+  "notes": "Finished independent review by Codex — codex-a71f92, 2026-09-23 (issue #1169), of Claude Code cc-39fac3's extraction. Corrected in place to partial: 93 items (2 library, 9 planned, 82 missing), 11 routes, 18 prerequisite entries and eight explicit gaps G1–G8. Every missing item occurs in exactly one route, but rejected routes are quarantined candidates, not accepted allocations. All 15 source-issue entries reviewed: 13 confirmed, E6 and E7 rejected. Clear corrections, evidence, source/version search, route rationale and remaining obligations are in REV-PAPER-SCHMIDT-STIX-16.md. No Lean was written or compiled. The overall revise verdict prevents automatic route application; individual accepts record sound narrowed ownership decisions, not mathematical completion."
+}
