@@ -2948,8 +2948,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CHARLES-16.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1188"
+   "state": "external",
+   "note": "claimed on GitHub issue #1188"
   },
   {
    "id": "REV-PAPER-CHARLES-16",
@@ -3165,8 +3165,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MAO-WAN-ZHANG-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1201"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1201",
+   "finishedAt": "2026-09-23T02:57:36Z"
   },
   {
    "id": "REV-PAPER-MAO-WAN-ZHANG-26",
