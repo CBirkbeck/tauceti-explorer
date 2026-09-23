@@ -1369,8 +1369,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DITTMANN-POP-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1099"
+   "state": "pending",
+   "note": "released on GitHub issue #1099"
   },
   {
    "id": "REV-PAPER-DITTMANN-POP-23",
