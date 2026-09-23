@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BRIGHT-NEWTON-23",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Evaluating the wild Brauer group",
     "authors": "Martin Bright and Rachel Newton",
@@ -15,7 +15,7 @@
       "Checked in detail: Lemma 2.19's binomial estimates and Remark 2.20, the use of Lemma 2.16 in Corollary 9.8, Lemma 3.3, the residue computations of Lemmas 5.1 and 6.1, the first steps of the §8 blowup induction, all of §9 (Lemmas 9.1–9.5, Corollaries 9.4–9.8), the conductor computations of Lemmas 10.4–10.7 against Propositions 10.3, 10.8 and 10.9, Lemma 10.1 and Proposition 10.2, Lemmas 11.1–11.4, and the proofs of Theorems C and D. Kato's cited results ([K] Theorems 5.1, 7.1, 8.1, Propositions 6.1, 6.3, 7.3) and the Bloch–Kato inputs were used as quoted."
     ]
   },
-  "summary": "Bright and Newton determine how precisely a p-adic point must be known to evaluate a Brauer class of p-power order on a variety X over a p-adic field k with smooth model 𝒳. The evaluation filtration Ev_n Br X (constancy on discs B(P, e(n+1)) over all finite extensions) equals a modification fil~_n of Kato's Swan conductor filtration: Ev_{−2} = ker ∂, Ev_{−1} = ∂^{−1}H¹(𝔽), Ev_0 = fil_0 and Ev_n = {A ∈ fil_{n+1} : rsw_{n+1}(A) ∈ [Ω², 0]} (Theorem A). The refined Swan conductor rsw_n(A) = [α, β] controls the variation on discs: inv A(Q) = inv A(P) + (1/p)Tr β_{P₀}(v_n(P, Q)) on B(P, n), and when β = 0 a bilinear formula in α_{P₀} governs the next discs (Theorems B and 8.1). The proof blows up 𝒳 at points of the special fibre repeatedly, following the Swan conductor along the exceptional divisors down to 0, where tame evaluation is read off the residue in H¹(Y, Q/Z). Applications: every good ordinary prime of a variety with H⁰(Ω²) ≠ 0 becomes involved in a Brauer–Manin obstruction to weak approximation after a finite extension (Theorem C, answering Swinnerton-Dyer's question negatively), and, when Pic V̄ is finitely generated and torsion-free, evaluation is constant outside an explicit finite set of places (Theorem D). §10 shows fil~ is not induced from H¹ and is neither of the Abbes–Saito filtrations. The atlas plans the local Brauer group and invariant (ClassFieldTheory Layer 5), the Brauer–Manin pairing (RP.2), de Rham–Witt complexes (CR.4) and the Cartier operator (DD.3). It has no Kato Swan conductor theory for imperfect residue fields, no Bloch–Kato p-adic vanishing cycles and no p-adic evaluation of Brauer classes. These are routed to two Part II candidates: the local theory (fil_n, λ_π, δ_r, rsw_n, Kato's geometric theorems, fil~_n and its comparison with Abbes–Saito) extends Local fields and ramification; the evaluation theory and its Brauer–Manin applications extend Heights, rational points and obstructions. General inputs go as sources to SF.2 (Gabber, proper base change, purity, Hochschild–Serre, Lemma 11.4), WC.5 (Lang–Weil) and RP.2. Seven source issues are recorded: five small misprints and slips in §§6, 9, 10, an over-broad hypothesis in the proof of Proposition 10.9, and the introduction's claim that Theorem C answers Wittenberg's Question 1.4, which needs a prime of good ordinary reduction.",
+  "summary": "Bright and Newton determine how precisely a p-adic point must be known to evaluate a Brauer class of p-power order on a variety X over a p-adic field k with smooth model 𝒳. The evaluation filtration Ev_n Br X (constancy on discs B(P, e(n+1)) over all finite extensions) equals a modification fil~_n of Kato's Swan conductor filtration: Ev_{−2} = ker ∂, Ev_{−1} = ∂^{−1}H¹(𝔽), Ev_0 = fil_0 and Ev_n = {A ∈ fil_{n+1} : rsw_{n+1}(A) ∈ [Ω², 0]} (Theorem A). The refined Swan conductor rsw_n(A) = [α, β] controls the variation on discs: inv A(Q) = inv A(P) + (1/p)Tr β_{P₀}(v_n(P, Q)) on B(P, n), and when β = 0 a bilinear formula in α_{P₀} governs the next discs (Theorems B and 8.1). The proof blows up 𝒳 at points of the special fibre repeatedly, following the Swan conductor along the exceptional divisors down to 0, where tame evaluation is read off the residue in H¹(Y, Q/Z). Applications: every good ordinary prime of a variety with H⁰(Ω²) ≠ 0 becomes involved in a Brauer–Manin obstruction to weak approximation after a finite extension (Theorem C, answering Swinnerton-Dyer's question negatively), and, when Pic V̄ is finitely generated and torsion-free, evaluation is constant outside an explicit finite set of places (Theorem D). §10 shows fil~ is not induced from H¹ and is neither of the Abbes–Saito filtrations. The atlas plans the local Brauer group and invariant (ClassFieldTheory Layer 5), the Brauer–Manin pairing (RP.2), de Rham–Witt complexes (CR.4) and the Cartier operator (DD.3). It has no Kato Swan conductor theory for imperfect residue fields, no Bloch–Kato p-adic vanishing cycles and no p-adic evaluation of Brauer classes. These are routed to two Part II candidates: the local theory (fil_n, λ_π, δ_r, rsw_n, Kato's geometric theorems, fil~_n and its comparison with Abbes–Saito) extends Local fields and ramification; the evaluation theory and its Brauer–Manin applications extend Heights, rational points and obstructions. General inputs go as sources to SF.2 (Gabber, proper base change, purity, Hochschild–Serre, Lemma 11.4), WC.5 (Lang–Weil) and RP.2. Seven source issues are recorded: five small misprints and slips in §§6, 9, 10, an over-broad hypothesis in the proof of Proposition 10.9, and the introduction's claim that Theorem C answers Wittenberg's Question 1.4, which needs a prime of good ordinary reduction. Independent review REV-PAPER-BRIGHT-NEWTON-23 requires revision: corrected coefficient twists, scopes and source defects; atomic dependency closure and routes 2, 4 and 5 remain incomplete. Four pinned-library prerequisites are now inventoried explicitly. The 2025 Ambrosi–Newton–Pagano sequel resolves the general weak-approximation question by a different argument.",
   "items": [
     {
       "id": "PAPER-BRIGHT-NEWTON-23/1",
@@ -64,21 +64,21 @@
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/6",
-      "kind": "theorem",
+      "kind": "definition",
       "name": "Question 1.3 (Swinnerton-Dyer): the Brauer–Manin set involves only bad places",
-      "statement": "Let L be a number field, S a finite set of places containing the archimedean ones, 𝒱 a smooth projective O_S-scheme with geometrically integral fibres and generic fibre V, and assume Pic V̄ is finitely generated and torsion-free. Is there an open and closed Z ⊂ ∏_{v∈S} V(L_v) with V(A_L)^{Br} = Z × ∏_{v∉S} V(L_v)?",
+      "statement": "Define the following proposition/problem (not an asserted theorem): Let L be a number field, S a finite set of places containing the archimedean ones, 𝒱 a smooth projective O_S-scheme with geometrically integral fibres and generic fibre V, and assume Pic V̄ is finitely generated and torsion-free. Is there an open and closed Z ⊂ ∏_{v∈S} V(L_v) with V(A_L)^{Br} = Z × ∏_{v∉S} V(L_v)?",
       "locator": "Question 1.3, p. 822",
       "status": "missing",
-      "note": "An open question ([CTSk, Question 1]), recorded as a statement and never as a theorem. Colliot-Thélène–Skorobogatov answer yes when the transcendental Brauer group is finite and S contains the primes dividing its order; Theorem C shows the answer is no in general (for instance for K3 surfaces, which have ordinary primes by Bogomolov–Zarhin and Joshi)."
+      "note": "Question 1.3 is answered negatively in general by Theorem C (for example K3 surfaces). This item defines the question, not a goal to prove its false universal assertion."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/7",
-      "kind": "theorem",
+      "kind": "definition",
       "name": "Question 1.4 (Wittenberg): Hasse principle and weak approximation over all finite extensions force H²(V, O_V) = 0?",
-      "statement": "If a smooth projective variety V over a number field L satisfies the Hasse principle and weak approximation over all finite extensions of L, does it follow that H²(V, O_V) = 0?",
+      "statement": "Define the following proposition/problem (not an asserted theorem): If a smooth projective variety V over a number field L satisfies the Hasse principle and weak approximation over all finite extensions of L, does it follow that H²(V, O_V) = 0?",
       "locator": "Question 1.4, p. 823",
       "status": "missing",
-      "note": "An open question, recorded as a statement. Theorem C answers it positively for every V having good ordinary reduction at some prime of L; the paper's claim of an unconditional positive answer is recorded as sourceIssue E7."
+      "note": "The 2023 argument answers this under existence of a good ordinary prime; see E7. Ambrosi–Newton–Pagano, arXiv:2509.22025, Corollary 1.1.2, proves the stronger weak-approximation-only conclusion H⁰(Ω²)=0; for smooth projective characteristic-zero varieties Hodge symmetry gives H²(O)=0. This later result is not attributed to Bright–Newton or assumed proved here."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/8",
@@ -91,12 +91,12 @@
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/9",
-      "kind": "theorem",
+      "kind": "definition",
       "name": "Question 1.5: a finite set of places controlling the Brauer–Manin set",
-      "statement": "Let V be a smooth, proper, geometrically irreducible variety over a number field L with Pic V̄ finitely generated and torsion-free. Is there a finite set S of places of L and a closed Z ⊂ ∏_{v∈S} V(L_v) with V(A_L)^{Br} = Z × ∏_{v∉S} V(L_v)? If so, can S be described explicitly?",
+      "statement": "Define the following proposition/problem (not an asserted theorem): Let V be a smooth, proper, geometrically irreducible variety over a number field L with Pic V̄ finitely generated and torsion-free. Is there a finite set S of places of L and a closed Z ⊂ ∏_{v∈S} V(L_v) with V(A_L)^{Br} = Z × ∏_{v∉S} V(L_v)? If so, can S be described explicitly?",
       "locator": "Question 1.5, p. 824",
       "status": "missing",
-      "note": "Answered positively by Theorem D. The torsion-freeness hypothesis is necessary (elliptic curves with finite Sha and trivial Mordell–Weil group; Harari's descent obstruction when π₁^ét(V̄) ≠ 0)."
+      "note": "Answered positively by Theorem D. The torsion-freeness hypothesis is necessary (elliptic curves with finite Sha and trivial Mordell–Weil group; Harari's descent obstruction when π₁^ét(V̄) ≠ 0). This is a problem definition; Theorem D, item 10, supplies the positive answer."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/10",
@@ -114,7 +114,7 @@
       "statement": "In Theorem D, if 𝔭 has e_{𝔭/p} = 1 and residue characteristic p > 2, then H⁰(𝒱(𝔭), Ω¹) = 0: H¹_ét(V̄, Z/p) = 0 because Pic V̄ is torsion-free, so H¹_dR(𝒱(𝔭)/𝔽_𝔭) = 0 by the integral comparison theorem of Fontaine–Messing (see Breuil–Messing, Theorems 3.1.3.1 and 3.2.3), and the Hodge–de Rham spectral sequence of 𝒱(𝔭) degenerates (Deligne–Illusie, Corollary 2.5).",
       "locator": "Remark 1.6, p. 825, (1)",
       "status": "missing",
-      "note": "Not used in any proof. Its inputs (the mod-p Fontaine–Messing comparison and Deligne–Illusie degeneration) are not planned by the atlas: DD.3 excludes Deligne–Illusie applications without their liftability hypotheses, and FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3 plans Fontaine–Laffaille modules, not this comparison. The brief keeps the remark as an optional, cited statement."
+      "note": "Retain this remark as a required target, with Fontaine–Messing integral comparison (Breuil–Messing Theorems 3.1.3.1 and 3.2.3) and Deligne–Illusie Corollary 2.5 as explicit source-acquisition and owner-audit gaps. DD.3's warning about hypotheses is not a proof that the atlas lacks an owner. Route 5 is rejected until those inputs are assigned."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/12",
@@ -144,17 +144,17 @@
       "id": "PAPER-BRIGHT-NEWTON-23/14",
       "kind": "theorem",
       "name": "Non-constant local evaluation obstructs weak approximation",
-      "statement": "Let B ∈ Br V have order n and let 𝔭 be a finite place. If |B| : V(L_𝔭) → Br L_𝔭[n] is surjective (and V(A_L) ≠ ∅) then ∅ ≠ V(A_L)^B ⊊ V(A_L): B does not obstruct the Hasse principle but obstructs weak approximation. If |B| is merely non-constant on V(L_𝔭), B obstructs weak approximation.",
+      "statement": "Let V be smooth, proper and geometrically irreducible over a number field L, with V(A_L) nonempty, and B ∈ Br V of order n. If a finite place 𝔭 has surjective evaluation V(L_𝔭) → Br L_𝔭[n], then V(A_L)^B is nonempty; if also n > 1, it is a proper subset of V(A_L). Thus B alone does not obstruct the Hasse principle, and for n > 1 obstructs weak approximation. More generally nonconstant local evaluation at one place gives a proper Brauer–Manin subset and obstructs weak approximation, still assuming V(A_L) nonempty.",
       "locator": "§11, p. 887",
       "status": "missing",
-      "note": "A general Brauer–Manin test at one place, used for Theorem C."
+      "note": "A general Brauer–Manin test at one place, used for Theorem C. The n>1 condition repairs the trivial-class edge case E14."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/15",
       "kind": "construction",
       "name": "Logarithmic de Rham–Witt sheaves and Illusie's F − 1 sequence",
       "statement": "For a scheme S smooth over a field of characteristic p (and for fields such as F and F(T)): the de Rham–Witt complex W_rΩ^•_S with Frobenius F, Verschiebung V and dlog; the logarithmic subsheaf W_rΩ^q_{S,log} ⊂ W_rΩ^q_S generated étale locally by dlog[a₁] ∧ … ∧ dlog[a_q]; and the exact sequence 0 → W_rΩ^{q−1}_log → W_rΩ^{q−1} →(C^{−1} − 1)→ W_rΩ^{q−1}/dV^{r−1}Ω^{q−2} → 0 on R_ét (Illusie I.3.3, I.3.23; Kato §1.3), where C^{−1} is Illusie's F, equal to the inverse Cartier operator for r = 1.",
-      "locator": "Notation, p. 826, and (2.4) in §2.2, p. 832",
+      "locator": "Notation, p. 826, and (2.7) in §2.2, p. 832",
       "status": "planned",
       "planned": [
         "CrystallineCohomology:CR.4",
@@ -188,10 +188,10 @@
       "id": "PAPER-BRIGHT-NEWTON-23/18",
       "kind": "construction",
       "name": "The groups V^q_n(A), their functoriality and products",
-      "statement": "For a ring A over O_K (K a Henselian discrete valuation field with residue field F of characteristic p), with i, j the inclusions of the special and generic fibres and R = A/m_K A: V^q_n(A) = H^q(R_ét, i*Rj_*(Z/n)(q−1)) and V^q(A) = colim_n V^q_n(A). They are functorial for maps (O_K → A) → (O_{K′} → A′); V^q_n(O_K) = H^q_n(K) when char K = 0; V^q_n(A) ≅ V^q_n(A^{(h)}) ≅ H^q_n(A^{(h)} ⊗ K) for the Henselisation along m_K A; and there are products V^q(A) × ((A ⊗ K)^×)^r → V^{q+r}(A), {χ, a₁, …, a_r}.",
+      "statement": "If char K > 0, additionally suppose A⊗_{O_K}K is smooth over a field, as in §2.1. For a ring A over O_K (K a Henselian discrete valuation field with residue field F of characteristic p), with i, j the inclusions of the special and generic fibres and R = A/m_K A: V^q_n(A) = H^q(R_ét, i*Rj_*(Z/n)(q−1)) and V^q(A) = colim_n V^q_n(A). They are functorial for maps (O_K → A) → (O_{K′} → A′); V^q_n(O_K) = H^q_n(K) when char K = 0; V^q_n(A) ≅ V^q_n(A^{(h)}) ≅ H^q_n(A^{(h)} ⊗ K) for the Henselisation along m_K A; and there are products V^q(A) × ((A ⊗ K)^×)^r → V^{q+r}(A), {χ, a₁, …, a_r}.",
       "locator": "§2.1, pp. 826–828",
       "status": "missing",
-      "note": "Uses Gabber's affine proper base change (routed to SF.2). i*Rj_* is the non-geometric nearby-cycle complex; LPV.0's RΨ is its strict-Henselian version."
+      "note": "Uses Gabber's affine proper base change (routed to SF.2). i*Rj_* is the non-geometric nearby-cycle complex; LPV.0's RΨ is its strict-Henselian version. This is a bundle requiring separation into carrier, functoriality, comparison and products; geometric/non-geometric descent is a bridge to be built, not an identification by terminology."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/19",
@@ -251,16 +251,16 @@
       "id": "PAPER-BRIGHT-NEWTON-23/25",
       "kind": "theorem",
       "name": "Bloch–Kato: the filtration U^m on p-adic vanishing cycles and its graded pieces",
-      "statement": "For A smooth over O_K with char K = 0 and R = A/m_K A, the sheaves M^q_r = i*R^q j_*(Z/p^r)(q) carry Bloch–Kato's decreasing filtration U^m, with gr⁰ M^q_r ≅ W_rΩ^q_{R,log} ⊕ W_rΩ^{q−1}_{R,log} ([BK, Theorem 1.4], [K, §1]). R has p-cohomological dimension ≤ 1 (SGA 4 X.5.1), so the spectral sequence for V^q_{p^r}(A) gives 0 → H¹(R_ét, M^{q−1}_r) → V^q_{p^r}(A) → H⁰(R_ét, M^q_r) → 0.",
+      "statement": "For A smooth over O_K with char K = 0 and R = A/m_K A, the sheaves M^q_r = i*R^q j_*(Z/p^r)(q) carry Bloch–Kato's decreasing filtration U^m, with gr⁰ M^q_r ≅ W_rΩ^q_{R,log} ⊕ W_rΩ^{q−1}_{R,log} ([BK, Theorem 1.4], [K, §1]). R has p-cohomological dimension ≤ 1 (SGA 4 X.5.1), so the spectral sequence for V^q_{p^r}(A) gives 0 → H¹(R_ét, M^{q−1}_r) → V^q_{p^r}(A) → H⁰(R_ét, i*R^q j_*((Z/p^r)(q−1))) → 0.",
       "locator": "§2.2.3, pp. 830–831",
       "status": "missing",
-      "note": "The local structure theorem of p-adic vanishing cycles, the input of λ_π for smooth A (Lemma 2.7) and of Lemma 3.4."
+      "note": "The local structure theorem of p-adic vanishing cycles, the input of λ_π for smooth A (Lemma 2.7) and of Lemma 3.4. The last term has twist q−1, unlike the separately defined M^q_r with twist q. The extraction, not equation (2.4) of the source, had this error."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/26",
       "kind": "theorem",
       "name": "Lemma 2.7: H¹ of M^{q−1}_r sees only gr⁰",
-      "statement": "Suppose q ≥ 2. The natural map H¹(R_ét, M^{q−1}_r) → H¹(R_ét, gr⁰M^{q−1}_r) ≅ H¹(R_ét, W_rΩ^{q−1}_{R,log} ⊕ W_rΩ^{q−2}_{R,log}) is an isomorphism.",
+      "statement": "Let A be smooth over O_K, char K=0, R=A/m_KA, and r≥1. Suppose q ≥ 2. The natural map H¹(R_ét, M^{q−1}_r) → H¹(R_ét, gr⁰M^{q−1}_r) ≅ H¹(R_ét, W_rΩ^{q−1}_{R,log} ⊕ W_rΩ^{q−2}_{R,log}) is an isomorphism.",
       "locator": "Lemma 2.7, p. 831",
       "status": "missing",
       "note": ""
@@ -269,7 +269,7 @@
       "id": "PAPER-BRIGHT-NEWTON-23/27",
       "kind": "construction",
       "name": "Definition 2.8: λ_π and ι^q_{p^r} for A smooth over O_K",
-      "statement": "Suppose char K = 0 and q ≥ 2. λ_π : H^q_{p^r}(R) ⊕ H^{q−1}_{p^r}(R) → V^q_{p^r}(A) is (−1)^{q−1} times the inverse of the isomorphism of Lemma 2.7 followed by H¹(R_ét, M^{q−1}_r) → V^q_{p^r}(A); ι^q_{p^r} : H^q_{p^r}(R) → V^q_{p^r}(A) is its first component. For A = O_K this is the inflation map of Remark 2.9.",
+      "statement": "Suppose char K = 0 and q ≥ 2. λ_π : H^q_{p^r}(R) ⊕ H^{q−1}_{p^r}(R) → V^q_{p^r}(A) is (−1)^{q−1} times the inverse of the isomorphism of Lemma 2.7 followed by H¹(R_ét, M^{q−1}_r) → V^q_{p^r}(A); ι^q_{p^r} : H^q_{p^r}(R) → V^q_{p^r}(A) is its first component. Here A is smooth over O_K and R=A/m_KA. For A=O_K, Remark 2.9 describes the Hochschild–Serre edge map H¹(F,H^{q−1}(K_nr,(Z/p^r)(q−1))) → H^q(K,(Z/p^r)(q−1)); it is not the usual inflation H^q(F,−) → H^q(K,−).",
       "locator": "Definition 2.8, p. 832, and Remark 2.9",
       "status": "missing",
       "note": ""
@@ -305,8 +305,8 @@
       "id": "PAPER-BRIGHT-NEWTON-23/31",
       "kind": "theorem",
       "name": "Lemma 2.13: base change of λ_π",
-      "statement": "Let (O_K → A) → (O_{K′} → A′) be a map as in §2.1 with A, A′ smooth, e the ramification index of K′/K and ā ∈ F′ the reduction of φ(π)(π′)^{−e}. For q ≥ 2 and r ≥ 1, φ_* ∘ λ_π ∘ δ_r = λ_{π′} ∘ δ_r ∘ ((α, β) ↦ (φ̄_*α + φ̄_*β ∧ dlog ā, e φ̄_*β)) on W_rΩ^{q−1}_R ⊕ W_rΩ^{q−2}_R, and likewise with (α, β) ↦ (φ̄_*α + {φ̄_*β, ā}, e φ̄_*β) on H^q_{p^r}(R) ⊕ H^{q−1}_{p^r}(R).",
-      "locator": "Lemma 2.13, p. 836, diagram (2.8)",
+      "statement": "Assume char K=0. Let (O_K → A) → (O_{K′} → A′) be a map as in §2.1 with A, A′ smooth, e the ramification index of K′/K and ā ∈ F′ the reduction of φ(π)(π′)^{−e}. For q ≥ 2 and r ≥ 1, φ_* ∘ λ_π ∘ δ_r = λ_{π′} ∘ δ_r ∘ ((α, β) ↦ (φ̄_*α + φ̄_*β ∧ dlog ā, e φ̄_*β)) on W_rΩ^{q−1}_R ⊕ W_rΩ^{q−2}_R, and likewise with (α, β) ↦ (φ̄_*α + {φ̄_*β, ā}, e φ̄_*β) on H^q_{p^r}(R) ⊕ H^{q−1}_{p^r}(R).",
+      "locator": "Lemma 2.13, p. 836, diagram (2.9)",
       "status": "missing",
       "note": ""
     },
@@ -315,7 +315,7 @@
       "kind": "theorem",
       "name": "Kato, Theorem 5.1: existence and uniqueness of (α, β)",
       "statement": "If χ ∈ fil_n H^q(K) with n ≥ 1, there is a unique (α, β) ∈ Ω^q_F ⊕ Ω^{q−1}_F with {χ, 1 + π^n T} = λ_π(Tα, Tβ) in V^{q+1}(O_K[T]) (λ_π meaning λ_π ∘ δ₁ for O_K[T]); χ ∈ fil_{n−1} iff (α, β) = 0.",
-      "locator": "§2.3, (2.13), p. 838 ([K, Theorem 5.1], following Borger §§4.5–4.6)",
+      "locator": "§2.3, (2.10), p. 838 ([K, Theorem 5.1], following Borger §§4.5–4.6)",
       "status": "missing",
       "note": ""
     },
@@ -323,10 +323,10 @@
       "id": "PAPER-BRIGHT-NEWTON-23/33",
       "kind": "definition",
       "name": "Definition 2.14: the refined Swan conductor rsw_n",
-      "statement": "ω¹_F = Ω¹_{O_K}(log D) ⊗ F, with 0 → Ω^q_F → ω^q_F →(res) Ω^{q−1}_F → 0 split by η ↦ η ∧ dlog π. For χ ∈ fil_n H^q(K), n ≥ 1, rsw_n(χ) = π^{−n}(α + β ∧ dlog π) ∈ m_K^{−n} ⊗_{O_K} ω^q_F with (α, β) as in Kato's Theorem 5.1, written [α, β]_{π,n}. It is an injection fil_n/fil_{n−1} → m_K^{−n} ⊗ ω^q_F, and the pair (α, β) depends on π (Remark 2.15).",
+      "statement": "Let ω¹_F be the module of absolute log differentials of the standard log point on F induced by O_K, with formal dlog π. Put ω^q_F=∧^q_F ω¹_F, with 0 → Ω^q_F → ω^q_F →(res) Ω^{q−1}_F → 0 split by η ↦ η ∧ dlog π. For χ ∈ fil_n H^q(K), n ≥ 1, rsw_n(χ) = π^{−n}(α + β ∧ dlog π) ∈ m_K^{−n} ⊗_{O_K} ω^q_F with (α, β) as in Kato's Theorem 5.1, written [α, β]_{π,n}. It is an injection fil_n/fil_{n−1} → m_K^{−n} ⊗ ω^q_F, and the pair (α, β) depends on π (Remark 2.15).",
       "locator": "Definition 2.14, p. 838, and Remark 2.15",
       "status": "missing",
-      "note": "Kähler differentials and exterior powers are in Mathlib (KaehlerDifferential); the log differentials Ω¹_{O_K}(log D) and the exterior derivative on Ω^•_F are not in the libraries."
+      "note": "Use the standard-log-point construction (Borger §4.5), not the erroneous fractional-differential carrier on p.837; see E9. For a chosen π the degree-one presentation over O_K is (Ω¹_{O_K} ⊕ O_K·ℓ)/(dπ−πℓ); reduction gives Ω¹_F ⊕ F·ℓ. Ordinary Kähler differentials are a pinned-library input, item 114. The log enhancement, residue sequence and exterior differential still need explicit suppliers."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/34",
@@ -377,7 +377,7 @@
       "id": "PAPER-BRIGHT-NEWTON-23/39",
       "kind": "theorem",
       "name": "Proposition 2.22: ∂ agrees with the classical Brauer residue",
-      "statement": "For every n ≥ 1 the diagram H²_n(F) →(ι²_n) fil_0 H²_n(K) →(∂) H¹_n(F) maps, via the Kummer triangle and Z/n ⊂ Q/Z, to Br F →(ι′) Br(K_nr/K) →(∂′) H¹(F, Q/Z), and commutes; here 0 → Br F → Br(K_nr/K) → H¹(F, Q/Z) → 0 is the classical residue sequence.",
+      "statement": "Assume char K=0 as in §2.5. For every n ≥ 1 the diagram H²_n(F) →(ι²_n) fil_0 H²_n(K) →(∂) H¹_n(F) maps, via the Kummer triangle and Z/n ⊂ Q/Z, to Br F →(ι′) Br(K_nr/K) →(∂′) H¹(F, Q/Z), and commutes; here 0 → Br F → Br(K_nr/K) → H¹(F, Q/Z) → 0 is the classical residue sequence.",
       "locator": "Proposition 2.22, p. 842",
       "status": "missing",
       "note": ""
@@ -386,7 +386,7 @@
       "id": "PAPER-BRIGHT-NEWTON-23/40",
       "kind": "theorem",
       "name": "Lemma 2.23: δχ ∪ a = t(χ ∪ u(a))",
-      "statement": "Let L be a field and n ≥ 1, u : L^× → H¹(L, (Z/n)(1)) and t : H²(L, (Z/n)(1)) → Br L from the triangle (2.1), and δ : H¹(L, Z/n) → H²(L, Z) the connecting map of 0 → Z → Z → Z/n → 0. For χ ∈ H¹(L, Z/n) and a ∈ L^×, δχ ∪ a = t(χ ∪ u(a)).",
+      "statement": "Let L be a field and n ≥ 1, u : L^× → H¹(L, (Z/n)(1)) and t : H²(L, (Z/n)(1)) → Br L from the triangle (1.3), and δ : H¹(L, Z/n) → H²(L, Z) the connecting map of 0 → Z → Z → Z/n → 0. For χ ∈ H¹(L, Z/n) and a ∈ L^×, δχ ∪ a = t(χ ∪ u(a)).",
       "locator": "Lemma 2.23, p. 843",
       "status": "missing",
       "note": "Including the p-part in characteristic p ([GS, Proposition 3.4.8])."
@@ -434,7 +434,7 @@
       "statement": "Setting of §§1, 3, 7–9: k is a finite extension of Q_p with ring of integers O_k, uniformiser π, residue field 𝔽 and absolute ramification index e, and e′ = ep/(p−1). X/k is smooth and geometrically irreducible, 𝒳 → Spec O_k is a smooth model of X (not assumed proper) whose special fibre Y is geometrically irreducible, F is the function field of Y and K^h is the fraction field of a Henselisation of O_{𝒳,Y}. Let i : Y → 𝒳, j : X → 𝒳 and τ : Spec F → Y be the inclusions, q, r ≥ 1. Then i*R^q j_*(Z/p^r)(q−1) → τ_*τ* i*R^q j_*(Z/p^r)(q−1) is injective.",
       "locator": "Lemma 3.4, p. 845",
       "status": "missing",
-      "note": "Via Bloch–Kato's filtration and Gabber's injectivity property [Gabber 1993]. Used in Lemma 3.5 and Theorem C."
+      "note": "Proof uses Bloch–Kato Proposition 6.1(i), surjectivity of Galois symbols from their §5, and induction on r. The original extraction's attribution to Gabber 1993 was incorrect. Used in Lemma 3.5 and Theorem C."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/46",
@@ -458,8 +458,8 @@
       "id": "PAPER-BRIGHT-NEWTON-23/48",
       "kind": "theorem",
       "name": "Purity for the Brauer group (Česnavičius; Gabber in this case)",
-      "statement": "For 𝒳 smooth over O_k with generic fibre X and special fibre Y: Br 𝒳 = Br X ∩ Br O_{𝒳,Y} inside Br K.",
-      "locator": "Proof of Corollary 3.7, p. 847 ([Česnavičius 2019, Theorem 1.2]; [Gabber 1993, Theorem 2.2])",
+      "statement": "In the §3 setup, k/Q_p is finite and 𝒳/O_k is a smooth model of a smooth geometrically irreducible X/k with geometrically irreducible special fibre Y and common function field K. Then Br 𝒳 = Br X ∩ Br O_{𝒳,Y} inside Br K.",
+      "locator": "Proof of Corollary 3.7, p. 848 ([Česnavičius 2019, Theorem 1.2]; [Gabber 1993, Theorem 2.2])",
       "status": "missing",
       "note": "PAPER-CESNAVICIUS-19 routes Brauer purity to SF.2."
     },
@@ -476,7 +476,7 @@
       "id": "PAPER-BRIGHT-NEWTON-23/50",
       "kind": "definition",
       "name": "Swan conductors along divisors of a normal scheme",
-      "statement": "For a normal irreducible scheme X with function field K, χ ∈ H^q(K) and 𝔭 ∈ X¹, K_𝔭 = Frac(O^h_{X,𝔭}); sw_𝔭(χ) = sw(χ_𝔭) and, if sw_𝔭(χ) ≤ n with n ≥ 1, rsw_{𝔭,n}(χ) = rsw_n(χ_𝔭). For a prime divisor Z with generic point z, sw_Z = sw_z and rsw_{Z,n} = rsw_{z,n}. χ is unramified on X if χ_𝔭 ∈ λ_π(H^q(κ(𝔭))) for all 𝔭 ∈ X¹ (§4.1).",
+      "statement": "For a normal irreducible scheme X with function field K, χ ∈ H^q(K) and 𝔭 ∈ X¹, K_𝔭 = Frac(O^h_{X,𝔭}); sw_𝔭(χ) = sw(χ_𝔭) and, if sw_𝔭(χ) ≤ n with n ≥ 1, rsw_{𝔭,n}(χ) = rsw_n(χ_𝔭). For a prime divisor Z with generic point z, sw_Z = sw_z and rsw_{Z,n} = rsw_{z,n}. Separately, for a normal irreducible X, χ is unramified on X if for EVERY point x∈X its image in H^q(Frac O^h_{X,x}) lies in the image of the canonical ι^q:H^q(κ(x))→H^q(Frac O^h_{X,x}), as in §4.1. Do not replace this all-point condition by a codimension-one condition without a purity theorem.",
       "locator": "§§4.1–4.2, p. 848",
       "status": "missing",
       "note": "Kato 1989, Part II."
@@ -530,7 +530,7 @@
       "id": "PAPER-BRIGHT-NEWTON-23/56",
       "kind": "theorem",
       "name": "Lemma 4.6: refined Swan conductors of the residue components",
-      "statement": "Setting of §4.3: A is an excellent regular local ring with fraction field K and residue field ℓ of characteristic p with [ℓ : ℓ^p] = p^c; π₁, …, π_r is part of a regular system of parameters, 𝔭_i = π_iA, R_i = A/𝔭_i, D_j = Σ_{i≠j} V(𝔭_i) ∩ V(𝔭_j) on Spec R_j; χ ∈ H^q(K) is unramified outside ∪ V(𝔭_i) and n_i = sw_{𝔭_i}(χ). With r = 2, n₁ = 0, n₂ = n ≥ 1, χ = λ_{π₁}(χ₁, χ₂) along 𝔭₁ and rsw_{𝔭₂}(χ) written with forms η, η′, ω, ω′ as in the paper: rsw_{𝔭̄₂,n}(χ₁) = [η̄, −η̄′]_{π̄₂,n} and rsw_{𝔭̄₂,n}(χ₂) = [−ω̄, ω̄′]_{π̄₂,n}, bars denoting reduction modulo 𝔭₁.",
+      "statement": "Setting of §4.3: A is an excellent regular local ring with fraction field K and residue field ℓ of characteristic p with [ℓ : ℓ^p] = p^c; π₁, …, π_r is part of a regular system of parameters, 𝔭_i = π_iA, R_i = A/𝔭_i, D_j = Σ_{i≠j} V(𝔭_i) ∩ V(𝔭_j) on Spec R_j; χ ∈ H^q(K) is unramified outside ∪ V(𝔭_i) and n_i = sw_{𝔭_i}(χ). With r = 2, n₁ = 0, n₂ = n ≥ 1, χ = λ_{π₁}(χ₁, χ₂) along 𝔭₁ and rsw_{𝔭₂}(χ) =[η+ω∧dlog π₁, η′+ω′∧dlog π₁]_{π₂,n}, with η,η′,ω,ω′ respectively of degrees q,q−1,q−1,q−2 in the ordinary differential modules Ω_{R₂}: rsw_{𝔭̄₂,n}(χ₁) = [η̄, −η̄′]_{π̄₂,n} and rsw_{𝔭̄₂,n}(χ₂) = [−ω̄, ω̄′]_{π̄₂,n}, bars denoting reduction modulo 𝔭₁.",
       "locator": "Lemma 4.6, p. 852",
       "status": "missing",
       "note": "Relates rsw of a class to that of its residue along the exceptional divisor (used in §8)."
@@ -548,7 +548,7 @@
       "id": "PAPER-BRIGHT-NEWTON-23/58",
       "kind": "construction",
       "name": "Log-pole residues and the isomorphisms ψ, φ at a blown-up point",
-      "statement": "For a smooth prime divisor D in a smooth variety over a field: 0 → Ω^q → Ω^q(log D) →(ρ) Ω^{q−1}_D → 0, ρ(η + g dlog f) = g|_D. For Y smooth of dimension m over a field L, P₀ ∈ Y(L), the blowup f : Ỹ → Spec O_{Y,P₀} with exceptional Z ≅ P^{m−1}_L: ψ : Ω¹_{Y/L}|_{P₀} ≅ H⁰(Z, O(1)), ψ(dx) = x^{(1)}, and φ : Ω²_{Y/L}|_{P₀} ≅ H⁰(Z, Ω¹_{Z/L}(2)), φ(dx_i ∧ dx_j) = (x_j^{(1)})² d(x_i^{(1)}/x_j^{(1)}).",
+      "statement": "For a smooth prime divisor D in a smooth variety over a field: 0 → Ω^q_{Y/L} → Ω^q_{Y/L}(log D) →(ρ) i_*Ω^{q−1}_{D/L} → 0, ρ(η + g dlog f) = g|_D. For Y smooth of dimension m over a field L, P₀ ∈ Y(L), the blowup f : Ỹ → Spec O_{Y,P₀} with exceptional Z ≅ P^{m−1}_L: ψ : Ω¹_{Y/L}|_{P₀} ≅ H⁰(Z, O(1)), ψ(dx) = x^{(1)}, and φ : Ω²_{Y/L}|_{P₀} ≅ H⁰(Z, Ω¹_{Z/L}(2)), φ(dx_i ∧ dx_j) = (x_j^{(1)})² d(x_i^{(1)}/x_j^{(1)}).",
       "locator": "§5, (5.1)–(5.3), pp. 854–855",
       "status": "missing",
       "note": "Stacks 0FMU; Hartshorne II.8.13."
@@ -602,7 +602,7 @@
       "id": "PAPER-BRIGHT-NEWTON-23/64",
       "kind": "theorem",
       "name": "Lemma 6.2(1): tame part of H¹(P^m ∖ Z)",
-      "statement": "Let E = P^m_𝔽, Z = {X₀ = 0}, π = X₀/X₁, κ(E)_Z the fraction field of the Henselisation of O_{E,Z}, with fil_n H¹(E ∖ Z, Q/Z) pulled back from fil_n H¹(κ(E)_Z). Then fil_0 H¹(E ∖ Z, Q/Z) = H¹(𝔽, Q/Z).",
+      "statement": "Let F be any field of characteristic p>0 and m≥1. Let E = P^m_F, Z = {X₀ = 0}, π = X₀/X₁, κ(E)_Z the fraction field of the Henselisation of O_{E,Z}, with fil_n H¹(E ∖ Z, Q/Z) pulled back from fil_n H¹(κ(E)_Z). Then fil_0 H¹(E ∖ Z, Q/Z) = H¹(F, Q/Z).",
       "locator": "Lemma 6.2, p. 859, (1)",
       "status": "missing",
       "note": ""
@@ -611,7 +611,7 @@
       "id": "PAPER-BRIGHT-NEWTON-23/65",
       "kind": "theorem",
       "name": "Lemma 6.2(2): graded pieces of H¹(P^m ∖ Z) for p ∤ n",
-      "statement": "In the setting of Lemma 6.2, for p ∤ n, F ↦ (1/p)δ₁(F̃/X₀^n) is an isomorphism H⁰(Z, O(n)) → gr_n H¹(E ∖ Z, Q/Z), for any lift F̃ ∈ H⁰(E, O(n)), δ₁ the Artin–Schreier map; and rsw_n((1/p)δ₁(F̃/X₀^n)) = [−d(F/X₁^n), nF/X₁^n]_{π,n}.",
+      "statement": "In the setting of Lemma 6.2, for n≥1 with p ∤ n, F ↦ (1/p)δ₁(F̃/X₀^n) is an isomorphism H⁰(Z, O(n)) → gr_n H¹(E ∖ Z, Q/Z), for any lift F̃ ∈ H⁰(E, O(n)), δ₁ the Artin–Schreier map; and rsw_n((1/p)δ₁(F̃/X₀^n)) = [−d(F/X₁^n), nF/X₁^n]_{π,n}.",
       "locator": "Lemma 6.2, p. 859, (2)",
       "status": "missing",
       "note": ""
@@ -638,10 +638,10 @@
       "id": "PAPER-BRIGHT-NEWTON-23/68",
       "kind": "theorem",
       "name": "Lemma 7.3: tangent vectors and strict transforms",
-      "statement": "Setting of §§1, 3, 7–9: k is a finite extension of Q_p with ring of integers O_k, uniformiser π, residue field 𝔽 and absolute ramification index e, and e′ = ep/(p−1). X/k is smooth and geometrically irreducible, 𝒳 → Spec O_k is a smooth model of X (not assumed proper) whose special fibre Y is geometrically irreducible, F is the function field of Y and K^h is the fraction field of a Henselisation of O_{𝒳,Y}. Let f : 𝒳̃ → 𝒳 be the blowup at P₀ with exceptional divisor E ≅ P^m_𝔽, U = E ∖ (E ∩ Ỹ) with affine coordinates u_i = x_i^{(1)}/π^{(1)}. Let Q ∈ B(P, r) and P̃, Q̃ the strict transforms, reducing to P̃₀, Q̃₀ ∈ E(𝔽). (1) If r > 1 then Q̃ ∈ B(P̃, r−1) and du_i(v_{r−1}(P̃, Q̃)) = dx_i(v_r(P, Q)). (2) If r = 1 then u_i(Q̃₀) = dx_i(v₁(P, Q)).",
+      "statement": "Setting of §§1, 3, 7–9: k is a finite extension of Q_p with ring of integers O_k, uniformiser π, residue field 𝔽 and absolute ramification index e, and e′ = ep/(p−1). X/k is smooth and geometrically irreducible, 𝒳 → Spec O_k is a smooth model of X (not assumed proper) whose special fibre Y is geometrically irreducible, F is the function field of Y and K^h is the fraction field of a Henselisation of O_{𝒳,Y}. Let f : 𝒳̃ → 𝒳 be the blowup at P₀ with exceptional divisor E ≅ P^m_𝔽, U = E ∖ (E ∩ Ỹ) with affine coordinates u_i = x_i^{(1)}/π^{(1)}. Let Q ∈ B(P, r) and P̃, Q̃ the strict transforms, reducing to P̃₀, Q̃₀ ∈ E(𝔽). (1) If r > 1 then Q̃ ∈ B(P̃, r−1) and du_i(v_{r−1}(P̃, Q̃)) = dx_i(v_r(P, Q)). (2) If r = 1 then u_i(Q̃₀) − u_i(P̃₀) = dx_i(v₁(P, Q)).",
       "locator": "Lemma 7.3, p. 862",
       "status": "missing",
-      "note": ""
+      "note": "E10: with arbitrary local parameters the difference is required. The printed version follows after choosing x_i(P)=0, possible by translation by x_i(P)∈πO_k."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/69",
@@ -668,7 +668,7 @@
       "statement": "Setting of §§1, 3, 7–9: k is a finite extension of Q_p with ring of integers O_k, uniformiser π, residue field 𝔽 and absolute ramification index e, and e′ = ep/(p−1). X/k is smooth and geometrically irreducible, 𝒳 → Spec O_k is a smooth model of X (not assumed proper) whose special fibre Y is geometrically irreducible, F is the function field of Y and K^h is the fraction field of a Henselisation of O_{𝒳,Y}. Let n > 0, A ∈ fil_n Br X with rsw_n(A) = [α, β]_{π,n}, (α, β) ∈ Ω²_F ⊕ Ω¹_F, and P ∈ 𝒳(O_k) with reduction P₀ ∈ Y(𝔽). If β = 0 and n > 2, there is γ ∈ Ω¹_Y|_{P₀} such that for Q ∈ B(P, 1) and R ∈ B(Q, n−1), inv A(R) = inv A(Q) − (1/p)Tr α_{P₀}(v₁(P, Q), v_{n−1}(Q, R)) + (1/p)Tr γ(v_{n−1}(Q, R)). If moreover p is odd and 2 < n < e′ + 2 + te for some t ≥ 0 with [k(μ_{p^{t+1}}) : k] prime to p, then for 1 ≤ s < n/2, Q ∈ B(P, s) and R ∈ B(Q, r) with r = n − s, inv A(R) = inv A(Q) − (s/p)Tr α_{P₀}(v_s(P, Q), v_r(Q, R)) + g_{A,Q}(R), with g_{A,Q} : B(Q, r) → p^{−(t+1)}Z/Z continuous and g_{A,Q}(R) = (1/p)Tr γ(v_{n−1}(Q, R)) on B(Q, n−1).",
       "locator": "Theorem 8.1, p. 863, (3), with Remarks 8.2(3)–(4)",
       "status": "missing",
-      "note": "By Remark 8.2(3), g_{A,Q}(R) = inv D(R) − inv D(Q) for some D ∈ fil_{n−1} Br(O_{𝒳,P₀}[1/p]); by Remark 8.2(4) the Swan-conductor bound holds with t = 0 when p² ∤ ord A."
+      "note": "The extraction records the stated formulas, not a certified proof. Remark 8.2(3)'s original-model D∈fil_{n−1} Br(O_{𝒳,P₀}[1/p]) and the second formula's proof require the E12 repair; a local construction on the blowup does not automatically descend with that bound. Remark 8.2(4) gives the t=0 range when p² does not divide ord A."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/72",
@@ -684,7 +684,7 @@
       "kind": "theorem",
       "name": "Theorem 8.1(5): surjectivity onto Br k[p^{t+1}]",
       "statement": "Setting of §§1, 3, 7–9: k is a finite extension of Q_p with ring of integers O_k, uniformiser π, residue field 𝔽 and absolute ramification index e, and e′ = ep/(p−1). X/k is smooth and geometrically irreducible, 𝒳 → Spec O_k is a smooth model of X (not assumed proper) whose special fibre Y is geometrically irreducible, F is the function field of Y and K^h is the fraction field of a Henselisation of O_{𝒳,Y}. Let n > 0, A ∈ fil_n Br X with rsw_n(A) = [α, β]_{π,n}, (α, β) ∈ Ω²_F ⊕ Ω¹_F, and P ∈ 𝒳(O_k) with reduction P₀ ∈ Y(𝔽). Suppose A has order p^{t+1} in Br X, and either n > e′ + (t−1)e, or n = e′ + (t−1)e and C(α) = C(β) = 0. (i) If β_{P₀} ≠ 0 then |A| : B(P, n − te) → Br k[p^{t+1}] ≅ p^{−(t+1)}Z/Z is surjective. (ii) If β = 0, α_{P₀} ≠ 0, n > e′ + 2 and n ≥ te + 3, there is Q ∈ B(P, 1) with |A| : B(Q, n − te − 1) → Br k[p^{t+1}] surjective.",
-      "locator": "Theorem 8.1, p. 863, (5), with Remark 8.2(5)",
+      "locator": "Theorem 8.1, p. 864, (5), with Remark 8.2(5)",
       "status": "missing",
       "note": "Remark 8.2(5): n ≥ te + 3 is only needed when p = e = 2."
     },
@@ -701,10 +701,10 @@
       "id": "PAPER-BRIGHT-NEWTON-23/75",
       "kind": "theorem",
       "name": "Lemma 8.4: the Swan conductor drops by two when β = 0",
-      "statement": "Setting of §§1, 3, 7–9: k is a finite extension of Q_p with ring of integers O_k, uniformiser π, residue field 𝔽 and absolute ramification index e, and e′ = ep/(p−1). X/k is smooth and geometrically irreducible, 𝒳 → Spec O_k is a smooth model of X (not assumed proper) whose special fibre Y is geometrically irreducible, F is the function field of Y and K^h is the fraction field of a Henselisation of O_{𝒳,Y}. f : 𝒳̃ → 𝒳 is the blowup at P₀, E ≅ P^m_𝔽 the exceptional divisor, Z = E ∩ Ỹ, π = π_Ỹ π_E with π_E = f*(x₁), and u_i = x_i^{(1)}/π^{(1)}. Let n > 0 with p | n and s ≥ 0, sw(A) = n − 2s, rsw_{n−2s}(A) = [α_s, β_s] with α_s = Σ_{i>j} a_{ij} dx_i ∧ dx_j and β_s = s Σ_{i>j} a_{ij} x_j² d(x_i/x_j), a_{ij} ∈ O_{Y,P₀}. Then sw_E(f*A) ≤ n − 2(s+1) and rsw_{E,n−2(s+1)}(f*A) = [α_E, β_E] with α_E = Σ a_{ij}(P₀) du_i ∧ du_j and β_E ≡ (s+1) Σ a_{ij}(P₀) u_j² d(u_i/u_j) mod H⁰(E, Ω¹(log Z)(Z)); equivalently β_E|_Z = (s+1)φ(α_{P₀}) (Remark 8.5). If α_{s,P₀} ≠ 0 then equality holds.",
+      "statement": "Setting of §§1, 3, 7–9: k is a finite extension of Q_p with ring of integers O_k, uniformiser π, residue field 𝔽 and absolute ramification index e, and e′ = ep/(p−1). X/k is smooth and geometrically irreducible, 𝒳 → Spec O_k is a smooth model of X (not assumed proper) whose special fibre Y is geometrically irreducible, F is the function field of Y and K^h is the fraction field of a Henselisation of O_{𝒳,Y}. f : 𝒳̃ → 𝒳 is the blowup at P₀, E ≅ P^m_𝔽 the exceptional divisor, Z = E ∩ Ỹ, π = π_Ỹ π_E with π_E = f*(x₁), and u_i = x_i^{(1)}/π^{(1)}. Let n > 0 with p | n and s ≥ 0, with n−2(s+1)≥1, sw(A) = n − 2s, rsw_{n−2s}(A) = [α_s, β_s] with α_s = Σ_{i>j} a_{ij} dx_i ∧ dx_j and β_s = s Σ_{i>j} a_{ij} x_j² d(x_i/x_j), a_{ij} ∈ O_{Y,P₀}. Then sw_E(f*A) ≤ n − 2(s+1) and rsw_{E,n−2(s+1)}(f*A) = [α_E, β_E] with α_E = Σ a_{ij}(P₀) du_i ∧ du_j and β_E ≡ (s+1) Σ a_{ij}(P₀) u_j² d(u_i/u_j) mod H⁰(E, Ω¹(log Z)(Z)); equivalently β_E|_Z = (s+1)φ(α_{P₀}) (Remark 8.5). If α_{s,P₀} ≠ 0 then equality holds.",
       "locator": "Lemma 8.4, p. 866, and Remark 8.5",
       "status": "missing",
-      "note": ""
+      "note": "E11: positive output level is required for rsw. The zero-level terminal case is handled by Lemma 8.7, item 77, using the ordinary residue, not an undefined rsw_0."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/76",
@@ -753,12 +753,12 @@
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/81",
-      "kind": "theorem",
+      "kind": "construction",
       "name": "Lemma 8.11: realising a prescribed refined Swan conductor by corestricted cyclic algebras",
-      "statement": "Setting of §§1, 3, 7–9: k is a finite extension of Q_p with ring of integers O_k, uniformiser π, residue field 𝔽 and absolute ramification index e, and e′ = ep/(p−1). X/k is smooth and geometrically irreducible, 𝒳 → Spec O_k is a smooth model of X (not assumed proper) whose special fibre Y is geometrically irreducible, F is the function field of Y and K^h is the fraction field of a Henselisation of O_{𝒳,Y}. f : 𝒳̃ → 𝒳 is the blowup at P₀, E ≅ P^m_𝔽 the exceptional divisor, Z = E ∩ Ỹ, π = π_Ỹ π_E with π_E = f*(x₁), and u_i = x_i^{(1)}/π^{(1)}. Let β ∈ H⁰(E, Ω¹(log Z)(Z)) and suppose either 0 < n < e′, or e′ + (t−1)e < n < e′ + te for some t ≥ 1 with ε = [k(μ_{p^{t+1}}) : k] prime to p. Then there are an open neighbourhood 𝒱 of P₀ in 𝒳 with generic fibre V and C ∈ fil_n Br V[p^{t+1}] with rsw_{E,n}(C) = [0, β]_{π,n}. Explicitly, with β = Σ b_i du_i, b_i ∈ 𝔽, lifts b̃_i ∈ O_k and K the function field of X: C = cores_{K(μ_{p^{t+1}})/K} Σ_i (1 + p^t b̃_i u_i (ζ_p − 1)^p/(ε(n − te)π^n), u_i)_{p^{t+1}} if p ∤ n − te, and C = cores Σ_i (1 + p^t b̃_i u_i (ζ_p − 1)^p/(επ^n), π)_{p^{t+1}} if p | n − te.",
+      "statement": "Setting of §§1, 3, 7–9: k is a finite extension of Q_p with ring of integers O_k, uniformiser π, residue field 𝔽 and absolute ramification index e, and e′ = ep/(p−1). X/k is smooth and geometrically irreducible, 𝒳 → Spec O_k is a smooth model of X (not assumed proper) whose special fibre Y is geometrically irreducible, F is the function field of Y and K^h is the fraction field of a Henselisation of O_{𝒳,Y}. f : 𝒳̃ → 𝒳 is the blowup at P₀, E ≅ P^m_𝔽 the exceptional divisor, Z = E ∩ Ỹ, π = π_Ỹ π_E with π_E = f*(x₁), and u_i = x_i^{(1)}/π^{(1)}. Let β ∈ H⁰(E, Ω¹(log Z)(Z)) and suppose either 0 < n < e′ (set t=0 in this case), or e′ + (t−1)e < n < e′ + te for some t ≥ 1 with ε = [k(μ_{p^{t+1}}) : k] prime to p. Construct C on the generic fibre of an open neighbourhood of P̃₀ in the π-chart of the BLOWN-UP model 𝒳̃, with filtration measured along E: sw_E(C)≤n and rsw_{E,n}(C)=[0,β]_{π,n}. No bound fil_n along the original Y, nor extension to an original-model neighbourhood of P₀, is asserted. Explicitly, with β = Σ b_i du_i, b_i ∈ 𝔽, lifts b̃_i ∈ O_k and K the function field of X: C = cores_{K(μ_{p^{t+1}})/K} Σ_i (1 + p^t b̃_i u_i (ζ_p − 1)^p/(ε(n − te)π^n), u_i)_{p^{t+1}} if p ∤ n − te, and C = cores Σ_i (1 + p^t b̃_i u_i (ζ_p − 1)^p/(επ^n), π)_{p^{t+1}} if p | n − te.",
       "locator": "Lemma 8.11, p. 874",
       "status": "missing",
-      "note": "Used for Theorem 8.1(5)."
+      "note": "E12: the original-model assertion contradicts the Swan drop in Lemmas 8.3/8.6. The displayed symbols give the local blown-up-chart construction: their first entries are 1+a u_i with v(a)>0; using {1+a u_i,u_i}={1+a u_i,−a^{-1}} removes the apparent horizontal divisor u_i=0. Shrink away from first-entry zeros. The subsequent descent/filtration claims in the proof of Theorem 8.1(3), second formula, and Remark 8.2(3) require a separate repair; the review does not certify them. The original note incorrectly assigned this lemma to (5)."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/82",
@@ -812,13 +812,13 @@
       "statement": "A geometrically irreducible variety over a finite field 𝔽 has 𝔽′-points for every sufficiently large finite extension 𝔽′/𝔽 (indeed #V(𝔽_{q^r}) = q^{r dim V} + O(q^{r(dim V − 1/2)})).",
       "locator": "Proofs of Lemmas 9.2 and 9.5, pp. 879–881 ([LW])",
       "status": "missing",
-      "note": "PAPER-HARPAZ-WITTENBERG-16 routes the same Lang–Weil–Nisnevich estimate to WC.5."
+      "note": "The current WC.5 contract is smooth-projective; a previous paper route is not authority to enlarge it to arbitrary varieties. Route 2 is rejected until the general Lang–Weil input is placed under a source-qualified owner or explicitly added by an authorized design."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/88",
       "kind": "theorem",
       "name": "Hochschild–Serre for H¹ of a variety over a finite field",
-      "statement": "For a geometrically connected variety Y over a finite field 𝔽 and a finite or divisible coefficient group, 0 → H¹(𝔽, Q/Z) → H¹(Y, Q/Z) → H¹(Ȳ, Q/Z) is exact (and likewise with Z/p^r).",
+      "statement": "For a geometrically connected variety Y over a finite field 𝔽, with geometric base change Ȳ, restriction gives an exact sequence 0→H¹(𝔽,Q/Z)→H¹(Y,Q/Z)→H¹(Ȳ,Q/Z); the analogous kernel statement holds for the constant sheaf Z/p^r, r≥1. The last map need not be surjective as written.",
       "locator": "Proofs of Lemmas 9.5 and 11.3, pp. 880, 888",
       "status": "missing",
       "note": "PAPER-HARPAZ-WITTENBERG-16 routes the scheme Hochschild–Serre sequence to SF.2."
@@ -871,11 +871,11 @@
     {
       "id": "PAPER-BRIGHT-NEWTON-23/94",
       "kind": "theorem",
-      "name": "Lemma 10.1: cup products with units realise the Swan conductor",
-      "statement": "Let K be a Henselian DVF of characteristic 0 containing a primitive p-th root of unity, with imperfect residue field F, e′ = v_K(p)p/(p−1). If χ ∈ H¹_p(K) has sw(χ) = n, there is y ∈ O_K^× with sw({χ, y}) = n and, if n > 0, y can be chosen with {χ, y} ∉ fil~_{n−1} Br K[p].",
+      "name": "Lemma 10.1, corrected: cup products with K× realise the Swan conductor",
+      "statement": "Let K be a Henselian DVF of characteristic 0 containing a primitive p-th root of unity, with imperfect residue field F, e′ = v_K(p)p/(p−1). If χ ∈ H¹_p(K) has sw(χ) = n, there is y ∈ K^× with sw({χ, y}) = n and, if n > 0, y can be chosen with {χ, y} ∉ fil~_{n−1} Br K[p].",
       "locator": "Lemma 10.1, p. 883",
       "status": "missing",
-      "note": "Case analysis via Bloch–Kato's description of graded pieces ([K, (4.2.1)–(4.2.2), Proposition 4.1, Lemma 4.3])."
+      "note": "Case analysis via Bloch–Kato's description of graded pieces ([K, (4.2.1)–(4.2.2), Proposition 4.1, Lemma 4.3]). E13: replace the printed unit restriction by K×; the proof's uniformizer choices are then allowed. Proposition 10.2 needs exactly this weaker conclusion."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/95",
@@ -890,10 +890,10 @@
       "id": "PAPER-BRIGHT-NEWTON-23/96",
       "kind": "definition",
       "name": "Abbes–Saito ramification filtrations and the conductors f_K, f_K^log",
-      "statement": "For G = Gal(K̄/K) of a Henselian DVF with possibly imperfect residue field, Abbes and Saito's non-logarithmic and logarithmic filtrations (G^a)_{a∈Q≥0} and (G^a_log). For χ ∈ H^q_p(K): f_K(χ) = inf{a > 0 : χ ∈ ker(H^q_p(K) → H^q(G^a, (Z/p)(q−1)))} and f_K^log likewise with G^a_log; for q = 1 these are Abbes–Saito's (log) conductors ([AS, Propositions 6.4, 9.5]). fil~_0 H^q_p(K) = {f_K ≤ 1} = {f_K^log ≤ 0}. The proof of Proposition 10.9 also cites from [AS] the inclusion G^{pa}_{L,log} ⊂ G^a_log for a totally ramified L/K of degree p.",
+      "statement": "For G = Gal(K̄/K) of a Henselian DVF with possibly imperfect residue field, Abbes and Saito's non-logarithmic and logarithmic filtrations (G^a)_{a∈Q≥0} and (G^a_log). For χ ∈ H^q_p(K): f_K(χ) = inf{a > 0 : χ ∈ ker(H^q_p(K) → H^q(G^a, (Z/p)(q−1)))} and f_K^log likewise with G^a_log; for q = 1 these are Abbes–Saito's (log) conductors ([AS, Propositions 6.4, 9.5]). fil_0 H^q_p(K) = {f_K ≤ 1} = {f_K^log ≤ 0}. The proof of Proposition 10.9 also cites from [AS] the inclusion G^{pa}_{L,log} ⊂ G^a_log for a totally ramified L/K of degree p.",
       "locator": "§10.2, pp. 884–885",
       "status": "missing",
-      "note": ""
+      "note": "The source's general-q tilde notation at level zero is not defined; use Kato's fil_0 (which equals fil~_0 in degree 2). Positive-index conductors and the passage from infima to boundary membership need the Abbes–Saito continuity results, not merely a definition."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/97",
@@ -971,10 +971,10 @@
       "id": "PAPER-BRIGHT-NEWTON-23/105",
       "kind": "theorem",
       "name": "Bloch–Kato: gr⁰ H² is non-zero at an ordinary prime",
-      "statement": "Let V_𝔭 be smooth proper over a p-adic field with smooth model 𝒱 whose special fibre Y is ordinary. The spectral sequences E₂^{s,t} = H^s(Ȳ, ī*R^t j̄_* Z/p^r) ⇒ H^{s+t}(V̄_𝔭, Z/p^r) ([BK, 0.2]) define filtrations on H^q(V̄_𝔭, Z/p^r), Z_p and Q_p; if H⁰(V, Ω²) ≠ 0 then gr⁰ H²(V̄_𝔭, Q_p) ≠ 0 ([BK, Theorem 0.7(iii)]), hence gr⁰ H²(V̄_𝔭, Z/p^r) ≠ 0 for some r.",
+      "statement": "Let V_𝔭 be smooth proper over a p-adic field with smooth proper model 𝒱 whose special fibre Y is ordinary. The spectral sequences E₂^{s,t} = H^s(Ȳ, ī*R^t j̄_* Z/p^r) ⇒ H^{s+t}(V̄_𝔭, Z/p^r) ([BK, 0.2]) define filtrations on H^q(V̄_𝔭, Z/p^r), Z_p and Q_p; if H⁰(V, Ω²) ≠ 0 then gr⁰ H²(V̄_𝔭, Q_p) ≠ 0 ([BK, Theorem 0.7(iii)]), hence gr⁰ H²(V̄_𝔭, Z/p^r) ≠ 0 for some r.",
       "locator": "Proof of Theorem C, p. 887",
       "status": "missing",
-      "note": "Bloch–Kato's ordinary-reduction theorem. Only its degree-2 consequence is used; the atlas has no owner of Bloch–Kato's p-adic vanishing-cycle comparison."
+      "note": "Bloch–Kato's ordinary-reduction theorem, degree-two consequence. A source-qualified owner for its comparison with the nearby-cycle filtration remains to be established; generic nearby cycles and de Rham–Witt coefficients alone do not supply it."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/106",
@@ -1037,7 +1037,7 @@
       "statement": "If V is smooth proper over a number field with Pic V̄ torsion-free then H¹(V, O_V) = 0 and hence, by Hodge theory, H⁰(V, Ω¹_V) = 0; for a smooth proper model 𝒱 over O_S, upper semicontinuity gives H⁰(𝒱(𝔭), Ω¹) = 0 for all 𝔭 outside a finite set; and the Kummer sequence gives H¹(V̄, Z/n) = 0 for all n.",
       "locator": "Proof of Theorem D, pp. 888–889",
       "status": "missing",
-      "note": "Hodge symmetry h^{1,0} = h^{0,1} in characteristic 0 has no located atlas owner (tauceti HodgeStructures plans abstract Hodge structures); semicontinuity is in the Jacobian Challenge, Layer C."
+      "note": "Bundle requiring separate Picard-scheme, characteristic-zero Hodge-symmetry, Kummer and higher-dimensional semicontinuity inputs. A curve/Picard-focused Jacobian layer does not by itself discharge all smooth proper varieties in this statement. Source-qualified ownership and geometric hypotheses remain a closure gap."
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/113",
@@ -1047,6 +1047,60 @@
       "locator": "Remark 11.5, p. 889, and Remark 1.6(2), p. 825",
       "status": "missing",
       "note": ""
+    },
+    {
+      "id": "PAPER-BRIGHT-NEWTON-23/114",
+      "kind": "definition",
+      "name": "Ordinary Kähler differentials and their universal derivation",
+      "statement": "For a commutative R-algebra S, Ω_{S/R}=I/I² for I=ker(S⊗_R S→S); D:S→Ω_{S/R} is the universal R-derivation. Every R-derivation S→M factors uniquely through an S-linear map Ω_{S/R}→M.",
+      "locator": "§2.3; §§4–8; underlying carrier, not the log enhancement",
+      "status": "library",
+      "library": [
+        "mathlib:KaehlerDifferential",
+        "mathlib:KaehlerDifferential.D",
+        "mathlib:Derivation.liftKaehlerDifferential_comp",
+        "mathlib:Derivation.liftKaehlerDifferential_unique"
+      ],
+      "note": "Mathlib/RingTheory/Kaehler/Basic.lean:153,198,274,289 at 082e2d37e8b0463410cdb532e111cd43d5a66174. Does not provide the log point, Cartier operator, or scheme blowup formulas."
+    },
+    {
+      "id": "PAPER-BRIGHT-NEWTON-23/115",
+      "kind": "definition",
+      "name": "Cohomology of an abelian sheaf on a site",
+      "statement": "For a category C with Grothendieck topology J and abelian sheaf F, under HasSheafify and HasExt, H^n(F)=Ext^n(Z_J,F), n≥0.",
+      "locator": "§1.4 and §2; ordinary cohomology carrier only",
+      "status": "library",
+      "library": [
+        "mathlib:CategoryTheory.Sheaf.H"
+      ],
+      "note": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean:59 at 082e2d37e8b0463410cdb532e111cd43d5a66174. Hypercohomology, coefficient twists, direct images, spectral-sequence edges and Brauer identifications remain distinct dependencies."
+    },
+    {
+      "id": "PAPER-BRIGHT-NEWTON-23/116",
+      "kind": "construction",
+      "name": "Derived category of an abelian category",
+      "statement": "For an abelian category C with a chosen derived-category localization, D(C) is the localization of integer-graded cochain complexes at quasi-isomorphisms; the localization functor Q sends quasi-isomorphisms to isomorphisms and D(C) is triangulated.",
+      "locator": "§1.4 coefficients as complexes; §2.2 spectral sequences and §2.5 Kummer triangle",
+      "status": "library",
+      "library": [
+        "mathlib:DerivedCategory",
+        "mathlib:DerivedCategory.Q"
+      ],
+      "note": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean:69–105,169–179 at 082e2d37e8b0463410cdb532e111cd43d5a66174. Abstract carrier only, not an étale six-functor or nearby-cycle implementation."
+    },
+    {
+      "id": "PAPER-BRIGHT-NEWTON-23/117",
+      "kind": "construction",
+      "name": "Kummer short exact sequence of discrete Galois modules at an invertible exponent",
+      "statement": "For a field K, n a natural number with n invertible in K, the inclusion μ_n(K^s)→(K^s)× and nth power map give a short exact sequence of discrete continuous AbsoluteGaloisGroup K-modules, written additively.",
+      "locator": "§1.4, equation (1.3), invertible-exponent case; §2.5",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.KummerCoeff",
+        "tauceti:TauCeti.UnitsCoeff",
+        "tauceti:TauCeti.kummerShortExact"
+      ],
+      "note": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean:90,107,195 at f790474821cf4256814db967cb154e7af3d0c369. Does not cover p-primary étale roots-of-unity Kummer in characteristic p, nor prove the cohomological Brauer comparison."
     }
   ],
   "prerequisites": [
@@ -1206,7 +1260,7 @@
         "PAPER-BRIGHT-NEWTON-23/103",
         "PAPER-BRIGHT-NEWTON-23/104"
       ],
-      "brief": "First prerequisite: Local fields and ramification (tauceti:TauCetiRoadmap/LocalFieldsRamification), whose Layer 3 upper-numbering filtration this extends; do not replan it. The new object is Kato's theory of Swan conductors for H^q of a Henselian discrete valuation field K whose residue field F of characteristic p may be imperfect (Kato 1989, Contemp. Math. 83), in both mixed and equal characteristic, together with Bright–Newton's refinements (Invent. Math. 234 (2023), §§2, 4, 9–10).\n\nCoefficients and cohomology:\n- Kato's coefficients (Z/n)(r) = μ_m^{⊗r} ⊕ W_sΩ^r_log[−r] and H^q_n(R), with the triangle (Z/n)(1) → G_m → G_m.\n- V^q_n(A) = H^q(R_ét, i*Rj_*(Z/n)(q−1)), its functoriality and products.\n- Bloch–Kato's filtration U^m on M^q_r = i*R^q j_*(Z/p^r)(q), with gr⁰ ≅ W_rΩ^q_log ⊕ W_rΩ^{q−1}_log.\n\nThe filtration and the maps:\n- Definition 2.1: fil_n H^q(K) by {χ, 1 + π^{n+1}T} = 0 in V^{q+1}(O_K[T]), with Kato's Propositions 1.8 and 6.3 (the Galois-cohomological test) and the q = 1, K/Q_p compatibility with upper numbering (Remark 2.4).\n- The canonical lifting ι^q_n and λ_π(χ, χ′) = ι^q_n(χ) + {ι^{q−1}_n(χ′), π}, injective.\n- Proposition 2.6 (Kato 6.1): fil_0 = im λ_π = (non-p) ⊕ ker(res to K_nr), and H^q = fil_0 for q > c + 1.\n- λ_π and δ_r for A smooth over O_K: Lemma 2.7, Definitions 2.8 and 2.10, and Lemmas 2.11–2.13 (λ_π base change).\n\nRefined Swan conductor:\n- Kato's Theorem 5.1 and Definition 2.14: rsw_n(χ) = [α, β]_{π,n} ∈ m_K^{−n} ⊗ ω^q_F.\n- Lemma 2.16: rsw_{en}(res χ) = [ā^{−n}(α + β ∧ dlog ā), ā^{−n}eβ]_{π′,en}.\n- Lemma 2.17: dα = 0, dβ = (−1)^q nα.\n- Lemma 2.18.\n- Lemma 2.19: sw(pχ) = n − e for n > e′, the formula at n = e′, and eα = 0.\n\nResidues:\n- Definition 2.21: the residue ∂ on fil_0.\n- Proposition 2.22: compatibility with the classical residue Br(K_nr/K) → H¹(F, Q/Z).\n- Lemma 2.23.\n\nGeometric setting (Kato Part II; Bright–Newton §4):\n- Swan conductors along divisors of normal schemes.\n- Theorem 4.1 (Kato 7.1: integrality of rsw with log poles along the other components).\n- Proposition 4.2 (Kato 7.3) and Definition 4.3 (strongly clean).\n- Theorem 4.4 (Kato 8.1: sw after blowing up a point ≤ Σ n_i, with equality iff strongly clean).\n- Lemmas 4.5–4.7.\n- Lemma 3.4: i*R^q j_* injects into its generic stalk on a smooth O_k-scheme.\n\nThe modified filtration and comparisons:\n- fil~_n: fil~_0 = fil_0, fil~_n = {fil_{n+1} with rsw_{n+1} ∈ [Ω², 0]} for n ≥ 1, and fil~_{−2}, fil~_{−1} via ∂. Record fil_n ⊂ fil~_n, with equality if p ∤ n + 1.\n- Lemma 10.1.\n- Proposition 10.2: fil~ is not generated by any filtration on H¹ together with K^×.\n- Abbes–Saito's G^a and G^a_log, and the conductors f_K and f_K^log.\n- The Kato–Saito coincidence theorem (Épijournal 3 (2019)), stated as imported.\n- Proposition 10.3: f_K(χ) ≤ n + 1 ⟺ χ ∈ fil_{n+1} with rsw_{n+1} = [α, 0]. The paper only sketches this proof: carry out the full case check over Bloch–Kato generators, using Lemmas 10.4–10.7 and [AS, Lemma 6.6].\n- Proposition 10.8, using the corrected witness level n = e′ − 1 (sourceIssue E5).\n- Proposition 10.9, restricting the auxiliary extension to a totally ramified L/K of degree p such as K(π^{1/p}) (sourceIssue E6).\n\nImport, never re-plan:\n- de Rham–Witt complexes, dlog and localisation: Crystalline cohomology (CrystallineCohomology:CR.4).\n- Logarithmic de Rham–Witt coefficients: HigherLocalFieldsAndHigherClassFieldTheory:HL.2.\n- The Cartier operator: DerivedDeRhamCohomology:DD.3.\n- Étale cohomology, direct images and Gabber's affine proper base change: SchemeAndStackFoundations:SF.2. Compare i*Rj_* with the strict-Henselian RΨ of LefschetzPencilsAndVanishingCycles:LPV.0, rather than building a second nearby-cycle functor.\n- The local Brauer group and invariant: Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Layer 5.\n- Kummer theory and cup products: Profinite cohomology (tauceti:TauCetiRoadmap/ProfiniteCohomology), Layer 9.\n- The classical perfect-residue Swan conductor, for the compatibility test: Arithmetic Galois representations (ArithmeticGaloisRepresentations:R01.3).\n\nHigherLocalFieldsAndHigherClassFieldTheory:HL.4 plans ramification filtrations of higher local fields. It should import fil_n and rsw_n from here rather than defining a second Swan filtration.\n\nTests:\n- K = Q_p(ζ_p)((t))^h-type fields with imperfect residue field.\n- The characters of Lemmas 10.4–10.7.\n- The symbol (x̃, ỹ)_p with ω = dx/x ∧ dy/y ≠ 0 at level e′.\n- A case with e′ < p, where fil~ = fil.",
+      "brief": "First prerequisite: Local fields and ramification (tauceti:TauCetiRoadmap/LocalFieldsRamification), whose Layer 3 upper-numbering filtration this extends; do not replan it. The new object is Kato's theory of Swan conductors for H^q of a Henselian discrete valuation field K whose residue field F of characteristic p may be imperfect (Kato 1989, Contemp. Math. 83), in both mixed and equal characteristic, together with Bright–Newton's refinements (Invent. Math. 234 (2023), §§2, 4, 9–10).\n\nCoefficients and cohomology:\n- Kato's coefficients (Z/n)(r) = μ_m^{⊗r} ⊕ W_sΩ^r_log[−r] and H^q_n(R), with the triangle (Z/n)(1) → G_m → G_m.\n- V^q_n(A) = H^q(R_ét, i*Rj_*(Z/n)(q−1)), its functoriality and products.\n- Bloch–Kato's filtration U^m on M^q_r = i*R^q j_*(Z/p^r)(q), with gr⁰ ≅ W_rΩ^q_log ⊕ W_rΩ^{q−1}_log.\n\nThe filtration and the maps:\n- Definition 2.1: fil_n H^q(K) by {χ, 1 + π^{n+1}T} = 0 in V^{q+1}(O_K[T]), with Kato's Propositions 1.8 and 6.3 (the Galois-cohomological test) and the q = 1, K/Q_p compatibility with upper numbering (Remark 2.4).\n- The canonical lifting ι^q_n and λ_π(χ, χ′) = ι^q_n(χ) + {ι^{q−1}_n(χ′), π}, injective.\n- Proposition 2.6 (Kato 6.1): fil_0 = im λ_π = (non-p) ⊕ ker(res to K_nr), and H^q = fil_0 for q > c + 1.\n- λ_π and δ_r for A smooth over O_K: Lemma 2.7, Definitions 2.8 and 2.10, and Lemmas 2.11–2.13 (λ_π base change).\n\nRefined Swan conductor:\n- Kato's Theorem 5.1 and Definition 2.14: rsw_n(χ) = [α, β]_{π,n} ∈ m_K^{−n} ⊗ ω^q_F.\n- Lemma 2.16: rsw_{en}(res χ) = [ā^{−n}(α + β ∧ dlog ā), ā^{−n}eβ]_{π′,en}.\n- Lemma 2.17: dα = 0, dβ = (−1)^q nα.\n- Lemma 2.18.\n- Lemma 2.19: sw(pχ) = n − e for n > e′, the formula at n = e′, and eα = 0 under β∧dū=0 and n>e′ (Remark 2.20).\n\nResidues:\n- Definition 2.21: the residue ∂ on fil_0.\n- Proposition 2.22: compatibility with the classical residue Br(K_nr/K) → H¹(F, Q/Z).\n- Lemma 2.23.\n\nGeometric setting (Kato Part II; Bright–Newton §4):\n- Swan conductors along divisors of normal schemes.\n- Theorem 4.1 (Kato 7.1: integrality of rsw with log poles along the other components).\n- Proposition 4.2 (Kato 7.3) and Definition 4.3 (strongly clean).\n- Theorem 4.4 (Kato 8.1: sw after blowing up a point ≤ Σ n_i, with equality iff strongly clean).\n- Lemmas 4.5–4.7.\n- Lemma 3.4: i*R^q j_* injects into its generic stalk on a smooth O_k-scheme.\n\nThe modified filtration and comparisons:\n- fil~_n: fil~_0 = fil_0, fil~_n = {fil_{n+1} with rsw_{n+1} ∈ [Ω², 0]} for n ≥ 1, and fil~_{−2}, fil~_{−1} via ∂. Record fil_n ⊂ fil~_n, with equality if p ∤ n + 1.\n- Lemma 10.1.\n- Proposition 10.2: fil~ is not generated by any filtration on H¹ together with K^×.\n- Abbes–Saito's G^a and G^a_log, and the conductors f_K and f_K^log.\n- The Kato–Saito coincidence theorem (Épijournal 3 (2019)), stated as imported.\n- Proposition 10.3: f_K(χ) ≤ n + 1 ⟺ χ ∈ fil_{n+1} with rsw_{n+1} = [α, 0]. The paper only sketches this proof: carry out the full case check over Bloch–Kato generators, using Lemmas 10.4–10.7 and [AS, Lemma 6.6].\n- Proposition 10.8, using the corrected witness level n = e′ − 1 (sourceIssue E5).\n- Proposition 10.9, restricting the auxiliary extension to a totally ramified L/K of degree p such as K(π^{1/p}) (sourceIssue E6).\n\nImport, never re-plan:\n- de Rham–Witt complexes, dlog and localisation: Crystalline cohomology (CrystallineCohomology:CR.4).\n- Logarithmic de Rham–Witt coefficients: HigherLocalFieldsAndHigherClassFieldTheory:HL.2.\n- The Cartier operator: DerivedDeRhamCohomology:DD.3.\n- Étale cohomology, direct images and Gabber's affine proper base change: SchemeAndStackFoundations:SF.2. Compare i*Rj_* with the strict-Henselian RΨ of LefschetzPencilsAndVanishingCycles:LPV.0, rather than building a second nearby-cycle functor.\n- The local Brauer group and invariant: Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Layer 5.\n- Kummer theory and cup products: Profinite cohomology (tauceti:TauCetiRoadmap/ProfiniteCohomology), Layer 9.\n- The classical perfect-residue Swan conductor, for the compatibility test: Arithmetic Galois representations (ArithmeticGaloisRepresentations:R01.3).\n\nHigherLocalFieldsAndHigherClassFieldTheory:HL.4 plans ramification filtrations of higher local fields. It should import fil_n and rsw_n from here rather than defining a second Swan filtration.\n\nTests:\n- K = Frac((O_{Q_p(ζ_p)}[t]_(π))^h)-type fields with imperfect residue field.\n- The characters of Lemmas 10.4–10.7.\n- The symbol (x̃, ỹ)_p with ω = dx/x ∧ dy/y ≠ 0 at level e′.\n- A case with e′ < p, where fil~ = fil. REVIEW GATE: not approved for design. Separate generic coefficients/sites/nearby-cycle imports from Kato's new filtration; fill the atomic dependency ledger and apply E8/E9/E13. Use the henselisation of the Gauss DVR O_{Q_p(ζ_p)}[t]_(π), residue F_p(t), in imperfect-residue tests; the t-adic field Q_p(ζ_p)((t)) has residue characteristic zero.",
       "reason": "The upstream roadmap treats local fields with finite residue field and upper numbering. Kato's filtration fil_n H^q(K) for Henselian DVFs with imperfect residue field, its refined Swan conductor, Bloch–Kato's p-adic vanishing cycles, Kato's geometric theorems on regular schemes and blowups, and the Abbes–Saito comparison have no owner. R01.3 is the perfect-residue numerical conductor, and HL.4 plans ramification of higher local fields, not general Henselian DVFs. This is local ramification theory that other papers on wild ramification will reuse, so it is kept separate from the Brauer-evaluation consumer."
     },
     {
@@ -1275,7 +1329,7 @@
         "PAPER-BRIGHT-NEWTON-23/112",
         "PAPER-BRIGHT-NEWTON-23/113"
       ],
-      "brief": "Build on Heights, rational points and obstructions (HeightsRationalPointsAndObstructions:RP.2), which owns adelic points, local invariants and the Brauer–Manin pairing. The new theory is the p-adic evaluation of Brauer classes of p-power order on smooth models: Bright–Newton, Evaluating the wild Brauer group, Invent. Math. 234 (2023). It imports the Swan-conductor theory from the companion candidate LocalFieldsPartIIKatoSwanConductors, \"Local fields and ramification, Part II: Kato's Swan conductors for imperfect residue fields\", which must be built first.\n\nThe final theorems, exactly as in the paper (setting: k/Q_p finite, X/k smooth geometrically irreducible, 𝒳/O_k a smooth model, not necessarily proper, with geometrically irreducible special fibre Y):\n- Theorem A:\n  (1) Ev_{−2} Br X = {A ∈ fil_0 : ∂A = 0};\n  (2) Ev_{−1} Br X = {A ∈ fil_0 : ∂A ∈ H¹(𝔽, Q/Z)};\n  (3) Ev_0 Br X = fil_0 Br X;\n  (4) for n ≥ 1, Ev_n Br X = {A ∈ fil_{n+1} Br X : rsw_{n+1}(A) ∈ [Ω²_F, 0]_{π,n+1}}.\n  The same holds with unramified k′/k only (Corollaries 9.4 and 9.7).\n- Theorem 8.1 (containing Theorem B), for A ∈ fil_n Br X with rsw_n(A) = [α, β]_{π,n}:\n  (1) α and β are regular at P₀;\n  (2) inv A(Q) = inv A(P) + (1/p)Tr_{𝔽/𝔽_p} β_{P₀}(v_n(P, Q)) for Q ∈ B(P, n);\n  (3) the bilinear formula with γ when β = 0 and n > 2, and its refinement for 1 ≤ s < n/2 under the stated bound n < e′ + 2 + te;\n  (4) if β = 0 and α_{P₀} ≠ 0, then p distinct values on some B(Q, n−1) with Q ∈ B(P, 1);\n  (5) surjectivity onto Br k[p^{t+1}] under the stated conditions.\n- Corollary 9.8: behaviour of Ev_n under base change. When α = 0, use β′ ≠ 0 (sourceIssue E4).\n- Theorem C (potential failure of weak approximation at good ordinary primes when H⁰(V, Ω²) ≠ 0), and Theorem D (evaluation constant outside the explicit set S).\n- Questions 1.3–1.5, recorded as questions. Record Wittenberg's Question 1.4 as answered only for varieties with a prime of good ordinary reduction (sourceIssue E7).\n\nCover, with API and tests:\n- the evaluation filtration and p-adic discs;\n- Proposition 3.1, Corollary 3.2, Lemmas 3.3, 3.5, 3.6 and Corollary 3.7 (Br 𝒳 = ker ∂; with Theorem A(1) this recovers Saito–Sato for smooth 𝒳);\n- the log-residue exact sequence and the isomorphisms ψ, φ, and Lemma 5.1;\n- Lemmas 6.1 and 6.2 (in 6.1(3) the basis is X_i² d(X_j/X_i), sourceIssue E1);\n- Lemmas 7.1 and 7.3 (tangent vectors, base change, strict transforms);\n- the blowup induction of §8: Lemmas 8.3, 8.4, 8.6–8.11, including the corestricted cyclic algebras of Lemma 8.11;\n- §9: Lemmas 9.1–9.5 (9.2 with res A ∈ fil_{n+1}, E2; 9.5 without the stray 'for every r ≥ 1', E3) and Corollaries 9.4, 9.7, 9.8;\n- §11: Lemmas 11.1–11.3, Bloch–Kato's ordinary-reduction input (gr⁰ H²(V̄_𝔭, Q_p) ≠ 0), Colliot-Thélène–Skorobogatov's Proposition 2.4 for the prime-to-p part, and Remarks 1.6 and 11.5 (K3 surfaces).\n  Remark 1.6(1) needs Fontaine–Messing's mod-p comparison and Deligne–Illusie degeneration, which the atlas does not plan. Keep it as an optional cited statement unless an owner appears; no proof depends on it.\n\nImport, never re-plan:\n- fil_n, λ_π, δ_r, rsw_n, ∂, Kato's Theorems 7.1 and 8.1, Lemmas 2.16–2.19, Lemma 3.4, fil~_n and Bloch–Kato's vanishing-cycle filtration: LocalFieldsPartIIKatoSwanConductors;\n- the local invariant, the residue isomorphism Br k ≅ H¹(𝔽, Q/Z) and restriction: Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Layer 5;\n- the Brauer–Manin pairing and the one-place obstruction test: RP.2 (this paper is a source there);\n- étale cohomology, proper base change, Hochschild–Serre, Brauer purity and Lemma 11.4: SchemeAndStackFoundations:SF.2;\n- Hensel lifting of points of smooth O_k-schemes: SF.4;\n- Lang–Weil: WeilConjectures:WC.5;\n- semicontinuity: the Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge), Layer C;\n- de Rham–Witt complexes and the Cartier operator: CrystallineCohomology:CR.4 and DerivedDeRhamCohomology:DD.3.\nHodge symmetry h^{1,0} = h^{0,1} in characteristic 0 (used in Theorem D) has no located owner: flag it to the maintainer, or prove h⁰(Ω¹) = h¹(O) through the Picard and Albanese varieties.\n\nTests:\n- a conic bundle or cyclic algebra with β_{P₀} ≠ 0, checking the trace formula;\n- p = 2 with n = 2 (Lemma 8.10);\n- a class with β = 0 and α_{P₀} ≠ 0 over a surface;\n- base change by a ramified extension (Corollary 9.8);\n- a K3 surface over Q with S = {∞, bad primes, 2}.",
+      "brief": "Build on Heights, rational points and obstructions (HeightsRationalPointsAndObstructions:RP.2), which owns adelic points, local invariants and the Brauer–Manin pairing. The new theory is the p-adic evaluation of Brauer classes of p-power order on smooth models: Bright–Newton, Evaluating the wild Brauer group, Invent. Math. 234 (2023). It imports the Swan-conductor theory from the companion candidate LocalFieldsPartIIKatoSwanConductors, \"Local fields and ramification, Part II: Kato's Swan conductors for imperfect residue fields\", which must be built first.\n\nThe final theorems, exactly as in the paper (setting: k/Q_p finite, X/k smooth geometrically irreducible, 𝒳/O_k a smooth model, not necessarily proper, with geometrically irreducible special fibre Y):\n- Theorem A:\n  (1) Ev_{−2} Br X = {A ∈ fil_0 : ∂A = 0};\n  (2) Ev_{−1} Br X = {A ∈ fil_0 : ∂A ∈ H¹(𝔽, Q/Z)};\n  (3) Ev_0 Br X = fil_0 Br X;\n  (4) for n ≥ 1, Ev_n Br X = {A ∈ fil_{n+1} Br X : rsw_{n+1}(A) ∈ [Ω²_F, 0]_{π,n+1}}.\n  The same holds with unramified k′/k only (Corollaries 9.4 and 9.7).\n- Theorem 8.1 (containing Theorem B), for A ∈ fil_n Br X with rsw_n(A) = [α, β]_{π,n}:\n  (1) α and β are regular at P₀;\n  (2) inv A(Q) = inv A(P) + (1/p)Tr_{𝔽/𝔽_p} β_{P₀}(v_n(P, Q)) for Q ∈ B(P, n);\n  (3) the bilinear formula with γ when β = 0 and n > 2, and its refinement for 1 ≤ s < n/2 under the stated bound n < e′ + 2 + te;\n  (4) if β = 0 and α_{P₀} ≠ 0, then p distinct values on some B(Q, n−1) with Q ∈ B(P, 1);\n  (5) surjectivity onto Br k[p^{t+1}] under the stated conditions.\n- Corollary 9.8: behaviour of Ev_n under base change. When α = 0, use β′ ≠ 0 (sourceIssue E4).\n- Theorem C (potential failure of weak approximation at good ordinary primes when H⁰(V, Ω²) ≠ 0), and Theorem D (evaluation constant outside the explicit set S).\n- Questions 1.3–1.5, recorded as questions. Record Wittenberg's Question 1.4 as answered only for varieties with a prime of good ordinary reduction (sourceIssue E7).\n\nCover, with API and tests:\n- the evaluation filtration and p-adic discs;\n- Proposition 3.1, Corollary 3.2, Lemmas 3.3, 3.5, 3.6 and Corollary 3.7 (Br 𝒳 = ker ∂; with Theorem A(1) this recovers Saito–Sato for smooth 𝒳);\n- the log-residue exact sequence and the isomorphisms ψ, φ, and Lemma 5.1;\n- Lemmas 6.1 and 6.2 (in 6.1(3) the basis is X_i² d(X_j/X_i), sourceIssue E1);\n- Lemmas 7.1 and 7.3 (tangent vectors, base change, strict transforms);\n- the blowup induction of §8: Lemmas 8.3, 8.4, 8.6–8.11, including the corestricted cyclic algebras of Lemma 8.11;\n- §9: Lemmas 9.1–9.5 (9.2 with res A ∈ fil_{n+1}, E2; 9.5 without the stray 'for every r ≥ 1', E3) and Corollaries 9.4, 9.7, 9.8;\n- §11: Lemmas 11.1–11.3, Bloch–Kato's ordinary-reduction input (gr⁰ H²(V̄_𝔭, Q_p) ≠ 0), Colliot-Thélène–Skorobogatov's Proposition 2.4 for the prime-to-p part, and Remarks 1.6 and 11.5 (K3 surfaces).\n  Remark 1.6(1) needs Fontaine–Messing's mod-p comparison and Deligne–Illusie degeneration, which the atlas does not plan. Keep it as an required cited statement unless an owner appears; no proof depends on it.\n\nImport, never re-plan:\n- fil_n, λ_π, δ_r, rsw_n, ∂, Kato's Theorems 7.1 and 8.1, Lemmas 2.16–2.19, Lemma 3.4, fil~_n and Bloch–Kato's vanishing-cycle filtration: LocalFieldsPartIIKatoSwanConductors;\n- the local invariant, the residue isomorphism Br k ≅ H¹(𝔽, Q/Z) and restriction: Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Layer 5;\n- the Brauer–Manin pairing and the one-place obstruction test: RP.2 (this paper is a source there);\n- étale cohomology, proper base change, Hochschild–Serre, Brauer purity and Lemma 11.4: SchemeAndStackFoundations:SF.2;\n- Hensel lifting of points of smooth O_k-schemes: SF.4;\n- Lang–Weil: WeilConjectures:WC.5;\n- semicontinuity: the Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge), Layer C;\n- de Rham–Witt complexes and the Cartier operator: CrystallineCohomology:CR.4 and DerivedDeRhamCohomology:DD.3.\nHodge symmetry h^{1,0} = h^{0,1} in characteristic 0 (used in Theorem D) has no located owner: flag it to the maintainer, or prove h⁰(Ω¹) = h¹(O) through the Picard and Albanese varieties.\n\nTests:\n- a conic bundle or cyclic algebra with β_{P₀} ≠ 0, checking the trace formula;\n- p = 2 with n = 2 (Lemma 8.10);\n- a class with β = 0 and α_{P₀} ≠ 0 over a surface;\n- base change by a ramified extension (Corollary 9.8);\n- a K3 surface over Q with S = {∞, bad primes, 2}. REVIEW GATE: not approved for design. Questions 1.3–1.5 are problem definitions, not theorem goals. State Theorem 8.1(3),(5) in full, repair E10–E12 including the original-model descent obligation, and close the Fontaine–Messing/Deligne–Illusie, blowup geometry, Picard and ordinary-vanishing-cycle dependencies. Theorem C retains its good-ordinary-reduction hypothesis. The 2025 sequel is separate literature, not a proof supplied by this paper.",
       "reason": "RP.2 plans the Brauer–Manin pairing but not how local evaluation of a class of p-power order varies on p-adic discs. The evaluation filtration and Theorem A, the evaluation formulas of Theorem 8.1, the blowup and tangent-vector machinery that proves them, and the Brauer–Manin applications (Theorems C and D, Questions 1.3–1.5) form one theory on top of RP.2. No existing HeightsRationalPoints Part II candidate (homogeneous Massey, zero-cycles, random norm and conic fibrations) is about local evaluation."
     }
   ],
@@ -1290,11 +1344,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-        "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-        "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-        "the Springer article page for the DOI: no correction or erratum notice"
-      ]
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Direct differentiation gives d(X_j/X_j)=0; the earlier basis statement and residue computation require X_j/X_i.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/E2",
@@ -1306,11 +1366,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-        "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-        "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-        "the Springer article page for the DOI: no correction or erratum notice"
-      ]
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The unchanged nonzero refined Swan conductor is at level n+1, so the unramified restriction cannot lie in fil_n.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/E3",
@@ -1322,11 +1388,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-        "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-        "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-        "the Springer article page for the DOI: no correction or erratum notice"
-      ]
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The unused quantified r has no occurrence in either inclusion or proof; harmless redundant text.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/E4",
@@ -1338,11 +1410,17 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-        "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-        "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-        "the Springer article page for the DOI: no correction or erratum notice"
-      ]
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Nonzero rsw alone excludes fil_{en−1}, not the larger Ev_{en−1}; β′≠0 follows from the actual hypothesis and repairs the implication.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/E5",
@@ -1354,11 +1432,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-        "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-        "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-        "the Springer article page for the DOI: no correction or erratum notice"
-      ]
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed class satisfies the right-hand inequality at n=e′−1 while failing the left-hand membership there; at n=e′ it belongs to both.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/E6",
@@ -1370,27 +1454,198 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-        "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-        "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-        "the Springer article page for the DOI: no correction or erratum notice"
-      ]
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof must choose e(L/K)=p with unchanged residue field. Under the broad meaning non-tame, ferocious degree-p extensions need not have e=p and can kill the symbol. Specify a totally ramified extension to avoid this ambiguity; the proposition remains valid.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
     },
     {
       "id": "PAPER-BRIGHT-NEWTON-23/E7",
       "kind": "gap",
       "locator": "Introduction, paragraph before Theorem C, p. 823 (Invent. Math.); same text in arXiv v5",
       "printed": "\"Our next result owes its existence to Wittenberg's suggestion that our methods could be used to address Question 1.4. It gives a positive answer to that question, and also shows that the answer to Question 1.3 is no, in general.\"",
-      "correction": "Theorem C gives a positive answer to Question 1.4 for every V that has good ordinary reduction at some prime of L, for example abelian surfaces and K3 surfaces. In general the positive answer is conditional on the existence of such a prime, conjectured by Serre and recorded by the authors right after Theorem C. The negative answer to Question 1.3 is unconditional, e.g. via K3 surfaces.",
+      "correction": "Theorem C gives a positive answer to Question 1.4 for every V that has good ordinary reduction at some prime of L, for example abelian surfaces and K3 surfaces. In general the positive answer is conditional on the existence of such a prime, conjectured by Serre and recorded by the authors right after Theorem C. The negative answer to Question 1.3 is unconditional, e.g. via K3 surfaces. Update as of this review: the general vanishing follows from Ambrosi–Newton–Pagano Corollary 1.1.2, independently of an ordinary prime; retain Theorem C's actual hypothesis when extracting the 2023 paper.",
       "reason": "Theorem C assumes a prime 𝔭 of good ordinary reduction, and its proof uses ordinarity through [BK, Theorem 0.7(iii)] to get gr⁰ H²(V̄_𝔭, Q_p) ≠ 0. For a smooth projective V with H²(V, O_V) ≠ 0 (so H⁰(Ω²) ≠ 0 by Hodge symmetry), nothing in the paper supplies such a prime. Ordinarity is geometric and does not change under finite extension of L. The paper itself says, after Theorem C, that ordinary reduction at a positive density of primes is only conjectured in general (Joshi, attributing it to Serre), and known for abelian surfaces and K3 surfaces. So the claim holds only for varieties with an ordinary prime.",
+      "affects": "a stated result",
+      "known": "Ambrosi–Newton–Pagano, Wild Brauer classes via prismatic cohomology, arXiv:2509.22025, author PDF dated 30 October 2025, Corollary 1.1.2 and §1.1.3 (https://emiliano-ambrosi.perso.math.cnrs.fr/pdf/preprint/PrismaticBrauer.pdf): later resolution of Question 1.4, not a formal erratum to the original proof.",
+      "searched": [
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem C supplies only the ordinary-prime case. The later Ambrosi–Newton–Pagano Corollary 1.1.2 resolves the general question by another proof; this does not retroactively discharge the 2023 inference.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
+    },
+    {
+      "id": "PAPER-BRIGHT-NEWTON-23/E8",
+      "kind": "misprint",
+      "locator": "Lemma 2.12 proof (3), published p.834; arXiv v5 p.12; also §2.4 published p.841",
+      "printed": "ι^q({χ,ā})={ι^{q−1}(χ),a}, χ∈H^q; H^q_n(K)=Br(K)[n].",
+      "correction": "For χ∈H^q use ι^{q+1}({χ,ā})={ι^q(χ),a}. In §2.4 the Brauer identification is H²_n(K)=Br(K)[n].",
+      "reason": "Cupping with a unit raises cohomological degree by one; the adjacent diagram explicitly has degrees q and q+1. The Brauer group is the degree-two case, not general H^q. The resulting constructions are unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Cupping with a unit raises cohomological degree by one; the adjacent diagram explicitly has degrees q and q+1. The Brauer group is the degree-two case, not general H^q. The resulting constructions are unchanged.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
+    },
+    {
+      "id": "PAPER-BRIGHT-NEWTON-23/E9",
+      "kind": "error",
+      "locator": "§2.3, published p.837; arXiv v5 p.16",
+      "printed": "Ω¹_{O_K}(log D)⊂Ω¹_K; 0→Ω¹_{O_K}→Ω¹_{O_K}(log D)→O_K→0.",
+      "correction": "Define the carrier through the standard log point on F, as the source's parenthetical alternative already suggests. A π-presentation before reduction is (Ω¹_{O_K}⊕O_K·ℓ)/(dπ−πℓ); after reduction ω¹_F≅Ω¹_F⊕F·ℓ. The residue exact sequence used for rsw is over F.",
+      "reason": "The quotient of the stated fractional-differential module by ordinary differentials is annihilated by π, since π dlogπ=dπ, so it cannot be O_K. In O_K=Z_p, d p=0, hence the fractional recipe adds nothing while the formal standard log point retains a nonzero log direction over F_p. Stacks 0FMU requires a split-injective df and f-torsion-free differentials, which fail here, and its residue target is supported on the divisor. Borger §4.5 directly defines the correct log point. This refutes the carrier/exact-sequence paragraph, not Kato's theorem.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-        "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-        "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-        "the Springer article page for the DOI: no correction or erratum notice"
-      ]
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The quotient of the stated fractional-differential module by ordinary differentials is annihilated by π, since π dlogπ=dπ, so it cannot be O_K. In O_K=Z_p, d p=0, hence the fractional recipe adds nothing while the formal standard log point retains a nonzero log direction over F_p. Stacks 0FMU requires a split-injective df and f-torsion-free differentials, which fail here, and its residue target is supported on the divisor. Borger §4.5 directly defines the correct log point. This refutes the carrier/exact-sequence paragraph, not Kato's theorem.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
+    },
+    {
+      "id": "PAPER-BRIGHT-NEWTON-23/E10",
+      "kind": "error",
+      "locator": "Lemma 7.3(2) and proof, published pp.862–863; arXiv v5 p.35",
+      "printed": "u_i(Q̃₀)=dx_i([PQ]₁); u_i(P̃₀)=0.",
+      "correction": "For arbitrary local parameters use u_i(Q̃₀)−u_i(P̃₀)=dx_i([PQ]₁). Alternatively choose x_i(P)=0 before forming u_i; translate by x_i(P)∈πO_k.",
+      "reason": "On A¹_{Z_p}, choose the local parameter x at P₀=0 and take P=Q with x(P)=p. Then u=x/p has u(P̃₀)=u(Q̃₀)=1, whereas [PP]₁=0. Equation (7.3) itself gives the corrected difference. The hypotheses do not impose x_i(P)=0.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On A¹_{Z_p}, choose the local parameter x at P₀=0 and take P=Q with x(P)=p. Then u=x/p has u(P̃₀)=u(Q̃₀)=1, whereas [PP]₁=0. Equation (7.3) itself gives the corrected difference. The hypotheses do not impose x_i(P)=0.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
+    },
+    {
+      "id": "PAPER-BRIGHT-NEWTON-23/E11",
+      "kind": "gap",
+      "locator": "Lemma 8.4, published p.866; arXiv v5 p.38",
+      "printed": "rsw_{E,n−2(s+1)}(f*A)",
+      "correction": "The refined-conductor part requires n−2(s+1)≥1. Separate the terminal zero-level case, using the ordinary residue computation of Lemma 8.7, not rsw_0.",
+      "reason": "The written hypotheses permit p=n=2,s=0, giving an undefined rsw_0. Definition 2.14 defines rsw only at positive level, and §4.3 explicitly says that at level zero there is no refined Swan conductor. The paper already treats the p=2 terminal case separately in Lemma 8.7.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The written hypotheses permit p=n=2,s=0, giving an undefined rsw_0. Definition 2.14 defines rsw only at positive level, and §4.3 explicitly says that at level zero there is no refined Swan conductor. The paper already treats the p=2 terminal case separately in Lemma 8.7.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
+    },
+    {
+      "id": "PAPER-BRIGHT-NEWTON-23/E12",
+      "kind": "error",
+      "locator": "Lemma 8.11, published p.874; arXiv v5 p.44; application on published p.873",
+      "printed": "C∈fil_n Br V[p^{t+1}], V over a neighbourhood of P₀ in 𝒳; rsw_{E,n}(C)=[0,β].",
+      "correction": "Construct on an open neighbourhood of P̃₀ in the π-chart of the blown-up model, and measure fil_n at E, not at the original Y. Set t=0 in the first interval. The stronger original-model descent assertions in Theorem 8.1(3)'s proof require a separate justification; no repaired global theorem is certified here.",
+      "reason": "For nonzero β, injectivity of rsw gives sw_E(C)=n. But any class extending to an original-model neighbourhood and having sw_Y(C)≤n has sw_E(C)≤n−1 when its conductor is positive, by Lemmas 8.3/8.6; conductor-zero classes stay tame by the unramified-splitting characterization. Already k=Q_3, n=1<e′=3/2, β=du on E=P¹ provides an incompatible pair of requirements. The displayed symbols involve u_i=x_i/π and naturally live on the blown-up chart. This establishes a false helper statement; it is not a counterexample to Theorems A–D.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For nonzero β, injectivity of rsw gives sw_E(C)=n. But any class extending to an original-model neighbourhood and having sw_Y(C)≤n has sw_E(C)≤n−1 when its conductor is positive, by Lemmas 8.3/8.6; conductor-zero classes stay tame by the unramified-splitting characterization. Already k=Q_3, n=1<e′=3/2, β=du on E=P¹ provides an incompatible pair of requirements. The displayed symbols involve u_i=x_i/π and naturally live on the blown-up chart. This establishes a false helper statement; it is not a counterexample to Theorems A–D.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
+    },
+    {
+      "id": "PAPER-BRIGHT-NEWTON-23/E13",
+      "kind": "error",
+      "locator": "Lemma 10.1, published p.883; arXiv v5 p.51",
+      "printed": "y∈O_K^×",
+      "correction": "Replace y∈O_K^× by y∈K^×. The proof and Proposition 10.2's use then match.",
+      "reason": "The proof chooses y=π in the p|n branch and for a top-level unit character. To see that a unit cannot always replace π, take K the fraction field of the henselisation of O_{Q_p(ζ_p)}[x]_(π), with residue F_p(x), and χ the Kummer class of x. The top graded-piece formulas used here and in Proposition 10.9 give sw(χ)=e′ and rsw_{e′}({χ,a})=[c dlog x∧dlog ā,0] for a unit a. Since Ω²_{F_p(x)}=0, every such cup has conductor <e′. Cupping with π gives [0,c dlog x]≠0. The correction is exactly what the existing proof establishes.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof chooses y=π in the p|n branch and for a top-level unit character. To see that a unit cannot always replace π, take K the fraction field of the henselisation of O_{Q_p(ζ_p)}[x]_(π), with residue F_p(x), and χ the Kummer class of x. The top graded-piece formulas used here and in Proposition 10.9 give sw(χ)=e′ and rsw_{e′}({χ,a})=[c dlog x∧dlog ā,0] for a unit a. Since Ω²_{F_p(x)}=0, every such cup has conductor <e′. Cupping with π gives [0,c dlog x]≠0. The correction is exactly what the existing proof establishes.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
+    },
+    {
+      "id": "PAPER-BRIGHT-NEWTON-23/E14",
+      "kind": "gap",
+      "locator": "§11 opening paragraph, published p.887; arXiv v5 p.54",
+      "printed": "∅≠V(A_L)^B⊊V(A_L)",
+      "correction": "Under surjective evaluation and nonempty adelic points, nonemptiness holds for every n; proper inclusion additionally needs n>1. Nonconstant evaluation is the separate sufficient condition.",
+      "reason": "For B=0 of order n=1 on P¹_L, evaluation onto Br(L_𝔭)[1]={0} is surjective but V(A_L)^B=V(A_L). The main applications use nontrivial classes, so the defect is the unqualified introductory test.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+        "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+        "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+        "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+        "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For B=0 of order n=1 on P¹_L, evaluation onto Br(L_𝔭)[1]={0} is surjective but V(A_L)^B=V(A_L). The main applications use nontrivial classes, so the defect is the unqualified introductory test.",
+        "by": "REV-PAPER-BRIGHT-NEWTON-23"
+      }
     }
-  ]
+  ],
+  "review": {
+    "verdict": "revise",
+    "by": "independent-review-REV-PAPER-BRIGHT-NEWTON-23",
+    "notes": "Finished independent negative review; extraction remains partial. Routes 1 and 3 accepted as scoped sources; 2,4,5 rejected. See the review report for atomic closure and proof-repair requirements."
+  }
 }

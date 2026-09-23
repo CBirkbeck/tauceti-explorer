@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-BRIGHT-NEWTON-23",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Accept the five source-scoped inputs 19,48,88,106,110 at SF.2, with the corrected model hypotheses and constant-coefficient kernel statement. SF.2 coordinates scheme cohomology, not a duplicate six-functor implementation. Brauer purity and henselian-pair base change must retain their own source-qualified proofs; an invertible-coefficient smooth-base-change theorem is not a substitute."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Item 87 needs Lang–Weil for arbitrary geometrically irreducible varieties, including open loci and torsors. The actual WC.5 contract and reviewed audit provide smooth-projective point-count bounds. An earlier paper's route does not enlarge that contract. Identify or extend the genuine general owner before accepting this route."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The corrected one-place test (item 14) fits RP.2's finite-subgroup Brauer–Manin tests. Nonempty adelic points are required throughout; proper inclusion from surjectivity also requires n>1. Local invariants and global reciprocity are imports from Class Field Theory, not re-planned here."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "The local-ramification Part II direction is plausible and avoids re-planning upstream finite-residue local fields. The brief is not closed: it mixes generic coefficient/nearby-cycle foundations with genuinely new filtration results, omits atomic imported Kato/Bloch–Kato proof leaves and exact all-degree cup/edge/sign adapters, and compresses final statements to locators. Apply E8/E9/E13, retain imperfect-residue characteristic hypotheses, and resolve HL.2/HL.4/CR.4/DD.3/LPV.0 ownership at theorem level. The Gauss-DVR test has been corrected."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "Questions were misclassified as theorems; clear corrections are applied. Atomicity and source closure still fail for the blowup/projective differential helpers, Picard/Hodge/semicontinuity, Fontaine–Messing/Deligne–Illusie and Bloch–Kato ordinary comparison. E10–E12 expose coordinate, positive-level and original-model obligations in the proof of Theorem 8.1(3); do not generate a design treating them as solved. State (3),(5) in full and retain the ordinary hypothesis of Theorem C. The ANP2025 sequel is separate literature."
+    }
+  ],
+  "notes": "Finished independent review by Codex — codex-a71f92 (REV-PAPER-BRIGHT-NEWTON-23), of Claude Code cc-39fac3's PR1962, merge 2668c5fc14be48e2083a6ea233d7cebe46dca844. Published 73-page paper read throughout, original 113 items and all five routes checked; corrections and four exact pinned-library prerequisites added. Extraction remains partial (117 items: 4 library, 4 planned, 109 missing). All 109 missing items remain routed once, but rejection gates block routes 2,4,5. Fourteen source findings carry independent verdicts, with E7 updated for the ANP2025 resolution. This negative review is complete; the extraction's dependency closure and specified proof repairs are not. No Lean file or compilation claimed."
+}
