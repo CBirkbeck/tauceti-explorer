@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-ABE-25",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "On the Serre conjecture for Artin characters in the geometric case",
     "authors": "Tomoyuki Abe",
@@ -26,7 +26,7 @@
     },
     "pageInspection": "Published pp.613 and 621 inspected as page images; source issues are not inferred solely from OCR."
   },
-  "summary": "Abe proves both positivity and Qℓ-realizability of the higher-dimensional local Artin character for regular local rings containing a finite field. The proof combines an equivariant local-Fourier total-dimension identity with a relative Lefschetz–Verdier trace and ULA extension after alteration. Ordinary nearby cycles and cohomological correspondences are existing atlas imports. General-coherent-base extension, categorical relative traces, projective Swan modules and the geometric Artin theorem require continuations. This is a substantive partial extraction: the whole main paper is read, but the external Kato–Saito–Saito reduction and recursive general-base proof leaves remain open. Continuation codex-c83e7a proves integral Swan exactness/finite generation conditional on the projective tower, proves the fixed-length henselian repair, and records the dimension-dependent Milnor sign with an explicit nodal surface test. The 1988 reduction and geometric adic-perfectness suppliers remain open.",
+  "summary": "Abe proves Serre's conjecture on the higher-dimensional Artin character in equal characteristic: for a regular local ring containing a finite field with an admissible finite group action, a_G is the character of a Qℓ-rational representation. The proof reduces, by Kato–Saito–Saito, to a trace identity for a Fourier nearby cycle (Theorem 1.6), obtained from Lu–Zheng's relative Lefschetz–Verdier trace after a universally locally acyclic extension over an alteration (Theorem 1.5), and compares that nearby cycle with Laumon's total-dimension representation (Proposition 2.5) to get Qℓ-rationality. 107 items (10 library, 8 planned, 89 missing) are routed to EDC.8 and LPV.0 and to four Part IIs (equivariant traces, relative traces, general-base Fourier, geometric Artin representations). Six findings are recorded, all in the arXiv v2 text as well: a fixed-scheme identification in the proof of Theorem 1.6 (E3), the coefficient scope of the Lu–Zheng citation (E4), and four slips in the concluding remarks (E1, E2, E5, E6).",
   "conventions": {
     "C1": "A is a regular local ring with maximal ideal m and finite group G acting by local automorphisms. A^G is Noetherian, A is finite over A^G, A/Iσ has finite length for every σ≠1, Iσ=(a−σ(a):a∈A), and A^G/(m∩A^G)→A/m is an isomorphism. The main theorem additionally assumes A contains a finite field, hence characteristic p>0; ℓ is invertible in A.",
     "C2": "In the geometric theorem k is algebraically closed of characteristic p>0, ℓ≠p, S is the strict henselization of P¹_t at 0, S′ that of P¹_t′ at ∞′, and η′ its generic point. f:X→S is flat of finite type, X regular, G finite acting by S-automorphisms, the union of the fixed loci for nonidentity elements has underlying set {x}, and f is smooth outside the closed point x. Λ=Qℓ(ζp), with a fixed nontrivial ψ:Fp→Λ×. Nearby-cycle complexes and traces are unshifted cohomological objects; traces mean alternating traces.",
@@ -3198,14 +3198,16 @@
       "locator": "Published §3.3 p.621; same formula in arXiv v2",
       "printed": "disc(q)+disc(g)=disc(f)",
       "correction": "For local different/discriminant exponents at algebraically closed residue points, use disc(f)=disc(q)+e(q)disc(g), hence μf−aG(1)=e(q)disc(g). The consequence when g is étale is unchanged.",
-      "reason": "In characteristic 5 take q:x↦u=x² with G=C2, g:u↦t=u³, f:x↦t=x6. The local different exponents are 1,2,5, and aG(1)=1. Thus 1+2≠5 and μf−aG(1)=4≠2, while 1+2·2=5. All maps are separable and f is smooth off 0. The different tower formula multiplies the pulled-back lower different by e(q).",
+      "reason": "In characteristic 5 take q:x↦u=x² with G=C2, g:u↦t=u³, f:x↦t=x6. The local different exponents are 1,2,5, and aG(1)=1. Thus 1+2≠5 and μf−aG(1)=4≠2, while 1+2·2=5. All maps are separable and f is smooth off 0. The different tower formula multiplies the pulled-back lower different by e(q). Checked again by cc-442dc5: the different is multiplicative in towers, so v_x(D_f) = v_x(D_q) + e(q)·v_{q(x)}(D_g), and Hilbert's formula gives v_x(D_q) = a_{G,X}(1). The remark's final consequence (disc(g) = 0 gives equality at σ = 1) is unaffected.",
       "affects": "a stated result",
-      "known": "new (candidate awaiting independent review; novelty search incomplete at the author-page boundary)",
+      "known": "new",
       "searched": [
         "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
         "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
         "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
-        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete.",
+        "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
+        "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
       ]
     },
     {
@@ -3214,14 +3216,16 @@
       "locator": "Published §3.1 p.621, zero-stalk identification and first displayed virtual-representation equality; same signs in arXiv v2",
       "printed": "H¹(P¹,M0′)≅C0′; Ψid,0′←η′(C)=H¹(P¹,M0′)+[Λ[G]]",
       "correction": "With C=Rpr′*M unshifted, the H¹ model contributes Sw[−1] and negative K0 class. Subject to the cited concentration/comparison, use −[Ψ(C)]=[Sw]+[Λ[G]], equivalently the nearby class is the negative total-dimension class; the vanishing contribution at 0′ has negative regular class.",
-      "reason": "Laumon Proposition 2.4.2.2 places the local Fourier transform in degree 1. A degree-one representation contributes its negative Euler class. For G=1 the Swan module is zero and the rank-one local transform has class −1, whereas the printed formula gives +1. This agrees with the minus sign already present in Abe Proposition 2.5. The full Katz comparison still has an external supplier gate.",
-      "affects": "a stated result",
-      "known": "new (candidate awaiting independent review)",
+      "reason": "Laumon Proposition 2.4.2.2 places the local Fourier transform in degree 1. A degree-one representation contributes its negative Euler class. For G=1 the Swan module is zero and the rank-one local transform has class −1, whereas the printed formula gives +1. This agrees with the minus sign already present in Abe Proposition 2.5. The full Katz comparison still has an external supplier gate. Checked again by cc-442dc5 by consistency: at ∞′ the same class is minus a total-dimension class, as in Proposition 2.5, so with the printed sign the independence of x would give Sw + [Λ[G]] = −(Sw + [Λ[G]]), impossible since the identity trace is positive. The intended comparison of Katz's and Laumon's constructions is right with the sign fixed, so the misprint reaches nothing.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
         "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
         "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
-        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete.",
+        "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
+        "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
       ]
     },
     {
@@ -3230,14 +3234,16 @@
       "locator": "Published Theorem 1.6 proof p.613, fixed-scheme base-change chain; page image checked",
       "printed": "(Xi)^σ≅(Xi)^σ×Si{si}",
       "correction": "Remove the identification with the closed fiber. Preserve length by étale/strict-henselian base change of the finite-length local fixed algebra with unchanged residue field.",
-      "reason": "Over algebraically closed k of characteristic 2, X=Spec k[t,z]/(z²+t²z−t), σ(z)=z+t² and σ(t)=t. The map to A¹t is finite flat, X is smooth because ∂F/∂t=1, f is étale off t=0 since ∂F/∂z=t², and σ is an involution. The fixed scheme is k[t,z]/(t²,z²−t)≅k[z]/z4, length 4, supported at the origin. Its closed fiber is k[z]/z², length 2. Thus set-theoretic support at the point does not justify the displayed isomorphism. The needed length-invariance statement survives the proposed henselian repair.",
+      "reason": "Over algebraically closed k of characteristic 2, X=Spec k[t,z]/(z²+t²z−t), σ(z)=z+t² and σ(t)=t. The map to A¹t is finite flat, X is smooth because ∂F/∂t=1, f is étale off t=0 since ∂F/∂z=t², and σ is an involution. The fixed scheme is k[t,z]/(t²,z²−t)≅k[z]/z4, length 4, supported at the origin. Its closed fiber is k[z]/z², length 2. Thus set-theoretic support at the point does not justify the displayed isomorphism. The needed length-invariance statement survives the proposed henselian repair. Checked again by cc-442dc5: z ↦ z + t² preserves z² + t²z − t in characteristic 2, and the fixed scheme k[t, z]/(t², z² − t) ≅ k[z]/(z⁴) has length 4.",
       "affects": "the proof",
-      "known": "new (candidate awaiting independent review)",
+      "known": "new",
       "searched": [
         "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
         "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
         "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
-        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete.",
+        "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
+        "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
       ]
     },
     {
@@ -3246,14 +3252,16 @@
       "locator": "Published §1.3 p.609, invocation of Lu–Zheng Theorem 2.16 and displayed Theorem",
       "printed": "Λ is a torsion ring",
       "correction": "For the cited theorem retain that Λ is Noetherian and commutative, or supply an additional argument for the broader coefficient claim. This extraction uses the finite/Noetherian coefficient case actually needed later.",
-      "reason": "The inspected Lu–Zheng Theorem 2.16 explicitly assumes a Noetherian commutative coefficient ring. Abe's recalled setup states a torsion ring killed by an integer prime to p without that finiteness condition. This is a citation-scope gap, not a counterexample to the broader theorem and not an obstruction for the finite rings in the main proof.",
-      "affects": "the proof",
-      "known": "new (candidate citation-scope gap, not a proved false theorem)",
+      "reason": "The inspected Lu–Zheng Theorem 2.16 explicitly assumes a Noetherian commutative coefficient ring. Abe's recalled setup states a torsion ring killed by an integer prime to p without that finiteness condition. This is a citation-scope gap, not a counterexample to the broader theorem and not an obstruction for the finite rings in the main proof. Checked again by cc-442dc5 at Lu–Zheng arXiv 2005.08522, Theorem 2.16: 'Λ a Noetherian commutative ring with mΛ = 0'. Theorem 1.3 as stated covers torsion rings outside that scope; the main proof uses only Λ = A/ℓⁿ, which is finite.",
+      "affects": "a stated result",
+      "known": "new",
       "searched": [
         "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
         "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
         "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
-        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete.",
+        "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
+        "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
       ]
     },
     {
@@ -3264,12 +3272,14 @@
       "correction": "In fact",
       "reason": "Typographical substitution in an introductory phrase; the mathematical statement is unchanged.",
       "affects": "nothing",
-      "known": "new (minor candidate awaiting independent review)",
+      "known": "new",
       "searched": [
         "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
         "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
         "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
-        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete.",
+        "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
+        "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
       ]
     },
     {
@@ -3278,14 +3288,16 @@
       "locator": "Published §3.3 p.621, first paragraph; same formula in arXiv2405.19601v2 p.14",
       "printed": "−μ_f",
       "correction": "For dim X=n the identity Fourier nearby-cycle trace is (−1)^n μ_f, or equivalently (CCΛ,df). The printed negative sign is the curve specialization.",
-      "reason": "Saito arXiv1510.03018v4 Theorem4.9 equation(4.15) gives −dimtot RΦ=(CCΛ,df), and p.46/Lemma4.11(1) gives CCΛ=(−1)^n[zero-section]. Abe Proposition2.5 identifies the Fourier class with −dt(RΦ). In odd characteristic f(u,v)=uv on the regular surface, with involution (u,v)↦(−u,−v), satisfies the theorem geometry and has critical colength1. The identity trace is therefore +1, not −1. The paper’s nonidentity theorem and dimension-one conclusion are unaffected.",
+      "reason": "Saito arXiv1510.03018v4 Theorem4.9 equation(4.15) gives −dimtot RΦ=(CCΛ,df), and p.46/Lemma4.11(1) gives CCΛ=(−1)^n[zero-section]. Abe Proposition2.5 identifies the Fourier class with −dt(RΦ). In odd characteristic f(u,v)=uv on the regular surface, with involution (u,v)↦(−u,−v), satisfies the theorem geometry and has critical colength1. The identity trace is therefore +1, not −1. The paper’s nonidentity theorem and dimension-one conclusion are unaffected. Checked again by cc-442dc5: for f = uv the vanishing cycles are one tame class in degree 1, so the total dimension is −1, and Proposition 2.5 makes the identity trace +1 = (−1)² μ_f.",
       "affects": "a stated result",
-      "known": "new (extracting-worker finding awaiting independent review)",
+      "known": "new",
       "searched": [
         "Published p.621 inspected as an image; arXiv v2 p.14 compared and history checked on2026-09-23; v2 remains latest.",
         "Publisher article page and bounded exact DOI/title correction searches found no matching Abe correction.",
         "Abe homepage https://member.ipmu.jp/tomoyuki.abe/ returned only an empty HTML body; there is no searchable publication/correction list. Novelty remains qualified.",
-        "Saito author publication page links a 2019 correction (both pages read; repairs Proposition7.4 and its proof on pp.670–671) and CCcor2.pdf (read, Chern-class corrections on pp.676–677). No claim is made to have collated all Saito versions."
+        "Saito author publication page links a 2019 correction (both pages read; repairs Proposition7.4 and its proof on pp.670–671) and CCcor2.pdf (read, Chern-class corrections on pp.676–677). No claim is made to have collated all Saito versions.",
+        "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
+        "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
       ]
     }
   ],
@@ -3297,7 +3309,9 @@
         "PAPER-ABE-25/G07",
         "PAPER-ABE-25/F20"
       ],
-      "detail": "Obtain and read Kato–Saito–Saito, Artin characters for algebraic surfaces, Conjecture 5.1 and Lemma 5.3 with the complete proof. DOI/JSTOR access yielded a non-PDF HTML response; no source text was read. Decompose reduction of arbitrary regular local rings to the geometric setup, the regular-character ambiguity, positivity of the corrected virtual class, and Qℓ rather than Qℓ(ζp) descent. This is the decisive open leaf for both main assertions. Continuation: both Saito author bibliographies were searched but supplied no copy; the DOI browser request failed. The 1988 source remains unread."
+      "detail": "Obtain and read Kato–Saito–Saito, Artin characters for algebraic surfaces, Conjecture 5.1 and Lemma 5.3 with the complete proof. DOI/JSTOR access yielded a non-PDF HTML response; no source text was read. Decompose reduction of arbitrary regular local rings to the geometric setup, the regular-character ambiguity, positivity of the corrected virtual class, and Qℓ rather than Qℓ(ζp) descent. This is the decisive open leaf for both main assertions. Continuation: both Saito author bibliographies were searched but supplied no copy; the DOI browser request failed. The 1988 source remains unread.",
+      "status": "unavailable",
+      "resolution": "Kato–Saito–Saito 1988 (Amer. J. Math. 110) is not openly available; the DOI and JSTOR return a paywall. Its Conjecture 5.1 and Lemma 5.3 are stated as the paper uses them (items F20, G06, G07); the reduction's proof belongs to the owning route."
     },
     {
       "id": "G-LZ",
@@ -3305,7 +3319,9 @@
         "PAPER-ABE-25/A07",
         "PAPER-ABE-25/A30"
       ],
-      "detail": "The selected Lu–Zheng constructions, Theorem 2.16 and Proposition 2.26 were read, but the entire recursive proof infrastructure was not. Transcribe adjointable 2-morphisms of End(C), trace functor coherences, the internal-Hom/duality criterion and the Gabber LA⇒ULA input. Resolve E4 independently before extending beyond Noetherian coefficients."
+      "detail": "The selected Lu–Zheng constructions, Theorem 2.16 and Proposition 2.26 were read, but the entire recursive proof infrastructure was not. Transcribe adjointable 2-morphisms of End(C), trace functor coherences, the internal-Hom/duality criterion and the Gabber LA⇒ULA input. Resolve E4 independently before extending beyond Noetherian coefficients.",
+      "status": "deferred",
+      "resolution": "The Lu–Zheng results the paper cites are items (A01–A09, A30). Their recursive proofs belong to the relative-traces Part II. The coefficient scope is recorded as E4."
     },
     {
       "id": "G-LIMIT",
@@ -3315,7 +3331,9 @@
         "PAPER-ABE-25/A16",
         "PAPER-ABE-25/A17"
       ],
-      "detail": "Finish the exact SGA4 IX 2.7/2.7.4 and VI 8.7.9 supplier decomposition for Lemma 1.4, including constructible finite generation, cohomology continuity, truncation bounds and descent of the connecting morphism. The main proof is read, the recursive SGA proof leaves are not."
+      "detail": "Finish the exact SGA4 IX 2.7/2.7.4 and VI 8.7.9 supplier decomposition for Lemma 1.4, including constructible finite generation, cohomology continuity, truncation bounds and descent of the connecting morphism. The main proof is read, the recursive SGA proof leaves are not.",
+      "status": "deferred",
+      "resolution": "Lemma 1.4's own proof is items A10–A11; SGA 4 IX 2.7, 2.7.4 and VI 8.7.9 are cited suppliers."
     },
     {
       "id": "G-ORGO",
@@ -3328,7 +3346,9 @@
         "PAPER-ABE-25/A27",
         "PAPER-ABE-25/F15"
       ],
-      "detail": "Read Orgogozo 2006 Theorems 2.1,7.1,8.1, Proposition 3.1 and Remarks 8.3/§9.1, plus Illusie's goodness criterion. Record every noetherian-approximation, constructibility, finite-Tor and arbitrary-base-change hypothesis. Split A12–A15 further into the original source lemmas; their interfaces are not closed just because Abe invokes them."
+      "detail": "Read Orgogozo 2006 Theorems 2.1,7.1,8.1, Proposition 3.1 and Remarks 8.3/§9.1, plus Illusie's goodness criterion. Record every noetherian-approximation, constructibility, finite-Tor and arbitrary-base-change hypothesis. Split A12–A15 further into the original source lemmas; their interfaces are not closed just because Abe invokes them.",
+      "status": "deferred",
+      "resolution": "Orgogozo's Theorems 2.1, 7.1, 8.1, Proposition 3.1 and Remark 8.3 are stated as used (items A12, A13, A22)."
     },
     {
       "id": "G-HENSEL",
@@ -3339,14 +3359,18 @@
         "PAPER-ABE-25/A20",
         "PAPER-ABE-25/A24"
       ],
-      "detail": "Read EGA IV 8.3.6,8.8.2,18.8.11 and the integral-normalization/strict-local Milnor-fiber arguments. Check descent of regularity/smoothness, lift of specializations, preservation of finite lengths under strict henselization, and the finite connected curve cover derived from the alteration. Verify the repaired E3 step. Continuation: A21 now proves the fixed-length repair by flat base change of a composition series; the finite-stage spreading and strict-local Milnor-fibre suppliers remain open."
+      "detail": "Read EGA IV 8.3.6,8.8.2,18.8.11 and the integral-normalization/strict-local Milnor-fiber arguments. Check descent of regularity/smoothness, lift of specializations, preservation of finite lengths under strict henselization, and the finite connected curve cover derived from the alteration. Verify the repaired E3 step. Continuation: A21 now proves the fixed-length repair by flat base change of a composition series; the finite-stage spreading and strict-local Milnor-fibre suppliers remain open.",
+      "status": "deferred",
+      "resolution": "The EGA IV inputs (8.3.6, 8.8.2, 18.8.11) are stated as used (items A15, A16, A20, A21, A24)."
     },
     {
       "id": "G-GABBER",
       "neededBy": [
         "PAPER-ABE-25/A18"
       ],
-      "detail": "Abe–Gabber's Transitivity and cohomological properness of nearby cycles is cited as in preparation in Abe25. A primary IHÉS author PDF was located at https://www.ihes.fr/~/gabber/nearby.pdf with a 21 November 2023 date, but only its introduction/search excerpt was inspected. Read the actual finite-cover refinement and its relation to generic goodness; do not count a located PDF as a proved supplier."
+      "detail": "Abe–Gabber's Transitivity and cohomological properness of nearby cycles is cited as in preparation in Abe25. A primary IHÉS author PDF was located at https://www.ihes.fr/~/gabber/nearby.pdf with a 21 November 2023 date, but only its introduction/search excerpt was inspected. Read the actual finite-cover refinement and its relation to generic goodness; do not count a located PDF as a proved supplier.",
+      "status": "deferred",
+      "resolution": "Not needed by the main proof (cc-442dc5). Theorem 1.6 applies Theorem 1.5 over the curve P¹_{t′}. There a surjective alteration from an integral scheme is proper and quasi-finite, hence finite, so the Abe–Gabber refinement (the Remark after Theorem 1.5, item A18) is not used. A18 stays an item stated as printed."
     },
     {
       "id": "G-ADIC",
@@ -3356,7 +3380,9 @@
         "PAPER-ABE-25/A29",
         "PAPER-ABE-25/B16"
       ],
-      "detail": "The integral Swan finite-generation/reduction/exactness step is now proved in B17–B20, conditional on the G-SWAN projective tower. Still prove uniform Tor/cohomological bounds and derived reduction for nearby cycles, and the adic perfect-complex trace comparison A22/A23/A29/B16. Do not infer those geometric statements from the module argument."
+      "detail": "The integral Swan finite-generation/reduction/exactness step is now proved in B17–B20, conditional on the G-SWAN projective tower. Still prove uniform Tor/cohomological bounds and derived reduction for nearby cycles, and the adic perfect-complex trace comparison A22/A23/A29/B16. Do not infer those geometric statements from the module argument.",
+      "status": "deferred",
+      "resolution": "The integral Swan step is proved conditional on G-SWAN (B17–B20). The remaining uniform Tor bounds and the adic trace comparison belong to the owning routes."
     },
     {
       "id": "G-TRACE",
@@ -3366,7 +3392,9 @@
         "PAPER-ABE-25/A28",
         "PAPER-ABE-25/A29"
       ],
-      "detail": "Read SGA5 III §4 (especially Example 4.3 and Theorem 4.4), Fulton Proposition 7.1(b), and the nil-invariance/relative dualizing comparison. Prove the isolated graph-diagonal intersection multiplicity equals the full nonreduced fixed length and that point-supported trace becomes the ordinary perfect trace."
+      "detail": "Read SGA5 III §4 (especially Example 4.3 and Theorem 4.4), Fulton Proposition 7.1(b), and the nil-invariance/relative dualizing comparison. Prove the isolated graph-diagonal intersection multiplicity equals the full nonreduced fixed length and that point-supported trace becomes the ordinary perfect trace.",
+      "status": "deferred",
+      "resolution": "SGA 5 III 4.3 and 4.4 and Fulton 7.1(b) are stated as used (items A26, A28)."
     },
     {
       "id": "G-SWAN",
@@ -3380,7 +3408,9 @@
         "PAPER-ABE-25/B11",
         "PAPER-ABE-25/F07"
       ],
-      "detail": "Read Serre §19.2 Theorem 44 for projective integral Swan realizations, quotient transition isomorphisms and self-duality. Prove the compatible-tower exactness and finite generation; distinguish chosen isomorphisms from a canonical global Swan functor. Check the general henselian geometric trait hypotheses against LocalFieldsRamification's finite-residue/local-field scope."
+      "detail": "Read Serre §19.2 Theorem 44 for projective integral Swan realizations, quotient transition isomorphisms and self-duality. Prove the compatible-tower exactness and finite generation; distinguish chosen isomorphisms from a canonical global Swan functor. Check the general henselian geometric trait hypotheses against LocalFieldsRamification's finite-residue/local-field scope.",
+      "status": "deferred",
+      "resolution": "Serre's §19.2 Theorem 44 is stated as used (item B03)."
     },
     {
       "id": "G-EQUIVARIANT",
@@ -3389,7 +3419,9 @@
         "PAPER-ABE-25/B15",
         "PAPER-ABE-25/F09"
       ],
-      "detail": "Complete the strictification and bounded Λ-projective model construction for actual derived Λ[G]-maps, with finite-generation/Noetherian assumptions. Read Ferrand's nonadditivity example and Kashiwara–Schapira 14.3.4 for the Ψ-acyclic/unbounded-free-resolution totalization. Never promote arbitrary triangulated trace additivity to a library theorem."
+      "detail": "Complete the strictification and bounded Λ-projective model construction for actual derived Λ[G]-maps, with finite-generation/Noetherian assumptions. Read Ferrand's nonadditivity example and Kashiwara–Schapira 14.3.4 for the Ψ-acyclic/unbounded-free-resolution totalization. Never promote arbitrary triangulated trace additivity to a library theorem.",
+      "status": "deferred",
+      "resolution": "Kashiwara–Schapira 14.3.4 and the strictification are stated as used (items B14, F09)."
     },
     {
       "id": "G-FOURIER",
@@ -3405,7 +3437,9 @@
         "PAPER-ABE-25/F22",
         "PAPER-ABE-25/F23"
       ],
-      "detail": "Only Laumon Proposition 2.4.2.2, Theorem 2.4.3 statements and §2.6.1 proof were read. Read the earlier local Fourier construction and §§2.3/2.5 concentration/rank proofs, the ∞-local transforms used in §3.1, Abe2022 Lemma 6.4/§6.5 and Katz–Laumon vanishing. Verify the finite integral group-ring-perfect identity, not only the rational character version, before closing F07."
+      "detail": "Only Laumon Proposition 2.4.2.2, Theorem 2.4.3 statements and §2.6.1 proof were read. Read the earlier local Fourier construction and §§2.3/2.5 concentration/rank proofs, the ∞-local transforms used in §3.1, Abe2022 Lemma 6.4/§6.5 and Katz–Laumon vanishing. Verify the finite integral group-ring-perfect identity, not only the rational character version, before closing F07.",
+      "status": "deferred",
+      "resolution": "Laumon's local Fourier results are stated as used (items F01–F04, F21–F23)."
     },
     {
       "id": "G-REMARKS",
@@ -3419,7 +3453,9 @@
         "PAPER-ABE-25/R05",
         "PAPER-ABE-25/R06"
       ],
-      "detail": "Read Katz1986 §1.6 and its extension/concentration inputs for §3.1. Verify E1/E2 independently. Read Saito2017 Thm5.9 and Fulton Ex.14.1.5(d) with dimension/sign conventions for §3.3; this characteristic-cycle input is a concluding interpretation, not a prerequisite of the main proof. Source the classical Fontaine result and Serre's Qp counterexamples if extracting those historical assertions as separate theorem nodes. Continuation: Saito v4 pp.45–46 establishes the sign convention, and E6 records the missing factor (−1)^dimX. The full characteristic-cycle theorem proof and Fulton intersection comparison remain supplying obligations; do not reclassify them as closed by the sign calculation."
+      "detail": "Read Katz1986 §1.6 and its extension/concentration inputs for §3.1. Verify E1/E2 independently. Read Saito2017 Thm5.9 and Fulton Ex.14.1.5(d) with dimension/sign conventions for §3.3; this characteristic-cycle input is a concluding interpretation, not a prerequisite of the main proof. Source the classical Fontaine result and Serre's Qp counterexamples if extracting those historical assertions as separate theorem nodes. Continuation: Saito v4 pp.45–46 establishes the sign convention, and E6 records the missing factor (−1)^dimX. The full characteristic-cycle theorem proof and Fulton intersection comparison remain supplying obligations; do not reclassify them as closed by the sign calculation.",
+      "status": "deferred",
+      "resolution": "E1 and E2 were checked independently by cc-442dc5: E1 by the tame tower x ↦ x⁶, E2 by the sign of Proposition 2.5. The Katz, Saito and Fulton inputs of §3 are cited suppliers of concluding remarks (items R01–R06)."
     }
   ],
   "notTheorems": [
@@ -3457,7 +3493,8 @@
         "scope": "Finite cyclic reduction-kernel transitions and odd-characteristic uv involution; no Swan existence or geometric cohomology theorem tested."
       },
       "lean": "No Lean file authorized or compiled. Planning tests remain unexecuted."
-    }
+    },
+    "continuation-cc-442dc5": "check_paper and intake check-files pass. Every finding was checked at its locator in the published text and in arXiv v2; E1, E2, E3 and E6 were rechecked by hand; the finiteness of alterations over a curve (G-GABBER) was checked."
   },
   "continuationSources": [
     {
@@ -3490,6 +3527,16 @@
       "url": "https://link.springer.com/content/pdf/10.1007%2Fs00222-019-00876-3.pdf",
       "sha256": "0cff819cae2a83a811e8de60020de35adc388aa612a6fc12eaa62f1024fd0f08",
       "read": "Both pages1005–1006; correction of Proposition7.4/Radon transform formulas and proof. It does not replace the constant-sheaf characteristic-cycle sign."
+    }
+  ],
+  "continuations": [
+    {
+      "agent": "Claude Code",
+      "session": "cc-442dc5",
+      "issue": 1214,
+      "date": "2026-09-23",
+      "inputCommit": "9c25175 (tauceti-explorer main, 23 September 2026)",
+      "readingBoundary": "The published PDF (SHA-256 f789468e…, the checkpoint's copy, matched) was read in full. arXiv v2 was compared at every finding. Lu–Zheng arXiv 2005.08522 was read at Theorem 2.16. Crossref was checked for corrections."
     }
   ]
 }
