@@ -39427,9 +39427,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Confirmed, and the paper's own count decides it. Page 38 prints the index set as 'I⊂{1,...,n−1},#I=i' in (3.12) and, in the same proposition, 'dim_E Ext^1(π_alg(φ,h), π_1(φ,h)) = n + (2^n − 1)d_K'. Page 35 says π_1(φ,h) is built as an extension of ⊕ C(I,s_{i,σ}) with '(2^n − 2)d_K constituents in total'. I checked both counts exactly: Σ_{i=1}^{n−1} C(n,i) = 2^n − 2 (6, 14, 30 for n = 3, 4, 5), while Σ_{i=1}^{n−1} C(n−1,i) = 2^{n−1} − 1 (3, 7, 15). So the stated constituent count and the stated dimension — n + d_K + (2^n − 2)d_K = n + (2^n − 1)d_K — both require I ⊂ {1,…,n}, and the printed index set would give n + 2^{n−1}d_K instead. The extraction is right that it is the index set that is wrong, since the dimension is what is used afterwards; I saw Corollary 3.25 on p. 51 carry the matching exponent (2^n − n(n+1)/2 − 1)d_K. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E2",
@@ -39449,9 +39449,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Confirmed, and the dimension count is decisive. Page 49 prints (3.43) as 'Hom(T(K),E) ≅ ⊕_{j=1}^{n−1} Hom(Z_j(K),E) ⊕ Hom(Z(K),E)', with Z_j described on the next line as 'the centre of the Levi subgroup L_j (containing T) of the maximal [parabolic] P_j'. Z_j is then a two-dimensional torus, so dim_E Hom(Z_j(K),E) = 2(1 + d_K) and the right-hand side has dimension (2(n−1) + 1)(1 + d_K), against dim_E Hom(T(K),E) = n(1 + d_K). I computed both: for n = 3, K = Q_p that is 10 against 6, for n = 3, d_K = 2 it is 15 against 9, for n = 4, K = Q_p it is 14 against 8. The sum is never direct. The extraction's replacement — that Hom(T(K),E) is SPANNED by the images of the Hom(Z_j(K),E) together with Hom(Z(K),E) — is what the proof uses and states four lines later, and it is true, the characters with j equal entries followed by n−j equal entries spanning Hom(T(K),E) together with the determinant. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E3",
@@ -39471,9 +39471,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Confirmed, and the deciding subscript was read on a page image. Page 9 defines the notation precisely: 'For k = (k_σ)_{σ∈Σ_K} ∈ Z^{Σ_K}, denote by z^k := ∏_{σ∈Σ_K} σ(z)^{k_σ}' — so z^k is defined only for a TUPLE. Page 51 then sets '|λ| = Σ_{i=1,…,n, σ∈Σ_K} λ_{i,σ}'; I confirmed on the image that the summation carries σ ∈ Σ_K as well as i, so |λ| as printed is a single integer and z^{|λ|} does not typecheck. The correction — that |λ| must be the tuple (Σ_{i=1}^n λ_{i,σ})_{σ∈Σ_K} — is the only reading under which the displayed identity ∧^n D ≅ R_{K,E}(χ_D ε^{−n(n−1)/2}) can hold, and the extraction is right that the two readings coincide exactly when d_K = 1. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E4",
@@ -39493,9 +39493,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Confirmed at pp. 34–35, printed twice as quoted: 'We have Hom_{T(Q_p)}(z^{−s_{i,σ}·λ} w(φ)ηδ_B, J_B(C(I,s_{i,σ}))) ≅ E' in the statement of Lemma 3.2 (1), and 'Hom_{T(Q_p)}(z^{−s_{i,σ}·λ} w(φ)ηδ_B, J_B(C)) = 0' in its proof. T is the diagonal torus of GL_n over K and J_B is Emerton's Jacquet functor for B(K) ⊂ GL_n(K), so T(K) is the group acting; T(Q_p) is not. Every parallel statement in the paper prints T(K). The two coincide when K = Q_p, which is presumably how it survived. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E5",
@@ -39515,9 +39515,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E6",
@@ -39537,9 +39537,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at p. 19, printed as quoted: 'we have dim_E Ext^1_{F_P}(D,D) = d_K dim(B ∩ L_P) − n = Σ_{i=1}^r dim_E Ext^1(M_i,M_i)'. The correction to + n follows the extraction's use of Proposition 2.13 and (2.14)/(2.16), which I did not re-derive; that part rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E7",
@@ -39559,9 +39559,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E8",
@@ -39581,9 +39581,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E9",
@@ -39603,9 +39603,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Confirmed at p. 56. The sentence prints 'We then deduce L ≅ L(D_σ, D_{1,σ}, C_{1,σ}). Similarly, replacing D_σ by D′_σ, we obtain L ≅ L(D_σ, D_{1,σ}, C_{1,σ}).' A sentence that replaces D_σ by D′_σ and then reaches a conclusion with D_σ unchanged is vacuous; the second isomorphism must be L ≅ L(D′_σ, D_{1,σ}, C_{1,σ}). The text layer drops the prime, so the quotation rests on the extraction's page-image reading, but the logic of the sentence settles which symbol is meant. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E10",
@@ -39625,9 +39625,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Confirmed at p. 63, printed as quoted: 'As π̃ is isomorphic to the universal extension of π_1(φ,h) by π_alg(φ,h), this implies …'. The direction is reversed relative to the convention the paper fixes elsewhere: Corollary 3.25 on p. 51 describes π_min(D) as the universal extension of π_alg(φ,h)^{⊕(2^n−n(n+1)/2−1)d_K} by π_1(φ,h), and (4.8) identifies π_min(D) with π̃[m_{A_D}]. So π̃ is the universal extension of π_alg(φ,h) by π_1(φ,h), as the correction says. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E11",
@@ -39647,9 +39647,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E12",
@@ -39669,9 +39669,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E13",
@@ -39691,9 +39691,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Confirmed, and the corrected arithmetic checks exactly. Corollary 2.33 on p. 29 states dim_E(Ext^1_F(D,D) ∩ Ext^1_G(D,D)) = 1 + (n² − 2n + 2)d_K, and its proof then computes dim_E(Ext^1_F(D,D) + Ext^1_G(D,D)) by inclusion–exclusion. The printed formula has unbalanced parentheses. With the extraction's parenthesisation the identity is exact: 2(1 + (n² − n + 1)d_K) − (1 + (n² − 2n + 2)d_K) = 1 + (2n² − 2n + 2 − n² + 2n − 2)d_K = 1 + n²d_K, as asserted. Note n(n−1) + 1 = n² − n + 1, so the summands themselves are unchanged; only the bracketing is. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E14",
@@ -39713,9 +39713,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E15",
@@ -39735,9 +39735,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E16",
@@ -39757,9 +39757,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Confirmed as to the substance. Page 20 prints 'noting D ⊗_{R_{K,E}} D^∨ has Hodge–Tate–Sen weights {h_{τ,i} − h_{τ,j}}_{τ∈Σ_K, i,j=1,…,r}'. D has rank n, so D ⊗ D^∨ has n² Hodge–Tate–Sen weights indexed by i, j = 1,…,n; r is the number of blocks of the parabolic elsewhere in that section and is the wrong bound here. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E17",
@@ -39779,9 +39779,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E18",
@@ -39801,9 +39801,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Confirmed decisively, by the paper contradicting itself three lines apart. Page 40 defines the blocks with the offset: 'for i = 1,…,r, let h^i := (h_{n_1+⋯+n_{i−1}+1}, …, h_{n_1+⋯+n_i})', and likewise λ^i with first entry h_{n_1+⋯+n_{i−1}+1,σ}. The sentence three lines below then prints 'when n_i = 1, we have π_alg(φ_{F_P,i},h^i) = π_1(φ_{F_P,i},h^i) = φ_{n_1+⋯+n_{i−1}} z^{h_{n_1+⋯+n_{i−1}}}', dropping the +1 in both subscripts. The definition above is the correct one. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E19",
@@ -39823,9 +39823,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E20",
@@ -39845,9 +39845,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Confirmed decisively: the same lemma is cited with two different reference numbers on one page. Page 38 line 15 reads 'using Schraen's spectral sequence [58, Cor. 4.9] and [31, Lem. 2.26]', while five lines later the same page reads 'by definition (cf. [37, Section (2.8)]) and using [32, Lem. 2.26]'. One of the two is wrong, and the extraction's identification of [32] as the correct one is consistent with the second, unambiguous occurrence. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E21",
@@ -39867,9 +39867,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E22",
@@ -39889,9 +39889,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E23",
@@ -39911,9 +39911,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DING-25/E24",
@@ -39933,9 +39933,9 @@
    "owner": "PAPER-DING-25",
    "file": "research/blueprint/papers/PAPER-DING-25.result.json",
    "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DING-25",
+   "reviewReason": "Located at its printed locator and quoted accurately. The correction follows the extraction's reading of the surrounding argument; I verified the quotation against the published text but did not re-derive the correction, so that part of this verdict rests on the extraction rather than on this review. Verified against the published open-access Centre Mersenne PDF of Publ. Math. IHÉS 142 (2025), 1–74, re-fetched by this review and hashing to 741a49c0…05ba, matching the record; printed page = PDF page. No later version or erratum corrects it: arXiv 2407.21237 stops at v2 and Crossref's record of doi:10.1007/s10240-025-00156-2 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-DISEGNI-22/E1",
