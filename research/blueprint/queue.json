@@ -2661,8 +2661,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1170"
+   "state": "external",
+   "note": "claimed on GitHub issue #1170"
   },
   {
    "id": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16",
