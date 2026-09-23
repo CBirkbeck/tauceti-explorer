@@ -743,7 +743,12 @@
    "searched": [
     "the arXiv listing and submission history of arXiv:2205.09929, read 22 September 2026: v1 (20 May 2022) and v2 (11 July 2022), the version read, whose comment is 'added Section 5.4, corrected a few typos'; there is no later preprint version",
     "the published version, doi:10.1017/fmp.2023.26 (Forum of Mathematics, Pi 11 (2023), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and each finding below was compared with the published text"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the source, and the parallel definition beside it settles it: the same display reads 'S^{Li}_{d}(s) := 1/L_{d}^{s} in k and S^{zeta}_{d}(s) := sum_{a in A_{+,d}} 1/a^{d} in k'. The first has exponent s, the second must too, or the symbol would not depend on its argument. Remark 2.2.12's Carlitz identity, which the entry cites, uses the exponent s.",
+    "by": "REV-PAPER-CHANG-CHEN-MISHIBA-23"
+   }
   },
   {
    "id": "PAPER-CHANG-CHEN-MISHIBA-23/E2",
@@ -757,7 +762,12 @@
    "searched": [
     "the arXiv listing and submission history of arXiv:2205.09929, read 22 September 2026: v1 (20 May 2022) and v2 (11 July 2022), the version read, whose comment is 'added Section 5.4, corrected a few typos'; there is no later preprint version",
     "the published version, doi:10.1017/fmp.2023.26 (Forum of Mathematics, Pi 11 (2023), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and each finding below was compared with the published text"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: the displayed definition after H.-J. Chen's formula reads 'if $(q-1) \\mid k$ and $1 \\leq j < s+n$'. k is the function field F_q(theta) throughout, so the condition can only be on the summation index j, and the entry's check against Remark 2.3.4 (the coefficient vanishes for all j when s+n <= q) is the right corroboration.",
+    "by": "REV-PAPER-CHANG-CHEN-MISHIBA-23"
+   }
   },
   {
    "id": "PAPER-CHANG-CHEN-MISHIBA-23/E3",
@@ -771,7 +781,31 @@
    "searched": [
     "the arXiv listing and submission history of arXiv:2205.09929, read 22 September 2026: v1 (20 May 2022) and v2 (11 July 2022), the version read, whose comment is 'added Section 5.4, corrected a few typos'; there is no later preprint version",
     "the published version, doi:10.1017/fmp.2023.26 (Forum of Mathematics, Pi 11 (2023), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and each finding below was compared with the published text"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in both versions: the remark on Ngo Dac's generating set prints '\\dim_{w}\\cZ_{w}\\leq d_{w}''. The subscript is the coefficient field everywhere else - Conjecture 1.2.2 writes dim_k Z_w and Corollary 1.2.7 writes dim_k Z_{v,w} - and 'dim_w' is nowhere defined. I confirmed the published text prints the same subscript.",
+    "by": "REV-PAPER-CHANG-CHEN-MISHIBA-23"
+   }
+  },
+  {
+   "id": "PAPER-CHANG-CHEN-MISHIBA-23/E4",
+   "kind": "misprint",
+   "locator": "Appendix A.3, in the proof after equation (A.3.9) (published: Appendix A, after equation (A.7)); present in arXiv v2 and in the published version",
+   "printed": "It follows by Theorem A.3.1 that the left hand side (LHS) of each of the equations … belongs to 𝒫^•_{wt(𝔰)} (published: 'It follows by Theorem A.4 that the left-hand side (LHS) of each of the equations (A.4), (A.5), (A.6) and (A.7) belongs to 𝒫^•_{wt(𝔰)}')",
+   "correction": "Proposition A.3.1 (published: Proposition A.4).",
+   "reason": "The statement is printed as 'Proposition A.4. Let • ∈ {Li, ζ}. …' in the published version and as a proposition environment (label prop-BC) in the source; the paper has no Theorem A.4 (published) or A.3.1 (preprint). The same statement is cited correctly as 'Proposition' in §1.3, where the strategy of the proof says 'and further show in Proposition A.3.1 that they preserve 𝒫^•'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:2205.09929, read 22 September 2026: v1 (20 May 2022) and v2 (11 July 2022), the version read, whose comment is 'added Section 5.4, corrected a few typos'; there is no later preprint version",
+    "the published version, doi:10.1017/fmp.2023.26 (Forum of Mathematics, Pi 11 (2023), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and each finding below was compared with the published text"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by this review, found by a mechanical audit of every '<word>~\\ref{label}' citation against the environment carrying the label (89 citations in the source). Two mismatches exist; this is the one that survives into the version of record. The other is the preprint's '\\S1.3: See Theorem~\\ref{P:product of sLbullet}' for Proposition 2.3.5, which the published version reworded to 'stated as Proposition 2.7' - correct there, so it is not recorded as a finding.",
+    "by": "REV-PAPER-CHANG-CHEN-MISHIBA-23"
+   }
   }
  ]
 }
