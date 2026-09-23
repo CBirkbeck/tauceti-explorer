@@ -4636,3 +4636,32 @@ for prime in (2,3,5,7):
 print(dict(counts))
 ```
 
+
+## Compact-image supplier continuation (cc-fb70e5)
+
+This pass closes the two proof suppliers that **A37** — "if `Γ` is profinite and `r : Γ → G_n(Q̄_p)` is
+continuous, its image lies in `G_n(K)` for a finite `K/Q_p`" — had been carrying as named obligations, and
+which the `global-descent-supplier-atoms` gap listed first.
+
+**L75 — Baire, in the form the argument uses.** Mathlib's
+`nonempty_interior_of_iUnion_of_closed` (`Topology/Baire/Lemmas.lean:257`) says that in a nonempty Baire
+space, if countably many *closed* sets cover the space then one of them has nonempty interior; the instance
+`BaireSpace.of_t2Space_locallyCompactSpace` (`Topology/Baire/LocallyCompactRegular.lean:23`) supplies the
+Baire hypothesis for a compact Hausdorff space, which is what the image of a profinite group is. Both were
+read in the source at pinned `082e2d3`.
+
+**A85 — countability of the finite extensions.** Fix `Q̄_p`. Every finite `K ⊂ Q̄_p` is separable
+(characteristic 0), so `K = Q_p(x)` with `x` of degree `n = [K : Q_p]`. Since `Q` is dense in `Q_p`, take a
+monic `g ∈ Q[X]` of degree `n` with coefficients close to those of the minimal polynomial of `x`; root
+continuity gives a root `y` of `g` closer to `x` than any other conjugate of `x`, and **Krasner's lemma**
+then puts `x ∈ Q_p(y)`, so `K = Q_p(y)` by degrees. The roots in `Q̄_p` of polynomials over `Q` form a
+countable union of finite sets, so there are countably many such `K`. Finiteness in each degree is true but
+is not needed: A37 needs only a countable closed cover.
+
+**L76 — Krasner's lemma, pinned.** `IsKrasner.krasner` (`Analysis/Normed/Field/Krasner.lean:63`), with the
+class at `:56` and the instance `IsKrasner.of_completeSpace` at `:117` which supplies the hypothesis for a
+complete nontrivially normed ultrametric `K` and an algebraic normed `K`-algebra. The statement recorded in
+the item is the pinned one, including the splitting hypothesis on the minimal polynomial.
+
+A37 now lists A85 and L75 as prerequisites, and its proof outline names them instead of the two open
+suppliers. The gap's first obligation is struck and replaced by a sentence saying what closed it.
