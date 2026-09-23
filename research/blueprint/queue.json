@@ -746,8 +746,9 @@
    ],
    "avoidAccountOf": "PAPER-ZAVYALOV-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-ZAVYALOV-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1064"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1064",
+   "finishedAt": "2026-09-23T15:35:47Z"
   },
   {
    "id": "PAPER-KINGS-SPRANG-25",
@@ -821,7 +822,8 @@
    ],
    "avoidAccountOf": "PAPER-LAWRENCE-SAWIN-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-LAWRENCE-SAWIN-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1068"
   },
   {
    "id": "PAPER-KISIN-ZHOU-25",
@@ -7683,7 +7685,8 @@
    ],
    "avoidAccountOf": "PAPER-NEWTON-THORNE-21-B",
    "prompt": "research/blueprint/prompts/REV-PAPER-NEWTON-THORNE-21-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1451"
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20",
@@ -10588,8 +10591,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_Completed_OrthogonalL2Bases",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_Completed_OrthogonalL2Bases.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #104"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #104",
+   "finishedAt": "2026-09-23T15:35:51Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
@@ -11799,7 +11803,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #138"
   },
   {
    "id": "BP-K3BlochGroups",
