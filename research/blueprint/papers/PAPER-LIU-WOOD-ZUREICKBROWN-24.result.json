@@ -15,31 +15,31 @@
       "Checked in detail: Proposition 2.2, the embedding argument of Lemma 2.7, Lemmas 3.4–3.6 and Corollaries 3.8–3.10, Proposition 3.13, Lemma 3.17 and Proposition 3.22, the probability formula of Proposition 4.3 and Theorem 4.12, Lemma 5.10 and Theorem 5.12, the moment computation of Theorem 6.2, §7.1, Lemma 9.3, the trace-formula assembly of Theorem 1.4, Proposition 12.7, Lemma 12.10 and the comparison b(G,c,q,n) = b(Γ,Γ∖1,q,n). Liu–Wood 2020, Wood 2021 and Wewers were used as quoted."
     ]
   },
-  "summary": "Liu, Wood and Zureick-Brown build a random-group model for Gal(K^#/K), the Galois group of the maximal unramified, split-at-∞, prime-to-(roots of unity·|Γ|) extension of a totally real Γ-extension K of Q or F_q(t). They prove two structural facts: Gal(K^#/K) is an admissible Γ-group (Proposition 2.2) and has Property E, lifting along non-split central Z/p extensions (Theorem 2.5, via embedding problems). They define the free admissible Γ-group 𝓕_n and random quotients 𝓕_n/[Y(S)] by n+1 Haar-random relations, which is exactly the class of Property-E quotients (Proposition 3.13). As n → ∞ these converge to a probability measure μ_Γ with explicit values on basic opens (Theorem 1.2, via Theorem 4.12, chief factor pairs and Theorem 5.12). Its moments are E|Sur_Γ(X, H)| = [H : H^Γ]^{−1} (Theorem 6.2), and it abelianizes to Cohen–Lenstra–Martinet and pro-p-completes to Boston–Bush–Hajir (§7). They conjecture that Gal(K^#/K) is μ_Γ-distributed (Conjecture 1.3) and prove every moment in the q → ∞ function-field limit (Theorem 1.4; Corollary 1.5 for class groups). The proof counts Frobenius-fixed components of Hurwitz schemes with the Ellenberg–Venkatesh–Westerland/Wood lifting invariant (Theorem 10.4, §§10–12). The atlas has free profinite groups (ProfiniteProPGroups), the point-count trace formula and weight bounds (SF.2, EDC.2, DWP.7), Hurwitz schemes and embedding problems (IG.4–IG.5), function-field statistics (ST.5) and, via PAPER-WOOD-19, a proposed reduced-Schur Part II. It has nothing on random Γ-groups. The random-group theory (§§1–7) becomes a new Part II of Arithmetic statistics. The Galois facts go to IG.4, the Hurwitz and component machinery to IG.5 (stable braid orbits to IG.3), the reduced-multiplier group theory to the WOOD-19 candidate, the function-field moment theorem to ST.5, and a lattice-point lemma to GeometryOfNumbersAndQuadraticArithmetic GN.4. Four source issues are recorded, all in arXiv v2 (the published text could not be read): a wrong equation reference in the proof of Theorem 4.12, 'N(E, …)' for N(H, …) in the proof of Theorem 1.4, (Z_p[Γ])^n for the augmentation-ideal lattice in §7.1, and Theorem 5.12 stated only for u ≥ 0 while later results use every integer u.",
+  "summary": "Liu, Wood and Zureick-Brown build a random-group model for Gal(K^#/K), the Galois group of the maximal unramified, split-at-∞, prime-to-(roots of unity·|Γ|) extension of a totally real Γ-extension K of Q or F_q(t). They prove two structural facts: Gal(K^#/K) is an admissible Γ-group (Proposition 2.2) and has Property E, lifting along non-split central Z/p extensions (Theorem 2.5, via embedding problems). They define the free admissible Γ-group 𝓕_n and random quotients 𝓕_n/[Y(S)] by n+1 Haar-random relations, which is exactly the class of Property-E quotients (Proposition 3.13). As n → ∞ these converge to a probability measure μ_Γ with explicit values on basic opens (Theorem 1.2, via Theorem 4.12, chief factor pairs and Theorem 5.12). Its moments are E|Sur_Γ(X, H)| = [H : H^Γ]^{−1} (Theorem 6.2), and it abelianizes to Cohen–Lenstra–Martinet and pro-p-completes to Boston–Bush–Hajir (§7). They conjecture that Gal(K^#/K) is μ_Γ-distributed (Conjecture 1.3) and prove every moment in the q → ∞ function-field limit (Theorem 1.4; Corollary 1.5 for class groups). The proof counts Frobenius-fixed components of Hurwitz schemes with the Ellenberg–Venkatesh–Westerland/Wood lifting invariant (Theorem 10.4, §§10–12). The atlas has free profinite groups (ProfiniteProPGroups), the point-count trace formula and weight bounds (SF.2, EDC.2, DWP.7), Hurwitz schemes and embedding problems (IG.4–IG.5), function-field statistics (ST.5) and, via PAPER-WOOD-19, a proposed reduced-Schur Part II. It has nothing on random Γ-groups. The random-group theory (§§1–7) becomes a new Part II of Arithmetic statistics. The Galois facts go to IG.4, the Hurwitz and component machinery to IG.5 (stable braid orbits to IG.3), the reduced-multiplier group theory to the WOOD-19 candidate, the function-field moment theorem to ST.5, and a lattice-point lemma to GeometryOfNumbersAndQuadraticArithmetic GN.4. The extraction recorded four source issues, all in arXiv v2 (the published text could not be read): a wrong equation reference in the proof of Theorem 4.12, 'N(E, …)' for N(H, …) in the proof of Theorem 1.4, (Z_p[Γ])^n for the augmentation-ideal lattice in §7.1, and Theorem 5.12 stated only for u ≥ 0 while later results use every integer u. The independent review confirmed them and added twenty-five. The main ones: the explicit limit formula (4.14), (5.13) and Theorem 5.15 is false for H without Property E, whose measure is 0 (E5). The inner limit in q of Theorem 1.4 is not shown to exist, so it is read as lim sup and lim inf (E6). Lemma 9.3 is off by [Γ : Z(Γ)] when E_Γ counts isomorphism classes (E7), and Lemma 12.8 needs positive weights (E8). The rest are proof gaps and misprints. None changes the moments or the main theorems' values.",
   "items": [
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/1",
       "kind": "definition",
       "name": "Admissible Γ-groups, level-𝒞 completions and the space 𝒫",
       "statement": "Γ is a finite group; a Γ-group is a profinite group with a continuous Γ-action; Sur_Γ, Hom_Γ, Aut_Γ are Γ-equivariant maps; for a generating set γ_1, …, γ_d of Γ, Y : G → G^d, g ↦ (g^{−1}γ_1(g), …, g^{−1}γ_d(g)). G is admissible if it is topologically generated by {g^{−1}γ(g) : g ∈ G, γ ∈ Γ} and has order (supernatural) prime to |Γ|. For a set 𝒞 of finite Γ-groups, 𝒞̄ is its closure under finite products, Γ-subgroups and Γ-quotients, and G^𝒞 = lim G/M over closed normal Γ-subgroups with G/M ∈ 𝒞̄ (a functor to level-𝒞 groups preserving surjections). 𝒫 is the set of isomorphism classes of admissible |Γ|′-Γ-groups with all G^𝒞 finite, topologized by the basic opens U_{𝒞,H} = {X : X^𝒞 ≅ H}. A finite abelian |Γ|′-Γ-group is admissible iff H^Γ = 1 (§7.1).",
-      "locator": "§1.2, §1.7, §3.2 (3.14) and before Definition 3.15, pp. 2, 9, 16–17; §7.1, p. 33",
+      "locator": "§1.2, p. 2; §1.7, p. 9; the pro-𝒞 completion (3.11), p. 15; 𝒫 and U_{𝒞,H} before Definition 3.15, p. 16; §7.1, p. 34",
       "status": "missing",
-      "note": "The basic notions of the random-group theory."
+      "note": "The basic notions of the random-group theory. The introduction defines U_{𝒞,H} = {G : G^𝒞 ≅ H^𝒞} for any finite Γ-group H; §3.2 uses {X : X^𝒞 ≅ H} with H of level 𝒞. The two agree for H of level 𝒞."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/2",
       "kind": "theorem",
       "name": "Theorem 1.2: the limiting distribution μ_Γ",
-      "statement": "For every finite group Γ there is a probability measure μ_Γ on the set of isomorphism classes of admissible Γ-groups (on 𝒫) such that, as n → ∞, the distributions of X_{Γ,n} = 𝓕_n/[Y(S)] (S = n+1 Haar-random elements of the free admissible Γ-group 𝓕_n) converge weakly to μ_Γ. Explicitly (5.13), μ_Γ(U_{𝒞,H}) = |Aut_Γ(H)|^{−1}[H : H^Γ]^{−1} ∏_{G∈𝒜_H} ∏_{i≥1}(1 − λ(𝒞,H,G) h_{H⋊Γ}(G)^{−i}/[G : G^Γ]) ∏_{G∈𝒩} e^{−λ(𝒞,H,G)/[G:G^Γ]}.",
+      "statement": "For every finite group Γ there is a probability measure μ_Γ on the set of isomorphism classes of admissible Γ-groups (on 𝒫) such that, as n → ∞, the distributions of X_{Γ,n} = 𝓕_n/[Y(S)] (S = n+1 Haar-random elements of the free admissible Γ-group 𝓕_n) converge weakly to μ_Γ. Explicitly (5.13), for 𝒞 a finite set of finite |Γ|′-Γ-groups and H a finite admissible Γ-group of level 𝒞 that has Property E in the category of level-𝒞 Γ-groups, μ_Γ(U_{𝒞,H}) = |Aut_Γ(H)|^{−1}[H : H^Γ]^{−1} ∏_{G∈𝒜_H} ∏_{i≥1}(1 − λ(𝒞,H,G) h_{H⋊Γ}(G)^{−i}/[G : G^Γ]) ∏_{G∈𝒩} e^{−λ(𝒞,H,G)/[G:G^Γ]}. Here λ(𝒞,H,G) = (h_{H⋊Γ}(G) − 1) Σ_{(E,π)∈𝓔_𝒞(G,H)} |Aut_{Γ,H}(E,π)|^{−1} for G ∈ 𝒜_H and Σ_{(E,π)∈𝓔_𝒞(G,H)} |Aut_{Γ,H}(E,π)|^{−1} for G ∈ 𝒩, with h_{H⋊Γ}(G) = |Hom_{H⋊Γ}(G,G)|. If H lacks Property E at level 𝒞, then μ_Γ(U_{𝒞,H}) = 0; the printed (5.13) omits this case and is wrong there (sourceIssues E5).",
       "locator": "Theorem 1.2, p. 2 (arXiv v2), proof in §5.3, p. 30",
       "status": "missing",
-      "note": "μ_Γ = μ_1. Weak convergence via Carathéodory extension (Theorem 5.12) and Fatou's lemma on open sets."
+      "note": "μ_Γ = μ_1. Weak convergence comes from the Carathéodory extension (Theorem 5.12) and Fatou on open sets: μ_Γ(U) ≤ liminf_n μ_{1,n}(U), which the text writes as lim (E14). This is the Portmanteau criterion. The value 0 for H without Property E holds because every (X_{u,n})^𝒞 has Property E (Proposition 3.13, item 14)."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/3",
       "kind": "theorem",
       "name": "Conjecture 1.3: Gal(K^#/K) is distributed according to μ_Γ",
-      "statement": "Q is Q or F_q(t); b = 2|Γ| for Q = Q and q(q−1)|Γ| for F_q(t); for a Γ-extension K/Q, K^# is the maximal extension of K unramified everywhere, split completely above ∞, with all finite subextensions of degree prime to b. Let q be prime to |Γ|, 𝒞 a finite set of finite Γ-groups of order prime to b and H a finite admissible such group. With E_Γ(D, Q) the totally real Γ-extensions with radical discriminant norm rD(K) = D: lim_B Σ_{D≤B} #{K ∈ E_Γ(D,Q) : Gal(K^#/K)^𝒞 ≅ H^𝒞} / Σ_{D≤B} |E_Γ(D,Q)| = μ_Γ(U_{𝒞,H}), and lim_B Σ_{D≤B} Σ_K |Sur_Γ(Gal(K^#/K), H)| / Σ_{D≤B} |E_Γ(D,Q)| = ∫ |Sur_Γ(X, H)| dμ_Γ = [H : H^Γ]^{−1}.",
+      "statement": "Q is Q or F_q(t); Δ = 2|Γ| for Q = Q and Δ = q(q−1)|Γ| for F_q(t); for a Γ-extension K/Q, K^# is the maximal extension of K unramified everywhere, split completely above ∞, with all finite subextensions of degree prime to Δ. Let q be prime to |Γ|, 𝒞 a finite set of finite Γ-groups of order prime to Δ and H a finite admissible such group. With E_Γ(D, Q) the totally real Γ-extensions with radical discriminant norm rD(K) = D: lim_B Σ_{D≤B} #{K ∈ E_Γ(D,Q) : Gal(K^#/K)^𝒞 ≅ H^𝒞} / Σ_{D≤B} |E_Γ(D,Q)| = μ_Γ(U_{𝒞,H}), and lim_B Σ_{D≤B} Σ_K |Sur_Γ(Gal(K^#/K), H)| / Σ_{D≤B} |E_Γ(D,Q)| = ∫ |Sur_Γ(X, H)| dμ_Γ = [H : H^Γ]^{−1}.",
       "locator": "Conjecture 1.3, p. 3 (arXiv v2)",
       "status": "missing",
       "note": "A conjecture, recorded as a statement. It implies the Cohen–Martinet predictions (prime-to-|Γ| parts, fields ordered by radical discriminant) and the Boston–Bush–Hajir predictions for real quadratic fields."
@@ -48,16 +48,16 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/4",
       "kind": "theorem",
       "name": "Theorem 1.4: function-field moments as q → ∞",
-      "statement": "Let Γ be finite and H a finite admissible Γ-group. Then lim_{b→∞} lim_{q→∞, (q,|Γ||H|)=1, (q−1,|H|)=1} Σ_{n≤b} Σ_{K∈E_Γ(q^n,F_q(t))} |Sur_Γ(Gal(K^#/K), H)| / Σ_{n≤b} |E_Γ(q^n,F_q(t))| = ∫ |Sur_Γ(X,H)| dμ_Γ(X) = [H : H^Γ]^{−1}, q running over prime powers.",
-      "locator": "Theorem 1.4, p. 2 (arXiv v2), proof in §10.2, pp. 40–41",
+      "statement": "Let Γ be finite and H a finite admissible Γ-group. For prime powers q with (q, |Γ||H|) = 1 and (q−1, |H|) = 1, let R_b(q) = Σ_{n≤b} Σ_{K∈E_Γ(q^n,F_q(t))} |Sur_Γ(Gal(K^#/K), H)| / Σ_{n≤b} |E_Γ(q^n,F_q(t))|. Then lim_{b→∞} lim sup_{q→∞} R_b(q) = lim_{b→∞} lim inf_{q→∞} R_b(q) = ∫ |Sur_Γ(X,H)| dμ_Γ(X) = [H : H^Γ]^{−1}. The paper writes lim_{b→∞} lim_{q→∞}, but the proof shows only that for each b every limit point in q lies within O_G(1/b) of [H : H^Γ]^{−1} (sourceIssues E6).",
+      "locator": "Theorem 1.4, p. 3 (arXiv v2), proof in §10.2, pp. 40–41",
       "status": "missing",
-      "note": "Proof: Lemma 9.3 (count of surjections), Lemma 10.2 (F_q-points of Hurwitz schemes), Lemma 10.3 with Grothendieck–Lefschetz and Deligne's bound, Theorem 10.4 (Frobenius-fixed components), and Theorem 6.2 (u = 1)."
+      "note": "Proof: Lemma 9.3 (count of surjections), Lemma 10.2 (F_q-points of Hurwitz schemes), Lemma 10.3 with Grothendieck–Lefschetz and Deligne's bound, Theorem 10.4 (Frobenius-fixed components), and Theorem 6.2 (u = 1). The hypotheses force |H| odd (q or q − 1 is even); the paper refers to Wood 2019 for even |H|. The last step of the proof replaces Gal(K^{un,∞}/K) (Lemma 9.3) by Gal(K^#/K). This is valid because |H| is prime to q(q−1)|Γ|, so every Γ-surjection onto H factors through Gal(K^#/K)."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/5",
       "kind": "theorem",
       "name": "Corollary 1.5: Cohen–Lenstra–Martinet moments over F_q(t)",
-      "statement": "Let H be a finite abelian Γ-group with (|H|, |Γ|) = 1 and H^Γ = 1. Then lim_{b} lim_{q→∞, (q,|Γ||H|)=1, (q−1,|H|)=1} Σ_{n≤b} Σ_{K∈E_Γ(q^n,F_q(t))} |Sur_Γ(Cl(O_K), H)| / Σ_{n≤b} |E_Γ(q^n,F_q(t))| = |H|^{−1}.",
+      "statement": "Let H be a finite abelian Γ-group with (|H|, |Γ|) = 1 and H^Γ = 1. Then, with q running over prime powers with (q,|Γ||H|) = 1 and (q−1,|H|) = 1, lim_{b} lim sup_{q→∞} and lim_{b} lim inf_{q→∞} of Σ_{n≤b} Σ_{K∈E_Γ(q^n,F_q(t))} |Sur_Γ(Cl(O_K), H)| / Σ_{n≤b} |E_Γ(q^n,F_q(t))| both equal |H|^{−1} (the paper writes lim_b lim_q; see sourceIssues E6).",
       "locator": "Corollary 1.5, p. 4 (arXiv v2)",
       "status": "missing",
       "note": "Gal(K^#/K)^ab is the prime-to-q(q−1)|Γ| part of Cl(O_K) by class field theory. These are the Cohen–Lenstra/Cohen–Martinet averages, with fields ordered by radical discriminant; by Wang–Wood the moments determine the distribution."
@@ -66,7 +66,7 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/6",
       "kind": "definition",
       "name": "Definition 2.1: the Γ-action on Gal(K^#/K)",
-      "statement": "Q is Q or F_q(t); b = 2|Γ| for Q = Q and q(q−1)|Γ| for F_q(t); for a Γ-extension K/Q, K^# is the maximal extension of K unramified everywhere, split completely above ∞, with all finite subextensions of degree prime to b. For a pro-|Γ|′ extension L/K Galois over Q, a section s : Γ → Gal(L/Q) (Schur–Zassenhaus) gives Gal(L/Q) ≅ Gal(L/K) ⋊ Γ and a Γ-action on Gal(L/K), well defined up to isomorphism because all sections are conjugate. Definition 2.1 fixes such a section for K^#.",
+      "statement": "Q is Q or F_q(t); Δ = 2|Γ| for Q = Q and Δ = q(q−1)|Γ| for F_q(t); for a Γ-extension K/Q, K^# is the maximal extension of K unramified everywhere, split completely above ∞, with all finite subextensions of degree prime to Δ. For a pro-|Γ|′ extension L/K Galois over Q, a section s : Γ → Gal(L/Q) (Schur–Zassenhaus) gives Gal(L/Q) ≅ Gal(L/K) ⋊ Γ and a Γ-action on Gal(L/K), well defined up to isomorphism because all sections are conjugate. Definition 2.1 fixes such a section for K^#.",
       "locator": "Definition 2.1, p. 10 (arXiv v2), and the preceding paragraph, p. 10",
       "status": "missing",
       "note": "Conjugacy of all complements in the coprime case is the Schur–Zassenhaus theorem; in general its proof uses Feit–Thompson (see the Schur–Zassenhaus item)."
@@ -93,10 +93,10 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/9",
       "kind": "theorem",
       "name": "Theorem 2.5 with Lemmas 2.6–2.7: Gal(K^#/K) has Property E",
-      "statement": "Q is Q or F_q(t); b = 2|Γ| for Q = Q and q(q−1)|Γ| for F_q(t); for a Γ-extension K/Q, K^# is the maximal extension of K unramified everywhere, split completely above ∞, with all finite subextensions of degree prime to b. For every Γ-extension K/Q, Gal(K^#/K) has Property E in the category of b′-Γ-groups. Lemma 2.6: for p prime to the order of the roots of unity in Q, local characters φ_v : Gal_{Q_v} → Z/p (almost all unramified) come from a global φ agreeing with φ_v on inertia at finite v and on Gal_{Q_∞}. Lemma 2.7: for G a |Γ|′-Γ-group, L/Q a (G⋊Γ)-extension with L/L^G unramified and split at ∞, p ∤ b, and a non-split central Γ-extension 1 → Z/p → G̃ → G → 1, there is L̃ ⊃ L with Gal(L̃/Q) ≅ G̃ ⋊ Γ compatibly, L̃/L^G unramified and split at ∞.",
-      "locator": "Theorem 2.5, p. 11 (arXiv v2), Lemmas 2.6–2.7, pp. 11–12",
+      "statement": "Q is Q or F_q(t); Δ = 2|Γ| for Q = Q and Δ = q(q−1)|Γ| for F_q(t); for a Γ-extension K/Q, K^# is the maximal extension of K unramified everywhere, split completely above ∞, with all finite subextensions of degree prime to Δ. For every Γ-extension K/Q, Gal(K^#/K) has Property E in the category of Δ′-Γ-groups. Lemma 2.6: for p prime to the order of the roots of unity in Q, local characters φ_v : Gal_{Q_v} → Z/p (almost all unramified) come from a global φ agreeing with φ_v on inertia at finite v and on Gal_{Q_∞}. Lemma 2.7: for G a |Γ|′-Γ-group, L/Q a (G⋊Γ)-extension with L/L^G unramified and split at ∞, p ∤ Δ, and a non-split central Γ-extension 1 → Z/p → G̃ → G → 1, there is L̃ ⊃ L with Gal(L̃/Q) ≅ G̃ ⋊ Γ compatibly, L̃/L^G unramified and split at ∞.",
+      "locator": "Theorem 2.5, p. 11 (arXiv v2), Lemmas 2.6–2.7, pp. 11–13",
       "status": "missing",
-      "note": "An embedding-problem argument: local solutions with trivial inertia on N, the local–global principle for central embedding problems (Malle–Matzat Cor. 10.2), correction by a global character (Lemma 2.6; Serre, Topics, 2.1.6), and an inverse limit for profinite G."
+      "note": "An embedding-problem argument: local solutions with trivial inertia on N, the local–global principle for central embedding problems (Malle–Matzat Cor. 10.2), correction by a global character (Lemma 2.6; Serre, Topics, 2.1.6), and an inverse limit for profinite G. In the profinite step (p. 13), \"for every open subgroup U\" should read: every open normal Γ-stable U of G̃ with U ∩ N = 1 (E27)."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/10",
@@ -105,13 +105,13 @@
       "statement": "If K is a closed normal subgroup of a profinite group G with (#K, #G/K) = 1, then K has a complement, and all complements are conjugate (Ribes–Zalesskii, Theorem 2.3.15). Consequently, for H a finite |Γ|′-Γ-group, the sections of H⋊Γ → Γ form a single H-conjugacy orbit with stabilizer H^Γ, so there are [H : H^Γ] of them (used in Lemmas 3.4 and 9.3).",
       "locator": "§2, p. 10; proofs of Lemmas 3.4, 3.6, 5.2, 9.3 and Theorem 10.4 (Ribes–Zalesskii 2.3.15)",
       "status": "missing",
-      "note": "Mathlib proves existence for finite groups (Subgroup.exists_right_complement'_of_coprime) but not the conjugacy statement, whose general proof uses the Feit–Thompson theorem (one of the two coprime orders is odd) or a solvability hypothesis. Theorem 1.4's exact constant depends on it through Lemma 9.3. Owned by the random-group Part II, which needs it throughout."
+      "note": "Mathlib proves existence for finite groups (Subgroup.exists_right_complement'_of_coprime), and conjugacy only in the abelian case (Subgroup.exists_smul_eq). The general conjugacy statement uses the Feit–Thompson theorem (one of the two coprime orders is odd) or a solvability hypothesis. Conjugacy is used from the start: surjectivity of the map Φ in §3.1 gives Lemma 3.4, hence Lemma 3.1 (admissibility of 𝓕_n and the retraction π) and Lemma 3.6(1). All of Part I, Definition 2.1 and Lemma 9.3 therefore depend on it. When Γ is solvable, or 𝓕_n is pro-odd, no Feit–Thompson is needed. Owned by the random-group Part II."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/11",
       "kind": "construction",
       "name": "The free admissible Γ-group 𝓕_n and Lemma 3.1",
-      "statement": "Γ is a finite group; a Γ-group is a profinite group with a continuous Γ-action; Sur_Γ, Hom_Γ, Aut_Γ are Γ-equivariant maps; for a generating set γ_1, …, γ_d of Γ, Y : G → G^d, g ↦ (g^{−1}γ_1(g), …, g^{−1}γ_d(g)). F_n(Γ) is the free pro-|Γ|′ group on {x_{i,γ} : 1 ≤ i ≤ n, γ ∈ Γ} with σ(x_{i,γ}) = x_{i,σγ}; 𝓕_n(Γ) is the closed Γ-subgroup generated by x_i^{−1}γ_j(x_i), x_i = x_{i,1}. Lemma 3.1: 𝓕_n is admissible, and there is a Γ-quotient map π : F_n → 𝓕_n with π ∘ (inclusion) = id. Remark 3.2: as a pro-|Γ|′ group 𝓕_n is free on {x_i^{−1}σ(x_i) : σ ≠ 1}; it is Γ-generated by n elements; and any H Γ-generated by elements h_i^{−1}γ(h_i) is a quotient of 𝓕_n.",
+      "statement": "Γ is a finite group; a Γ-group is a profinite group with a continuous Γ-action; Sur_Γ, Hom_Γ, Aut_Γ are Γ-equivariant maps; for a generating set γ_1, …, γ_d of Γ, Y : G → G^d, g ↦ (g^{−1}γ_1(g), …, g^{−1}γ_d(g)). F_n(Γ) is the free pro-|Γ|′ group on {x_{i,γ} : 1 ≤ i ≤ n, γ ∈ Γ} with σ(x_{i,γ}) = x_{i,σγ}; 𝓕_n(Γ) is the closed Γ-subgroup generated by x_i^{−1}γ_j(x_i), x_i = x_{i,1}. Lemma 3.1: 𝓕_n is admissible, and there is a Γ-quotient map π : F_n → 𝓕_n with π ∘ (inclusion) = id. Remark 3.2: as a pro-|Γ|′ group 𝓕_n is free on {x_i^{−1}σ(x_i) : σ ≠ 1}; it is Γ-generated by n elements; and any pro-|Γ|′ Γ-group H that is generated by elements h_i^{−1}γ(h_i) (1 ≤ i ≤ n, γ ∈ Γ) is a quotient of 𝓕_n. The text omits \"pro-|Γ|′\" (sourceIssues E12).",
       "locator": "Lemma 3.1, p. 13 (arXiv v2), §3.1 and Remark 3.2, p. 13",
       "status": "missing",
       "note": "Free pro-|Γ|′ groups on finite sets come from ProfiniteProPGroups Layer 4 (the planned item below)."
@@ -120,8 +120,8 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/12",
       "kind": "theorem",
       "name": "Lemmas 3.4–3.6: the map Y and sections",
-      "statement": "Γ is a finite group; a Γ-group is a profinite group with a continuous Γ-action; Sur_Γ, Hom_Γ, Aut_Γ are Γ-equivariant maps; for a generating set γ_1, …, γ_d of Γ, Y : G → G^d, g ↦ (g^{−1}γ_1(g), …, g^{−1}γ_d(g)). Y(G) is in bijection with the sections of G⋊Γ → Γ. Lemma 3.4: for a |Γ|′-Γ-group G and Γ-subgroup E, Y(E) = Y(G) ∩ E^d. Lemma 3.5: for finite G, Y^{−1}(Y(g)) = G^Γ g, so |G| = |G^Γ||Y(G)|. Lemma 3.6: for 1 → N → G → H → 1 of finite |Γ|′-Γ-groups, 1 → N^Γ → G^Γ → H^Γ → 1 is exact, |Y(N)| = |Y(G)|/|Y(H)|, and |Y(G) ∩ π^{−1}(x)| = |Y(G)|/|Y(H)| for x ∈ Y(H).",
-      "locator": "Lemma 3.4, p. 14 (arXiv v2), Lemmas 3.5–3.6, pp. 14–15",
+      "statement": "Γ is a finite group; a Γ-group is a profinite group with a continuous Γ-action; Sur_Γ, Hom_Γ, Aut_Γ are Γ-equivariant maps; for a generating set γ_1, …, γ_d of Γ, Y : G → G^d, g ↦ (g^{−1}γ_1(g), …, g^{−1}γ_d(g)). For a |Γ|′-Γ-group G, Y(G) is in bijection with the sections of G⋊Γ → Γ (the text says \"for any Γ-group G\", sourceIssues E12). Lemma 3.4: for a |Γ|′-Γ-group G and a closed Γ-subgroup E, Y(E) = Y(G) ∩ E^d. Lemma 3.5: for finite G, Y^{−1}(Y(g)) = G^Γ g, so |G| = |G^Γ||Y(G)|. Lemma 3.6: for 1 → N → G → H → 1 of finite |Γ|′-Γ-groups, 1 → N^Γ → G^Γ → H^Γ → 1 is exact, |Y(N)| = |Y(G)|/|Y(H)|, and |Y(G) ∩ π^{−1}(x)| = |Y(G)|/|Y(H)| for x ∈ Y(H).",
+      "locator": "Lemma 3.4, p. 14 (arXiv v2), Lemmas 3.5–3.6, p. 14",
       "status": "missing",
       "note": "H¹(Γ, N) = 0 by Schur–Zassenhaus."
     },
@@ -129,7 +129,7 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/13",
       "kind": "theorem",
       "name": "Corollary 3.8, Lemma 3.9 and Corollary 3.10: homomorphisms from 𝓕_n",
-      "statement": "For any Γ-group G, Y(G)^n → Hom_Γ(𝓕_n, G), (Y(g_i)) ↦ (x_i ↦ g_i)|_{𝓕_n}, is a bijection (Corollary 3.8). An admissible G is Γ-generated by the coordinates of Y(G), so 𝓕_n is independent of the generating set of Γ (Lemma 3.9). 𝓕_n^{ab} ≅ (Z[Γ]/(Σ_g g))^n with Z = ∏_{p∤|Γ|} Z_p, and (𝓕_n^{ab})^Γ = 1 (Corollary 3.10).",
+      "statement": "For any pro-|Γ|′ Γ-group G, Y(G)^n → Hom_Γ(𝓕_n, G), (Y(g_i)) ↦ (x_i ↦ g_i)|_{𝓕_n}, is a bijection (Corollary 3.8; the text says \"for any Γ-group G\", which fails for Γ = Z/2 acting on Z/4 by inversion, sourceIssues E12). An admissible G is Γ-generated by the coordinates of Y(G), so 𝓕_n is independent of the generating set of Γ (Lemma 3.9). 𝓕_n^{ab} ≅ (Z[Γ]/(Σ_g g))^n with Z = ∏_{p∤|Γ|} Z_p, and (𝓕_n^{ab})^Γ = 1 (Corollary 3.10).",
       "locator": "Corollary 3.8, p. 14 (arXiv v2), Lemma 3.9 and Corollary 3.10, pp. 14–15",
       "status": "missing",
       "note": ""
@@ -138,10 +138,10 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/14",
       "kind": "theorem",
       "name": "Proposition 3.13 (with Lemma 3.12): Property E ⟺ relations of the form Y(r)",
-      "statement": "Lemma 3.12: if G̃ is admissible and N a normal Γ-subgroup with trivial Γ-action, then G̃ acts trivially on N. Proposition 3.13: for a set 𝒞 of finite |Γ|′-Γ-groups and a Γ-surjection φ : (𝓕_n)^𝒞 → H, ker φ = [Y(ker φ)] iff H has Property E in the category of level-𝒞 Γ-groups.",
+      "statement": "Lemma 3.12: if G̃ is admissible and N a normal Γ-subgroup with trivial Γ-action, then G̃ acts trivially on N. Proposition 3.13: for a set 𝒞 of finite |Γ|′-Γ-groups and a Γ-surjection φ : (𝓕_n)^𝒞 → H, ker φ = [Y(ker φ)] iff H has Property E in the category of level-𝒞 Γ-groups. In particular, every random group (X_{u,n})^𝒞 = (𝓕_n)^𝒞/[Y(S)] has Property E in the category of level-𝒞 Γ-groups.",
       "locator": "Proposition 3.13, p. 16 (arXiv v2), with Lemma 3.12, pp. 15–16",
       "status": "missing",
-      "note": "The motivation for taking relations Y(r)."
+      "note": "The motivation for taking relations Y(r). The \"⟹\" proof applies Lemma 3.6(2), a statement about finite groups, to ker ϖ, which is infinite when 𝒞 is. The direct argument works: Y(ker ϖ) ⊂ (ker ρ)^d, then Lemma 3.4 (E13)."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/15",
@@ -150,22 +150,22 @@
       "statement": "For n ≥ 1 and u > −n, X_{Γ,n,u} = 𝓕_n/[Y(S)] with S a multiset of n+u independent Haar-random elements of 𝓕_n (u = 1 by default); μ_{n,u}(A) = Prob(X_{u,n} ∈ A) on Borel subsets of 𝒫, and μ_u(A) = lim_n μ_{n,u}(A) on the algebra generated by the basic opens (3.16). For finite 𝒞, (𝓕_n)^𝒞 is finite.",
       "locator": "Definition 3.15, p. 17 (arXiv v2), and (3.16), p. 17",
       "status": "missing",
-      "note": "Haar measure on the compact group 𝓕_n is in Mathlib (MeasureTheory.Measure.haar); the pro-𝒞 finiteness argument is the paper's."
+      "note": "The Haar probability measure on the compact group 𝓕_n is Mathlib's haarMeasure ⊤ (MeasureTheory.Measure.haarMeasure with haarMeasure_self). Measure.haar has an arbitrary normalization. The pro-𝒞 finiteness argument is the paper's."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/16",
       "kind": "theorem",
       "name": "Proposition 3.22 (with Lemma 3.17): p-class tower groups occur in the model",
-      "statement": "Q is Q or F_q(t); b = 2|Γ| for Q = Q and q(q−1)|Γ| for F_q(t); for a Γ-extension K/Q, K^# is the maximal extension of K unramified everywhere, split completely above ∞, with all finite subextensions of degree prime to b. Let p ∤ b with μ_p ⊄ K, and let G_{K,p} be the maximal pro-p quotient of Gal(K^#/K). Lemma 3.17: in the notation of §3.3 there is an F_p[Γ]-surjection F_p[Γ]^{n+1} → N/N* (via Hochschild–Serre, Koch Theorem 11.3 and O_K^×/p ↪ F_p[Γ]/(Σ g)). Proposition 3.22: if G_{K,p} = [Y({h_1,…,h_n})], then G_{K,p} ≅ (𝓕_n)_p/[Y(S)] for some S ⊂ (𝓕_n)_p with |S| = n+1.",
-      "locator": "Proposition 3.22, p. 19 (arXiv v2), with Lemma 3.17, pp. 18–20",
+      "statement": "Q is Q or F_q(t); Δ = 2|Γ| for Q = Q and Δ = q(q−1)|Γ| for F_q(t); for a Γ-extension K/Q, K^# is the maximal extension of K unramified everywhere, split completely above ∞, with all finite subextensions of degree prime to Δ. Let p ∤ Δ with μ_p ⊄ K, and let G_{K,p} be the maximal pro-p quotient of Gal(K^#/K). Lemma 3.17: in the notation of §3.3 there is an F_p[Γ]-surjection F_p[Γ]^{n+1} → N/N* (via Hochschild–Serre, Koch Theorem 11.3 and O_K^×/p ↪ F_p[Γ]/(Σ g)). Proposition 3.22: if G_{K,p} = [Y({h_1,…,h_n})], then G_{K,p} ≅ (𝓕_n)_p/[Y(S)] for some S ⊂ (𝓕_n)_p with |S| = n+1.",
+      "locator": "Proposition 3.22, pp. 19–20 (arXiv v2), with Lemma 3.17, pp. 18–19",
       "status": "missing",
-      "note": "Uses the finite presentation of G_{K,p} (Koch, Chapter 11) and pro-p generation theory (NSW Corollary 3.9.3)."
+      "note": "Uses the finite presentation of G_{K,p} (Koch, Chapter 11) and pro-p generation theory (NSW Corollary 3.9.3). The function-field case of the proof of Lemma 3.17 uses O_K^× = F_{q^r}^×. That is false when several places lie over ∞, as they do for every totally real K with Γ ≠ 1. The proof goes through with the complete curve, using constant units and Pic⁰(C_K)[p] (E11). The notation of §3.3 also has two slips (E21)."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/17",
       "kind": "construction",
       "name": "The fundamental short exact sequence and the multiplicities m(𝒞, n, H, G)",
-      "statement": "For finite 𝒞, a Γ-surjection ϖ : (𝓕_n)^𝒞 → H with kernel N, and M the intersection of the maximal proper (𝓕_n)^𝒞-normal Γ-subgroups of N: 1 → R → F → H → 1 with F = (𝓕_n)^𝒞/M, R = N/M (4.1), induced by 1 → R → F⋊Γ → H⋊Γ → 1 (4.2); R is a product of irreducible F⋊Γ-groups. 𝒜_H is the set of non-trivial finite abelian irreducible |Γ|′-(H⋊Γ)-groups and 𝒩 the set of finite |Γ|′-Γ-groups isomorphic to T^j (T non-abelian simple); m(𝒞, n, H, G) is the multiplicity of G in R (summed over the compatible F⋊Γ-structures for G ∈ 𝒩), independent of ϖ (Remark 4.9).",
+      "statement": "For finite 𝒞, a Γ-surjection ϖ : (𝓕_n)^𝒞 → H with kernel N, and M the intersection of the maximal proper (𝓕_n)^𝒞-normal Γ-subgroups of N: 1 → R → F → H → 1 with F = (𝓕_n)^𝒞/M, R = N/M (4.1), induced by 1 → R → F⋊Γ → H⋊Γ → 1 (4.2); R is a product of irreducible F⋊Γ-groups. 𝒜_H is the set of non-trivial finite abelian irreducible |Γ|′-(H⋊Γ)-groups. \"Non-trivial\" refers to the group, so 𝒜_H contains Z/p with trivial H⋊Γ-action, for which |Y(G)| = 1 and 𝒩 the set of finite |Γ|′-Γ-groups isomorphic to T^j (T non-abelian simple); m(𝒞, n, H, G) is the multiplicity of G in R (summed over the compatible F⋊Γ-structures for G ∈ 𝒩), independent of ϖ (Remark 4.9).",
       "locator": "§4, (4.1)–(4.2), p. 20, and Remark 4.9, p. 23",
       "status": "missing",
       "note": ""
@@ -177,13 +177,13 @@
       "statement": "For a Γ-group F and R = ∏ G_i^{m_i} with pairwise non-isomorphic finite irreducible F⋊Γ-groups G_i, and n+u ≥ 1 uniform random r_1, …, r_{n+u} ∈ R: Prob([Y({r_j})]_{F⋊Γ} = R) = ∏_{G_i abelian} ∏_{j=0}^{m_i−1}(1 − h_{F⋊Γ}(G_i)^j |Y(G_i)|^{−n−u}) ∏_{G_i non-abelian}(1 − |Y(G_i)|^{−n−u})^{m_i}, where h_G(H) = |Hom_G(H, H)|. Remark 4.4: for G abelian irreducible, h_{F⋊Γ}(G)^𝔪 = |Y(G)| with 𝔪 maximal such that G^𝔪 is generated by the coordinates of one Y(g).",
       "locator": "Proposition 4.3, p. 21 (arXiv v2), and Remark 4.4, p. 21",
       "status": "missing",
-      "note": "Uses Liu–Wood's Lemmas 5.5 and 5.8."
+      "note": "Uses Liu–Wood's Lemmas 5.5 and 5.8. The proof (p. 21) writes 𝓕_n for 𝓕_{n+u}, Y[(…)] for [Y(…)], and \"γ ∈ F⋊Γ\" for the F⋊Γ-subgroup generated by the y_i^{−1}γ(y_i), γ ∈ Γ (E22)."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/19",
       "kind": "theorem",
       "name": "Lemma 4.6, Proposition 4.7 and Corollary 4.8: counting H-extensions",
-      "statement": "Lemma 4.6: for ρ : (𝓕_n)^𝒞 → H and an H-extension (E, π), |Sur_{Γ,H}(ρ, π)| = Σ_{D∈𝓔^E_H} ν(D, E)(|Y(D)|/|Y(H)|)^n if E is admissible of level 𝒞, and 0 otherwise (ν the Möbius function of the poset of sub-H-extensions). Proposition 4.7 counts |Sur_{F⋊Γ}(R, G)| over the admissible level-𝒞 H-extensions 𝓔_𝒞(G, H) with kernel G. Corollary 4.8: for G ∈ 𝒜_H, (h_{H⋊Γ}(G)^m − 1)/(h_{H⋊Γ}(G) − 1) = Σ_{(E,π)∈𝓔_𝒞(G,H)} Σ_D ν(D,E)(|Y(D)|/|Y(H)|)^n / |Aut_{Γ,H}(E,π)|, and for G ∈ 𝒩, m equals the same sum.",
+      "statement": "An H-extension is a Γ-group E with a Γ-surjection π : E → H. It is admissible if E is, and a sub-H-extension is a Γ-subgroup E′ with π|_{E′} surjective. For G abelian irreducible, 𝓔(G, H) is the set of isomorphism classes of admissible H-extensions with ker π ≅ G as H⋊Γ-groups. For G non-abelian, it is the set with ker π ≅ G as Γ-groups and irreducible as an E⋊Γ-group. 𝓔_𝒞(G, H) is the subset with E of level 𝒞. Lemma 4.6: for ρ : (𝓕_n)^𝒞 → H and a finite H-extension (E, π), |Sur_{Γ,H}(ρ, π)| = Σ_{D∈𝓔^E_H} ν(D, E)(|Y(D)|/|Y(H)|)^n if E is admissible of level 𝒞, and 0 otherwise. Here ν is the Möbius function of the poset 𝓔^E_H of sub-H-extensions: ν(E, E) = 1 and ν(D, E) = −Σ_{D ⊊ D′ ⊆ E} ν(D′, E). The printed recursion omits D ⊊ D′ (sourceIssues E9). Proposition 4.7 counts |Sur_{F⋊Γ}(R, G)| over 𝓔_𝒞(G, H). Corollary 4.8: for G ∈ 𝒜_H, (h_{H⋊Γ}(G)^m − 1)/(h_{H⋊Γ}(G) − 1) = Σ_{(E,π)∈𝓔_𝒞(G,H)} Σ_D ν(D,E)(|Y(D)|/|Y(H)|)^n / |Aut_{Γ,H}(E,π)|, and for G ∈ 𝒩, m equals the same sum.",
       "locator": "Lemma 4.6, p. 22 (arXiv v2), Proposition 4.7 and Corollary 4.8, pp. 22–23",
       "status": "missing",
       "note": "Uses Liu–Wood's Theorem 7.1 and Proposition 8.7."
@@ -192,10 +192,10 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/20",
       "kind": "theorem",
       "name": "Theorem 4.12: the measures of basic opens and their limits",
-      "statement": "Let 𝒞 be a finite set of finite |Γ|′-Γ-groups and H a finite admissible level-𝒞 Γ-group; n ≥ 1, u > −n. Then Prob((X_{u,n})^𝒞 ≅ H) = |Sur_Γ(𝓕_n, H)| / (|Aut_Γ(H)||Y(H)|^{n+u}) · ∏_{G∈𝒜_H} ∏_{k=0}^{m−1}(1 − h_{H⋊Γ}(G)^k/|Y(G)|^{n+u}) ∏_{G∈𝒩}(1 − |Y(G)|^{−n−u})^m (m = m(𝒞,n,H,G)), and lim_n equals |Aut_Γ(H)|^{−1}|Y(H)|^{−u} ∏_{G∈𝒜_H} ∏_{i≥1}(1 − λ(𝒞,H,G) h_{H⋊Γ}(G)^{−i}/|Y(G)|^u) ∏_{G∈𝒩} e^{−|Y(G)|^{−u}λ(𝒞,H,G)}, with λ as in (4.10)–(4.11); only finitely many factors are non-trivial.",
+      "statement": "Let 𝒞 be a finite set of finite |Γ|′-Γ-groups and H a finite admissible level-𝒞 Γ-group; n ≥ 1, u > −n. Then Prob((X_{u,n})^𝒞 ≅ H) = |Sur_Γ(𝓕_n, H)| / (|Aut_Γ(H)||Y(H)|^{n+u}) · ∏_{G∈𝒜_H} ∏_{k=0}^{m−1}(1 − h_{H⋊Γ}(G)^k/|Y(G)|^{n+u}) ∏_{G∈𝒩}(1 − |Y(G)|^{−n−u})^m (m = m(𝒞,n,H,G)) (4.13). If H has Property E in the category of level-𝒞 Γ-groups, the limit as n → ∞ is |Aut_Γ(H)|^{−1}|Y(H)|^{−u} ∏_{G∈𝒜_H} ∏_{i≥1}(1 − λ(𝒞,H,G) h_{H⋊Γ}(G)^{−i}/|Y(G)|^u) ∏_{G∈𝒩} e^{−|Y(G)|^{−u}λ(𝒞,H,G)} (4.14). Otherwise the probability is 0 for every n. Here λ(𝒞,H,G) = (h_{H⋊Γ}(G) − 1) Σ_{(E,π)∈𝓔_𝒞(G,H)} |Aut_{Γ,H}(E,π)|^{−1} for G ∈ 𝒜_H (4.10) and Σ_{(E,π)∈𝓔_𝒞(G,H)} |Aut_{Γ,H}(E,π)|^{−1} for G ∈ 𝒩 (4.11), with h_{H⋊Γ}(G) = |Hom_{H⋊Γ}(G,G)|. Only finitely many factors are non-trivial.",
       "locator": "Theorem 4.12, p. 24 (arXiv v2), with (4.10)–(4.11); proof as corrected by E1",
       "status": "missing",
-      "note": "Uses Liu–Wood's Corollary 6.12, Lemma 6.1 and Lemma 8.11. The proof cites the fundamental sequence as (7.1); it is (4.1) (E1)."
+      "note": "Uses Liu–Wood's Corollary 6.12, Lemma 6.1 and Lemma 8.11. The proof cites the fundamental sequence as (7.1); it is (4.1) (E1). The printed (4.14) has no Property E hypothesis. It is false when H lacks Property E: then some G ∈ 𝒜_H with trivial Γ-action has λ ≠ 0, the step (4.17) fails for it (h^m = 1 + λ with m constant in n), and the limit formula is non-zero, sometimes negative, while (4.13) gives 0 (E5). Under Property E every G with λ ≠ 0 has |Y(G)| ≥ 2, and the proof is right."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/21",
@@ -210,19 +210,19 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/22",
       "kind": "theorem",
       "name": "Lemma 5.4 and Corollary 5.9: multiplicity bounds at level ℓ",
-      "statement": "For H of level 𝒞_ℓ (all Γ-groups of order ≤ ℓ) and H̃ = H^{𝒞_{ℓ−1}}: the number of G ∈ 𝒜_H isomorphic to a given abelian M with some m(𝒞_ℓ, n, H, G) ≠ 0 is at most Σ_{(M,A)∈CF_Γ(𝒞̄_ℓ)} |Sur(H̃⋊Γ, A)|, and the number of level-𝒞_ℓ H-extensions with non-abelian irreducible kernel M is at most Σ |Sur(H̃⋊Γ, A/Inn(M))| (Lemma 5.4). Hence there is c(u, ℓ, H̃) > 0 with P_{u,n}(U_{𝒞_ℓ,H}) = 0 or ≥ c(u, ℓ, H̃) for all H over H̃ (Corollary 5.9).",
-      "locator": "Lemma 5.4, p. 27 (arXiv v2), and Corollary 5.9, pp. 27–28",
+      "statement": "Let 𝒞_ℓ be the set of |Γ|′-Γ-groups of order ≤ ℓ (the text omits |Γ|′, sourceIssues E18). Let H be of level 𝒞_ℓ and H̃ = H^{𝒞_{ℓ−1}}. The number of G ∈ 𝒜_H isomorphic to a given abelian M with some m(𝒞_ℓ, n, H, G) ≠ 0 is at most Σ_{(M,A)∈CF_Γ(𝒞̄_ℓ)} |Sur(H̃⋊Γ, A)|. The number of level-𝒞_ℓ H-extensions whose kernel M, a power of a non-abelian simple group, is an irreducible E⋊Γ-group is at most Σ |Sur(H̃⋊Γ, A/Inn(M))|. The text says \"irred. E-group\" (E19) (Lemma 5.4). Let P_{u,n}(U_{𝒞_ℓ,H}) be the product ∏_{G∈𝒜_H} ∏_{k<m}(1 − h_{H⋊Γ}(G)^k/|Y(G)|^{n+u}) ∏_{G∈𝒩}(1 − |Y(G)|^{−n−u})^m of (4.13), without its prefactor (p. 28). For ℓ > 1 there is c(u, ℓ, H̃) > 0, independent of n and of H over H̃, such that for all n ≥ 1 with u > −n, P_{u,n}(U_{𝒞_ℓ,H}) = 0 or P_{u,n}(U_{𝒞_ℓ,H}) ≥ c(u, ℓ, H̃) (Corollary 5.9).",
+      "locator": "Lemma 5.4, p. 27 (arXiv v2), proof p. 28, and Corollary 5.9, pp. 28–29",
       "status": "missing",
-      "note": "Corollary 5.9 follows Liu–Wood Lemma 9.5."
+      "note": "Corollary 5.9 follows Liu–Wood Lemma 9.5. Chief factor pairs (M, A) and CF(G) are Liu–Wood's (LW20 §6), recalled on pp. 25–26."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/23",
       "kind": "theorem",
       "name": "Lemma 5.10: interchanging limits and sums over the level tower",
-      "statement": "Let f_n(H, ℓ) ≥ 0 be defined for finite Γ-groups H of level 𝒞_ℓ with f_n = g_n · P_{u,n}(U_{𝒞_ℓ,H}), g_n → g monotonically from below, and Σ_{H over H̃} f_n(H, ℓ) = f_n(H̃, ℓ−1). Then lim_n f_n(H, ℓ) exists and Σ_H lim_n f_n(H, ℓ) = lim_n f_n(1, 1).",
+      "statement": "Let f_n(H, ℓ) ≥ 0 be defined for finite Γ-groups H of level 𝒞_ℓ. Assume: (1) f_n = g_n · P_{u,n}(U_{𝒞_ℓ,H}); (2) g_n(H, ℓ) → g(H, ℓ) and g_n ≤ g for every n; (3) Σ_{H over H̃} f_n(H, ℓ) = f_n(H̃, ℓ−1). Assume also that f_n(H, ℓ) > 0 implies f_{n′}(H, ℓ) > 0 for all n′ ≥ n. This hypothesis is not in the text; its proof needs it, and it holds in both applications (sourceIssues E10). Then lim_n f_n(H, ℓ) exists and Σ_H lim_n f_n(H, ℓ) = lim_n f_n(1, 1). For u < 0, everything is read for n > −u.",
       "locator": "Lemma 5.10, p. 29 (arXiv v2)",
       "status": "missing",
-      "note": "By induction on ℓ and dominated convergence, using Corollary 5.9."
+      "note": "By induction on ℓ and dominated convergence (Tannery's theorem), using Corollary 5.9. In the applications, positivity is monotone because killing x_{n+1} gives 𝓕_{n+1}/[Y(S̃ ∪ {y})] ≅ 𝓕_n/[Y(S)] with Y(y) = Y(x_{n+1}), and the event is open."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/24",
@@ -231,23 +231,23 @@
       "statement": "For every integer u, μ_u is countably additive on the algebra generated by the basic opens U_{𝒞,H}, hence extends uniquely to a Borel probability measure on 𝒫.",
       "locator": "Theorem 5.12, p. 30 (arXiv v2), statement as corrected by E4",
       "status": "missing",
-      "note": "Printed for u ≥ 0 only, although Theorems 5.15, 6.2 and 7.4 use μ_u for all u. The proof (Lemma 5.10 with f_n = μ_{u,n}(U_{𝒞_ℓ,H})) never uses u ≥ 0 (E4)."
+      "note": "Printed for u ≥ 0 only, although Theorems 5.15, 6.2 and 7.4 use μ_u for all u. The proof (Lemma 5.10 with f_n = μ_{u,n}(U_{𝒞_ℓ,H})) never uses u ≥ 0 (E4). For u < 0, X_{u,n} is defined only for n > −u, and Lemma 5.10 is applied to those n. The reduction to Σ_H μ_u(U_{𝒞_ℓ,H}) = 1 is Liu–Wood's Corollary 9.7 and Theorem 9.1. The proof's \"g(H) = |Aut_Γ(H)|^{−1}|Y(H)|^{−u} by Corollary 3.8\" is for admissible H and also uses (4.18); for other H, g = 0."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/25",
       "kind": "theorem",
       "name": "Definition 5.14 and Theorem 5.15: μ_u on V_{𝒞,H} for arbitrary 𝒞",
-      "statement": "For any set 𝒞 of finite |Γ|′-Γ-groups, finite admissible H of level 𝒞 and integer u, with m and λ extended to infinite 𝒞 as limits over an exhausting chain 𝒟_1 ⊂ 𝒟_2 ⊂ ⋯ (Definition 5.14): μ_u(V_{𝒞,H}) = μ_u({X : X^𝒞 ≅ H}) = |Aut_Γ(H)|^{−1}|Y(H)|^{−u} ∏_{G∈𝒜_H} ∏_{i≥1}(1 − λ(𝒞,H,G) h_{H⋊Γ}(G)^{−i}/|Y(G)|^u) ∏_{G∈𝒩} e^{−|Y(G)|^{−u}λ(𝒞,H,G)}.",
+      "statement": "For any set 𝒞 of finite |Γ|′-Γ-groups, finite admissible H of level 𝒞 with Property E in the category of level-𝒞 Γ-groups, and integer u, with m and λ extended to infinite 𝒞 as limits over an exhausting chain 𝒟_1 ⊂ 𝒟_2 ⊂ ⋯ (Definition 5.14): μ_u(V_{𝒞,H}) = μ_u({X : X^𝒞 ≅ H}) = |Aut_Γ(H)|^{−1}|Y(H)|^{−u} ∏_{G∈𝒜_H} ∏_{i≥1}(1 − λ(𝒞,H,G) h_{H⋊Γ}(G)^{−i}/|Y(G)|^u) ∏_{G∈𝒩} e^{−|Y(G)|^{−u}λ(𝒞,H,G)}. If H lacks Property E at level 𝒞, then μ_u(V_{𝒞,H}) = 0. The printed theorem has no Property E hypothesis and is false for such H (sourceIssues E5).",
       "locator": "Theorem 5.15, p. 31 (arXiv v2), with Definition 5.14, p. 31",
       "status": "missing",
-      "note": "As in Liu–Wood Lemma 11.3."
+      "note": "As in Liu–Wood Lemma 11.3. m and λ are nondecreasing and bounded along 𝒟_i, and V_{𝒞,H} = ∩_i U_{𝒟_i,H} for large i. The proof uses continuity from above, which needs Theorem 5.12 for every u (E4). Example of the failure: Γ = Z/2, p = 3, 𝒞 all finite 3-Γ-groups, H = F_3² with σ = −1. The printed formula gives 2.70·10^{−3} at u = 0, while Theorem 7.4 gives 0."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/26",
       "kind": "theorem",
       "name": "Lemma 6.1 and Theorem 6.2: the moments of μ_u",
       "statement": "For a finite admissible |Γ|′-Γ-group A and any integer u: lim_n E|Sur_Γ(X_{u,n}, A)| = [A : A^Γ]^{−u} (Lemma 6.1), and if X_u has distribution μ_u then E|Sur_Γ(X_u, A)| = [A : A^Γ]^{−u} (Theorem 6.2). In particular the μ_Γ-moment is [A : A^Γ]^{−1}.",
-      "locator": "Theorem 6.2, p. 32 (arXiv v2), with Lemma 6.1, pp. 31–33",
+      "locator": "Lemma 6.1, p. 31 (arXiv v2); Theorem 6.2, pp. 32–33",
       "status": "missing",
       "note": "The interchange of limit and sum uses Lemma 5.10 with f_n(H, ℓ) = E(|Sur_Γ(X_{u,n}, A)| · 1_{X^{𝒞_ℓ} ≅ H}). For u = 0 these are Boston–Wood's imaginary-quadratic moments."
     },
@@ -255,10 +255,10 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/27",
       "kind": "theorem",
       "name": "§7.1: abelianization gives the Cohen–Lenstra–Martinet distribution",
-      "statement": "For 𝒞 the abelian |Γ|′-Γ-groups and finite abelian H with H^Γ = 1: m(𝒞, n, H, G) = n𝔪_G and λ(𝒞, H, G) = 1 for G with trivial H-action, and μ_u(V_{𝒞,H}) = |Aut_Γ(H)|^{−1}|H|^{−u} ∏_{p∤|Γ|} ∏_{G nontrivial irreducible F_p[Γ]-rep} ∏_{i≥1}(1 − h_Γ(G)^{−i}/|G|^u). For u = 1 this is the Cohen–Lenstra–Martinet prediction for prime-to-|Γ| class groups of totally real Γ-fields (u = 0, 1 and Γ = Z/2: imaginary/real quadratic).",
-      "locator": "§7.1, pp. 33–34; as corrected by E3",
+      "statement": "For 𝒞 the abelian |Γ|′-Γ-groups and finite abelian H with H^Γ = 1: m(𝒞, n, H, G) = n𝔪_G and λ(𝒞, H, G) = 1 for G with trivial H-action and G^Γ = 1 (for the trivial Γ-representation, m = 0 and λ = 0), and μ_u(V_{𝒞,H}) = |Aut_Γ(H)|^{−1}|H|^{−u} ∏_{p∤|Γ|} ∏_{G nontrivial irreducible F_p[Γ]-rep} ∏_{i≥1}(1 − h_Γ(G)^{−i}/|G|^u). For u = 1 this is the Cohen–Lenstra–Martinet prediction for prime-to-|Γ| class groups of totally real Γ-fields (u = 0, 1 and Γ = Z/2: imaginary/real quadratic).",
+      "locator": "§7.1, p. 34; as corrected by E3",
       "status": "missing",
-      "note": "Uses that finite-index Γ-submodules N_p of (𝓕_n)^𝒞_p ≅ (Z_p[Γ]/(Σ g))^n are isomorphic to it (Z_p[Γ] hereditary; Serre, Linear representations §16 Thm 34). The text writes (Z_p[Γ])^n (E3). Agreement with Cohen–Martinet in Wang–Wood's Proposition 6.5."
+      "note": "Uses that finite-index Γ-submodules N_p of (𝓕_n)^𝒞_p ≅ (Z_p[Γ]/(Σ g))^n are isomorphic to it (Z_p[Γ] hereditary; Serre, Linear representations §16 Thm 34). The text writes (Z_p[Γ])^n (E3). Agreement with Cohen–Martinet in Wang–Wood's Proposition 6.5. The text's \"h_Γ(G)^{𝔪_G} = |G| for each G ∈ 𝒜_H\" needs G^Γ = 1 (Remark 4.4 gives |Y(G)|). That holds for every G occurring here, since F^Γ = 1."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/28",
@@ -267,16 +267,16 @@
       "statement": "Let Γ = Z/2, p odd, 𝒞 the finite p-Γ-groups (or those of p-class ≤ c). For H of the form 𝓕_n^𝒞/[Y(S)] with |S| = n+u: μ_u(V_{𝒞,H}) = |Aut_Γ(H)|^{−1}|Y(H)|^{−u} ∏_{i≥1+u+d(H)−r(H)}(1 − p^{−i}) (Theorem 7.4; d, r the generator and relation ranks), and for p-class c the same with r(H) replaced by r(H) − ν(H) when cl_p(H) = c (ν the nuclear rank) (Theorem 7.5); otherwise μ_u(V_{𝒞,H}) = 0. For u = 0, 1 these are the Boston–Bush–Hajir measures for imaginary and real quadratic fields. Lemma 7.2 identifies the fundamental sequence with the p-covering-group sequence (7.1).",
       "locator": "Theorem 7.4, p. 35 (arXiv v2), Lemma 7.2, Remark 7.3 and Theorem 7.5, pp. 34–37",
       "status": "missing",
-      "note": "Uses Liu–Wood Lemma 12.5."
+      "note": "Uses Liu–Wood Lemma 12.5. For n = d(H), (7.1) is the p-covering group sequence 1 → R′ → F′ → H → 1. R′ is the p-multiplicator, of dimension r(H); the text calls R′ the \"p-multiplicator rank\" (E24). The nucleus is P_c(F′), the last non-trivial term of the lower p-central series of F′ when cl_p(H) = c, and ν(H) = dim_{F_p} P_c(F′) is the nuclear rank (p. 36). The u = 0 comparison is Boston–Wood Lemma 4.8."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/29",
       "kind": "theorem",
       "name": "Lemmas 9.1 and 9.3: counting unramified H-extensions via H⋊Γ-extensions",
-      "statement": "Lemma 9.1: for a Γ-group H and profinite G, Sur(G, H⋊Γ) is in bijection with tuples (ρ ∈ Sur(G, Γ), N closed normal ⊂ ker ρ, section s : Γ → G/N, φ ∈ Isom_Γ(ker ρ/N, H)). Lemma 9.3: for H a finite |Γ|′-Γ-group, Σ_{K∈E_Γ(D,Q)} |Sur_Γ(Gal(K^{un,∞}/K), H)| = [H : H^Γ]^{−1} N(H, Γ, D, Q), where N counts surjections Gal(Q̄/Q) → H⋊Γ whose H-extension is unramified and split above ∞, whose Γ-extension is split at ∞, with rD = D.",
-      "locator": "Lemma 9.1, p. 37 (arXiv v2), and Lemma 9.3, pp. 37–38",
+      "statement": "Lemma 9.1: for a Γ-group H and profinite G, Sur(G, H⋊Γ) is in bijection with tuples (ρ ∈ Sur(G, Γ), N closed normal ⊂ ker ρ, section s : Γ → G/N, φ ∈ Isom_Γ(ker ρ/N, H)). Lemma 9.3: let H be a finite |Γ|′-Γ-group and let K^{un,∞} be the maximal extension of K unramified everywhere and split completely above ∞. Let N(H, Γ, D, Q) count the surjections Gal(Q̄/Q) → H⋊Γ whose H-extension is unramified and split above ∞, whose Γ-extension is split at ∞, and with rD = D. Then Σ_K |Sur_Γ(Gal(K^{un,∞}/K)^{|Γ|′}, H)| = [H : H^Γ]^{−1} N(H, Γ, D, Q). Here K runs over the surjections Gal(Q̄/Q) → Γ with the conditions, i.e. over Γ-extensions K ⊂ Q̄ with their identification, not up to isomorphism. Read with E_Γ(D, Q) as isomorphism classes (p. 3), the right-hand side must be multiplied by |Z(Γ)|/|Γ| (sourceIssues E7). The Γ-action is defined on the maximal pro-|Γ|′ quotient (Definition 2.1; the text writes Gal(K^{un,∞}/K), E28).",
+      "locator": "Lemma 9.1, pp. 37–38 (arXiv v2), and Lemma 9.3, p. 38 (proof pp. 38–39)",
       "status": "missing",
-      "note": "The factor [H : H^Γ] is the number of sections (Schur–Zassenhaus conjugacy)."
+      "note": "The factor [H : H^Γ] is the number of sections (Schur–Zassenhaus conjugacy). The normalization of E_Γ cancels in the moment ratios of Conjecture 1.3 and Theorem 1.4."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/30",
@@ -300,10 +300,10 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/32",
       "kind": "theorem",
       "name": "Lemma 10.2: F_q-points of 𝓗ur^n_{G,c} count the extensions",
-      "statement": "Let H be a finite |Γ|′-Γ-group, G = H⋊Γ and c the elements of G of the same order as their image in Γ. For q prime to |G| and n ≥ 0, |𝓗ur^n_{G,c}(F_q)| = N(H, Γ, q^n, F_q(t)).",
-      "locator": "Lemma 10.2, p. 39 (arXiv v2), proof p. 45",
+      "statement": "Let H be a finite |Γ|′-Γ-group, G = H⋊Γ and c the non-identity elements of G of the same order as their image in Γ. The text omits \"non-identity\" (sourceIssues E17), and Notation 10.1 needs c ⊂ G ∖ 1 to generate G, which holds when H is admissible, as in all uses. For q prime to |G| and n ≥ 0, |𝓗ur^n_{G,c}(F_q)| = N(H, Γ, q^n, F_q(t)).",
+      "locator": "Lemma 10.2, p. 39 (arXiv v2), proof pp. 45–46",
       "status": "missing",
-      "note": "Split completely at ∞ forces constant field F_q, so the covers are geometrically connected; rD(K) = q^{deg branch divisor}."
+      "note": "Split completely at ∞ forces constant field F_q, so the covers are geometrically connected; rD(K) = q^{deg branch divisor}. The last line of the proof writes N(H, Γ, n, F_q(t)) for N(H, Γ, q^n, F_q(t)) (E16)."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/33",
@@ -312,7 +312,7 @@
       "statement": "For a connected component Y of 𝓗ur^n_{G,c}, i ≥ 0, q prime to |G| and primes ℓ ∤ q, ℓ > n: Y_{F̄_q} is smooth of dimension n and dim H^i_{c,ét}(Y_{F̄_q}, Q_ℓ) = dim H^{2n−i}(Y_C, Q).",
       "locator": "Lemma 10.3, p. 39 (arXiv v2), proof p. 46",
       "status": "missing",
-      "note": "Poincaré duality, EVW Proposition 7.7 (upgraded from Z/ℓ to Q_ℓ coefficients) on the ordered-configuration cover, S_n-invariants, and the Artin comparison."
+      "note": "Poincaré duality, EVW Proposition 7.7 (upgraded from Z/ℓ to Q_ℓ coefficients) on the ordered-configuration cover, S_n-invariants, and the Artin comparison. The comparison is PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/68 (Proposition 7.7) on the ordered-configuration compactification (/66). The hypothesis ℓ > n matters only for Z/ℓ coefficients."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/34",
@@ -321,14 +321,14 @@
       "statement": "For q prime to |G|, Frob of (𝓗ur^n_{G,c})_{F_q} sends the F̄_q-point (f, ι, P) to its base change (f^F, ι^F, P^F) along F : x ↦ x^q.",
       "locator": "Lemma 11.8, p. 46 (arXiv v2)",
       "status": "missing",
-      "note": ""
+      "note": "The proof's \"Frob_Z ∘ s = s ∘ F\" holds in Z(F̄_q) = Hom_{F_q}(Spec F̄_q, Z), i.e. after composing with Z_{F̄_q} → Z. As F̄_q-morphisms the two sides lie over different maps (E29)."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/35",
       "kind": "definition",
       "name": "Reduced multiplier H_2(G, c), the groups U(G, c), K(G, c) and the powering action",
-      "statement": "For G, c as in Notation 10.1: Q_c ⊂ H_2(G, Z) is generated by ⟨x, y⟩ for x ∈ c, y commuting with x; H_2(G, c) = H_2(G, Z)/Q_c; S̄ = S/τ_S(Q_c) for a Schur cover S, with H_2(G, c) ≅ ker(S̄ → G); U(G, c) = S̄ ×_{G^ab} Z^{c/G}; K(G, c) = ker(U(G, c) → G), with [x] = (x̂, e_x). The group Ẑ^× acts on the set K(G, c) by α*(g, m) = (g^α W_α(m), m^α), with W_α(γ) = x̂_γ^{−α} (x_γ^α)^. The sets K(G,c)⟨−1⟩, Z^{c/G}_{≥M}⟨−1⟩ and 𝔖^{c,G} (Ẑ^×-orbits) are as in §12.",
-      "locator": "§12, pp. 46–48",
+      "statement": "For G, c as in Notation 10.1: Q_c ⊂ H_2(G, Z) is generated by ⟨x, y⟩ for x ∈ c, y commuting with x; H_2(G, c) = H_2(G, Z)/Q_c; S̄ = S/τ_S(Q_c) for a Schur cover S, with H_2(G, c) ≅ ker(S̄ → G); U(G, c) = S̄ ×_{G^ab} Z^{c/G}; K(G, c) = ker(U(G, c) → G), with [x] = (x̂, e_x). The group Ẑ^× acts on the set K(G, c) by α*(g, m) = (g^α W_α(m), m^α), with W_α(γ) = x̂_γ^{−α} (x_γ^α)^. The sets K(G,c)⟨−1⟩, Z^{c/G}_{≥M}⟨−1⟩ and 𝔖^{c,G} (Ẑ^×-orbits) are as in §12. Z^{c/G}_{≡q} is the set of m ∈ Z^{c/G} whose coordinates are constant on the q-th-power orbits of c/G. Z^{c/G}_{≡q,n,≥M} adds that every coordinate is ≥ M and the coordinates sum to n (p. 50).",
+      "locator": "§12, pp. 46–48 and p. 50",
       "status": "missing",
       "note": "PAPER-WOOD-19 proposes the Part II InductionRestrictionPartIIReducedSchur for exactly these (reduced Schur multiplier, reduced cover, universal marked extension, discrete power action)."
     },
@@ -337,9 +337,9 @@
       "kind": "theorem",
       "name": "Lemma 12.10: compatible Schur covers for H⋊Γ → Γ",
       "statement": "Let H be an admissible |Γ|′-Γ-group and G = H⋊Γ. There are Schur covering groups S → G and S_Γ → Γ with S → S_Γ over G → Γ, and ρ : H_2(G, Z) → H_2(Γ, Z) has kernel of order prime to |Γ|.",
-      "locator": "Lemma 12.10, p. 53 (arXiv v2), p. 53",
+      "locator": "Lemma 12.10 and its proof, p. 53 (arXiv v2)",
       "status": "missing",
-      "note": "Splits M = H_2(G) into its |H|- and |Γ|-primary parts."
+      "note": "Splits M = H_2(G) into its |H|- and |Γ|-primary parts; ker ρ is the |H|-primary part. H must be finite; the proof uses only (|H|, |Γ|) = 1, not admissibility."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/37",
@@ -355,16 +355,16 @@
       "kind": "theorem",
       "name": "Theorem 12.4 and Corollary 12.6: complex components as braid orbits, labelled by lifting invariants",
       "statement": "Over C, with standard generators γ_i of π_1(P^1 ∖ {P_i}, ∞), the fiber of 𝓗ur^n_{G,c} over P is {(g_1,…,g_n) ∈ c^n : g_1⋯g_n = 1, ⟨g_i⟩ = G}; there is ζ such that each point has lifting invariant ζ ↦ [g_1]⋯[g_n]; and π_1(Conf^n A^1(C)) = B_n acts by σ_i(g) = (…, g_i g_{i+1} g_i^{−1}, g_i, …), so components ↔ B_n-orbits (Theorem 12.4, via Fried–Völklein). Corollary 12.6: the lifting invariant bijects the components of Y_C, and of Y_{F̄_q}, having a given 𝔖-invariant in 𝔖^{c,G}_{n,≥M} with the lifting invariants over it.",
-      "locator": "Theorem 12.4, p. 49 (arXiv v2), and Corollary 12.6, pp. 49–50",
+      "locator": "Theorem 12.4, p. 49 (arXiv v2), and Corollary 12.6, p. 50",
       "status": "missing",
-      "note": "The F̄_q half of Corollary 12.6 uses the specialization compatibility of Theorem 12.1 and the count of Lemma 10.3 on H^0."
+      "note": "The F̄_q half of Corollary 12.6 uses Wood 2021, Remark 5.4 (every lifting invariant occurs over F̄_q) and Lemma 10.3 with i = 2n. Theorem 12.4 rests on Fried–Völklein §1.4."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/39",
       "kind": "theorem",
       "name": "Theorem 12.5: stable braid orbits are classified by the lifting invariant",
-      "statement": "(Wood, Res. Math. Sci. 8 (2021), Theorem 3.1.) For finite G and c as in Notation 10.1 there is M such that (g_1, …, g_n) ↦ [g_1]⋯[g_n] maps c^{n,G}_{1,≥M} (generating tuples with product 1 in which every class of c/G occurs at least M times) onto K(G, c)_{n,≥M}, with fibers exactly the B_n-orbits.",
-      "locator": "Theorem 12.5, p. 49 (arXiv v2), p. 49",
+      "statement": "(Wood, Res. Math. Sci. 8 (2021), Theorem 3.1.) For finite G and c as in Notation 10.1 there is M such that (g_1, …, g_n) ↦ [g_1]⋯[g_n] maps c^{n,G}_{1,≥M} (generating tuples with product 1 in which every class of c/G occurs at least M times) onto K(G, c)_{n,≥M} for every n ≥ M, with fibers exactly the B_n-orbits.",
+      "locator": "Theorem 12.5, p. 49 (arXiv v2)",
       "status": "missing",
       "note": "A purely group-theoretic statement; PAPER-WOOD-19 routes the same stable braid-orbit classification (its item /134) to IG.3."
     },
@@ -372,35 +372,35 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/40",
       "kind": "theorem",
       "name": "Proposition 12.7 and Corollary 12.9: counting Frobenius-fixed components",
-      "statement": "For q prime to |G|, b(G,c,q,n) = Σ_{m ∈ ker(Z^{c/G}_{≡q,n,≥0} → G^ab)} nr_{q−1}(W_{q^{−1}}(m)) (nr_k(a) the number of k-th roots of a), π_{G,c}(q,n) = b(G,c,q,n) + O_G(n^{d_{G,c}(q)−2}), and b = 0 ⇒ π_{G,c}(q,n) = 0 (Proposition 12.7). For each a ∈ (Z/|G|²)^× there are M_a, a non-empty set E_a of residues and r_{a,b} > 0 with π_{G,c}(q,n) = 0 if n mod M_a ∉ E_a and = r_{a,b} n^{d_{G,c}(q)−1} + O_G(n^{d_{G,c}(q)−2}) if n ≡ b ∈ E_a, for q ≡ a mod |G|² (Corollary 12.9).",
-      "locator": "Proposition 12.7, p. 50 (arXiv v2), and Corollary 12.9, pp. 50–53",
+      "statement": "For q prime to |G| and n ≥ 1, b(G,c,q,n) = Σ_{m ∈ ker(Z^{c/G}_{≡q,n,≥0} → G^ab)} nr_{q−1}(W_{q^{−1}}(m)) (nr_k(a) the number of k-th roots of a), π_{G,c}(q,n) = b(G,c,q,n) + O_G(n^{d_{G,c}(q)−2}), and b = 0 ⇒ π_{G,c}(q,n) = 0 (Proposition 12.7). The text allows n = 0, where the formula fails (sourceIssues E25). The O_G constants are uniform in q and n. For each a ∈ (Z/|G|²)^× there are M_a, a non-empty set E_a of residues and r_{a,b} > 0 with π_{G,c}(q,n) = 0 if n mod M_a ∉ E_a and = r_{a,b} n^{d_{G,c}(q)−1} + O_G(n^{d_{G,c}(q)−2}) if n ≡ b ∈ E_a, for q ≡ a mod |G|² (Corollary 12.9).",
+      "locator": "Proposition 12.7, p. 50 (arXiv v2), proof pp. 50–51, and Corollary 12.9, p. 52",
       "status": "missing",
-      "note": "π_{G,c}(q,n) is the number of Frobenius-fixed components of (𝓗ur^n_{G,c})_{F̄_q}, and d_{G,c}(q) the number of q-power orbits on the non-trivial classes in c. The component bound uses Ellenberg–Venkatesh Lemma 3.3."
+      "note": "π_{G,c}(q,n) is the number of Frobenius-fixed components of (𝓗ur^n_{G,c})_{F̄_q}, and d_{G,c}(q) the number of q-power orbits on the non-trivial classes in c. Z^{c/G}_{≡q,n,≥0} is defined in item 35. The component bound uses Ellenberg–Venkatesh 2005, Lemma 3.3. The proof writes d_G for d_{G,c} (E26)."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/41",
       "kind": "theorem",
       "name": "Theorem 10.4: G-components versus Γ-components",
-      "statement": "Let H be a finite admissible Γ-group, G = H⋊Γ and c as in Lemma 10.2. There is C_G > 0 and, for each a ∈ (Z/|G|²)^×, M_a and a non-empty set E_a of residues such that for all n and prime powers q ≡ a mod |G|² with gcd(q(q−1), |H|) = 1: π_{G,c}(q,n) = π_Γ(q,n) + O_G(n^{d_Γ(q)−2}); if n mod M_a ∉ E_a then π_{G,c}(q,n) = π_Γ(q,n) = 0; and if n mod M_a ∈ E_a and n is large, π_Γ(q,n) ≥ C_G n^{d_Γ(q)−1}.",
-      "locator": "Theorem 10.4, p. 39 (arXiv v2), proof in §12, pp. 53–55",
+      "statement": "Let H be a finite admissible Γ-group, G = H⋊Γ and c the non-identity elements of G of the same order as their image in Γ (as in Lemma 10.2; E17). There is C_G > 0 and, for each a ∈ (Z/|G|²)^×, M_a and a non-empty set E_a of residues such that for all n and prime powers q ≡ a mod |G|² with gcd(q(q−1), |H|) = 1: π_{G,c}(q,n) = π_Γ(q,n) + O_G(n^{d_Γ(q)−2}); if n mod M_a ∉ E_a then π_{G,c}(q,n) = π_Γ(q,n) = 0; and if n mod M_a ∈ E_a and n is large, π_Γ(q,n) ≥ C_G n^{d_Γ(q)−1}. Here π_{G,c}(q,n) is the number of Frobenius-fixed components of (𝓗ur^n_{G,c})_{F̄_q}, d_{G,c}(q) is the number of q-th-power orbits on the non-trivial G-conjugacy classes in c, and π_Γ = π_{Γ,Γ∖1}, d_Γ = d_{Γ,Γ∖1}. The O_G constants are uniform in q and n.",
+      "locator": "Theorem 10.4, pp. 39–40 (arXiv v2), proof on pp. 54–55 using Lemma 12.10 (p. 53)",
       "status": "missing",
-      "note": "b(G,c,q,n) = b(Γ, Γ∖1, q, n), from Lemma 12.10, G^ab ≅ Γ^ab (H admissible), the bijection c/G ↔ (Γ∖1)/Γ, and a kernel of order prime to q−1."
+      "note": "b(G,c,q,n) = b(Γ, Γ∖1, q, n), from Lemma 12.10, G^ab ≅ Γ^ab (H admissible), the bijection c/G ↔ (Γ∖1)/Γ, and a kernel of order prime to q−1. The hypothesis gcd(q−1, |H|) = 1 is needed. For Γ = Z/2 and H = F_3² with inversion, H_2(G, c) = Z/3, and b(G,c,q,n) = 3·b(Γ,Γ∖1,q,n) when q ≡ 1 mod 3: generating 6-tuples of involutions with product 1 form 3 braid orbits. The proof writes S̄^i := H_2(G_i, Z)/Q_{c_i} for S^i/τ(Q_{c_i}) (E15) and π_G for π_{G,c} (E26)."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/42",
       "kind": "theorem",
       "name": "Lemma 12.8: lattice points on a hyperplane in the positive orthant",
-      "statement": "Let L ⊂ Z^d be a translate of a full lattice by an integer vector and a_i ≥ 0 integers, not all 0. There are k ≥ 1, a residue s mod k and r > 0 such that L′(n) = L ∩ {Σ a_i x_i = n} is empty unless n ≡ s mod k, and then #(L′(n) ∩ {x_i ≥ 0}) = r n^{d−1} + O_{d,L,a}(n^{d−2}).",
-      "locator": "Lemma 12.8, p. 51 (arXiv v2)",
+      "statement": "Let L = v + Λ ⊂ Z^d be a translate of a full lattice by an integer vector, and let a_1, …, a_d be positive integers. There are k ≥ 1, a residue s mod k and r > 0 such that L′(n) = L ∩ {Σ a_i x_i = n} is empty unless n ≡ s mod k, and then #(L′(n) ∩ {x_i ≥ 0}) = r n^{d−1} + O_{d,L,a}(n^{d−2}). The text allows non-negative a_i, not all 0; with some a_i = 0 the count is infinite (sourceIssues E8).",
+      "locator": "Lemma 12.8, pp. 51–52 (arXiv v2)",
       "status": "missing",
-      "note": "An application of Davenport's principle (Lipschitz) after projecting away one coordinate."
+      "note": "An application of Davenport's principle (Lipschitz) after projecting away one coordinate. Explicitly k = gcd φ(Λ) with φ(x) = Σ a_i x_i, s = φ(v), and r = k/((d−1)! ∏ a_i [Z^d : Λ]); checked on two examples. Corollary 12.9 uses it with a_i the sizes of q-power orbits, which are ≥ 1."
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/43",
       "kind": "definition",
       "name": "Free profinite (pro-𝒞, pro-p) groups and pro-p presentations",
-      "statement": "Free pro-|Γ|′ groups on finite sets, their pro-𝒞 completions, and minimal presentations of pro-p groups with generator and relation ranks d(G) = dim H¹(G, F_p), r(G) = dim H²(G, F_p) (NSW Corollary 3.9.3).",
-      "locator": "§3.1, §3.3, §7.2, pp. 13, 18, 34",
+      "statement": "Free pro-|Γ|′ groups on finite sets and their pro-𝒞 completions. Minimal presentations of pro-p groups: a set generates the relation module R as a closed normal subgroup iff it generates R/R* (NSW Corollary 3.9.3). The generator and relation ranks d(G) = dim H¹(G, F_p) and r(G) = dim H²(G, F_p) are used through the p-covering group of §7.2.",
+      "locator": "§3.1, §3.3, §7.2, pp. 13, 18, 35",
       "status": "planned",
       "planned": [
         "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
@@ -426,17 +426,20 @@
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/45",
       "kind": "definition",
       "name": "Haar probability measure on compact groups; Carathéodory extension; Fatou and dominated convergence",
-      "statement": "Haar measure on the compact group 𝓕_n (for random relations), Carathéodory extension of a countably additive premeasure from the algebra generated by basic opens, Fatou's lemma and dominated convergence.",
+      "statement": "Haar probability measure on the compact group 𝓕_n (for random relations); Carathéodory extension of a countably additive premeasure from the algebra generated by basic opens; Fatou's lemma and dominated convergence; Tannery's theorem (limits of sums, Lemma 5.10); and the Portmanteau criterion (μ(U) ≤ liminf μ_n(U) for open U implies weak convergence, §5.3).",
       "locator": "Definition 3.15 and §5, pp. 17, 29–30",
       "status": "library",
       "library": [
-        "mathlib:MeasureTheory.Measure.haar",
+        "mathlib:MeasureTheory.Measure.haarMeasure",
+        "mathlib:MeasureTheory.Measure.haarMeasure_self",
         "mathlib:MeasureTheory.Measure.isHaarMeasure_haarMeasure",
         "mathlib:MeasureTheory.AddContent.measure",
         "mathlib:MeasureTheory.lintegral_liminf_le",
-        "mathlib:MeasureTheory.tendsto_integral_of_dominated_convergence"
+        "mathlib:MeasureTheory.tendsto_integral_of_dominated_convergence",
+        "mathlib:tendsto_tsum_of_dominated_convergence",
+        "mathlib:MeasureTheory.tendsto_of_forall_isOpen_le_liminf"
       ],
-      "note": "Mathlib: MeasureTheory.Measure.haar and isHaarMeasure_haarMeasure (Measure/Haar/Basic.lean), MeasureTheory.AddContent.measure (OuterMeasure/OfAddContent.lean, Carathéodory extension of a σ-subadditive content), MeasureTheory.lintegral_liminf_le (Fatou) and MeasureTheory.tendsto_integral_of_dominated_convergence."
+      "note": "Mathlib (Measure/Haar/Basic.lean): haarMeasure K₀ normalized by haarMeasure_self. The probability Haar measure on the compact group is haarMeasure ⊤ (TopologicalSpace.PositiveCompacts.coe_top); Measure.haar has an arbitrary normalization. Also in Mathlib: MeasureTheory.AddContent.measure (OuterMeasure/OfAddContent.lean), the Carathéodory extension of a σ-subadditive content on a semiring; MeasureTheory.lintegral_liminf_le (Fatou); MeasureTheory.tendsto_integral_of_dominated_convergence; tendsto_tsum_of_dominated_convergence (Analysis/Normed/Group/Tannery.lean); and MeasureTheory.tendsto_of_forall_isOpen_le_liminf (Measure/Portmanteau.lean)."
     }
   ],
   "prerequisites": [
@@ -448,7 +451,7 @@
     {
       "citation": "M. M. Wood, An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland, Res. Math. Sci. 8 (2021), no. 2, Paper 21",
       "link": "https://doi.org/10.1007/s40687-021-00259-2",
-      "why": "The lifting invariant of Hurwitz components, its Frobenius compatibility, and Theorem 3.1 (stable braid orbits = lifting invariants). Not extracted in the atlas; PAPER-WOOD-19 (Wood, Nonabelian Cohen–Lenstra moments) uses the same invariant and routes its pieces to IG.3 and IG.5."
+      "why": "The lifting invariant of Hurwitz components, its Frobenius compatibility, Theorem 3.1 (stable braid orbits = lifting invariants), Remark 5.3 (the inertia multiset is constant on components, needed to define 𝓗ur) and Remark 5.4 (every lifting invariant occurs over F̄_q, used for Corollary 12.6). Not extracted in the atlas; PAPER-WOOD-19 (Wood, Nonabelian Cohen–Lenstra moments) uses the same invariant and routes its pieces to IG.3 and IG.5."
     },
     {
       "citation": "S. Wewers, Construction of Hurwitz spaces, PhD thesis, Universität Essen (1998)",
@@ -489,6 +492,16 @@
       "citation": "H. Koch, Galois Theory of p-Extensions, Springer Monographs in Mathematics (2002)",
       "link": "https://doi.org/10.1007/978-3-662-04967-9",
       "why": "Theorem 11.3 and Chapter 11 (presentations of p-class tower groups) for Lemma 3.17 and Proposition 3.22."
+    },
+    {
+      "citation": "M. D. Fried, H. Völklein, The inverse Galois problem and rational points on moduli spaces, Math. Ann. 290 (1991), 771–800",
+      "link": "https://doi.org/10.1007/BF01459271",
+      "why": "Section 1.4: the braid action on the fibers of the topological Hurwitz space, used in Theorem 12.4. PAPER-WOOD-19 lists the same paper, for its Appendix Lemma 3."
+    },
+    {
+      "citation": "J. S. Ellenberg, A. Venkatesh, Counting extensions of function fields with bounded discriminant and specified Galois group, in Geometric Methods in Algebra and Number Theory, Progr. Math. 235, Birkhäuser (2005), 151–168",
+      "link": "https://doi.org/10.1007/0-8176-4417-2_7",
+      "why": "Lemma 3.3: an O_G(1) bound on the number of components of Hurwitz spaces per multiplicity vector, used for the error term of Proposition 12.7."
     }
   ],
   "routes": [
@@ -603,7 +616,7 @@
         "PAPER-LIU-WOOD-ZUREICKBROWN-24/27",
         "PAPER-LIU-WOOD-ZUREICKBROWN-24/28"
       ],
-      "brief": "First prerequisite: Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics), especially ST.0 (families and measures) and ST.5 (distributions, higher moments, function-field analogues); do not replan them. The new object is a probability theory of random profinite Γ-groups: Liu–Wood–Zureick-Brown, Invent. Math. 237 (2024), Part I (§§1–7), building on Liu–Wood, J. reine angew. Math. 762 (2020), which must be acquired and decomposed first because §§4–5 cite a dozen of its lemmas.\n\nThe final theorems, as in LWZB (arXiv v2 numbering):\n- Theorem 1.2: X_{Γ,n} = 𝓕_n/[Y(S)] (n+1 Haar relations) converges weakly to a probability measure μ_Γ on admissible Γ-groups, with the explicit formula (5.13) on basic opens.\n- Theorem 5.12: μ_u is countably additive for every integer u (the printed u ≥ 0 is too weak for the later statements; sourceIssue E4).\n- Theorem 5.15: the formula for μ_u(V_{𝒞,H}) for arbitrary 𝒞.\n- Theorem 6.2: E|Sur_Γ(X_u, A)| = [A : A^Γ]^{−u}.\n- §7.1: abelianization gives Cohen–Lenstra–Martinet (use (Z_p[Γ]/(Σ g))^n, sourceIssue E3).\n- Theorems 7.4–7.5: pro-p and p-class-c quotients give Boston–Bush–Hajir for Γ = Z/2.\n- Conjecture 1.3, as a conjecture.\n\nCover also:\n- admissibility, levels, pro-𝒞 completion and the space 𝒫 with basic opens;\n- Property E (Definition 2.3);\n- the free admissible group 𝓕_n (Lemma 3.1, Remark 3.2), the map Y and sections (Lemmas 3.4–3.6), Corollary 3.8, Lemma 3.9, Corollary 3.10, Lemma 3.12, Proposition 3.13;\n- Definition 3.15 (random groups and μ_{u,n}, μ_u);\n- p-class tower groups in the model (Lemma 3.17, Proposition 3.22);\n- the fundamental sequence (4.1)–(4.2) and multiplicities, Proposition 4.3, Lemma 4.6, Proposition 4.7, Corollary 4.8, Theorem 4.12 (reference corrected per E1);\n- Γ-chief factor pairs (Definition 5.1, Lemma 5.2, Corollary 5.3), Lemma 5.4, Corollary 5.9, Lemma 5.10;\n- profinite Schur–Zassenhaus including conjugacy of complements. Mathlib has only existence for finite groups; conjugacy in general needs Feit–Thompson (not in Mathlib or the atlas), so state it with an explicit solvability hypothesis or an imported Feit–Thompson, and track which consumers (Lemma 9.3, hence Theorem 1.4's constant) depend on it.\n\nImport, never re-plan:\n- free pro-p/pro-𝒞 groups on finite sets, Frattini theory and presentations: Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups), Layers 3–5;\n- Haar measure, Carathéodory extension, Fatou and dominated convergence: Mathlib;\n- finite group theory (chief series, Hall subgroups): Mathlib;\n- the Galois-side facts (Proposition 2.2, Theorem 2.5): InverseGaloisAndArithmeticFundamentalGroups IG.4;\n- class field theory for the abelianization: tauceti ClassFieldTheory.\nExport μ_Γ and its moments to ArithmeticStatistics ST.5, whose function-field moment theorem (LWZB Theorem 1.4) is compared with Theorem 6.2.\n\nTests:\n- Γ = Z/2 with H = Z/3 (Cohen–Lenstra real quadratic);\n- Γ = Z/4 with H the Heisenberg group mod 3 (predicted moment 1/9, from Property E);\n- Γ = Z/3 and the quaternion group example that fails Property E;\n- a p-class tower group with d(H) = 2 for Γ = Z/2.",
+      "brief": "First prerequisite: Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics), especially ST.0 (families and measures) and ST.5 (distributions, higher moments, function-field analogues); do not replan them. The new object is a probability theory of random profinite Γ-groups: Liu–Wood–Zureick-Brown, Invent. Math. 237 (2024), Part I (§§1–7), building on Liu–Wood, J. reine angew. Math. 762 (2020), which must be acquired and decomposed first because §§4–5 cite a dozen of its lemmas.\n\nThe final theorems, as in LWZB (arXiv v2 numbering):\n- Theorem 1.2: X_{Γ,n} = 𝓕_n/[Y(S)] (n+1 Haar relations) converges weakly to a probability measure μ_Γ on admissible Γ-groups. The explicit formula (5.13) on basic opens holds only for H with Property E at level 𝒞; for other H the measure is 0 (sourceIssues E5). The printed formula has no such hypothesis and is wrong there.\n- Theorem 5.12: μ_u is countably additive for every integer u (the printed u ≥ 0 is too weak for the later statements; sourceIssue E4).\n- Theorem 5.15: the formula for μ_u(V_{𝒞,H}) for arbitrary 𝒞, again for H with Property E at level 𝒞 (E5).\n- Theorem 6.2: E|Sur_Γ(X_u, A)| = [A : A^Γ]^{−u}.\n- §7.1: abelianization gives Cohen–Lenstra–Martinet (use (Z_p[Γ]/(Σ g))^n, sourceIssue E3).\n- Theorems 7.4–7.5: pro-p and p-class-c quotients give Boston–Bush–Hajir for Γ = Z/2.\n- Conjecture 1.3, as a conjecture.\n\nCover also:\n- admissibility, levels, pro-𝒞 completion and the space 𝒫 with basic opens;\n- Property E (Definition 2.3);\n- the free admissible group 𝓕_n (Lemma 3.1, Remark 3.2), the map Y and sections (Lemmas 3.4–3.6), Corollary 3.8 (for pro-|Γ|′ G, E12), Lemma 3.9, Corollary 3.10, Lemma 3.12, Proposition 3.13;\n- Definition 3.15 (random groups and μ_{u,n}, μ_u);\n- p-class tower groups in the model (Lemma 3.17, Proposition 3.22);\n- the fundamental sequence (4.1)–(4.2) and multiplicities, Proposition 4.3, Lemma 4.6, Proposition 4.7, Corollary 4.8, Theorem 4.12 (reference corrected per E1);\n- Γ-chief factor pairs (Definition 5.1, Lemma 5.2, Corollary 5.3), Lemma 5.4, Corollary 5.9, Lemma 5.10 (with the monotone-positivity hypothesis its proof needs, E10);\n- profinite Schur–Zassenhaus including conjugacy of complements. Mathlib has only existence for finite groups; conjugacy in general needs Feit–Thompson (not in Mathlib or the atlas), so state it with an explicit solvability hypothesis or an imported Feit–Thompson, and track its consumers. Conjugacy is already used in Lemma 3.4, hence in Lemma 3.1, so all of Part I depends on it, as do Definition 2.1 and Lemma 9.3.\n\nImport, never re-plan:\n- free pro-p/pro-𝒞 groups on finite sets, Frattini theory and presentations: Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups), Layers 3–5;\n- Haar measure, Carathéodory extension, Fatou and dominated convergence: Mathlib;\n- finite group theory (chief series, Hall subgroups): Mathlib;\n- the Galois-side facts (Proposition 2.2, Theorem 2.5): InverseGaloisAndArithmeticFundamentalGroups IG.4;\n- class field theory for the abelianization: tauceti ClassFieldTheory.\nExport μ_Γ and its moments to ArithmeticStatistics ST.5, whose function-field moment theorem (LWZB Theorem 1.4) is compared with Theorem 6.2.\n\nTests:\n- Γ = Z/2 with H = Z/3 (Cohen–Lenstra real quadratic);\n- Γ = Z/4 with H the Heisenberg group mod 3 (predicted moment 1/9, from Property E);\n- Γ = Z/3 and the quaternion group example that fails Property E;\n- a p-class tower group with d(H) = 2 for Γ = Z/2;\n- Γ = Z/2, p = 3, 𝒞 the 3-Γ-groups of 3-class ≤ 2, H = F_3² with σ = −1: H lacks Property E, so the measure is 0. The printed (5.13) gives 2.70·10^{−3} (E5).",
       "reason": "ST.0–ST.5 plan families, measures, class-group moments and function-field analogues, but no theory of random profinite groups with Γ-action. The free admissible Γ-group, Property E, measures on profinite Γ-groups, Γ-chief factor pairs, no escape of mass and moment computations are new layers in the direction of arithmetic statistics. The upstream Profinite and pro-p groups roadmap supplies only free groups and presentations, not their random quotients or limiting measures."
     }
   ],
@@ -622,7 +635,12 @@
         "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
         "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
         "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the page image of p. 25 and in the TeX, where the reference is \\eqref{eq:fundshort}, the p-covering sequence of §7.2. The needed fact is that an (𝓕_n)^𝒞-normal Γ-subgroup K ⊆ N with KM = N equals N. It follows from the definition of M in the paragraph of (4.1).",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E2",
@@ -638,7 +656,12 @@
         "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
         "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
         "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the page image of p. 41. All three displays there read N(E, Γ, q^n, F_q(t)), while the first display of the proof (p. 40) has N(H, Γ, q^n, F_q(t)).",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E3",
@@ -654,15 +677,20 @@
         "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
         "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
         "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p. 34. Corollary 3.10 gives 𝓕_n^ab ≅ (Z[Γ]/(Σ g))^n, which has no Γ-invariants, whereas (Z_p[Γ])^n has invariants Z_p^n. Z_p[Γ]/(Σ g) = Z_p[Γ](1 − e) is the augmentation ideal. Since p ∤ |Γ|, lattices with the same rational span are isomorphic, so the conclusion N ≅ (𝓕_n)^𝒞 stands. Read literally, the printed module would put the trivial representation into R with multiplicity n. A numerical check of the §7.1 formula (Γ = Z/2, p = 3, u = 0, 1, 2: total mass 1 and moments [A : A^Γ]^{−u}) agrees.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
     },
     {
       "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E4",
       "kind": "gap",
-      "locator": "Statement of Theorem 5.12, p. 30, against Theorem 5.15 (p. 31), Lemma 6.1 and Theorem 6.2 (pp. 31–32) and Theorems 7.4–7.5 (pp. 35–36) (arXiv v2)",
+      "locator": "Statement of Theorem 5.12, p. 30, against Theorem 5.15 (p. 31), Theorem 6.2 (pp. 32–33) and Theorems 7.4–7.5 (pp. 35–36) (arXiv v2)",
       "printed": "\"Theorem 5.12. Let u ≥ 0 be an integer. Then µ_u is countably additive on the algebra A generated by the basic open sets U_{C,H} …\"; later \"Theorem 5.15. … Let u be an integer. Then µ_u(V_{C,H}) = …\"; \"Theorem 6.2. Let X_u be a random Γ-group with distribution µ_u. For any integer u …\"",
-      "correction": "State Theorem 5.12 for every integer u. Its proof applies Lemma 5.10 to f_n(H, ℓ) = µ_{u,n}(U_{𝒞_ℓ,H}), g_n(H) = |Sur_Γ(𝓕_n, H)|/(|Aut_Γ(H)||Y(H)|^{n+u}) and g(H) = |Aut_Γ(H)|^{−1}|Y(H)|^{−u}. The inequality g_n ≤ g holds for every u, because |Sur_Γ(𝓕_n, H)| ≤ |Y(H)|^n by Corollary 3.8. Corollary 5.9 only needs u > −n, which holds for large n. So nothing in the argument uses u ≥ 0.",
-      "reason": "For u < 0, Theorems 5.15, 6.2 and 7.4–7.5 evaluate µ_u on Borel sets V_{𝒞,H} and integrate against µ_u. That requires µ_u to extend to a Borel measure, which is proved (Theorem 5.12, with Carathéodory extension) only for u ≥ 0 as printed. The main Theorems 1.2 and 1.4 use u = 1 and are unaffected. With the hypothesis dropped the statements hold. For example, at u = −1 and Γ = Z/2 the formula gives measure 0 to every finite abelianization, consistent with the free rank-one abelianization of 𝓕_n/(n−1 relations).",
+      "correction": "State Theorem 5.12 for every integer u. Its proof applies Lemma 5.10 to f_n(H, ℓ) = µ_{u,n}(U_{𝒞_ℓ,H}), g_n(H) = |Sur_Γ(𝓕_n, H)|/(|Aut_Γ(H)||Y(H)|^{n+u}) and g(H) = |Aut_Γ(H)|^{−1}|Y(H)|^{−u}. The inequality g_n ≤ g holds for every u, because |Sur_Γ(𝓕_n, H)| ≤ |Y(H)|^n by Corollary 3.8. Corollary 5.9 only needs u > −n. For u < 0, X_{u,n}, f_n and P_{u,n} are defined only for n > −u, so Lemma 5.10 and the proof are read for those n. Nothing else in the argument uses u ≥ 0.",
+      "reason": "For u < 0, Theorems 5.15, 6.2 and 7.4–7.5 evaluate µ_u on Borel sets V_{𝒞,H} and integrate against µ_u. That requires µ_u to extend to a Borel measure, which is proved (Theorem 5.12, with Carathéodory extension) only for u ≥ 0 as printed. The main Theorems 1.2 and 1.4 use u = 1 and are unaffected. With the hypothesis dropped the statements hold. For example, at u = −1 and Γ = Z/2 the formula gives measure 0 to every finite abelianization, consistent with 𝓕_n/(n−1 relations) having abelianization of Z′-rank ≥ 1 (Z′ = ∏_{p∤|Γ|} Z_p), hence infinite.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -670,7 +698,562 @@
         "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
         "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
         "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at pp. 30–36, with three refinements made in place. First, for u < 0, Lemma 5.10 and the proof are read for n > −u. Second, Lemma 6.1 is dropped from the locator: it concerns finite-n limits and does not use Theorem 5.12. Third, \"free rank-one abelianization\" is replaced by \"Z′-rank ≥ 1\". A numerical check supports the corrected statement. For Γ = Z/2 at level {F_3 with σ = −1}, the Theorem 4.12 measures for u = −2, …, 2 have total mass 1 and moments [A : A^Γ]^{−u}.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E5",
+      "kind": "error",
+      "locator": "Theorem 4.12, (4.14), p. 24, and its proof, (4.17), p. 25; (5.13) in the proof of Theorem 1.2, p. 30; Theorem 5.15, p. 31 (arXiv v2)",
+      "printed": "\"(4.17) λ(C, H, G) = lim_{n→∞} h_{H⋊Γ}(G)^{m(C,n,H,G)}|Y(G)|^{−n} if G ∈ A_H … Otherwise λ(C, H, G) > 0, and it follows by (4.17) that m(C, n, H, G) → ∞ as n → ∞.\" Theorem 5.15: \"Let H be a finite admissible Γ-group of level C. Let u be an integer. Then µ_u(V_{C,H}) = 1/(|Aut_Γ(H)||Y(H)|^u) ∏_{G∈A_H} ∏_{i=1}^∞ (1 − λ(C,H,G) h_{H⋊Γ}(G)^{−i}/|Y(G)|^u) ∏_{G∈N} e^{−|Y(G)|^{−u}λ(C,H,G)}.\"",
+      "correction": "Add to (4.14), (5.13) and Theorem 5.15 the hypothesis that H has Property E in the category of level-𝒞 Γ-groups. Equivalently, λ(𝒞, H, G) = 0 for every G ∈ 𝒜_H on which Γ acts trivially. When the hypothesis fails, Prob((X_{u,n})^𝒞 ≅ H) = 0 for every n, and μ_u(U_{𝒞,H}) = μ_u(V_{𝒞,H}) = 0. In the proof, (4.17) and \"m → ∞\" hold for G with G^Γ ≠ G.",
+      "reason": "𝒜_H contains Z/p with trivial H⋊Γ-action. §7.1 speaks of \"G ∈ A_H with trivial H-action\", and (4.13) needs it. For such G, |Y(G)| = 1, and every sub-H-extension D of an admissible E has Y(D) = Y(E), hence D = E. So Corollary 4.8 gives (h^m − 1)/(h − 1) = Σ_E 1/|Aut_{Γ,H}(E, π)| with m independent of n, i.e. h^m = 1 + λ by (4.10). Hence (4.17) fails whenever λ ≠ 0. The finite-n formula (4.13) is right: its k = 0 factor 1 − 1/|Y(G)|^{n+u} vanishes, so the probability is 0 for every n. It must be: by Proposition 3.13 every (X_{u,n})^𝒞 has Property E, and λ ≠ 0 for such a G exactly when H has a non-split central level-𝒞 Γ-extension by Z/p with trivial action. The limit formula instead contributes ∏_{i≥1}(1 − λh^{−i}), which is never 0. Example: Γ = Z/2, p = 3, 𝒞 the 3-Γ-groups of 3-class ≤ 2, H = F_3² with σ = −1. Then λ(Z/3 trivial) = 2 (the Heisenberg group, |Aut_{Γ,H}| = 1) and λ(Z/3 sign) = 1. The formula gives 2.70·10^{−3} at u = 0 and 4.50·10^{−4} at u = 1. Two helper agents independently enumerated the random quotients: exhaustively at n = 2 and by Monte Carlo at n = 3, 4. F_3² never occurred, while the frequencies of 3^{1+2}_+, Z/3 and Z/9 matched (4.13). For H = F_3⁴, λ = 728 and the formula is negative (−1.42·10^{−4} at u = 0). With 𝒞 all finite 3-Γ-groups, Theorem 7.4 gives μ_u(V_{𝒞,F_3²}) = 0, contradicting Theorem 5.15, which it cites. Unaffected: (4.13); the existence and weak convergence in Theorem 1.2; Theorems 5.12 and 6.2; §7.1 (at abelian level E^Γ = 1); and Theorems 7.4–7.5, which assume H of the form 𝓕_n^𝒞/[Y(S)].",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found independently by two helper agents of this review, with different examples. The reviewer checked (4.13), (4.14) and (4.17) at the page images of pp. 24–25, and the definition of 𝒜_H in the TeX (\"non-trivial finite abelian irreducible\").",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E6",
+      "kind": "gap",
+      "locator": "Theorem 1.4, p. 3, and the end of its proof, p. 41 (arXiv v2); also Corollary 1.5, p. 4",
+      "printed": "Theorem 1.4: \"lim_{b→∞} lim_{q→∞, (q,|Γ||H|)=1, (q−1,|H|)=1} Σ_{n≤b} Σ_{K∈E_Γ(q^n,F_q(t))} |Sur_Γ(Gal(K^#/K), H)| / Σ_{n≤b} |E_Γ(q^n, F_q(t))| = ∫_X |Sur_Γ(X, H)| dµ_Γ(X) = [H : H^Γ]^{−1}\"; proof: \"Thus we conclude that lim_{q→∞, q≡a (mod |G|²)} Σ_{0≤n≤b} N(E, Γ, q^n, F_q(t)) / Σ_{0≤n≤b} |E_Γ(q^n, F_q(t))| = 1 + O_G(b^{−1}).\"",
+      "correction": "State the inner limit as lim sup and lim inf over q. For each b both lie within O_G(1/b) of [H : H^Γ]^{−1}, so lim_{b→∞} lim sup_q = lim_{b→∞} lim inf_q = [H : H^Γ]^{−1}; the same holds for Corollary 1.5. In the second display on p. 41 the numerator should be E_3 b^{d_Γ(q)−2} + (E_1 − E_2) q^{−1/2}.",
+      "reason": "The proof gives the ratio as (π_{G,c}(q,b′) + O_{b,G}(q^{−1/2}))/(π_Γ(q,b′) + O_{b,G}(q^{−1/2})). Theorem 10.4 controls π_{G,c}(q,b′) − π_Γ(q,b′) only up to O_G(b′^{d_Γ(q)−2}). The numbers of Frobenius-fixed components are integers that depend on q, and nothing in §§10–12 shows that they are eventually constant on a residue class of q. Components in which some inertia class occurs fewer than M times are not classified by the lifting invariant; Proposition 12.7 only bounds how many there are. So the printed \"lim_q … = 1 + O_G(b^{−1})\" only says that every limit point lies in 1 + O_G(b^{−1}), and the inner limit of Theorem 1.4 is not shown to exist. The outer limit and the value are unaffected.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 3 and 39–41: Theorem 10.4 gives only π_{G,c} = π_Γ + O_G(n^{d_Γ(q)−2}) and a lower bound for π_Γ.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E7",
+      "kind": "error",
+      "locator": "Lemma 9.3, p. 38, with the definition of E_Γ(D, Q), p. 3, and the second display of the proof of Theorem 1.4, p. 40 (arXiv v2)",
+      "printed": "p. 3: \"Let E_Γ(D, Q) be the set of isomorphism classes of totally real Γ-extensions of Q with rDisc K = D\"; Lemma 9.3: \"Σ_{K∈E_Γ(D,Q)} |Sur_Γ(Gal(K^{un,∞}/K), H)| = 1/[H : H^Γ] N(H, Γ, D, Q)\"; p. 40: \"By taking H the trivial group in Lemma 10.2, we have Σ_{n=0}^b |E_Γ(q^n, F_q(t))| = Σ_{n=0}^b #Hur^n_{Γ,Γ∖{1}}(F_q).\"",
+      "correction": "Either take E_Γ(D, Q) to be the set of surjections Gal(Q̄/Q) → Γ with the stated conditions (Γ-extensions K ⊂ Q̄ with their identification, not up to isomorphism), or multiply the right-hand sides of Lemma 9.3 and of the p. 40 display by |Z(Γ)|/|Γ|.",
+      "reason": "A Γ-extension is K/Q with a chosen isomorphism α : Gal(K/Q) ≅ Γ (p. 3). (K, α) and (K, inn(γ) ∘ α) are isomorphic via γ ∈ Gal(K/Q), so isomorphism classes correspond to Sur(Gal(Q̄/Q), Γ)/Inn(Γ), with orbits of size [Γ : Z(Γ)]. N(H, Γ, D, Q) counts surjections, and so does #Hur^n(F_q), since the marked point kills automorphisms. For H = 1, Lemma 9.3 asserts |E_Γ(D, Q)| = N(1, Γ, D, Q). Check: x³ − 4x + 1 has discriminant 229, three real roots and Galois group S_3 (PARI), and the narrow ray class group of Q(√229) is Z/3. So this is the only totally real S_3-field with rDisc = 229, and |E_{S_3}(229, Q)| = 1, while N(1, S_3, 229, Q) = |Aut S_3| = 6. |Sur_Γ(Gal(K^{un,∞}/K), H)| is the same for α and inn(γ) ∘ α, so the moment ratios of Conjecture 1.3, Theorem 1.4 and Corollary 1.5 are unchanged. For abelian Γ there is no discrepancy.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 3 and 38, and by recomputing the S_3 example in PARI (nfdisc, polsturm, polgalois, bnrinit).",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E8",
+      "kind": "error",
+      "locator": "Lemma 12.8, pp. 51–52 (arXiv v2)",
+      "printed": "\"Let a_i be non-negative integers for i = 1, …, d, not all 0. Then there exists a positive integer k, a residue s mod k, and a real r > 0 such that the following holds. … If n ≡ s (mod k), then #L′′(n) = rn^{d−1} + O_{d,L,a}(n^{d−2}).\"",
+      "correction": "\"Let a_i be positive integers for i = 1, …, d.\" Then r = k/((d−1)! ∏ a_i [Z^d : Λ]) for L = v + Λ.",
+      "reason": "If some a_i = 0, then L′′(n) is unbounded in the x_i-direction and infinite. For example, d = 2, L = Z² and a = (1, 0) give L′′(n) = {(n, y) : y ≥ 0}. The proof hint (\"forgetting the last coordinate\") also needs a_d ≠ 0. Corollary 12.9 applies the lemma with a_i the sizes of q-power orbits, which are ≥ 1, so nothing downstream changes. The value of r was checked on two examples.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 51.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E9",
+      "kind": "misprint",
+      "locator": "Definition of the Möbius function ν, before Lemma 4.6, p. 22 (arXiv v2)",
+      "printed": "\"ν(E, E) = 1, ν(D, E) = − Σ_{D′∈𝓔^E_H, D′≠D} ν(D′, E) if D ≠ E.\"",
+      "correction": "ν(D, E) = −Σ_{D′∈𝓔^E_H, D ⊊ D′} ν(D′, E) if D ≠ E.",
+      "reason": "As printed, the recursion only forces Σ_{D′} ν(D′, E) = 0 and does not determine ν. The Möbius function of the poset sums over D′ strictly above D. Check: Γ = Z/2, H = F_3 with σ = −1, E = F_3 × H. The true values ν(graph) = −1 give Lemma 4.6's count 3^n − 3, which matches the direct count; the symmetric solution −1/3 of the printed system gives 3^n − 1. The text calls ν the Möbius function, so the intent is clear.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 22.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E10",
+      "kind": "gap",
+      "locator": "Proof of Lemma 5.10, pp. 29–30 (arXiv v2)",
+      "printed": "\"We define Λ to be the set of all isomorphism classes of finite Γ-groups H of level ℓ such that H^{C_{ℓ−1}} ≃ H̃ and f_n(H, ℓ) > 0 for some n.\" Then: \"Σ_{H∈Λ} g(H, ℓ) = lim_n Σ_{H∈Λ, i(H)≤n} g(H, ℓ) ≤ lim_n Σ_{H∈Λ, i(H)≤n} 2/c(u, ℓ, H̃) f_n(H, ℓ) ≤ …\"",
+      "correction": "The second step needs f_n(H, ℓ) > 0 for every H ∈ Λ with i(H) ≤ n, not only for some n. Add to Lemma 5.10 the hypothesis that f_n(H, ℓ) > 0 implies f_{n′}(H, ℓ) > 0 for n′ ≥ n, and replace i(H) by max(i(H), n_0(H)), where n_0(H) is the first n with f_n(H, ℓ) > 0.",
+      "reason": "By Corollary 5.9, for n ≥ i(H) either f_n = 0 or f_n ≥ (c/2) g. So g ≤ (2/c) f_n needs f_n > 0 at that n. The hypothesis holds in both applications, Theorem 5.12 and Theorem 6.2. Killing x_{n+1} gives 𝓕_{n+1}/[Y(S̃ ∪ {y})] ≅ 𝓕_n/[Y(S)] with y ∈ 𝓕_{n+1} and Y(y) = Y(x_{n+1}) (Lemma 3.1). The event {X^{𝒞_ℓ} ≅ H} depends only on the images of the relations in a finite quotient, so it is open, and positivity at n implies positivity at n + 1.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 29–30.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E11",
+      "kind": "error",
+      "locator": "Proof of Lemma 3.17, function-field case, p. 19 (arXiv v2)",
+      "printed": "\"When K is a function field, we have O_K^× = F_{q^r}^× (where F_{q^r} is the constant field of K) and using that fact that K does not contain non-trivial pth roots of unity, it follows that O_K^×/O_K^{×p} = 1.\"",
+      "correction": "Work with the complete curve C_K, since G̃_{K,p} (maximal unramified pro-p extension, no condition at ∞) is its p-part. Then V = {α : div(α) ∈ p·Div(C_K)} gives V/K^{×p} ≅ F_{q^r}^×/p ⊕ Pic(C_K)[p] = Pic⁰(C_K)[p], because μ_p ⊄ K. Pic⁰(C_K)/p is a Γ-direct summand of G̃_{K,p}^{ab}/p. So (3.20)–(3.21) hold with O_K^× replaced by the constants and Cl(O_K) by Pic⁰(C_K), and the lemma follows.",
+      "reason": "O_K is the integral closure of F_q[t] (p. 4), and its unit group has rank (number of places over ∞) − 1. For a totally real K with Γ ≠ 1 that rank is |Γ| − 1 ≥ 1. Example: K = F_5(t)(√(t²+2)), where ∞ splits. ε = t + √(t²+2) has norm −2 ∈ F_5^×, so it is a non-constant unit. With p = 3 (p ∤ 40, μ_3 ⊄ K), O_K^×/O_K^{×3} ≠ 1. The statement of Lemma 3.17 is unaffected.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 17–19. The definition of G̃_{K,p} (p. 17) is the maximal unramified pro-p extension, with no condition at ∞.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E12",
+      "kind": "error",
+      "locator": "§3.1, the paragraph before Lemma 3.4 and Corollary 3.8, pp. 13–14; Remark 3.2(3), p. 13 (arXiv v2)",
+      "printed": "p. 13: \"For any Γ-group G, we define the following map of sets Y : G → G^d … By the Schur–Zassenhaus theorem, Φ is surjective. … Thus we also have a natural bijection between Y(G) and the sections of G⋊Γ → Γ.\"; Corollary 3.8: \"For any Γ-group G, the map Y(G)^n → Hom_Γ(𝓕_n, G) … is well-defined and bijective.\"; Remark 3.2(3): \"If H is a Γ-group generated by elements h_i^{−1}γ(h_i) … then … a surjection 𝓕_n → H.\"",
+      "correction": "Assume G (respectively H) pro-|Γ|′ in all three places, as holds wherever they are used.",
+      "reason": "A Γ-group is any profinite group with a Γ-action (p. 2), and 𝓕_n is pro-|Γ|′. Counterexamples: for Γ = Z/2 acting on Z/4 by inversion, Y(G) = {0, 2} gives |Y(G)^n| = 2^n, but Hom_Γ(𝓕_n, Z/4) = 1; for Γ = Z/2 acting trivially on Z/2, |Y| = 1 but there are 2 sections; and Γ = Z/6 acting on (Z/2)² through Z/3 gives an H generated by one h^{−1}γ(h) that is not a quotient of the pro-6′ group 𝓕_n.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 13–14.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E13",
+      "kind": "gap",
+      "locator": "Proof of Proposition 3.13, \"⟹\", p. 16 (arXiv v2)",
+      "printed": "\"Considering the short exact sequence 1 → ker ρ → ker ϖ → Z/pZ → 1, by |Y(Z/pZ)| = 1 (since Γ acts trivially on Z/pZ) and Lemma 3.6 (2), we have Y(ker ϖ) = Y(ker ρ).\"",
+      "correction": "Lemma 3.6(2) is for finite groups, and ker ϖ is infinite when 𝒞 is. Argue directly: Y(ker ϖ) maps to Y(Z/p) = 1, so Y(ker ϖ) ⊂ (ker ρ)^d, and by Lemma 3.4 Y(ker ρ) = Y(ker ϖ) ∩ (ker ρ)^d = Y(ker ϖ).",
+      "reason": "An equality of cardinalities from Lemma 3.6(2) gives no equality of infinite sets. The one-line argument above closes the step.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 16.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E14",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 1.2 (§5.3), p. 30 (arXiv v2)",
+      "printed": "\"So, for any open U, by (3.16) (with Theorem 4.12 to prove the limit exists) and Fatou's lemma, we have µ_Γ(U) ≤ lim_{n→∞} µ_{1,n}(U).\"",
+      "correction": "µ_Γ(U) ≤ liminf_{n→∞} µ_{1,n}(U).",
+      "reason": "For a general open U, the limit of µ_{1,n}(U) need not exist. Fatou gives the liminf, which is exactly what the Portmanteau criterion needs (Mathlib MeasureTheory.tendsto_of_forall_isOpen_le_liminf).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 30.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E15",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 10.4, p. 54 (arXiv v2)",
+      "printed": "\"where S̄^i := H_2(G_i, Z)/Q_{c_i}.\"",
+      "correction": "S̄^i := S^i/τ_{S^i}(Q_{c_i}).",
+      "reason": "H_2(G_i, Z)/Q_{c_i} is H_2(G_i, c_i), the left column of the same diagram. S̄^i was defined on p. 47 as the quotient of the Schur cover, and the right column ker(S̄^i → G_i) only makes sense for it.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 54.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E16",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 10.2, p. 46 (arXiv v2)",
+      "printed": "\"… are exactly what is counted by N(H, Γ, n, F_q(t)), as described in the first paragraph of the proof.\"",
+      "correction": "N(H, Γ, q^n, F_q(t))",
+      "reason": "The statement of Lemma 10.2 (p. 39) and Lemma 9.3 use the radical discriminant q^n as the third argument.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 46.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E17",
+      "kind": "misprint",
+      "locator": "Lemma 10.2 and Theorem 10.4, p. 39; proof of Theorem 10.4, p. 54 (arXiv v2)",
+      "printed": "\"c be the set of elements of G that have the same order as their image in Γ\"; Notation 10.1: \"c a subset of G ∖ {1} … such that c generates G.\"",
+      "correction": "c is the set of non-identity elements of G whose order equals that of their image in Γ.",
+      "reason": "The identity has the same order as its image, so the printed c contains 1, contrary to Notation 10.1. The proof of Theorem 1.4 uses Γ ∖ {1}, and §12 counts only non-trivial classes. c generates G = H⋊Γ exactly when H is admissible (p. 54), as in all uses.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 39.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E18",
+      "kind": "misprint",
+      "locator": "§5.2, before Lemma 5.4, p. 27 (arXiv v2)",
+      "printed": "\"Let C_ℓ be the set of (isomorphism classes of) all Γ-groups of order ≤ ℓ.\"",
+      "correction": "the set of all |Γ|′-Γ-groups of order ≤ ℓ",
+      "reason": "Definition 5.1, Corollary 5.3, Theorem 4.12 and Theorem 5.12 all require sets of finite |Γ|′-Γ-groups.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 27.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E19",
+      "kind": "misprint",
+      "locator": "Lemma 5.4, (5.6), p. 27 (arXiv v2)",
+      "printed": "\"# {isom. classes of H-extensions (E, π) | ker π ≃ M is irred. E-group, E is level C_ℓ}\"",
+      "correction": "ker π ≃ M is an irreducible E⋊Γ-group",
+      "reason": "The count needed for Corollary 5.9 runs over 𝓔_{𝒞_ℓ}(G, H), whose kernels are irreducible E⋊Γ-groups (p. 22). The proof already uses A = ρ_{ker π}(E⋊Γ).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 27.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E20",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 3.6(3), p. 14 (arXiv v2)",
+      "printed": "\"The self-bijection on G^d such that z ↦ (g, …, g)z(γ_1(g)^{−1}, …, γ_d^{−1}(g))\"",
+      "correction": "(γ_1(g)^{−1}, …, γ_d(g)^{−1})",
+      "reason": "The first coordinate is written γ_1(g)^{−1}. The map must send Y(g) = (g^{−1}γ_i(g)) to 1, so the i-th coordinate is γ_i(g)^{−1}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 14.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E21",
+      "kind": "misprint",
+      "locator": "§3.3, notation before Lemma 3.17, p. 18 (arXiv v2)",
+      "printed": "\"In either case, we have α ◦ ϖ is the composition of ρ and the natural quotient map G̃_{K,p} → G_{K,p}.\" Later: \"Using the fact that ρ|_{(𝓕_n)_p} = ϖ, we have α(N) = R\"",
+      "correction": "ϖ ∘ α is the composition of ρ and G̃_{K,p} → G_{K,p}. Likewise ρ|_{(𝓕_n)_p} = ϖ holds only after composing with G̃_{K,p} → G_{K,p}, which is the identity in the number-field case.",
+      "reason": "α has target (𝓕_n)_p, the source of ϖ, so only ϖ ∘ α is defined. In the function-field case, α(N) = R still holds because ρ(x_{n+1}) generates a decomposition group at ∞.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 17–18.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E22",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 4.3, p. 21 (arXiv v2)",
+      "printed": "\"Choices of y_1, …, y_{n+u} ∈ G^m give a map F_n → G^m whose image is the subgroup generated the y_i^{−1}γ(y_i), for γ ∈ F⋊Γ. Thus, conditionally on Y[({y_1, …, y_{n+u}})] surjecting …\"",
+      "correction": "a map 𝓕_{n+u} → G^m whose image is the F⋊Γ-subgroup generated by the y_i^{−1}γ(y_i), γ ∈ Γ; conditionally on [Y({y_1, …, y_{n+u}})] surjecting …; and 𝓕_{n+u} in place of 𝓕_n in the rest of the paragraph.",
+      "reason": "n + u elements give a map from the free admissible group on n + u generators. γ ranges over Γ. The bracket notation is [Y(·)].",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 21.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E23",
+      "kind": "misprint",
+      "locator": "§1.6, p. 9 (arXiv v2)",
+      "printed": "\"Gal(K^{un}/K)^{ab} ≃ Pic(C_K)(F_q)\"",
+      "correction": "Gal(K^{un}/K)^{ab} is the profinite completion of Pic(C_K)(F_q).",
+      "reason": "Pic(C_K)(F_q) ≅ Z ⊕ (finite), while the Galois group is profinite; geometric class field theory identifies it with the profinite completion.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 9.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E24",
+      "kind": "misprint",
+      "locator": "§7.2, after Remark 7.3, p. 35 (arXiv v2)",
+      "printed": "\"then F′ is called the p-covering group of H and R′ is called the p-multiplicator rank of H, and dim_{F_p}(R′) is the relation rank r(H)\"",
+      "correction": "R′ is called the p-multiplicator of H",
+      "reason": "R′ is a group; its dimension is the rank, as the same sentence says.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 35.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E25",
+      "kind": "error",
+      "locator": "Proposition 12.7, p. 50 (arXiv v2); also Corollary 12.9, p. 52",
+      "printed": "\"Proposition 12.7. Let G, c, n be as in Notation 10.1. … Then π_{G,c}(q, n) = b(G, c, q, n) + O_G(n^{d_{G,c}(q)−2})\"; Notation 10.1: \"Let n be a non-negative integer.\"",
+      "correction": "Assume n ≥ 1. Theorem 10.4 is already stated for positive n.",
+      "reason": "At n = 0 and d_{G,c}(q) ≥ 3 the error term is 0. But b(G, c, q, 0) ≥ 1 (the term m = 0), while π_{G,c}(q, 0) = 0 for G ≠ 1, because there are no connected G-covers of P¹ without branch points. Example: G = V_4, c = G ∖ 1, odd q, d = 3. Corollary 12.9's \"any non-negative integer n\" has the same edge case.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 50 (the definition of b and Notation 10.1 at p. 39).",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E26",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 12.7, p. 51, and proof of Theorem 10.4, p. 55 (arXiv v2)",
+      "printed": "p. 51: \"Note there are O_G(n^{d_G(q)−2}) choices of m\"; p. 55: \"Our observations above and the proof of Corollary 12.9 show that when n (mod M_a) ∉ E_a, then π_G(q, n) = 0.\"",
+      "correction": "d_{G,c}(q) and π_{G,c}(q, n).",
+      "reason": "By the convention on p. 39 (\"If we drop c from either subscript, c is taken to be G ∖ 1\"), d_G and π_G denote the c = G ∖ 1 objects. The proofs are about the given c.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 51 and 55.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E27",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 2.7, profinite step, p. 13 (arXiv v2)",
+      "printed": "\"If G is profinite, then for every open subgroup U, the above argument gives a lift of Gal_Q → G̃/(UN) ⋊ Γ to Gal_Q → G̃/U ⋊ Γ\"",
+      "correction": "for every open normal Γ-stable subgroup U of G̃ with U ∩ N = 1",
+      "reason": "G̃/U must be a Γ-group, and the finite argument needs G̃/U → G̃/(UN) to be a non-split central extension by N ≅ Z/p. Such U are cofinal.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 13.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E28",
+      "kind": "misprint",
+      "locator": "Lemma 9.3, p. 38 (arXiv v2)",
+      "printed": "\"Σ_{K∈E_Γ(D,Q)} |Sur_Γ(Gal(K^{un,∞}/K), H)|\"",
+      "correction": "Sur_Γ from the maximal pro-|Γ|′ quotient of Gal(K^{un,∞}/K), with the Γ-action of Definition 2.1.",
+      "reason": "Definition 2.1 defines a Γ-action only on Galois groups of pro-|Γ|′ extensions, and Gal(K^{un,∞}/K) need not be pro-|Γ|′. The proof uses exactly the maximal pro-|Γ|′ quotient of ker ρ. Since H is a |Γ|′-group, the count is unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 38.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
+    },
+    {
+      "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E29",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 11.8, p. 46 (arXiv v2)",
+      "printed": "\"For any scheme Z over F_q, and any F̄_q-point (i.e., morphism of Spec F̄_q-schemes) s : Spec F̄_q → Z_{F̄_q}, we have that Frob_Z ∘ s = s ∘ F.\"",
+      "correction": "The equality holds in Z(F̄_q) = Hom_{F_q}(Spec F̄_q, Z), i.e. after composing both sides with Z_{F̄_q} → Z.",
+      "reason": "Frob_Z ∘ s is an F̄_q-morphism, while s ∘ F lies over F. On rings: a ⊗ λ ↦ x(a)^q λ versus x(a)^q λ^q. The lemma itself is right.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+        "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+        "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+        "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+        "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 46.",
+        "by": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
+      }
     }
   ]
 }

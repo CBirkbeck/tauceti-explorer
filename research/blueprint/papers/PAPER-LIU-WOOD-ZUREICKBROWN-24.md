@@ -7,8 +7,8 @@ Extraction by Claude Code, session `cc-39fac3`, 22 September 2026 (issue #1224).
 The machine-readable extraction is [PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json](PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json). It has:
 - 45 items: 1 library, 2 planned, 42 missing;
 - 7 routes: 5 source routes and 2 Part II candidates, one of them reused;
-- 10 prerequisite entries;
-- 4 recorded source issues.
+- 12 prerequisite entries (two added by the independent review);
+- 29 recorded source issues: E1–E4 from the extraction, E5–E29 added by the independent review.
 
 ## Sources read
 
@@ -119,7 +119,7 @@ All four are in arXiv v2. The published text could not be checked, and the Publi
   - **Fix:** the proof never uses u ≥ 0. The bound g_n ≤ g in Lemma 5.10 holds for all u, because |Sur_Γ(𝓕_n, H)| ≤ |Y(H)|^n (Corollary 3.8). Corollary 5.9 needs only u > −n. So the theorem holds for every integer u.
   - The main Theorems 1.2 and 1.4 use u = 1 and are unaffected.
 
-The items use the corrected statements. A minor slip was not recorded: γ_d^{−1}(g) for γ_d(g)^{−1} in the proof of Lemma 3.6(3).
+The items use the corrected statements. The slip γ_d^{−1}(g) for γ_d(g)^{−1} in the proof of Lemma 3.6(3), not recorded by the extraction, is now E20. E5–E29 are described in the last section.
 
 ## Prerequisites not yet covered
 
@@ -133,6 +133,8 @@ The items use the corrected statements. A minor slip was not recorded: γ_d^{−
 8. Malle–Matzat, *Inverse Galois Theory* (1999).
 9. Ribes–Zalesskii, *Profinite Groups* (2nd ed., 2010).
 10. Koch, *Galois Theory of p-Extensions* (2002).
+11. Fried–Völklein, *The inverse Galois problem and rational points on moduli spaces* (Math. Ann. 290, 1991), §1.4, for Theorem 12.4. Added by the review.
+12. Ellenberg–Venkatesh, *Counting extensions of function fields with bounded discriminant and specified Galois group* (Progr. Math. 235, 2005), Lemma 3.3, for Proposition 12.7. Added by the review.
 
 DOIs were checked against Crossref. Wewers's thesis has no DOI.
 
@@ -151,3 +153,74 @@ DOIs were checked against Crossref. Wewers's thesis has no DOI.
   - §7.1 (whence E3).
   - Part II: Lemma 9.3, the assembly of Theorem 1.4 (whence E2), Proposition 12.7, Lemma 12.10, and b(G, c, q, n) = b(Γ, Γ∖1, q, n) in Theorem 10.4.
 - No Lean was written or compiled; this is an extraction.
+
+## Independent review corrections (REV-PAPER-LIU-WOOD-ZUREICKBROWN-24, 23 September 2026)
+
+The review read the whole of arXiv v2 from the same TeX source and PDF. The published article is still closed: Unpaywall lists no open copy. Three read-only helper agents split the paper (§§1–4, §§5–7, §§8–12). They recomputed the formulas on small cases: exhaustive enumeration of random quotients, Monte Carlo, braid-orbit counts, lattice-point counts and PARI. The reviewer checked every finding at the page image or in the text.
+
+All seven routes are accepted, and the random-Γ-groups Part II brief is amended (below). E1–E4 are confirmed; E4's correction is sharpened in place. Twenty-five new source issues are added.
+
+**The main new finding (E5).** The explicit limit formula is false for groups without Property E. This covers (4.14) in Theorem 4.12, (5.13) (the formula of Theorem 1.2) and Theorem 5.15.
+- 𝒜_H contains Z/p with trivial action, for which |Y(G)| = 1. For such G, step (4.17) fails: h^m = 1 + λ, with m constant in n.
+- The finite-n formula (4.13) correctly gives 0, as Proposition 3.13 requires. The limit formula gives a non-zero, sometimes negative, value.
+- Example: Γ = Z/2, p = 3, H = F_3² with σ = −1, at level 3-class ≤ 2. The printed formula gives 2.70·10^{−3}, the true value is 0, and the paper's own Theorem 7.4 gives 0.
+- The corrected statements assume Property E at level 𝒞 and give measure 0 otherwise. The moments, Theorem 5.12, Theorem 6.2, §7.1 and Theorems 7.4–7.5 are unaffected.
+
+**Other substantive findings.**
+- **E6.** The inner limit in q of Theorem 1.4 and Corollary 1.5 is not shown to exist. The proof bounds every limit point within O_G(1/b), so the theorem is read with lim sup and lim inf.
+- **E7.** With E_Γ(D, Q) counting isomorphism classes, Lemma 9.3 and the p. 40 display are off by [Γ : Z(Γ)]. Example: one S_3-field of radical discriminant 229, but N = 6. The factor cancels in every moment ratio.
+- **E8.** Lemma 12.8 needs positive weights a_i; with a zero weight the count is infinite.
+
+**Proof gaps, repaired:**
+- E10: Lemma 5.10 needs positivity of f_n to be monotone in n. It is in both applications.
+- E11: the function-field case of Lemma 3.17 uses O_K^× = F_{q^r}^×, which is false for totally real K. The complete curve repairs it.
+- E12: Corollary 3.8, the Y ↔ sections paragraph and Remark 3.2(3) need pro-|Γ|′ groups.
+- E13: Proposition 3.13 applies a finite-group lemma to an infinite kernel.
+- E25: Proposition 12.7 fails at n = 0.
+
+**Misprints and slips:**
+- E9: the Möbius recursion.
+- E14: lim for liminf in §5.3.
+- E15: the definition of S̄^i on p. 54.
+- E16: N(H, Γ, n, ·).
+- E17: c contains 1.
+- E18: 𝒞_ℓ without |Γ|′.
+- E19: "irred. E-group".
+- E20: γ_d^{−1}(g).
+- E21: α ∘ ϖ.
+- E22: 𝓕_n for 𝓕_{n+u} in Proposition 4.3.
+- E23: Pic without completion.
+- E24: "p-multiplicator rank".
+- E26: d_G and π_G for d_{G,c} and π_{G,c}.
+- E27: the open subgroups of Lemma 2.7.
+- E28: the Γ-action in Lemma 9.3.
+- E29: Frobenius in Lemma 11.8.
+
+**Items corrected in place:**
+- **2, 20, 25.** Property E hypothesis, value 0 otherwise. λ from (4.10)–(4.11) is now stated.
+- **4, 5.** The lim sup/lim inf reading. Item 4's locator is p. 3; its note records that |H| must be odd and why K^{un,∞} may be replaced by K^#.
+- **1, 9, 12, 16, 22, 26, 27, 29, 32, 35, 36, 38, 39, 40, 41, 42, 43.** Locators corrected.
+- **3, 6, 9, 16.** The bad integer is Δ, as in the paper, not b.
+- **10.** Schur–Zassenhaus conjugacy is used from Lemma 3.4 onward, so all of Part I depends on it.
+- **11, 12, 13.** pro-|Γ|′ or closedness hypotheses (E12).
+- **14.** Every random group has Property E at level 𝒞.
+- **17.** 𝒜_H contains the trivial modules Z/p.
+- **19.** Defines H-extensions and 𝓔_𝒞(G, H), and gives the correct Möbius recursion.
+- **22.** P_{u,n} is defined, 𝒞_ℓ consists of |Γ|′-groups, and Corollary 5.9's hypotheses are stated.
+- **23.** g_n ≤ g, not monotone convergence, plus the positivity hypothesis.
+- **27.** λ = 1 needs G^Γ = 1.
+- **28.** The p-covering group, nucleus and nuclear rank.
+- **29.** The E_Γ normalization and the maximal pro-|Γ|′ quotient.
+- **32, 41.** c is the non-identity elements. Item 41 now defines π, d and π_Γ.
+- **40.** n ≥ 1, the Z_{≡q} notation, and O-constants uniform in q and n.
+- **42.** Positive weights, with the constant r.
+- **45.** Measure.haar is not normalized. The probability Haar measure is haarMeasure ⊤ (haarMeasure_self); Tannery's theorem and the Portmanteau criterion are added.
+
+**Prerequisites.** Fried–Völklein 1991 and Ellenberg–Venkatesh 2005 are added, and Wood 2021's entry now names Remarks 5.3–5.4.
+
+**Part II brief (ArithmeticStatisticsPartIIRandomGammaGroups):**
+- (5.13) and Theorem 5.15 carry Property E.
+- Lemma 5.10 carries its positivity hypothesis.
+- Corollary 3.8 is for pro-|Γ|′ groups.
+- The Schur–Zassenhaus consumers are listed.
+- A test is added: the F_3² example of E5, which must get measure 0.
