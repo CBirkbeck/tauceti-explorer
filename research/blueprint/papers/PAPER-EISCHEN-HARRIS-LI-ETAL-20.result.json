@@ -1,0 +1,782 @@
+{
+  "paper": "PAPER-EISCHEN-HARRIS-LI-ETAL-20",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "p-adic L-functions for unitary groups",
+    "authors": "Ellen Eischen, Michael Harris, Jianshu Li and Christopher Skinner",
+    "venue": "Forum of Mathematics, Pi 8 (2020), e9, 160 pages",
+    "doi": "10.1017/fmp.2020.4",
+    "arxiv": "1602.01776v5",
+    "url": "https://arxiv.org/abs/1602.01776",
+    "sha256": "881a496afe0a7f4707fed614a969af481ed737ae1174db1995be3164a90b9569",
+    "accessed": "2026-09-23",
+    "version": "arXiv v5, 6 March 2020, 152 pages, 'Accepted for publication in Forum of Mathematics, Pi'; the only version after v4 and the last before publication. The published article is CC-BY, but www.cambridge.org served HTML rather than the PDF to every request made here, so the journal's own text was not read and its 160-page pagination is not used. All locators are to v5.",
+    "readSections": [
+      "§1 (Introduction), in full: the shape of the interpolation formula (2), the doubling method, the four innovations, and §1.1.2 on what the project does not accomplish.",
+      "The statements, but not the proofs, of the numbered results extracted here: Proposition 3.2.5; Propositions 4.3.7, 4.5.5, 4.5.6, Corollaries 4.3.8, 4.4.9 and Theorems 4.3.10 and 4.6.1; Definition 5.3.2; Theorem 6.6.9 and Definition 6.7.9; Theorems 7.1.1, 7.2.1, 7.3.1, Hypotheses 7.3.2, 7.3.3, Proposition 7.3.5, Propositions 7.4.12 and 7.4.13; Theorem 8.2.2, Corollaries 8.2.4, 8.3.3, 8.4.6 and Proposition 8.3.12; Theorem 9.1.3, Corollaries 9.1.4, 9.2.1, Main Theorem 9.2.2 and §9.3.",
+      "The section structure of §§2–9 and the surrounding text of each extracted statement. The 91 numbered statements of the paper were located; the ones not listed above are not yet items, and the proofs were not read.",
+      "The cited inputs (Harris–Li–Skinner; Eischen; Katz; Hida; Lan; Jacquet; Piatetski-Shapiro–Rallis; Shimura; Garrett; Mok; Kaletha–Minguez–Shin–White) were not read; each item that rests on one says so."
+    ]
+  },
+  "summary": "Eischen, Harris, Li and Skinner complete the construction of p-adic L-functions for unitary groups begun in Harris–Li–Skinner (2006). Let K/F be a CM field, V a hermitian space over K, and π a cuspidal anti-holomorphic automorphic representation of U(V) which is ordinary of type (κ, K), with T_π the corresponding connected component of Hida's ordinary Hecke algebra. Under three hypotheses on that component — Gorenstein (7.3.2), global multiplicity one (7.3.3) and minimality (7.3.5) — Main Theorem 9.2.2 produces a unique element L(Eis, φ ⊗ φ^♭) of Λ_{X_p,R} ⊗̂ T_π whose specialization at every classical point (χ, λ_{π′}) is the critical value L^S(m + 1/2, π′, χ_u) of the standard L-function of U(V) × GL(1)_K, divided by a period P_{π′,χ} and multiplied by explicit local factors: a congruence factor c(π′, χ), a p-adic factor L_p(m, ord, π′, χ_u), an archimedean factor I_∞ and a factor I_S at the remaining bad places.\n\nThe method is the doubling method. With W = V ⊕ (−V), the group U(W) has a maximal parabolic with Levi GL(n)_K; a Hecke character χ gives a degenerate principal series I(χ, s) and Siegel Eisenstein series, and the integral of such a series against φ on U(V) and φ′ on U(−V) factors, when it does not vanish, into an Euler product giving L(s + 1/2, π, χ). The paper's two new contributions are Part II, the computation of the local zeta integrals — above all at the primes dividing p, where Theorem 4.3.10 expresses the integral as an explicit ratio of L- and ε-factors times a volume and a local inner product, the denominator coming from the Godement–Jacquet functional equation — and Part III, a formalism (§7) that attaches an abstract p-adic L-function to any measure satisfying stated axioms, which the Eisenstein measure of §8 then satisfies. The archimedean integral is shown to be nonzero (Proposition 4.5.5) but is not evaluated; §9.3 records that, and the limits of the three hypotheses, as the boundary of what is proved.\n\nWhat it needs. Nothing here is in the libraries: neither Mathlib nor Tau Ceti has unitary groups of hermitian spaces, PEL data, Shimura varieties, automorphic forms, Hecke algebras acting on them, or p-adic measures valued in modular forms. Mathlib has abstract Hecke rings of a Hecke pair and classical Eisenstein series for SL_2(Z); Tau Ceti has abelian varieties with their endomorphisms and isogenies. The atlas, by contrast, plans this paper directly: AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', names EHLS, its Main Theorem 9.2.2 and its three hypotheses, and 43 of the 56 items are planned there or at the PEL, compactification, automorphic-bundle, Hida and measure stages that L4 imports. What no stage plans is the local machinery of the doubling method itself — the degenerate principal series, the Siegel–Weil sections, the Siegel Eisenstein series, the Garrett map, the archimedean integrals, the local L- and ε-factors of the identity, and the continuation and functional equation of the standard L-function — and that is what this extraction routes.",
+  "items": [
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/unitary-group",
+      "kind": "definition",
+      "name": "The unitary group U(V) and the similitude group GU(V)",
+      "statement": "K/F is a CM field with F totally real, V a hermitian space over K with form ⟨·,·⟩_V, U(V) its unitary group and GU(V) the similitude group; −V is V with the form −⟨·,·⟩_V, and U(V) ≅ U(−V) canonically. W = V ⊕ (−V) with the form ⟨·,·⟩_V ⊕ (−⟨·,·⟩_V) is maximally isotropic, so U(W) has a maximal parabolic P with Levi factor GL(n)_K.",
+      "locator": "arXiv:1602.01776v5, §1.1, pp. 5–6",
+      "status": "planned",
+      "note": "Mathlib at 082e2d3 has only the matrix unitary group `Matrix.unitaryGroup` of a ⋆-ring, i.e. the unitary group of the standard form over a ring with involution; the unitary group of a hermitian space over a CM field, as an algebraic group over F, is not in either library, and neither is the similitude group.",
+      "planned": [
+        "PELModuli:M0",
+        "PELModuli:M5"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/standard-l-function",
+      "kind": "definition",
+      "name": "The standard L-function L(s, π, χ)",
+      "statement": "For π a cuspidal automorphic representation of U(V) and χ a Hecke character of K, L(s, π, χ) is the standard Langlands L-function of U(V) × GL(1)_K, with its partial version L^S(s, π, χ_u) obtained by omitting the places in a finite set S.",
+      "locator": "arXiv:1602.01776v5, §1.1, p. 5",
+      "status": "planned",
+      "note": "Its analytic properties are obtained from the doubling method; the paper uses the meromorphic continuation and functional equation that the method supplies.",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/critical-points",
+      "kind": "definition",
+      "name": "The space Y of classical points",
+      "statement": "Y is the p-adic space whose classical points (λ, χ) ∈ Y^class consist of a character λ = λ_π of Hida's (nearly) ordinary Hecke algebra attached to an automorphic representation π of U(V), spherical outside a finite set S of primes containing those above p and (nearly) ordinary at primes dividing p, together with a Hecke character χ of type A_0, such that L(s, π, χ) has a critical value at s = 0. O(Y) is finite over an Iwasawa algebra.",
+      "locator": "arXiv:1602.01776v5, §1.1, pp. 4–5",
+      "status": "planned",
+      "note": "Replacing χ by its multiples by powers of the norm character accommodates all critical values of L(s, π, χ). AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L0",
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/interpolation-shape",
+      "kind": "theorem",
+      "name": "The interpolation formula the project constructs",
+      "statement": "The p-adic L-function is an element L_p ∈ O(Y) whose specialization at a classical point (λ_π, χ) is L_p(λ_π, χ) = c(π) · Z_∞(π, χ) Z_p(π, χ) Z_S · L(0, π, χ)/P_{π,χ}, where P_{π,χ} is a normalized Petersson inner product of holomorphic forms on U(V), Z_S is a local volume times a local inner product, and Z_∞ and Z_p are the explicit local zeta integrals of the doubling method.",
+      "locator": "arXiv:1602.01776v5, §1.1, (2), p. 5",
+      "status": "planned",
+      "note": "The archimedean factor Z_∞ is left unspecified in this paper; it is known explicitly only for scalar weight (Shimura) and half-scalar weight at every archimedean place (Garrett), and depends only on the weights, not on the Hecke eigenvalues. The precise final statement is Main Theorem 9.2.2. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/pel-datum",
+      "kind": "definition",
+      "name": "PEL data",
+      "statement": "A PEL datum is a tuple P = (K, c, O, L, ⟨·,·⟩, h) consisting of a CM field K with its complex conjugation c, an order O ⊆ K, an O-lattice L with a c-hermitian alternating pairing ⟨·,·⟩ and a homomorphism h : C → End_{O⊗R}(L ⊗ R) satisfying the usual positivity and compatibility conditions.",
+      "locator": "arXiv:1602.01776v5, §2.1, p. 14",
+      "status": "planned",
+      "note": "Neither library has PEL data. Tau Ceti at f790474 has abelian varieties as group schemes with their endomorphisms, homomorphisms, isogenies and tangent spaces (TauCeti/AlgebraicGeometry/AbelianVariety/), which is the geometric substrate, but no polarizations, level structures or moduli problems.",
+      "planned": [
+        "PELModuli:M0",
+        "PELModuli:M1"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/pel-moduli",
+      "kind": "definition",
+      "name": "The PEL moduli problem",
+      "statement": "The moduli problem attached to a PEL datum classifies quadruples (A, λ, ι, α) of an abelian scheme A over a base, a polarization λ, an O-action ι and a level structure α, subject to the determinant condition; for the unitary data of §2.2 it is representable by a quasi-projective scheme over the reflex field, the associated Shimura variety Sh(V).",
+      "locator": "arXiv:1602.01776v5, §§2.1–2.3, pp. 14–19",
+      "status": "planned",
+      "note": "Summarizes §§2.1–2.3 rather than a numbered statement; the paper's exposition of the geometry, which it says was written especially carefully, should be extracted statement by statement in a later checkpoint.",
+      "planned": [
+        "PELModuli:M1",
+        "PELModuli:M5"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/toroidal-compactification",
+      "kind": "theorem",
+      "name": "Toroidal compactifications (Lan)",
+      "statement": "The moduli schemes admit toroidal compactifications over the relevant integral bases, with the extension of the modular sheaves and the Koecher principle, as constructed by Lan; conditions (G1)–(G3) of §2.9 record the properties used.",
+      "locator": "arXiv:1602.01776v5, §2.4, pp. 19–20; conditions (G1)–(G3), p. 33",
+      "status": "planned",
+      "note": "Cited to [Lan13], not proved here; Theorem 6.4.1.1 of [Lan13] gives (G2) and part of (G1). The cited work was not read.",
+      "planned": [
+        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C5"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/modular-sheaf",
+      "kind": "definition",
+      "name": "The modular sheaves ω^κ and spaces of modular forms",
+      "statement": "For a dominant weight κ and a suitable base ring R, ω^κ is the automorphic sheaf on the moduli space attached to κ, and M_κ(K, R) = H^0(Sh, ω^κ) is the space of modular forms of weight κ and level K, with its variants with Nebentypus ψ and its cuspidal subspace.",
+      "locator": "arXiv:1602.01776v5, §§2.6.4–2.6.6, pp. 23–25",
+      "status": "planned",
+      "note": "Summarizes the construction; the comparison of spaces of different weight is §2.6.11.",
+      "planned": [
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/igusa-tower",
+      "kind": "definition",
+      "name": "The Igusa tower and p-adic modular forms",
+      "statement": "Over the ordinary locus of the moduli space in characteristic p the Igusa tower trivializes the connected part of the p-divisible group; its cohomology defines the space V(K^p, R) of p-adic modular forms, into which classical forms embed by §2.9.4.",
+      "locator": "arXiv:1602.01776v5, §§2.8–2.9.4, pp. 29–33",
+      "status": "planned",
+      "note": "Summarizes §§2.8–2.9; the embedding of classical forms uses Hypothesis (G1)–(G3). AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/ordinary-projector",
+      "kind": "definition",
+      "name": "Hida's ordinary projector and ordinary forms",
+      "statement": "Hida's action of the Hecke operators at p on p-adic modular forms and the associated ordinary projector e cut out the ordinary submodules of classical and p-adic forms.",
+      "locator": "arXiv:1602.01776v5, §§2.9.5–2.9.6, p. 33",
+      "status": "planned",
+      "note": "Cited to [Hid04, 8.3.1]. PadicFamilies L0a plans the group-independent profinite ordinary projector; the instantiation on unitary Shimura varieties is what this paper needs. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "PadicFamilies:L0a",
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/measures-lambda-families",
+      "kind": "definition",
+      "name": "p-adic measures and Λ-adic families",
+      "statement": "The correspondence between p-adic measures on a profinite group and elements of the completed group algebra, and the resulting notion of a Λ-adic family of modular forms.",
+      "locator": "arXiv:1602.01776v5, §2.10, pp. 34–35",
+      "status": "planned",
+      "note": "Neither library has completed group algebras of profinite groups or measures valued in them at the pinned commits.",
+      "planned": [
+        "PadicMeasuresIwasawaAlgebras:L0",
+        "PadicFamilies:L0"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/doubled-pel-data",
+      "kind": "definition",
+      "name": "The four PEL data and the doubling embedding",
+      "statement": "The PEL data P_i (i = 1, 2, 3, 4) attached to V, −V, V ⊕ (−V) and the doubled space, with their groups G_{P_i}, the canonical bundles of §3.1.2, and the embedding of the product of the Shimura varieties of V and −V into that of W.",
+      "locator": "arXiv:1602.01776v5, §3.1, pp. 36–39",
+      "status": "planned",
+      "note": "Summarizes §3.1. The precise labelling of the four data is used throughout §§4–9. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/restriction-of-forms",
+      "kind": "construction",
+      "name": "Restriction of modular forms along the doubling",
+      "statement": "The maps between the moduli spaces induce restriction maps on classical modular forms, on p-adic modular forms, and on forms at a base point, compatibly with weights and levels.",
+      "locator": "arXiv:1602.01776v5, §3.2, pp. 39–41",
+      "status": "planned",
+      "note": "Summarizes §§3.2.1–3.2.4. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/prop-3-2-5",
+      "kind": "theorem",
+      "name": "Proposition 3.2.5 — compatibility of restriction with p-adic weights",
+      "statement": "Let (J′_0, h_0) → (G, X) be a morphism of Shimura data with J′_0 a torus, and suppose (J′_0, h_0) is ordinary. Let G = G_{P_i} for i = 1, 2, 3, 4, let κ be a dominant weight with associated p-adic weight κ_p, and let R be a p-adic ring. Then the square relating M_κ(K_{i,r}, R) → V_{κ_p}(K_i^p, R) to the restriction maps commutes, and likewise for the further compatibilities of the statement.",
+      "locator": "arXiv:1602.01776v5, §3.2.4, Proposition 3.2.5, p. 40",
+      "status": "planned",
+      "note": "The statement is a commutative diagram; only its shape is recorded here. A later checkpoint should transcribe the diagram from p. 40. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/degenerate-principal-series",
+      "kind": "definition",
+      "name": "The degenerate principal series I(χ, s)",
+      "statement": "For a Hecke character χ of K, I(χ, s) = Ind_{P(A)}^{U(W)(A)} (χ ∘ det) · δ_P^{−s/n} is the family of degenerate principal series of U(W) attached to the maximal parabolic P with Levi GL(n)_K, with its local factors I(χ_w, s).",
+      "locator": "arXiv:1602.01776v5, §1.1, p. 5; §4.1.2, pp. 42–43",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/siegel-eisenstein",
+      "kind": "definition",
+      "name": "The Siegel Eisenstein series E(χ, s, f, g)",
+      "statement": "For a section f = f(s) of I(χ, s) the standard (non-normalized) Eisenstein series E(χ, s, f, g) = Σ_{γ ∈ P(F)\\U(W)(F)} f(γg, s), a meromorphic family in s.",
+      "locator": "arXiv:1602.01776v5, §4.1.3, pp. 43–46",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/doubling-integral",
+      "kind": "definition",
+      "name": "The doubling integral and the Garrett map",
+      "statement": "For cuspidal automorphic forms φ on U(V)(A) and φ′ on U(−V)(A), I(φ, φ′, f, s) = ∫_{[U(V)×U(−V)]} E(χ, s, f, (g_1, g_2)) φ(g_1) φ′(g_2) χ^{-1}(det g_2) dg_1 dg_2 with Tamagawa measures, a meromorphic function of s. Equivalently the Garrett map φ ↦ G(f, φ, s)(g_2) = χ^{-1}(det g_2) ∫_{U(V)(F)\\U(V)(A)} E(χ, s, f, (g_1, g_2)) φ(g_1) dg_1 is a linear transformation from π on U(V) to π viewed on U(−V), whose matrix coefficients give the adelic theory of the standard L-function.",
+      "locator": "arXiv:1602.01776v5, §1.1, pp. 5–6; §4.1, pp. 41–46",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/doubling-method",
+      "kind": "theorem",
+      "name": "The doubling method",
+      "statement": "If π is a cuspidal automorphic representation of U(V) and φ ∈ π, then I(φ, φ′, f, s) vanishes identically unless φ′ ∈ π^∨; and if ⟨φ, φ′⟩ ≠ 0 the integrals unwind and factor as an Euler product whose unramified terms give the standard L-function L(s + 1/2, π, χ), providing as f, φ, φ′ vary the meromorphic continuation and functional equation of that L-function.",
+      "locator": "arXiv:1602.01776v5, §1.1, p. 6; §4.1.1, pp. 41–42",
+      "status": "missing",
+      "note": "Quoted as the basis of the whole construction, from the work of Piatetski-Shapiro–Rallis and Garrett; not proved here."
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/unramified-zeta",
+      "kind": "theorem",
+      "name": "The unramified local zeta integral",
+      "statement": "At a finite place ℓ ≠ p at which all the data are unramified, the local zeta integral equals the local factor of the standard L-function at ℓ divided by the normalizing product of local factors, as recalled in §4.2.1.",
+      "locator": "arXiv:1602.01776v5, §4.2.1, pp. 46–49",
+      "status": "missing",
+      "note": "The classical unramified computation of the doubling method, recalled rather than reproved; the precise normalization used here matters for the final formula."
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/siegel-weil-sections",
+      "kind": "definition",
+      "name": "The Siegel–Weil sections at p",
+      "statement": "The local sections f_w ∈ I(χ_w, s) at places w dividing p, defined in §4.3.1 by a partial Fourier transform of characteristic functions of congruence lattices, chosen so that the local zeta integral can be computed against ordinary and anti-ordinary test vectors.",
+      "locator": "arXiv:1602.01776v5, §4.3.1, pp. 49–53",
+      "status": "missing",
+      "note": "The choice of these sections, and of the matching test vectors, is what the paper calls the new approach that allows the general case to be treated."
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/anti-ordinary-test-vectors",
+      "kind": "definition",
+      "name": "Local congruence subgroups and (anti-)ordinary test vectors",
+      "statement": "The congruence subgroups Γ_{a_w,b_w}(t) at a place w | p, the local test vectors φ_w, φ̃_w attached to the ordinary and anti-ordinary parts of π_w, and the sets X(1), X(4) over which the local integrals are taken.",
+      "locator": "arXiv:1602.01776v5, §4.3.4, pp. 55–58",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/prop-4-3-7",
+      "kind": "theorem",
+      "name": "Proposition 4.3.7 — the support of the product of Siegel–Weil sections",
+      "statement": "The product Φ_{1,w} Φ_{2,w} evaluated at the block matrix of the statement vanishes unless all of the following hold: A_1 ∈ Γ_{a_w,w}(t); C_1 ∈ p_w^t M_{b_w×a_w}(O_w); D_2 ∈ Γ_{b_w,w}(t); B_2 ∈ p_w^t M_{a_w×b_w}(O_w); C_2 ∈ M_{b_w×a_w}(O_w); A_2 ∈ p_w^{−t} M_{a_w×a_w}(O_w).",
+      "locator": "arXiv:1602.01776v5, §4.3.6, Proposition 4.3.7, p. 60",
+      "status": "planned",
+      "note": "The support computation that makes the local integral at p factor. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/cor-4-3-8",
+      "kind": "theorem",
+      "name": "Corollary 4.3.8 — factorization of the local integral at p",
+      "statement": "The integral Z_w factors as Z_w = Vol(Γ_{a_w,b_w}) · I_1 · I_2, where I_1 = ∫_{GL_{b_w}(K_w)} χ_{2,w}(det D) Φ^{(4)}_w(D) |det D|_w^{s + b_w/2} ⟨π_{b_w}(D)φ_{b_w}, φ̃_{b_w}⟩ d^×D and I_2 is the analogous integral over GL_{a_w}(K_w).",
+      "locator": "arXiv:1602.01776v5, §4.3.6, Corollary 4.3.8, p. 62",
+      "status": "planned",
+      "note": "AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/thm-4-3-10",
+      "kind": "theorem",
+      "name": "Theorem 4.3.10 — the main local theorem at p",
+      "statement": "I_1 = L(s + 1/2, π_{b_w} ⊗ χ_{2,w}) / (ε(s + 1/2, π_{b_w} ⊗ χ_{2,w}) L(−s + 1/2, π̃_{b_w} ⊗ χ_{2,w}^{-1})) · Vol(X(4)) · ⟨φ_{b_w}, φ̃_{b_w}⟩, and I_2 = ε(−s + 1/2, π_{a_w} ⊗ χ_{1,w}) L(1/2 + s, π̃_{a_w} ⊗ χ_{1,w}^{-1}) / L(−s + 1/2, π_{a_w} ⊗ χ_{1,w}) · Vol(X(1)) · ⟨φ_{a_w}, φ̃_{a_w}⟩. Consequently, with V_w = Vol(X(1))Vol(X(4)), Z_w is the corresponding ratio of L- and ε-factors times V_w ⟨φ_w, φ̃_w⟩, and I_w = L(s + 1/2, ord, π_w, χ_w) · V_w · ⟨φ_w, φ̃_w⟩, where L(s + 1/2, ord, π_w, χ_w) denotes that ratio.",
+      "locator": "arXiv:1602.01776v5, §4.3.9, Theorem 4.3.10 with (83), pp. 63–65",
+      "status": "planned",
+      "note": "Called the main local theorem. The proof identifies I_1 and I_2 with Godement–Jacquet integrals and applies the Godement–Jacquet local functional equation [Jac79, (1.1.3), (1.3.7)] — the step the authors say owes the most to adelic representation theory. The denominator of the local factor arises exactly from that functional equation. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/godement-jacquet",
+      "kind": "theorem",
+      "name": "The Godement–Jacquet local functional equation",
+      "statement": "The local functional equation for the zeta integrals of a matrix coefficient of an irreducible admissible representation of GL_n over a local field against a Schwartz function, relating the integral at s to the integral of the Fourier transform at 1 − s through the L- and ε-factors.",
+      "locator": "arXiv:1602.01776v5, §4.3.9, in the proof of Theorem 4.3.10, p. 64",
+      "status": "planned",
+      "note": "Cited to [Jac79, Equations (1.1.3) and (1.3.7)]; not proved here and not read.",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.2"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/holomorphic-antiholomorphic-modules",
+      "kind": "definition",
+      "name": "Holomorphic and anti-holomorphic modules",
+      "statement": "The modules D_2(χ_σ) and D(κ_σ) over the enveloping algebras U(p^+), with the holomorphic projection pr_{κ,σ} : D_2(χ_σ) → D(κ_σ) ⊗ D(κ_σ^♭ ⊗ χ_σ), used to describe the archimedean components of the test vectors.",
+      "locator": "arXiv:1602.01776v5, §§4.4.1–4.4.7, pp. 66–73",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/cor-4-4-9",
+      "kind": "theorem",
+      "name": "Corollary 4.4.9 — the critical archimedean vector",
+      "statement": "Let (κ, χ) be critical. For each archimedean σ ∈ Σ there is a unique (a_σ + b_σ)-tuple ρ_{υ_σ} = (r_{1,σ} ≥ ⋯ ≥ r_{a_σ,σ} ≥ 0 ; s_{1,σ} ≥ ⋯ ≥ s_{b_σ,σ} ≥ 0) such that pr^{hol}_{κ,σ}(δ(r̃_σ, s̃_σ) · v(χ_σ)) = P_{κ_σ,χ,σ} · v_{κ_σ} ⊗ v_{κ_σ^♭ ⊗ χ_σ} with P_{κ_σ,χ,σ} a nonzero scalar in E(τ_σ, χ_σ)^×.",
+      "locator": "arXiv:1602.01776v5, §4.4.7, Corollary 4.4.9, p. 73",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/differential-operators",
+      "kind": "construction",
+      "name": "p-adic and C^∞ differential operators",
+      "statement": "The Maass–Shimura type differential operators on C^∞ modular forms and their p-adic counterparts, applied to the Eisenstein series to reach the critical weights; and the Hodge polygon attached to a cuspidal automorphic representation.",
+      "locator": "arXiv:1602.01776v5, §§4.4.10–4.4.12, pp. 74–76",
+      "status": "planned",
+      "note": "The p-adic differential operators are the first author's [Eis12]; the archimedean ones are classical. Neither was read. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L3",
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/prop-4-5-5",
+      "kind": "theorem",
+      "name": "Proposition 4.5.5 — non-vanishing of the archimedean integral",
+      "statement": "The local factor I_σ(φ_σ, φ^♭_σ, f_σ, m) is not equal to 0.",
+      "locator": "arXiv:1602.01776v5, §4.5.4, Proposition 4.5.5, pp. 76–77",
+      "status": "missing",
+      "note": "This is all the paper proves about the archimedean zeta integrals: they are nonzero but are not evaluated. Proposition 4.5.6 expresses I_σ(χ_σ, κ_σ) as the product over σ of these factors."
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/thm-4-6-1",
+      "kind": "theorem",
+      "name": "Theorem 4.6.1 — the global formula",
+      "statement": "Let the test vectors φ ∈ π and φ^♭ ∈ π^♭ be factorizable with local components at p and ∞ as specified, unramified outside S = S_π and as in §4.2.2 at the ramified places, and let the Siegel–Weil section f_s ∈ I(χ, s) be chosen as in §4.3. Write χ = ‖·‖^m χ_u. Then D(χ) · I(φ, φ^♭, f, s) = ⟨φ, φ^♭⟩ · I_p(χ, κ) I_∞(χ, ρ_υ) I_S L^S(s + 1/2, π, χ_u), where I_S = ∏_{v ∈ S} D_v(χ) · vol(U_v), I_∞(χ, κ) = ∏_σ I_σ(χ_σ, κ_σ) is the product of the factors of Proposition 4.5.6, and I_p = L_p(s, ord, π, χ) × ∏_w [V_w · ⟨φ_w, φ̃_w⟩].",
+      "locator": "arXiv:1602.01776v5, §4.6, Theorem 4.6.1, pp. 78–79",
+      "status": "planned",
+      "note": "The complex-analytic identity that the p-adic construction interpolates; every local factor on the right has been computed in §§4.2–4.5 except the archimedean one. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/axiomatic-eisenstein-measure",
+      "kind": "definition",
+      "name": "Axiomatic Eisenstein measures",
+      "statement": "For open compact K_i^p ⊆ G_i(A_f^p) (i = 3, 4) with K_3^p ⊆ K_4^p ∩ G_3(A_f^p), and S the set of primes at which K_4^p and K_3^p do not contain a hyperspecial maximal compact, an axiomatic Eisenstein measure with shift sh is a measure on X_p × T_H(Z_p) valued in p-adic modular forms on G_4 whose integrals against the classical characters are the restrictions of the classical Eisenstein series of the corresponding weight and level, as specified in the definition.",
+      "locator": "arXiv:1602.01776v5, §5.3, Definition 5.3.2, p. 83",
+      "status": "planned",
+      "note": "The axiomatization is what lets §§7–9 treat the Eisenstein measure formally; Corollary 8.2.4 verifies the axioms for the measure constructed in §8. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/restriction-measures",
+      "kind": "construction",
+      "name": "Measures and restriction",
+      "statement": "The compatibility of the restriction maps of §3.2 with p-adic measures, so that a measure valued in forms on the doubled group restricts to a measure valued in forms on the product.",
+      "locator": "arXiv:1602.01776v5, §5, pp. 79–85",
+      "status": "planned",
+      "note": "Summarizes §5; its numbered statements were not extracted in this checkpoint. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/ordinary-hecke-algebra",
+      "kind": "definition",
+      "name": "The ordinary Hecke algebras",
+      "statement": "The Hecke algebras T^{ord}_{K^p,κ,R} acting on ordinary cusp forms of weight κ and level K_r^p, their limits T_{K^p,R} over the tower, and their localizations T_π at the maximal ideal m_π attached to an ordinary representation π.",
+      "locator": "arXiv:1602.01776v5, §§6.6–6.7, pp. 99–107",
+      "status": "planned",
+      "note": "Mathlib at 082e2d3 has abstract Hecke rings of a Hecke pair — `HeckeRing` and `HeckeCoset` (Mathlib/NumberTheory/HeckeRing/Defs.lean:189 and :…), following Shimura and Krieg — but not Hecke algebras acting on spaces of automorphic forms, nor ordinary parts. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/thm-6-6-9",
+      "kind": "theorem",
+      "name": "Theorem 6.6.9 (Hida) — one-dimensionality of the ordinary eigenspace",
+      "statement": "For any representation π_p of G(Q_p), the ordinary eigenspace e_κ π_p^{I_r} ⊆ π_p^{I_r} has dimension ≤ 1, for any r.",
+      "locator": "arXiv:1602.01776v5, §6.6, Theorem 6.6.9, p. 101",
+      "status": "planned",
+      "note": "A variant of [Hid98, Corollary 8.3]; the proof, adapted from Hida's, is given in §8.3. π is called ordinary if π_p^{ord} ≠ 0, and I_r^0 then acts on π_p^{ord} through a character of T_H(Z_p). AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/gorenstein-definition",
+      "kind": "definition",
+      "name": "The Gorenstein condition for the ordinary Hecke module",
+      "statement": "With T = T_π = (T^{ord}_{K,κ,R})_π, the T-module S^{ord}_κ(K, R)_π satisfies the Gorenstein hypothesis when the conditions of Definition 6.7.9 hold, i.e. the T-dual of T is free of rank one over T and the ordinary cohomology is free over T.",
+      "locator": "arXiv:1602.01776v5, §6.7, Definition 6.7.9, p. 106",
+      "status": "planned",
+      "note": "AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/period-invariants",
+      "kind": "definition",
+      "name": "The period invariants Q[π, χ], Q_{π,χ} and c(π, χ)",
+      "statement": "The normalized Petersson inner products and period invariants attached to π and χ, with the factorization Q[π′, χ] = c(π′, χ) Q_{π′,χ} of Lemma 6.7.7, which produce the factors c(π) and P_{π,χ} of the interpolation formula.",
+      "locator": "arXiv:1602.01776v5, §6.7, pp. 104–107",
+      "status": "planned",
+      "note": "Summarizes the relevant part of §6.7; Lemma 6.7.7 was not transcribed. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4",
+        "AutomorphicPadicLFunctions:L3"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/thm-7-1-1",
+      "kind": "theorem",
+      "name": "Theorem 7.1.1 — independence of the weight",
+      "statement": "For any pair of characters κ_1, κ_2 of T_H there is a canonical isomorphism T^{ord}_{K^p,κ_1,R} ≅ T^{ord}_{K^p,κ_2,R}; consequently one writes T_{K^p,R}, or simply T, for any of them.",
+      "locator": "arXiv:1602.01776v5, §7.1, Theorem 7.1.1, p. 108",
+      "status": "planned",
+      "note": "For unitary groups this and Theorem 7.2.1 are special cases of [Hid02, Theorem 7.1] and [Hid04, Chapter 8], proved there under conditions (G1)–(G3). AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/thm-7-2-1",
+      "kind": "theorem",
+      "name": "Theorem 7.2.1 — finiteness and control",
+      "statement": "(i) For each tame character ε the Hecke algebra T_{K^p,R,ε} is a finite free Λ^o_{R,ε}-algebra. (ii) (Control theorem) Let I_κ ⊆ Λ^o_R be the kernel of the map Λ^o_R → R defined by κ. If κ is sufficiently regular then T_{K^p,R} ⊗_{Λ^o_R} Λ^o_R/I_κ → T_{K_r^p,κ,R} is an isomorphism.",
+      "locator": "arXiv:1602.01776v5, §7.2, Theorem 7.2.1, pp. 109–110",
+      "status": "planned",
+      "note": "AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/thm-7-3-1",
+      "kind": "theorem",
+      "name": "Theorem 7.3.1 — finiteness and control for T_π",
+      "statement": "(i) T_π is a finite free Λ^o_π-algebra. (ii) (Control theorem) With I_κ ⊆ Λ^o_π the kernel of Λ^o_π → O_π defined by κ, and κ sufficiently regular, the natural map T_π ⊗_{Λ^o_π} Λ^o_π/I_κ → T_{K_r^p,κ,O_π} is an isomorphism.",
+      "locator": "arXiv:1602.01776v5, §7.3, Theorem 7.3.1, pp. 110–111",
+      "status": "planned",
+      "note": "AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/gorenstein-hypothesis",
+      "kind": "definition",
+      "name": "Hypothesis 7.3.2 — the Gorenstein hypothesis",
+      "statement": "With T̂_π = Hom_{Λ^o_π}(T_π, Λ^o_π): (i) there is an isomorphism G = G_π : T̂_π ≅ T_π of free rank-one T_π-modules; (ii) Hom_{O_π}(lim_r S^{ord}_κ(K_r^p, O_π), O_π)_{m_π} is a free T_π-module. The isomorphism G_π induces compatible isomorphisms G_r at each finite level r ≥ 1.",
+      "locator": "arXiv:1602.01776v5, §7.3, Hypothesis 7.3.2, p. 111",
+      "status": "planned",
+      "note": "Remark 9.3.1: the hypothesis can often be verified by the Taylor–Wiles method when the residual Galois representation has sufficiently general image, but is not valid in complete generality; since it is an open condition, one can instead obtain p-adic meromorphic functions on the irreducible components. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/mult-one-hypothesis",
+      "kind": "definition",
+      "name": "Hypothesis 7.3.3 — global multiplicity one",
+      "statement": "For π′ ∈ S(K^p, π), the representation π′ occurs with multiplicity one in the cuspidal spectrum of G.",
+      "locator": "arXiv:1602.01776v5, §7.3, Hypothesis 7.3.3, p. 110",
+      "status": "planned",
+      "note": "Implied by [Mok15, KMSW14] for representations whose base change to GL(n) is cuspidal (Remark 9.3.2); the paper sketches how to remove it. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/minimality-hypothesis",
+      "kind": "theorem",
+      "name": "Proposition 7.3.5 — the minimality hypothesis",
+      "statement": "For every pair (κ_1, r_1) there is an isomorphism of T_{K_{r_1}^p,κ_1,O,π}-modules T_{K_{r_1}^p,κ_1,O,π} ⊗ Î_π ≅ Hom(S^{ord}_{κ_1}(K_{r_1}^p, O)_{m_π}, O) compatible with the transition maps for r_1 > r.",
+      "locator": "arXiv:1602.01776v5, §7.3, Proposition 7.3.5, p. 112",
+      "status": "planned",
+      "note": "Stated as a proposition-hypothesis: it is one of the three hypotheses of the Main Theorem. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/prop-7-4-12",
+      "kind": "theorem",
+      "name": "Proposition 7.4.12 — L-functions of a measure of type χ",
+      "statement": "For a character χ of X_p and a measure φ = dφ(x, t) on X_p × T with shift sh, and ρ an algebraic character with κ = ρ · α(χ), the construction of §7.4 attaches to a cuspidal anti-holomorphic π satisfying Hypotheses 7.3.2 and 7.3.3 an element L(φ_χ) of T ⊗ End_R(I_{π^♭}).",
+      "locator": "arXiv:1602.01776v5, §7.4, Proposition 7.4.12, p. 118",
+      "status": "planned",
+      "note": "Assumption 7.4.4, the equivariance property the measure must satisfy, is verified for the Eisenstein measure in Lemma 9.1.5. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/prop-7-4-13",
+      "kind": "theorem",
+      "name": "Proposition 7.4.13 — abstract p-adic L-functions of families",
+      "statement": "Let φ = dφ(x, t) be a measure on X_p × T such that for each character χ of X_p the integral ∫_{X_p} χ(x) dφ(x, t) is a V-valued measure φ_χ of type χ satisfying Assumption 7.4.4, and fix a cuspidal anti-holomorphic π satisfying Hypotheses 7.3.2 and 7.3.3. Then there is an element L(φ) ∈ Λ_{X_p} ⊗̂ T ⊗ End_R(I_{π^♭}) whose image under χ ⊗ Id, i.e. contraction in the first factor, is the element L(φ_χ) of Proposition 7.4.12, for every R-valued character χ of X_p.",
+      "locator": "arXiv:1602.01776v5, §7.4, Proposition 7.4.13, p. 119",
+      "status": "planned",
+      "note": "This is the formalism the paper contributes in Part III: an abstract p-adic L-function attached to any measure satisfying the axioms, which the Eisenstein measure then realizes. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/thm-8-2-2",
+      "kind": "theorem",
+      "name": "Theorem 8.2.2 — the Eisenstein measure",
+      "statement": "There is a measure Eis_{a,b} on X_p × T_H(Z_p), depending on a and b, valued in p-adic modular forms on G_4, such that ∫_{X_p × T_H(Z_p)} χ̃ψ · ρ_υ Eis_{a,b} = θ_{(κ,a,b)}(G_{k,ν,χ^{unitary},ψ}) whenever (χ, c = ψ · ρ_υ) ∈ Y_H^{class}.",
+      "locator": "arXiv:1602.01776v5, §8.2, Theorem 8.2.2, p. 125",
+      "status": "planned",
+      "note": "Remark 8.2.3: when a_σ b_σ = 0 for all σ ∈ Σ, i.e. in the definite case, this is the Eisenstein measure of [Eis15, Theorem 20] and [Eis14, §5]. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/cor-8-2-4",
+      "kind": "theorem",
+      "name": "Corollary 8.2.4 — the Eisenstein measure is axiomatic",
+      "statement": "The measure dEis_{a,b} defined by ∫_{X_p × T_H(Z_p)} χ̃ψ · ρ_υ dEis_{a,b} = res_3(θ_{(κ,a,b)}(G_{k,ν,χ^{unitary},ψ})) is an axiomatic Eisenstein measure valued in V(K_3^p, R), with shift (1, χ).",
+      "locator": "arXiv:1602.01776v5, §8.2, Corollary 8.2.4, p. 126",
+      "status": "planned",
+      "note": "This is what connects Part II (the explicit measure) to Part III (the formalism of §7). AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/cor-8-3-3",
+      "kind": "theorem",
+      "name": "Corollary 8.3.3 — the unique ordinary vector",
+      "statement": "Suppose κ satisfies inequality (166) and π_p is ordinary. Then up to scalar there is a unique ordinary vector φ^{ord} ∈ π_p^{I_r} for r ≫ 0, necessarily independent of r; and under π_p = μ_p ⊗_{w ∈ Σ_p} π_w one has φ^{ord} = ⊗_w φ_w^{ord} with φ_w^{ord} as in Lemma 8.3.2.",
+      "locator": "arXiv:1602.01776v5, §8.3, Corollary 8.3.3, p. 130",
+      "status": "planned",
+      "note": "AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/cor-8-4-6",
+      "kind": "theorem",
+      "name": "Corollary 8.4.6 — the unique anti-ordinary vector",
+      "statement": "With I_r^♭ = I_r^†, there is a unique anti-ordinary vector φ^{♭,a-ord}_r ∈ π_p^{♭,I_r^♭} of level r for each r ≫ 0, and under π_p^♭ = μ_p^♭ ⊗_{w ∈ Σ_p} π_w^♭ it factors as ⊗_w φ^{♭,a-ord}_{w,r} with the local components of Lemma 8.4.5.",
+      "locator": "arXiv:1602.01776v5, §8.4, Corollary 8.4.6, p. 137",
+      "status": "planned",
+      "note": "The anti-ordinary vectors are the test vectors on the U(−V) side that the local computation of §4.3 was designed for. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/prop-8-3-12",
+      "kind": "theorem",
+      "name": "Proposition 8.3.12 — Newton and Hodge polygons meet",
+      "statement": "Suppose π is (anti-)holomorphic and (anti-)ordinary. Then Newt(π_w) and Hodge(π_w) meet at the midpoint (n, Σ_{σ ∈ Σ_w} p_{i,σ}).",
+      "locator": "arXiv:1602.01776v5, §8.3, Proposition 8.3.12, p. 135",
+      "status": "planned",
+      "note": "The motivic interpretation of ordinarity used to justify the choice of test vectors. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/thm-9-1-3",
+      "kind": "theorem",
+      "name": "Theorem 9.1.3 — the Garrett map preserves π",
+      "statement": "If φ ∈ π then G(φ) ∈ π.",
+      "locator": "arXiv:1602.01776v5, §9.1, Theorem 9.1.3, p. 142",
+      "status": "missing",
+      "note": "φ and G(φ) live on the same group GU(V) = GU(−V) but on different Shimura varieties: the restriction of the Eisenstein series is holomorphic on Sh(V, −V), so it pairs an anti-holomorphic form on Sh(V) with a holomorphic form on Sh(−V)."
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/cor-9-1-4",
+      "kind": "theorem",
+      "name": "Corollary 9.1.4 — the Garrett map as a map of Hecke modules",
+      "statement": "The Garrett map defines a homomorphism I(χ_f, m) → Hom_{T_{K,κ}}(H^0_!(_K Sh(V), ω^κ)^∨, H^0_!(_K Sh(−V), ω^{κ^♭})), and equally into Hom_{T_{K,κ}}(H^d_!(Sh_K(V), ω^{κ^D} ⊗ L(−κ)), H^0_!(_K Sh(−V), ω^{κ^♭})), where the Hecke algebras act through the isomorphism of §6.6; equivalently (F^†)^{-1} ∘ G(•,•) defines a homomorphism I(χ_f, m) → Hom_{T_{K,κ},♭}(H^0_!(_K Sh(V), ω^κ)^∨, H^0_!(_{K^†} Sh(V), ω^{κ^†})).",
+      "locator": "arXiv:1602.01776v5, §9.1, Corollary 9.1.4, p. 142",
+      "status": "planned",
+      "note": "The factor L(−κ) is reinserted to respect the Hecke action, which factors through the similitude map. Lemma 9.1.5 deduces that the Eisenstein measure satisfies Assumption 7.4.4. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/cor-9-2-1",
+      "kind": "theorem",
+      "name": "Corollary 9.2.1 — the interpolated element",
+      "statement": "Under the hypotheses of Corollary 9.1.8 there is a unique element L(Eis, φ ⊗ φ^♭) ∈ Λ_{X_p,R} ⊗̂ T such that for any classical χ : X_p → R^× and any π′ ∈ S(K_{r_1}, κ_1, π) the image of L(Eis, φ ⊗ φ^♭) under the map Λ_{X_p,R} ⊗̂ T → R induced by χ ⊗ λ_{π′} equals [Vol(I^0_{r_1,V}) Vol(I^0_{r_1,−V})]^{-1} ⟨φ, φ^♭_χ⟩_χ · I_p(χ, κ_1) I_∞(χ, ρ_υ) I_S L^S(m + 1/2, π′, χ_u).",
+      "locator": "arXiv:1602.01776v5, §9.2, Corollary 9.2.1, p. 144",
+      "status": "planned",
+      "note": "λ_{π′} is the character of T of §6.6.8 and the local factors are those of Theorem 4.6.1. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/main-theorem",
+      "kind": "theorem",
+      "name": "Main Theorem 9.2.2 — the p-adic L-function",
+      "statement": "Let π be a cuspidal anti-holomorphic automorphic representation of G_1 which is ordinary of type (κ, K), let T = T_π be the corresponding connected component of the ordinary Hecke algebra, and let φ, φ^♭ be elements of R-bases of Î_π and Î_{π^♭}. Assume Hypothesis 7.3.2 (Gorenstein), Hypothesis 7.3.3 (global multiplicity one) and Proposition-Hypothesis 7.3.5 (minimality). Then there is a unique element L(Eis, φ ⊗ φ^♭) ∈ Λ_{X_p,R} ⊗̂ T such that for every classical χ = ‖·‖^m χ_u : X_p → R^× and every π′ ∈ S(K_{r_1}, κ_1, π), its image under χ ⊗ λ_{π′} equals c(π′, χ) · Ω_{π′,χ}(φ, φ^♭) I_∞(χ, κ_1) I_S L_p(m, ord, π′, χ_u) · L^S(m + 1/2, π′, χ_u)/P_{π′,χ}, where Ω_{π′,χ}(φ, φ^♭) = ⟨φ, φ^♭_χ⟩_χ / (Vol(I^0_{r_1,V} ∩ I^0_{r_1,−V}) · Q[π′, χ]) and P_{π′,χ} = Q^{-1}_{π′,χ}. The factor Ω_{π′,χ}(φ, φ^♭) is independent of r_1, is p-integral, and is a p-unit for an appropriate choice of φ and φ^♭.",
+      "locator": "arXiv:1602.01776v5, §9.2, Main Theorem 9.2.2, pp. 144–145",
+      "status": "planned",
+      "note": "The paper's endpoint: this is the automorphic form of the interpolation property (2) of the introduction. It follows from Corollary 9.2.1 by writing Q[π′, χ] = c(π′, χ)Q_{π′,χ} (Lemma 6.7.7) and using the expression for I_p of Remark 4.6.2; the final claim is Lemma 8.5.3. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/limitations",
+      "kind": "theorem",
+      "name": "What the construction does not settle (§9.3)",
+      "statement": "The authors record that this is not the definitive construction even for ordinary families: the Gorenstein hypothesis is not valid in general, though it can often be verified by Taylor–Wiles methods and can be avoided by passing to the fraction fields of the irreducible components; the global multiplicity one hypothesis follows from [Mok15, KMSW14] when the base change to GL(n) is cuspidal, and §9.3 sketches its removal; and the archimedean zeta integral is not evaluated, being known only for scalar and half-scalar weights.",
+      "locator": "arXiv:1602.01776v5, §§1.1.2 and 9.3, pp. 9–10, 145–146",
+      "status": "planned",
+      "note": "Recorded as an item because it fixes the boundary of what a formalisation of this paper would prove. AutomorphicPadicLFunctions L4, 'Ordinary unitary groups and the doubling method', plans this paper by name, including EHLS Main Theorem 9.2.2 and its three hypotheses.",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/local-l-eps-factors",
+      "kind": "definition",
+      "name": "The local L- and ε-factors of the doubling identity",
+      "statement": "The local factors L(s, π_w ⊗ χ_w) and ε(s, π_w ⊗ χ_w) of the representations π_{a_w}, π_{b_w} of the general linear groups occurring in the local computation at w | p, and the ratio L(s + 1/2, ord, π_w, χ_w) of L- and ε-factors defined by Theorem 4.3.10, whose product over w | p is the factor L_p(s, ord, π, χ) of the global formula.",
+      "locator": "arXiv:1602.01776v5, §4.3.9, after Theorem 4.3.10, p. 65",
+      "status": "missing",
+      "note": "The ratio is defined by the theorem itself; a formalisation needs the L- and ε-factors of GL_n over a p-adic field, with the normalizations of [Jac79], and their behaviour under the twists by χ_{1,w}, χ_{2,w} used here."
+    },
+    {
+      "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/analytic-continuation",
+      "kind": "theorem",
+      "name": "Continuation and functional equation from the doubling method",
+      "statement": "The meromorphic continuation and functional equation of the standard L-function L(s, π, χ) of U(V) × GL(1)_K, obtained from the doubling method as f, φ and φ′ vary.",
+      "locator": "arXiv:1602.01776v5, §1.1, p. 6",
+      "status": "missing",
+      "note": "Used as a known input. The atlas plans the unramified Euler product abstractly (AutomorphicLFunctionsAndLocalFactors AL.4) and explicitly disclaims general continuation and functional equation for an arbitrary reductive group and representation r, so this is not planned anywhere."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "M. Harris, J.-S. Li and C. M. Skinner, p-adic L-functions for unitary Shimura varieties. I. Construction of the Eisenstein measure, Doc. Math. (2006), Extra Vol., 393–464",
+      "link": "https://doi.org/10.4171/dms/4/12",
+      "why": "Part I of the same project: the construction this paper completes, and the source of the Eisenstein measure and of the conventions of §§2–3."
+    },
+    {
+      "citation": "E. E. Eischen, A p-adic Eisenstein measure for unitary groups, J. reine angew. Math. 699 (2015), 111–142",
+      "link": "https://doi.org/10.1515/crelle-2013-0008",
+      "why": "The Eisenstein measure of §8, in the definite case (Remark 8.2.3 identifies Theorem 8.2.2 with its Theorem 20 when a_σb_σ = 0)."
+    },
+    {
+      "citation": "E. E. Eischen, p-adic differential operators on automorphic forms on unitary groups, Ann. Inst. Fourier 62 (2012), 177–243",
+      "link": "https://doi.org/10.5802/aif.2704",
+      "why": "The p-adic differential operators applied to the Eisenstein series in §§4.4 and 8."
+    },
+    {
+      "citation": "N. M. Katz, p-adic L-functions for CM fields, Invent. Math. 49 (1978), 199–297",
+      "link": "https://doi.org/10.1007/BF01390187",
+      "why": "The model for the construction: the case of Hecke characters of a CM field, which the Eisenstein measure generalizes."
+    },
+    {
+      "citation": "H. Hida, Control theorems of coherent sheaves on Shimura varieties of PEL type, J. Inst. Math. Jussieu 1 (2002), 1–76",
+      "link": "https://doi.org/10.1017/S1474748002000014",
+      "why": "Theorems 7.1.1 and 7.2.1 are special cases of its Theorem 7.1; the conditions (G1)–(G3) come from here."
+    },
+    {
+      "citation": "H. Hida, p-adic automorphic forms on Shimura varieties, Springer Monographs in Mathematics, Springer, New York, 2004",
+      "link": "https://doi.org/10.1007/978-1-4684-9390-0_8",
+      "why": "Chapter 8: the ordinary projector, the Igusa tower and the ordinary Hecke algebras of §§2 and 6–7. The DOI is that of Chapter 8, 'Ordinary p-adic automorphic forms'; the volume itself carries no separate DOI in Crossref."
+    },
+    {
+      "citation": "H. Hida, Automorphic induction and Leopoldt type conjectures for GL(n), Asian J. Math. 2 (1998), 667–710",
+      "link": "https://doi.org/10.4310/ajm.1998.v2.n4.a5",
+      "why": "Corollary 8.3, of which Theorem 6.6.9 on the one-dimensionality of the ordinary eigenspace is a variant."
+    },
+    {
+      "citation": "K.-W. Lan, Arithmetic compactifications of PEL-type Shimura varieties, London Math. Soc. Monographs 36, Princeton University Press, 2013",
+      "link": "https://doi.org/10.23943/princeton/9780691156545.001.0001",
+      "why": "The toroidal compactifications of §2.4 and the properties (G1)–(G2) of §2.9."
+    },
+    {
+      "citation": "H. Jacquet, Principal L-functions of the linear group, in Automorphic Forms, Representations and L-functions, Proc. Sympos. Pure Math. XXXIII, Part 2 (1979), 63–86",
+      "link": "https://doi.org/10.1090/pspum/033.2/546609",
+      "why": "The Godement–Jacquet zeta integral (1.1.3) and local functional equation (1.3.7), which give the local factor of Theorem 4.3.10."
+    },
+    {
+      "citation": "I. Piatetski-Shapiro and S. Rallis, L-functions for the classical groups, in Explicit Constructions of Automorphic L-functions, Lecture Notes in Math. 1254 (1987), 1–52",
+      "link": "https://doi.org/10.1007/BFb0078126",
+      "why": "The doubling method itself: the unwinding of the Siegel Eisenstein integral and the Euler factorization."
+    },
+    {
+      "citation": "G. Shimura, Euler Products and Eisenstein Series, CBMS Regional Conference Series in Mathematics 93, Amer. Math. Soc., 1997",
+      "link": "https://doi.org/10.1090/cbms/093",
+      "why": "The archimedean zeta integrals in the scalar weight case, the only case in which the factor Z_∞ of the interpolation formula has been evaluated."
+    },
+    {
+      "citation": "P. B. Garrett, Values of archimedean zeta integrals for unitary groups, in Eisenstein Series and Applications, Progr. Math. 258 (2008), 125–148",
+      "link": "https://doi.org/10.1007/978-0-8176-4639-4_4",
+      "why": "The archimedean zeta integrals for weights that are half scalar at every archimedean place."
+    },
+    {
+      "citation": "C. P. Mok, Endoscopic classification of representations of quasi-split unitary groups, Mem. Amer. Math. Soc. 235 (2015), no. 1108",
+      "link": "https://doi.org/10.1090/memo/1108",
+      "why": "With [KMSW14], the source of the global multiplicity one hypothesis 7.3.3 when the base change to GL(n) is cuspidal (Remark 9.3.2)."
+    },
+    {
+      "citation": "T. Kaletha, A. Minguez, S. W. Shin and P.-J. White, Endoscopic classification of representations: inner forms of unitary groups, arXiv:1409.3731 (2014)",
+      "link": "https://arxiv.org/abs/1409.3731",
+      "why": "The inner-form case of the same classification; cited for Hypothesis 7.3.3. Still a preprint at the time of writing."
+    },
+    {
+      "citation": "M. Harris, The Taylor–Wiles method for coherent cohomology, J. reine angew. Math. 679 (2013), 125–153",
+      "link": "https://doi.org/10.1515/crelle.2012.015",
+      "why": "One of the routes to verifying the Gorenstein hypothesis 7.3.2 (Remark 9.3.1)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "AutomorphicLFunctionsAndLocalFactors",
+      "roadmap": "AutomorphicLFunctionsAndLocalFactorsPartIIDoublingForUnitaryGroups",
+      "title": "Automorphic L-functions and local factors, Part II: the doubling method and the standard L-function of a unitary group",
+      "area": "automorphic",
+      "items": [
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/degenerate-principal-series",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/siegel-eisenstein",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/doubling-integral",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/doubling-method",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/unramified-zeta",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/siegel-weil-sections",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/anti-ordinary-test-vectors",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/holomorphic-antiholomorphic-modules",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/cor-4-4-9",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/prop-4-5-5",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/thm-9-1-3",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/local-l-eps-factors",
+        "PAPER-EISCHEN-HARRIS-LI-ETAL-20/analytic-continuation"
+      ],
+      "brief": "A Part II of Automorphic L-functions and local factors for the local and analytic machinery of the doubling method, as used by Eischen–Harris–Li–Skinner, 'p-adic L-functions for unitary groups' (Forum of Mathematics Pi 8 (2020), e9; arXiv:1602.01776). Part I covers L- and ε-factors and local functional equations for GL_1, GL_n and GL_n × GL_m, and the unramified Euler polynomial attached to a representation of an L-group (AL.4), and explicitly disclaims meromorphic continuation and a functional equation for a general reductive group; this Part II supplies what the doubling method needs for U(V) × GL(1)_K. Final theorems, as EHLS states them. The doubling method: for K/F a CM field, V a hermitian space, −V its negative and W = V ⊕ (−V), the group U(W) has a maximal parabolic P with Levi GL(n)_K; for a Hecke character χ of K the degenerate principal series is I(χ, s) = Ind_{P(A)}^{U(W)(A)}(χ ∘ det)δ_P^{−s/n} and E(χ, s, f, g) the attached Siegel Eisenstein series. For π cuspidal on U(V) and φ ∈ π, the integral I(φ, φ′, f, s) = ∫_{[U(V)×U(−V)]} E(χ, s, f, (g_1, g_2))φ(g_1)φ′(g_2)χ^{-1}(det g_2) dg_1 dg_2 vanishes unless φ′ ∈ π^∨, and when ⟨φ, φ′⟩ ≠ 0 it unwinds into an Euler product whose unramified terms give L(s + 1/2, π, χ), yielding the meromorphic continuation and functional equation of the standard L-function. Equivalently the Garrett map φ ↦ χ^{-1}(det g_2)∫ E(χ, s, f, (g_1, g_2))φ(g_1) dg_1 carries π on U(V) to π on U(−V) (EHLS Theorem 9.1.3), and its matrix coefficients are the adelic theory of that L-function. Cover, in this order: (1) the doubled hermitian space and the Siegel parabolic of U(W), the degenerate principal series I(χ, s) with its local factors, and the Siegel Eisenstein series with its meromorphic continuation; (2) the global doubling identity: vanishing off π^∨, the unwinding, and the Euler factorization, with the Garrett map and the statement that it preserves π; (3) the local zeta integrals: the unramified computation, the choices at ramified places, and the Siegel–Weil sections and (anti-)ordinary test vectors at places dividing p that EHLS introduces (§§4.2–4.3), together with the local L- and ε-factors of GL_n over a p-adic field in the normalization of Jacquet that the computation is expressed in; (4) the archimedean local integrals: holomorphic and anti-holomorphic modules over the enveloping algebra, holomorphic projection, the critical archimedean vector (EHLS Corollary 4.4.9) and the non-vanishing of the archimedean factor (Proposition 4.5.5). Do not claim an evaluation of the archimedean integral: EHLS leaves it unspecified, and it is known only for scalar weight (Shimura) and half-scalar weight (Garrett); (5) the standard L-function L(s, π, χ) of U(V) × GL(1)_K itself, with its partial version, its meromorphic continuation and its functional equation, deduced from (2). The p-adic construction that consumes all of this — the Eisenstein measure, the ordinary Hecke algebras, the three hypotheses and Main Theorem 9.2.2 — is not part of this roadmap; it is planned by AutomorphicPadicLFunctions L4, which names EHLS explicitly, and this Part II is its local supplier. Keep the division sharp: L4 owns the doubling embedding of Shimura varieties and the global zeta integral identity in the p-adic setting, this roadmap owns the representation-theoretic doubling identity and the local factors. Import from: Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors) AL.1–AL.4, for L- and ε-factors, local functional equations and the unramified Euler polynomial. Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups), for cuspidal automorphic representations, Eisenstein series and their continuation. Ray-class distributions and general automorphic constructions (AutomorphicPadicLFunctions) L4, the consumer. Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison) ET.3–ET.4, if stable base change to GL(n) is wanted as a proved input rather than a hypothesis.",
+      "reason": "Everything else in this paper is planned by AutomorphicPadicLFunctions L4, which names EHLS and its Main Theorem 9.2.2. What L4 does not carry is the representation-theoretic machinery the doubling method rests on: the degenerate principal series I(χ, s), the Siegel–Weil sections, the Siegel Eisenstein series, the Garrett map, the archimedean zeta integrals, the local L- and ε-factors in which the computation is expressed, and the continuation and functional equation of the standard L-function. A search of the atlas finds no stage naming any of them; AL.4 gives only the unramified Euler polynomial attached to a representation of an L-group, and the roadmap states that it does not assert continuation or a functional equation for a general group. That is Part I's own boundary, so a Part II of it is the right home, and L4 becomes its consumer."
+    }
+  ],
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-d67081",
+    "issue": 1400,
+    "date": "2026-09-23",
+    "status": "partial",
+    "reading": "arXiv v5 §1 in full; the statements of the results listed in readSections; the section structure of §§2–9. Proofs were not read, and no page image was needed for the statements recorded, which text extraction rendered cleanly.",
+    "changes": "First extraction: 56 items (43 planned, 13 missing), one Part II route, 15 prerequisites. No sourceIssues field: the paper has not been read closely enough to assert that it contains no mistakes.",
+    "lean": "none"
+  }
+}
