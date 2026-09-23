@@ -1,0 +1,82 @@
+{
+  "paper": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "A2 explicitly owns duals, Poincaré bundles, polarizations and Rosati. The corrected birigidification, graph factor two, rational NS and orbit dictionary fit that owner; import the existing abelian-variety carriers."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "A4 owns Tate-module realizations. Keep the separate finite-field full-faithfulness theorem in the Part II consumer; no duplicate realization carrier."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "A6 owns arithmetic Hom/End, semisimplicity and Rosati cones. The corrected reduced-trace multiplicity and Albert special case extend that owner."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "R07.2 owns Dieudonné modules and F,V conventions. Fixed Witt coefficients and characteristic-polynomial descent are adapters on the existing Witt APIs; retain the stated covariance and prime-field/general-q distinctions."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "GN.2 owns hermitian lattices, local invariants, genera and local-global theory. Coefficient DVRs, monogenic orders and determinant-index adapters use existing carriers and do not duplicate the upstream integral-lattice roadmap."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "Reject the bundle despite its correct GN.3 owning direction. The exact mass/density normalization and dyadic cases, uniform residue-ratio bound, genus bounds and free/projective comparison remain G4. The fixed imaginary quadratic lemma proves only its explicitly restricted case."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "AA.4 owns compact-level double-coset maps and stabilizer-sensitive index comparisons. The S4–S5 argument retains left stabilizers and finite support; no neatness assumption or new double-coset carrier is introduced."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "ST.0 owns the arithmetic family and weighted/unweighted measures. These definitions count actual F_p-isomorphism classes and retain finiteness as a prerequisite."
+    },
+    {
+      "route": 9,
+      "verdict": "reject",
+      "reason": "Reject the bundle: G5 leaves unrestricted concentration unproved, and G7 leaves the enhanced joint probability limits unestablished. The corrected elementary spacing and odd-p implications are explicitly conditional; an unspecified quaternionic analogue is not a theorem."
+    },
+    {
+      "route": 10,
+      "verdict": "reject",
+      "reason": "Reject pending supplier reconciliation G8/G10. The finite-field direction is an appropriate Part II and T1–T5 are concrete targets, but general Lang, the precise trace supplier, reduced-norm images/rank-one class sets and original proof leaves are not closed. A3/AA.1 and the corrected DWP.4 imports are now explicit; general polynomial/norm results have been removed to routes 14/15."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "M6 owns the finite-field finiteness adapter at fixed polarization degree, importing finite-type polarized moduli from M2/M5. This avoids a circular appeal to the unpolarized count being proved."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "AN.4 owns the explicitly stated Dedekind-zeta residue upper bound. Accept only that one-item source route; it supplies no lower bound for the residue ratio and does not close G4."
+    },
+    {
+      "route": 13,
+      "verdict": "reject",
+      "reason": "Reject: RG2.3 is a parahoric-model stage and does not state general Lang H^1 vanishing. The abelian-variety descent application also requires a nonaffine case. Name a genuine supplier in G10."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "CA.3 explicitly owns resultant and polynomial arithmetic. The five monic-lift/congruence/multiplicity-recognition adapters have the V3–V5 proof on the existing resultant, norm, Gauss and DVR carriers; a present abelian-variety consumer does not own the general result."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "The relative prime-cyclic ambiguous-class/unit-norm exact sequence is a class-field-theoretic continuation beyond the inspected upstream exits. Its brief states the groups, map, exact sequence and cardinal consequence, imports existing ideal/class/unit carriers and Hilbert 90, and compares the upstream Multiquadratic Layer 2 quadratic specialization."
+    }
+  ],
+  "notes": "Independent review complete, extraction partial. Preserve all 184 incoming IDs and add one fixed-field mass theorem. All 185 items are accounted for; 122 missing items are routed once. Confirm 35 version-scoped source findings (22 inherited and 13 added); nine have known corrections, including four fixes in Yun’s published text. G0/G2/G4/G5/G7/G8/G9/G10 remain open. Accepted routes identify usable mathematical contracts and their owners, not completed formalizations. Reject the four bundles/supplier matches listed above. See the review report for the fresh-read boundary and validation."
+}
