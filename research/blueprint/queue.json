@@ -1559,7 +1559,8 @@
    ],
    "avoidAccountOf": "PAPER-FINTZEN-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-FINTZEN-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1106"
   },
   {
    "id": "PAPER-ZHANG-21",
