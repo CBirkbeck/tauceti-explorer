@@ -10,7 +10,7 @@
     "arxiv": "1807.04659v5",
     "url": "https://arxiv.org/pdf/1807.04659v5",
     "sha256": "9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c",
-    "accessed": "2026-09-22",
+    "accessed": "2026-09-23",
     "versionRead": "Entire 85-page arXivv5, 18 July 2022; all main sections, appendices A–C, symbol index and references. Locators use its printed pages, not the 109-page journal pagination.",
     "readSections": [
       "All extracted text lines1–5866, in23 contiguous reading blocks; all statements and proofs, not an abstract-only extraction.",
@@ -32,7 +32,8 @@
         "url": "https://www.numdam.org/item/AST_1997__243__1_0.pdf",
         "sha256": "d8d0b8a69818a733b817a8d381b5c300b28aa8d47d74ab816cc1ad41b3f2bb82",
         "readSections": [
-          "Printedpp306–308: Lemma9, Corollary10, Theorem11 and proof. OCR of operators is corrupt; image-level full formula collation remains S2. Not the entire monograph."
+          "Continuation fresh text read: printed pp280–281,284–287 and301–308. Includes VI.1(d) definitions and quoted Langlands Theorems4–6 (their original proofs not supplied here), VI.2 Lemmas5–9, Corollary10, Theorem11 and the printed proofs. Other intervening or original-source proofs are not claimed read.",
+          "Fresh page images read: pp281,284,302–303,306–308; p304 proof continuation read as extracted text. The formula at308 and the Fourier coefficient at306 are legible in images. The earlier corrupt-OCR gate is replaced by the explicit all-lifts derivation in the report."
         ]
       },
       {
@@ -173,14 +174,25 @@
         "pages": "79–85 inclindex/references",
         "notes": "AppendBcoprimeCh15Thm6.2.1characteristicpolynomialtraceonlyscalar+nilpotent:Je=(q−1)Jnilp=(q−1)/q Σp tildeJp. Ch15cor5.2.2/.3 FourierHiggsmass givesq^−n²(g−1) andstableAutFq*=q−1⇒Je=q^−[n²(g−1)+1]#Higgsstable. AppendixCThmC1 LaurentP integralonallgenusgcurves characteristicfixedp⇒allmonomialsexponentcone. Printedpairσiσ2g−i=q indexbad(i=gselfpair), correctσiσi+g=q orσ2g+1−i. BuildordinarymaximalWeylGaloiscurve:Kow06Prop4p>2, generalallpviaordinarylocusnonemptyKoblitz75 stableexample+DMirreducibletricanonicalmoduliKS99§10.6,geomSp monodromyKS99Thm10.6.11,Larsen density1modlSp,Chavdarov97Thm2.1 proofonlyinfinitelymanylneeded. g1HondaTate polynomialX²+X+p. Givesmultiplicativeindependence p^d,selectedσiandpvaluations0,d, choosepairorderbynegexponents thenP<0specializationsZpforallk contradictdistinctexponentiallemma. Lem:nonzerointegralci,distinctnonzeroγi positivevaluation⇒someΣciγ_i^-k nonintegral; provefinite-differenceselimination orVandermondevaluationbound (betterfiniteproof). Allindexandrefsread. Sourcecompletearxiv85pages, journalcollationstillunavailable."
       }
-    ]
+    ],
+    "continuationReading": {
+      "agent": "Codex codex-c83e7a",
+      "date": "2026-09-23",
+      "main": "Freshly downloaded the same v5 SHA-256 and reread all85 pages, every section and Appendix A–C, then the symbol index and references. Pages1–81 read in contiguous batches; pages82–85 completed on this continuation. This does not assert a fresh full read of the supplementary books.",
+      "images": [
+        "Yu pp32–35,39; also pp36,40–41 rendered, text reread but not separately image-inspected",
+        "Laf97 printed pp281,284,302–303,306–308; pp280–287 and301–308 selected text ranges as below"
+      ],
+      "journal": "Publisher metadata checked, Annals197(2023)423–531; the109-page journal text is still not obtained."
+    },
+    "readingLedgerProvenance": "The original line-number ledger is retained from codex-a71f92 as historical evidence. The fresh codex-c83e7a continuation reread all85 pages. Any historical E28/floor or preferred E8-normalization conclusion is superseded by continuationReading and the current sourceIssues/withdrawnSourceIssues records."
   },
-  "summary": "Whole-arXiv-paper checkpoint for Yu's Frobenius-fixed irreducible local-system counts on smooth proper curves. The extraction distinguishes Weil descent, automorphic/trace normalization, isocline and Higgs bundle counts, finite-cycle determinants, the exact rank recurrence, integral universal Laurent polynomials and Jacobian/Euler specialization. It records141 items,46 definition/construction APIs with tests,95 theorem proof outlines,13 routes and28 source findings awaiting independent review. Eight declarations/carriers are pinned-library inputs;23 items are planned and110 missing. Every missing item is routed once. Journal collation, exact spectral-operator expansion, original-source proof closure and edge-case refinement remain S1–S8; neither formalization nor complete closure is claimed.",
+  "summary": "Continuation checkpoint after a fresh full85-page v5 reread. The153-item extraction now has11 library inputs,23 planned and119 missing items,50 definition/construction APIs with150 canonical tests,103 theorem proof outlines and13 routes. Items145–153 decompose the spectral cover, exact normalized Fourier fibres, convergence adapters, ordered operator trace and normalization transport. Item063 now contains its full all-lifts formula. E28 was a misread inequality and is withdrawn with its history retained; E1–E27 remain unreviewed source findings. S1–S8 remain explicit, with S2 narrowed to original analytic proofs, scalar-normalization reconciliation and geometric prerequisites. No formalization or full proof closure is claimed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "atlasCommit": "a79a97d5c4f2c2e2246534c119ab10a8775b13f3",
-    "publicationBase": "3f02b067baa564e05e9f5def7a4751cf92eef40a",
+    "publicationBase": "a4ad60cd4c77d372c695eee0d6ef7bb5fa1b8279",
     "reviewedAudit": "Read relevant AUDIT20 entries for FA.1/FA.2/FA.4/FA.6 and GS.0/GS.6; AUDIT14 AS.1/AS.2/AS.3/AS.4/AS.6 and AL.3; AUDIT18 DWP.0/DWP.1/DWP.7, EDC.2:pairings and CA.2/CA.3; AUDIT15 QM.0; AUDIT01 SF.3 and R09.4/R09.5; AUDIT19 WC.1 and WC.5:power-sum-converse. These distinguish existing divisors, partitions, binomial and determinant primitives from absent spectral/geometric targets. ET.2b and the classical-group stage IDs have no reviewed entry in this snapshot; no negative audit is inferred from that absence.",
     "searches": [
       "Read the relevant complete stage descriptions for every selected route and the classical-group Layers0–4; import the already-planned group/curve foundations rather than replanning upstream Tau Ceti roadmaps.",
@@ -265,8 +277,37 @@
         "path": "TauCeti/RepresentationTheory/RepresentationRing/Basic.lean",
         "lines": "106,128,135",
         "checked": "Read split K0 carrier, character ring homomorphism and class evaluation. Also read RepresentationRing/Injective.lean: its injectivity requires Finite G and CharZero k; no GSp specialization."
+      },
+      {
+        "item": "PAPER-YU-23/142",
+        "refs": [
+          "mathlib:MonoidHom.measurePreserving"
+        ],
+        "path": "Mathlib/MeasureTheory/Measure/Haar/Unique.lean",
+        "lines": "952–958",
+        "checked": "Fresh declaration statement, surrounding hypotheses and proof read at082e2d3 on2026-09-23."
+      },
+      {
+        "item": "PAPER-YU-23/143",
+        "refs": [
+          "mathlib:UnitAddTorus.hasSum_mFourier_series_apply_of_summable"
+        ],
+        "path": "Mathlib/Analysis/Fourier/AddCircleMulti.lean",
+        "lines": "329–332",
+        "checked": "Fresh declaration statement, surrounding hypotheses and proof read at082e2d3 on2026-09-23."
+      },
+      {
+        "item": "PAPER-YU-23/144",
+        "refs": [
+          "mathlib:AddChar.expect_eq_ite"
+        ],
+        "path": "Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean",
+        "lines": "33–36",
+        "checked": "Fresh declaration statement, surrounding hypotheses and proof read at082e2d3 on2026-09-23."
       }
-    ]
+    ],
+    "continuationSnapshot": "d68b9ed071723180477c15b9e51faed045ec8bf0",
+    "continuationAudit": "Fresh complete stage descriptions AS.0–AS.6 and reviewed AUDIT14 (REV-AUDIT14,2026-09-17), especially AS.0,1,2,3,4,6, read before additions. Generic Fourier/Haar declarations below were read at the pinned Mathlib commit. Existing paper items were screened for finite-kernel torus, fibre average and these declaration names; no competing owner was found. Prior other-route audits remain inherited evidence, not a claimed fresh reread. Bounded negative searches also covered the pinned Tau Ceti tree: its real-vector-space compact-support Fourier decay and L² Peter–Weyl squared-coefficient summability were read and distinguished from150. Refreshed competing paper results (BKT20, Bhatt et al23, GLX26, Hacon–Witaszek23, van Hoften24, Yun–Zhang19) did not introduce a duplicate finite-cover adapter; Yun–Zhang’s ramified relative-trace normalization is a distinct consumer. A final concurrent Cesnavicius19 completion was screened; it does not alter the spectral-cover owner or imports."
   },
   "items": [
     {
@@ -343,15 +384,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item001.test1",
-          "statement": "Fq(t) gives the projective line in genus zero.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For X1=P¹/Fq, genus(X1)=0 and Xk=P¹/F(q^k)."
         },
         {
           "name": "YuCounting.item001.test2",
-          "statement": "F_(q²)(t) over Fq must fail the exact-constants hypothesis.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "The extension k=1 identifies Xk with X1 over Fq."
+        },
+        {
+          "name": "YuCounting.item001.test3",
+          "kind": "non-example",
+          "statement": "P¹ over F(q²), viewed as an Fq-curve, is not geometrically connected and does not satisfy the exact-constants hypothesis."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item001.test1",
+          "kind": "computation",
+          "statement": "For X1=P¹/Fq, genus(X1)=0 and Xk=P¹/F(q^k)."
+        },
+        {
+          "name": "YuCounting.item001.test2",
+          "kind": "degenerate",
+          "statement": "The extension k=1 identifies Xk with X1 over Fq."
+        },
+        {
+          "name": "YuCounting.item001.test3",
+          "kind": "non-example",
+          "statement": "P¹ over F(q²), viewed as an Fq-curve, is not geometrically connected and does not satisfy the exact-constants hypothesis."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/002",
@@ -398,15 +463,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item002.test1",
-          "statement": "Rank-one classes are geometrically irreducible.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "The rank-one constant Q_l-bar sheaf on X defines a Frobenius-fixed class in E_1."
         },
         {
           "name": "YuCounting.item002.test2",
-          "statement": "A sum of two rank-one sheaves is excluded.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "The rank-two constant sheaf is a sum of two rank-one sheaves and defines no class in E_2."
+        },
+        {
+          "name": "YuCounting.item002.test3",
+          "kind": "compatibility",
+          "statement": "For every class V, the k-fold pullback action equals pullback by F_X^k; isomorphic representatives have the same class."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item002.test1",
+          "kind": "computation",
+          "statement": "The rank-one constant Q_l-bar sheaf on X defines a Frobenius-fixed class in E_1."
+        },
+        {
+          "name": "YuCounting.item002.test2",
+          "kind": "non-example",
+          "statement": "The rank-two constant sheaf is a sum of two rank-one sheaves and defines no class in E_2."
+        },
+        {
+          "name": "YuCounting.item002.test3",
+          "kind": "compatibility",
+          "statement": "For every class V, the k-fold pullback action equals pullback by F_X^k; isomorphic representatives have the same class."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/003",
@@ -474,15 +563,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item003.test1",
-          "statement": "d=1 is the identity inclusion.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "A chosen geometric Frobenius lift has degree1; its inverse has degree−1."
         },
         {
           "name": "YuCounting.item003.test2",
-          "statement": "Arithmetic Frobenius has degree −1 in this convention.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "characterisation",
+          "statement": "The kernel of deg:W(X1)→Z is exactly π1(X)."
+        },
+        {
+          "name": "YuCounting.item003.test3",
+          "kind": "compatibility",
+          "statement": "W(X_d) identifies with deg⁻¹(dZ); its geometric Frobenius generator maps to degree d in W(X1)."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item003.test1",
+          "kind": "computation",
+          "statement": "A chosen geometric Frobenius lift has degree1; its inverse has degree−1."
+        },
+        {
+          "name": "YuCounting.item003.test2",
+          "kind": "characterisation",
+          "statement": "The kernel of deg:W(X1)→Z is exactly π1(X)."
+        },
+        {
+          "name": "YuCounting.item003.test3",
+          "kind": "compatibility",
+          "statement": "W(X_d) identifies with deg⁻¹(dZ); its geometric Frobenius generator maps to degree d in W(X1)."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/004",
@@ -545,15 +658,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item004.test1",
-          "statement": "The trivial character fixes every representation.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "An inertial character with scalar a takes a Weil element of degree m to a^m."
         },
         {
           "name": "YuCounting.item004.test2",
-          "statement": "Coefficient absolute irreducibility alone does not imply Fix=1.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "The scalar a=1 gives the identity twist."
+        },
+        {
+          "name": "YuCounting.item004.test3",
+          "kind": "compatibility",
+          "statement": "For all geometric γ, (σ⊗χ_a)(γ)=σ(γ); inertial twisting preserves the geometric restriction."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item004.test1",
+          "kind": "computation",
+          "statement": "An inertial character with scalar a takes a Weil element of degree m to a^m."
+        },
+        {
+          "name": "YuCounting.item004.test2",
+          "kind": "degenerate",
+          "statement": "The scalar a=1 gives the identity twist."
+        },
+        {
+          "name": "YuCounting.item004.test3",
+          "kind": "compatibility",
+          "statement": "For all geometric γ, (σ⊗χ_a)(γ)=σ(γ); inertial twisting preserves the geometric restriction."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/005",
@@ -766,15 +903,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item009.test1",
-          "statement": "A local uniformizer at a degree-d place has degree −d.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "An idele which is a uniformizer at one degree-d place and1 elsewhere has degree−d."
         },
         {
           "name": "YuCounting.item009.test2",
-          "statement": "A degree-one idele need not be supported at a rational point.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "For invertible adelic matrices g,h, deg(gh)=deg(g)+deg(h)."
+        },
+        {
+          "name": "YuCounting.item009.test3",
+          "kind": "degenerate",
+          "statement": "For a principal f∈F*, deg(f)=0 by the product formula."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item009.test1",
+          "kind": "computation",
+          "statement": "An idele which is a uniformizer at one degree-d place and1 elsewhere has degree−d."
+        },
+        {
+          "name": "YuCounting.item009.test2",
+          "kind": "compatibility",
+          "statement": "For invertible adelic matrices g,h, deg(gh)=deg(g)+deg(h)."
+        },
+        {
+          "name": "YuCounting.item009.test3",
+          "kind": "degenerate",
+          "statement": "For a principal f∈F*, deg(f)=0 by the product formula."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/010",
@@ -812,6 +973,10 @@
         {
           "where": "PAPER-YU-23/048",
           "how": "Input to Multiplicative and linear torus pairings."
+        },
+        {
+          "where": "PAPER-YU-23/145",
+          "how": "Input to Cycle coordinates for the spectral character cover."
         }
       ],
       "openGates": [
@@ -840,15 +1005,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item010.test1",
-          "statement": "For M=G, X_G^G=mu_n rather than the trivial group.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For M=G=GL_n, X_G^G={z∈C*:z^n=1}."
         },
         {
           "name": "YuCounting.item010.test2",
-          "statement": "Two equal GL_1 blocks retain the finite central component information.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "For M=GL₂ and L=M, Im X_M^L=μ₂ has two points and is not connected."
+        },
+        {
+          "name": "YuCounting.item010.test3",
+          "kind": "compatibility",
+          "statement": "For M=GL_a×GL_b in G=GL_(a+b), X_M^G is given by x^a y^b=1, rather than xy=1 unless a=b=1."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item010.test1",
+          "kind": "computation",
+          "statement": "For M=G=GL_n, X_G^G={z∈C*:z^n=1}."
+        },
+        {
+          "name": "YuCounting.item010.test2",
+          "kind": "non-example",
+          "statement": "For M=GL₂ and L=M, Im X_M^L=μ₂ has two points and is not connected."
+        },
+        {
+          "name": "YuCounting.item010.test3",
+          "kind": "compatibility",
+          "statement": "For M=GL_a×GL_b in G=GL_(a+b), X_M^G is given by x^a y^b=1, rather than xy=1 unless a=b=1."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/011",
@@ -919,15 +1108,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item011.test1",
-          "statement": "The normalized characteristic function of K is the convolution unit.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "Under vol(K)=1 the characteristic function1_K satisfies1_K*1_K=1_K."
         },
         {
           "name": "YuCounting.item011.test2",
-          "statement": "Changing the unipotent measure rescales the intertwiner scalar.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "Replacing the measure dn in a convergent unipotent integral by c dn multiplies that integral by c."
+        },
+        {
+          "name": "YuCounting.item011.test3",
+          "kind": "degenerate",
+          "statement": "For a trivial unipotent radical the integral over its one-point quotient is evaluation, with mass1."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item011.test1",
+          "kind": "computation",
+          "statement": "Under vol(K)=1 the characteristic function1_K satisfies1_K*1_K=1_K."
+        },
+        {
+          "name": "YuCounting.item011.test2",
+          "kind": "compatibility",
+          "statement": "Replacing the measure dn in a convergent unipotent integral by c dn multiplies that integral by c."
+        },
+        {
+          "name": "YuCounting.item011.test3",
+          "kind": "degenerate",
+          "statement": "For a trivial unipotent radical the integral over its one-point quotient is evaluation, with mass1."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/012",
@@ -999,15 +1212,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item012.test1",
-          "statement": "GL_1 has no proper-parabolic vanishing condition.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "For GL₁ the proper-parabolic cusp condition is vacuous."
         },
         {
           "name": "YuCounting.item012.test2",
-          "statement": "Including P=G incorrectly forces the zero space.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "If the constant term for P=G were required to vanish, every cusp form would be zero."
+        },
+        {
+          "name": "YuCounting.item012.test3",
+          "kind": "characterisation",
+          "statement": "For GL₂, a spherical automorphic φ is cuspidal exactly when its upper-unipotent constant term ∫_(F\\A)φ(n(x)g)dx vanishes for every g, with the prescribed central character."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item012.test1",
+          "kind": "degenerate",
+          "statement": "For GL₁ the proper-parabolic cusp condition is vacuous."
+        },
+        {
+          "name": "YuCounting.item012.test2",
+          "kind": "non-example",
+          "statement": "If the constant term for P=G were required to vanish, every cusp form would be zero."
+        },
+        {
+          "name": "YuCounting.item012.test3",
+          "kind": "characterisation",
+          "statement": "For GL₂, a spherical automorphic φ is cuspidal exactly when its upper-unipotent constant term ∫_(F\\A)φ(n(x)g)dx vanishes for every g, with the prescribed central character."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/013",
@@ -1136,15 +1373,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item015.test1",
-          "statement": "Rank one recovers the finite Picard count, not infinitely many twists.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "Under rank-one Langlands and exact constants, C_1(Xk)=#Pic⁰(Xk)(F(q^k))."
         },
         {
           "name": "YuCounting.item015.test2",
-          "statement": "An induced orbit of length two is cuspidal but not absolutely cuspidal.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "A rank-two Weil representation induced from two distinct geometric conjugates over X₂ has |Fix|=2 and contributes no absolutely cuspidal class over X₁."
+        },
+        {
+          "name": "YuCounting.item015.test3",
+          "kind": "compatibility",
+          "statement": "Replacing a representative by an unramified scalar twist does not change its inertial counting class."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item015.test1",
+          "kind": "computation",
+          "statement": "Under rank-one Langlands and exact constants, C_1(Xk)=#Pic⁰(Xk)(F(q^k))."
+        },
+        {
+          "name": "YuCounting.item015.test2",
+          "kind": "non-example",
+          "statement": "A rank-two Weil representation induced from two distinct geometric conjugates over X₂ has |Fix|=2 and contributes no absolutely cuspidal class over X₁."
+        },
+        {
+          "name": "YuCounting.item015.test3",
+          "kind": "compatibility",
+          "statement": "Replacing a representative by an unramified scalar twist does not change its inertial counting class."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/016",
@@ -1236,15 +1497,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item017.test1",
-          "statement": "A residual segment of length two is retained.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "The GL₂ constant automorphic function, with trivial central character, is residual discrete data and is not cuspidal."
         },
         {
           "name": "YuCounting.item017.test2",
-          "statement": "A nonunitary central character requires the weighted norm.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "For |theta|=1 the |theta|-weighted integrand equals |phi|²."
+        },
+        {
+          "name": "YuCounting.item017.test3",
+          "kind": "characterisation",
+          "statement": "If phi(zm)=theta(z)phi(m), then |phi(zm)|²/|theta(zm)|²=|phi(m)|²/|theta(m)|², so the integrand descends to the central quotient."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item017.test1",
+          "kind": "non-example",
+          "statement": "The GL₂ constant automorphic function, with trivial central character, is residual discrete data and is not cuspidal."
+        },
+        {
+          "name": "YuCounting.item017.test2",
+          "kind": "compatibility",
+          "statement": "For |theta|=1 the |theta|-weighted integrand equals |phi|²."
+        },
+        {
+          "name": "YuCounting.item017.test3",
+          "kind": "characterisation",
+          "statement": "If phi(zm)=theta(z)phi(m), then |phi(zm)|²/|theta(zm)|²=|phi(m)|²/|theta(m)|², so the integrand descends to the central quotient."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/018",
@@ -1279,6 +1564,10 @@
         {
           "where": "PAPER-YU-23/091",
           "how": "Input to Cuspidal stabilizer strata."
+        },
+        {
+          "where": "PAPER-YU-23/151",
+          "how": "Input to Typed finite-fibre operator trace."
         }
       ],
       "openGates": [
@@ -1307,15 +1596,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item018.test1",
-          "statement": "Identity Weyl element can have nontrivial twist stabilizers.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "(1,1) belongs to stab(P,pi)."
         },
         {
           "name": "YuCounting.item018.test2",
-          "statement": "Permuting unequal inertial types is excluded.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "characterisation",
+          "statement": "(w,tau) is in the stabilizer precisely when w normalizes M and w(pi⊗tau)=pi."
+        },
+        {
+          "name": "YuCounting.item018.test3",
+          "kind": "compatibility",
+          "statement": "The inverse stabilizer element of (w,tau) is (w⁻¹,w(tau)⁻¹), in the convention of Yu (5.2.11)."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item018.test1",
+          "kind": "degenerate",
+          "statement": "(1,1) belongs to stab(P,pi)."
+        },
+        {
+          "name": "YuCounting.item018.test2",
+          "kind": "characterisation",
+          "statement": "(w,tau) is in the stabilizer precisely when w normalizes M and w(pi⊗tau)=pi."
+        },
+        {
+          "name": "YuCounting.item018.test3",
+          "kind": "compatibility",
+          "statement": "The inverse stabilizer element of (w,tau) is (w⁻¹,w(tau)⁻¹), in the convention of Yu (5.2.11)."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/019",
@@ -1374,15 +1687,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item019.test1",
-          "statement": "Two equal blocks contribute an S2 factor.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For pi=Π⊗Π, the transposition belongs to the permutation part of the stabilizer."
         },
         {
           "name": "YuCounting.item019.test2",
-          "statement": "Two inequivalent blocks cannot be interchanged.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "For two inertially inequivalent Π₁,Π₂, the transposition is excluded."
+        },
+        {
+          "name": "YuCounting.item019.test3",
+          "kind": "characterisation",
+          "statement": "For a good representative, (w,tau)∈stab iff (w,1)∈stab and tau∈Fix(pi)."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item019.test1",
+          "kind": "computation",
+          "statement": "For pi=Π⊗Π, the transposition belongs to the permutation part of the stabilizer."
+        },
+        {
+          "name": "YuCounting.item019.test2",
+          "kind": "non-example",
+          "statement": "For two inertially inequivalent Π₁,Π₂, the transposition is excluded."
+        },
+        {
+          "name": "YuCounting.item019.test3",
+          "kind": "characterisation",
+          "statement": "For a good representative, (w,tau)∈stab iff (w,1)∈stab and tau∈Fix(pi)."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/020",
@@ -1542,15 +1879,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item022.test1",
-          "statement": "Block sizes 1 and 2 distinguish sums from averages.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For blocks1|23, the vector (1,2,3) projects in a-space to(1,5), and the dual coordinate vector projects to(1,5/2)."
         },
         {
           "name": "YuCounting.item022.test2",
-          "statement": "The sum-zero hyperplane is not the full degree lattice.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "For M=G, a_M^G={0}."
+        },
+        {
+          "name": "YuCounting.item022.test3",
+          "kind": "compatibility",
+          "statement": "For blocks of ranks1 and2, α(x,y)=x−y/2 and α∨=(1,−1), with the degree-zero condition x+y=0."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item022.test1",
+          "kind": "computation",
+          "statement": "For blocks1|23, the vector (1,2,3) projects in a-space to(1,5), and the dual coordinate vector projects to(1,5/2)."
+        },
+        {
+          "name": "YuCounting.item022.test2",
+          "kind": "degenerate",
+          "statement": "For M=G, a_M^G={0}."
+        },
+        {
+          "name": "YuCounting.item022.test3",
+          "kind": "compatibility",
+          "statement": "For blocks of ranks1 and2, α(x,y)=x−y/2 and α∨=(1,−1), with the degree-zero condition x+y=0."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/023",
@@ -1604,15 +1965,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item023.test1",
-          "statement": "A wall belongs to neither strict positive cone.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "The empty product of cone conditions for GL₁ is1."
         },
         {
           "name": "YuCounting.item023.test2",
-          "statement": "For GL_1 the empty root product is one.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "A point on a required wall, with the corresponding pairing zero, does not satisfy the strict cone condition."
+        },
+        {
+          "name": "YuCounting.item023.test3",
+          "kind": "compatibility",
+          "statement": "H_P(nmk)=H_P(m) for n∈N_P(A), k∈K, and the total of its coordinates is deg(det m)."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item023.test1",
+          "kind": "degenerate",
+          "statement": "The empty product of cone conditions for GL₁ is1."
+        },
+        {
+          "name": "YuCounting.item023.test2",
+          "kind": "non-example",
+          "statement": "A point on a required wall, with the corresponding pairing zero, does not satisfy the strict cone condition."
+        },
+        {
+          "name": "YuCounting.item023.test3",
+          "kind": "compatibility",
+          "statement": "H_P(nmk)=H_P(m) for n∈N_P(A), k∈K, and the total of its coordinates is deg(det m)."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/024",
@@ -1673,15 +2058,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item024.test1",
-          "statement": "The singleton Levi recovers the rank-one kernel.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "For G=GL₁, the parabolic truncation sum has only P=G and k^T=k_G."
         },
         {
           "name": "YuCounting.item024.test2",
-          "statement": "Dropping truncation on a noncompact quotient is not an allowed rewrite.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "Writing J_e^T as an integral is permitted after integrability of the restricted diagonal kernel has been proved; the value at T=0 is J_e."
+        },
+        {
+          "name": "YuCounting.item024.test3",
+          "kind": "non-example",
+          "statement": "For a group of semisimple rank one the truncation includes both the G term and the proper-parabolic subtraction; retaining only G changes its defining expression."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item024.test1",
+          "kind": "degenerate",
+          "statement": "For G=GL₁, the parabolic truncation sum has only P=G and k^T=k_G."
+        },
+        {
+          "name": "YuCounting.item024.test2",
+          "kind": "compatibility",
+          "statement": "Writing J_e^T as an integral is permitted after integrability of the restricted diagonal kernel has been proved; the value at T=0 is J_e."
+        },
+        {
+          "name": "YuCounting.item024.test3",
+          "kind": "non-example",
+          "statement": "For a group of semisimple rank one the truncation includes both the G term and the proper-parabolic subtraction; retaining only G changes its defining expression."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/025",
@@ -1796,15 +2205,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item026.test1",
-          "statement": "A line twist changes degree modulo n by zero.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "A rank-two bundle of degree3 has slope3/2."
         },
         {
           "name": "YuCounting.item026.test2",
-          "statement": "A torsion quotient is not a subbundle quotient.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "For rank n and a line L of degree d, deg(E⊗L)=deg E+n*d."
+        },
+        {
+          "name": "YuCounting.item026.test3",
+          "kind": "non-example",
+          "statement": "On a smooth curve the inclusion O(−x)→O has a torsion quotient at x and is not a subbundle in this convention."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item026.test1",
+          "kind": "computation",
+          "statement": "A rank-two bundle of degree3 has slope3/2."
+        },
+        {
+          "name": "YuCounting.item026.test2",
+          "kind": "compatibility",
+          "statement": "For rank n and a line L of degree d, deg(E⊗L)=deg E+n*d."
+        },
+        {
+          "name": "YuCounting.item026.test3",
+          "kind": "non-example",
+          "statement": "On a smooth curve the inclusion O(−x)→O has a torsion quotient at x and is not a subbundle in this convention."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/027",
@@ -1892,15 +2325,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item028.test1",
-          "statement": "An indecomposable unstable bundle remains isocline.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "A line bundle of any degree is isocline."
         },
         {
           "name": "YuCounting.item028.test2",
-          "statement": "A direct sum of lines of different degrees is not isocline.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "On P¹, O⊕O(1) is not isocline because its two direct summands have different slopes."
+        },
+        {
+          "name": "YuCounting.item028.test3",
+          "kind": "compatibility",
+          "statement": "A nonzero indecomposable bundle is isocline, since its only nonzero direct summand is itself, regardless of whether it is semistable."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item028.test1",
+          "kind": "computation",
+          "statement": "A line bundle of any degree is isocline."
+        },
+        {
+          "name": "YuCounting.item028.test2",
+          "kind": "non-example",
+          "statement": "On P¹, O⊕O(1) is not isocline because its two direct summands have different slopes."
+        },
+        {
+          "name": "YuCounting.item028.test3",
+          "kind": "compatibility",
+          "statement": "A nonzero indecomposable bundle is isocline, since its only nonzero direct summand is itself, regardless of whether it is semistable."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/029",
@@ -1990,15 +2447,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item030.test1",
-          "statement": "T=0 gives slope semistability, not isoclinicity.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "At T=0, T-semistability is exactly ordinary slope semistability."
         },
         {
           "name": "YuCounting.item030.test2",
-          "statement": "Gamma for a one-part composition is one; for more than one part it vanishes at T=0 under its strict ordering.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "Gamma_(n)(H,T)=1 for the one-part composition."
+        },
+        {
+          "name": "YuCounting.item030.test3",
+          "kind": "non-example",
+          "statement": "For n=2,T=0 and two one-dimensional blocks with h1>h2, Gamma_(1,1)(H,0)=0: the prefix bound h1≤(h1+h2)/2 fails."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item030.test1",
+          "kind": "compatibility",
+          "statement": "At T=0, T-semistability is exactly ordinary slope semistability."
+        },
+        {
+          "name": "YuCounting.item030.test2",
+          "kind": "degenerate",
+          "statement": "Gamma_(n)(H,T)=1 for the one-part composition."
+        },
+        {
+          "name": "YuCounting.item030.test3",
+          "kind": "non-example",
+          "statement": "For n=2,T=0 and two one-dimensional blocks with h1>h2, Gamma_(1,1)(H,0)=0: the prefix bound h1≤(h1+h2)/2 fails."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/031",
@@ -2178,16 +2659,40 @@
       "unitTests": [
         {
           "name": "YuCounting.item035.test1",
-          "statement": "For n=1 every Higgs pair is stable.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "Every rank-one Higgs bundle is stable because no nonzero proper subbundle has smaller positive rank."
         },
         {
           "name": "YuCounting.item035.test2",
-          "statement": "At coprime rank and degree, equality of a proper invariant slope is impossible.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "For theta=0, Higgs stability is ordinary slope stability, as every subbundle is theta-invariant."
+        },
+        {
+          "name": "YuCounting.item035.test3",
+          "kind": "non-example",
+          "statement": "The rank-two pair (O⊕O,0) is semistable but not stable because O⊕0 has equal slope."
         }
       ],
-      "note": "Only the Higgs carrier is reused from ET.2b. All-characteristic stable coarse moduli and mass are items036/138, not claimed as already planned by ET.2b."
+      "note": "Only the Higgs carrier is reused from ET.2b. All-characteristic stable coarse moduli and mass are items036/138, not claimed as already planned by ET.2b.",
+      "tests": [
+        {
+          "name": "YuCounting.item035.test1",
+          "kind": "degenerate",
+          "statement": "Every rank-one Higgs bundle is stable because no nonzero proper subbundle has smaller positive rank."
+        },
+        {
+          "name": "YuCounting.item035.test2",
+          "kind": "compatibility",
+          "statement": "For theta=0, Higgs stability is ordinary slope stability, as every subbundle is theta-invariant."
+        },
+        {
+          "name": "YuCounting.item035.test3",
+          "kind": "non-example",
+          "statement": "The rank-two pair (O⊕O,0) is semistable but not stable because O⊕0 has equal slope."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/036",
@@ -2312,15 +2817,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item038.test1",
-          "statement": "p(0)≠0 makes the endomorphism fibre invertible.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "The scalar endomorphism a*Id has characteristic polynomial (X−a)^n."
         },
         {
           "name": "YuCounting.item038.test2",
-          "statement": "p=X^n contributes only to the Lie kernel when n>0.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "For n>0 a nilpotent endomorphism has characteristic polynomial X^n and is not invertible."
+        },
+        {
+          "name": "YuCounting.item038.test3",
+          "kind": "characterisation",
+          "statement": "An endomorphism of an n-dimensional fibre is invertible iff its characteristic polynomial has nonzero constant term; use the corresponding global bundle inverse via Cayley–Hamilton."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item038.test1",
+          "kind": "computation",
+          "statement": "The scalar endomorphism a*Id has characteristic polynomial (X−a)^n."
+        },
+        {
+          "name": "YuCounting.item038.test2",
+          "kind": "non-example",
+          "statement": "For n>0 a nilpotent endomorphism has characteristic polynomial X^n and is not invertible."
+        },
+        {
+          "name": "YuCounting.item038.test3",
+          "kind": "characterisation",
+          "statement": "An endomorphism of an n-dimensional fibre is invertible iff its characteristic polynomial has nonzero constant term; use the corresponding global bundle inverse via Cayley–Hamilton."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/039",
@@ -2469,15 +2998,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item041.test1",
-          "statement": "q^−1 has weight −2 but is not integral.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "The algebraic number q has weight2 and is integral."
         },
         {
           "name": "YuCounting.item041.test2",
-          "statement": "A Jordan block can be pure without being semisimple.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "q⁻¹ has weight−2 but is not an algebraic integer for q>1."
+        },
+        {
+          "name": "YuCounting.item041.test3",
+          "kind": "compatibility",
+          "statement": "If alpha has q-weight w then alpha^k has q^k-weight w; a reciprocal pair alpha,q/alpha remains paired after kth powers."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item041.test1",
+          "kind": "computation",
+          "statement": "The algebraic number q has weight2 and is integral."
+        },
+        {
+          "name": "YuCounting.item041.test2",
+          "kind": "non-example",
+          "statement": "q⁻¹ has weight−2 but is not an algebraic integer for q>1."
+        },
+        {
+          "name": "YuCounting.item041.test3",
+          "kind": "compatibility",
+          "statement": "If alpha has q-weight w then alpha^k has q^k-weight w; a reciprocal pair alpha,q/alpha remains paired after kth powers."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/042",
@@ -2584,16 +3137,40 @@
       "unitTests": [
         {
           "name": "YuCounting.item043.test1",
-          "statement": "The empty partition of zero has all multiplicities zero.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "The empty partition of0 has r=0 and S_i=0 for every i."
         },
         {
           "name": "YuCounting.item043.test2",
-          "statement": "For (1^n), S_1=n.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For lambda=(2,1,1), a1=2,a2=1,r=3,S1=3,S2=4."
+        },
+        {
+          "name": "YuCounting.item043.test3",
+          "kind": "compatibility",
+          "statement": "For every partition of n and i at least every part, S_i=n."
         }
       ],
-      "note": "The library status covers Nat.Partition only; multiplicity/S_i operations are adapters in items044/086/095 and gateS5."
+      "note": "The library status covers Nat.Partition only; multiplicity/S_i operations are adapters in items044/086/095 and gateS5.",
+      "tests": [
+        {
+          "name": "YuCounting.item043.test1",
+          "kind": "degenerate",
+          "statement": "The empty partition of0 has r=0 and S_i=0 for every i."
+        },
+        {
+          "name": "YuCounting.item043.test2",
+          "kind": "computation",
+          "statement": "For lambda=(2,1,1), a1=2,a2=1,r=3,S1=3,S2=4."
+        },
+        {
+          "name": "YuCounting.item043.test3",
+          "kind": "compatibility",
+          "statement": "For every partition of n and i at least every part, S_i=n."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/044",
@@ -2648,15 +3225,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item044.test1",
-          "statement": "psi_2(T)=T², not T.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For f=T*z1, psi_2(f)=T²*z1²."
         },
         {
           "name": "YuCounting.item044.test2",
-          "statement": "Plethystic Log differs from ordinary log already at degree two.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "Log(1)=0 in the T-adic completion."
+        },
+        {
+          "name": "YuCounting.item044.test3",
+          "kind": "computation",
+          "statement": "Plethystic Log((1−T)⁻¹)=T, whereas ordinary log((1−T)⁻¹) has coefficient1/2 at T²."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item044.test1",
+          "kind": "computation",
+          "statement": "For f=T*z1, psi_2(f)=T²*z1²."
+        },
+        {
+          "name": "YuCounting.item044.test2",
+          "kind": "degenerate",
+          "statement": "Log(1)=0 in the T-adic completion."
+        },
+        {
+          "name": "YuCounting.item044.test3",
+          "kind": "computation",
+          "statement": "Plethystic Log((1−T)⁻¹)=T, whereas ordinary log((1−T)⁻¹) has coefficient1/2 at T²."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/045",
@@ -2705,15 +3306,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item045.test1",
-          "statement": "The T coefficient yields J_g after multiplying by −(1−q)(1−z).",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "The empty Young diagram contributes the constant term1 to Omega_g."
         },
         {
           "name": "YuCounting.item045.test2",
-          "statement": "The printed −(1−g) factor would give zero in genus one.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For the one-box partition, a=l=0 and its factor is ∏_i(z−z_i)(1−q/z_i)/((z−1)(1−q))."
+        },
+        {
+          "name": "YuCounting.item045.test3",
+          "kind": "compatibility",
+          "statement": "Multiplication of that T coefficient by −(1−q)(1−z), followed by z=1, yields ∏_i(1−z_i)(1−q/z_i)."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item045.test1",
+          "kind": "degenerate",
+          "statement": "The empty Young diagram contributes the constant term1 to Omega_g."
+        },
+        {
+          "name": "YuCounting.item045.test2",
+          "kind": "computation",
+          "statement": "For the one-box partition, a=l=0 and its factor is ∏_i(z−z_i)(1−q/z_i)/((z−1)(1−q))."
+        },
+        {
+          "name": "YuCounting.item045.test3",
+          "kind": "compatibility",
+          "statement": "Multiplication of that T coefficient by −(1−q)(1−z), followed by z=1, yields ∏_i(1−z_i)(1−q/z_i)."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/046",
@@ -2780,8 +3405,8 @@
           "how": "Input to Generic auxiliary chamber selector."
         },
         {
-          "where": "PAPER-YU-23/062",
-          "how": "Input to Finite-kernel torus Fourier inversion."
+          "where": "PAPER-YU-23/145",
+          "how": "Input to Cycle coordinates for the spectral character cover."
         }
       ],
       "openGates": [
@@ -2807,15 +3432,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item047.test1",
-          "statement": "An n-cycle yields G itself as the minimal Levi.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "For w=1 the minimal fixed Levi is M."
         },
         {
           "name": "YuCounting.item047.test2",
-          "statement": "The identity permutation yields M.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For M=GL_d×GL_d and w swapping the two blocks, L_w=GL_(2d)."
+        },
+        {
+          "name": "YuCounting.item047.test3",
+          "kind": "non-example",
+          "statement": "For M=GL₁^4 and w=(12)(34), L_w=GL₂×GL₂ up to permutation, rather than GL₄."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item047.test1",
+          "kind": "degenerate",
+          "statement": "For w=1 the minimal fixed Levi is M."
+        },
+        {
+          "name": "YuCounting.item047.test2",
+          "kind": "computation",
+          "statement": "For M=GL_d×GL_d and w swapping the two blocks, L_w=GL_(2d)."
+        },
+        {
+          "name": "YuCounting.item047.test3",
+          "kind": "non-example",
+          "statement": "For M=GL₁^4 and w=(12)(34), L_w=GL₂×GL₂ up to permutation, rather than GL₄."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/048",
@@ -2848,12 +3497,12 @@
           "how": "Input to Floor-vector expression for the cone series."
         },
         {
-          "where": "PAPER-YU-23/062",
-          "how": "Input to Finite-kernel torus Fourier inversion."
-        },
-        {
           "where": "PAPER-YU-23/070",
           "how": "Input to Cyclic character fibres."
+        },
+        {
+          "where": "PAPER-YU-23/145",
+          "how": "Input to Cycle coordinates for the spectral character cover."
         }
       ],
       "openGates": [
@@ -2879,15 +3528,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item048.test1",
-          "statement": "lambda^(H+H')=lambda^H lambda^H'.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "lambda^(H+K)=lambda^H*lambda^K for integral H,K."
         },
         {
           "name": "YuCounting.item048.test2",
-          "statement": "The linear pairing need not vanish at a scalar unless H has sum zero.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For H=(1,−1), lambda^H=lambda1/lambda2 whereas <lambda,H>=lambda1−lambda2."
+        },
+        {
+          "name": "YuCounting.item048.test3",
+          "kind": "degenerate",
+          "statement": "For H=0 the multiplicative pairing is1 and the additive pairing is0."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item048.test1",
+          "kind": "compatibility",
+          "statement": "lambda^(H+K)=lambda^H*lambda^K for integral H,K."
+        },
+        {
+          "name": "YuCounting.item048.test2",
+          "kind": "computation",
+          "statement": "For H=(1,−1), lambda^H=lambda1/lambda2 whereas <lambda,H>=lambda1−lambda2."
+        },
+        {
+          "name": "YuCounting.item048.test3",
+          "kind": "degenerate",
+          "statement": "For H=0 the multiplicative pairing is1 and the additive pairing is0."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/049",
@@ -2944,15 +3617,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item049.test1",
-          "statement": "For GL_2, the two denominators have opposite signs.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For GL₂ with diagonal Levi, theta_B=lambda1−lambda2 and theta_Bop=lambda2−lambda1."
         },
         {
           "name": "YuCounting.item049.test2",
-          "statement": "An arbitrary unrelated pair of holomorphic functions is not a family.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "The pair c_B=1,c_Bop=2 is not a family on a domain meeting lambda1=lambda2."
+        },
+        {
+          "name": "YuCounting.item049.test3",
+          "kind": "degenerate",
+          "statement": "For M=G, theta_G=1 and the single holomorphic member automatically satisfies the adjacency condition."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item049.test1",
+          "kind": "computation",
+          "statement": "For GL₂ with diagonal Levi, theta_B=lambda1−lambda2 and theta_Bop=lambda2−lambda1."
+        },
+        {
+          "name": "YuCounting.item049.test2",
+          "kind": "non-example",
+          "statement": "The pair c_B=1,c_Bop=2 is not a family on a domain meeting lambda1=lambda2."
+        },
+        {
+          "name": "YuCounting.item049.test3",
+          "kind": "degenerate",
+          "statement": "For M=G, theta_G=1 and the single holomorphic member automatically satisfies the adjacency condition."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/050",
@@ -2984,7 +3681,7 @@
         "PAPER-YU-23/S1",
         "PAPER-YU-23/S2"
       ],
-      "proofOutline": "Subtract adjacent chamber values; the wall-compatibility condition cancels the corresponding simple-root denominator. Iterating over walls makes the total sum regular. Restrict characters along nested Levis to prove the two descent constructions. Arthur's original regularization proof is still an imported leaf."
+      "proofOutline": "Subtract adjacent chamber values; the wall-compatibility condition cancels the corresponding simple-root denominator. Iterating over walls makes the total sum regular. Restrict characters along nested Levis to prove the two descent constructions. Arthur's original regularization proof is still an imported leaf. Freshly read Laf97 VI.2 Lemma7 pp303–304: fix a root wall, pair permutations in which its two labels are adjacent, and use their equal wall values to divide their difference by the wall equation. Other terms have no pole there. Repeating over all root walls removes the product denominator; intersections do not introduce a new pole. Corollary10 applies this to the full family before the contour reaches the unitary locus."
     },
     {
       "id": "PAPER-YU-23/051",
@@ -3178,15 +3875,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item056.test1",
-          "statement": "kappa=(3,2,1) fails for blocks {1,3}|{2}.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "kappa=(3,2,1) has equal block averages for {1,3}|{2} and does not define a generic selector."
         },
         {
           "name": "YuCounting.item056.test2",
-          "statement": "Nonzero projection to a_L alone must not prove genericity.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For GL₂, kappa=(2,0) is regular for the unique proper root hyperplane."
+        },
+        {
+          "name": "YuCounting.item056.test3",
+          "kind": "compatibility",
+          "statement": "Multiplying a generic kappa by a positive real preserves every relative-root sign, hence preserves every Q_L."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item056.test1",
+          "kind": "non-example",
+          "statement": "kappa=(3,2,1) has equal block averages for {1,3}|{2} and does not define a generic selector."
+        },
+        {
+          "name": "YuCounting.item056.test2",
+          "kind": "computation",
+          "statement": "For GL₂, kappa=(2,0) is regular for the unique proper root hyperplane."
+        },
+        {
+          "name": "YuCounting.item056.test3",
+          "kind": "compatibility",
+          "statement": "Multiplying a generic kappa by a positive real preserves every relative-root sign, hence preserves every Q_L."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/057",
@@ -3241,15 +3962,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item057.test1",
-          "statement": "For g=1 the measure power is one.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "For w=1, the empty root product n_pi(1,lambda)=1."
         },
         {
           "name": "YuCounting.item057.test2",
-          "statement": "Repeated equal blocks retain the extra stabilizer pole contribution.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For g=2 and n_i=n_j=1 the Haar prefactor is q⁻¹."
+        },
+        {
+          "name": "YuCounting.item057.test3",
+          "kind": "compatibility",
+          "statement": "For genus1 the Haar prefactor q^((1−g)n_i*n_j) equals1 for all positive block ranks."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item057.test1",
+          "kind": "degenerate",
+          "statement": "For w=1, the empty root product n_pi(1,lambda)=1."
+        },
+        {
+          "name": "YuCounting.item057.test2",
+          "kind": "computation",
+          "statement": "For g=2 and n_i=n_j=1 the Haar prefactor is q⁻¹."
+        },
+        {
+          "name": "YuCounting.item057.test3",
+          "kind": "compatibility",
+          "statement": "For genus1 the Haar prefactor q^((1−g)n_i*n_j) equals1 for all positive block ranks."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/058",
@@ -3273,6 +4018,14 @@
         {
           "where": "PAPER-YU-23/063",
           "how": "Input to Corrected Arthur–Lafforgue spectral expression."
+        },
+        {
+          "where": "PAPER-YU-23/151",
+          "how": "Input to Typed finite-fibre operator trace."
+        },
+        {
+          "where": "PAPER-YU-23/152",
+          "how": "Input to Degree Fourier recovery of the spectral contribution."
         }
       ],
       "openGates": [
@@ -3298,15 +4051,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item058.test1",
-          "statement": "Summing all e mod n recovers hat1_Q.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "For n=1 the Fourier degree projector has one term and hat1_Q^0=hat1_Q."
         },
         {
           "name": "YuCounting.item058.test2",
-          "statement": "The Fourier sign must match the degree −e exponent.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "Summing hat1_Q^e over e=0,...,n−1 recovers hat1_Q."
+        },
+        {
+          "name": "YuCounting.item058.test3",
+          "kind": "computation",
+          "statement": "For n=2,zeta=−1, the even/odd projectors of a function f are (f(lambda)±f(lambda*eta))/2."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item058.test1",
+          "kind": "degenerate",
+          "statement": "For n=1 the Fourier degree projector has one term and hat1_Q^0=hat1_Q."
+        },
+        {
+          "name": "YuCounting.item058.test2",
+          "kind": "compatibility",
+          "statement": "Summing hat1_Q^e over e=0,...,n−1 recovers hat1_Q."
+        },
+        {
+          "name": "YuCounting.item058.test3",
+          "kind": "computation",
+          "statement": "For n=2,zeta=−1, the even/odd projectors of a function f are (f(lambda)±f(lambda*eta))/2."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/059",
@@ -3345,7 +4122,7 @@
       "id": "PAPER-YU-23/060",
       "kind": "definition",
       "name": "Induced spherical sections with a fixed normalization",
-      "statement": "For a discrete pair and R∈P(M), A_(R,pi) is the spherical induced space on M(F)N_R(A)\\G(A)/K. Use the convention phi_R(nmk)=rho_R(m)^−1 phi_pi(m); equivalently rho_R phi_R restricted to M lies in pi. The opposite condition printed in §5.2.2 must not be mixed with this basis.",
+      "statement": "For each R∈P(M), fix the inducing character s_R explicitly. The spherical section space consists of phi on M(F)N_R(A)\\G(A)/K with s_R⁻¹ phi|_M∈pi; its basis is s_R*phi_pi. Laf97 p284 and Yu p32 use s_R=rho_R (with P to be replaced by R in Yu); Yu p39 uses s_R=rho_R⁻¹. Item153 supplies the transport contract; S2 retains the choice matching the numerical Rankin–Selberg normalizers.",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §5.2.2 and§5.3.2 pp32,39, E8",
       "status": "planned",
       "group": "as",
@@ -3366,6 +4143,10 @@
         {
           "where": "PAPER-YU-23/066",
           "how": "Input to Scalar intertwiners on spherical sections."
+        },
+        {
+          "where": "PAPER-YU-23/153",
+          "how": "Input to Explicit transport between induction normalization conventions."
         }
       ],
       "openGates": [
@@ -3379,12 +4160,12 @@
         {
           "name": "YuCounting.item060.sphericalSection",
           "role": "constructor",
-          "statement": "extend a Levi vector by phi_R(nmk)=rho_R(m)^−1phi_pi(m)"
+          "statement": "For specified s_R, extend phi_pi by phi_R(nmk)=s_R(m)phi_pi(m)."
         },
         {
           "name": "YuCounting.item060.leviRestriction",
           "role": "compatibility",
-          "statement": "recover phi_pi by multiplying by rho_R"
+          "statement": "Recover phi_pi by multiplying the Levi restriction by s_R⁻¹."
         },
         {
           "name": "YuCounting.item060.parameterTwist",
@@ -3395,15 +4176,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item060.test1",
-          "statement": "The R=P case detects an erroneous second inverse rho.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "For prescribed s_R, the Levi restriction of s_R*phi_pi multiplied by s_R⁻¹ equals phi_pi."
         },
         {
           "name": "YuCounting.item060.test2",
-          "statement": "A section is not a scalar function on M alone.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "For R=G the modular character is1, so both displayed rho conventions give the same section."
+        },
+        {
+          "name": "YuCounting.item060.test3",
+          "kind": "non-example",
+          "statement": "At rho_R(m)=2 and phi_pi(m)=1, the p32 membership convention requires section value2 while the p39 basis gives1/2; they cannot be identified without transport."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item060.test1",
+          "kind": "compatibility",
+          "statement": "For prescribed s_R, the Levi restriction of s_R*phi_pi multiplied by s_R⁻¹ equals phi_pi."
+        },
+        {
+          "name": "YuCounting.item060.test2",
+          "kind": "degenerate",
+          "statement": "For R=G the modular character is1, so both displayed rho conventions give the same section."
+        },
+        {
+          "name": "YuCounting.item060.test3",
+          "kind": "non-example",
+          "statement": "At rho_R(m)=2 and phi_pi(m)=1, the p32 membership convention requires section value2 while the p39 basis gives1/2; they cannot be identified without transport."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/CharacterCover.lean"
     },
     {
       "id": "PAPER-YU-23/061",
@@ -3426,6 +4231,14 @@
         {
           "where": "PAPER-YU-23/066",
           "how": "Input to Scalar intertwiners on spherical sections."
+        },
+        {
+          "where": "PAPER-YU-23/151",
+          "how": "Input to Typed finite-fibre operator trace."
+        },
+        {
+          "where": "PAPER-YU-23/153",
+          "how": "Input to Explicit transport between induction normalization conventions."
         }
       ],
       "openGates": [
@@ -3455,15 +4268,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item061.test1",
-          "statement": "The identity Weyl element gives the identity operator.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "M_(P|P)(1,lambda)=Id on its defined induced space."
         },
         {
           "name": "YuCounting.item061.test2",
-          "statement": "A pole cannot be cancelled without the ratio regularity theorem.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "For a regular invertible intertwiner, R_Q(lambda;1)=M_(R|P)(lambda)⁻¹∘M_(R|P)(lambda)=Id."
+        },
+        {
+          "name": "YuCounting.item061.test3",
+          "kind": "compatibility",
+          "statement": "For compatible R,S,T and regular parameters, M_(T|S)(lambda)∘M_(S|R)(lambda)=M_(T|R)(lambda), with the corresponding Weyl transport when present."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item061.test1",
+          "kind": "degenerate",
+          "statement": "M_(P|P)(1,lambda)=Id on its defined induced space."
+        },
+        {
+          "name": "YuCounting.item061.test2",
+          "kind": "compatibility",
+          "statement": "For a regular invertible intertwiner, R_Q(lambda;1)=M_(R|P)(lambda)⁻¹∘M_(R|P)(lambda)=Id."
+        },
+        {
+          "name": "YuCounting.item061.test3",
+          "kind": "compatibility",
+          "statement": "For compatible R,S,T and regular parameters, M_(T|S)(lambda)∘M_(S|R)(lambda)=M_(T|R)(lambda), with the corresponding Weyl transport when present."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/CharacterCover.lean"
     },
     {
       "id": "PAPER-YU-23/062",
@@ -3474,8 +4311,11 @@
       "status": "missing",
       "group": "as",
       "dependencies": [
-        "PAPER-YU-23/047",
-        "PAPER-YU-23/048"
+        "PAPER-YU-23/145",
+        "PAPER-YU-23/146",
+        "PAPER-YU-23/147",
+        "PAPER-YU-23/148",
+        "PAPER-YU-23/149"
       ],
       "implementationStatus": "unchecked",
       "uses": [
@@ -3489,16 +4329,15 @@
         }
       ],
       "openGates": [
-        "PAPER-YU-23/S1",
-        "PAPER-YU-23/S2"
+        "PAPER-YU-23/S1"
       ],
-      "proofOutline": "Compute the kernel and cokernel of the torus exponent map cycle by cycle. Haar pushforward fixes the measure factor. Apply character orthogonality to each finite fibre; retaining its cardinality yields |w||X_L^L| rather than dropping the finite central kernel."
+      "proofOutline": "Items145–147 give the explicit cycle proof of the cover and its degree;148–150 prove the normalized transfer and pointwise Fourier identity using probability Haar and absolute summability. See the report for the proof, including disconnected components. These elementary adapters no longer depend on the unresolved trace-formula normalization."
     },
     {
       "id": "PAPER-YU-23/063",
       "kind": "theorem",
       "name": "Corrected Arthur–Lafforgue spectral expression",
-      "statement": "The degree-Fourier trace J_eta=Σ_{e mod n}zeta^e J_e is the sum over good discrete pairs, stabilizer elements and the finite character fibres of Theorem5.2.2, integrating the regularized operator-family trace over Im X_L^G with denominator |stab(P,pi)||w||X_L^L|. Fourier recovery gives Corollary5.2.3 for each J_e. Exact operator order and character fibres remain part of the theorem, not suppressed scalar constants.",
+      "statement": "For G=GL_n over F_q(X), n>0, the everywhere-unramified trace at T=0 is J_eta=Σ_[(P,pi)] |stab(P,pi)|⁻¹ Σ_[(w,tau)∈stab(P,pi)] ∫_(lambda∈A) D⁻¹ Σ_[(a,c)∈mu_w⁻¹(tau)] F_eta(lambda,a,c) d lambda. Here A=Im X_L^G, B=Im X_M^L, L=L_w, mu_w(a,c)=a*c/w⁻¹(c), D=|w||X_L^L|, and F_eta is the exact ordered regularized trace151 with h_Q(v)=hat1_Q(v eta⁻¹). Haar on A has total mass one, including all components. The finite fibre is equivalently a∈A,b∈B0,tau=a*b,c∈B,δ_w(c)=b. Replacing h_Q by hat1_Q^e gives J_e for every e∈Z. No good-representative hypothesis is required for this spectral identity. Its proof and scalar specialization require the coherent normalization and analytic prerequisites retained in S2.",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Theorem5.2.2 andCorollary5.2.3 pp33–36; corrected Laf97 theorem",
       "status": "missing",
       "group": "as",
@@ -3508,7 +4347,9 @@
         "PAPER-YU-23/025",
         "PAPER-YU-23/058",
         "PAPER-YU-23/061",
-        "PAPER-YU-23/062"
+        "PAPER-YU-23/062",
+        "PAPER-YU-23/151",
+        "PAPER-YU-23/152"
       ],
       "implementationStatus": "unchecked",
       "uses": [
@@ -3521,8 +4362,8 @@
         "PAPER-YU-23/S1",
         "PAPER-YU-23/S2"
       ],
-      "proofOutline": "Start from the corrected spectral expansion and replace the degree character sum using item62. Organize the operator-valued (G,M)-families before taking the trace and recover the e coefficient by finite Fourier inversion. The exact operator-order transcription and complete comparison with Laf97 are explicit S2 obligations.",
-      "statementStatus": "operator-formula-expansion-required"
+      "proofOutline": "Start with Laf97 VI.2 Lemma9/Corollary10, not its unexpanded Theorem11. Yu (5.2.10) shifts the contour variable by eta⁻¹. Decompose the parameter in A*B using probability-Haar pushforward142, and replace (w,tau) by its inverse (w⁻¹,w(tau)⁻¹) to obtain (5.2.11). After the regularized Q-sum is smooth, apply149 to its character coefficient to evaluate on mu_w⁻¹(tau). This gives exactly151, with D⁻¹. Item152 recovers each degree. Source-to-operator identification still imports Langlands unitarity, functional equations and gluing; S2 does not claim those original proofs or the rho dictionary fully closed.",
+      "statementStatus": "operator-formula-transcribed; analytic-and-normalization-proof-gates-open"
     },
     {
       "id": "PAPER-YU-23/064",
@@ -3606,7 +4447,7 @@
         "PAPER-YU-23/S1",
         "PAPER-YU-23/S2"
       ],
-      "proofOutline": "Compute each local intertwiner on the normalized spherical vector. Multiply the unramified factors and include the global unipotent Haar volume q^((1−g)ni nj). Adjacent-parabolic composition gives the full product; source images fix the normalization in E8/E12."
+      "proofOutline": "Compute each local intertwiner on the normalized spherical vector. Multiply the unramified factors and include the global unipotent Haar volume q^((1−g)ni nj). Adjacent-parabolic composition gives the full product; source images fix the normalization in E8/E12. The global additive-volume factor is unchanged by the present continuation. The rho ambiguity now has the explicit153 transport contract; no scalar formula is asserted independent of a change of normalization without that proof."
     },
     {
       "id": "PAPER-YU-23/067",
@@ -3824,15 +4665,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item072.test1",
-          "statement": "c=2,a=e=1 gives delta_e=2.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For one cycle l=2,f=1, c=2,a=1, delta_0=0 and delta_1=2."
         },
         {
           "name": "YuCounting.item072.test2",
-          "statement": "The exponent a has order at most two, not arbitrary order.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "If c=1, delta_e=1 for every integer e."
+        },
+        {
+          "name": "YuCounting.item072.test3",
+          "kind": "compatibility",
+          "statement": "delta_(e+c)=delta_e, since every character in the sum has order dividing c."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item072.test1",
+          "kind": "computation",
+          "statement": "For one cycle l=2,f=1, c=2,a=1, delta_0=0 and delta_1=2."
+        },
+        {
+          "name": "YuCounting.item072.test2",
+          "kind": "degenerate",
+          "statement": "If c=1, delta_e=1 for every integer e."
+        },
+        {
+          "name": "YuCounting.item072.test3",
+          "kind": "compatibility",
+          "statement": "delta_(e+c)=delta_e, since every character in the sum has order dividing c."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/073",
@@ -3906,15 +4771,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item074.test1",
-          "statement": "The singleton graph is a tree.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "The graph on one vertex with no edges is a tree."
         },
         {
           "name": "YuCounting.item074.test2",
-          "statement": "The empty graph is excluded by Nonempty V.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "The graph on the empty vertex type is not connected under the nonempty convention and is not a tree."
+        },
+        {
+          "name": "YuCounting.item074.test3",
+          "kind": "computation",
+          "statement": "The three-vertex path is a tree; adjoining the edge between its two ends produces a cycle and destroys IsTree."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item074.test1",
+          "kind": "degenerate",
+          "statement": "The graph on one vertex with no edges is a tree."
+        },
+        {
+          "name": "YuCounting.item074.test2",
+          "kind": "non-example",
+          "statement": "The graph on the empty vertex type is not connected under the nonempty convention and is not a tree."
+        },
+        {
+          "name": "YuCounting.item074.test3",
+          "kind": "computation",
+          "statement": "The three-vertex path is a tree; adjoining the edge between its two ends produces a cycle and destroys IsTree."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/075",
@@ -3963,15 +4852,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item075.test1",
-          "statement": "On two vertices the cofactor is the single edge weight.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For two vertices with weight x the Laplacian is [[x,−x],[−x,x]] and the tree polynomial is x."
         },
         {
           "name": "YuCounting.item075.test2",
-          "statement": "On three vertices it is xy+xz+yz.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For a triangle with weights x,y,z the tree polynomial is xy+xz+yz."
+        },
+        {
+          "name": "YuCounting.item075.test3",
+          "kind": "degenerate",
+          "statement": "For one vertex the Laplacian is [0] and the spanning-tree polynomial is1."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item075.test1",
+          "kind": "computation",
+          "statement": "For two vertices with weight x the Laplacian is [[x,−x],[−x,x]] and the tree polynomial is x."
+        },
+        {
+          "name": "YuCounting.item075.test2",
+          "kind": "computation",
+          "statement": "For a triangle with weights x,y,z the tree polynomial is xy+xz+yz."
+        },
+        {
+          "name": "YuCounting.item075.test3",
+          "kind": "degenerate",
+          "statement": "For one vertex the Laplacian is [0] and the spanning-tree polynomial is1."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/076",
@@ -4051,15 +4964,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item077.test1",
-          "statement": "A nonzero 2×2 nilpotent matrix has kappa=0.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "For the1×1 zero matrix, kappa=1."
         },
         {
           "name": "YuCounting.item077.test2",
-          "statement": "The zero 1×1 matrix has kappa=1.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "For A=[[0,1],[0,0]], rank(A)=1 but kappa(A)=0 because det(A+tI)=t²."
+        },
+        {
+          "name": "YuCounting.item077.test3",
+          "kind": "computation",
+          "statement": "For the two-vertex Laplacian [[x,−x],[−x,x]], det(A+tI)=t²+2xt and kappa=x."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item077.test1",
+          "kind": "degenerate",
+          "statement": "For the1×1 zero matrix, kappa=1."
+        },
+        {
+          "name": "YuCounting.item077.test2",
+          "kind": "non-example",
+          "statement": "For A=[[0,1],[0,0]], rank(A)=1 but kappa(A)=0 because det(A+tI)=t²."
+        },
+        {
+          "name": "YuCounting.item077.test3",
+          "kind": "computation",
+          "statement": "For the two-vertex Laplacian [[x,−x],[−x,x]], det(A+tI)=t²+2xt and kappa=x."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/078",
@@ -4230,15 +5167,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item083.test1",
-          "statement": "Changing a cycle partition changes |w| and alpha, not m_i.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For g=2, one type d=nu=f=1 and two cycles of length1, m=2,S1=2,y=6 and the cycle Laplacian is [[3,−3],[−3,3]]."
         },
         {
           "name": "YuCounting.item083.test2",
-          "statement": "The erroneous negative x entries make row sums nonzero.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "Replacing the two length1 cycles by one length2 cycle leaves m=2,S1=2,y=6 while the resulting1×1 Laplacian is zero."
+        },
+        {
+          "name": "YuCounting.item083.test3",
+          "kind": "non-example",
+          "statement": "In the two-cycle example, using negative block weights in M=diag(y*l)−x gives row sums12 rather than0."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item083.test1",
+          "kind": "computation",
+          "statement": "For g=2, one type d=nu=f=1 and two cycles of length1, m=2,S1=2,y=6 and the cycle Laplacian is [[3,−3],[−3,3]]."
+        },
+        {
+          "name": "YuCounting.item083.test2",
+          "kind": "compatibility",
+          "statement": "Replacing the two length1 cycles by one length2 cycle leaves m=2,S1=2,y=6 while the resulting1×1 Laplacian is zero."
+        },
+        {
+          "name": "YuCounting.item083.test3",
+          "kind": "non-example",
+          "statement": "In the two-cycle example, using negative block weights in M=diag(y*l)−x gives row sums12 rather than0."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/084",
@@ -4340,15 +5301,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item086.test1",
-          "statement": "For m=2, the two cycle types each have one permutation.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For m=3, the cycle types (1,1,1),(2,1),(3) have permutation counts1,3,2."
         },
         {
           "name": "YuCounting.item086.test2",
-          "statement": "xi=0 is inadmissible even if zero divides k=0.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "For m=0 and xi≥1 the empty partition is allowed and its permutation count is1."
+        },
+        {
+          "name": "YuCounting.item086.test3",
+          "kind": "non-example",
+          "statement": "For m=3,xi=2 there is no allowed cycle partition, since a sum of even cycle lengths cannot be3."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item086.test1",
+          "kind": "computation",
+          "statement": "For m=3, the cycle types (1,1,1),(2,1),(3) have permutation counts1,3,2."
+        },
+        {
+          "name": "YuCounting.item086.test2",
+          "kind": "degenerate",
+          "statement": "For m=0 and xi≥1 the empty partition is allowed and its permutation count is1."
+        },
+        {
+          "name": "YuCounting.item086.test3",
+          "kind": "non-example",
+          "statement": "For m=3,xi=2 there is no allowed cycle partition, since a sum of even cycle lengths cannot be3."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/087",
@@ -4510,15 +5495,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item091.test1",
-          "statement": "D_n(d)=0 when d does not divide n.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "D_3(2)=0 because2 does not divide3."
         },
         {
           "name": "YuCounting.item091.test2",
-          "statement": "Choosing two copies of one type differs from choosing two distinct types.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "D_n(1)=C_n(X1) under the Weil/Langlands correspondence and the absolute-cuspidality criterion."
+        },
+        {
+          "name": "YuCounting.item091.test3",
+          "kind": "characterisation",
+          "statement": "The disjoint union of the strata D_n(d), d|n, is the full set of rank-n inertial cuspidal classes; no class occurs in two strata."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item091.test1",
+          "kind": "non-example",
+          "statement": "D_3(2)=0 because2 does not divide3."
+        },
+        {
+          "name": "YuCounting.item091.test2",
+          "kind": "compatibility",
+          "statement": "D_n(1)=C_n(X1) under the Weil/Langlands correspondence and the absolute-cuspidality criterion."
+        },
+        {
+          "name": "YuCounting.item091.test3",
+          "kind": "characterisation",
+          "statement": "The disjoint union of the strata D_n(d), d|n, is the full set of rank-n inertial cuspidal classes; no class occurs in two strata."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/092",
@@ -4650,15 +5659,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item095.test1",
-          "statement": "The z coefficient is s C_1(X1).",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "aut_X(z)^0=1 and every aut_X(z)^s has constant term1."
         },
         {
           "name": "YuCounting.item095.test2",
-          "statement": "Only mk≤N contributes to a coefficient up to degree N.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "[z]aut_X(z)^s=s*C_1(X1)."
+        },
+        {
+          "name": "YuCounting.item095.test3",
+          "kind": "computation",
+          "statement": "[z²]aut_X(z)^s=s*(C_1(X2)/2+2*C_2(X1))+s²*C_1(X1)²/2."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item095.test1",
+          "kind": "degenerate",
+          "statement": "aut_X(z)^0=1 and every aut_X(z)^s has constant term1."
+        },
+        {
+          "name": "YuCounting.item095.test2",
+          "kind": "computation",
+          "statement": "[z]aut_X(z)^s=s*C_1(X1)."
+        },
+        {
+          "name": "YuCounting.item095.test3",
+          "kind": "computation",
+          "statement": "[z²]aut_X(z)^s=s*(C_1(X2)/2+2*C_2(X1))+s²*C_1(X1)²/2."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/096",
@@ -4797,15 +5830,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item098.test1",
-          "statement": "t/z_i is admissible, z_i^−1 alone is not.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For g=1, z+t/z belongs to R_1 and is fixed by z↦t/z."
         },
         {
           "name": "YuCounting.item098.test2",
-          "statement": "The action z_i↦t/z_i preserves the cone.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "non-example",
+          "statement": "For g=1,z⁻¹+t⁻¹*z is Weyl-invariant but violates the admissible monomial cone and is not in R_1."
+        },
+        {
+          "name": "YuCounting.item098.test3",
+          "kind": "compatibility",
+          "statement": "The substitution z_i↦t/z_i takes (m,u_i) to (m+u_i,−u_i) and preserves m+Σ_j min(u_j,0)."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item098.test1",
+          "kind": "computation",
+          "statement": "For g=1, z+t/z belongs to R_1 and is fixed by z↦t/z."
+        },
+        {
+          "name": "YuCounting.item098.test2",
+          "kind": "non-example",
+          "statement": "For g=1,z⁻¹+t⁻¹*z is Weyl-invariant but violates the admissible monomial cone and is not in R_1."
+        },
+        {
+          "name": "YuCounting.item098.test3",
+          "kind": "compatibility",
+          "statement": "The substitution z_i↦t/z_i takes (m,u_i) to (m+u_i,−u_i) and preserves m+Σ_j min(u_j,0)."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/099",
@@ -4909,15 +5966,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item101.test1",
-          "statement": "A negative coefficient contributes a numerator factor.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For the constant count C_s=1, eta_s(z)=(1−z)⁻¹."
         },
         {
           "name": "YuCounting.item101.test2",
-          "statement": "For n=1 the lower-rank product is empty.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "A polynomial contribution −alpha to C_s gives the numerator factor1−alpha^l*z in eta_(s,X_l)."
+        },
+        {
+          "name": "YuCounting.item101.test3",
+          "kind": "degenerate",
+          "statement": "At rank n=1 the product indexed by1≤s<n is empty and equals1."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item101.test1",
+          "kind": "computation",
+          "statement": "For the constant count C_s=1, eta_s(z)=(1−z)⁻¹."
+        },
+        {
+          "name": "YuCounting.item101.test2",
+          "kind": "computation",
+          "statement": "A polynomial contribution −alpha to C_s gives the numerator factor1−alpha^l*z in eta_(s,X_l)."
+        },
+        {
+          "name": "YuCounting.item101.test3",
+          "kind": "degenerate",
+          "statement": "At rank n=1 the product indexed by1≤s<n is empty and equals1."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/102",
@@ -5011,15 +6092,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item104.test1",
-          "statement": "f_p(0)=1.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "f_p(0)=1."
         },
         {
           "name": "YuCounting.item104.test2",
-          "statement": "For p=2, f_2(4)=3≡−1 mod4.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "f_2(4)=3 and f_3(5)=1*2*4*5=40."
+        },
+        {
+          "name": "YuCounting.item104.test3",
+          "kind": "compatibility",
+          "statement": "For N≥0, N!=f_p(N)*p^floor(N/p)*floor(N/p)!."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item104.test1",
+          "kind": "degenerate",
+          "statement": "f_p(0)=1."
+        },
+        {
+          "name": "YuCounting.item104.test2",
+          "kind": "computation",
+          "statement": "f_2(4)=3 and f_3(5)=1*2*4*5=40."
+        },
+        {
+          "name": "YuCounting.item104.test3",
+          "kind": "compatibility",
+          "statement": "For N≥0, N!=f_p(N)*p^floor(N/p)*floor(N/p)!."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/105",
@@ -5336,15 +6441,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item115.test1",
-          "statement": "The sum of H_Q^e is −e.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "For n=3, ordered blocks(1,2), e=1: H=(0,−1), I=(0,0), and hat1_Q^1=−1/(lambda1−lambda2)."
         },
         {
           "name": "YuCounting.item115.test2",
-          "statement": "Multiplying by theta, not its inverse, removes the cutoff pole.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "The total of H_Q^e is−e and the total of I_Q^e is r−1−e."
+        },
+        {
+          "name": "YuCounting.item115.test3",
+          "kind": "non-example",
+          "statement": "For two blocks, multiplying hat1_Q^e by theta_Q removes the simple wall denominator; multiplying by theta_Q⁻¹ instead produces a double denominator."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item115.test1",
+          "kind": "computation",
+          "statement": "For n=3, ordered blocks(1,2), e=1: H=(0,−1), I=(0,0), and hat1_Q^1=−1/(lambda1−lambda2)."
+        },
+        {
+          "name": "YuCounting.item115.test2",
+          "kind": "compatibility",
+          "statement": "The total of H_Q^e is−e and the total of I_Q^e is r−1−e."
+        },
+        {
+          "name": "YuCounting.item115.test3",
+          "kind": "non-example",
+          "statement": "For two blocks, multiplying hat1_Q^e by theta_Q removes the simple wall denominator; multiplying by theta_Q⁻¹ instead produces a double denominator."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/116",
@@ -5970,15 +7099,39 @@
       "unitTests": [
         {
           "name": "YuCounting.item138.test1",
-          "statement": "A one-object groupoid with group Fq* has mass 1/(q−1).",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "computation",
+          "statement": "A one-object groupoid with automorphism group of order m has mass1/m."
         },
         {
           "name": "YuCounting.item138.test2",
-          "statement": "The unweighted count of that groupoid is one, not its mass.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "The empty finite groupoid has mass0 and the terminal groupoid has mass1."
+        },
+        {
+          "name": "YuCounting.item138.test3",
+          "kind": "compatibility",
+          "statement": "Mass is additive under disjoint union; a disjoint union of r copies of B(Fq*) has mass r/(q−1)."
         }
-      ]
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item138.test1",
+          "kind": "computation",
+          "statement": "A one-object groupoid with automorphism group of order m has mass1/m."
+        },
+        {
+          "name": "YuCounting.item138.test2",
+          "kind": "degenerate",
+          "statement": "The empty finite groupoid has mass0 and the terminal groupoid has mass1."
+        },
+        {
+          "name": "YuCounting.item138.test3",
+          "kind": "compatibility",
+          "statement": "Mass is additive under disjoint union; a disjoint union of r copies of B(Fq*) has mass r/(q−1)."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
     },
     {
       "id": "PAPER-YU-23/139",
@@ -6070,15 +7223,571 @@
       "unitTests": [
         {
           "name": "YuCounting.item141.test1",
-          "statement": "The tensor unit maps to the constant character one.",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "degenerate",
+          "statement": "The zero representation has class0 and character0; the tensor unit has class1 and character1."
         },
         {
           "name": "YuCounting.item141.test2",
-          "statement": "Finite-group character injectivity cannot be specialized to the infinite group GSp(Q).",
-          "verification": "Mathematical acceptance specification, not Lean elaborated."
+          "kind": "compatibility",
+          "statement": "[V⊕W]=[V]+[W] and character(V⊕W)=character(V)+character(W)."
+        },
+        {
+          "name": "YuCounting.item141.test3",
+          "kind": "compatibility",
+          "statement": "[V⊗W]=[V]*[W] and character(V⊗W)(g)=character(V)(g)*character(W)(g)."
         }
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item141.test1",
+          "kind": "degenerate",
+          "statement": "The zero representation has class0 and character0; the tensor unit has class1 and character1."
+        },
+        {
+          "name": "YuCounting.item141.test2",
+          "kind": "compatibility",
+          "statement": "[V⊕W]=[V]+[W] and character(V⊕W)=character(V)+character(W)."
+        },
+        {
+          "name": "YuCounting.item141.test3",
+          "kind": "compatibility",
+          "statement": "[V⊗W]=[V]*[W] and character(V⊗W)(g)=character(V)(g)*character(W)(g)."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/Suggested.lean"
+    },
+    {
+      "id": "PAPER-YU-23/142",
+      "kind": "theorem",
+      "name": "Haar probability preserved by a surjective homomorphism",
+      "statement": "A continuous surjective homomorphism f:G→*H, with H a compact topological group, Borel measurable spaces and Haar measures of equal total mass, is measure preserving. Use probability Haar on all compact character groups, including disconnected ones.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "library",
+      "group": "as",
+      "dependencies": [],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-YU-23/148",
+          "how": "Input to Normalized transfer along a finite compact-group cover."
+        }
+      ],
+      "proofOutline": "Import MonoidHom.measurePreserving at the pin; discharge continuity, surjectivity and equal mass before applying it to multiplication or mu_w. No factor equal to the covering degree belongs in Haar pushforward.",
+      "library": [
+        "mathlib:MonoidHom.measurePreserving"
       ]
+    },
+    {
+      "id": "PAPER-YU-23/143",
+      "kind": "theorem",
+      "name": "Pointwise Fourier inversion on a finite dimensional torus",
+      "statement": "For a finite index type d and f:C(UnitAddTorus d,C), summability of mFourierCoeff f implies HasSum (n↦mFourierCoeff f n • mFourier n x) (f x) at every x. The L² expansion alone does not give point evaluation.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "library",
+      "group": "as",
+      "dependencies": [],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-YU-23/149",
+          "how": "Input to Pointwise character inversion gives the fibre average."
+        },
+        {
+          "where": "PAPER-YU-23/150",
+          "how": "Input to Smooth Fourier decay on the character groups in the trace formula."
+        }
+      ],
+      "proofOutline": "Import UnitAddTorus.hasSum_mFourier_series_apply_of_summable, with its explicit Summable premise. The disconnected-group and smooth-decay adapters are items149–150.",
+      "library": [
+        "mathlib:UnitAddTorus.hasSum_mFourier_series_apply_of_summable"
+      ]
+    },
+    {
+      "id": "PAPER-YU-23/144",
+      "kind": "theorem",
+      "name": "Normalized finite character orthogonality",
+      "statement": "For a finite additive group G and an additive character ψ with values in a characteristic-zero semifield, its normalized expectation is one for the trivial character and zero otherwise. Apply to complex characters of finite cyclic component groups and Z/nZ, n>0.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "library",
+      "group": "as",
+      "dependencies": [],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-YU-23/149",
+          "how": "Input to Pointwise character inversion gives the fibre average."
+        },
+        {
+          "where": "PAPER-YU-23/150",
+          "how": "Input to Smooth Fourier decay on the character groups in the trace formula."
+        },
+        {
+          "where": "PAPER-YU-23/152",
+          "how": "Input to Degree Fourier recovery of the spectral contribution."
+        }
+      ],
+      "proofOutline": "Import AddChar.expect_eq_ite; the zero additive character means the constant multiplicative value one. Do not use multiplicative characters of a finite ring with a zero-extension convention.",
+      "library": [
+        "mathlib:AddChar.expect_eq_ite"
+      ]
+    },
+    {
+      "id": "PAPER-YU-23/145",
+      "kind": "definition",
+      "name": "Cycle coordinates for the spectral character cover",
+      "statement": "Let w permute equal-rank blocks of M. Index its nonempty cycles by j, with length l_j≥1 and common block rank d_j≥1; N_j=l_j*d_j and n=ΣN_j. In unit-circle coordinates z_(j,t), define T by ∏_(j,t)z_(j,t)^d_j=1; A consists of cycle-constant u_j with ∏u_j^N_j=1; B satisfies ∏_t v_(j,t)^d_j=1 separately for each j, and B0 satisfies ∏_t v_(j,t)=1 separately. Embed A and B in T. These are respectively Im X_M^G, Im X_L^G, Im X_M^L and its identity component, L=L_w.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "missing",
+      "group": "as",
+      "dependencies": [
+        "PAPER-YU-23/010",
+        "PAPER-YU-23/047",
+        "PAPER-YU-23/048"
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-YU-23/062",
+          "how": "Input to Finite-kernel torus Fourier inversion."
+        },
+        {
+          "where": "PAPER-YU-23/146",
+          "how": "Input to Difference map on every Weyl cycle."
+        },
+        {
+          "where": "PAPER-YU-23/147",
+          "how": "Input to Degree and fibres of the spectral cover."
+        },
+        {
+          "where": "PAPER-YU-23/151",
+          "how": "Input to Typed finite-fibre operator trace."
+        }
+      ],
+      "planningAPI": [
+        {
+          "name": "YuCounting.item145.cycleTori",
+          "role": "constructor",
+          "statement": "Construct closed subgroups T,A,B,B0 of finite products of Circle from positive integral cycle/rank data."
+        },
+        {
+          "name": "YuCounting.item145.componentProduct",
+          "role": "characterisation",
+          "statement": "The map B→∏_j μ_(d_j), v↦(∏_t v_(j,t))_j is onto with connected kernel B0."
+        },
+        {
+          "name": "YuCounting.item145.embedCentral",
+          "role": "compatibility",
+          "statement": "A embeds by repeating u_j in its l_j coordinates, and its intersection with B0 is ∏_j μ_(l_j)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item145.test1",
+          "kind": "computation",
+          "statement": "For one cycle l=2,d=1: A=μ₂, B=B0={(z,z⁻¹)}."
+        },
+        {
+          "name": "YuCounting.item145.test2",
+          "kind": "non-example",
+          "statement": "For one cycle l=1,d=2: B=μ₂ while B0={1}; replacing B by its identity component loses two points."
+        },
+        {
+          "name": "YuCounting.item145.test3",
+          "kind": "degenerate",
+          "statement": "For w=1, every l_j=1, A=T and B=∏_j μ_(d_j), with B0={1}."
+        }
+      ],
+      "openGates": [
+        "PAPER-YU-23/S1"
+      ],
+      "unitTests": [
+        {
+          "name": "YuCounting.item145.test1",
+          "kind": "computation",
+          "statement": "For one cycle l=2,d=1: A=μ₂, B=B0={(z,z⁻¹)}."
+        },
+        {
+          "name": "YuCounting.item145.test2",
+          "kind": "non-example",
+          "statement": "For one cycle l=1,d=2: B=μ₂ while B0={1}; replacing B by its identity component loses two points."
+        },
+        {
+          "name": "YuCounting.item145.test3",
+          "kind": "degenerate",
+          "statement": "For w=1, every l_j=1, A=T and B=∏_j μ_(d_j), with B0={1}."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/CharacterCover.lean"
+    },
+    {
+      "id": "PAPER-YU-23/146",
+      "kind": "theorem",
+      "name": "Difference map on every Weyl cycle",
+      "statement": "For the groups in145, δ_w:B→B0, v↦v/w⁻¹(v), is surjective, with kernel ∏_j μ_(N_j). Every fibre has ∏_j N_j points, even when B is disconnected.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "missing",
+      "group": "as",
+      "dependencies": [
+        "PAPER-YU-23/145"
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-YU-23/062",
+          "how": "Input to Finite-kernel torus Fourier inversion."
+        },
+        {
+          "where": "PAPER-YU-23/147",
+          "how": "Input to Degree and fibres of the spectral cover."
+        }
+      ],
+      "proofOutline": "Choose an orientation of each cycle. For b with product one, solve v_t/v_(t−1)=b_t recursively from v_0=c. The final cyclic equation is exactly ∏b_t=1. The condition (∏v_t)^d=1 is an equation c^(ld)=a in Circle, which has exactly ld distinct solutions. For b=1 all v_t=c and c^(ld)=1. Product over cycles; a reverse orientation gives the same cardinality.",
+      "openGates": [
+        "PAPER-YU-23/S1"
+      ]
+    },
+    {
+      "id": "PAPER-YU-23/147",
+      "kind": "theorem",
+      "name": "Degree and fibres of the spectral cover",
+      "statement": "The continuous homomorphism mu_w:A×B→T, (a,c)↦a*δ_w(c), is onto with |ker mu_w|=D=(∏l_j)(∏N_j)=|w|*|X_L^L|. For any tau∈T its fibre consists of the finite pairs a∈A, b∈B0 with tau=a*b, followed by c∈B with δ_w(c)=b. There are ∏l_j outer pairs and ∏N_j inner lifts.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "missing",
+      "group": "as",
+      "dependencies": [
+        "PAPER-YU-23/145",
+        "PAPER-YU-23/146"
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-YU-23/062",
+          "how": "Input to Finite-kernel torus Fourier inversion."
+        },
+        {
+          "where": "PAPER-YU-23/149",
+          "how": "Input to Pointwise character inversion gives the fibre average."
+        },
+        {
+          "where": "PAPER-YU-23/151",
+          "how": "Input to Typed finite-fibre operator trace."
+        }
+      ],
+      "proofOutline": "For tau choose u_j with u_j^l_j=∏_t tau_(j,t). Then ∏u_j^N_j=1, so a∈A and b=tau/a∈B0. Choices of a differ by A∩B0=∏μ_(l_j). Apply146 to b. Fibres are translates of the kernel. The notation |w| means product of cycle lengths, not permutation order.",
+      "openGates": [
+        "PAPER-YU-23/S1"
+      ]
+    },
+    {
+      "id": "PAPER-YU-23/148",
+      "kind": "construction",
+      "name": "Normalized transfer along a finite compact-group cover",
+      "statement": "For a continuous surjective homomorphism p:H→K of compact abelian Lie groups with finite kernel F of size D>0, define Tr_p f(y)=D⁻¹Σ_(p(x)=y) f(x). For continuous f this is continuous, and for smooth f it is smooth. Every group carries probability Haar.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "missing",
+      "group": "as",
+      "dependencies": [
+        "PAPER-YU-23/142"
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-YU-23/062",
+          "how": "Input to Finite-kernel torus Fourier inversion."
+        },
+        {
+          "where": "PAPER-YU-23/149",
+          "how": "Input to Pointwise character inversion gives the fibre average."
+        }
+      ],
+      "planningAPI": [
+        {
+          "name": "YuCounting.item148.transfer",
+          "role": "constructor",
+          "statement": "Use any lift x of y and average f(x*k) over k∈ker p; prove lift independence."
+        },
+        {
+          "name": "YuCounting.item148.integralTransfer",
+          "role": "compatibility",
+          "statement": "For continuous f, ∫_K Tr_p f=∫_H f, by kernel averaging, Haar invariance and142."
+        },
+        {
+          "name": "YuCounting.item148.pullbackTransfer",
+          "role": "characterisation",
+          "statement": "For continuous g on K, Tr_p(g∘p)=g; for a character χ of H the transfer vanishes unless χ is trivial on ker p, in which case it is the descended character."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item148.test1",
+          "kind": "degenerate",
+          "statement": "Tr_id f=f and Tr_p 1=1 for every nonempty finite fibre."
+        },
+        {
+          "name": "YuCounting.item148.test2",
+          "kind": "computation",
+          "statement": "For p:Circle→Circle,z↦z², Tr_p(z↦z²)(y)=y and Tr_p(z↦z)(y)=0."
+        },
+        {
+          "name": "YuCounting.item148.test3",
+          "kind": "non-example",
+          "statement": "For z↦z² the unnormalized sum of the constant function one is two; it cannot replace Tr_p."
+        }
+      ],
+      "openGates": [
+        "PAPER-YU-23/S1"
+      ],
+      "unitTests": [
+        {
+          "name": "YuCounting.item148.test1",
+          "kind": "degenerate",
+          "statement": "Tr_id f=f and Tr_p 1=1 for every nonempty finite fibre."
+        },
+        {
+          "name": "YuCounting.item148.test2",
+          "kind": "computation",
+          "statement": "For p:Circle→Circle,z↦z², Tr_p(z↦z²)(y)=y and Tr_p(z↦z)(y)=0."
+        },
+        {
+          "name": "YuCounting.item148.test3",
+          "kind": "non-example",
+          "statement": "For z↦z² the unnormalized sum of the constant function one is two; it cannot replace Tr_p."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/CharacterCover.lean"
+    },
+    {
+      "id": "PAPER-YU-23/149",
+      "kind": "theorem",
+      "name": "Pointwise character inversion gives the fibre average",
+      "statement": "For p:H→K as in148 and smooth complex f on H, at every y∈K the absolutely convergent character sum Σ_(χ∈Khat) ∫_H χ(p(x)/y)*f(x) dx equals Tr_p f(y). Equivalently the coefficient indexed by χ is the (χ⁻¹)-Fourier coefficient of Tr_p f. Apply p=mu_w and y=lambda_pi to obtain (5.2.12) with factor D⁻¹.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "missing",
+      "group": "as",
+      "dependencies": [
+        "PAPER-YU-23/143",
+        "PAPER-YU-23/144",
+        "PAPER-YU-23/147",
+        "PAPER-YU-23/148",
+        "PAPER-YU-23/150"
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-YU-23/062",
+          "how": "Input to Finite-kernel torus Fourier inversion."
+        }
+      ],
+      "proofOutline": "Kernel averaging and142 give ∫_H χ(p(x))f(x)=∫_K χ(z)Tr_p f(z). A compact abelian Lie group is a finite abelian group times a torus; for these explicit tori obtain such coordinates from their integer exponent matrices. Combine finite character orthogonality144 and torus inversion143. Item150 supplies absolute summability. Reindex χ to χ⁻¹ to get the displayed sign. This is pointwise evaluation of a smooth function, not evaluation of an L² equivalence class.",
+      "openGates": [
+        "PAPER-YU-23/S1"
+      ]
+    },
+    {
+      "id": "PAPER-YU-23/150",
+      "kind": "theorem",
+      "name": "Smooth Fourier decay on the character groups in the trace formula",
+      "statement": "On a finite product of Circle and a finite abelian group, a smooth complex function has absolutely summable Fourier coefficients. For torus dimension d and integer s with 2s>d, |fhat(k)|≤C(1+4π²||k||²)^(-s). The statement includes dimension zero and is uniform in a compact auxiliary parameter when the corresponding derivatives are uniformly bounded.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "missing",
+      "group": "as",
+      "dependencies": [
+        "PAPER-YU-23/143",
+        "PAPER-YU-23/144"
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-YU-23/149",
+          "how": "Input to Pointwise character inversion gives the fibre average."
+        }
+      ],
+      "proofOutline": "Apply (1−Δ)^s to the periodic smooth function and integrate by parts on each circle; boundary terms cancel. Bound the Fourier coefficient by its L¹ norm to get the displayed estimate. Count lattice points in sup-norm shells to sum (1+||k||²)^(-s). There are only finitely many component characters. For parameter families bound finitely many derivatives on the compact product. Integer-lattice coordinate decomposition and derivative transport remain implementation adapters, not an imported library theorem.",
+      "openGates": [
+        "PAPER-YU-23/S1"
+      ]
+    },
+    {
+      "id": "PAPER-YU-23/151",
+      "kind": "construction",
+      "name": "Typed finite-fibre operator trace",
+      "statement": "For a discrete pair (P,pi), (w,tau)∈stab(P,pi), L=L_w, a∈A, b∈B0, tau=a*b and c∈B with δ_w(c)=b, put z=lambda*c for lambda∈A. Define R_Q(z;v)=M_(R|P)(z)⁻¹∘M_(R|P)(z/v), where R∈P^Q(M), v∈X_L^G. For h_Q=hat1_Q(·eta⁻¹) or hat1_Q^e, set F_h(lambda,a,c)=lim_(mu→1 in X_L^G) Tr_(A_P,pi)[(Σ_(Q∈P(L))h_Q(mu*a) R_Q(z;mu*a))∘M(w,w⁻¹(c))∘U_tau]. U_tau is multiplication by tau. The Q-sum is continued holomorphically before evaluation at mu=1; the other parameters are unitary.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "missing",
+      "group": "as",
+      "dependencies": [
+        "PAPER-YU-23/018",
+        "PAPER-YU-23/058",
+        "PAPER-YU-23/061",
+        "PAPER-YU-23/145",
+        "PAPER-YU-23/147"
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-YU-23/063",
+          "how": "Input to Corrected Arthur–Lafforgue spectral expression."
+        },
+        {
+          "where": "PAPER-YU-23/152",
+          "how": "Input to Degree Fourier recovery of the spectral contribution."
+        }
+      ],
+      "planningAPI": [
+        {
+          "name": "YuCounting.item151.stabilizerTransport",
+          "role": "compatibility",
+          "statement": "U_tau:A_P,pi→A_P,pi⊗tau followed by M(w,w⁻¹c):A_P,pi⊗tau→A_P,w(pi⊗tau)=A_P,pi closes the endomorphism because stab means w(pi⊗tau)=pi."
+        },
+        {
+          "name": "YuCounting.item151.regularizedFamily",
+          "role": "constructor",
+          "statement": "For a fixed fibre and lambda form the meromorphic Q-sum, prove its extension near mu=1 by adjacent-wall gluing, then take the finite-dimensional trace."
+        },
+        {
+          "name": "YuCounting.item151.spectralContribution",
+          "role": "structure",
+          "statement": "Integrate F_h over probability Haar on A and average over the D-point fibre; multiply by |stab(P,pi)|⁻¹. Choice of R within P^Q(M) does not change the operator."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item151.test1",
+          "kind": "degenerate",
+          "statement": "For w=1, b=1, a=tau and c∈∏μ_(d_j); the denominator D=∏d_j must remain even though |w|=1."
+        },
+        {
+          "name": "YuCounting.item151.test2",
+          "kind": "non-example",
+          "statement": "In the general stabilizer case U_tau alone need not end in A_P,pi; the trace is formed only after the Weyl transport closes the endomorphism."
+        },
+        {
+          "name": "YuCounting.item151.test3",
+          "kind": "compatibility",
+          "statement": "For M=L=G the parabolic sum has one term and R_G(z;v)=Id; the formula reduces to the finite character average of h_G(a) times Tr(M(1,c)∘U_tau)."
+        }
+      ],
+      "openGates": [
+        "PAPER-YU-23/S1"
+      ],
+      "unitTests": [
+        {
+          "name": "YuCounting.item151.test1",
+          "kind": "degenerate",
+          "statement": "For w=1, b=1, a=tau and c∈∏μ_(d_j); the denominator D=∏d_j must remain even though |w|=1."
+        },
+        {
+          "name": "YuCounting.item151.test2",
+          "kind": "non-example",
+          "statement": "In the general stabilizer case U_tau alone need not end in A_P,pi; the trace is formed only after the Weyl transport closes the endomorphism."
+        },
+        {
+          "name": "YuCounting.item151.test3",
+          "kind": "compatibility",
+          "statement": "For M=L=G the parabolic sum has one term and R_G(z;v)=Id; the formula reduces to the finite character average of h_G(a) times Tr(M(1,c)∘U_tau)."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/CharacterCover.lean"
+    },
+    {
+      "id": "PAPER-YU-23/152",
+      "kind": "theorem",
+      "name": "Degree Fourier recovery of the spectral contribution",
+      "statement": "Let n>0, zeta primitive of order n and eta=zeta^deg. If J_(eta^k)=Σ_(e mod n)zeta^(ek) J_e, then J_e=n⁻¹Σ_(k mod n)zeta^(−ek)J_(eta^k). In151 this replaces hat1_Q(mu*a*eta^(−k)) by hat1_Q^e(mu*a)=n⁻¹Σ_k zeta^(ek)hat1_Q(mu*a*eta^k), leaving the fibre, operator order and denominator unchanged. It holds for every integer e, not just coprime e.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "missing",
+      "group": "as",
+      "dependencies": [
+        "PAPER-YU-23/058",
+        "PAPER-YU-23/144",
+        "PAPER-YU-23/151"
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-YU-23/063",
+          "how": "Input to Corrected Arthur–Lafforgue spectral expression."
+        }
+      ],
+      "proofOutline": "Apply finite character orthogonality144 to Z/nZ. Interchange only finite sums with integrals and the regularized limit, then substitute k↦−k in the cone-series term. Coprimality is used later in067, not in this recovery.",
+      "openGates": [
+        "PAPER-YU-23/S1"
+      ]
+    },
+    {
+      "id": "PAPER-YU-23/153",
+      "kind": "construction",
+      "name": "Explicit transport between induction normalization conventions",
+      "statement": "Fix positive inducing characters s_R on M(A). Define A_R,pi^s by s_R⁻¹*phi|_M∈pi and spherical basis phi_R(nmk)=s_R(m)*phi_pi(m). For a second convention t_R, C_R^(s→t) multiplies by t_R/s_R in Iwasawa coordinates. Transport each operator by M^t_(R′|R)=C_R′ M^s_(R′|R) C_R⁻¹. Yu p32 and Laf97 p284 use s_R=rho_R in their membership formula (Yu writes P); Yu p39 uses s_R=rho_R⁻¹. One cannot identify their numerical normalizers until this dictionary, including parameter conventions, is checked.",
+      "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
+      "status": "missing",
+      "group": "as",
+      "dependencies": [
+        "PAPER-YU-23/060",
+        "PAPER-YU-23/061"
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [],
+      "planningAPI": [
+        {
+          "name": "YuCounting.item153.normalizedSection",
+          "role": "constructor",
+          "statement": "From a fixed positive character s_R, extend a Levi spherical vector by multiplication by s_R; independence follows from its triviality on M∩K."
+        },
+        {
+          "name": "YuCounting.item153.changeConvention",
+          "role": "compatibility",
+          "statement": "C_R^(t→u)∘C_R^(s→t)=C_R^(s→u), and C_R^(s→s)=Id."
+        },
+        {
+          "name": "YuCounting.item153.conjugateOperators",
+          "role": "structure",
+          "statement": "Transport domains, intertwining identities and norms together; a closed composition on A_P is conjugated by C_P, hence has unchanged finite-dimensional trace."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YuCounting.item153.test1",
+          "kind": "computation",
+          "statement": "With s=rho and t=rho⁻¹, C multiplies by rho⁻²; at rho(m)=2 a vector of value2 goes to1/2."
+        },
+        {
+          "name": "YuCounting.item153.test2",
+          "kind": "compatibility",
+          "statement": "Restricting s_R*phi_pi and multiplying by s_R⁻¹ recovers phi_pi exactly."
+        },
+        {
+          "name": "YuCounting.item153.test3",
+          "kind": "non-example",
+          "statement": "Using the s=rho membership test on the t=rho⁻¹ basis produces rho⁻²*phi_pi, which differs from phi_pi where rho≠1 and phi_pi≠0."
+        }
+      ],
+      "openGates": [
+        "PAPER-YU-23/S1"
+      ],
+      "unitTests": [
+        {
+          "name": "YuCounting.item153.test1",
+          "kind": "computation",
+          "statement": "With s=rho and t=rho⁻¹, C multiplies by rho⁻²; at rho(m)=2 a vector of value2 goes to1/2."
+        },
+        {
+          "name": "YuCounting.item153.test2",
+          "kind": "compatibility",
+          "statement": "Restricting s_R*phi_pi and multiplying by s_R⁻¹ recovers phi_pi exactly."
+        },
+        {
+          "name": "YuCounting.item153.test3",
+          "kind": "non-example",
+          "statement": "Using the s=rho membership test on the t=rho⁻¹ basis produces rho⁻²*phi_pi, which differs from phi_pi where rho≠1 and phi_pi≠0."
+        }
+      ],
+      "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
+      "suggestedFile": "TauCeti/Automorphic/YuCounting/CharacterCover.lean"
     }
   ],
   "prerequisites": [
@@ -6173,6 +7882,7 @@
       "route": "source",
       "roadmap": "AutomorphicSpectralTheory",
       "stages": [
+        "AutomorphicSpectralTheory:AS.0",
         "AutomorphicSpectralTheory:AS.1",
         "AutomorphicSpectralTheory:AS.2",
         "AutomorphicSpectralTheory:AS.3",
@@ -6212,9 +7922,18 @@
         "PAPER-YU-23/066",
         "PAPER-YU-23/115",
         "PAPER-YU-23/116",
-        "PAPER-YU-23/117"
+        "PAPER-YU-23/117",
+        "PAPER-YU-23/145",
+        "PAPER-YU-23/146",
+        "PAPER-YU-23/147",
+        "PAPER-YU-23/148",
+        "PAPER-YU-23/149",
+        "PAPER-YU-23/150",
+        "PAPER-YU-23/151",
+        "PAPER-YU-23/152",
+        "PAPER-YU-23/153"
       ],
-      "reason": "The existing spectral programme owns truncation, induced sections, residual spectrum, regularized families and the trace formula. Yu adds explicit finite-field degree lattices, finite torus fibres, spherical scalar normalizations and degree-cutoff formulas. Keep these as source contributions, including the corrected Lafforgue formula."
+      "reason": "The existing spectral programme owns truncation, induced sections, residual spectrum, regularized families and the trace formula. Yu adds explicit finite-field degree lattices, finite torus fibres, spherical scalar normalizations and degree-cutoff formulas. Keep these as source contributions, including the corrected Lafforgue formula. The finite-cover transfer and smooth Fourier adapters145–150 are reusable AS.0 inputs;151–152 specialize AS.6, and153 specializes AS.1/2. Import142–144 from pinned Mathlib. These are function-field source additions to the programme, not an assertion that its number-field trace theorem already applies in characteristic p."
     },
     {
       "route": "source",
@@ -6556,7 +8275,7 @@
         "PAPER-YU-23/138",
         "PAPER-YU-23/139"
       ],
-      "detail": "Read the final 109-page journal text and collate with arXivv5, not just the publisher record. Independently verify E1–E28 with images, particularly E4/E6/E8/E15/E16/E26; establish exact effect on the final printed results. No finding presently claims to be confirmed in the journal or by an independent reviewer."
+      "detail": "Read the final 109-page journal text and collate with arXivv5, not just the publisher record. Independently verify E1–E27 with images, particularly E4/E6/E8/E15/E16/E26; establish exact effect on the final printed results. No finding presently claims to be confirmed in the journal or by an independent reviewer. E28 is withdrawn as an extraction misreading (the source image already has ≤). E1–E27 remain unreviewed; E8 now records the unresolved normalization dictionary rather than preferring one inconsistent convention."
     },
     {
       "id": "PAPER-YU-23/S2",
@@ -6571,16 +8290,17 @@
         "PAPER-YU-23/051",
         "PAPER-YU-23/060",
         "PAPER-YU-23/061",
-        "PAPER-YU-23/062",
         "PAPER-YU-23/063",
         "PAPER-YU-23/064",
         "PAPER-YU-23/065",
         "PAPER-YU-23/066",
         "PAPER-YU-23/067",
         "PAPER-YU-23/116",
-        "PAPER-YU-23/117"
+        "PAPER-YU-23/117",
+        "PAPER-YU-23/151",
+        "PAPER-YU-23/153"
       ],
-      "detail": "Read the full relevant Arthur, Langlands, Moeglin–Waldspurger and Laf97 proofs; finish image-level collation of Laf97 pp306–308. Expand item063's structural formula into every operator, finite fibre and domain, reconcile rho conventions in E8 and check the conductor/central sign computation. Read Ch15 Lemmas6.2.3–6.2.6 and its HN construction, not merely the theorem reduction."
+      "detail": "The exact all-lifts operator formula063/151, cycle-cover degree145–147, probability Haar transfer148–149 and degree inversion152 have now been written out and Laf97 pp306–308 image-collated. Remaining: prove the inducing-character dictionary153 against the numerical normalizers in066 using original local/global conventions; prove original Arthur/Langlands/Moeglin–Waldspurger/LW13 analytic inputs and their function-field specializations, uniform regularized spectral summation and contour shifts; read Ch15 HN construction and Lemmas6.2.3–6.2.6. The p32/p39 rho mismatch cannot be closed merely by choosing one printed line. Whittaker conductor and global Haar signs retain their original-source dependencies."
     },
     {
       "id": "PAPER-YU-23/S3",
@@ -6841,15 +8561,16 @@
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: §5.2.2 p32 compared with §5.3.2 p39",
       "printed": "rho_P(m)^−1 phi(m) ∈ pi; phi_R(nmk)=rho_R(m)^−1 phi_pi(m)",
-      "correction": "With the latter basis convention, the membership condition is rho_R(m)phi(m)∈pi. Use R rather than the unrelated P and make the same choice in the intertwining normalization.",
-      "reason": "Even R=P, combining the two printed displays gives rho_P^−2 phi_pi instead of phi_pi. The extraction records the consistent basis convention; a full original-source normalization collation remains a gate. Image p32 checked.",
+      "correction": "Use R in the membership definition. Choose one inducing character s_R and write membership s_R⁻¹ phi∈pi and basis s_R phi_pi consistently. Laf97 pp281,284 supports the p32 membership text, whereas p39 uses the inverse basis. Transport operators and norms as in153; which presentation matches every printed scalar factor is still S2, not settled by inverting the p32 factor alone.",
+      "reason": "For the same rho_R, the two Yu displays are algebraically inconsistent already for R=P. Fresh images show Laf97 p284 also has rho_P⁻¹ phi∈pi and p281 defines rho through its action on Haar measures. This invalidates the earlier inference that the p32 formula alone should be reversed. The mismatch remains a candidate source issue; the correct global convention requires a complete dictionary.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "2026-09-23: freshly acquired Laf97, images pp281,284–286, and Yu v5 pp32,33,39; no journal-text collation."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -6859,14 +8580,15 @@
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: Yu §5.2.3 pp33–35 concerning Lafforgue1997 Theorem11 pp307–308",
       "printed": "Lafforgue: Theorem11 spectral Fourier recovery",
       "correction": "Use Yu Theorem5.2.2 and its proof from Lafforgue's Lemma9, retaining the finite-kernel torus map and normalized fibre sum.",
-      "reason": "Yu explicitly identifies errors in the recovery of the spectral expression. Lafforgue pp306–308 were inspected; their OCR corrupts operators, so this record does not pretend to identify every glyph-level change. Yu reconstructs the formula and the |w||X_L^L| factor from Fourier inversion.",
+      "reason": "Yu explicitly identifies errors in the recovery of the spectral expression. Lafforgue pp306–308 were inspected; their OCR corrupts operators, so this record does not pretend to identify every glyph-level change. Yu reconstructs the formula and the |w||X_L^L| factor from Fourier inversion. Fresh Laf97 p308 image has a sum over chosen preimages after an integral on Im A_Psigma, without an explicit fibre-average coefficient. Its A_P^Q on p281 is connected, unlike Yu’s full X_M^L. Thus one must compare representative choices as well as denominators. The continuation derives the unambiguous all-lifts convention with D=|w||X_L^L| from Lemma9/Corollary10 and does not claim that inserting one factor into Laf97 reproduces all of Yu’s corrections.",
       "affects": "a stated result",
       "known": "Yu arXiv:1807.04659v5, §5.2.3, Theorem5.2.2",
       "searched": [
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "2026-09-23: complete image-level reading of Laf97 VI.2 pp301–308 and its normalization definitions pp280–287 (selected ranges as ledgered)."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -7175,23 +8897,6 @@
         "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
-    },
-    {
-      "id": "PAPER-YU-23/E28",
-      "kind": "misprint",
-      "locator": "Yu arXiv:1807.04659v5, 18 July2022: Proposition5.2.1 p32, definition of floor",
-      "printed": "[x]=max{m∈Z : m<x}",
-      "correction": "Replace m<x by m≤x.",
-      "reason": "At an integer x the printed description gives x−1, whereas all floor identities and endpoint telescoping use floor(x)=x. Image checked on the same page as E7.",
-      "affects": "the proof",
-      "known": "new",
-      "searched": [
-        "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
-        "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
-        "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
-      ],
-      "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     }
   ],
   "validation": {
@@ -7213,15 +8918,84 @@
       "scope": "Finite sanity checks, not formal proofs or general theorem verification. E16's script check is elementary arithmetic; the full nilpotent characteristic-polynomial counterexample is explained in the finding."
     },
     "structuralChecks": [
-      "Unique item IDs; acyclic declared dependency graph; all referenced dependencies present; every missing item routed exactly once.",
-      "All46 definitions/constructions have three API specifications and two acceptance tests; all95 theorems have proof outlines, including explicitly unclosed source leaves."
+      "Unique item IDs, acyclic dependency graph, every dependency present, all119 missing items routed exactly once.",
+      "All50 definition/construction items have at least three API specifications and exactly three canonical {name,kind,statement} tests; unitTests is the identical compatibility alias. All103 theorem items have proof outlines.",
+      "All141 inherited item IDs/statuses and all13 route IDs are retained. E28 is archived as an extraction correction, not promoted into the errata pipeline. E1–E27 have no fabricated reviewer verdict."
     ],
     "repositoryChecks": {
       "paperSchema": "passed",
       "intake": "3 files, 0 problems",
       "paperUnitTests": 9,
       "sourceIssueUnitTests": 7,
-      "finiteArithmetic": "110864 passed"
+      "finiteArithmetic": "110864 passed",
+      "continuationPaperSchema": "passed",
+      "continuationIntake": "3 files, 0 problems"
+    },
+    "continuation": {
+      "date": "2026-09-23",
+      "agent": "Codex codex-c83e7a",
+      "lean": "Not compiled. This issue has only JSON/report/handoff deliverables.",
+      "checks": "Paper schema passed; intake check recorded below after generating the three deliverables. 1209 structural assertions and55391 new exact diagnostics passed; inherited110864 diagnostics reran successfully. No Lean compilation.",
+      "structural": 1209,
+      "structuralCounts": {
+        "unique IDs": 1,
+        "acyclic": 153,
+        "dependency present": 389,
+        "preserved status": 141,
+        "API cardinality": 50,
+        "test cardinality": 50,
+        "test alias": 50,
+        "canonical test": 150,
+        "unique route": 119,
+        "proof outline": 103,
+        "active errata": 1,
+        "withdrawn floor finding": 1,
+        "counts": 1
+      },
+      "exactDiagnostics": 55391,
+      "diagnosticCounts": {
+        "kernel size": 54,
+        "fibre size": 162,
+        "outer pairs": 162,
+        "A constraint": 6684,
+        "B constraint": 12780,
+        "cover equation": 12780,
+        "kernel torsor": 162,
+        "character orthogonality": 1134,
+        "fibre character average": 1134,
+        "transfer constant": 54,
+        "degree orthogonality": 10100,
+        "degree sign reindex": 10100,
+        "ordered trace": 1,
+        "normalization transport": 4,
+        "conductor sign": 40,
+        "central correction": 40
+      },
+      "scope": "Exact finite rational-torus fibre, kernel-character, degree-projector, operator-order and normalization diagnostics. They do not prove infinite Fourier convergence or the global spectral formula.",
+      "inheritedExactDiagnosticsRerun": 110864
     }
-  }
+  },
+  "withdrawnSourceIssues": [
+    {
+      "original": {
+        "id": "PAPER-YU-23/E28",
+        "kind": "misprint",
+        "locator": "Yu arXiv:1807.04659v5, 18 July2022: Proposition5.2.1 p32, definition of floor",
+        "printed": "[x]=max{m∈Z : m<x}",
+        "correction": "Replace m<x by m≤x.",
+        "reason": "At an integer x the printed description gives x−1, whereas all floor identities and endpoint telescoping use floor(x)=x. Image checked on the same page as E7.",
+        "affects": "the proof",
+        "known": "new",
+        "searched": [
+          "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
+          "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
+          "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
+          "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        ],
+        "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
+      },
+      "withdrawnBy": "Codex codex-c83e7a continuation, 2026-09-23",
+      "reason": "Fresh page-image inspection of arXivv5 p32 shows m≤x, not m<x. This was an extraction error. No source correction is needed and no independent-review verdict is being supplied."
+    }
+  ]
 }

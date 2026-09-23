@@ -1,23 +1,116 @@
-# PAPER-YU-23 — whole-arXiv reading checkpoint
+# PAPER-YU-23 — spectral cover and operator continuation
 
-Status: partial. Agent: Codex, session codex-a71f92. Refs #1091.
+Status: partial. Codex, session codex-c83e7a, 2026-09-23. Refs #1091. Continues the codex-a71f92 extraction merged in #2021.
 
-This is an extraction and routing plan, not a formalization. It contains 141 items: 8 pinned-library inputs, 23 planned items and 110 missing items. All missing items have exactly one route. All 46 definitions/constructions have three API specifications and two acceptance tests in the JSON; all 95 theorem items have proof outlines and explicit dependencies.
+153 items: 11 library inputs, 23 planned and 119 missing; 50 definition/construction APIs with150 canonical tests; 103 theorem proof outlines; 13 routes. All141 inherited item IDs and statuses are retained. Every missing item has exactly one route. This is an extraction and planning artifact, not a formalization.
 
-## Version and reading boundary
+The full85-page [arXivv5](https://arxiv.org/pdf/1807.04659v5), dated18 July2022, was freshly downloaded and reread, including all proofs, Appendices A–C, index and references. Its SHA-256 is `9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c`. The [publisher record](https://annals.math.princeton.edu/2023/197-2/p01) matches the title/author and identifies Annals197(2023),423–531, DOI10.4007/annals.2023.197.2.1. The109-page journal text remains uncollated; all Yu page locators here are v5 locators. This is not confirmation of journal errata.
 
-The main source is [Yu, arXiv:1807.04659v5](https://arxiv.org/pdf/1807.04659v5), dated 18 July 2022, 85 pages. All sections, proofs, Appendices A–C, the symbol index and bibliography were read line by line (5866 extracted lines). The JSON includes the contiguous reading ledger and SHA-256 hashes.
+The JSON distinguishes the prior detailed line ledger from this continuation's fresh full read. Supplementary reading remains selective: the new Lafforgue ranges are stated below; earlier Mellit opening statements, Luo–Zhu Lemma3.1 and selected Chaudouard passages are inherited provenance, not a new full read of those sources. The remaining prerequisites and S1–S8 stay open.
 
-The [Annals record](https://annals.math.princeton.edu/2023/197-2/p01) identifies the 2023 publication, volume197, pp423–531, DOI10.4007/annals.2023.197.2.1. Its 109-page text has **not** been collated with the arXiv version. Attempts at the public publisher PDF filenames returned404. All page locators and source findings below refer to arXivv5 unless explicitly stated otherwise; do not report them as independently confirmed journal errata.
+## Spectral continuation: the finite cover and its measure
 
-Additional reading was selective, not whole-source reading:
+The continuation replaces item063's unspecified operator expression with the exact all-lifts form of Yu (5.2.9)/(5.2.14). It adds items142–153, reuses three pinned library theorems, and supplies a proof plan for each remaining adapter. It does not close the original analytic trace-formula proofs. In particular the normalization issue E8 remains open in a more precise form.
 
-- [Anton Mellit, Poincare polynomials of moduli spaces of Higgs bundles and character varieties (no punctures), Inventiones221(2020),301–327](https://d-nb.info/1209124246/34): First3pages: introduction, Theorem1.1, Corollary1.2 and beginning§2 only. Confirms the prefactor (1−q)(1−z), not (1−g)(1−z); not a full27-page read.
-- [Laurent Lafforgue, Chtoucas de Drinfeld et conjecture de Ramanujan-Petersson, Asterisque243(1997)](https://www.numdam.org/item/AST_1997__243__1_0.pdf): Printedpp306–308: Lemma9, Corollary10, Theorem11 and proof. OCR of operators is corrupt; image-level full formula collation remains S2. Not the entire monograph.
-- [Wei Luo and Shengmao Zhu, Integrality of the LMOV invariants for framed unknot, CNTP13(2019),81–100](https://arxiv.org/pdf/2106.02882): Authorpp6–7, §3 equation10 and Lemma3.1 with its full proof only. This2021 arXiv deposit records the2019 article, derived from the older1611.06506 manuscript; not a whole-paper read.
-- [Pierre-Henri Chaudouard, Sur le comptage des fibres de Hitchin, Asterisque369(2015),223–284](https://webusers.imj-prg.fr/~pierre-henri.chaudouard/contrib-Laumon.pdf): Authorpp18–19: Lemmas4.2.1–4.2.2 with full proofs and beginning4.2.3. Authorpp24–25: Definition4.5.3, Example4.5.4, Proposition4.5.5 and proof opening. Authorpp29–30: Theorem5.2.1, Corollaries5.2.2–5.2.3 with full proofs. Authorpp32–33: Theorem6.2.1 and proof reduction; NOT downstream Lemmas6.2.3–6.2.6. Not a full article read.
+Write the cycles of w on the equal-rank blocks of M as j, with length l_j and block rank d_j. Set N_j=l_j d_j. All ranks and cycle lengths are positive. In unit-circle coordinates define
 
-The other prerequisites listed in the JSON are located sources or cited inputs, not completed reading. In particular KW01's exact normalizer theorem, the Higgs-purity/character-variety comparisons and the AppendixC monodromy/sieve sources remain open.
+```
+T  = {z_(j,t) : product_(j,t) z_(j,t)^d_j = 1},
+A  = {cycle-constant u_j : product_j u_j^N_j = 1},
+B  = {v_(j,t) : (product_t v_(j,t))^d_j = 1 for each j},
+B0 = {v_(j,t) : product_t v_(j,t) = 1 for each j}.
+```
+
+These are `Im X_M^G`, `Im X_L^G`, `Im X_M^L`, and the identity component of the latter, with L=L_w. **A and B can be disconnected.** B/B0 is the product of μ_(d_j). The group A meets every component needed to express T=A B0. One must not replace B by B0 in an all-lifts formula.
+
+Let δ(c)=c/w⁻¹(c). On one cycle the equations δ(c)=b are solved successively from one scalar c0. Their consistency is product b_t=1; the remaining condition defining B gives an equation c0^(l d)=a, with exactly l d roots in Circle. Thus δ:B→B0 is onto and its kernel is the product of μ_(N_j), of order |X_L^L|=product N_j. Next A∩B0 is the product of μ_(l_j), of order |w|=product l_j. Here |w| is **not** the order of the permutation.
+
+For any τ∈T choose u_j with u_j^l_j=product_t τ_(j,t). Their weighted product automatically satisfies the defining condition of A, and b=τ/a lies in B0. Consequently
+
+```
+mu_w : A × B → T,       mu_w(a,c) = a δ(c)
+D = |ker mu_w| = (product l_j)(product N_j).
+```
+
+Every fibre has D points. Its outer choices `(a,b)` satisfying τ=ab number product l_j, and each b has product N_j lifts c. For w=1 the outer choice is unique, but the central kernel generally survives. For one cycle l=2,d=1 the degree is4; for l=1,d=2 it is2, although the Weyl element is the identity. These small cases expose either omitted factor.
+
+All compact groups here carry **probability Haar**. A continuous onto homomorphism preserves those measures; its pushforward has no covering-degree factor. That fact is already `MonoidHom.measurePreserving` in pinned Mathlib. The factor D⁻¹ instead comes from the normalized transfer
+
+`Tr_p f(y) = (1/D) sum_(p(x)=y) f(x)`.
+
+Its pullback is the average of f over kernel translates. This proves continuity, smoothness in the Lie setting, preservation of integrals and the identity `Tr_p(g∘p)=g`. Applying character orthogonality and pointwise Fourier inversion gives
+
+`sum_χ integral_H χ(p(x)/y) f(x) dx = Tr_p f(y)`.
+
+This sum is absolutely convergent for smooth f. After integer-lattice coordinates identify the compact abelian Lie group with a finite group times a torus, integration by parts with `(1−Δ)^s` gives coefficient bound `C(1+4π²||k||²)^−s`; choose 2s greater than the torus dimension. Finite component characters add only a finite sum. The same proof is uniform in a compact auxiliary parameter when the required derivatives are uniformly bounded. Mathlib's `UnitAddTorus.hasSum_mFourier_series_apply_of_summable` supplies pointwise reconstruction **after** this summability adapter, and `AddChar.expect_eq_ite` supplies finite character orthogonality. The existing L² Fourier and Peter–Weyl theorems alone cannot evaluate a function at a fibre point. Tau Ceti's rapid-decay theorem for compactly supported functions on real vector spaces is a related input, not already the smooth periodic theorem used here.
+
+## The exact operator and Fourier signs
+
+Use τ for λ_pi, a for Yu's **λ_L**, and b for Yu's **λ^L**. The latter is in B0; a is in A. This notation avoids the superscripts lost by OCR. The stabilizer convention is `w(pi⊗τ)=pi`, as in Yu p12; the formula does not require a good representative. A good representative is imposed later in the scalar reduction.
+
+For a fibre point `(a,c)`, set b=δ(c), τ=ab, and z=λc with λ∈A. For Q∈P(L), choose R∈P^Q(M) and put
+
+```
+R_Q(z;v) = M_(R|P)(z)^(-1) ∘ M_(R|P)(z/v),    v∈X_L^G.
+
+F_h(λ,a,c) = lim_(μ→1 in X_L^G) Tr_(A_P,pi) [
+  (sum_(Q∈P(L)) h_Q(μa) R_Q(λc;μa))
+       ∘ M(w,w^(-1)c) ∘ U_τ
+].
+```
+
+U_τ is multiplication by τ. It goes from A_(P,pi) to A_(P,pi⊗τ); Weyl transport then returns to A_(P,pi) by the stabilizer identity. The family operator acts last. The trace is taken only on this closed composition. For fixed parameters the spaces are the finite-dimensional spherical section spaces; the full smooth G(A)-representation is not asserted one-dimensional. No rearrangement of the three operators is justified by their notation. A two-dimensional matrix diagnostic distinguishes the two orders even at the level of trace.
+
+The displayed Q-sum is meromorphic term by term. It is the **sum's holomorphic extension** that is evaluated at μ=1; singular summands must not be separately substituted. Independence of R and the extension use functional equations, unitary-axis regularity and adjacent-wall gluing. Lafforgue's Lemma7 proves the latter by pairing adjacent permutations along each root wall: the paired numerators agree on the wall, so their difference is divisible by its equation. This removes the wall pole; repeating over the root hyperplanes removes the product denominator. Corollary10 applies this to the entire expression before moving its contour to the unitary group.
+
+In this notation the spectral expression is
+
+```
+J_η = sum_[(P,pi)] 1/|stab(P,pi)|
+        sum_[(w,τ)∈stab(P,pi)]
+          integral_(λ∈A) 1/D sum_[(a,c)∈mu_w^(-1)(τ)] F_h(λ,a,c) dλ,
+
+h_Q(v) = hat1_Q(v η^(-1)).
+```
+
+The brackets on `(P,pi)` mean one representative per inertial class. All other sums displayed as finite fibres include **every** lift. The outer spectral summation's convergence is an analytic prerequisite, not proved by the finite kernel computation. The expression is at T=0 as in Yu's theorem. Restoring arbitrary T would also require its truncation-dependent cone functions.
+
+Let ζ be primitive of order n and η=ζ^deg. Then
+
+```
+J_(η^k) = sum_(e mod n) ζ^(ek) J_e,
+J_e     = 1/n sum_(k mod n) ζ^(-ek) J_(η^k).
+```
+
+Inserting the second expression changes h_Q to `hat1_Q^e(v)=1/n sum_k ζ^(ek)hat1_Q(vη^k)`: reindex k↦−k to reconcile the signs. The operator, its order and the fibre are unchanged. This gives Yu (5.2.14) for **all integer e**. Coprimality belongs to the later evaluation, not this finite Fourier inversion.
+
+## What the original-source comparison establishes
+
+Freshly read [Lafforgue1997](https://www.numdam.org/item/AST_1997__243__1_0.pdf), printed pp280–281,284–287,301–308, with images of pp281,284,302–303,306–308. This covers the relevant torus and measure definitions, the induced-space definitions, the stated Langlands properties, the cone-series/gluing steps and the Lemma9-to-Theorem11 passage. It is not a full monograph read and does not include the original Langlands proofs cited there.
+
+On p281 Lafforgue defines A_P^Q as the **connected** subgroup generated by its real part. This differs from Yu's full X_M^L. On p306 Lemma9 retains the character factor involving the Weyl ratio, the twisting character and the contour variable. On p307 Corollary10 first extends the whole family and then permits the real contour shift to be1. On p308 Theorem11 sums over selected preimages of a finite intersection and has no explicit fibre-average coefficient. Its accompanying two observations about image and kernel do not by themselves justify the Fourier coefficient evaluation. Yu explicitly restarts from Lemma9/Corollary10, changes the degree-character contour variable and then replaces the stabilizer element by `(w⁻¹,w(τ)⁻¹)` to obtain (5.2.11). The smooth Fourier identity above then gives the all-lifts expression without a representative-choice ambiguity.
+
+This is a comparison of both fibre conventions and operator order. It is not a claim that adding D⁻¹ to the old representative sum alone fixes every glyph of Lafforgue's theorem. E9 retains that distinction. The complete equality between the original Hermitian coefficient and the typed operator expression still imports the unitarity and functional equations and must be proved in the chosen normalization.
+
+The fresh images also change two inherited conclusions:
+
+- **E28 is withdrawn.** Yu p32 already prints the floor condition `m≤x`. The prior extraction misread the glyph. The original record is preserved under `withdrawnSourceIssues`, outside the live `sourceIssues` list. This is an extraction correction, not a reviewer verdict or a source erratum.
+- **E8 remains an unresolved mismatch.** Yu p32 uses membership `rho_P⁻¹ phi∈pi`, whereas p39 uses the basis `rho_R⁻¹ phi_pi`. Lafforgue p284 has the same inverse-rho membership as Yu p32, and p281 defines rho through its action on unipotent Haar measures. Therefore the prior choice to reverse p32 merely to match p39 is not established by the original source. With an explicit inducing character s_R, the consistent pair is membership `s_R⁻¹ phi∈pi` and basis `s_R phi_pi`. Changing s_R to t_R multiplies sections by t_R/s_R and conjugates every operator and its norm accordingly. For s=rho,t=rho⁻¹ the transport is rho⁻². Item153 records this dictionary; identifying the convention that matches the numerical L-factors remains S2.
+
+The conductor arithmetic is consistent with the previous E11 correction: the diagonal valuations `−(n−1)n_v,...,0`, together with degree equal to minus their sum, give `+n(n−1)(g−1)`. A central degree-one idele acts on determinant degree by n, so the correcting exponent is `−(n−1)(g−1)`. These exact sign checks do not supply the unread Whittaker uniqueness or local-value proofs. The genus-dependent unipotent Haar prefactor likewise remains tied to the original global measure comparison.
+
+## Ownership and implementation boundary
+
+The reviewed AUDIT14 and full AS.0–AS.6 descriptions were reread. AS.0 already owns functional analysis, AS.1/2 induction and operators, and AS.6 the regularized trace machinery. Items145–150 are shared compact-character adapters within this programme;151–152 specialize its trace formula;153 records induction-convention transport. Items142–144 are imported rather than replanned. The programme's number-field scope is not treated as a theorem for function fields: Yu and Lafforgue supply that source extension, whose analytic prerequisites remain explicit.
+
+The proposed file `TauCeti/Automorphic/YuCounting/CharacterCover.lean` is an organizational suggestion, not an added deliverable. Export the finite-cover transfer for other spectral uses, and import the existing Haar and Fourier primitives. The three allowed deliverables contain no Lean code asserted to compile.
+
+
+## Fresh library imports
+
+- PAPER-YU-23/142: `mathlib:MonoidHom.measurePreserving` in `Mathlib/MeasureTheory/Measure/Haar/Unique.lean`, lines952–958. Statement and hypotheses read at Mathlib082e2d3.
+- PAPER-YU-23/143: `mathlib:UnitAddTorus.hasSum_mFourier_series_apply_of_summable` in `Mathlib/Analysis/Fourier/AddCircleMulti.lean`, lines329–332. Statement and hypotheses read at Mathlib082e2d3.
+- PAPER-YU-23/144: `mathlib:AddChar.expect_eq_ite` in `Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean`, lines33–36. Statement and hypotheses read at Mathlib082e2d3.
 
 ## Mathematical outcome and dependency structure
 
@@ -47,11 +140,11 @@ The extraction keeps the following chains separate:
 | AppendixC | 120–122, 134–137, 140: ordinary maximal-monodromy curve + Vandermonde power sums → necessary admissible exponent cone |
 | Optional representation interpretation | 099, 141: existing split K0 and upstream classical groups → rational GSp character ring; not a premise for elementary integrality |
 
-The JSON is the detailed item inventory, including corrected mathematical statements, proof sketches, definition APIs/tests, uses and the acyclic dependency graph. Some imported statements are deliberately marked incomplete: especially item123's KW01 input and item063's full operator-valued expression. The existence of a proof outline is not proof closure.
+The JSON is the detailed item inventory, including corrected mathematical statements, proof sketches, definition APIs/tests, uses and the acyclic dependency graph. Some imported statements are deliberately marked incomplete: item123's KW01 input and the original analytic prerequisites of item063 (whose operator formula is now explicit). The existence of a proof outline is not proof closure.
 
-## Reuse at the pinned commits
+## Retained library inputs at the pinned commits
 
-Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti: `f790474821cf4256814db967cb154e7af3d0c369`. Atlas inspected at `a79a97d5c4f2c2e2246534c119ab10a8775b13f3`; publication prepared on `3f02b067baa564e05e9f5def7a4751cf92eef40a`.
+Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti: `f790474821cf4256814db967cb154e7af3d0c369`. The following eight library records and other-route audit notes are retained from the previous extraction; fresh spectral/library checks are recorded above. The current publication guard is `a4ad60cd4c77d372c695eee0d6ef7bb5fa1b8279`.
 
 - 007: `tauceti:TauCeti.Divisor.finite_ker_degreeClass` — `TauCeti/FieldTheory/FunctionField/RiemannRoch/ClassNumber.lean`, lines143. Read finite_ker_degreeClass including finite constant-field and IsFunctionField parameters.
 - 008: `tauceti:TauCeti.isRiemannRochDivisor_weilDifferentialDivisor`, `tauceti:TauCeti.degree_weilDifferentialDivisor` — `TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean`, lines375,394. Read the Weil differential Riemann–Roch theorem and degree theorem with exact constants/nonzero differential.
@@ -66,7 +159,7 @@ The partition and graph statuses mean their carriers exist, not that the paper's
 
 Read relevant AUDIT20 entries for FA.1/FA.2/FA.4/FA.6 and GS.0/GS.6; AUDIT14 AS.1/AS.2/AS.3/AS.4/AS.6 and AL.3; AUDIT18 DWP.0/DWP.1/DWP.7, EDC.2:pairings and CA.2/CA.3; AUDIT15 QM.0; AUDIT01 SF.3 and R09.4/R09.5; AUDIT19 WC.1 and WC.5:power-sum-converse. These distinguish existing divisors, partitions, binomial and determinant primitives from absent spectral/geometric targets. ET.2b and the classical-group stage IDs have no reviewed entry in this snapshot; no negative audit is inferred from that absence.
 
-## Routing decisions
+## Retained routing decisions
 
 ### Route 1: FunctionFieldArithmetic
 
@@ -174,9 +267,12 @@ Design brief: Prove that restriction of rational algebraic representations of th
 
 These routes do not recreate the upstream JacobianChallenge, classical-group, curve or representation-ring programmes. The counting extension owns the new application, while reusable analytical/arithmetic lemmas go to existing proposed layers. No other extracted paper was found owning Yu's exact recurrence. The existing GWZ20-B endoscopic Part II has a different endpoint; shared Hitchin carriers need coordination, not duplication.
 
-## Source findings awaiting independent review
 
-The findings below are in arXivv5. “New” means no correction was found in the bounded search of the publisher record, author page, arXiv history and exact-title/DOI correction searches on 22 September2026. Earlier arXiv versions were not fully collated, and the journal text was unavailable. E9 records Yu's already-published correction to the Lafforgue spectral formula; it is not a claim to have newly discovered that issue.
+The retained AutomorphicSpectralTheory route additionally imports142–144 and owns145–153 as detailed above. AS.0 is now included among its source stages. The other12 routes and the two Part II briefs are unchanged.
+
+## Active source findings and the withdrawn extraction mistake
+
+E1–E27 are candidate findings in the version read, with no independent-review verdict. E8 and E9 were refined by the fresh original-source comparison. E28 is archived outside this list because the source already prints≤. No author was contacted.
 
 ### E1 — misprint; affects a stated result
 
@@ -188,7 +284,7 @@ Correction: Restrict the cuspidal vanishing condition and the F^G cutoff test to
 
 Reason: For P=G the unipotent quotient is a point and the constant term is phi itself; hat-tau_G=1 would also kill the cutoff. GL_1 gives an immediate counterexample.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E2 — misprint; affects a stated result
 
@@ -200,7 +296,7 @@ Correction: Use −(1−q)(1−z) Log(Omega_g).
 
 Reason: The rank-one Young-diagram term has denominator (z−1)(1−q); the corrected prefactor gives the Jacobian factor. The printed prefactor gives (1−g)/(1−q) times that factor and vanishes for g=1. Image checked; Mellit's published Theorem1.1 independently confirms q.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E3 — misprint; affects the proof
 
@@ -212,7 +308,7 @@ Correction: For a=N_i,b=N_(i+1), the first root sum starts at a+1 with coefficie
 
 Reason: The corrected identity is (b−l)omega_a+(l−a)omega_b−(b−a)omega_l=−(b−l)Σ_(a<t<l)(t−a)alpha_t−(l−a)Σ_(l≤t<b)(b−t)alpha_t. For n=3,a=1,l=2,b=3 the left side is −alpha_2, not −alpha_1−alpha_2. All three slips image checked.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E4 — gap; affects a stated result
 
@@ -224,7 +320,7 @@ Correction: Also require a meromorphic extension to a neighborhood of the closed
 
 Reason: Annular holomorphy does not define the interior divisor. For example z exp(1/z) is nonzero on an annulus but has an essential singularity at zero. The later rational L-factor application is repaired by specifying its extension.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E5 — misprint; affects the proof
 
@@ -236,7 +332,7 @@ Correction: The estimate needed in that argument is theta_Q(z beta_1+xi_1)^−1=
 
 Reason: The printed upper bound for theta itself is true but does not control its reciprocal. At most one denominator factor vanishes on a generic wall, so the reciprocal has at most a simple pole, which is what kills the higher-derivative coefficient.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E6 — error; affects the proof
 
@@ -248,7 +344,7 @@ Correction: Choose kappa off the finite union of all relative-root hyperplanes f
 
 Reason: Image checked. kappa=(3,2,1) is in the positive chamber and every Levi projection is nonzero, but the blocks {1,3}|{2} have equal averages 2, so their relative root evaluates to zero.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E7 — misprint; affects a stated result
 
@@ -260,7 +356,7 @@ Correction: H_Q^e belongs to a_(L,Z) in the affine degree −e hyperplane, not t
 
 Reason: The floor differences telescope to −e. With one block and e=1, H=−1 while a_G^G=0. Image checked; 119 exact small floor checks corroborate the sign.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E8 — misprint; affects the proof
 
@@ -268,11 +364,11 @@ Locator: Yu arXiv:1807.04659v5, 18 July2022: §5.2.2 p32 compared with §5.3.2 p
 
 Printed: `rho_P(m)^−1 phi(m) ∈ pi; phi_R(nmk)=rho_R(m)^−1 phi_pi(m)`.
 
-Correction: With the latter basis convention, the membership condition is rho_R(m)phi(m)∈pi. Use R rather than the unrelated P and make the same choice in the intertwining normalization.
+Correction: Use R in the membership definition. Choose one inducing character s_R and write membership s_R⁻¹ phi∈pi and basis s_R phi_pi consistently. Laf97 pp281,284 supports the p32 membership text, whereas p39 uses the inverse basis. Transport operators and norms as in153; which presentation matches every printed scalar factor is still S2, not settled by inverting the p32 factor alone.
 
-Reason: Even R=P, combining the two printed displays gives rho_P^−2 phi_pi instead of phi_pi. The extraction records the consistent basis convention; a full original-source normalization collation remains a gate. Image p32 checked.
+Reason: For the same rho_R, the two Yu displays are algebraically inconsistent already for R=P. Fresh images show Laf97 p284 also has rho_P⁻¹ phi∈pi and p281 defines rho through its action on Haar measures. This invalidates the earlier inference that the p32 formula alone should be reversed. The mismatch remains a candidate source issue; the correct global convention requires a complete dictionary.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E9 — error; affects a stated result
 
@@ -282,9 +378,9 @@ Printed: `Lafforgue: Theorem11 spectral Fourier recovery`.
 
 Correction: Use Yu Theorem5.2.2 and its proof from Lafforgue's Lemma9, retaining the finite-kernel torus map and normalized fibre sum.
 
-Reason: Yu explicitly identifies errors in the recovery of the spectral expression. Lafforgue pp306–308 were inspected; their OCR corrupts operators, so this record does not pretend to identify every glyph-level change. Yu reconstructs the formula and the |w||X_L^L| factor from Fourier inversion.
+Reason: Yu explicitly identifies errors in the recovery of the spectral expression. Lafforgue pp306–308 were inspected; their OCR corrupts operators, so this record does not pretend to identify every glyph-level change. Yu reconstructs the formula and the |w||X_L^L| factor from Fourier inversion. Fresh Laf97 p308 image has a sum over chosen preimages after an integral on Im A_Psigma, without an explicit fibre-average coefficient. Its A_P^Q on p281 is connected, unlike Yu’s full X_M^L. Thus one must compare representative choices as well as denominators. The continuation derives the unambiguous all-lifts convention with D=|w||X_L^L| from Lemma9/Corollary10 and does not claim that inserting one factor into Laf97 reproduces all of Yu’s corrections.
 
-Known correction: Yu arXiv:1807.04659v5, §5.2.3, Theorem5.2.2.
+Known correction: Yu arXiv:1807.04659v5, §5.2.3, Theorem5.2.2. The bounded searches and version/review scope are recorded in JSON.
 
 ### E10 — misprint; affects a stated result
 
@@ -296,7 +392,7 @@ Correction: Add phi≠0.
 
 Reason: The zero vector is an immediate counterexample; the proof explicitly uses nonzero phi and a nonzero Whittaker scalar.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E11 — misprint; affects the proof
 
@@ -308,7 +404,7 @@ Correction: With J_v=(-(n−1)n_v,...,0) and deg=−Σv, deg x0=+n(n−1)(g−1)
 
 Reason: Sum the diagonal valuations and use deg K=2g−2. Both displayed signs were checked in the image and against §2.2.1.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E12 — misprint; affects the proof
 
@@ -320,7 +416,7 @@ Correction: Use q^((1−g)ni nj), as in equation5.1.1.
 
 Reason: With product local volume(O_v)=1, the additive adelic quotient has volume q^(g−1); imposing global unipotent quotient volume one multiplies the measure by q^(1−g) in each root direction. The definition and calculation must use the same normalization.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E13 — misprint; affects the proof
 
@@ -332,7 +428,7 @@ Correction: Use lambda_(L1)^−e and lambda_(G1)^−e, matching Proposition5.1.1
 
 Reason: The floor exponent has total −e and each root denominator is invariant under a central shift. Hence hat1_Q^e(mu lambda)=lambda_1^−e hat1_Q^e(mu). Image checked. The final degree-order argument is insensitive to e↦−e but intermediate identities are not.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E14 — misprint; affects the proof
 
@@ -344,7 +440,7 @@ Correction: The Hom arguments are reversed: H0=Hom(F2,F1), H2=Hom(F1,F2)∨(−1
 
 Reason: Tensor-Hom identifies F1⊗F2∨ with Hom(F2,F1); Poincare duality gives the second formula. The self-pair calculation used for the pole count is unaffected.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E15 — gap; affects a stated result
 
@@ -356,7 +452,7 @@ Correction: Specify the good-representative assumption, or give the missing case
 
 Reason: The two printed alternatives do not exhaust arbitrary pairs. The application in §6.4 uses good representatives and is covered; no failure of that application is claimed. For equal segment lengths a unitary twist rotates the poles and leaves the extra stabilizer contribution.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E16 — error; affects a stated result
 
@@ -368,7 +464,7 @@ Correction: Use algebraic multiplicity: remove one zero root and multiply the re
 
 Reason: For A=[[0,1],[0,0]], rank=1 but det(A+tI)=t², so kappa=0; the printed product over nonzero eigenvalues is the empty product and gives 1/2. Image checked. The actual symmetric Laplacian calculations can use determinant coefficients without the false general assertion.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E17 — misprint; affects the proof
 
@@ -380,7 +476,7 @@ Correction: Use positive x_i,j(s,t)=l_i,s l_j,t[(2g−2)d_i d_j min(ν_i,ν_j)+d
 
 Reason: The same page defines x_i,j positively and the next page states x_i,j(s,t)=l_i,s l_j,t x_i,j. Negative x makes the advertised row sums nonzero. Image checked; 2,187 exact block-Laplacian specializations match the corrected formula.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E18 — misprint; affects the proof
 
@@ -392,7 +488,7 @@ Correction: Replace 1 by d.
 
 Reason: Proposition2.1.3 says induction from d distinct geometric conjugates gives twist stabilizer of order d. The conclusion D_n(d)=O_(n/d)(d) on the same page uses the corrected value.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E19 — misprint; affects the proof
 
@@ -404,7 +500,7 @@ Correction: Include the factor (−1)^(l−1), inherited from equation6.2.6.
 
 Reason: There is one minus sign per root factor in equation6.2.6. The first display on p47 correctly restores it, so the subsequent equation6.2.8 has the intended sign.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E20 — misprint; affects the proof
 
@@ -416,7 +512,7 @@ Correction: The threshold is p^(2 v_p(gcd(k)))=p^(2alpha). In the definitions of
 
 Reason: The argument immediately sets alpha=v_p(gcd k) and proves valuation at least 2alpha, not the stronger exponent 2gcd(k). The surrounding equation already takes the product of the individual g_i,j,s; repeating that product inside each factor changes the expression.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E21 — misprint; affects a stated result
 
@@ -428,7 +524,7 @@ Correction: Start the sum at i=0.
 
 Reason: For a point the printed definition gives zero, whereas both the cohomological Euler characteristic and its point-count specialization are one.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E22 — misprint; affects the proof
 
@@ -440,7 +536,7 @@ Correction: Use formal T-adic power series, with each coefficient a Laurent poly
 
 Reason: Omega has nonzero contributions in arbitrarily high T degrees. Coefficientwise finiteness makes the formal logarithm meaningful, but it is not a polynomial in T.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E23 — misprint; affects the proof
 
@@ -452,7 +548,7 @@ Correction: Use primitivity: the coefficient of ∏z_i is (−1)^g. The Laurent 
 
 Reason: For g=1, J=(1−z)(1−q/z)=1+q−z−q/z. Gauss's lemma still proves integral division because a coefficient is a unit in Z[q].
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E24 — misprint; affects the proof
 
@@ -464,7 +560,7 @@ Correction: Multiply by theta_Q(lambda), rather than its inverse.
 
 Reason: The family product formula writes the desired sum as Σ d_Q c_Q/theta_Q. The printed choice introduces a double pole even at mu0=1; the corrected choice is the holomorphic monomial family from LemmaA.1.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E25 — misprint; affects the proof
 
@@ -476,7 +572,7 @@ Correction: Keep alpha indexed by 1..ms and beta by 1..ls throughout the binomia
 
 Reason: The recurrence defines ms denominator monomials alpha and ls numerator monomials beta, but the next displayed products and assignment interchange those lengths. If ls≠ms some referenced variables are undefined. The abstract epsilon-indexed argument does not depend on either list name.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E26 — error; affects the proof
 
@@ -488,7 +584,7 @@ Correction: Only test whether e+a=0. Since 2a=0 in Z/cZ, a is zero or the unique
 
 Reason: Take c=2,e=a=1: ord(e+a)=1 but lcm(2,2)=2. These parameters occur for one cycle l=2,f=1. Image checked. The replacement proves the needed invariance; 80,100 exact degree tests pass.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
 ### E27 — misprint; affects a stated result
 
@@ -500,31 +596,101 @@ Correction: Use sigma_i sigma_(2g+1−i)=q, or the consistent sigma_i sigma_(i+g
 
 Reason: At i=g the printed formula forces sigma_g²=q, incompatible with the ordinary eigenvalues used in the proof. Image checked.
 
-Known correction: new.
+Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E28 — misprint; affects the proof
+## Verification and reproducible diagnostics
 
-Locator: Yu arXiv:1807.04659v5, 18 July2022: Proposition5.2.1 p32, definition of floor.
+The paper schema and three-file intake checks passed. The continuation passed1209 structural assertions and55391 exact diagnostics across54 cycle/rank configurations,162 fibres, kernel-character averages, Fourier degree signs and noncommuting operator order. The inherited110864 exact checks also reran successfully. All50 definition/construction nodes now have three canonical tests; they remain planning specifications, not executed Lean examples. No Lean file was required or compiled. These finite checks do not establish the infinite Fourier convergence or the automorphic trace formula.
 
-Printed: `[x]=max{m∈Z : m<x}`.
+New diagnostic counts: `{"kernel size": 54, "fibre size": 162, "outer pairs": 162, "A constraint": 6684, "B constraint": 12780, "cover equation": 12780, "kernel torsor": 162, "character orthogonality": 1134, "fibre character average": 1134, "transfer constant": 54, "degree orthogonality": 10100, "degree sign reindex": 10100, "ordered trace": 1, "normalization transport": 4, "conductor sign": 40, "central correction": 40}`.
 
-Correction: Replace m<x by m≤x.
+Run the following with Python3; it uses only the standard library:
 
-Reason: At an integer x the printed description gives x−1, whereas all floor identities and endpoint telescoping use floor(x)=x. Image checked on the same page as E7.
+```python
+from collections import Counter
+from fractions import Fraction as F
+from itertools import product
+from math import prod
+mathcounts={}
+def mcheck(label,ok):
+ assert ok,label
+ mathcounts[label]=mathcounts.get(label,0)+1
+def mod(x):return x%1
+def fibre(data,tau):
+ """Solve a+c_t-c_(t-1)=tau_t in Q/Z with the actual B constraints."""
+ bycycle=[]
+ for (l,d),z in zip(data,tau):
+  options=[]
+  for k in range(l):
+   a=mod((sum(z)+k)/l);b=[mod(t-a) for t in z]
+   h=[F(0)]
+   for t in range(1,l):h.append(h[-1]+b[t])
+   for r in range(l*d):
+    c0=F(r,l*d)-sum(h)/l
+    c=tuple(mod(c0+x) for x in h)
+    options.append((a,c))
+  bycycle.append(options)
+ return [tuple(x) for x in product(*bycycle)]
+cases=[((l,d),) for l in range(1,6) for d in range(1,4)]
+cases += [((a,d),(b,e)) for a,b,d,e in product(range(1,4),range(1,4),range(1,3),range(1,3))]
+cases += [((1,2),(2,1),(2,2)),((2,1),(2,1),(2,1)),((1,1),(1,2),(1,3))]
+for data in cases:
+ D=prod(l*l*d for l,d in data)
+ zero=tuple(tuple(F(0) for _ in range(l)) for l,d in data)
+ ker=fibre(data,zero)
+ mcheck('kernel size',len(ker)==len(set(ker))==D)
+ # Two deterministic target points, each constructed to satisfy the weighted T equation.
+ for seed in [0,1,2]:
+  tau=[list(z) for z in zero]
+  if seed:
+   for q,((l,d),z) in enumerate(zip(data,tau)):
+    for t in range(l):z[t]=F((q+1)*(t+seed+1),7+seed)
+   total=sum(d*sum(z) for (l,d),z in zip(data,tau));tau[-1][-1]-=total/data[-1][1]
+  tau=tuple(tuple(mod(t) for t in z) for z in tau)
+  fs=fibre(data,tau)
+  mcheck('fibre size',len(fs)==len(set(fs))==D)
+  mcheck('outer pairs',len({tuple(a for a,c in x) for x in fs})==prod(l for l,d in data))
+  for x in fs:
+   mcheck('A constraint',mod(sum(l*d*a for (l,d),(a,c) in zip(data,x)))==0)
+   for (l,d),(a,c),z in zip(data,x,tau):
+    mcheck('B constraint',mod(d*sum(c))==0)
+    mcheck('cover equation',all(mod(a+c[t]-c[t-1])==z[t] for t in range(l)))
+  # Each fibre is exactly one translate of the independently enumerated kernel.
+  base=fs[0]
+  translated={tuple((mod(a+u),tuple(mod(s+t) for s,t in zip(c,v))) for (a,c),(u,v) in zip(base,h)) for h in ker}
+  mcheck('kernel torsor',translated==set(fs))
+  # Characters on the ambient torus restrict to characters on ker. Their phase
+  # multisets are uniform on a cyclic subgroup, an exact roots-of-unity sum test.
+  for freq in range(7):
+   def phase(x):
+    return mod(sum((freq+q)*a+sum((freq*(t+1)+q+1)*v for t,v in enumerate(c)) for q,(a,c) in enumerate(x)))
+   hist=Counter(phase(h) for h in ker);order=len(hist)
+   mcheck('character orthogonality',set(hist)=={F(i,order) for i in range(order)} and len(set(hist.values()))==1)
+   shift=phase(base); expected=Counter({mod(v+shift):n for v,n in hist.items()})
+   mcheck('fibre character average',Counter(phase(x) for x in fs)==expected)
+ # Normalized Haar/transfer must preserve one, including finite-only groups.
+ mcheck('transfer constant',sum(F(1,D) for _ in ker)==1)
+for n in range(1,25):
+ for e,r in product(range(-n,n+1),range(n)):
+  phases=Counter((k*(r-e))%n for k in range(n))
+  distinct=len(phases)
+  mcheck('degree orthogonality',len(set(phases.values()))==1 and (distinct==1)==((r-e)%n==0))
+  # Reindex k -> -k converts the inverse J sign and eta^-k to hat1^e's sign.
+  mcheck('degree sign reindex',Counter(((-e*k)%n,(-k)%n) for k in range(n))==Counter(((e*k)%n,k) for k in range(n)))
+def mm(a,b):return tuple(tuple(sum(a[i][k]*b[k][t] for k in range(2)) for t in range(2)) for i in range(2))
+def trace(a):return a[0][0]+a[1][1]
+R=((1,0),(0,2));W=((0,1),(1,0));U=((1,1),(0,1))
+mcheck('ordered trace',trace(mm(mm(R,W),U))==2 and trace(mm(mm(R,U),W))==1)
+for rho in [F(1,2),F(1),F(2),F(3)]:
+ mcheck('normalization transport',rho*rho**-2==1/rho)
+for n,g in product(range(1,9),range(5)):
+ degree=-(sum(-i*(2*g-2) for i in range(n)))
+ mcheck('conductor sign',degree==n*(n-1)*(g-1))
+ mcheck('central correction',degree+n*(-(n-1)*(g-1))==0)
+print(sum(mathcounts.values()), mathcounts)
+```
 
-Known correction: new.
-
-The two explicit false general assertions are worth retaining as regression tests. For E16, A=[[0,1],[0,0]] has rank1 but det(A+tI)=t², so the normalized first coefficient is zero, whereas the empty product of its nonzero eigenvalues divided by2 is1/2. For E26, in Z/2Z both1 and1 have order2, but their sum has order1. The replacement proof uses the special two-torsion shift, not a general lcm rule.
-
-None of these findings has a reviewer verdict in this submission. No authors have been contacted.
-
-## Checks and reproducibility
-
-The paper/source-issue schema checks passed; the intake check reported three files and zero problems. The paper-checker suite passed all 9 tests and the source-issue suite passed all 7 tests. The declared dependency graph has no cycle; all referenced items exist; every missing item appears in exactly one route. No Lean file was compiled or is represented as compiled.
-
-The finite exact-arithmetic script below passed 110864 assertions: Mobius selector1728; central-character identity4368; degree-order invariance80100; weighted trees760; cycle-block Laplacians2187; positive-range Mobius/binomial integrality21600; two elementary counterexample checks; floor-vector total119. It uses integer/Fraction arithmetic and Python's standard library. These finite checks are sanity tests, not proofs. In particular the binomial test covers only the positive application range, not every case in the printed Theorem7.2.3.
-
-Save this block as `yu23-mathchecks.py` in scratch and run `python3 yu23-mathchecks.py`:
+The earlier arithmetic suite is retained in full for reproducibility:
 
 ```python
 from fractions import Fraction as F
@@ -659,54 +825,54 @@ print(counts)
 print('PASS', sum(counts.values()), 'finite exact checks; these are not Lean proofs')
 ```
 
-## Exact continuation gates
+## Remaining source and implementation gates
 
 ### S1 — Journal collation and independent verification of source issues
 
-Read the final 109-page journal text and collate with arXivv5, not just the publisher record. Independently verify E1–E28 with images, particularly E4/E6/E8/E15/E16/E26; establish exact effect on the final printed results. No finding presently claims to be confirmed in the journal or by an independent reviewer.
+Read the final 109-page journal text and collate with arXivv5, not just the publisher record. Independently verify E1–E27 with images, particularly E4/E6/E8/E15/E16/E26; establish exact effect on the final printed results. No finding presently claims to be confirmed in the journal or by an independent reviewer. E28 is withdrawn as an extraction misreading (the source image already has ≤). E1–E27 remain unreviewed; E8 now records the unresolved normalization dictionary rather than preferring one inconsistent convention.
 
-Needed by: 001, 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013, 014, 015, 016, 017, 018, 019, 020, 021, 022, 023, 024, 025, 026, 027, 028, 029, 030, 031, 032, 033, 034, 035, 036, 037, 038, 039, 040, 041, 042, 043, 044, 045, 046, 047, 048, 049, 050, 051, 052, 053, 054, 055, 056, 057, 058, 059, 060, 061, 062, 063, 064, 065, 066, 067, 068, 069, 070, 071, 072, 073, 074, 075, 076, 077, 078, 079, 080, 081, 082, 083, 084, 085, 086, 087, 088, 089, 090, 091, 092, 093, 094, 095, 096, 097, 098, 099, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139.
+Needed by: PAPER-YU-23/001, PAPER-YU-23/002, PAPER-YU-23/003, PAPER-YU-23/004, PAPER-YU-23/005, PAPER-YU-23/006, PAPER-YU-23/007, PAPER-YU-23/008, PAPER-YU-23/009, PAPER-YU-23/010, PAPER-YU-23/011, PAPER-YU-23/012, PAPER-YU-23/013, PAPER-YU-23/014, PAPER-YU-23/015, PAPER-YU-23/016, PAPER-YU-23/017, PAPER-YU-23/018, PAPER-YU-23/019, PAPER-YU-23/020, PAPER-YU-23/021, PAPER-YU-23/022, PAPER-YU-23/023, PAPER-YU-23/024, PAPER-YU-23/025, PAPER-YU-23/026, PAPER-YU-23/027, PAPER-YU-23/028, PAPER-YU-23/029, PAPER-YU-23/030, PAPER-YU-23/031, PAPER-YU-23/032, PAPER-YU-23/033, PAPER-YU-23/034, PAPER-YU-23/035, PAPER-YU-23/036, PAPER-YU-23/037, PAPER-YU-23/038, PAPER-YU-23/039, PAPER-YU-23/040, PAPER-YU-23/041, PAPER-YU-23/042, PAPER-YU-23/043, PAPER-YU-23/044, PAPER-YU-23/045, PAPER-YU-23/046, PAPER-YU-23/047, PAPER-YU-23/048, PAPER-YU-23/049, PAPER-YU-23/050, PAPER-YU-23/051, PAPER-YU-23/052, PAPER-YU-23/053, PAPER-YU-23/054, PAPER-YU-23/055, PAPER-YU-23/056, PAPER-YU-23/057, PAPER-YU-23/058, PAPER-YU-23/059, PAPER-YU-23/060, PAPER-YU-23/061, PAPER-YU-23/062, PAPER-YU-23/063, PAPER-YU-23/064, PAPER-YU-23/065, PAPER-YU-23/066, PAPER-YU-23/067, PAPER-YU-23/068, PAPER-YU-23/069, PAPER-YU-23/070, PAPER-YU-23/071, PAPER-YU-23/072, PAPER-YU-23/073, PAPER-YU-23/074, PAPER-YU-23/075, PAPER-YU-23/076, PAPER-YU-23/077, PAPER-YU-23/078, PAPER-YU-23/079, PAPER-YU-23/080, PAPER-YU-23/081, PAPER-YU-23/082, PAPER-YU-23/083, PAPER-YU-23/084, PAPER-YU-23/085, PAPER-YU-23/086, PAPER-YU-23/087, PAPER-YU-23/088, PAPER-YU-23/089, PAPER-YU-23/090, PAPER-YU-23/091, PAPER-YU-23/092, PAPER-YU-23/093, PAPER-YU-23/094, PAPER-YU-23/095, PAPER-YU-23/096, PAPER-YU-23/097, PAPER-YU-23/098, PAPER-YU-23/099, PAPER-YU-23/100, PAPER-YU-23/101, PAPER-YU-23/102, PAPER-YU-23/103, PAPER-YU-23/104, PAPER-YU-23/105, PAPER-YU-23/106, PAPER-YU-23/107, PAPER-YU-23/108, PAPER-YU-23/109, PAPER-YU-23/110, PAPER-YU-23/111, PAPER-YU-23/112, PAPER-YU-23/113, PAPER-YU-23/114, PAPER-YU-23/115, PAPER-YU-23/116, PAPER-YU-23/117, PAPER-YU-23/118, PAPER-YU-23/119, PAPER-YU-23/120, PAPER-YU-23/121, PAPER-YU-23/122, PAPER-YU-23/123, PAPER-YU-23/124, PAPER-YU-23/125, PAPER-YU-23/126, PAPER-YU-23/127, PAPER-YU-23/128, PAPER-YU-23/129, PAPER-YU-23/130, PAPER-YU-23/131, PAPER-YU-23/132, PAPER-YU-23/133, PAPER-YU-23/134, PAPER-YU-23/135, PAPER-YU-23/136, PAPER-YU-23/137, PAPER-YU-23/138, PAPER-YU-23/139.
 
 ### S2 — Spectral original sources and exact operator formulas
 
-Read the full relevant Arthur, Langlands, Moeglin–Waldspurger and Laf97 proofs; finish image-level collation of Laf97 pp306–308. Expand item063's structural formula into every operator, finite fibre and domain, reconcile rho conventions in E8 and check the conductor/central sign computation. Read Ch15 Lemmas6.2.3–6.2.6 and its HN construction, not merely the theorem reduction.
+The exact all-lifts operator formula063/151, cycle-cover degree145–147, probability Haar transfer148–149 and degree inversion152 have now been written out and Laf97 pp306–308 image-collated. Remaining: prove the inducing-character dictionary153 against the numerical normalizers in066 using original local/global conventions; prove original Arthur/Langlands/Moeglin–Waldspurger/LW13 analytic inputs and their function-field specializations, uniform regularized spectral summation and contour shifts; read Ch15 HN construction and Lemmas6.2.3–6.2.6. The p32/p39 rho mismatch cannot be closed merely by choosing one printed line. Whittaker conductor and global Haar signs retain their original-source dependencies.
 
-Needed by: 020, 021, 025, 038, 039, 050, 051, 060, 061, 062, 063, 064, 065, 066, 067, 116, 117.
+Needed by: PAPER-YU-23/020, PAPER-YU-23/021, PAPER-YU-23/025, PAPER-YU-23/038, PAPER-YU-23/039, PAPER-YU-23/050, PAPER-YU-23/051, PAPER-YU-23/060, PAPER-YU-23/061, PAPER-YU-23/063, PAPER-YU-23/064, PAPER-YU-23/065, PAPER-YU-23/066, PAPER-YU-23/067, PAPER-YU-23/116, PAPER-YU-23/117, PAPER-YU-23/151, PAPER-YU-23/153.
 
 ### S3 — Bundle/Higgs and Mellit source closure
 
-Read Nitsure Thm7.4, the full Schiffmann bundle/Higgs and density arguments, Mellit's full proof and Ch15 Thm4.1.2. Separate existence, smoothness, rational coarse points, scalar stabilizers, stack mass and point counts. Split all multi-part imports and give exact base-field/characteristic hypotheses; ET.2b alone does not supply the all-characteristic coarse-moduli result.
+Read Nitsure Proposition7.4, the full Schiffmann bundle/Higgs and density arguments, Mellit's full proof and Ch15 Thm4.1.2. Separate existence, smoothness, rational coarse points, scalar stabilizers, stack mass and point counts. Split all multi-part imports and give exact base-field/characteristic hypotheses; ET.2b alone does not supply the all-characteristic coarse-moduli result.
 
-Needed by: 026, 027, 030, 031, 033, 035, 036, 037, 039, 045, 046, 110, 125, 126, 138.
+Needed by: PAPER-YU-23/026, PAPER-YU-23/027, PAPER-YU-23/030, PAPER-YU-23/031, PAPER-YU-23/033, PAPER-YU-23/035, PAPER-YU-23/036, PAPER-YU-23/037, PAPER-YU-23/039, PAPER-YU-23/045, PAPER-YU-23/046, PAPER-YU-23/110, PAPER-YU-23/125, PAPER-YU-23/126, PAPER-YU-23/138.
 
 ### S4 — Weil, Langlands, normalizer and Whittaker leaves
 
 Read the exact KW01 Thm3.3(2) normalizer statement: item123 is only a bounded input contract and must not be treated as complete. Read relevant Lafforgue02, Deligne, Shalika, Flath, Shintani and Cogdell arguments. Split trace, Euler characteristic, purity and duality in item042. Close continuity, semisimplicity, unramified twist and conductor interfaces.
 
-Needed by: 003, 005, 006, 013, 014, 016, 040, 042, 057, 068, 123, 124, 127, 128, 129, 130.
+Needed by: PAPER-YU-23/003, PAPER-YU-23/005, PAPER-YU-23/006, PAPER-YU-23/013, PAPER-YU-23/014, PAPER-YU-23/016, PAPER-YU-23/040, PAPER-YU-23/042, PAPER-YU-23/057, PAPER-YU-23/068, PAPER-YU-23/123, PAPER-YU-23/124, PAPER-YU-23/127, PAPER-YU-23/128, PAPER-YU-23/129, PAPER-YU-23/130.
 
 ### S5 — Combinatorial and integral boundary cases
 
 Turn the exact finite tests into symbolic proof obligations. Split partition-statistics adapters off the already-built carrier. Spell out all block indices and polynomial continuation of determinant formulas. Item107 only records the positive-nu, positive-even-chi range needed for g≥2: Yu's broader zero/negative possibilities remain to be reconciled. Check generalized binomials at zero upper entries and empty products, full low-rank expansions and admissible-cone division.
 
-Needed by: 043, 075, 076, 077, 078, 079, 082, 083, 084, 085, 087, 090, 098, 101, 102, 103, 104, 105, 106, 107, 108, 112, 139.
+Needed by: PAPER-YU-23/043, PAPER-YU-23/075, PAPER-YU-23/076, PAPER-YU-23/077, PAPER-YU-23/078, PAPER-YU-23/079, PAPER-YU-23/082, PAPER-YU-23/083, PAPER-YU-23/084, PAPER-YU-23/085, PAPER-YU-23/087, PAPER-YU-23/090, PAPER-YU-23/098, PAPER-YU-23/101, PAPER-YU-23/102, PAPER-YU-23/103, PAPER-YU-23/104, PAPER-YU-23/105, PAPER-YU-23/106, PAPER-YU-23/107, PAPER-YU-23/108, PAPER-YU-23/112, PAPER-YU-23/139.
 
 ### S6 — Top-weight, Higgs purity and Euler characteristic sources
 
 Read Schiffmann's leading asymptotic and AppendixB density, Hausel's Higgs purity, the exact twisted coprime nonabelian Hodge theorem and HR08 Cor1.1.1 with its quotient comparison. Item131's cohomological conventions require a complete check. No smoothness-to-purity shortcut or raw point-count division by a finite group is accepted.
 
-Needed by: 100, 109, 111, 112, 113, 131, 132, 133.
+Needed by: PAPER-YU-23/100, PAPER-YU-23/109, PAPER-YU-23/111, PAPER-YU-23/112, PAPER-YU-23/113, PAPER-YU-23/131, PAPER-YU-23/132, PAPER-YU-23/133.
 
 ### S7 — AppendixC ordinary monodromy and sieve closure
 
 Read KS99 §10.6, Koblitz75 Thm5, Kowalski06 Props1/3 and Lemmas1/2, Larsen and Chavdarov97 Thm2.1 with proof. Check the replacement of almost-all auxiliary primes by infinitely many; identify the exact Honda–Tate elliptic realization. The elementary Vandermonde proof is given, but these geometric and sieve leaves are not source-closed.
 
-Needed by: 120, 121, 122, 134, 135, 136, 137.
+Needed by: PAPER-YU-23/120, PAPER-YU-23/121, PAPER-YU-23/122, PAPER-YU-23/134, PAPER-YU-23/135, PAPER-YU-23/136, PAPER-YU-23/137.
 
 ### S8 — Owner adapters and shared prerequisites
 
 Confirm generic matrix-tree ownership across new merged work; this checkpoint gives it one reusable implementation in the counting extension, not a second graph carrier. Coordinate the all-characteristic GL_n moduli bridge with ET.2b and the GWZ20-B endoscopic Part II. ClassicalGroups Part II must import the split K0 machinery and upstream highest-weight theory, then separately build rational GSp descent and the tensor-generated subring. No reviewed ClassicalGroups or ET.2b audit entry exists in this snapshot; absence is not an audited negative verdict.
 
-Needed by: 007, 008, 026, 035, 036, 074, 075, 076, 077, 078, 079, 080, 082, 083, 084, 085, 098, 099, 125, 129, 140, 141.
+Needed by: PAPER-YU-23/007, PAPER-YU-23/008, PAPER-YU-23/026, PAPER-YU-23/035, PAPER-YU-23/036, PAPER-YU-23/074, PAPER-YU-23/075, PAPER-YU-23/076, PAPER-YU-23/077, PAPER-YU-23/078, PAPER-YU-23/079, PAPER-YU-23/080, PAPER-YU-23/082, PAPER-YU-23/083, PAPER-YU-23/084, PAPER-YU-23/085, PAPER-YU-23/098, PAPER-YU-23/099, PAPER-YU-23/125, PAPER-YU-23/129, PAPER-YU-23/140, PAPER-YU-23/141.
 
-Resume with S2's spectral formula and S3's original Higgs/bundle inputs. Do not replace this checkpoint with a broad summary, erase the source issues, or promote it to complete until all gates and multi-part item refinements are closed.
+The next worker should start with the remaining normalization/original-proof obligations in S2, then the S3 bundle/Higgs sources. Item123 is still an incomplete KW01 contract. The finite-cover and operator transcription work need not be redone; check it against the source and continue from its explicit boundaries.
