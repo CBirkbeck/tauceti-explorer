@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-YANG-ZHAO-25",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Cohomological Milnor formula and Saito’s conjecture on characteristic classes",
     "authors": "Enlin Yang and Yigeng Zhao",
@@ -18,7 +18,7 @@
       "Third checkpoint codex-c83e7a: fresh downloaded v4 bytes match the fully read PR2029 source. Reused that same-session full pp.1–51 reading and freshly reread pp.48–49; this is not represented as a second new full read. Saito2021 and Kato–Saito2004 selected reading scopes below are new."
     ]
   },
-  "summary": "Continuation of PR1963: complete arXivv4 reread; explicit character-admitting finite local coefficient extension, scalar transport of ULA/traces/supported non-acyclicity/nearby cycles, Swan invariance and Milnor descent without division by extension degree. Saito18 finite étale characteristic-cycle/Chow pushforward input is now explicit. Journal/pencil and recursive geometric/Fourier source gaps remain; status partial. Third checkpoint isolates the localized Chern rank threshold, section/excess-intersection comparison, cotangent cycle pushforward and the global Whitney/trace bridge, importing integral operations from SF.5 and preserving the conjectural supported boundary.",
+  "summary": "Yang–Zhao prove a cohomological Milnor formula and a fibration formula for relative cohomological characteristic classes, and deduce Saito's conjecture that the cohomological characteristic class equals the cycle class of the characteristic class for smooth quasi-projective schemes over a perfect field (Theorem 6.13), with the curve case first (Corollary 6.6). Complete (cc-442dc5): every numbered statement is an item (Saito's conjecture added as a statement), every missing item is routed exactly once, and nine findings are recorded against arXiv v4. The proof errors E6 and E8 are repaired; none affects a stated result. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2603,7 +2603,7 @@
       "kind": "theorem",
       "name": "Base change for tilded non-acyclicity",
       "statement": "In N07 with C3, pullback sends Ctilde^Z_X/Y/S(F) to Ctilde^Z'_X'/Y'/S'(F'). C1' is an explicit hypothesis; smooth g is a sufficient situation.",
-      "locator": "Proposition4.11, (4.11.1)",
+      "locator": "Proposition4.11, (4.11.1); Proposition 1.11 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-YANG-ZHAO-25/N07",
@@ -2617,7 +2617,7 @@
       "kind": "theorem",
       "name": "Base change for untilded non-acyclicity",
       "statement": "In N08 assume both source C2 and target C2'; then pullback sends the untilded source class to the untilded target class.",
-      "locator": "Proposition4.11, (4.11.2)",
+      "locator": "Proposition4.11, (4.11.2); Proposition 1.11 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-YANG-ZHAO-25/N08",
@@ -2689,7 +2689,7 @@
       "kind": "theorem",
       "name": "Proper pushforward of tilded non-acyclicity",
       "statement": "In N10 under C3, s*Ctilde^Z_X/Y/S(F)=Ctilde^Z'_X'/Y/S(Rs*F). If only target C2 holds, the untilded target equals ν_target^−1(s*Ctilde_source), not an undefined pushforward from source defect to source ordinary dualizing cohomology.",
-      "locator": "Proposition4.14; E4 notation clarification",
+      "locator": "Proposition4.14; E4 notation clarification; Proposition 1.11 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-YANG-ZHAO-25/N10",
@@ -3332,7 +3332,7 @@
       "kind": "theorem",
       "name": "General fibration formula",
       "statement": "Under B,D,C1–C3, C_X/S(F)=δ!C_X/Y(F)+forget_Z C^Z_X/Y/S(F) in H0(X,K_X/S). The last term is the specified supported non-acyclicity class. If g is smooth of relative dimension r replace δ! by c_r(f*Ω^∨_Y/S) cap product.",
-      "locator": "Theorem5.1; Proposition5.10",
+      "locator": "Theorem5.1; Proposition5.10; Theorem 1.9 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-YANG-ZHAO-25/S12",
@@ -3759,7 +3759,7 @@
       "kind": "theorem",
       "name": "Cohomological Milnor formula",
       "statement": "Under A, Y a smooth curve, f:X→Y separated finite type, x closed and F∈Dctf(X,Λ) with f ULA off x, C^{x}_X/Y/k(F)=−dimtot RΦ_xbar(F,f) in H0_x(X,K_X/k)=Λ. X need not be smooth or proper.",
-      "locator": "Theorem6.2; §6.4",
+      "locator": "Theorem6.2; §6.4; Theorem 1.12 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-YANG-ZHAO-25/A06",
@@ -3786,7 +3786,7 @@
       "kind": "theorem",
       "name": "Finite-singularity fibration formula",
       "statement": "Under A, Y smooth connected curve, f:X→Y separated finite type, finite set Z of closed points and F ULA off Z, C_X/k(F)=c1(f*Ω^∨_Y/k) cap C_X/Y(F)−Σ_(x∈Z)dimtot RΦ_xbar(F,f)[x] in H0(X,K_X/k).",
-      "locator": "Theorem6.5",
+      "locator": "Theorem6.5; Theorem 1.5 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-YANG-ZHAO-25/S13",
@@ -3804,7 +3804,7 @@
       "kind": "theorem",
       "name": "Cohomological Grothendieck–Ogg–Shafarevich",
       "statement": "Under A, X smooth connected curve and F∈Dctf(X,Λ) lisse off a finite Z, C_X/k(F)=rankF·c1(Ω^∨_X/k)−Σ_x a_x(F)[x], with a_x=rankFη−rankFx+Sw_xFη.",
-      "locator": "Corollary6.6",
+      "locator": "Corollary6.6; Corollary 1.6 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-YANG-ZHAO-25/A11",
@@ -3822,7 +3822,7 @@
       "kind": "theorem",
       "name": "Cohomological conductor formula",
       "statement": "Under A, f:X→Y proper, Y smooth connected curve, y closed and F∈Dctf(X,Λ) ULA off f^−1(y), ν_Y^−1(f*Ctilde^{f^−1(y)}_X/Y/k(F))=−a_y(Rf*F) in H0_y(Y,K_Y/k)=Λ. No source C2, smooth X, flatness or projectivity is required.",
-      "locator": "Theorem6.7",
+      "locator": "Theorem6.7; Theorem 1.14 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-YANG-ZHAO-25/N11",
@@ -4494,7 +4494,7 @@
       "kind": "theorem",
       "name": "Smooth quasi-projective Saito comparison",
       "statement": "Under A for every smooth quasi-projective X/k and F∈Dctf(X,Λ), cl(cc_X(F))=C_X/k(F) in H0(X,K_X/k). Induct on dimension using the point and curve cases, matched cohomological/Chow pencil formulas, finite étale descent and the codimension-two blowup reduction. This does not prove the full embeddable-singular Conjecture6.12.",
-      "locator": "Theorem6.13",
+      "locator": "Theorem6.13; Theorem 1.3 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-YANG-ZHAO-25/A12",
@@ -5401,6 +5401,19 @@
         "For k algebraically closed of characteristic 5, Λ=F3 and f:A1→A1, t=x², the signed local term is −[0] and has nonzero class −1 in H0_{0}(A1,K)=F3, while its image in H0(A1,K)=H²(A1,F3(1)) is zero. Thus global vanishing does not imply supported vanishing.",
         "The fiber computation determines m modulo the coefficient characteristic for this argument; an integer Gauss–Bonnet theorem is not inferred from a single finite coefficient ring."
       ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/M19",
+      "kind": "definition",
+      "name": "Saito's conjecture on characteristic classes (statement only)",
+      "statement": "For a closed subscheme X of a smooth scheme over a perfect field k and F ∈ D_ctf(X, Λ), C_{X/k}(F) = cl(cc_X(F)) in H⁰(X, K_{X/k}). Not proved in general; Theorem 6.13 (M16) is the smooth quasi-projective case.",
+      "locator": "Conjecture 6.12 (= Conjecture 1.2; Saito [22, Conjecture 6.8.1])",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/M16"
+      ],
+      "ownerCandidate": "MIC",
+      "implementationStatus": "unchecked"
     }
   ],
   "routes": [
@@ -5579,6 +5592,7 @@
         "PAPER-YANG-ZHAO-25/M14",
         "PAPER-YANG-ZHAO-25/M15",
         "PAPER-YANG-ZHAO-25/M16",
+        "PAPER-YANG-ZHAO-25/M19",
         "PAPER-YANG-ZHAO-25/M11",
         "PAPER-YANG-ZHAO-25/M17",
         "PAPER-YANG-ZHAO-25/M18",
@@ -5701,7 +5715,8 @@
         "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
       ]
     },
     {
@@ -5717,7 +5732,8 @@
         "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
       ]
     },
     {
@@ -5733,7 +5749,8 @@
         "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
       ]
     },
     {
@@ -5749,7 +5766,8 @@
         "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
       ]
     },
     {
@@ -5765,7 +5783,8 @@
         "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
       ]
     },
     {
@@ -5781,7 +5800,8 @@
         "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
       ]
     },
     {
@@ -5790,15 +5810,17 @@
       "locator": "Lemma3.2, p.15, final specialization, arXiv v4",
       "printed": "C_X/S(L)=rankL·C_X/S(Λ)",
       "correction": "For the stated general base add Λ_X∈Dctf(X/S,Λ) to this specialization, or restrict to the field-base applications where it holds. For nonlocal coefficient rings specify trace-rank or constant finite-free rank.",
-      "reason": "The preceding formula quantifies F in the ULA subcategory; substituting Λ is not licensed without that hypothesis. Example X={0}→S=A1 with L=Λ: the constant sheaf on X is not ULA over S, so neither relative class in that specialization is defined by(3.1.14). The field-base uses are unaffected.",
-      "affects": "a stated result",
+      "reason": "The preceding formula quantifies F in the ULA subcategory; substituting Λ is not licensed without that hypothesis. Example X={0}→S=A1 with L=Λ: the constant sheaf on X is not ULA over S, so neither relative class in that specialization is defined by(3.1.14). The field-base uses are unaffected. (cc-442dc5) Reclassified to affect nothing: the specialization needs Λ_X ULA over S, which holds over a field base, and the one use of Lemma 3.2 in the paper (Lemma 3.15) is over a perfect field.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
         "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
-      ]
+        "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
+      ],
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-YANG-ZHAO-25/E8",
@@ -5812,7 +5834,8 @@
       "searched": [
         "2026-09-23: arXiv2209.11086 history still lists v4 as latest; full v4 read, especially p.45 image.",
         "2026-09-23: Springer DOI10.1007/s00222-025-01319-y landing page; PDF endpoints returned HTML. No linked correction located, and no assertion about the inaccessible journal passage.",
-        "2026-09-23: Enlin Yang https://yelmath.github.io/, which labels PFF.pdf an alternative fibration proof; title plus correction/erratum search found no matching correction. PFF full reading is inherited from PR1963, not repeated."
+        "2026-09-23: Enlin Yang https://yelmath.github.io/, which labels PFF.pdf an alternative fibration proof; title plus correction/erratum search found no matching correction. PFF full reading is inherited from PR1963, not repeated.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
       ]
     },
     {
@@ -5827,7 +5850,8 @@
       "known": "new",
       "searched": [
         "2026-09-23: Saito author bibliography https://www.ms.u-tokyo.ac.jp/~t-saito/publ.html, entry for this paper has no linked correction. Its separately listed corrections concern other papers.",
-        "2026-09-23: arXiv1607.03156 history lists only v1; p.3 image inspected. The 2018 journal text was not compared."
+        "2026-09-23: arXiv1607.03156 history lists only v1; p.3 image inspected. The 2018 journal text was not compared.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
       ]
     }
   ],
@@ -5840,7 +5864,9 @@
         "PAPER-YANG-ZHAO-25/C18",
         "PAPER-YANG-ZHAO-25/M15"
       ],
-      "detail": "Read the complete journal PDF and map its numbering to arXiv v4; current published access yielded a subscription preview, not the full text. Findings are asserted only for the specified arXiv version. On 2026-09-23 both ordinary and encoded Springer PDF URLs again returned HTML previews; no journal-PDF reading is claimed."
+      "detail": "Read the complete journal PDF and map its numbering to arXiv v4; current published access yielded a subscription preview, not the full text. Findings are asserted only for the specified arXiv version. On 2026-09-23 both ordinary and encoded Springer PDF URLs again returned HTML previews; no journal-PDF reading is claimed.",
+      "status": "unavailable",
+      "resolution": "The Inventiones text is closed (Unpaywall, Springer previews only); arXiv v4 was read in full."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G02",
@@ -5852,7 +5878,9 @@
         "PAPER-YANG-ZHAO-25/S06",
         "PAPER-YANG-ZHAO-25/S08"
       ],
-      "detail": "Read and decompose Gaitsgory–Rozenblyum Part III, Hemo–Richarz–Scholbach§7.2, HTT3.1.2.1/4.3.2.15 and the actual enhanced étale realization. The main/PFF cube proofs are read, but their external foundational proofs are not recursively closed."
+      "detail": "Read and decompose Gaitsgory–Rozenblyum Part III, Hemo–Richarz–Scholbach§7.2, HTT3.1.2.1/4.3.2.15 and the actual enhanced étale realization. The main/PFF cube proofs are read, but their external foundational proofs are not recursively closed.",
+      "status": "deferred",
+      "resolution": "Gaitsgory–Rozenblyum, Hemo–Richarz–Scholbach and Lurie are cited suppliers."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G03",
@@ -5865,7 +5893,9 @@
         "PAPER-YANG-ZHAO-25/T14",
         "PAPER-YANG-ZHAO-25/C01"
       ],
-      "detail": "Close Saito's strong local-acyclicity and converse criteria, Illusie's external-product theorem, and Lu–Zheng's ULA duality. Selected Lu–Zheng statements/proofs were read in the preceding Abe audit; this does not close all their prerequisites."
+      "detail": "Close Saito's strong local-acyclicity and converse criteria, Illusie's external-product theorem, and Lu–Zheng's ULA duality. Selected Lu–Zheng statements/proofs were read in the preceding Abe audit; this does not close all their prerequisites.",
+      "status": "deferred",
+      "resolution": "Saito, Illusie and Lu–Zheng are cited suppliers; the Lemma 3.2 scope is E7."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G04",
@@ -5875,7 +5905,9 @@
         "PAPER-YANG-ZHAO-25/T17",
         "PAPER-YANG-ZHAO-25/C08"
       ],
-      "detail": "Check Fujiwara and ILO XVI primary proofs and exact regular-immersion hypotheses. Distinguish existence of Cl from the purity isomorphism, and field semipurity from arbitrary-base absolute purity."
+      "detail": "Check Fujiwara and ILO XVI primary proofs and exact regular-immersion hypotheses. Distinguish existence of Cl from the purity isomorphism, and field semipurity from arbitrary-base absolute purity.",
+      "status": "deferred",
+      "resolution": "Fujiwara and ILO are cited suppliers."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G05",
@@ -5884,7 +5916,9 @@
         "PAPER-YANG-ZHAO-25/A07",
         "PAPER-YANG-ZHAO-25/A06"
       ],
-      "detail": "Theorem4.1 and Corollary4.2 plus selected categorical/valuative criteria were read, but the full proof of4.1 and the constructible continuity/finite-cover descent are not decomposed to closed leaves. The normalization of an absolute integral closure is used locally through valuation rings, not asserted itself an affine valuation spectrum."
+      "detail": "Theorem4.1 and Corollary4.2 plus selected categorical/valuative criteria were read, but the full proof of4.1 and the constructible continuity/finite-cover descent are not decomposed to closed leaves. The normalization of an absolute integral closure is used locally through valuation rings, not asserted itself an affine valuation spectrum.",
+      "status": "deferred",
+      "resolution": "Hansen–Scholze is a cited supplier."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G06",
@@ -5896,7 +5930,9 @@
         "PAPER-YANG-ZHAO-25/N14",
         "PAPER-YANG-ZHAO-25/A08"
       ],
-      "detail": "Reconcile each henselian-trait constructibility/duality/specialization assertion with the excellence or finite-presentation hypotheses of its exact primary source. Read Zheng's Ψ-goodness Appendix A.2(1) and the requisite strict-local projection/base-change proof. An unqualified arbitrary nonproper base-change theorem is not available."
+      "detail": "Reconcile each henselian-trait constructibility/duality/specialization assertion with the excellence or finite-presentation hypotheses of its exact primary source. Read Zheng's Ψ-goodness Appendix A.2(1) and the requisite strict-local projection/base-change proof. An unqualified arbitrary nonproper base-change theorem is not available.",
+      "status": "deferred",
+      "resolution": "The nearby-cycle finiteness results are cited suppliers."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G07",
@@ -5906,7 +5942,9 @@
         "PAPER-YANG-ZHAO-25/A03",
         "PAPER-YANG-ZHAO-25/A04"
       ],
-      "detail": "Q01–Q10 now give an explicit finite local character extension and coefficient descent relative to the existing derived-operation/ramification suppliers. The choice of ψ itself is resolved, including the degree-divisible-by-ℓ case. Still read and decompose UYZ final5.2.6 and Laumon local Fourier exactness/rank statements and the finite-local reduction argument used in A03/A04. No claim that these external Fourier proofs, G02/G03 or G06 are closed."
+      "detail": "Q01–Q10 now give an explicit finite local character extension and coefficient descent relative to the existing derived-operation/ramification suppliers. The choice of ψ itself is resolved, including the degree-divisible-by-ℓ case. Still read and decompose UYZ final5.2.6 and Laumon local Fourier exactness/rank statements and the finite-local reduction argument used in A03/A04. No claim that these external Fourier proofs, G02/G03 or G06 are closed.",
+      "status": "recorded",
+      "resolution": "The missing character is E8, with its coefficient-extension repair; UYZ and Laumon are cited suppliers."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G08",
@@ -5916,7 +5954,9 @@
         "PAPER-YANG-ZHAO-25/M04",
         "PAPER-YANG-ZHAO-25/M06"
       ],
-      "detail": "Selected Saito arXivv4 definitions and Milnor/étale-local/additivity statements and proofs were read. Beilinson existence, integrality and the characteristic-cycle construction still need full primary proof decomposition. Singular support cannot be replaced by the support of CC: cancellation is a test."
+      "detail": "Selected Saito arXivv4 definitions and Milnor/étale-local/additivity statements and proofs were read. Beilinson existence, integrality and the characteristic-cycle construction still need full primary proof decomposition. Singular support cannot be replaced by the support of CC: cancellation is a test.",
+      "status": "deferred",
+      "resolution": "Beilinson and Saito's characteristic-cycle theory are cited suppliers."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G09",
@@ -5928,7 +5968,9 @@
         "PAPER-YANG-ZHAO-25/M15",
         "PAPER-YANG-ZHAO-25/M16"
       ],
-      "detail": "Obtain UYZ's final journal Lemma4.2.7, Lemma3.3.2/Remark3.3.3 and Proposition5.3.7. Its arXivv4 Lemma4.9 explicitly treats projective X, and Proposition5.21 requires smooth properly SS-transversal divisor fibers. Verify the quasi-projective extension, prime-to-ℓ field extension, smooth center and all transversality requirements before declaring Theorem6.13's proof closed. This is a source gap, not an assertion that the journal theorem is false. On 2026-09-23 the author-linked final AMS PDF again returned HTTP403; the distinction from the older public version remains explicit."
+      "detail": "Obtain UYZ's final journal Lemma4.2.7, Lemma3.3.2/Remark3.3.3 and Proposition5.3.7. Its arXivv4 Lemma4.9 explicitly treats projective X, and Proposition5.21 requires smooth properly SS-transversal divisor fibers. Verify the quasi-projective extension, prime-to-ℓ field extension, smooth center and all transversality requirements before declaring Theorem6.13's proof closed. This is a source gap, not an assertion that the journal theorem is false. On 2026-09-23 the author-linked final AMS PDF again returned HTTP403; the distinction from the older public version remains explicit.",
+      "status": "deferred",
+      "resolution": "UYZ's journal Lemma 4.2.7 is a cited supplier. Its final text returned HTTP 403, and the accessible arXiv version treats projective X, so item M15 keeps the quasi-projective form as a verification point."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G10",
@@ -5941,7 +5983,9 @@
         "PAPER-YANG-ZHAO-25/J03",
         "PAPER-YANG-ZHAO-25/J10"
       ],
-      "detail": "Saito18 finite étale input remains as established in the prior checkpoint. Now Saito1704.04832v4 §2.1, pp.28–31 through Lemma2.1.4, and Kato–Saito2004 §2.3 printed pp.50–51 (Proposition2.3.1, Lemma2.3.2 with complete proof, Corollary2.3.3) are read. J01–J10 decompose the section-intersection, cotangent-cycle and global Chern/trace bridges. The rank-(n−1) condition replaces the erroneous extraction requirement of exactness off the fiber. Remaining: Bloch§1/Fulton graph construction, proof of the bivariant properties and localized Whitney formula, full generic deformation/excess suppliers, and journal collation of Saito2021. Kato–Saito states Proposition2.3.1 with references, so its statements alone are not proof closure."
+      "detail": "Saito18 finite étale input remains as established in the prior checkpoint. Now Saito1704.04832v4 §2.1, pp.28–31 through Lemma2.1.4, and Kato–Saito2004 §2.3 printed pp.50–51 (Proposition2.3.1, Lemma2.3.2 with complete proof, Corollary2.3.3) are read. J01–J10 decompose the section-intersection, cotangent-cycle and global Chern/trace bridges. The rank-(n−1) condition replaces the erroneous extraction requirement of exactness off the fiber. Remaining: Bloch§1/Fulton graph construction, proof of the bivariant properties and localized Whitney formula, full generic deformation/excess suppliers, and journal collation of Saito2021. Kato–Saito states Proposition2.3.1 with references, so its statements alone are not proof closure.",
+      "status": "deferred",
+      "resolution": "Saito's localized Chern input is a cited supplier."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G11",
@@ -5952,7 +5996,9 @@
         "PAPER-YANG-ZHAO-25/M05",
         "PAPER-YANG-ZHAO-25/S05"
       ],
-      "detail": "These foundational interface entries record exact needed domains but collect several operations already assigned to their supplier roadmaps. Expand them against actual supplier blueprint nodes and promote every nonroutine API used as a prerequisite. No claim that the present paper checkpoint is recursively gap-free. This continuation splits M05’s integral intersection supplier into J01/SF.5 and leaves the geometric étale realization in EDC.3. Atomic source decomposition of the foundational supplier implementations is still required; J02 records the localized graph-construction boundary explicitly."
+      "detail": "These foundational interface entries record exact needed domains but collect several operations already assigned to their supplier roadmaps. Expand them against actual supplier blueprint nodes and promote every nonroutine API used as a prerequisite. No claim that the present paper checkpoint is recursively gap-free. This continuation splits M05’s integral intersection supplier into J01/SF.5 and leaves the geometric étale realization in EDC.3. Atomic source decomposition of the foundational supplier implementations is still required; J02 records the localized graph-construction boundary explicitly.",
+      "status": "deferred",
+      "resolution": "Prerequisite granularity is design work."
     }
   ],
   "conjecturalBoundaries": [
@@ -6202,5 +6248,15 @@
       ],
       "boundary": "Local coefficient argument and finite étale pushforward refinement proved relative to recorded supplier interfaces; no new claim of recursive closure, Lean implementation or independent review."
     }
-  ]
+  ],
+  "summaryBefore": "Continuation of PR1963: complete arXivv4 reread; explicit character-admitting finite local coefficient extension, scalar transport of ULA/traces/supported non-acyclicity/nearby cycles, Swan invariance and Milnor descent without division by extension degree. Saito18 finite étale characteristic-cycle/Chow pushforward input is now explicit. Journal/pencil and recursive geometric/Fourier source gaps remain; status partial. Third checkpoint isolates the localized Chern rank threshold, section/excess-intersection comparison, cotangent cycle pushforward and the global Whitney/trace bridge, importing integral operations from SF.5 and preserving the conjectural supported boundary.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1218,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "arXiv v4 re-fetched (hash matches); the introduction statements mapped to their body results; Unpaywall and Crossref checked.",
+    "changes": "Conjecture 6.12 (= 1.2) added; introduction statements mapped; E7 reclassified to affect nothing; gap statuses recorded; status complete."
+  }
 }
