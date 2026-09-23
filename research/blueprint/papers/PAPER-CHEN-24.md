@@ -186,3 +186,30 @@ citations were checked in the Mathlib and Tau Ceti trees at `082e2d3` and `f7904
 conjecture itself remains open for the finitely many exceptional primes, Conjectures 1.1.3 and 1.1.4 and Question 1.4.1
 are recorded as open, and the reading is of the authors' arXiv version: where the published text differs, the two
 findings would have to be rechecked against it.
+
+## Review (REV-PAPER-CHEN-24, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and all six routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-CHEN-24.md`. The review read arXiv v2 and its TeX again; the published version is paywalled.
+
+- **Statements:** 51 corrected. Among them:
+  - the reversed condition of Theorem 1.1.2 that item 4 had copied;
+  - the misstatement of McCullough–Wanderley's conjecture in item 7;
+  - p ≥ 5 in item 16;
+  - φ(k)/2 in item 71;
+  - the Meiri–Puder constant 32√(p+1) in item 94;
+  - ord_ℓ(q(q²−1)) in item 95;
+  - the E1 count in item 96;
+  - the standing base field in items 3, 17, 52, 54 and 55.
+- **Locators:** 40 corrected.
+- **Statuses:**
+  - Item 108's nonexistent `mathlib:EllipticCurve` was replaced by `WeierstrassCurve.IsElliptic`.
+  - Item 110 changed from library to planned (IG.3).
+  - Item 107 was restricted to Mathlib's free groups, and Nielsen's theorem Out(F₂) ≅ GL₂(ℤ) became a new missing item.
+- **New items (8):** 2 planned (IG.1; R15.1 with Tau Ceti ModularForms 10C) and 6 missing (5 to the new roadmap, 1 to AlgebraicModuliForArithmeticGeometry).
+- **Briefs:** the NonabelianLevelStructures brief records the corrections its layers must respect. The Part II route restricts connectedness to p ≥ 5.
+- **Source issues:** E1 and E2 are confirmed; both are on p. 83. E3–E38 are new:
+  - errors in stated results: Theorem 1.1.2's factor 2, p = 2, 3 in Theorems 1.2.9 and 5.5.7(b), Proposition 5.2.5, Lemma 6.1.3(c),(d), and Proposition 6.1.4;
+  - gaps: Lemma 2.4.1(a), Proposition 3.4.3(a), and Lemma 4.12.2 for j ≥ 1;
+  - further errors and misprints.
+
+  None affects the Markoff results.
