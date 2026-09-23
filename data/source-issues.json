@@ -77999,9 +77999,9 @@
    "owner": "PAPER-SCHOLZE-26",
    "file": "research/blueprint/papers/PAPER-SCHOLZE-26.result.json",
    "citation": "Scholze, \"Berkovich Motives\", Journal of the American Mathematical Society (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHOLZE-26",
+   "reviewReason": "Confirmed. Page 14 prints 'it can be explicitly described as C⟨(T−a)pm1⟩_{x_a}, the uniform completion of the free seminormed ring C[(T−a)^{±1}]_{x_a} with |T−a| = |(T−a)^{−1}|^{−1} = x_a', so the same ring appears with ± one clause later: an unescaped \\pm in the source, and nothing but the display is affected."
   },
   {
    "id": "PAPER-SCHOLZE-26/E2",
@@ -78020,9 +78020,9 @@
    "owner": "PAPER-SCHOLZE-26",
    "file": "research/blueprint/papers/PAPER-SCHOLZE-26.result.json",
    "citation": "Scholze, \"Berkovich Motives\", Journal of the American Mathematical Society (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHOLZE-26",
+   "reviewReason": "Confirmed, in all three places. In the proof of Theorem 6.3 on p.36 the ambient space is the Berkovich line A¹_C over the algebraically closed field C, and the sentence reads 'the complements of each of U, U₁, U₂ and V in P¹_A is a finite disjoint union of closed discs'; Lemma 6.5 on p.37 says 'U, V ⊂ A¹_C … whose complements in P¹_A are finite disjoint unions of closed discs', and its proof opens 'Assume that the complement of U in P¹_A is the union of closed discs Z₀,…,Z_d'. No Banach ring A is in scope in either statement, so P¹_C is meant throughout."
   },
   {
    "id": "PAPER-SCHOLZE-26/E3",
@@ -78041,9 +78041,9 @@
    "owner": "PAPER-SCHOLZE-26",
    "file": "research/blueprint/papers/PAPER-SCHOLZE-26.result.json",
    "citation": "Scholze, \"Berkovich Motives\", Journal of the American Mathematical Society (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHOLZE-26",
+   "reviewReason": "Confirmed. Example 3.6 on p.16 prints 'Let A be any Banach ring. The map A → B = ∏^Ban_{x∈M(A)} K(x) is an arc-cover. The target is an example of a totally disconnected Banach ring as defined below', while Definition 3.10(i) on the same page requires a totally disconnected ring to be analytic, uniform and to have profinite Berkovich spectrum. For a discrete Banach ring, Z with the trivial norm say, every K(x) is discrete and B is not analytic, so the second sentence needs A analytic. The recorded repair is the paper's own Example 3.4, which arc-covers any nonzero Banach ring by A[T^{±1}]_{1/2} and states that 'locally in the arc-topology we can assume … that A is analytic'."
   },
   {
    "id": "PAPER-SCHROER-23/E1",
