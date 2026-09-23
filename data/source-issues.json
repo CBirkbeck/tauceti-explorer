@@ -32651,9 +32651,135 @@
    "owner": "PAPER-DOR-23",
    "file": "research/blueprint/papers/PAPER-DOR-23.result.json",
    "citation": "Dor, \"Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOR-23",
+   "reviewReason": "A triple (a, b, c) is not an element of F^×. The group is the kernel of the product map on (F^×)^3; it is the quotient of G^{3,det=1} by SL_2(F)^3 in the split exact sequence above it, embedded via (a,b,c) ↦ (diag(a,1), diag(b,1), diag(c,1)) as in (2.9). The extraction's record is accurate."
+  },
+  {
+   "id": "PAPER-DOR-23/E2",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.9, p. 43: all four displayed integrals (arXiv v2 p. 51 the same)",
+   "printed": "Σ_{(ξ,q)∈M_2(F)×F^×} Ψ(ξ, q) = Σ_{(ξ,q)∈M_2(F)×F^×} |q|^2 ∫_{M_2(F)} Ψ(h, q)·e(−q·⟨ξ, h⟩) dh … = Σ ∫_{M_2(F)} Ψ(h, q)·e(−tr(ξ^T h)) dh",
+   "correction": "Each integral is over M_2(A), with the Haar measure self-dual for e(⟨−,−⟩) (equivalently for e(tr(x^T y))), for which vol(M_2(A)/M_2(F)) = 1. The middle step also uses |q|_A = 1 for q ∈ F^× (product formula) and the bijection ξ ↦ q w^T ξ w^{−T} of M_2(F).",
+   "reason": "Ψ ∈ Y_A = S(M_2(A) × A^×) is a function on M_2(A), and the global middle action of w is Remark 2.24's formula at every place, the Fourier transform on M_2(A). An integral over the discrete set M_2(F) is not a Fourier transform, and Poisson summation Σ_{M_2(F)} Ψ = Σ_{M_2(F)} Ψ̂ needs Ψ̂(ξ) = ∫_{M_2(A)} Ψ(h) e(−tr(ξ^T h)) dh. Item 006 already uses M_2(A).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "owner": "PAPER-DOR-23",
+   "file": "research/blueprint/papers/PAPER-DOR-23.result.json",
+   "citation": "Dor, \"Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)\", Forum of Mathematics, Pi (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOR-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-DOR-23/E3",
+   "kind": "misprint",
+   "locator": "§4.4, definition of the Petersson pairing before Proposition 4.16, p. 45 (arXiv v2 p. 54 the same)",
+   "printed": "f(g) ⊗ f′(g′) ↦ ∫_{GL_2(A)} f(g) f′(g^{−T}) d^×g",
+   "correction": "f ⊗ f′ ↦ ∫_{GL_2(F)\\GL_2(A)} f(g) f′(g^{−T}) d^×g",
+   "reason": "For f, f′ ∈ S = S(GL_2(F)\\GL_2(A)), the integrand is left GL_2(F)-invariant, because f′((γg)^{−T}) = f′(γ^{−T}g^{−T}) = f′(g^{−T}). GL_2(F) is an infinite discrete subgroup, so the integral over GL_2(A) diverges for nonzero integrands. The paper's own equivalent description (the functional Σ_{ξ∈GL_2(F)} f(ξ) on S(GL_2(A))_{GL_2(F)\\ /GL_2(F)}) and the inner integral of Z_GJ(φ′,φ,Ψ,s) on p. 39 both use the quotient.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "owner": "PAPER-DOR-23",
+   "file": "research/blueprint/papers/PAPER-DOR-23.result.json",
+   "citation": "Dor, \"Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)\", Forum of Mathematics, Pi (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOR-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-DOR-23/E4",
+   "kind": "misprint",
+   "locator": "Proof of Claim 4.3, p. 41 (arXiv v2 p. 48 the same)",
+   "printed": "under the counit E_v → 𝟙_{⊛,v} of Construction 3.44, the vector f_v maps to the distinguished vector 𝟙_{GL_2(F_v)} of 𝟙_{⊛,v}",
+   "correction": "… the distinguished vector 𝟙_{GL_2(O_v)} (its image in the θ-coinvariants 𝟙_{⊛,v})",
+   "reason": "𝟙_{GL_2(F_v)} is not compactly supported, so it is not in S(G_v) or its θ-coinvariants. For ν(e_v) = 0, the matrix of Construction 3.44 is diag(1, −1) ∈ GL_2(O_v), so ε_v(𝟙_{GL_2(O_v)}) is the θ-equivariant function supported on U_v GL_2(O_v), the image of 𝟙_{GL_2(O_v)}. Claim 4.3(1) likewise needs 𝟙_{GL_2(O_v)} as the distinguished vector of S(G_v).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "owner": "PAPER-DOR-23",
+   "file": "research/blueprint/papers/PAPER-DOR-23.result.json",
+   "citation": "Dor, \"Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)\", Forum of Mathematics, Pi (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOR-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-DOR-23/E5",
+   "kind": "misprint",
+   "locator": "Warning 3.25, p. 25",
+   "printed": "let us denote by (St over 𝟙_G) the unique nontrivial extension of the trivial representation St by 𝟙_G",
+   "correction": "the unique nontrivial extension of the Steinberg representation St by the trivial representation 𝟙_G, i.e. 0 → 𝟙_G → (St over 𝟙_G) → St → 0",
+   "reason": "St is not the trivial representation. A degeneracy-free N needs Hom(N, 𝟙_G) = 0, so 𝟙_G must be the subrepresentation; the other extension surjects onto the degenerate 𝟙_G. This matches Remark 3.28's convention (upper entry = quotient).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "owner": "PAPER-DOR-23",
+   "file": "research/blueprint/papers/PAPER-DOR-23.result.json",
+   "citation": "Dor, \"Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)\", Forum of Mathematics, Pi (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOR-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-DOR-23/E6",
+   "kind": "misprint",
+   "locator": "Title of §3, p. 17, and the table of contents, p. 1 (published version only; arXiv v2 reads 'modules')",
+   "printed": "3. Symmetric monoidal structure on mdules of GL(2)",
+   "correction": "3. Symmetric monoidal structure on modules of GL(2)",
+   "reason": "Typographical slip, checked on the page image; the arXiv v2 title is correct.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "owner": "PAPER-DOR-23",
+   "file": "research/blueprint/papers/PAPER-DOR-23.result.json",
+   "citation": "Dor, \"Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)\", Forum of Mathematics, Pi (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOR-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-DOR-23/E7",
+   "kind": "gap",
+   "locator": "Definition A.4, Construction A.5, Claim A.6 and its proof, p. 51",
+   "printed": "Claim A.6. The map μ: E_A → E_A ⊛ E_A of Construction A.5 turns E_A into a counital, cocommutative and coassociative coalgebra. Proof. Counitality follows immediately from the local Claim 3.49, using the adjustments described in Remark 3.47.",
+   "correction": "A global counit must be defined, for example ε_A = ⊗'_v ε_v: E_A → 𝟙, where ε_v is Construction 3.44 with diag(1, −π^{ν(e_v)}) replaced by a matrix h_v satisfying h_vK_vh_v^{−1} ∩ U_v = ker θ_v and chosen so that the local comultiplication π(wh_v^Tw^{−1})·1_{M_2(O_v)}(g)δ_1(−y) of Remark 3.47 equals 1_{M_2(Λ_v)}(g)δ_1(y). One must also check that ε_v(𝟙_{GL_2(O_v)}) is the distinguished vector for almost all v, so that ε_A is defined on the restricted product. The same local identification is needed for μ to be an isomorphism (Claim 3.49 at each place), which the idempotent theorem requires for coassociativity.",
+   "reason": "Appendix A defines only E_A and μ; no counit E_A → 𝟙 appears. Remark 3.47 describes the local modification only informally ('would have worked after appropriate modifications'), and the match between 1_{M_2(Λ)}(g)δ_1(y) and that recipe is not carried out. Counitality and the isomorphism property used for coassociativity are therefore asserted, not proved.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (doi:10.1017/fmp.2023.18), 23 September 2026: its relations list no corrections, retractions or addenda",
+    "Crossref: no update-to or relation entries for doi:10.1017/fmp.2023.18, and no work declaring an update of it (filter updates:10.1017/fmp.2023.18), 23 September 2026",
+    "arXiv 2011.03313: versions v1 (6 November 2020) and v2 (28 September 2022), both before the published version (revised 3 June 2023)"
+   ],
+   "owner": "PAPER-DOR-23",
+   "file": "research/blueprint/papers/PAPER-DOR-23.result.json",
+   "citation": "Dor, \"Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)\", Forum of Mathematics, Pi (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOR-23",
+   "reviewReason": "found and checked on the page image by the review"
   },
   {
    "id": "PAPER-DOSPINESCU-LEBRAS-17/E1",
@@ -80091,9 +80217,9 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked at p.4 of arXiv 2506.03465v2 (SHA-256 cbb8284a…4664, the version named), against Kato, Astérisque 295 (Numdam copy AST_2004__295__117_0) and Johnson-Leung–Kings arXiv 0804.2828v2. Kato 15.5 (p.253) generates z by the elements (_a z_{p^n f})_n, the elliptic units of the single modulus p^n f. JLK state the main conjecture for H²(O_K[1/pf], Ω(1)) (Theorem 5.7, §7.2). Their Corollary 5.3 and Lemma 7.7 carry the factors ∏_{l|f, l∤p}(1 − χ(l)Frob_l^{−1}), and the proof of their Corollary 7.3 gives the localization sequence whose last terms are the cokernels of 1 − χ(l)Frob_l^{−1}. Kato (15.6.2) (p.254) identifies BT's h² at height one with H² over O_K[1/p]. Independent check: on the characters trivial on Gal(K(p^∞𝔩)/K(p^∞)), the distribution relation sends z_{p^n𝔩} to z_{p^n}^{1−Frob_𝔩^{−1}}. Frob_𝔩 has infinite order in the Z_p²-quotient, so 1 − Frob_𝔩^{−1} is not a unit even after inverting p, and the printed equality fails whenever some 𝔩 | f does not lie above p. The stated effect is right: Kato's Lemma 15.13 takes f to be the conductor of ψ and works on the ψ-component, which is ramified at every such 𝔩, so the factors there are 1."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E2",
@@ -80113,9 +80239,9 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked at p.5 of arXiv 2506.03465v2 (SHA-256 cbb8284a…4664, the version named) and on the page images of Kato §15. Kato p.250 says §15 proves Theorems 12.4, 12.5, 12.6, 14.2 and 14.5 in the CM case, not Conjecture 12.10. Proposition 15.17 (p.265) is an inequality, and p.251 says Rubin's equality is not used. The only equalities in §15 are Rubin's for K itself: Theorem 15.2(2), restated in 15.6. I redid the descent. Put A = O_λ[[G_{p∞f}]]_q, M = H²_q and N = H¹_q/A·z. Lemma 14.15 (pp.243–244) applies to both, because M_(a) = N_(a) = 0 by 15.15. With (15.13.1)–(15.13.2) it gives length(H¹(T~)_p/Z_p) − length(H²(T~)_p) = Σ_{q′} (length N_{q′} − length M_{q′})·[A/(q′+aA)] + length Ker(a|N). An equality of characteristic ideals kills the sum. Ker(a|N) = 0 because A is a UFD, a is prime, H¹_q embeds in its rank-one reflexive hull A, and a does not divide z there. So the correction is right, and the gap is real but small. Kato's proof of 15.17 cites \"Lemma 14.12\"; the local Proposition 14.12 is not meant, Lemma 14.15 is (a slip in Kato, not in this paper)."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E3",
@@ -80135,9 +80261,9 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked at p.6 of arXiv 2506.03465v2 (SHA-256 cbb8284a…4664, the version named). Kato 8.3–8.4 (pp.181–182) defines V_{F_λ}(f) from H¹(Y_1(N), Sym^{k−2}(H¹_p)) with T_pE ≅ H¹_p(1) (8.4.1). So in weight 2, V(f) ≅ V_pE(−1) for the attached curve, and Kato p.274 writes T = T_pE(−1). The Selmer group of E corresponds to V(f)(1), which is also what Theorem 3.1 at k = 2 treats. As printed, the right-hand side is H¹_f of a weight-one representation, not the Selmer group. \"⊗K\" also loses the dimension count; ⊗_{Z_p}K_λ is right. Only the vanishing is used."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E4",
@@ -80157,9 +80283,9 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked at pp.4–5 of arXiv 2506.03465v2 (SHA-256 cbb8284a…4664, the version named). Kato 8.1 (p.180) opens with \"Fix k ≥ 2\", and 12.3 (p.221) takes k, N, f \"as in the beginning of Chap. III\". The construction of V_{F_λ}(f) and of z_γ uses Sym^{k−2}, and weight-one CM newforms exist. So the hypothesis k ≥ 2 is needed, and Theorem 3.1 (even weight) is unaffected."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E5",
@@ -80179,9 +80305,9 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked at p.6 of arXiv 2506.03465v2 (SHA-256 cbb8284a…4664, the version named) against Kato pp.239–243. In (14.9.3) the Selmer term is S(K, T*(1)), and by (14.10.1) T(k/2)*(1) is a lattice in V(f*)(k/2), not in V(f)(k/2). The two-step argument works. First apply (14.9.3) to T′ = T(k/2)*(1): its Selmer term is S(T(k/2)), finite by hypothesis. Proposition 14.12(3) gives H²(Q_p,V′) = 0, so H²(Z[1/p],V′) = 0, and (14.9.5) gives dim H¹(Z[1/p],V′) = 1, which forces H¹_f(V′) = 0. Then apply (14.9.3) to T(k/2) to get (3.1). Kato uses the same duality at pp.242–243."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E6",
@@ -80201,9 +80327,9 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked at p.6 of arXiv 2506.03465v2 (SHA-256 cbb8284a…4664, the version named). Kato Theorem 12.5(1) (p.221) prints z_{ι(γ)} = −σ_{−1}(z_γ). At q, σ_{−1} goes to (−1)^{−k/2}. So the image of z_{ι(γ)} is (−1)^{k/2−1} times that of z_γ, and the component of γ of the opposite sign maps to 0. By Theorem 2.6 at q, the images of all z_γ span the one-dimensional target. V(f)^± is one-dimensional, so the image of any γ with γ^± ≠ 0 is nonzero, which is the paper's conclusion. The step is used but not stated."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E7",
@@ -80223,9 +80349,9 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked at p.7 of arXiv 2506.03465v2 and against BKLOS, arXiv 1709.09790v2. Their Theorem 2.7 (p.4) says that the average rank of E_s(F) is at most 1 and that at least 50% of twists have rank 0, which is Mordell–Weil rank. The Selmer statement is in the proofs. In §9.2 (pp.13–14), every twist in T_0(φ) has even 3-Selmer rank and the average is at most 1, so at least half have 3-Selmer rank 0. §11 (Theorem 11.2 and the proof of Theorem 2.7) shows T_0(φ) is everything for End(E) ≅ O_K, and passes to non-maximal orders through an isogeny. A 3-Selmer rank of 0 forces Z_3-corank 0, so BT's Theorem 3.5 holds. Only its attribution is wrong."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E8",
@@ -80245,9 +80371,9 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked at p.6 of arXiv 2506.03465v2 and against Smith, arXiv 2207.05674 (Part I). His Theorem 1.2 (p.3) counts all d ∈ Z∖{0} with |d| ≤ H and gives the proportions 1/2, 1/2, 0 for 2^∞-Selmer corank 0, 1, ≥ 2. His dependency diagram (Figure 1.2) routes the proof through Part II. The deduction needs the three steps listed. The positive squarefree n ≡ 1, 2, 3 mod 8 have positive density, so the density-zero set with corank ≥ 2 stays density zero among them. On them the root number is +1, and 2-parity makes the corank even. y² = x³ − x has full rational 2-torsion. Halving its 2-torsion points gives x = ±i, 1 ± √2 and −1 ± √2, none rational, so it has no rational cyclic subgroup of order 4, as Assumption 1.1(3) requires."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E9",
@@ -80267,9 +80393,9 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked at p.2 of arXiv 2506.03465v2. §1.0.2 defines E^{(n)}: ny² = x³ − x for every n ∈ Z∖{0}. For n = −1, the substitution x ↦ −x turns −y² = x³ − x into y² = x³ − x, so E^{(−1)} ≅ E has root number +1 although −1 ≡ 7 mod 8. The classification holds for positive squarefree n; this is the classical result the footnote cites [2]. The PARI run was not repeated. Non-squarefree n also fail, for example n = 4, where E^{(4)} ≅ E. The correction's \"positive squarefree\" covers both."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E10",
@@ -80289,9 +80415,9 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked on the page image of p.4 of arXiv 2506.03465v2, footnote 3: \"One may to [12, §15.6]\". v1 has the same text."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E11",
@@ -80311,17 +80437,17 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked on the page image of p.4 of arXiv 2506.03465v2, §2.2.1: \"q-expansion coefficents\". v1 has the same text."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E12",
    "kind": "misprint",
-   "locator": "References [1], [5] and [15] and the second author's address, p.7, in arXiv 2506.03465v2; [5] reads \"Münster\" in v1",
+   "locator": "References [1], [5] and [15] and the second author's address, p.7, in arXiv 2506.03465v2; v1 (4 June 2025) has the same slips except that [5] reads \"M´unster\", with a stray acute accent, instead of \"Munster\"",
    "printed": "[1] \"…quadratic twist families over number fields\"; [5] \"Munster J. Math.\"; [15] \"Birkheser Boston\"; address \"Beijing 10049\".",
    "correction": "[1] \"…in quadratic twist families over a number field\" (the published title, Duke Math. J. 168 (2019)); [5] \"Münster J. Math.\"; [15] \"Birkhäuser Boston\"; \"Beijing 100049\".",
-   "reason": "Bibliographic and address slips, checked against the published BKLOS title, the journal name, the publisher's name, and v1 (which prints Münster).",
+   "reason": "Bibliographic and address slips, checked against the published BKLOS title (Crossref, DOI 10.1215/00127094-2019-0031), the journal name, the publisher's name, and the postcode of the University of Chinese Academy of Sciences. v1 misprints [5] differently, as \"M´unster\".",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -80333,9 +80459,75 @@
    "owner": "PAPER-BURUNGALE-TIAN-26",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
    "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Checked on the page image of p.7 of arXiv 2506.03465v2. The Crossref record of DOI 10.1215/00127094-2019-0031 gives the title \"3-Isogeny Selmer groups and ranks of Abelian varieties in quadratic twist families over a number field\". v2 prints \"Munster\" and \"Birkheser\". The second author's institution, UCAS, has postcode 100049; the AMSS line prints 100190 correctly. Corrected in place: the entry said that v1 prints \"Münster\" correctly, but the v1 page image shows \"M´unster\", with a stray acute accent. So [5] is misprinted in both versions, differently, and the locator and reason now say so."
+  },
+  {
+   "id": "PAPER-BURUNGALE-TIAN-26/E13",
+   "kind": "gap",
+   "locator": "Footnote 4 to the proof of Theorem 2.6, p.5, in arXiv 2506.03465v2 (11 October 2025), the version read; the same in v1 (4 June 2025)",
+   "printed": "\"Being in a setup of (Λ⊗Q)-modules, the hypotheses of [12, Lem. 15.13] hold.\"",
+   "correction": "Working with Λ⊗Q secures only one hypothesis of Kato's Lemma 15.13, that 2 and the order of Δ are invertible in the residue field. The other, that K is not contained in Q(ζ_{p^∞}), fails for K = Q(i) or Q(√−2) with p = 2, and for K = Q(√−p) with p ≡ 3 mod 4. In those cases the proof should use Kato's variant 15.14, with G_∞ replaced by G′_∞ = Gal(Q(ζ_{p^∞})/K), as Kato himself does in 15.15 and 15.17.",
+   "reason": "Kato's Lemma 15.13 (Astérisque 295, p.264) opens with \"assume K is not contained in Q(ζ_{p^∞})\". It also assumes that 2 and the order of Δ are invertible in the residue field of p, which is the hypothesis the footnote secures. The excluded case is exactly where the paper applies Theorem 2.6. Theorem 1.2 uses p = 2 and the congruent number curve, with K = Q(i) = Q(ζ_4). Remark 3.6(i) uses p = 3 and K = Q(ζ_3). Kato's 15.14 states the modified lemma, and his proofs of 15.15 and Proposition 15.17 say they go through with it. The equality step of E2 uses only the conclusions of the lemma, so it goes through too. The proof body cites §15 as a whole, which includes 15.14, so Theorem 2.6 stands and only the footnote is wrong.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page https://annals.math.princeton.edu/2026/203-1/p01, checked 23 September 2026: pages 1–13, no erratum or corrigendum is linked",
+    "Crossref record of DOI 10.4007/annals.2026.203.1.1, checked 23 September 2026: no update or correction is registered",
+    "arXiv 2506.03465: v1 (4 June 2025) and v2 (11 October 2025, the latest) compared word by word; the passage is the same in both",
+    "The review found it at the locator in the version named."
+   ],
+   "owner": "PAPER-BURUNGALE-TIAN-26",
+   "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
+   "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-BURUNGALE-TIAN-26."
+  },
+  {
+   "id": "PAPER-BURUNGALE-TIAN-26/E14",
+   "kind": "misprint",
+   "locator": "Theorem 1.1, p.1, in arXiv 2506.03465v2 (11 October 2025), the version read; the same in v1 (4 June 2025)",
+   "printed": "\"In particular, if E descends to Q, then (1.1) holds.\"",
+   "correction": "\"In particular, if E descends to Q, then (1.1) holds for r = 0.\"",
+   "reason": "(1.1) is displayed for arbitrary r and named \"the rank r p-converse theorem\". Theorem 1.1 and the last paragraph of its proof (p.6) give only r = 0, as the title of the paper says. Nothing is proved here for r ≥ 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page https://annals.math.princeton.edu/2026/203-1/p01, checked 23 September 2026: pages 1–13, no erratum or corrigendum is linked",
+    "Crossref record of DOI 10.4007/annals.2026.203.1.1, checked 23 September 2026: no update or correction is registered",
+    "arXiv 2506.03465: v1 (4 June 2025) and v2 (11 October 2025, the latest) compared word by word; the passage is the same in both",
+    "The review found it at the locator in the version named."
+   ],
+   "owner": "PAPER-BURUNGALE-TIAN-26",
+   "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
+   "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-BURUNGALE-TIAN-26."
+  },
+  {
+   "id": "PAPER-BURUNGALE-TIAN-26/E15",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.1, p.6, in arXiv 2506.03465v2 (11 October 2025), the version read; the same in v1 (4 June 2025)",
+   "printed": "\"Let ψ : A_K^×/K^× → K^× be the Hecke character associated to E/K.\"",
+   "correction": "ψ : A_K^×/K^× → C^×, whose values on ideals prime to its conductor lie in K.",
+   "reason": "A continuous character of the idele class group of infinity type (−1, 0) (§2.2.5 with k = 2) restricts to z ↦ z^{−1} on C^×, so it does not take values in K^×. The K^×-valued algebraic character of E is defined on A_K^× and is not trivial on K^×. Kato 15.7, which the paper follows, defines Hecke characters as maps C_K → C^×. Only the identity L(s, E/K) = L(s, ψ)L(s, ψ̄) is used.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page https://annals.math.princeton.edu/2026/203-1/p01, checked 23 September 2026: pages 1–13, no erratum or corrigendum is linked",
+    "Crossref record of DOI 10.4007/annals.2026.203.1.1, checked 23 September 2026: no update or correction is registered",
+    "arXiv 2506.03465: v1 (4 June 2025) and v2 (11 October 2025, the latest) compared word by word; the passage is the same in both",
+    "The review found it at the locator in the version named."
+   ],
+   "owner": "PAPER-BURUNGALE-TIAN-26",
+   "file": "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
+   "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
+   "reviewReason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-BURUNGALE-TIAN-26."
   },
   {
    "id": "PAPER-CARO-PASTEN-23/E1",
@@ -87362,134 +87554,124 @@
    "locator": "Published version, Publ. Math. IHÉS 128 (2018), 121–218 (Numdam PDF, SHA-256 e2b4a076…); Lemma 3.1.9 and its proof, printed p. 166",
    "printed": "Lemma 3.1.9. — Let a_R = m²_R + pR. There is a canonical commutative diagram [M̃₁ ⊗_{Ŵ(R)} Ŵ(R/a_R) → φ*(M_{R/a_R}); D̃₁ ⊗_W Ŵ(R/a_R) → φ*(D) ⊗_W Ŵ(R/a_R)] where the horizontal maps are induced by the natural inclusions M̃₁ → φ*(M_R) and D̃₁ → φ*(D). Proof. — L ⊕ T be a normal decomposition for (M_{R/a_R}, M_{R/a_R,1}), and let L₀ ⊕ T₀ be the induced normal decomposition for (D, D₁).",
    "correction": "The construction has to be replaced by the one of KPZ26 Lemma 5.1.15, which follows [Ho23] and, in essence, Zink's [Zi99, Theorem 3].",
-   "reason": "The map produced by the printed proof depends on the chosen normal decomposition M = L ⊕ T, so it is not canonical and the diagram does not characterise it: as KPZ26 Remark 5.1.17(a) puts it, « the isomorphism which is given by the construction of [KP18, Lem. 3.1.9] is not canonical and hence not “correct” », and the diagram does not determine c because its horizontal maps are not always injective, which can happen even when cW(R) is p-torsion free. Consequently [KP18, Lem. 3.1.12] does not hold with c defined as in the proof of Lemma 3.1.9.",
+   "reason": "The printed recipe depends on the normal decomposition, even though its diagram commutes. An independent rank-two test: take p>2, R=Z_p[[t]], S=Ŵ(R), M=S², and the universal line generated by e₁+t e₂ modulo I_R. Two normal lifts are l=e₁+[t]e₂ and l′=l+V([t])e₂, both with T=S e₂. In M̃₁ use u=φ(l), v=p e₂. Since φ(V([t]))=p[t], the second lift gives u′=u+[t]v. After base change to B=R/(p,t²), u,v remain a free basis and [t]≠0, so the two inverse comparison maps send the same first basis vector of D̃₁ to different elements. The horizontal map loses their difference because p[t]=0 in Ŵ(B). Thus it cannot determine c. KPZ26 Lemma 5.1.15 supplies a different, functorial map; Remark 5.1.17 explains the resulting failure of Lemma 3.1.12 with the old definition of constant modulo a_R.",
    "affects": "a stated result",
    "known": "Known and corrected by the authors themselves: KPZ26 §1.3.1 and Remark 5.1.17(a)–(b); the replacement is KPZ26 Lemma 5.1.15. Pointed out by M. Hoff, [Ho23, Rem. 2.29].",
    "searched": [
-    "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
-    "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
-    "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
-    "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
-    "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3).",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Numdam PDF re-fetched (SHA-256 e2b4a076…, matching) and the quoted passages re-read at pp. 162, 166, 169, 173, 187 and 205",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-018-0100-0",
-    "Springer article page and the Numdam article page PMIHES_2018__128__121_0, 23 September 2026: no erratum or corrigendum linked (the Numdam page's only 'Corrigendum' belongs to a cited paper of Haines)",
-    "arXiv 1512.01149: versions v1–v3; v3 (12 April 2018, 'to appear in Publ. Math. IHES') predates the corrections, and there is no later version"
+    "Independently checked 23 September 2026: published KP18 from https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf, 98 pages, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b; targeted statements and proofs at pp.162,166–169,173–174,186–188,202–205,208.",
+    "Published KPZ26, Forum Math. Pi 14 (2026), e14, DOI 10.1017/fmp.2026.10031, 89 pages: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/integral_models_of_shimura_varieties_with_parahoric_level_structure_ii.pdf; downloaded-copy SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce (Cambridge adds a request-specific footer). Read §1.2.1/§1.3, Lemma 5.1.15 and proof/Remark 5.1.17, Definition 5.2.5, replacement theorem statements, §7.2.1/footnote 8, and §7.3.1.",
+    "Compared KPZ26 arXiv:2409.03689v3, https://arxiv.org/pdf/2409.03689v3, SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615, at the correction passages in §1.3, §5.1, §7.2.1/footnote 8 and §7.3.1. The introduction theorem/corollary numbering differs from publication.",
+    "arXiv histories https://arxiv.org/abs/1512.01149 and https://arxiv.org/abs/2409.03689 checked 23 September 2026: latest versions respectively v3 (12 April 2018) and v3 (9 April 2026). KP18 v1/v2 were not collated. The KP18 v3 comparison in this independent pass was confined to the E8 rank typo.",
+    "Correction search 23 September 2026: Numdam article page PMIHES_2018__128__121_0 lists no separate KP18 correction; its Corrigendum reference is Haines's paper. Crossref https://api.crossref.org/works/10.1007/s10240-018-0100-0 had relation={} and no update-to/updated-by in the fields inspected. These metadata limits do not negate the published KPZ26 corrections.",
+    "Kisin https://people.math.harvard.edu/~kisin/preprints.html and Pappas https://sites.google.com/site/georgepappashomepage/publications inspected. Kisin lists the sequel and original article. No additional correction to E8 was identified in these listings, the sequel's correction sections, or exact-title/rank-typo erratum searches.",
+    "E8 also persists at §2.3.15 in KP18 arXiv v3 (SHA-256 7577bb3ea98e42949160deb8ad94710a48ef14f02ca7cc3949b6884a0d29f55e) and the current Kisin author PDF https://people.math.harvard.edu/~kisin/dvifiles/parahoric.pdf (SHA-256 b55ea86176fe379e8e76e77f85eaec78c55e3df8402b1d6b63d3e8bb80e3c278). No claim that a bounded search excludes every possible correction."
    ],
    "owner": "PAPER-KISIN-PAPPAS-18",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.json",
    "citation": "Kisin–Pappas, \"Integral models of Shimura varieties with parahoric level structure\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
+   "reviewReason": "Checked the published KP18 pp.166–168 and published KPZ26 pp.50–52, including the proof and matrix (5.1.18); compared the corresponding v3 passage. Added the rank-two normal-decomposition calculation in reason. The failure is the claimed choice-independent recipe and the constant-mod-a condition using it, not nonexistence of every canonical comparison: the sequel constructs the correct one. Retain error/a stated result, with that scope."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-18/E2",
-   "kind": "error",
+   "kind": "gap",
    "locator": "Published version, Publ. Math. IHÉS 128 (2018), 121–218 (Numdam PDF, SHA-256 e2b4a076…); §3.2.12, printed p. 173, and the results depending on it: Lemma 3.2.14, Proposition 3.2.17, Proposition 3.3.13",
    "printed": "3.2.12. — … Choose an isomorphism Ψ_{R_G} : M̃_{R_G,1} ≅ M_{R_G} which respects the s_{α,0}, and such that Ψ_{R_G} is constant modulo a_{R_E} … Note that this is possible as G is smooth, and if Ψ_{R_G} is constant modulo a_{R_E} then the map M̃_{R_G,1} ⊗_{Ŵ(R_G)} Ŵ(R_G/a_{R_E}) → M_{R_G/a_{R_E}} does respect the s_{α,0}.",
-   "correction": "An isomorphism Ψ_{R_G} as described exists only under the additional hypothesis that the Hodge embedding is **very good** in the sense of KPZ26 Definition 5.2.5. Smoothness of G alone does not give it. Lemma 3.2.14 and Propositions 3.2.17 and 3.3.13 are then valid with the same proofs, under that hypothesis.",
-   "reason": "This is the omitted condition behind the gap the sequel describes as serious: the condition « is needed for the construction in [KP18, §3] of the universal deformation of a p-divisible group equipped with crystalline tensors ». The printed justification — that Ψ_{R_G} exists because G is smooth — does not establish that the canonical transport of the corrected Lemma 3.1.9 preserves the tensors.",
+   "correction": "For the corrected construction, impose horizontality of the defining tensors under the canonical comparison c, equivalently the very-good condition of KPZ26 Definition 5.2.5. Then smoothness lifts the resulting tensor-preserving point and the original proofs of Lemma 3.2.14 and Propositions 3.2.17 and 3.3.13 apply. Smoothness alone does not establish horizontality. This is a missing proof/hypothesis, not an exhibited counterexample to every good embedding being very good.",
+   "reason": "In published KP18 §3.2.12, the prescribed reduction of Ψ must already be a point of the tensor-isomorphism torsor before smoothness can lift it. Once E1 is repaired, this requires c(sα,0)=s̃α; it is exactly the horizontality condition in published KPZ26 §5.2.1 and Definition 5.2.5. Smoothness supplies lifting of an existing torsor point, not membership of an arbitrary prescribed linear map in that torsor. Published KPZ26 §1.2.1 expressly leaves general horizontality unproved and conjectures that any good integral Hodge embedding is very good.",
    "affects": "a stated result",
    "known": "Known and corrected by the authors themselves: KPZ26 §1.3.1, which states that « the construction of the isomorphism Ψ_RG in [KP18, 3.2.12] is not correct » and that such an isomorphism « only exists under the additional assumption that the Hodge embedding is very good »; the condition is defined in KPZ26 Definition 5.2.5 and studied in its §§5–6.",
    "searched": [
-    "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
-    "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
-    "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
-    "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
-    "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3).",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Numdam PDF re-fetched (SHA-256 e2b4a076…, matching) and the quoted passages re-read at pp. 162, 166, 169, 173, 187 and 205",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-018-0100-0",
-    "Springer article page and the Numdam article page PMIHES_2018__128__121_0, 23 September 2026: no erratum or corrigendum linked (the Numdam page's only 'Corrigendum' belongs to a cited paper of Haines)",
-    "arXiv 1512.01149: versions v1–v3; v3 (12 April 2018, 'to appear in Publ. Math. IHES') predates the corrections, and there is no later version"
+    "Independently checked 23 September 2026: published KP18 from https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf, 98 pages, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b; targeted statements and proofs at pp.162,166–169,173–174,186–188,202–205,208.",
+    "Published KPZ26, Forum Math. Pi 14 (2026), e14, DOI 10.1017/fmp.2026.10031, 89 pages: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/integral_models_of_shimura_varieties_with_parahoric_level_structure_ii.pdf; downloaded-copy SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce (Cambridge adds a request-specific footer). Read §1.2.1/§1.3, Lemma 5.1.15 and proof/Remark 5.1.17, Definition 5.2.5, replacement theorem statements, §7.2.1/footnote 8, and §7.3.1.",
+    "Compared KPZ26 arXiv:2409.03689v3, https://arxiv.org/pdf/2409.03689v3, SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615, at the correction passages in §1.3, §5.1, §7.2.1/footnote 8 and §7.3.1. The introduction theorem/corollary numbering differs from publication.",
+    "arXiv histories https://arxiv.org/abs/1512.01149 and https://arxiv.org/abs/2409.03689 checked 23 September 2026: latest versions respectively v3 (12 April 2018) and v3 (9 April 2026). KP18 v1/v2 were not collated. The KP18 v3 comparison in this independent pass was confined to the E8 rank typo.",
+    "Correction search 23 September 2026: Numdam article page PMIHES_2018__128__121_0 lists no separate KP18 correction; its Corrigendum reference is Haines's paper. Crossref https://api.crossref.org/works/10.1007/s10240-018-0100-0 had relation={} and no update-to/updated-by in the fields inspected. These metadata limits do not negate the published KPZ26 corrections.",
+    "Kisin https://people.math.harvard.edu/~kisin/preprints.html and Pappas https://sites.google.com/site/georgepappashomepage/publications inspected. Kisin lists the sequel and original article. No additional correction to E8 was identified in these listings, the sequel's correction sections, or exact-title/rank-typo erratum searches.",
+    "E8 also persists at §2.3.15 in KP18 arXiv v3 (SHA-256 7577bb3ea98e42949160deb8ad94710a48ef14f02ca7cc3949b6884a0d29f55e) and the current Kisin author PDF https://people.math.harvard.edu/~kisin/dvifiles/parahoric.pdf (SHA-256 b55ea86176fe379e8e76e77f85eaec78c55e3df8402b1d6b63d3e8bb80e3c278). No claim that a bounded search excludes every possible correction."
    ],
    "owner": "PAPER-KISIN-PAPPAS-18",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.json",
    "citation": "Kisin–Pappas, \"Integral models of Shimura varieties with parahoric level structure\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
+   "reviewReason": "Confirmed after changing error to gap; a stated result is retained because the corrected scope of the downstream construction is conditional on an added hypothesis. Read KP18 pp.173–174, KPZ26 pp.6,8,53–54 and the replacement theorem. The implication missing from the old proof is tensor preservation of the prescribed reduction. No counterexample to good⇒very good is claimed."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-18/E3",
-   "kind": "error",
+   "kind": "gap",
    "locator": "Published version, Publ. Math. IHÉS 128 (2018), 121–218 (Numdam PDF, SHA-256 e2b4a076…); Theorem 4.2.7 (printed p. 186), Corollaries 4.2.12 and 4.2.13 (printed p. 188), and Theorem 4.6.23 (printed p. 208)",
    "printed": "Theorem 4.2.7. — Under the above assumptions, there exists a diagram of morphisms (4.2.8) S̃_K(G,X)_{O_E} → S_K(G,X)_{O_E}, S̃_K(G,X)_{O_E} → M^loc_{G,X} … Theorem 4.6.23. — If G₂ splits over a tamely ramified extension of Q_p, then there exists a Shimura datum of Hodge type (G,X) such that the conditions of Corollary 4.6.15 are satisfied … (1) S_{K°_{2,p}}(G₂,X₂) is étale locally isomorphic to M^loc_{G,X}.",
    "correction": "Theorem 4.2.7 and Corollaries 4.2.12 and 4.2.13 require the additional hypothesis that the Hodge embedding is very good; Theorem 4.2.7 should be replaced by KPZ26 Theorem 7.1.3, and the final Theorem 4.6.23 by KPZ26 Theorem 7.2.21. The remaining arguments of §4 are unaffected and their conclusions hold once the Hodge embeddings appearing in them are assumed very good.",
-   "reason": "These statements consume §§3.1–3.3 through Ψ_{R_G}, so they inherit the omitted condition of E2. The sequel is explicit that this is the propagation of a « serious gap in [KP18] », which also reached earlier versions of [KZ25].",
+   "reason": "The old local-model diagram consumes the deformation construction in E2; the proofs of Corollaries 4.2.12–4.2.13 explicitly consume that diagram. Published KPZ26 §1.3.1 supplies replacement statements with very-good Hodge embeddings, and Theorem 7.1.3 names this as assumption (C). This verifies a propagated gap requiring a stated hypothesis in that proof, not a counterexample to all the original geometric conclusions. The sequel separately recovers weaker étale-local conclusions without that hypothesis (§1.3.2/Theorem 7.1.8) and gives the abelian-type replacement in Theorem 7.2.21 with refinement in Corollary 7.2.24.",
    "affects": "a stated result",
-   "known": "Known and corrected by the authors themselves: KPZ26 §1.3.1, which says that [KP18, Theorem 4.2.7] and [KP18, Cor. 4.2.12, Cor. 4.2.13] « now require the additional assumption that the Hodge embedding is very good », that 4.2.7 « should be replaced by Theorem 7.1.3 » and that this « affects the final statement [KP18, Theorem 4.6.23] … which should be replaced by Theorem 7.2.21 ». KPZ26 §1.3.2 also notes that its own Theorem 1.1.2 is slightly weaker than [KP18, Thm. 4.6.23] for factors of exceptional type A, a restriction removed by its Corollary 1.1.3.",
+   "known": "Corrected in published KPZ26 §1.3.1–§1.3.2 (p.8), Theorem 7.1.3 (pp.72–73), Theorem 7.2.21 and Corollary 7.2.24 (pp.84–85), DOI 10.1017/fmp.2026.10031. Its published introduction calls the latter results Theorem 1.1.1 and Corollary 1.1.2; these were Theorem 1.1.2 and Corollary 1.1.3 in arXiv v3.",
    "searched": [
-    "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
-    "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
-    "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
-    "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
-    "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3).",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Numdam PDF re-fetched (SHA-256 e2b4a076…, matching) and the quoted passages re-read at pp. 162, 166, 169, 173, 187 and 205",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-018-0100-0",
-    "Springer article page and the Numdam article page PMIHES_2018__128__121_0, 23 September 2026: no erratum or corrigendum linked (the Numdam page's only 'Corrigendum' belongs to a cited paper of Haines)",
-    "arXiv 1512.01149: versions v1–v3; v3 (12 April 2018, 'to appear in Publ. Math. IHES') predates the corrections, and there is no later version"
+    "Independently checked 23 September 2026: published KP18 from https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf, 98 pages, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b; targeted statements and proofs at pp.162,166–169,173–174,186–188,202–205,208.",
+    "Published KPZ26, Forum Math. Pi 14 (2026), e14, DOI 10.1017/fmp.2026.10031, 89 pages: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/integral_models_of_shimura_varieties_with_parahoric_level_structure_ii.pdf; downloaded-copy SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce (Cambridge adds a request-specific footer). Read §1.2.1/§1.3, Lemma 5.1.15 and proof/Remark 5.1.17, Definition 5.2.5, replacement theorem statements, §7.2.1/footnote 8, and §7.3.1.",
+    "Compared KPZ26 arXiv:2409.03689v3, https://arxiv.org/pdf/2409.03689v3, SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615, at the correction passages in §1.3, §5.1, §7.2.1/footnote 8 and §7.3.1. The introduction theorem/corollary numbering differs from publication.",
+    "arXiv histories https://arxiv.org/abs/1512.01149 and https://arxiv.org/abs/2409.03689 checked 23 September 2026: latest versions respectively v3 (12 April 2018) and v3 (9 April 2026). KP18 v1/v2 were not collated. The KP18 v3 comparison in this independent pass was confined to the E8 rank typo.",
+    "Correction search 23 September 2026: Numdam article page PMIHES_2018__128__121_0 lists no separate KP18 correction; its Corrigendum reference is Haines's paper. Crossref https://api.crossref.org/works/10.1007/s10240-018-0100-0 had relation={} and no update-to/updated-by in the fields inspected. These metadata limits do not negate the published KPZ26 corrections.",
+    "Kisin https://people.math.harvard.edu/~kisin/preprints.html and Pappas https://sites.google.com/site/georgepappashomepage/publications inspected. Kisin lists the sequel and original article. No additional correction to E8 was identified in these listings, the sequel's correction sections, or exact-title/rank-typo erratum searches.",
+    "E8 also persists at §2.3.15 in KP18 arXiv v3 (SHA-256 7577bb3ea98e42949160deb8ad94710a48ef14f02ca7cc3949b6884a0d29f55e) and the current Kisin author PDF https://people.math.harvard.edu/~kisin/dvifiles/parahoric.pdf (SHA-256 b55ea86176fe379e8e76e77f85eaec78c55e3df8402b1d6b63d3e8bb80e3c278). No claim that a bounded search excludes every possible correction."
    ],
    "owner": "PAPER-KISIN-PAPPAS-18",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.json",
    "citation": "Kisin–Pappas, \"Integral models of Shimura varieties with parahoric level structure\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
+   "reviewReason": "Checked KP18 Theorem 4.2.7 and corollaries pp.186–188 and the displayed clauses of Theorem 4.6.23 p.208 against the published replacements and correction paragraph. Changed error to gap, retaining affects a stated result because a hypothesis is added to the construction's justified scope. Corrected preprint-versus-journal introduction numbering. Do not read this as a proof that the original conclusion is false for some good embedding."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-18/E4",
    "kind": "error",
    "locator": "Published version, Publ. Math. IHÉS 128 (2018), 121–218 (Numdam PDF, SHA-256 e2b4a076…); Proof of Theorem 4.2.7, printed p. 187",
    "printed": "q_loc : M̃^loc_G → M^loc_{G,X} by taking (f,F) to f⁻¹(F). One sees easily that q_loc is a G-torsor. Thus we have a diagram (4.2.9) M̃^loc_G → M^loc_G, M̃^loc_G → M^loc_{G,X}, with π_loc and q_loc are G-torsors.",
-   "correction": "q_loc is not a G-torsor. It is isomorphic to the action morphism G × M^loc_{G,X} → M^loc_{G,X}, which is smooth because it is the composition of the isomorphism (g,m) ↦ (g, g·m) of G × M^loc_{G,X} with the projection to M^loc_{G,X}; the rest of the proof is unchanged.",
-   "reason": "Smoothness of q, not the torsor property, is what the theorem needs; the printed assertion is simply false for q_loc, while π_loc is a G-torsor.",
+   "correction": "For the natural G-action in the displayed diagram, q_loc is equivariant, not in general an invariant torsor projection. Identify it instead with the action morphism G×M^loc_{G,X}→M^loc_{G,X}. It is smooth of relative dimension dim G: compose the isomorphism (g,m)↦(g,g·m) with projection. This is what the proof uses. An alternative transported G-action can make the underlying projection a torsor; that is not the action asserted in the original diagram.",
+   "reason": "For the natural change-of-trivialization action, q_loc transforms the image filtration, so its fibers are not G-stable when the target action is nontrivial. Hence it is not a torsor for that action. Independently, (g,m)↦(g,g·m) has inverse (g,n)↦(g,g⁻¹·n), so smoothness follows from the product projection because G is smooth. The theorem only needs equivariance and smoothness, not that both arrows be torsor projections.",
    "affects": "the proof",
    "known": "Known and corrected by the authors themselves: KPZ26 §7.3.1(1), « Correction to the proof of [KP18, Thm. 4.2.7]: The morphism q_loc is not a G-torsor as stated there ».",
    "searched": [
-    "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
-    "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
-    "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
-    "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
-    "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3).",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Numdam PDF re-fetched (SHA-256 e2b4a076…, matching) and the quoted passages re-read at pp. 162, 166, 169, 173, 187 and 205",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-018-0100-0",
-    "Springer article page and the Numdam article page PMIHES_2018__128__121_0, 23 September 2026: no erratum or corrigendum linked (the Numdam page's only 'Corrigendum' belongs to a cited paper of Haines)",
-    "arXiv 1512.01149: versions v1–v3; v3 (12 April 2018, 'to appear in Publ. Math. IHES') predates the corrections, and there is no later version"
+    "Independently checked 23 September 2026: published KP18 from https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf, 98 pages, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b; targeted statements and proofs at pp.162,166–169,173–174,186–188,202–205,208.",
+    "Published KPZ26, Forum Math. Pi 14 (2026), e14, DOI 10.1017/fmp.2026.10031, 89 pages: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/integral_models_of_shimura_varieties_with_parahoric_level_structure_ii.pdf; downloaded-copy SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce (Cambridge adds a request-specific footer). Read §1.2.1/§1.3, Lemma 5.1.15 and proof/Remark 5.1.17, Definition 5.2.5, replacement theorem statements, §7.2.1/footnote 8, and §7.3.1.",
+    "Compared KPZ26 arXiv:2409.03689v3, https://arxiv.org/pdf/2409.03689v3, SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615, at the correction passages in §1.3, §5.1, §7.2.1/footnote 8 and §7.3.1. The introduction theorem/corollary numbering differs from publication.",
+    "arXiv histories https://arxiv.org/abs/1512.01149 and https://arxiv.org/abs/2409.03689 checked 23 September 2026: latest versions respectively v3 (12 April 2018) and v3 (9 April 2026). KP18 v1/v2 were not collated. The KP18 v3 comparison in this independent pass was confined to the E8 rank typo.",
+    "Correction search 23 September 2026: Numdam article page PMIHES_2018__128__121_0 lists no separate KP18 correction; its Corrigendum reference is Haines's paper. Crossref https://api.crossref.org/works/10.1007/s10240-018-0100-0 had relation={} and no update-to/updated-by in the fields inspected. These metadata limits do not negate the published KPZ26 corrections.",
+    "Kisin https://people.math.harvard.edu/~kisin/preprints.html and Pappas https://sites.google.com/site/georgepappashomepage/publications inspected. Kisin lists the sequel and original article. No additional correction to E8 was identified in these listings, the sequel's correction sections, or exact-title/rank-typo erratum searches.",
+    "E8 also persists at §2.3.15 in KP18 arXiv v3 (SHA-256 7577bb3ea98e42949160deb8ad94710a48ef14f02ca7cc3949b6884a0d29f55e) and the current Kisin author PDF https://people.math.harvard.edu/~kisin/dvifiles/parahoric.pdf (SHA-256 b55ea86176fe379e8e76e77f85eaec78c55e3df8402b1d6b63d3e8bb80e3c278). No claim that a bounded search excludes every possible correction."
    ],
    "owner": "PAPER-KISIN-PAPPAS-18",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.json",
    "citation": "Kisin–Pappas, \"Integral models of Shimura varieties with parahoric level structure\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
+   "reviewReason": "Read KP18 pp.187–188 and KPZ26 §7.3.1(1), published p.85 / v3 p.89. Verified the action/projection factorization and its inverse. Amended the correction to specify the natural action: the unqualified assertion that the underlying morphism cannot carry any torsor structure would be too strong."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-18/E5",
    "kind": "gap",
    "locator": "Published version, Publ. Math. IHÉS 128 (2018), 121–218 (Numdam PDF, SHA-256 e2b4a076…); Proof of Lemma 3.1.17, printed p. 169",
    "printed": "Hence, it suffices to give a complete separated topology τ on Ŵ(A) ⊗_{Z_p} Q_p such that for any x ∈ W(m_A), p^{−m}φ^m(x) → 0. Indeed, then the sum s̃ = s + Σ_{m≥0} Φ^{m+1} ∘ s ∘ Φ₀^{−m−1} − Φ^m ∘ s ∘ Φ₀^{−m} converges to an element of Hom_W(D,M) ⊗ Q_p in τ and is Frobenius invariant.",
-   "correction": "The ring cW(A)[1/p] is not complete for the topology τ defined there, so establishing p^{−m}φ^m(x) → 0 in τ does not finish the proof. KPZ26 show instead that cW(A)[1/p] is p-adically complete and separated and that p^{−m}φ^m(x) → 0 in the p-adic topology for x ∈ cW(M_A), which does finish it, using Zink's logarithmic coordinates on cW(pN) and [Zi01, Prop. 2.3, 2.4].",
-   "reason": "The convergence argument needs completeness of the ring in the topology in which the series is summed; the printed topology τ does not have it.",
+   "correction": "The ring cW(A)[1/p] is not complete for the topology τ defined there, so establishing p^{−m}φ^m(x) → 0 in τ does not finish the proof. KPZ26 show instead that cW(A)[1/p] is p-adically complete and separated and that p^{−m}φ^m(x) → 0 in the p-adic topology for x ∈ cW(M_A), which does finish it, using Zink's logarithmic coordinates on cW(pN) and [Zi01, Prop. 2.3, 2.4]. Here p-adic topology on the rationalized ring means the topology induced by its integral Ŵ(A) lattice, not the ideal-adic topology for the unit p.",
+   "reason": "The topology τ is induced by the product of the p-adic ghost-coordinate topologies; it permits coordinatewise limits with unbounded denominators. Explicitly take A=Z_p[ε]/(ε²), p>2, so m_A²⊂pA. In the square-zero ideal εQ_p, the Witt ghost formula is w_i(x)=p^i x_i. Let z_N have Witt coordinates ε/p^i for i≤N and zero thereafter; p^N z_N has integral finite-support coordinates, so z_N∈Ŵ(A)[1/p]. Its ghost coordinates are ε for i≤N and zero afterwards, hence (z_N) is τ-Cauchy. A limit would have all ghost coordinates ε. Multiplying by any fixed p^M would force Witt coordinates p^(M−i)ε for every i, which are not integral for i>M. Thus no limit exists even in W(A)[1/p]. KPZ26 replaces this topology by the lattice p-adic topology and proves the required decay using logarithmic coordinates.",
    "affects": "the proof",
    "known": "Known and corrected by the authors themselves: KPZ26 §7.3.1(2), « Correction to the proof of [KP18, Lem. 3.1.17] », which thanks M. Hoff for pointing this out.",
    "searched": [
-    "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
-    "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
-    "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
-    "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
-    "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3).",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Numdam PDF re-fetched (SHA-256 e2b4a076…, matching) and the quoted passages re-read at pp. 162, 166, 169, 173, 187 and 205",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-018-0100-0",
-    "Springer article page and the Numdam article page PMIHES_2018__128__121_0, 23 September 2026: no erratum or corrigendum linked (the Numdam page's only 'Corrigendum' belongs to a cited paper of Haines)",
-    "arXiv 1512.01149: versions v1–v3; v3 (12 April 2018, 'to appear in Publ. Math. IHES') predates the corrections, and there is no later version"
+    "Independently checked 23 September 2026: published KP18 from https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf, 98 pages, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b; targeted statements and proofs at pp.162,166–169,173–174,186–188,202–205,208.",
+    "Published KPZ26, Forum Math. Pi 14 (2026), e14, DOI 10.1017/fmp.2026.10031, 89 pages: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/integral_models_of_shimura_varieties_with_parahoric_level_structure_ii.pdf; downloaded-copy SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce (Cambridge adds a request-specific footer). Read §1.2.1/§1.3, Lemma 5.1.15 and proof/Remark 5.1.17, Definition 5.2.5, replacement theorem statements, §7.2.1/footnote 8, and §7.3.1.",
+    "Compared KPZ26 arXiv:2409.03689v3, https://arxiv.org/pdf/2409.03689v3, SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615, at the correction passages in §1.3, §5.1, §7.2.1/footnote 8 and §7.3.1. The introduction theorem/corollary numbering differs from publication.",
+    "arXiv histories https://arxiv.org/abs/1512.01149 and https://arxiv.org/abs/2409.03689 checked 23 September 2026: latest versions respectively v3 (12 April 2018) and v3 (9 April 2026). KP18 v1/v2 were not collated. The KP18 v3 comparison in this independent pass was confined to the E8 rank typo.",
+    "Correction search 23 September 2026: Numdam article page PMIHES_2018__128__121_0 lists no separate KP18 correction; its Corrigendum reference is Haines's paper. Crossref https://api.crossref.org/works/10.1007/s10240-018-0100-0 had relation={} and no update-to/updated-by in the fields inspected. These metadata limits do not negate the published KPZ26 corrections.",
+    "Kisin https://people.math.harvard.edu/~kisin/preprints.html and Pappas https://sites.google.com/site/georgepappashomepage/publications inspected. Kisin lists the sequel and original article. No additional correction to E8 was identified in these listings, the sequel's correction sections, or exact-title/rank-typo erratum searches.",
+    "E8 also persists at §2.3.15 in KP18 arXiv v3 (SHA-256 7577bb3ea98e42949160deb8ad94710a48ef14f02ca7cc3949b6884a0d29f55e) and the current Kisin author PDF https://people.math.harvard.edu/~kisin/dvifiles/parahoric.pdf (SHA-256 b55ea86176fe379e8e76e77f85eaec78c55e3df8402b1d6b63d3e8bb80e3c278). No claim that a bounded search excludes every possible correction."
    ],
    "owner": "PAPER-KISIN-PAPPAS-18",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.json",
    "citation": "Kisin–Pappas, \"Integral models of Shimura varieties with parahoric level structure\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
+   "reviewReason": "Checked the whole KP18 p.169 topology argument and the correction proof on KPZ26 published p.86 / v3 p.90. Added an explicit square-zero-ring Cauchy sequence witnessing incompleteness. The replacement uses the p-adic topology induced by the integral Ŵ(A) lattice, not the trivial ideal topology of p in a ring where p is invertible. In logarithmic coordinates, p^(−m)φ^m is the tail shift; tails of a p-adically null sequence tend uniformly to zero. Zink's general completeness/logarithm theorems are used as cited by KPZ26, not reproved here."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-18/E6",
@@ -87501,71 +87683,70 @@
    "affects": "a stated result",
    "known": "Known and corrected by the authors themselves: KPZ26 §7.3.1(3), « Correction to [KP18, Lemma 4.6.13] and [KP18, Corollary 4.6.15]. The description of Sh_{K°₂}(G₂,X₂) in [KP18, Lemma 4.6.13] is not correct », with thanks to Yu Luo and Peihang Wu.",
    "searched": [
-    "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
-    "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
-    "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
-    "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
-    "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3).",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Numdam PDF re-fetched (SHA-256 e2b4a076…, matching) and the quoted passages re-read at pp. 162, 166, 169, 173, 187 and 205",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-018-0100-0",
-    "Springer article page and the Numdam article page PMIHES_2018__128__121_0, 23 September 2026: no erratum or corrigendum linked (the Numdam page's only 'Corrigendum' belongs to a cited paper of Haines)",
-    "arXiv 1512.01149: versions v1–v3; v3 (12 April 2018, 'to appear in Publ. Math. IHES') predates the corrections, and there is no later version"
+    "Independently checked 23 September 2026: published KP18 from https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf, 98 pages, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b; targeted statements and proofs at pp.162,166–169,173–174,186–188,202–205,208.",
+    "Published KPZ26, Forum Math. Pi 14 (2026), e14, DOI 10.1017/fmp.2026.10031, 89 pages: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/integral_models_of_shimura_varieties_with_parahoric_level_structure_ii.pdf; downloaded-copy SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce (Cambridge adds a request-specific footer). Read §1.2.1/§1.3, Lemma 5.1.15 and proof/Remark 5.1.17, Definition 5.2.5, replacement theorem statements, §7.2.1/footnote 8, and §7.3.1.",
+    "Compared KPZ26 arXiv:2409.03689v3, https://arxiv.org/pdf/2409.03689v3, SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615, at the correction passages in §1.3, §5.1, §7.2.1/footnote 8 and §7.3.1. The introduction theorem/corollary numbering differs from publication.",
+    "arXiv histories https://arxiv.org/abs/1512.01149 and https://arxiv.org/abs/2409.03689 checked 23 September 2026: latest versions respectively v3 (12 April 2018) and v3 (9 April 2026). KP18 v1/v2 were not collated. The KP18 v3 comparison in this independent pass was confined to the E8 rank typo.",
+    "Correction search 23 September 2026: Numdam article page PMIHES_2018__128__121_0 lists no separate KP18 correction; its Corrigendum reference is Haines's paper. Crossref https://api.crossref.org/works/10.1007/s10240-018-0100-0 had relation={} and no update-to/updated-by in the fields inspected. These metadata limits do not negate the published KPZ26 corrections.",
+    "Kisin https://people.math.harvard.edu/~kisin/preprints.html and Pappas https://sites.google.com/site/georgepappashomepage/publications inspected. Kisin lists the sequel and original article. No additional correction to E8 was identified in these listings, the sequel's correction sections, or exact-title/rank-typo erratum searches.",
+    "E8 also persists at §2.3.15 in KP18 arXiv v3 (SHA-256 7577bb3ea98e42949160deb8ad94710a48ef14f02ca7cc3949b6884a0d29f55e) and the current Kisin author PDF https://people.math.harvard.edu/~kisin/dvifiles/parahoric.pdf (SHA-256 b55ea86176fe379e8e76e77f85eaec78c55e3df8402b1d6b63d3e8bb80e3c278). No claim that a bounded search excludes every possible correction."
    ],
    "owner": "PAPER-KISIN-PAPPAS-18",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.json",
    "citation": "Kisin–Pappas, \"Integral models of Shimura varieties with parahoric level structure\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
+   "reviewReason": "Read KP18 pp.202–204 and the complete corrected coset calculation in KPZ26 §7.3.1(3), published pp.86–87 / v3 pp.90–91. A representative j changes the stabilizer to the conjugate-level intersection, so the quotient of the connected pro-object must be taken at jK°_p j⁻¹, not repeatedly at the original level. Checked the corresponding closure construction as well. Retain the formula, error/a stated result, and known correction. Corrected search provenance: Yu Luo and Peihang Wu are thanked for this E6, not E7."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-18/E7",
    "kind": "error",
    "locator": "Published version, Publ. Math. IHÉS 128 (2018), 121–218 (Numdam PDF, SHA-256 e2b4a076…); §4.6.21, printed p. 205",
    "printed": "4.6.21. — Let (H,Y) be a Shimura datum with H^ad a classical group. Recall ([20], cf. [43] 3.4.13) that there is central isogeny H̃ → H♯ (which depends also on Y if H has a factor of type D) such that (H,Y) is of abelian type if and only if H^der is a quotient of H♯.",
-   "correction": "H♯ is not defined for every (H,Y) with H of classical type; the construction needs a further condition on (H,Y), which is satisfied when (H^ad,Y^ad) is of abelian type.",
-   "reason": "The assertion is stated for all classical (H,Y) but the cited construction does not apply that generally.",
+   "correction": "Restrict the H♯ construction to the conditions in published KPZ26 §7.2.1 (pp.76–77): in each type-D simple factor over its totally real field, all noncompact real places must have the same Hermitian type, always D^R or always D^H. The adjoint Shimura datum being of abelian type supplies these conditions. Do not assert the construction for arbitrary classical adjoint data.",
+   "reason": "The required quotient is the simply connected cover at a D^R place, but the standard orthogonal quotient at a D^H place. A single central quotient cannot have a trivial kernel after one real base change and a nontrivial kernel after another: a finite central kernel in characteristic zero has constant degree. Thus the real-place compatibility condition is essential to this construction. Published KPZ26 §7.2.1 gives the precise condition and footnote 8 explicitly corrects KP18 §4.6.21. The abelian-type context used immediately afterwards satisfies the extra condition.",
    "affects": "a stated result",
-   "known": "Known and corrected by the authors themselves: KPZ26 p. 80, footnote 8: « In [KP18, 4.6.21] it is incorrectly asserted that H♯ is defined for any (H,Y) with H of classical type, however H may not satisfy the third condition above. This is however satisfied if (H^ad,Y^ad) is of abelian type. »",
+   "known": "Corrected by KPZ26 §7.2.1, published pp.76–77, footnote 8 on p.77 (arXiv v3 p.80), DOI 10.1017/fmp.2026.10031. The thanks to Yu Luo and Peihang Wu in §7.3.1(3) concern the separate level correction E6.",
    "searched": [
-    "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
-    "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
-    "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
-    "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
-    "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3).",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Numdam PDF re-fetched (SHA-256 e2b4a076…, matching) and the quoted passages re-read at pp. 162, 166, 169, 173, 187 and 205",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-018-0100-0",
-    "Springer article page and the Numdam article page PMIHES_2018__128__121_0, 23 September 2026: no erratum or corrigendum linked (the Numdam page's only 'Corrigendum' belongs to a cited paper of Haines)",
-    "arXiv 1512.01149: versions v1–v3; v3 (12 April 2018, 'to appear in Publ. Math. IHES') predates the corrections, and there is no later version"
+    "Independently checked 23 September 2026: published KP18 from https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf, 98 pages, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b; targeted statements and proofs at pp.162,166–169,173–174,186–188,202–205,208.",
+    "Published KPZ26, Forum Math. Pi 14 (2026), e14, DOI 10.1017/fmp.2026.10031, 89 pages: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/integral_models_of_shimura_varieties_with_parahoric_level_structure_ii.pdf; downloaded-copy SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce (Cambridge adds a request-specific footer). Read §1.2.1/§1.3, Lemma 5.1.15 and proof/Remark 5.1.17, Definition 5.2.5, replacement theorem statements, §7.2.1/footnote 8, and §7.3.1.",
+    "Compared KPZ26 arXiv:2409.03689v3, https://arxiv.org/pdf/2409.03689v3, SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615, at the correction passages in §1.3, §5.1, §7.2.1/footnote 8 and §7.3.1. The introduction theorem/corollary numbering differs from publication.",
+    "arXiv histories https://arxiv.org/abs/1512.01149 and https://arxiv.org/abs/2409.03689 checked 23 September 2026: latest versions respectively v3 (12 April 2018) and v3 (9 April 2026). KP18 v1/v2 were not collated. The KP18 v3 comparison in this independent pass was confined to the E8 rank typo.",
+    "Correction search 23 September 2026: Numdam article page PMIHES_2018__128__121_0 lists no separate KP18 correction; its Corrigendum reference is Haines's paper. Crossref https://api.crossref.org/works/10.1007/s10240-018-0100-0 had relation={} and no update-to/updated-by in the fields inspected. These metadata limits do not negate the published KPZ26 corrections.",
+    "Kisin https://people.math.harvard.edu/~kisin/preprints.html and Pappas https://sites.google.com/site/georgepappashomepage/publications inspected. Kisin lists the sequel and original article. No additional correction to E8 was identified in these listings, the sequel's correction sections, or exact-title/rank-typo erratum searches.",
+    "E8 also persists at §2.3.15 in KP18 arXiv v3 (SHA-256 7577bb3ea98e42949160deb8ad94710a48ef14f02ca7cc3949b6884a0d29f55e) and the current Kisin author PDF https://people.math.harvard.edu/~kisin/dvifiles/parahoric.pdf (SHA-256 b55ea86176fe379e8e76e77f85eaec78c55e3df8402b1d6b63d3e8bb80e3c278). No claim that a bounded search excludes every possible correction."
    ],
    "owner": "PAPER-KISIN-PAPPAS-18",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.json",
    "citation": "Kisin–Pappas, \"Integral models of Shimura varieties with parahoric level structure\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
+   "reviewReason": "Checked the original classical-type assertion at KP18 p.205, the three conditions and quotient definition at KPZ26 pp.76–77, and footnote 8 in publication and v3. Expanded the previously unnamed third condition and checked why incompatible real-place kernel degrees obstruct the construction. Retain error/a stated result for the overly broad preliminary assertion, without claiming that the abelian-type applications fail."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-18/E8",
    "kind": "misprint",
    "locator": "Published version, Publ. Math. IHÉS 128 (2018), 121–218 (Numdam PDF, SHA-256 e2b4a076…); §2.3.15, printed p. 162, just before Corollary 2.3.16",
-   "printed": "The corresponding local model M^loc_{GL(V′),{μ₀},y} over Z_p is the smooth Grassmannian Gr(V′_{Z_p}) classifying subbundles F ⊂ V′_{Z_p} ⊗_{Z_p} O_S of rank dim_{Q_p}(V′).",
+   "printed": "The corresponding local model M^loc_{GL(V′),{μ′₀},y} over Z_p is the smooth Grassmannian Gr(V′_{Z_p}) classifying subbundles F ⊂ V′_{Z_p} ⊗_{Z_p} O_S of rank dim_{Q_p}(V′).",
    "correction": "… of rank (1/2)·dim_{Q_p}(V′), the rank of the Hodge filtration of the symplectic Hodge embedding into GSp(V′, ψ′).",
    "reason": "μ₀ is the minuscule cocharacter of GL(V′) coming from a Hodge embedding into GSp(V′, ψ′), whose Hodge filtration is Lagrangian, of rank half the dimension. Subbundles of rank dim V′ would be the whole bundle, and the Grassmannian of them a point. The extraction recorded the correction in its item M13 (Gr(g′, Λ′) with 2g′ = dim V′).",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Rechecked by cc-442dc5 on 23 September 2026: the Numdam PDF re-fetched (SHA-256 e2b4a076…, matching) and the quoted passages re-read at pp. 162, 166, 169, 173, 187 and 205",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-018-0100-0",
-    "Springer article page and the Numdam article page PMIHES_2018__128__121_0, 23 September 2026: no erratum or corrigendum linked (the Numdam page's only 'Corrigendum' belongs to a cited paper of Haines)",
-    "arXiv 1512.01149: versions v1–v3; v3 (12 April 2018, 'to appear in Publ. Math. IHES') predates the corrections, and there is no later version"
+    "Independently checked 23 September 2026: published KP18 from https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf, 98 pages, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b; targeted statements and proofs at pp.162,166–169,173–174,186–188,202–205,208.",
+    "Published KPZ26, Forum Math. Pi 14 (2026), e14, DOI 10.1017/fmp.2026.10031, 89 pages: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/integral_models_of_shimura_varieties_with_parahoric_level_structure_ii.pdf; downloaded-copy SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce (Cambridge adds a request-specific footer). Read §1.2.1/§1.3, Lemma 5.1.15 and proof/Remark 5.1.17, Definition 5.2.5, replacement theorem statements, §7.2.1/footnote 8, and §7.3.1.",
+    "Compared KPZ26 arXiv:2409.03689v3, https://arxiv.org/pdf/2409.03689v3, SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615, at the correction passages in §1.3, §5.1, §7.2.1/footnote 8 and §7.3.1. The introduction theorem/corollary numbering differs from publication.",
+    "arXiv histories https://arxiv.org/abs/1512.01149 and https://arxiv.org/abs/2409.03689 checked 23 September 2026: latest versions respectively v3 (12 April 2018) and v3 (9 April 2026). KP18 v1/v2 were not collated. The KP18 v3 comparison in this independent pass was confined to the E8 rank typo.",
+    "Correction search 23 September 2026: Numdam article page PMIHES_2018__128__121_0 lists no separate KP18 correction; its Corrigendum reference is Haines's paper. Crossref https://api.crossref.org/works/10.1007/s10240-018-0100-0 had relation={} and no update-to/updated-by in the fields inspected. These metadata limits do not negate the published KPZ26 corrections.",
+    "Kisin https://people.math.harvard.edu/~kisin/preprints.html and Pappas https://sites.google.com/site/georgepappashomepage/publications inspected. Kisin lists the sequel and original article. No additional correction to E8 was identified in these listings, the sequel's correction sections, or exact-title/rank-typo erratum searches.",
+    "E8 also persists at §2.3.15 in KP18 arXiv v3 (SHA-256 7577bb3ea98e42949160deb8ad94710a48ef14f02ca7cc3949b6884a0d29f55e) and the current Kisin author PDF https://people.math.harvard.edu/~kisin/dvifiles/parahoric.pdf (SHA-256 b55ea86176fe379e8e76e77f85eaec78c55e3df8402b1d6b63d3e8bb80e3c278). No claim that a bounded search excludes every possible correction."
    ],
    "owner": "PAPER-KISIN-PAPPAS-18",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.json",
    "citation": "Kisin–Pappas, \"Integral models of Shimura varieties with parahoric level structure\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
+   "reviewReason": "Confirmed directly in the image of published KP18 p.162 and in the matching §2.3.15 passages of arXiv v3 and Kisin's author PDF. The symplectic Hodge filtration has rank g′ when dim V′=2g′; the ambient GL Grassmannian is Gr(g′,2g′), not a full-rank Grassmannian. A full-rank locally direct-summand subbundle is the whole bundle. In the rank-two case the intended generic fiber is P¹ rather than a point. No correction to this typo was found in the searched sources. Retain misprint/nothing/new."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E1",
