@@ -3488,8 +3488,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YANG-ZHAO-25.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1218"
+   "state": "external",
+   "note": "claimed on GitHub issue #1218"
   },
   {
    "id": "REV-PAPER-YANG-ZHAO-25",
@@ -7054,8 +7054,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1420"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1420",
+   "finishedAt": "2026-09-23T07:37:49Z"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
