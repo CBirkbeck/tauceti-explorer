@@ -1,4 +1,92 @@
-# PAPER-YU-23 — spectral cover and operator continuation
+# Hongjie Yu (2023): counting ℓ-adic local systems on a curve, extraction and routing
+
+Issue [#1091](https://github.com/CBirkbeck/tauceti-explorer/issues/1091). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoint, whose report follows below as history.
+- **The paper.** H. Yu, *Comptage des systèmes locaux ℓ-adiques sur une courbe*, Ann. of Math. 197 (2023), 423–531.
+  - arXiv v5 (18 July 2022), the author's final version, was re-fetched; its SHA-256 (9383bcde…) matches the checkpoint.
+  - The 109-page journal text is not openly available. The Annals site returned HTML, and Unpaywall lists only the author's thesis.
+- **Items.** The result has **154 items: 11 library, 23 planned and 120 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** The twenty-seven findings the checkpoint recorded are kept under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**Reclassified to affect nothing (verified in the text).**
+- **E1.** The cuspidality condition is printed over every standard parabolic, including P = G.
+- **E2.** Mellit's factor (1 − q) is printed as (1 − g).
+- **E10.** Lemma 5.3.3 omits the hypothesis ϕ ≠ 0.
+- **E21.** The Euler characteristic sum is printed from i = 1.
+- **E27.** The pairing of the Weil numbers is printed as σ_i σ_{2g−i} = q.
+
+Each has a clear intended form, and that form is the one used.
+
+**Verified: E16 (affects a stated result).** For the nilpotent A = [[0, 1], [0, 0]], Lemma 6.3.2's quantity (b) is 1/2, while its quantity (c) is 0.
+
+**Not re-verified.** The other findings, including fifteen misprints the checkpoint marks as affecting the proof, keep the checkpoint's classification. Their independent verification is the review pipeline's job.
+
+**Items.** Corollaire 3.2.6 (J^e = A_{g,n}(q, σ) when (e, n) = 1) was added. The other two uncovered labels, Lemmas 1.6 and 1.9, belong to a cited paper.
+
+**Gaps.**
+- **S1 is unavailable.** The journal text cannot be collated.
+- **S2–S8 are deferred.** They are cited suppliers, implementation work or design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once.
+- Every gap has a status and a resolution.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), Yu arXiv:1807.04659v5, 18 July2022: §2.3.1 p9 and §3.3.1 p18. *Printed:* P ∈ P(B) *Correction:* Restrict the cuspidal vanishing condition and the F^G cutoff test to proper parabolics P≠G.
+- **E2** (misprint; affects nothing), Yu arXiv:1807.04659v5, 18 July2022: §3.2.3 p17, displayed definition of H_g,n. *Printed:* −(1−g)(1−z) Log(Omega_g) *Correction:* Use −(1−q)(1−z) Log(Omega_g).
+- **E3** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: Proposition3.3.4 proof p21, convex identity and next two displays. *Printed:* Σ_(t=a)^(l−1)(t−a+1)alpha_t; a−l *Correction:* For a=N_i,b=N_(i+1), the first root sum starts at a+1 with coefficient t−a; block-internal vanishing starts at a+1; the next inequality uses b−l, not a−l.
+- **E4** (gap; affects a stated result), Yu arXiv:1807.04659v5, 18 July2022: Corollary4.2.6 p27. *Printed:* c_beta: holomorphic and nonzero near S1; N(c_beta)−P(c_beta) in |z|<1 *Correction:* Also require a meromorphic extension to a neighborhood of the closed disk, with no boundary zero or pole; rational functions with that boundary condition suffice.
+- **E5** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: Theorem4.2.4 proof p25, root-wall estimate. *Printed:* theta_Q(z beta_1+xi_1)=O(z^−1) *Correction:* The estimate needed in that argument is theta_Q(z beta_1+xi_1)^−1=O(z^−1), for generic xi_1 on the chosen wall.
+- **E6** (error; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: §5.1.1 p29, choice of kappa. *Printed:* proj_(a_L)(kappa)≠0 ⇒ alpha(kappa)≠0 for all relative roots *Correction:* Choose kappa off the finite union of all relative-root hyperplanes for every semistandard Levi.
+- **E7** (misprint; affects a stated result), Yu arXiv:1807.04659v5, 18 July2022: Proposition5.2.1 p32, type of H_Q^e. *Printed:* H_Q^e ∈ a_L^G *Correction:* H_Q^e belongs to a_(L,Z) in the affine degree −e hyperplane, not the degree-zero vector space.
+- **E8** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: §5.2.2 p32 compared with §5.3.2 p39. *Printed:* rho_P(m)^−1 phi(m) ∈ pi; phi_R(nmk)=rho_R(m)^−1 phi_pi(m) *Correction:* Use R in the membership definition. Choose one inducing character s_R and write membership s_R⁻¹ phi∈pi and basis s_R phi_pi consistently. Laf97 pp281,284 supports the p32 membership text, whereas p39 uses the inverse basis. Transport operators and norms as in153; which presentation matches every printed scalar factor is still S2, not settled by inverting the p32 factor alone.
+- **E9** (error; affects a stated result), Yu arXiv:1807.04659v5, 18 July2022: Yu §5.2.3 pp33–35 concerning Lafforgue1997 Theorem11 pp307–308. *Printed:* Lafforgue: Theorem11 spectral Fourier recovery *Correction:* Use Yu Theorem5.2.2 and its proof from Lafforgue's Lemma9, retaining the finite-kernel torus map and normalized fibre sum.
+- **E10** (misprint; affects nothing), Yu arXiv:1807.04659v5, 18 July2022: Lemma5.3.3 p36. *Printed:* phi ∈ pi ⇒ ∃x∈G(A)^0, phi(x)≠0 *Correction:* Add phi≠0.
+- **E11** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: Lemma5.3.3 proof p38. *Printed:* deg x0=−n(n−1)(g−1); x0 a^((n−1)(g−1)) *Correction:* With J_v=(-(n−1)n_v,...,0) and deg=−Σv, deg x0=+n(n−1)(g−1); multiply by a^−((n−1)(g−1)) to reach degree zero.
+- **E12** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: Proposition5.3.4 proof, final paragraph p39. *Printed:* q^((g−1)ni nj) *Correction:* Use q^((1−g)ni nj), as in equation5.1.1.
+- **E13** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: §5.3.3 p41, central shift and equation5.3.6. *Printed:* lambda_(L1)^e; lambda_(G1)^e *Correction:* Use lambda_(L1)^−e and lambda_(G1)^−e, matching Proposition5.1.1.
+- **E14** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: Equations6.1.1–6.1.2 pp42–43. *Printed:* H0(F1⊗F2∨)=Hom(F1,F2); H2=Hom(F2,F1)∨(−1) *Correction:* The Hom arguments are reversed: H0=Hom(F2,F1), H2=Hom(F1,F2)∨(−1).
+- **E15** (gap; affects a stated result), Yu arXiv:1807.04659v5, 18 July2022: Corollary6.1.2 p43, two-case statement. *Printed:* Π1 not inertially equivalent to Π2; Π1=Π2 *Correction:* Specify the good-representative assumption, or give the missing case of unequal but inertially equivalent unitary constituents.
+- **E16** (error; affects a stated result), Yu arXiv:1807.04659v5, 18 July2022: Lemma6.3.2(b) p50. *Printed:* rank(A)=n−1: (product of nonzero eigenvalues)/n *Correction:* Use algebraic multiplicity: remove one zero root and multiply the remaining n−1 roots, or add that zero is a simple eigenvalue.
+- **E17** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: Theorem6.4.1 proof p53, block matrix conventions. *Printed:* M=diag(y)−(x); x_i,j(s,t)=−l_i,s l_j,t(...); 1≤s≤m_i *Correction:* Use positive x_i,j(s,t)=l_i,s l_j,t[(2g−2)d_i d_j min(ν_i,ν_j)+delta_ij f_i], and index cycles by 1≤s≤alpha_i, not multiplicities m_i.
+- **E18** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: Lemma6.6.2 proof p62. *Printed:* |Fix(sigma)|=1 for the induced size-d orbit *Correction:* Replace 1 by d.
+- **E19** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: §6.2 p46, product following equation6.2.7. *Printed:* ∏_(s=2)^l n_beta(pi,lambda_1^(s−1))=∏_(s=2)^l lambda_1^((s−1)A) *Correction:* Include the factor (−1)^(l−1), inherited from equation6.2.6.
+- **E20** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: §7.2.2 p72, divisibility threshold and p=2 definitions. *Printed:* p^(2 gcd(k)); g_i,j,s=∏_(i,j,s)(...) *Correction:* The threshold is p^(2 v_p(gcd(k)))=p^(2alpha). In the definitions of individual g_i,j,s remove the extraneous product signs.
+- **E21** (misprint; affects nothing), Yu arXiv:1807.04659v5, 18 July2022: §7.3.1 p73, definition of Euler characteristic. *Printed:* chi(V)=Σ_(i=1)^(2m)(−1)^i dim H^i *Correction:* Start the sum at i=0.
+- **E22** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: Lemma7.3.1 proof p74, ambient ring of Omega_g and Log Omega_g. *Printed:* Omega_g ∈ 1+T J_g Q(q,z)[T,z_i±1] *Correction:* Use formal T-adic power series, with each coefficient a Laurent polynomial in z_i; the same correction applies to Log Omega_g.
+- **E23** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: Lemma7.3.1 proof p74, Gauss-lemma justification. *Printed:* J_g(q,1,z_i) has constant term 1 *Correction:* Use primitivity: the coefficient of ∏z_i is (−1)^g. The Laurent constant coefficient is (1+q)^g.
+- **E24** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: LemmaA.2 proof p76. *Printed:* d_Q(lambda)=hat1_Q^e(lambda mu0)theta_Q(lambda)^−1 *Correction:* Multiply by theta_Q(lambda), rather than its inverse.
+- **E25** (misprint; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: §7.2.2 pp65–66, alpha/beta list lengths. *Printed:* ∏_(j=1)^ls(1−beta_j z)/∏_(j=1)^ms(1−alpha_j z), then alpha_j indexed to ls *Correction:* Keep alpha indexed by 1..ms and beta by 1..ls throughout the binomial expansion and the independent-variable assignment, or rename both lists consistently.
+- **E26** (error; affects the proof), Yu arXiv:1807.04659v5, 18 July2022: TheoremA.4 proof p78, order of a sum. *Printed:* ord(e+a)=lcm(ord(e),ord(a)) *Correction:* Only test whether e+a=0. Since 2a=0 in Z/cZ, a is zero or the unique element of order two; equality e=−a is determined by ord(e).
+- **E27** (misprint; affects nothing), Yu arXiv:1807.04659v5, 18 July2022: TheoremC.1 p79, reciprocal indexing. *Printed:* sigma_i sigma_(2g−i)=q *Correction:* Use sigma_i sigma_(2g+1−i)=q, or the consistent sigma_i sigma_(i+g)=q for 1≤i≤g.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **S1** (unavailable). The 109-page journal text is not openly available (the Annals site returned HTML; Unpaywall lists only the thesis), so arXiv v5, the author's final version, is the text read. Of E1–E27, E1, E2, E10, E21 and E27 were checked and reclassified to affect nothing, and E16 was checked; independent verification of the rest is the review pipeline's job.
+- **S2** (deferred). Arthur, Langlands, Moeglin–Waldspurger, LW13 and Lafforgue 1997 are cited suppliers; E8 and E9 record the operator-normalization points.
+- **S3** (deferred). Nitsure, Schiffmann, Mellit and Ch15 are cited suppliers.
+- **S4** (deferred). KW01, Lafforgue 2002, Deligne, Shalika, Flath, Shintani and Cogdell are cited suppliers.
+- **S5** (deferred). Symbolic proof of the finite combinatorial tests and splitting of adapters are implementation work.
+- **S6** (deferred). Schiffmann, Hausel, the twisted nonabelian Hodge theorem and HR08 are cited suppliers.
+- **S7** (deferred). KS99, Koblitz, Kowalski, Larsen and Chavdarov are cited suppliers.
+- **S8** (deferred). Ownership coordination is design work.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## PAPER-YU-23 — spectral cover and operator continuation
 
 Status: partial. Codex, session codex-c83e7a, 2026-09-23. Refs #1091. Continues the codex-a71f92 extraction merged in #2021.
 
@@ -8,7 +96,7 @@ The full85-page [arXivv5](https://arxiv.org/pdf/1807.04659v5), dated18 July2022,
 
 The JSON distinguishes the prior detailed line ledger from this continuation's fresh full read. Supplementary reading remains selective: the new Lafforgue ranges are stated below; earlier Mellit opening statements, Luo–Zhu Lemma3.1 and selected Chaudouard passages are inherited provenance, not a new full read of those sources. The remaining prerequisites and S1–S8 stay open.
 
-## Spectral continuation: the finite cover and its measure
+### Spectral continuation: the finite cover and its measure
 
 The continuation replaces item063's unspecified operator expression with the exact all-lifts form of Yu (5.2.9)/(5.2.14). It adds items142–153, reuses three pinned library theorems, and supplies a proof plan for each remaining adapter. It does not close the original analytic trace-formula proofs. In particular the normalization issue E8 remains open in a more precise form.
 
@@ -44,7 +132,7 @@ Its pullback is the average of f over kernel translates. This proves continuity,
 
 This sum is absolutely convergent for smooth f. After integer-lattice coordinates identify the compact abelian Lie group with a finite group times a torus, integration by parts with `(1−Δ)^s` gives coefficient bound `C(1+4π²||k||²)^−s`; choose 2s greater than the torus dimension. Finite component characters add only a finite sum. The same proof is uniform in a compact auxiliary parameter when the required derivatives are uniformly bounded. Mathlib's `UnitAddTorus.hasSum_mFourier_series_apply_of_summable` supplies pointwise reconstruction **after** this summability adapter, and `AddChar.expect_eq_ite` supplies finite character orthogonality. The existing L² Fourier and Peter–Weyl theorems alone cannot evaluate a function at a fibre point. Tau Ceti's rapid-decay theorem for compactly supported functions on real vector spaces is a related input, not already the smooth periodic theorem used here.
 
-## The exact operator and Fourier signs
+### The exact operator and Fourier signs
 
 Use τ for λ_pi, a for Yu's **λ_L**, and b for Yu's **λ^L**. The latter is in B0; a is in A. This notation avoids the superscripts lost by OCR. The stabilizer convention is `w(pi⊗τ)=pi`, as in Yu p12; the formula does not require a good representative. A good representative is imposed later in the scalar reduction.
 
@@ -84,7 +172,7 @@ J_e     = 1/n sum_(k mod n) ζ^(-ek) J_(η^k).
 
 Inserting the second expression changes h_Q to `hat1_Q^e(v)=1/n sum_k ζ^(ek)hat1_Q(vη^k)`: reindex k↦−k to reconcile the signs. The operator, its order and the fibre are unchanged. This gives Yu (5.2.14) for **all integer e**. Coprimality belongs to the later evaluation, not this finite Fourier inversion.
 
-## What the original-source comparison establishes
+### What the original-source comparison establishes
 
 Freshly read [Lafforgue1997](https://www.numdam.org/item/AST_1997__243__1_0.pdf), printed pp280–281,284–287,301–308, with images of pp281,284,302–303,306–308. This covers the relevant torus and measure definitions, the induced-space definitions, the stated Langlands properties, the cone-series/gluing steps and the Lemma9-to-Theorem11 passage. It is not a full monograph read and does not include the original Langlands proofs cited there.
 
@@ -99,20 +187,19 @@ The fresh images also change two inherited conclusions:
 
 The conductor arithmetic is consistent with the previous E11 correction: the diagonal valuations `−(n−1)n_v,...,0`, together with degree equal to minus their sum, give `+n(n−1)(g−1)`. A central degree-one idele acts on determinant degree by n, so the correcting exponent is `−(n−1)(g−1)`. These exact sign checks do not supply the unread Whittaker uniqueness or local-value proofs. The genus-dependent unipotent Haar prefactor likewise remains tied to the original global measure comparison.
 
-## Ownership and implementation boundary
+### Ownership and implementation boundary
 
 The reviewed AUDIT14 and full AS.0–AS.6 descriptions were reread. AS.0 already owns functional analysis, AS.1/2 induction and operators, and AS.6 the regularized trace machinery. Items145–150 are shared compact-character adapters within this programme;151–152 specialize its trace formula;153 records induction-convention transport. Items142–144 are imported rather than replanned. The programme's number-field scope is not treated as a theorem for function fields: Yu and Lafforgue supply that source extension, whose analytic prerequisites remain explicit.
 
 The proposed file `TauCeti/Automorphic/YuCounting/CharacterCover.lean` is an organizational suggestion, not an added deliverable. Export the finite-cover transfer for other spectral uses, and import the existing Haar and Fourier primitives. The three allowed deliverables contain no Lean code asserted to compile.
 
-
-## Fresh library imports
+### Fresh library imports
 
 - PAPER-YU-23/142: `mathlib:MonoidHom.measurePreserving` in `Mathlib/MeasureTheory/Measure/Haar/Unique.lean`, lines952–958. Statement and hypotheses read at Mathlib082e2d3.
 - PAPER-YU-23/143: `mathlib:UnitAddTorus.hasSum_mFourier_series_apply_of_summable` in `Mathlib/Analysis/Fourier/AddCircleMulti.lean`, lines329–332. Statement and hypotheses read at Mathlib082e2d3.
 - PAPER-YU-23/144: `mathlib:AddChar.expect_eq_ite` in `Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean`, lines33–36. Statement and hypotheses read at Mathlib082e2d3.
 
-## Mathematical outcome and dependency structure
+### Mathematical outcome and dependency structure
 
 For a smooth proper geometrically connected curve X1/Fq, let E_n be the irreducible rank-n geometric l-adic local systems, and pair the Frobenius eigenvalues as sigma_i and q/sigma_i. Yu proves for g≥2 a universal polynomial
 
@@ -142,7 +229,7 @@ The extraction keeps the following chains separate:
 
 The JSON is the detailed item inventory, including corrected mathematical statements, proof sketches, definition APIs/tests, uses and the acyclic dependency graph. Some imported statements are deliberately marked incomplete: item123's KW01 input and the original analytic prerequisites of item063 (whose operator formula is now explicit). The existence of a proof outline is not proof closure.
 
-## Retained library inputs at the pinned commits
+### Retained library inputs at the pinned commits
 
 Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti: `f790474821cf4256814db967cb154e7af3d0c369`. The following eight library records and other-route audit notes are retained from the previous extraction; fresh spectral/library checks are recorded above. The current publication guard is `a4ad60cd4c77d372c695eee0d6ef7bb5fa1b8279`.
 
@@ -159,9 +246,9 @@ The partition and graph statuses mean their carriers exist, not that the paper's
 
 Read relevant AUDIT20 entries for FA.1/FA.2/FA.4/FA.6 and GS.0/GS.6; AUDIT14 AS.1/AS.2/AS.3/AS.4/AS.6 and AL.3; AUDIT18 DWP.0/DWP.1/DWP.7, EDC.2:pairings and CA.2/CA.3; AUDIT15 QM.0; AUDIT01 SF.3 and R09.4/R09.5; AUDIT19 WC.1 and WC.5:power-sum-converse. These distinguish existing divisors, partitions, binomial and determinant primitives from absent spectral/geometric targets. ET.2b and the classical-group stage IDs have no reviewed entry in this snapshot; no negative audit is inferred from that absence.
 
-## Retained routing decisions
+### Retained routing decisions
 
-### Route 1: FunctionFieldArithmetic
+#### Route 1: FunctionFieldArithmetic
 
 Type: source. Items: 001, 009, 011, 012, 013, 064.
 
@@ -169,7 +256,7 @@ Yu supplies the unramified function-field specialization, exact degree/Haar conv
 
 Existing layers: `FunctionFieldArithmetic:FA.0`, `FunctionFieldArithmetic:FA.1`, `FunctionFieldArithmetic:FA.2`, `FunctionFieldArithmetic:FA.4`, `FunctionFieldArithmetic:FA.6`.
 
-### Route 2: GlobalShtukasAndFunctionFieldLanglands
+#### Route 2: GlobalShtukasAndFunctionFieldLanglands
 
 Type: source. Items: 014, 026, 033, 126.
 
@@ -177,7 +264,7 @@ Reuse the global bundle and full GL_n correspondence owners. The shifted HN and 
 
 Existing layers: `GlobalShtukasAndFunctionFieldLanglands:GS.0`, `GlobalShtukasAndFunctionFieldLanglands:GS.6`.
 
-### Route 3: AutomorphicSpectralTheory
+#### Route 3: AutomorphicSpectralTheory
 
 Type: source. Items: 010, 017, 018, 019, 020, 021, 022, 023, 024, 025, 038, 039, 047, 048, 049, 050, 051, 052, 053, 054, 055, 056, 058, 059, 060, 061, 062, 063, 065, 066, 115, 116, 117.
 
@@ -185,7 +272,7 @@ The existing spectral programme owns truncation, induced sections, residual spec
 
 Existing layers: `AutomorphicSpectralTheory:AS.1`, `AutomorphicSpectralTheory:AS.2`, `AutomorphicSpectralTheory:AS.3`, `AutomorphicSpectralTheory:AS.4`, `AutomorphicSpectralTheory:AS.6`.
 
-### Route 4: AutomorphicLFunctionsAndLocalFactors
+#### Route 4: AutomorphicLFunctionsAndLocalFactors
 
 Type: source. Items: 057, 068, 069, 127, 128, 130.
 
@@ -193,7 +280,7 @@ Whittaker normalization and unramified Rankin–Selberg product, pole and functi
 
 Existing layers: `AutomorphicLFunctionsAndLocalFactors:AL.3`.
 
-### Route 5: DeligneWeightsAndPurity
+#### Route 5: DeligneWeightsAndPurity
 
 Type: source. Items: 041, 042.
 
@@ -201,7 +288,7 @@ The curve Weil-eigenvalue and pure lisse-coefficient input is already planned he
 
 Existing layers: `DeligneWeightsAndPurity:DWP.0`, `DeligneWeightsAndPurity:DWP.1`, `DeligneWeightsAndPurity:DWP.7`.
 
-### Route 6: EndoscopicTransferAndUnitaryTraceComparison
+#### Route 6: EndoscopicTransferAndUnitaryTraceComparison
 
 Type: source. Items: 035.
 
@@ -209,7 +296,7 @@ Reuse the Hitchin/Higgs carrier already in the geometric fundamental-lemma layer
 
 Existing layers: `EndoscopicTransferAndUnitaryTraceComparison:ET.2b`.
 
-### Route 7: QSeriesPartitionsAndMockModularForms
+#### Route 7: QSeriesPartitionsAndMockModularForms
 
 Type: source. Items: 044, 086, 087, 090, 094, 102, 106, 107.
 
@@ -217,7 +304,7 @@ Formal coefficientwise series, partition cycle indices, plethystic operations an
 
 Existing layers: `QSeriesPartitionsAndMockModularForms:QM.0`.
 
-### Route 8: ClassicalArithmeticCompletion
+#### Route 8: ClassicalArithmeticCompletion
 
 Type: source. Items: 103, 104, 105.
 
@@ -225,7 +312,7 @@ The binomial divisibility and p-free factorial congruences support arithmetic ge
 
 Existing layers: `ClassicalArithmeticCompletion:CA.2`.
 
-### Route 9: SchemeAndStackFoundations
+#### Route 9: SchemeAndStackFoundations
 
 Type: source. Items: 125.
 
@@ -233,7 +320,7 @@ Import coherent Serre duality through SF.3 and its upstream JacobianChallenge La
 
 Existing layers: `SchemeAndStackFoundations:SF.3`.
 
-### Route 10: EtaleDualityAndPerverseSheaves
+#### Route 10: EtaleDualityAndPerverseSheaves
 
 Type: source. Items: 129.
 
@@ -241,7 +328,7 @@ The tensor H0/H2 calculation is an application of the existing smooth-proper per
 
 Existing layers: `EtaleDualityAndPerverseSheaves:EDC.2:pairings`.
 
-### Route 11: WeilConjectures
+#### Route 11: WeilConjectures
 
 Type: source. Items: 120.
 
@@ -249,7 +336,7 @@ The nonarchimedean negative-power-sum obstruction is a companion specialization 
 
 Existing layers: `WeilConjectures:WC.5:power-sum-converse`.
 
-### Route 12: GlobalShtukasAndFunctionFieldLanglandsCountingPartII
+#### Route 12: GlobalShtukasAndFunctionFieldLanglandsCountingPartII
 
 Type: part-ii. Items: 002, 003, 004, 005, 006, 015, 016, 027, 028, 029, 030, 031, 032, 034, 036, 037, 040, 045, 046, 067, 070, 071, 072, 073, 075, 076, 077, 078, 079, 080, 082, 083, 084, 085, 088, 089, 091, 093, 095, 096, 097, 098, 100, 101, 108, 109, 110, 111, 112, 113, 114, 118, 119, 121, 122, 123, 124, 131, 132, 133, 134, 135, 136, 137, 138, 139.
 
@@ -257,7 +344,7 @@ The existing GS programme constructs bundles, shtukas and Langlands, but not Yu'
 
 Design brief: Final targets are Yu Theorem1.1: for g≥2 and n≥1 the Frobenius-fixed irreducible rank-n geometric local-system count is P_g,n(q^k,sigma_1^k,...,sigma_g^k), for a unique P_g,n in R_g=Z[z_i,t/z_i]^W. Its unique top-weight term is t^((g−1)n²+1); P_g,n=J_g Q_g,n with J_g=product_i(1−z_i)(1−t/z_i), Q_g,n in R_g and Q_g,n(1)=sum_(d|n)mu(d)mu(n/d)d^(2g−3). Prove Theorem1.3 J_e=P_n^e and Theorem1.4 dependence only on the order of e modulo n, the coprime Higgs comparison, and AppendixC's necessary exponent cone in every characteristic. Build, in order: Weil descent and twist stabilizers; isocline bundles and the geometric trace; the coprime stable GL_n coarse-moduli/mass adapter; finite spectral character sums; one reusable weighted matrix-tree/cofactor module and its cycle-block specialization; cuspidal orbit inversion and the exact recurrence097; universal Laurent polynomials and integral/Jacobian/Euler consequences. Import Function-field arithmetic (FunctionFieldArithmetic), Global shtukas and Langlands over function fields (GlobalShtukasAndFunctionFieldLanglands), Automorphic spectral theory (AutomorphicSpectralTheory), Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors), Deligne weights and purity (DeligneWeightsAndPurity), Etale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves), Q-series, partitions and mock modular forms (QSeriesPartitionsAndMockModularForms), Classical arithmetic completion (ClassicalArithmeticCompletion), and the scheme curve suppliers through SchemeAndStackFoundations. Reuse Hitchin carriers from EndoscopicTransferAndUnitaryTraceComparison:ET.2b, coordinate with the GWZ20-B endoscopic Part II, and consume ClassicalGroupsPartII's GSp character interpretation as optional explanatory infrastructure, not as a circular premise for polynomial integrality. Use Mathlib partition/graph/matrix/Mobius/Vandermonde primitives and Tau Ceti divisor/split-K0 results. Do not rebuild any upstream roadmap. Resolve S1–S8, especially exact spectral operators and external Higgs/monodromy proofs, before claiming the design has no gaps.
 
-### Route 13: ClassicalGroupsPartII
+#### Route 13: ClassicalGroupsPartII
 
 Type: part-ii. Items: 099.
 
@@ -267,14 +354,13 @@ Design brief: Prove that restriction of rational algebraic representations of th
 
 These routes do not recreate the upstream JacobianChallenge, classical-group, curve or representation-ring programmes. The counting extension owns the new application, while reusable analytical/arithmetic lemmas go to existing proposed layers. No other extracted paper was found owning Yu's exact recurrence. The existing GWZ20-B endoscopic Part II has a different endpoint; shared Hitchin carriers need coordination, not duplication.
 
-
 The retained AutomorphicSpectralTheory route additionally imports142–144 and owns145–153 as detailed above. AS.0 is now included among its source stages. The other12 routes and the two Part II briefs are unchanged.
 
-## Active source findings and the withdrawn extraction mistake
+### Active source findings and the withdrawn extraction mistake
 
 E1–E27 are candidate findings in the version read, with no independent-review verdict. E8 and E9 were refined by the fresh original-source comparison. E28 is archived outside this list because the source already prints≤. No author was contacted.
 
-### E1 — misprint; affects a stated result
+#### E1 — misprint; affects a stated result
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: §2.3.1 p9 and §3.3.1 p18.
 
@@ -286,7 +372,7 @@ Reason: For P=G the unipotent quotient is a point and the constant term is phi i
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E2 — misprint; affects a stated result
+#### E2 — misprint; affects a stated result
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: §3.2.3 p17, displayed definition of H_g,n.
 
@@ -298,7 +384,7 @@ Reason: The rank-one Young-diagram term has denominator (z−1)(1−q); the corr
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E3 — misprint; affects the proof
+#### E3 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Proposition3.3.4 proof p21, convex identity and next two displays.
 
@@ -310,7 +396,7 @@ Reason: The corrected identity is (b−l)omega_a+(l−a)omega_b−(b−a)omega_l
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E4 — gap; affects a stated result
+#### E4 — gap; affects a stated result
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Corollary4.2.6 p27.
 
@@ -322,7 +408,7 @@ Reason: Annular holomorphy does not define the interior divisor. For example z e
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E5 — misprint; affects the proof
+#### E5 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Theorem4.2.4 proof p25, root-wall estimate.
 
@@ -334,7 +420,7 @@ Reason: The printed upper bound for theta itself is true but does not control it
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E6 — error; affects the proof
+#### E6 — error; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: §5.1.1 p29, choice of kappa.
 
@@ -346,7 +432,7 @@ Reason: Image checked. kappa=(3,2,1) is in the positive chamber and every Levi p
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E7 — misprint; affects a stated result
+#### E7 — misprint; affects a stated result
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Proposition5.2.1 p32, type of H_Q^e.
 
@@ -358,7 +444,7 @@ Reason: The floor differences telescope to −e. With one block and e=1, H=−1 
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E8 — misprint; affects the proof
+#### E8 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: §5.2.2 p32 compared with §5.3.2 p39.
 
@@ -370,7 +456,7 @@ Reason: For the same rho_R, the two Yu displays are algebraically inconsistent a
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E9 — error; affects a stated result
+#### E9 — error; affects a stated result
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Yu §5.2.3 pp33–35 concerning Lafforgue1997 Theorem11 pp307–308.
 
@@ -382,7 +468,7 @@ Reason: Yu explicitly identifies errors in the recovery of the spectral expressi
 
 Known correction: Yu arXiv:1807.04659v5, §5.2.3, Theorem5.2.2. The bounded searches and version/review scope are recorded in JSON.
 
-### E10 — misprint; affects a stated result
+#### E10 — misprint; affects a stated result
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Lemma5.3.3 p36.
 
@@ -394,7 +480,7 @@ Reason: The zero vector is an immediate counterexample; the proof explicitly use
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E11 — misprint; affects the proof
+#### E11 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Lemma5.3.3 proof p38.
 
@@ -406,7 +492,7 @@ Reason: Sum the diagonal valuations and use deg K=2g−2. Both displayed signs w
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E12 — misprint; affects the proof
+#### E12 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Proposition5.3.4 proof, final paragraph p39.
 
@@ -418,7 +504,7 @@ Reason: With product local volume(O_v)=1, the additive adelic quotient has volum
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E13 — misprint; affects the proof
+#### E13 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: §5.3.3 p41, central shift and equation5.3.6.
 
@@ -430,7 +516,7 @@ Reason: The floor exponent has total −e and each root denominator is invariant
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E14 — misprint; affects the proof
+#### E14 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Equations6.1.1–6.1.2 pp42–43.
 
@@ -442,7 +528,7 @@ Reason: Tensor-Hom identifies F1⊗F2∨ with Hom(F2,F1); Poincare duality gives
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E15 — gap; affects a stated result
+#### E15 — gap; affects a stated result
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Corollary6.1.2 p43, two-case statement.
 
@@ -454,7 +540,7 @@ Reason: The two printed alternatives do not exhaust arbitrary pairs. The applica
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E16 — error; affects a stated result
+#### E16 — error; affects a stated result
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Lemma6.3.2(b) p50.
 
@@ -466,7 +552,7 @@ Reason: For A=[[0,1],[0,0]], rank=1 but det(A+tI)=t², so kappa=0; the printed p
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E17 — misprint; affects the proof
+#### E17 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Theorem6.4.1 proof p53, block matrix conventions.
 
@@ -478,7 +564,7 @@ Reason: The same page defines x_i,j positively and the next page states x_i,j(s,
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E18 — misprint; affects the proof
+#### E18 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Lemma6.6.2 proof p62.
 
@@ -490,7 +576,7 @@ Reason: Proposition2.1.3 says induction from d distinct geometric conjugates giv
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E19 — misprint; affects the proof
+#### E19 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: §6.2 p46, product following equation6.2.7.
 
@@ -502,7 +588,7 @@ Reason: There is one minus sign per root factor in equation6.2.6. The first disp
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E20 — misprint; affects the proof
+#### E20 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: §7.2.2 p72, divisibility threshold and p=2 definitions.
 
@@ -514,7 +600,7 @@ Reason: The argument immediately sets alpha=v_p(gcd k) and proves valuation at l
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E21 — misprint; affects a stated result
+#### E21 — misprint; affects a stated result
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: §7.3.1 p73, definition of Euler characteristic.
 
@@ -526,7 +612,7 @@ Reason: For a point the printed definition gives zero, whereas both the cohomolo
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E22 — misprint; affects the proof
+#### E22 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Lemma7.3.1 proof p74, ambient ring of Omega_g and Log Omega_g.
 
@@ -538,7 +624,7 @@ Reason: Omega has nonzero contributions in arbitrarily high T degrees. Coefficie
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E23 — misprint; affects the proof
+#### E23 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: Lemma7.3.1 proof p74, Gauss-lemma justification.
 
@@ -550,7 +636,7 @@ Reason: For g=1, J=(1−z)(1−q/z)=1+q−z−q/z. Gauss's lemma still proves in
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E24 — misprint; affects the proof
+#### E24 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: LemmaA.2 proof p76.
 
@@ -562,7 +648,7 @@ Reason: The family product formula writes the desired sum as Σ d_Q c_Q/theta_Q.
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E25 — misprint; affects the proof
+#### E25 — misprint; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: §7.2.2 pp65–66, alpha/beta list lengths.
 
@@ -574,7 +660,7 @@ Reason: The recurrence defines ms denominator monomials alpha and ls numerator m
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E26 — error; affects the proof
+#### E26 — error; affects the proof
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: TheoremA.4 proof p78, order of a sum.
 
@@ -586,7 +672,7 @@ Reason: Take c=2,e=a=1: ord(e+a)=1 but lcm(2,2)=2. These parameters occur for on
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-### E27 — misprint; affects a stated result
+#### E27 — misprint; affects a stated result
 
 Locator: Yu arXiv:1807.04659v5, 18 July2022: TheoremC.1 p79, reciprocal indexing.
 
@@ -598,7 +684,7 @@ Reason: At i=g the printed formula forces sigma_g²=q, incompatible with the ord
 
 Known correction: new. The bounded searches and version/review scope are recorded in JSON.
 
-## Verification and reproducible diagnostics
+### Verification and reproducible diagnostics
 
 The paper schema and three-file intake checks passed. The continuation passed1209 structural assertions and55391 exact diagnostics across54 cycle/rank configurations,162 fibres, kernel-character averages, Fourier degree signs and noncommuting operator order. The inherited110864 exact checks also reran successfully. All50 definition/construction nodes now have three canonical tests; they remain planning specifications, not executed Lean examples. No Lean file was required or compiled. These finite checks do not establish the infinite Fourier convergence or the automorphic trace formula.
 
@@ -825,51 +911,51 @@ print(counts)
 print('PASS', sum(counts.values()), 'finite exact checks; these are not Lean proofs')
 ```
 
-## Remaining source and implementation gates
+### Remaining source and implementation gates
 
-### S1 — Journal collation and independent verification of source issues
+#### S1 — Journal collation and independent verification of source issues
 
 Read the final 109-page journal text and collate with arXivv5, not just the publisher record. Independently verify E1–E27 with images, particularly E4/E6/E8/E15/E16/E26; establish exact effect on the final printed results. No finding presently claims to be confirmed in the journal or by an independent reviewer. E28 is withdrawn as an extraction misreading (the source image already has ≤). E1–E27 remain unreviewed; E8 now records the unresolved normalization dictionary rather than preferring one inconsistent convention.
 
 Needed by: PAPER-YU-23/001, PAPER-YU-23/002, PAPER-YU-23/003, PAPER-YU-23/004, PAPER-YU-23/005, PAPER-YU-23/006, PAPER-YU-23/007, PAPER-YU-23/008, PAPER-YU-23/009, PAPER-YU-23/010, PAPER-YU-23/011, PAPER-YU-23/012, PAPER-YU-23/013, PAPER-YU-23/014, PAPER-YU-23/015, PAPER-YU-23/016, PAPER-YU-23/017, PAPER-YU-23/018, PAPER-YU-23/019, PAPER-YU-23/020, PAPER-YU-23/021, PAPER-YU-23/022, PAPER-YU-23/023, PAPER-YU-23/024, PAPER-YU-23/025, PAPER-YU-23/026, PAPER-YU-23/027, PAPER-YU-23/028, PAPER-YU-23/029, PAPER-YU-23/030, PAPER-YU-23/031, PAPER-YU-23/032, PAPER-YU-23/033, PAPER-YU-23/034, PAPER-YU-23/035, PAPER-YU-23/036, PAPER-YU-23/037, PAPER-YU-23/038, PAPER-YU-23/039, PAPER-YU-23/040, PAPER-YU-23/041, PAPER-YU-23/042, PAPER-YU-23/043, PAPER-YU-23/044, PAPER-YU-23/045, PAPER-YU-23/046, PAPER-YU-23/047, PAPER-YU-23/048, PAPER-YU-23/049, PAPER-YU-23/050, PAPER-YU-23/051, PAPER-YU-23/052, PAPER-YU-23/053, PAPER-YU-23/054, PAPER-YU-23/055, PAPER-YU-23/056, PAPER-YU-23/057, PAPER-YU-23/058, PAPER-YU-23/059, PAPER-YU-23/060, PAPER-YU-23/061, PAPER-YU-23/062, PAPER-YU-23/063, PAPER-YU-23/064, PAPER-YU-23/065, PAPER-YU-23/066, PAPER-YU-23/067, PAPER-YU-23/068, PAPER-YU-23/069, PAPER-YU-23/070, PAPER-YU-23/071, PAPER-YU-23/072, PAPER-YU-23/073, PAPER-YU-23/074, PAPER-YU-23/075, PAPER-YU-23/076, PAPER-YU-23/077, PAPER-YU-23/078, PAPER-YU-23/079, PAPER-YU-23/080, PAPER-YU-23/081, PAPER-YU-23/082, PAPER-YU-23/083, PAPER-YU-23/084, PAPER-YU-23/085, PAPER-YU-23/086, PAPER-YU-23/087, PAPER-YU-23/088, PAPER-YU-23/089, PAPER-YU-23/090, PAPER-YU-23/091, PAPER-YU-23/092, PAPER-YU-23/093, PAPER-YU-23/094, PAPER-YU-23/095, PAPER-YU-23/096, PAPER-YU-23/097, PAPER-YU-23/098, PAPER-YU-23/099, PAPER-YU-23/100, PAPER-YU-23/101, PAPER-YU-23/102, PAPER-YU-23/103, PAPER-YU-23/104, PAPER-YU-23/105, PAPER-YU-23/106, PAPER-YU-23/107, PAPER-YU-23/108, PAPER-YU-23/109, PAPER-YU-23/110, PAPER-YU-23/111, PAPER-YU-23/112, PAPER-YU-23/113, PAPER-YU-23/114, PAPER-YU-23/115, PAPER-YU-23/116, PAPER-YU-23/117, PAPER-YU-23/118, PAPER-YU-23/119, PAPER-YU-23/120, PAPER-YU-23/121, PAPER-YU-23/122, PAPER-YU-23/123, PAPER-YU-23/124, PAPER-YU-23/125, PAPER-YU-23/126, PAPER-YU-23/127, PAPER-YU-23/128, PAPER-YU-23/129, PAPER-YU-23/130, PAPER-YU-23/131, PAPER-YU-23/132, PAPER-YU-23/133, PAPER-YU-23/134, PAPER-YU-23/135, PAPER-YU-23/136, PAPER-YU-23/137, PAPER-YU-23/138, PAPER-YU-23/139.
 
-### S2 — Spectral original sources and exact operator formulas
+#### S2 — Spectral original sources and exact operator formulas
 
 The exact all-lifts operator formula063/151, cycle-cover degree145–147, probability Haar transfer148–149 and degree inversion152 have now been written out and Laf97 pp306–308 image-collated. Remaining: prove the inducing-character dictionary153 against the numerical normalizers in066 using original local/global conventions; prove original Arthur/Langlands/Moeglin–Waldspurger/LW13 analytic inputs and their function-field specializations, uniform regularized spectral summation and contour shifts; read Ch15 HN construction and Lemmas6.2.3–6.2.6. The p32/p39 rho mismatch cannot be closed merely by choosing one printed line. Whittaker conductor and global Haar signs retain their original-source dependencies.
 
 Needed by: PAPER-YU-23/020, PAPER-YU-23/021, PAPER-YU-23/025, PAPER-YU-23/038, PAPER-YU-23/039, PAPER-YU-23/050, PAPER-YU-23/051, PAPER-YU-23/060, PAPER-YU-23/061, PAPER-YU-23/063, PAPER-YU-23/064, PAPER-YU-23/065, PAPER-YU-23/066, PAPER-YU-23/067, PAPER-YU-23/116, PAPER-YU-23/117, PAPER-YU-23/151, PAPER-YU-23/153.
 
-### S3 — Bundle/Higgs and Mellit source closure
+#### S3 — Bundle/Higgs and Mellit source closure
 
 Read Nitsure Proposition7.4, the full Schiffmann bundle/Higgs and density arguments, Mellit's full proof and Ch15 Thm4.1.2. Separate existence, smoothness, rational coarse points, scalar stabilizers, stack mass and point counts. Split all multi-part imports and give exact base-field/characteristic hypotheses; ET.2b alone does not supply the all-characteristic coarse-moduli result.
 
 Needed by: PAPER-YU-23/026, PAPER-YU-23/027, PAPER-YU-23/030, PAPER-YU-23/031, PAPER-YU-23/033, PAPER-YU-23/035, PAPER-YU-23/036, PAPER-YU-23/037, PAPER-YU-23/039, PAPER-YU-23/045, PAPER-YU-23/046, PAPER-YU-23/110, PAPER-YU-23/125, PAPER-YU-23/126, PAPER-YU-23/138.
 
-### S4 — Weil, Langlands, normalizer and Whittaker leaves
+#### S4 — Weil, Langlands, normalizer and Whittaker leaves
 
 Read the exact KW01 Thm3.3(2) normalizer statement: item123 is only a bounded input contract and must not be treated as complete. Read relevant Lafforgue02, Deligne, Shalika, Flath, Shintani and Cogdell arguments. Split trace, Euler characteristic, purity and duality in item042. Close continuity, semisimplicity, unramified twist and conductor interfaces.
 
 Needed by: PAPER-YU-23/003, PAPER-YU-23/005, PAPER-YU-23/006, PAPER-YU-23/013, PAPER-YU-23/014, PAPER-YU-23/016, PAPER-YU-23/040, PAPER-YU-23/042, PAPER-YU-23/057, PAPER-YU-23/068, PAPER-YU-23/123, PAPER-YU-23/124, PAPER-YU-23/127, PAPER-YU-23/128, PAPER-YU-23/129, PAPER-YU-23/130.
 
-### S5 — Combinatorial and integral boundary cases
+#### S5 — Combinatorial and integral boundary cases
 
 Turn the exact finite tests into symbolic proof obligations. Split partition-statistics adapters off the already-built carrier. Spell out all block indices and polynomial continuation of determinant formulas. Item107 only records the positive-nu, positive-even-chi range needed for g≥2: Yu's broader zero/negative possibilities remain to be reconciled. Check generalized binomials at zero upper entries and empty products, full low-rank expansions and admissible-cone division.
 
 Needed by: PAPER-YU-23/043, PAPER-YU-23/075, PAPER-YU-23/076, PAPER-YU-23/077, PAPER-YU-23/078, PAPER-YU-23/079, PAPER-YU-23/082, PAPER-YU-23/083, PAPER-YU-23/084, PAPER-YU-23/085, PAPER-YU-23/087, PAPER-YU-23/090, PAPER-YU-23/098, PAPER-YU-23/101, PAPER-YU-23/102, PAPER-YU-23/103, PAPER-YU-23/104, PAPER-YU-23/105, PAPER-YU-23/106, PAPER-YU-23/107, PAPER-YU-23/108, PAPER-YU-23/112, PAPER-YU-23/139.
 
-### S6 — Top-weight, Higgs purity and Euler characteristic sources
+#### S6 — Top-weight, Higgs purity and Euler characteristic sources
 
 Read Schiffmann's leading asymptotic and AppendixB density, Hausel's Higgs purity, the exact twisted coprime nonabelian Hodge theorem and HR08 Cor1.1.1 with its quotient comparison. Item131's cohomological conventions require a complete check. No smoothness-to-purity shortcut or raw point-count division by a finite group is accepted.
 
 Needed by: PAPER-YU-23/100, PAPER-YU-23/109, PAPER-YU-23/111, PAPER-YU-23/112, PAPER-YU-23/113, PAPER-YU-23/131, PAPER-YU-23/132, PAPER-YU-23/133.
 
-### S7 — AppendixC ordinary monodromy and sieve closure
+#### S7 — AppendixC ordinary monodromy and sieve closure
 
 Read KS99 §10.6, Koblitz75 Thm5, Kowalski06 Props1/3 and Lemmas1/2, Larsen and Chavdarov97 Thm2.1 with proof. Check the replacement of almost-all auxiliary primes by infinitely many; identify the exact Honda–Tate elliptic realization. The elementary Vandermonde proof is given, but these geometric and sieve leaves are not source-closed.
 
 Needed by: PAPER-YU-23/120, PAPER-YU-23/121, PAPER-YU-23/122, PAPER-YU-23/134, PAPER-YU-23/135, PAPER-YU-23/136, PAPER-YU-23/137.
 
-### S8 — Owner adapters and shared prerequisites
+#### S8 — Owner adapters and shared prerequisites
 
 Confirm generic matrix-tree ownership across new merged work; this checkpoint gives it one reusable implementation in the counting extension, not a second graph carrier. Coordinate the all-characteristic GL_n moduli bridge with ET.2b and the GWZ20-B endoscopic Part II. ClassicalGroups Part II must import the split K0 machinery and upstream highest-weight theory, then separately build rational GSp descent and the tensor-generated subring. No reviewed ClassicalGroups or ET.2b audit entry exists in this snapshot; absence is not an audited negative verdict.
 
