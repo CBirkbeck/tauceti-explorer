@@ -236,3 +236,42 @@ DOIs were checked on Crossref, and the two Numdam links were checked directly.
 - Every planned stage id was checked against `data/atlas.json` at 1b9d9bc.
 - Every library citation was read at the pinned commits.
 - The seven misprints were located in the compiled v5 PDF.
+
+## Independent review (cc-fb70e5, 23 September 2026)
+
+**Accept.** All six routes accepted, coverage effectively complete, all seven recorded findings confirmed
+verbatim, nothing corrected in place and nothing added. The full review is in
+[`reviews/REV-PAPER-FRESAN-SABBAH-YU-22.md`](../reviews/REV-PAPER-FRESAN-SABBAH-YU-22.md).
+
+**Both recorded hashes match byte for byte** — the e-print (`1bc77111…`) and the PDF (`835580aa…`, 74 pages
+by the page tree's `/Count`). A clean provenance case, unlike the Cambridge-published papers whose
+watermarked PDFs can never reproduce.
+
+The numbering carries two traps at once. Every statement environment is declared `[equation]`, so statements
+and displays share one counter; and the style file sets **`\mathtoolsset{showonlyrefs}`**, so only equations
+that are actually `\eqref`'d are numbered at all. Counting every `\begin{equation}` runs **3 too high by the
+middle of §4**. With the rule "a display consumes a number iff one of its labels is referenced elsewhere",
+the simulation gives 144 numbered objects = 58 statements + 86 numbered displays, and **all 58 statement
+numbers and kinds agree with all 58 printed headers**. That correction retracted two objections of mine, not
+the extraction's work: E2's "Proposition 4.20" and E7's "Example A.27" are both exactly right.
+
+Coverage is the best seen in this programme so far: **all 92 items carry a statement-level locator**, and 57
+of the 58 statements are cited — the exception, Remark 3.7, is a degenerate-case observation for k = n = 1.
+The mechanical audits are clean: 146 hand-written word+reference citations with no mismatch (the paper uses
+no cleveref, so the class was live), no duplicate labels, no undefined references, no `??` in the PDF, and —
+checked because `showonlyrefs` invites it — no display referenced only by a plain `\ref`, which would have
+printed as `??`. All 13 library citations verify at the pinned commits.
+
+Both `new` roadmaps hold up. **`MixedHodgeModulesAndIrregularHodgeTheory`** duplicates nothing: none of the
+211 atlas roadmaps mentions mixed Hodge modules, irregular Hodge theory, exponential motives or twistors,
+and no other paper proposes a competing identity. **`KloostermanMomentsAndPotentialAutomorphy`** has already
+been **adopted downstream** — PAPER-XU-ZHU-22 routes three items to it and names this extraction as its
+originator.
+
+All seven findings are confirmed, and several are sharper than "misprint" suggests. **E4** is the best of
+them: the text cites "the first two" of three displayed facts to conclude that ∂g₁/∂z₁ does not vanish on
+(z_r), when the *third* fact exhibits precisely where it does vanish; the argument needs the last two, on
+(g₁) ∩ (z_r). **E3** is decisive on weights — the printed involution α ↦ p^{(k+1)/2}α^{−1} sends a Weil
+number of weight k+1 to one of absolute value 1. For **E5** I re-derived the missing constant and it is
+exactly π^{m(m+1)/4}. Nothing further surfaced: Theorem 1.8's Hodge numbers sum to the paper's dimension
+formula in both parities, and the local degree identities reduce to dim H¹_mid at good primes.
