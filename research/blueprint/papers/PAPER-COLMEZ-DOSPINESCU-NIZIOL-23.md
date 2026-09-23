@@ -59,3 +59,27 @@ The `p > 3` hypothesis is "sans doute superflue" (footnote 2) but not removed: `
 ## Checks
 
 `scripts/check_paper.py`: ok with `"status": "complete"`, so exactly-once routing of the 76 missing items is enforced and the 6 source issues pass `scripts/source_issues.py`. Both proposed new ids are free in `data/atlas.json`, in `research/blueprint/roadmaps/` and in every other paper extraction; the two shared ids are the ones proposed by `PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B`, as PROTOCOL §15 intends; the `part-ii` parent exists and is of atlas origin; all route areas are galaxy ids of `data/galaxies.json`; and every `planned` stage id was checked against `data/atlas.json`.
+
+## Review (REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1372](https://github.com/CBirkbeck/tauceti-explorer/issues/1372). **Verdict: accept.**
+No item, status, route or locator changed.
+
+- **All 6 mistakes confirmed, every one decisively.** E3 is the substantive one and the paper
+  settles it against itself: Théorème 0.18(ii) on p. 9 reads "Supposons que p > 3", while
+  Théorème 5.24(ii) on p. 59 states the same isomorphism with no hypothesis at all. E1 defines a
+  dual as its own dual (`Ř = Hom(Ř, L)`). E2, E4, E5, E6 are "pour pour", a reference whose group
+  name dropped out leaving "of )", a field set as "𝑔 𝑝", and "of of".
+- **Provenance, with a detail worth recording:** the recorded `sha256` is not reproducible, and
+  although two of three downloads agreed, that was an artefact of the stamp's one-second
+  granularity — the third differed. **Two agreeing downloads are not evidence; take three.** A
+  stamp-stripped text hash was recorded as the anchor.
+- **Items and routes:** no library items; 16 planned resolving; 76 missing routed exactly once;
+  all four proposed names free and the Part II title an exact prefix extension.
+- **Two merges checked at first hand:** `ProetaleCohomologyOfPAdicCurvesAndTowers` and the Part II
+  are the ones PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B proposed, which the same reviewer reviewed
+  earlier in this session (#2474) — the two extractions are complementary, this paper completing
+  what 20-B began.
+
+Full report: `research/blueprint/reviews/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.md`.
