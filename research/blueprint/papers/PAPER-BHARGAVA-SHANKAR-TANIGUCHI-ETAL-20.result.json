@@ -23,7 +23,8 @@
       "Sedunova v1: entire eight-page source read, with particular attention to Theorem 1, Lemmas 1–2 and proof §§2–3; compilation date August 2018 differs from the June 2015 arXiv version stamp.",
       "ChatGPT Pro cgp-0922-b7d49a: selected §§2–4 of the February 2017 Taniguchi copy, with the basis formula visually checked; Klüners–Wang v2 Theorem 2.1 and full proof pp.3–4 read and visually checked, plus first-page version stamp. No new PDF byte hash, fresh complete reading of §§5–7, or acquisition of the final publisher text is claimed.",
       "ChatGPT Pro cgp-0922-d4f8c2: the February 2017 main-paper author copy, all parsed pages including references, with the p.4 volume display visually checked; Bombieri–Pila selected determinant foundations pp.1–6 and all of §3 pp.10–17 read, with printed pp.3,14,17 visually checked. The original-source formulas are distinguished from the new BP1–BP6 replacement arguments. No new PDF byte hash, full reading of unrelated prerequisite interiors, or acquisition of the final 2020 publisher revision is claimed.",
-      "Codex codex-a71f92 (2026-09-22): freshly downloaded and hashed the Taniguchi author copy and Oxford Bombieri–Pila PDF; hashes match the inherited records. Read the entire 13-page main author copy including references, BP pp.1–6 and all §3 pp.10–17; visually inspected main p.4 and BP pp.14,17. Did not read BP pp.7–9 or §4 as part of this checkpoint. Exact Mathlib Taylor, interpolation, Vandermonde, root-count and mean-value declarations read at the prescribed pin."
+      "Codex codex-a71f92 (2026-09-22): freshly downloaded and hashed the Taniguchi author copy and Oxford Bombieri–Pila PDF; hashes match the inherited records. Read the entire 13-page main author copy including references, BP pp.1–6 and all §3 pp.10–17; visually inspected main p.4 and BP pp.14,17. Did not read BP pp.7–9 or §4 as part of this checkpoint. Exact Mathlib Taylor, interpolation, Vandermonde, root-count and mean-value declarations read at the prescribed pin.",
+      "Codex codex-a71f92, 2026-09-23: fresh Taniguchi PDF, all 13 pages including references; fresh Oxford Bombieri–Pila PDF, pp.1–6 and all §3 pp.10–17. No new visual page inspection or final-publisher-text comparison. Read exact pinned rank-nullity, coefficients/evaluation, Rolle, polynomial derivative, interpolation, triangular determinant, Taylor and compact-maximum suppliers for checkpoint ten."
     ],
     "files": [
       {
@@ -122,10 +123,26 @@
         "url": "https://people.maths.ox.ac.uk/pila/Ovals.pdf",
         "sha256": "a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408",
         "scope": "pp.1–6 and §3 pp.10–17; pp.14,17 visual."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-23",
+        "url": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
+        "sha256": "bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec",
+        "scope": "Entire 13-page February 2017 author copy, parsed text."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-23",
+        "url": "https://people.maths.ox.ac.uk/pila/Ovals.pdf",
+        "sha256": "a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408",
+        "scope": "pp.1–6 and §3 pp.10–17, parsed text; not pp.7–9 or §4."
       }
     ]
   },
-  "summary": "Partial seventh checkpoint: 129 stable-identified items (27 library, 8 planned, 94 missing). Retains all 119 inherited IDs, integrates the five BP1–BP6 determinant proof nodes and four proposed source issues from #1817, and adds five exact Mathlib supplier nodes with explicit adapter boundaries. Six routes cover 87 missing items exactly once; seven diagnostic targets stay unrouted. Thirty-three definitions/constructions retain APIs and tests. No complete extraction, final-publisher-version agreement, independent review or Lean formalization is claimed. Eighth checkpoint (Claude Code, cc-7b31c4): no item is added or removed and no route changes; the note on bp-taylor-supplier is refined to record that the Taylor endpoint-conversion and equal-endpoint adapters are closed against the prescribed Mathlib pin, leaving only the supremum step of BP2's scaled inequality, whose suppliers are also identified. The closure is written out in the report.",
+  "summary": "Partial tenth checkpoint: 138 stable-identified items (30 library, 8 planned, 100 missing). Retains all 129 inherited IDs, all seven proposed source findings and six route owners. Adds three exact generic suppliers and six missing determinant-method adapters; refines six inherited items. Rectangular polynomial evaluation kernels, entrywise repeated-Rolle/factorial witnesses, Newton factorization and the ordinary Taylor/absolute-maximum distinction now have explicit proof plans. Ninety-three missing items are routed exactly once; seven diagnostic claims remain deliberately unrouted. G0–G10 remain, with G7 narrowed honestly. No complete extraction, final-publisher agreement, independent review or Lean formalization is claimed.",
   "items": [
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/class-group",
@@ -557,37 +574,173 @@
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-system",
       "kind": "definition",
       "name": "Restricted monomial system",
-      "statement": "A finite nonempty set M of distinct monomials X^iY^j has D=|M|, p=Σ(i+j), q=Σj; evaluation at points gives a matrix with one column per monomial.",
+      "statement": "A finite set M of distinct exponent vectors in (Fin 2 →₀ ℕ) specifies monomials in MvPolynomial (Fin 2) F over a field F. Put D=|M|, p=Σ_(i,j)∈M(i+j), q=Σ_(i,j)∈M j. For any finite point-index type S and z:S→F², A_(s,m)=z_s^m is an S-by-M evaluation matrix. The source uses D>0; the coefficient/evaluation API also permits M=∅.",
       "locator": "Bombieri–Pila §3 p.10",
       "status": "missing",
-      "note": " API: Reuse MvPolynomial and finite exponent sets; evaluation, cardinality and degree sums, nonzero coefficient vectors and curve kernels. Tests: (1) constant monomial contributes zero to p and q; (2) q≤p always; (3) duplicate monomials must not inflate D."
+      "note": "Reuse MvPolynomial, Finset exponent sets and Matrix. The coefficient and evaluation API consumed by bp-evaluation-kernel is promoted to bp-supported-coefficient-equivalence; do not create a rival polynomial or matrix carrier. No Lean implementation is claimed.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.supportedPolynomial",
+          "role": "constructor",
+          "statement": "For c:M→F, form Φ_M(c)=Σ_(m∈M) monomial m (c m), using the existing MvPolynomial carrier."
+        },
+        {
+          "name": "IntegralPointBounds.supportedPolynomial_coeff",
+          "role": "simp",
+          "statement": "The coefficient of exponent e is c(e) if e∈M and zero otherwise; this gives Φ_M(c)=0 iff c=0."
+        },
+        {
+          "name": "IntegralPointBounds.supportedPolynomial_eval",
+          "role": "compatibility",
+          "statement": "Evaluation of Φ_M(c) at z_s equals the s-component of A.mulVec c, for rectangular A."
+        },
+        {
+          "name": "IntegralPointBounds.degreeSums",
+          "role": "data",
+          "statement": "D is the Finset cardinality, p is the sum of both exponents and q the sum of second exponents; q≤p."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.empty_support",
+          "kind": "degenerate",
+          "statement": "M=∅ gives D=p=q=0 and the zero polynomial only."
+        },
+        {
+          "name": "IntegralPointBounds.constant_monomial",
+          "kind": "computation",
+          "statement": "M={(0,0)} gives D=1 and p=q=0; its evaluation column is all ones, even at the origin."
+        },
+        {
+          "name": "IntegralPointBounds.duplicate_monomial",
+          "kind": "non-example",
+          "statement": "The list [(1,0),(1,0)] represents the Finset {(1,0)}, with D=1, not 2; treating its two coefficients independently destroys injectivity."
+        },
+        {
+          "name": "IntegralPointBounds.empty_points",
+          "kind": "degenerate",
+          "statement": "With S empty and M nonempty every nonzero supported polynomial vanishes at all indexed points; rank A=0<D."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bombieri–Pila Lemmas 1,3 and Proposition 2",
+          "how": "Identify supported polynomials with coefficient vectors, then convert vanishing into a rectangular kernel condition."
+        }
+      ],
+      "implementationStatus": "unchecked"
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
       "kind": "definition",
       "name": "Scaled derivative bound",
-      "statement": "For N>0, a compact interval I⊂[0,N] and f∈C^k(I), define ||f||_(N,k)=max_{0≤i≤k,x∈I} N^(i−1)|f^(i)(x)|/i!.",
+      "statement": "For N>0, k∈ℕ, a nonempty compact interval I⊂[0,N], an open U containing I and f:ℝ→ℝ of class C^k on U, let ||f||_(N,k;I)=max_{0≤r≤k, x∈I} N^(r−1)|iteratedDeriv r f x|/r!. Exponents here are real/integer, not truncated natural subtraction. This specifies the open-neighbourhood specialization used for the graph applications; it does not identify arbitrary closed-set within-derivatives with ordinary endpoint derivatives.",
       "locator": "Bombieri–Pila §2 p.3",
       "status": "missing",
-      "note": " API: Prove finite maxima, dilation invariance, product bound and the estimates for X^i f^j. Tests: (1) dilation f_t(x)=tf(x/t) preserves the norm; (2) the zero function has norm zero; (3) the constant function has norm |c|/N."
+      "note": "The absolute-value compact-maximum argument in checkpoint ten justifies the maximum for this open-neighbourhood specialization. Product estimates and monomial norm bounds remain application proof obligations, not new generic calculus ownership. Historical closed-interval notation must not silently supply ordinary derivatives at endpoints without the stated neighbourhood smoothness.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.scaledDerivativeNorm_bound",
+          "role": "characterisation",
+          "statement": "For B≥0, the norm is ≤B iff |f^(r)(x)|/r!≤B N^(1−r) for every r≤k and x∈I."
+        },
+        {
+          "name": "IntegralPointBounds.scaledDerivativeNorm_dilate",
+          "role": "compatibility",
+          "statement": "For t>0, f_t(x)=t f(x/t), interval tI and scale tN, ||f_t||_(tN,k;tI)=||f||_(N,k;I)."
+        },
+        {
+          "name": "IntegralPointBounds.scaledDerivativeNorm_product",
+          "role": "relation",
+          "statement": "For m≥1 functions f_j smooth to order k on the same U, ||∏_(j=1)^m f_j||_(N,k;I)≤N^(m−1)(k+1)^(m−1)∏_j||f_j||_(N,k;I), by the normalized Leibniz expansion."
+        },
+        {
+          "name": "IntegralPointBounds.scaledDerivativeNorm_attained",
+          "role": "data",
+          "statement": "Every derivative order has an attained maximum of its absolute value on I, and the finite maximum over r≤k is attained."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.zero_function",
+          "kind": "degenerate",
+          "statement": "The norm of the zero function is zero, including k=0 and singleton I."
+        },
+        {
+          "name": "IntegralPointBounds.constant_function",
+          "kind": "computation",
+          "statement": "The norm of f(x)=c is |c|/N for every k."
+        },
+        {
+          "name": "IntegralPointBounds.negative_derivative_guard",
+          "kind": "non-example",
+          "statement": "For f(x)=−x³ on I=[1,2], the maximum of |f''| is 12, while the absolute value of the maximum of f'' is 6; the latter is not the norm input."
+        },
+        {
+          "name": "IntegralPointBounds.dilation_test",
+          "kind": "compatibility",
+          "statement": "For f(x)=x on [0,N], k≥1 and t>0, both f and f_t(x)=x on [0,tN] have norm 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bombieri–Pila equation (1), Lemmas 2,4 and Theorem 4",
+          "how": "Bound interpolation coefficients by derivative maxima and obtain coefficient-uniform determinant estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-evaluation-kernel",
       "kind": "theorem",
       "name": "Auxiliary curve from evaluation rank deficiency",
-      "statement": "The selected points lie on the zero locus of a nonzero polynomial supported in M if and only if their monomial evaluation matrix has rank <D.",
+      "statement": "Over a field F, let M be a finite set of distinct bivariate exponent vectors, S any finite point-index type, z:S→F² and A_(s,m)=z_s^m. Then A.rank<|M| iff there exists a nonzero polynomial Q∈MvPolynomial (Fin 2) F with support⊆M and Q(z_s)=0 for every s∈S. No square-matrix or distinct-point hypothesis is imposed; M=∅ and S=∅ are permitted.",
       "locator": "Bombieri–Pila Lemmas 1 and 3 pp.2–3,11",
       "status": "missing",
-      "note": "Consume ordinary matrix rank/kernel and polynomial monomial independence; do not create a second generic linear-algebra owner."
+      "note": "Checkpoint ten gives the rectangular reduction and matches the exact generic suppliers. This derived application is still missing, not a library declaration. Full-column-rank ⇒ a nonzero square row minor is a different adapter, required by bp-integral-determinant and still G7.",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-supported-coefficient-equivalence",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-rank-nullity-supplier",
+        "mathlib:Matrix.rank",
+        "mathlib:Module.finrank_fintype_fun_eq_card",
+        "mathlib:Module.finrank_pos_iff_exists_ne_zero"
+      ],
+      "proofSteps": [
+        "Apply rank-nullity to A.mulVecLin:F^M→F^S and the finite-function-space dimension formula to obtain rank(A)+dim ker(A)=|M|.",
+        "Positive finite dimension is equivalent to a nonzero kernel element. Translate that element through bp-supported-coefficient-equivalence; coefficient injectivity preserves nonzeroness and evaluation compatibility translates the kernel equation.",
+        "If M=∅ both existence and rank<0 are false. If S=∅ and M≠∅, rank=0 and any monomial with coefficient 1 witnesses the conclusion."
+      ],
+      "acceptance": [
+        "A two-row, three-column evaluation matrix always has a nonzero supported vanishing polynomial.",
+        "Repeating a point repeats a row but does not invalidate the equivalence.",
+        "Duplicate monomials must be removed before forming the column index."
+      ],
+      "implementationStatus": "unchecked"
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
       "kind": "theorem",
       "name": "Vandermonde derivative bound",
-      "statement": "For D distinct x_i in I and f_j∈C^(D−1)(I), |det(f_j(x_i))| ≤ |Vandermonde(x_i)| D! N^(−D(D−3)/2) ∏_j ||f_j||_(N,D−1).",
+      "statement": "Let D≥1, N>0, I be a nonempty compact interval in [0,N], U open containing I, and f_1,...,f_D:ℝ→ℝ be C^(D−1) on U. For distinct x_1,...,x_D∈I, |det(f_j(x_i))|≤|∏_(i<j)(x_j−x_i)| D! N^(D(3−D)/2) ∏_j||f_j||_(N,D−1;I). The exponent is evaluated in ℝ/ℤ, not natural subtraction. Repeated abscissae instead give determinant zero directly.",
       "locator": "Bombieri–Pila Proposition 2 and equation (1), pp.4–5",
       "status": "missing",
-      "note": "Interpolation divided differences and repeated mean-value theorem; pointwise derivative witnesses can differ between matrix entries. Coincident abscissae instead make determinant zero."
+      "note": "Checkpoint ten supplies the entrywise derivative and factorial argument and the algebraic Newton factorization. The statement explicitly uses neighbourhood smoothness, as the graph application does; no conversion from arbitrary ContDiffOn on a closed interval is asserted. Polynomial product/monomial bounds and the rectangular full-rank minor selection used downstream remain G7.",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-newton-determinant-factorization",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-derivative-witness",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm"
+      ],
+      "proofSteps": [
+        "Reorder distinct nodes increasingly, affecting the determinant only by sign. Let p_(r,j) interpolate f_j at x_0,...,x_r and B_(r,j)=coeff_r p_(r,j).",
+        "The Newton factorization gives det(Y)=V det(B). For r≥1 the repeated-Rolle witness gives B_(r,j)=f_j^(r)(ξ_(r,j))/r!; r=0 is f_j(x_0). Witnesses depend on both r and j.",
+        "Use |B_(r,j)|≤N^(1−r)||f_j||. In each of the D! Leibniz terms every column occurs once; Σ_(r=0)^(D−1)(1−r)=D(3−D)/2. Multiply by |V|. No common derivative witness or division by a potentially zero norm is used."
+      ],
+      "acceptance": [
+        "D=1 gives |f_1(x_1)|≤N||f_1||_(N,0).",
+        "The functions x² and x³ at nodes 0,1 cannot use one common first-derivative witness.",
+        "For x³ on four nodes, the leading coefficient is the third derivative divided by 6."
+      ],
+      "implementationStatus": "unchecked"
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integral-determinant",
@@ -647,10 +800,24 @@
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
       "kind": "theorem",
       "name": "Large derivative implies short interval",
-      "statement": "Let k≥1 be an integer, A,N>0, a≤b, and g∈C^k([a,b]). If |g^(i)(x)|≤i! A^(i/k)N^(1−i) for 0≤i<k and |g^(k)(x)|≥k! A N^(1−k) throughout [a,b], then b−a≤2 A^(−1/k)N.",
+      "statement": "Let k≥1 be an integer, A,N>0, a≤b, U open containing [a,b], and g:ℝ→ℝ be C^k on U. If |g^(i)(x)|≤i! A^(i/k)N^(1−i) for every x∈[a,b] and 0≤i<k, and |g^(k)(x)|≥k! A N^(1−k) there, then b−a≤2 A^(−1/k)N. Powers use real exponents. This is the open-neighbourhood specialization needed for the algebraic graph proof.",
       "locator": "Bombieri–Pila Lemma 7 p.14",
       "status": "missing",
-      "note": "The sixth-checkpoint supplement BP2 gives the complete Taylor argument with t=(b−a)A^(1/k)/N. The identity t^k−Σ_(i=1)^(k−1)t^i−2=(t−2)Σ_(i=0)^(k−1)t^i gives t≤2, including k=1 and the degenerate interval. Source issue E1 records the printed opposite exponent. Exact Taylor supplier matching and Lean elaboration remain unclaimed."
+      "note": "BP2's short-interval conclusion uses the lower derivative bound at the unknown Taylor point. It does not follow merely from an upper supremum bound for the remainder. Checkpoint ten separates that implication from bp-taylor-absolute-bound. The exact within/ordinary endpoint supplier match is integrated; no Lean elaboration or unrestricted closed-set endpoint statement is claimed.",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-endpoint"
+      ],
+      "proofSteps": [
+        "If a=b the conclusion is immediate. Otherwise use bp-taylor-endpoint with n=k−1 and its ξ∈(a,b).",
+        "The kth-derivative lower bound at ξ and the lower-order upper bounds at a, together with |g(a)|,|g(b)|≤N, give A N^(1−k)(b−a)^k≤Σ_(i=1)^(k−1) A^(i/k)N^(1−i)(b−a)^i+2N.",
+        "Put t=(b−a)A^(1/k)/N≥0. Then t^k−Σ_(i=1)^(k−1)t^i−2=(t−2)Σ_(i=0)^(k−1)t^i≤0; the last sum is positive, so t≤2. This includes k=1."
+      ],
+      "acceptance": [
+        "For k=1 the empty middle sum gives t≤2 directly.",
+        "The a=b branch requires no interior Taylor witness.",
+        "The positive power A^(1/k) in t is indispensable; E1 concerns the opposite printed power."
+      ],
+      "implementationStatus": "unchecked"
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
@@ -1363,7 +1530,7 @@
       "library": [
         "mathlib:taylor_mean_remainder_lagrange_iteratedDeriv"
       ],
-      "note": "Codex codex-a71f92 read the actual declaration statement at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174. Set n=k−1 in bp-large-derivative-interval; a=b is a separate trivial case. This exactly supplies the generic remainder, not BP's scaled inequality. Tests: k=1; a=b bypass; f(x)=x^k. No Lean instantiation run. Eighth checkpoint (Claude Code, cc-7b31c4): the two adapters this note previously left open are now closed against the same pin, and the closure is written out in the report section “Eighth checkpoint: the Taylor endpoint adapter”. (i) The endpoint conversion needs no neighbourhood of the endpoint: Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:70, iteratedDerivWithin_eq_iteratedDeriv (hs : UniqueDiffOn 𝕜 s) (h : ContDiffAt 𝕜 n f x) (hx : x ∈ s), has no interiority hypothesis, so with Mathlib/Analysis/Calculus/TangentCone/Real.lean:102, uniqueDiffOn_uIcc (hab : a ≠ b), it applies at the endpoint a ∈ uIcc a b whenever f is ContDiffAt there. With taylorCoeffWithin (Taylor.lean:62), taylorWithinEval_succ (Taylor.lean:87) and taylor_within_zero_eval (Taylor.lean:100) this rewrites taylorWithinEval f n (uIcc a b) a b as the ordinary Taylor sum ∑_{j≤n} (j!)^{-1} · iteratedDeriv j f a · (b−a)^j. (ii) The a=b case is taylorWithinEval_self (Taylor.lean:109), which gives both sides f a with zero remainder, so the a ≠ b hypothesis of the two cited Taylor lemmas is not a gap. What remains for BP2's scaled inequality is only the supremum step: ContDiffOn.continuousOn_iteratedDerivWithin (IteratedDeriv/Defs.lean:147) on an open U ⊇ uIcc a b, with IsOpen.uniqueDiffOn (TangentCone/Basic.lean:291) and the same conversion, makes iteratedDeriv (n+1) f continuous on uIcc a b, and IsCompact.exists_isMaxOn (Topology/Order/Compact.lean:246) with isCompact_Icc supplies the maximum. No Lean instantiation is claimed for any of this; the hypothesis actually used is C^{n+1} smoothness on an open set containing uIcc a b, which is stronger than the ContDiffOn hypothesis of the cited remainder lemma and is what BP2's polynomial and algebraic-branch setting provides."
+      "note": "Codex codex-a71f92 read the actual declaration statement at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174. Set n=k−1 in bp-large-derivative-interval; a=b is a separate trivial case. This exactly supplies the generic remainder, not BP's scaled inequality. Tests: k=1; a=b bypass; f(x)=x^k. No Lean instantiation run. Eighth checkpoint (Claude Code, cc-7b31c4): the two adapters this note previously left open are now closed against the same pin, and the closure is written out in the report section “Eighth checkpoint: the Taylor endpoint adapter”. (i) The endpoint conversion needs no neighbourhood of the endpoint: Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:70, iteratedDerivWithin_eq_iteratedDeriv (hs : UniqueDiffOn 𝕜 s) (h : ContDiffAt 𝕜 n f x) (hx : x ∈ s), has no interiority hypothesis, so with Mathlib/Analysis/Calculus/TangentCone/Real.lean:102, uniqueDiffOn_uIcc (hab : a ≠ b), it applies at the endpoint a ∈ uIcc a b whenever f is ContDiffAt there. With taylorCoeffWithin (Taylor.lean:62), taylorWithinEval_succ (Taylor.lean:87) and taylor_within_zero_eval (Taylor.lean:100) this rewrites taylorWithinEval f n (uIcc a b) a b as the ordinary Taylor sum ∑_{j≤n} (j!)^{-1} · iteratedDeriv j f a · (b−a)^j. (ii) The a=b case is taylorWithinEval_self (Taylor.lean:109), which gives both sides f a with zero remainder, so the a ≠ b hypothesis of the two cited Taylor lemmas is not a gap. What remains for BP2's scaled inequality is only the supremum step: ContDiffOn.continuousOn_iteratedDerivWithin (IteratedDeriv/Defs.lean:147) on an open U ⊇ uIcc a b, with IsOpen.uniqueDiffOn (TangentCone/Basic.lean:291) and the same conversion, makes iteratedDeriv (n+1) f continuous on uIcc a b, and IsCompact.exists_isMaxOn (Topology/Order/Compact.lean:246) with isCompact_Icc supplies the maximum. No Lean instantiation is claimed for any of this; the hypothesis actually used is C^{n+1} smoothness on an open set containing uIcc a b, which is stronger than the ContDiffOn hypothesis of the cited remainder lemma and is what BP2's polynomial and algebraic-branch setting provides. Tenth checkpoint: the endpoint conversion is now a separately linked missing application bp-taylor-endpoint; the maximum-of-absolute-derivative bound is bp-taylor-absolute-bound. BP2 itself uses the kth-derivative lower bound at its Taylor witness, not the supremum upper bound. The earlier sentence calling only a supremum step the remaining BP2 proof is superseded by this distinction."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-supplier",
@@ -1415,6 +1582,212 @@
         "mathlib:Convex.norm_image_sub_le_of_norm_deriv_le"
       ],
       "note": "Codex codex-a71f92 read the actual declaration statement at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174. Specialize to ℝ→ℝ, C=1 and a closed interval for bp-integer-normalization. Its smooth-neighbourhood assumption gives differentiability at the endpoints, avoiding an unjustified within/ordinary-derivative conversion. The estimate bounds the range diameter; compactness and nearest-integer translation are further inputs, not conclusions of this theorem. Tests: constant graph; slope-one graph; singleton interval."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-rank-nullity-supplier",
+      "kind": "theorem",
+      "name": "Rank-nullity for finite-dimensional source",
+      "statement": "For a division ring K, K-vector spaces V,W with V finite-dimensional and a linear map T:V→ₗ[K]W, finrank K (range T)+finrank K (ker T)=finrank K V. No finite-dimensionality of W is required.",
+      "locator": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean:173–176; generic input to Bombieri–Pila Lemmas 1,3.",
+      "status": "library",
+      "library": [
+        "mathlib:LinearMap.finrank_range_add_finrank_ker"
+      ],
+      "note": "Actual statement read at pin 082e2d37e8b0463410cdb532e111cd43d5a66174. The rank of the rectangular evaluation matrix is matched separately via Matrix.rank; polynomial nonzeroness is not a conclusion of rank-nullity alone."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-rolle-supplier",
+      "kind": "theorem",
+      "name": "Rolle's theorem with an actual derivative",
+      "statement": "For real a<b and f,f':ℝ→ℝ, if f is continuous on [a,b], f(a)=f(b), and HasDerivAt f (f'(x)) x for every x∈(a,b), then some c∈(a,b) has f'(c)=0.",
+      "locator": "Mathlib/Analysis/Calculus/LocalExtr/Rolle.lean:54–58; generic input to Bombieri–Pila p.5.",
+      "status": "library",
+      "library": [
+        "mathlib:exists_hasDerivAt_eq_zero"
+      ],
+      "note": "Statement read at the pin. Use the HasDerivAt form so that a totalized zero derivative at a nondifferentiable point cannot masquerade as an analytic witness. The repeated application is bp-iterated-rolle, still missing."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-absolute-maximum-supplier",
+      "kind": "theorem",
+      "name": "Attainment of a continuous real maximum",
+      "statement": "For a nonempty compact set S in a topological space and a continuous real-valued function h on S, there is x∈S with h(y)≤h(x) for all y∈S.",
+      "locator": "Mathlib/Topology/Order/Compact.lean:246–249; generic input to Bombieri–Pila scaled derivative norms p.3.",
+      "status": "library",
+      "library": [
+        "mathlib:IsCompact.exists_isMaxOn"
+      ],
+      "note": "Exact real-codomain specialization of the declaration read at the pin. Apply to h=|f^(r)|, not h=f^(r) followed by absolute value. Compactness of a closed real interval is isCompact_Icc; continuity and nonemptiness remain explicit hypotheses."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-supported-coefficient-equivalence",
+      "kind": "theorem",
+      "name": "Coefficient coordinates for restricted polynomial support",
+      "statement": "For a field F and finite set M of exponents in Fin 2→₀ℕ, Φ_M:F^M→{Q∈MvPolynomial (Fin 2) F | support Q⊆M}, c↦Σ_(m∈M)monomial m(c_m), is a linear equivalence with inverse Q↦(coeff_m Q)_(m∈M). At every indexed point z_s, evaluation of Φ_M(c) equals (A.mulVec c)_s for A_(s,m)=z_s^m.",
+      "locator": "Bombieri–Pila Lemmas 1,3, pp.2–3,11; checkpoint ten R1.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-system",
+        "mathlib:MvPolynomial.basisMonomials",
+        "mathlib:MvPolynomial.coeff_sum",
+        "mathlib:MvPolynomial.coeff_monomial",
+        "mathlib:MvPolynomial.eval₂_sum",
+        "mathlib:MvPolynomial.eval₂_monomial"
+      ],
+      "proofSteps": [
+        "The coefficient-sum and coefficient-monomial identities give coeff_e Φ_M(c)=c_e on M and 0 off M.",
+        "The existing monomial basis reconstructs any polynomial from its finitely supported coefficient vector; if its support is contained in M the reconstruction sum may be indexed by M.",
+        "Linearity and the inverse identities follow coefficientwise. Apply eval₂_sum and eval₂_monomial with identity coefficient homomorphism to obtain the matrix-vector evaluation identity."
+      ],
+      "acceptance": [
+        "M empty gives the zero vector space and zero polynomial.",
+        "A nonzero coefficient vector produces a nonzero polynomial regardless of the chosen points.",
+        "Duplicate point indices are allowed; duplicate exponent indices are not."
+      ],
+      "note": "Owner: IntegralPointDeterminantMethods. This promotes the consumed coefficient/evaluation API, not a new polynomial carrier.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-iterated-rolle",
+      "kind": "theorem",
+      "name": "An iterated Rolle witness from ordered zeros",
+      "statement": "For n≥1, real nodes a_0<...<a_n, an open U containing [a_0,a_n], and h:ℝ→ℝ of class C^n on U with h(a_i)=0 for all i, there is ξ∈(a_0,a_n) with iteratedDeriv n h ξ=0.",
+      "locator": "Bombieri–Pila p.5 mean-value passage; checkpoint ten R2.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-rolle-supplier",
+        "mathlib:ContDiffOn.continuousOn_iteratedDerivWithin",
+        "mathlib:ContDiffOn.differentiableOn_iteratedDerivWithin",
+        "mathlib:iteratedDerivWithin_of_isOpen",
+        "mathlib:iteratedDeriv_succ",
+        "mathlib:IsOpen.uniqueDiffOn"
+      ],
+      "proofSteps": [
+        "For each r<n, the rth derivative is continuous and differentiable on U: use the within-derivative statements on the open set and convert with iteratedDerivWithin_of_isOpen.",
+        "Starting with the n+1 ordered zeros, apply the HasDerivAt Rolle supplier between adjacent zeros to produce n strictly interleaving zeros of h'.",
+        "Repeat on adjacent zeros of the next derivative. After n rounds there is one zero of h^(n), strictly between the original extreme nodes. Every new closed subinterval remains in U."
+      ],
+      "acceptance": [
+        "n=1 is precisely Rolle's theorem.",
+        "For n=0 one only has h(a_0)=0, not a witness in an empty open interval; consumers handle it separately.",
+        "Strict interleaving preserves distinctness for the next induction round."
+      ],
+      "note": "Application adapter owned by IntegralPointDeterminantMethods; reuse generic calculus. No new general calculus roadmap or library status is asserted.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-derivative-witness",
+      "kind": "theorem",
+      "name": "Leading interpolation coefficient as a normalized derivative",
+      "statement": "For n≥1, real a_0<...<a_n, open U⊇[a_0,a_n], f of class C^n on U, and p=Lagrange.interpolate at these n+1 nodes with values f(a_i), some ξ∈(a_0,a_n) satisfies coeff_n p=f^(n)(ξ)/n!. Thus if |f^(n)(x)|/n!≤B throughout the interval, |coeff_n p|≤B. For n=0 the interpolant is the constant f(a_0).",
+      "locator": "Bombieri–Pila p.5, following Proposition 2; checkpoint ten R3.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-supplier",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-iterated-rolle",
+        "mathlib:Polynomial.contDiff_aeval",
+        "mathlib:Polynomial.deriv",
+        "mathlib:Polynomial.coeff_iterate_derivative",
+        "mathlib:iteratedDeriv_succ",
+        "mathlib:iteratedDeriv_sub"
+      ],
+      "proofSteps": [
+        "Interpolation gives degree p≤n and f−p vanishing at all n+1 nodes. Polynomial evaluation is smooth, so apply bp-iterated-rolle to f−p.",
+        "Polynomial.deriv and iteratedDeriv_succ identify analytic iterated derivatives with evaluations of iterated formal derivatives.",
+        "The formal coefficient formula shows derivative^[n] p is the constant n! coeff_n p: its constant coefficient is n! coeff_n p, and every positive coefficient vanishes since degree p≤n.",
+        "The derivative of f−p at the Rolle point is zero; divide by the nonzero real factorial. The n=0 case follows from the singleton interpolation formula."
+      ],
+      "acceptance": [
+        "The polynomial X³ on four nodes has coefficient 1 and third derivative 6.",
+        "For x² and x³ on nodes 0,1, the first-derivative witnesses are respectively 1/2 and 1/√3, hence cannot be shared.",
+        "A singleton interpolation does not require an interior witness."
+      ],
+      "note": "Witnesses are entrywise: each prefix of nodes and each column function can have a different ξ. Owner: IntegralPointDeterminantMethods.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-newton-determinant-factorization",
+      "kind": "theorem",
+      "name": "Newton interpolation factorization of an evaluation determinant",
+      "statement": "Over a field F, let D≥1 and x_0,...,x_(D−1) be pairwise distinct. For arbitrary values Y_(i,j), let p_(r,j) interpolate the first r+1 values in column j and B_(r,j)=coeff_r p_(r,j). Put W_r(X)=∏_(t<r)(X−x_t) and L_(i,r)=W_r(x_i). Then Y=L B and det Y=(∏_(t<i)(x_i−x_t)) det B.",
+      "locator": "Bombieri–Pila Proposition 2 pp.4–5, expressed with existing Lagrange interpolation; checkpoint ten R4.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-supplier",
+        "mathlib:Matrix.det_mul",
+        "mathlib:Matrix.det_of_isLowerTriangular"
+      ],
+      "proofSteps": [
+        "For r=0, p_(0,j) is constant B_(0,j). For r≥1, subtract p_(r−1,j)+B_(r,j)W_r from p_(r,j). The degree-r term cancels, and the resulting polynomial of degree<r vanishes at the first r distinct nodes; interpolation uniqueness makes it zero.",
+        "Induction gives p_(D−1,j)=Σ_(r<D)B_(r,j)W_r. Evaluating at all nodes proves Y=L B.",
+        "For i<r, W_r(x_i)=0; the diagonal is ∏_(t<i)(x_i−x_t). Use the existing lower-triangular determinant and determinant multiplication identities."
+      ],
+      "acceptance": [
+        "D=1 has L=(1) and Vandermonde factor 1.",
+        "The formula holds for arbitrary value matrices, including singular matrices.",
+        "Transposing the evaluation convention requires transposing both factors; no silent orientation change is allowed."
+      ],
+      "note": "No new Newton polynomial carrier is introduced: W_r is an explicit product in F[X]. The adapter is missing even though its interpolation and determinant ingredients are library declarations.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-endpoint",
+      "kind": "theorem",
+      "name": "Ordinary Taylor expansion from neighbourhood smoothness",
+      "statement": "For n∈ℕ, a≠b, an open U containing uIcc(a,b), and f:ℝ→ℝ of class C^(n+1) on U, there is ξ∈uIoo(a,b) with f(b)−Σ_(j=0)^n f^(j)(a)(b−a)^j/j!=f^(n+1)(ξ)(b−a)^(n+1)/(n+1)!. If a=b the ordinary sum is f(a) and the remainder is zero, with no interior witness asserted.",
+      "locator": "Eighth-checkpoint T1–T2, integrated and rechecked in checkpoint ten R5; Bombieri–Pila Lemma 7 p.14.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-supplier",
+        "mathlib:uniqueDiffOn_uIcc",
+        "mathlib:ContDiffOn.contDiffAt",
+        "mathlib:iteratedDerivWithin_eq_iteratedDeriv",
+        "mathlib:taylorCoeffWithin",
+        "mathlib:taylorWithinEval_succ",
+        "mathlib:taylor_within_zero_eval",
+        "mathlib:taylorWithinEval_self"
+      ],
+      "proofSteps": [
+        "For a≠b, uIcc(a,b) has UniqueDiffOn. Openness gives ContDiffAt at the endpoint a through each required order.",
+        "Apply iteratedDerivWithin_eq_iteratedDeriv at a∈uIcc(a,b); the interval need not be a neighbourhood of a.",
+        "Use taylorCoeffWithin, the successor evaluation formula and the zero-order evaluation formula to expand the within-Taylor polynomial as the ordinary derivative sum.",
+        "Restrict smoothness to uIcc(a,b) and apply bp-taylor-supplier. For a=b the self-evaluation identity and powers of zero give a zero remainder separately."
+      ],
+      "acceptance": [
+        "n=0 is the ordinary first-derivative mean-value remainder.",
+        "A singleton interval cannot satisfy UniqueDiffOn_uIcc via a≠b; it is a separate branch.",
+        "No conversion from mere closed-interval ContDiffOn to ordinary endpoint derivatives is asserted."
+      ],
+      "note": "Credits the eighth checkpoint's existing proof rather than claiming its invention. Owner: IntegralPointDeterminantMethods; no Lean elaboration.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-absolute-bound",
+      "kind": "theorem",
+      "name": "Taylor remainder bounded by the absolute derivative maximum",
+      "statement": "Under bp-taylor-endpoint's neighbourhood smoothness hypotheses, allowing a=b, there is an attained M=max_(x∈uIcc(a,b))|f^(n+1)(x)|≥0 and |f(b)−Σ_(j=0)^n f^(j)(a)(b−a)^j/j!|≤M |b−a|^(n+1)/(n+1)!.",
+      "locator": "Bombieri–Pila scaled norms p.3 and derivative estimate p.5; checkpoint ten R6.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-endpoint",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-absolute-maximum-supplier",
+        "mathlib:ContDiffOn.continuousOn_iteratedDerivWithin",
+        "mathlib:iteratedDerivWithin_of_isOpen",
+        "mathlib:IsOpen.uniqueDiffOn",
+        "mathlib:isCompact_Icc"
+      ],
+      "proofSteps": [
+        "On open U, continuousOn_iteratedDerivWithin and iteratedDerivWithin_of_isOpen give continuity of the ordinary (n+1)st derivative; compose with absolute value and restrict to the closed interval.",
+        "The interval is compact and nonempty even when a=b. Apply bp-absolute-maximum-supplier to the absolute-value function; let M be its attained value.",
+        "For unequal endpoints, take absolute values of bp-taylor-endpoint and bound the value at ξ by M. For equal endpoints the remainder and length factor are zero."
+      ],
+      "acceptance": [
+        "For f=−x³ on [1,2], n=1, the remainder has magnitude 4, M=12, and the bound is 6. Replacing M by |max f''|=6 would give the false bound 3.",
+        "For f a polynomial of degree≤n the remainder is zero.",
+        "Equal endpoints require neither a Rolle point nor unique derivatives within the singleton."
+      ],
+      "note": "This upper remainder bound is distinct from the lower derivative estimate used by bp-large-derivative-interval. The compact-maximum argument also supplies attainment for each derivative order of bp-scaled-derivative-norm.",
+      "implementationStatus": "unchecked"
     }
   ],
   "prerequisites": [
@@ -1539,10 +1912,16 @@
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-contraction-iteration",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-recurrence-constants",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integer-optimization",
-        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-explicit-graph-cover"
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-explicit-graph-cover",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-supported-coefficient-equivalence",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-iterated-rolle",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-derivative-witness",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-newton-determinant-factorization",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-endpoint",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-absolute-bound"
       ],
       "reason": "Catalogue screen finds no coefficient-uniform algebraic-curve counting owner. RP.4 is finiteness, ED is certified algorithms, and LD.6 is Pila–Wilkie outside the algebraic part. Retain the inherited candidate, now with selected original proof interiors.",
-      "brief": "Prove original Bombieri–Pila Theorem 5: for an absolutely irreducible real plane curve of total degree d≥2 and N≥exp(d^6), the integer-point count in [0,N]^2 is at most N^(1/d)exp(12 sqrt(d log N loglog N)); deduce the coefficient-uniform epsilon form for all N≥1 and integer translates. The curve may be singular. Import Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), SF.0/SF.5, for plane curves and proper intersection/Bézout, and Mathlib determinants, interpolation, derivatives and Taylor/mean-value machinery. Build monomial evaluation kernels, scaled derivative norms, Vandermonde determinant estimates, the integer determinant separation argument, auxiliary covers, leading-term avoidance, derivative-level partitions, the short-interval lemma, recurrence and bounded-slope arc decomposition. Keep generic linear algebra and algebraic geometry with their existing suppliers. Correct the lambda substitution and q≤p typo in the author preprint; resolve integer rounding of delta with the displayed constants (G7), including singular/boundary exceptional points. Tests include Y²=X³ (singular degree three), coefficient translations, polynomial branches with constant higher derivatives, the smallest allowed d,N, and repeated abscissae. Suggested file: TauCeti/NumberTheory/IntegralPointBounds/DeterminantMethod.lean. Sedunova’s printed uniformity is not a supplied positive-characteristic analogue; G9 must be resolved separately. Sixth-checkpoint refinement: use bp-integer-normalization, bp-contraction-iteration and bp-recurrence-constants, then delta=floor(2 sqrt(log N/(d loglog N))) with the derivative-monotonicity proof in bp-integer-optimization to obtain constant 11 without changing the threshold. For constant 12 use the explicit 8d^3 finite-integer-point graph cover rather than assuming the stronger O(d^2) whole-curve decomposition. Retain singular/critical fibers, horizontal boundaries, noninteger interval endpoints, inverse steep graphs and the strict N<1 stopping case. E1–E3 record the source-level corrections; G7 now retains exact generic supplier matching and independent verification. Earlier wording asking for an unwritten rounding proof is superseded by this refinement. Seventh checkpoint: import the five exact Mathlib supplier nodes (Taylor, interpolation, Vandermonde, finite polynomial roots and mean value). Their consumer adapters remain explicit; none supplies Bézout or global analytic branch continuation."
+      "brief": "Prove original Bombieri–Pila Theorem 5: for an absolutely irreducible real plane curve of total degree d≥2 and N≥exp(d^6), the integer-point count in [0,N]^2 is at most N^(1/d)exp(12 sqrt(d log N loglog N)); deduce the coefficient-uniform epsilon form for all N≥1 and integer translates. The curve may be singular. Import Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), SF.0/SF.5, for plane curves and proper intersection/Bézout, and Mathlib determinants, interpolation, derivatives and Taylor/mean-value machinery. Build monomial evaluation kernels, scaled derivative norms, Vandermonde determinant estimates, the integer determinant separation argument, auxiliary covers, leading-term avoidance, derivative-level partitions, the short-interval lemma, recurrence and bounded-slope arc decomposition. Keep generic linear algebra and algebraic geometry with their existing suppliers. Correct the lambda substitution and q≤p typo in the author preprint; resolve integer rounding of delta with the displayed constants (G7), including singular/boundary exceptional points. Tests include Y²=X³ (singular degree three), coefficient translations, polynomial branches with constant higher derivatives, the smallest allowed d,N, and repeated abscissae. Suggested file: TauCeti/NumberTheory/IntegralPointBounds/DeterminantMethod.lean. Sedunova’s printed uniformity is not a supplied positive-characteristic analogue; G9 must be resolved separately. Sixth-checkpoint refinement: use bp-integer-normalization, bp-contraction-iteration and bp-recurrence-constants, then delta=floor(2 sqrt(log N/(d loglog N))) with the derivative-monotonicity proof in bp-integer-optimization to obtain constant 11 without changing the threshold. For constant 12 use the explicit 8d^3 finite-integer-point graph cover rather than assuming the stronger O(d^2) whole-curve decomposition. Retain singular/critical fibers, horizontal boundaries, noninteger interval endpoints, inverse steep graphs and the strict N<1 stopping case. E1–E3 record the source-level corrections; G7 now retains exact generic supplier matching and independent verification. Earlier wording asking for an unwritten rounding proof is superseded by this refinement. Seventh checkpoint: import the five exact Mathlib supplier nodes (Taylor, interpolation, Vandermonde, finite polynomial roots and mean value). Their consumer adapters remain explicit; none supplies Bézout or global analytic branch continuation. Tenth checkpoint: use the promoted supported-coefficient, repeated-Rolle, entrywise interpolation-witness, Newton determinant, ordinary Taylor endpoint and absolute-remainder adapters. Rank/kernel is rectangular; the short-interval argument uses a lower derivative bound at its Taylor point, not the upper absolute-maximum bound. Keep full-column-rank row-minor selection, specialization nonzeroness/degree, monomial norm-product estimates, SF.5 Bézout and analytic branch/inverse matching explicit in G7."
     },
     {
       "route": "part-ii",
@@ -1610,10 +1989,10 @@
     }
   ],
   "verification": {
-    "agent": "Claude Code",
-    "session": "cc-d67081",
+    "agent": "Codex",
+    "session": "codex-a71f92",
     "issue": 1420,
-    "date": "2026-09-22",
+    "date": "2026-09-23",
     "continues": [
       1636,
       1641,
@@ -1621,17 +2000,230 @@
       1695,
       1760,
       1817,
-      1919
+      1845,
+      1919,
+      1964
     ],
-    "baseResultBlob": "fd80b64ac7b1799e41b301dbdffa81f2f0a76c0a",
-    "baseReportBlob": "7266f7b625b16d7718bb5e7a0914ee612ca77828",
-    "baseHandoffBlob": "84733d337ecf4623065c860e0adeb62f9c224cd6",
-    "stableIds": "All 129 inherited item IDs retained and every item object left byte-identical: no item was added, removed or edited. All six routes, all 11 gaps except G0's detail string, the prerequisites, selectedProofEdges and every boundary statement except sourceIssueBoundary are unchanged. Exactly four strings change: three new sourceIssues E5-E7 are appended, sourceIssueBoundary is extended, G0's detail records the retried publisher-access attempt, and this verification block is rotated into verificationHistory.",
-    "modifiedInheritedItems": [],
-    "libraryBoundary": "No library classification was added, removed or re-audited in this checkpoint. The inherited library and planned objects stand unchanged; this worker read the Mathlib and Tau Ceti declarations behind the convex-body volume, the ideal covolume and the function-field Riemann-Roch statements at the pinned commits only to confirm that E5-E7 do not touch them.",
-    "ownership": "No owner or route claim changes. The inherited six-route split stands.",
-    "checks": "python3 scripts/check_paper.py reports ok; python3 research/blueprint/intake.py check-files reports 3 files, 0 problems. Item count and IDs were compared programmatically before and after the edit (129 -> 129, identical IDs and identical status counts 27 library / 8 planned / 94 missing), and the item list was checked to be byte-identical to the base blob. No Lean artifact was written or compiled, and no earlier checkpoint's regression script was rerun. These checks do not establish mathematical completeness; this worker did not review the inherited items, routes, gaps or proposed issues E1-E4.",
-    "lean": "none"
+    "baseCommit": "969b623148e6fb8b0542a4cde5ca2fcdaf3f73db",
+    "stableIds": "All 129 inherited IDs retained. Exactly six inherited item objects refined; other 123 item objects preserved. Nine items added: three exact generic library suppliers and six missing application adapters. SourceIssues E1–E7, prerequisites and five route objects untouched; the determinant route only gains the six adapters and an appended brief refinement.",
+    "modifiedInheritedItems": [
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-system",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-evaluation-kernel",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-supplier"
+    ],
+    "libraryBoundary": "Three new library statements read at the prescribed Mathlib pin: rank-nullity, HasDerivAt Rolle and the compact maximum theorem. The old Taylor and interpolation statements were reread for their use; historical claims on the other inherited library/planned items are preserved, not independently re-audited. Missing adapters remain missing.",
+    "ownership": "Read upstream Completed/EffectiveBounds and AlgebraicCurves documents completely, SchemeAndStackFoundations stages and SF.0/SF.5 reviewed audit entries, and EffectiveBounds audit rows. Retain the existing six-route ownership. General linear algebra/calculus stays with Mathlib; proper intersection/Bézout stays SF.5; only the determinant application adapters join IntegralPointDeterminantMethods.",
+    "checks": "python3 scripts/check_paper.py: ok. python3 research/blueprint/intake.py check-files: 3 files, 0 problems. 11,765 exact-rational diagnostic assertions passed; 535 data-preservation/route/graph/supplier assertions passed. All 48 repository regressions passed (9 paper, 3 paper queue, 7 source issue, 29 intake). The complete inherited report remains a contiguous exact substring after a current-status notice, and sourceIssues E1–E7 are unchanged. The three remote deliverable blobs still match the claim base before publication. Finite examples and structural checks do not prove analytic statements or completeness.",
+    "lean": "none",
+    "declarationsRead": [
+      {
+        "ref": "mathlib:Matrix.rank",
+        "module": "Mathlib/LinearAlgebra/Matrix/Rank.lean:135",
+        "provides": "Rank is finrank of the range of mulVecLin, for a finite column type; no square-matrix assumption.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:LinearMap.finrank_range_add_finrank_ker",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean:173",
+        "provides": "Finite-dimensional source over a division ring; range plus kernel dimension equals source dimension.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Module.finrank_fintype_fun_eq_card",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean:322",
+        "provides": "For a finite type over the field used here, the function space has dimension its cardinality.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Module.finrank_pos_iff_exists_ne_zero",
+        "module": "Mathlib/LinearAlgebra/Dimension/Finite.lean:383",
+        "provides": "Finite torsion-free module over a domain with strong rank condition; specializes to the kernel vector space.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.basisMonomials",
+        "module": "Mathlib/RingTheory/MvPolynomial/Basic.lean:200",
+        "provides": "The monomial basis over a commutative semiring.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.coeff_sum",
+        "module": "Mathlib/Algebra/MvPolynomial/Basic.lean:574",
+        "provides": "Coefficients commute with finite sums.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.coeff_monomial",
+        "module": "Mathlib/Algebra/MvPolynomial/Basic.lean:582",
+        "provides": "Kronecker-delta coefficient formula.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval₂_sum",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean:236",
+        "provides": "Evaluation commutes with finite sums.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval₂_monomial",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean:92",
+        "provides": "Evaluation of a monomial is its mapped coefficient times the exponent product.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:exists_hasDerivAt_eq_zero",
+        "module": "Mathlib/Analysis/Calculus/LocalExtr/Rolle.lean:54",
+        "provides": "Continuity on Icc, equal endpoints and actual HasDerivAt on Ioo give an interior zero.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Lagrange.eval_interpolate_at_node",
+        "module": "Mathlib/LinearAlgebra/Lagrange.lean:319",
+        "provides": "Field, finite node set, node-map injectivity and membership are explicit.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Lagrange.degree_interpolate_lt",
+        "module": "Mathlib/LinearAlgebra/Lagrange.lean:336",
+        "provides": "Degree, not unguarded natural degree, is less than the number of nodes.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Lagrange.eq_interpolate_iff",
+        "module": "Mathlib/LinearAlgebra/Lagrange.lean:375",
+        "provides": "Degree and values characterize the interpolant under node injectivity.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Polynomial.contDiff_aeval",
+        "module": "Mathlib/Analysis/Calculus/ContDiff/Polynomial.lean:22",
+        "provides": "Polynomial evaluation is smooth over a nontrivially normed field.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Polynomial.deriv",
+        "module": "Mathlib/Analysis/Calculus/Deriv/Polynomial.lean:107",
+        "provides": "Analytic derivative of evaluation equals evaluation of the formal derivative.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_iterate_derivative",
+        "module": "Mathlib/Algebra/Polynomial/Derivative.lean:275",
+        "provides": "Coefficient m after k formal derivatives is (m+k).descFactorial(k) times coefficient m+k.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:iteratedDeriv_sub",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean:336",
+        "provides": "Subtracts iterated derivatives under ContDiffAt for both functions at the required order.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:iteratedDeriv_succ",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:306",
+        "provides": "Successor iterated derivative is derivative of the previous iterate.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Matrix.det_mul",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:138",
+        "provides": "Determinant of a product of square matrices over a commutative ring.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Matrix.det_of_isLowerTriangular",
+        "module": "Mathlib/LinearAlgebra/Matrix/Block.lean:393",
+        "provides": "A finite linearly ordered lower-triangular matrix has diagonal-product determinant.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:ContDiffOn.continuousOn_iteratedDerivWithin",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:147",
+        "provides": "Continuity through the differentiability order on a UniqueDiffOn set.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:ContDiffOn.differentiableOn_iteratedDerivWithin",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:166",
+        "provides": "Differentiability strictly below the differentiability order on a UniqueDiffOn set.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:iteratedDerivWithin_of_isOpen",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:317",
+        "provides": "On an open set, within and ordinary iterated derivatives agree there.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:IsOpen.uniqueDiffOn",
+        "module": "Mathlib/Analysis/Calculus/TangentCone/Basic.lean:291",
+        "provides": "An open set has UniqueDiffOn.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:ContDiffOn.contDiffAt",
+        "module": "Mathlib/Analysis/Calculus/ContDiff/Defs.lean:963",
+        "provides": "A neighbourhood in the smoothness set gives ContDiffAt.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:iteratedDerivWithin_eq_iteratedDeriv",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:70",
+        "provides": "UniqueDiffOn, ContDiffAt and set membership suffice even at an endpoint.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:uniqueDiffOn_uIcc",
+        "module": "Mathlib/Analysis/Calculus/TangentCone/Real.lean:102",
+        "provides": "Unequal real endpoints give UniqueDiffOn on the unordered closed interval.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:taylor_mean_remainder_lagrange_iteratedDeriv",
+        "module": "Mathlib/Analysis/Calculus/Taylor.lean:348",
+        "provides": "Unequal endpoints and ContDiffOn of order n+1 give an ordinary derivative remainder and within-Taylor polynomial.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:taylorCoeffWithin",
+        "module": "Mathlib/Analysis/Calculus/Taylor.lean:62",
+        "provides": "Coefficient is inverse factorial times the within-iterated derivative.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:taylorWithinEval_succ",
+        "module": "Mathlib/Analysis/Calculus/Taylor.lean:87",
+        "provides": "Recursive Taylor evaluation including the successor factorial.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:taylor_within_zero_eval",
+        "module": "Mathlib/Analysis/Calculus/Taylor.lean:100",
+        "provides": "Zero-order Taylor evaluation is f at the base point.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:taylorWithinEval_self",
+        "module": "Mathlib/Analysis/Calculus/Taylor.lean:109",
+        "provides": "Taylor evaluation at the base point is f there.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:isCompact_Icc",
+        "module": "Mathlib/Topology/Order/Compact.lean:55",
+        "provides": "Closed intervals in a CompactIccSpace, including the reals, are compact.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      },
+      {
+        "ref": "mathlib:IsCompact.exists_isMaxOn",
+        "module": "Mathlib/Topology/Order/Compact.lean:246",
+        "provides": "A continuous real-valued function on a nonempty compact set attains its maximum.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+      }
+    ]
   },
   "gaps": [
     {
@@ -1680,7 +2272,7 @@
     },
     {
       "id": "G7",
-      "detail": "BP1–BP6 and five new proof nodes now supply integer-preserving normalization, recurrence stopping, the H+K inequalities, integer rounding with constant 11 and the 8d^3 finite-point cover yielding constant 12. Five generic Mathlib suppliers are now matched exactly: Taylor remainder, polynomial interpolation, Vandermonde determinant, finite distinct-root counting and the mean-value norm inequality. Remaining: Taylor within/ordinary endpoint conversion; interpolation-to-derivative witnesses and factorial bounds; rectangular evaluation-rank/kernel API; specialization nonzeroness and degree adapters; proper Bézout supplier closure in SF.5; smooth root continuation across each open strip and inverse-graph construction; and independent review of the replacement arguments. The stronger O(d^2) whole-curve claim is not verified. No Lean implementation is claimed."
+      "detail": "BP1–BP6 retain their numerical and singularity-safe finite-point-cover proofs. Checkpoint ten integrates the eighth-checkpoint ordinary Taylor endpoint conversion, proves the absolute-maximum upper remainder estimate separately from BP2's lower-derivative short-interval argument, and gives rectangular evaluation-rank/kernel, repeated-Rolle/factorial interpolation and Newton determinant adapters against exact generic suppliers. These are missing application declarations with proof plans, not implemented library results. Remaining: full-column-rank rectangular matrix ⇒ nonzero D-by-D row minor with exact supplier match; normalized product/monomial derivative-bound decomposition; specialization F(a,Y) nonzeroness and degree bounds; proper Bézout supplier closure in SF.5; smooth root continuation across each open strip and inverse-graph construction; complete recursive supplier matching and independent review. The stronger O(d²) whole-curve claim is still unverified. No Lean implementation is claimed."
     },
     {
       "id": "G8",
@@ -1811,6 +2403,30 @@
         "atlas": "37f2add06983c206067d1104e0f40a839cc3961a",
         "coverage": "5e708cfc74a51b10e62149113872fe4e00eb5846"
       }
+    },
+    {
+      "agent": "Claude Code",
+      "session": "cc-d67081",
+      "issue": 1420,
+      "date": "2026-09-22",
+      "continues": [
+        1636,
+        1641,
+        1650,
+        1695,
+        1760,
+        1817,
+        1919
+      ],
+      "baseResultBlob": "fd80b64ac7b1799e41b301dbdffa81f2f0a76c0a",
+      "baseReportBlob": "7266f7b625b16d7718bb5e7a0914ee612ca77828",
+      "baseHandoffBlob": "84733d337ecf4623065c860e0adeb62f9c224cd6",
+      "stableIds": "All 129 inherited item IDs retained and every item object left byte-identical: no item was added, removed or edited. All six routes, all 11 gaps except G0's detail string, the prerequisites, selectedProofEdges and every boundary statement except sourceIssueBoundary are unchanged. Exactly four strings change: three new sourceIssues E5-E7 are appended, sourceIssueBoundary is extended, G0's detail records the retried publisher-access attempt, and this verification block is rotated into verificationHistory.",
+      "modifiedInheritedItems": [],
+      "libraryBoundary": "No library classification was added, removed or re-audited in this checkpoint. The inherited library and planned objects stand unchanged; this worker read the Mathlib and Tau Ceti declarations behind the convex-body volume, the ideal covolume and the function-field Riemann-Roch statements at the pinned commits only to confirm that E5-E7 do not touch them.",
+      "ownership": "No owner or route claim changes. The inherited six-route split stands.",
+      "checks": "python3 scripts/check_paper.py reports ok; python3 research/blueprint/intake.py check-files reports 3 files, 0 problems. Item count and IDs were compared programmatically before and after the edit (129 -> 129, identical IDs and identical status counts 27 library / 8 planned / 94 missing), and the item list was checked to be byte-identical to the base blob. No Lean artifact was written or compiled, and no earlier checkpoint's regression script was rerun. These checks do not establish mathematical completeness; this worker did not review the inherited items, routes, gaps or proposed issues E1-E4.",
+      "lean": "none"
     }
   ],
   "sourceIssues": [
@@ -1928,12 +2544,12 @@
     {
       "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-supplier",
       "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
-      "adapter": "Taylor n=k−1; separate equal endpoints and adapt within coefficients."
+      "adapter": "The generic within-Taylor remainder is converted by bp-taylor-endpoint; equal endpoints separate. BP2 then uses the kth-derivative lower bound at the Taylor witness."
     },
     {
       "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-supplier",
       "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
-      "adapter": "Distinct abscissae; derivative-witness/factorial adapter remains."
+      "adapter": "Interpolation and degree uniqueness feed bp-newton-determinant-factorization and bp-interpolation-derivative-witness; factorials and entrywise witnesses are spelled out in checkpoint ten."
     },
     {
       "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-vandermonde-supplier",
@@ -2009,8 +2625,83 @@
       "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-explicit-graph-cover",
       "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-explicit",
       "adapter": "At most 8d^3 pieces, absorbed by the extra exponential factor."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-system",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-supported-coefficient-equivalence",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-rolle-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-iterated-rolle",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-derivative-witness",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-iterated-rolle",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-derivative-witness",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-newton-determinant-factorization",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-endpoint",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-endpoint",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-absolute-bound",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-absolute-maximum-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-absolute-bound",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-supported-coefficient-equivalence",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-evaluation-kernel",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-rank-nullity-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-evaluation-kernel",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-newton-determinant-factorization",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-derivative-witness",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-endpoint",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
+      "adapter": "Exact input described in the consumer's proofSteps; checkpoint ten."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-absolute-maximum-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
+      "adapter": "Continuity of each ordinary derivative on a nonempty compact interval gives an attained absolute maximum; take the finite maximum over orders."
     }
   ],
-  "selectedProofEdgesBoundary": "Selected G7 supplier/consumer DAG only, not a complete proof graph for the entire paper. An edge names a dependency, not an implemented adapter.",
+  "selectedProofEdgesBoundary": "Selected proof edges only, not a claim that the entire extraction is dependency-closed. Checkpoint ten adds explicit item prerequisites including pinned Mathlib leaves. The inherited seven diagnostic source claims remain unrouted. Full-rank row-minor selection, polynomial specialization, monomial norm bounds, SF.5 proper Bézout and analytic continuation/inverse adapters remain G7.",
   "prerequisiteStatusBoundary": "The inherited prerequisites and their why fields are preserved as historical source-reading records. In the first entry, the earlier G7 rounding/constants gap is superseded by integrated BP1–BP6 and the current G7 detail; final-source and supplier/adapter gaps remain as specified there."
 }

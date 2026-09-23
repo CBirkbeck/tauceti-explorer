@@ -1,3 +1,7 @@
+> Current status (23 September 2026): partial tenth checkpoint, 138 items.
+> See the final report section for the rectangular-kernel, repeated-Rolle and
+> Taylor adapters. Earlier checkpoint counts and remaining-work notices are historical.
+
 > Seventh-checkpoint integration (Codex, codex-a71f92, 2026-09-22).
 > The current partial result has 129 items: 27 library, 8 planned, 94 missing.
 > BP1–BP6 and the four proposed source issues from #1817 are now integrated;
@@ -1866,3 +1870,328 @@ recomputed independently in passing and agrees with the recorded test intervals
 (β = .27823867, a = .27843374, c = .11176708), as does the exponent
 `1/2 + a = .77843374` of Theorem 1.4; this is a spot check, not a review of that
 item. The four decimal constants printed in the paper are correct.
+
+## Tenth checkpoint: rectangular kernels and analytic determinant adapters
+
+Codex, session `codex-a71f92`, 23 September 2026. This is a partial
+continuation of #1420 and PR #1964, not an independent review. All 129 inherited
+item IDs and the entire preceding report survive. Six inherited item objects
+are refined, and nine are added: three exact generic library suppliers and six
+missing application adapters. The result has **138 items: 30 library, eight
+planned and 100 missing**. Six routes take 93 missing items exactly once; the
+same seven diagnostic source claims remain deliberately unrouted. This does
+not meet the protocol's complete-extraction criterion.
+
+This section supersedes the earlier G7 status sentences about the
+rank/kernel, derivative-witness and Taylor adapters. It does not supersede
+the other checkpoints' mathematical work or silently convert missing
+application lemmas into library declarations. In particular, the eighth
+checkpoint's Taylor endpoint proof is credited and integrated, not rediscovered.
+Its suggestion that a supremum upper bound completes BP2 requires a
+distinction: BP2's short-interval argument uses a **lower bound** at the
+Taylor witness. Both directions are stated separately below.
+
+### Reading, pins and ownership
+
+The freshly retrieved February 18, 2017 author copy was read completely,
+including all §§1–7 and references. Its SHA-256 is
+`bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec`.
+The [Oxford Bombieri–Pila author preprint](https://people.maths.ox.ac.uk/pila/Ovals.pdf)
+was freshly retrieved with SHA-256
+`a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408`;
+pp.1–6 and all of §3, pp.10–17, were read. Its pp.7–9, §4 and appendix are
+not claimed read in this continuation. No new visual inspection or authorized
+final-publisher-text comparison was performed. The main-paper DOI and author
+publication metadata identify JAMS 33 (2020), 1087–1099; they do not prove that
+the 2017 mathematical text agrees with the final revision. G0 survives, and
+the already repeated publisher-access attempts were not used as the substance
+of another checkpoint.
+
+Every new generic declaration claim was checked in the source at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti remains pinned at
+`f790474821cf4256814db967cb154e7af3d0c369`.
+The current upstream Completed/EffectiveBounds and AlgebraicCurves documents
+were read completely. Their historical statements about library absence were
+not treated as the current audit: the relevant reviewed EffectiveBounds and
+SF.0/SF.5 audit rows were inspected separately. SF.5 still owns proper
+intersection and Bézout; the upstream function-field curve roadmap neither
+supplies this determinant method nor gets re-planned. The inherited proposed
+IntegralPointDeterminantMethods route receives the six application adapters.
+No new polynomial, matrix, interpolation or derivative carrier is introduced.
+
+Targeted pinned-library searches found no exact repeated-Rolle interpolation
+witness or rectangular monomial-evaluation theorem already supplying these
+applications. The generic results below do supply their components. A
+catalogue search for this candidate and its specific adapters found no
+separate accepted owner; the existing six-route split is retained, not
+redesigned. This continuation does not re-audit every inherited library or
+planned item.
+
+### R1. Rectangular evaluation and supported coefficients
+
+Let F be a field, M a finite **set** of exponent vectors for two variables,
+S any finite point-index type, and z:S→F². We use MvPolynomial (Fin 2) F,
+not a private polynomial carrier. For c:M→F define
+
+Φ_M(c) = Σ_(m∈M) monomial m(c_m),  A_(s,m)=z_s^m.
+
+The coefficient of exponent e in Φ_M(c) is c_e when e∈M and zero
+otherwise, by the actual coefficient-of-sum and coefficient-of-monomial
+identities. Thus Φ_M(c)=0 exactly when c=0. Conversely, the existing
+monomial basis reconstructs any polynomial Q from its coefficient vector.
+If support Q⊆M, the reconstruction may be indexed by M. This proves the
+linear equivalence from F^M to the supported-polynomial subspace. The
+evaluation-of-sum and evaluation-of-monomial identities give
+
+eval_(z_s)(Φ_M(c)) = Σ_(m∈M)c_m z_s^m = (A.mulVec c)_s.
+
+This coefficient/evaluation compatibility is promoted to
+`bp-supported-coefficient-equivalence`, since the rank/kernel theorem
+consumes it. The monomial-system definition now has structured API, uses and
+four tests; the old terse note is not the only specification.
+
+At the pin, Matrix.rank A is the finrank of the range of A.mulVecLin.
+Apply rank-nullity to this map F^M→F^S. The finite-function-space dimension
+is |M|, so
+
+rank A + dim_F ker A = |M|.
+
+The kernel is finite-dimensional, and positive finrank is equivalent to
+having a nonzero element. Combining the two displayed identities proves
+
+rank A < |M|  iff  a nonzero Q supported in M vanishes at every z_s.
+
+Nothing here assumes |S|=|M|. Duplicated points repeat rows harmlessly.
+Duplicated exponent **indices** would instead destroy coefficient
+injectivity, which is why M is a Finset, not a list with repeated monomials.
+For M=∅ there is no nonzero supported polynomial and rank<0 is false.
+For S=∅ and M nonempty the evaluation map has zero target, and any monomial
+with coefficient 1 witnesses the equivalence.
+
+This closes the mathematical rectangular rank/kernel reduction with exact
+generic interfaces; the derived statement remains missing as an application
+declaration. It does **not** also claim the distinct assertion that a
+full-column-rank rectangular matrix has a nonzero D-by-D row minor.
+Bombieri–Pila Lemmas 2 and 4 need that selection step, which remains G7.
+
+### R2. Repeated Rolle without a fictitious common point
+
+For n≥1 let a_0<...<a_n be real nodes, U an open set containing their closed
+hull, and h a C^n function on U vanishing at every node. For each r<n,
+the rth derivative is continuous and differentiable on U. This follows from
+the pinned within-derivative continuity/differentiability statements:
+open sets have UniqueDiffOn, and within and ordinary iterated derivatives
+agree on an open set. Their equality on a neighbourhood also justifies the
+differentiability transfer, not just a pointwise rewriting.
+
+Apply the HasDerivAt version of Rolle between each pair of consecutive
+zeros. There are n resulting zeros of h', each strictly between its two
+predecessors, so they are distinct and ordered. Repeat between consecutive
+zeros of h', then h'', and so on. After n rounds a zero of h^(n) lies
+strictly between a_0 and a_n. Every closed interval used is contained in U,
+and each differentiability order is strictly below n when another derivative
+is taken. This is the item `bp-iterated-rolle`.
+
+The HasDerivAt hypothesis matters. The totalized derivative operator may be
+zero at a nondifferentiable point; using that value would not justify the
+analytic argument. For n=0 the original value is zero at the sole node,
+but there need not be an interior point. The zero-order case is separate.
+
+### R3. The factorial-normalized interpolation witness
+
+Let p interpolate f at a_0,...,a_n, with f C^n on the same open U.
+The pinned Lagrange statements give degree p≤n and p(a_i)=f(a_i).
+Polynomial evaluation is smooth, so h=f−p meets R2.
+
+Analytic differentiation of polynomial evaluation agrees with formal
+polynomial differentiation. Iterating that identity, the coefficient formula
+at the pin says that coefficient m of derivative^[n] p is
+
+(m+n).descFactorial(n) · coeff_(m+n) p.
+
+For m>0 it vanishes by the degree bound; for m=0 it is n! coeff_n p.
+Thus p^(n) is the constant n! coeff_n p. At R2's point ξ,
+
+0 = f^(n)(ξ) − n! coeff_n p.
+
+Factorials are nonzero in ℝ, so coeff_n p=f^(n)(ξ)/n!. If the normalized
+derivative has absolute value ≤B on the interval, so does this coefficient.
+For n=0 use the constant singleton interpolant instead.
+
+This is `bp-interpolation-derivative-witness`. In the determinant
+application there is one such argument for **each prefix length and each
+column**. The witness is ξ_(r,j), not a single ξ for the whole matrix.
+For example, interpolating x² and x³ at 0,1 produces slope 1 in both
+columns, but their derivative witnesses are 1/2 and 1/√3 respectively.
+No common point works. The cubic polynomial test also catches a lost
+factorial: coeff_3 X³=1 but its third derivative is 6.
+
+### R4. Newton factorization and the determinant exponent
+
+Use zero-based indices 0,...,D−1. For arbitrary column values Y_(i,j),
+let p_(r,j) be their interpolant at x_0,...,x_r and set
+B_(r,j)=coeff_r p_(r,j). Let
+
+W_r(X)=∏_(t<r)(X−x_t),  L_(i,r)=W_r(x_i).
+
+These are explicit expressions in the existing polynomial carrier, not a
+new Newton-polynomial structure. We first prove
+
+p_(r,j)=p_(r−1,j)+B_(r,j)W_r  for r≥1.
+
+Indeed the difference has degree<r, because W_r is monic of degree r and
+the degree-r coefficient cancels. It vanishes at the first r nodes.
+The existing interpolation uniqueness theorem therefore makes it zero.
+For r=0 the interpolant is the constant B_(0,j). Induction gives
+p_(D−1,j)=Σ_(r<D)B_(r,j)W_r, and evaluation gives Y=L B.
+
+When i<r, L_(i,r)=0. Its diagonal entry is ∏_(t<i)(x_i−x_t).
+The pinned determinant-of-product and lower-triangular determinant
+identities give
+
+det Y = [∏_(t<i)(x_i−x_t)] det B = V det B.
+
+This is `bp-newton-determinant-factorization`, the algebraic
+content of the source's Proposition 2 in the library's interpolation
+vocabulary. It works for singular value matrices too.
+
+For the analytic application, order the nodes increasingly; a permutation
+only changes the determinant sign. R3 gives, separately for each entry,
+
+|B_(r,j)| ≤ N^(1−r) ||f_j||_(N,D−1;I).
+
+The r=0 entry uses f_j(x_0). Expanding the D-by-D determinant into D!
+terms, every term contains each column once, while its total power of N is
+
+Σ_(r=0)^(D−1)(1−r)=D(3−D)/2.
+
+Therefore
+
+|det(f_j(x_i))| ≤ |V| D! N^(D(3−D)/2) ∏_j ||f_j||_(N,D−1;I).
+
+All exponent subtraction is in integers/reals, never truncated naturals.
+For D=1 this is |f_1(x_0)|≤N||f_1||_(N,0). For repeated nodes use the
+zero determinant directly instead of attempting interpolation. No division
+by a potentially zero norm occurs. The structured proof of
+`bp-derivative-determinant` records these steps. The separate
+normalized product/monomial estimates feeding integral determinant
+separation still require their detailed adapter decomposition.
+
+### R5. Taylor endpoints and the lower-bound argument
+
+The eighth checkpoint's T1–T2 become `bp-taylor-endpoint`.
+For unequal a,b and C^(n+1) smoothness on an open U containing uIcc(a,b),
+uniqueDiffOn_uIcc supplies unique derivatives on that interval. Openness of
+U gives ContDiffAt at the endpoint a. The within-to-ordinary conversion
+requires membership in the interval, not that this interval itself be a
+neighbourhood of a. Expanding taylorWithinEval with its zero and successor
+formulas therefore yields ordinary coefficients f^(j)(a)/j!. Restricting
+smoothness to the interval then applies the library Taylor remainder,
+whose derivative at its interior witness is already ordinary.
+
+When a=b, Taylor self-evaluation and the ordinary finite sum both equal
+f(a). The remainder is zero. There is no claim of a witness in the empty
+open interval and no invalid UniqueDiffOn argument for a singleton.
+
+For BP Lemma 7, assume k≥1, A,N>0, a≤b and neighbourhood C^k smoothness.
+The derivative hypotheses are
+
+|g^(i)| ≤ i! A^(i/k)N^(1−i)  (0≤i<k),
+|g^(k)| ≥ k! A N^(1−k).
+
+The degenerate interval is immediate. Otherwise let l=b−a>0 and use Taylor
+of order k−1. Taking the absolute value of its remainder and applying the
+**lower** derivative bound at its unknown point ξ gives
+
+A N^(1−k) l^k
+≤ |g(b)−g(a)−Σ_(i=1)^(k−1)g^(i)(a)l^i/i!|
+≤ 2N+Σ_(i=1)^(k−1)A^(i/k)N^(1−i)l^i.
+
+Thus t=l A^(1/k)/N satisfies t^k≤2+Σ_(i=1)^(k−1)t^i. Since
+
+t^k−Σ_(i=1)^(k−1)t^i−2=(t−2)Σ_(i=0)^(k−1)t^i
+
+and the last sum is positive for t≥0, one has t≤2, including k=1.
+Consequently l≤2A^(−1/k)N. This confirms the correction already recorded
+as proposed source issue E1; it adds no new review verdict.
+
+This proof does not use an upper bound on sup |g^(k)| to infer a short
+interval. The ordinary endpoint statement is explicitly scoped to
+neighbourhood smoothness. The source's broader classical closed-interval
+notation is not silently identified with Mathlib's ContDiffOn on a closed
+set and its potentially different ordinary endpoint derivatives. The
+compact graph hulls in the chosen proof lie inside smooth open branches;
+constructing those branches is still a separate G7 obligation.
+
+### R6. The genuine absolute-maximum upper bound
+
+The upper-bound theorem is useful in its own right and for the norm
+interface. Smoothness on the open U makes f^(n+1) continuous there, by
+the pinned within-derivative continuity theorem and open-set conversion.
+The function x↦|f^(n+1)(x)| is therefore continuous on the compact,
+nonempty interval uIcc(a,b), including when a=b. Apply the exact compact
+maximum theorem to this **absolute-value function**, obtaining an attained
+value M≥0 with |f^(n+1)(x)|≤M throughout the interval.
+
+For unequal endpoints, R5's remainder equality now gives
+
+|f(b)−Σ_(j=0)^n f^(j)(a)(b−a)^j/j!|
+≤ M |b−a|^(n+1)/(n+1)!.
+
+For equal endpoints both sides are zero. This is
+`bp-taylor-absolute-bound`. Applying the same maximum argument
+to each r≤k and then taking a finite maximum justifies attainment in the
+refined scaled-derivative-norm definition. Its structured API includes the
+normalized derivative bound, simultaneous interval/scale dilation, and the
+source's normalized product estimate; the latter is not claimed supplied
+by compactness.
+
+The distinction between max |h| and |max h| is material. For f(x)=−x³,
+a=1, b=2 and n=1, the remainder has magnitude 4. The maximum of |f''|
+is 12, giving the valid bound 6; the absolute value of the maximum of
+f'' is only 6, giving the false proposed bound 3.
+
+### Exact generic supplier ledger
+
+The result's verification.declarationsRead records the full 34-entry ledger
+with paths, locators, supplied statements and the pin. The main interfaces are:
+
+| Application | Existing supplier | Adapter boundary |
+| --- | --- | --- |
+| Supported polynomial coefficients and evaluation | MvPolynomial monomial basis, coefficient-sum/monomial and eval₂-sum/monomial identities | Restricted finite support and rectangular matrix orientation are proved in R1. |
+| Rank deficiency | Matrix.rank, LinearMap.finrank_range_add_finrank_ker, finite-function dimension and positive-dimension criterion | No square assumption; nonzero row-minor selection is separate. |
+| Repeated Rolle | exists_hasDerivAt_eq_zero; iterated-derivative continuity, differentiability and open-set conversion | Ordered interleaving induction is R2. |
+| Interpolation coefficient | Lagrange evaluation/degree/uniqueness; Polynomial.deriv and coeff_iterate_derivative | R3 retains factorials, zero order and entrywise witnesses. |
+| Determinant factorization | Lagrange uniqueness; Matrix.det_mul and det_of_isLowerTriangular | R4 uses one explicit lower-triangular Newton evaluation matrix. |
+| Taylor endpoints | Taylor remainder, uniqueDiffOn_uIcc, ContDiffAt and within/ordinary conversion | Open-neighbourhood hypothesis and equal-endpoint branch stay explicit. |
+| Absolute maximum | IsCompact.exists_isMaxOn and isCompact_Icc | Apply to the absolute derivative, not its signed maximum. |
+
+The three new library items state only rank-nullity, the HasDerivAt Rolle
+theorem and real-valued maximum attainment. The six composed application
+statements retain status missing. No Lean artifact was written or compiled.
+
+### Checks and remaining work
+
+A scratch-only standard-library Python script uses exact rational arithmetic,
+not floating-point sampling, and passes **11,765 diagnostic assertions**.
+It checks rank-nullity and kernel vectors for small rectangular matrices,
+including empty dimensions; supported monomial evaluation at repeated
+points; interpolation and Newton factorization for deterministic value
+matrices of dimensions one through five; polynomial derivative factorials;
+the signed-maximum counterexample; the zero-order branch; and the geometric
+sum identity including k=1. These finite checks neither prove the real
+analytic statements nor establish completeness.
+
+Repository checks and preservation checks are recorded in the handoff and
+verification block. G0–G10 remain. G7 now asks specifically for the
+full-rank-to-row-minor interface, normalized monomial/product-bound
+decomposition, nonzero specialization and degree estimates, SF.5 proper
+Bézout closure, analytic root continuation and inverse graphs, full recursive
+supplier accounting and independent verification. It does not ask a future
+worker to redo the endpoint or repeated-Rolle arguments as though they had
+never been supplied.
+
+No new source issue was added. E1–E7 remain unchanged and proposed; no
+independent verdict is invented. The older relative-genus, torus,
+hyperelliptic, del Pezzo, original counting-source and function-field
+uniformity gaps are not resolved by this determinant-method continuation.
