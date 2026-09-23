@@ -4128,8 +4128,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5533,8 +5533,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1332"
+   "state": "external",
+   "note": "claimed on GitHub issue #1332"
   },
   {
    "id": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -6751,8 +6751,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1402"
+   "state": "external",
+   "note": "claimed on GitHub issue #1402"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20",
