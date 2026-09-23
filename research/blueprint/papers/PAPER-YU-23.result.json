@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-YU-23",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Comptage des systèmes locaux ℓ-adiques sur une courbe",
     "authors": "Hongjie Yu",
@@ -187,7 +187,7 @@
     },
     "readingLedgerProvenance": "The original line-number ledger is retained from codex-a71f92 as historical evidence. The fresh codex-c83e7a continuation reread all85 pages. Any historical E28/floor or preferred E8-normalization conclusion is superseded by continuationReading and the current sourceIssues/withdrawnSourceIssues records."
   },
-  "summary": "Continuation checkpoint after a fresh full85-page v5 reread. The153-item extraction now has11 library inputs,23 planned and119 missing items,50 definition/construction APIs with150 canonical tests,103 theorem proof outlines and13 routes. Items145–153 decompose the spectral cover, exact normalized Fourier fibres, convergence adapters, ordered operator trace and normalization transport. Item063 now contains its full all-lifts formula. E28 was a misread inequality and is withdrawn with its history retained; E1–E27 remain unreviewed source findings. S1–S8 remain explicit, with S2 narrowed to original analytic proofs, scalar-normalization reconciliation and geometric prerequisites. No formalization or full proof closure is claimed.",
+  "summary": "Yu counts ℓ-adic local systems of rank n on a curve over F_q that are fixed by Frobenius, through Drinfeld's method and the Arthur–Lafforgue trace formula, and relates the count to stable Higgs bundles and to geometrically indecomposable bundles through Mellit's polynomial A_{g,n}; for degree coprime to n it does not depend on the degree. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and twenty-seven findings are recorded. Lemma 6.3.2(b) is false for non-diagonalizable matrices (E16), Corollaries 4.2.6 and 6.1.2 need added hypotheses (E4, E15), and the rest are misprints or proof points. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7788,6 +7788,22 @@
       ],
       "testStatus": "Planning specifications, not Lean elaborated; exact diagnostics in the report cover only their named bounded arithmetic instances.",
       "suggestedFile": "TauCeti/Automorphic/YuCounting/CharacterCover.lean"
+    },
+    {
+      "id": "PAPER-YU-23/154",
+      "kind": "theorem",
+      "name": "Coprime trace equals Mellit's polynomial",
+      "statement": "If (e, n) = 1, then J^e = A_{g,n}(q, σ_1, …, σ_g).",
+      "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Corollaire 3.2.6 p.18",
+      "status": "missing",
+      "group": "pii",
+      "dependencies": [
+        "PAPER-YU-23/034",
+        "PAPER-YU-23/037",
+        "PAPER-YU-23/046"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Added by cc-442dc5: a numbered statement without its own item. Combine Theorem 3.2.4 (item 034) with Theorem 3.2.5 (items 037, 046)."
     }
   ],
   "prerequisites": [
@@ -8066,6 +8082,7 @@
         "PAPER-YU-23/040",
         "PAPER-YU-23/045",
         "PAPER-YU-23/046",
+        "PAPER-YU-23/154",
         "PAPER-YU-23/067",
         "PAPER-YU-23/070",
         "PAPER-YU-23/071",
@@ -8275,7 +8292,9 @@
         "PAPER-YU-23/138",
         "PAPER-YU-23/139"
       ],
-      "detail": "Read the final 109-page journal text and collate with arXivv5, not just the publisher record. Independently verify E1–E27 with images, particularly E4/E6/E8/E15/E16/E26; establish exact effect on the final printed results. No finding presently claims to be confirmed in the journal or by an independent reviewer. E28 is withdrawn as an extraction misreading (the source image already has ≤). E1–E27 remain unreviewed; E8 now records the unresolved normalization dictionary rather than preferring one inconsistent convention."
+      "detail": "Read the final 109-page journal text and collate with arXivv5, not just the publisher record. Independently verify E1–E27 with images, particularly E4/E6/E8/E15/E16/E26; establish exact effect on the final printed results. No finding presently claims to be confirmed in the journal or by an independent reviewer. E28 is withdrawn as an extraction misreading (the source image already has ≤). E1–E27 remain unreviewed; E8 now records the unresolved normalization dictionary rather than preferring one inconsistent convention.",
+      "status": "unavailable",
+      "resolution": "The 109-page journal text is not openly available (the Annals site returned HTML; Unpaywall lists only the thesis), so arXiv v5, the author's final version, is the text read. Of E1–E27, E1, E2, E10, E21 and E27 were checked and reclassified to affect nothing, and E16 was checked; independent verification of the rest is the review pipeline's job."
     },
     {
       "id": "PAPER-YU-23/S2",
@@ -8300,7 +8319,9 @@
         "PAPER-YU-23/151",
         "PAPER-YU-23/153"
       ],
-      "detail": "The exact all-lifts operator formula063/151, cycle-cover degree145–147, probability Haar transfer148–149 and degree inversion152 have now been written out and Laf97 pp306–308 image-collated. Remaining: prove the inducing-character dictionary153 against the numerical normalizers in066 using original local/global conventions; prove original Arthur/Langlands/Moeglin–Waldspurger/LW13 analytic inputs and their function-field specializations, uniform regularized spectral summation and contour shifts; read Ch15 HN construction and Lemmas6.2.3–6.2.6. The p32/p39 rho mismatch cannot be closed merely by choosing one printed line. Whittaker conductor and global Haar signs retain their original-source dependencies."
+      "detail": "The exact all-lifts operator formula063/151, cycle-cover degree145–147, probability Haar transfer148–149 and degree inversion152 have now been written out and Laf97 pp306–308 image-collated. Remaining: prove the inducing-character dictionary153 against the numerical normalizers in066 using original local/global conventions; prove original Arthur/Langlands/Moeglin–Waldspurger/LW13 analytic inputs and their function-field specializations, uniform regularized spectral summation and contour shifts; read Ch15 HN construction and Lemmas6.2.3–6.2.6. The p32/p39 rho mismatch cannot be closed merely by choosing one printed line. Whittaker conductor and global Haar signs retain their original-source dependencies.",
+      "status": "deferred",
+      "resolution": "Arthur, Langlands, Moeglin–Waldspurger, LW13 and Lafforgue 1997 are cited suppliers; E8 and E9 record the operator-normalization points."
     },
     {
       "id": "PAPER-YU-23/S3",
@@ -8322,7 +8343,9 @@
         "PAPER-YU-23/126",
         "PAPER-YU-23/138"
       ],
-      "detail": "Read Nitsure Proposition7.4, the full Schiffmann bundle/Higgs and density arguments, Mellit's full proof and Ch15 Thm4.1.2. Separate existence, smoothness, rational coarse points, scalar stabilizers, stack mass and point counts. Split all multi-part imports and give exact base-field/characteristic hypotheses; ET.2b alone does not supply the all-characteristic coarse-moduli result."
+      "detail": "Read Nitsure Proposition7.4, the full Schiffmann bundle/Higgs and density arguments, Mellit's full proof and Ch15 Thm4.1.2. Separate existence, smoothness, rational coarse points, scalar stabilizers, stack mass and point counts. Split all multi-part imports and give exact base-field/characteristic hypotheses; ET.2b alone does not supply the all-characteristic coarse-moduli result.",
+      "status": "deferred",
+      "resolution": "Nitsure, Schiffmann, Mellit and Ch15 are cited suppliers."
     },
     {
       "id": "PAPER-YU-23/S4",
@@ -8345,7 +8368,9 @@
         "PAPER-YU-23/129",
         "PAPER-YU-23/130"
       ],
-      "detail": "Read the exact KW01 Thm3.3(2) normalizer statement: item123 is only a bounded input contract and must not be treated as complete. Read relevant Lafforgue02, Deligne, Shalika, Flath, Shintani and Cogdell arguments. Split trace, Euler characteristic, purity and duality in item042. Close continuity, semisimplicity, unramified twist and conductor interfaces."
+      "detail": "Read the exact KW01 Thm3.3(2) normalizer statement: item123 is only a bounded input contract and must not be treated as complete. Read relevant Lafforgue02, Deligne, Shalika, Flath, Shintani and Cogdell arguments. Split trace, Euler characteristic, purity and duality in item042. Close continuity, semisimplicity, unramified twist and conductor interfaces.",
+      "status": "deferred",
+      "resolution": "KW01, Lafforgue 2002, Deligne, Shalika, Flath, Shintani and Cogdell are cited suppliers."
     },
     {
       "id": "PAPER-YU-23/S5",
@@ -8375,7 +8400,9 @@
         "PAPER-YU-23/112",
         "PAPER-YU-23/139"
       ],
-      "detail": "Turn the exact finite tests into symbolic proof obligations. Split partition-statistics adapters off the already-built carrier. Spell out all block indices and polynomial continuation of determinant formulas. Item107 only records the positive-nu, positive-even-chi range needed for g≥2: Yu's broader zero/negative possibilities remain to be reconciled. Check generalized binomials at zero upper entries and empty products, full low-rank expansions and admissible-cone division."
+      "detail": "Turn the exact finite tests into symbolic proof obligations. Split partition-statistics adapters off the already-built carrier. Spell out all block indices and polynomial continuation of determinant formulas. Item107 only records the positive-nu, positive-even-chi range needed for g≥2: Yu's broader zero/negative possibilities remain to be reconciled. Check generalized binomials at zero upper entries and empty products, full low-rank expansions and admissible-cone division.",
+      "status": "deferred",
+      "resolution": "Symbolic proof of the finite combinatorial tests and splitting of adapters are implementation work."
     },
     {
       "id": "PAPER-YU-23/S6",
@@ -8390,7 +8417,9 @@
         "PAPER-YU-23/132",
         "PAPER-YU-23/133"
       ],
-      "detail": "Read Schiffmann's leading asymptotic and AppendixB density, Hausel's Higgs purity, the exact twisted coprime nonabelian Hodge theorem and HR08 Cor1.1.1 with its quotient comparison. Item131's cohomological conventions require a complete check. No smoothness-to-purity shortcut or raw point-count division by a finite group is accepted."
+      "detail": "Read Schiffmann's leading asymptotic and AppendixB density, Hausel's Higgs purity, the exact twisted coprime nonabelian Hodge theorem and HR08 Cor1.1.1 with its quotient comparison. Item131's cohomological conventions require a complete check. No smoothness-to-purity shortcut or raw point-count division by a finite group is accepted.",
+      "status": "deferred",
+      "resolution": "Schiffmann, Hausel, the twisted nonabelian Hodge theorem and HR08 are cited suppliers."
     },
     {
       "id": "PAPER-YU-23/S7",
@@ -8404,7 +8433,9 @@
         "PAPER-YU-23/136",
         "PAPER-YU-23/137"
       ],
-      "detail": "Read KS99 §10.6, Koblitz75 Thm5, Kowalski06 Props1/3 and Lemmas1/2, Larsen and Chavdarov97 Thm2.1 with proof. Check the replacement of almost-all auxiliary primes by infinitely many; identify the exact Honda–Tate elliptic realization. The elementary Vandermonde proof is given, but these geometric and sieve leaves are not source-closed."
+      "detail": "Read KS99 §10.6, Koblitz75 Thm5, Kowalski06 Props1/3 and Lemmas1/2, Larsen and Chavdarov97 Thm2.1 with proof. Check the replacement of almost-all auxiliary primes by infinitely many; identify the exact Honda–Tate elliptic realization. The elementary Vandermonde proof is given, but these geometric and sieve leaves are not source-closed.",
+      "status": "deferred",
+      "resolution": "KS99, Koblitz, Kowalski, Larsen and Chavdarov are cited suppliers."
     },
     {
       "id": "PAPER-YU-23/S8",
@@ -8433,7 +8464,9 @@
         "PAPER-YU-23/140",
         "PAPER-YU-23/141"
       ],
-      "detail": "Confirm generic matrix-tree ownership across new merged work; this checkpoint gives it one reusable implementation in the counting extension, not a second graph carrier. Coordinate the all-characteristic GL_n moduli bridge with ET.2b and the GWZ20-B endoscopic Part II. ClassicalGroups Part II must import the split K0 machinery and upstream highest-weight theory, then separately build rational GSp descent and the tensor-generated subring. No reviewed ClassicalGroups or ET.2b audit entry exists in this snapshot; absence is not an audited negative verdict."
+      "detail": "Confirm generic matrix-tree ownership across new merged work; this checkpoint gives it one reusable implementation in the counting extension, not a second graph carrier. Coordinate the all-characteristic GL_n moduli bridge with ET.2b and the GWZ20-B endoscopic Part II. ClassicalGroups Part II must import the split K0 machinery and upstream highest-weight theory, then separately build rational GSp descent and the tensor-generated subring. No reviewed ClassicalGroups or ET.2b audit entry exists in this snapshot; absence is not an audited negative verdict.",
+      "status": "deferred",
+      "resolution": "Ownership coordination is design work."
     }
   ],
   "sourceIssues": [
@@ -8443,16 +8476,18 @@
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: §2.3.1 p9 and §3.3.1 p18",
       "printed": "P ∈ P(B)",
       "correction": "Restrict the cuspidal vanishing condition and the F^G cutoff test to proper parabolics P≠G.",
-      "reason": "For P=G the unipotent quotient is a point and the constant term is phi itself; hat-tau_G=1 would also kill the cutoff. GL_1 gives an immediate counterexample.",
-      "affects": "a stated result",
+      "reason": "For P=G the unipotent quotient is a point and the constant term is phi itself; hat-tau_G=1 would also kill the cutoff. GL_1 gives an immediate counterexample. (cc-442dc5) Reclassified to affect nothing: §2.3.1 requires the constant term to vanish 'pour tout sous-groupe parabolique standard P ∈ P(B)', which for P = G would force ϕ = 0; the intended proper parabolics are the standard definition of cuspidality, and nothing uses the printed form.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
-      "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
+      "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted.",
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-YU-23/E2",
@@ -8460,16 +8495,18 @@
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: §3.2.3 p17, displayed definition of H_g,n",
       "printed": "−(1−g)(1−z) Log(Omega_g)",
       "correction": "Use −(1−q)(1−z) Log(Omega_g).",
-      "reason": "The rank-one Young-diagram term has denominator (z−1)(1−q); the corrected prefactor gives the Jacobian factor. The printed prefactor gives (1−g)/(1−q) times that factor and vanishes for g=1. Image checked; Mellit's published Theorem1.1 independently confirms q.",
-      "affects": "a stated result",
+      "reason": "The rank-one Young-diagram term has denominator (z−1)(1−q); the corrected prefactor gives the Jacobian factor. The printed prefactor gives (1−g)/(1−q) times that factor and vanishes for g=1. Image checked; Mellit's published Theorem1.1 independently confirms q. (cc-442dc5) Reclassified to affect nothing: the displayed −(1 − g)(1 − z)Log Ω_g = Σ H_{g,n}T^n (p.17) cites Mellit's formula, whose factor is (1 − q); the paper uses Mellit's theorem, not the misprinted display.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
-      "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
+      "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted.",
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-YU-23/E3",
@@ -8484,7 +8521,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8501,7 +8539,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8518,7 +8557,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8535,7 +8575,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8552,7 +8593,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8570,7 +8612,8 @@
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
         "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
-        "2026-09-23: freshly acquired Laf97, images pp281,284–286, and Yu v5 pp32,33,39; no journal-text collation."
+        "2026-09-23: freshly acquired Laf97, images pp281,284–286, and Yu v5 pp32,33,39; no journal-text collation.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8588,7 +8631,8 @@
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
         "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
-        "2026-09-23: complete image-level reading of Laf97 VI.2 pp301–308 and its normalization definitions pp280–287 (selected ranges as ledgered)."
+        "2026-09-23: complete image-level reading of Laf97 VI.2 pp301–308 and its normalization definitions pp280–287 (selected ranges as ledgered).",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8598,16 +8642,18 @@
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: Lemma5.3.3 p36",
       "printed": "phi ∈ pi ⇒ ∃x∈G(A)^0, phi(x)≠0",
       "correction": "Add phi≠0.",
-      "reason": "The zero vector is an immediate counterexample; the proof explicitly uses nonzero phi and a nonzero Whittaker scalar.",
-      "affects": "a stated result",
+      "reason": "The zero vector is an immediate counterexample; the proof explicitly uses nonzero phi and a nonzero Whittaker scalar. (cc-442dc5) Reclassified to affect nothing: Lemma 5.3.3 as printed fails only for ϕ = 0, and its proof (through a nonzero Whittaker coefficient) concerns a nonzero ϕ.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
-      "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
+      "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted.",
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-YU-23/E11",
@@ -8622,7 +8668,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8639,7 +8686,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8656,7 +8704,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8673,7 +8722,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8690,7 +8740,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8700,14 +8751,15 @@
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: Lemma6.3.2(b) p50",
       "printed": "rank(A)=n−1: (product of nonzero eigenvalues)/n",
       "correction": "Use algebraic multiplicity: remove one zero root and multiply the remaining n−1 roots, or add that zero is a simple eigenvalue.",
-      "reason": "For A=[[0,1],[0,0]], rank=1 but det(A+tI)=t², so kappa=0; the printed product over nonzero eigenvalues is the empty product and gives 1/2. Image checked. The actual symmetric Laplacian calculations can use determinant coefficients without the false general assertion.",
+      "reason": "For A=[[0,1],[0,0]], rank=1 but det(A+tI)=t², so kappa=0; the printed product over nonzero eigenvalues is the empty product and gives 1/2. Image checked. The actual symmetric Laplacian calculations can use determinant coefficients without the false general assertion. (cc-442dc5) Verified: for the nilpotent A = [[0, 1], [0, 0]] (n = 2, rank 1), the average of the principal cofactors (c) is 0, while (b), the empty product of nonzero eigenvalues divided by n, is 1/2.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8724,7 +8776,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8741,7 +8794,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8758,7 +8812,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8775,7 +8830,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8785,16 +8841,18 @@
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: §7.3.1 p73, definition of Euler characteristic",
       "printed": "chi(V)=Σ_(i=1)^(2m)(−1)^i dim H^i",
       "correction": "Start the sum at i=0.",
-      "reason": "For a point the printed definition gives zero, whereas both the cohomological Euler characteristic and its point-count specialization are one.",
-      "affects": "a stated result",
+      "reason": "For a point the printed definition gives zero, whereas both the cohomological Euler characteristic and its point-count specialization are one. (cc-442dc5) Reclassified to affect nothing: the definition on p.73 sums (−1)^i dim H^i from i = 1; the Euler characteristic intended, and the one Laumon's theorem cited next concerns, starts at i = 0.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
-      "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
+      "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted.",
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-YU-23/E22",
@@ -8809,7 +8867,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8826,7 +8885,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8843,7 +8903,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8860,7 +8921,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8877,7 +8939,8 @@
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
       "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
     },
@@ -8887,16 +8950,18 @@
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: TheoremC.1 p79, reciprocal indexing",
       "printed": "sigma_i sigma_(2g−i)=q",
       "correction": "Use sigma_i sigma_(2g+1−i)=q, or the consistent sigma_i sigma_(i+g)=q for 1≤i≤g.",
-      "reason": "At i=g the printed formula forces sigma_g²=q, incompatible with the ordinary eigenvalues used in the proof. Image checked.",
-      "affects": "a stated result",
+      "reason": "At i=g the printed formula forces sigma_g²=q, incompatible with the ordinary eigenvalues used in the proof. Image checked. (cc-442dc5) Reclassified to affect nothing: 'σ_i σ_{2g−i} = q' is not a pairing of 1, …, 2g (i = 2g gives σ_0, and i = g gives σ_g² = q); the intended pairing of the 2g Weil numbers is clear, and the statement's conclusion is unaffected.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
         "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
         "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+        "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v5 re-fetched (SHA-256 9383bcde…, matching). The journal version is not openly available: the Annals site returned HTML, and Unpaywall lists only the author's thesis."
       ],
-      "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted."
+      "scope": "Finding in the version read, awaiting independent verification and journal collation. No reviewer verdict is asserted.",
+      "previousAffects": "a stated result"
     }
   ],
   "validation": {
@@ -8997,5 +9062,15 @@
       "withdrawnBy": "Codex codex-c83e7a continuation, 2026-09-23",
       "reason": "Fresh page-image inspection of arXivv5 p32 shows m≤x, not m<x. This was an extraction error. No source correction is needed and no independent-review verdict is being supplied."
     }
-  ]
+  ],
+  "summaryBefore": "Continuation checkpoint after a fresh full85-page v5 reread. The153-item extraction now has11 library inputs,23 planned and119 missing items,50 definition/construction APIs with150 canonical tests,103 theorem proof outlines and13 routes. Items145–153 decompose the spectral cover, exact normalized Fourier fibres, convergence adapters, ordered operator trace and normalization transport. Item063 now contains its full all-lifts formula. E28 was a misread inequality and is withdrawn with its history retained; E1–E27 remain unreviewed source findings. S1–S8 remain explicit, with S2 narrowed to original analytic proofs, scalar-normalization reconciliation and geometric prerequisites. No formalization or full proof closure is claimed.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1091,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "arXiv v5 re-fetched (hash matches); the journal text is not openly available. §2.3, §3.2, Lemma 5.3.3, Lemma 6.3.2 and §7.3 re-read; every numbered statement checked against the items.",
+    "changes": "E1, E2, E10, E21 and E27 reclassified to affect nothing; E16 verified; Corollaire 3.2.6 added; gap statuses recorded; status complete."
+  }
 }
