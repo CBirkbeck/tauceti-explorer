@@ -132,3 +132,26 @@ These are listed in the result with links:
 - **Theta correspondence:** Fang–Sun–Xue (Math. Z. 2018) and Xue (arXiv:1612.03623).
 - **Spin structures:** Armitage (Invent. Math. 1967).
 - **Context:** Sakellaridis on spherical varieties (ANT 2012).
+
+## Review (REV-PAPER-DOR-23, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its new roadmap after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-DOR-23.md`.
+
+- **Statements:** 18 were corrected against the published text. The material ones:
+  - the Kirillov embedding's target, which is S̃(F^×) (item 003);
+  - a false "equivalently" in the Jacquet–Langlands integral (004);
+  - formula (2.4), which the extraction had inverted (010);
+  - the counit matrix of Construction 3.44 (027);
+  - the source of the canonical map of Example 3.55 (033);
+  - missing irreducibility and genericity hypotheses (007, 012).
+- **Statuses:**
+  - Item 003 is now missing, since no stage plans the Kirillov model.
+  - Item 004 is also planned in AL.3.
+  - Item 001's Mathlib list adds the bundled Mod, Mod.forget and IsCommMonObj.
+- **New items (8):**
+  - four planned: the Bernstein–Zelevinsky functors, the Bernstein centre, the Jacquet functor, and generic irreducibles with uniqueness of Whittaker functionals;
+  - four missing: ⊗_G, the Gelfand–Kazhdan step of Claim 3.18, the function-field zeta integrals on S, and the Weil representation in odd positive characteristic. MetaplecticAutomorphicForms plans only characteristic 0.
+- **Route:** the new route now has 51 items. Its brief's imports were made exact.
+- **Source issues:** E1 is confirmed, and E2–E7 are new:
+  - misprints: the Poisson-summation integrals of Proposition 4.9 run over M_2(A); the Petersson pairing runs over GL_2(F)\GL_2(A); 𝟙_{GL_2(O_v)} in the proof of Claim 4.3; Warning 3.25's wording; "mdules";
+  - a gap in Claim A.6: Appendix A never defines the global counit.
