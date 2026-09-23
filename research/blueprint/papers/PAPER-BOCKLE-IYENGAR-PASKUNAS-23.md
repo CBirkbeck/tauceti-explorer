@@ -277,3 +277,33 @@ These are listed in the result with links and reasons:
   - Conrad's lifting preprint (2011);
   - Call–Lyubeznik (1994);
   - Kisin (2003, Proposition 9.5).
+
+## Independent review (`REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23`, issue #1383)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, all seven routes accepted, all
+nine findings confirmed, **E8 extended with a fifth instance** and **Remark 1.7 added as item 148**. The
+full review is in
+[`reviews/REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md`](../reviews/REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md).
+
+Both arXiv hashes match byte for byte (the e-print is a single 3469-line file, exactly as recorded). The
+two Cambridge hashes cannot be reproduced — the publisher stamps each download — which the record would be
+better for saying. **The Corrigendum claim checks out**: Pi 12 (2024) e5 corrects only the affiliation
+"Universität Duisberg Essen" → "Universität Duisburg-Essen", so it addresses none of the findings.
+
+Simulating the shared `prop` counter gives **138 numbered statements** and reproduces the number *and the
+kind* of every statement the findings cite. Coverage was 137 of 138: the exception, **Remark 1.7**, is not
+commentary but the transfer of every §1 theorem from framed to versal and universal deformation rings, with
+its two named inputs (Iyengar Lemma 2.1; Bruns–Herzog Theorem 2.3.6 and Corollary 2.2.23(a)) — now item
+148, routed to the local Part II.
+
+All nine findings are confirmed verbatim. Seven are notational and each is settled by the surrounding text.
+**E7** is a genuine proof error: `ψ(ϖ_F) = 1` by its own definition, so `ψκ^{−1}(ϖ_F) = κ(ϖ_F)^{−1}` need
+not be `≡ 1 (mod ϖ)`; the entry's unramified twist repairs it. **E9** is correctly classified as an error
+affecting nothing: Lemma 3.30's last inequality and the final steps of Lemmas A.7–A.8 fail at `d = 1`,
+which the paper nowhere excludes.
+
+**E8 extended.** An audit of all **329** `<word>~\ref{…}` citations against the target environment found
+**exactly five** mismatches — the four recorded, plus "see the proof of **Proposition** 4.18" in the proof
+of Theorem 5.6, where 4.18 is **Corollary** 4.18. That instance is now part of E8. All five survive into
+the published text; in that PDF's text layer the citation words and numbers are interleaved with
+mathematics, so a naive search under-reports them (my first pass wrongly suggested three had been fixed).

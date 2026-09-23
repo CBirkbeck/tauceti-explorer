@@ -1334,6 +1334,15 @@
    "locator": "Theorem 6.1, p. 46 (arXiv v2 p. 51); Theorem 1.6, p. 3; Remark 6.2, p. 46",
    "status": "missing",
    "note": "Proved as Emerton–Paškūnas Theorems 5.1 and 5.3, with Theorem 6.8 in place of their faithfulness hypothesis. Remark 6.10: the sequel (Böckle–Iyengar–Paškūnas, PNAS 2023) proves density of Σ^cris in (Spf R^□_ρ̄)^rig for all p using the Emerton–Gee stack; Σ^prnc_k and Σ^spcd_k are not dense there, and this section is the only known method for them."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/148",
+   "kind": "theorem",
+   "name": "The results carry over to versal and universal deformation rings",
+   "statement": "The theorems of §1 are stated for framed deformation rings R^□_ρ̄, and they carry over to the versal deformation rings — which coincide with the universal deformation rings when ρ̄ has only scalar endomorphisms — because a framed deformation ring is formally smooth over a versal one (Iyengar, Lemma 2.1), together with the transfer of the complete-intersection, normality and dimension statements along a formally smooth extension (Bruns–Herzog, Theorem 2.3.6 and Corollary 2.2.23(a)).",
+   "locator": "Remark 1.7, p. 4 (arXiv v2 p. 5)",
+   "status": "missing",
+   "note": "Added by REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23: the only numbered statement of the paper that no item locator covered. It is not commentary - it is the transfer statement that carries every §1 theorem from the framed to the versal and universal deformation rings, with its two named inputs, and the atlas consumers of this paper will want the unframed form."
   }
  ],
  "prerequisites": [
@@ -1618,7 +1627,8 @@
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/127",
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/128",
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/129",
-    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/130"
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/130",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/148"
    ],
    "brief": "Final theorems (Böckle–Iyengar–Paškūnas, Forum Math. Pi 11 (2023) e30), for every finite F/Q_p, every d ≥ 1 and every continuous ρ̄: G_F → GL_d(k) whose irreducible subquotients are absolutely irreducible, L large enough: (1) Theorem 1.1 — R^□_ρ̄ is a local complete intersection, flat over O, of relative dimension d² + d²[F:Q_p], and R^□_ρ̄/ϖ is a complete intersection of dimension d² + d²[F:Q_p]; so every ρ̄ lifts to characteristic zero, and absolutely irreducibly (Corollaries 3.45, 3.61). (2) Theorem 1.2 — R_{det ρ̄} → R^□_ρ̄ is flat and induces bijections on irreducible components and on π_0 of the generic fibres; the components are the Spec R^{□,χ}_ρ̄ for χ: μ_{p^∞}(F) → O^×, and R^{□,χ}_ρ̄ and R^{□,χ}_ρ̄/ϖ are normal domains and complete intersections. (3) Corollary 1.3 — R^□_ρ̄ is reduced and R^□_ρ̄[1/p] is normal. (4) Theorem 1.4 — for ρ̄ absolutely irreducible, R^{□,χ}_ρ̄ and R^{□,χ}_ρ̄/ϖ are factorial except when d = 2, F = Q_3 and ρ̄ ≅ ρ̄(1), where they are not; Corollary 4.23 gives factoriality for d = 2, [F:Q_p] ≥ 4 and d ≥ 3, [F:Q_p] ≥ 3. (5) Theorem 1.5 — for ψ lifting det ρ̄, R^{□,ψ}_ρ̄ and R^{□,ψ}_ρ̄/ϖ are normal domains and complete intersections of dimensions dim R^□_ρ̄ − dim R_{det ρ̄} + 1 and dim R^□_ρ̄ − dim R_{det ρ̄}, and R^{□,ψ}_ρ̄ is O-flat. (6) Proposition 1.12 — absolutely irreducible points are dense in Spec R^□_ρ̄[1/p] and Kummer-irreducible points in Spec R^□_ρ̄/ϖ. Also the same complete-intersection statements at every closed point of X^gen and for representations over local fields (Corollaries 3.38, 3.44), for A^gen, A^{gen,χ}, A^{gen,ψ} (Corollaries 3.40, 4.6, 5.8, Proposition 4.26), and the consequences for R^ps (Corollaries 4.27–4.29, 5.10–5.11, Lemma 4.30).\n\nCover, in the paper's order: GIT over a Noetherian base after Seshadri (unique closed orbit in geometric fibres, closed images of invariant closed sets, G-invariance of irreducible components, the tangent-space bound of Lemma 2.2); the generic-matrices space X^gen = Spec A^gen over X^ps with its GL_d-action, Lemmas 3.2–3.4, and the adequate homeomorphism X^gen//GL_d → X^ps (Wang-Erickson Theorem 2.20, Alper) as a stated input; the fibre bounds of §3.2 (Hom and Ext^1 over E_y, the block subschemes X^gen_{y,σ}, the tangent formula of Proposition 3.11, Proposition 3.15, Corollary 3.16); Böckle–Juschka's equidimensionality of R^ps/ϖ of dimension 1 + d²[F:Q_p] and their bound on the special locus, as a stated input from that prerequisite paper; the invariant-subscheme lemmas 3.21 and 3.23; the strata X̄^ps_𝒫 and the count of §3.4 ending in Theorem 3.31, dim X̄^gen ≤ d² + d²[F:Q_p]; completions (Proposition 3.34) and the complete-intersection theorems (Corollaries 3.38–3.45); the maximally reducible semisimple locus (§3.6); density of the Kummer-irreducible and absolutely irreducible loci with the codimension bounds of Propositions 3.53 and 3.58, with the appendix on Kummer-irreducible points (Definition A.1 to Proposition A.9); the component rings R^{□,χ} and Proposition 4.3; regularity in codimension one (Lemma 4.8, Propositions 4.9–4.13, including the d = 2, F = Q_p and F = Q_2 cases); normality and components (Propositions 4.14–Corollary 4.22); factoriality (Corollaries 4.23–4.25, with Chenevier's F = Q_2 and Böckle's F = Q_3 computations as stated inputs); the pseudodeformation corollaries 4.26–4.30 (Paškūnas–Tung Theorem A.1 as a stated input); and §5 (Corollary 5.4 to Proposition 5.12).\n\nImport, never re-plan: Local Galois deformation rings and their components (LocalGaloisDeformationRings) R08.1, for framed representability, presentations over the coefficient rings Λ, completions at P_1-points, the rank-one ring and the twisting argument of §5 — routed there as sources by this extraction; Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra) R03.1 and R03.3, for complete intersections, regular sequences, the Jacobson and dimension lemmas 3.14–3.18, the completion lemmas 3.35–3.37, Serre's criterion, excellence, Grothendieck's parafactoriality and the fibrewise flatness criterion — routed there as sources; Integral Hecke actions, determinants and interpolation (IntegralHeckeAndGaloisDeterminants) IHG.0–IHG.1, for determinant laws, the Cayley–Hamilton quotient and the generic-matrices algebra of Lemma 3.1 — routed there as a source; Global Galois deformation rings (GlobalGaloisDeformations) R04.1, for the pseudodeformation functor; Global Galois duality and compact coefficients (ArithmeticGaloisDuality) D7 and Tau Ceti ClassFieldTheory Layers 5 and 7, for local duality, the Euler characteristic and the Artin map; Tau Ceti ModularCurves Layer 4D, for regularity under completion; and Parameter stacks, invariant theory and spectral coefficients (LanglandsParameterStacks) LP3, with which the GL_d invariant theory should be shared where its hypotheses allow.\n\nTests: d = 1, where R^□_ρ̄ = R_{det ρ̄} and every statement is Lemma 4.1; ρ̄ trivial of dimension 2 (Example 3.22, and Iyengar's explicit components for the trivial representation); the non-factorial ring O⟦x_1, …, x_9⟧/(x_1x_2 − x_3x_4) of Remark 4.24; d = 2, F = Q_3, ρ̄ ≅ ρ̄(1); and the cautionary Remarks 3.19–3.20. Consumers: the density Part II proposed by this extraction (CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity), Paškūnas–Quast's generalisation to generalised reductive groups (PAPER-PASKUNAS-QUAST-26, not yet extracted), which should extend this Part II, and the sequel Böckle–Iyengar–Paškūnas, Zariski density of crystalline points (PNAS 2023).",
    "reason": "LocalGaloisDeformationRings plans the local rings used by Kisin and Khare–Wintenberger: R08.1 the unrestricted framed rings with their representability, tangent/obstruction theory and fixed determinant, R08.2–R08.6 local conditions, L7–L8 local models. No layer determines the geometry of the unrestricted framed ring in arbitrary dimension — complete intersection, flatness over R_{det ρ̄}, irreducible components, normality, factoriality, density of irreducible loci — and the paper's method (GIT over a base, the generic-matrices space over R^ps, Böckle–Juschka's equidimensionality, fibre-dimension counts, completions at closed points) is planned nowhere. It is new layers in that roadmap's direction, consumed by the same consumers (patching, potential automorphy), so it is a Part II; the reusable general inputs go as sources to R08.1, R03.1/R03.3, IHG.1, D7 and R06.2, so the Part II builds on them instead of re-planning them."
@@ -1664,7 +1674,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: the proof introduces 'Lambda_i: E -> R^ps, 0 <= i <= d' as the coefficients of the characteristic polynomial and then writes 'D^u(t-a) = sum_{i=0}^{n} (-1)^i Lambda_i(a) t^{d-i}'. The upper limit must be d; n is the size of a generating set of E, fixed elsewhere in the same proof.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E2",
@@ -1680,7 +1695,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: 'For each 1 <= j <= r let R^ps_j be the universal deformation ring of Dbar'_j and let X^ps_j := R^ps_j'. Spec is missing, and the paper's own convention (X^ps = Spec R^ps, and later dim Xbar^ps_i) requires it.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E3",
@@ -1696,7 +1716,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: 'Note that if rhobar_i: G_F -> GL_d(k) is an (absolutely irreducible) representation with pseudo-character Dbar_i then ...', and two lines later 'So let rho_i^univ: G_F -> GL_{d_i}(R_{rhobar_i})'. Dbar_i has dimension d_i, so the first display should read GL_{d_i}(k); the paper itself uses d_i immediately afterwards.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E4",
@@ -1712,7 +1737,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim, and the entry's own diagnosis of the source is right: the TeX reads 'The open subscheme U_max = X^ps \\setminus {mm_{R^ps}} \\subset \\Xbar^{ps} is Jacobson by Lemma \\ref{jacobson}'. The proof goes on to bound dim X^mrs inside X^gen, not inside the special fibre, and X^ps minus its closed point is not contained in Xbar^ps.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E5",
@@ -1728,7 +1758,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the source: 'For each partition P as in Section 3.4 let X^ps_P be the scheme theoretic image of X^ps inside X^ps_Sigma'. The map iota_Sigma goes X^ps_Sigma -> X^ps - the same construction in section 3.4 is 'the scheme theoretic image of iota_Sigma' and lands in Xbar^ps - and the next clause takes the preimage of X^ps_P in X^gen, which needs X^ps_P inside X^ps. The direction is reversed exactly as the entry says.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E6",
@@ -1744,7 +1779,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: 'Let R_{rho_x} be the universal deformation ring of R_{rho_x}'. The object deformed is rho_x, the absolutely irreducible representation attached to D_x two lines earlier.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E7",
@@ -1760,15 +1800,20 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the counterexample is the right shape. The proof defines psi(x) = sigma(x varpi_F^{-v(x)})^a, so psi(varpi_F) = 1, and then asserts 'psi kappa^{-1} == 1 (mod varpi)'. Since psi kappa^{-1}(varpi_F) = kappa(varpi_F)^{-1}, the congruence fails whenever kappa is unramified with kappa(varpi_F) not congruent to 1 - for F = Q_p and k not F_2, take kappa(p) the Teichmueller lift of any lambda in k^x minus {1}. The entry's repair (twist psi by the unramified mu with mu(Art_F(varpi_F)) = kappa(Art_F(varpi_F))) keeps crystallinity and triviality on torsion, so the lemma stands; only this step of the proof needs it.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E8",
    "kind": "misprint",
-   "locator": "Proofs of Corollary 3.38, p. 25 (arXiv v2 p. 29); Corollary 4.15, p. 38 (arXiv v2 p. 43); Lemma 4.30, p. 42 (arXiv v2 p. 47); Lemma A.3, p. 51 (arXiv v2 p. 57)",
-   "printed": "'Corollary 3.23 implies that …'; 'Proposition 3.34 … and Proposition 3.37 tell us that R^{□,χ}_ρ̄/ϖ is normal'; 'It follows from Lemma 4.29 and Proposition 4.26'; 'The proof is similar to the proof of Proposition 3.24'",
-   "correction": "Lemma 3.23; Lemma 3.37; Corollary 4.29; Lemma 3.24",
-   "reason": "The cited statements are Lemma 3.23, Lemma 3.37, Corollary 4.29 and Lemma 3.24 (the numbers are right, the kinds wrong); the TeX \\ref targets confirm which statements are meant.",
+   "locator": "Proofs of Corollary 3.38, p. 25 (arXiv v2 p. 29); Corollary 4.15, p. 38 (arXiv v2 p. 43); Lemma 4.30, p. 42 (arXiv v2 p. 47); Lemma A.3, p. 51 (arXiv v2 p. 57); Theorem 5.6, p. 44 (arXiv v2 p. 50)",
+   "printed": "'Corollary 3.23 implies that …'; 'Proposition 3.34 … and Proposition 3.37 tell us that R^{□,χ}_ρ̄/ϖ is normal'; 'It follows from Lemma 4.29 and Proposition 4.26'; 'The proof is similar to the proof of Proposition 3.24'; 'it is enough to prove that R^{□,ψ}_ρ̄[1/p] is normal, see the proof of Proposition 4.18'",
+   "correction": "Lemma 3.23; Lemma 3.37; Corollary 4.29; Lemma 3.24; Corollary 4.18",
+   "reason": "The cited statements are Lemma 3.23, Lemma 3.37, Corollary 4.29 and Lemma 3.24 (the numbers are right, the kinds wrong); the TeX \\ref targets confirm which statements are meant. REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23 adds the fifth instance, in the proof of Theorem 5.6: Corollary 4.18 (label Xgen_chi_normal) is cited as a Proposition there and correctly as a Corollary twice elsewhere. An exhaustive audit of all 329 word-plus-\\ref citations in the source finds exactly these five mismatches and no others.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -1776,7 +1821,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and extended. I audited every '<word>~\\ref{label}' citation in the source against the environment carrying the label: 329 citations, five mismatches. Four are the ones recorded here - Lemma 3.23 cited as a Corollary in the proof of Corollary 3.38, Lemma 3.37 as a Proposition in the proof of Corollary 4.15, Corollary 4.29 as a Lemma in the proof of Lemma 4.30, Lemma 3.24 as a Proposition in the proof of Lemma A.3 - and each label is cited correctly elsewhere in the paper (three to six times), which settles the intended kind. The fifth was missing and I have added it to this entry: the proof of Theorem 5.6 says 'see the proof of Proposition 4.18' where 4.18 is Corollary 4.18 (label Xgen_chi_normal), cited correctly as a Corollary twice elsewhere. All five survive into the published text; I checked each in the published PDF, where the citation strings are interleaved with mathematics, so a naive word-plus-number search under-reports them.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E9",
@@ -1792,7 +1842,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: Lemma 3.30 ends 'In particular, d^2 + d^2[F:Q_p] - dim Y >= 1 + l_{P_max}[F:Q_p] >= 1 + 2[F:Q_p]', and the paper fixes rhobar: G_F -> GL_d(k) with no hypothesis d >= 2. For d = 1 the maximal partition has l_{P_max} = 1 and the last inequality fails, exactly as the entry says; the same final step appears in Lemmas A.7 and A.8. Classifying this as an error affecting nothing is right, since every application has d >= 2, but the inequalities as printed are false at d = 1.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   }
  ]
 }
