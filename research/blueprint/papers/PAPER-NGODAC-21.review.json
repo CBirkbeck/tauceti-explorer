@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-NGODAC-21",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "DM.0 owns the rank-one Carlitz arithmetic; the Carlitz denominator product is a source there."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "DM.2 owns analytic uniformization, the Carlitz period and the Ω product."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "DM.4 owns Anderson motives; the inverse-twist dual effective convention is a source there."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "DM.6 owns depth-one special values, the factorial normalisation and small Carlitz zeta power sums."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "DM.8 owns coefficient twists, Tate and entire analytic interfaces and ABP-type lifting; the review added the twist-fixed field of the Tate algebra's fraction field as a planned item there."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "The same Part II id and title as PAPER-CHANG-CHEN-MISHIBA-23 and PAPER-IM-KIM-LE-ETAL-24, so there is one MZV roadmap, not a second. The review added three missing items (the calculus of prefix dominance, the canonical power-sum product expansions (2.2)–(2.4), and the prefix/suffix closure of the families)."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-39fac3, 23 September 2026, of the extraction by cc-442dc5 and Codex sessions a71f92 and c83e7a. The Annals version (194 (2021), 361–392) is paywalled; the review read the HAL manuscript (the version the extraction read, same SHA-256) in full again with two checkers, consulted Chang 2014 and Chang–Papanikolas–Yu 2019 on arXiv and Thakur's updates, and ran the algorithm behind Theorem A on every index up to weight 6 for q = 2 and weight 7 for q = 3, 4, 5 (444 results, all in T_w and numerically equal in K∞). The extraction is accurate. Statements: 7 corrected (mixed-product lacks the bound c′ ≤ a₋ + b that Lemma 2.9 needs; B- and C-operation must name the fixed expansions of p. 8; omega's zeros; 'suffix' for 'prefix'; two imprecise statements). Locators: 13 corrected (the manuscript has no Lemma 2.11 or §2.4). The chen-coefficient test is wrong (Δ₂(2,2) = 1 at q = 3). All library citations exist at the pinned commits; the planned stages and the Part II title check. All 13 of the extraction's own derivations and repairs are sound. 4 new items (1 planned, 3 missing). E1–E12 confirmed; E10 reclassified to affect nothing. 4 new source issues: two misprints (pp. 4, 7), a wrong equation reference on p. 21 ((4.2) for (5.4)), and an unhandled one-term case in Step 3 of the proofs of Theorems B and D, trivial by non-vanishing."
+}
