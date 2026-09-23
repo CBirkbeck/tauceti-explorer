@@ -183,6 +183,10 @@
       {
        "layer": "SerreWeightAndLevelOptimisation:R20.1",
        "note": "Owns the level-changing algebra that produces the bound on the prime-to-p conductor."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+       "note": "Tau Ceti's own roadmap owns the coefficient field of a newform: Layer 8G builds `CharacterField χ` and `CoefficientField f` with the inclusion `CharacterField χ ≤ CoefficientField f`, which is exactly the 'coefficient fields and primes above p of the resulting newforms' this layer asks to record. Per Protocol 15 it is imported, not re-planned, and EllipticCurveModularity currently has no Tau Ceti prerequisite at all."
       }
      ]
     },
@@ -260,7 +264,12 @@
        "note": "Strong multiplicity one is fully proved in Tau Ceti (Miyake Thm 4.6.12), in exactly the strong form R29.3 needs: agreement of eigenvalues outside a finite set of good indices forces equality, so nothing at all is assumed at indices dividing the level. Missing are the Galois conjugate f^sigma of a newform, the coefficient field K_f, and hence the rationality argument itself."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+       "note": "The rationality target here — Galois conjugation of newforms together with strong multiplicity one — is Layer 8G's subject: it exists precisely because the well-definedness of `f ↦ f^σ` is 'a deep stability statement' and proves it algebraically through the Hecke algebra. The strong-multiplicity-one half this layer needs is already built in Tau Ceti and cited above; the Galois half is planned there, so this layer imports Layer 8G rather than restating it."
+      }
+     ]
     },
     "EllipticCurveModularity:R29.4": {
      "verdict": "not built",
@@ -328,6 +337,10 @@
       {
        "layer": "RankZeroOneBSD:BSD.0",
        "note": "Restates the bad-prime Euler-factor comparison, 'prove every local Euler-factor comparison, including bad primes', for the twisted L-function; it lists R29.4-R29.6 as its dependency."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+       "note": "'The primitive level of f equals N_E' is a statement about the conductor of a newform, and Layer 4 ('eigenforms, newforms, primitive forms; the conductor') owns that notion. Only the elliptic-curve side of the equality belongs here."
       }
      ]
     },
