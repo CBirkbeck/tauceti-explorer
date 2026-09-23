@@ -12,7 +12,8 @@
     "readSections": [
       "Public arXiv v1 (6 November 2015): all 38 pages, §§0–5.7.3 and all references read completely.",
       "Conrad, Polarizations: all 10 pages read completely.",
-      "Yun arXiv:1303.2420v2: introduction, §§1.3–1.5; §§4.8–4.13 including proofs of Lemma 4.9 and Proposition 4.13. Other sections not claimed read."
+      "Yun arXiv:1303.2420v2: introduction, §§1.3–1.5; §§4.8–4.13 including proofs of Lemma 4.9 and Proposition 4.13. Other sections not claimed read.",
+      "codex-7e92bd continuation: LT v1 freshly read in full; WM71 all twelve page images; M68 pp.63–67 and p.84 images. Handoff P1–P5 by cgp-20260923-h7q4 incorporated with attribution in report D0–D6."
     ],
     "versionNote": "G0: both authors link the 38-page v1. Crossref records the 51-page 2018 published article. Matching has NOT been established. Canonical publisher full/download URLs returned Incapsula HTML, not PDF. All mathematical locators and error reports here refer to v1 unless explicitly Conrad or Yun.",
     "files": [
@@ -38,6 +39,20 @@
         "pages": 10,
         "date": "2026-09-21T21:36:19.023997+00:00",
         "read": "all 10 pages"
+      },
+      {
+        "url": "https://www.jmilne.org/math/articles/1971a.pdf?download=1",
+        "sha256": "e482e1c60ccd76a068057b18ac28cec02f2746f87048947d8c2a4c328f6c88a8",
+        "bytes": 1122196,
+        "accessed": "2026-09-23",
+        "extent": "All twelve published page images, pp.53–64, including both Part II proofs and references."
+      },
+      {
+        "url": "https://www.jmilne.org/math/articles/1968a.pdf?download=1",
+        "sha256": "8abdaf4fa604d5ed7faee3f9d4e9dc9382dc35d7b79382fe3540f495fe98fc35",
+        "bytes": 1229128,
+        "accessed": "2026-09-23",
+        "extent": "Published page images pp.63–67 and p.84 only; not a complete paper read."
       }
     ],
     "libraryPins": {
@@ -46,7 +61,7 @@
     },
     "atlasCommit": "14482fbdbea546a681b66b8bb4ff336bdc8830c6"
   },
-  "summary": "Partial third continuation after PRs #1652, #1848 and #2155: 152 items (19 library, 26 planned, 107 missing). Adds Tate’s original proof spine and fixed-polarization input, an explicit prime-field linear-dual realization, finite-flat lattice realization and torsion-integrality arguments, and the finite-support adelic assembly yielding a coarse isogeny-class bound D_*³h. Three new generic library suppliers are imported; one new PEL source route reuses existing ownership. All 19 withheld claims and 17 version-qualified sourceIssues remain. General-q, original p-realization suppliers, class-number estimates, final journal comparison and Lean implementation remain unclosed.",
+  "summary": "Partial characteristic-p continuation: 167 items (22 library, 29 planned, 116 missing), eleven routes, nineteen withheld LT claims, nineteen unreviewed source findings. Incorporates cgp-20260923-h7q4’s original p-source handoff and a fresh source read; splits the p-Tate proof into degree/polynomial comparison, saturation, cyclic Frobenius blocks and arithmetic dimension comparison, importing pinned module-endomorphism, tensor-centralizer and Brauer-opposite APIs. The local invariant keeps both opposite-algebra signs. Original geometric/classification suppliers, local/global Brauer and Honda inputs, journal comparison, quantitative counts and limit laws remain partial. No Lean implementation is claimed.",
   "items": [
     {
       "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/abelian-variety",
@@ -761,7 +776,10 @@
       "statement": "If A/F_p is simple and Q(Frob) has no real embedding, End⁰_Fp(A)=Q(Frob) is a CM field.",
       "locator": "Proposition 4.14(1)",
       "status": "missing",
-      "note": "Retain both simple and prime-field hypotheses. Supersingular elliptic curves over F_(p²) provide the excluded noncommutative behavior. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports. Original Waterhouse Chapter 2 and Theorem 6.1 read; Tate Bourbaki 352 Theorem 1 invariant formula checked on the rendered page. For a=1 every finite local invariant f_v ord_v(π)/a is integral. With no real place all Brauer invariants vanish, so the division algebra is its CM center. The Brauer classification and the original p-invariant proof remain named G8 inputs."
+      "note": "Retain both simple and prime-field hypotheses. Supersingular elliptic curves over F_(p²) provide the excluded noncommutative behavior. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports. Original Waterhouse Chapter 2 and Theorem 6.1 read; Tate Bourbaki 352 Theorem 1 invariant formula checked on the rendered page. For a=1 every finite local invariant f_v ord_v(π)/a is integral. With no real place all Brauer invariants vanish, so the division algebra is its CM center. The Brauer classification and the original p-invariant proof remain named G8 inputs. D5 now reads and expands WM71 Part II Theorem 2, so the original p-invariant proof is no longer an unread leaf. Its local cyclic-invariant and global Brauer classification suppliers remain explicit. E18 records the false alternative centralizer sentence in v1; use the valid invariant proof, not that shortcut.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-endomorphism-local-invariant"
+      ]
     },
     {
       "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/waterhouse-orders",
@@ -1670,20 +1688,19 @@
       "kind": "theorem",
       "name": "Integral Tate full faithfulness at the characteristic prime",
       "statement": "For abelian varieties A,B/F_q, let C(A),C(B) be the contravariant Dieudonné modules of their p-divisible groups over W(F_q), with their F,V actions. The natural map Hom_Fq(A,B)⊗Z_p→Hom_{W(F_q),F,V}(C(B),C(A)) is an isomorphism.",
-      "locator": "Waterhouse 1969 §1.2, p.525; Tate Bourbaki 352 §2, pp.98–99",
+      "locator": "WM71 Part II Theorem 1, pp.60–61; integral saturation in Part I pp.55–57; Waterhouse 1969 §1.2.",
       "status": "missing",
-      "note": "Statement read in Waterhouse; Tate’s Bourbaki treatment extends the dimension argument to the p-divisible category but explicitly leaves details to the reader and cites further suppliers. This checkpoint does not claim the original general p-proof has been read or fully decomposed. C3 records the exact remaining rational realization/characteristic-polynomial and integral-saturation leaves. The ℓ≠p theorem in Tate 1966 alone does not provide this item. The prime-field-p-frobenius item isolates one of these p-realization leaves without a cyclic dependency.",
+      "note": "D1–D4 incorporate handoff P1–P3 and a fresh reading of the original WM71/M68 proofs. Rational full faithfulness and independent characteristic-polynomial comparison are now separate items. Original R07.2 classification and A3/A6 geometric proofs and generic adapter audits remain G8. Status remains missing.",
       "dependsOn": [
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/dieudonne-lattice",
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-hom",
-        "AbelianSchemesAndArithmeticModuli:A3",
-        "AbelianSchemesAndArithmeticModuli:A6"
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/rational-p-tate-hom",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-saturated-hom"
       ],
       "tests": [
         "The direction is C(B)→C(A), not C(A)→C(B).",
         "For q=p both F,V are Z_p-linear; for q=p^a with a>1 they remain oppositely semilinear.",
         "Using A[p](k̄) loses the connected p-primary part and cannot give this theorem."
-      ]
+      ],
+      "proof": "Both sides are finite free Z_p-modules. Rational p-Tate gives equal rank. The saturated injection has finite torsion cokernel with no p-torsion, hence zero; it is the required integral isomorphism."
     },
     {
       "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-covariant-dual",
@@ -1890,18 +1907,385 @@
       "kind": "theorem",
       "name": "Prime-field p-realization Frobenius polynomial",
       "statement": "For A/F_p the linear Frobenius F on C(A)⊗Q_p, and hence its transpose on D^lin(A), is semisimple and has characteristic polynomial equal to the intrinsic degree-2dim(A) Frobenius polynomial P_A(T)∈Z[T] occurring on every V_ℓ(A), ℓ≠p.",
-      "locator": "Waterhouse 1969 Chapter 2, pp.526–527; Tate Bourbaki 352 §2, pp.98–99",
+      "locator": "M68 §1 pp.65–66; WM71 Part II p.60; specialization a=1 of p-frobenius-semisimplicity.",
       "status": "missing",
-      "note": "This is an explicit supplier leaf, not a consequence silently bundled into p-Tate full faithfulness. Waterhouse states semisimplicity and the p-block dimensions; their original realization/degree proof is not decomposed here. The general rational p-Tate dimension argument may consume this comparison, so do not also use p-Tate as its proof without an independent construction. Transpose preserves characteristic polynomial, but cannot establish the cross-realization comparison.",
+      "note": "The independent all-q characteristic-polynomial and semisimplicity arguments are expanded in D1, without invoking p-Tate. At a=1 Frobenius is linear and ordinary transposition gives the existing D^lin comparison. Original A6 degree and R07.2 proof interiors remain G8; no Lean realization exists.",
       "dependsOn": [
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/dieudonne-lattice",
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/degree-polynomial",
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/poincare-decomposition"
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-semisimplicity",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-covariant-dual"
       ],
       "tests": [
         "The module has rank 2g, not the p-rank of geometric torsion.",
         "The polynomial may have repeated irreducible factors even though the operator is semisimple.",
         "Over F_(p^a) with a>1, F itself is semilinear and does not have this Q_p-linear formulation."
+      ],
+      "proof": "Specialize q=p, so F^a=F. Transposition on the ordinary Z_p-linear dual preserves characteristic and minimal polynomials, giving the assertion for D^lin as well."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/simple-module-end-dimension-supplier",
+      "kind": "theorem",
+      "name": "Dimension of an endomorphism algebra over a simple algebra",
+      "statement": "For a field K, a finite-dimensional simple K-algebra R, and a finite-dimensional K-vector space M with compatible R-action, dim_K End_R(M) · dim_K R = (dim_K M)^2. M may be zero; centrality of R is not required.",
+      "locator": "TauCeti/RingTheory/Semisimple/EndAlgebra.lean, variables at lines 109–145 and theorem at line 144, pinned f790474.",
+      "status": "library",
+      "note": "Statement and proof read at f790474821cf4256814db967cb154e7af3d0c369; raw GitHub bytes matched the pinned local file. This replaces a proposed re-development of the module/Morita dimension argument. FiniteDimensional K R, FiniteDimensional K M and IsScalarTower K R M are explicit.",
+      "library": [
+        "tauceti:TauCeti.IsSimpleRing.finrank_end_mul_finrank_eq_sq"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/brauer-opposite-supplier",
+      "kind": "theorem",
+      "name": "Opposite algebra gives the inverse Brauer class",
+      "statement": "For a finite-dimensional central simple algebra A over a field K, the class of A^op in Br(K) is the inverse of the class of A. Tau Ceti writes the Brauer group multiplicatively.",
+      "locator": "TauCeti/Algebra/BrauerGroup/Group.lean, lines 130–207, mk_op.",
+      "status": "library",
+      "note": "Read the actual definition and theorem at pinned f790474; the group structure is already implemented. A local additive invariant sends this inverse to a negative; the local invariant itself is not supplied here.",
+      "library": [
+        "tauceti:TauCeti.BrauerGroup.mk_op"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/centralizer-tensor-supplier",
+      "kind": "construction",
+      "name": "Tensor decomposition along a central simple subalgebra",
+      "statement": "For a finite-dimensional simple K-algebra T and a central simple K-subalgebra B, multiplication is an algebra equivalence B⊗_K C_T(B) ≅ T. In the application T=End_K(V) for V nonzero and finite dimensional.",
+      "locator": "TauCeti/Algebra/CentralSimple/Centralizer.lean, Centralizer section, tensorCentralizerAlgEquiv and tensorCentralizerAlgEquiv_tmul.",
+      "status": "library",
+      "note": "Actual hypotheses and statements read at pinned f790474, with raw-byte verification. Brauer application also consumes the freshly read TauCeti.BrauerGroup.mk_tensorProduct and mk_end in Group.lean. Do not rebuild the general centralizer theorem.",
+      "tests": [
+        {
+          "name": "centralizer_tensor_scalar",
+          "kind": "computation",
+          "statement": "For B=K inside T, C_T(B)=T and the equivalence is scalar multiplication."
+        },
+        {
+          "name": "centralizer_tensor_whole",
+          "kind": "computation",
+          "statement": "For B=T central simple, its centralizer is K and the equivalence is the right scalar action."
+        },
+        {
+          "name": "centralizer_tensor_noncentral",
+          "kind": "non-example",
+          "statement": "B=T=C over K=R is simple but not central: the false dimension formula would be 2·2=2."
+        }
+      ],
+      "library": [
+        "tauceti:TauCeti.tensorCentralizerAlgEquiv",
+        "tauceti:TauCeti.tensorCentralizerAlgEquiv_tmul"
+      ],
+      "api": [
+        {
+          "name": "TauCeti.tensorCentralizerAlgEquiv",
+          "role": "equivalence",
+          "statement": "Import the algebra equivalence induced by multiplication, with its inverse and algebra-map compatibility."
+        },
+        {
+          "name": "TauCeti.tensorCentralizerAlgEquiv_tmul",
+          "role": "simp",
+          "statement": "On a pure tensor b⊗c, the equivalence evaluates to bc in T."
+        }
+      ],
+      "uses": [
+        {
+          "where": "p-endomorphism-local-invariant",
+          "how": "The tensor decomposition inside End_K(V) shows that the commuting algebra has inverse Brauer class."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dieudonne-exactness",
+      "kind": "theorem",
+      "name": "Exact finite-level contravariant Dieudonné comparison",
+      "statement": "Over a perfect field k of characteristic p, the contravariant Dieudonné anti-equivalence on finite commutative p-primary group schemes is exact and faithful. For the p-divisible group of an abelian variety A, C(A)/p^n C(A) identifies naturally with D(A[p^n]); maps and short exact sequences have the reversed orientation.",
+      "locator": "WM71 Part I Theorem 4, p.56; M68 §1, p.65.",
+      "status": "planned",
+      "note": "Precise imported R07.2 interface, not a new Dieudonné category. The theorem statements were read in WM71/M68; the original Manin/Oda/Gabriel classification proofs cited there remain G8. Fix contravariance explicitly when adapting the existing dieudonne-lattice convention.",
+      "planned": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dieudonne-length-rank",
+      "kind": "theorem",
+      "name": "Dieudonné length measures group-scheme rank",
+      "statement": "For a finite commutative p-primary group scheme H over a perfect field k, rank_k(H)=p^(length_W(k) D(H)). In particular the exponent uses p, including when k=F_(p^a); it does not use p^a or the number of geometric points of H.",
+      "locator": "WM71 Part I Theorem 4, p.56; M68 §1, p.65.",
+      "status": "planned",
+      "note": "Imported quantitative part of R07.2 classification; not inferred from prime-to-p torsion. Original classification proof interior remains G8.",
+      "tests": [
+        "Over F_9 a length-three module corresponds to rank 27, not 729.",
+        "The group scheme μ_p has rank p and one geometric point.",
+        "The trivial group has length zero and rank one."
+      ],
+      "planned": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-cyclic-invariant-supplier",
+      "kind": "theorem",
+      "name": "Invariant of an unramified cyclic algebra",
+      "statement": "For an unramified cyclic extension E/K of nonarchimedean local fields of degree n, let τ generate Gal(E/K), let φ be arithmetic Frobenius, and write φ=τ^r with gcd(r,n)=1. The cyclic algebra with Ua=τ(a)U and U^n=c∈K× has invariant r·ord_K(c)/n in Q/Z, with ord_K a uniformizer-normalized valuation.",
+      "locator": "WM71 Part II proof of Theorem 2, p.61; imported local invariant convention in ClassFieldTheory Layer 5.",
+      "status": "planned",
+      "note": "ClassFieldTheory Layer 5 owns the local invariant normalized by arithmetic Frobenius; AUDIT-03 says the invariant map is absent. The comparison from algebraic Brauer classes to cohomological classes must be retained. WM71 invokes the cocycle calculation without giving its full proof: that original supplier proof remains G8.",
+      "dependsOn": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius"
+      ],
+      "tests": [
+        "τ=φ gives ord_K(c)/n.",
+        "Replacing τ by a generator requires the exponent r with φ=τ^r, not its reciprocal in the displayed formula.",
+        "For n=3, c a uniformizer, opposite algebras have invariants 1/3 and 2/3."
+      ],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-degree-valuation",
+      "kind": "theorem",
+      "name": "Dieudonné determinant detects the p-part of isogeny degree",
+      "statement": "Let k=F_(p^a), W=W(k), L=Frac(W), and C be the contravariant realization. For an isogeny f:A→B, length_W coker C(f)=v_p(deg f). For an endomorphism isogeny f:A→A this also equals v_p(det_L(C(f)[1/p])), normalized by v_p(p)=1.",
+      "locator": "M68 §1, p.65, determinant/length/degree comparison; WM71 Part I pp.56–57.",
+      "status": "missing",
+      "note": "D-continuation: paper-specific application of existing carriers; source proof specified, no Lean implementation claimed.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dieudonne-exactness",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dieudonne-length-rank",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index",
+        "AbelianSchemesAndArithmeticModuli:A3"
+      ],
+      "proof": "Decompose the finite kernel into its p-primary and prime-to-p parts using A3. Exact contravariance identifies coker C(f) with D((ker f)_p). Apply length/rank, and for an endomorphism use Smith normal form over the unramified DVR W to identify cokernel length with determinant valuation. The determinant statement is restricted to an endomorphism; no canonical determinant of a map between different spaces is asserted.",
+      "tests": [
+        "For [p] on dimension g, all three quantities are 2g.",
+        "For a prime-to-p isogeny, the p-realization is an integral isomorphism and the length is zero.",
+        "Connected p-kernels are counted by scheme rank."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-characteristic-polynomial",
+      "kind": "theorem",
+      "name": "Characteristic polynomial on the p-realization",
+      "statement": "For A/F_(p^a) and u∈End(A), the L-linear map C(u) on C(A)[1/p] has characteristic polynomial equal to the intrinsic polynomial P_u∈Z[X] of degree 2dim A, after mapping coefficients to L. This holds for arbitrary u without asserting that u is semisimple.",
+      "locator": "M68 §1, pp.65–66; WM71 Part I p.57 and Part II p.60; handoff P1 expanded in report D1.",
+      "status": "missing",
+      "note": "D-continuation: paper-specific application of existing carriers; source proof specified, no Lean implementation claimed.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-degree-valuation",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/degree-polynomial",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions"
+      ],
+      "proof": "Writing F=Bσ, commutation gives T=Bσ(T)B^(-1), so the integral characteristic polynomial Q of T is σ-fixed and lies in Z_p[X]. For every integer ψ such that ψ(u) is an isogeny, the preceding valuation theorem gives v_p Res(Q,ψ)=v_p deg ψ(u)=v_p Res(P_u,ψ); the last equality is the A6 degree formula on V_ℓ and the determinant/resultant identity, not p-Tate. To separate monic P,Q∈Z_p[X], choose each monic irreducible factor R of PQ, choose monic integral R_n≡R mod p^(2n), and set ψ_n=R_n+p^n. Roots α of R have v_p ψ_n(α)=n, while at the other roots it is eventually v_p R(β). Thus the resultant valuation is n times the number of R-roots with multiplicities, plus a constant. Equality for large n gives all multiplicities, hence P=Q. Nonzero Res(P_u,ψ_n) ensures ψ_n(u) is an isogeny by A6, so these tests are admissible. Report D1 names the remaining generic adapter audits; Lang’s original uniqueness lemma is not claimed read.",
+      "tests": [
+        "A=0 gives polynomial 1.",
+        "For u=[[0,1],[0,0]] on E² the polynomial is X⁴; u need not be semisimple.",
+        "An irreducible factor R of degree d repeated e times contributes slope de to these resultant valuations.",
+        "When a>1 C(u) is L-linear, but F itself is only semilinear."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-semisimplicity",
+      "kind": "theorem",
+      "name": "Semisimplicity of the linear q-Frobenius realization",
+      "statement": "For A/F_(p^a), C(π_A)=F^a is an L-linear semisimple endomorphism of C(A)[1/p], where π_A is the q-power Frobenius. Its characteristic polynomial is P_A. No semisimplicity claim for arbitrary endomorphisms is included.",
+      "locator": "M68 p.66, paragraph before Theorem 1; WM71 Part I p.57 and Part II p.60.",
+      "status": "missing",
+      "note": "D-continuation: paper-specific application of existing carriers; source proof specified, no Lean implementation claimed.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-characteristic-polynomial",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/poincare-decomposition",
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "proof": "π_A is central in the finite-dimensional semisimple Q-algebra End⁰_k(A). Its minimal polynomial therefore has no repeated roots in characteristic zero. Functoriality transports this annihilating polynomial to C(π_A)=F^a, proving semisimplicity; use the independent polynomial comparison for the characteristic polynomial.",
+      "tests": [
+        "Repeated isogeny factors may give repeated factors of P_A without destroying semisimplicity.",
+        "Over F_(p²) use F²; scalar Frobenius does not make F L-linear.",
+        "The zero realization is included."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-saturated-hom",
+      "kind": "theorem",
+      "name": "Saturated injection on integral p-realization Hom groups",
+      "statement": "For A,B/F_(p^a), the natural map j:Hom_k(A,B)⊗Z_p→Hom_(W,F,V)(C(B),C(A)) is injective with p-saturated image. This statement does not assume rational p-Tate or equality of ranks.",
+      "locator": "WM71 Part I Theorems 3 and 5, pp.55–56, and saturation step p.57; expanded handoff P2/report D2.",
+      "status": "missing",
+      "note": "D-continuation: paper-specific application of existing carriers; source proof specified, no Lean implementation claimed.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dieudonne-exactness",
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "proof": "The equivariant Hom module H is a finite torsion-free Z_p-submodule of the W-linear maps, and is p-saturated there by cancelling p in the F,V equations. A geometric homomorphism acting as zero modulo p therefore kills the group scheme A[p]. The quotient A/A[p]≅A given by [p] yields f=pg. Thus M/pM→H/pH is injective for M=Hom(A,B). For x∈M⊗Z_p in ker j, iterated reduction gives divisibility by every p-power, hence x=0. If j(x)=ph, reduction gives x=px′ and cancellation gives h=j(x′). All modules used are finite free over their stated DVR; no rank equality was used.",
+      "tests": [
+        "Replacing A[p] by its geometric points would miss μ_p.",
+        "The same argument detects divisibility by p^n.",
+        "End is an anti-homomorphism; Hom has direction C(B)→C(A)."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-algebra",
+      "kind": "construction",
+      "name": "Algebra acting on a Frobenius polynomial block",
+      "statement": "Let L/Q_p be unramified of degree a≥1 with arithmetic Frobenius σ, and let m∈Q_p[X] be monic irreducible with m(0)≠0. Put K=Q_p[X]/m and θ=X mod m. On ⊕_(0≤j<a)(L⊗Qp K)U^j define multiplication by U b=(σ⊗1)(b)U and U^a=θ. This defines a K-algebra B of dimension a². If a semilinear bijection F on an L-vector space V satisfies m(F^a)=0, the actions of L, θ↦F^a and U↦F define a B-module structure on V.",
+      "locator": "WM71 Part II p.60 cyclic quotient and p.61 presentation; explicit finite-sum presentation of handoff P3.",
+      "status": "missing",
+      "note": "Finite-field application in the existing Part II; reuse general tensor/direct-sum/central-simple APIs. This is not a second central-simple-algebra or Dieudonné category.",
+      "dependsOn": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius"
+      ],
+      "proof": "Use the existing direct sum, tensor product and algebra carriers. For 0≤i,j<a set (bU^i)(cU^j)=bσ^i(c)θ^floor((i+j)/a)U^((i+j) mod a). Associativity follows from σ^a=1, σ(θ)=θ and the carry identity for residues modulo a. The basis count is a·dim_K(L⊗K)=a². The displayed relations verify the proposed module action; no general Ore-polynomial classification is assumed.",
+      "tests": [
+        {
+          "name": "FrobeniusBlock.degree_one",
+          "kind": "computation",
+          "statement": "For a=1, B=K and U=θ; its dimension is one."
+        },
+        {
+          "name": "FrobeniusBlock.split_coefficients",
+          "kind": "non-example",
+          "statement": "If K contains L and a>1, L⊗Qp K≅K^a is not a field; the construction still applies."
+        },
+        {
+          "name": "FrobeniusBlock.wrap",
+          "kind": "computation",
+          "statement": "For a=3, U²U²=θU and U³=θ, while dim_K B=9."
+        },
+        {
+          "name": "FrobeniusBlock.nonzero_theta",
+          "kind": "non-example",
+          "statement": "If θ=0, U is not invertible and the claimed central-simple result cannot be used."
+        }
+      ],
+      "api": [
+        {
+          "name": "FrobeniusBlock.coeff",
+          "role": "constructor",
+          "statement": "Embed L⊗K as degree-zero coefficients."
+        },
+        {
+          "name": "FrobeniusBlock.generator",
+          "role": "data",
+          "statement": "U is invertible with inverse θ^(-1)U^(a−1)."
+        },
+        {
+          "name": "FrobeniusBlock.ext",
+          "role": "extensionality",
+          "statement": "Two elements agree iff all a coefficient components agree."
+        },
+        {
+          "name": "FrobeniusBlock.mul_monomial",
+          "role": "simp",
+          "statement": "Use the explicit σ-twisted multiplication with the wrap factor θ."
+        },
+        {
+          "name": "FrobeniusBlock.lift",
+          "role": "universal-property",
+          "statement": "Compatible coefficient and U actions satisfying the relations induce a unique algebra action."
+        },
+        {
+          "name": "FrobeniusBlock.scalar_extension",
+          "role": "compatibility",
+          "statement": "Scalar extension carries the coefficient embedding, generator and finite basis to the corresponding presentation over the extended field."
+        }
+      ],
+      "uses": [
+        {
+          "where": "p-frobenius-block-split",
+          "how": "The finite basis becomes the weighted-cycle matrix-unit basis after splitting L."
+        },
+        {
+          "where": "p-frobenius-centralizer-dimension",
+          "how": "Realizes the semilinear equivariance equations as B-module linearity."
+        },
+        {
+          "where": "p-endomorphism-local-invariant",
+          "how": "The same cyclic presentation identifies the arithmetic local Brauer invariant."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-split",
+      "kind": "theorem",
+      "name": "Central simplicity of a Frobenius block algebra",
+      "statement": "The algebra B in p-frobenius-block-algebra is central simple over K. For an algebraic closure Ω/K, B⊗K Ω≅M_a(Ω). In particular the conclusion includes the cases where L⊗Qp K is a product of fields.",
+      "locator": "WM71 Part II pp.60–61; weighted-cycle expansion of handoff P3/report D3.",
+      "status": "missing",
+      "note": "D-continuation: paper-specific application of existing carriers; source proof specified, no Lean implementation claimed.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-algebra",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields"
+      ],
+      "proof": "Over Ω the étale coefficient algebra splits as Ω^a. Index its primitive idempotents so σ cyclically permutes them. Map these idempotents to diagonal matrix units and U to a cyclic permutation matrix with wrap weight θ. The a² matrices e_j U^r form the matrix-unit basis up to nonzero scalars, hence this is an algebra isomorphism. Descent of ideals and centers along a faithfully flat field extension gives central simplicity over K. The general descent statement belongs to the existing semisimple-algebra owner; its exact pinned adapter remains a named G8 audit obligation.",
+      "tests": [
+        "a=1 gives a field.",
+        "a=2 has dimension four even when the coefficient tensor product splits.",
+        "No assertion of division or of integral splitting is made."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-centralizer-dimension",
+      "kind": "theorem",
+      "name": "Dimension of the semilinear Frobenius commutant",
+      "statement": "For A/F_(p^a), factor P_A=∏m_i^(e_i) over Q_p into distinct monic irreducibles of degrees d_i. For V=C(A)[1/p] and R=L[F,F^(-1)], dim_Qp End_R(V)=Σ_i d_i e_i².",
+      "locator": "WM71 Part II Theorem 1 proof, pp.60–61; handoff P3/report D3.",
+      "status": "missing",
+      "note": "D-continuation: paper-specific application of existing carriers; source proof specified, no Lean implementation claimed.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-semisimplicity",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-split",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/simple-module-end-dimension-supplier"
+      ],
+      "proof": "The central semisimple F^a decomposes V into V_i killed by m_i(F^a); intertwiners between distinct i vanish by Bézout. Polynomial comparison gives dim_L V_i=d_i e_i and hence dim_Ki V_i=a e_i. Its R-endomorphisms are exactly its B_i-linear endomorphisms: B_i is generated by L and F. Apply the pinned dimension supplier to R=B_i, K=K_i and M=V_i: dim End_Bi(V_i)·a²=(ae_i)², so the dimension is e_i². Restrict scalars and sum. V=0 gives an empty sum. This uses the existing supplier instead of recreating a generic Morita/commutant-base-change library.",
+      "tests": [
+        "Multiplicity e contributes e².",
+        "For F=σ on L² with a=2, the commutant over Q_p has dimension four, not eight.",
+        "For a=1 this becomes the usual polynomial centralizer count."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/rational-p-tate-hom",
+      "kind": "theorem",
+      "name": "Rational p-Tate comparison",
+      "statement": "For A,B/F_(p^a), Hom_k(A,B)⊗Q_p→Hom_(L,F)(C(B)[1/p],C(A)[1/p]) is an isomorphism of Q_p-vector spaces. For A=B it identifies End⁰_k(A)^op⊗Q_p with the equivariant endomorphism algebra.",
+      "locator": "WM71 Part II Theorem 1 proof, pp.60–61.",
+      "status": "missing",
+      "note": "D-continuation: paper-specific application of existing carriers; source proof specified, no Lean implementation claimed.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-saturated-hom",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-centralizer-dimension",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-hom"
+      ],
+      "proof": "The saturated injection remains injective on rationalization. Prime-to-p Tate identifies dim_Q End⁰(A) with the semisimple Frobenius commutant dimension Σ d_i e_i²: compute after a common characteristic-zero splitting field, where each root contributes its multiplicity squared, to see independence of the local factorization. The p-realization commutant has that same dimension by the preceding item, giving the End anti-isomorphism. Apply to A×B and take off-diagonal projector corners, preserving contravariance. Every rational equivariant map becomes integral after multiplying by a power of p, so rationalization of integral H gives precisely this target.",
+      "tests": [
+        "End is opposite, while the additive Hom comparison reverses source and target.",
+        "Off-diagonal corners of A×B supply Hom, not merely an equality of End dimensions.",
+        "Commuting with F^a alone is insufficient when a>1."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-endomorphism-local-invariant",
+      "kind": "theorem",
+      "name": "Characteristic-prime invariant of a simple endomorphism algebra",
+      "statement": "Let A/F_(p^a) be simple, with Frobenius π and center Q(π) of E=End⁰_k(A). For v|p put K=Q(π)_v, e_v=ord_v(p) and f_v its residue degree, with ord_v a uniformizer-normalized valuation. Then inv_v(E)=f_v ord_v(π)/a=[K:Q_p]ord_v(π)/ord_v(p^a) in Q/Z.",
+      "locator": "WM71 Part II Theorem 2 and proof, pp.60–61; LT v1 Proposition 4.14(1).",
+      "status": "missing",
+      "note": "D-continuation: paper-specific application of existing carriers; source proof specified, no Lean implementation claimed.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/rational-p-tate-hom",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-split",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/local-cyclic-invariant-supplier",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/centralizer-tensor-supplier",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/brauer-opposite-supplier",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius"
+      ],
+      "proof": "Set g=gcd(f_v,a), n=a/g. The étale coefficient algebra L⊗Qp K has g factors E′=LK of degree n over K; the block algebra is M_g(D), with D generated over E′ by U, Uc=σ^g(c)U and U^n=π. This is the explicit matrix presentation on WM71 p.61. Arithmetic Frobenius of E′/K restricts to σ^(f_v), so equals (σ^g)^(f_v/g). The imported cyclic-invariant formula gives inv(D)=(f_v/g)ord_v(π)/(a/g)=f_v ord_v(π)/a. The faithful action of the central simple block inside End_K(V_v) and the tensor-centralizer theorem show the commutant has inverse Brauer class. Rational p-Tate identifies E_v^op with that commutant, so the second opposite reverses the sign again. Matrix algebras preserve the Brauer class. All-q p-Tate does not supply an all-q lattice-counting convention.",
+      "tests": [
+        "At a=1 every finite p-invariant is zero, but real invariants may remain.",
+        "At a=3, f_v=1 and ord_v π=1 the invariant is 1/3, not 2/3.",
+        "If a=f_v=2 the coefficient tensor has two factors; pretending it is a field loses g."
       ]
     }
   ],
@@ -1924,7 +2308,7 @@
     {
       "citation": "Tate, Endomorphisms of abelian varieties over finite fields (1966); Honda, Isogeny classes (1968)",
       "link": "https://pazuki.perso.math.cnrs.fr/index_fichiers/Tate66.pdf",
-      "why": "All Tate 1966 text read; Proposition 1 p.137 image checked. Its main theorem is ℓ≠p, and its p-local invariant proof is explicitly omitted. Tate Bourbaki 352 §§1–2 and Waterhouse isolate the p suppliers, but the full p-proof, Honda existence and their original Manin/Milne/Oda inputs remain unfinished."
+      "why": "Tate 1966 prime-to-p proof reading inherited from codex-a71f92; D1–D5 now read the original characteristic-p comparison and invariant proofs in WM71 Part II with M68 pp.65–66. Honda CM existence and original finite Dieudonné/degree suppliers remain unfinished. Tate’s projected second endomorphism paper never appeared; use WM71, whose bibliography explicitly says so."
     },
     {
       "citation": "Gan–Yu, Group schemes and local densities, Duke Math. J. 105 (2000), 497–524",
@@ -1959,7 +2343,17 @@
     {
       "citation": "Tate, Classes d’isogénie des variétés abéliennes sur un corps fini, Séminaire Bourbaki, exposé 352 (November 1968), printed 1971, pp.95–110",
       "link": "https://numdam.org/item/SB_1968-1969__11__95_0/",
-      "why": "Whole extracted text surveyed; §§1–2 read with rendered formulas on pp.96,98,99. Normalizes inv_v(E)=f_v ord_v(π)/a and records the p-divisible full-faithfulness argument’s unsupplied proof details. §§3–6 formulas have not all been image-audited; do not treat this as a complete Honda/CM proof read."
+      "why": "Whole extracted text surveyed; §§1–2 read with rendered formulas on pp.96,98,99. Normalizes inv_v(E)=f_v ord_v(π)/a and records the p-divisible full-faithfulness argument’s unsupplied proof details. §§3–6 formulas have not all been image-audited; do not treat this as a complete Honda/CM proof read. D1–D5 replace only the p-proof unread-source boundary by the original WM71 Part II proof; no fresh full Honda/CM audit is asserted."
+    },
+    {
+      "citation": "Waterhouse–Milne, Abelian varieties over finite fields, Proc. Symp. Pure Math. 20 (1971), 53–64",
+      "link": "https://www.jmilne.org/math/articles/1971a.pdf",
+      "why": "All twelve pages freshly image-read. Part II supplies the original p-Tate and p-local invariant proofs; R07.2 exact classification, local cyclic invariant and Honda existence remain imports."
+    },
+    {
+      "citation": "Milne, Extensions of abelian varieties defined over a finite field, Invent. Math. 5 (1968), 63–84",
+      "link": "https://www.jmilne.org/math/articles/1968a.pdf",
+      "why": "Only pp.63–67 and p.84 freshly image-read. The independent p-characteristic-polynomial comparison is pp.65–66; the Lang uniqueness citation is expanded by a valuation argument, not claimed read. The proposed p.67 Newton-abscissa misprint is incorporated from the handoff. Later Ext proofs and the author’s corrections to pp.78–81 are outside this extraction scope."
     }
   ],
   "routes": [
@@ -2025,7 +2419,9 @@
       ],
       "items": [
         "PAPER-LIPNOWSKI-TSIMERMAN-18/dieudonne-lattice",
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-covariant-dual"
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-covariant-dual",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dieudonne-exactness",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dieudonne-length-rank"
       ],
       "reason": "The existing Dieudonné owner fixes covariance and F,V. A new finite-field application must consume it, not reconstruct it."
     },
@@ -2171,10 +2567,19 @@
         "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-lattice-realization",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-marked-classification",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers",
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-isogeny-class-bound"
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-isogeny-class-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-degree-valuation",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-characteristic-polynomial",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-semisimplicity",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-saturated-hom",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-algebra",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-split",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-centralizer-dimension",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/rational-p-tate-hom",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/p-endomorphism-local-invariant"
       ],
       "reason": "A1–A6 construct relative geometry and realizations but have no Honda–Tate/Waterhouse classification or prime-field lattice-counting layers. This extension consumes them; PEL moduli and statistical models remain with their existing owners. S6 adds only the finite-field consumer of GN/AA counting suppliers, conditional on the exact global action/classification interfaces. C1–C6 add the original Tate proof spine and the prime-field marked-lattice/adelic assembly. Generic bicommutant and compactness are library imports; moduli finiteness remains with PELModuli.",
-      "brief": "Construct the finite-field arithmetic of existing Tau Ceti abelian varieties. Import Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A2–A4/A6, Finite flat groups and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory) R07.2, Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic) GN.2–GN.3, Adelic algebraic groups (AdelicAlgebraicGroups) AA.4, and the built NumberField class-number APIs. Prove Tate full faithfulness and the Honda–Tate simple-isogeny correspondence with the exact local invariants; prove Waterhouse order realization only in the nonreal simple prime-field case. Construct the marked quasi-isogeny/lattice correspondence, its rational-orbit quotient, and the prime-field p-component reduction. Export the corrected reciprocal-polynomial upper bound (4g+1)^g q^(g(g+1)/4) and its exp((log q)g²/4+O_q(g log g)) isogeny-class consequence. Keep real-Weil/quaternionic factors, norm-image class sets and integral stabilizers explicit. Prove the source-scoped exp(O_p(g²)) squarefree polarization bound only after its local-order and unit-norm suppliers close. Obtain CM elliptic examples and point-count isogeny invariance; the p-group lemma in this route is restricted to p≥7. Do not use or advertise v1 Theorem 0.1 numerical constant, Lemma 5.11 leading coefficient, Corollaries 5.13/5.14/5.20 or an all-q extension until the final published source is compared and gaps G0–G8 are closed. PELModuli owns the moduli stack, ArithmeticStatistics ST.0/ST.5 owns the family measures and conditional distribution consequences. Every definition needs ≥3 discriminating unit tests, a consumer-derived API and a suggested Lean file on existing carriers. No implementation or formalization is claimed. S1–S6 now specify a conditional upper bound D_*³ h(G,K₀), with D_*≤(2√p)^{2g(2g−1)}. This is a consumer of existing GN.2/GN.3 and AA.4, not a reimplementation. Before applying it to an isogeny class, prove the product stabilizer, finite-support conjugacy, local-centralizer comparison at every place and finite coarse class-set hypotheses from the named arithmetic suppliers. It does not establish h(G,K₀), its reduced-norm/narrow-class comparison or the sharp coefficient of Theorem 0.1. C1–C6 specify the producer side of those arithmetic interfaces: construct prime-field D^lin from the contravariant Dieudonné module, realize finite-support tuples by finite-flat subgroup quotients, prove torsion detection of integral quasi-homomorphisms, and identify the marked and rational-orbit quotients. At good primes use the squarefree minimal-polynomial discriminant and integral idempotents; at the remaining finite set use S3 graded-profile compact groups. Prove product stabilizers and finite-support conjugacy, retaining the separate p-Tate full-faithfulness and p-Frobenius-polynomial suppliers. Consume PELModuli M2/M5/M6 for fixed-polarization-degree finiteness in Tate’s proof; never derive it from the unpolarized bound being proved. The resulting coarse prime-field count is ≤D_*³h≤(2√p)^{3(2g)(2g−1)}h with h the finite AA.3 class set. General-q covariance, original p-realization proof interiors, Honda existence, class-number estimates and the sharp constant remain G2/G8/G5 obligations."
+      "brief": "Construct the finite-field arithmetic of existing Tau Ceti abelian varieties. Import Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A2–A4/A6, Finite flat groups and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory) R07.2, Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic) GN.2–GN.3, Adelic algebraic groups (AdelicAlgebraicGroups) AA.4, and the built NumberField class-number APIs. Prove Tate full faithfulness and the Honda–Tate simple-isogeny correspondence with the exact local invariants; prove Waterhouse order realization only in the nonreal simple prime-field case. Construct the marked quasi-isogeny/lattice correspondence, its rational-orbit quotient, and the prime-field p-component reduction. Export the corrected reciprocal-polynomial upper bound (4g+1)^g q^(g(g+1)/4) and its exp((log q)g²/4+O_q(g log g)) isogeny-class consequence. Keep real-Weil/quaternionic factors, norm-image class sets and integral stabilizers explicit. Prove the source-scoped exp(O_p(g²)) squarefree polarization bound only after its local-order and unit-norm suppliers close. Obtain CM elliptic examples and point-count isogeny invariance; the p-group lemma in this route is restricted to p≥7. Do not use or advertise v1 Theorem 0.1 numerical constant, Lemma 5.11 leading coefficient, Corollaries 5.13/5.14/5.20 or an all-q extension until the final published source is compared and gaps G0–G8 are closed. PELModuli owns the moduli stack, ArithmeticStatistics ST.0/ST.5 owns the family measures and conditional distribution consequences. Every definition needs ≥3 discriminating unit tests, a consumer-derived API and a suggested Lean file on existing carriers. No implementation or formalization is claimed. S1–S6 now specify a conditional upper bound D_*³ h(G,K₀), with D_*≤(2√p)^{2g(2g−1)}. This is a consumer of existing GN.2/GN.3 and AA.4, not a reimplementation. Before applying it to an isogeny class, prove the product stabilizer, finite-support conjugacy, local-centralizer comparison at every place and finite coarse class-set hypotheses from the named arithmetic suppliers. It does not establish h(G,K₀), its reduced-norm/narrow-class comparison or the sharp coefficient of Theorem 0.1. C1–C6 specify the producer side of those arithmetic interfaces: construct prime-field D^lin from the contravariant Dieudonné module, realize finite-support tuples by finite-flat subgroup quotients, prove torsion detection of integral quasi-homomorphisms, and identify the marked and rational-orbit quotients. At good primes use the squarefree minimal-polynomial discriminant and integral idempotents; at the remaining finite set use S3 graded-profile compact groups. Prove product stabilizers and finite-support conjugacy, retaining the separate p-Tate full-faithfulness and p-Frobenius-polynomial suppliers. Consume PELModuli M2/M5/M6 for fixed-polarization-degree finiteness in Tate’s proof; never derive it from the unpolarized bound being proved. The resulting coarse prime-field count is ≤D_*³h≤(2√p)^{3(2g)(2g−1)}h with h the finite AA.3 class set. General-q covariance, Honda existence, class-number estimates and the sharp constant remain G2/G8/G5 obligations. D1–D5 decompose the original all-q p-Tate and p-local invariant proofs: derive the intrinsic characteristic polynomial from exact Dieudonné length and the A6 degree formula before invoking p-Tate; prove saturated injection independently; build the finite cyclic Frobenius block, import the pinned simple-module endomorphism dimension identity, and compare dimensions with prime-to-p Tate. Retain the two opposite-algebra signs in the local invariant. Import local cyclic invariants from ClassFieldTheory Layer 5, and finite-group exactness/rank from R07.2. Generic central-simple, Brauer-group and module-dimension theory already in Tau Ceti is consumed. The all-q Hom theorem does not upgrade prime-field lattice counting. D1’s generic valuation-separation adapter still needs an exact owner/pin audit, and geometric/classification source interiors remain G8."
     },
     {
       "route": "source",
@@ -2477,39 +2882,90 @@
         "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
       ],
       "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E-MILNE68-NEWTON-ABSCISSA",
+      "kind": "misprint",
+      "locator": "Milne, Extensions of abelian varieties defined over a finite field, Invent. Math. 5 (1968), published p.67, proof of Theorem 1(c), definition of the Newton polygon; author-hosted published page image.",
+      "printed": "(c_i, ord_p(c_i))",
+      "correction": "Use (i, ord_p(c_i)) for each nonzero coefficient c_i of F^i.",
+      "reason": "The horizontal coordinate is the exponent. For 1+F the printed point set has just (1,0), whereas the Newton polygon has endpoints (0,0) and (1,0). General coefficients lie in a p-adic field, not canonically in R. The subsequent formula ord_s(lambda)=min_i(ord_p(c_i)-s i) also confirms the intended exponent coordinate. This is a notation slip, not a disproof of Theorem 1(c), and is outside the degree-comparison proof used above.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: inspected the published p.67 image at https://www.jmilne.org/math/articles/1968a.pdf.",
+        "2026-09-23: read the author notes/errata at https://www.jmilne.org/math/articles/1968a.html; their listed corrections concern pp.78-79 and p.81, not this point notation.",
+        "2026-09-23: title searches with errata and with 67/Newton did not locate an additional correction. This is a limited search, not an exhaustive novelty claim.",
+        "2026-09-23 Codex codex-7e92bd: freshly inspected the same p.67 image after downloading the author PDF, checked the author erratum page, and repeated title/errata/Newton searches; no correction to this notation located."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E18",
+      "kind": "error",
+      "locator": "LT arXiv:1511.02212v1, p.21, Proposition 4.14(1), final sentence of the alternative p-adic proof; final journal text not acquired.",
+      "printed": "the centralizer of F, which is not a division algebra",
+      "correction": "A Frobenius centralizer can be a division algebra (a field). Use the preceding local-invariant calculation to prove splitting over each local center; being a Q_p-centralizer or merely not being a division algebra does not establish that splitting.",
+      "reason": "Take E/F_5: y²=x³+1. Its discriminant is nonzero mod 5 and it has six rational points, so P_E=X²+5 and Q(π)=Q(√−5) has no real place. On the two-dimensional prime-field rational realization F has this characteristic polynomial; it is irreducible over Q_5 by Eisenstein. Hence the commutant is Q_5[F]≅Q_5[X]/(X²+5), a field and therefore a division algebra. In companion coordinates F=[[0,−5],[1,0]], every commuting matrix is xI+yF with determinant x²+5y²; unequal parity of valuations prevents a nonzero zero determinant. The proposition is not disproved: the preceding invariant proof is valid, and a field is split over its own center.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: inspected the complete v1 and the rendered p.21; arXiv submission history lists only v1 at https://arxiv.org/abs/1511.02212.",
+        "2026-09-23: checked both author publication pages https://www.math.toronto.edu/jacobt/ and https://sites.google.com/site/michaellipnowski/; both point to the arXiv version and no correction was located there.",
+        "2026-09-23: searched Lipnowski Tsimerman erratum large and the title with centralizer/division algebra; no applicable correction located. The DOI resolved to a publisher security page, so this limited search does not establish novelty or an error in the final 2018 article."
+      ]
     }
   ],
   "verification": {
-    "session": "codex-a71f92",
+    "session": "codex-7e92bd",
     "date": "2026-09-23",
     "status": "partial",
-    "predecessor": "PR #2155 after #1848 and #1652. All 136 inherited IDs, kinds, statuses, statements and route assignments retained; seven inherited notes are updated to reflect this source reading, and tate-hom gains a proof/dependency outline. Sixteen new items: three library suppliers and thirteen missing adapters/endpoints. All 17 sourceIssues and the complete historical report/handoff remain unchanged.",
-    "explorerSnapshot": "33f5371318c1c6e69e8b6a4076479f63c5158b55",
+    "predecessor": "PR #2204 handoff by ChatGPT Pro cgp-20260923-h7q4, after extraction PR #2199 by codex-a71f92. All 152 inherited IDs, kinds, statuses, statements and route assignments retained; obsolete proof notes updated. Existing 17 sourceIssues preserved exactly; two unreviewed findings appended.",
+    "explorerSnapshot": "54dbb5b",
     "libraryPins": {
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
     },
     "freshRead": [
       {
-        "url": "https://pazuki.perso.math.cnrs.fr/index_fichiers/Tate66.pdf",
-        "sha256": "47f284526522fb48840e1a1383b9bfc0bfc3f6aded39db6119a34a6e02214b87",
-        "extent": "All 11 pages / 489 extracted lines, §§1–3 and references; Proposition 1 printed p.137 additionally rendered and inspected."
+        "url": "https://arxiv.org/pdf/1511.02212v1",
+        "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
+        "bytes": 394120,
+        "accessed": "2026-09-23",
+        "extent": "All 38 pages of extracted text, §§0–5.7.3 and references; p.21 additionally rendered and inspected."
       },
       {
-        "url": "https://www.numdam.org/article/ASENS_1969_4_2_4_521_0.pdf",
-        "sha256": "7be2bf9dde45454afa3dd9a0ea1ba05acbe952b6b573a0c37c2b1b8f0cccbb47",
-        "extent": "Introduction and all Chapters 1–3, Porism 4.3 and its preceding order-patching proof, all Chapter 6 text and bibliography. Printed p.551 additionally rendered. Chapter 6.2 dyadic matrices were text-read but not fully image-audited; no fresh endpoint extracted from them. Not a whole-Waterhouse read."
+        "url": "https://www.jmilne.org/math/articles/1971a.pdf?download=1",
+        "sha256": "e482e1c60ccd76a068057b18ac28cec02f2746f87048947d8c2a4c328f6c88a8",
+        "bytes": 1122196,
+        "accessed": "2026-09-23",
+        "extent": "All twelve published page images, pp.53–64, including both Part II proofs and references."
       },
       {
-        "url": "https://numdam.org/item/SB_1968-1969__11__95_0.pdf",
-        "sha256": "a23d9cd18c2ccc155285428ca02f284bc546711c9eb9fe43555dd020fdd328f3",
-        "extent": "All 862 extracted lines surveyed, but OCR omits many formulas. §§1–2 read with rendered pages 96,98,99, including the normalized local invariant and the p-divisible full-faithfulness outline. §§3–6 remain a textual survey, not a complete formula/proof audit."
+        "url": "https://www.jmilne.org/math/articles/1968a.pdf?download=1",
+        "sha256": "8abdaf4fa604d5ed7faee3f9d4e9dc9382dc35d7b79382fe3540f495fe98fc35",
+        "bytes": 1229128,
+        "accessed": "2026-09-23",
+        "extent": "Published page images pp.63–67 and p.84 only; not a complete paper read."
       }
     ],
-    "historicalReadBoundary": "The full LT v1 and Yun reads from PR #2155 are inherited, not represented as fresh reads of this claim. Final journal agreement remains G0. Historical verification is preserved below.",
-    "audit": "Read ASAM A2/A3/A4/A6, PELModuli M0–M6 and AA.3 reviewed coverage and relevant full descriptions; the ASAM full campaign roadmap and the upstream JacobianChallenge and SemisimpleAlgebras documents were read in full. R07.2 is absent from consolidated data/library-coverage.json at this snapshot: AUDIT-37’s row is an unaccepted lead only, checked against the accepted A4 import audit and fresh pinned searches. Freshly read the three appended Mathlib suppliers and Tau Ceti’s full Isogeny.lean; no exact finite-flat quotient, Tate-module or Dieudonné implementation was inferred from that property-level isogeny API. Scoped searches of atlas, new roadmaps, packets/decompositions and pinned trees found no matching implementation of the thirteen new endpoints.",
-    "sourceIssueBoundary": "17 proposed findings about public v1; new means no correction located in the listed limited search, not a priority claim. None is independently reviewed; do not call these confirmed errors in the final journal text. This continuation adds no new finding and does not independently review the inherited findings. No new finding is proposed in C1–C7; covariance distinctions and supplier-read boundaries are not labelled source errors.",
-    "finiteChecks": "C7 contains standard-library-only Python: 32608 fresh exact diagnostics. All passed. These are finite algebra/bookkeeping checks, not proofs of Tate/Dieudonné, finite-flat representability, compactness or adelic finiteness.",
+    "audit": "Read consolidated A3/A4/A6 and ClassFieldTheory Layer 5 reviewed coverage; R07.2 and SemisimpleAlgebras lack consolidated rows at this snapshot. Checked the accepted AUDIT-08 review status and the actual R07.1/R07.2/A3/A4/A6/CF5 descriptions. Read upstream JacobianChallenge and SemisimpleAlgebras documents. Scoped pinned-tree searches found no abelian-variety p-Tate/Dieudonné realization or local Brauer invariant implementation; Isocrystal is only an existing semilinear carrier. Read and raw-byte-verified the three listed Tau Ceti files for new library suppliers; no existing generic module/centralizer/Brauer theorem is replanned.",
+    "pinnedFiles": [
+      [
+        "TauCeti/RingTheory/Semisimple/EndAlgebra.lean",
+        "135e8c8ae4605ca0517d35cea37459062d9d4c93a63f2bf167863b2b7d10b5a0"
+      ],
+      [
+        "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "837865cf87d8a94fb3d9ca2888e101ca1b05eda72b394b4c8cbe4fa48596aa7e"
+      ],
+      [
+        "TauCeti/Algebra/CentralSimple/Centralizer.lean",
+        "3e730f5edf5ee524fb4a5ed452de5f131ff6fe7a329cf0f664b7b87a0389acee"
+      ]
+    ],
+    "historicalReadBoundary": "Prior Conrad, Yun, Tate1966, Waterhouse1969 and Bourbaki reads and all inherited library statuses retain their original attribution; no fresh full re-audit of the 152-item inventory is asserted. Final journal comparison remains G0.",
+    "sourceIssueBoundary": "Nineteen unreviewed proposals: 18 concern LT v1 (not the unacquired journal article), and one concerns M68 published p.67. The Newton finding was supplied in cgp-20260923-h7q4’s handoff and freshly checked; E18 is this continuation’s separate centralizer counterexample. No independent-review object is added.",
+    "finiteChecks": "Report D7 code passed under Python 3 with SymPy 1.14.0: 8 cyclic-module commutants, 5760 invertible F_9 semilinear matrices, 840 multiplicity tests, 10260 normalization identities, 40 irreducible quadratic resultant tests and 128 twisted-product basis associativity tests, plus the E18 point-count/commutant and normalization controls. All three inherited report scripts were rerun and passed (including the 32608- and 47689-case suites). These are finite diagnostics, not general geometric proofs.",
     "lean": "No Lean file is authorized, written or compiled; no formalization is claimed.",
     "selectedEdges": [
       {
@@ -2831,6 +3287,86 @@
       {
         "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/poincare-decomposition",
         "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-p-frobenius"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dieudonne-exactness",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-degree-valuation"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dieudonne-length-rank",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-degree-valuation"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-degree-valuation"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-degree-valuation",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-characteristic-polynomial"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/degree-polynomial",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-characteristic-polynomial"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-characteristic-polynomial",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-semisimplicity"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/poincare-decomposition",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-semisimplicity"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dieudonne-exactness",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-saturated-hom"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-algebra",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-split"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-semisimplicity",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-centralizer-dimension"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-split",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-centralizer-dimension"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/simple-module-end-dimension-supplier",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-centralizer-dimension"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-saturated-hom",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/rational-p-tate-hom"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-centralizer-dimension",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/rational-p-tate-hom"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-hom",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/rational-p-tate-hom"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/rational-p-tate-hom",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-endomorphism-local-invariant"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-split",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-endomorphism-local-invariant"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-cyclic-invariant-supplier",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-endomorphism-local-invariant"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/centralizer-tensor-supplier",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-endomorphism-local-invariant"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/brauer-opposite-supplier",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-endomorphism-local-invariant"
       }
     ],
     "supplierRequests": [
@@ -2853,11 +3389,14 @@
       },
       {
         "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
-        "need": "Contravariant Dieudonné anti-equivalence on finite p-group schemes and p-divisible groups over F_p, exactness, finite free realization and Frobenius/Verschiebung compatibility; finite torsion is not geometric points.",
+        "need": "Over every finite k=F_(p^a), the chosen contravariant finite/p-divisible Dieudonné equivalences; exactness, C(A)/p^n=D(A[p^n]), length/rank formula rank H=p^length D(H), rank_W C(A)=2dim A, and C(π_A)=F^a. Original general proofs remain G8.",
         "neededBy": [
           "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-covariant-dual",
           "PAPER-LIPNOWSKI-TSIMERMAN-18/p-tate-hom",
-          "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-p-frobenius"
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-p-frobenius",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-degree-valuation",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-saturated-hom",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-characteristic-polynomial"
         ]
       },
       {
@@ -2890,35 +3429,79 @@
         "neededBy": [
           "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-isogeny-class-bound"
         ]
+      },
+      {
+        "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "need": "The unramified cyclic-algebra invariant formula with arithmetic Frobenius, and its comparison from the algebraic Brauer group to the cohomological invariant.",
+        "neededBy": [
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/local-cyclic-invariant-supplier",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/p-endomorphism-local-invariant"
+        ]
+      },
+      {
+        "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+        "need": "Finite-extension valuation and approximation adapters for D1’s monic-polynomial/resultant separation argument, including integral factors, extended v_p and coefficientwise Z-density in Z_p. The proof is written; exact generic ownership and library-declaration audit remain G8, rather than a claim of a second p-adic library.",
+        "neededBy": [
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-characteristic-polynomial"
+        ]
+      },
+      {
+        "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+        "need": "Unramified field structure L=Frac W(F_(p^a)), fixed ring W^σ=Z_p, and L⊗Qp K as gcd(a,f_K) copies of LK with the stated Frobenius action.",
+        "neededBy": [
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/p-realization-characteristic-polynomial",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-algebra",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/p-endomorphism-local-invariant"
+        ]
+      },
+      {
+        "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+        "need": "Identify the exact pinned supplier for descent of central simplicity along a field extension in D3. The generic theorem belongs to this existing owner; no new generic central-simple theory is routed here.",
+        "neededBy": [
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/p-frobenius-block-split"
+        ]
       }
     ],
-    "checks": "PASS on working and fresh publication snapshots: check_paper.py; intake.py check-files (3 files, 0 problems); 48 regression tests; 32608 fresh exact Python diagnostics; all 136 inherited IDs/kinds/statuses/statements and route assignments, 17 sourceIssues and nineteen withheld claims preserved; historical report/handoff retained; 39 API/test blocks; 88 uniquely routed missing items and 80 acyclic known-ID edges. Fresh publication deliverables, binding protocols, relevant owner records and scoped audits match the working base. The fresh publication snapshot also passes all 48 regressions and both file checks.",
+    "checks": [
+      "check_paper.py: passed",
+      "git diff --check: passed",
+      "152 inherited item core fields, 17 old findings and route membership preserved",
+      "all 9 new missing items routed exactly once; same 19 withheld IDs",
+      "selectedEdges and dependsOn union acyclic; endpoints and supplier requests valid",
+      "new constructions have consumer-derived API and at least three tests",
+      "D7 and all three inherited Python blocks passed; no Lean compilation"
+    ],
     "historicalVerification": {
       "session": "codex-a71f92",
       "date": "2026-09-23",
       "status": "partial",
-      "predecessor": "PR #1848 by this same session, after PR #1652 by codex-c83e7a. All 124 inherited item objects, 17 sourceIssues and inherited report/handoff text retained unchanged. Twelve items appended: five library suppliers and seven missing endpoints, including one construction.",
-      "explorerSnapshot": "277594a65a53ae5f7530539524add19c453b4e19",
+      "predecessor": "PR #2155 after #1848 and #1652. All 136 inherited IDs, kinds, statuses, statements and route assignments retained; seven inherited notes are updated to reflect this source reading, and tate-hom gains a proof/dependency outline. Sixteen new items: three library suppliers and thirteen missing adapters/endpoints. All 17 sourceIssues and the complete historical report/handoff remain unchanged.",
+      "explorerSnapshot": "33f5371318c1c6e69e8b6a4076479f63c5158b55",
       "libraryPins": {
         "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
         "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
       },
       "freshRead": [
         {
-          "url": "https://arxiv.org/pdf/1511.02212v1",
-          "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
-          "extent": "All 38 pages / 1804 extracted lines, §§0–5.7.3 and full bibliography; no fresh rendered-page inspection in this claim."
+          "url": "https://pazuki.perso.math.cnrs.fr/index_fichiers/Tate66.pdf",
+          "sha256": "47f284526522fb48840e1a1383b9bfc0bfc3f6aded39db6119a34a6e02214b87",
+          "extent": "All 11 pages / 489 extracted lines, §§1–3 and references; Proposition 1 printed p.137 additionally rendered and inspected."
         },
         {
-          "url": "https://arxiv.org/pdf/1303.2420v2",
-          "sha256": "a9f560f9c7ed334ff4895cde2676476cd430e0efa7c14e3d6d508df5326bc347",
-          "extent": "§4.8 and complete Lemma 4.9 proof, printed pp.14–15; not a whole-Yun read in this claim."
+          "url": "https://www.numdam.org/article/ASENS_1969_4_2_4_521_0.pdf",
+          "sha256": "7be2bf9dde45454afa3dd9a0ea1ba05acbe952b6b573a0c37c2b1b8f0cccbb47",
+          "extent": "Introduction and all Chapters 1–3, Porism 4.3 and its preceding order-patching proof, all Chapter 6 text and bibliography. Printed p.551 additionally rendered. Chapter 6.2 dyadic matrices were text-read but not fully image-audited; no fresh endpoint extracted from them. Not a whole-Waterhouse read."
+        },
+        {
+          "url": "https://numdam.org/item/SB_1968-1969__11__95_0.pdf",
+          "sha256": "a23d9cd18c2ccc155285428ca02f284bc546711c9eb9fe43555dd020fdd328f3",
+          "extent": "All 862 extracted lines surveyed, but OCR omits many formulas. §§1–2 read with rendered pages 96,98,99, including the normalized local invariant and the p-divisible full-faithfulness outline. §§3–6 remain a textual survey, not a complete formula/proof audit."
         }
       ],
-      "historicalReadBoundary": "Conrad, earlier Yun regions, earlier image inspections and the first eleven library-item checks remain attributed to the predecessor checkpoints. This claim freshly read five appended Mathlib suppliers, the whole DoubleCoset file, and the compared Tau Ceti HeckeCoset.degree_eq_relIndex statement.",
-      "audit": "Reviewed GN.2, GN.3 and AA.4 audit rows read at the working explorer snapshot; GN/AA full campaign roadmaps and relevant atlas descriptions read. Upstream Completed/IntegralLattices and GlobalNumberFields read fully for granularity and ownership; their existing carriers are consumed, not re-planned. Scoped searches of atlas, new roadmaps, packets/decompositions and pinned libraries found no exact implementation of the seven new assembly endpoints.",
-      "sourceIssueBoundary": "17 proposed findings about public v1; new means no correction located in the listed limited search, not a priority claim. None is independently reviewed; do not call these confirmed errors in the final journal text. This continuation adds no new finding and does not independently review the inherited findings.",
-      "finiteChecks": "Fresh standard-library Python diagnostics in S7: 47689 exact cases (384 DVR cokernels, 11 flag fibers, 48 stable graph lattices, 4 profile counts, 9 unequal-block fibers, 135 unequal-block orbits, 136 double-coset fibers, 90 total bounds, 216 conjugate-level comparisons, 46656 exponent cases). Finite diagnostics are not mathematical proofs.",
+      "historicalReadBoundary": "The full LT v1 and Yun reads from PR #2155 are inherited, not represented as fresh reads of this claim. Final journal agreement remains G0. Historical verification is preserved below.",
+      "audit": "Read ASAM A2/A3/A4/A6, PELModuli M0–M6 and AA.3 reviewed coverage and relevant full descriptions; the ASAM full campaign roadmap and the upstream JacobianChallenge and SemisimpleAlgebras documents were read in full. R07.2 is absent from consolidated data/library-coverage.json at this snapshot: AUDIT-37’s row is an unaccepted lead only, checked against the accepted A4 import audit and fresh pinned searches. Freshly read the three appended Mathlib suppliers and Tau Ceti’s full Isogeny.lean; no exact finite-flat quotient, Tate-module or Dieudonné implementation was inferred from that property-level isogeny API. Scoped searches of atlas, new roadmaps, packets/decompositions and pinned trees found no matching implementation of the thirteen new endpoints.",
+      "sourceIssueBoundary": "17 proposed findings about public v1; new means no correction located in the listed limited search, not a priority claim. None is independently reviewed; do not call these confirmed errors in the final journal text. This continuation adds no new finding and does not independently review the inherited findings. No new finding is proposed in C1–C7; covariance distinctions and supplier-read boundaries are not labelled source errors.",
+      "finiteChecks": "C7 contains standard-library-only Python: 32608 fresh exact diagnostics. All passed. These are finite algebra/bookkeeping checks, not proofs of Tate/Dieudonné, finite-flat representability, compactness or adelic finiteness.",
       "lean": "No Lean file is authorized, written or compiled; no formalization is claimed.",
       "selectedEdges": [
         {
@@ -3088,15 +3671,226 @@
         {
           "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-support-product-index",
           "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-split-commutant",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-hom"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-module",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-hom"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/polarization-divisibility",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-isotropic-image"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-module",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-isotropic-image"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/padic-compactness-supplier",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-isotropic-image"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/compact-subsequence-supplier",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-isotropic-image"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/fixed-polarization-finiteness",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-split-commutant"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-isotropic-image",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-split-commutant"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-bicommutant-supplier",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-split-commutant"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/rational-endomorphism",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-split-commutant"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/dieudonne-lattice",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-tate-hom"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-hom",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-tate-hom"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/dieudonne-lattice",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-covariant-dual"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-covariant-dual",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/torsion-integrality-detection"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-module",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/torsion-integrality-detection"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-covariant-dual",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-lattice-realization"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-module",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-lattice-realization"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/marked-lattice-space",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-marked-classification"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-lattice-realization",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-marked-classification"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/torsion-integrality-detection",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-marked-classification"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-order",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/good-prime-lattice-orbit"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/good-prime-lattice-orbit"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-hom",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/p-tate-hom",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-covariant-dual",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-p-centralizer",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/good-prime-lattice-orbit",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-support-product-index",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-p-frobenius",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-marked-classification",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-isogeny-class-bound"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-isogeny-class-bound"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-isogeny-class-bound"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/weil-discriminant-bound",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-isogeny-class-bound"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/dieudonne-lattice",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-p-frobenius"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/degree-polynomial",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-p-frobenius"
+        },
+        {
+          "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/poincare-decomposition",
+          "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-p-frobenius"
         }
       ],
-      "checks": "PASS: check_paper.py; intake.py check-files (3 files, 0 problems); 48 regression tests; 47689 exact Python diagnostics; all 124 inherited item objects and 17 sourceIssues unchanged; historical report/handoff preserved; 38 definition/construction API/test blocks; 75 uniquely routed missing items plus 19 unchanged withheld claims; 42 acyclic known-ID selected edges; no local paths. Fresh publication-snapshot deliverables, binding protocols and GN/AA owner/audit inputs match the working base.",
+      "supplierRequests": [
+        {
+          "supplier": "AbelianSchemesAndArithmeticModuli:A2",
+          "need": "Divided symmetric homomorphisms remain polarizations under positive rational scaling; retain geometric polarization and descent conventions.",
+          "neededBy": [
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/polarization-divisibility"
+          ]
+        },
+        {
+          "supplier": "AbelianSchemesAndArithmeticModuli:A3",
+          "need": "Finite-flat quotients with fppf universal property; nonzero multiplication kernels of rank n^(2g); primary torsion decomposition; perfect prime-to-p Weil pairing and quotient/torsion realization exactness.",
+          "neededBy": [
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/polarization-divisibility",
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-isotropic-image",
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/torsion-integrality-detection",
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-lattice-realization"
+          ]
+        },
+        {
+          "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+          "need": "Contravariant Dieudonné anti-equivalence on finite p-group schemes and p-divisible groups over F_p, exactness, finite free realization and Frobenius/Verschiebung compatibility; finite torsion is not geometric points.",
+          "neededBy": [
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-covariant-dual",
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/p-tate-hom",
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-p-frobenius"
+          ]
+        },
+        {
+          "supplier": "AbelianSchemesAndArithmeticModuli:A6",
+          "need": "Torsion-free finite-rank Hom on the existing field carrier; rational morphisms, semisimple endomorphism algebras and intrinsic degree-polynomial comparison.",
+          "neededBy": [
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-hom",
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-isotropic-image",
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/torsion-integrality-detection",
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-p-frobenius"
+          ]
+        },
+        {
+          "supplier": "PELModuli:M6",
+          "need": "Finite-type bounded-dimension/fixed-polarization-degree geometry over finite fields, including p dividing the degree parameter, and the rational-family/twist comparison proving finiteness of actual k-isomorphism classes. Good-prime smoothness or coarse rational points alone is insufficient.",
+          "neededBy": [
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/fixed-polarization-finiteness"
+          ]
+        },
+        {
+          "supplier": "AdelicAlgebraicGroups:AA.1",
+          "need": "Restricted adelic points for G=End⁰(A₀)^×, compatibility with centralizers and integral models, and independence of finite modifications of the reference compact opens.",
+          "neededBy": [
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-adelic-stabilizers"
+          ]
+        },
+        {
+          "supplier": "AdelicAlgebraicGroups:AA.3",
+          "need": "Finiteness of the coarse set G(Q)\\G(A_f)/K₀ for this semisimple-unit reductive group and compact open K₀, with the relation to the stated archimedean-component finiteness made explicit. No numerical h bound.",
+          "neededBy": [
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-isogeny-class-bound"
+          ]
+        }
+      ],
+      "checks": "PASS on working and fresh publication snapshots: check_paper.py; intake.py check-files (3 files, 0 problems); 48 regression tests; 32608 fresh exact Python diagnostics; all 136 inherited IDs/kinds/statuses/statements and route assignments, 17 sourceIssues and nineteen withheld claims preserved; historical report/handoff retained; 39 API/test blocks; 88 uniquely routed missing items and 80 acyclic known-ID edges. Fresh publication deliverables, binding protocols, relevant owner records and scoped audits match the working base. The fresh publication snapshot also passes all 48 regressions and both file checks.",
       "historicalVerification": {
         "session": "codex-a71f92",
-        "date": "2026-09-22",
+        "date": "2026-09-23",
         "status": "partial",
-        "predecessor": "PR #1652 by codex-c83e7a; all original 113 IDs, statuses, statements, library references, planned imports and original route assignments retained. Two notes clarified; eight missing theorems and three library theorems added.",
-        "explorerSnapshot": "a527ccdb2a6c6ae0a1971482ca9cfa4dd9b005f7",
+        "predecessor": "PR #1848 by this same session, after PR #1652 by codex-c83e7a. All 124 inherited item objects, 17 sourceIssues and inherited report/handoff text retained unchanged. Twelve items appended: five library suppliers and seven missing endpoints, including one construction.",
+        "explorerSnapshot": "277594a65a53ae5f7530539524add19c453b4e19",
         "libraryPins": {
           "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
           "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
@@ -3105,25 +3899,224 @@
           {
             "url": "https://arxiv.org/pdf/1511.02212v1",
             "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
-            "extent": "All 38 pages / all 1804 extracted lines including bibliography; page images 9, 10 and 12 additionally checked."
+            "extent": "All 38 pages / 1804 extracted lines, §§0–5.7.3 and full bibliography; no fresh rendered-page inspection in this claim."
           },
           {
             "url": "https://arxiv.org/pdf/1303.2420v2",
             "sha256": "a9f560f9c7ed334ff4895cde2676476cd430e0efa7c14e3d6d508df5326bc347",
-            "extent": "Selected §§1–2.2, 4.1–4.7 (4.7 only partial), 4.8–4.14; complete Lemma 4.9 and Proposition 4.13 proofs. Not a whole-paper reading."
+            "extent": "§4.8 and complete Lemma 4.9 proof, printed pp.14–15; not a whole-Yun read in this claim."
           }
         ],
-        "historicalReadBoundary": "Conrad and the original eight library-item checks remain attributed to PR #1652. This claim freshly read only the three additional pinned generic library suppliers and their supporting trace-dual statements.",
-        "audit": "GN.2 and GN.3 reviewed rows read at library-coverage blob 5e708cfc74a51b10e62149113872fe4e00eb5846. Existing owners reused; no new roadmap or definition. Existing Part II unchanged.",
-        "sourceIssueBoundary": "17 proposed findings about public v1; new means no correction located in the listed limited search, not a priority claim. None is independently reviewed; do not call these confirmed errors in the final journal text.",
-        "finiteChecks": "Reproducible Python in continuation report: 176 weighted-partition tests, 992 residue-degree cases, 6144 exponent cases, 28 exact trace-dual examples, one exhaustive GL₂(F₉) example and 30 finite shear tests. Finite tests are not proofs.",
-        "lean": "No Lean file is requested, written or compiled. All new mathematical endpoints are still missing library implementations.",
-        "checks": "PASS: check_paper.py against the complete current catalogue; intake.py check-files (3 files, 0 problems); preservation of all 113 original IDs/statuses/statements, original route assignments and historical report/handoff; 37 API/test blocks; 68 uniquely routed missing items and the same 19 withheld items; 24 known-ID acyclic selected edges; no local paths; the embedded finite regression. Rerun on the fresh publication snapshot before opening the PR.",
-        "publishSnapshot": "5db325c698954f89a2b5c8524b297ce8fb066399"
+        "historicalReadBoundary": "Conrad, earlier Yun regions, earlier image inspections and the first eleven library-item checks remain attributed to the predecessor checkpoints. This claim freshly read five appended Mathlib suppliers, the whole DoubleCoset file, and the compared Tau Ceti HeckeCoset.degree_eq_relIndex statement.",
+        "audit": "Reviewed GN.2, GN.3 and AA.4 audit rows read at the working explorer snapshot; GN/AA full campaign roadmaps and relevant atlas descriptions read. Upstream Completed/IntegralLattices and GlobalNumberFields read fully for granularity and ownership; their existing carriers are consumed, not re-planned. Scoped searches of atlas, new roadmaps, packets/decompositions and pinned libraries found no exact implementation of the seven new assembly endpoints.",
+        "sourceIssueBoundary": "17 proposed findings about public v1; new means no correction located in the listed limited search, not a priority claim. None is independently reviewed; do not call these confirmed errors in the final journal text. This continuation adds no new finding and does not independently review the inherited findings.",
+        "finiteChecks": "Fresh standard-library Python diagnostics in S7: 47689 exact cases (384 DVR cokernels, 11 flag fibers, 48 stable graph lattices, 4 profile counts, 9 unequal-block fibers, 135 unequal-block orbits, 136 double-coset fibers, 90 total bounds, 216 conjugate-level comparisons, 46656 exponent cases). Finite diagnostics are not mathematical proofs.",
+        "lean": "No Lean file is authorized, written or compiled; no formalization is claimed.",
+        "selectedEdges": [
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-shear",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-trace-dual-library",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-order",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-order",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/complete-hensel-library",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-length-scalar-library",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-partition-formula",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/weighted-partition-cumulative-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/weighted-partition-cumulative-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/rank-one-local-class-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/weighted-partition-cumulative-bound",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/rank-one-local-class-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/rank-one-local-class-bound",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-shear",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-resultant-fiber",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-p-centralizer",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/gl-card",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/smith-quotient-supplier",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-power-cardinality-supplier",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/dvr-unit-power-supplier",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-resultant-fiber",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/orbit-index-supplier",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-relation-supplier",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-map"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-map",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-cardinality"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-relation-supplier",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-conjugate-level"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-class-set",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-cardinality",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-conjugate-level",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+          },
+          {
+            "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-support-product-index",
+            "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+          }
+        ],
+        "checks": "PASS: check_paper.py; intake.py check-files (3 files, 0 problems); 48 regression tests; 47689 exact Python diagnostics; all 124 inherited item objects and 17 sourceIssues unchanged; historical report/handoff preserved; 38 definition/construction API/test blocks; 75 uniquely routed missing items plus 19 unchanged withheld claims; 42 acyclic known-ID selected edges; no local paths. Fresh publication-snapshot deliverables, binding protocols and GN/AA owner/audit inputs match the working base.",
+        "historicalVerification": {
+          "session": "codex-a71f92",
+          "date": "2026-09-22",
+          "status": "partial",
+          "predecessor": "PR #1652 by codex-c83e7a; all original 113 IDs, statuses, statements, library references, planned imports and original route assignments retained. Two notes clarified; eight missing theorems and three library theorems added.",
+          "explorerSnapshot": "a527ccdb2a6c6ae0a1971482ca9cfa4dd9b005f7",
+          "libraryPins": {
+            "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+            "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+          },
+          "freshRead": [
+            {
+              "url": "https://arxiv.org/pdf/1511.02212v1",
+              "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
+              "extent": "All 38 pages / all 1804 extracted lines including bibliography; page images 9, 10 and 12 additionally checked."
+            },
+            {
+              "url": "https://arxiv.org/pdf/1303.2420v2",
+              "sha256": "a9f560f9c7ed334ff4895cde2676476cd430e0efa7c14e3d6d508df5326bc347",
+              "extent": "Selected §§1–2.2, 4.1–4.7 (4.7 only partial), 4.8–4.14; complete Lemma 4.9 and Proposition 4.13 proofs. Not a whole-paper reading."
+            }
+          ],
+          "historicalReadBoundary": "Conrad and the original eight library-item checks remain attributed to PR #1652. This claim freshly read only the three additional pinned generic library suppliers and their supporting trace-dual statements.",
+          "audit": "GN.2 and GN.3 reviewed rows read at library-coverage blob 5e708cfc74a51b10e62149113872fe4e00eb5846. Existing owners reused; no new roadmap or definition. Existing Part II unchanged.",
+          "sourceIssueBoundary": "17 proposed findings about public v1; new means no correction located in the listed limited search, not a priority claim. None is independently reviewed; do not call these confirmed errors in the final journal text.",
+          "finiteChecks": "Reproducible Python in continuation report: 176 weighted-partition tests, 992 residue-degree cases, 6144 exponent cases, 28 exact trace-dual examples, one exhaustive GL₂(F₉) example and 30 finite shear tests. Finite tests are not proofs.",
+          "lean": "No Lean file is requested, written or compiled. All new mathematical endpoints are still missing library implementations.",
+          "checks": "PASS: check_paper.py against the complete current catalogue; intake.py check-files (3 files, 0 problems); preservation of all 113 original IDs/statuses/statements, original route assignments and historical report/handoff; 37 API/test blocks; 68 uniquely routed missing items and the same 19 withheld items; 24 known-ID acyclic selected edges; no local paths; the embedded finite regression. Rerun on the fresh publication snapshot before opening the PR.",
+          "publishSnapshot": "5db325c698954f89a2b5c8524b297ce8fb066399"
+        },
+        "publishSnapshot": "d546d126d455b9add0ac32d9cb30b5ff488dece7"
       },
-      "publishSnapshot": "d546d126d455b9add0ac32d9cb30b5ff488dece7"
-    },
-    "publishSnapshot": "a066f7b6cabf88c79c07e934ed7632593fa47fb6"
+      "publishSnapshot": "a066f7b6cabf88c79c07e934ed7632593fa47fb6"
+    }
   },
   "gaps": [
     {
@@ -3139,7 +4132,7 @@
     {
       "id": "G2",
       "status": "partial",
-      "detail": "L1–L9/S1–S6 provide coarse local orbit/stabilizer and abstract D_*³h bounds. C3–C6 now give prime-field linear-dual conventions, torsion integrality detection, a finite-flat construction realizing finite-support tuples, the marked/rational-orbit comparison, and a finite-support adelic stabilizer assembly. The latter explicitly consumes p-Tate full faithfulness and the p-Frobenius-polynomial comparison, whose original proof interiors remain G8. Local order/maximal-order, coefficient-DVR, topology, trace-dual and flag-carrier adapters are not implemented; AA.1/AA.3 group/class-set hypotheses still require formal composition. General-q covariance is not solved. The sharp linear 4nδ estimate and literal stabilizer-depth-source remain withheld."
+      "detail": "L1–L9/S1–S6 provide coarse local orbit/stabilizer and abstract D_*³h bounds. C3–C6 now give prime-field linear-dual conventions, torsion integrality detection, a finite-flat construction realizing finite-support tuples, the marked/rational-orbit comparison, and a finite-support adelic stabilizer assembly. The latter explicitly consumes p-Tate full faithfulness and the p-Frobenius-polynomial comparison, whose original arithmetic proofs are now decomposed in D1–D5, while their R07.2/A3/A6 geometric imports remain G8. Local order/maximal-order, coefficient-DVR, topology, trace-dual and flag-carrier adapters are not implemented; AA.1/AA.3 group/class-set hypotheses still require formal composition. General-q covariance is not solved. The sharp linear 4nδ estimate and literal stabilizer-depth-source remain withheld."
     },
     {
       "id": "G3",
@@ -3169,7 +4162,7 @@
     {
       "id": "G8",
       "status": "partial",
-      "detail": "Tate 1966 is now fully read and its proof spine expanded; Waterhouse Chapters 1–3, Porism 4.3 and Chapter 6 are read, and Tate Bourbaki 352 §§1–2 are image-checked at the key formulas. Remaining leaves: Mumford fixed-polarization finite-type/descent input; Weil polarization divisibility/positivity; existence of a split prime and generic semisimple intertwiner-dimension assembly; original p-Tate rational faithfulness and p-Frobenius-polynomial comparison; finite-flat/Dieudonné classification proof interiors; Brauer invariants and Honda CM existence. Gan–Yu/Jacobowitz/Lang/Friedman–Washington and other inherited supplier, Euler/trace-formula and atomic-closure gaps remain."
+      "detail": "D1–D5 freshly read WM71 Part II and M68 pp.65–66 and decompose p-realization degree/characteristic polynomials, semisimplicity, saturated injection, Frobenius block algebras and dimension counts, rational/integral p-Tate, and the p-local invariant. The previous original-p-proof lookup is discharged. Remaining: original R07.2 finite/p-divisible Dieudonné exact classification and length/rank proofs; A3 finite-flat quotient/torsion; A6 intrinsic degree polynomial and finite-rank Hom; PEL fixed-polarization/twist finiteness; polarization divisibility/positivity; split-prime existence; generic semisimple intertwiner assembly; the precise generic valuation-separation, fixed-Witt-ring, unramified tensor and central-simple descent adapters; local cyclic-invariant/algebraic–cohomological Brauer proof; global Brauer classification and Honda CM existence. Gan–Yu/Jacobowitz/Lang/Friedman–Washington and the inherited Euler/trace-formula and atomic-closure gaps remain. All are proof/source or adapter obligations, not new parallel carriers."
     }
   ]
 }
