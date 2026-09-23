@@ -4133,8 +4133,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -30067,7 +30067,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-NEWTON-THORNE-26",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-NEWTON-THORNE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1765"
   },
   {
    "id": "ERRATA-PAPER-CIUBOTARU-HARRIS-26",
@@ -30416,8 +30417,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1706"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1706",
+   "finishedAt": "2026-09-23T14:18:59Z"
   },
   {
    "id": "ERRATA-PAPER-BENNETT-SIKSEK-20",
@@ -30956,8 +30958,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-HARPAZ-WITTENBERG-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1716"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1716",
+   "finishedAt": "2026-09-23T14:19:02Z"
   },
   {
    "id": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
