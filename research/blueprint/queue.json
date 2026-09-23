@@ -563,8 +563,9 @@
    ],
    "avoidAccountOf": "PAPER-NEWTON-THORNE-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-NEWTON-THORNE-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1054"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1054",
+   "finishedAt": "2026-09-23T17:55:22Z"
   },
   {
    "id": "PAPER-CALMES-ETAL-26",
@@ -4189,8 +4190,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5700,7 +5701,8 @@
    ],
    "avoidAccountOf": "PAPER-CLOZEL-THORNE-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-CLOZEL-THORNE-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1337"
   },
   {
    "id": "PAPER-DEMARCO-MAVRAKI-YE-26",
@@ -5962,7 +5964,8 @@
    ],
    "avoidAccountOf": "PAPER-BHARGAVA-SHANKAR-WANG-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHARGAVA-SHANKAR-WANG-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1351"
   },
   {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
@@ -7045,7 +7048,8 @@
    ],
    "avoidAccountOf": "PAPER-BOXER-CALEGARI-GEE-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BOXER-CALEGARI-GEE-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1413"
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25",
@@ -8075,7 +8079,8 @@
    ],
    "avoidAccountOf": "PAPER-ESNAULT-GROECHENIG-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-ESNAULT-GROECHENIG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1467"
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
