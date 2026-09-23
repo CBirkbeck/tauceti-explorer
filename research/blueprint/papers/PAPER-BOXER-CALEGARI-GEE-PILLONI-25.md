@@ -373,3 +373,30 @@ and coalescence of the concurrent BCGP21 proposals. The structured
 `proofObligations` list records these without declaring the main modularity
 theorem false. No source correction or route here has an independent verdict
 until the separate review job checks it.
+
+## Independent review (`REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25`, issue #2167)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept, all 35 routes accepted.** The full review is in
+[`reviews/REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25.md`](../reviews/REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25.md); the
+route verdicts are in the `.review.json` beside this file.
+
+**Coverage: nothing missing.** Reconstructing the paper's shared `subsubsection` counter from the LaTeX source — theorem
+environments, plain headings and the 93 displays made by the authors' `\numequation`/`\ssinc` macros all consume it — gives
+617 numbered objects, calibrated against the PDF at nine probes. Of the 152 that appear in no item locator, every one
+resolves: the §4.1 restatements are covered at their originals (4.6.45, 4.6.58, 4.6.60, 4.7.1, 4.7.3, 4.7.5), Theorems A and
+B are covered by name, and Hypotheses 5.7.1, 5.7.5, 6.3.1 and 7.1.3 are folded verbatim into every dependent item.
+
+**Statuses: verified at the pinned commits.** All fourteen declarations of the eight `library` items exist at Mathlib
+`082e2d3` and Tau Ceti `f790474`, in the namespaces claimed; all 32 `planned` items cite layers that plan them.
+
+**Findings: 71 of the 74 confirmed, 3 rejected, 1 added.** Several were settled by computation (#Y(F₄) = 9 gives
+Q = X⁴+2X²+4 for E041; (X²+2X+3)² for E053; v₂(α²−1) = 3 for E050) and many by the paper contradicting itself. The
+rejections are E031 (no defect: the printed congruence is correct, merely redundant at p = 2), E047 (the quotation is not at
+its locator and the claim is justified by Kisin's local-constancy theorem) and E072 (no false statement identified). E017
+was confirmed only after correction — p77 prints "cokernel" correctly, so the recorded quotation was a misreading, but the
+sentence after it is a literal tautology, which the entry now records. E075 was added: a subscript slip in the statement of
+Lemma 2.7.5.
+
+**Changes made to this extraction:** three Part II titles now reproduce their parents' titles (PROTOCOL §15), E035's locator
+was corrected (7.4.9 is a Definition; the quoted text is in the discussion after Proposition 7.4.10), E017 was restated, and
+`review` verdicts were added to all 75 findings. No item, status, statement or route membership was changed.

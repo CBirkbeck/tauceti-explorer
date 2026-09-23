@@ -7579,7 +7579,7 @@
     {
       "route": "part-ii",
       "roadmap": "LocallyAnalyticDistributionsPartIIQuasiAbelianFunctionalAnalysis",
-      "title": "Locally analytic distributions, Part II: quasi-abelian p-adic functional analysis and derived categories of convex spaces",
+      "title": "Locally analytic distributions, growth, and character spaces, Part II: quasi-abelian p-adic functional analysis and derived categories of convex spaces",
       "area": "padic",
       "brief": "Join the proposal in PAPER-COLMEZ-DOSPINESCU-NIZIOL-20, preserving its classical quasi-abelian theory, and add the solid comparison required by BCGP25 §2.2 and its Banach-valued analytic cohomology applications. Import corrected solid coefficients from Sheaves and lisse categories on v-stacks (VStackSheavesAndLisseCategories:VS2) and analytic Banach/LF spaces from Locally analytic distributions, growth, and character spaces (LocallyAnalyticDistributions:L0). Prove the Banach–Smith and Fréchet–LS exact anti-equivalences, compact/trace-class duality, compact LB=compact LS, and flatness with precisely the hypotheses in items2.2.2–2.2.14. Supply internal/continuous-dual comparison, topological versus solid completed tensor, limits/colimits, and strictness, without assuming arbitrary locally convex extensions are determined by their kernel and quotient topologies. Lemma2.7.5 is false: include its graph-norm counterexample and a valid controlled/split-extension replacement. The specific twisted-Verma topology comparison is the category-O consumer's obligation, not a blanket axiom here. Generic adic coherent cohomology is imported from its geometric owner; add only the Banach/Smith coefficient and compact-support duality comparisons needed by §4.6. Every definition must have its evaluation/continuity/duality API and the tests supplied with the items. Export the exact distinction between a solid coefficient category and the naive general-R IsSolid predicate in pinned Mathlib. No locally analytic representation, category-O or automorphy theorem is constructed in this foundation.",
       "reason": "The same pending functional-analysis proposal already owns the strictness and derived convex-space infrastructure. The solid comparison is an extension of it, not a competing analytic foundation.",
@@ -7940,7 +7940,7 @@
     {
       "route": "part-ii",
       "roadmap": "OrdinaryAutomorphicFormsAndModularityLiftingPartII",
-      "title": "Ordinary automorphic forms and modularity lifting, Part II: dyadic unitary and symplectic ordinary lifting",
+      "title": "Ordinary automorphic forms and ordinary modularity lifting, Part II: dyadic unitary and symplectic ordinary lifting",
       "area": "langlands",
       "brief": "The parent R21 roadmap is modular/Hilbert/quaternionic rank2 ordinary theory, particularly Skinner–Wiles. Add the genuinely new higher-rank cases of BCGP25 §§5–6 without broadening a rank2 layer by name alone. The first endpoint is Theorem5.7.14: for the specified everywhere-unramified CM extension with2 split, ordinary RACSDC residual automorphy, absolute irreducibility, near adequacy, a regular semisimple residual element, the parity condition n[F⁺:Q]≡0 mod4 and strong residual oddness when n is even, the sufficiently-deep ordinary deformation ring is finite over the weight algebra and its reduction equals the ordinary Hecke algebra. Preserve all splitting/ramification/local deformation hypotheses and the G_n-conjugacy relation; at2 the GL1 component changes tangent conditions. Taylor–Wiles kills all but the unavoidable one-dimensional dual-Selmer class. The second endpoint is Theorem6.3.4 for p>2 completely split in F⁺: the specified reasonable/tidy ordinary residual GSp4 system on the chosen local components through π has finite weight algebra and reduced R=T. Import local GSp4 scheme-image/ordinary-component geometry from LocalGaloisDeformationRings, global deformation and auxiliary-prime cohomology from GlobalGaloisDeformations, generic patching/support from DeformationAndDerivedPatchingAlgebra, Hida families from PadicFamilies/HigherHidaAndColemanTheory, and ACC+ ordinary CM/support/base-change infrastructure from PotentialAutomorphyInfrastructure. Import unitary automorphic spaces and transfer from AutomorphicFormsOnReductiveGroups and EndoscopicTransferAndUnitaryTraceComparison. The p=3 residual symplectic image need not be adequate as a GL4 image, so the two lifting branches cannot be merged into one unsupported adequacy hypothesis. Include source-verified tests for the one surviving dyadic Selmer class, the four dyadic weight components after inverting2, and the distinction between an arbitrary local component and the chosen automorphic component. This project proves regular-weight lifting; singular classicality and the2–3 switch are downstream.",
       "reason": "The higher-rank/dyadic theorems go beyond the existing rank2 parent. Generic deformation and patching constructions stay with their current owners.",
@@ -8034,7 +8034,7 @@
     {
       "route": "part-ii",
       "roadmap": "GSp4LocalLanglandsAndGaloisRepresentations",
-      "title": "Modularity and Langlands extensions, Part II: GSp4 local Langlands and Galois representations",
+      "title": "Modularity, automorphy and Langlands endpoint extensions, Part II: GSp_4, its local Langlands correspondence and Galois representations",
       "area": "langlands",
       "brief": "Coalesce with the same pending roadmap proposed by PAPER-BOXER-CALEGARI-GEE-PILLONI-21; do not create another GSp4 interface. This addition owns the specialist adapters in BCGP25 Theorem1.8.13 and Proposition7.5.1. For regular algebraic cuspidal GSp4 over a totally real field with p completely split and central character absolute-value squared, construct the semisimple symplectic Galois representation of multiplier ε⁻¹, its geometric-Frobenius local-global comparison, Hodge–Tate weights and ordinary diagonal exactly as split in1.8.13. Under irreducibility obtain purity and full Frobenius-semisimplified Weil–Deligne compatibility. For a general-type local packet identify its unique generic paramodular member, prove its minimal paramodular invariant line is one-dimensional, and identify the minimum level with the local parameter conductor. Import the generic regular GL_n Galois construction from AutomorphicGaloisRepresentationsPartII, transfer and multiplicity from EndoscopicTransferAndUnitaryTraceComparison, smooth convolution/Jacquet/Satake from SmoothRepresentationsOfLocalGroups, and the common integral Hecke reconstruction from IntegralHeckeAndGaloisDeterminants. Do not reconstruct those generic foundations in this Part II. Preserve the companion's Gan–Takeda correspondence and GSp4-specific packet scope; a GL4 representation alone does not encode a chosen similitude. Singular weight2 interpolation remains a consumer in GSp4NonregularModularityLifting, not an input to this regular package. The newform proof must read Roberts–Schmidt, Schmidt and Johnson-Leung–Roberts–Schmidt in their stated local ranges. Suggested future files: TauCeti/Automorphic/GSp4/{LocalLanglands,RegularGalois,ParamodularNewforms}.lean. Retain the Arthur dependency registry; this extraction does not claim the pending proposal is already a designed or implemented roadmap.",
       "reason": "The newly merged BCGP21 extraction proposes this specialist interface. These seven items refine it; general automorphic, Hecke and deformation inputs retain their existing owners.",
@@ -8151,7 +8151,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the residual clause of Definition 1.8.10 prints « with similitude factor ε̄ » while the characteristic-zero clause two lines above uses ε⁻¹ and the displayed matrix has ε̄⁻¹χ̄₂⁻¹ entries.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E002",
@@ -8166,7 +8171,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Definition 2.2.31 prints « M_{r+1} ⊗_{Û(𝔤)_{r+1}} Û(𝔤)_r » for a (left) Û(𝔤)-module, where scalar extension of a left module over a noncommutative ring must put the algebra on the left.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E003",
@@ -8181,7 +8191,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at tex line 3129: « that 𝔲_{𝔭_w} is abelian, since 𝔲 is abelian by assumption ». The standing assumption is on 𝔲_P (𝔲_𝔭), and the conjugate is abelian because 𝔲_𝔭 is.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E004",
@@ -8196,7 +8211,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim, in both formulas: « C_w = X_w ∖ ∪_{w′ ≤ w} X_{w′} » and the primed analytic version also with ≤, so every cell is empty as printed. One remark on classification: the sentence names the object as the classical Schubert stratification, so the intended meaning is unambiguous and PROTOCOL's definition of misprint fits better than error; I have left the kind as recorded rather than rewrite it.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E005",
@@ -8211,7 +8231,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as printed: the proof of Proposition 2.4.9 equates the complex RΓ_c(C_w, O_{C_w}) with a plain graded vector space. That a shift is missing is certain — the parallel computation in Proposition 2.4.10 carries [d − ℓ(w^M)] — but I did not independently confirm the exact degree d_FL − ℓ(w) proposed here.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E006",
@@ -8226,7 +8251,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the final line of Proposition 2.4.10's proof prints (w^M)⁻¹(w^M·(λ+ρ) + 2ρ^M) while the proposition being proved states (w^M)⁻¹(w^M·λ + 2ρ^M). The proof contradicts its own statement, so the +ρ is the slip.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E007",
@@ -8241,7 +8271,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: tex 3607 prints « The map M_{−2−λ} → M_λ sends the basis vector X̄ⁿ … to X̄^{n+λ+2} ». Weights decide it: X̄^m v has weight λ − 2m, and λ − 2m = −2 − λ gives m = λ+1, so the exponent is n+λ+1.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E008",
@@ -8256,7 +8291,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: « Fixing a PBW basis gives a decomposition of U(𝔤) into weight spaces and defines the natural topology ». The construction above needs a decomposition indexed by multi-indices with a degree |ν|; the adjoint weight spaces of U(𝔤) are infinite-dimensional (the zero weight space contains all of U(𝔥)) and carry no such degree.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E009",
@@ -8271,7 +8311,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the counterexample is exact. The proof chooses 0 < r₀ ≤ p^m with r₀ ≡ x (mod p^m) and then writes ∏_{r=1}^n |x−r| = |x−r₀|·∏_{r≠r₀}|r₀−r|. For p = 3, x = −1, n = 1 one gets m = 1 and r₀ = 2 > n, so the left side is |−2|₃ = 1 while the right side is |−3|₃·|1| = 1/3. The proposed repair (r₀ minimising |x−r| over 1 ≤ r ≤ n) gives the bound through the ultrametric inequality without the false equality.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E010",
@@ -8286,7 +8331,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed — I re-derived the counterexample and it holds. On V₂ = E ⊕ c₀₀(E) with V₁ = E and the unbounded functional φ(x) = Σ p^{−n}x_n, the norms max(|a|, sup|x_n|) and max(|a+φ(x)|, sup|x_n|) both induce |a| on V₁ and, taking a = 0 resp. a = −φ(x), the sup norm on V₃; yet (0, pⁿeₙ) tends to 0 in the first and has norm 1 in the second. The proof's step is exactly the invalid one: L ∩ V₁ ⊆ L′ ∩ V₁ together with im L ⊆ im L′ does not give L ⊆ L′.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E011",
@@ -8301,7 +8351,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the proof of Proposition 2.7.6 ends « we are done by Lemma [2.7.5] ». Worth adding to the entry's reason: strictness cannot repair it, because in the counterexample to E010 both short exact sequences are strict — the subspace and quotient topologies are the standard ones for both norms.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E012",
@@ -8316,7 +8371,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Remark 3.5.5 prints Loc(M) = ⊕_{w ∈ ᴹW} Loc(M)_{−w_{0,M}(w·λ+2ρᴹ)} immediately after describing Spec as the *set* of such characters. For SL₂ with λ = −ρ both Weyl elements give the same character, so two indices name one idempotent; the paper's own parenthesis already notes that the algebra is non-reduced at singular weights.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E013",
@@ -8331,7 +8391,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the 𝔤-action in Lemma 3.5.2's proof is printed with a factor λ⁻¹(b) although no b is in scope, and the same action is written two lines later without it.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E014",
@@ -8346,7 +8411,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Proposition 3.5.25 states the target as M(𝔪_w)^∨ while its proof computes RHom into M̂^∨_λ, the continuous dual of the completed Verma module.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E015",
@@ -8361,7 +8431,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap, and the kernel is explicit. The proof expands germs as Σ_{k≥0} a_k x^k and computes Θ_hor(μ) = x∂_x − w/2 + ∂_x, so (Θ_hor(μ) − μ₀)f = Σ_m (m+1)(a_m + a_{m+1})x^m; the condition a_{m+1} = −a_m has the convergent solution f = a₀/(1+x), i.e. the operator (x+1)∂_x + 1 kills 1/(1+x). So injectivity does not follow on the ambient germ space, and as the entry says this is a gap, not a counterexample to Proposition 3.6.15.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E016",
@@ -8376,22 +8451,32 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: (4.5.7) defines the Sen module as (B ⊗_C F_r)^{K_p, pⁿΓ-an}, but the Γ-action is introduced on B_∞ in the almost-purity display immediately above, and (4.5.9) reads B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r) = B_∞ ⊗_C F_r.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E017",
       "kind": "misprint",
       "locator": "Theorem4.5.4 proof, p77; arXiv v1 / identical author copy",
-      "printed": "an injective map … whose kernel is annihilated by p",
-      "correction": "The almost-surjectivity assertion concerns the cokernel; the kernel of an injective map is already zero. Also replace the tautological displayed cohomology equality by the asserted flat base-change map B_∞⊗H^i→H^i(B_∞⊗−).",
-      "reason": "These are the exact properties used to get the Banach presentation and commute cohomology with scalar extension.",
+      "printed": "H^i(Lie(Γ), B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r)) = H^i(Lie(Γ), B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r))",
+      "correction": "Replace the tautological displayed equality by the flat base-change map it is meant to assert, B_∞ ⊗_{B_{K_p,n}} H^i(Lie(Γ), S_{K_p,n}(F_r)) = H^i(Lie(Γ), B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r)), as in the display immediately below it.",
+      "reason": "Both sides of the printed equality are the same expression character for character, so it says nothing; the flatness of B_∞ over B_{K_p,n} established one line above is what lets the cohomology commute with the scalar extension, and that is the statement the argument uses.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only after correcting the entry, which as submitted misquoted the paper. Page 77 prints « whose **cokernel** is annihilated by p » in both bullets, which is correct mathematics, so the recorded « kernel » claim and the first half of its correction were a misreading and I have removed them. The real slip at the same locator is the sentence that follows: the source literally reads H^i(Lie(Γ), B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r)) = H^i(Lie(Γ), B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r)), character for character identical on both sides, where the flat base change B_∞ ⊗ H^i = H^i(B_∞ ⊗ −) is meant, as the next display and the following sentence both show. `printed` and `correction` have been rewritten accordingly.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E018",
@@ -8406,7 +8491,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Definition 4.6.39(2) writes ℱ₁ = 𝒢₁ ⊗_E (𝒪_E/p𝒪_E)^I, tensoring over the field E, while part (1) of the same definition correctly tensors over 𝒪_E/pⁿ𝒪_E.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E019",
@@ -8421,7 +8511,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Remark 4.6.47 prints « if s ≥ n » and asserts that 1 − p^{s−n}U(pⁿX⁻¹) is invertible with geometric-series inverse. On ℚ_p⟨U, pⁿX, pⁿX⁻¹⟩ the points satisfy −n ≤ v(X) ≤ n, so at s = n one may take v(X) = n and U = Xp^{−n} of norm 1, where the element vanishes. With s > n the factor has norm < 1 and the intended vanishing survives.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E020",
@@ -8436,7 +8531,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: « the eigenvalues in either case take the form 1, −1, λ, −λ ». Orthogonality forces the non-real eigenvalues into pairs {λ, λ⁻¹}, and det(1,−1,λ,−λ) = λ², which is not −1 in general; the determinant −1 component of O₄ has eigenvalues 1, −1, λ, λ⁻¹.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E021",
@@ -8451,7 +8551,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Lemma 4.12.1 prints χ⁻¹₂(z)⁻¹ and χ₁⁻¹(z)⁻¹ in the third and fourth diagonal entries, beside the singly inverted χ⁻¹₄(z) and χ⁻¹₃(z) in the first two.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E022",
@@ -8466,7 +8571,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the five-term inflation–restriction sequence (infres) ends → H²(F(S)/F⁺, k). Its last term is H² of the big group with the full coefficients, i.e. ad ρ̄; only the first and fourth terms carry (ad ρ̄)^{G_F} = k, which the paper notes just above.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E023",
@@ -8481,7 +8591,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: « Assume without loss of generality that K⁺_{m−1} ⊆ F⁺ ⊊ K⁺_m » with K⁺_m the maximal totally real subfield of ℚ(ζ_{2^m}). F⁺ is an arbitrary totally real field and need not lie in the cyclotomic tower; what the proof can assume, and what makes L⁺ = F⁺K⁺_m/F⁺ quadratic, is minimality of m with K⁺_m ⊄ F⁺.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E024",
@@ -8496,7 +8611,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: (5.7.3) presents T(𝔩) as the kernel of ∏_{v∈S₂} T(O_{F⁺_v}) → ∏_{v∈S₂} k(v)^×. For the diagonal torus of GL_n the prime-to-2 quotient is ∏ T(k(v)) = ∏ (k(v)^×)ⁿ; this is also what makes E025's corrected dimension come out right.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E025",
@@ -8511,7 +8631,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: « dim Λ = 1 + [F:ℚ]n » with Λ = ⊗̂_{v ∈ S₂} Λ_v indexed by the places of F⁺ above 2, each contributing n[F⁺_v:ℚ₂], so the total is 1 + n[F⁺:ℚ].",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E026",
@@ -8526,7 +8651,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the descent step replaces R by places of L, chooses v₁′ among places of L⁺, and sets T′ = R′ ∪ {v₁′}, dropping S₂ although §5.7 assigns Λ_v = Λ_{GL_n,v} precisely for v ∈ S₂ and the next tensor product uses those factors. The entry's second observation — that the places are described over L where L⁺ is meant — is also visible in the printed text.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E027",
@@ -8541,7 +8671,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: for an ordinary ρ_x the filtration on ad⁰ = 𝔰𝔭₄ has Fil⁰ the Borel (dim 6) and Fil¹ its nilradical (dim 4), so the two dimensions are 4 and 10 − 6 = 4, not the printed « 6 and 10 − 4 = 6 ». The conclusion — that the inclusion is an equality — is unaffected.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E028",
@@ -8556,7 +8691,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the printed identity is vacuous: Γ′ = ρ̄(G_ℚ) already lies in GSp₄(F₃), so « Γ = Γ′ ∩ GSp₄(F₃) » says nothing. Cutting out ρ̄(G_{ℚ(ζ₃)}), the kernel of the similitude character, is intersection with Sp₄(F₃).",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E029",
@@ -8571,7 +8711,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the failure is total rather than occasional. For S_∞ = O[[T]] and Δ_N = ℤ/p^N the kernel of S_∞ → S_N is ((1+T)^{p^N} − 1), whose linear coefficient p^N is non-zero, so the element lies outside (T)² for every N and the set of N with a_∞ⁿ ⊇ ker(S_∞ → S_N) is empty for n ≥ 2, not cofinite. The mixed (ϖ^m, a_∞ⁿ) truncation of Gee–Newton works exactly because p^N ∈ (ϖ^m) for large N.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E030",
@@ -8586,7 +8731,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap: the proof says « we can and do lift the morphism S_∞ → (R^patch)^∧ to a morphism S_∞ → (R_∞)^∧ », and lifting along a surjection of complete local rings needs formal smoothness of the source. At p = 2 the weight algebra contains O[μ₂] = O[x]/(x²−1), which is not formally smooth over O, so the appeal to Gee–Newton's power-series base does not transfer verbatim.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E031",
@@ -8601,7 +8751,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected: there is no defect here. « We choose a prime v₀ > 5 such that v₀ ≢ 1 (mod p) and v₀ ≢ 1 (mod 4) if p = 2 » is correct as printed; at p = 2 the first condition is merely redundant, since every odd prime satisfies it, and the operative condition is v₀ ≡ 3 (mod 4), which is what the second gives. The additions the entry asks for are already present: the definition of a neat prime lists v₀ ≠ p explicitly, and v₀ > 5 is stated in the same sentence. A finding must not enter the register of mistakes in published sources unless something in the source is wrong.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E032",
@@ -8616,7 +8771,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by internal contradiction: the statement of Lemma 7.3.8 has Λ[Z^S K^p_2 / Z^S K^p_1] and its proof, three lines later, Λ[Z^S K^p_1 / Z^S K^p_2].",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E033",
@@ -8631,7 +8791,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the two conditions are literally contradictory. Definition 7.4.5 opens « Assume that l ≡ 1 (mod p) », while a neat prime is defined by « v₀ ≢ 1 (mod p), and v₀ ≢ 1 (mod 4) if p = 2 », so the later neat-prime localisation cannot satisfy the definition it is used under.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E034",
@@ -8646,12 +8811,17 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the proof produces ρ′ preserving the form BJBᵗ and then says « by choosing a symplectic basis … ρ′ is ĜSp₄(S)-conjugate to » a representation valued in GSp₄(S). Conjugation by GSp₄ preserves the standard form J and so cannot move BJBᵗ onto it; the basis change belongs to GL₄, after which one checks the composite lies in the right group.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E035",
       "kind": "error",
-      "locator": "Lemma7.4.9 setup, p171; arXiv v1 / identical author copy",
+      "locator": "§7.4, the discussion after Proposition7.4.10 and before Lemma7.4.11, p171 (not Lemma7.4.9, which is the Definition of the Hecke algebras); arXiv v1 / identical author copy",
       "printed": "k[e₁,e₂,(e₃/e₁)^{±1}]; maximal ideal n generated by characteristic-polynomial coefficients",
       "correction": "Use the centre k[e₁,e₂,μ^{±1}], with e₃=μe₁,e₄=μ², and specialize the FULL central character including μ.",
       "reason": "e₁ can be0. Over F7 the distinct roots {2,5,3,4} admit similitudes1 and−1 with the same characteristic polynomial and e₁=e₃=0. Coefficients alone then do not specify one maximal ideal.",
@@ -8661,7 +8831,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and sharper than recorded, but its locator was wrong and I have corrected it in place: 7.4.9 is a *Definition* (of the Hecke algebras 𝕋_S), and the quoted material is in the unnumbered discussion after Proposition 7.4.10 on the same page. On the mathematics: with the paper's normalisation the four parameters are {a, a⁻¹, b, b⁻¹}; over F₇ with a = 2, b = 5 the multiset {2,4,5,3} is pairwise distinct and has e₁ = e₃ = 0, and the pairings 2↔4, 5↔3 and 2↔3, 5↔4 give similitude 1 and −1 with identical e_i. Since e₃ = μe₁ and e₄ = μ² identically, the ideal 𝔫 = (ϖ, e_i − e_i(γ)) then has quotient k[μ^{±1}]/(μ²−1) ≅ k × k, so the printed 𝔫 is not even maximal.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E036",
@@ -8676,7 +8851,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Lemma 7.5.4 reads « Every irreducible component of Spec R_S **containing 𝔮** has dimension at least dim Λ_{GSp₄,ℚ} », while the proof of Proposition 7.5.10 concludes that *every* irreducible component of Spec R_S[1/2] dominates a component of Spec Λ_{GSp₄,ℚ}[1/2].",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E037",
@@ -8691,7 +8871,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the paper's own table: p190 says the squares of lifts of 2C and 2D are « I and −I respectively », but the table assigns 2C the characteristic polynomial x⁴+2x²+1 = (x²+1)², whose roots are primitive fourth roots of unity, forcing the square of a lift to be −I.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E038",
@@ -8706,7 +8891,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: « H²(G_{ℚ₂}, ρ̄_{A,3}) = 0, so all lifts … ». Obstructions to lifting a representation lie in H² of the adjoint, not of the representation itself.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E039",
@@ -8721,7 +8911,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in full, and the paper's own material supplies every hypothesis. Lemma 9.2.13 assumes (1) ρ̄_{A,3}|G_{ℚ₂} unramified, (2) projective class 2C or 6G, (3) ρ̄_{A,2} inside S₅(b), and concludes semistable ordinary with purely toric reduction. For Y : y²+y = x⁵−x⁴+x³ the paper itself computes class 6G and notes good reduction at 2; Deuring–Šafarevič gives 2-rank 0 (a single branch point), so the reduction is good and non-ordinary; and the paper proves elsewhere that a rational Weierstrass point is *equivalent* to ρ̄_{A,2} factoring through a conjugate of S₅(b), which Y has. The paper's own remark, « this does not contradict Lemma [9.2.13] because … Y is not ordinary », is circular, since the lemma concludes ordinarity; the missing hypothesis is bad reduction, which the only application supplies (« any specialization … which does not have good reduction »).",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E040",
@@ -8736,7 +8931,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by internal contradiction: p197 says that for a Tate curve with cube parameter « ρ_{X,3} is the trivial representation », while the same proof later states that the action on X[3] is μ₃ ⊕ ℤ/3ℤ « and hence is unramified » — unramified but not trivial, with Frobenius acting by −1 on μ₃, as the paper's next sentence about the unramified quadratic character being cyclotomic makes explicit.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E041",
@@ -8751,7 +8951,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by computation: for Y : y²+y = x⁵−x⁴+x³ over F₂ I counted #Y(F₂) = 3 and #Y(F₄) = 9, which give Q(X) = X⁴+2X²+4. The printed Q(x) = x⁴+2x²+1 is impossible for a genus-2 curve over F₂ on the functional equation alone, whose constant term must be q^g = 4.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E042",
@@ -8766,7 +8971,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Lemma 9.3.4 assumes « a principally quasi-polarized finite flat group scheme of rank 4 » and is applied to A[p] of an abelian surface, which has rank p⁴; the lemma is stated for p > 2, so 4 and p⁴ never agree.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E043",
@@ -8781,7 +8991,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: after twisting to make V̄ trivial the proof takes A₀ = E_{−1} × E_2 over F₃, but −1 ≡ 2 ≡ −1 (mod 3), so both unit roots reduce to −1 and the product realises the scalar −1, not +1. The unramified quadratic twist repairs it and leaves the mod-2 representation untouched.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E044",
@@ -8796,7 +9011,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by counting: #E_{−1}(F₃) = 5 is odd, so Frobenius fixes no non-zero 2-torsion and has order 3; #E_2(F₃) = 2, so it fixes exactly one and has order 2. The printed « order 2 and 3 respectively » is the wrong way round, and the product's order 6 is unaffected.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E045",
@@ -8811,7 +9031,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Lemma 9.4.1 reads « Let Z be a rational variety over ℚ » with no smoothness hypothesis. The acnodal curve y² = x²(x−1) is ℚ-rational (x = t²+1, y = t(t²+1)) and has the isolated real point (0,0); taking Ω_∞ = {(0,0)} leaves only a point of the thin set {(0,0)}. The paper's own applications are to smooth varieties, so nothing downstream breaks.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E046",
@@ -8826,7 +9051,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the printed rates are Hⁿ for the points of height ≤ H in Pⁿ(ℚ) and O(H^{n−1/2} log H) for a thin set. Schanuel gives ~cH^{n+1} and Serre's bound is O(H^{n+1/2} log H); both exponents are one too low, and the comparison the proof needs survives.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E047",
@@ -8841,7 +9071,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected: the quoted text is not at the cited locator, and the claim there is justified. The proof of Lemma 9.4.2 on p205 reads « there exists a point A ∈ P(ρ̄)(ℚ₂) with **either good ordinary or semistable ordinary** reduction (and which is 2-distinguished) … Moreover, all the properties listed hold in any open ball around any such point A by [Kisin, Thm. 5.1] », so it already allows the semistable case, and Kisin's local-constancy theorem keeps the local Galois representation — hence the reduction type — constant on a small ball. The nearest text matching the entry's quote is in the proof of Corollary 9.3.6, where the point does have good reduction and the same argument applies.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E048",
@@ -8856,7 +9091,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: p209 prints a G_{ℚ₂}-equivariant filtration « T₂(B)_t ⊂ T₂(B)_f ⊂ T₂(B) of (saturated) ℤ₃-modules », mixing the 2-adic Tate module with ℤ₃-coefficients.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E049",
@@ -8871,7 +9111,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the paper's own tables: §10.1(3) prints x⁴ ± x³ + 2x² ± x + 1 with matching signs, while the tables for classes 4C and 12C print x⁴ ± x³ + 2x² ∓ x + 1. Expanding (X² ± X + 2)² modulo 3 gives cubic coefficient ∓1 and linear coefficient ±1, so the opposite pairing is the right one.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E050",
@@ -8886,7 +9131,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the valuation is exactly as claimed: Hensel-lifting the unit root of X²+X+2 in ℤ₂ to 2²⁴ gives v₂(α²−1) = 3. Purity gives only that the eigenvalues are ≠ 1, hence vanishing after inverting 2; local Tate duality identifies the integral H² with the dual of the invariants in M^∨ ⊗ ℚ₂/ℤ₂, which here have order 8. So « H²(K, M(1)) = 0 » is false integrally.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E051",
@@ -8901,7 +9151,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: on μ₂² ⊕ (ℤ/2)² over ℤ₂ with the perfect symmetric pairing [[0,I],[I,diag(1,0)]] the composite of (10.3.4) is trivial, because the connected-connected block vanishes, while on the generic fibre an étale basis vector pairs with itself to 1 ≠ 0. So triviality of that composite does not make λ alternating on the generic fibre.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E052",
@@ -8916,7 +9171,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the quotient is written φ^{ℤ/q^rℤ} although Gal(F_{q^r}/F_q) is cyclic of order r.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E053",
@@ -8931,7 +9191,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by computation. For the [2,2,2] row, y² = x⁶+4x⁴+6x³−8x²+1 reduces mod 3 to (x²+1)(x²+x+2)(x²+2x+2); I counted #C(F₃) = 8 and #C(F₉) = 14, giving Q(X) = X⁴+4X³+10X²+12X+9 = (X²+2X+3)². The repeated factor means the two unit roots coincide, so the curve is not 3-distinguished. The entry's further point is also right: F₃ has exactly three monic irreducible quadratics, so this is the only squarefree sextic with that factorisation type and no other special fibre can fix the row.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E054",
@@ -8946,7 +9211,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: « Ĝ(R) := ker(Ĝ(R) → Ĝ(k)) » defines the symbol in terms of itself; the right-hand side must use G.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E055",
@@ -8961,7 +9231,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: « If F is a number field then we say that a representation G_F → GL_n(ℚ̄_p) (or G_F → GSp₄(ℚ̄_p)) if it is pure at all finite places of F » — the predicate being defined is missing.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E056",
@@ -8976,7 +9251,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: « To each λ ∈ X_⋆(T) we can associate a representation V_λ … with highest weight λ » needs λ dominant for the chosen Borel.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E057",
@@ -8991,7 +9271,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the evaluation map at e is written 𝒪_{G_{r′}} ⊗ V → V, with r′ never introduced; the surrounding construction uses the radius r.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E058",
@@ -9006,7 +9291,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: « for a semi-simple group, the categories of finite dimensional representations of the group and of its Lie algebra are equivalent » is false without simple connectedness — the standard representation of 𝔰𝔩₂ does not integrate to PGL₂ — and it is applied to M^der, which need not be simply connected.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E059",
@@ -9021,7 +9311,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: tex 6388 prints Adm_{(𝔪_w, B_{M_w})}(E)_λ where the surrounding statements (tex 6436, 6439, 6502) all use Adm_{(𝔪_w, Q_{M_w})}.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E060",
@@ -9036,7 +9331,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: « Let 𝒳 be a quasi-Stein affinoid adic space » — a quasi-Stein space is an increasing union of affinoids and is not itself affinoid except trivially, so the two hypotheses cannot be combined as printed.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E061",
@@ -9051,7 +9351,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: with Y_n ⊆ F_n ⊆ Y_{n+1}, as the same sentence states, the printed chain RΓ_{F_n}(V_n) → RΓ_c(Y_n) → RΓ_{F_{n+1}}(V_{n+1}) runs its first arrow the wrong way; extension by zero gives RΓ_c(Y_n) → RΓ_{F_n} → RΓ_c(Y_{n+1}).",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E062",
@@ -9066,7 +9371,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the sentence itself: « (as T_{0,m,r} is the union of ℓ(w) Stein spaces) » sits beside the conclusion that the cohomology is concentrated in degrees [ℓ(w)+1, d], which needs d − ℓ(w) pieces.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E063",
@@ -9081,7 +9391,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: immediately after Definition 6.1.4 the universal symplectic deformation is written ρ_S : G_F → GSp₄(R_S), although §6 works throughout over the totally real field F⁺ (F is the CM field of §5).",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E064",
@@ -9096,7 +9411,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the inertia condition sets ψ_i|_{I_{F_ṽ}} equal to the pushforward of the whole tuple (χ₁,…,χ_n), rather than of the ith universal character.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E065",
@@ -9111,7 +9431,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the algebraic coefficient module is written as a tensor product « over τ ∈ S̃₂ » of representations of highest weight λ_τ, indexing by places where the weights are indexed by p-adic embeddings.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E066",
@@ -9126,7 +9451,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the overstatement is exactly as the entry says. With 𝔪^{n+1} = 0, ρ(σ) = tu and ρ(φ)uρ(φ)⁻¹ = t^{q_v−1}u, regular semisimplicity of ρ̄(φ) makes Ad(φ) − 1 invertible off the Cartan, which kills the off-torus part of u and gives u ∈ T(A) — which is precisely what the lemma needs (« we need to show that ρ(σ) ∈ T(A) »). Nothing forces the torus part to vanish, so « it follows that u = 1 » claims more than the argument gives.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E067",
@@ -9141,7 +9471,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the Selmer group H¹_{S^⊥,T}(F⁺, W^{0*}_m(1)) is defined as the kernel of a map out of H^i(F⁺_S/F⁺, W^{0*}_m(1)) with i unbound.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E068",
@@ -9156,7 +9491,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on its reference half, which I checked decisively: the text says « Using Lemma 7.3.5 and the identification of T and T̂ » for the conversion of a character of T(ℤ_p) into a cocharacter valued in T(…), which is the content of Lemma 7.3.6 (labelled « converting characters to cocharacters, split torus ») — and Lemma 7.3.5's own proof cites 7.3.6 for exactly that step. I did not separately verify the derived-coinvariants half of the entry.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E069",
@@ -9171,7 +9511,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the proof fixes an isogeny Jac(X) → A and then, from a hypothesis about ρ̄_{Jac(X),3}, states the minimal polynomial of Frob₂ and the invariant subspaces for A[3]; the reference Jacobian's own 3-torsion is what the hypothesis controls.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E070",
@@ -9186,7 +9531,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Lemma 10.3.1 is stated entirely for the prime 2 — « a 2-torsion finite flat group scheme of order 16 = 2⁴ » over the integers of a finite extension of ℚ₂ — yet concludes « A[p] ≃ G₁ » with p introduced nowhere in the statement. Harmless in substance; `affects: nothing` would fit it better than `a stated result`.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E071",
@@ -9201,7 +9551,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: « the unramified class in H¹_f(ℚ, μ₂) = ℤ₂^×/ℤ₂^{×2} » — the identification on the right is the local group at 2, so the group is H¹_f(ℚ₂, μ₂).",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E072",
@@ -9216,7 +9571,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected: no defect is demonstrated at the cited passage. The text says « If the σθ are distinct, then X : y² = ∏(x − σθ) will be a smooth genus two curve over F », and describes Z(ρ̄) as the complement of finitely many hyperplanes — the conditions σθ = σ′θ are linear in the coordinates of θ, so that description is apt and the primitive-element condition the entry asks for is stated. The entry identifies no false statement, only a request for more explicit coordinates; I make no claim either way about the separate question of whether the ambient projective space should be P⁶.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E073",
@@ -9231,7 +9591,12 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on the two fragments I located: « beings by recalling » for « begins » and « twisted weighed fundamental lemma » for « weighted ». I did not locate the other two fragments quoted in the entry.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     },
     {
       "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E074",
@@ -9246,7 +9611,32 @@
         "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
         "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
         "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the sets are defined as T_{n,m,r} (three times, in Definition 4.6.31 and the two displays after it) and then used as W_{n,m,r} = π_HT⁻¹(T_{m,n,r}).",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E075",
+      "kind": "misprint",
+      "locator": "Lemma2.7.5 statement, p38; arXiv v1 / identical author copy",
+      "printed": "the induced topologies T_2 and T′_3 on V_3",
+      "correction": "Use T_3 and T′_3 on V_3; the subscript2 belongs to V_2.",
+      "reason": "The hypothesis concerns the topologies induced on the quotient V_3 by the two topologies on V_2, so both subscripts must be3. Found by this review, not by the extraction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
+        "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
+        "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review. The statement of Lemma 2.7.5 reads « Assume that the induced topologies 𝒯₁ and 𝒯′₁ on V₁, as well as the induced topologies 𝒯₂ and 𝒯′₃ on V₃ coincide »: the pair on V₃ must be 𝒯₃ and 𝒯′₃, the subscript 2 being left over from V₂. A misprint whose intended meaning is fixed by the sub/quotient pairing; it affects nothing, and the lemma is false for the independent reason recorded as E010.",
+        "by": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25"
+      }
     }
   ],
   "contexts": {
