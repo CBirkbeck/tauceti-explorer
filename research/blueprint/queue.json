@@ -3229,8 +3229,9 @@
    ],
    "avoidAccountOf": "PAPER-GILLE-PARIMALA-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-GILLE-PARIMALA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1198"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1198",
+   "finishedAt": "2026-09-23T20:18:08Z"
   },
   {
    "id": "PAPER-BOXER-PILLONI-26",
@@ -3714,8 +3715,9 @@
    ],
    "avoidAccountOf": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-LIU-WOOD-ZUREICKBROWN-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1225"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1225",
+   "finishedAt": "2026-09-23T20:18:11Z"
   },
   {
    "id": "PAPER-GUO-REINECKE-24",
@@ -3975,7 +3977,8 @@
    ],
    "avoidAccountOf": "PAPER-BRIGHT-NEWTON-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-BRIGHT-NEWTON-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1240"
   },
   {
    "id": "PAPER-BREUIL-ETAL-23",
@@ -4649,8 +4652,9 @@
    ],
    "avoidAccountOf": "PAPER-LI-ZHANG-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-ZHANG-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1279"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1279",
+   "finishedAt": "2026-09-23T20:18:14Z"
   },
   {
    "id": "PAPER-LIU-ETAL-22",
@@ -4798,7 +4802,8 @@
    ],
    "avoidAccountOf": "PAPER-CASTELLA-ETAL-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-CASTELLA-ETAL-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1287"
   },
   {
    "id": "PAPER-BRUINIER-EHLEN-YANG-21",
@@ -5662,7 +5667,8 @@
    ],
    "avoidAccountOf": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1333"
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17",
@@ -6265,7 +6271,8 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-MATHEW-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-MATHEW-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1366"
   },
   {
    "id": "PAPER-ANSCHUTZ-LEBRAS-23",
@@ -6491,7 +6498,8 @@
    ],
    "avoidAccountOf": "PAPER-GAN-SAVIN-23-B",
    "prompt": "research/blueprint/prompts/REV-PAPER-GAN-SAVIN-23-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1379"
   },
   {
    "id": "PAPER-CHANG-CHEN-MISHIBA-23",
@@ -6914,8 +6922,9 @@
    ],
    "avoidAccountOf": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1403"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1403",
+   "finishedAt": "2026-09-23T20:18:16Z"
   },
   {
    "id": "PAPER-VENKATESH-19",
