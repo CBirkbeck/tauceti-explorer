@@ -15,7 +15,12 @@
         "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2025.202.3.3, checked 22 September 2026: no erratum or update registered; the publisher PDF was not reachable to the extraction",
         "arXiv 2103.09945: v1 (17 March 2021) and v2 (7 October 2024, the latest)",
         "web search for an erratum or correction, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at p.23 of arXiv 2103.09945v2 (SHA-256 62d26eb9…34c8, the version named): the text defines the maximal ideal m_{A_G̃} of A_G̃ and then sets a_G̃ := m²_{A_E} + π_E A_E, with an undefined A_E; the definition must use A_G̃. In c : Ũ_1 ⊗_{Z̆_p} Ŵ(A_G̃/a_G̃) ≅ M̃_1 ⊗_{Ŵ(A)} Ŵ(A_G̃), the two sides are modules over different rings, and the very-good condition c(s_{α,0} ⊗ 1) = s_{α,0} ⊗ 1 is a statement over A_G̃/a_G̃. So both sides are base-changed to Ŵ(A_G̃/a_G̃), as the correction says.",
+        "by": "REV-ERRATA-PAPER-KISIN-ZHOU-25"
+      }
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/E2",
@@ -30,7 +35,12 @@
         "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2025.202.3.3, checked 22 September 2026: no erratum or update registered; the publisher PDF was not reachable to the extraction",
         "arXiv 2103.09945: v1 (17 March 2021) and v2 (7 October 2024, the latest)",
         "web search for an erratum or correction, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at p.25: T_pG^∨ is a Z_p-module, so the tensor product in (3.3.2.1) is over Z_p. And the tensors on the Tate module are the étale tensors s_{α,ét}; the crystalline s_{α,0} live in D^⊗. §3.3.3 on the same page restates the induced isomorphism as T_pG^∨ ⊗_{Z_p} Z̆_p ≅ D taking s_{α,ét} to s_{α,0}, which confirms both parts of the correction.",
+        "by": "REV-ERRATA-PAPER-KISIN-ZHOU-25"
+      }
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/E3",
@@ -45,7 +55,12 @@
         "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2025.202.3.3, checked 22 September 2026: no erratum or update registered; the publisher PDF was not reachable to the extraction",
         "arXiv 2103.09945: v1 (17 March 2021) and v2 (7 October 2024, the latest)",
         "web search for an erratum or correction, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at p.34: Proposition 4.2.3(5) prints 'X_*(G^ab)_I is torsion', but its proof immediately applies Lemma 4.2.4 on the same page, whose second hypothesis is 'X_*(G^ab)_I is torsion-free'. The justification offered (no simple factor Res PGL_m(D) with p | index) is the torsion-freeness criterion. So 'torsion-free' is meant.",
+        "by": "REV-ERRATA-PAPER-KISIN-ZHOU-25"
+      }
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/E4",
@@ -60,7 +75,12 @@
         "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2025.202.3.3, checked 22 September 2026: no erratum or update registered; the publisher PDF was not reachable to the extraction",
         "arXiv 2103.09945: v1 (17 March 2021) and v2 (7 October 2024, the latest)",
         "web search for an erratum or correction, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at p.52: ṫ_λ lifts the translation t^λ and lies in the loop group G(F_q((t))); if it lay in G(F_q[[t]]) it would be in L^+G and the orbit would be that of the base point. The proof uses only that ṫ_λ is F_q-rational, to get σ_q(ṫ_λ) = ṫ_λ and then σ_q(h) = hk before Lang's theorem. That is the hypothesis ṫ_λ ∈ G(F_q((t))).",
+        "by": "REV-ERRATA-PAPER-KISIN-ZHOU-25"
+      }
     }
   ]
 }
