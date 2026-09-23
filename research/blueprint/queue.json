@@ -8294,8 +8294,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2184"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2184",
+   "finishedAt": "2026-09-23T10:06:34Z"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-21",
@@ -8330,7 +8331,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LAND-MATHEW-MEIER-ETAL-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2186"
   },
   {
    "id": "REV-PAPER-LAND-MATHEW-MEIER-ETAL-24",
