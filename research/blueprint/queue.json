@@ -1945,8 +1945,9 @@
    ],
    "avoidAccountOf": "PAPER-BROWNING-SAWIN-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-BROWNING-SAWIN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1126"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1126",
+   "finishedAt": "2026-09-23T19:02:53Z"
   },
   {
    "id": "PAPER-DEMARCO-KRIEGER-YE-20",
@@ -2100,7 +2101,8 @@
    ],
    "avoidAccountOf": "PAPER-YUN-ZHANG-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-YUN-ZHANG-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1134"
   },
   {
    "id": "PAPER-GAO-HABEGGER-19",
@@ -2551,7 +2553,8 @@
    ],
    "avoidAccountOf": "PAPER-CADORET-HUI-TAMAGAWA-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-CADORET-HUI-TAMAGAWA-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1158"
   },
   {
    "id": "PAPER-DOSPINESCU-LEBRAS-17",
@@ -4076,8 +4079,9 @@
    ],
    "avoidAccountOf": "PAPER-LI-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1246"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1246",
+   "finishedAt": "2026-09-23T19:02:56Z"
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
@@ -4598,8 +4602,9 @@
    ],
    "avoidAccountOf": "PAPER-MAULIK-SHANKAR-TANG-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-MAULIK-SHANKAR-TANG-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1277"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1277",
+   "finishedAt": "2026-09-23T19:03:00Z"
   },
   {
    "id": "PAPER-LI-ZHANG-22",
@@ -6694,7 +6699,8 @@
    ],
    "avoidAccountOf": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1392"
   },
   {
    "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
@@ -8079,7 +8085,8 @@
    ],
    "avoidAccountOf": "PAPER-ANDRE-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANDRE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1465"
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20",
