@@ -8044,7 +8044,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BOXER-CALEGARI-GEE-PILLONI-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2164"
   },
   {
    "id": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
@@ -8114,7 +8115,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-PAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2168"
   },
   {
    "id": "REV-PAPER-PAN-26",
@@ -8333,8 +8335,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LAND-MATHEW-MEIER-ETAL-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2186"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2186",
+   "finishedAt": "2026-09-23T10:33:43Z"
   },
   {
    "id": "REV-PAPER-LAND-MATHEW-MEIER-ETAL-24",
