@@ -381,3 +381,38 @@ These hashes were recorded by the original worker on 21 September 2026. The pres
 | Wil3 | [PDF](https://arxiv.org/pdf/1903.12159) | `279412548e62fb16d1caa1cc0c9d0cbe1aa95c5ddbccc144e82b21b6bd00b590` |
 | Baker–Rumely | [PDF](https://arxiv.org/pdf/math/0407427) | `2f2f4cdeb472e0c6203644624a1f30c4b2ef7a0809322366d82b699a58dd0e4c` |
 | Baker–Faber | [PDF](https://arxiv.org/pdf/math/0407428) | `f205b04815533c3d9f5617c4095cddb5b48d551ef0ebe7051e23d0ce928b2954` |
+
+## Review (REV-PAPER-YUAN-26, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1051](https://github.com/CBirkbeck/tauceti-explorer/issues/1051). **Verdict: accept.** All twelve
+routes accepted.
+
+- **The source is verified.** The author manuscript of 21 August 2024 re-downloads to the recorded
+  hash `b36f4860…a813e`, byte for byte; 126 pages, printed page = PDF page. The published Annals
+  text is subscription-only and this review did not obtain it either — the extraction's own `gaps`
+  entry records that limitation, and it stands.
+- **All 30 mistakes confirmed at their locators.** Nine are settled by the paper contradicting
+  itself, among them E3 (the two halves of one sentence force `δ(C) = 0` for every curve with split
+  semistable reduction), E8 (p. 40: "we require g > 1 in this section, while we only require g > 0
+  in the previous section"), E14, E22 (Lemma 4.3 assumes the finiteness its application concludes)
+  and E30 (`λ_{O_K}` on p. 89, `λ̄_K` on p. 93 — read on page images, since the text layer does not
+  resolve the subscript).
+- **E1 is decisive.** With `K = k(t)` and `S = Spec K` the maximal-variation hypothesis of
+  Theorem 4.19 holds vacuously, yet a constant family has Zariski-dense height-zero points, so the
+  conclusion fails; the paper's own proof asks for bigness "over k instead of over K".
+- **Corrected in place:** E1's correction claimed that generic finiteness of the moduli morphism on
+  a `k`-model is *equivalent* to non-isotriviality over `k`. It is strictly stronger once
+  `dim S > 0`; the two coincide only in the `dim S = 0` case of the counterexample. The open handoff
+  PR #2299 raises the same objection against the parallel clause in this paper's **errata register**,
+  and the two should be reconciled together. On the same reconciliation: the extraction's **E7** is
+  the *correct* form of the stable-curve point (the Deligne–Mumford condition on **smooth** rational
+  components), while the register's E4 adds a clause that the two-self-node curve refutes.
+- **Referred upward, not edited:** route 9's title, "The Jacobian challenge, Part II: …", is not an
+  exact prefix extension of the parent's atlas title, "The Jacobian challenge (Christian Merten's AG
+  version)" — but PAPER-DIMITROV-GAO-HABEGGER-21 carries it byte-identically and has already been
+  reviewed, so editing one copy would break the coalescence.
+- **Items and routes:** 281 items (5 library, 31 planned, 245 missing), each missing item routed
+  exactly once, graph consistent, all thirteen stage ids and seventeen planned targets present.
+
+Full report: `research/blueprint/reviews/REV-PAPER-YUAN-26.md`.
