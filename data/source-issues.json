@@ -37691,7 +37691,7 @@
    "locator": "External source: Chang 2014, arXiv:1207.2326 PDF read 2026-09-22, printed p.15, proof of Lemma 5.3.1",
    "printed": "[ABP04, Prop. 3.1.1]",
    "correction": "Use ABP04 Proposition 3.1.3 for the analytic-to-entire criterion.",
-   "reason": "ABP Proposition 3.1.3 has the exact inputs det Φ(0)≠0 and a Tate-algebra solution and concludes membership in E. ABP 3.1.1 is a theorem lifting relations and is not this proposition.",
+   "reason": "ABP Proposition 3.1.3 has the exact inputs det Φ(0)≠0 and a Tate-algebra solution and concludes membership in E. ABP 3.1.1 is a theorem lifting relations and is not this proposition. This finding concerns a cited source, not Ngo Dac's text.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -37712,7 +37712,7 @@
    "locator": "External source: Thakur 2010, author-hosted published shufflepub.pdf, printed p.1980, reference [11]",
    "printed": "2009, no. 11 (2009): 2038–55",
    "correction": "For Thakur's Relations Between Multizeta Values use IMRN 2009 no.12, 2318–2346, DOI 10.1093/imrn/rnp018.",
-   "reason": "The actual author-hosted Relations PDF's first page gives this bibliographic data. The printed pages 2038–2055 belong to Anderson–Thakur's period-interpretation paper, not the title/author of [11].",
+   "reason": "The actual author-hosted Relations PDF's first page gives this bibliographic data. The printed pages 2038–2055 belong to Anderson–Thakur's period-interpretation paper, not the title/author of [11]. This finding concerns a cited source, not Ngo Dac's text.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -37733,7 +37733,7 @@
    "locator": "External source: Thakur 2010 published shufflepub.pdf, p.1979, fourth equality of the proof of Theorem 3",
    "printed": "S_{d₂}(X_i′, A′) + S_{d₁}(A′, X_i′)",
    "correction": "Use the simultaneous mixed/fixed power-sum induction in Shuhui Shi's corrected proof reproduced in the author's updates, or the controlled recursion in Ngo Dac Proposition 2.1. Concatenating two tails does not account for their internal degree interleavings.",
-   "reason": "For tails X_i′=(1), A′=(1,1), cutoff d=2, both concatenated depth-three sums vanish, while the omitted unequal-leading-degree term S_0(1)S_1(1,1)=S_1(1) is nonzero. The author explicitly acknowledges the fourth equality as wrong; the theorem remains true with the corrected proof.",
+   "reason": "For tails X_i′=(1), A′=(1,1), cutoff d=2, both concatenated depth-three sums vanish, while the omitted unequal-leading-degree term S_0(1)S_1(1,1)=S_1(1) is nonzero. The author explicitly acknowledges the fourth equality as wrong; the theorem remains true with the corrected proof. This finding concerns a cited source, not Ngo Dac's text.",
    "affects": "the proof",
    "known": "Thakur updates.pdf entry 36 (47), pp.7–8, correction credited to Shuhui Shi; the update also points to the proof after Theorem 4 of his 2017 MZV survey.",
    "searched": [
@@ -37753,12 +37753,56 @@
    "locator": "External source: CPY author-hosted EulerianJEMS_Corrections1.pdf dated 13 August 2018, p.6, Proposition 2.2.1; rendered page checked",
    "printed": "F ∈ Mat_{r₁×r₂}(k̄[t])",
    "correction": "The matrix of the rationalized-module homomorphism lies in Mat_{r₁×r₂}(k̄(t)); the conclusion is that its monic common denominator belongs to F_q[t].",
-   "reason": "Already for the two trivial rank-one modules, multiplication by 1/t is a k̄(t)[σ]-linear map and has a non-polynomial representing matrix. The proof immediately works with rational denominators and proves the corrected statement.",
+   "reason": "Already for the two trivial rank-one modules, multiplication by 1/t is a k̄(t)[σ]-linear map and has a non-polynomial representing matrix. The proof immediately works with rational denominators and proves the corrected statement. This finding concerns a cited source, not Ngo Dac's text.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "Author publication page https://www.math.nthu.edu.tw/~cychang/Publications.html and author-hosted file explicitly named EulerianJEMS_Corrections1.pdf inspected 2026-09-22.",
     "arXiv:1411.0124 and searches for the paper/corrections checked; this finding is restricted to the PDF read, not asserted for every journal version."
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NGODAC-21/E11",
+   "kind": "gap",
+   "locator": "HAL v1, printed p. 23, proof of Theorem 6.2, Step 3, after (6.4)",
+   "printed": "Kuan and Lin showed (see [17, proof of Theorem 2]) that δ1, δ2 belong to K[t], and degθ δi ≤ q(si + · · · + s2)/(q − 1)",
+   "correction": "The comparison of θ-coefficients on p. 24 writes δ1 = (aθ + b)(t − θ)^w, resp. (aθ² + bθ + c)(t − θ)^w, with a, b, c ∈ F_q[t]. This needs δ1, δ2 ∈ A[t] = F_q[θ, t]. It follows from (6.3)–(6.4) themselves: a solution in K̄[t] of δ^(1) = Bδ + F with B monic in t over A lies in A[t] (monic-frobenius-descent), and the θ-degree bound is theta-degree-bound. degree-descent records the instance.",
+   "reason": "Membership in K[t] = F_q(θ)[t] with a bound on θ-degrees does not give polynomial dependence on θ: for example (t − θ)^w/θ lies in K[t], so the displayed affine and quadratic θ-forms would not follow. Whatever Kuan–Lin prove, the statement quoted here is not enough.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
+    "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
+    "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists.",
+    "Crossref metadata for 10.4007/annals.2021.194.1.6 and a web search for an erratum, 23 September 2026 (none found)"
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NGODAC-21/E12",
+   "kind": "misprint",
+   "locator": "HAL v1, printed p. 22, proof of Theorem 6.2",
+   "printed": "For w < q we have Tw = T′w, and we are done by Theorem B.",
+   "correction": "For w ≤ q.",
+   "reason": "At w = q the sets agree too: a tuple of weight q with more than one entry has all entries below q, and (q) lies in neither set. As printed, w = q falls to the inductive step, which asserts 1 < k for k = w − (q − 1), whereas k = 1 there. The argument survives, since the relation then has the single term ζ_A(1, q−1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
+    "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
+    "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists.",
+    "Crossref metadata for 10.4007/annals.2021.194.1.6 and a web search for an erratum, 23 September 2026 (none found)"
    ],
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
