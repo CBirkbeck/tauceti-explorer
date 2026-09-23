@@ -11,7 +11,8 @@
     "url": "https://arxiv.org/pdf/1307.8237v1",
     "readSections": [
       "Entire 40-page arXiv v1 of 31 July 2013: §§1–4, Appendix A.1–A.4 and references.",
-      "Selected prerequisite extents are recorded per source file and in prerequisites; no complete prerequisite-paper reading is claimed."
+      "Selected prerequisite extents are recorded per source file and in prerequisites; no complete prerequisite-paper reading is claimed.",
+      "2026-09-23 continuation: fresh v1 selected divisor argument pp.7–16 and §4 pp.29–34; images30/33. Prior full40-page reading retained with attribution. Milne §1 and §11 selected reading."
     ],
     "versionNote": "G0: the public authors’ links lead to the 40-page v1. The 2017 published paper has 44 pages and was not acquired or matched. All main locators and error findings refer to v1, not an assertion about the final article.",
     "files": [
@@ -59,15 +60,24 @@
         "pages": 24,
         "bytes": 320623,
         "read": "introduction, Lemma 5.5 coefficient discussion and Appendix A only"
+      },
+      {
+        "name": "milne-jacobian-2021",
+        "url": "https://www.jmilne.org/math/xnotes/JVs.pdf",
+        "sha256": "36c3f09c7462dbbd4ae1f8b81a02bd9ff84f03c5a346351d7d5d78fc3f173486",
+        "date": "2026-09-23T04:43:17.621047+00:00",
+        "pages": 50,
+        "bytes": 532382,
+        "read": "Selected §1 pp.2–5 and §11 pp.35–37; not full article."
       }
     ],
     "libraryPins": {
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "TauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
     },
-    "atlasCommit": "06851ad5002dacc66c8cf335bd6e41e5690f4576"
+    "atlasCommit": "90fcfcc5607a21b843dbd35e28efe6e644eec995"
   },
-  "summary": "Partial continuation of PR #1657. Keeps the original 122 IDs, 14 ownership routes, 38 definition/construction API/test blocks and all 16 withheld items. Adds a characteristic-five positive-dimensional counterexample to unrestricted weighted Abel finiteness, an exact polynomial/principal-divisor certificate and a total-multiplicity rank refinement. Imports four verified generic library suppliers and one existing hyperelliptic model target; refines weighted-fibers to require nonzero total weights on overlap strata. Current totals: 131 items (9 library,20 planned,102 missing),86 missing routed once. Final version, characteristic-dependent geometry, microlocal constants, small-ratio dynamics and ramified torus dictionary remain open. No formalization is claimed.",
+  "summary": "Partial finite-Picard counting continuation. Preserves all 131 prior item statements/statuses, 14 routes, the weighted-Abel counterexample and 16 withheld claims. Adds the consecutive-extension degree-one proof, scalar finite-field descent, quotient carry and degree representatives, typed normalized tail identities and explicit pointless F₃/F₅ curves; the genus-two example has exact masses 1/2,3/8,1/8. Current totals: 150 items (13 library, 22 planned, 115 missing), 99 missing routed once, 40 D/C APIs/tests. Remaining geometry, analytic limits, final version and general supplier closure keep status partial.",
   "items": [
     {
       "id": "PAPER-SHENDE-TSIMERMAN-17/hyperelliptic",
@@ -238,7 +248,14 @@
       "statement": "Q_C=Pic(C)/π*Pic(P¹)=Pic(C)/Zκ has two degree-parity fibers of cardinality h=#J(F_q), hence cardinality 2h, after the degree-one divisor-class and Brauer-descent inputs.",
       "locator": "§1; §4.1",
       "status": "missing",
-      "note": " API: Construct quotient, translations, Haar/uniform measure and parity map; descend L↦π*L using the projection formula. Tests: (1) κ shifts degree by two; (2) translation by M preserves the uniform law; (3) absence of C(F_q) does not preclude a degree-one divisor class."
+      "note": " API: Construct quotient, translations, Haar/uniform measure and parity map; descend L↦π*L using the projection formula. Tests: (1) κ shifts degree by two; (2) translation by M preserves the uniform law; (3) absence of C(F_q) does not preclude a degree-one divisor class. N2–N3 prove the needed comparison and 2h cardinality using scalar norm descent and degree representatives; the Brauer route in the older wording is not required. Keep the carry term in the group law.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/degree-one",
+        "PAPER-SHENDE-TSIMERMAN-17/finite-picard-descent",
+        "PAPER-SHENDE-TSIMERMAN-17/degree-fiber-equivalence-library",
+        "PAPER-SHENDE-TSIMERMAN-17/class-finite",
+        "PAPER-SHENDE-TSIMERMAN-17/finite-degree-fibers-library"
+      ]
     },
     {
       "id": "PAPER-SHENDE-TSIMERMAN-17/degree-one",
@@ -247,7 +264,11 @@
       "statement": "A smooth projective geometrically connected curve over a finite field has index one: its closed-point degrees have gcd one, hence a divisor of degree one; this does not imply a rational point.",
       "locator": "Theorem 4.2 proof, repaired supplier",
       "status": "missing",
-      "note": "G3: original F.K. Schmidt/Lang proof still to acquire. The source claim that C has a rational point for large genus is not used."
+      "note": "G3: original F.K. Schmidt/Lang proof still to acquire. The source claim that C has a rational point for large genus is not used. Continuation N1 now gives a direct proof from the existing WC.5 all-extension bound using E_(n+1)−E_n. No original Schmidt/Lang proof is claimed read; N2 supplies the separate Picard comparison.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/consecutive-extension-points",
+        "PAPER-SHENDE-TSIMERMAN-17/extension-point-divisor"
+      ]
     },
     {
       "id": "PAPER-SHENDE-TSIMERMAN-17/joint-measure",
@@ -1096,7 +1117,10 @@
       "statement": "For compatible degree parities, a joint tail event corresponding to X_L has probability #X_L(F_q)/(2#J(F_q)) under the uniform law on Q_C; incompatible parities give probability zero.",
       "locator": "Theorem 4.4 proof, p.33",
       "status": "missing",
-      "note": "G3: v1 prints equality with the raw cardinality. The factor 2h is mandatory; conditional-on-parity probabilities instead have denominator h."
+      "note": "G3: v1 prints equality with the raw cardinality. The factor 2h is mandatory; conditional-on-parity probabilities instead have denominator h. N4 supplies the complete event bijection, unique κ-twist of M, and the ratio-inversion convention.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/joint-tail-event-bijection"
+      ]
     },
     {
       "id": "PAPER-SHENDE-TSIMERMAN-17/large-ratio-error",
@@ -1366,6 +1390,265 @@
         "PAPER-SHENDE-TSIMERMAN-17/abel-class-additivity-library",
         "PAPER-SHENDE-TSIMERMAN-17/weighted-rank-characteristic"
       ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/finite-norm-library",
+      "kind": "theorem",
+      "name": "Surjective norm of finite fields",
+      "statement": "For fields K,K′ with a K-algebra structure on finite K′, the norm K′×→K× is surjective; its scalar image is x^((#K′−1)/(#K−1)).",
+      "locator": "Mathlib FieldTheory/Finite/GaloisField.lean:225–256",
+      "status": "library",
+      "note": "Actual statements and proof read at 082e2d3. Supplies the scalar correction, not sheaf descent.",
+      "library": [
+        "mathlib:FiniteField.unitsMap_norm_surjective",
+        "mathlib:FiniteField.algebraMap_norm_eq_pow",
+        "mathlib:FiniteField.norm_surjective"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/degree-fiber-equivalence-library",
+      "kind": "theorem",
+      "name": "A nonempty group-homomorphism fiber is a kernel torsor",
+      "statement": "For an additive group homomorphism f and a in its source, f⁻¹({f(a)}) is equivalent as a type to ker(f), by translation by −a. A surjective f supplies this for every target value.",
+      "locator": "Mathlib GroupTheory/Coset/Basic.lean:468–496",
+      "status": "library",
+      "note": "Read multiplicative declarations and to_additive annotations at 082e2d3. Not a canonical splitting of a quotient group.",
+      "library": [
+        "mathlib:AddMonoidHom.fiberEquivKer",
+        "mathlib:AddMonoidHom.fiberEquivKerOfSurjective"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/finite-degree-fibers-library",
+      "kind": "theorem",
+      "name": "Finite degree fibers of function-field divisor classes",
+      "statement": "For hF:IsFunctionField k F and finite ker(degreeClass hF), each integer degree fiber of degreeClass hF is finite, including possibly empty fibers.",
+      "locator": "TauCeti FieldTheory/FunctionField/RiemannRoch/ClassNumber.lean:174–188",
+      "status": "library",
+      "note": "Read at f790474. Existence in every degree is a separate index-one input; the scheme comparison is not implemented.",
+      "library": [
+        "tauceti:TauCeti.Divisor.finite_preimage_degreeClass_singleton"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/effective-degree-one-library",
+      "kind": "theorem",
+      "name": "An effective degree-one divisor is a rational place",
+      "statement": "For hF:IsFunctionField k F, a divisor D with 0≤D and degree D=1 equals the prime divisor of a place P with degree P=1.",
+      "locator": "TauCeti FieldTheory/FunctionField/Divisor/Basic.lean:206–215",
+      "status": "library",
+      "note": "Read at f790474. Effectivity is essential; the difference of consecutive-extension divisors need not satisfy it.",
+      "library": [
+        "tauceti:TauCeti.Divisor.exists_eq_ofPoint_of_degree_eq_one"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/coherent-flat-base-change-import",
+      "kind": "theorem",
+      "name": "Flat base change for global sections",
+      "statement": "For the proper curve and coherent sheaves used here, scalar extension K/k identifies H⁰(C,L)⊗k K with H⁰(C_K,L_K).",
+      "locator": "JC.C; N2 rational effectivity and descent injectivity",
+      "status": "planned",
+      "note": "Imported existing coherent-base-change owner; audit says absent at pins.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/galois-linebundle-descent-import",
+      "kind": "theorem",
+      "name": "Effective Galois descent for line bundles",
+      "statement": "For a finite Galois extension E/k and C/k, coherent sheaves on C are equivalent to coherent sheaves on C_E equipped with compatible semilinear Galois descent data; local freeness of rank one descends.",
+      "locator": "Milne Jacobian Varieties §1, Proposition 1.8(b); JC.D",
+      "status": "planned",
+      "note": "Imported existing JC.C/D descent plans. Milne states this and refers its proof to Serre/Waterhouse; those original proof references are not freshly acquired.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/extension-point-divisor",
+      "kind": "construction",
+      "name": "Divisor attached to an extension-field point",
+      "statement": "For C/F_q smooth projective geometrically connected and P∈C(F_(q^r)), with underlying closed point x of residue degree d|r, define E(P)=(r/d)[x]. This F_q-divisor has degree r.",
+      "locator": "N1; explicit supplier for v1 Theorem 4.2",
+      "status": "missing",
+      "note": "API: identify the residue embedding and d|r; construct the pushforward zero-cycle, prove degree r, and compare repeated scalar extensions. Tests: a base-field point over degree r gives coefficient r; a degree-r closed point gives coefficient 1; a degree-2 point over degree 6 gives coefficient 3. Reuse JC.A and AC12 divisor carriers; suggested Lean file JacobianChallenge/HyperellipticTheta/FinitePicard.lean.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/picard",
+        "PAPER-SHENDE-TSIMERMAN-17/degree-class"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/consecutive-extension-points",
+      "kind": "theorem",
+      "name": "Points over consecutive sufficiently large extensions",
+      "statement": "If C/F_q has genus g and n≥1 satisfies q^n>4g², then C(F_(q^n)) and C(F_(q^(n+1))) are both nonempty.",
+      "locator": "N1, derived from the all-extension curve bound",
+      "status": "missing",
+      "note": "For r=n,n+1 put u=q^(r/2)>2g; u²+1−2gu>0. This imports WC.5 rather than replanning or implementing the Weil bound.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/curve-rh"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/finite-picard-descent",
+      "kind": "theorem",
+      "name": "Finite-field Picard comparison without a rational point",
+      "statement": "For C/F_q smooth projective geometrically connected, actual F_q-line-bundle classes identify with the Frobenius-fixed geometric classes, degree by degree; in degree zero this gives Pic⁰(C)≅J(F_q).",
+      "locator": "N2; finite-field specialization of the existing Picard and descent suppliers",
+      "status": "missing",
+      "note": "Choose a finite field of definition E for the bundle and a Frobenius isomorphism T. T^m=a is scalar fixed by Frobenius. Replace T by bT with norm(b)=a⁻¹, then descend the resulting cocycle. Injectivity uses H⁰ flat base change and faithful flatness. This is a mathematical proof plan, not a library implementation.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/picard",
+        "PAPER-SHENDE-TSIMERMAN-17/finite-norm-library",
+        "PAPER-SHENDE-TSIMERMAN-17/coherent-flat-base-change-import",
+        "PAPER-SHENDE-TSIMERMAN-17/galois-linebundle-descent-import"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/theta-rational-effectivity",
+      "kind": "theorem",
+      "name": "Rational theta points are effective rational line-bundle classes",
+      "statement": "For C/F_q as above and integer d, Θ_d(F_q) identifies with actual degree-d line-bundle classes with h⁰(C,L)>0; Θ_d is empty for d<0.",
+      "locator": "N2; arithmetic adapter for v1 §4",
+      "status": "missing",
+      "note": "Use the Picard comparison, geometric Abel image and scalar-extension isomorphism on H⁰. A geometric section alone is not an already descended divisor; base change produces a rational section.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/finite-picard-descent",
+        "PAPER-SHENDE-TSIMERMAN-17/coherent-flat-base-change-import",
+        "PAPER-SHENDE-TSIMERMAN-17/theta",
+        "PAPER-SHENDE-TSIMERMAN-17/symmetric-power"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/picard-degree-representative",
+      "kind": "construction",
+      "name": "Unique degree representative of a Picard parity class",
+      "statement": "For Q=Pic(C)/⟨κ⟩ with deg κ=2 and degree surjective, each Q-class of parity d has a unique representative in Pic^d(C), obtained by tensoring with κ^((d−deg L)/2).",
+      "locator": "N3; degree bookkeeping for §4 tail probabilities",
+      "status": "missing",
+      "note": "API: quotient well-definedness; inverse to Pic^d→Q on its parity fiber; compatibility under d→d+2; invariance under changing a representative. Tests: a κ-twist yields the same normalized line bundle; opposite parity is rejected; negative d uses negative powers; all degree-d fibers have h elements, not 2h. Reuse Q from pic-quotient, no second carrier. Suggested Lean file ArithmeticStatistics/FunctionField/BundleCounts.lean.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/pic-quotient",
+        "PAPER-SHENDE-TSIMERMAN-17/degree-one",
+        "PAPER-SHENDE-TSIMERMAN-17/degree-fiber-equivalence-library"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/picard-parity-carry",
+      "kind": "theorem",
+      "name": "Carry term in the Picard quotient coordinates",
+      "statement": "Choose a degree-one class D₀, put c=κ−2D₀∈Pic⁰(C), and identify Pic(C) with Pic⁰(C)⊕Z. The quotient by κ has normal form (j−zc,r) for d=2z+r, r∈{0,1}; its addition subtracts floor((r+r′)/2)c from j+j′.",
+      "locator": "N3; quotient acceptance contract",
+      "status": "missing",
+      "note": "Cardinality 2h does not assert a product-group splitting. The model J=Z/2,c=1 gives a cyclic group of order four; the model c=0 gives the product. Translation remains a bijection in both cases.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/picard-degree-representative",
+        "PAPER-SHENDE-TSIMERMAN-17/degree-one"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/all-degree-splitting-index",
+      "kind": "theorem",
+      "name": "Bundle splitting index from the effectivity index in every degree",
+      "statement": "For π:C→P¹ a separable hyperelliptic double cover of genus g and L of degree d, write π_*L=O(A)⊕O(B), A≥B. Then A+B=d−g−1, e(L)=A and ν(L)=2e(L)−d+g+1; h⁰(L)>0 iff ν(L)≥g+1−d.",
+      "locator": "N4; extension of v1 Lemma 4.1 using the projection formula",
+      "status": "missing",
+      "note": "Use finite pushforward, RR and H⁰(P¹,O(m)). κ-twists add the same integer to A,B; parity is g+1−d. No theta dimension or asymptotic hypothesis is used.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/splitting",
+        "PAPER-SHENDE-TSIMERMAN-17/effectivity-index",
+        "PAPER-SHENDE-TSIMERMAN-17/coherent-rr",
+        "PAPER-SHENDE-TSIMERMAN-17/hyperelliptic"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/hyperelliptic-linebundle-inversion",
+      "kind": "theorem",
+      "name": "Hyperelliptic involution on a line bundle of arbitrary degree",
+      "statement": "For the same double cover, involution τ, and line bundle L of integer degree d, L⊗τ*L≅κ^d.",
+      "locator": "N4; divisor/norm explanation of v1 p.33 inversion",
+      "status": "missing",
+      "note": "Represent L by a divisor D. The equality π*π_*D=D+τD holds with multiplicities, including 2P at a ramification point; Pic(P¹) identifies the pushforward divisor class with O(d). Negative coefficients are allowed. The general divisor and norm machinery stays with JC.A and AC6/12.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/hyperelliptic",
+        "PAPER-SHENDE-TSIMERMAN-17/picard"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/bundle-inversion-invariance",
+      "kind": "theorem",
+      "name": "Bundle index is invariant under line-bundle inversion",
+      "statement": "For the same double cover, ν(L⁻¹)=ν(L). For the original joint ratio R and its degree-(d₂−d₁) representative R′, set M′=κ^d₂⊗(R′)⁻¹; then ν(R′⊗L)=ν(M′⊗L⁻¹) and deg M′=d₁+d₂.",
+      "locator": "N4; exact inverse and twist in Theorem 4.4",
+      "status": "missing",
+      "note": "π∘τ=π gives π_*τ*L≅π_*L; the involution identity and projection formula give inversion invariance. Record the inverse ratio instead of renaming it silently.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/hyperelliptic-linebundle-inversion",
+        "PAPER-SHENDE-TSIMERMAN-17/all-degree-splitting-index"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/one-tail-event-bijection",
+      "kind": "theorem",
+      "name": "Single bundle tails count rational theta points",
+      "statement": "For the uniform law on Q and a≥0, P(ν∈a+1+2N)=#Θ_(g−a)(F_q)/(2h), where h=#J(F_q); conditioning on the corresponding degree parity changes the denominator to h.",
+      "locator": "N4; v1 Theorem 4.2 finite counting input",
+      "status": "missing",
+      "note": "Normalize the class to degree g−a and apply all-degree-splitting-index. At a=0, RR makes Θ_g the entire component; for negative degree the tail is empty. Index zero is the even component minus the tail from two.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/picard-degree-representative",
+        "PAPER-SHENDE-TSIMERMAN-17/all-degree-splitting-index",
+        "PAPER-SHENDE-TSIMERMAN-17/theta-rational-effectivity"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/joint-tail-event-bijection",
+      "kind": "theorem",
+      "name": "Typed joint-tail intersection and normalization",
+      "statement": "For L↦(ν(L),ν(M⊗L⁻¹)), a,b≥0, d₁=g−a,d₂=g−b: if deg M≢d₁+d₂ mod2 the joint tail is empty. Otherwise set M′=M⊗κ^((d₁+d₂−deg M)/2). Its probability is #({L∈Pic^d₁(C):h⁰(L)>0 and h⁰(M′⊗L⁻¹)>0})/(2h). This is #((Θ_d₁∩(M′−Θ_d₂))(F_q))/(2h).",
+      "locator": "N4; v1 p.33 repaired count",
+      "status": "missing",
+      "note": "A bijection of finite event sets proves the identity; no smoothness, expected dimension, genericity or Betti bound enters. Conditional-on-first-parity probability uses h. The original ratio map is converted by bundle-inversion-invariance, or counted directly as Θ_d₁∩(Θ_d₂−R′).",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/picard-degree-representative",
+        "PAPER-SHENDE-TSIMERMAN-17/all-degree-splitting-index",
+        "PAPER-SHENDE-TSIMERMAN-17/theta-rational-effectivity",
+        "PAPER-SHENDE-TSIMERMAN-17/bundle-inversion-invariance"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/pointless-degree-one-examples",
+      "kind": "theorem",
+      "name": "Hyperelliptic curves with degree-one divisors and no rational points",
+      "statement": "For odd q and nonsquare c∈F_q×, the smooth model y²=c((x^q−x)²+1) has genus q−1 and no F_q-points. For q=3,c=2, P₃−P₂ has degree one with P₂:(x=0,y²=2), P₃:(x³−x−1=0,y=1). For q=5,c=2, P₅−2P₂ has degree one with P₅:(x⁵−x−1=0,y=2). Neither divisor has an effective linearly equivalent representative.",
+      "locator": "N5; explicit regressions for inherited source finding E9",
+      "status": "missing",
+      "note": "The polynomial is squarefree because its derivative is −2c(x^q−x). The infinity chart has v²=c at u=0. The Artin–Schreier degree-five point has Frobenius orbit α→α+1. The q=5 example meets the q>4 restriction of Theorem 4.2 but does not refute the convergence theorem. Reuse AC7/10/12 models and dictionaries.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/hyperelliptic",
+        "PAPER-SHENDE-TSIMERMAN-17/effective-degree-one-library",
+        "PAPER-SHENDE-TSIMERMAN-17/picard"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/pointless-finite-bundle-law",
+      "kind": "theorem",
+      "name": "Exact bundle law on the pointless genus-two curve over F₃",
+      "statement": "For C/F₃:y²=2((x³−x)²+1), #C(F₉)=14, #Pic⁰(C)=4, and the pushforward of uniform measure on Q has masses 1/2,3/8,1/8 at ν=0,1,3 respectively and zero elsewhere.",
+      "locator": "N5; finite counting regression",
+      "status": "missing",
+      "note": "There are seven effective rational divisors of degree two. RR makes every degree-two class effective, with one divisor except the canonical class, whose P¹(F₃) fiber has four; hence h=4. Degree-one classes have no sections, and in degree zero only O_C does. The finite field count is exhaustively checked; geometric RR and divisor dictionaries are proof-plan inputs.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/pointless-degree-one-examples",
+        "PAPER-SHENDE-TSIMERMAN-17/pic-quotient",
+        "PAPER-SHENDE-TSIMERMAN-17/coherent-rr",
+        "PAPER-SHENDE-TSIMERMAN-17/projective-card",
+        "PAPER-SHENDE-TSIMERMAN-17/pushforward-sections",
+        "PAPER-SHENDE-TSIMERMAN-17/theta-rational-effectivity"
+      ]
     }
   ],
   "prerequisites": [
@@ -1417,7 +1700,12 @@
     {
       "citation": "F.K. Schmidt/Lang index-one and Picard descent over finite fields",
       "link": "https://arxiv.org/abs/1307.8237",
-      "why": "Supply a verified original proof of the degree-one divisor-class assertion and Br(F_q)=0. A curve rational point is not guaranteed by growing genus; exact source remains to locate."
+      "why": "N1 gives an alternate index-one deduction from WC.5 instead of invoking an unacquired original proof. N2 gives the finite-field Picard comparison by cyclic scalar normalization using the pinned norm theorem. General coherent Galois descent (Milne §1 Prop.1.8(b), referring to Serre/Waterhouse) and the original curve-bound infrastructure remain imported proof suppliers; a Brauer-zero proof is not required for this route."
+    },
+    {
+      "citation": "J.S. Milne, Jacobian Varieties, author version 12 June 2021 of the 1986 chapter",
+      "link": "https://www.jmilne.org/math/xnotes/JVs.pdf",
+      "why": "Fresh selected reading §1 and §11, pp.2–5 and35–37, for the Picard comparison, effective coherent Galois descent and curve-bound interface. General descent proof references and the abelian-variety/intersection suppliers are not newly verified."
     }
   ],
   "routes": [
@@ -1434,9 +1722,11 @@
         "PAPER-SHENDE-TSIMERMAN-17/pushforward-sections",
         "PAPER-SHENDE-TSIMERMAN-17/adelic-bundle",
         "PAPER-SHENDE-TSIMERMAN-17/weil-bundle",
-        "PAPER-SHENDE-TSIMERMAN-17/integral-torus-model"
+        "PAPER-SHENDE-TSIMERMAN-17/integral-torus-model",
+        "PAPER-SHENDE-TSIMERMAN-17/all-degree-splitting-index",
+        "PAPER-SHENDE-TSIMERMAN-17/bundle-inversion-invariance"
       ],
-      "reason": "GS.0 already owns global G-bundles, central degree, automorphisms and the generic-torsor adelic dictionary. Add the P¹ splitting and explicit unit-level double-cover instance there; ramified maximal compact is not the integral unit model."
+      "reason": "GS.0 already owns global G-bundles, central degree, automorphisms and the generic-torsor adelic dictionary. Add the P¹ splitting and explicit unit-level double-cover instance there; ramified maximal compact is not the integral unit model. N4 adds the all-degree index/effectivity formula and inversion invariance as concrete P¹ instances."
     },
     {
       "route": "source",
@@ -1462,9 +1752,14 @@
         "PAPER-SHENDE-TSIMERMAN-17/joint-measure",
         "PAPER-SHENDE-TSIMERMAN-17/joint-normalization",
         "PAPER-SHENDE-TSIMERMAN-17/parity-limit",
-        "PAPER-SHENDE-TSIMERMAN-17/hecke-measure"
+        "PAPER-SHENDE-TSIMERMAN-17/hecke-measure",
+        "PAPER-SHENDE-TSIMERMAN-17/picard-degree-representative",
+        "PAPER-SHENDE-TSIMERMAN-17/picard-parity-carry",
+        "PAPER-SHENDE-TSIMERMAN-17/one-tail-event-bijection",
+        "PAPER-SHENDE-TSIMERMAN-17/joint-tail-event-bijection",
+        "PAPER-SHENDE-TSIMERMAN-17/pointless-finite-bundle-law"
       ],
-      "reason": "ST.0 owns weighted measures on arithmetic isomorphism classes. Record the exact inverse-automorphism mass, finite Picard normalization and parity support."
+      "reason": "ST.0 owns weighted measures on arithmetic isomorphism classes. Record the exact inverse-automorphism mass, finite Picard normalization and parity support. N3–N5 add unique degree representatives, the quotient carry, exact tail-event bijections and a finite genus-two acceptance law. They consume JC geometry and GS.0 splitting, without claiming an asymptotic limit."
     },
     {
       "route": "source",
@@ -1643,10 +1938,16 @@
         "PAPER-SHENDE-TSIMERMAN-17/weighted-rank-characteristic",
         "PAPER-SHENDE-TSIMERMAN-17/char5-norm-witness",
         "PAPER-SHENDE-TSIMERMAN-17/char5-principal-divisor",
-        "PAPER-SHENDE-TSIMERMAN-17/char5-infinite-weighted-fiber"
+        "PAPER-SHENDE-TSIMERMAN-17/char5-infinite-weighted-fiber",
+        "PAPER-SHENDE-TSIMERMAN-17/extension-point-divisor",
+        "PAPER-SHENDE-TSIMERMAN-17/consecutive-extension-points",
+        "PAPER-SHENDE-TSIMERMAN-17/finite-picard-descent",
+        "PAPER-SHENDE-TSIMERMAN-17/theta-rational-effectivity",
+        "PAPER-SHENDE-TSIMERMAN-17/hyperelliptic-linebundle-inversion",
+        "PAPER-SHENDE-TSIMERMAN-17/pointless-degree-one-examples"
       ],
       "reason": "Upstream JC.C/D construct symmetric powers, Abel maps and the Picard scheme, but do not plan the special-divisor stratification, Gauss/Nash models or intersection-cohomology comparison. Extend upstream rather than replanning it. The characteristic-five family is an application-level counterexample/acceptance test on the imported hyperelliptic model; it introduces no general curve or divisor infrastructure.",
-      "brief": "Build on Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) A–F and Algebraic Curves (tauceti:TauCetiRoadmap/AlgebraicCurves) 10/12. Import Etale Duality and Perverse Sheaves (EtaleDualityAndPerverseSheaves) EDC.5/7, Scheme and Stack Foundations (SchemeAndStackFoundations) SF.5, Lefschetz Pencils and Vanishing Cycles (LefschetzPencilsAndVanishingCycles) LPV.2 and Weil Conjectures (WeilConjectures). Construct Θ_d, hyperelliptic reduction including ramification, Abel differentials and canonical septuples, e(L) with integer shifts, and the proper sum maps. Prove the Gauss embedding for d<g and Nash model only in that range. Establish IC_Θ=Q[dim Θ], set-theoretic ample sections, the small-support constant-to-IC comparison and the exact Theorem 3.9 target: if e(L)≤n=g−a−b≥0 then H^i(X_L)=H^(i+2a+2b)(J)(a+b) for i>n+e(L), retaining coefficient and Frobenius conventions. First close the characteristic-zero proof and then supply an independent valid étale positive-characteristic argument; Proposition 2.3 does not transfer when weights vanish in k. Develop the generic Euler calculation, discriminant candidate geometry and incidence maps, importing the microlocal Part II. Do not promise the printed 960 numerical base until Lemma 3.22, the signed Morse formula and final-source reconciliation close. ArithmeticStatistics owns limiting measures; GS.0 owns bundles. Define APIs with ≥3 discriminating tests, source-faithful proof tasks and suggested Lean files; no implementation is claimed. Require the continuation's total-multiplicity rank contract and characteristic-five positive-dimensional fiber regression. Do not seek unrestricted all-characteristic weighted finiteness: it is false. Any positive-characteristic downstream repair must check the actual weights/overlaps used, especially weight two in characteristic two, and the independent septuple-rank issue."
+      "brief": "Build on Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) A–F and Algebraic Curves (tauceti:TauCetiRoadmap/AlgebraicCurves) 10/12. Import Etale Duality and Perverse Sheaves (EtaleDualityAndPerverseSheaves) EDC.5/7, Scheme and Stack Foundations (SchemeAndStackFoundations) SF.5, Lefschetz Pencils and Vanishing Cycles (LefschetzPencilsAndVanishingCycles) LPV.2 and Weil Conjectures (WeilConjectures). Construct Θ_d, hyperelliptic reduction including ramification, Abel differentials and canonical septuples, e(L) with integer shifts, and the proper sum maps. Prove the Gauss embedding for d<g and Nash model only in that range. Establish IC_Θ=Q[dim Θ], set-theoretic ample sections, the small-support constant-to-IC comparison and the exact Theorem 3.9 target: if e(L)≤n=g−a−b≥0 then H^i(X_L)=H^(i+2a+2b)(J)(a+b) for i>n+e(L), retaining coefficient and Frobenius conventions. First close the characteristic-zero proof and then supply an independent valid étale positive-characteristic argument; Proposition 2.3 does not transfer when weights vanish in k. Develop the generic Euler calculation, discriminant candidate geometry and incidence maps, importing the microlocal Part II. Do not promise the printed 960 numerical base until Lemma 3.22, the signed Morse formula and final-source reconciliation close. ArithmeticStatistics owns limiting measures; GS.0 owns bundles. Define APIs with ≥3 discriminating tests, source-faithful proof tasks and suggested Lean files; no implementation is claimed. Require the continuation's total-multiplicity rank contract and characteristic-five positive-dimensional fiber regression. Do not seek unrestricted all-characteristic weighted finiteness: it is false. Any positive-characteristic downstream repair must check the actual weights/overlaps used, especially weight two in characteristic two, and the independent septuple-rank issue. Continuation N1–N5 supplies an index-one deduction from WC.5, finite-field scalar descent, rational effectivity and pointless-curve regressions. Import JC.C/D descent and base change; do not reconstruct them or require a rational point. Export the finite Picard comparison to ST.0, which owns the quotient law and normalized tail events. Retain the scheme/function-field dictionary as an explicit upstream dependency."
     },
     {
       "route": "part-ii",
@@ -1803,7 +2104,7 @@
       "locator": "v1 p.30 proof of Theorem 4.2; final journal text not obtained",
       "printed": "C has a point over F_q",
       "correction": "Use a degree-one divisor class with its descent, not an assumed rational point.",
-      "reason": "A finite-field curve need not have a rational point. What is required here is that the two degree-parity Picard components have the same cardinality; the index-one/Picard-descent supplier is still needed.",
+      "reason": "A rational point is not guaranteed. N5 gives a genus-four F₅ example meeting q>4, with no rational points but the degree-one divisor P₅−2P₂. N1–N3 now derive index one and equal parity cardinalities from the existing curve-bound and descent suppliers. This repairs the finite counting step without claiming its formal implementation.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -1811,7 +2112,7 @@
         "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
         "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
       ],
-      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict. Codex codex-c83e7a, 2026-09-23: explicit examples and replacement proof N1–N3."
     },
     {
       "id": "PAPER-SHENDE-TSIMERMAN-17/E10",
@@ -1851,7 +2152,7 @@
       "locator": "v1 p.33, joint-tail count display; final journal text not obtained",
       "printed": "μ_i((a+1+2N)×(b+1+2N))=#X(F_q)",
       "correction": "For the unconditional two-parity Picard quotient, divide by 2#J(F_q); on a fixed parity component use its conditional normalization.",
-      "reason": "The domain has 2#J classes after the degree-one comparison, and the uniform probability of a subset is its cardinality divided by the domain cardinality.",
+      "reason": "The domain has 2#J classes after the degree-one comparison, and the uniform probability of a subset is its cardinality divided by the domain cardinality. N4 now gives a typed event bijection with its unique degree-normalizing κ-twist and distinguishes unconditional from conditional denominators. N5 gives the finite example with a tail of mass 1/8.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -1859,7 +2160,7 @@
         "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
         "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
       ],
-      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict. Codex codex-c83e7a, 2026-09-23: finite-event proof N4–N5."
     },
     {
       "id": "PAPER-SHENDE-TSIMERMAN-17/E13",
@@ -2007,30 +2308,50 @@
     }
   ],
   "verification": {
-    "session": "codex-a71f92",
-    "date": "2026-09-22",
+    "session": "codex-c83e7a",
+    "date": "2026-09-23",
     "status": "partial",
-    "predecessor": "PR #1657 by codex-c83e7a",
-    "sourceRead": {
-      "url": "https://arxiv.org/pdf/1307.8237v1",
-      "sha256": "542a52a2a04b65901a6d753266ef5f44aa73a8bde4dfdf7935ae27d489a5cf29",
-      "extent": "All 40 pages, §§1–4, Appendix A.1–A.4 and references; extracted lines 1–1900 through EOF. Page 7 visually checked."
+    "predecessorEvidence": {
+      "session": "codex-a71f92",
+      "date": "2026-09-22",
+      "status": "partial",
+      "predecessor": "PR #1657 by codex-c83e7a",
+      "sourceRead": {
+        "url": "https://arxiv.org/pdf/1307.8237v1",
+        "sha256": "542a52a2a04b65901a6d753266ef5f44aa73a8bde4dfdf7935ae27d489a5cf29",
+        "extent": "All 40 pages, §§1–4, Appendix A.1–A.4 and references; extracted lines 1–1900 through EOF. Page 7 visually checked."
+      },
+      "finalVersion": "Not acquired. Canonical Project Euclid download for DOI 10.1215/00127094-2017-0025 returned 1160-byte security HTML. ArXiv lists only v1.",
+      "readingBoundary": "AT, IY, MS and Sawin selected readings are inherited from PR #1657, not freshly read in this claim. Sawin coefficient/parity concerns remain attributed leads in G6; no new complete later-source verification.",
+      "libraryPins": {
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+      },
+      "atlasSnapshot": "5db325c698954f89a2b5c8524b297ce8fb066399",
+      "audit": "Freshly read reviewed AC Layers 7/10/12 and JC Layers A/F; checked full AC7/10 and JCA/F descriptions, original Part II brief and bounded collision searches. Existing model and divisor owners reused.",
+      "changeBoundary": "All 122 IDs/statuses and all original route assignments preserved. Only weighted-fibers has a refined original statement: require nonzero TOTAL multiplicities on overlap strata. Two original notes and the existing Jacobian Part II brief/reason gain explicit qualifications. All 38 original definition/construction APIs/tests and all 16 withheld claims retained.",
+      "selectedDependencyEdges": 12,
+      "finiteChecks": "PASS: exact F₅[b,t] norm and residual-point identities; F₁₂₅ model has 126 points including infinity, 120 eligible distinct 5P+Q divisors, and 15000 specialized norm identities; overlapping weights 1+2=0 in characteristic 3. Embedded script is reproducible and standard-library-only.",
+      "sourceIssueBoundary": "21 proposed v1-only findings; not an independent review or a claim of priority. The sourceIssues array concerns the main paper, while inherited unverified later-source leads remain in G6.",
+      "lean": "No Lean file requested, written or compiled. Generic imported statements are verified at pins; no application theorem is claimed implemented.",
+      "checks": "PASS: paper schema against the complete catalogue, three-file intake (0 problems), preservation of 122 original IDs/statuses and all but the explicitly refined weighted-fibers statement, original routes and 38 D/C API/test blocks; same 16 withheld items, 86 uniquely routed missing items; 12 known-ID acyclic selected edges; historical report/handoff preservation; embedded regression executed from the report. Fresh publication snapshot has unchanged protocol, catalogue, coverage and checker hashes.",
+      "publishSnapshot": "a4a17bf2ff12608cc0f7c13a5bd6c6af7eb7ca22"
     },
-    "finalVersion": "Not acquired. Canonical Project Euclid download for DOI 10.1215/00127094-2017-0025 returned 1160-byte security HTML. ArXiv lists only v1.",
-    "readingBoundary": "AT, IY, MS and Sawin selected readings are inherited from PR #1657, not freshly read in this claim. Sawin coefficient/parity concerns remain attributed leads in G6; no new complete later-source verification.",
+    "atlasSnapshot": "90fcfcc5607a21b843dbd35e28efe6e644eec995",
     "libraryPins": {
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
     },
-    "atlasSnapshot": "5db325c698954f89a2b5c8524b297ce8fb066399",
-    "audit": "Freshly read reviewed AC Layers 7/10/12 and JC Layers A/F; checked full AC7/10 and JCA/F descriptions, original Part II brief and bounded collision searches. Existing model and divisor owners reused.",
-    "changeBoundary": "All 122 IDs/statuses and all original route assignments preserved. Only weighted-fibers has a refined original statement: require nonzero TOTAL multiplicities on overlap strata. Two original notes and the existing Jacobian Part II brief/reason gain explicit qualifications. All 38 original definition/construction APIs/tests and all 16 withheld claims retained.",
-    "selectedDependencyEdges": 12,
-    "finiteChecks": "PASS: exact F₅[b,t] norm and residual-point identities; F₁₂₅ model has 126 points including infinity, 120 eligible distinct 5P+Q divisors, and 15000 specialized norm identities; overlapping weights 1+2=0 in characteristic 3. Embedded script is reproducible and standard-library-only.",
-    "sourceIssueBoundary": "21 proposed v1-only findings; not an independent review or a claim of priority. The sourceIssues array concerns the main paper, while inherited unverified later-source leads remain in G6.",
-    "lean": "No Lean file requested, written or compiled. Generic imported statements are verified at pins; no application theorem is claimed implemented.",
-    "checks": "PASS: paper schema against the complete catalogue, three-file intake (0 problems), preservation of 122 original IDs/statuses and all but the explicitly refined weighted-fibers statement, original routes and 38 D/C API/test blocks; same 16 withheld items, 86 uniquely routed missing items; 12 known-ID acyclic selected edges; historical report/handoff preservation; embedded regression executed from the report. Fresh publication snapshot has unchanged protocol, catalogue, coverage and checker hashes.",
-    "publishSnapshot": "a4a17bf2ff12608cc0f7c13a5bd6c6af7eb7ca22"
+    "changeBoundary": "All 131 prior item statements/statuses and route assignments retained. Four library, two planned and thirteen missing items added; existing proof notes/dependencies strengthened. The same 16 withheld claims and 21 proposed v1 source findings remain; E9/E12 gain derivations and explicit examples. No review verdict.",
+    "sourceRead": "Fresh main preprint selected pp.7–16 and29–34; images30/33. Full40-page reading is inherited. Milne §1 pp.2–5 and §11 pp.35–37 newly read.",
+    "finalVersion": "Fresh Crossref/OpenAlex and author metadata identify the same 44-page VOR; canonical Project Euclid page/download returned security HTML. Final text not obtained or matched.",
+    "audit": "Fresh relevant JC.A/C/D/F, AC7/10, ST.0, GS.0 and WC.5 stage descriptions and reviewed targets; collision searches on current roadmaps, packets and integrated decompositions. Existing owners reused.",
+    "finiteChecks": "PASS: 141022 exact standard-library Python checks; F₃ curve has 0,14,48 points over F₃,F₉,F₂₇; RR gives h=4 and finite bundle masses 1/2,3/8,1/8. F₅ no-point example meets q>4. Quotient carry, finite norm rescaling, consecutive-extension and tail normalization checks are bounded regressions, not geometric proofs.",
+    "selectedDependencyEdges": 60,
+    "lean": "No Lean file requested, written or compiled; no application theorem is claimed formalized.",
+    "checks": "PASS: paper schema, three-file intake (0 problems), preservation of all 131 prior item statements/statuses and original routes, same 16 withheld claims, 99 missing items uniquely routed, 40 D/C API/test blocks, 60 known-ID acyclic selected edges, preserved previous report/handoff, and report-extracted 141022-check regression. Publication guards compare all recorded inputs and original deliverable blobs.",
+    "publishSnapshot": "8a9ee3ff20b80d2ba2772248cd5e98aab4092459",
+    "publicationInputs": "539 current hashes plus the three original deliverable blobs. HW20 completion and new FKP22 routes reviewed; neither changes the finite-field Picard/counting ownership. Protocol, relevant audits and stages unchanged."
   },
   "gaps": [
     {
@@ -2040,8 +2361,8 @@
     },
     {
       "id": "G1",
-      "status": "open",
-      "detail": "Inherited measure/typed-object comparisons remain source-qualified."
+      "status": "partial",
+      "detail": "N1–N4 derive the actual finite Picard comparison, quotient cardinality, parity representatives and normalized probability law. Full stack-weight/adelic integral-model comparison and asymptotic measure identification remain open."
     },
     {
       "id": "G2",
@@ -2050,8 +2371,8 @@
     },
     {
       "id": "G3",
-      "status": "open",
-      "detail": "Inherited index-one, contour/class-number normalization and analytic suppliers remain unclosed."
+      "status": "partial",
+      "detail": "N1–N5 supply index one without a rational point, scalar Picard descent, exact one/joint tail event bijections and the 2h versus h normalization. Explicit F₃/F₅ pointless curves and the F₃ finite bundle law test the distinction. Contour/class-number asymptotics and analytic suppliers remain unclosed; general geometry suppliers are imported, not implemented."
     },
     {
       "id": "G4",
@@ -2081,7 +2402,7 @@
     {
       "id": "G9",
       "status": "open",
-      "detail": "Original prerequisite proofs, trace-formula locator, model-to-scheme adapters and complete atomic dependency closure remain missing."
+      "detail": "Original prerequisite proofs, trace-formula locator, model-to-scheme adapters and complete atomic dependency closure remain missing. N1 avoids requiring a separate original Schmidt/Lang proof; N2 avoids a separate Brauer-zero route. General Galois sheaf descent and the curve-bound proof remain existing upstream dependencies."
     }
   ]
 }

@@ -1,3 +1,398 @@
+# Shende–Tsimerman: finite Picard counting continuation
+
+Codex — `codex-c83e7a`; 23 September 2026; Refs #1334. **Partial checkpoint.**
+
+This continuation supplies the finite counting argument behind G1/G3: an
+index-one proof that requires no rational point, the finite-field Picard
+comparison, degree representatives in the quotient by the hyperelliptic
+pencil, and the exact one- and two-bundle tail events. It preserves the
+previous weighted-Abel counterexample and all 16 withheld claims. It does
+not settle the analytic limit, characteristic-dependent theta geometry,
+microlocal constants, or small-ratio dynamics.
+
+## N1. Degree one from consecutive extensions
+
+Let C/F_q be smooth, projective and geometrically connected of genus g.
+Use the **existing** all-extension curve bound, owned by WeilConjectures
+WC.5. Choose an integer n≥1 with q^n>4g². Then for r=n,n+1,
+
+    #C(F_(q^r)) ≥ q^r+1−2g q^(r/2) > 0.
+
+Choose an F_(q^r)-point with underlying closed point x_r of degree d_r.
+The residue embedding implies d_r divides r. Its pushforward as a
+zero-cycle is E_r=(r/d_r)[x_r], an F_q-divisor of degree r. Consequently
+
+    D₀=E_(n+1)−E_n,     deg D₀=1.
+
+The gcd of all closed-point degrees divides every divisor degree and
+therefore divides 1. Conversely a gcd-one relation gives a degree-one
+divisor. D₀ need not be effective. The library theorem about an **effective**
+degree-one divisor producing a rational place cannot be applied to D₀.
+This is a direct deduction from WC.5, not a claim to have acquired an
+original Schmidt/Lang proof or to have implemented the curve bound.
+
+## N2. Rational Picard points and scalar descent
+
+Write Pic(C) for actual F_q-line-bundle classes. Keep it distinct from the
+F_q-points of the Picard scheme until the following comparison is proved.
+For a Galois-fixed geometric line-bundle class, descend its representative
+and a Frobenius isomorphism to some finite field E=F_(q^m), enlarging E
+until both are defined. Let σ generate Gal(E/F_q), and let T be the
+resulting σ-semilinear line-bundle isomorphism. Its m-fold composite is a
+scalar a∈E×, since C_E is proper and geometrically connected and
+H⁰(C_E,O)=E. Commutation of T with T^m implies σ(a)=a, so a∈F_q×.
+
+Choose b∈E× with N_(E/F_q)(b)=a⁻¹. The norm is surjective. Replacing T
+by bT makes its m-fold composite the identity; its powers now satisfy the
+cyclic cocycle identities. Effective finite Galois descent of locally free
+rank-one sheaves produces an F_q-line bundle. This is the missing
+surjectivity step, not an assumption that every invariant class already
+has descent data.
+
+For injectivity, a line bundle N trivial over an extension has a
+one-dimensional H⁰ over F_q by flat base change. A nonzero section becomes
+a nowhere-vanishing section after extension, hence is nowhere vanishing
+before extension by faithful flatness. Thus N is trivial. Degree is
+preserved by base change. We obtain Pic⁰(C)≅J(F_q), and similarly the
+comparison in every degree. This argument uses the existing JC.C/D
+cohomology and descent plans, and the pinned finite-field norm theorem;
+it does not introduce a second Brauer or Picard infrastructure.
+
+The supplier boundary is explicit: [Milne's Jacobian Varieties](https://www.jmilne.org/math/xnotes/JVs.pdf),
+§1, distinguishes actual classes from rational Jacobian points; Proposition
+1.8(b) states effective coherent-sheaf Galois descent. The scalar argument
+above specializes that input. The referenced Serre/Waterhouse proof of the
+general descent theorem was not acquired in this claim. Milne §11 was
+also read for the curve-bound input; its abelian-variety and intersection
+suppliers remain imported, not reproved here.
+
+If L is an actual F_q-line bundle, flat base change also gives
+h⁰(C,L)>0 iff h⁰(C_bar,L_bar)>0. Hence the rational points of Θ_d are
+exactly the effective F_q-line-bundle classes of degree d. The geometric
+Abel-image definition alone must not be substituted for this comparison.
+
+## N3. The finite quotient and its group law
+
+Put h=#J(F_q), κ=π*O(1), and Q=Pic(C)/⟨κ⟩. Tensoring by O(dD₀)
+identifies each degree-d class set with Pic⁰(C), so each has h elements.
+Every class in Q has a unique representative of degree 0 or 1. More
+generally, the map Pic^d(C)→Q is a bijection onto the degree-d parity
+fiber: twist by the unique integral power of κ needed to reach degree d.
+Uniqueness follows because a nonzero power of κ has nonzero degree.
+Therefore #Q=2h and each parity has uniform mass 1/2. Translation by an
+arbitrary line bundle is a permutation of Q and preserves its uniform law.
+
+Do not silently turn this set bijection into a product-group splitting.
+Choose D₀ and write c=[κ⊗O(−2D₀)]∈J(F_q). In Pic(C)≅J(F_q)⊕Z,
+κ corresponds to (c,2). The normal form of (j,d), with d=2z+r and
+r∈{0,1}, is (j−zc,r). Its addition is
+
+    (j,r)+(j′,r′)=(j+j′−floor((r+r′)/2)c, (r+r′) mod 2).
+
+The carry matters: J=Z/2 and c=1 gives Q≅Z/4, not a product of two
+order-two groups. This is an abstract acceptance test, not an assertion
+that this particular J,c occurs on either example below. Changing D₀
+changes coordinates; it does not change Q, its parity map or its measure.
+
+## N4. Splitting, effectivity and exact tail events
+
+For an F_q-line bundle L of degree d, write
+
+    π_*L≅O(A)⊕O(B),   A≥B.
+
+Finite pushforward and Riemann–Roch give A+B=d−g−1. The projection
+formula gives h⁰(L⊗κ^(−m))=h⁰(O(A−m))+h⁰(O(B−m)), so e(L)=A.
+Thus its bundle splitting index is
+
+    ν(L)=A−B=2e(L)−d+g+1.
+
+This formula holds in every degree; it respects κ-twists and has parity
+g+1−d. Also h⁰(L)>0 iff A≥0 iff ν(L)≥g+1−d. For a≥0 and d=g−a,
+the quotient's event ν∈a+1+2N is therefore in bijection with Θ_d(F_q),
+using its unique degree-d representative. With Θ_d empty for d<0,
+
+    P(ν∈a+1+2N)=#Θ_(g−a)(F_q)/(2h).
+
+Conditioning on that parity replaces 2h by h. The case a=0 has Θ_g=Pic^g
+by Riemann–Roch and gives the whole odd component with mass 1/2; negative
+d gives an empty event. Index 0 is the even component minus its tail from
+2. These checks fix the otherwise easy endpoint mistakes.
+
+Now consider L↦(ν(L),ν(M⊗L⁻¹)) on Q. Set d₁=g−a, d₂=g−b with a,b≥0.
+If deg M and d₁+d₂ have different parity, the joint tail is empty. Otherwise
+let
+
+    t=(d₁+d₂−deg M)/2,     M′=M⊗κ^t.
+
+The degree-d₁ representative of L then has M′⊗L⁻¹ of degree d₂. The
+joint event is exactly
+
+    X_(M′)(F_q)={L∈Pic^d₁(C):h⁰(L)>0, h⁰(M′⊗L⁻¹)>0},
+    P(ν₁∈a+1+2N, ν₂∈b+1+2N)=#X_(M′)(F_q)/(2h).
+
+After N2 this is the rational-point count on
+Θ_d₁∩(M′−Θ_d₂). Conditioning on the first parity again gives denominator
+h. No genericity, expected-dimension or Betti-bound hypothesis is needed
+for this finite counting identity. Those belong to its asymptotic use.
+
+For the original same-direction map with ratio R, there is also a direct
+version. Normalize R′=R⊗κ^s to degree d₂−d₁ and count
+Θ_d₁∩(Θ_d₂−R′). To translate to the displayed sum form, the hyperelliptic
+involution τ satisfies
+
+    L⊗τ*L≅κ^(deg L).
+
+Indeed, for divisors, π*π_*D=D+τD, with multiplicity two at ramification;
+a degree-d divisor on P¹ has line bundle O(d). This works with negative
+coefficients as well. Since π∘τ=π, ν(τ*L)=ν(L), and the identity implies
+ν(L⁻¹)=ν(L). Consequently the two descriptions agree with
+M′=κ^d₂⊗(R′)⁻¹, of degree d₁+d₂. Recording this inverse and twist avoids
+silently replacing a ratio by its inverse on p.33.
+
+## N5. Explicit curves without rational points
+
+For any odd q and nonsquare c∈F_q×, the smooth model of
+
+    y²=c((x^q−x)²+1)
+
+has genus q−1 and no F_q-points. The derivative of the right side is
+−2c(x^q−x), which has no common root with the polynomial. Its degree is
+2q, so the standard tame hyperelliptic genus formula applies. At each
+x∈F_q the right side is c. At infinity, with u=1/x and v=y/x^q, the
+value at u=0 is v²=c; neither chart has a rational point. The two geometric
+points at infinity are smooth. These are instances of the existing AC7/10/12
+model and comparison plans, not new curve foundations.
+
+For q=3,c=2, let P₂ be the closed point x=0,y²=2, and let P₃ be
+x³−x−1=0,y=1. The quadratic and cubic are irreducible over F₃, and the
+curve equations hold. D=P₃−P₂ is an explicit degree-one divisor, with
+h⁰(D)=0 because an effective degree-one divisor would give an F₃-point.
+For q=5,c=2, take P₂:x=0,y²=2 and P₅:x⁵−x−1=0,y=2. Frobenius
+sends a root α of the latter polynomial to α+1, so its orbit has length
+five and the polynomial is irreducible. Then P₅−2P₂ has degree one.
+The genus-four F₅ example satisfies the q>4 restriction in Theorem 4.2;
+these examples attack the rational-point step, not its convergence claim.
+
+For the genus-two F₃ example, enumeration gives #C(F₉)=14. With no
+F₃-points there are seven rational effective divisors of degree two.
+Riemann–Roch gives h⁰(L)=1 for all degree-two classes except the canonical
+class κ, where h⁰=2. The latter fiber is P¹(F₃) with four elements; all
+other fibers have one. Hence 7=h+3 and h=4. All degree-one classes have
+no sections, while the degree-zero classes have sections only at O_C.
+Lemma 4.1 now gives the exact finite pushforward law
+
+    P(ν=0)=1/2,   P(ν=1)=3/8,   P(ν=3)=1/8.
+
+This is a regression of the finite counting statements, not the limiting
+inverse-automorphism law. In particular the event ν≥3 of odd parity has
+one class out of eight, not raw mass one. No claim that a rational point
+exists is needed anywhere.
+
+## Ownership, evidence and remaining work
+
+The current snapshot is recorded in JSON. Freshly read the relevant
+JC.A/C/D/F, AC7/10, GS.0, ST.0 and WC.5 stage descriptions and reviewed
+audit targets. Broad searches of current proposals, packets and integrated
+decompositions found no competing finite-Picard counting owner. General
+Picard, coherent base change and Galois descent are imported from JC;
+curve models from AC; bounds from WC.5; bundle splitting from GS.0.
+The existing Jacobian Part II owns the application comparisons and ST.0
+owns the probability construction. No new route or roadmap is created.
+
+Four further library imports were read at the pins:
+
+- Mathlib `FiniteField.unitsMap_norm_surjective`, with its norm-power and
+  norm-surjectivity companions, `FieldTheory/Finite/GaloisField.lean:225–256`.
+- Mathlib `AddMonoidHom.fiberEquivKer` (generated by `to_additive`) and its
+  surjective version, `GroupTheory/Coset/Basic.lean:468–496`.
+- TauCeti `Divisor.finite_preimage_degreeClass_singleton`,
+  `FieldTheory/FunctionField/RiemannRoch/ClassNumber.lean:174–188`.
+- TauCeti `Divisor.exists_eq_ofPoint_of_degree_eq_one`,
+  `FieldTheory/FunctionField/Divisor/Basic.lean:206–215`.
+
+Mathlib pin: 082e2d37e8b0463410cdb532e111cd43d5a66174; TauCeti pin:
+f790474821cf4256814db967cb154e7af3d0c369. None implements the scheme
+Picard comparison, the quotient measure, or Birkhoff–Grothendieck splitting.
+The function-field degree-zero finiteness theorem was reread as well.
+
+Fresh main-paper reading covers the selected divisor argument and §4
+pp.29–34; pages 30 and 33 were inspected as images. The full 40-page reading
+remains attributed to the previous submissions. Fresh Milne reading is
+§1 and §11, pp.2–5 and 35–37, not the whole 50-page article. The final 44-page
+Duke text remains unavailable: fresh canonical publisher requests returned
+security HTML, and author/metadata checks did not yield a matched final
+PDF. All 21 proposed source findings remain v1-only. E9/E12 gain explicit
+repair evidence; no new source error or independent review is claimed.
+
+G1/G3 now have the finite-class comparison and normalization derivations
+N1–N5. The contour estimate, uniform class-number asymptotic, inverse-
+automorphism versus adelic weights, characteristic-sensitive geometry and
+all the other inherited gaps remain open. General supplier proofs and the
+scheme/function-field adapters still require their upstream implementations.
+No Lean file was requested, written or compiled.
+
+Paper schema and three-file intake pass (0 problems). Preservation checks retain all 131 previous item statements/statuses, original routes and the same 16 withheld items. All 99 routed missing items have one owner; the 60 selected dependency edges are acyclic and have known endpoints. The previous report and handoff are retained with attribution.
+
+Publication snapshot: `8a9ee3ff20b80d2ba2772248cd5e98aab4092459`; 539 input hashes and the original three deliverable blobs are guarded. Concurrent HW20/FKP22 changes were checked and do not alter these owners.
+
+## Reproducible checks
+
+The following standard-library Python performs 141022 exact checks:
+F₃/F₅ absence-of-points examples, the F₉/F₂₇ counts, finite-field norm
+rescaling, consecutive-extension inequalities, quotient carries and
+translation invariance, joint normalization/parity, and splitting formulas.
+These are bounded algebra/arithmetic regressions, not geometric proofs.
+
+Current totals: **150 items**, 13 library, 22 planned and 115 missing; **99** missing items routed exactly once across the existing 14 routes; **40** definition/construction API/test blocks; **60** selected dependency edges. The 16 previously withheld items remain withheld.
+
+```python
+"""Finite arithmetic checks for the counting continuation; not scheme or Lean proofs."""
+from itertools import product
+from fractions import Fraction
+checks = 0
+def check(p):
+    global checks
+    assert p
+    checks += 1
+
+def trim(p):
+    p=[x%3 for x in p]
+    while p and p[-1]==0:p.pop()
+    return p
+
+def rem(a,b):
+    a=trim(a);b=trim(b)
+    while len(a)>=len(b):
+        c=a[-1]*pow(b[-1],-1,3)%3;j=len(a)-len(b)
+        for i in range(len(b)):a[i+j]=(a[i+j]-c*b[i])%3
+        a=trim(a)
+    return a
+
+def gcd(a,b):
+    while b:a,b=b,rem(a,b)
+    return trim([x*pow(a[-1],-1,3) for x in a])
+
+# C: y^2=2((x^3-x)^2+1); infinity chart v^2=2(1+u^2+u^4+u^6).
+f=[2,0,2,0,2,0,2]
+check(gcd(f,[(i*f[i])%3 for i in range(1,len(f))])==[1])
+check(all(2*((a**3-a)**2+1)%3==2 for a in range(3)))
+check(all(a*a%3!=2 for a in range(3)))
+check(all((a**3-a-1)%3!=0 for a in range(3)))
+check(rem(f,[2,2,0,1])==[1])
+check(3-2==1)  # closed points (x=0,y^2=2), (x^3-x-1=0,y=1)
+
+class FF:
+    def __init__(self,poly):self.poly=poly;self.n=len(poly)-1;self.q=3**self.n
+    def digits(self,x):return [(x//3**i)%3 for i in range(self.n)]
+    def encode(self,a):return sum((x%3)*3**i for i,x in enumerate(a))
+    def add(self,a,b):return self.encode([x+y for x,y in zip(self.digits(a),self.digits(b))])
+    def neg(self,a):return self.encode([-x for x in self.digits(a)])
+    def mul(self,a,b):
+        p=[0]*(2*self.n-1)
+        for i,x in enumerate(self.digits(a)):
+            for j,y in enumerate(self.digits(b)):p[i+j]+=x*y
+        r=rem(p,self.poly)
+        return self.encode(r)
+    def power(self,x,n):
+        a=1
+        while n:
+            if n%2:a=self.mul(a,x)
+            x=self.mul(x,x);n//=2
+        return a
+    def value(self,x):
+        t=self.add(self.power(x,3),self.neg(x))
+        return self.mul(2,self.add(self.mul(t,t),1))
+
+counts={}
+for pol in [[1,0,1],[2,2,0,1]]: # irreducible x^2+1, x^3-x-1 over F3
+    F=FF(pol)
+    for x in range(1,F.q):check(F.power(x,F.q-1)==1)
+    affine=[(x,y) for x,y in product(range(F.q),repeat=2) if F.mul(y,y)==F.value(x)]
+    counts[F.q]=len(affine)+sum(F.mul(y,y)==2 for y in range(F.q))
+    # Norms cover F3^*. Rescale a cyclic semilinear operator so its n-th power is 1.
+    norms={F.power(x,(F.q-1)//2) for x in range(1,F.q)}
+    check(norms=={1,2})
+    for c in range(1,F.q):
+        a=F.power(c,(F.q-1)//2)
+        b=next(x for x in range(1,F.q) if F.power(x,(F.q-1)//2)==a) # a^-1=a
+        for v in range(F.q):
+            w=v
+            for _ in range(F.n):w=F.mul(F.mul(b,c),F.power(w,3))
+            check(w==v)
+check(counts[9]%2==0)
+print('Curve points: F3=0, F9=%s, F27=%s; genus-two RR class count h=%s' % (counts[9],counts[27],counts[9]//2-3))
+
+# A second example satisfies the source theorem's q>4 restriction.
+# C5: y^2=2((x^5-x)^2+1), genus 4, has no F5 points.
+# P2=(x=0,y^2=2), P5=(x^5-x-1=0,y=2); D=P5-2P2 has degree 1.
+for x,y in product(range(5),repeat=2):check(y*y%5!=2*((x**5-x)**2+1)%5)
+check(all(y*y%5!=2 for y in range(5))) # infinity
+check(2*(1*1+1)%5==2*2%5)
+check(5-2*2==1)
+# If alpha^5-alpha=1, Frobenius^r(alpha)=alpha+r for r=0,...,5.
+# The nonzero translations r=1,...,4 prove the degree-five orbit.
+check([r%5 for r in range(1,6)]==[1,2,3,4,0])
+
+# The index-one proof uses all sufficiently large consecutive extensions.
+# q^n>4g^2 implies q^n+1>2g*q^(n/2); check without floating point.
+for q in [2,3,4,5,7,8,9,11,13]:
+    for g in range(101):
+        n=1
+        while q**n<=4*g*g:n+=1
+        for m in [n,n+1]:
+            check((q**m+1)**2>4*g*g*q**m)
+            for d in range(1,m+1):
+                if m%d==0:check((m//d)*d==m)
+
+# Quotient (Z/h + Z)/<(c,2)>: set normal form, with the carry in its group law.
+for h in range(1,9):
+    for c in range(h):
+        def normal(j,d):
+            z,r=divmod(d,2)
+            return ((j-z*c)%h,r)
+        def add(x,y):return normal(x[0]+y[0],x[1]+y[1])
+        Q=list(product(range(h),range(2)))
+        check(len(Q)==2*h)
+        for j,d in product(range(h),range(-6,7)):
+            for z in range(-3,4):check(normal(j+z*c,d+2*z)==normal(j,d))
+        for x,y in product(Q,repeat=2):
+            check(add(x,y)==add(y,x))
+            for z in Q:check(add(add(x,y),z)==add(x,add(y,z)))
+        for x in Q:
+            check({add(x,y) for y in Q}==set(Q))
+            check(sum(add(x,y)[1]==0 for y in Q)==h)
+        # Arbitrary subsets in compatible parity fibers give numerator/(2h), or /h conditionally.
+        for M in Q:
+            for r in range(2):
+                A={x for x in Q if x[1]==r and (x[0]+1)%3!=0}
+                B={x for x in Q if x[1]==(M[1]-r)%2 and x[0]%2==0}
+                good={x for x in A if any(add(x,y)==M for y in B)}
+                direct=sum(x in A and any(add(x,y)==M for y in B) for x in Q)
+                check(Fraction(direct,2*h)==Fraction(len(good),2*h))
+                check(Fraction(direct,h)==2*Fraction(direct,2*h))
+                bad={y for y in Q if y[1]!=(M[1]-r)%2}
+                check(not any(add(x,y)==M for x in A for y in bad))
+# h=2,c=1 gives a cyclic group of order four, not Z/2 x Z/2.
+def add4(x,y):
+    z,r=divmod(x[1]+y[1],2)
+    return ((x[0]+y[0]-z)%2,r)
+x=(0,1);check(add4(x,x)==(1,0));check(add4(add4(x,x),add4(x,x))==(0,0))
+
+# Splitting arithmetic on O(A)+O(B), with degree L=A+B+g+1.
+for g,A,B in product(range(2,13),range(-12,13),range(-12,13)):
+    if B>A:continue
+    d=A+B+g+1;nu=A-B;e=A
+    check(nu==2*e-d+g+1)
+    check(nu%2==(g+1-d)%2)
+    check((nu>=g+1-d)==(A>=0))
+    for t in range(-3,4):check(2*(e+t)-(d+2*t)+g+1==nu)
+print('PASS:',checks,'exact checks. Finite examples do not prove scheme descent or asymptotic convergence.')
+```
+
+---
+
+## Previous submissions (preserved with attribution)
+
 # Shende–Tsimerman: weighted-Abel characteristic continuation
 
 
