@@ -179,3 +179,17 @@ of `ρ_Q(p^n) ≤ 16p^{3n/2}` with the sieve's hypothesis `r = 1/2` all check ou
 * **The conjectures** of §1 are recorded as items of kind `theorem` whose names begin "The mixing conjecture" and
   "Equidistribution of Galois orbits", following the convention of the earlier extractions here; their notes say
   they are open.
+
+
+## Review (REV-PAPER-KHAYUTIN-19, 23 September 2026)
+
+An independent review read the published article (Ann. of Math. 189 (2019), 145–276) in full and corrected this extraction in place.
+
+- **Locators:** every one now gives published numbers and pages, followed by the arXiv v3 number.
+- **Statements:** 59 were corrected, including the main theorem's bounded-conductor hypothesis, which the Part II brief now states exactly.
+- **New items:** 13 (items 112–124), from a coverage check of the published text.
+- **Statuses:** item 8 moved from planned to missing and is routed to AA.4.
+- **Routes:** two items moved from the sieve route to a new source route, GeometryOfNumbersAndQuadraticArithmetic [GN.2, GN.4].
+- **Source issues:** 31 further mistakes were recorded (E4–E34) and E1–E3 were confirmed in print.
+
+The item and route counts above are those before the review. After it there are 124 items: 2 planned and 122 missing. They are routed as 82 to the Part II, 17 to the sieve roadmap, 18 to HE.0, 3 to AA.4 and 2 to GN.2/GN.4. Details are in [the review report](../reviews/REV-PAPER-KHAYUTIN-19.md).
