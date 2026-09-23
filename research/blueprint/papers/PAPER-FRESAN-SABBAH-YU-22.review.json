@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-FRESAN-SABBAH-YU-22",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "MixedHodgeModulesAndIrregularHodgeTheory (new, 25 items) — Accept, and the `new` claim is justified — the strongest claim a route can make, so I checked it hardest. **No roadmap in the atlas covers this ground**: of the 211 roadmaps, none has 'mixed Hodge module', 'irregular Hodge', 'exponential motive' or 'twistor' in its title or summary, and the only titles sharing vocabulary are p-adic Hodge theory roadmaps (FiniteFlatGroupsAndIntegralPadicHodgeTheory, PadicHodgeTheory, PhiGammaModulesAndIwasawaCohomology), which are a different subject. No other paper proposes a competing identity for it either: the only nearby `new` proposals in the corpus are PadicHodgeParametersInLocallyAnalyticRepresentations (DING-25), AdmissiblePairsAndPadicHodgeStructures (HOWE-KLEVDAL-26) and HodgeClassesForJacquetLanglands (ICHINO-PRASANNA-23), all p-adic or Hodge-cycle roadmaps. The 25 items are the appendix's material — mixed Hodge modules, the exponential mixed Hodge structures of §A, the irregular Hodge filtration — which is exactly a missing foundation rather than a Part II of anything present."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "KloostermanMomentsAndPotentialAutomorphy (new, 46 items) — Accept, and it is already a joined identity: **PAPER-XU-ZHU-22 ('Bessel F-isocrystals for reductive groups') routes 3 items to this same roadmap**, citing this extraction by name — 'PAPER-FRESAN-SABBAH-YU-22 proposed KloostermanMomentsAndPotentialAutomorphy, whose brief plans Deligne's Kloosterman sheaf with its local invariants, the Kloosterman connection Kl_{n+1} ... and Katz's monodromy groups'. So this paper is the originator and the proposal has already been adopted downstream, which is the best evidence that the identity is the right one. The two atlas roadmaps sharing vocabulary — PotentialModularityAndCompatibleSystems and PotentialAutomorphyInfrastructure — are about the automorphy machinery this roadmap would *use*, not about Kloosterman sums, and the extraction routes its automorphy inputs to ModularityAndLanglandsExtensions separately."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "ModularityAndLanglandsExtensions (source, 2 items) — Accept. ModularityAndLanglandsExtensions:ML.2 exists in the atlas and owns the modularity/automorphy input the two items take as given, which is the right division: this paper proves the Hodge and L-function statements and imports the automorphy."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "PadicDifferentialEquationsAndRigidCohomology (source, 5 items) — Accept. RD.6 and RD.7 both exist and own the rigid-cohomology and p-adic differential-equation material of §5's local computations, which the paper uses rather than develops."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "LefschetzPencilsAndVanishingCycles (source, 2 items) — Accept. LPV.2 exists and owns the Picard–Lefschetz input for ordinary quadratic points that the two items (one of them planned item 77) need."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "ArithmeticGaloisRepresentations (source, 2 items) — Accept. R01.2 exists and owns Weil–Deligne representations and local epsilon-factors, which §5.2 imports for the functional equation."
+    }
+  ],
+  "notes": "Independent review of issue #1316's extraction (cc-7b31c4, then cc-442dc5); cc-fb70e5 appears nowhere in its files. All six routes accepted and all seven findings confirmed verbatim, with their reasoning independently checked; nothing corrected in place and no finding added. **Both recorded hashes match byte for byte** — the e-print (1bc77111...) and the PDF (835580aa..., 74 pages by the page tree's /Count). Numbering needed care: every statement environment is declared [equation] in the .sty, so statements and displays share one counter, AND the style file sets \\mathtoolsset{showonlyrefs}, so only equations that are actually \\eqref'd are numbered at all. Counting every \\begin{equation} runs 3 too high by mid-section 4. Simulating with the rule 'a display consumes a number iff one of its labels is referenced elsewhere' gives 144 numbered objects = 58 statements + 86 numbered displays, and then all 58 simulated statement numbers and kinds agree with all 58 printed headers, with no number in one list missing from the other. Coverage is exceptional: all 92 items carry a statement-level locator, and 57 of the 58 statements are cited; the one exception, Remark 3.7, is a degenerate-case observation for k=n=1. Mechanical audits are clean: 146 hand-written word+reference citations with no word/environment mismatch (the paper uses no cleveref, so the class was live), no duplicate labels, no undefined references, no '??' anywhere in the PDF, and no display referenced only by a plain \\ref, which under showonlyrefs would have printed as '??'. All 13 library citations verify at the pinned commits: the four Mathlib declarations sit at their recorded lines and all nine TauCeti Hodge declarations exist at f790474. I also re-derived the paper's numeric bookkeeping: Theorem 1.8's Hodge numbers sum to the paper's own dimension formula (eqn:dimensionHmid) in both parities, the local degree identities deg Z_k = 1 + deg R_k + deg M_k reduce to dim H^1_mid at good primes, and E5's missing constant is exactly pi^{m(m+1)/4}. No further mistakes surfaced."
+}
