@@ -23161,6 +23161,111 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CALMES-ETAL-26/E1",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 1.2.12, last line, p. 18",
+   "printed": "and so the map L_n(R; Q^q_M) --> L_n(R; Q) is also injective (hence bijective) when n <= 2n - 3, as desired",
+   "correction": "when n <= 2m - 3",
+   "reason": "The bound is on m, not on n. Corollary 1.2.12 states that the map is an isomorphism for n <= 2m - 3 and surjective for n = 2m - 2, and the paragraph that this sentence closes opens by assuming exactly that: 'To prove injectivity, let us now assume that n <= 2m - 3'. As printed the condition n <= 2n - 3 reduces to n >= 3, which is neither the hypothesis of the corollary nor anything used in the proof. Checked in a rendered clip at 260 dpi, where the glyph is unambiguously an n and not an m: this is a printed slip and not an artifact of PDF text extraction. The proof itself is correct; only its closing restatement is mistyped.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2009.07225, the preprint of this paper, whose latest version is v4 of 27 April 2026 (dated 28 April 2026 on its first page): this is the version read, downloaded 2026-09-23, 63 pages, sha256 1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c. Earlier versions were not diffed against it.",
+    "the published version: the paper's own bibliography lists paper III as 'arXiv:2009.07225, 2020. to appear in Annals of Mathematics', and no published version was obtained, so it is possible that copy-editing in production corrected some of these. arXiv v4, dated 28 April 2026, is the latest available text.",
+    "the arXiv listing for the series (papers I and II are arXiv:2009.07223 and arXiv:2009.07224) for an erratum or a note attached to paper III: none found."
+   ],
+   "owner": "PAPER-CALMES-ETAL-26",
+   "file": "research/blueprint/papers/PAPER-CALMES-ETAL-26.result.json",
+   "citation": "Calmès et al., \"Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings\", Annals of Mathematics 204 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CALMES-ETAL-26/E2",
+   "kind": "misprint",
+   "locator": "Proposition 1.3.1, parts (i) and (ii), p. 27",
+   "printed": "i) Every Poincare object in Pn(D^p(R), Q^{[-n]}) is cobordant to one which is ((-n-a)/2)-connective. ii) Every Lagrangian L -> X of a ((-n-a)/2)-connective Poincare object (X,q) in Pn(D^p(R), Q^{[-n]}) is cobordant relative to X to a Lagrangian L' -> X such that ...",
+   "correction": "Pn(C, Q^{[-n]}) in both places",
+   "reason": "The proposition is stated for a general stable infinity-category C: its hypotheses are 'Let C be a stable infinity-category with a bounded t-structure C_{>=0}, C_{<=0}. Let Q be an r-symmetric Poincare structure on C with duality D such that D(C_{<=0}) is contained in C_{>=-d}', and its concluding sentence is 'the canonical map L^{a,b}_n(C,Q) -> L_n(C,Q) is an isomorphism'. There is no ring R in the hypotheses at all, so D^p(R) in parts (i) and (ii) is undefined there. The proof confirms the intended reading, opening 'it suffices to show that every Poincare object (X,q) in Pn(C, Q[-n]) is cobordant to one whose underlying object is ((-n-a)/2)-connective'. What makes this more than cosmetic is that the generality is the whole point: the paragraph immediately preceding the proposition says the argument is cast 'in the setting of a general Poincare infinity-category (C,Q) equipped with a t-structure ... as we shall use this more general setup for a category of torsion modules, which is not itself given by modules over a discrete ring, in Theorem 2.2.4 below'. That application is real and the chain is short: Corollary 1.3.8, which IS stated correctly for a general C, is proved by 'Apply Proposition 1.3.1 in the case of r = infinity, d = 0'; and the proof of Theorem 2.2.4 says 'Hence for both sides of (7) we are in the situation of Corollary 1.3.8', where the two sides of (7) are the direct sum over the primes of S of the perfect derived categories D^p(F_p) of the residue fields, and D^p_S(R), the full subcategory of S-primary torsion perfect R-modules. Neither is D^p(R) - the second is precisely the category of torsion modules the preceding paragraph promised, and the first is a product. So as printed, parts (i) and (ii) fail to cover what Corollary 1.3.8, and through it the devissage Theorem 2.2.4 and hence Theorem 7 and the Berrick-Karoubi conjecture, ask of them. Checked in a rendered clip at 250 dpi: both occurrences print D^p(R).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:2009.07225, the preprint of this paper, whose latest version is v4 of 27 April 2026 (dated 28 April 2026 on its first page): this is the version read, downloaded 2026-09-23, 63 pages, sha256 1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c. Earlier versions were not diffed against it.",
+    "the published version: the paper's own bibliography lists paper III as 'arXiv:2009.07225, 2020. to appear in Annals of Mathematics', and no published version was obtained, so it is possible that copy-editing in production corrected some of these. arXiv v4, dated 28 April 2026, is the latest available text.",
+    "the arXiv listing for the series (papers I and II are arXiv:2009.07223 and arXiv:2009.07224) for an erratum or a note attached to paper III: none found."
+   ],
+   "owner": "PAPER-CALMES-ETAL-26",
+   "file": "research/blueprint/papers/PAPER-CALMES-ETAL-26.result.json",
+   "citation": "Calmès et al., \"Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings\", Annals of Mathematics 204 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CALMES-ETAL-26/E3",
+   "kind": "misprint",
+   "locator": "Remark 1.2.28, p. 23",
+   "printed": "Using Remark 1.1.6 we observed in Remark 1.2.2 that Poincare objects satisfying the connectivity requirements for L^{a,b}_n(A;Q) are actually representable by complexes concentrated in certain degrees",
+   "correction": "Using Lemma 1.1.6",
+   "reason": "1.1.6 is a Lemma, not a Remark: it is printed as '1.1.6. Lemma' on p. 12, and it is cited correctly as 'Lemma 1.1.6' in Remark 1.2.2 itself ('This uses Lemma 1.1.6'), in Remark 1.1.7, in Remark 1.1.8, in the proof of Proposition 1.2.6 and in Lemma 1.2.27. This occurrence is the only one that calls it a Remark.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2009.07225, the preprint of this paper, whose latest version is v4 of 27 April 2026 (dated 28 April 2026 on its first page): this is the version read, downloaded 2026-09-23, 63 pages, sha256 1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c. Earlier versions were not diffed against it.",
+    "the published version: the paper's own bibliography lists paper III as 'arXiv:2009.07225, 2020. to appear in Annals of Mathematics', and no published version was obtained, so it is possible that copy-editing in production corrected some of these. arXiv v4, dated 28 April 2026, is the latest available text.",
+    "the arXiv listing for the series (papers I and II are arXiv:2009.07223 and arXiv:2009.07224) for an erratum or a note attached to paper III: none found."
+   ],
+   "owner": "PAPER-CALMES-ETAL-26",
+   "file": "research/blueprint/papers/PAPER-CALMES-ETAL-26.result.json",
+   "citation": "Calmès et al., \"Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings\", Annals of Mathematics 204 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CALMES-ETAL-26/E4",
+   "kind": "misprint",
+   "locator": "Example 2.3.14, p. 47",
+   "printed": "and again from [Lam05, VI Remark 2.31], we find that the kernel of .<1,3> is additively generated by 2<1> and <1,-2>, and deduce an isomorphism ker( L^s_0(Q_2) --.<1,3>--> L^s_0(Q_2) ) = Z/4 (+) Z/2",
+   "correction": "additively generated by 2<1> and <1,-3>",
+   "reason": "The form <1,-2> is not in that kernel. Over Q_2 the form <1,3> is the norm form of the unramified quadratic extension E = Q_2(sqrt(-3)) - which is the same field whose ring of integers the example is about - so for a unit or non-unit scalar a the form a.<1,3> is the scaled norm form, and a.<1,3> = c.<1,3> in the Witt group if and only if a/c is a norm from E. Since E is unramified, its norm group is exactly the set of elements of even valuation. Hence <a,b>.<1,3> = a.<1,3> + b.<1,3> vanishes if and only if a/(-b) is a norm, that is if and only if v(a) + v(b) is even. For <1,-2> that sum is 0 + 1 = 1, so <1,-2>.<1,3> is not zero; for <1,-3> it is 0 + 0, so <1,-3>.<1,3> is zero, as one also sees directly: <1,-3>.<1,3> = <1,3,-3,-9> = <1,-1> + <3,-3> = 0. The failure of <1,-2> can be confirmed a second way, by computing invariants: <1,-2>.<1,3> = <1,3,-2,-6> has rank 4 and discriminant 36, that is 1 modulo squares, and Hasse invariant (3,-2)(3,-6)(-2,-6) = (+1)(-1)(-1) = +1 at the prime 2, whereas the hyperbolic form of rank 4 has Hasse invariant (-1,-1) = -1; and directly, x^2 + 3y^2 = 2(z^2 + 3w^2) forces a valuation-parity contradiction because both bracketed terms are norms from E and so of even valuation, so the form is anisotropic and in particular not hyperbolic. The stated isomorphism type Z/4 (+) Z/2 is nevertheless correct, with 2<1> and <1,-3> as generators: <1> has order 8 in W(Q_2), 2<1,-3> = 4<1> since <1,1,-3,-3> and <1,1,1,1> agree in rank, discriminant and Hasse invariant, and <1,-3> - 2<1> = <-1,-3> has discriminant 3 and so does not lie in the cyclic group generated by 2<1>; the order is confirmed by counting, the image of multiplication by <1,3> having order 4 and W(Q_2) order 32. Since 2 and 3 differ by one glyph and <1,-3> is exactly the right element, this reads as a typographical slip rather than a mistaken computation. It affects only this step: the conclusion of the example, and the L-group table it feeds, are correct. Checked in a rendered clip of p. 47 at 300 dpi, where the entry is unambiguously <1,-2>.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:2009.07225, the preprint of this paper, whose latest version is v4 of 27 April 2026 (dated 28 April 2026 on its first page): this is the version read, downloaded 2026-09-23, 63 pages, sha256 1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c. Earlier versions were not diffed against it.",
+    "the published version: the paper's own bibliography lists paper III as 'arXiv:2009.07225, 2020. to appear in Annals of Mathematics', and no published version was obtained, so it is possible that copy-editing in production corrected some of these. arXiv v4, dated 28 April 2026, is the latest available text.",
+    "the arXiv listing for the series (papers I and II are arXiv:2009.07223 and arXiv:2009.07224) for an erratum or a note attached to paper III: none found."
+   ],
+   "owner": "PAPER-CALMES-ETAL-26",
+   "file": "research/blueprint/papers/PAPER-CALMES-ETAL-26.result.json",
+   "citation": "Calmès et al., \"Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings\", Annals of Mathematics 204 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CALMES-ETAL-26/E5",
+   "kind": "gap",
+   "locator": "Example 2.3.14, p. 46",
+   "printed": "The discriminant of K is (3), and as (2) does not divide (3), we deduce that (2) is a prime ideal in R [Neu99, Corollary III.2.12], and hence is the single dyadic prime.",
+   "correction": "the cited criterion gives only that (2) is unramified; that it is prime needs in addition that -3 is not a square modulo 8, equivalently that x^2 + x + 1 is irreducible over F_2",
+   "reason": "Not dividing the discriminant gives unramifiedness, not inertia: an unramified rational prime in a quadratic field is either prime or a product of two distinct primes. The printed inference therefore does not follow, as the field Q(sqrt(-7)) shows - its discriminant is -7, the prime 2 does not divide it, and yet (2) splits, because x^2 + x + 2 factors as x(x+1) modulo 2. The conclusion drawn here is true: in Q(sqrt(-3)) the minimal polynomial x^2 + x + 1 of the Eisenstein unit is irreducible over F_2, equivalently -3 is congruent to 5 and not to 1 modulo 8, so (2) is inert and is the unique dyadic prime, and the example's count d = 1 of dyadic primes is right. Only the justification is incomplete, and the cited Neukirch corollary sits in the section on the different and discriminant, where the statement available is the ramification criterion.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:2009.07225, the preprint of this paper, whose latest version is v4 of 27 April 2026 (dated 28 April 2026 on its first page): this is the version read, downloaded 2026-09-23, 63 pages, sha256 1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c. Earlier versions were not diffed against it.",
+    "the published version: the paper's own bibliography lists paper III as 'arXiv:2009.07225, 2020. to appear in Annals of Mathematics', and no published version was obtained, so it is possible that copy-editing in production corrected some of these. arXiv v4, dated 28 April 2026, is the latest available text.",
+    "the arXiv listing for the series (papers I and II are arXiv:2009.07223 and arXiv:2009.07224) for an erratum or a note attached to paper III: none found."
+   ],
+   "owner": "PAPER-CALMES-ETAL-26",
+   "file": "research/blueprint/papers/PAPER-CALMES-ETAL-26.result.json",
+   "citation": "Calmès et al., \"Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings\", Annals of Mathematics 204 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-CANNING-LARSON-PAYNE-24/E1",
    "kind": "misprint",
    "locator": "First sentence of the proof of Theorem 1.5(3), Section 6.2 (arXiv v3; the published version at doi:10.1017/fmp.2024.24 has the same text)",
