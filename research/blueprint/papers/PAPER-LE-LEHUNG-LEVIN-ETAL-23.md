@@ -5273,3 +5273,43 @@ normalisation, Corollary 4.1.1 (Global Uniqueness), Corollary 4.1.2 (genericity 
 Printed page = PDF page − 3; this PDF's text layer is clean.
 
 No new findings.
+
+### Continuation, 23 September 2026 (Claude Code, `cc-7b31c4`): the Z57–Z59 supplier obligations are named
+
+Three items in the analytic-regularity chain ended their own proofs by saying that a step rested on
+something the extraction had not named. `Z57` called "the regular-map criterion and this faithful-flat
+descent … explicit remaining supplier obligations, not baseline results"; `Z58` left its
+characteristic-`p` formal-fibre and Cohen-structure inputs "an explicitly recorded source/declaration
+audit gap"; `Z59` said "the flat local dimension formula and maximal-ideal generator comparison need
+their exact supplier audit". This pass turns all of that into items, and the three proofs now point
+at them.
+
+**Z76 — regular ring maps.** Flat, with Noetherian and *geometrically* regular fibres, plus stability
+under finite type base change (Stacks **07BZ**, Definition 15.42.1; **07C1**, Lemma 15.42.3). Its
+second step records the distinction that matters downstream: over an imperfect residue field
+geometric regularity is strictly stronger than regularity of the fibre, which is exactly why the
+characteristic-`p` case cannot be settled fibrewise.
+
+**Z77 — the dimension formula.** `dim(S_q) = dim(R_p) + dim(S_q/pS_q)` for a Noetherian ring map
+satisfying going down (Stacks **00ON**, Lemma 10.112.7; the flat case of going down is **00HS**). The
+statement is for going down rather than flatness, because that is the hypothesis the proof uses; only
+the `≥` half needs it.
+
+**Z78 — faithfully flat descent.** Noetherianity (Stacks **033E**) and regularity (Stacks **07NG**)
+pass from the *target* to the *source*. The statement says so explicitly, because this is easy to
+confuse with ascent — which is `Z59`, under a fibre hypothesis — and `Z57` needs the descent
+direction, to carry regularity back from the maximal-ideal completion to the localised `I`-adic one.
+
+**Z79 — G-rings.** The definition (Stacks **07GH**) and stability under essentially finite type maps
+(Stacks **07PV**, Proposition 15.51.10). The characteristic-`p` content `Z58` flagged is carried in
+`Z79`'s second step rather than silently closed.
+
+**Checked against the pins before adding.** None of the four is in Mathlib or Tau Ceti at
+`082e2d3`/`f790474`: there is no G-ring or geometric-regularity API, no flat local dimension formula,
+and no faithfully-flat descent of ring regularity — `RingTheory.Sequence.IsRegular.of_faithfullyFlat_of_isBaseChange`
+is about regular *sequences*. What is there, and already pinned, is the regular-local-ring criterion
+(`L19`) and the generator bound (`L18`), and `Z59` now cites `L18` by name for the step that needs it.
+
+All four go to route 7, `SchemeAndStackFoundations` SF.0/SF.1/SF.4/SF.5, which their own `note`
+fields name as the owner and where `Z57`–`Z59` already sit. No new route and no new roadmap; 608
+items, 478 internal prerequisite edges, still acyclic.
