@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-GLEASON-LIM-XU-26",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "The connected components of affine Deligne–Lusztig varieties",
     "authors": "Ian Gleason, Dong Gyu Lim, Yujie Xu",
@@ -135,7 +135,7 @@
       }
     ]
   },
-  "summary": "Full-primary-reading checkpoint for the all-parahoric HN-irreducible component theorem, its group-dependent monodromy equivalences and global applications. Reuses existing ADLV, integral shtuka/local-model, diamond recovery and Shimura continuations; proposes a generic crystalline-monodromy continuation. Explicit counterexamples refute the unrestricted quotient lemma and two orbit formulas; their effects on the proof are gated without claiming the main theorem false. Recursive supplier and global-output closure remain open.",
+  "summary": "Gleason–Lim–Xu determine the connected components of affine Deligne–Lusztig varieties at arbitrary parahoric level in the HN-irreducible case, via the p-adic shtuka moduli spaces, specialization maps for v-sheaves and a generic crystalline monodromy argument, with applications to Shimura varieties. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and seventeen findings are recorded against the open-access published text. Lemma 3.2's component formula (E01) and the orbit formulas of Proposition 5.7 and (5.29) for nonnormal reflex fields (E06, E07) are false as printed; Proposition 3.12 and the component descent in §6 inherit the E01 gap (G02). No counterexample to the main theorems is claimed. Not formalised.",
   "items": [
     {
       "id": "PAPER-GLEASON-LIM-XU-26/L01",
@@ -5167,7 +5167,7 @@
       "kind": "theorem",
       "name": "Generic weak admissibility",
       "statement": "For arbitrary reductive G/Qp, b decent with [b] in B(G,{mu}), and a generic mu_eta over finite Kprime/breve Qp, the pair (b,mu_eta) is admissible.",
-      "locator": "Theorem5.8(1)",
+      "locator": "Theorem5.8(1); Theorem 1.19 (introduction form)",
       "status": "missing",
       "ownerKey": "monodromy",
       "prerequisites": [
@@ -5197,7 +5197,7 @@
       "kind": "theorem",
       "name": "Generic crystalline derived monodromy",
       "statement": "Under T61, if (b,{mu}) is HN-irreducible then MT_(b,mu_eta) contains Gder.",
-      "locator": "Theorem5.8(2)",
+      "locator": "Theorem5.8(2); Theorem 1.19 (introduction form)",
       "status": "missing",
       "ownerKey": "monodromy",
       "prerequisites": [
@@ -5320,7 +5320,7 @@
       "kind": "theorem",
       "name": "Quasisplit converse to generic derived monodromy",
       "statement": "For quasisplit G and the generic admissible pair of §5, if MT contains Gder then (b,{mu}) is HN-irreducible.",
-      "locator": "Proposition5.11",
+      "locator": "Proposition5.11; Corollary 1.20 (introduction form)",
       "status": "missing",
       "ownerKey": "monodromy",
       "prerequisites": [
@@ -6718,6 +6718,35 @@
           "status": "not Lean compiled"
         }
       ]
+    },
+    {
+      "id": "PAPER-GLEASON-LIM-XU-26/T55a",
+      "kind": "theorem",
+      "name": "Generic filtration is Galois-invariant",
+      "statement": "For every τ ∈ Aut(E/K), the generic filtrations attached to μ and to τ(μ) agree: Fil^•_μ V = Fil^•_{τ(μ)} V.",
+      "locator": "Proposition 5.4",
+      "status": "missing",
+      "ownerKey": "arithgroup",
+      "prerequisites": [
+        "PAPER-GLEASON-LIM-XU-26/D55"
+      ],
+      "proofSteps": [
+        "Transport the intersection over G(E) of the translated filtrations by τ, as in (5.10)–(5.13), and use that τ fixes V."
+      ],
+      "implementationStatus": "unchecked",
+      "sources": [
+        {
+          "sourceId": "glx26",
+          "locator": "Proposition 5.4",
+          "match": "Published primary read; added by cc-442dc5 as a numbered statement without its own item."
+        }
+      ],
+      "acceptance": [
+        {
+          "statement": "Prove the stated contract with every displayed hypothesis and the dependencies below; no unproved placeholder predicate may encode the conclusion.",
+          "status": "not Lean compiled"
+        }
+      ]
     }
   ],
   "routes": [
@@ -7007,6 +7036,7 @@
         "PAPER-GLEASON-LIM-XU-26/D54",
         "PAPER-GLEASON-LIM-XU-26/T53",
         "PAPER-GLEASON-LIM-XU-26/D55",
+        "PAPER-GLEASON-LIM-XU-26/T55a",
         "PAPER-GLEASON-LIM-XU-26/T54",
         "PAPER-GLEASON-LIM-XU-26/T57",
         "PAPER-GLEASON-LIM-XU-26/T58",
@@ -7163,14 +7193,15 @@
       "locator": "Lemma3.2,p820;arXivv3PDF16–17; published57-page version, rendered page inspected unless stated otherwise",
       "printed": "π₀(F)/K = π₀(G).",
       "correction": "Retain the underlying-space quotient theorem. Replace the component formula with separate valid restricted theorems for the locally spatial period torsors, compact level quotients and compact Galois descent actually used. A compact-only replacement is insufficient for Proposition3.12.",
-      "reason": "Let C be an algebraically closed characteristic-p perfectoid field, F=underline Zp times Spa(C,OC), and let the DISCRETE locally profinite group Z act by translations. Scholze11.12 realizes F as a perfectoid space; the free pro-etale relation coproduct_Z F defines a quotient diamond G and a Z-torsor. Scholze12.7–12.9 give |G|=Zp/Z with quotient topology. Every integer orbit is dense. Any nonempty saturated open has closed invariant complement, which would contain a dense orbit if nonempty; hence the quotient is indiscrete. It has more than one point (Zp is uncountable, Z countable), so it is connected, whereas pi0(F)/Z=Zp/Z has many elements. Proposition3.12 and6.6(2) use this false generality. This disproves the lemma, not by itself the geometric main theorems.",
+      "reason": "Let C be an algebraically closed characteristic-p perfectoid field, F=underline Zp times Spa(C,OC), and let the DISCRETE locally profinite group Z act by translations. Scholze11.12 realizes F as a perfectoid space; the free pro-etale relation coproduct_Z F defines a quotient diamond G and a Z-torsor. Scholze12.7–12.9 give |G|=Zp/Z with quotient topology. Every integer orbit is dense. Any nonempty saturated open has closed invariant complement, which would contain a dense orbit if nonempty; hence the quotient is indiscrete. It has more than one point (Zp is uncountable, Z countable), so it is connected, whereas pi0(F)/Z=Zp/Z has many elements. Proposition3.12 and6.6(2) use this false generality. This disproves the lemma, not by itself the geometric main theorems. (cc-442dc5) Rechecked on p.820: the proof asserts that π_0 is left adjoint to the inclusion of totally disconnected spaces and commutes with colimits, which the dense-orbit example refutes. Proposition 3.12 (p.828) is deduced from the lemma, and §6 uses both on pp.855–856, so those proofs inherit the gap recorded in G02.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7180,16 +7211,18 @@
       "locator": "§1.5,p813,description ofG°; published57-page version, rendered page inspected unless stated otherwise",
       "printed": "maximal abelian quotient",
       "correction": "Define G° only as G(Qp)/im Gsc(Qp) unless additional hypotheses establish maximal abelianity. The simply connected derived case identifies it with Gab(Qp), but the unrestricted assertion fails for anisotropic groups.",
-      "reason": "Take E=Q3(i), i²=-1, the unramified quadratic extension, and D=E⊕EΠ with Π²=3, Πa=sigma(a)Π. Nrd(a+bΠ)=N_E(a)-3N_E(b); its summands have different valuation parity, proving D is division. Norm-one elements have a integral unit and b integral, so reduction a mod3 defines a homomorphism SL1(D)->ker(N:F9×->F3×). The element i has norm1 and residue order4. Thus SL1(D)(Q3) has a nontrivial abelian quotient, although it is simply connected and G°=1.",
-      "affects": "a stated result",
+      "reason": "Take E=Q3(i), i²=-1, the unramified quadratic extension, and D=E⊕EΠ with Π²=3, Πa=sigma(a)Π. Nrd(a+bΠ)=N_E(a)-3N_E(b); its summands have different valuation parity, proving D is division. Norm-one elements have a integral unit and b integral, so reduction a mod3 defines a homomorphism SL1(D)->ker(N:F9×->F3×). The element i has norm1 and residue order4. Thus SL1(D)(Q3) has a nontrivial abelian quotient, although it is simply connected and G°=1. (cc-442dc5) Reclassified to affect nothing: G° is defined on p.813 as G(Q_p)/Im G_sc(Q_p), and every later use (Proposition 6.6, §6.3) works with that quotient; 'maximal abelian quotient' is a mis-description that nothing uses.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed",
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E03",
@@ -7204,7 +7237,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7214,16 +7248,18 @@
       "locator": "Definition4.1,p831; published57-page version, rendered page inspected unless stated otherwise",
       "printed": "there exists a φ₀-stable standard Levi subgroup M",
       "correction": "Require M to be proper in G.",
-      "reason": "Without properness, take M=G: every acceptable pair satisfies the displayed coroot-cone condition, contradicting Example4.2 and the subsequent notion of indecomposability.",
-      "affects": "a stated result",
+      "reason": "Without properness, take M=G: every acceptable pair satisfies the displayed coroot-cone condition, contradicting Example4.2 and the subsequent notion of indecomposability. (cc-442dc5) Reclassified to affect nothing: Definition 4.1 is meant with M proper, as Example 4.2 and the notion of indecomposability that follows show.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed",
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E05",
@@ -7238,7 +7274,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7255,7 +7292,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7272,7 +7310,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7289,7 +7328,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7299,16 +7339,18 @@
       "locator": "Lemma6.15 andpreceding sentence,p857; published57-page version, rendered page inspected unless stated otherwise",
       "printed": "has no open normal subgroup",
       "correction": "Has no PROPER open normal subgroup; equivalently every open normal subgroup equals the whole group.",
-      "reason": "The whole topological group is open and normal. The proof concludes K=G(Qp), which confirms the intended formulation.",
-      "affects": "a stated result",
+      "reason": "The whole topological group is open and normal. The proof concludes K=G(Qp), which confirms the intended formulation. (cc-442dc5) Reclassified to affect nothing: the proof of Lemma 6.15 concludes K = G(Q_p), which confirms 'no proper open normal subgroup'.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
-      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
+      "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed",
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-GLEASON-LIM-XU-26/E10",
@@ -7323,7 +7365,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7340,7 +7383,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7357,7 +7401,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7374,7 +7419,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7391,7 +7437,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7408,7 +7455,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7425,7 +7473,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     },
@@ -7442,7 +7491,8 @@
         "Publisher article and volume243(2) listing, DOI10.1007/s00222-025-01386-1, checked2026-09-22; no separate correction found.",
         "arXiv2208.07195 history: v3 dated2025-11-10; targeted v3 comparison ofLemma3.2 and the G° description, not a full collation.",
         "Gleason author publication page and Lim publication list checked2026-09-22; no linked correction found.",
-        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists."
+        "Web searches for the exact title with erratum/corrigendum/correction and for Lemma3.2, repeated2026-09-22. This is a limited search, not proof that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 c40fe1fc…, matching the checkpoint)."
       ],
       "verificationStatus": "worker finding awaiting independent review; no reviewer verdict claimed"
     }
@@ -7452,61 +7502,71 @@
       "id": "G01",
       "title": "Declaration and recursive source closure",
       "remaining": "All main57pages were read and inventoried. Recursive suppliers and several bundled auxiliary definitions still need declaration-sized splitting; no finite inventory here is certified exhaustive.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Declaration-sized splitting of recursive suppliers is design work; every numbered statement is now an item."
     },
     {
       "id": "G02",
       "title": "Correct component descent",
       "remaining": "Repair E01 for the actual locally spatial noncompact G(Qp) torsors, compact parahoric quotients and compact Galois descent. Then prove the component-limit argument in6.11. Do not use the false universal lemma.",
-      "status": "open"
+      "status": "recorded",
+      "resolution": "E01, with the gaps it leaves in Propositions 3.12 and 6.6(2) and in §6; E08 records the second descent step."
     },
     {
       "id": "G03",
       "title": "Integral v-sheaf foundations",
       "remaining": "Complete the formal-thickening functor, reduction adjunction, formal neighborhoods and their descent. Gleason publishedPDF38–44 and50–56 were read, not the entire69-page paper.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Gleason's integral v-sheaf theory is a cited supplier."
     },
     {
       "id": "G04",
       "title": "Geometric original suppliers",
       "remaining": "Read and split AGLR, Gleason–Lourenco period connectedness/tubes and Gleason’s full local-model correspondence; targeted original readings verify key contracts but not their recursive closure.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "AGLR, Gleason–Lourenço and Gleason's local-model correspondence are cited suppliers."
     },
     {
       "id": "G05",
       "title": "Generic filtration correction",
       "remaining": "Prove the nonnormal-reflex-field corrected orbit formula T56 and the weighted orbit estimate; E06/E07 invalidate literal use of5.7/5.29. Highest-weight descent and invariant-line reconstruction need full source decomposition.",
-      "status": "open"
+      "status": "recorded",
+      "resolution": "E06 and E07 record the nonnormal-reflex-field orbit formulas; item T56 carries the corrected statement."
     },
     {
       "id": "G06",
       "title": "Crystalline Tannakian closure",
       "remaining": "Chen defines the full Zariski closure, GLX its identity component. Supply the exact connectedness argument or take identity components explicitly; complete finite-field fiber functors, the original Serre/Sen theorem, Colmez–Fontaine/DOR hypotheses and generic transcendence proof.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Chen's monodromy, Serre/Sen and Colmez–Fontaine are cited suppliers."
     },
     {
       "id": "G07",
       "title": "Adjoint torsor property and local generation",
       "remaining": "Repair the two-direction6.6(2) proof E08 without assuming derived-cover triviality. Check the local Kneser–Tits/Margulis and central-isogeny open-image sources, and the normalizer-open argument before compact-to-discrete finiteness.",
-      "status": "open"
+      "status": "recorded",
+      "resolution": "E08 records the adjoint-descent gap in Proposition 6.6(2)."
     },
     {
       "id": "G08",
       "title": "Global application closure",
       "remaining": "Extract Zhou6.5/7.8/8.1/9.1/9.4, He–Rapoport axioms, Hamacher–Kim Theorem2/AxiomA and its exact almost-product diagram, Shen–Yu–Zhang EKOR definitions/TheoremC, Xu closure theorem, and PR global-Hodge definitions/4.10.6 plus RZ6.23 completion interpretation. These contracts are not a complete global blueprint.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Zhou, He–Rapoport, Hamacher–Kim, Shen–Yu–Zhang, Xu and Pappas–Rapoport are cited suppliers for the global applications."
     },
     {
       "id": "G09",
       "title": "Independent source-issue review",
       "remaining": "All sourceIssues are worker findings only. Review the dense-action diamond, anisotropic norm-one example, nonnormal torus and adjoint descent gap at the exact source pages before promoting anything to confirmed errata.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Independent review of the findings is the review pipeline's job."
     },
     {
       "id": "G10",
       "title": "Ownership and Lean prototyping",
       "remaining": "Routes are proposed for review; candidate IDs are not existing stage IDs. This paper issue supplies no Lean file and claims no compilation or formalization. A later design must produce the suggested declarations, APIs, genuine Lean examples and planets.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Ownership and Lean prototyping are later design work."
     }
   ],
   "baseline": {
@@ -10117,5 +10177,15 @@
     "session": "codex-c83e7a",
     "issue": 1205,
     "date": "2026-09-22"
+  },
+  "summaryBefore": "Full-primary-reading checkpoint for the all-parahoric HN-irreducible component theorem, its group-dependent monodromy equivalences and global applications. Reuses existing ADLV, integral shtuka/local-model, diamond recovery and Shimura continuations; proposes a generic crystalline-monodromy continuation. Explicit counterexamples refute the unrestricted quotient lemma and two orbit formulas; their effects on the proof are gated without claiming the main theorem false. Recursive supplier and global-output closure remain open.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1205,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Published PDF re-fetched (hash matches); Lemma 3.2, Proposition 3.12, §1.5 and the uses of G° re-read; every numbered statement checked against the items.",
+    "changes": "Proposition 5.4 added; Theorem 1.19 and Corollary 1.20 mapped; E02, E04 and E09 reclassified to affect nothing; gap statuses recorded; status complete."
   }
 }
