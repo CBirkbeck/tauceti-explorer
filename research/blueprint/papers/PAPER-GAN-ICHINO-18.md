@@ -199,3 +199,14 @@ None of the four was found corrected. The places searched were the arXiv version
 - Every prerequisite DOI was resolved on Crossref. The arXiv ids were checked on the arXiv API.
 - The reference lists of v3 and the published version were matched entry by entry, and their in-text citations compared.
 - Two computations were checked by hand: the decomposition Ad ∘ φ̃′ in the proof of Lemma 4.3, and the pole argument of Proposition 3.1.
+
+## Review (REV-PAPER-GAN-ICHINO-18, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its six routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-GAN-ICHINO-18.md`.
+
+- **Statements and locators:** 29 statements and 8 locators corrected, among them the complex conjugates in automorphic-theta and whittaker-mp.
+- **New items:** 15 (3 planned, 12 missing). The Part II brief's sentence on E1–E3 is replaced, and a corrections paragraph is added.
+- **Source issues:** E1–E3 are rejected, since each step is covered by the cited source. E4 is confirmed. E5–E7 are new:
+  - The proof of Proposition 3.1 needs a non-vanishing input (E5).
+  - Proposition A.2 is unproved as printed for n ≥ 2, because the cited Jiang–Soudry Th. 2.2(2) fails there (E7). The fix is to assume θ_{ψ_{v0}}(π_{v0}) supercuspidal, which holds in the only application.
+  - Theorems 1.1 and 1.4 stand.
