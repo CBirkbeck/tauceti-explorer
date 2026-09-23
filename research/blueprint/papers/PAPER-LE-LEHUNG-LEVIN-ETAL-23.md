@@ -5405,3 +5405,50 @@ Census: **608 items (101 library, 25 planned, 482 missing), 24 routes, 53 unrevi
 The full 212-page main read remains attributed to the earlier extraction and is not restated. This pass read only the Stacks statements for the four new items, at the tags cited and on 23 September 2026: 07BZ, 07C1, 00ON, 033E, 07NG, 07GH and 07PV, each fetched from stacks.math.columbia.edu and transcribed from the statement environment. The pinned-library search that established the four are absent was run against the same declaration index the lane uses for Mathlib 082e2d3 and Tau Ceti f790474.
 
 Verified this pass: 608 unique IDs with four added (Z76–Z79) and none lost; **only Z57, Z58 and Z59 modified** among the inherited items; `source`, `sourceData` and `sourceIssues` byte-identical to the inherited file; 478 internal prerequisite edges, all resolving and **acyclic**; all 482 missing items carry exactly one route, with no double-routing and no routed id that is not an item; all 25 planned items and all 24 route stages resolve; all 164 definitions and constructions retain their APIs and tests; `check_paper.py` and `intake.py check-files` both pass. Three deliverables touched: the result, the report and this handoff.
+
+## Continuation — Appendix B proof steps (cc-fb70e5, 23 September 2026)
+
+This pass closed the **Appendix B (Q) cluster**: `proofSteps` for Q03, Q04, Q05, Q06, Q08, Q09, Q10, Q11 and
+Q12, with prerequisite edges for eight of them. Nothing else changed — the census stays at 652 items, 24
+routes and 61 unreviewed findings, all inherited ids, `sourceData` and findings preserved. The theorem-like
+proof backlog falls from 191 to 182 and now contains no Q items. `LocModels.pdf` re-verified against the
+recorded `e5647879…`; PDF 202–209 read fresh (Propositions B.0.1, B.0.2, Corollaries B.0.4, B.0.5, Remark
+B.0.6). Table 1 (PDF 207) was not re-read, so Q09 still rests on the earlier rotated-image transcription.
+
+**The finding that matters for the blueprint: Appendix B's harder steps are Macaulay 2 computations with no
+printed certificate, and they are load-bearing rather than decorative.**
+
+- **Q06.** Proposition B.0.1(4) — that the ideal `H` of 3×3 minors of the relative Jacobian contains `t³` —
+  is justified in the paper by one sentence: "The last item follows from by a computation in Macaulay 2."
+  The resulting exponent `r = 3` is consumed both by Proposition 3.3.9 and by Corollary B.0.5's depth bound
+  (`m − 6 + 3 > 6`, giving `m ≥ 10`). So an uncertified exponent does not stay local: it propagates into the
+  depth-ten hypothesis and into the polynomial `P(X,Y,Z) = ∏_{m=0}^{10}(X−Y−m)(Y−Z−m)(Z−X−m)` printed in
+  Theorem 7.3.2's statement. The obligation recorded on Q06 is an explicit `t³ = Σ hᵢmᵢ` over
+  `Z[t,a,b][1/P]`, uniform in `(a,b)`, together with the exceptional denominator locus.
+- **Q08.** Normality of the partial normalization after specialization is proved by *"running Buchberger's
+  algorithm"* on the image of the ideal in `F[W,c₁₂,c₁₃,d₂₁,c₂₂,d₃₁,d₃₃]` — that is, with `(a,b)` specialized
+  into a field. That certifies one fibre, not the family. The obligation recorded is a comprehensive
+  (parametric) Gröbner system over `Z[a,b][1/P]` with its denominator locus, or a direct check of Serre's R1
+  and S2.
+- **Q09.** Proposition B.0.2(3)'s decomposition is "a direct computation in Macaulay 2", presented as Table 1.
+  Q10 consumes exactly one row of it set-theoretically, so the blast radius of an error in a row is that
+  component's unibranch analysis alone — worth recording, because it bounds what the re-derivation must
+  secure first.
+
+The rest of Appendix B is genuine mathematics and is written out as such: the monodromy elimination of six
+chart coefficients, which uses **both** t-torsion-freeness and invertibility of `P(a,b)` (Q03); the seven
+minimal primes of `Spec R/t` and, what is actually consumed downstream, their codimension-three count (Q04);
+Stacks **Tag 00R4** turning that count into a complete intersection, regularity of `t`, and the density of
+`Spec R[1/t]` in `Spec R` that upgrades Q03's closed immersion to an equality (Q05); the contradiction
+argument deriving `O`-flatness from topological flatness and reducedness of the special fibre (Q08); the
+identification of `π⁻¹(C) → C` with an irreducible quadric double cover of `𝔸³_F`, generically finite étale
+of degree two, whence a Zariski-dense locus that is not geometrically unibranch on the component
+`(c₂₂,c₁₃,c₁₂)` (Q10); and the deduction `m ≥ 10` together with the non-`λ′`-admissibility of `z̃` that gives
+`X^{λ,τ}(z̃) ≅ U(z̃,λ,∇)` (Q11). Q12 records that the product extension to general `J` and general unramified
+`K/ℚ_p` turns on products preserving reducedness, and is **not** a general preservation theorem for
+unibranchness.
+
+Two scope cautions are written into the steps because they are easy to lose: Q04's seven ideals are minimal
+primes only, with no multiplicity and no reducedness claim about the original special fibre (reducedness
+appears only after normalization, in Q08); and Q10's second half refutes a blanket unibranch expectation on
+the special fibre while leaving `z̃` itself unibranch by its first half.
