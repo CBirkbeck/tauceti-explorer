@@ -1,0 +1,22 @@
+{
+  "paper": "PAPER-WEI-26",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "Not a buildable design brief: unresolved E5–E13/E18 boundaries, nonatomic or missing formulas/proof inputs, and shared dual-motive/ABP/analytic ownership. The main raw-gamma trdeg theorem is NOT declared false. Candidate assignment is retained only as a single-route holding plan."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Accepted only after narrowing to items 5,60,80,81,85 and DM.0/DM.2/DM.4/DM.8: Carlitz period/ambient field, abelian tau-motive definition, Drinfeld uniformization definitions, and exact ABP lifting. Excludes special CM transcendence, solitons, sigma-dual isogeny calculus and general quasi-period comparisons."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accepted only after narrowing to 7,38,48,82 and FA.3/FA.4/FA.5: finite decomposition/constant fields, later Carlitz reciprocity comparison and correctly normalized Dirichlet/Artin factors. No period distribution or absolute-Galois assembly is claimed planned here."
+    }
+  ],
+  "notes": "Finished independent review by Codex codex-a71f92 of Claude Code cc-7b31c4 input (PR1982). Published open-access article read in full; all original citations and layer descriptions checked at pins. Corrected inventory: 93 items (4 library, 9 planned, 80 missing), 80 missing routed once to the rejected candidate route, nine explicit gap groups. All four prior sourceIssues independently confirmed with narrowed E3 reasoning; 19 additional findings checked, total 23. Tests recorded in report. Extraction remains partial; accepted source routes must not reactivate rejected route 1."
+}
