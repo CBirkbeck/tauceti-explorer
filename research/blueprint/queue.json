@@ -785,8 +785,9 @@
    ],
    "avoidAccountOf": "PAPER-KINGS-SPRANG-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-KINGS-SPRANG-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1066"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1066",
+   "finishedAt": "2026-09-23T15:57:35Z"
   },
   {
    "id": "PAPER-LAWRENCE-SAWIN-25",
@@ -8179,7 +8180,8 @@
    ],
    "avoidAccountOf": "PAPER-PAN-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-PAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2169"
   },
   {
    "id": "PAPER-SKINNER-20",
@@ -8294,8 +8296,9 @@
    ],
    "avoidAccountOf": "PAPER-BETTS-STIX-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BETTS-STIX-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2176"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2176",
+   "finishedAt": "2026-09-23T15:57:39Z"
   },
   {
    "id": "PAPER-BHATT-18",
@@ -10993,8 +10996,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #115"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #115",
+   "finishedAt": "2026-09-23T15:57:42Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_HeegaardFloer",
@@ -11718,7 +11722,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #135"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_StandardDistributions",
