@@ -1,0 +1,1652 @@
+{
+  "paper": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "The global Gan–Gross–Prasad conjecture for unitary groups: the endoscopic case",
+    "authors": "Raphaël Beuzart-Plessis, Pierre-Henri Chaudouard and Michał Zydor",
+    "venue": "Publications mathématiques de l'IHÉS 135 (2022), 183–336",
+    "doi": "10.1007/s10240-021-00129-1",
+    "arxiv": "2007.05601",
+    "url": "https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/",
+    "readSections": [
+      "The published version, read in full: the open-access (CC BY 4.0) PDF from Centre Mersenne, https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00129-1.pdf (107 PDF pages, journal pp. 183–336; SHA-256 a07a6143d3e71f1eca31b6ba9b774bec325a7de07c7417b7796486a77df13794; fetched 23 September 2026). Read: §1 Introduction (Theorems 1.1.5.1, 1.1.5.3, 1.1.6.1 and the announcements 1.2.3.1–1.3.3.2), §2 Preliminaries (measures, heights and weights, function spaces, Fourier coefficients, automorphic forms, relative characters, cuspidal data, kernels), §3 the coarse spectral expansion of the Jacquet–Rallis trace formula for Schwartz functions, §4 Flicker–Rallis periods of spectral kernels, §5 the ∗-regular contribution, §6 the Flicker–Rallis zeta integrals, §7 the canonical extension of the Rankin–Selberg period, §8 the second proof, §9 the local and global Flicker–Rallis functional comparison, §10 the proofs of the Gan–Gross–Prasad and Ichino–Ikeda conjectures, Appendix A (topological vector spaces) and the references. Page numbers below are the journal's; pages checked against page images where a misprint is recorded.",
+      "arXiv 2007.05601 has a single version (v1, 10 July 2020, 101 pages); its TeX source (e-print SHA-256 5e0065cda3ddc1289a8d89c2ebf802ff2dfc1a02635515ffa15482df2b3e66bf) was fetched but the published version, which is freely available and substantially revised (it adds §3 on Schwartz test functions and §8's second proof), is the version extracted.",
+      "To check the citations of Beuzart-Plessis–Liu–Zhang–Zhu, the PDFs of arXiv 1912.07169 v1 and v2 were compared with v3 (the Annals text, extracted as PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21), including the source of its Proposition 4.13 and Theorem 4.14.",
+      "Other cited inputs (Zydor, Chaudouard–Zydor, Ichino–Yamana, Jacquet–Lapid–Rogawski, Lapid, Flicker, Feigon–Lapid–Offen, Beuzart-Plessis, R. N. Harris, Mok, KMSW, Ginzburg–Rallis–Soudry, Grothendieck, Trèves) were not read; items resting on them state them as the paper uses them."
+    ]
+  },
+  "summary": "The paper proves the global Gan–Gross–Prasad conjecture (Theorem 1.1.5.1) and the Ichino–Ikeda conjecture for tempered representations (Theorem 1.1.6.1) for U(n) × U(n+1) in all endoscopic cases, that is for every Hermitian Arthur parameter Π = Ind(Π_1 ⊠ ⋯ ⊠ Π_r) of GL_n(A_E) × GL_{n+1}(A_E), not only cuspidal ones. The method is the Jacquet–Rallis comparison with the isolation multipliers of Beuzart-Plessis–Liu–Zhang–Zhu. Its new content is the linear side. §3 extends Zydor's coarse spectral expansion to Schwartz test functions and gives three truncated expressions for each I_χ. For the ∗-regular cuspidal datum χ of Π, the contribution is discrete, I_χ = 2^{−dim a_P}I_Π. It is proved twice: by truncation, through Jacquet–Lapid–Rogawski intertwining periods and Ichino–Yamana regularised Rankin–Selberg periods (§§4–5); and by zeta integrals, through the residue of Flicker's Asai integral and a canonical extension of the Rankin–Selberg period to moderate-growth functions (§§6–8). A local unfolding (§9) identifies the two relative characters. The atlas plans Arthur's notation, truncation and (G, M)-families (AA, AS.3, AS.6), the spectral decomposition (AS.4), Eisenstein series (AS.1–AS.2), automorphic forms (AF), Rankin–Selberg theory (AL.3), Mok/KMSW (ML.4) and the GRS descent (ML.5). The Jacquet–Rallis comparison, the isolation Part II and the Gan–Gross–Prasad framework are pending candidates, and this extraction extends them. Asai L-functions and the periods of Eisenstein series on general linear groups are planned nowhere; they become a new Part II of AutomorphicLFunctionsAndLocalFactors. Ten source issues are recorded. The one of substance (E1): the final argument invokes Beuzart-Plessis–Liu–Zhang–Zhu Theorem 4.14(4) for a non-cuspidal base change, which is exactly where that theorem's printed proof has a gap.",
+  "items": [
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/1",
+      "kind": "definition",
+      "name": "Hermitian spaces and the unitary pairs U′_h ⊂ U_h",
+      "statement": "E/F is a quadratic extension of number fields with Galois involution c and quadratic idèle class character η. ℋ_n is the set of isomorphism classes of non-degenerate c-hermitian spaces over E of rank n, and h_0 ∈ ℋ_1 is the norm form N_{E/F}. For h ∈ ℋ_n: U′_h = U(h), U_h = U(h) × U(h ⊕ h_0), with the diagonal embedding U′_h ↪ U_h. [H] = H(F)∖H(A) carries the quotient of a Haar measure by the counting measure.",
+      "locator": "§1.1.2, p. 184",
+      "status": "missing",
+      "note": "The relevant pairs of GanGrossPrasadConjecturesForClassicalGroups specialised to U(n) × U(n+1) with W⊥ of dimension 1; hermitian forms come from GeometryOfNumbersAndQuadraticArithmetic GN.2."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/2",
+      "kind": "definition",
+      "name": "Hermitian Arthur parameters of G_n = Res_{E/F} GL_n and the group S_Π",
+      "statement": "A Hermitian Arthur parameter of G_n (strictly, a generic discrete one) is an irreducible automorphic representation Π for which there are a partition n_1 + ⋯ + n_r = n and cuspidal Π_i of G_{n_i}(A) with: (1) each Π_i conjugate self-dual with L(s, Π_i, As^{(−1)^{n+1}}) having a pole at s = 1; (2) the Π_i mutually non-isomorphic; (3) Π ≅ Ind^{G_n}_P(Π_1 ⊠ ⋯ ⊠ Π_r) (full normalised induction, P with Levi G_{n_1} × ⋯ × G_{n_r}). r and the Π_i are unique up to order, and S_Π = (ℤ/2)^r. For G = G_n × G_{n+1}, a Hermitian Arthur parameter is Π = Π_n ⊠ Π_{n+1} with Π_i one for G_i, and S_Π = S_{Π_n} × S_{Π_{n+1}}.",
+      "locator": "§1.1.3 and Remark 1.1.3.1, pp. 184–185",
+      "status": "missing",
+      "note": "Extends the cuspidal 'hermitian' representations of Definition 1.5 of Beuzart-Plessis–Liu–Zhang–Zhu to isobaric sums; S_Π is the component group of the generic discrete parameter. Arthur parameters themselves are ML.4."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/3",
+      "kind": "definition",
+      "name": "Weak (and strong) base change from U_h to G",
+      "statement": "For h ∈ ℋ_n and σ a cuspidal automorphic representation of U_h(A), a Hermitian Arthur parameter Π of G is a weak base change of σ, written Π = BC(σ), if Π_v is the split local base change of σ_v for almost all places v of F split in E. By Mok and Kaletha–Mínguez–Shin–White a σ with a weak base change has a strong one (Π_v the local base change of σ_v at every v), and by Ramakrishnan a weak base change is automatically strong; the theorems are stated with the weak notion to keep them independent of Mok and KMSW.",
+      "locator": "§1.1.4 and Remark 1.1.4.1, p. 185",
+      "status": "missing",
+      "note": "Definition 1.6 of Beuzart-Plessis–Liu–Zhang–Zhu, already added to this candidate, is the same notion; here the target is a Hermitian Arthur parameter rather than a hermitian cuspidal representation."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/4",
+      "kind": "definition",
+      "name": "Local normalised periods P♮_{h,σ_v} and the Ichino–Ikeda L-value 𝓛(s, σ)",
+      "statement": "For σ = ⊗′σ_v cuspidal on U_h(A), tempered everywhere, with (strong) base change Π: 𝓛(s, σ) = ∏_{i=1}^{n+1} L(s + i − ½, η^i) · L(s, Π)/L(s + ½, σ, Ad) (completed; Ad via the local Langlands correspondence of Mok, KMSW), and 𝓛(s, σ_v) its local quotient. For an invariant inner product (·,·)_v on σ_v and a Haar measure on U′_h(F_v): P♮_{h,σ_v}(φ_v, φ′_v) = 𝓛(½, σ_v)^{−1} ∫_{U′_h(F_v)} (σ_v(h_v)φ_v, φ′_v)_v dh_v, absolutely convergent by temperedness (R. N. Harris, Prop. 2.1), and 𝓛(s, σ_v) has neither zero nor pole at s = ½. For φ = ⊗′φ_v, P♮_{h,σ_v}(φ_v, φ_v) = vol(U′_h(O_v))(φ_v, φ_v)_v for almost all v (Harris, Thm. 2.12) (1.1.6.1). The Petersson product is (φ, φ)_Pet = ∫_{[U_h]} |φ|².",
+      "locator": "§1.1.6, pp. 186–187",
+      "status": "missing",
+      "note": "The ingredients of the refined (Ichino–Ikeda) conjecture in Harris's formulation, which Beuzart-Plessis–Liu–Zhang–Zhu added to this candidate; the local absolute convergence and unramified computation are Harris's theorems, imported as cited."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/5",
+      "kind": "theorem",
+      "name": "Theorem 1.1.5.1: the global Gan–Gross–Prasad conjecture for U(n) × U(n+1) (all Hermitian Arthur parameters)",
+      "statement": "Let Π be a Hermitian Arthur parameter of G = G_n × G_{n+1}. Then the following are equivalent: (1) the complete Rankin–Selberg L-function satisfies L(½, Π) ≠ 0 (all places, including archimedean ones); (2) there are h ∈ ℋ_n and an irreducible cuspidal automorphic subrepresentation σ of U_h such that Π is a weak base change of σ and the period 𝒫_h(φ) = ∫_{[U′_h]} φ(h) dh is a non-zero linear form on σ.",
+      "locator": "Theorem 1.1.5.1, pp. 185–186; proof §10.2, pp. 322–323",
+      "status": "missing",
+      "note": "The simple (cuspidal Π) case is Theorem 1.8 of Beuzart-Plessis–Liu–Zhang–Zhu (cited here as its Theorem 1.7, see sourceIssues E2). The proof uses Proposition 10.1.6.1, which invokes BPLZZ Theorem 4.14(4) in the non-cuspidal case where its printed proof has a gap (sourceIssues E1). Proved statement of the consumer of GanGrossPrasadConjecturesForClassicalGroups."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/6",
+      "kind": "theorem",
+      "name": "Theorem 1.1.5.3: non-vanishing of central Rankin–Selberg values",
+      "statement": "Let Π_{n+1} be a Hermitian Arthur parameter of G_{n+1}. There is a simple (cuspidal) Hermitian Arthur parameter Π_n of G_n with L(½, Π_n × Π_{n+1}) ≠ 0.",
+      "locator": "Theorem 1.1.5.3, p. 186",
+      "status": "missing",
+      "note": "Deduced from Theorem 1.1.5.1 word for word as W. Zhang (Ann. of Math. 180 (2014), Thm. 1.2), via the Burger–Sarnak trick and automorphic descent; the paper gives no further proof."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/7",
+      "kind": "theorem",
+      "name": "Theorem 1.1.6.1: the Ichino–Ikeda conjecture for tempered σ on U(n) × U(n+1)",
+      "statement": "Let σ be a cuspidal automorphic representation of U_h, tempered at every place, and Π = Π_n ⊠ Π_{n+1} its weak (hence strong) base change to G. Normalise 𝒫_h and (·,·)_Pet by the Tamagawa measures (which include the global normalising L-values, §2.3) and let the local Haar measures dh_v on U′_h(F_v) factorise the Tamagawa measure. Then for every non-zero factorisable φ = ⊗′φ_v ∈ σ: |𝒫_h(φ)|²/(φ, φ)_Pet = |S_Π|^{−1} 𝓛(½, σ) ∏_v P♮_{h,σ_v}(φ_v, φ_v)/(φ_v, φ_v)_v.",
+      "locator": "Theorem 1.1.6.1, p. 187; proof §10.3, pp. 323–326",
+      "status": "missing",
+      "note": "The product is well defined by (1.1.6.1). Proved for cuspidal Π (|S_Π| = 4) by Beuzart-Plessis–Liu–Zhang–Zhu. The proof reduces by W. Zhang's Lemma 1.7 (J. Amer. Math. Soc. 27 (2014)) to the identity (10.3.2.1) of relative characters."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/8",
+      "kind": "definition",
+      "name": "Arthur's notation for parabolic subgroups, chambers and truncation parameters",
+      "statement": "For G reductive over F with minimal parabolic P_0 = M_0N_0: a*_G = X*(G) ⊗ ℝ, a_G = Hom(X*(G), ℝ), H_G: G(A) → a_G with ⟨χ, H_G(g)⟩ = log|χ(g)|, G(A)^1 = ker H_G; for semi-standard P the Harish-Chandra map H_P: G(A) → a_P through the Iwasawa decomposition G(A) = P(A)K; the decompositions a_P = a^Q_P ⊕ a_Q, a*_P = a^{Q,*}_P ⊕ a*_Q; ρ^Q_P, δ^Q_P; the simple roots Δ^Q_P, coroots Δ^{Q,∨}_P, weights Δ̂^Q_P and the characteristic functions τ^Q_P, τ̂^Q_P; Weyl sets W(P, Q) and 𝒫(M); a truncation parameter T ∈ a_0 with ⟨α, T⟩ large for α ∈ Δ_0 and its translates T_P; Siegel domains 𝔰_P = ω_0{a ∈ A^∞_0 : ⟨α, H_0(a)⟩ ≥ ⟨α, T_−⟩, α ∈ Δ^P_0}K with G(A) = M_P(F)N_P(A)𝔰_P.",
+      "locator": "§§2.2.1–2.2.13, pp. 197–200",
+      "status": "planned",
+      "planned": [
+        "AdelicAlgebraicGroups:AA.2",
+        "AdelicAlgebraicGroups:AA.3",
+        "AutomorphicSpectralTheory:AS.3"
+      ],
+      "note": "Notation of Arthur (Duke 1978, §§5–6); the character spaces and H_G are AA.2, Siegel domains AA.3 and the chambers and truncation parameter AS.3."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/9",
+      "kind": "definition",
+      "name": "Haar and Tamagawa measures, with the global normalising L-values",
+      "statement": "a_P gets the Haar measure giving Hom(X*(P), ℤ) covolume 1 and ia*_P the dual measure, so vol(ia*_P/iX*(P)) = (2π)^{−dim a_P}; θ_P(λ) = vol(a^G_P/ℤ(Δ^∨_P))^{−1} ∏_{α∈Δ_P} ⟨λ, α^∨⟩. For a connected linear algebraic group H over F, choose a rational invariant volume form ω_H and ψ′; the local measures dh_v = |ω_H|_{ψ′_v} satisfy vol(H(O_v)) = Δ_{H,v}^{−1} for almost all v, where Δ_{H,v} = L_{H,v}(0) and L_H is Gross's Artin–Tate L-function of H; the Tamagawa measure is dh = (Δ*_H)^{−1} ∏_v Δ_{H,v} dh_v with Δ*_H = L*_H(0) the leading coefficient, and partial versions dh^S = (Δ^{S,*}_H)^{−1} ∏_{v∉S} Δ_{H,v} dh_v give dh = dh_S × dh^S. For GL_n, L_H(s) = ζ_F(s + 1)⋯ζ_F(s + n) and ω_H = (det h)^{−n} ∧ dh_{ij}. [G], [G]_P and [G]_{P,0} = A^∞_P∖[G]_P carry the induced quotient (semi-invariant) measures.",
+      "locator": "§2.3, pp. 200–202",
+      "status": "planned",
+      "planned": [
+        "AdelicAlgebraicGroups:AA.2"
+      ],
+      "note": "AA.2 constructs Tamagawa measures from invariant forms and convergence factors; the normalisation by L*_H(0) of Gross's motive must be recorded explicitly, since the paper's Tamagawa measures include the global L-values (footnote 3). The GL_n form is printed (det h)^{−1}∧dh_{ij} (sourceIssues E10)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/10",
+      "kind": "definition",
+      "name": "Heights on G(A), on [G]_P and on adelic vector spaces",
+      "statement": "From a faithful ι: G ↪ GL_N, ‖g‖ = ∏_v max_{i,j}(|ι(g)_{ij}|_v, |ι(g^{−1})_{ij}|_v), independent up to powers of the choice; 1 ≪ ‖g‖, ‖gh‖ ≪ ‖g‖‖h‖, ‖g‖ = ‖g^{−1}‖. ‖x‖_P = inf_{γ ∈ M_P(F)N_P(A)} ‖γx‖ and σ_P = 1 + log‖·‖_P on [G]_P, with ‖x‖_Q ≪ ‖x‖_P for P ⊂ Q, ‖g‖_P ∼ ‖g‖ on Siegel domains, ‖m‖_{M_P} ∼ ‖m‖_P, compatibility with reductive subgroups (2.4.1.5) and ‖a‖ ≪ ‖ax‖_P for a ∈ A^∞_P, H_P(x) = 0 (2.4.1.6). For a finite-dimensional F-vector space V with basis v_i, ‖Σx_iv_i‖_V = ∏_v max(1, |x_1|_v, …, |x_d|_v).",
+      "locator": "§§2.4.1–2.4.2, pp. 202–203",
+      "status": "planned",
+      "planned": [
+        "AutomorphicFormsOnReductiveGroups:AF.0",
+        "AdelicAlgebraicGroups:AA.3"
+      ],
+      "note": "Height functions from faithful embeddings and their comparability are AF.0; the estimates on Siegel domains are AA.3 (Mœglin–Waldspurger I.2.2)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/11",
+      "kind": "definition",
+      "name": "Weights on [G]_P and Franke's weights d_{P,λ}",
+      "statement": "A weight on [G]_P is a positive measurable w with w(xk) ∼ w(x) for k in any compact subset of G(A) (Bernstein, Franke). Lemma 2.4.3.1: every weight satisfies w(xg) ≪ w(x)‖g‖^{N_0} for some N_0. By Franke (Prop. 2.1), for λ ∈ a*_0 there is a weight d_{P,λ} ∼ exp⟨λ, H_0(x)⟩ on Siegel domains, with d_{P,tλ} ∼ d_{P,λ}^t, d_{P,λ+μ} ∼ d_{P,λ}d_{P,μ}, d_{P,λ} ≪ d_{P,μ} if λ ≺_P μ, and ‖x‖_P ∼ max_{λ∈Λ^P_ι} d_{P,λ}(x) (2.4.3.13). Lemma 2.4.3.2: for λ ∈ a*^{P+}_0, d_{P,λ}(x) ∼ sup_{γ∈P(F)} e^{⟨λ, H_0(γx)⟩}; Corollary 2.4.3.3: d_{Q,λ} ≪ d_{P,λ} on Q(F)∖G(A) for Q ⊂ P.",
+      "locator": "§2.4.3, Lemmas 2.4.3.1–2.4.3.2, Corollary 2.4.3.3, pp. 204–206",
+      "status": "missing",
+      "note": "Weighted L²-analysis on [G]_P (Franke, Ann. Sci. ENS 1998) is not planned; it is the frame for the function spaces of this Part II."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/12",
+      "kind": "theorem",
+      "name": "Lemma 2.4.4.1: reduction theory near infinity",
+      "statement": "For standard P ⊂ Q and the natural projections π^Q_P: P(F)N_Q(A)∖G(A) → [G]_P and π^P_Q → [G]_Q, with ω^Q_P[> C] = {d^Q_P > C} where d^Q_P(x) = min_{α∈Σ^Q_P} d_{P,α}(x): (1) for some ε > 0, π^P_Q maps ω^Q_P[> ε] onto [G]_Q; (2) on ω^Q_P[> ε], d_{P,λ} ∼ d_{Q,λ}, d^Q_P ∼ d^P_Q and ‖·‖_P ∼ ‖·‖_Q; (3) the fibres of π^P_Q on ω^Q_P[> ε] have at most cε^{−r} points; (4) for every ε there is C with π^P_Q injective on pairs in ω^Q_P[> ε] × ω^Q_P[> C]; (5) π^P_Q is a local measure-preserving homeomorphism and π^Q_P is proper, pushing the invariant measure forward to the invariant measure.",
+      "locator": "Lemma 2.4.4.1, pp. 206–207",
+      "status": "planned",
+      "planned": [
+        "AdelicAlgebraicGroups:AA.3"
+      ],
+      "note": "Siegel domains and Langlands's Lemmas 2.11–2.12 (Springer LNM 544): the reduction theory of AA.3, 'finite intersection properties' included."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/13",
+      "kind": "definition",
+      "name": "Neighbourhoods of infinity: the weights d^Q_P, d^P_Q and their restriction to subgroups",
+      "statement": "For standard P ⊂ Q with Σ^Q_P the roots of A_0 in 𝔫_P/𝔫_Q: d^Q_P(x) = min_{α∈Σ^Q_P} d_{P,α}(x) on [G]_P and d^P_Q(x) = min_{α∈Σ^Q_P} d_{Q,α}(x) on [G]_Q, with d^Q_P(x) ≪ min_{α∈Δ^Q_0∖Δ^P_0} d_{P,α}(x) ≪ max(d^Q_P, (d^Q_P)^{1/n}) and d^Q_P ≪ d^P_Q on P(F)N_Q(A)∖G(A) (2.4.4.19). Lemma 2.4.4.2: for H ⊂ G reductive with P_H = P ∩ H, Q_H = Q ∩ H parabolic with unipotent radicals N_P ∩ H, N_Q ∩ H, d^Q_P(h) ≪ d^{Q_H}_{P_H}(h) on [H]_{P_H}, with equivalence when G = Res_{K/F}H_K and P, Q are the restrictions of scalars.",
+      "locator": "§2.4.4 and Lemma 2.4.4.2, pp. 206–208",
+      "status": "missing",
+      "note": "Used throughout §3 for the Jacquet–Rallis weights; general reduction-theory statements stay in AA.3."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/14",
+      "kind": "definition",
+      "name": "Harish-Chandra's Ξ-function on [G]_P",
+      "statement": "Ξ^P(x) = vol_{[G]_P}(xU)^{−1/2} for a compact neighbourhood U of 1 (independent up to equivalence), Ξ^P ∼ d_{P,ρ_0} (2.4.5.23), ∫_{[G]_P} Ξ^P(g)² σ_P(g)^{−d_0} dg < ∞ for some d_0 (Lapid 2013, §2 (9)) (2.4.5.24), and Ξ^P(g) ≪ ‖g‖^{N_0}_P (2.4.5.25).",
+      "locator": "§2.4.5, p. 208",
+      "status": "missing",
+      "note": "The global Ξ-function of Lapid's Harish-Chandra Schwartz space of G(F)∖G(A)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/15",
+      "kind": "definition",
+      "name": "The global Schwartz space 𝒮(G(A)) as a convolution algebra",
+      "statement": "For compact C ⊂ G(A_f) and compact-open J ⊂ K^∞, 𝒮(G(A), C, J) is the Fréchet space of smooth J-bi-invariant f supported in G(F_∞) × C with ‖f‖_{r,X,Y} = sup_g ‖g‖^r |(R(X)L(Y)f)(g)| < ∞ for all r and X, Y ∈ 𝒰(𝔤_∞); 𝒮(G(A)) is their locally convex direct limit, a strict LF space and an algebra under convolution containing C_c^∞(G(A)) densely; C^r_c(G(A)) is spanned by products f_∞f^∞ with f_∞ of class C^r compactly supported. 𝒮(A^n) is defined with the height ‖·‖_{A^n}.",
+      "locator": "§2.5.2, p. 209",
+      "status": "missing",
+      "note": "Coalesces with the Schwartz test functions of Definition 3.1 of Beuzart-Plessis–Liu–Zhang–Zhu in this Part II."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/16",
+      "kind": "definition",
+      "name": "F-, SF- and SLF-representations of G(A) and smooth vectors",
+      "statement": "A Fréchet representation V of G(A) is an F-representation if its topology is given by seminorms for each of which the action is continuous (Bernstein–Krötz); v is smooth if g ↦ gv is smooth, V^∞ is invariant and (V^∞)^J with the seminorms v ↦ ‖Xv‖ is an SF representation of G(F_∞), making V^∞ a strict LF space. An SLF representation is a G(A)-space V with Fréchet structures on each V^J making V^J an SF representation of G(F_∞), V = ∪_J V^J and V^J ⊂ V^{J′} closed. 𝒮(G(A)) acts by f·v = ∫ f(g) g·v dg and V^∞ = 𝒮(G(A))·V (Dixmier–Malliavin) (2.5.3.2). Lemma 2.5.4.1: a closed invariant subspace of an SLF representation is SLF and its LF topology is the induced one; hence equivariant morphisms of SLF representations with closed image are embeddings.",
+      "locator": "§§2.5.3–2.5.4 and Lemma 2.5.4.1, pp. 209–211",
+      "status": "missing",
+      "note": "The representation-theoretic frame for all function spaces of §§2.5–2.9."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/17",
+      "kind": "theorem",
+      "name": "The Dixmier–Malliavin theorem",
+      "statement": "Every smooth vector of a (smooth Fréchet) representation of a real Lie group is a finite sum of vectors π(f)v with f ∈ C_c^∞; hence V^∞ = 𝒮(G(A))·V for every F- or SLF-representation of G(A), and 𝒮(G(A)) = 𝒮(G(A)) ∗ C_c^∞(G(A)).",
+      "locator": "(2.5.3.2), p. 210; used in Lemma 2.5.11.1, Corollary 2.5.15.2, Theorem 2.9.8.1 and Proposition 3.4.3.1",
+      "status": "missing",
+      "note": "Dixmier–Malliavin, Bull. Sci. Math. 102 (1978). PAPER-JIANG-ZHANG-20 routes the same lemma as a source of AF.1; this route coalesces with it."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/18",
+      "kind": "definition",
+      "name": "Weighted L²-spaces and the Sobolev inequality on [G]_P",
+      "statement": "For a weight w on [G]_P, L²_w([G]_P) is the Hilbert space of functions square-integrable for w(g)dg, a continuous representation of G(A); its smooth vectors satisfy |φ(g)| ≪ Ξ^P(g)w(g)^{−1/2} (Bernstein's key lemma) (2.5.5.4); every continuous linear form T on L²_w([G]_P)^∞ and f ∈ 𝒮(G(A)) give φ ∈ L²_{w^{−1}}([G]_P)^∞ with T(R(f)ψ) = ⟨ψ, φ⟩_P (2.5.5.5); notation L²_{N,w} = L²_{‖·‖^N_P w}, L²_{σ,d,w} = L²_{σ^d_P w}. Proposition 2.5.5.1: there is d_0 ≥ 0 such that L²_{σ,d_0,w}([G]_P)^{∞,J} ⊂ L²_w([G]_P)^{∞,J} is nuclear for every J and w (Bernstein 1988), so summable families there become absolutely summable.",
+      "locator": "§2.5.5 and Proposition 2.5.5.1, pp. 211–212",
+      "status": "missing",
+      "note": "Bernstein, On the support of Plancherel measure (1988), p. 688 and §3.4."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/19",
+      "kind": "definition",
+      "name": "Function spaces on [G]_P: 𝒮, 𝒞, 𝒯 and their weighted variants",
+      "statement": "𝒮_0([G]_P) (rapid decay, seminorms sup ‖x‖^N_P|φ|), 𝒮_{00} its continuous functions; the Schwartz space 𝒮([G]_P) (smooth, sup ‖x‖^N_P|R(X)φ| < ∞) = 𝒮_{00}([G]_P)^∞ = ∩_N L²_N([G]_P)^∞; the Harish-Chandra Schwartz space 𝒞([G]_P) (sup Ξ^P(x)^{−1}σ_P(x)^d|R(X)φ| < ∞) = ∩_d L²_{σ,d}([G]_P)^∞; 𝒯^0_w([G]_P) (Radon measures with ∫w^{−1}|φ| < ∞) and 𝒯^0 = ∪_N 𝒯^0_N, dual to 𝒮_{00}; 𝒯_w([G]_P) (sup w^{−1}|R(X)φ| < ∞), the uniform moderate growth space 𝒯([G]_P) = ∪_N 𝒯_N([G]_P) = ∪_N L²_{−N}([G]_P)^∞; 𝒮_{w,N}([G]_P) (sup ‖x‖^{−N}_P w(x)^r|R(X)φ| < ∞ for all r) and 𝒮_w = ∪_N 𝒮_{w,N} = ∪_N ∩_r L²_{−N,w^r}([G]_P)^∞, all SLF representations. 𝒮 is dense in 𝒞, 𝒯 and 𝒮_w (but usually not in 𝒯_N or 𝒮_{w,N}). Lemma 2.5.11.1: if φ ∈ 𝒯^0([G]_P) and w is bounded on its support then R(f)φ ∈ 𝒮_w([G]_P) for f ∈ 𝒮(G(A)).",
+      "locator": "§§2.5.6–2.5.11, Lemma 2.5.11.1, pp. 212–215",
+      "status": "missing",
+      "note": "The Harish-Chandra Schwartz space of G(F)∖G(A) is Lapid's (TIFR 2013), there written 𝒮(G(F)∖G(A)); uniform moderate growth for all derivatives is also named in AF.0, which does not plan these topologies."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/20",
+      "kind": "theorem",
+      "name": "Nuclearity and tensor-product decompositions of 𝒮([G]) and 𝒞([G])",
+      "statement": "For every compact-open J, 𝒮([G]_P)^J and 𝒞([G]_P)^J are nuclear Fréchet spaces (Bernstein 1988, end of §3.5; Casselman 1989). For G = G_1 × G_2 and J = J_1 × J_2 there are topological isomorphisms 𝒮([G_1])^{J_1} ⊗̂ 𝒮([G_2])^{J_2} ≃ 𝒮([G])^J and 𝒞([G_1])^{J_1} ⊗̂ 𝒞([G_2])^{J_2} ≃ 𝒞([G])^J sending φ_1 ⊗ φ_2 to (g_1, g_2) ↦ φ_1(g_1)φ_2(g_2); so continuous forms L_1, L_2 on 𝒞([G_i]) give L_1 ⊗̂ L_2 on 𝒞([G]).",
+      "locator": "(2.5.12.10)–(2.5.12.11), p. 215",
+      "status": "missing",
+      "note": "Proved by Grothendieck's description of completed tensor products (A.0.7.8) as in Beuzart-Plessis's Astérisque 418, Prop. 4.4.1(v)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/21",
+      "kind": "definition",
+      "name": "Constant terms and pseudo-Eisenstein series on 𝒮_0 and 𝒯^0",
+      "statement": "For standard P ⊂ Q: the G(A)-equivariant continuous maps E^Q_P: 𝒮_0([G]_P) → 𝒮_0([G]_Q), E^Q_P(φ)(x) = Σ_{γ∈P(F)∖Q(F)} φ(γx), and φ ↦ φ_P: 𝒯^0([G]_Q) → 𝒯^0([G]_P), on 𝒯([G]_Q) given by φ_P(x) = ∫_{[N_P]} φ(ux) du; E^Q_P sends 𝒮([G]_P) into 𝒮([G]_Q), φ ↦ φ_P sends 𝒯_N([G]_Q) into 𝒯_N([G]_P), and ⟨φ_P, ψ⟩_P = ⟨φ, E^Q_P(ψ)⟩_Q (2.5.13.12). Lemma 2.5.13.1: there is c > 0 with φ ↦ sup_x δ^Q_P(x)^{cN}‖x‖^N_P|φ_P(x)| a continuous seminorm on 𝒮_0([G]_Q) for every N.",
+      "locator": "§2.5.13 and Lemma 2.5.13.1, pp. 215–216",
+      "status": "missing",
+      "note": "Constant terms of automorphic forms are AF.3; their extension to these measure and function spaces and the adjoint pseudo-Eisenstein map are new here."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/22",
+      "kind": "theorem",
+      "name": "Proposition 2.5.14.1: approximation by the constant term",
+      "statement": "(1) For N > 0, r ≥ 0 and X ∈ 𝒰(𝔤_∞) there is a continuous seminorm ‖·‖_{N,X,r} on 𝒯_N([G]_Q) with |R(X)φ(x) − R(X)φ_P(x)| ≤ ‖x‖^N_P d^Q_P(x)^{−r}‖φ‖_{N,X,r} for x ∈ P(F)N_Q(A)∖G(A). (2) For a weight w on [G]_Q and φ ∈ L²_w([G]_Q)^∞ there is N with ∫_{A^∞_Q} |φ(ax) − φ_P(ax)|² w(a)δ_Q(a)^{−1} da ≪_r ‖x‖^N_P d^Q_P(x)^{−r} for every r.",
+      "locator": "Proposition 2.5.14.1, pp. 216–218",
+      "status": "missing",
+      "note": "Reformulates Mœglin–Waldspurger, Ann. Sci. ENS 1989, Lemma I.2.10, iterated along a flag of maximal parabolics."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/23",
+      "kind": "theorem",
+      "name": "Proposition 2.5.15.1 and Corollary 2.5.15.2: weighted constant terms and pseudo-Eisenstein series",
+      "statement": "For P ⊂ Q and every weight w on [G]_Q there are weights w^±_P on [G]_P with φ ↦ φ_P continuous L²_w([G]_Q) → L²_{w^−_P}([G]_P), E^Q_P extending continuously L²_{w^+_P}([G]_P) → L²_w([G]_Q), and w^+_P ∼ w ∼ w^−_P on ω^Q_P[> ε] for every ε > 0. If w, w′ agree on A^∞_Q: for w′ ≪ w, φ ↦ ((φ_P)_{P⊊Q}, φ) is a closed embedding L²_w([G]_Q)^∞ → ∏_{P⊊Q} L²_{w^−_P}([G]_P)^∞ × L²_{w′}([G]_Q)^∞; dually, for w′ ≫ w, ((φ_P), φ) ↦ φ + Σ_{P⊊Q} E^Q_P(φ_P) is an open surjection onto L²_w([G]_Q)^∞.",
+      "locator": "Proposition 2.5.15.1 and Corollary 2.5.15.2, pp. 218–221",
+      "status": "missing",
+      "note": "Partly after Franke 1998, §4, p. 204; the induction step of Theorem 2.9.4.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/24",
+      "kind": "theorem",
+      "name": "Lemma 2.6.1.1: decay of Fourier coefficients along unipotent radicals",
+      "statement": "Let V_P be the additive characters N_P → G_a, ℓ ∈ V_P(F), ψ_ℓ = ψ ∘ ℓ_A and φ_{N_P,ψ_ℓ}(g) = ∫_{[N_P]} φ(ug)ψ_ℓ(u)^{−1} du. (1) There is c > 0 such that for all N_1, N_2 ≥ 0, φ ↦ sup_{m∈M_P(A)} ‖Ad*(m^{−1})ℓ‖^{N_1}_{V_P}‖m‖^{N_2}_{M_P}δ_P(m)^{cN_2}|φ_{N_P,ψ_ℓ}(m)| is a continuous seminorm on 𝒮([G]); (2) for N > 0 and every N_1, φ ↦ sup_m ‖Ad*(m^{−1})ℓ‖^{N_1}_{V_P}‖m‖^{−N}_{M_P}|φ_{N_P,ψ_ℓ}(m)| is a continuous seminorm on 𝒯_N([G]).",
+      "locator": "Lemma 2.6.1.1, pp. 221–222",
+      "status": "missing",
+      "note": "The convergence input for the Flicker–Rallis and Rankin–Selberg zeta integrals of §§6–7; the local facts (2.6.1.3)–(2.6.1.4) are left to the reader."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/25",
+      "kind": "theorem",
+      "name": "Lemma 2.6.2.1: convergence of the mirabolic Epstein-type integral",
+      "statement": "With P_n the mirabolic subgroup of GL_n (stabiliser of e_n = (0, …, 0, 1) for the right action) and A^∞_{GL_n} ≅ ℝ_{>0}: for C > 1 and N_1, N_2 ≫_C 1, ∫_{P_n(F)∖GL_n(A)×ℝ_{>0}} ‖ag‖^{−N_1}_{GL_n}‖e_n g‖^{−N_2}_{A^n}|det g|^s da dg converges for s ∈ ℋ_{]1,C[}, uniformly on closed vertical strips.",
+      "locator": "Lemma 2.6.2.1, pp. 222–223",
+      "status": "missing",
+      "note": "Uses ∫_{[GL_n]} ‖g‖^{−N} < ∞ (Beuzart-Plessis, JIMJ 2021, Prop. A.1.1(vi))."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/26",
+      "kind": "definition",
+      "name": "Spaces of automorphic forms 𝒜_P(G) with their SLF topologies",
+      "statement": "𝒜_P(G) is the space of 𝒵(𝔤_∞)-finite functions in 𝒯([G]_P); 𝒜_{P,cusp}(G) (φ_Q = 0 for all Q ⊊ P) and 𝒜_{P,disc}(G) (|φ| ∈ L²([G]_{P,0})); for an ideal 𝒥 ⊂ 𝒵(𝔤_∞) of finite codimension 𝒜_{P,𝒥}(G) is closed in some 𝒯_N([G]_P), with the induced topology (independent of N), and these are SLF representations; 𝒜_P(G) = ⊕_𝔪 𝒜_P(G)_𝔪 over maximal ideals 𝔪, each a strict LF space.",
+      "locator": "§2.7.1, pp. 223–224",
+      "status": "planned",
+      "planned": [
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicFormsOnReductiveGroups:AF.3"
+      ],
+      "note": "Automorphic forms, cusp forms and square-integrable forms are AF.2–AF.3; the SLF topologies are part of the function-space layer of the AS Part II."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/27",
+      "kind": "definition",
+      "name": "Cuspidal and discrete automorphic representations, their inductions and Petersson products",
+      "statement": "A cuspidal (discrete) automorphic representation π of M_P(A) is a topologically irreducible subrepresentation of 𝒜_cusp(M_P) (𝒜_disc(M_P)), an SLF representation whose (𝔤_∞, K_∞)-module π^J_{(K_∞)} has π^J as its Casselman–Wallach globalisation; twists π_λ (λ ∈ a*_{P,ℂ}); isotypic parts 𝒜_{π,cusp}(M_P), 𝒜_{π,disc}(M_P); the normalised inductions Π = Ind^{G(A)}_{P(A)}(π) and 𝒜_{P,π,cusp}(G), 𝒜_{P,π,disc}(G), identified with forms φ ∈ 𝒜_P(G) with m ↦ e^{−⟨ρ_P,H_P(m)⟩}φ(mg) in π, the action I_P(λ) of 𝒮(G(A)) transported from π_λ, and the Petersson norm ‖φ‖²_Pet = ∫_{[G]_{P,0}} |φ|². For G = G_1 × G_2, Π^J = Π_1^{J_1} ⊗̂ Π_2^{J_2} (2.7.5.1).",
+      "locator": "§2.7.2 and §2.7.5, pp. 224–227",
+      "status": "planned",
+      "planned": [
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicSpectralTheory:AS.1"
+      ],
+      "note": "Casselman–Wallach globalisation is AF.1 (Casselman; Wallach, Ch. 11; Bernstein–Krötz); automorphic representations and induced families AF.2 and AS.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/28",
+      "kind": "theorem",
+      "name": "Eisenstein series and intertwining operators for smooth discrete automorphic forms",
+      "statement": "For φ ∈ 𝒜_{P,disc}(G) and λ ∈ a*_{P,ℂ}, E(g, φ, λ) = Σ_{δ∈P(F)∖G(F)} e^{⟨λ,H_P(δg)⟩}φ(δg) converges for Re λ in a cone and continues meromorphically to a*_{P,ℂ} (Langlands; Bernstein–Lapid for K_∞-finite φ; Lapid 2008 for smooth φ); at regular λ, φ ↦ E(φ, λ) is continuous Π → 𝒯_N([G]) for some N (Lapid 2008, Thm. 2.2, and the closed graph theorem). The intertwining operators M(w, λ): 𝒜_{P,disc}(G) → 𝒜_{Q,disc}(G), w ∈ W(P, Q), given by the usual integral over (N_Q ∩ wN_Pw^{−1})(A)∖N_Q(A), continue likewise.",
+      "locator": "§§2.7.3–2.7.4, pp. 225–226",
+      "status": "planned",
+      "planned": [
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2"
+      ],
+      "note": "AS.1–AS.2 plan convergence, meromorphic continuation and functional equations; the extension to smooth (not K_∞-finite) forms and the continuity into 𝒯_N([G]) of Lapid's 'A remark on Eisenstein series' must be included there."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/29",
+      "kind": "definition",
+      "name": "Global Whittaker models of induced representations",
+      "statement": "For G quasi-split and a non-degenerate character ψ_N of N_0(A) trivial on N_0(F), a ψ_N-generic Π (with a continuous ψ_N-equivariant form ℓ) is isomorphic to W(Π, ψ_N) = {g ↦ ℓ(Π(g)φ)}, topologised from Π; for G = G_1 × G_2, W(Π_1, ψ_1)^{J_1} ⊗̂ W(Π_2, ψ_2)^{J_2} ≃ W(Π, ψ_N)^J.",
+      "locator": "§2.7.6, pp. 226–227",
+      "status": "planned",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ],
+      "note": "AL.3 plans global and archimedean Whittaker functionals with completed tensor products."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/30",
+      "kind": "theorem",
+      "name": "Proposition 2.8.4.1: relative characters of Schwartz functions converge",
+      "statement": "Let B: 𝒜_{P,π}(G) × 𝒜_{P,π}(G) → ℂ be continuous sesquilinear (𝒜_{P,π} cuspidal or discrete) and ω ⊂ a^{G,*}_P compact. For f ∈ 𝒮(G(A)) and any K-basis ℬ_{P,π} (union over τ ∈ K̂ of Petersson-orthonormal bases of the τ-isotypic parts), Σ_{φ∈ℬ_{P,π}} I_P(λ, f)φ ⊗ φ̄ converges absolutely in 𝒜_{P,π}(G) ⊗̂ 𝒜_{P,π}(G) uniformly for Re λ ∈ ω, so J_B(λ, f) = Σ_φ B(I_P(λ, f)φ, φ) converges absolutely, independently of the basis; and f ↦ J_B(λ, f) is continuous, with a single continuous seminorm on 𝒮(G(A), C, K_0) bounding it for Re λ ∈ ω (also for f ∈ C^r_c with r large, Remark 2.8.4.2).",
+      "locator": "Proposition 2.8.4.1 and Remark 2.8.4.2, pp. 227–229",
+      "status": "missing",
+      "note": "Uses Wallach's Sobolev estimate (Real Reductive Groups II, §10.1) and the polynomial growth of dim 𝒜_{P,π}(G, K_0, τ) (Müller, GAFA 2000, Lemma 6.1)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/31",
+      "kind": "theorem",
+      "name": "Proposition 2.8.4.3: Arthur's factorisation of Schwartz functions",
+      "statement": "For a normal open compact K_0 ⊂ K^∞ and m ≥ 1 there are Z ∈ 𝒰(𝔤_∞), g_1 ∈ C_c^∞(G(A)) and g_2 ∈ C^m_c(G(A)), invariant under K_∞-conjugation and K_0-bi-invariant, with f = f ∗ g_1 + (f ∗ Z) ∗ g_2 for every K_0-bi-invariant f ∈ 𝒮(G(A)); for m large, J_B(λ, f) = Σ_φ B(I_P(λ, f)φ, I_P(λ̄, g_1^∨)φ) + Σ_φ B(I_P(λ, f ∗ Z)φ, I_P(λ̄, g_2^∨)φ), both sums absolutely convergent.",
+      "locator": "Proposition 2.8.4.3, p. 228",
+      "status": "missing",
+      "note": "Arthur, Duke 1978, Lemma 4.1 and Corollary 4.2, with a finite-dimensional computation."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/32",
+      "kind": "definition",
+      "name": "Cuspidal data 𝔛(G)",
+      "statement": "𝔛(G) is the set of classes of pairs (M_P, π), P standard and π a cuspidal automorphic representation of M_P(A) with central character trivial on A^∞_P, under (M_P, π) ∼ (M_Q, τ) iff wπw^{−1} ≃ τ for some w ∈ W(P, Q); 𝔛(M_P) → 𝔛(G) is finite-to-one; χ^∨ is the class of (M_P, π^∨) (complex conjugate).",
+      "locator": "§2.9.1, pp. 229–230",
+      "status": "planned",
+      "planned": [
+        "AutomorphicSpectralTheory:AS.4"
+      ],
+      "note": "Cuspidal data index the decomposition of AS.4."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/33",
+      "kind": "theorem",
+      "name": "Langlands's decomposition of L²([G]_P) along cuspidal data",
+      "statement": "For (M_P, π) ∈ X(G), 𝒮_π([G]_P) consists of φ ∈ 𝒮([G]_P) with φ_λ(x) = ∫_{A^∞_P} e^{−⟨ρ_P+λ, H_P(a)⟩}φ(ax) da ∈ 𝒜_{P,π_λ,cusp}(G) for all λ; L²_χ([G]_P) is the closure of the sum of E^P_{Q_i}(𝒮_{π_i}([G]_{Q_i})) over the (finite) preimage of χ in 𝔛(M_P), and L²_w([G]_P) = ⊕̂_{χ∈𝔛(G)} L²_{w,χ}([G]_P), L²([G]_{P,0}) = ⊕̂_χ L²_χ([G]_{P,0}) orthogonally (Mœglin–Waldspurger, Prop. II.2.4), for weights w on A^∞_P; the projections for two such weights agree on the intersection (2.9.2.2).",
+      "locator": "§2.9.2, pp. 230–231",
+      "status": "planned",
+      "planned": [
+        "AutomorphicSpectralTheory:AS.4"
+      ],
+      "note": "The decomposition over cuspidal data is AS.4; the version for weights on A^∞_P is a formal consequence."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/34",
+      "kind": "theorem",
+      "name": "Theorem 2.9.4.1: decomposition along cuspidal support in 𝒮, 𝒞, 𝒯 and 𝒮_w",
+      "statement": "Let w be a weight on [G]_P and, for X ⊂ 𝔛(G), 𝒮_X([G]_P) = 𝒮([G]_P) ∩ L²_X([G]_P) and F_X([G]_P) the orthogonal of 𝒮_{X^c}([G]_P) in F([G]_P) for F ∈ {L²_w, 𝒞, 𝒯_N, 𝒯, 𝒮_{w,N}, 𝒮_w} (Lemma 2.9.3.1: E^P_Q(𝒮_X([G]_Q)) ⊂ 𝒮_X([G]_P) and 𝒯_X([G]_P)_Q ⊂ 𝒯_X([G]_Q)). (1) The orthogonal projection 𝒮([G]_P) → L²_X([G]_P) extends to a continuous projection L²_w([G]_P)^∞ → L²_{w,X}([G]_P)^∞, and (φ_χ)_{χ∈𝔛(G)} is summable with sum φ. (2) It restricts to a continuous projection 𝒮([G]_P) → 𝒮_X([G]_P) with (φ_χ) absolutely summable in 𝒮([G]_P). (3) For F ∈ {𝒞, 𝒯, 𝒮_w} it extends to F([G]_P) → F_X([G]_P) with ⟨φ_X, ψ⟩ = ⟨φ, ψ_X⟩ for (φ, ψ) ∈ 𝒯 × 𝒮, and there is N_0 with (φ_χ) absolutely summable in 𝒞([G]_P), 𝒯_{w,N_0}([G]_P) and 𝒮_{w,N+N_0}([G]_P) for φ in 𝒞, 𝒯_w and 𝒮_{w,N} respectively. Consequently 𝒮_X is dense in 𝒞_X and L²_{−N,X}([G]_P)^∞ (2.9.5.9), and for G = G_1 × G_2, 𝒮_{X_1}([G_1])^{J_1} ⊗̂ 𝒮_{X_2}([G_2])^{J_2} ≃ 𝒮_{X_1×X_2}([G])^J, likewise for 𝒞 (2.9.6.10).",
+      "locator": "§§2.9.3–2.9.6, Lemma 2.9.3.1 and Theorem 2.9.4.1, pp. 231–235",
+      "status": "missing",
+      "note": "A variation on Mœglin–Waldspurger III.2.6 and Franke–Schwermer for automorphic forms; proved by induction on the parabolic with Corollary 2.5.15.2 and the nuclearity of Proposition 2.5.5.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/35",
+      "kind": "theorem",
+      "name": "Regular cuspidal data: Proposition 2.9.7.1 and Corollary 2.9.7.2",
+      "statement": "χ is regular if represented by (M_P, π) with wπ ≃ π for w ∈ W(P) only when w = 1; for GL_n and π = π_1 ⊠ ⋯ ⊠ π_k this means π_i ≠ π_j for i ≠ j. Proposition 2.9.7.1: for χ regular and P ⊂ G parabolic, φ ∈ L²_χ([G]) implies φ_P ∈ L²_χ([G]_P). Corollary 2.9.7.2: for χ regular, χ_M its preimage in 𝔛(M_P), φ ∈ 𝒮_χ([G]) and s ∈ ℋ_{>0}, φ_{P,s}(m) = δ_P(m)^{s−½}φ_P(m) lies in 𝒞_{χ_M}([M_P]), and s ↦ φ_{P,s} is holomorphic ℋ_{>0} → 𝒞_{χ_M}([M_P]).",
+      "locator": "§2.9.7, Proposition 2.9.7.1, Corollary 2.9.7.2, pp. 235–238",
+      "status": "missing",
+      "note": "The proof uses Mœglin–Waldspurger's inner product of pseudo-Eisenstein series (Prop. II.2.1), extended to smooth forms (footnote 5)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/36",
+      "kind": "theorem",
+      "name": "Theorem 2.9.8.1 (Lapid): spectral expansion of Harish-Chandra Schwartz functions for a regular datum",
+      "statement": "Let G = ∏ Res_{K_i/F} GL_{n_i}, χ ∈ 𝔛(G) regular represented by (M_P, π), Π = Ind^{G(A)}_{P(A)}(π) = 𝒜_{P,π,cusp}(G) and ℬ_{P,π} a K-basis. There is N > 0 such that for φ ∈ 𝒞([G]) the series φ_{Π_λ} = Σ_{ψ∈ℬ_{P,π}} ⟨φ, E(ψ, λ)⟩_G E(ψ, λ) converges in 𝒯_N([G]) for every λ ∈ ia*_P, the function λ ↦ φ_{Π_λ} ∈ 𝒯_N([G]) is Schwartz (hence integrable), and φ = ∫_{ia*_P} φ_{Π_λ} dλ for φ ∈ 𝒞_χ([G]).",
+      "locator": "Theorem 2.9.8.1, pp. 238–239",
+      "status": "missing",
+      "note": "A restatement of part of Lapid, On the Harish-Chandra Schwartz space of G(F)∖G(A) (TIFR 2013), Prop. 5.1, Cor. 5.7 and Thm. 4.5, for groups satisfying Lapid's condition (HP) (general linear groups and their products)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/37",
+      "kind": "theorem",
+      "name": "Lemma 2.10.1.1: uniform bounds for the χ-parts of automorphic kernels",
+      "statement": "K_{f,P}(x, y), K_{f,P,χ}, K^0_{f,P}, K^0_{f,P,χ} are the kernels of R(f) on L²([G]_P), L²_χ([G]_P), L²([G]_{P,0}), L²_χ([G]_{P,0}), with K^0_{f,P,χ}(x, y) = ∫_{A^∞_P} K_{f,P,χ}(x, ay)δ_P(a)^{−½} da. There is N_0 > 0 such that for every weight w on [G]_P and continuous seminorm ‖·‖_{w,N_0} on 𝒯_{w,N_0}([G]_P) there is a continuous seminorm ‖·‖_𝒮 on 𝒮(G(A)) with Σ_χ |K_{f,P,χ}(x, y)| ≤ ‖f‖_𝒮‖x‖^{N_0}_P w(x)w(y)^{−1}, the same for K^0 on [G]^1_P, and Σ_χ ‖K_{f,P,χ}(·, y)‖_{w,N_0} ≤ ‖f‖_𝒮 w(y)^{−1}.",
+      "locator": "§2.10.1 and Lemma 2.10.1.1, pp. 239–240",
+      "status": "missing",
+      "note": "Obtained from Theorem 2.9.4.1(3) by the uniform boundedness principle applied to Dirac measures."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/38",
+      "kind": "theorem",
+      "name": "Lemma 2.10.2.1: the spectral expansion of K^0_{f,χ} for Schwartz f",
+      "statement": "There are a continuous seminorm ‖·‖ on 𝒮(G(A)) and N such that for X, Y ∈ 𝒰(𝔤_∞), x, y ∈ G(A)^1 and f ∈ 𝒮(G(A)): Σ_χ Σ_{P_0⊂P} |𝒫(M_P)|^{−1} ∫_{ia^{G,*}_P} Σ_{τ∈K̂} |Σ_{φ∈ℬ_{P,χ,τ}} R_x(X)E(x, I_P(λ, f)φ, λ) \\overline{R_y(Y)E(y, φ, λ)}| dλ ≤ ‖L(X)R(Y)f‖ ‖x‖^N_G‖y‖^N_G, and K^0_{f,χ}(x, y) = Σ_{P_0⊂P} |𝒫(M_P)|^{−1} ∫_{ia^{G,*}_P} Σ_{φ∈ℬ_{P,χ}} E(x, I_P(λ, f)φ, λ)\\overline{E(y, φ, λ)} dλ, with ℬ_{P,χ} a K-basis of the space 𝒜^0_{P,χ,disc}(G) of left A^∞_M-invariant discrete forms in L²_χ([G]_{P,0}).",
+      "locator": "§2.10.2 and Lemma 2.10.2.1, pp. 240–243",
+      "status": "missing",
+      "note": "Extends Arthur, Duke 1978, §4 (p. 931, Corollary 4.6, Lemma 4.8) to Schwartz functions."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/39",
+      "kind": "definition",
+      "name": "The global Jacquet–Rallis setup on the linear side",
+      "statement": "G′_n = GL_{n,F} ⊂ G_n = Res_{E/F}(GL_{n,E}); P′ ↦ P = Res_{E/F}(P′_E) is a bijection of standard parabolics with inverse P ↦ P ∩ G′_n; X*(P) has index 2^{dim a_P} in X*(P′), a_{P′} ≅ a_P with ⟨ρ^Q_P, H_P(x)⟩ = 2⟨ρ^{Q′}_{P′}, H_{P′}(x)⟩ on G′(A), and the Haar measure on A^∞_P is 2^{dim a_P} times that on A^∞_{P′} (Remark 3.1.3.1). G_n ⊂ G_{n+1} fixes e_{n+1}; G = G_n × G_{n+1}, G′ = G′_n × G′_{n+1}, H = ι(G_n) the diagonal, K = K_n × K_{n+1}; η_{G′}(g′) = η(det g′_n)^{n+1}η(det g′_{n+1})^n.",
+      "locator": "§§3.1.1–3.1.7, pp. 243–245",
+      "status": "missing",
+      "note": "The global groups of the Jacquet–Rallis relative trace formula for GL_n × GL_{n+1} with the (H, (G′, η_{G′})) double period."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/40",
+      "kind": "definition",
+      "name": "The Rankin–Selberg set F_RS, the signs ε^Q_P and the weights Δ_P, d^{Q,Δ}_P",
+      "statement": "F_RS is the set of parabolics P = P_n × P_{n+1} of G with P_n standard in G_n, P_{n+1} semi-standard in G_{n+1} and P_{n+1} ∩ G_n = P_n; P_H = P ∩ H, P′ = P ∩ G′; for P ⊂ Q in F_RS, ε^Q_P = (−1)^{dim a^{Q_{n+1}}_{P_{n+1}}}. Weights on [G]_P: Δ_P(g) = inf_{γ∈M_{P_{n+1}}(F)N_{P_{n+1}}(A)} ‖g_n^{−1}γg_{n+1}‖ and d^{Q,Δ}_P(g) = min(d^{Q_{n+1}}_{P_{n+1}}(g_n), d^{Q_{n+1}}_{P_{n+1}}(g_{n+1})), with Δ_P ∼ 1 on [H]_{P_H}, d^{Q,Δ}_P ≪ d^Q_P, and w(g_{n+1}) ≪ w(g_n)Δ_P(g)^{N_0} for weights w on [G_{n+1}]_{P_{n+1}}. 'T sufficiently positive' means d(T) = inf_{α∈Δ_{n+1}} α(T) ≥ max(ε‖T‖, C).",
+      "locator": "§§3.1.8–3.1.10, pp. 245–246",
+      "status": "missing",
+      "note": "Zydor's Rankin–Selberg set of parabolics (Crelle 2020)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/41",
+      "kind": "definition",
+      "name": "Zydor's modified kernel K^T_{f,χ}",
+      "statement": "For f ∈ 𝒮(G(A)), χ ∈ 𝔛(G), T ∈ a_{n+1}: K^T_{f,χ}(h, g′) = Σ_{P∈F_RS} ε^G_P Σ_{γ∈P_H(F)∖H(F)} Σ_{δ∈P′(F)∖G′(F)} τ̂_{P_{n+1}}(H_{P_{n+1}}(δ_n g′_n) − T_{P_{n+1}}) K_{f,P,χ}(γh, δg′), with δ_ng′_n viewed in G′_{n+1}(A). For Schwartz f the sums are not finite but converge absolutely, using Σ_χ |K_{f,P,χ}(h, g′)| ≪_N ‖g′_n‖^{N′}_{P′_n}‖h‖^{−N}_{P_H}‖g′_{n+1}‖^{−N}_{P′_{n+1}} (3.2.3.2).",
+      "locator": "§3.2.3 and Remark 3.2.3.1, pp. 246–247",
+      "status": "missing",
+      "note": "Zydor's kernel (Crelle 2020) for compactly supported functions; δ_n ranges over a finite set depending on g′_n (Arthur 1978, Lemma 5.1)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/42",
+      "kind": "theorem",
+      "name": "Theorem 3.2.4.1: the coarse spectral expansion of the Jacquet–Rallis trace formula for Schwartz functions",
+      "statement": "Let T ∈ a^+_{n+1}. (1) f ↦ Σ_χ ∫_{[H]}∫_{[G′]} |K^T_{f,χ}(h, g′)| dg′ dh is finite and a continuous seminorm on 𝒮(G(A)). (2) I^T_χ(f) = ∫_{[H]}∫_{[G′]} K^T_{f,χ}(h, g′)η_{G′}(g′) dg′ dh is an exponential-polynomial in T whose purely polynomial part is a constant I_χ(f). (3) The distributions I_χ are continuous, left H(A)-invariant and right (G′(A), η_{G′})-equivariant. (4) I(f) = Σ_χ I_χ(f) converges absolutely and defines a continuous distribution — the coarse spectral expansion of Zydor's Jacquet–Rallis trace formula for G.",
+      "locator": "Theorem 3.2.4.1 (= Theorem 1.2.3.1) and Remark 3.2.4.2, p. 247",
+      "status": "missing",
+      "note": "Extends Zydor, Crelle 2020, Theorems 0.1, 3.1, 3.7 and 3.9 from C_c^∞ to 𝒮(G(A)); (1) comes from Theorem 3.3.7.1 and Proposition 3.3.5.1, (2)–(4) as in Zydor. Beuzart-Plessis–Liu–Zhang–Zhu's quasi-cuspidal expansions (their Props. 4.1–4.2) are the special case where only cuspidal χ contribute."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/43",
+      "kind": "definition",
+      "name": "The Ichino–Yamana truncation operator Λ^T_r",
+      "statement": "For a function φ on [G] = [G_n] × [G_{n+1}] and T ∈ a_{n+1}, (Λ^T_rφ)(h) = Σ_{P∈F_RS} ε^G_P Σ_{δ∈P_H(F)∖H(F)} τ̂_{P_{n+1}}(H_{P_{n+1}}(δh) − T_{P_{n+1}}) φ_{G_n×P_{n+1}}(δh) on [H], with φ_{G_n×P_{n+1}} the constant term along G_n × P_{n+1}. Proposition 3.3.2.1 (Ichino–Yamana, Lemma 2.4): for N, N′ and K_0 there are r and X_i ∈ 𝒰(𝔤_ℂ) of degree ≤ r with |(Λ^T_rφ)(h)| ≤ ‖h‖^{−N}_H Σ_i sup_x ‖x‖^{−N′}_G |(R(X_i)φ)(x)| for φ ∈ C^r(G(F)∖G(A)/K_0): it turns uniform moderate growth into rapid decay on [H].",
+      "locator": "§3.3.2 and Proposition 3.3.2.1, p. 248",
+      "status": "missing",
+      "note": "Ichino–Yamana, Compositio 151 (2015), a variant of Arthur's Lemma 1.4 (Compositio 1980). Owned with the regularised Rankin–Selberg period it defines."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/44",
+      "kind": "theorem",
+      "name": "Propositions 3.3.2.2 and 3.3.3.1: the truncated kernel is rapidly decreasing and integrable",
+      "statement": "For every N ≥ 0 there is a continuous seminorm ‖·‖_𝒮 on 𝒮(G(A)) with Σ_χ |Λ^T_rK_{f,χ}(h, g)| ≤ ‖f‖_𝒮‖h‖^{−N}_H‖g‖^{−N}_G on [H] × [G]; hence f ↦ Σ_χ ∫_{[H]×[G′]} |Λ^T_rK_{f,χ}(h, g′)| dh dg′ is a convergent continuous seminorm.",
+      "locator": "Propositions 3.3.2.2 and 3.3.3.1, pp. 248–249",
+      "status": "missing",
+      "note": "From Lemma 2.10.1.1 with w = ‖·‖_G and Proposition 3.3.2.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/45",
+      "kind": "definition",
+      "name": "Arthur's characteristic function F^{G_{n+1}}(·, T)",
+      "statement": "For T sufficiently positive, F^{G_{n+1}}(x, T) is the characteristic function of the x ∈ G_{n+1}(A) with δx ∈ 𝔰_{G_{n+1}} and ⟨ϖ, H_0(δx) − T⟩ ≤ 0 for all ϖ ∈ Δ̂_{B_{n+1}} for some δ ∈ G_{n+1}(F); it descends to the characteristic function of a compact subset of Z_{n+1}(A)G_{n+1}(F)∖G_{n+1}(A); F^{G′_{n+1}} is defined relative to G′_{n+1}.",
+      "locator": "§3.3.4, p. 249",
+      "status": "planned",
+      "planned": [
+        "AutomorphicSpectralTheory:AS.3"
+      ],
+      "note": "Arthur, Duke 1978, §6; part of the truncation layer AS.3."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/46",
+      "kind": "theorem",
+      "name": "Proposition 3.3.5.1 and the second modified kernel κ^T_{f,χ}",
+      "statement": "The maps f ↦ Σ_χ ∫_{[H]×[G′]} F^{G_{n+1}}(h, T)|K_{f,χ}(h, g′)| and f ↦ Σ_χ ∫_{[H]×[G′]} F^{G′_{n+1}}(g′_n, T)|K_{f,χ}(h, g′)| are convergent continuous seminorms on 𝒮(G(A)). κ^T_{f,χ}(h, g′) = Σ_{P∈F_RS} ε^G_P Σ_{γ∈P_H(F)∖H(F), δ∈P′(F)∖G′(F)} τ̂_{P_{n+1}}(H_{P_{n+1}}(γh) − T_{P_{n+1}})K_{f,P,χ}(γh, δg′), absolutely convergent (the sum over γ is finite).",
+      "locator": "Proposition 3.3.5.1 and §3.3.6, pp. 249–250",
+      "status": "missing",
+      "note": "Uses (3.3.2.3) and the compactness of the supports of F(·, T) on [H] and [G′_n]."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/47",
+      "kind": "theorem",
+      "name": "Theorem 3.3.7.1: the modified kernels are asymptotic to Arthur-truncated kernels",
+      "statement": "(1) For every N > 0 there is a continuous seminorm ‖·‖_{𝒮,N} on 𝒮(G(A)) with Σ_χ |K^T_{f,χ}(h, g′) − F^{G′_{n+1}}(g′_n, T)K_{f,χ}(h, g′)| ≤ e^{−N‖T‖}‖h‖^{−N}_H‖g′‖^{−N}_{G′}‖f‖_{𝒮,N} for T sufficiently positive, hence the integrated bound Σ_χ ∫ |…| ≤ e^{−N‖T‖}‖f‖_{𝒮,N}. (2) The same with κ^T_{f,χ}(h, g′) − F^{G_{n+1}}(h, T)K_{f,χ}(h, g′).",
+      "locator": "Theorem 3.3.7.1, pp. 250–251; proof §3.6, pp. 261–264",
+      "status": "missing",
+      "note": "Proved by writing K^T and F·K as kernels of the separately continuous operators L^T_f, P^T_f: 𝒯^0([H]) ⊗ 𝒯^0([G′_{n+1}]) → 𝒮_0([G′_n]) built from Propositions 3.4.2.1, 3.4.3.1 and Theorem 3.5.1.1 (3.6.1.1)–(3.6.2.5); part (2) is 'similar and left to the reader'."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/48",
+      "kind": "theorem",
+      "name": "Proposition 3.3.8.1 and Lemma 3.7.5.1: the kernel κ^T gives the same I_χ",
+      "statement": "For χ ∈ 𝔛(G): (1) i^T_χ(f) = ∫_{[H]×[G′]} κ^T_{f,χ}(h, g′)η_{G′}(g′) converges for T sufficiently positive; (2) T ↦ i^T_χ(f) is an exponential-polynomial with purely polynomial part the constant I_χ(f). Lemma 3.7.5.1: i^T_χ(f) = Σ_{Q∈F_RS} c_Q e^{ρ_Q(T)} I^{M_Q,T}_χ(f̃_Q), where ρ_Q = ρ_{Q_{n+1}} − ρ_{Q_n}, I^{M_Q,T}_χ are Zydor's Levi distributions (3.7.4.2) (exponential-polynomials with exponents in {ρ_P − ρ_Q}), f̃_Q(m) = e^{−⟨ρ_Q,H_{Q_{n+1}}(m_n)⟩}p_Q(H_{Q_{n+1}}(m_n))f_Q(m) with f_Q the (K_H × K′, η)-averaged constant term, p_Q(X) = ∫_{a^{G_{n+1}}_{Q_{n+1}}} e^{ρ_Q(H)}Γ′_{Q_{n+1}}(H, X) dH (Arthur's Γ′ functions) and c_Q the Jacobian of a_{Q,H} ≅ a^{G_{n+1}}_{Q_{n+1}}.",
+      "locator": "Proposition 3.3.8.1, p. 251; §3.7 and Lemma 3.7.5.1, pp. 264–266",
+      "status": "missing",
+      "note": "Arthur's Γ′-functions are from 'The trace formula in invariant form' (Ann. of Math. 1981, §2), whose (G,M)-family arguments AS.6 plans; the exponential-polynomial property of p_Q is Zydor, Crelle 2020, Lemme 3.5."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/49",
+      "kind": "theorem",
+      "name": "Theorem 3.3.9.1: three truncated expressions for I_χ (= Theorem 1.2.4.1)",
+      "statement": "For χ ∈ 𝔛(G), f ∈ 𝒮(G(A)) and T sufficiently positive, let (I^T_χ, P^T_χ) be one of: (I^T_χ(f), ∫_{[H]×[G′]} F^{G′_{n+1}}(g′_n, T)K_χ(h, g′)η_{G′}(g′)); (i^T_χ(f), ∫ F^{G_{n+1}}(h, T)K_χ(h, g′)η_{G′}(g′)); (i^T_χ(f), ∫_{[H]×[G′]} Λ^T_rK_χ(h, g′)η_{G′}(g′)). (1) These integrals converge absolutely and T ↦ P^T_χ(f) is asymptotic to an exponential-polynomial whose constant term is I_χ(f); (2) for every N there is a continuous seminorm with |I^T_χ(f) − P^T_χ(f)| ≤ ‖f‖_{𝒮,N}e^{−N‖T‖}.",
+      "locator": "Theorem 3.3.9.1, p. 252 (= Theorem 1.2.4.1, p. 190)",
+      "status": "missing",
+      "note": "The third asymptotic reduces to ∫∫|Λ^T_rK_χ − F^{G_{n+1}}(h, T)K_χ| ≤ ‖f‖e^{−N‖T‖}, which 'can be proved as in Ichino–Yamana, proof of Prop. 3.8, and is left to the reader' — a proof obligation for the design."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/50",
+      "kind": "definition",
+      "name": "The spaces 𝒯_{F_RS}([G]) and 𝒯^Δ_{F_RS}([G]) of compatible families",
+      "statement": "For 𝐆 ∈ {G′_n, G′_{n+1}, G_n, G_{n+1}, H, G}, 𝒯_{F_RS}(𝐆) is the space of families (_Pφ)_{P∈F_RS} ∈ ∏ 𝒯([𝐆]_𝐏) with _Pφ − (_Qφ)_𝐏 ∈ 𝒮_{θ^Q_P}([𝐆]_𝐏) for P ⊂ Q, where θ^Q_P is d^{Q′_{n+1}}_{P′_{n+1}}, d^{Q_{n+1}}_{P_{n+1}} or d^Q_P according to 𝐆 (equivalently |R(X)(_Pφ − _Qφ)(g)| ≪ ‖g‖^{N_0}θ^Q_P(g)^{−r}); 𝒯^Δ_{F_RS}([G]) uses 𝒮_{Δ_P}([G]_P) and 𝒮_{d^{Q,Δ}_P}. Both are LF spaces, 𝒯_{F_RS}([H]) = 𝒯_{F_RS}([G_n]), and every family decomposes absolutely summably along cuspidal data (3.4.2.4).",
+      "locator": "§§3.4.1–3.4.2, pp. 252–254",
+      "status": "missing",
+      "note": "Auxiliary spaces for the proof of Theorem 3.3.7.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/51",
+      "kind": "theorem",
+      "name": "Propositions 3.4.2.1 and 3.4.3.1: operations on compatible families",
+      "statement": "(1) For φ ∈ 𝒯^0([H]) and f ∈ 𝒮(G(A)), (R(f)φ_{P_H})_{P∈F_RS} ∈ 𝒯^Δ_{F_RS}([G]); (2) for 𝐆 ∈ {G_{n+1}, G}, φ ∈ 𝒯^0([𝐆′]) gives (R(f)φ_{𝐏′}) ∈ 𝒯_{F_RS}([𝐆]); (3) restriction maps 𝒯_{F_RS}([G_n]) → 𝒯_{F_RS}([G′_n]) and 𝒯_{F_RS}([G]) → 𝒯_{F_RS}([H]); (4) products (g_n, g_{n+1}) ↦ _Pφ(g) _Pψ(g_{n+1}) of families in 𝒯^Δ_{F_RS}([G]) and 𝒯_{F_RS}([G_{n+1}]) lie in 𝒯^Δ_{F_RS}([G]). Proposition 3.4.3.1: for (_Pφ) ∈ 𝒯^Δ_{F_RS}([G]) and ψ ∈ 𝒯^0([G′_{n+1}]), the family P ↦ ⟨_Pφ, ψ_{P′_{n+1}}⟩(g_n) = ∫_{[G_{n+1}]_{P_{n+1}}} _Pφ(g_n, g_{n+1})ψ_{P′_{n+1}}(g_{n+1}) lies in 𝒯_{F_RS}([G_n]).",
+      "locator": "Propositions 3.4.2.1 and 3.4.3.1, pp. 254–258",
+      "status": "missing",
+      "note": "Proofs by Lemma 2.4.4.1 and the characterisations (3.4.1.1), (3.4.1.3)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/52",
+      "kind": "theorem",
+      "name": "Theorem 3.5.1.1: the relative truncation operator Λ^{T,𝐆} is asymptotic to F(·, T)",
+      "statement": "For 𝐆 ∈ {H, G′_n, G_n} and φ = (_Pφ) ∈ 𝒯_{F_RS}([𝐆]): Λ^{T,𝐆}φ(g) = Σ_{P∈F_RS} ε^G_P Σ_{δ∈𝐏(F)∖𝐆(F)} τ̂_{P_{n+1}}(H_{P_{n+1}}(δg) − T_{P_{n+1}}) _Pφ(δg), and Π^{T,𝐆}φ = F^{G′_{n+1}}(·, T) _Gφ (𝐆 = G′_n) or F^{G_{n+1}}(·, T) _Gφ. For T sufficiently positive Λ^{T,𝐆}φ ∈ 𝒮_0([𝐆]), and for all c, N > 0 there is a continuous seminorm with ‖Λ^{T,𝐆}φ − Π^{T,𝐆}φ‖_{∞,N} ≤ e^{−c‖T‖}‖φ‖_{F_RS,c,N}. Lemma 3.5.1.2: e^{‖T‖} ≪ (min_α d_{P_{n+1},α}(g))^r and ‖g‖_{P_n} ≪ (max_α d_{P_{n+1},α}(g))^r, α ∈ Δ^{Q_{n+1}}_0 ∖ Δ^{P_{n+1}}_0, on the support of F^{P_{n+1}}(g, T)σ^{Q_{n+1}}_{P_{n+1}}(H_{P_{n+1}}(g) − T_{P_{n+1}}).",
+      "locator": "§3.5, Theorem 3.5.1.1 and Lemma 3.5.1.2, pp. 258–261",
+      "status": "missing",
+      "note": "Uses Zydor's Lemme 2.1 and Prop. 2.8 and Arthur's analysis (Duke 1978, §§6–7, Cor. 6.2, (7.7)); the cases H and G_n reduce to G′_n by change of base field."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/53",
+      "kind": "definition",
+      "name": "Flicker–Rallis periods, distinction and the Asai dichotomy",
+      "statement": "For a cuspidal π of G_n(A) = GL_n(A_E) with central character trivial on A^∞_{G_n}, π* its conjugate dual: π is G′_n-distinguished ((G′_n, η)-distinguished) if φ ↦ ∫_{[G′_n]_0} φ(h) dh (∫_{[G′_n]_0} φ(h)η(det h) dh) is non-zero on 𝒜_π(G_n). π is conjugate self-dual iff it is G′_n-distinguished or (G′_n, η)-distinguished, and not both; distinction corresponds to a pole at s = 1 of an Asai L-function (Flicker): condition 1 of §1.1.3 (a pole of L(s, Π_i, As^{(−1)^{n+1}})) is equivalent to Π_i being (GL_{n_i,F}, η^{n+1})-distinguished.",
+      "locator": "§4.1.2 and Remark 1.1.3.1, pp. 185 and 267",
+      "status": "missing",
+      "note": "Flicker, Twisted tensors and Euler products (Bull. SMF 1988): the factorisation L(s, π × π^c) = L(s, π, As^+)L(s, π, As^−) and the residue of the Asai integral as the Flicker–Rallis period."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/54",
+      "kind": "definition",
+      "name": "Jacquet–Lapid–Rogawski Flicker–Rallis intertwining periods J(φ) and J_Q(φ, λ)",
+      "statement": "For P = MN_P standard, π = σ_1 ⊠ ⋯ ⊠ σ_r cuspidal on M = G_{n_1} × ⋯ × G_{n_r} with central character trivial on A^∞_M, P′ = P ∩ G′ = M′N_{P′}: J(φ) = ∫_{A^∞_{M′}M′(F)N_{P′}(A)∖G′(A)} φ(g) dg, a G′(A)-invariant continuous form on 𝒜_{P,π}(G), non-zero iff each σ_i is G′_{n_i}-distinguished (then π = π*). For Q ∈ 𝒫(M) with Q′ = wQw^{−1} standard and w ∈ W(P; Q′): J_Q(φ, λ) = J(M(w, λ)φ), meromorphic in λ ∈ a^{G,*}_{P,ℂ}. The η-twisted variant J_η(φ) = ∫ φ(g)η_{G′}(g) dg for G = G_n × G_{n+1} (5.1.2.1); π is (M′, η_{G′})-distinguished if J_η ≢ 0.",
+      "locator": "§§4.1.4–4.1.6 and §5.1.2, pp. 267–268 and 278",
+      "status": "missing",
+      "note": "A special case of the intertwining periods of Jacquet–Lapid–Rogawski (J. Amer. Math. Soc. 1999, §VII), with a slightly different 𝒜_{P,π}(G)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/55",
+      "kind": "theorem",
+      "name": "Proposition 4.1.9.1: the relative characters J_{Q,π}(g, λ, f) form a (G, M)-family",
+      "statement": "For φ, ψ ∈ 𝒜_{P,π}(G), B_Q(g, φ, ψ, λ) = E(g, φ, λ)·\\overline{J_Q(ψ̄, −λ)} is holomorphic on an open ω_π ⊃ ia^{G,*}_P (the complement of hyperplanes) and continuous sesquilinear there; J_{Q,π}(g, λ, f) = Σ_{φ∈ℬ_{P,π}} B_Q(g, I_P(λ, f)φ, φ, λ) is a continuous distribution on 𝒮(G(A)). The family (J_{Q,π}(g, λ, f))_{Q∈𝒫(M)} is a (G, M)-family in Arthur's sense: each is smooth on ia^{G,*}_M (holomorphic on ω_π) and J_{Q_1,π} = J_{Q_2,π} on ⟨λ, α^∨⟩ = 0 for adjacent Q_1, Q_2 with Δ_{Q_1} ∩ (−Δ_{Q_2}) = {α}.",
+      "locator": "§§4.1.7–4.1.9, Proposition 4.1.9.1, pp. 268–270",
+      "status": "missing",
+      "note": "Uses Lapid, JIMJ 2006, Lemma 8.1 (case 1), and Keys–Shahidi, Ann. Sci. ENS 1988, Prop. 6.3 (M(s_α, 0) = −1 when σ_i ≅ σ*_{i+1} ≅ σ_i); (G, M)-families themselves are AS.6."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/56",
+      "kind": "theorem",
+      "name": "Proposition 4.1.10.1: λ ↦ J_{Q,π}(g, λ, f) is Schwartz",
+      "statement": "For f ∈ 𝒮(G(A)), λ ↦ J_{Q,π}(g, λ, f) lies in 𝒮(ia^{G,*}_P), and f ↦ J_{Q,π}(g, ·, f) is continuous 𝒮(G(A)) → 𝒮(ia^{G,*}_P).",
+      "locator": "Proposition 4.1.10.1, pp. 270–272",
+      "status": "missing",
+      "note": "Sketched from Lapid's majorisation of Eisenstein series (JIMJ 2006, Prop. 6.1 and §7, extended to Schwartz functions as in Feigon–Lapid–Offen, Remark C.2), Lapid's bounds for normalising factors (Lemma 5.1) and Müller–Speh's bound on normalised intertwining operators (GAFA 2004, Prop. 4.2)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/57",
+      "kind": "definition",
+      "name": "The Jacquet–Lapid–Rogawski mixed truncation Λ^T_m and the truncated kernel K^0_χΛ^T_m",
+      "statement": "For φ on [G_n], (Λ^T_mφ)(h) = Σ_P (−1)^{dim a^G_P} Σ_{δ∈P′(F)∖G′(F)} τ̂_P(H_P(δh) − T_P) φ_P(δh) on [G′_n] (sum over standard P, φ_P the constant term). Lemma 4.2.3.1: (K^0_χΛ^T_m)(x, y) = Σ_{B⊂P} |𝒫(M_P)|^{−1} ∫_{ia^{G,*}_P} Σ_{φ∈ℬ_{P,χ}} E(x, I_P(λ, f)φ, λ) \\overline{Λ^T_mE(y, φ, λ)} dλ; Lemma 4.2.3.2: the corresponding absolute sum with R(X) is bounded by ‖L(X)f‖‖x‖^{N′}‖y‖^{−N}; Proposition 4.2.3.3: ∫_{[G′]_0} (K^0_χΛ^T_m)(x, y) dy = Σ_{B⊂P} |𝒫(M_P)|^{−1} ∫_{ia^{G,*}_P} Σ_φ E(x, I_P(λ, f)φ, λ) ∫_{[G′]_0} \\overline{Λ^T_mE(y, φ, λ)} dy dλ.",
+      "locator": "§4.2, Lemmas 4.2.3.1–4.2.3.2 and Proposition 4.2.3.3, pp. 272–273",
+      "status": "missing",
+      "note": "Jacquet–Lapid–Rogawski 1999; the rapid decay of Λ^T_m is a variant of Arthur's Lemma 1.4 (Compositio 1980) as in Lapid–Rogawski (Duke 2003, Lemma 8.2.1)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/58",
+      "kind": "definition",
+      "name": "∗-regular cuspidal data of G_n",
+      "statement": "χ ∈ 𝔛(G_n) is ∗-regular if for every representative (M, π) and w ∈ W(M) with wπ ≅ π or wπ ≅ π*, w = 1; for π = σ_1 ⊠ ⋯ ⊠ σ_r this means: for i ≠ j with n_i = n_j, σ_i ≠ σ_j and σ_i ≠ σ*_j. 𝔛*(G_n) denotes the ∗-regular data; for G = G_n × G_{n+1}, 𝔛*(G) = 𝔛*(G_n) × 𝔛*(G_{n+1}).",
+      "locator": "§4.3.2 and §5.1.3, pp. 273–274 and 278",
+      "status": "missing",
+      "note": "The data attached to (isobaric) Hermitian Arthur parameters."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/59",
+      "kind": "theorem",
+      "name": "Theorem 4.3.3.1: spectral expansion of the Flicker–Rallis period of the kernel",
+      "statement": "Let f ∈ 𝒮(G_n(A)), χ ∈ 𝔛(G_n), g ∈ G_n(A). (1) ∫_{[G′]} K_χ(g, h) dh = ½ ∫_{[G′]_0} K^0_χ(g, h) dh, both absolutely convergent. (2) If χ ∈ 𝔛*(G_n) with representative (M_P, π), then ∫_{[G′]} K_χ(g, h) dh = 2^{−dim a_P} J_{P,π}(g, f), where J_{P,π}(g, f) = J_{P,π}(g, 0, f); in particular it vanishes unless π is conjugate self-dual and M_{P′}-distinguished. The contribution is purely discrete (Remark 1.3.1.2), in contrast with the Arthur–Selberg trace formula.",
+      "locator": "Theorem 4.3.3.1, p. 274; proof §§4.3.4–4.3.7, pp. 274–277",
+      "status": "missing",
+      "note": "The η-twisted version for G = G_n × G_{n+1} is used in §5; the proof avoids Lapid's contour shifting (JIMJ 2006) by truncating first."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/60",
+      "kind": "theorem",
+      "name": "Proposition 4.3.4.1: the mixed-truncation limit formula",
+      "statement": "Under the assumptions of Theorem 4.3.3.1 (no regularity needed), lim_{T→+∞} ∫_{[G′]_0} (K^0_χΛ^T_m)(g, h) dh = 2∫_{[G′]} K_χ(g, h) dh, the limit taken as ⟨α, T⟩ → +∞ for all α ∈ Δ_B.",
+      "locator": "Proposition 4.3.4.1, pp. 274–275",
+      "status": "missing",
+      "note": "By a variant of Arthur, Canad. J. Math. 1985, Thm. 3.1 (cf. Ichino–Yamana, Prop. 3.8) and dominated convergence."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/61",
+      "kind": "theorem",
+      "name": "Proposition 4.3.6.1 and Lemma 4.3.6.2: the truncated Flicker–Rallis period of Eisenstein series",
+      "statement": "For χ ∈ 𝔛*(G_n), P_1 ∈ 𝒫_χ and φ ∈ 𝒜_{P_1,χ}: ∫_{[G′]_0} Λ^T_mE(y, φ, λ) dy = 2^{−dim a^G_{P_1}} Σ_{Q∈𝒫(M_1)} J_Q(φ, λ)e^{⟨λ,T_Q⟩}/θ_Q(λ) for λ ∈ ia^{G,*}_{P_1} (Lemma 4.3.6.2); hence ∫_{[G′]_0} (K^0_χΛ^T_m)(g, h) dh = (2^{−dim a^G_P}/|𝒫(M_P)|) Σ_{P_1∈𝒫_χ} ∫_{ia^{G,*}_{P_1}} Σ_{Q∈𝒫(M_1)} J_{Q,χ}(g, λ, f)e^{−⟨λ,T_Q⟩}/θ_Q(−λ) dλ, with J_{Q,χ} = Σ_{w∈W(P,P_1)} J_{Q,wπ} (Proposition 4.3.6.1).",
+      "locator": "Proposition 4.3.6.1 and Lemma 4.3.6.2, pp. 275–276",
+      "status": "missing",
+      "note": "Lemma 4.3.6.2 rephrases Jacquet–Lapid–Rogawski, Theorem 40, for ∗-regular data; its printed range λ ∈ ia^G_{P_1} means ia^{G,*}_{P_1} (sourceIssues E9)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/62",
+      "kind": "theorem",
+      "name": "Proposition 4.3.7.1 and Lemma 4.3.7.2: the limit is discrete",
+      "statement": "For χ ∈ 𝔛*(G_n) represented by (M_P, π): lim_{T→+∞} ∫_{[G′]_0} (K^0_χΛ^T_m)(g, h) dh = 2^{−dim a^G_P} J_{P,π}(g, f), J_{P,π}(g, f) = J_{P,π}(g, 0, f). Lemma 4.3.7.2 (Lapid): J_{P_1,wπ}(g, 0, f) = J_{P,π}(g, 0, f) for w ∈ W(P, P_1).",
+      "locator": "Proposition 4.3.7.1 and Lemma 4.3.7.2, pp. 276–277",
+      "status": "missing",
+      "note": "Corrected statement: the printed integral over [G′] is over [G′]_0 (sourceIssues E3). Uses Lapid's limit lemma for (G, M)-families of Schwartz functions (Clay Math. Proc. 13 (2011), Lemma 8), |𝒫(M_P)| = Σ_{P_1∈𝒫_χ} |W(P, P_1)|, the functional equation of Eisenstein series and Lapid 2006, Lemma 8.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/63",
+      "kind": "definition",
+      "name": "Relevant and ∗-regular cuspidal data of G = G_n × G_{n+1}",
+      "statement": "χ ∈ 𝔛(G) with representative (M, π) is relevant if π is (M′, η_{G′})-distinguished (J_η ≢ 0); ∗-regular if χ ∈ 𝔛*(G) = 𝔛*(G_n) × 𝔛*(G_{n+1}). A relevant regular datum is ∗-regular, and χ is regular and relevant exactly when Π = Ind^G_P(π) is a Hermitian Arthur parameter.",
+      "locator": "§5.1.3 and §10.1.5, pp. 278 and 320",
+      "status": "missing",
+      "note": "The spectral data that the Jacquet–Rallis comparison matches with unitary groups."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/64",
+      "kind": "theorem",
+      "name": "Proposition 5.1.4.1: the regularised Rankin–Selberg period of Eisenstein series",
+      "statement": "Let Q ⊂ G be parabolic, π cuspidal on M_Q and (M_{Q′}, η_{G′})-distinguished, φ ∈ 𝒜_{Q,π}(G). For λ ∈ a^{G,*}_Q regular for E(g, φ, λ), I(φ, λ) = ∫_{[H]} Λ^T_rE(h, φ, λ) dh converges and does not depend on T ∈ a^+_{n+1}; it is Ichino–Yamana's regularised Rankin–Selberg period of E(φ, λ) (Remark 5.1.4.2).",
+      "locator": "Proposition 5.1.4.1 and Remark 5.1.4.2, pp. 278–280",
+      "status": "missing",
+      "note": "Independence of T: by Ichino–Yamana's Lemma 2.2 the difference is a sum over proper P ∈ F_RS whose terms contain ∫_{[G_{d_1}]^1} E(g, φ_1, λ_1)Λ^TE(g, φ_2, λ_2), which vanishes by Arthur's inner product formula (Duke 1982) because π_2 would be both (η_{d_1})^n- and (η_{d_1})^{n+1}-distinguished."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/65",
+      "kind": "definition",
+      "name": "The relative characters I^T_{P,π} and I_{P,π}",
+      "statement": "For P standard in G and π cuspidal on M_P: I^T_{P,π}(f) = Σ_{φ∈ℬ_{P,π}} ∫_{[H]} Λ^T_rE(h, I_P(0, f)φ, 0) dh · \\overline{J_η(φ)}; by Proposition 5.1.4.1 it equals I_{P,π}(f) = Σ_φ I(I_P(0, f)φ, 0)\\overline{J_η(φ)} if π is (M_{P′}, η_{G′})-distinguished and 0 otherwise. Proposition 5.1.5.1: for χ ∈ 𝔛*(G) with representative (P, π), f ↦ I^T_{P,π}(f) is a continuous linear form on 𝒮(G(A)) depending only on χ.",
+      "locator": "§5.1.5 and Proposition 5.1.5.1, p. 280",
+      "status": "missing",
+      "note": "Built from the regularised Rankin–Selberg period and the Flicker–Rallis intertwining period; continuity by Proposition 2.8.4.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/66",
+      "kind": "theorem",
+      "name": "Theorem 5.2.1.1: the ∗-regular contribution is discrete (first proof, by truncation)",
+      "statement": "For χ ∈ 𝔛*(G) represented by (M, π), P standard: I_χ = 2^{−dim a_P} I_{P,π}; in particular I_χ = 0 unless χ is relevant. Proposition 5.2.1.2: for T ∈ a^+_{n+1}, ∫_{[H]}∫_{[G′]} Λ^T_rK_χ(x, y)η_{G′}(y) dx dy = 2^{−dim a_P} I_{P,π}(f), independently of T.",
+      "locator": "Theorem 5.2.1.1 (= Theorem 1.3.2.1), Proposition 5.2.1.2, Lemmas 5.2.2.1 and 5.2.2.3, pp. 280–282",
+      "status": "missing",
+      "note": "From Theorem 4.3.3.1 (η-twisted, for G_n and G_{n+1}), the commutation of Λ^T_r with the [G′]-integral and the basis sum (Lemmas 5.2.2.1, 5.2.2.3), and Theorem 3.3.9.1 for the constant term in T."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/67",
+      "kind": "definition",
+      "name": "Mirabolic subgroups, generic characters and Whittaker functions of moderate-growth functions",
+      "statement": "w_n is the antidiagonal permutation matrix, e_n = (0, …, 0, 1), P_n = G_{n−1}U_n and P′_n = P_n ∩ G′_n the mirabolic subgroups (stabilisers of e_n for the right action), G_m ⊂ G_n in the upper left corner. For φ ∈ 𝒮(A^n), φ̂(x) = ∫ φ(y)ψ′(Σx_iy_i) dy with self-dual measure. Fix τ ∈ E^× with τ^c = −τ and ψ(z) = ψ′(Tr_{E/F}(τz)); ψ_n(u) = ψ((−1)^n Σ_{i=1}^{n−1} u_{i,i+1}) is a generic character of [N_n], trivial on N′_n(A). For f ∈ 𝒯([G_n]), W_f(g) = ∫_{[N_n]} f(ug)ψ_n(u)^{−1} du; for f ∈ 𝒞([G_n]) and Π as in Theorem 2.9.8.1, W_{f,Π} = W_{f_Π} ∈ W(Π, ψ_n).",
+      "locator": "§6.1 and §6.2.4, pp. 283–285",
+      "status": "missing",
+      "note": "The sign (−1)^n is the convention matching §7."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/68",
+      "kind": "definition",
+      "name": "The Flicker–Rallis zeta integral Z^FR_ψ(s, f, φ)",
+      "statement": "For f ∈ 𝒯([G_n]), φ ∈ 𝒮(A^n) and s ∈ ℂ: Z^FR_ψ(s, f, φ) = ∫_{N′_n(A)∖G′_n(A)} W_f(h)φ(e_nh)|det h|^s dh, where it converges absolutely; for cusp forms this is Flicker's integral representation of the Asai L-function.",
+      "locator": "§6.2.1, p. 284",
+      "status": "missing",
+      "note": "Flicker 1988, extended to non-cuspidal f of uniform moderate growth."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/69",
+      "kind": "theorem",
+      "name": "The Asai L-function of an induced representation and its analytic properties",
+      "statement": "For Π = Ind^{G_n(A)}_{P(A)}(π_1 ⊠ ⋯ ⊠ π_k): Shahidi's completed Asai L-function (Shahidi 1990; Goldberg 1994) factors as L(s, Π, As) = ∏_i L(s, π_i, As) ∏_{i<j} L(s, π_i × π^c_j), independently of the order. It has meromorphic continuation and functional equation with global ε-factor (Shahidi, Ann. of Math. 1990, Thm. 3.5(4)); L(s, π_i, As) has at most a simple pole at s = 1 (Flicker), and s ↦ (s − 1)L^{S_0}(s, π_i, As) (pole) or L^{S_0}(s, π_i, As) is holomorphic of finite order in vertical strips of ℋ_{>0} (Finis–Lapid, Lemma 5.2). For χ ∗-regular, L(s, Π, As) has a pole of order at most k at s = 1, of order exactly k iff every L(s, π_i, As) has a pole; χ is then called distinguished, equivalently π is M_{P′}-distinguished (Flicker).",
+      "locator": "§6.2.3 and §6.3, pp. 284 and 287–288",
+      "status": "missing",
+      "note": "The Langlands–Shahidi Asai L-function is not planned; AL.4 plans only the unramified Euler factors. The Rankin–Selberg factors L(s, π_i × π^c_j) are entire and non-vanishing at s = 1 for ∗-regular χ (separate item)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/70",
+      "kind": "theorem",
+      "name": "Rankin–Selberg analytic inputs for GL_n × GL_m",
+      "statement": "For cuspidal π, π′ of GL_n(A_E), GL_m(A_E) with π′ ≄ π^∨ ⊗ |det|^{it}: L(s, π × π′) is entire, bounded in vertical strips (Cogdell, ICTP notes 2008, Thm. 4.1; Gelbart–Shahidi) and non-vanishing at s = 1 (Jacquet–Shalika 1981; Shahidi 1981); for π′ = π^∨ it has a simple pole at s = 1. The local Rankin–Selberg and Asai L-factors of unitary cuspidal components satisfy the Jacquet–Shalika bound, so Q(s)L_v(s) is holomorphic and bounded in vertical strips of ℋ_{>0} after multiplying by a polynomial Q with roots in ℋ_{]0,1[}.",
+      "locator": "§6.2.3, §6.3 and §8.1.2, pp. 284, 288 and 304",
+      "status": "missing",
+      "note": "These GL_n statements are the analytic part of AL.3 ('state analytic nonvanishing results only in their proved regions'); PAPER-CHENEVIER-TAIBI-20 routes Gelbart–Shahidi boundedness and PAPER-GAN-ICHINO-18 strong multiplicity one to the same source."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/71",
+      "kind": "theorem",
+      "name": "Strong multiplicity one for isobaric representations and Ramakrishnan's refinement",
+      "statement": "Two isobaric sums of cuspidal automorphic representations of general linear groups whose local components are isomorphic at almost all places are equal (Jacquet–Shalika). Ramakrishnan (A theorem on GL(n) à la Tchebotarev, arXiv:1806.08429): for a finite Galois extension K/F, an isobaric automorphic representation of GL_n(A_K) is determined by its local components at the places of K of degree one over F. For K = E this identifies a weak base change (defined by the split places) with a strong one and lets the Satake parameters at split places single out Π.",
+      "locator": "Remark 1.1.4.1 and proof of Proposition 10.1.6.1, pp. 185 and 321",
+      "status": "missing",
+      "note": "Jacquet–Shalika's form coalesces with PAPER-GAN-ICHINO-18's source route to AL.3; Ramakrishnan's theorem (via Rankin–Selberg theory, the Luo–Rudnick–Sarnak bound and class field theory) is also used by Beuzart-Plessis–Liu–Zhang–Zhu."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/72",
+      "kind": "definition",
+      "name": "The Flicker functional β_n on W(Π, ψ_n)",
+      "statement": "For χ ∈ 𝔛*(G_n) distinguished and W ∈ W(Π, ψ_n): β_{n,S}(W) = ∫_{N′_n(F_S)∖P′_n(F_S)} W(p_S) dp_S, convergent by Beuzart-Plessis (Asai paper, Prop. 2.6.1, Lemma 3.3.1) and the Jacquet–Shalika bound; β_n(W) = (Δ^{S,*}_{G′_n})^{−1}L^{S,*}(1, Π, As)β_{n,S}(W), independent of S large (Flicker, Prop. 3, and (2.3.2.3)), where L^{S,*}(1, ·) is the leading Laurent coefficient at s = 1. For G = G_n × G_{n+1}: β_η(W) = (Δ^{S,*}_{G′})^{−1}L^{S,*}(1, Π, As_G)∫_{N′(F_S)∖𝒫′(F_S)} W(p_S)η_{G′}(p_S) dp_S with L(s, Π, As_G) = L(s, Π_n, As^{(−1)^{n+1}})L(s, Π_{n+1}, As^{(−1)^n}).",
+      "locator": "§6.2.4 and §8.1.2, pp. 285 and 302",
+      "status": "missing",
+      "note": "The mirabolic integral realises the Flicker–Rallis period on the Whittaker model."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/73",
+      "kind": "theorem",
+      "name": "Local Asai zeta integrals: continuation, functional equation and the unramified computation",
+      "statement": "For S a finite set of places and W_S ∈ W(Π_S, ψ_{n,S}), φ_S ∈ 𝒮(F^n_S): Z^FR_ψ(s, W_S, φ_S) = ∫_{N′_n(F_S)∖G′_n(F_S)} W_S(h)φ_S(e_nh)|det h|^s dh continues meromorphically to ℂ with Z^FR_{ψ^{−1}}(1 − s, W̃_S, φ̂_S)/L_S(1 − s, Π^∨, As) = ε(s, Π, As)Z^FR_ψ(s, W_S, φ_S)/L_S(s, Π, As), W̃(g) = W(w_n{}^tg^{−1}) (Beuzart-Plessis, Thm. 3.5.1), with the quotients entire of finite order (Thm. 3.5.2); at unramified places the integral of the normalised spherical vector and 1_{O^n} is L_v(s, Π_v, As) (Flicker, Prop. 3), giving Z^FR_ψ(s, f, φ) = (Δ^{S,*}_{G′_n})^{−1}L(s, Π, As)Z^FR_ψ(s, W_S, φ_S)/L_S(s, Π, As) (6.3.0.6).",
+      "locator": "§6.3, (6.3.0.6)–(6.3.0.8), pp. 287–288",
+      "status": "missing",
+      "note": "Beuzart-Plessis, Archimedean theory and ε-factors for the Asai Rankin–Selberg integrals (Simons Symposia 2021); the archimedean theory is not planned."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/74",
+      "kind": "theorem",
+      "name": "Theorem 6.2.5.1(1): convergence of Flicker–Rallis zeta integrals of moderate-growth functions",
+      "statement": "For N ≥ 0 there is c_N > 0 such that for f ∈ 𝒯_N([G_n]) and φ ∈ 𝒮(A^n), Z^FR_ψ(s, f, φ) converges absolutely for s ∈ ℋ_{>c_N}, is holomorphic and bounded in vertical strips there, and is a separately continuous bilinear form on 𝒯_N([G_n]) × 𝒮(A^n) for each such s.",
+      "locator": "Theorem 6.2.5.1(1), p. 285; proof §6.5.2, p. 295",
+      "status": "missing",
+      "note": "By Lemma 2.6.1.1(2) and Lemma 2.6.2.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/75",
+      "kind": "theorem",
+      "name": "Theorem 6.2.5.1(2): the residue of the Flicker–Rallis zeta integral for ∗-regular data",
+      "statement": "Let χ ∈ 𝔛*(G_n) with representative (M_P, π), M_P = G_{n_1} × ⋯ × G_{n_k}, and ⁰f(g) = ∫_{A^∞_{G_n}} f(ag) da. For f ∈ 𝒞_χ([G_n]) and φ ∈ 𝒮(A^n), s ↦ (s − 1)Z^FR_ψ(s, ⁰f, φ) continues analytically to ℋ_{>1} with a limit at s = 1, and Z^{FR,*}_ψ(1, ⁰f, φ) = lim_{s→1+}(s − 1)Z^FR_ψ(s, ⁰f, φ) = 2^{1−k}φ̂(0)β_n(W_{f,Π}) if χ is distinguished, and 0 otherwise.",
+      "locator": "Theorem 6.2.5.1(2), p. 285; proof §6.3, pp. 286–289",
+      "status": "missing",
+      "note": "Proof: Lapid's expansion ⁰f = ∫_{ia*_{M,0}} f_x dx (6.3.0.2), the local theory, and the vector-valued Phragmén–Lindelöf principle (Corollary A.0.11.1) applied to P(s, x)Z^FR(s, f_x, φ); then Beuzart-Plessis (Invent. 2021) Lemma 3.1.1, Prop. 3.1.2 and Lemma 2.16.3 for the limit. The parameter space written 𝒜_0 is ia*_{M,0} (sourceIssues E8)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/76",
+      "kind": "definition",
+      "name": "The Epstein–Eisenstein series on G′_n",
+      "statement": "For φ ∈ 𝒮(A^n): E(h, φ, s) = ∫_{A^∞_{G′_n}} Σ_{γ∈P′_n(F)∖G′_n(F)} φ(e_nγah)|det(ah)|^s da, absolutely convergent for Re s > 1, continuing meromorphically to a function valued in 𝒯([G′_n]) with simple poles at s = 0, 1 and residues φ(0), φ̂(0) (Jacquet–Shalika, Amer. J. Math. 1981, Lemma 4.2).",
+      "locator": "§6.4, p. 290",
+      "status": "missing",
+      "note": "Its pairing with ⁰f realises the Flicker–Rallis period as a residue."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/77",
+      "kind": "theorem",
+      "name": "Lemma 6.4.0.1 and Proposition 6.4.0.2: partial Whittaker unfolding of the Flicker–Rallis integral",
+      "statement": "For 1 ≤ r ≤ n let N_{r,n} be the unipotent radical of the standard parabolic with Levi G_r × (G_1)^{n−r}, ⁰f_{N_{r,n},ψ} the ψ_n-coefficient along it and Z^FR_r(s, ⁰f, φ) = ∫_{P′_r(F)N′_{r,n}(A)∖G′_n(A)} ⁰f_{N_{r,n},ψ}(h)φ(e_nh)|det h|^s dh (Z^FR_1 = Z^FR_ψ, Z^FR_n(s, ⁰f, φ) = ∫_{[G′_n]_0} ⁰f(h)E(h, φ, s)dh). Lemma 6.4.0.1: Z^FR_r converges for Re s > c_r. Proposition 6.4.0.2: for f ∈ 𝒮_χ([G_n]), χ ∈ 𝔛*(G_n), each s ↦ (s − 1)Z^FR_r(s, ⁰f, φ) extends holomorphically to Re s > 1 with a limit at s = 1, and these limits are equal for all r; the correction F_r(s) between consecutive r is holomorphic on Re s > 1 − r/n.",
+      "locator": "Lemma 6.4.0.1, Proposition 6.4.0.2, pp. 290–295",
+      "status": "missing",
+      "note": "The correction terms are expressed through P_{G′_r} ⊗̂ Z^FR_{n−r} applied to 𝒞_{χ_M} constant terms (Corollary 2.9.7.2); ∗-regularity passes to the factor χ_2."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/78",
+      "kind": "theorem",
+      "name": "Theorem 6.2.6.1: the Flicker–Rallis period on 𝒞([G_n]) is a residue",
+      "statement": "For χ ∈ 𝔛*(G_n), P_{G′_n}: f ↦ ∫_{[G′_n]} f(h) dh is well defined and continuous on 𝒞([G_n]), and for f ∈ 𝒮_χ([G_n]) and φ ∈ 𝒮(A^n): φ̂(0)P_{G′_n}(f) = ½ Z^{FR,*}_ψ(1, ⁰f, φ).",
+      "locator": "Theorem 6.2.6.1, p. 286; proof §6.4, pp. 289–293",
+      "status": "missing",
+      "note": "Continuity from Ξ^{G_n}(h) ≪ Ξ^{G′_n}(h)² and (2.4.5.24); the factor ½ from the measures on A^∞_{G_n} and A^∞_{G′_n}."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/79",
+      "kind": "theorem",
+      "name": "Corollary 6.2.7.1: the Flicker–Rallis period of a Schwartz function supported on a ∗-regular datum (= Theorem 1.3.3.1)",
+      "statement": "Let χ ∈ 𝔛*(G_n) be represented by (M_P, π) and Π = Ind^{G_n(A)}_{P(A)}(π). For every f ∈ 𝒮_χ([G_n]): P_{G′_n}(f) = 2^{−dim A_P}β_n(W_{f,Π}) if χ is distinguished, and 0 otherwise. With the η-twist, for G = G_n × G_{n+1}: P_{G′,η}(φ) = ∫_{[G′]} φ(g′)η_{G′}(g′) dg′ = 2^{−dim A_M}β_η(W_{φ_0}) for φ ∈ 𝒮_χ([G]).",
+      "locator": "Corollary 6.2.7.1, p. 286 (= Theorem 1.3.3.1, p. 193)",
+      "status": "missing",
+      "note": "Combines Theorems 6.2.5.1 and 6.2.6.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/80",
+      "kind": "definition",
+      "name": "The Rankin–Selberg zeta integral Z^RS_ψ(s, f) of moderate-growth functions",
+      "statement": "For G = G_n × G_{n+1}, H = G_n diagonal, ψ_N = ψ_n ⊠ ψ_{n+1} (trivial on [N_H]) and f ∈ 𝒯([G]): W_f(g) = ∫_{[N]} f(ug)ψ_N(u)^{−1} du and Z^RS_ψ(s, f) = ∫_{N_H(A)∖H(A)} W_f(h)|det h|^s_E dh where absolutely convergent. Lemma 7.1.1.1: for N ≥ 0 there is c_N with Z^RS_ψ(s, f) absolutely convergent for f ∈ 𝒯_N([G]) and s ∈ ℋ_{>c_N}, continuous in f and holomorphic and bounded in vertical strips in s.",
+      "locator": "§7.1.1 and Lemma 7.1.1.1, pp. 295–296; proof §7.3, p. 301",
+      "status": "missing",
+      "note": "Jacquet–Piatetski-Shapiro–Shalika's integral with the center shifted by ½ relative to the introduction's normalisation."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/81",
+      "kind": "definition",
+      "name": "H-regular cuspidal data",
+      "statement": "χ ∈ 𝔛(G) represented by (M_P, π), π_n = π_{n,1} ⊠ ⋯ ⊠ π_{n,k}, π_{n+1} = π_{n+1,1} ⊠ ⋯ ⊠ π_{n+1,r}, is H-regular if π_{n,i} ≠ π^∨_{n+1,j} for all i, j (7.1.2.1). Relevant data are H-regular, by the dichotomy of §4.1.2.",
+      "locator": "§7.1.2 and §8.2.3, pp. 296 and 306",
+      "status": "missing",
+      "note": "The condition that kills the extra terms in the Rankin–Selberg unfolding."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/82",
+      "kind": "theorem",
+      "name": "Proposition 7.2.0.2: the partial Rankin–Selberg unfolding for H-regular data",
+      "statement": "For f ∈ 𝒮_χ([G]), χ H-regular, and 1 ≤ r ≤ n, with N^G_r = N_{r,n} × N_{r,n+1} and Z^RS_r(s, f) = ∫_{𝒫_r(F)N^H_r(A)∖H(A)} f_{N^G_r,ψ}(h)|det h|^s_E dh (convergent for Re s > c_r, Lemma 7.2.0.1) and Z^RS_{n+1}(s, f) = ∫_{[H]} f(h)|det h|^s_E dh: Z^RS_{r+1}(s, f) = Z^RS_r(s, f) for Re s large. The correction terms F_r(s) = ∫_K (P_{G_{Δ_r}} ⊗̂ Z^RS_{n−r}(s + 2rα_r(s)))(f_{𝒫_r,k,s}) dk, α_r(s) = (2s + 1)/(4n − 4r + 2), vanish because the diagonal period of G_r × G_r kills 𝒞_{χ_1}([G_r × G_r]) when χ″_1 ≠ (χ′_1)^∨.",
+      "locator": "Lemma 7.2.0.1 and Proposition 7.2.0.2, pp. 297–299",
+      "status": "missing",
+      "note": "Mimics the Jacquet–Piatetski-Shapiro–Shalika unfolding for non-cuspidal functions."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/83",
+      "kind": "theorem",
+      "name": "Theorem 7.1.3.1: canonical extension of the Rankin–Selberg period (= Theorem 1.3.3.2)",
+      "statement": "Let χ ∈ 𝔛(G) be H-regular. (1) For every f ∈ 𝒯_χ([G]), s ↦ Z^RS_ψ(s, f) extends from a right half-plane to an entire function. (2) The restriction of P_H: f ↦ ∫_{[H]} f(h) dh to 𝒮_χ([G]) extends by continuity to 𝒯_χ([G]), and P_H(f) = Z^RS_ψ(0, f) for every f ∈ 𝒯_χ([G]) (7.1.3.2).",
+      "locator": "Theorem 7.1.3.1, pp. 296–297; proof §7.2, pp. 297–300",
+      "status": "missing",
+      "note": "Z^RS_ψ(s, f) = ∫_{[H]} f(h)|det h|^s dh for f ∈ 𝒮_χ([G]) gives an entire function with Z^RS_ψ(−s, f̃) = Z^RS_ψ(s, f), f̃(g) = f(^tg^{−1}); Corollary A.0.11.2 (vector-valued Phragmén–Lindelöf) extends it to 𝒯_χ. Written ∫* in the introduction."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/84",
+      "kind": "definition",
+      "name": "The linear forms λ, β_η and the Whittaker inner product ⟨·,·⟩_Whitt on W(Π, ψ_N)",
+      "statement": "For χ ∈ 𝔛*(G) represented by (M_P, π), Π = Π_n ⊠ Π_{n+1} = Ind^G_P(π) is generic; W_φ = W_{E(φ)} ∈ W(Π, ψ_N) for φ ∈ Π. λ(W) = Z^RS(0, W), where Z^RS(s, W) = ∫_{N_H(A)∖H(A)} W(h)|det h|^s_{A_E} dh converges for Re s ≫ 0 and continues meromorphically with no pole at s = 0 (Jacquet–Piatetski-Shapiro–Shalika; Jacquet 2009); β_η as in §6.2.4; ⟨W, W⟩_Whitt = (Δ^{S,*}_G)^{−1}L^{S,*}(1, Π, Ad)∫_{N(F_S)∖𝒫(F_S)} |W(p_S)|² dp_S with L(s, Π, Ad) = L(s, Π_n × Π^∨_n)L(s, Π_{n+1} × Π^∨_{n+1}), independent of S large (Flicker; Jacquet–Shalika) and G(A)-invariant (Bernstein 1984; Baruch 2003).",
+      "locator": "§§8.1.1–8.1.2, pp. 302–303",
+      "status": "missing",
+      "note": "𝒫 = 𝒫_n × 𝒫_{n+1} is the product of mirabolic subgroups; the global Rankin–Selberg theory for cuspidal data is AL.3, the Whittaker functional of a non-cuspidal Eisenstein series is new here."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/85",
+      "kind": "theorem",
+      "name": "Theorem 8.1.2.1 (Jacquet–Shalika, Shahidi, Lapid–Offen): the Petersson norm is the Whittaker norm",
+      "statement": "For φ ∈ Π (Π induced from a regular cuspidal datum): ⟨φ, φ⟩_Pet = ⟨W_φ, W_φ⟩_Whitt.",
+      "locator": "Theorem 8.1.2.1, pp. 303–304",
+      "status": "missing",
+      "note": "Deduced from Jacquet–Shalika's residue formula for cusp forms on M_P (8.1.2.1) (see also Feigon–Lapid–Offen p. 265, W. Zhang JAMS 2014 Prop. 3.1), Feigon–Lapid–Offen Prop. A.2 for the Jacquet integral (8.1.2.2) and Shahidi's computation W^S(φ_{N_P,ψ}) = ∏ L^S(1, π_i × π^∨_j)W_φ (8.1.2.3)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/86",
+      "kind": "definition",
+      "name": "The Whittaker relative character I_Π",
+      "statement": "For χ ∈ 𝔛*(G), Π = Ind^G_P(π) and a K-basis ℬ_{P,π}: I_Π(f) = Σ_{φ∈ℬ_{P,π}} λ(R(f)W_φ)\\overline{β_η(W_φ)}/⟨W_φ, W_φ⟩_Whitt for f ∈ 𝒮(G(A)), convergent and independent of the basis (Proposition 2.8.4.1); by Theorem 8.1.2.1 the denominators are 1 for a Petersson-orthonormal basis, giving (1.3.1.1).",
+      "locator": "§8.1.3, p. 305, and (1.3.1.1), p. 191",
+      "status": "missing",
+      "note": "Following W. Zhang, JAMS 2014, §3.4."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/87",
+      "kind": "theorem",
+      "name": "Theorem 8.1.4.1: the ∗-regular contribution in Whittaker terms (= Theorem 1.3.1.1)",
+      "statement": "Let f ∈ 𝒮(G(A)), χ ∈ 𝔛*(G) and K^1_{f,χ}(g) = ∫_{[H]} K_{f,χ}(h, g) dh, K^2_{f,χ}(g) = ∫_{[G′]} K_{f,χ}(g, g′)η_{G′}(g′) dg′. (1) If χ is not relevant, K^2_{f,χ} ≡ 0 and I_χ(f) = 0. (2) If χ is relevant, I_χ(f) = ∫_{[G′]} K^1_{f,χ}(g′)η_{G′}(g′) dg′ (absolutely convergent) and I_χ(f) = 2^{−dim A_P}I_Π(f). For relevant ∗-regular χ the exponential-polynomial T ↦ I^T_χ(f) is constant.",
+      "locator": "Theorem 8.1.4.1, p. 305; proof §8.2, pp. 305–308 (= Theorem 1.3.1.1, p. 191)",
+      "status": "missing",
+      "note": "Second proof, by zeta integrals: K^2_{f,χ} = P_{G′_n} ⊗̂ P_{G′_{n+1}}(K̃_{f,χ}(g, ·)) = 2^{−dim A_P}Σ_φ E(R(f)φ)(g)\\overline{β_η(W_φ)} (Corollary 6.2.7.1), then P*_H(E(φ)) = λ(W_φ) (Theorem 7.1.3.1) and Theorem 3.3.9.1 applied to (3.3.5.6)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/88",
+      "kind": "definition",
+      "name": "Local setup: mirabolic Flicker functionals and Jacquet integrals",
+      "statement": "For E/F an étale quadratic algebra over a local field, ψ(x) = ψ′(Tr(τx)), measures dx = ∏dx_{ij}/|det x|^n on GL_n(k), product measures on Levi subgroups, additive measures on unipotent subgroups, and the linear forms ∫_{R∖S} on (R, δ_Rδ_S^{−1})-equivariant functions. For ϕ ∈ C^∞(N_0∖𝒫, ψ): β(ϕ) = β_G(ϕ) = ∫_{N_{0,F}∖𝒫_F} ϕ(p) dp, and β_M for standard Levi M. For σ ∈ Π_gen(M) and P = MN, Ind^G_P(W(σ)) and the Jacquet integral W(g, ϕ) = ∫_{N_w} δ^σ_e(ϕ(w_M^{−1}u′g))ψ^{−1}(u′) du′, a Whittaker functional W_e(ϕ) = W(e, ϕ).",
+      "locator": "§§9.1.1–9.1.6, pp. 308–310",
+      "status": "missing",
+      "note": "Normalisations follow Feigon–Lapid–Offen, Appendix A."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/89",
+      "kind": "theorem",
+      "name": "Theorem 9.1.7.1: local Flicker functional of a Jacquet integral",
+      "statement": "Let σ ∈ Π_gen(M) be unitary and distinguished (admitting a non-zero continuous G_F-invariant form) and ϕ ∈ Ind^G_P(W(σ)). Then β_M is M_F-invariant, β_G(W(ϕ)) and β_M(ϕ(g)) converge absolutely (Flicker, Lemma 4; Beuzart-Plessis, Asai paper, Prop. 2.6.1), and β_G(W(ϕ)) = β′(ϕ) := ∫_{P_F∖G_F} β_M(ϕ(g)) dg (9.1.7.1)–(9.1.7.2), the integral making sense as δ_P|_{P_F} = δ²_{P_F}.",
+      "locator": "Theorem 9.1.7.1 and Remark 9.1.7.2, pp. 310–317",
+      "status": "missing",
+      "note": "Split E: Baruch, Cor. 10.4, and Feigon–Lapid–Offen, Prop. A.2. p-adic E/F: uniqueness of G_F-invariant forms (Gelbart–Jacquet–Rogawski, Prop. 2). F = ℝ: the paper sketches the analogue via multiplicity one (Aizenbud–Gourevitch, Thm. 8.2.5) and a variant of Baruch's Theorem 10.4 for Z(𝔤)-finite P_F-invariant distributions on G/G_F, 'proved as in Baruch §9' — a proof obligation. Non-vanishing of β′ from Gelfand–Kazhdan, Jacquet 2010 Prop. 5, Kemarsky 2015."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/90",
+      "kind": "theorem",
+      "name": "Lemmas 9.1.7.3–9.1.7.7: the Fourier-transform chain for a maximal parabolic",
+      "statement": "For P maximal of type (n_1, n_2), with the groups C_i, R_i, X_i, Y_i, V_i, V′_i, S_i, S′_i and the induced spaces 𝒜_i = Ind^𝒫_{S_i}(W(σ_2) ⊗ ψ_i): the partial Fourier transforms F′_i: L²(C_i, 𝒲(σ_2)) → L²(R_{i−1}, 𝒲(σ_2)) induce unitary equivalences B_i: 𝒜²_i → 𝒜²_{i−1} (Lemma 9.1.7.3) and B_{n_2+1}: 𝒜²_{n_2+1} → 𝒜²_{n_2} (Lemma 9.1.7.4); for ϕ supported on the big cell, with ϕ_n(p) = δ^1_eϕ(wp) and ϕ_{i−1} = B_i(ϕ_i), ϕ_{n_2} = W(ϕ) (Feigon–Lapid–Offen, A.3) and β′(ϕ) = β_n(ϕ_n) (Lemma 9.1.7.5), β_i(ϕ_i) = β_{i−1}(ϕ_{i−1}) (Lemma 9.1.7.6), β_{n_2+1}(ϕ_{n_2+1}) = β_G(W(ϕ)) (Lemma 9.1.7.7), where β_i(φ) = ∫_{S_{i,F}∖𝒫_F} β_{M′_2}(φ(p)) dp.",
+      "locator": "Lemmas 9.1.7.3–9.1.7.7, pp. 313–317",
+      "status": "missing",
+      "note": "A twisted version of the local unfolding of Feigon–Lapid–Offen, Appendix A; the reduction from general P to maximal P uses the transitivity of Jacquet integrals."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/91",
+      "kind": "theorem",
+      "name": "Theorem 9.2.5.1: the Flicker–Rallis intertwining period equals β_η (= Theorem 1.3.2.3)",
+      "statement": "For χ ∈ 𝔛*(G) relevant, represented by (M, π), Π = Ind^{G(A)}_{P(A)}(π) and every φ ∈ Π: J_η(φ) = β_η(W_φ).",
+      "locator": "Theorem 9.2.5.1, p. 318 (= Theorem 1.3.2.3, p. 193)",
+      "status": "missing",
+      "note": "Same structure as Theorem 8.1.2.1, with W. Zhang's JAMS 2014 Prop. 3.2 replacing (8.1.2.1) and Theorem 9.1.7.1 replacing (8.1.2.2)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/92",
+      "kind": "theorem",
+      "name": "Ichino–Yamana: the regularised Rankin–Selberg period of an Eisenstein series is its Rankin–Selberg zeta value",
+      "statement": "For φ in Π induced from an (M_{Q′}, η_{G′})-distinguished cuspidal datum: λ(W_φ) = Z^RS(0, W_φ) = I(φ, 0), the regularised period of Proposition 5.1.4.1 (Ichino–Yamana, Compositio 2015, Thm. 1.1); and I (equivalently λ) is non-zero iff L(½, Π) ≠ 0 (Ichino–Yamana, Cor. 5.7; Jacquet–Piatetski-Shapiro–Shalika, Jacquet 2004).",
+      "locator": "Proof of Corollary 9.2.5.2, p. 318, and §10.2.1, pp. 322–323",
+      "status": "missing",
+      "note": "Cited theorems of Ichino–Yamana; their proofs are the natural sequel to Proposition 5.1.4.1 and Theorem 7.1.3.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/93",
+      "kind": "theorem",
+      "name": "Corollary 9.2.5.2: the two relative characters coincide (= Theorem 1.3.2.4)",
+      "statement": "For χ relevant and ∗-regular: I_{P,π} = I_Π as distributions on 𝒮(G(A)).",
+      "locator": "Corollary 9.2.5.2, p. 318 (= Theorem 1.3.2.4, p. 193)",
+      "status": "missing",
+      "note": "From Theorem 8.1.2.1, Theorem 9.2.5.1 and Ichino–Yamana's Theorem 1.1. A direct comparison of the truncation proof (§5) with the zeta-integral proof (§8)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/94",
+      "kind": "definition",
+      "name": "Relative characters of unitary groups J^h_σ and J^h_{𝔛_0}",
+      "statement": "For h ∈ ℋ and σ ⊂ 𝒜_cusp(U_h) irreducible: J^h_σ(f) = Σ_φ 𝒫_h(π(f)φ)\\overline{𝒫_h(φ)} for f ∈ 𝒮(U_h(A)), over a K_h-basis; for 𝔛_0 ⊂ 𝔛(U_h) of cuspidal data not coming from proper Levi subgroups, J^h_{𝔛_0}(f) = Σ_{χ∈𝔛_0} Σ_σ J^h_σ(f) over the constituents of L²_χ([U_h]), absolutely convergent (Beuzart-Plessis, JIMJ 2021, Prop. A.1.2).",
+      "locator": "§10.1.2, pp. 318–319",
+      "status": "missing",
+      "note": "The unitary-side relative characters of the Jacquet–Rallis comparison."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/95",
+      "kind": "definition",
+      "name": "Unramified data: ℋ°, spherical Hecke algebras and the base-change homomorphism",
+      "statement": "For V_{F,∞} ⊂ S_0 finite containing the places ramified in E, ℋ° ⊂ ℋ is the finite set of hermitian spaces with a self-dual O_{E_v}-lattice for every v ∉ S_0; K°_h = ∏_{v∉S_0} U_h(O_v), K° = ∏_{v∉S_0} G(O_v); 𝒮°(U_h(F_v)), 𝒮°(G(F_v)) the spherical Hecke algebras (units the characteristic functions), the local base-change homomorphisms BC_{h,v}: 𝒮°(G(F_v)) → 𝒮°(U_h(F_v)) and BC^{S_0}_h = ⊗_{v∉S_0} BC_{h,v}; 𝒮°(G(A)), 𝒮°(U_h(A)) the bi-K°- and bi-K°_h-invariant Schwartz functions.",
+      "locator": "§10.1.3, p. 319",
+      "status": "missing",
+      "note": "The unramified base-change homomorphism of Hecke algebras (Satake) for U_h ⊂ Res_{E/F} GL."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/96",
+      "kind": "definition",
+      "name": "Transfer of test functions between G and the U_h",
+      "statement": "For h ∈ ℋ°, f_{S_0} ∈ 𝒮(G(F_{S_0})) and f^h_{S_0} ∈ 𝒮(U_h(F_{S_0})) are transfers if they have matching regular orbital integrals in the sense of Beuzart-Plessis–Liu–Zhang–Zhu, Definition 4.4, with the Haar measures of §2.3.3.",
+      "locator": "§10.1.4, p. 319",
+      "status": "missing",
+      "note": "Jacquet–Rallis smooth transfer as already planned in this candidate (local matching and transfer factors, ZHANG-21; global Definition 4.4, BPLZZ)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/97",
+      "kind": "theorem",
+      "name": "The Jacquet–Rallis fundamental lemma and transfer at split places",
+      "statement": "The characteristic function 1_{G(O_v)} and the unit of the spherical Hecke algebra of U_h(F_v) are transfers at inert places v ∉ S_0 for h ∈ ℋ°, and 1_{G(O_v)} transfers to 0 on U_h(F_v) for h ∉ ℋ° at a suitable inert v (Yun 2011; Beuzart-Plessis, Duke 2021); at split places the transfer is explicit (W. Zhang, Ann. of Math. 2014, Prop. 2.5). Consequently the hypotheses of Proposition 10.1.6.1 are stable under enlarging S_0 (Remark 10.1.6.2).",
+      "locator": "Remark 10.1.6.2 and proof of Proposition 10.1.6.1, pp. 320–321",
+      "status": "missing",
+      "note": "The fundamental lemma for all residue characteristics is in this candidate through Beuzart-Plessis–Liu–Zhang–Zhu; the paper leaves the bookkeeping of Haar measures to the reader."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/98",
+      "kind": "theorem",
+      "name": "Existence of smooth transfer (Zhang; Xue)",
+      "statement": "At non-archimedean places every f^h_v ∈ 𝒮(U_h(F_v)) admits a transfer in 𝒮(G(F_v)), with the zero function on the other U_{h′}(F_v) (W. Zhang, Ann. of Math. 2014); at archimedean places the functions admitting transfers are dense (Xue, Crelle 2019), which suffices for continuous identities; combined, suitable families of test functions satisfying the hypotheses of Proposition 10.1.6.1 exist with prescribed non-zero value of either side.",
+      "locator": "§§10.2.2–10.2.3 and §10.3.4, pp. 322–323 and 325",
+      "status": "missing",
+      "note": "Proposition 4.6 of Beuzart-Plessis–Liu–Zhang–Zhu, already in this candidate."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/99",
+      "kind": "theorem",
+      "name": "The unitary Jacquet–Rallis trace formula for Schwartz functions and the comparison of geometric sides",
+      "statement": "For each h ∈ ℋ there is a distribution J^h on 𝒮(U_h(A)) (Zydor, Crelle 2020, Thm. 0.3 for C_c^∞; Chaudouard–Zydor, Compositio 2021, §1.1.3 and Thm. 15.2.3.1 for Schwartz functions) with the spectral description used below, and for f, (f^h) satisfying the hypotheses of Proposition 10.1.6.1, I(f) = Σ_{h∈ℋ°} J^h(f^h) (Chaudouard–Zydor, Thm. 1.6.1.1) (10.1.6.4).",
+      "locator": "Proof of Proposition 10.1.6.1, p. 321",
+      "status": "missing",
+      "note": "Chaudouard–Zydor's comparison of all geometric terms for matching functions (singular transfer), already listed in this candidate as BPLZZ Proposition 4.7."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/100",
+      "kind": "theorem",
+      "name": "Isolating the Hermitian Arthur parameter by multipliers compatible with transfer",
+      "statement": "With the S′_0-multiplier algebras ℳ^{S′_0}(G(A)), ℳ^{S′_0}(U_h(A)) (Beuzart-Plessis–Liu–Zhang–Zhu, Def. 3.5): by Ramakrishnan's theorem and BPLZZ Theorem 3.19 there is μ ∈ ℳ^{S′_0}(G(A)) with μ(Π) = 1 and K^0_{μ∗f,χ′} = 0 for every χ′ ≠ χ with central character trivial on A_G; by BPLZZ Theorems 3.6 and 4.14(3)–(4) there are μ^h with μ^h(σ) = 1 for (U_h, σ) ∈ 𝔛^h_0 and K^{U_h}_{P,μ^h∗f^h,χ′} = 0 for χ′ ∉ 𝔛^h_0 and all P; and by BPLZZ Proposition 4.8 and Lemma 4.12 μ, μ^h can be chosen so that μ∗f, μ^h∗f^h still satisfy the hypotheses of Proposition 10.1.6.1. The common infinitesimal character: every (U_h, σ) ∈ 𝔛^h_0 has infinitesimal character with base change ξ_Π.",
+      "locator": "Proof of Proposition 10.1.6.1, pp. 321–322",
+      "status": "missing",
+      "note": "The paper cites these as BPLZZ Theorems 3.17, 4.12(3)–(4) and Lemma 4.10, the arXiv v1 numbering (sourceIssues E2). The infinitesimal-character statement is BPLZZ Theorem 4.14(4) for a non-cuspidal base change, whose printed proof has a gap (sourceIssues E1; PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1); the design must take it from the repaired proof or from Mok and KMSW."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/101",
+      "kind": "theorem",
+      "name": "Proposition 10.1.6.1: the spectral identity of relative trace formulas",
+      "statement": "Let Π = Ind^G_P(π) be a Hermitian Arthur parameter (χ regular and relevant) admitting K°-fixed vectors, S′_0 the union of S_0 ∖ V_{F,∞} and the finite places inert in E, and 𝔛^h_0 the classes (U_h, σ) with σ K°_h-unramified and split base change Π_v at all v ∉ S′_0 ∪ V_{F,∞}. Let f ∈ 𝒮°(G(A)) and f^h ∈ 𝒮°(U_h(A)) (h ∈ ℋ°) with (1) f = (Δ^{S_0,*}_HΔ^{S_0,*}_{G′})f_{S_0} ⊗ f^{S_0}, (2) f^h = (Δ^{S_0}_{U′_h})²f^h_{S_0} ⊗ f^{h,S_0}, (3) f_{S_0}, f^h_{S_0} transfers, (4) f^{h,S_0} = BC^{S_0}_h(f^{S_0}), (5) f^{S_0} a product of a smooth compactly supported function on ∏′_{v∉S′_0} G(F_v) and 1_{∏_{v∈S′_0∖S_0} G(O_v)}. Then Σ_{h∈ℋ°} J^h_{𝔛^h_0}(f^h) = 2^{−dim a_P}I_Π(f) = 2^{−dim a_P}I_{P,π}(f) (10.1.6.3).",
+      "locator": "§§10.1.5–10.1.6 and Proposition 10.1.6.1, pp. 320–322",
+      "status": "missing",
+      "note": "Follows the proof of BPLZZ Theorem 1.8: (10.1.6.4) for μ∗f and μ^h∗f^h, then Theorem 3.3.9.1 and (10.1.5.2) I_χ = 2^{−dim a_P}I_{P,π} = 2^{−dim a_P}I_Π. The GRS descent gives some h with 𝔛^h_0 ≠ ∅ (printed '𝔛^h_π', sourceIssues E6)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/102",
+      "kind": "definition",
+      "name": "Local relative characters I_{Π_v} and J_{σ_v} and the factorisation of I_Π",
+      "statement": "For tempered Π_v: I_{Π_v}(f_v) = Σ_{W_v} λ_v(Π_v(f_v)W_v)\\overline{β_{η,v}(W_v)}/⟨W_v, W_v⟩_{Whitt,v} over a K_v-basis of W(Π_v, ψ_{N,v}), with λ_v(W_v) = ∫_{N_H(F_v)∖H(F_v)} W_v, β_{η,v}(W_v) = ∫_{N′(F_v)∖𝒫′(F_v)} W_vη_{G′,v}, ⟨W_v, W_v⟩ = ∫_{N(F_v)∖𝒫(F_v)} |W_v|² (absolutely convergent, Jacquet–Piatetski-Shapiro–Shalika Prop. 8.4); J_{σ_v}(f^h_v) = ∫_{U′_h(F_v)} Trace(σ_v(h_v)σ_v(f^h_v)) dh_v (Harris), with J_{σ_v}(1_{U_h(O_v)}) = Δ^{−2}_{U′_h,v}L(½, Π_v)/L(1, σ_v, Ad) for v ∉ S_0. For f = Δ^{S_0,*}_HΔ^{S_0,*}_{G′}∏_{v∈S_0}f_v × ∏_{v∉S_0}1_{G(O_v)}: I_Π(f) = L^{S_0}(½, Π)/L^{S_0}(1, Π, As^−_G) ∏_{v∈S_0} I_{Π_v}(f_v) (10.3.3.2), with L^{S_0}(s, Π, As^−_G) = L^{S_0}(s, Π_n, As^{(−1)^n})L^{S_0}(s, Π_{n+1}, As^{(−1)^{n+1}}) = L^{S_0}(s, σ, Ad).",
+      "locator": "§§10.3.1–10.3.3, pp. 323–325",
+      "status": "missing",
+      "note": "Local spherical characters of Harris and Beuzart-Plessis."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/103",
+      "kind": "theorem",
+      "name": "Beuzart-Plessis's comparison of local relative characters",
+      "statement": "If Π_v is the local base change of the tempered σ_v and f_v, f^h_v are transfers (v ∈ S_0), then I_{Π_v}(f_v) = κ_vJ_{σ_v}(f^h_v) with explicit κ_v ∈ ℂ^× and ∏_{v∈S_0} κ_v = 1 (Beuzart-Plessis, Invent. Math. 2021, Thm. 5.4.1).",
+      "locator": "§10.3.5, p. 325",
+      "status": "missing",
+      "note": "Lemma 4.9 of Beuzart-Plessis–Liu–Zhang–Zhu uses the same comparison; already in this candidate."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/104",
+      "kind": "theorem",
+      "name": "The local Gan–Gross–Prasad conjecture for tempered unitary pairs",
+      "statement": "In a tempered Vogan L-packet of U(n) × U(n+1) over a local field, exactly one member supports a non-zero continuous U′_h(F_v)-invariant form (Beuzart-Plessis, Astérisque 418 (2020), and earlier p-adic work); with Mok and KMSW's description of cuspidal representations of U_h through local L-packets, only σ itself contributes to the left side of (10.3.4.3).",
+      "locator": "§10.3.5, p. 325",
+      "status": "missing",
+      "note": "Local conjecture statement and cited theorems belong to this candidate; BPLZZ already added the tempered unitary case."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/105",
+      "kind": "theorem",
+      "name": "Mok and Kaletha–Mínguez–Shin–White: base change of tempered cuspidal representations of unitary groups",
+      "statement": "A cuspidal σ on U_h(A) tempered everywhere has a weak base change Π to G, which is a strong base change (Π_v the local base change of σ_v at every v, local base change of ramified representations characterised by character relations); in particular Π is tempered everywhere and σ is described by local L-packets.",
+      "locator": "Remark 1.1.4.1 and §10.3.1, pp. 185 and 323",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.4"
+      ],
+      "note": "The endoscopic classification for unitary groups is ML.4."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/106",
+      "kind": "theorem",
+      "name": "Ginzburg–Rallis–Soudry descent",
+      "statement": "Every Hermitian Arthur parameter Π of G is the weak base change of a cuspidal σ on U_h(A) for some h ∈ ℋ° (any quasi-split hermitian form unramified outside S_0).",
+      "locator": "Proof of Proposition 10.1.6.1, p. 321",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.5"
+      ],
+      "note": "Automorphic descent (Ginzburg–Rallis–Soudry 2011) is ML.5."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/107",
+      "kind": "theorem",
+      "name": "Jacquet–Piatetski-Shapiro–Shalika: Rankin–Selberg integrals for GL_n × GL_{n+1}",
+      "statement": "For cuspidal data the global zeta integral Z^RS(s, W) of a Whittaker function factors into local integrals, continues meromorphically with a functional equation, and represents L(s + ½, Π) (in the introduction's normalisation), the local integrals at unramified places giving the local L-factors; the local integrals converge absolutely for tempered Π_v (Prop. 8.4).",
+      "locator": "§8.1.2 and §10.3.3, pp. 302 and 324",
+      "status": "planned",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ],
+      "note": "Rankin–Selberg theory for GL_n × GL_m, including Jacquet's archimedean integrals, is AL.3."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/108",
+      "kind": "definition",
+      "name": "LF spaces, quasi-completeness and vector-valued integrals and sums",
+      "statement": "A LCTVS is a Hausdorff locally convex space over ℂ; LF spaces are countable inductive limits of Fréchet spaces (strict when the connecting maps are closed embeddings); V_B for bounded absolutely convex B; quasi-complete spaces (Fréchet and strict LF spaces are). For X σ-compact locally compact with a Radon measure and V quasi-complete, an absolutely integrable continuous f: X → V (∫ p(f) < ∞ for every continuous seminorm p) has a unique ∫_X f ∈ V with ⟨λ, ∫f⟩ = ∫⟨λ, f⟩; summable and absolutely summable families (v_i)_{i∈I} and their sums.",
+      "locator": "Appendix A, A.0.1–A.0.2, pp. 326–327",
+      "status": "missing",
+      "note": "Mathlib has locally convex spaces, seminorm families and barrelled spaces but no LF spaces, quasi-completeness or Pettis-type integrals in LCTVS."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/109",
+      "kind": "theorem",
+      "name": "Holomorphic functions valued in LCTVS and the Banach–Steinhaus consequences for LF spaces",
+      "statement": "For V quasi-complete, a function on a complex manifold is holomorphic iff continuous and scalarly holomorphic on a total subspace of V′ (A.0.3.1; Bourbaki). LF spaces are barrelled (Trèves, Cor. 33.3), so bounded subsets of Hom(V, W) are equicontinuous and Hom(V, W) is quasi-complete for W quasi-complete; hence (A.0.4.2) s ↦ T_s(v_{s,k}) is continuous and holomorphic for holomorphic T and continuous-holomorphic v, (A.0.4.3) a holomorphic family T_s ∈ Hom(V, W) on U ⊂ M whose values T_s(v) all continue analytically to M continues as a holomorphic family of continuous maps, and the same for separately continuous bilinear forms (A.0.5.4)–(A.0.5.5).",
+      "locator": "Appendix A, A.0.3–A.0.5, pp. 328–329",
+      "status": "missing",
+      "note": "Used for the holomorphy statements of §§6–7 (Corollary 2.9.7.2, Proposition 6.4.0.2, Theorem 7.1.3.1)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/110",
+      "kind": "theorem",
+      "name": "The Banach–Steinhaus theorem for barrelled spaces",
+      "statement": "A pointwise bounded family of continuous linear maps from a barrelled space into a space with topology given by seminorms is (uniformly) equicontinuous.",
+      "locator": "Appendix A, A.0.4, p. 328; used in Lemma 2.10.1.1, Theorem 3.3.7.1 and Lemma A.0.9.1",
+      "status": "library",
+      "library": [
+        "mathlib:WithSeminorms.banach_steinhaus",
+        "mathlib:PolynormableSpace.banach_steinhaus",
+        "mathlib:BarrelledSpace"
+      ],
+      "note": "Mathlib's WithSeminorms.banach_steinhaus and PolynormableSpace.banach_steinhaus (Mathlib/Analysis/LocallyConvex/Barrelled.lean); Mathlib provides BarrelledSpace for Baire (e.g. Fréchet) spaces, not for LF spaces."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/111",
+      "kind": "theorem",
+      "name": "Nuclear maps turn summable families into absolutely summable ones",
+      "statement": "Lemma A.0.6.1: if T: V → W is a nuclear map of LCTVS (Trèves, Defs. 47.2–47.3), then for every summable family (v_i) in V, (T(v_i)) is absolutely summable in W. Lemma A.0.6.2: a summable family (z_i) of complex numbers is absolutely summable with Σ|z_i| ≤ 4 sup_J |Σ_{i∈J} z_i|.",
+      "locator": "Appendix A, A.0.6, Lemmas A.0.6.1–A.0.6.2, pp. 329–330",
+      "status": "missing",
+      "note": "The mechanism behind the absolute summability in Theorem 2.9.4.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/112",
+      "kind": "definition",
+      "name": "Completed projective tensor products and Grothendieck's description",
+      "statement": "V ⊗̂ W with the universal property Hom(V ⊗̂ W, U) ≃ Bil(V, W; U) for complete U, and T ⊗̂ S. If V, W are spaces of functions on X, Y with topologies finer than pointwise convergence and V is a complete nuclear LF space, V ⊗ W → F(X × Y) extends to an embedding V ⊗̂ W ↪ F(X × Y) whose image is the set of f with f(x, ·) in the completion of W for every x and x ↦ ⟨f(x, ·), λ⟩ in V for every λ ∈ W′ (Grothendieck, Produits tensoriels, Ch. II, §3, n°3, Thm. 13) (A.0.7.8).",
+      "locator": "Appendix A, A.0.7, pp. 330–331",
+      "status": "missing",
+      "note": "AS.0 plans nuclear Fréchet test-function spaces; completed tensor products are also required by AL.3."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/113",
+      "kind": "theorem",
+      "name": "Schwartz functions valued in a quasi-complete space and Lemma A.0.9.1",
+      "statement": "For a real vector space 𝒜 and V quasi-complete, 𝒮(𝒜, V) consists of smooth f with Df bounded for all polynomial differential operators D; T ∘ f ∈ 𝒮(𝒜, W) for continuous T. Lemma A.0.9.1: if V is quasi-complete and barrelled and s ↦ Z_s ∈ V′ (s ∈ ℋ_{>C}) is holomorphic of order at most d in vertical strips on each v, then for f ∈ 𝒮(𝒜, V), s ↦ (λ ↦ Z_s(f_λ)) ∈ 𝒮(𝒜) is holomorphic of finite order in vertical strips. Orders in vertical strips are as in A.0.8.",
+      "locator": "Appendix A, A.0.8–A.0.9, Lemma A.0.9.1, pp. 331–332",
+      "status": "missing",
+      "note": "Mathlib's SchwartzMap covers normed targets only."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/114",
+      "kind": "theorem",
+      "name": "Vector-valued Phragmén–Lindelöf principles: Lemma A.0.10.1 and Corollaries A.0.11.1–A.0.11.2",
+      "statement": "Lemma A.0.10.1: for V quasi-complete and holomorphic Z_+, Z_−: ℋ_{>C} → V of finite order in vertical strips such that λ ∘ Z_± extend to entire functions of finite order with λ ∘ Z_+(s) = λ ∘ Z_−(−s) for λ in a total subspace H ⊂ V′, Z_± extend to entire V-valued functions of finite order with Z_+(s) = Z_−(−s). Corollary A.0.11.1 (V = 𝒮(𝒜)): if Z_±(·, s) ∈ 𝒮(𝒜) holomorphically of finite order on ℋ_{>C} and each Z_±(λ, ·) is entire of finite order with Z_+(λ, s) = Z_−(λ, −s), then s ↦ Z_±(·, s) ∈ 𝒮(𝒜) is entire. Corollary A.0.11.2 (V = W′ for an LF space W): if Z_±(s, ·) ∈ W′ for s ∈ ℋ_{>C}, of order ≤ d on each w, and s ↦ Z_±(s, f) extends entirely with Z_+(s, f) = Z_−(−s, f) for f in a dense subset H ⊂ W, then Z_± extend to entire W′-valued functions with the functional equation for every w.",
+      "locator": "Appendix A, A.0.10–A.0.11, pp. 332–333",
+      "status": "missing",
+      "note": "Proved by a Cauchy-integral representation after multiplying by e^{s^{4n+2}} and the classical Phragmén–Lindelöf principle; the key tool for Theorems 6.2.5.1(2) and 7.1.3.1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/115",
+      "kind": "theorem",
+      "name": "The Phragmén–Lindelöf principle in a vertical strip",
+      "statement": "A function differentiable on an open vertical strip, continuous on its closure, of growth at most exp(B exp(c|Im z|)) with c < π/(b − a), and bounded by C on the boundary lines is bounded by C on the closed strip.",
+      "locator": "Appendix A, proof of Lemma A.0.10.1, p. 332",
+      "status": "library",
+      "library": [
+        "mathlib:PhragmenLindelof.vertical_strip"
+      ],
+      "note": "Mathlib's PhragmenLindelof.vertical_strip (Mathlib/Analysis/Complex/PhragmenLindelof.lean) for functions valued in a normed space."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "M. Zydor, Les formules des traces relatives de Jacquet–Rallis grossières, J. reine angew. Math. 762 (2020), 195–259",
+      "link": "10.1515/crelle-2018-0027",
+      "why": "Théorèmes 0.1, 0.3, 3.1, 3.7–3.9, Lemmes 2.1, 3.5, Prop. 2.8: the coarse Jacquet–Rallis trace formulas for GL_n × GL_{n+1} and unitary groups, extended in §3 to Schwartz functions."
+    },
+    {
+      "citation": "P.-H. Chaudouard and M. Zydor, Le transfert singulier pour la formule des traces de Jacquet–Rallis, Compos. Math. 157 (2021), 303–434",
+      "link": "10.1112/S0010437X20007599",
+      "why": "§1.1.3 and Théorèmes 1.6.1.1, 15.2.3.1: the unitary trace formula for Schwartz functions and the comparison of all geometric terms (10.1.6.4)."
+    },
+    {
+      "citation": "R. Beuzart-Plessis, Y. Liu, W. Zhang and X. Zhu, Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture, Ann. of Math. 194 (2021), 519–584",
+      "link": "10.4007/annals.2021.194.2.5",
+      "why": "Multipliers, isolation, transfer and base change used in §10 (extracted as PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21; its E1 affects this paper's E1)."
+    },
+    {
+      "citation": "A. Ichino and S. Yamana, Periods of automorphic forms: the case of (GL_{n+1} × GL_n, GL_n), Compos. Math. 151 (2015), 665–712",
+      "link": "10.1112/s0010437x14007362",
+      "why": "The truncation operator Λ^T_r (Lemmas 2.2, 2.4, Prop. 3.8), the regularised Rankin–Selberg period and its identification with Z^RS(0, W) (Thm. 1.1, Cor. 5.7)."
+    },
+    {
+      "citation": "H. Jacquet, E. Lapid and J. Rogawski, Periods of automorphic forms, J. Amer. Math. Soc. 12 (1999), 173–240",
+      "link": "10.1090/s0894-0347-99-00279-9",
+      "why": "Flicker–Rallis intertwining periods (§VII), the mixed truncation and Theorem 40 (Lemma 4.3.6.2)."
+    },
+    {
+      "citation": "E. Lapid, On the fine spectral expansion of Jacquet's relative trace formula, J. Inst. Math. Jussieu 5 (2006), 263–308",
+      "link": "10.1017/s1474748005000289",
+      "why": "Majorisation of Eisenstein series (Prop. 6.1), normalising factors (Lemma 5.1) and Lemma 8.1, used in Propositions 4.1.9.1, 4.1.10.1 and Lemma 4.3.7.2."
+    },
+    {
+      "citation": "E. Lapid, On Arthur's asymptotic inner product formula of truncated Eisenstein series, in On Certain L-Functions, Clay Math. Proc. 13, Amer. Math. Soc., 2011, 309–331",
+      "link": "",
+      "why": "Lemma 8: the limit of (G, M)-families of Schwartz functions (Proposition 4.3.7.1)."
+    },
+    {
+      "citation": "E. Lapid, On the Harish-Chandra Schwartz space of G(F)∖G(A), in Automorphic Representations and L-Functions, Tata Inst. Fund. Res. Stud. Math. 22, 2013, 335–377",
+      "link": "",
+      "why": "Prop. 5.1, Cor. 5.7, Thm. 4.5: the spectral expansion of Harish-Chandra Schwartz functions (Theorem 2.9.8.1), and (2.4.5.24)."
+    },
+    {
+      "citation": "E. Lapid, A remark on Eisenstein series, in Eisenstein Series and Applications, Progr. Math. 258, Birkhäuser, 2008, 239–249",
+      "link": "10.1007/978-0-8176-4639-4_8",
+      "why": "Meromorphic continuation and continuity of Eisenstein series of smooth (not K-finite) forms (§§2.7.3–2.7.4)."
+    },
+    {
+      "citation": "E. Lapid and J. Rogawski, Periods of Eisenstein series: the Galois case, Duke Math. J. 120 (2003), 153–226",
+      "link": "10.1215/s0012-7094-03-12016-5",
+      "why": "Properties of the mixed truncation operator (proof of Lemma 8.2.1), used in Lemma 4.2.3.2."
+    },
+    {
+      "citation": "Y. Z. Flicker, Twisted tensors and Euler products, Bull. Soc. Math. France 116 (1988), 295–313",
+      "link": "10.24033/bsmf.2099",
+      "why": "Asai integrals, the Flicker–Rallis period as a residue, distinction and Prop. 3 (the unramified computation); Lemma 4."
+    },
+    {
+      "citation": "B. Feigon, E. Lapid and O. Offen, On representations distinguished by unitary groups, Publ. Math. IHÉS 115 (2012), 185–323",
+      "link": "10.1007/s10240-012-0040-z",
+      "why": "Appendix A (Prop. A.2, A.3) and Remark C.2: the local unfolding model for §9 and Theorem 8.1.2.1."
+    },
+    {
+      "citation": "R. Beuzart-Plessis, Archimedean theory and ε-factors for the Asai Rankin–Selberg integrals, in Relative Trace Formulas, Simons Symposia, Springer, 2021, 1–50",
+      "link": "10.1007/978-3-030-68506-5_1",
+      "why": "Prop. 2.6.1, Lemma 3.3.1, Thms. 3.5.1–3.5.2: convergence, continuation and functional equation of local Asai integrals (§6.3)."
+    },
+    {
+      "citation": "R. Beuzart-Plessis, Plancherel formula for GL_n(F)∖GL_n(E) and applications to the Ichino–Ikeda and formal degree conjectures for unitary groups, Invent. Math. 225 (2021), 159–297",
+      "link": "10.1007/s00222-021-01032-6",
+      "why": "Thm. 5.4.1 (local comparison of relative characters, §10.3.5) and Lemmas 2.16.3, 3.1.1, Prop. 3.1.2 (§6.3)."
+    },
+    {
+      "citation": "R. Beuzart-Plessis, A local trace formula for the Gan–Gross–Prasad conjecture for unitary groups: the Archimedean case, Astérisque 418 (2020)",
+      "link": "10.24033/ast.1120",
+      "why": "The local Gan–Gross–Prasad conjecture (§10.3.5) and Prop. 4.4.1(v) on tensor products."
+    },
+    {
+      "citation": "R. N. Harris, The refined Gross–Prasad conjecture for unitary groups, Int. Math. Res. Not. IMRN 2014, 303–389",
+      "link": "10.1093/imrn/rns219",
+      "why": "Conjecture 1.3, Prop. 2.1 and Thm. 2.12: the refined conjecture and its local periods (§1.1.6, §10.3.1)."
+    },
+    {
+      "citation": "W. Zhang, Automorphic period and the central value of Rankin–Selberg L-function, J. Amer. Math. Soc. 27 (2014), 541–612",
+      "link": "10.1090/s0894-0347-2014-00784-0",
+      "why": "Lemma 1.7, Props. 3.1–3.2 and §3.4: reduction of Ichino–Ikeda to relative characters and the global Whittaker computations."
+    },
+    {
+      "citation": "W. Zhang, Fourier transform and the global Gan–Gross–Prasad conjecture for unitary groups, Ann. of Math. 180 (2014), 971–1049",
+      "link": "10.4007/annals.2014.180.3.4",
+      "why": "p-adic transfer, split-place transfer (Prop. 2.5), positivity (§2.5) and the deduction of Theorem 1.1.5.3 (Thm. 1.2)."
+    },
+    {
+      "citation": "H. Xue, On the global Gan–Gross–Prasad conjecture for unitary groups: approximating smooth transfer of Jacquet–Rallis, J. reine angew. Math. 756 (2019), 65–100",
+      "link": "10.1515/crelle-2017-0016",
+      "why": "Archimedean approximation of smooth transfer (§10.2–10.3)."
+    },
+    {
+      "citation": "Z. Yun, The fundamental lemma of Jacquet and Rallis (with an appendix by J. Gordon), Duke Math. J. 156 (2011), 167–227",
+      "link": "10.1215/00127094-2010-210",
+      "why": "The Jacquet–Rallis fundamental lemma (Remark 10.1.6.2)."
+    },
+    {
+      "citation": "R. Beuzart-Plessis, A new proof of the Jacquet–Rallis fundamental lemma, Duke Math. J. 170 (2021), 2805–2814",
+      "link": "10.1215/00127094-2020-0090",
+      "why": "The fundamental lemma in all residue characteristics (Remark 10.1.6.2)."
+    },
+    {
+      "citation": "J. Franke, Harmonic analysis in weighted L²-spaces, Ann. Sci. Éc. Norm. Supér. 31 (1998), 181–279",
+      "link": "10.1016/s0012-9593(98)80015-3",
+      "why": "Weights on [G]_P (Prop. 2.1) and §4, used in §§2.4.3 and 2.5.15."
+    },
+    {
+      "citation": "J. Bernstein, On the support of Plancherel measure, J. Geom. Phys. 5 (1988), 663–710",
+      "link": "10.1016/0393-0440(88)90024-1",
+      "why": "Weights, the Sobolev key lemma (§3.4), nuclearity (§3.5) and the theorem on p. 688 (Proposition 2.5.5.1)."
+    },
+    {
+      "citation": "J. Bernstein and B. Krötz, Smooth Fréchet globalizations of Harish-Chandra modules, Israel J. Math. 199 (2014), 45–111",
+      "link": "10.1007/s11856-013-0056-1",
+      "why": "F- and SF-representations (§§2.3, 2.4.3) and the Casselman–Wallach globalisation."
+    },
+    {
+      "citation": "W. Casselman, Introduction to the Schwartz space of Γ∖G, Canad. J. Math. 41 (1989), 285–320",
+      "link": "10.4153/cjm-1989-015-6",
+      "why": "Cor. 2.6: nuclearity of Schwartz spaces of [G] (2.5.12.10)."
+    },
+    {
+      "citation": "J. Dixmier and P. Malliavin, Factorisations de fonctions et de vecteurs indéfiniment différentiables, Bull. Sci. Math. (2) 102 (1978), 307–330",
+      "link": "",
+      "why": "The factorisation theorem (2.5.3.2)."
+    },
+    {
+      "citation": "F. Shahidi, A proof of Langlands' conjecture on Plancherel measures; complementary series for p-adic groups, Ann. of Math. 132 (1990), 273–330",
+      "link": "10.2307/1971524",
+      "why": "Thm. 3.5(4): the Asai L-function, its continuation and functional equation (§6.2.3, §6.3)."
+    },
+    {
+      "citation": "D. Goldberg, Some results on reducibility for unitary groups and local Asai L-functions, J. reine angew. Math. 448 (1994), 65–95",
+      "link": "10.1515/crll.1994.448.65",
+      "why": "Local Asai L-functions (§6.2.3)."
+    },
+    {
+      "citation": "T. Finis and E. Lapid, On the analytic properties of intertwining operators I: global normalizing factors, Bull. Iranian Math. Soc. 43 (2017), 235–277",
+      "link": "",
+      "why": "Lemma 5.2: finite order in vertical strips of partial Asai L-functions (§6.3)."
+    },
+    {
+      "citation": "W. Müller and B. Speh, Absolute convergence of the spectral side of the Arthur trace formula for GL_n (with an appendix by E. M. Lapid), Geom. Funct. Anal. 14 (2004), 58–93",
+      "link": "10.1007/s00039-004-0452-0",
+      "why": "Prop. 4.2: bounds for normalised intertwining operators (Proposition 4.1.10.1)."
+    },
+    {
+      "citation": "C. Keys and F. Shahidi, Artin L-functions and normalization of intertwining operators, Ann. Sci. Éc. Norm. Supér. 21 (1988), 67–89",
+      "link": "10.24033/asens.1551",
+      "why": "Prop. 6.3: M(s_α, 0) = −1 in the self-dual case (Proposition 4.1.9.1)."
+    },
+    {
+      "citation": "E. M. Baruch, A proof of Kirillov's conjecture, Ann. of Math. 158 (2003), 207–252",
+      "link": "10.4007/annals.2003.158.207",
+      "why": "Cor. 10.4, Thm. 10.4 and §9: invariance of mirabolic functionals, and the model for the archimedean case of Theorem 9.1.7.1."
+    },
+    {
+      "citation": "S. Gelbart, H. Jacquet and J. Rogawski, Generic representations for the unitary group in three variables, Israel J. Math. 126 (2001), 173–237",
+      "link": "10.1007/bf02784154",
+      "why": "Prop. 2: uniqueness of G_F-invariant forms on distinguished generic representations (Theorem 9.1.7.1)."
+    },
+    {
+      "citation": "A. Aizenbud, D. Gourevitch and E. Sayag, Generalized Harish-Chandra descent, Gelfand pairs, and an Archimedean analog of Jacquet–Rallis's theorem, Duke Math. J. 149 (2009), 509–567",
+      "link": "10.1215/00127094-2009-044",
+      "why": "Thm. 8.2.5: archimedean multiplicity one for (GL_n(ℂ), GL_n(ℝ)) (Theorem 9.1.7.1)."
+    },
+    {
+      "citation": "H. Jacquet, Distinction by the quasi-split unitary group, Israel J. Math. 178 (2010), 269–324",
+      "link": "10.1007/s11856-010-0066-1",
+      "why": "Prop. 5: non-vanishing of β_M (Theorem 9.1.7.1, §10.2.1)."
+    },
+    {
+      "citation": "A. Kemarsky, A note on the Kirillov model for representations of GL_n(ℂ), C. R. Math. Acad. Sci. Paris 353 (2015), 579–582",
+      "link": "10.1016/j.crma.2015.04.002",
+      "why": "Non-vanishing of mirabolic restrictions at complex places (Theorem 9.1.7.1)."
+    },
+    {
+      "citation": "D. Ramakrishnan, A theorem on GL(n) à la Tchebotarev, arXiv:1806.08429",
+      "link": "arXiv:1806.08429",
+      "why": "Isobaric representations determined by degree-one places; weak base change is strong (Remark 1.1.4.1) and the multiplier μ of §10.1.6."
+    },
+    {
+      "citation": "B. H. Gross, On the motive of a reductive group, Invent. Math. 130 (1997), 287–313",
+      "link": "10.1007/s002220050186",
+      "why": "The Artin–Tate L-function L_H normalising the Tamagawa measures (§2.3.2)."
+    },
+    {
+      "citation": "A. Grothendieck, Produits tensoriels topologiques et espaces nucléaires, Mem. Amer. Math. Soc. 16 (1955)",
+      "link": "10.1090/memo/0016",
+      "why": "Ch. II, §3, n°3, Thm. 13 (A.0.7.8) and the closed graph theorem for LF spaces (§3.6)."
+    },
+    {
+      "citation": "J. Arthur, A measure on the unipotent variety, Canad. J. Math. 37 (1985), 1237–1274",
+      "link": "10.4153/cjm-1985-067-0",
+      "why": "Lemma 2.1 and Thm. 3.1: the limit formula behind Proposition 4.3.4.1."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "AutomorphicLFunctionsAndLocalFactors",
+      "roadmap": "AutomorphicLFunctionsPartIIAsaiAndGLnPeriods",
+      "title": "Automorphic L-functions and local factors, Part II: Asai L-functions and Flicker–Rallis and Rankin–Selberg periods on general linear groups",
+      "area": "automorphic",
+      "items": [
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/24",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/25",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/43",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/53",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/54",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/55",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/56",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/57",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/58",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/59",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/60",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/61",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/62",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/64",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/67",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/68",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/69",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/72",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/73",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/74",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/75",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/76",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/77",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/78",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/79",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/80",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/81",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/82",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/83",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/84",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/85",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/88",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/89",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/90",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/91",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/92"
+      ],
+      "brief": "Part II of Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors). It starts where AL.3 stops. AL.3 plans Rankin–Selberg integrals and their period comparisons for cusp forms on GL_n × GL_m. AL.4 plans unramified Euler factors. This Part II adds the Asai L-function of GL_n(A_E) for a quadratic E/F. It also adds the two periods of the Jacquet–Rallis double quotient, evaluated on non-cuspidal (Eisenstein and moderate-growth) functions: the Flicker–Rallis period over GL_n(A_F) and the Rankin–Selberg period over the diagonal GL_n in GL_n × GL_{n+1}. Source: Beuzart-Plessis–Chaudouard–Zydor, 'The global Gan–Gross–Prasad conjecture for unitary groups: the endoscopic case' (Publ. Math. IHÉS 135 (2022), 183–336), §§4, 6, 7, 9, §5.1.4, §8.1.2 and Lemmas 2.6.1.1, 2.6.2.1. Final theorems, as the paper states them. Theorem 4.3.3.1: for f ∈ 𝒮(G_n(A)) and a ∗-regular datum χ = (M_P, π), ∫_{[G′_n]} K_χ(g, h) dh = 2^{−dim a_P}J_{P,π}(g, f), a discrete sum built from Jacquet–Lapid–Rogawski intertwining periods. Theorem 6.2.5.1(2) and Theorem 6.2.6.1: for f ∈ 𝒮_χ([G_n]), χ ∗-regular with k blocks, lim_{s→1+}(s − 1)Z^FR_ψ(s, ⁰f, φ) = 2^{1−k}φ̂(0)β_n(W_{f,Π}) if χ is distinguished (0 otherwise) and φ̂(0)∫_{[G′_n]} f = ½ of it (Corollary 6.2.7.1). Theorem 7.1.3.1: for H-regular χ the diagonal period extends continuously from 𝒮_χ([G]) to 𝒯_χ([G]), and Z^RS_ψ(s, f) is entire with P_H(f) = Z^RS_ψ(0, f). Theorem 8.1.2.1: ⟨φ, φ⟩_Pet = ⟨W_φ, W_φ⟩_Whitt for Π induced from a regular datum. Theorem 9.2.5.1: J_η(φ) = β_η(W_φ) for relevant ∗-regular data, from the local Theorem 9.1.7.1, β_G(W(ϕ)) = ∫_{P_F∖G_F} β_M(ϕ(g)) dg. Cover, in this order: (1) Flicker–Rallis periods of cusp forms, distinction and the dichotomy for conjugate self-dual representations; the Asai L-function of an induced representation (Shahidi; Goldberg), its factorisation, continuation, functional equation, finite order in vertical strips (Finis–Lapid) and poles; (2) Flicker's global Asai integral and its unramified computation; Beuzart-Plessis's local Asai zeta integrals (continuation, functional equation, archimedean theory); the Flicker functional β_n and β_η; (3) the Jacquet–Lapid–Rogawski intertwining periods J, J_Q, J_η, the (G, M)-family J_{Q,π} (Proposition 4.1.9.1) and its Schwartz property (Proposition 4.1.10.1); the mixed truncation Λ^T_m with Lemmas 4.2.3.1–4.2.3.2 and Proposition 4.2.3.3; ∗-regular data; Propositions 4.3.4.1, 4.3.6.1, 4.3.7.1, Lemmas 4.3.6.2 (JLR Theorem 40) and 4.3.7.2, and Theorem 4.3.3.1; (4) Lemmas 2.6.1.1–2.6.2.1, the Whittaker functions of moderate-growth functions, the zeta integral Z^FR_ψ, Theorem 6.2.5.1, the Epstein–Eisenstein series, Lemma 6.4.0.1, Proposition 6.4.0.2, Theorem 6.2.6.1 and Corollary 6.2.7.1; (5) the Ichino–Yamana truncation Λ^T_r (Proposition 3.3.2.1), the regularised Rankin–Selberg period of Eisenstein series (Proposition 5.1.4.1), Z^RS_ψ, H-regular data, Lemma 7.1.1.1, Proposition 7.2.0.2 and Theorem 7.1.3.1; λ, β_η, ⟨·,·⟩_Whitt and Theorem 8.1.2.1; Ichino–Yamana's identification λ(W_φ) = I(φ, 0) and its non-vanishing criterion; (6) the local Flicker functionals and Jacquet integrals of §9.1, Theorem 9.1.7.1 with Lemmas 9.1.7.3–9.1.7.7, and Theorem 9.2.5.1. State the archimedean case of Theorem 9.1.7.1 as a proof obligation, since the paper only sketches the variant of Baruch's theorem for P_F-invariant distributions on G/G_F. Use the corrected statements of sourceIssues E3, E8 and E9. Tests: n = 1, where Z^FR is Tate's integral for η-twisted Hecke characters and β_1 is a residue of a Hecke L-function; the split case E = F × F, where the Flicker–Rallis period becomes the Petersson inner product and Theorem 9.1.7.1 is Feigon–Lapid–Offen, Proposition A.2. Imports: AL.0–AL.4 (Fourier and Tate theory, Godement–Jacquet, Rankin–Selberg, unramified factors) and the source route this extraction adds to AL.3 (analytic properties of Rankin–Selberg L-functions, strong multiplicity one); Automorphic spectral theory and trace distributions (AutomorphicSpectralTheory) AS.1–AS.3, AS.6 for Eisenstein series, intertwining operators, truncation, Arthur's inner product formula and (G, M)-families; Automorphic spectral theory and trace distributions, Part II: Schwartz multipliers and the isolation of cuspidal spectrum (AutomorphicSpectralTheoryPartIISchwartzMultipliers, proposed by PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21 and extended here) for the function spaces 𝒮, 𝒞, 𝒯 and Lapid's Theorem 2.9.8.1; AS.0 with the source route added here for vector-valued holomorphy and Phragmén–Lindelöf; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.2–SR.5 and AutomorphicFormsOnReductiveGroups AF.1 for local induction, Whittaker models and globalisation. Consumers: JacquetRallisRelativeTraceComparison (the relative characters I_{P,π}, I_Π and the Jacquet–Rallis spectral side); later queued Gan–Gross–Prasad and Asai papers.",
+      "reason": "No roadmap or pending candidate plans Asai L-functions, Flicker–Rallis periods or the periods of Eisenstein series. The only mentions are the unramified Euler factors of AL.4 and a passing reference in the Jacquet–Rallis candidate. These are statements about general linear groups alone, with no unitary group and no trace formula. They are L-functions and their integral representations, which is AutomorphicLFunctionsAndLocalFactors' subject, and they go beyond AL.3's cuspidal Rankin–Selberg contract, so a Part II is the right owner. The Jacquet–Rallis comparison imports them rather than planning them inside a trace-formula roadmap, which keeps them available to other consumers: the Beuzart-Plessis–Chaudouard sequel in the queue, Flicker–Rallis distinction and Plancherel-formula papers. The Speh-model Part II of AL proposed by PAPER-ATOBE-KONDO-YASUDA-22 concerns degenerate local integrals and does not overlap."
+    },
+    {
+      "route": "part-ii",
+      "parent": "EndoscopicTransferAndUnitaryTraceComparison",
+      "roadmap": "JacquetRallisRelativeTraceComparison",
+      "title": "Endoscopic transfer and unitary trace comparison, Part II: Jacquet–Rallis relative transfer and Weil-equivariant trace comparison",
+      "area": "modular",
+      "items": [
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/5",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/6",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/7",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/39",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/40",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/41",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/42",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/44",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/46",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/47",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/48",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/49",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/50",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/51",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/52",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/63",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/65",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/66",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/86",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/87",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/93",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/94",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/95",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/96",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/97",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/98",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/99",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/100",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/101",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/102",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/103"
+      ],
+      "brief": "This route coalesces with JacquetRallisRelativeTraceComparison, proposed by PAPER-ZHANG-21 and extended by PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21; keep its id, title, parent, area and brief. The candidate plans the local Jacquet–Rallis layers (relative quotients, matching, orbital integrals, smooth and partial transfer, the fundamental lemma) and, from Beuzart-Plessis–Liu–Zhang–Zhu, the global layer: Zydor's coarse relative trace formulas for quasi-cuspidal Schwartz functions, Chaudouard–Zydor's singular transfer, local comparison of relative characters, multipliers preserving transfer, and the cuspidal case of the global Gan–Gross–Prasad and Ichino–Ikeda conjectures. Beuzart-Plessis–Chaudouard–Zydor (Publ. Math. IHÉS 135 (2022), 183–336) completes the unitary U(n) × U(n+1) case. Its final theorems, as the paper states them: Theorem 1.1.5.1, for every Hermitian Arthur parameter Π of G_n × G_{n+1}, L(½, Π) ≠ 0 iff there are h ∈ ℋ_n and a cuspidal σ ⊂ 𝒜(U_h) with weak base change Π and 𝒫_h ≢ 0 on σ; Theorem 1.1.5.3, every Hermitian Arthur parameter Π_{n+1} has a simple Π_n with L(½, Π_n × Π_{n+1}) ≠ 0; Theorem 1.1.6.1, for σ tempered everywhere with base change Π, |𝒫_h(φ)|²/(φ, φ)_Pet = |S_Π|^{−1}𝓛(½, σ)∏_v P♮_{h,σ_v}(φ_v, φ_v)/(φ_v, φ_v)_v with Tamagawa measures. Add, after the candidate's global layer: (1) the global linear-side setup (G′ ⊂ G = G_n × G_{n+1}, H, η_{G′}, Remark 3.1.3.1), the Rankin–Selberg set F_RS and the weights Δ_P, d^{Q,Δ}_P; (2) Zydor's modified kernel K^T_{f,χ} for Schwartz functions and Theorem 3.2.4.1, the coarse spectral expansion I = Σ_χ I_χ on 𝒮(G(A)); (3) the auxiliary kernels and integrals: Propositions 3.3.2.2, 3.3.3.1, 3.3.5.1, κ^T_{f,χ}, Theorem 3.3.7.1, Proposition 3.3.8.1 with Lemma 3.7.5.1 and Theorem 3.3.9.1, with the compatible-family spaces 𝒯_{F_RS}, 𝒯^Δ_{F_RS} (Propositions 3.4.2.1, 3.4.3.1) and the relative truncation operator (Theorem 3.5.1.1); (4) relevant and ∗-regular data of G, the relative characters I_{P,π} and I_Π, Theorem 5.2.1.1 (first proof) and Theorem 8.1.4.1 (second proof), and Corollary 9.2.5.2 (I_{P,π} = I_Π); (5) the unitary relative characters J^h_σ, J^h_{𝔛_0}, unramified data and base change of Hecke algebras, the unitary trace formula for Schwartz functions and the geometric comparison I(f) = Σ_h J^h(f^h) (Chaudouard–Zydor), existence of transfer (Zhang; Xue), and the fundamental lemma with split-place transfer (Remark 10.1.6.2); (6) the isolation of Π by multipliers compatible with transfer and Proposition 10.1.6.1; the local relative characters I_{Π_v}, J_{σ_v} with (10.3.3.2) and Beuzart-Plessis's local comparison; the proofs of Theorems 1.1.5.1, 1.1.5.3 and 1.1.6.1. Treat as proof obligations: the third asymptotic of Theorem 3.3.9.1 and part (2) of Theorem 3.3.7.1, left to the reader; and the common infinitesimal character in the proof of Proposition 10.1.6.1 (sourceIssues E1). That character comes from Beuzart-Plessis–Liu–Zhang–Zhu Theorem 4.14(4) for a non-cuspidal base change, which is where that paper's printed proof has a gap (PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1). Supply it from the repaired Proposition 4.13(1) (isolate with Theorem 3.19) or, stating the dependence, from Mok and KMSW. Use the corrected statements of sourceIssues E2–E10 (in particular, the Beuzart-Plessis–Liu–Zhang–Zhu theorem numbers are those of its published version, and |S_Π| = 2^{dim a_P}). Additional imports: Automorphic L-functions and local factors, Part II: Asai L-functions and Flicker–Rallis and Rankin–Selberg periods on general linear groups (AutomorphicLFunctionsPartIIAsaiAndGLnPeriods, proposed here) for §§4, 6, 7 and 9 and the Ichino–Yamana truncation; Automorphic spectral theory and trace distributions, Part II (AutomorphicSpectralTheoryPartIISchwartzMultipliers) for the function spaces, kernels and multipliers; The Gan–Gross–Prasad conjectures for classical groups (GanGrossPrasadConjecturesForClassicalGroups) for Hermitian Arthur parameters, base change, local periods and the local conjecture; AS.3 and AS.6 for Arthur's truncation, F(·, T), Γ′-functions and (G, M)-families; ML.4 (Mok, KMSW) and ML.5 (Ginzburg–Rallis–Soudry).",
+      "reason": "PAPER-ZHANG-21 proposed JacquetRallisRelativeTraceComparison as the owner of the Jacquet–Rallis comparison, and PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21 extended it with the global spectral layer and the cuspidal case of the conjectures. Beuzart-Plessis–Chaudouard–Zydor carries the same comparison to all Hermitian Arthur parameters: the same trace formulas, transfers and relative characters. It is the next layer of that roadmap, not a separate one. The route keeps the candidate's area value 'modular', which is the parent roadmap's group and not a galaxy id in data/galaxies.json; the review should correct it on all the routes together (automorphic is the natural galaxy)."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AutomorphicSpectralTheory",
+      "roadmap": "AutomorphicSpectralTheoryPartIISchwartzMultipliers",
+      "title": "Automorphic spectral theory and trace distributions, Part II: Schwartz multipliers and the isolation of cuspidal spectrum",
+      "area": "automorphic",
+      "items": [
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/11",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/13",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/14",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/15",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/16",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/18",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/19",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/20",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/21",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/22",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/23",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/30",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/31",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/34",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/35",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/36",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/37",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/38"
+      ],
+      "brief": "This route coalesces with AutomorphicSpectralTheoryPartIISchwartzMultipliers, proposed by PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21; keep its id, title, parent, area and brief. That brief plans Schwartz test functions, their multipliers and the isolation of cuspidal components. Beuzart-Plessis–Chaudouard–Zydor, 'The global Gan–Gross–Prasad conjecture for unitary groups: the endoscopic case' (Publ. Math. IHÉS 135 (2022), 183–336), §2, adds the function-space layer on which isolation acts. Add, before the isolation theorems: (1) weights on [G]_P (Bernstein, Franke) with Lemma 2.4.3.1, Franke's weights d_{P,λ} and Lemma 2.4.3.2; the weights d^Q_P near infinity and Lemma 2.4.4.2; Harish-Chandra's Ξ-function (2.4.5.23)–(2.4.5.25); (2) the global Schwartz space 𝒮(G(A)) as a strict LF convolution algebra (the candidate's Schwartz test functions); F-, SF- and SLF-representations of G(A) and Lemma 2.5.4.1; (3) weighted L²-spaces with Bernstein's Sobolev inequality and the nuclear inclusion of Proposition 2.5.5.1; the spaces 𝒮_0, 𝒮, 𝒞 (Harish-Chandra Schwartz, after Lapid), 𝒯^0, 𝒯_w, 𝒯 (uniform moderate growth), 𝒮_{w,N}, 𝒮_w with their L²-descriptions and Lemma 2.5.11.1; nuclearity and the tensor-product decompositions (2.5.12.10)–(2.5.12.11); (4) constant terms and pseudo-Eisenstein series on these spaces with Lemma 2.5.13.1, the approximation by constant terms (Proposition 2.5.14.1) and the weighted Proposition 2.5.15.1 and Corollary 2.5.15.2; (5) the convergence of relative characters of Schwartz functions (Proposition 2.8.4.1, Remark 2.8.4.2) and Arthur's factorisation f = f∗g_1 + (f∗Z)∗g_2 (Proposition 2.8.4.3); (6) Theorem 2.9.4.1, the decomposition along cuspidal support in 𝒮, 𝒞, 𝒯, 𝒮_w and L²_w, with Lemma 2.9.3.1, (2.9.5.9) and (2.9.6.10); regular cuspidal data, Proposition 2.9.7.1 and Corollary 2.9.7.2; Lapid's spectral expansion of Harish-Chandra Schwartz functions (Theorem 2.9.8.1); (7) the bounds for χ-parts of automorphic kernels (Lemma 2.10.1.1) and the spectral expansion of K^0_{f,χ} for Schwartz f (Lemma 2.10.2.1). Theorem 2.9.4.1 is the natural home for the candidate's isolation statements: its projections φ ↦ φ_X are what the multipliers of Theorems 3.6, 3.7 and 3.19 realise by convolution. Additional imports: Adelic algebraic groups (AdelicAlgebraicGroups) AA.2–AA.3 for measures, heights on Siegel sets and Lemma 2.4.4.1; Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups) AF.0–AF.3; the functional analysis of AS.0, including the source route this extraction adds there (LF spaces, nuclear maps, completed tensor products, vector-valued holomorphy).",
+      "reason": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21 proposed this Part II as the owner of Schwartz test functions on G(A) and of the isolation of cuspidal spectrum. Beuzart-Plessis–Chaudouard–Zydor's §2 is the function-space and cuspidal-support theory those statements are about, with the same Schwartz algebra, so it belongs to the same owner rather than to a new one. AS.4 plans the L²-decomposition, and AF.0–AF.3 plan automorphic forms and constant terms. Neither plans weighted or Schwartz-type spaces on [G]_P or their decomposition along cuspidal data."
+    },
+    {
+      "route": "new",
+      "roadmap": "GanGrossPrasadConjecturesForClassicalGroups",
+      "title": "The Gan–Gross–Prasad conjectures for classical groups: relevant pairs, Vogan packets, Bessel models and periods",
+      "area": "automorphic",
+      "items": [
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/1",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/2",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/3",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/4",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/104"
+      ],
+      "brief": "This route coalesces with GanGrossPrasadConjecturesForClassicalGroups, proposed by PAPER-JIANG-ZHANG-20 and extended by PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21; keep its id, title, area and brief. Beuzart-Plessis–Chaudouard–Zydor (Publ. Math. IHÉS 135 (2022)) is one of the consumers that brief names. It adds, for U(n) × U(n+1): the hermitian spaces ℋ_n and the pairs U′_h ⊂ U_h = U(h) × U(h ⊕ h_0) (§1.1.2); Hermitian Arthur parameters of G_n and of G_n × G_{n+1}, isobaric sums of distinct conjugate self-dual cuspidals with the Asai pole of the right parity, and the group S_Π = (ℤ/2)^r (§1.1.3); weak base change to a Hermitian Arthur parameter (§1.1.4), extending the candidate's cuspidal notion; the local normalised periods P♮_{h,σ_v} and 𝓛(s, σ) of the refined conjecture with Harris's convergence and unramified computation (§1.1.6); and the local conjecture for tempered unitary pairs (Beuzart-Plessis, Astérisque 418) in the form used in §10.3.5. The global conjecture for all Hermitian Arthur parameters and the refined conjecture for tempered σ are proved in the consumer JacquetRallisRelativeTraceComparison (Theorems 1.1.5.1, 1.1.6.1); record them there as proved, and state here only the conjectures and definitions.",
+      "reason": "PAPER-JIANG-ZHANG-20 proposed GanGrossPrasadConjecturesForClassicalGroups as the single owner of the Gan–Gross–Prasad framework and named this paper among its consumers; the definitions and conjecture statements the paper uses belong there."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicSpectralTheory",
+      "stages": [
+        "AutomorphicSpectralTheory:AS.0"
+      ],
+      "items": [
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/108",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/109",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/111",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/112",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/113",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/114"
+      ],
+      "reason": "AS.0 plans the functional analysis for the spectrum, including nuclear Fréchet test-function spaces and meromorphic operator families. Appendix A supplies exactly that kind of tool: LF spaces and vector-valued integrals, holomorphy in quasi-complete spaces and its Banach–Steinhaus consequences, nuclear maps and summability, completed projective tensor products (Grothendieck), vector-valued Schwartz functions, and vector-valued Phragmén–Lindelöf principles. Mathlib has barrelled spaces, Banach–Steinhaus and the scalar Phragmén–Lindelöf principle, recorded as library items; the rest is general-purpose and belongs to that layer."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicFormsOnReductiveGroups",
+      "stages": [
+        "AutomorphicFormsOnReductiveGroups:AF.1"
+      ],
+      "items": [
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/17"
+      ],
+      "reason": "AF.1 owns real reductive representation theory and smooth Fréchet globalisations. PAPER-JIANG-ZHANG-20 already routes the Dixmier–Malliavin lemma there, and this paper uses the same statement for F- and SLF-representations of G(A)."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicLFunctionsAndLocalFactors",
+      "stages": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ],
+      "items": [
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/70",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/71"
+      ],
+      "reason": "AL.3 owns Rankin–Selberg L-functions, including 'poles in the contragredient/twist case' and 'analytic nonvanishing results only in their proved regions'. The GL_n × GL_m analytic facts this paper uses belong there: entireness, boundedness in vertical strips, non-vanishing at s = 1, the Jacquet–Shalika bound, and strong multiplicity one with Ramakrishnan's degree-one refinement. PAPER-GAN-ICHINO-18 (strong multiplicity one) and PAPER-CHENEVIER-TAIBI-20 (Gelbart–Shahidi boundedness) route to the same layer."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E1",
+      "kind": "gap",
+      "locator": "§10.1.6, proof of Proposition 10.1.6.1, p. 321",
+      "printed": "Let ξ_Π be the infinitesimal character of Π. By [BPLZZ21, Theorem 4.12 (4)], for every h ∈ ℋ° and (U_h, σ) ∈ 𝔛^h_0, the base-change of the infinitesimal character of σ is ξ_Π.",
+      "correction": "The infinitesimal-character statement is true, but the cited proof does not give it in this case. Take it from Beuzart-Plessis–Liu–Zhang–Zhu Theorem 4.14(4) (the Annals numbering) with its Proposition 4.13(1) repaired: suppose 𝔇(G′, 1)^♥_{χ′} = ∅ and isolate with Theorem 3.19 instead of Theorem 3.6 (PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1). Alternatively deduce it from Mok and Kaletha–Mínguez–Shin–White, where the base change is strong at archimedean places (BPLZZ Remark 4.15), at the cost of making the proof of Theorem 1.1.5.1 depend on them.",
+      "reason": "The cited result is BPLZZ Theorem 4.14(4): if the weak base change of π exists and is hermitian, the base change of χ_{π_∞} is χ_{BC(π)_∞}. Its proof reduces to BPLZZ Proposition 4.13(1), whose argument by contradiction only rules out 'weak base change does not exist'. When the weak base change exists but is not cuspidal, the T-character χ′ is CAP, Theorem 3.6 does not apply, and nothing in the printed argument reaches the archimedean component. This paper applies the theorem to σ whose weak base change is a Hermitian Arthur parameter Π. In the endoscopic case, the one the paper is about, Π is not cuspidal. The common infinitesimal character is needed to choose the multipliers μ^h with μ^h(σ) = 1 for all (U_h, σ) ∈ 𝔛^h_0, compatible with μ(Π) = 1 under base change, which (10.1.6.6) uses. Theorems 1.1.5.1 and 1.1.6.1 remain true (by the repaired argument), so only the proof is affected.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00129-1: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
+        "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1 (this atlas's extraction of the cited paper), and the source of BPLZZ Proposition 4.13 and Theorem 4.14 in arXiv 1912.07169v3"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E2",
+      "kind": "misprint",
+      "locator": "Remark 1.1.5.2, §1.1.5 and proof of Proposition 10.1.6.1, pp. 186, 321–322",
+      "printed": "[BPLZZ21, Theorem 1.7] … [BPLZZ21, Theorem 1.8] … [BPLZZ21, Theorem 4.12 (4)] … Theorem 3.17 of [BPLZZ21] … Theorem 3.6 and Theorem 4.12 (3) of [BPLZZ21] … [BPLZZ21, Proposition 4.8, Lemma 4.10]",
+      "correction": "With [BPLZZ21] the Annals paper, as the bibliography says: Theorem 1.8 (the Gan–Gross–Prasad theorem), Theorem 1.9 (non-vanishing), Theorem 4.14(4), Theorem 3.19, Theorems 3.6 and 4.14(3), and Proposition 4.8 with Lemma 4.12.",
+      "reason": "The numbers are those of the first arXiv version (December 2019) of Beuzart-Plessis–Liu–Zhang–Zhu. The reference list cites the Annals paper (Ann. of Math. 194 (2021), 519–584), whose numbering is that of arXiv v2/v3, the authors' final text. There 1.7 and 4.10 are remarks, 3.17 is a proposition (mixed multipliers), 4.12 is the multiplier lemma, and Theorem 1.8 is the Gan–Gross–Prasad theorem itself. Definition 3.5, Definition 4.4, Theorem 3.6 and Proposition 4.8 keep their numbers.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00129-1: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
+        "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
+        "arXiv 1912.07169 v1 (Dec. 2019), v2 and v3 PDFs compared: v1 numbers the Gan–Gross–Prasad theorem 1.7, the isolation theorem 3.17, the base-change theorem 4.12 and the multiplier lemma 4.10; v2/v3 (the Annals text) number them 1.8, 3.19, 4.14 and 4.12"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E3",
+      "kind": "misprint",
+      "locator": "Proposition 4.3.7.1, p. 276",
+      "printed": "lim_{T→+∞} ∫_{[G′]} (K^0_χΛ^T_m)(g, h) dh = 2^{−dim(a^G_P)}J_{P,π}(g, f)",
+      "correction": "lim_{T→+∞} ∫_{[G′]_0} (K^0_χΛ^T_m)(g, h) dh = 2^{−dim(a^G_P)}J_{P,π}(g, f).",
+      "reason": "The proof starts from (4.3.6.2), an integral over [G′]_0, and the limit must combine with Proposition 4.3.4.1, lim ∫_{[G′]_0} (K^0_χΛ^T_m)(g, h) dh = 2∫_{[G′]} K_χ(g, h) dh, to give Theorem 4.3.3.1(2): 2∫_{[G′]}K_χ = 2^{−dim a^G_P}J_{P,π} gives ∫_{[G′]}K_χ = 2^{−dim a_P}J_{P,π}, as dim a_P = dim a^G_P + 1. Over [G′] the integrand is invariant under A^∞_{G′}, so the integral would diverge.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00129-1: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
+        "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
+        "page image of the published PDF checked"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E4",
+      "kind": "misprint",
+      "locator": "(8.2.3.5), p. 306",
+      "printed": "I_χ(f) = P*_H(∫_{[G′]} K_{f,χ}(·, g′)η_{[G′]}(g′) dg′) = P*_H(K²_{f,χ})",
+      "correction": "η_{G′}(g′) in place of η_{[G′]}(g′).",
+      "reason": "The character is η_{G′} of §3.1.6, and K²_{f,χ}(g) = ∫_{[G′]} K_{f,χ}(g, g′)η_{G′}(g′) dg′ by §8.1.4.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00129-1: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
+        "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
+        "page image of the published PDF checked"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E5",
+      "kind": "misprint",
+      "locator": "§10.3.5, last display and sentence, p. 326",
+      "printed": "As L^{S_0}(s, Π, As^−_G) = L^{S_0}(s, σ, Ad) and |S_Π| = 2^{−dim(a_P)}, this exactly gives (10.3.2.1)",
+      "correction": "|S_Π|^{−1} = 2^{−dim(a_P)}, that is |S_Π| = 2^{dim(a_P)}.",
+      "reason": "S_Π = S_{Π_n} × S_{Π_{n+1}} = (ℤ/2)^{r_n + r_{n+1}} (§1.1.3), while a_P for P with Levi ∏G_{n_i} × ∏G_{m_j} has dimension r_n + r_{n+1}. For cuspidal Π the paper itself says |S_Π| = 4 (after Theorem 1.1.6.1), and dim a_G = 2. The chain before the sentence yields 2^{−dim(a_P)}, which (10.3.2.1) writes as |S_Π|^{−1}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00129-1: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
+        "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
+        "page image of the published PDF checked"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E6",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 10.1.6.1, p. 321",
+      "printed": "As, by [GRS11], there exists at least one h ∈ ℋ° such that the set 𝔛^h_π is nonempty",
+      "correction": "𝔛^h_0 in place of 𝔛^h_π.",
+      "reason": "Only 𝔛^h_0 is defined (§10.1.6), and the sentence concludes about all (U_h, σ) ∈ 𝔛^h_0.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00129-1: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
+        "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
+        "page image of the published PDF checked"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E7",
+      "kind": "misprint",
+      "locator": "§10.2.1, p. 322",
+      "printed": "the cuspidal datum χ associated to the pair (M_P, π) is regular and relevant in the sense of Section 4.3.2",
+      "correction": "In the sense of Sections 2.9.7 (regular) and 5.1.3 (relevant).",
+      "reason": "Section 4.3.2 defines ∗-regular data of G_n. Relevance is defined in Section 5.1.3 (and regularity in 2.9.7), as §10.1.5 correctly says.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00129-1: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
+        "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
+        "page image of the published PDF checked"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E8",
+      "kind": "misprint",
+      "locator": "§6.3, (6.3.0.4)–(6.3.0.5) and following, p. 287",
+      "printed": "~f_x(g) = f_x(^tg^{−1}) for every x ∈ 𝒜_0 … (s, x) ∈ ℂ × 𝒜_0 ↦ P(s + ½, x)Z^FR_ψ(s + ½, f_x, φ)",
+      "correction": "𝒜_0 = ia*_{M,0}, the space over which (6.3.0.2)–(6.3.0.3) integrate, identified with the real space 𝒜 of Corollary A.0.11.1.",
+      "reason": "𝒜_0 is not defined anywhere in the paper. The functions are applied to Corollary A.0.11.1 and then integrated over ia*_{M,0} via (6.3.0.3), so this is the only reading that makes the argument run.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00129-1: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
+        "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
+        "page image of the published PDF checked"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E9",
+      "kind": "misprint",
+      "locator": "Lemma 4.3.6.2, p. 276",
+      "printed": "We have for all λ ∈ ia^G_{P_1}",
+      "correction": "λ ∈ ia^{G,*}_{P_1}.",
+      "reason": "λ is a spectral parameter paired with T_Q and fed to θ_Q (functions on the dual space), and Proposition 4.3.6.1 integrates over ia^{G,*}_{P_1}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00129-1: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
+        "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
+        "page image of the published PDF checked"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E10",
+      "kind": "misprint",
+      "locator": "§2.3.4, p. 201",
+      "printed": "For H = GL_n, … we will take ω_H = (det h)^{−1} ⋀_{1⩽i,j⩽n} dh_{i,j}",
+      "correction": "ω_H = (det h)^{−n} ⋀_{1⩽i,j⩽n} dh_{i,j}.",
+      "reason": "The top form (det h)^{−1}∧dh_{ij} is not invariant under translation for n ≥ 2: left multiplication by g scales ∧dh_{ij} by det(g)^n. The invariant form is (det h)^{−n}∧dh_{ij}, the local measure the paper itself uses in §9.1.2 (dx = ∏dx_{ij}/|det x|^n). It is also the one for which (2.3.2.2) holds: vol(GL_n(O_v)) = |GL_n(𝔽_q)|q^{−n²} = ∏_{i=1}^n(1 − q^{−i}) = L_{H,v}(0)^{−1} for L_H(s) = ζ_F(s + 1)⋯ζ_F(s + n).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s10240-021-00129-1: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
+        "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
+        "page image of the published PDF checked"
+      ]
+    }
+  ]
+}
