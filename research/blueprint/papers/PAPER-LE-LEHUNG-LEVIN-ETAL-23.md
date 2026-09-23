@@ -1,3 +1,917 @@
+# LLHLM23 continuation: itemwise definition interfaces
+
+Codex — codex-7e92bd, issue #1254, 23 September 2026. Continues merged #2362.
+
+The extraction remains **partial**. All **156 definitions and constructions** now have individual use sites, an API outline and at least three typed mathematical tests. This pass covers the49 previously incomplete interfaces and adds **289 API entries and155 typed tests**. It preserves all510 item statements and statuses (61 library,18 planned,431 missing), all19 routes, all44 unreviewed source findings and the AppendixB data. No new source finding or implementation is claimed.
+
+The current literal coverage is156/156. This is a structural milestone, not a closure verdict: the twelve recorded gaps still include exact global automorphic/Galois comparisons, supplier and proof decomposition, analytic regularity, ownership reconciliation and uniform AppendixB certificates. The definition/API gap now concerns semantic decomposition and promotion of prerequisite lemmas rather than missing fields. All historical lower counts below are superseded by this census.
+
+The49 interfaces divide into14 from Section4 (local models and affine flags),17 from Section5 (Kisin modules and etale Frobenius modules),12 from Section7 (monodromy and representation stacks), and Q01,Q02,Q07,Z02,L05,Z15. Z15's six existing API entries are retained; it gains four typed tests alongside its earlier untyped acceptance tests.
+
+The substantive distinctions are recorded at the consuming interfaces: left quotient and matrix multiplication order; schematic intersection versus flat closure; common-base products and geometric irreducibility; gauge opens versus fixed shape; the cyclic Frobenius target index; linearized Frobenius invertibility; presentation-dependent parameters; true versus truncated monodromy; flat versus arbitrary base change of its ideal; formal reduction versus underlying algebraic reduction; and the shifted torus action on representation-stack quotients. Tameness alone is not treated as semisimplicity. The AppendixB normalization is constructed by adjoining a fraction as a finite algebra, which still has fibres where that fraction cannot be evaluated by division.
+
+Fresh source reading: published PDF80–125,131–158,201–204, with rendered PDF88,93,95 inspected; Boixeda Alvarez v3 PDF8–12; eight pinned Lean files. The published PDF hash remains `e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`. The bounded reading and supplier hashes are in `source.continuationReadings`. The prior full-paper reading is retained; no new complete supplier-paper read is claimed.
+
+Pinned reuse and ownership: the reviewed GS0 loop-geometry row and current L7/L8 and GS0 owner contracts were read. L7 has no direct reviewed-coverage row; AUDIT-33's current L7 result is an unreviewed lead. Existing module Grassmannians, transvections/root subgroup maps, scheme-image/ideal-sheaf operations, DVR-flatness carriers and continuous power-series evaluation are reused. They do not identify integral Iwahori charts with finite module Grassmannians or divisor/v-sheaf loop geometry. The19 route identities and Part II boundaries are unchanged.
+
+Validation: the paper checker,41 existing paper/queue/intake tests, preservation/routing/census checks and the recorded prerequisite-DAG check pass. Exact symbolic and finite diagnostics check root-loop and derivative identities, noncommuting translation, genericity under common shifts, three twisted-action compositions, two mixed-characteristic negative-pole examples, corrected path inverses/conjugation in ranks2–5, and all seven normalization equations at a nonreduced origin fibre. These are mathematical diagnostics, not Lean proofs or uniform normalization certificates. No Lean file is required or compiled for this paper deliverable.
+
+Publication inputs were checked against main `ef6fc31a0065e286fb75edff573ebca74776ebf7`: allthree original deliverables remained unchanged; seventeen of eighteen guarded inputs matched the local reading exactly, and the changed AUDIT-33 was refreshed and its L7 row reread.
+
+## New and completed interfaces
+
+### M01: Pappas–Zhu GLn Iwahori local model
+
+Source: §4.1, PDF80–81.
+
+- Use — LLHLM23 Definitions4.1.2–4.1.3 (M04/M05): Supply the bounded ambient scheme in which the flat closure and differential intersection are formed.
+- Use — LLHLM23 Corollary4.2.6 (M11): Supply the reduced admissible-cell special fibre before imposing differential equations.
+
+- `IwahoriLocalModel.mk` (constructor): For the source coefficient DVR O and dominant GL_n cocharacter lambda, specialize t=-p, form the generic Schubert variety through (v+p)^lambda, and take its schematic closure in the bounded universal Grassmannian. Reuse scheme-theoretic image/ideal-sheaf carriers on bounded ambient schemes; do not duplicate their general construction.
+- `IwahoriLocalModel.generic_fiber` (equivalence): After base change to E=Frac(O), recover the usual GL_n Schubert variety S_E(lambda), with the same chosen representative (v+p)^lambda and left-positive-loop convention.
+- `IwahoriLocalModel.special_fiber` (equivalence): Identify the special fibre with the reduced closed union of affine Schubert cells indexed by Adm-dual(lambda), using Pappas–Zhu9.3/coherence. This is the ambient model, not a reducedness assertion for differential intersections.
+- `IwahoriLocalModel.inclusion_of_le` (functoriality): Dominance lambda_prime<=lambda with equal central class induces the corresponding closed immersion of bounded local models; identity and composition agree with the ambient inclusions.
+- `IwahoriLocalModel.closure_ideal` (characterisation): On an affine chart Spec A of a bounded ambient model, if J_E defines the selected generic subvariety, the closure ideal is the inverse image of J_E in A[1/varpi]. Identify the resulting chart with the restriction of the global schematic closure.
+- `IwahoriLocalModel.flat_base_change` (compatibility): For a flat extension of coefficient DVRs preserving the chosen data, prove the closure comparison by exactness of flat tensoring and contraction of the generic ideal. Do not infer this comparison for reduction modulo varpi.
+
+- Test `IwahoriLocalModel.central_cocharacter` (degenerate): For lambda=(c,...,c), the generic Schubert variety is a point and its model is the section (v+p)^c I over O; its special fibre has one central affine-Weyl label.
+- Test `IwahoriLocalModel.rank_one` (computation): For n=1 and any integer c, the model is Spec O at the lattice (v+p)^c; no positive-root coordinates appear.
+- Test `IwahoriLocalModel.central_class_boundary` (non-example): In GL_2, (1,1) is below (2,0) in the same central class, but (1,0) is not: unequal total cocharacter sums must not be accepted as a dominance inclusion.
+
+### M02: Mixed-characteristic differential locus
+
+Source: Equation(4.1), PDF81.
+
+- Use — LLHLM23 Proposition4.1.1 and Definition4.1.3 (M03/M05): Restrict the same descended differential condition to a generic Schubert cell and to the full bounded model.
+- Use — LLHLM23 Proposition4.3.1 (M19): Compare its reduction with the zero-parameter locus under right translation.
+
+- `MixedDifferentialLocus.expression` (data): For a in O^n and a Noetherian O-algebra R, set L_a(A)=v(dA/dv)A^(-1)+A Diag(a) A^(-1), in the source localized completed loop ring. Require (v+p)L_a(A) in L+M_O(R), rather than in an unrestricted matrix ring.
+- `MixedDifferentialLocus.left_change` (relation): For h in L+G_O(R), L_a(hA)=v h_prime h^(-1)+h L_a(A)h^(-1). Prove this preserves the prescribed pole/upper-triangular-mod-v condition, including the derivative term.
+- `MixedDifferentialLocus.quotient` (constructor): Descend the invariant closed subfunctor to the left quotient L+G_O\LG_O using the existing sheaf quotient and the universal differential locus; identify the resulting closed immersion in Gr_G,O.
+- `MixedDifferentialLocus.specialize_universal` (compatibility): Identify this locus with the fibre of the universal construction U15 at (t,a)=(-p,a), retaining the coefficient-algebra category.
+- `MixedDifferentialLocus.map` (functoriality): Under a coefficient-algebra map R→S, send A and the equation coefficientwise to S; prove derivative and matrix-operation compatibility with the source completion/localization maps and identity/composition laws.
+- `MixedDifferentialLocus.residue` (simp): Modulo varpi, p=0 and the condition becomes v A_prime A^(-1)+A Diag(a_bar)A^(-1) in v^(-1) Lie I_F, with the prescribed upper-triangular residue condition.
+
+- Test `MixedDifferentialLocus.identity_matrix` (computation): A=I satisfies the condition because (v+p)Diag(a) lies in L+M_O.
+- Test `MixedDifferentialLocus.rank_one_power` (computation): For n=1 and A=(v+p)^c, (v+p)L_a(A)=c v+(v+p)a; this checks the v numerator and the sign t=-p.
+- Test `MixedDifferentialLocus.left_gauge_derivative` (non-example): At p=0 take h=I+v E_21 and a=0. Then v h_prime h^(-1)=v E_21 is nonzero and belongs to Lie I; a change-of-representative formula omitting this term is false.
+
+### M04: Flat monodromy local model
+
+Source: Definition4.1.2, PDF82.
+
+- Use — LLHLM23 Proposition4.1.5 and equation(4.2) (M06): Embed every fixed-Hodge closure into the common naive bound before taking the finite union.
+- Use — LLHLM23 Remark4.6.3(2): Distinguish the eventual flat-model component theorem from the naive-model component theorem.
+
+- `FlatMonodromyModel.mk` (constructor): For dominant lambda and a in O^n, take the schematic closure of S_E^open(lambda) intersect Gr_nabla_a inside M(<=lambda), with its canonical closed immersion.
+- `FlatMonodromyModel.generic_flag` (equivalence): Its generic fibre is the closed differential stratum of Proposition4.1.1, canonically (P_lambda\GL_n)_E. Retain the source parabolic convention: alpha entries vanish when <lambda,alpha_coroot><0.
+- `FlatMonodromyModel.saturation` (characterisation): On a chart with ambient algebra A and a finitely generated ideal I defining the generic equations after localization, the closure ideal is I:varpi^infinity. Equivalently it is the contraction of I A[1/varpi].
+- `FlatMonodromyModel.flat_projective` (structure): The saturated quotient is varpi-torsion-free and hence flat over the coefficient DVR; the global closed model is projective. Export relative dimension dim(P_lambda\GL_n), without replacing lambda by a regular weight.
+- `FlatMonodromyModel.minimal_closed` (universal-property): Every closed subscheme of M(<=lambda) whose generic fibre contains the selected generic differential stratum contains this schematic closure.
+- `FlatMonodromyModel.into_naive` (compatibility): The differential condition is closed, so the flat closure factors through Mnv(<=lambda,nabla_a). This factorization is not an isomorphism without additional proof.
+
+- Test `FlatMonodromyModel.central_dimension_zero` (degenerate): For lambda=(c,...,c), P_lambda=GL_n and the generic differential stratum and its flat closure are the distinguished point/section of relative dimension zero.
+- Test `FlatMonodromyModel.GL2_regular_dimension` (computation): For GL_2 and lambda_1>lambda_2, the parabolic quotient has dimension one; for lambda_1=lambda_2 it has dimension zero.
+- Test `FlatMonodromyModel.saturation_removes_vertical_torsion` (non-example): In O[x], the generic equation varpi*x=0 contracts to (x), not (varpi*x). The naive quotient O[x]/(varpi*x) has a special-fibre line, whereas its generic-fibre closure is Spec O. This is a test of the closure operation, not a claim that this toy scheme is a particular LLHLM local model.
+
+### M05: Naive mixed-characteristic local model
+
+Source: Definition4.1.3, PDF82.
+
+- Use — LLHLM23 Theorem4.2.4 and Corollary4.2.6 (M09/M11): Impose the explicit differential equation on each admissible Schubert cell and identify top-dimensional reduced components.
+- Use — LLHLM23 Proposition4.3.1 (M19): Embed the translated special-fibre intersection in the common zero-parameter flag.
+
+- `NaiveMonodromyModel.intersection` (constructor): Define the closed fibre product M(<=lambda)×_(Gr_G,O)Gr_nabla_a, retaining the full scheme structure and its two projections.
+- `NaiveMonodromyModel.chart_ideal` (characterisation): In a common affine chart, its ideal is the sum of the ambient bounded-model ideal and the differential-equation ideal. Do not saturate or radicalize this sum as part of the definition.
+- `NaiveMonodromyModel.point_criterion` (characterisation): For a Noetherian O-algebra R, a point consists of a bounded-model point whose image satisfies equation(4.1) after the required fpqc local representation; equality is equality in the common quotient.
+- `NaiveMonodromyModel.specialization_universal` (equivalence): Use the flatness of the global Schubert variety from Richarz Theorem1.5 as cited in Remark4.1.4 to identify this model with specialization of U21. Equality of generic fibres alone does not establish the integral comparison.
+- `NaiveMonodromyModel.generic_disjoint_union` (equivalence): Use M07 to identify the generic fibre with the reduced disjoint union of (P_lambda_prime\GL_n)_E over dominant lambda_prime<=lambda. This is not the special-fibre decomposition.
+- `NaiveMonodromyModel.base_change_intersection` (functoriality): Base change commutes with this closed fibre product and its projections. A comparison with a newly defined schematic closure after the same base change is an additional assertion.
+
+- Test `NaiveMonodromyModel.closed_intersection_ideals` (computation): On Spec O[x,y], intersecting V(x) and V(y) gives ideal (x,y); using the ideal intersection (xy) would instead describe their scheme-theoretic union.
+- Test `NaiveMonodromyModel.generic_equality_not_integral` (non-example): O[x]/(varpi*x) and O[x]/(x) have the same generic fibre but different special fibres. Do not deduce flatness of a naive model from M07.
+- Test `NaiveMonodromyModel.nilpotents_retained` (non-example): A closed intersection can have coordinate ring F[x]/(x^2). The definition retains x as a nonzero nilpotent; passing to F is a separate reduction operation.
+
+### M06: Union of flat Hodge-stratum closures
+
+Source: Equation(4.2), Proposition4.1.5, PDF82.
+
+- Use — LLHLM23 Proposition4.1.6 (M07): Supply the flat model with the same generic fibre as the naive differential model.
+- Use — LLHLM23 Sections4.4–4.5 (M27/M28): Pull back its special fibre to the torus torsor and form products over the common coefficient base.
+
+- `FlatHodgeUnion.finite_index` (data): Use the finite set of dominant cocharacters lambda_prime<=lambda in the fixed central class; record its finiteness before forming the union.
+- `FlatHodgeUnion.mk` (constructor): Form the scheme-theoretic union of the closed submodels M(lambda_prime,nabla_a) inside the naive model; on a chart its ideal is the intersection of the finitely many defining ideals.
+- `FlatHodgeUnion.closed_universal` (universal-property): Each stratum closure maps by a closed immersion to the union, and a closed subscheme contains the union exactly when it contains every stratum closure.
+- `FlatHodgeUnion.flat` (instance): On affine charts, embed A/(intersection I_i) in the finite product of the torsion-free O-modules A/I_i. Deduce torsion-freeness and then DVR-flatness; do not confuse union with a disjoint coproduct over O.
+- `FlatHodgeUnion.generic_fiber` (equivalence): After inverting varpi, finite ideal intersections commute with localization and the union equals the generic naive model of M07, with its reduced disjoint flag strata.
+- `FlatHodgeUnion.projective` (structure): The union is a closed subscheme of the projective bounded model and is projective over O; preserve the common ambient immersion under changes of the finite indexing set.
+
+- Test `FlatHodgeUnion.one_stratum` (degenerate): If lambda is central, only that dominant weight occurs in its dominance interval, so the union is M(lambda,nabla_a).
+- Test `FlatHodgeUnion.two_generic_strata` (computation): For GL_2, the dominant weights <=(2,0) are (2,0) and (1,1); the generic union is P^1_E disjoint union Spec E.
+- Test `FlatHodgeUnion.flat_union_nonreduced_special` (non-example): In O[x], the two flat sections (x) and (x-varpi) have scheme-theoretic union x(x-varpi)=0. It is O-flat, but its special fibre is x^2=0. Thus flat union and reduced generic fibre do not imply reduced special fibre.
+
+### M08: Residue tuple genericity
+
+Source: Definition4.2.2, PDF83.
+
+- Use — LLHLM23 Theorem4.2.4 proof, equation(4.6) (M09): Make the triangular coefficient scalars invertible when the tuple is defined over the residue field.
+- Use — LLHLM23 Proposition4.3.4 (M21): Transfer the integral affine-Weyl genericity bound to the residue tuple used in cell coordinates.
+
+- `ResidueTupleGenericity.iff_differences` (characterisation): For a in R^n over an F-algebra and positive integer m, genericity means a_i-a_j is unequal to the image of every integer c with -m<=c<=m for every i!=j.
+- `ResidueTupleGenericity.monotone_bound` (relation): If 1<=m_prime<=m and a is m-generic, then it is m_prime-generic.
+- `ResidueTupleGenericity.perm_common_shift` (compatibility): Permuting all coordinates or adding a common b in R to them preserves and reflects m-genericity.
+- `ResidueTupleGenericity.injective_map` (functoriality): An injective F-algebra map preserves and reflects genericity; for any F-algebra map, genericity of the image implies genericity of the original tuple. Arbitrary maps need not preserve the non-equality condition.
+- `ResidueTupleGenericity.field_scalar_units` (relation): If a lies in F^n, every avoided scalar a_i-a_j-c is a nonzero field element, hence a unit; its image remains a unit in every F-algebra. This is the stable open condition used for solving cell equations.
+- `ResidueTupleGenericity.translation_comparison` (compatibility): For an integral nu with t_nu m-generic in Definition2.1.10(2), prove its residue tuple is m-generic as in Remark4.2.3. Retain the source affine-Weyl convention rather than substituting eta-shifted weight depth.
+
+- Test `ResidueTupleGenericity.boundary_F7` (computation): Over F_7 and m=1, (0,3) is generic, whereas (0,1) fails because the difference 1 is forbidden.
+- Test `ResidueTupleGenericity.rank_one_vacuous` (degenerate): With one coordinate there are no pairs i!=j, so the condition is vacuous for every positive m.
+- Test `ResidueTupleGenericity.specialization_failure` (non-example): Over F_p[t], (t,0) avoids every constant c and is m-generic for every m, but evaluation t↦0 makes the coordinates equal. Nonzero differences over a general algebra must not be treated as units.
+- Test `ResidueTupleGenericity.unit_locus` (compatibility): For a generic tuple already in F^n, extending scalars to F[epsilon]/(epsilon^2) preserves every relevant inverse even though the target algebra is nonreduced.
+
+### M12: Affine root subgroup charts
+
+Source: §4.2, Lemmas4.2.7–8, PDF84–85.
+
+- Use — LLHLM23 Proposition4.2.10 and Corollary4.2.12 (M14): Translate Iwahori/negative-loop membership into a finite range of allowed exponents.
+- Use — LLHLM23 Proof of Theorem4.2.4 (M09): Use explicit off-diagonal coordinates and root-height triangularity in the differential equation.
+
+- `AffineRootChart.parameter` (constructor): For alpha=e_i-e_k with i!=k and m an integer, send c in R to I+c v^m E_ik in GL_n(R((v))). Reuse Matrix.transvection and its group laws, or TauCeti.GeneralLinear.rootSubgroupPoints evaluated on the Laurent-ring parameter; construct only the affine-loop adapter.
+- `AffineRootChart.add_inverse` (structure): For the same alpha,m, x(c)x(d)=x(c+d), x(0)=I and x(c)^(-1)=x(-c); export these as equalities in the common loop carrier.
+- `AffineRootChart.coefficient_ext` (extensionality): The (i,k),v^m coefficient recovers c, so equality of these root-loop points is equality of their parameters.
+- `AffineRootChart.map` (functoriality): An F-algebra map acts coefficientwise and commutes with the root parameterization, with identity and composition laws.
+- `AffineRootChart.conjugation` (compatibility): For w=s t_nu and z=w^*, use the source Weyl embedding to prove z^(-1)U_(-alpha,m)z=U_(-s(alpha),m+<nu,alpha_coroot>), including the scalar-parameter map induced by the chosen permutation matrices.
+- `AffineRootChart.membership_bounds` (characterisation): For x in the base alcove, U_(-alpha,m) lies in z^(-1)I z exactly when <w(x),alpha_coroot><m, and in z^(-1)L--G z exactly when m< <w(x),alpha_coroot>. Preserve the strict inequalities and root sign.
+
+- Test `AffineRootChart.identity_parameter` (degenerate): c=0 gives I for every exponent, including negative exponents; this point is not excluded by an exact-degree condition.
+- Test `AffineRootChart.GL2_translation` (computation): For z=diag(v,1), z^(-1)(I+c v^m E_21)z=I+c v^(m+1)E_21, checking the positive exponent shift for alpha=e_1-e_2.
+- Test `AffineRootChart.root_addition` (computation): In GL_2, (I+c v^m E_12)(I+d v^m E_12)=I+(c+d)v^m E_12 because E_12^2=0, over rings with nilpotents as well as fields.
+
+### M13: Unipotent affine-cell subgroup and support
+
+Source: Definitions4.2.9,4.2.14, PDF85.
+
+- Use — LLHLM23 Proposition4.2.13 (M15): Parametrize the Schubert cell by zN_z with the correct left quotient.
+- Use — LLHLM23 Corollaries4.2.15–16 and Theorem4.2.4 (M16/M17/M09): Count root supports and order the differential equations triangularly.
+
+- `AffineCellSubgroup.mk` (constructor): Define N_z=z^(-1)L--G_F z intersect I_F as a subgroup functor of the common loop group.
+- `AffineCellSubgroup.support` (data): Its finite-root support is the set of alpha for which U_(alpha,m) is contained for some integer m; this is a subgroup-family condition, not whether one chosen point has a nonzero coordinate.
+- `AffineCellSubgroup.root_membership` (characterisation): For z=w^*, U_(-alpha,m) is contained exactly when <x,alpha_coroot><m< <w(x),alpha_coroot>, independent of the choice of x inside A0.
+- `AffineCellSubgroup.polynomial_coordinates` (equivalence): Write the (-alpha)-entry as v^(delta_alpha_positive) f_alpha with degree at most floor(<w(x),alpha_coroot>)-ceil(<x,alpha_coroot>), and f_alpha=0 for a negative bound. Retain zero and lower-degree polynomials (E13).
+- `AffineCellSubgroup.cell_map` (equivalence): The map N_z→I_F\LGL_n sending N to the left coset of zN is an isomorphism onto S_F^open(z), as in M15; it is not the map N↦Nz.
+- `AffineCellSubgroup.support_count` (relation): Use M16 to characterize -alpha in the support by floor(<w(x),alpha_coroot>)>=ceil(<x,alpha_coroot>), and compute its cardinality by the critical-strip formula. This counts free differential parameters, not the total affine-cell dimension.
+
+- Test `AffineCellSubgroup.identity_cell` (degenerate): For z=e, N_z is trivial and its support is empty; the Schubert cell is a point.
+- Test `AffineCellSubgroup.GL2_simple_reflection` (computation): For the GL_2 permutation matrix z=s, N_s consists of I+c E_12 and has one support root and a one-dimensional cell.
+- Test `AffineCellSubgroup.GL2_translation` (computation): For z=diag(v,1), N_z consists of I+c v E_21. The coefficient polynomial has bound zero and includes c=0; it need not have exact degree zero.
+- Test `AffineCellSubgroup.support_not_pointwise` (non-example): The identity point lies in every N_z and has every off-diagonal coordinate zero, but N_s in the preceding example still has nonempty support.
+
+### M18: Common zero-parameter differential affine flag
+
+Source: Equation(4.7), PDF88.
+
+- Use — LLHLM23 Proposition4.3.1 (M19): Provide a common ambient space for translating differential local models with different residue parameters.
+- Use — LLHLM23 Definition4.3.2 and equation(4.9) (M20/M24): Take differential cell closures and compare their intrinsic labels inside one carrier.
+
+- `ZeroDifferentialFlag.mk` (constructor): Take the fpqc sheafification of the left-coset presheaf I_F(R)\LGL_n(R) satisfying v A_prime A^(-1) in v^(-1)Lie I_F(R); identify it with the zero-parameter fibre of the universal differential locus.
+- `ZeroDifferentialFlag.representative_invariance` (relation): For h in I_F, expand v(hA)_prime(hA)^(-1)=v h_prime h^(-1)+h(v A_prime A^(-1))h^(-1) and prove that the condition is unchanged.
+- `ZeroDifferentialFlag.closed_inclusion` (structure): Export its closed immersion in the affine flag ind-scheme and the compatibility of this immersion with fpqc descent and coefficient maps.
+- `ZeroDifferentialFlag.weyl_points` (example): Every chosen affine-Weyl monomial representative z satisfies the condition: v z_prime z^(-1) is a constant diagonal matrix after the permutation conjugation, and lies in v^(-1)Lie I.
+- `ZeroDifferentialFlag.right_translation_comparison` (compatibility): For z=s^(-1)t_mu and a_bar=s^(-1)(mu) modulo p, right multiplication A↦Az identifies the translated a-differential intersection with the zero-differential intersection. It is not an assertion that arbitrary right translation preserves the zero-parameter locus.
+- `ZeroDifferentialFlag.translation_derivative` (simp): Use v(Az)_prime(Az)^(-1)=v A_prime A^(-1)+A Diag(s^(-1)(mu))A^(-1), with the right-translation order fixed.
+
+- Test `ZeroDifferentialFlag.constant_matrix` (computation): A constant invertible matrix has derivative zero and satisfies the zero-parameter condition.
+- Test `ZeroDifferentialFlag.monomial_point` (computation): For z=diag(v^mu_i), v z_prime z^(-1)=Diag(mu), checking the affine-Weyl fixed-point inclusion in characteristic p.
+- Test `ZeroDifferentialFlag.frobenius_poles` (non-example): In characteristic p, A=I+c v^(-p)E_12 has derivative zero and lies in the zero-differential flag. The common ambient locus has no uniform pole bound; do not replace it by one bounded local model.
+
+### M20: Translated differential cells and their closures
+
+Source: Definition4.3.2, PDF88–89.
+
+- Use — LLHLM23 Propositions4.3.5–6 (M22/M23): Compare closures after eliminating the second dominant factor and changing the finite Weyl representative.
+- Use — LLHLM23 Theorem4.3.9 (M25): Identify the correctly ordered translation with the intrinsic alcove-pair component.
+
+- `TranslatedDifferentialCell.open_cell` (constructor): For w1,w2 in Wtilde-plus and s in Wtilde, define the translated locally closed cell S_F^open((w2^(-1)w0w1)^*)s^* inside the affine flag, using the chosen star and embedding conventions.
+- `TranslatedDifferentialCell.differential_intersection` (constructor): Intersect that locally closed cell with Fl_nabla0 as a scheme fibre product before taking any closure.
+- `TranslatedDifferentialCell.closure` (constructor): Take the closure of this differential intersection inside Fl_nabla0. In the genericity range the intersection is an affine space, so its schematic closure is reduced and irreducible; retain the distinction from intersecting the closure of the full Schubert cell.
+- `TranslatedDifferentialCell.dense_open` (structure): Under M21 hypotheses, the differential cell is a dense open affine space of dimension d in its own irreducible closure; record the immersion and the common ambient map.
+- `TranslatedDifferentialCell.remove_second_factor` (compatibility): Under M22 smallness and genericity hypotheses, identify S_nabla0(w1,w2,s) with S_nabla0(w1,e,s w2^(-1)), preserving the displayed multiplication order.
+- `TranslatedDifferentialCell.finite_weyl_invariance` (relation): For w1 in Wtilde1-plus and (n-1)-generic s, M23 identifies the closure at s with the closure at s w^(-1) for w in the finite Weyl group. It does not identify all open cells.
+
+- Test `TranslatedDifferentialCell.second_factor_identity` (degenerate): For w2=e, the open Schubert label is (w0w1)^* and the right translator is s^*; removing the second factor changes nothing.
+- Test `TranslatedDifferentialCell.order_countercheck` (non-example): As affine transformations of Z^2, take s(x1,x2)=(7+x2,x1) and w2(x)=x+(1,0). Then s w2^(-1)(0)=(7,-1), whereas w2^(-1)s(0)=(6,0). The two expressions in E14 cannot be interchanged.
+- Test `TranslatedDifferentialCell.closure_intersection_warning` (non-example): In A^2, let U be the punctured x-axis and C the y-axis. Closure(U intersect C) is empty, but closure(U) intersect C is the origin. This tests the order of operations; the source-specific strictness remains Remark4.3.3(2), not an identification with this toy example.
+
+### M24: Intrinsic component indexed by an alcove pair
+
+Source: Equation(4.9), PDF91.
+
+- Use — LLHLM23 Theorems4.3.9–10 (M25/M26): Identify translated top components independently of the chosen local-model Hodge bound.
+- Use — LLHLM23 Definition4.6.1 and Proposition4.7.2 (M29/M32): Attach a component to a compatible Serre weight and enumerate its obvious fixed points.
+
+- `IntrinsicAlcoveComponent.mk` (constructor): For w1 in Wtilde1-plus and (n-1)-generic translation t_omega, choose s with s(0)=omega and take S_nabla0(w1,e,s). The domain includes both the alcove and genericity conditions.
+- `IntrinsicAlcoveComponent.choice_independent` (extensionality): If s(0)=s_prime(0)=omega, express s_prime=s w^(-1) for a finite Weyl element and apply M23 to identify the closed subvarieties in Fl_nabla0.
+- `IntrinsicAlcoveComponent.central_relation` (relation): For nu in X0(T), the pairs (w1,omega) and (t_nu w1,omega-nu) define the same closed subvariety, with the induced equality of ambient immersions.
+- `IntrinsicAlcoveComponent.geometry` (structure): Export a dense open A^d_F, geometric irreducibility and dimension d of the resulting reduced closed variety, proving the field-extension comparison from this affine chart before using product irreducibility.
+- `IntrinsicAlcoveComponent.translated_identification` (compatibility): Under M25 hypotheses, identify S_nabla0(w1,w2,s) with C_(w1,s w2^(-1)(0)); preserve E14’s corrected order.
+- `IntrinsicAlcoveComponent.obvious_fixed_points` (example): For each finite Weyl w, the chosen affine-Weyl point (t_omega w w1)^* belongs to C_(w1,omega), as in M32. Completeness of this list is not asserted.
+
+- Test `IntrinsicAlcoveComponent.finite_representative_change` (compatibility): Replacing the chosen s by s u^(-1), for a finite Weyl u, leaves s(0)=omega and the component unchanged even when the corresponding open charts differ.
+- Test `IntrinsicAlcoveComponent.central_shift` (computation): In GL_2, shifting w1 by the central translation t_(1,1) and omega by -(1,1) leaves C unchanged; the two operations must be paired.
+- Test `IntrinsicAlcoveComponent.GL2_dimension_fixed_points` (computation): For w1=e and omega=(3,0) at p=11, the genericity bound n-1=1 holds, d=1, and both t_omega and (t_omega s)^* give the distinct obvious fixed points after applying the indicated star convention.
+
+### M27: Torus torsors over the special-fibre flag
+
+Source: §4.4, PDF93.
+
+- Use — LLHLM23 Proposition4.5.1 (M28): Supply the vertical maps in the Cartesian square of product local-model translations.
+- Use — LLHLM23 Section4.4 component lift: Lift C_(w,omega) to an irreducible variety of dimension d+n without positing a global integral torsor.
+
+- `FlagTorusTorsor.mk` (constructor): Let I1 be the subgroup of I whose reduction modulo v is upper unipotent. Sheafify I1\LGL_n and map to I\LGL_n; identify I/I1 with the split diagonal torus Tdual.
+- `FlagTorusTorsor.fiber_action` (structure): The torsor action is left multiplication by I/I1: D acts on [A]_(I1) by [DA]_(I1). Prove normality of I1 in I, representative independence and the torsor isomorphism Tdual×Fl_tilde ≅ Fl_tilde×_Fl Fl_tilde. Distinguish this action from right diagonal translation on the base flag.
+- `FlagTorusTorsor.pullback` (functoriality): For a closed subspace Y of the special-fibre flag, define its lift as Y×_Fl Fl_tilde. Pullback preserves the torsor comparison and commutes with identity/composition of maps of Y.
+- `FlagTorusTorsor.smooth_dimension` (structure): The projection is a smooth Tdual-torsor of relative dimension n. For the geometrically integral component C with dense A^d chart, prove its lift is irreducible of dimension d+n via the smooth locally trivial torsor; this does not apply to an arbitrary disconnected Y.
+- `FlagTorusTorsor.right_translation` (compatibility): Right translation A↦Az on both quotients commutes with the left torsor action. Apply M19 to obtain the Cartesian square(4.10), including the restricted differential loci.
+- `FlagTorusTorsor.scope_special_fiber` (data): Only the special-fibre torsors are defined here. Import the later chartwise O-torsors where needed; do not assert that section4.4 constructs a global integral lift.
+
+- Test `FlagTorusTorsor.identity_fiber` (computation): The fibre over the identity I-coset is I1\I≅Tdual, with the usual free transitive left diagonal action.
+- Test `FlagTorusTorsor.left_right_actions_differ` (non-example): At the identity base flag, right diagonal translation fixes the base point, while left diagonal multiplication on its torsor fibre is free. They are different actions and must not be identified.
+- Test `FlagTorusTorsor.rank_two_dimension` (computation): For a GL_2 intrinsic component d=1, its torsor lift has dimension 1+2=3, not one.
+- Test `FlagTorusTorsor.translate_action_commutes` (compatibility): For diagonal D, loop A and chosen z, (DA)z=D(Az), so the lifted right-translation square respects the left torsor action without commuting D past z.
+
+### M28: Product models, components and torsor comparison
+
+Source: §4.5, Proposition4.5.1, PDF94–95.
+
+- Use — LLHLM23 Theorem4.6.2 (M30): Assemble factorwise component labels into the product component indexed by a Serre weight.
+- Use — LLHLM23 Section4.5, equation(4.11): Compare all components and their torsor lifts in one product differential flag.
+
+- `ProductMonodromyModel.mk` (constructor): For a finite indexing set J, take the products of all bounded/flat/naive local models over the same coefficient DVR O, and products of their special fibres over F.
+- `ProductMonodromyModel.projections_reindex` (functoriality): Export projections and coherent reindexing under bijections of J, with identity/composition and the induced reindexing of lambda,a,w,omega and the product torus.
+- `ProductMonodromyModel.fiber_comparison` (compatibility): Generic and special fibre commute with these finite fibre products. The coefficient base is shared; these are not products over Z and not unrelated completed tensor products.
+- `ProductMonodromyModel.component_product` (structure): Define C_(w,omega)=product_j C_(w_j,omega_j), prove geometric irreducibility from the factorwise dense affine charts, and obtain dimension |J|d; the torus lift has dimension |J|(d+n). Irreducibility of arbitrary F-varieties alone is insufficient for this product conclusion.
+- `ProductMonodromyModel.cartesian_translation` (compatibility): For z_j=s_j^(-1)t_(mu_j) and a_j congruent s_j^(-1)(mu_j) modulo varpi in every factor, construct Proposition4.5.1’s Cartesian square. The horizontal maps are closed immersions and the vertical maps smooth Tdual^J-torsors.
+- `ProductMonodromyModel.admissible_product` (data): Identify Adm(lambda) and Admreg(lambda) with the factorwise products, retaining regularity and genericity hypotheses factor by factor rather than only after summing dimensions.
+
+- Test `ProductMonodromyModel.singleton` (degenerate): For a singleton J, the models, diagrams and dimension formulas agree with the corresponding one-factor construction.
+- Test `ProductMonodromyModel.empty_product` (degenerate): For an abstract empty finite J, the product over O is Spec O, its special fibre is Spec F, the product torus is trivial and both relative dimensions are zero.
+- Test `ProductMonodromyModel.two_GL2_factors` (computation): For two GL_2 factors, d_J=2 and the lifted component has dimension 2+2*2=6; the product torus has rank four.
+- Test `ProductMonodromyModel.irreducibility_field_boundary` (non-example): Spec C is irreducible over R but Spec(C tensor_R C) is a disjoint union of two points. The product argument must use the geometric irreducibility supplied by the affine-space charts.
+
+### M29: Component labelled by a Serre weight and central lift
+
+Source: Definition4.6.1, PDF95.
+
+- Use — LLHLM23 Theorem4.6.2 (M30): Label top-dimensional naive-model components by the actual Jordan–Hölder Serre weights under a sufficient genericity bound.
+- Use — LLHLM23 Theorem4.7.6 (M35–M37): Compare obvious and predicted Serre weights with membership of the inertial-parameter fixed point in C_sigma^zeta.
+
+- `SerreWeightComponent.domain` (data): Input an (n-1)-deep Serre weight sigma and an algebraic central lift zeta for which a zeta-compatible lowest-alcove presentation exists. Retain compatibility as input, rather than assuming every arbitrary central lift is admissible.
+- `SerreWeightComponent.mk` (constructor): Choose a representative (w1,omega) of that compatible lowest-alcove presentation and set C_sigma^zeta=C_(w1,omega), using the component construction already made in M24/M28.
+- `SerreWeightComponent.representative_independent` (extensionality): Use uniqueness of the compatible lowest-alcove presentation modulo X0(T)^J and M24’s central relation to prove equality for any two representatives.
+- `SerreWeightComponent.product_formula` (compatibility): For the factorwise presentation, C_sigma^zeta=product_j C_(w_(1,j),omega_j), as in equation(4.12), with all products over the common residue field.
+- `SerreWeightComponent.dimension_torsor` (structure): Export the reduced geometrically irreducible closed subvariety of dimension d_J and its previously defined Tdual^J-torsor lift of dimension d_J+n|J|.
+- `SerreWeightComponent.generic_label_domain` (relation): When using M30, require a bound that actually makes every constituent (n-1)-deep; use the retained E15 repair max{2n,h_lambda+n-1}. The printed max{2n,h_lambda} is not sufficient to define every proposed label.
+- `SerreWeightComponent.fixed_point_interface` (compatibility): Under M35–M37 hypotheses, obvious weight membership implies the parameter point lies on C; lying on C implies predicted weight membership; the reverse implication needs the polynomial nonvanishing hypothesis. Do not identify all three assertions without that extra condition.
+
+- Test `SerreWeightComponent.central_equivalent_presentations` (compatibility): Replacing each (w_(1,j),omega_j) by (t_(nu_j)w_(1,j),omega_j-nu_j) with nu_j central preserves the component and product formula.
+- Test `SerreWeightComponent.depth_boundary_E15` (non-example): In the retained GL_2/F_19 example R_s(7,0), lambda=(6,0), the constituent det^6 is not 1-deep. Under the printed bound its symbol C_(det^6)^zeta is outside this definition’s domain; no default empty component is inserted.
+- Test `SerreWeightComponent.singleton_dimension` (computation): For a compatible 1-deep GL_2 weight with one embedding, the component dimension is one and its torus-lift dimension is three.
+- Test `SerreWeightComponent.central_lift_is_data` (non-example): A Serre weight without a specified compatible algebraic central lift does not determine the particular closed subvariety C_sigma^zeta in the common affine flag under this definition.
+
+### K01: Tame descent coefficient rings
+
+Source: §5.1, PDF99–100.
+
+- Use — LLHLM23 Definitions5.1.1–5.1.4 (K03–K06): Supply the coefficient rings, cyclic embedding indices, Frobenius and descent actions.
+- Use — LLHLM23 Section5.4 (K25/K26): Supply the coefficient maps for inverting the Kisin parameter and taking descent invariants.
+
+- `TameDescentCoefficients.mk` (constructor): From the fixed 1-generic presentation (s,mu), set r=ord(s_0...s_(f-1)), f_prime=fr and e_prime=p^f_prime-1. Choose the stated unramified extension and pi_prime with pi_prime^e_prime=-p; construct S_Lprime,R=(W(k_prime) tensor R)[[u_prime]] for the source p-adically complete coefficient algebras.
+- `TameDescentCoefficients.frobenius` (structure): Define phi by Witt Frobenius on W(k_prime), the identity on R and u_prime↦u_prime^p. Prove continuity and compatibility with the coefficient embedding; do not replace its action on R by absolute Frobenius.
+- `TameDescentCoefficients.descent_action` (structure): Gamma_prime scales u_prime by the fundamental character and the chosen unramified generator acts on W(k_prime), fixes u_prime and acts trivially on R. Verify the semidirect-product relation and commutation with phi.
+- `TameDescentCoefficients.invariants` (equivalence): Identify the full Gamma-invariant ring with (W(k) tensor R)[[v]], v=u_prime^e_prime, and carry the Eisenstein factor to E(v)=v+p. Keep the full Gamma invariants distinct from Gamma_prime invariants.
+- `TameDescentCoefficients.embedding_components` (equivalence): For sigma_jprime=sigma_0prime Frob^(-jprime), decompose the coefficient algebra by J_prime=Z/f_prime. Restriction to k is jprime↦jprime mod f, and phi sends the jprime-1 component to the jprime component.
+- `TameDescentCoefficients.coefficient_map` (functoriality): A continuous coefficient-algebra map induces a map of these completed power-series rings commuting with phi, descent and the embedding projections. Establish identity and composition before base changing modules.
+
+- Test `TameDescentCoefficients.rank_one_extension` (degenerate): For r=1 the unramified extension is trivial, J_prime=J and e_prime=p^f-1; there is still generally nontrivial tame ramification.
+- Test `TameDescentCoefficients.Frobenius_fixes_coefficients` (non-example): For R=F_p[t], the formal coefficient rule is phi(t)=t whereas absolute Frobenius sends t to t^p. This distinguishes the rule before any completion hypotheses needed for the module category.
+- Test `TameDescentCoefficients.cyclic_target` (computation): For f_prime=3, the source of partial Frobenius at target jprime=0 is component 2, not component 1.
+
+### K02: Integral Iwahori and its pro-unipotent subgroup
+
+Source: §5.1, PDF100–101.
+
+- Use — LLHLM23 Proposition5.1.8 (K08): Identify permissible eigenbasis changes after the orientation conjugation.
+- Use — LLHLM23 Sections5.2–5.3 (K14/K18/K20): Supply the full basis group, its pro-unipotent subgroup and the residual torus action.
+
+- `IntegralIwahori.subgroup` (constructor): Define I(R) as the inverse image of the upper-triangular Borel under GL_n(R[[v]])→GL_n(R); define I1 using the upper-unitriangular subgroup, with diagonal entries 1 modulo v.
+- `IntegralIwahori.diagonal_quotient` (equivalence): The diagonal entries modulo v give a surjective homomorphism I→Tdual with kernel I1. Constant diagonal matrices split it, giving I=Tdual semidirect I1 and a unique factorization after fixing the order.
+- `IntegralIwahori.map` (functoriality): Coefficient maps preserve both subgroups and commute with diagonal reduction, the torus section and factorization.
+- `IntegralIwahori.shifted_series` (equivalence): For p-adically complete Noetherian R in the source category, construct the continuous substitution isomorphism R[[v+p]]≅R[[v]]. Explain convergence of every coefficient sum; identify I with L+G_O on this domain.
+- `IntegralIwahori.localized_shift` (compatibility): For p-nilpotent R, the shifted and unshifted Laurent rings identify because v+p=v(1+p/v) has a finite geometric-series inverse. This argument does not give the same Laurent-ring comparison over arbitrary O-algebras.
+- `IntegralIwahori.Lie_kernel` (characterisation): The Lie algebra of I1 has strictly upper-triangular reduction modulo v. In particular, its constant diagonal coefficients vanish; retain this constraint in the infinitesimal gauge calculation K19.
+
+- Test `IntegralIwahori.unipotent_not_identity` (non-example): I+E_12 lies in I1 for n=2 although its reduction is not the identity. I1 is larger than the kernel of reduction modulo v.
+- Test `IntegralIwahori.diagonal_excluded` (non-example): A constant diag(a,1) with a a unit different from 1 belongs to I but not I1.
+- Test `IntegralIwahori.nilpotent_shift` (computation): Over Z/125, (v+5)^(-1)=v^(-1)-5v^(-2)+25v^(-3); multiplying by v+5 gives 1. The negative terms must be retained.
+
+### K03: Breuil–Kisin module of bounded height
+
+Source: Definition5.1.1, PDF101.
+
+- Use — LLHLM23 Definition5.1.2 (K04): Add tame descent without changing the bounded-height Frobenius condition.
+- Use — LLHLM23 Propositions5.1.8 and5.5.9 (K08/K43): Express height in oriented matrices and preserve it under semisimplification.
+
+- `HeightBoundedKisinModule.mk` (constructor): A datum is a finite projective constant-rank-n S_Lprime,R-module and an injective S-linear map Phi:phi* M→M whose cokernel is annihilated by E(v)^h, with h>=0.
+- `HeightBoundedKisinModule.linearization` (equivalence): Relate Phi to a phi-semilinear map on M using the tensor-product universal property. Preserve the distinction between injectivity of Phi and surjectivity of the underlying semilinear map.
+- `HeightBoundedKisinModule.height_factorization` (characterisation): The height condition is equivalent to existence of Psi:M→phi* M with Phi Psi=E^h and Psi Phi=E^h; use injectivity of Phi for the second identity and uniqueness.
+- `HeightBoundedKisinModule.partial_Frobenius` (data): Decompose Phi into maps phi* M^(jprime-1)→M^(jprime), with the superscript naming the target. Direct sum of these partial maps reconstructs Phi.
+- `HeightBoundedKisinModule.matrix_height` (characterisation): After choosing local free bases, the raw matrix C has integral entries and E^h C^(-1) has integral entries in the localization by E; prove equivalence with the module height condition under the source E-regularity hypotheses.
+- `HeightBoundedKisinModule.base_change` (functoriality): Construct completed coefficient base change, including finite projectivity and the height factorization. Prove injectivity after base change using E-regularity in the target source ring, rather than asserting that arbitrary tensoring preserves injections.
+
+- Test `HeightBoundedKisinModule.height_zero` (degenerate): For h=0, Psi is an inverse to Phi: the linearized Frobenius is an isomorphism.
+- Test `HeightBoundedKisinModule.rank_one_height` (computation): In a free rank-one component with Phi multiplication by E^c, the height bound holds exactly when 0<=c<=h, in an E-regular power-series ring with E a nonunit.
+- Test `HeightBoundedKisinModule.wrong_partial_index` (non-example): On three cyclic embedding components, a matrix at target 0 acts on phi* M^2; using M^1 fails the coefficient idempotent compatibility.
+
+### K04: Tame descent type on Breuil–Kisin modules
+
+Source: Definition5.1.3 and Remark5.1.4, PDF101–102.
+
+- Use — LLHLM23 Definitions5.1.3–5.1.4 (K05/K06): Choose character eigenbases and descend the oriented matrices to J.
+- Use — LLHLM23 Proposition5.2.1 and Section5.4 (K15/K26): Present the stack by basis changes and descend its associated etale module.
+
+- `KisinDescentType.mk` (constructor): Add a semilinear Gamma-action commuting with Phi and require M^(jprime)/u_prime M^(jprime)≅tau_dual tensor R as a Gamma_prime-representation, for every jprime.
+- `KisinDescentType.unramified_cocycle` (equivalence): Starting with Gamma_prime descent, extending to Gamma is equivalent to an isomorphism iota_M:(sigma^f)*M→M satisfying the order-r cocycle and the specified conjugation relation with Gamma_prime.
+- `KisinDescentType.equivariant_morphism` (data): A morphism is S-linear and commutes with both linearized Frobenius and every descent operator. These conditions are preserved by identity, composition and coefficient base change.
+- `KisinDescentType.type_locality` (compatibility): The prescribed type is a local isomorphism condition on the character eigensummands of M/u_prime M. Use the invertibility of |Gamma_prime| to construct projectors; do not infer global free eigenbases from finite projectivity.
+- `KisinDescentType.forget` (functoriality): Forget descent to K03 and retain its height bound. Keep the type condition on the mod-u_prime fibres, not on arbitrary choices of raw Frobenius matrices.
+- `KisinDescentType.formal_stack` (structure): Package descent of objects and isomorphisms and import the formal algebraicity theorem from CEGS/Caraiani–Levin with its coefficient hypotheses. The type is tau_dual because the later Galois functor is contravariant.
+
+- Test `KisinDescentType.trivial_unramified_cocycle` (degenerate): When r=1, the unramified cocycle forces the corresponding descent identification to be the identity after the canonical coefficient identification.
+- Test `KisinDescentType.dual_character` (computation): For rank one of tame type chi, the eigenline in M/u_prime M carries chi^(-1), not chi.
+- Test `KisinDescentType.cocycle_required` (non-example): For a cyclic descent group of order 2 acting trivially on coefficients, a chosen scalar identification c with c^2!=1 does not extend to descent data.
+
+### K05: Eigenbasis with descent compatibility
+
+Source: Definition5.1.6, PDF102.
+
+- Use — LLHLM23 Definition5.1.4 and Proposition5.1.8 (K06/K08): Define oriented matrices and their change-of-basis rule.
+- Use — LLHLM23 Proposition5.2.7 (K19): Refine an eigenbasis to a gauge basis under the genericity and completeness assumptions.
+
+- `DescentEigenbasis.mk` (constructor): Choose an ordered basis beta^(jprime) in each embedding summand, whose ith vector has character chi_i^(-1), relative to the fixed lowest-alcove presentation.
+- `DescentEigenbasis.unramified_compatibility` (relation): Require compatibility with iota_M with the source permutation s_tau. It is compatibility of the corresponding unordered bases with a specified reordering, not equality of their ordered lists.
+- `DescentEigenbasis.local_existence` (relation): After the allowed Zariski localization of the coefficient base, lift the character basis modulo u_prime to an eigenbasis using tame projectors and the source lifting theorem.
+- `DescentEigenbasis.transition` (characterisation): Given beta_2 D=beta_1, characterize D by the descent characters and unramified compatibility. Orientation conjugation turns D into a J-periodic tuple in I; the inverse conjugation reconstructs D.
+- `DescentEigenbasis.basis_torsor` (structure): On a locus with an eigenbasis, changes form a torsor for I^J under the established transition equivalence. State the action order using beta_2 D=beta_1.
+- `DescentEigenbasis.coefficient_map` (functoriality): Base change sends every basis vector and its character relation to the corresponding eigenbasis and preserves the unramified permutation.
+
+- Test `DescentEigenbasis.rank_one_scaling` (computation): Scaling a rank-one eigenbasis by a coefficient unit preserves its character, with the cyclic descent compatibility imposed on the full tuple.
+- Test `DescentEigenbasis.permuted_order` (non-example): If s_tau is the transposition of two distinct character lines, the unramified map exchanges their positions. Requiring the ordered tuple to be fixed rejects a valid eigenbasis.
+- Test `DescentEigenbasis.basis_not_automatic` (non-example): A finite projective module need not be globally free. The constructor requires a basis or a local trivialization; the module structure alone is insufficient.
+
+### K06: Oriented partial Frobenius matrices
+
+Source: Equations(5.1)–(5.4), PDF102–103.
+
+- Use — LLHLM23 Proposition5.1.8 and Definition5.1.9 (K08/K09): Compute basis changes and define shape.
+- Use — LLHLM23 Proposition5.4.2 (K28): Convert the normalized Kisin matrix into the etale Frobenius matrix by right multiplication.
+
+- `OrientedKisinMatrix.orientation_data` (constructor): Define alpha_prime_(j+kf)=s_tau^(-k)alpha_j, a_prime^(jprime)=sum_(i=0)^(fprime-1) p^i alpha_prime_(-jprime+i), and sor_prime_(j+kf)=s_tau^(k+1)s_(f-1)^(-1)...s_(j+1)^(-1). Keep this order and the empty product convention.
+- `OrientedKisinMatrix.normalize` (data): For the raw target-indexed partial Frobenius matrix C^(jprime), set A^(jprime)=Ad((sor_prime)^(-1) diag(u_prime^(-a_prime)))(C^(jprime)). Construct the descent-invariant entries in the v-loop ring.
+- `OrientedKisinMatrix.periodicity_height` (characterisation): Prove A depends only on jprime modulo f, belongs to L+M, and E^h A^(-1) belongs to L+M. The latter two conditions are equivalent to the height condition for the reconstructed eigenbasis object.
+- `OrientedKisinMatrix.basis_change` (relation): If beta_2 D=beta_1 and I_j=Ad((sor_prime)^(-1)u_prime^(-a_prime))(D^(jprime)), then A_beta2^j=I_j A_beta1^j Ad(z_tau,j)(phi(I_(j-1)))^(-1), where z_tau,j=s_j^(-1)v^(mu_j+eta_j).
+- `OrientedKisinMatrix.reconstruct` (equivalence): For a J-periodic tuple satisfying the two Iwahori matrix bounds, reverse the orientation conjugation and equip the free modules with the specified character and unramified descent data. Prove the two constructions inverse up to the basis-preserving isomorphism used in K15.
+- `OrientedKisinMatrix.etale_matrix` (compatibility): In the descended invariant basis, the etale partial Frobenius matrix is A_beta^j z_tau,j. The factor occurs on the right; this is not generally z_tau,j A_beta^j.
+
+- Test `OrientedKisinMatrix.identity_basis_change` (degenerate): I_j=1 in every component fixes A_j.
+- Test `OrientedKisinMatrix.noncommuting_etale_factor` (computation): For A=I+cE_12 and z=diag(v,1), A z has upper-right entry c whereas z A has upper-right entry vc.
+- Test `OrientedKisinMatrix.constant_cyclic_change` (computation): In rank one with constants d_j, phi fixes d_j, and A_beta2^j=d_j A_beta1^j d_(j-1)^(-1). For one embedding this scalar action is trivial.
+
+### K09: Shape of a residual Kisin module
+
+Source: Definition5.1.9, PDF105.
+
+- Use — LLHLM23 Definition5.2.6 (K18): Place every shape-z field point in the z-gauge open.
+- Use — LLHLM23 Corollary5.3.5 and Definition5.5.5 (K24/K39): Relate shape to Hodge admissibility and transfer it to residual Galois representations.
+
+- `ResidualKisinShape.double_coset` (constructor): Over a field Fprime/F, define shape z by A_beta^j∈I(Fprime) z_j I(Fprime) for all j, relative to the fixed type presentation.
+- `ResidualKisinShape.unique` (extensionality): Use the affine Bruhat decomposition to prove uniqueness of z; assemble componentwise uniqueness for the J-tuple.
+- `ResidualKisinShape.basis_independent` (compatibility): Apply K08 and the stated Iwahori containment of the Frobenius-conjugated transition factor to prove independence of beta.
+- `ResidualKisinShape.field_extension` (functoriality): Prove shape is preserved by field extension using the base-change-compatible Schubert-cell decomposition, not a general ring-point double-coset classification.
+- `ResidualKisinShape.gauge_open` (relation): A shape-z point belongs to the z-gauge open; the converse asserts more than open membership and must not be exported.
+- `ResidualKisinShape.admissible_bound` (compatibility): Under K24, membership in Y^<=lambda,tau is equivalent to shape in Adm-dual(lambda). Retain the source hypotheses needed to use the local-model diagram.
+
+- Test `ResidualKisinShape.rank_one_valuation` (computation): For n=1 at p=0, A=v^c u with u a power-series unit has shape c; multiplying by I on either side leaves c unchanged.
+- Test `ResidualKisinShape.valuation_boundary` (non-example): v^c and v^(c+1) have different rank-one shapes over a field.
+- Test `ResidualKisinShape.field_domain` (non-example): Over F[epsilon]/(epsilon^2), do not define a unique Weyl label merely by reusing the field-point double-coset constructor; families require the chart/stratification interfaces.
+
+### K13: Height-bounded loop spaces
+
+Source: §5.2, equation(5.5), PDF106–107.
+
+- Use — LLHLM23 Proposition5.2.1 (K15): Present bounded-height Kisin modules by the Frobenius-twisted quotient.
+- Use — LLHLM23 Proposition5.4.6 (K33): Supply the ordinary residual bounded flags used after translation.
+
+- `HeightBoundedLoops.mixed_bounds` (constructor): For a<=b, impose (v+p)^(-a)g∈L+M_O and (v+p)^b g^(-1)∈L+M_O; quotient on the left by L+G_O to define Gr^[a,b].
+- `HeightBoundedLoops.residual_bounds` (constructor): Separately impose v^(-a)A and v^b A^(-1) in Mat_n(R[[v]]) and quotient on the left by I to define Fl^[a,b]. No upper-triangular-mod-v condition is part of these two ordinary matrix bounds.
+- `HeightBoundedLoops.central_shift` (equivalence): Multiplication by the central scalar (v+p)^m shifts mixed bounds [a,b] to [a+m,b+m]; v^m gives the corresponding residual equivalence.
+- `HeightBoundedLoops.relax_bounds` (functoriality): If a_prime<=a and b<=b_prime, inclusion of bounds induces a closed inclusion of the corresponding bounded quotients, compatible with composition.
+- `HeightBoundedLoops.finite_type_closed` (structure): Import/prove the finite-type closed bounded affine-flag construction for Fl^[a,b], retaining its immersion in the ambient affine flag.
+- `HeightBoundedLoops.special_fiber_comparison` (relation): Reduction gives a natural subspace Gr^[a,b]_F inside Fl^[a,b], in general strictly smaller. Establish the comparison through the Iwahori matrix bounds rather than declaring the two definitions equal.
+
+- Test `HeightBoundedLoops.rank_one_interval` (computation): For A=v^c over a field, both bounded conditions hold precisely when a<=c<=b.
+- Test `HeightBoundedLoops.central_shift_test` (compatibility): A rank-one exponent c in [a,b] becomes c+m in [a+m,b+m].
+- Test `HeightBoundedLoops.Iwahori_strictness` (non-example): For n=2 and [a,b]=[0,0], the constant permutation matrix exchanging the two coordinates satisfies the ordinary bounds but is not upper triangular modulo v. Its left-I coset is not in the mixed special-fibre bound.
+
+### K14: Twisted conjugation actions
+
+Source: §5.2, PDF107.
+
+- Use — LLHLM23 Proposition5.2.1 and Lemma5.2.2 (K15/K16): Form the quotient stack and solve the residual straightening equation.
+- Use — LLHLM23 Theorem5.3.1 and Warning5.3.2 (K20): Distinguish the torus actions in the two chart quotients and the obstruction to gluing over O.
+
+- `TwistedKisinAction.Frobenius_action` (constructor): For z_j=s_j^(-1)v^(mu_j+eta_j), define (I star_phi A)_j=I_j A_j Ad(z_j)(phi(I_(j-1)))^(-1). Retain the cyclic predecessor index.
+- `TwistedKisinAction.ordinary_action` (constructor): Define star by the same formula with phi omitted. Prove the respective domain is preserved using the source genericity and height estimates when those are required.
+- `TwistedKisinAction.action_laws` (structure): Prove 1 star A=A and I star (J star A)=(IJ) star A componentwise, for each action, by the homomorphism property of phi and Ad(z).
+- `TwistedKisinAction.torus_agreement` (relation): On constant diagonal tuples, phi acts identically, so star_phi and star agree. This equality does not identify either action with ordinary left translation on the chart.
+- `TwistedKisinAction.straightening_equation` (compatibility): In the residual generic domain, solving X=I A Ad(z)(phi(I_prev))^(-1) A^(-1) is equivalent to I=X A Ad(z)(phi(I_prev)) A^(-1). Use the contraction theorem K16 with the retained E17 correction.
+- `TwistedKisinAction.mixed_gluing_boundary` (relation): Preserve Warning5.3.2: the quotient change that straightens the residual action need not take values in I1 over a mixed-characteristic thickening. Do not glue the integral local-model diagrams merely from the residual comparison.
+
+- Test `TwistedKisinAction.one_component_rank_one_torus` (degenerate): For |J|=1 and n=1, constant torus twisted conjugation is trivial, whereas left multiplication by the same scalar generally is not.
+- Test `TwistedKisinAction.Frobenius_not_ordinary` (non-example): Over F_p[[v]], phi(1+v)=1+v^p, so the full power-series group actions are not identified by their agreement on constants.
+- Test `TwistedKisinAction.negative_poles_in_thickening` (computation): For p=11 in R=Z/11^5, v^3/(v+11)=v^2-11v+121-1331v^(-1)+14641v^(-2). Thus 1-v^3/(v+11) has negative Laurent coefficients, unlike its reduction modulo 11. This tests the pole mechanism of Warning5.3.2, without asserting a separately chosen type presentation.
+
+### K18: Gauge opens and gauge bases
+
+Source: Definitions5.2.4,5.2.6, PDF109–110.
+
+- Use — LLHLM23 Proposition5.2.7 (K19): Produce gauge bases, with torus ambiguity, on the formal open.
+- Use — LLHLM23 Theorems5.3.1/5.3.3 and Definition5.5.6 (K20/K22/K40): Compare chart geometry with the local model and define semisimple Kisin points.
+
+- `KisinGaugeChart.residual_open` (constructor): Use the U(z)T chart and the residual quotient presentation to define Y_F^[0,h],tau(z) as an open substack.
+- `KisinGaugeChart.formal_open` (equivalence): Lift this open uniquely to the p-adic formal stack through the identification of its underlying topological space with that of its special fibre.
+- `KisinGaugeChart.gauge_basis` (data): A z-gauge basis is an eigenbasis with A_beta^j∈Tdual(R)U(z_j)(R) for every j. Keep the torus factor on the specified side.
+- `KisinGaugeChart.existence` (relation): For the source complete Noetherian coefficient algebras and (h+1)-deep mu, prove that an object in this open admits gauge bases Zariski locally, using K19 and its corrected infinitesimal calculation.
+- `KisinGaugeChart.uniqueness` (structure): Under the same hypotheses, gauge eigenbases form the stated Tdual^J torsor. The uniqueness assertion concerns eigenbases satisfying gauge, not arbitrary bases of the underlying module.
+- `KisinGaugeChart.shape_implication` (relation): Over a field, shape z implies membership in the z-gauge open. Distinguish this open neighbourhood from the locally closed fixed-shape stratum.
+
+- Test `KisinGaugeChart.fixed_point_in_chart` (computation): The distinguished monomial point z belongs to its own chart and has shape z.
+- Test `KisinGaugeChart.infinitesimal_diagonal` (non-example): A nonzero constant diagonal infinitesimal matrix belongs to Lie I but not Lie I1; it cannot be used as an I1 gauge correction in K19.
+- Test `KisinGaugeChart.open_not_stratum` (non-example): A proof of open membership after deformation supplies gauge, not constancy of the Schubert-cell label; fixed shape requires a separate locally closed condition.
+
+### K21: Bounded Hodge-type Kisin substack
+
+Source: §5.3, PDF114.
+
+- Use — LLHLM23 Theorem5.3.3 and Corollary5.3.5 (K22/K24): Pull back bounded local models and characterize the possible residual shapes.
+- Use — LLHLM23 Proposition5.5.9 (K43): Preserve the closed Hodge bound under the semisimplification family.
+
+- `BoundedHodgeKisinStack.domain` (data): Use an effective dominant tuple lambda with each entry in [0,h]; record the ambient height h and the fixed descent type tau.
+- `BoundedHodgeKisinStack.flat_reduced_closure` (constructor): Construct the O-flat formal closed substack with reduced versal rings and the prescribed finite-DVR point condition. Generic point data alone is not a substitute for the flat/reduced construction.
+- `BoundedHodgeKisinStack.DVR_point_criterion` (characterisation): For a finite extension Eprime/E with integers Oprime, an Oprime-point belongs exactly when its Hodge type is <=lambda in the source partial order.
+- `BoundedHodgeKisinStack.elementary_divisors` (equivalence): Identify this criterion with A_beta^j in the generic Schubert closure S_E(lambda_j) by the graded chi-isotypic pieces of M/E(v)M. Preserve the (v+p)-adic parameter and the target embedding convention.
+- `BoundedHodgeKisinStack.chart_pullback` (compatibility): Under K22, pull back to U(z,<=lambda) in the gauge diagram; prove equality of the integral closed subspaces using the stated flatness, reducedness and DVR-point detection hypotheses.
+- `BoundedHodgeKisinStack.bound_inclusion` (functoriality): A dominant lambda_prime<=lambda with the same central class induces inclusion of the Hodge-bounded substacks inside the common height stack, compatible with the local-model inclusion.
+
+- Test `BoundedHodgeKisinStack.rank_one_exact_weight` (computation): For a rank-one partial matrix (v+p)^c times a unit, the Hodge weight is c. For lambda=c, its finite-DVR point has the required type.
+- Test `BoundedHodgeKisinStack.wrong_central_class` (non-example): For rank one, distinct weights do not become ordered merely as integers: the dominance order within a fixed central class is equality.
+- Test `BoundedHodgeKisinStack.generic_points_insufficient` (non-example): The closed subschemes of Spec O[x] given by (x) and (varpi*x) have equal generic fibres but different integral structures. The latter is not O-flat; the flatness condition in the constructor cannot be omitted.
+
+### K25: Etale Frobenius modules with descent
+
+Source: §5.4.1, PDF116.
+
+- Use — LLHLM23 Propositions5.4.1–5.4.3 (K27–K29): Receive the proper forgetful map and the generic closed-immersion theorem.
+- Use — LLHLM23 Section5.5 (K35): Apply the field-of-norms antiequivalence after forgetting the Kisin lattice.
+
+- `EtaleFrobeniusModule.coefficient_ring` (constructor): Form O_E,K as the p-adic completion of W(k)[[v]][1/v], and O_E,Lprime using u_prime. For a source coefficient algebra R use the completed tensor product with R.
+- `EtaleFrobeniusModule.mk` (constructor): A rank-n object is finite projective over the completed coefficient ring with a phi-semilinear operator whose linearization phi* D→D is an isomorphism.
+- `EtaleFrobeniusModule.descent_version` (data): On the Lprime ring add semilinear Gamma descent commuting with phi; define morphisms by compatibility with both structures.
+- `EtaleFrobeniusModule.matrix_criterion` (characterisation): On a free local chart the linearization is represented by an invertible matrix. This requires invertibility of that matrix, not bijectivity of the coefficient-ring Frobenius.
+- `EtaleFrobeniusModule.base_change` (functoriality): Completed coefficient extension preserves finite projectivity and the inverse of the linearized Frobenius; establish identity and composition with the completion comparison maps.
+- `EtaleFrobeniusModule.fppf_stack` (structure): Establish effective fppf descent for objects and isomorphisms and form the formal stack over Spf O, importing the source algebraicity inputs separately.
+
+- Test `EtaleFrobeniusModule.rank_one_unit` (computation): A free rank-one object whose linearized Frobenius matrix is a coefficient-ring unit is etale.
+- Test `EtaleFrobeniusModule.semilinear_not_surjective` (non-example): On F_p((v)), phi(v)=v^p is not surjective, but the rank-one module with basis e and phi(e)=e has linearization matrix 1 and is etale.
+- Test `EtaleFrobeniusModule.zero_matrix` (non-example): In positive rank the zero Frobenius matrix does not define an etale object because its linearization is not an isomorphism.
+
+### K26: Forget the Kisin lattice and descend
+
+Source: §5.4.1, PDF116.
+
+- Use — LLHLM23 Propositions5.4.1–5.4.3 (K27–K29): Prove properness, compute the invariant Frobenius matrices and obtain a generic closed immersion.
+- Use — LLHLM23 Definition5.5.5 (K39): Use uniqueness of a generic Kisin lift to define representation shape.
+
+- `ForgetKisinLattice.invert_complete` (constructor): From a Kisin module, invert u_prime and extend to the p-adically completed etale coefficient ring. Show E becomes a unit there and hence the bounded-height Frobenius linearization becomes an isomorphism.
+- `ForgetKisinLattice.descent_invariants` (constructor): Take Gamma invariants of the resulting etale module to obtain epsilon_tau(M) over the K coefficient ring.
+- `ForgetKisinLattice.descent_equivalence` (equivalence): Identify etale Lprime-modules with descent and etale K-modules by invariants and scalar extension, including the two natural inverse isomorphisms.
+- `ForgetKisinLattice.presentation_independent` (compatibility): The descended object is independent of the lowest-alcove presentation and eigenbasis; compare presentations through the intrinsic module functor rather than equating their coordinate matrices.
+- `ForgetKisinLattice.matrix_formula` (simp): In the invariant basis of K28, the partial matrix is A_beta^j s_j^(-1)v^(mu_j+eta_j), with the cyclic Frobenius convention and this right-factor order.
+- `ForgetKisinLattice.geometry_hypotheses` (relation): Export properness using K27 and closed immersion using K29 only with its genericity assumptions. Do not make full faithfulness part of the unconditional forgetful construction.
+
+- Test `ForgetKisinLattice.E_unit` (computation): After inverting v and completing p-adically, E=v+p=v(1+p/v) has inverse v^(-1) sum_(m>=0)(-p/v)^m. Convergence uses the p-adic topology.
+- Test `ForgetKisinLattice.basis_invariance` (compatibility): A change of Kisin eigenbasis changes A z by the usual cyclic Frobenius basis-change formula, so the associated etale object is isomorphic.
+- Test `ForgetKisinLattice.lattice_not_remembered` (non-example): The construction forgets the embedded power-series lattice. Uniqueness of such a lattice cannot be inferred from the definition of the etale object; it requires K29 and its hypotheses.
+
+### K32: Translated bounded flags and shifted torus action
+
+Source: §5.4.2, PDF120.
+
+- Use — LLHLM23 Proposition5.4.6 (K33): Embed the shifted torus quotient into the residual etale stack.
+- Use — LLHLM23 Proposition5.4.7 (K34): Compare different tame types inside a common translated bound.
+
+- `TranslatedBoundedFlags.mk` (constructor): For integers a<=b and a tuple z, form the product over j of I1\(L^[a,b]GL_n)z_j inside the lifted affine flag. This uses I1, not I.
+- `TranslatedBoundedFlags.parameter_domain` (data): For the etale embedding theorem require z=sigma^(-1)t_(nu+eta) with nu (b-a+1)-deep. Record this numerical margin alongside the bound.
+- `TranslatedBoundedFlags.Frobenius_map` (constructor): Send a tuple represented by A_j z_j to the etale object with those partial Frobenius matrices. Prove independence of I1 representatives by the residual straightening theorem.
+- `TranslatedBoundedFlags.shifted_torus_action` (structure): On B_j=A_j z_j the constant tuple D acts by B_j↦D_j B_j D_(j-1)^(-1). Verify identity/composition and descend the etale map through this action.
+- `TranslatedBoundedFlags.monomorphism` (relation): Apply K33 to the shifted torus quotient under its depth hypotheses; retain this as a theorem about the quotient, not injectivity of all tuples of matrices.
+- `TranslatedBoundedFlags.type_comparison` (compatibility): For K34 establish the actual inclusion Gr^[0,h]_F w_star(tau) in this translated bound before comparing images. A common ambient name or the existence of two presentations does not supply the inclusion.
+
+- Test `TranslatedBoundedFlags.cyclic_scalar_action` (computation): For n=1 and two embeddings, (b_0,b_1) maps to (d_0 b_0/d_1,d_1 b_1/d_0); their product is invariant.
+- Test `TranslatedBoundedFlags.one_embedding_action` (degenerate): For one embedding the action is conjugation D B D^(-1); in rank one it is trivial.
+- Test `TranslatedBoundedFlags.translation_vs_shifted_action` (non-example): With two embeddings, changing d_0 but not d_1 changes both partial matrices. Acting by left multiplication on the first matrix alone is a different action.
+
+### K37: Genericity of a residual Galois representation
+
+Source: Definition5.5.1, PDF122.
+
+- Use — LLHLM23 Proposition5.5.2 and Corollary5.5.10 (K38/K44): Classify generic semisimple representations and transfer genericity with a height loss.
+- Use — LLHLM23 Proposition5.5.7 (K41): Use compatible tame presentations to compare semisimple representation and Kisin shapes.
+
+- `ResidualGaloisGenericity.mk` (constructor): Define m-genericity through the tame inertial type of rho^ss. Keep the original representation rho as data, without identifying it with rho^ss.
+- `ResidualGaloisGenericity.semisimplification_invariant` (characterisation): Representations with isomorphic semisimplifications have the same genericity; rho is m-generic iff rho^ss is m-generic.
+- `ResidualGaloisGenericity.monotone` (relation): For 0<=m_prime<=m, m-genericity implies m_prime-genericity with the same type convention.
+- `ResidualGaloisGenericity.tame_presentation` (data): For tame rho, a lowest-alcove presentation is a presentation of its inertial restriction; form w(rho)=t_(mu+eta)s and w_star(rho)=s^(-1)t_(mu+eta). This does not encode unramified extension data.
+- `ResidualGaloisGenericity.semisimplicity_hypotheses` (relation): Use K45–K47 to deduce semisimplicity for a tame generic representation only with the distinct-inertial-character hypotheses. Retain E19: tameness alone does not imply semisimplicity.
+- `ResidualGaloisGenericity.height_loss` (compatibility): Under K44, an m-generic tau with m>=h+1 yields an (m-h)-generic semisimplified Galois representation from a height-h object; do not export an unchanged m bound.
+
+- Test `ResidualGaloisGenericity.unramified_Jordan` (non-example): A two-dimensional unramified representation with Frobenius a nontrivial unipotent Jordan block is tame but not semisimple. Its repeated trivial inertial characters exclude the generic distinct-character hypothesis.
+- Test `ResidualGaloisGenericity.same_semisimplification` (compatibility): A representation and its semisimplification return the same value of the genericity predicate, even when they are not isomorphic.
+- Test `ResidualGaloisGenericity.loss_boundary` (computation): For m=h+1 the guaranteed output depth is 1. Replacing it by h+1 overstates the theorem when h>0.
+
+### K39: Shape of a residual representation relative to a type
+
+Source: Definition5.5.4, PDF123.
+
+- Use — LLHLM23 Proposition5.5.7 and Corollary5.5.8 (K41/K42): Relate the shape of a semisimple representation to admissibility and potentially crystalline nonemptiness.
+
+- `RepresentationShape.domain` (data): The input is a residual representation rho and a witness M in Y^[0,h],tau(F) with Tdd_star(M)≅rho restricted to G_Kinfinity, under the standing (h+1)-generic type assumption.
+- `RepresentationShape.mk` (constructor): Assign the shape of the witnessed Kisin module, relative to the specified lowest-alcove presentation of tau.
+- `RepresentationShape.witness_independent` (extensionality): Use the generic monomorphism/closed-immersion theorem for epsilon and the field-of-norms equivalence to identify any two witnessed lifts; their shapes agree.
+- `RepresentationShape.isomorphism_invariant` (compatibility): An isomorphism of the restricted Galois representation transports the witness and preserves shape.
+- `RepresentationShape.field_extension` (functoriality): Base extend the witness and use K09 to preserve shape under a residue-field extension.
+- `RepresentationShape.no_default` (relation): Outside the essential image there is no representation shape under this definition. A later theorem producing a lift supplies required data, not a default Weyl element.
+
+- Test `RepresentationShape.two_witnesses` (compatibility): For two generic lifts of the same restricted representation, the construction produces one label by the uniqueness theorem.
+- Test `RepresentationShape.missing_lift` (non-example): A bare residual representation and a tame type do not form a valid input unless a Kisin-lift existence witness is supplied.
+- Test `RepresentationShape.presentation_parameter` (non-example): Changing the lowest-alcove presentation of tau requires the corresponding coordinate comparison; equality of raw Weyl labels is not part of presentation-free Galois isomorphism invariance.
+
+### K40: Semisimple Kisin module
+
+Source: Definition5.5.5 and Remark5.5.6, PDF123.
+
+- Use — LLHLM23 Proposition5.5.7 (K41): Characterize semisimple Galois representations of the prescribed relative shape.
+- Use — LLHLM23 Proposition5.5.9 (K43): Construct the semisimplification degeneration while preserving closed height/Hodge bounds.
+
+- `SemisimpleKisinPoint.chart_definition` (constructor): Over a finite residue-field extension, a shape-z Kisin module is semisimple when its ordinary-chart image in the z-gauge diagram is the torus-fixed point z.
+- `SemisimpleKisinPoint.matrix_criterion` (equivalence): Equivalently, there exists an eigenbasis with A_beta^j∈Tdual(Fprime) z_j for every j. Preserve the scalar torus factors as unramified data.
+- `SemisimpleKisinPoint.gauge_independent` (compatibility): Under the gauge-basis uniqueness theorem, changing a gauge eigenbasis preserves the fixed-point criterion, so it depends only on the Kisin object.
+- `SemisimpleKisinPoint.field_extension` (functoriality): Base extension preserves the matrix criterion and its fixed-point interpretation.
+- `SemisimpleKisinPoint.relative_position` (compatibility): For the compatible semisimple presentations of K41, the shape is z=w_star(rho) w_star(tau)^(-1); the Hodge criterion uses w_star(tau)^(-1)w_star(rho) in Adm(lambda). Keep these two orders distinct.
+- `SemisimpleKisinPoint.degeneration` (relation): Use K43 to construct the cocharacter degeneration to the semisimple object, proving the generic-family identity as a scheme identity before using closedness. A finite list of Fprime-rational nonzero parameters is not a Zariski-density argument.
+
+- Test `SemisimpleKisinPoint.rank_one` (degenerate): A rank-one shape-c residual object admits A=u v^c with u a unit; the source gauge theorem reduces the gauge representative to a constant torus multiple of v^c, giving the fixed-point criterion under its hypotheses.
+- Test `SemisimpleKisinPoint.torus_factor_retained` (non-example): Two rank-one etale matrices a v^c and b v^c with a!=b need not define the same unramified representation. The semisimple criterion must not discard the torus factors.
+- Test `SemisimpleKisinPoint.finite_points_not_dense` (non-example): Over F_q the polynomial x^(q-1)-1 vanishes on every element of F_q^× but is not the zero regular function on G_m. A degeneration identity needs the family over the coordinate ring, not only its rational points.
+
+### G01: Rigid coefficient rings and analytic derivation
+
+Source: §7.1 PDF132–133.
+
+- Use — LLHLM23 Propositions7.1.3–7.1.6 (G04–G07): Construct the convergent monodromy matrix, evaluate its derivatives and descend the integral ideal.
+- Use — LLHLM23 Proposition7.1.10 (G11/G42–G44): Bound the analytic error terms after evaluation at v=-p.
+
+- `RigidKisinCoefficients.mk` (constructor): For p-adically complete, topologically finite type, O-flat R, form O_R^rig=lim_m R[[u_prime,u_prime^m/p]][1/p] with the source transition maps. Use its injection into R[1/p][[u_prime]] as a comparison, not as equality.
+- `RigidKisinCoefficients.analytic_product` (data): Construct L=product_(i>=0) phi^i(E(u_prime)/p) by convergence on each closed subdisc; prove L=(E/p)phi(L) and L(0)=1.
+- `RigidKisinCoefficients.derivation` (structure): Define N_nabla=-u_prime L d/du_prime on the analytic ring. Prove coefficient linearity, Leibniz and compatibility with restriction to subdiscs.
+- `RigidKisinCoefficients.evaluation` (constructor): For m>=0, construct the map to R[1/p][u_prime]/phi^m(E) by analytic convergence. Prove agreement with polynomial evaluation and with the relevant finite coefficient maps.
+- `RigidKisinCoefficients.embedding_product` (equivalence): Decompose the W(k_prime)-coefficient variant into the J_prime product of O_R^rig, with phi cyclically moving embedding components and N_nabla componentwise.
+- `RigidKisinCoefficients.locality` (compatibility): Use the source sheafiness theorem to glue analytic functions and the module M^rig over Zariski opens of Spf R. Keep the topological finite-type and flatness domain throughout.
+
+- Test `RigidKisinCoefficients.constant_derivative` (degenerate): N_nabla(r)=0 for coefficient constants r; N_nabla(u_prime)=-u_prime L.
+- Test `RigidKisinCoefficients.product_relation_at_zero` (computation): E(0)=p, so every finite product has constant coefficient 1 and the convergent product does too.
+- Test `RigidKisinCoefficients.formal_evaluation_impossible` (non-example): In E[[u_prime]], E(u_prime) has nonzero constant coefficient p and is a unit. No E-algebra map from this entire formal-series ring to the nonzero ring E[u_prime]/E(u_prime) can send u_prime to its residue class. This rules out extending root evaluation indiscriminately to arbitrary formal series.
+
+### G03: True monodromy condition
+
+Source: Definition7.1.2 PDF132.
+
+- Use — LLHLM23 Proposition7.1.4 (G05): Replace lattice preservation by analytic derivative equations.
+- Use — LLHLM23 Proposition7.2.12 (G24): Identify the true monodromy substack with potentially crystalline representations under genericity.
+
+- `TrueMonodromyCondition.predicate` (constructor): For a finite flat O-algebra and a Kisin module, require N_Mrig(M^rig)⊆M^rig, where the unique derivation is initially defined on M^rig[1/L].
+- `TrueMonodromyCondition.intrinsic` (compatibility): Transport the preservation condition across an isomorphism of Kisin objects, using uniqueness of N and the induced rigid-lattice isomorphism.
+- `TrueMonodromyCondition.matrix_criterion` (characterisation): In an eigenbasis, preservation means the entries of the N matrix lie in the analytic ring; the basis-change formula includes its derivative term.
+- `TrueMonodromyCondition.jet_criterion` (equivalence): For h>=2, use G05: the derivatives of L^(h-1)N of orders 0 through h-2 vanish at E=0. For h<=1 use the stronger integrality bound of G04 directly; do not invent negative-order derivatives.
+- `TrueMonodromyCondition.Galois_comparison` (equivalence): By G02, true monodromy is equivalent to the attached rational G_Kinfinity representation extending to a potentially crystalline G_K representation of the prescribed type and height range. Integral lattice stability is a further step in G25.
+- `TrueMonodromyCondition.truncation_boundary` (relation): Relate this condition to the finite ideal G09 only through the precision theorem G11. Their defining ideals are not declared equal.
+
+- Test `TrueMonodromyCondition.constant_Frobenius` (computation): If all raw Frobenius matrices are constant and invertible, the recurrence starts and remains zero; the operator with matrix zero preserves the rigid lattice.
+- Test `TrueMonodromyCondition.height_one` (degenerate): For h=1, G04 places N directly in Mat(O^rig), so lattice preservation holds and the derivative-index set is empty.
+- Test `TrueMonodromyCondition.finite_precision_not_equality` (non-example): The abstract inclusion I_1⊆(I_infinity,p^N) does not imply I_1⊆I_infinity: in O, take I_infinity=0 and I_1=(p^N). This tests the logic of using the truncation theorem, not an asserted Kisin counterexample.
+
+### G07: Integral true monodromy ideal
+
+Source: Proposition7.1.6 PDF135–136.
+
+- Use — LLHLM23 Proposition7.1.10 (G11): Use O-flatness to descend an integral p-adic error equality from the generic fibre.
+- Use — LLHLM23 Section7.2 (G17/G24): Glue the true-monodromy closed formal substack and identify its points.
+
+- `IntegralMonodromyIdeal.local_contraction` (constructor): On a flat trivializing chart, contract the generic analytic derivative ideal from R[1/p] to R. Equivalently take its p-saturated defining ideal in the integral chart.
+- `IntegralMonodromyIdeal.flat_quotient` (structure): Prove R/I is p-torsion-free and hence O-flat; its generic fibre is the closed derivative-equation locus.
+- `IntegralMonodromyIdeal.unique_gluing` (universal-property): The generic locus and O-flatness determine the ideal uniquely. Use that uniqueness and flat local trivializations to glue it without choosing a global eigenbasis.
+- `IntegralMonodromyIdeal.flat_base_change` (compatibility): For flat R→S between the source p-adically complete, topologically finite type O-flat algebras, prove I_M S=I_(M_S).
+- `IntegralMonodromyIdeal.general_map` (functoriality): For an arbitrary map within the same domain, retain only I_M S⊆I_(M_S). Consequently, vanishing of I_(M_S) forces the image of I_M to vanish. The inclusion alone does not prove the converse and no equality is asserted.
+- `IntegralMonodromyIdeal.zero_criterion` (characterisation): I_M=0 iff the source family factors through the flat true-monodromy locus; on a trivializing chart this is vanishing of the generic equations together with the flat closure construction.
+
+- Test `IntegralMonodromyIdeal.saturation_test` (computation): In O[x], contraction of the generic ideal generated by p*x is (x); its quotient is O-flat.
+- Test `IntegralMonodromyIdeal.nonflat_comparison_strict` (non-example): In R=O[x], I=(x) is saturated. Under R→S=O sending x↦p, I S=(p), whose saturation is S since its generic ideal is the unit ideal. Thus saturation can strictly enlarge after a nonflat map even when both coefficient algebras are O-flat.
+- Test `IntegralMonodromyIdeal.zero_ideal` (degenerate): If the generic derivative ideal is zero and R is O-flat, its contraction is zero.
+
+### G08: Monodromy leading term and error series
+
+Source: Equations7.5–7.8 PDF136–139.
+
+- Use — LLHLM23 Definition7.1.8 and Remark7.1.9 (G09/G10): Extract the finite differential equations and compare their parameter with Section4.
+- Use — LLHLM23 Proposition7.1.10 and G42–G44: Estimate the discarded tail with the correct exponent and lower-triangular precision loss.
+
+- `MonodromyLeadingTerm.leading_polynomial` (constructor): Set D_j=Diag((sor_prime,j)^(-1)a_prime,j) and P_N(A_j)=(-e_prime v A_j_prime-[D_j,A_j])(v+p)^h A_j^(-1). Prove it lies in L+M, using the height bound.
+- `MonodromyLeadingTerm.initial_error` (simp): Set Z_(0,j)=-P_N(A_j). The derivative of the orientation conjugation is the commutator term, with the displayed minus sign in P_N.
+- `MonodromyLeadingTerm.recurrence` (data): For i>=1 set Z_(i,j)=p^(1-h) A_j Ad(s_j^(-1)v^(mu_j+eta_j))(phi(Z_(i-1,j-1)))(v+p)^h A_j^(-1); retain the cyclic predecessor.
+- `MonodromyLeadingTerm.series_identity` (relation): Use G42 to identify p^h Ad((sor_prime)^(-1)u_prime^(-a_prime))(L^(h-1)N_infinity) with -phi(L)^h P_N(A_j)+sum_(i>=1)phi^(i+1)(L)^h Z_(i,j), in the analytic localization.
+- `MonodromyLeadingTerm.exponent_bound` (relation): For m-deep data, use Z_(i,j) in p^(-i(h-1))v^(1+m(p^i-1)/(p-1)) Mat(R[[v+p]]). The initial 1 occurs once, not once per term of the geometric sum.
+- `MonodromyLeadingTerm.precision_interface` (compatibility): For h>=2 and m>=2h-3, G43/G44 turn the series bound into the common derivative precision m-2h+3. Include the extra one-power loss for dividing lower-triangular entries by v.
+
+- Test `MonodromyLeadingTerm.diagonal_monomial` (computation): If A is diagonal with ith entry (v+p)^c_i, then its commutator with D vanishes and P_N has ith entry -e_prime*c_i*v*(v+p)^(h-1).
+- Test `MonodromyLeadingTerm.exponent_i2` (non-example): For p=5,m=3,i=2, the exponent is 1+3(1+5)=19, not (3+1)(1+5)=24.
+- Test `MonodromyLeadingTerm.precision_boundary` (computation): At m=2h-3 the common precision is zero, so the ideal containment modulo p^0 is vacuous; obtaining a nontrivial mod-p comparison requires a strictly larger margin.
+
+### G12: Emerton–Gee representation stack
+
+Source: §7.2 PDF140–141.
+
+- Use — LLHLM23 Theorem7.2.2 (G15): Receive the potentially crystalline formal closed substacks and versal deformation rings.
+- Use — LLHLM23 Section7.4 (G32): Label components of the underlying reduced algebraic stack by Serre weights.
+
+- `EmertonGeeStack.import_stack` (constructor): Import the Noetherian formal algebraic stack X_n of rank-n projective etale (phi,Gamma)-modules from Emerton–Gee, with its coefficient field and continuity conventions.
+- `EmertonGeeStack.local_representation_equivalence` (equivalence): On complete local Noetherian O-algebras with finite residue field, identify its groupoid with continuous G_K actions on rank-n projective modules, including equivariant isomorphisms.
+- `EmertonGeeStack.restriction` (functoriality): Use the canonical map X_n→Phi-Mod_et,K whose local representation interpretation is restriction G_K→G_Kinfinity. Do not declare it a monomorphism before the genericity theorem G23.
+- `EmertonGeeStack.product_fields` (constructor): For a finite etale Z_p-algebra with fraction algebra product_v F_v^+, form the product of the corresponding stacks over Spf O.
+- `EmertonGeeStack.underlying_reduced` (data): Construct the underlying reduced algebraic stack X_n,red using an ideal of definition, keeping it distinct from the associated reduced formal stack of G14.
+- `EmertonGeeStack.supplier_corrections` (compatibility): For component classification use the Emerton–Gee author-errata replacement induction retained in E28; for the crystalline-stack citations use the corrected reference [22] in E32.
+
+- Test `EmertonGeeStack.singleton_product` (degenerate): With one field factor, the product stack identifies with the original X_n.
+- Test `EmertonGeeStack.automorphisms_retained` (non-example): A rank-one representation over a field has scalar automorphisms. Replacing its groupoid by the set of isomorphism classes loses data and does not define the same stack.
+- Test `EmertonGeeStack.restriction_domain` (non-example): The local representation equivalence stated here has complete local Noetherian rings with finite residue field as its domain; it must not be invoked on an arbitrary test algebra without the additional comparison theorem.
+
+### G13: Potentially crystalline formal substacks
+
+Source: §7.2 PDF141.
+
+- Use — LLHLM23 Theorem7.2.2 and Proposition7.2.3 (G15/G18): Supply flat closed loci, versal rings and the generic Kisin comparison.
+- Use — LLHLM23 Theorem7.3.2 (G28): Restrict to the union of regular Hodge types before the local-model isomorphism.
+
+- `PotentiallyCrystallineStack.fixed_type` (constructor): For dominant lambda and inertial type tau import the unique O-flat closed formal substack X^(lambda,tau), with the finite-flat coefficient point condition stated by Emerton–Gee.
+- `PotentiallyCrystallineStack.point_criterion` (characterisation): A point over a finite flat O-algebra belongs iff its rational representation is potentially crystalline with Hodge weights lambda and inertial type tau. Nilpotent coefficient algebras remain in the test category.
+- `PotentiallyCrystallineStack.Hodge_convention` (compatibility): Translate LLHLM weights to Emerton–Gee weights by lambda↦-w0(lambda); the LLHLM cyclotomic character has weight +1 and D_pst has the stated covariant type tau.
+- `PotentiallyCrystallineStack.height_union` (constructor): Form X^([0,h],tau) as the finite scheme-theoretic union over dominant tuples with coordinates in [0,h]. In a chart use the intersection of defining ideals.
+- `PotentiallyCrystallineStack.dominance_union` (constructor): Form X^(<=lambda,tau) as the finite scheme-theoretic union over dominant lambda_prime<=lambda; retain the fixed central-class requirement.
+- `PotentiallyCrystallineStack.inclusions` (functoriality): Transport inclusions of the finite indexing sets to closed immersions of their unions, preserving their common ambient X_n and the source flat/reduced conclusions.
+
+- Test `PotentiallyCrystallineStack.cyclotomic_sign` (computation): For rank one lambda=1 corresponds to Emerton–Gee weight -1. For GL_2 lambda=(2,0), the translated dominant tuple is (0,-2).
+- Test `PotentiallyCrystallineStack.height_zero` (degenerate): The height interval [0,0] contains only the all-zero dominant tuple in every embedding, so the union is that fixed-Hodge-type locus.
+- Test `PotentiallyCrystallineStack.union_not_reduction` (non-example): The two flat sections x=0 and x=varpi have integral union x(x-varpi)=0; its special fibre retains x^2=0. Scheme-theoretic union is not the operation of taking a reduced union.
+
+### G14: Analytically unramified formal stack
+
+Source: §7.2 PDF141; Warning7.2.1.
+
+- Use — LLHLM23 Lemma7.2.6 (G20): Use reduced charts and finite-flat/DVR point tests to detect isomorphisms.
+- Use — LLHLM23 Proposition7.2.12 (G24): Insert the associated reduced formal substack in the true-monodromy comparison.
+
+- `AnalyticallyUnramifiedFormalStack.predicate` (constructor): For a topologically finite type p-adic formal algebraic stack over Spf O, require every smooth affine chart Spf A to have reduced A.
+- `AnalyticallyUnramifiedFormalStack.versal_criterion` (equivalence): Use the cited formal-stack theorem to identify this property with reduced finite-type versal rings, including the residual Jacobson and Noetherian hypotheses.
+- `AnalyticallyUnramifiedFormalStack.reduced_formal_substack` (constructor): Construct the maximal analytically unramified closed formal substack Z_prime→Z; on each smooth chart its pullback is Spf(A_red).
+- `AnalyticallyUnramifiedFormalStack.smooth_pullback` (compatibility): Prove this chartwise reduction is compatible with the smooth transition morphisms so that the local closed substacks descend.
+- `AnalyticallyUnramifiedFormalStack.underlying_algebraic_comparison` (data): For an ideal of definition I in A, the underlying reduced algebraic stack has chart Spec((A/I)_red), whereas the associated reduced formal chart is Spf(A_red). Keep both maps into Z.
+- `AnalyticallyUnramifiedFormalStack.point_detection_hypotheses` (relation): Use G20 with its exact alternatives: finite-flat essential surjectivity plus analytically unramified target, or a closed immersion plus DVR-point surjectivity and analytically unramified target, or a closed immersion plus finite-flat surjectivity. O-flatness remains required.
+
+- Test `AnalyticallyUnramifiedFormalStack.DVR_two_reductions` (non-example): For A=O a complete DVR, Spf(A_red)=Spf O but Spec((A/(varpi))_red)=Spec F; these are different objects.
+- Test `AnalyticallyUnramifiedFormalStack.nilpotent_chart` (computation): For A=O[epsilon]/epsilon^2 with the p-adic topology, its associated reduced formal scheme is Spf O.
+- Test `AnalyticallyUnramifiedFormalStack.already_reduced` (degenerate): If every smooth chart ring is reduced, the associated reduced formal substack map is an isomorphism.
+
+### G17: Fiber products and monodromy substacks
+
+Source: §7.2 PDF142–143.
+
+- Use — LLHLM23 Proposition7.2.3 (G18): Organize the Cartesian diagrams and mark the exceptional rectangle.
+- Use — LLHLM23 Theorem7.3.2 (G28): Pull back true-monodromy equations to formal gauge charts.
+
+- `KisinMonodromyFiberProduct.fiber_product` (constructor): Define K^(?,tau)=X^(?,tau)×_(Phi-Mod_et,K)Y^(?,tau) for the indicated height/Hodge bounds. An object includes a representation, a Kisin object and an isomorphism of their etale images.
+- `KisinMonodromyFiberProduct.projections` (universal-property): Construct the two projections and their comparison 2-isomorphism, with the universal property of the stack fiber product, including morphisms of triples.
+- `KisinMonodromyFiberProduct.true_monodromy_substack` (constructor): Glue the O-flat closed substack of Y cut out by G07; on a source flat formal chart its factorization condition is I_(M,nabla infinity)=0.
+- `KisinMonodromyFiberProduct.bounded_variant` (constructor): Construct the corresponding flat monodromy closed substack inside Y^(<=lambda,tau) using its own flat-closure ideal, not an assumed arbitrary base change of the unbounded ideal.
+- `KisinMonodromyFiberProduct.comparison_isomorphisms` (relation): Under h>=1 and (h+2)-generic tau, use G18/G21/G24 for the indicated isomorphisms between K, X and the true-monodromy substacks.
+- `KisinMonodromyFiberProduct.Cartesian_boundary` (compatibility): Retain Remark7.2.4: the top-right Hodge-bound/monodromy rectangle is known Cartesian after inverting p, but its integral Cartesian property is not supplied by closure. Export only the solid Cartesian squares actually proved.
+
+- Test `KisinMonodromyFiberProduct.object_requires_comparison` (non-example): An unrelated Galois representation and Kisin module are not a point of K merely because their ranks agree; an isomorphism of etale images is part of the datum.
+- Test `KisinMonodromyFiberProduct.identity_base_change` (degenerate): The fiber product with the identity map of the etale stack recovers the other factor, with its groupoid structure.
+- Test `KisinMonodromyFiberProduct.closure_base_change_boundary` (non-example): In O[x], the flat section x=0 pulled back along x↦varpi gives O/(varpi), while closing the empty generic pullback gives the empty scheme. This shows why a generic Cartesian square need not identify integral flat closures.
+
+### G22: Cyclotomic-free residual representation
+
+Source: Definition7.2.9 PDF146.
+
+- Use — LLHLM23 Lemma7.2.10 (G23 prerequisites): Compare invariants, equivariant Hom spaces and stable submodules after restriction to G_Kinfinity.
+- Use — LLHLM23 Proposition7.2.11 and Lemma7.2.13 (G23/G25): Deduce generic full faithfulness and integral lattice stability.
+
+- `CyclotomicFreeRepresentation.mk` (constructor): A witness consists of an unramified extension M/K of degree prime to p on which rho^ss is a sum of characters, and H^0(G_M,rho^ss tensor epsilon^(-1))=0.
+- `CyclotomicFreeRepresentation.character_criterion` (equivalence): Given the splitting witness, the invariant condition means no character constituent equals the restricted cyclotomic character. This tests rho itself, not automatically all pairwise ratios.
+- `CyclotomicFreeRepresentation.semisimplification` (compatibility): The property depends only on rho^ss by definition; an isomorphism of semisimplifications transports a witness.
+- `CyclotomicFreeRepresentation.direct_summand` (relation): A representation whose semisimplification is a direct summand of a finite direct sum of a witnessed rho is cyclotomic free using the same M.
+- `CyclotomicFreeRepresentation.generic_adjoint` (relation): Use G23/Lemma7.2.10(2): if rho^ss on inertia is 2-generic, then ad(rho) is cyclotomic free. This is the separate bridge needed to control Hom spaces.
+- `CyclotomicFreeRepresentation.restriction_Hom` (compatibility): Under the source common-semisimplification hypothesis and cyclotomic freeness of its adjoint, restriction identifies the indicated finite-length equivariant Hom groups; apply it to submodule inclusions only through the proved stability lemma.
+
+- Test `CyclotomicFreeRepresentation.cyclotomic_character_fails` (non-example): For rho=epsilon modulo p, rho tensor epsilon^(-1) is trivial on every extension, so its H^0 is nonzero and no witness exists.
+- Test `CyclotomicFreeRepresentation.trivial_character_p_odd` (computation): For K unramified over Q_p and p>2, the residual cyclotomic character is nontrivial on inertia. The trivial rank-one representation is cyclotomic free with M=K.
+- Test `CyclotomicFreeRepresentation.adjoint_ratios` (computation): For a split representation with characters chi_1,chi_2, its adjoint has constituents 1,1,chi_1/chi_2,chi_2/chi_1. The cyclotomic-free test for the adjoint checks these ratios, unlike the test for the original representation.
+
+### G26: Presentation-dependent local-model parameter
+
+Source: §7.3; Lemma7.3.1 PDF149–150.
+
+- Use — LLHLM23 Lemma7.3.1 and Theorem7.3.2 (G28): Specialize the universal differential equations and the genericity polynomial.
+- Use — LLHLM23 Theorem7.4.2 (G34): Translate local-model components to the residual representation stack.
+
+- `LocalModelTypeParameter.mk` (constructor): From the fixed presentation and K06 data set a_(tau,jprime)=(sor_prime,jprime)^(-1)(a_prime^(jprime))/(1-p^fprime), as a tuple in O^n.
+- `LocalModelTypeParameter.denominator_unit` (structure): Since 1-p^fprime reduces to 1 modulo varpi, it is a unit in O; this makes the parameter integral.
+- `LocalModelTypeParameter.monodromy_sign` (compatibility): With eprime=p^fprime-1, identify this parameter with -(sor_prime)^(-1)a_prime/eprime used in G10. This checks the sign in the differential local-model comparison.
+- `LocalModelTypeParameter.residue` (simp): For j in J, use Lemma7.3.1 to obtain a_(tau,j) mod varpi=s_j^(-1)(mu_j+eta_j) mod varpi.
+- `LocalModelTypeParameter.coefficient_extension` (functoriality): Base extending the coefficient DVR carries this tuple and its inverse denominator to the tuple for the same presentation over the extension.
+- `LocalModelTypeParameter.presentation_dependence` (relation): Store the lowest-alcove presentation with the parameter. Changing presentations requires its explicit transformation law; equality of tame types alone does not assert equality of these integral tuples.
+
+- Test `LocalModelTypeParameter.one_embedding_identity_orientation` (computation): If fprime=1 and s=1, then a_tau=(mu+eta)/(1-p), reducing to mu+eta modulo p.
+- Test `LocalModelTypeParameter.sign_test` (computation): For p=5,fprime=1 and oriented a_prime=3, the parameter is -3/4, which is 3 modulo 5; +3/4 would give the wrong residue.
+- Test `LocalModelTypeParameter.central_shift_integral` (compatibility): In the preceding single-embedding setting, shifting the presentation numerator by (p-1)c changes a_tau by -c. Congruent tame character data therefore need not give identical integral parameters.
+
+### G27: Regular-weight unions and framed charts
+
+Source: §7.3 PDF150–151.
+
+- Use — LLHLM23 Theorem7.3.2 (G28): Compare the maximal-dimensional flat union to the corresponding regular potentially crystalline formal charts.
+- Use — LLHLM23 Theorem7.4.2 (G34): Compare underlying reduced components for regular Hodge types.
+
+- `RegularHodgeUnion.regular_index` (data): Take the finite set of dominant lambda_prime<=lambda that are regular in every embedding, with the common central class and the standing effective bounds.
+- `RegularHodgeUnion.model_union` (constructor): Form the scheme-theoretic union of M_J(lambda_prime,nabla a_tau) over this set, with ideal intersections in a common bounded ambient model.
+- `RegularHodgeUnion.maximal_dimension` (characterisation): Characterize it as the maximal O-flat closed part of the flat Hodge union that is equidimensional of total dimension 1+|J|n(n-1)/2, using the flag dimensions of the generic strata.
+- `RegularHodgeUnion.chart_and_torsor` (constructor): Intersect with each affine chart U(z,<=lambda), then pull back to its trivial Tdual^J torsor. The torus lift adds |J|n to the total dimension.
+- `RegularHodgeUnion.crystalline_union` (constructor): Form X_reg^(<=lambda,tau) as the scheme-theoretic union of X^(lambda_prime,tau) over the same regular index set; define the remaining objects of (7.13) by its specified solid Cartesian squares.
+- `RegularHodgeUnion.formal_comparison` (compatibility): Complete the indicated algebraic charts p-adically before comparing with true-monodromy formal charts. The Elkik-produced dotted map is noncanonical; Warning7.3.3 does not assert commutativity of the full triangle in the ambient chart.
+
+- Test `RegularHodgeUnion.GL2_regular_selection` (computation): For one embedding and lambda=(2,0), the dominant interval consists of (2,0) and (1,1). Only (2,0) is regular, so the regular union omits the central generic point stratum.
+- Test `RegularHodgeUnion.dimension_with_torus` (computation): For n=2 and |J|=1, the regular model has total dimension 2 over Spec O, and its torus lift has total dimension 4; their special fibres have dimensions 1 and 3.
+- Test `RegularHodgeUnion.formal_not_algebraic` (non-example): The infinite true-monodromy equations define a formal chart on complete test rings. A point of an algebraic naive chart does not by itself define an evaluation of those infinite series.
+
+### G32: Serre-labelled Emerton–Gee components
+
+Source: §7.4 PDF155–156.
+
+- Use — LLHLM23 Theorem7.4.2 and Remark7.4.3 (G34): Identify sufficiently generic components with the shifted torus quotients of local-model components.
+- Use — LLHLM23 Section8: Use component membership for weight and Breuil–Mezard assertions.
+
+- `SerreLabelledGaloisComponent.EG_label` (constructor): Import the Emerton–Gee Serre-weight labelling of irreducible components of X_n,red, with the author-errata proof replacement E28.
+- `SerreLabelledGaloisComponent.relabel` (data): Define C_sigma=X_EG,n,red^(sigma_dual tensor det^(n-1)). For multiple local fields use products over the common residue field with the corresponding tuple of labels.
+- `SerreLabelledGaloisComponent.deep_dense_locus` (characterisation): For 1-deep sigma=F(kappa), identify the dense maximally nonsplit upper-triangular locus with unique G_K-stable complete flag and diagonal inertia chi_i=product_j omega_j^((kappa_j+eta_j)_i).
+- `SerreLabelledGaloisComponent.closure` (universal-property): C_sigma is the reduced closure of the prescribed dense locus, using the corrected EG construction; extend assertions on that locus only by an appropriate closedness/density argument.
+- `SerreLabelledGaloisComponent.boundary_rule` (data): Outside the deep range retain the original EG extension-class condition: in the cyclotomic-ratio boundary the p-1 weight difference is tied to the exact cyclotomic character equality and a tres-ramifiee extension, while the other boundary uses difference zero.
+- `SerreLabelledGaloisComponent.local_model_quotient` (compatibility): Under Theorem7.4.2 and a compatible algebraic central lift zeta, identify C_sigma with the quotient of the lifted local-model component C_sigma^zeta by the shifted Tdual^J conjugation action. Do not confuse this with the ordinary left torus torsor used for affine flags.
+
+- Test `SerreLabelledGaloisComponent.rank_one_relabel` (computation): For n=1, det^(n-1)=1, so C_sigma uses the dual-character EG label; the relabelling is not the identity on all characters.
+- Test `SerreLabelledGaloisComponent.GL2_inertia_shift` (computation): For one embedding and kappa=(a,b), the deep-locus diagonal inertia exponents are (a+1,b), since eta=(1,0).
+- Test `SerreLabelledGaloisComponent.split_not_dense_locus` (non-example): A direct sum of two distinct characters has at least two stable complete flags. It fails the maximally nonsplit dense-locus condition, although it may lie in the closure; the dense locus and the component are different sets.
+
+### Q01: Explicit rank-three monodromy chart
+
+Source: AppendixB PDF201–202.
+
+- Use — LLHLM23 PropositionB.0.1 (Q03–Q06): Eliminate six matrix coefficients over the explicit genericity locus and compute special-fibre primes and the Jacobian ideal.
+- Use — LLHLM23 PropositionB.0.2 (Q08–Q10): Base change at t=-p and compare with the explicit partial normalization.
+
+- `RankThreeMonodromyChart.matrix` (constructor): For n=3, lambda=(3,1,0), z=(23)t_(2,1,1), define A with rows ((v-t)^2+d11(v-t)+c11, v*c12, c13), (v*(d21(v-t)+c21), c22, (v-t)+c23), (v*(d31(v-t)+c31), v, (v-t)*d33+c33).
+- `RankThreeMonodromyChart.determinant_bound` (characterisation): Impose equality det(A)=-(v-t)^4 as a polynomial identity, hence coefficient equations, in the determinant-bounded chart.
+- `RankThreeMonodromyChart.Schubert_bound` (constructor): Impose the lambda minor-divisibility conditions in v-t and then take the underlying reduced subscheme as in the source Schubert construction. Keep this reduction separate from the later scheme-theoretic special fibre.
+- `RankThreeMonodromyChart.central_parameter` (equivalence): Use the central-shift invariance of the differential condition to write the parameter tuple as (a,b,0); this normalization applies to the monodromy parameter, not to an arbitrary change of Hodge type.
+- `RankThreeMonodromyChart.monodromy_closure` (constructor): Define the flat monodromy chart by intersecting the universal flat model with this open chart, over the coefficient locus V when using PropositionB.0.1.
+- `RankThreeMonodromyChart.elimination_interface` (compatibility): Identify the chart over V with the three-equation algebra recorded in sourceData.appendixB.chartEquations through the source elimination of c11,d11,c21,c23,c31,c33. Preserve its required t-torsion-freeness and the invertibility of P.
+
+- Test `RankThreeMonodromyChart.distinguished_special_point` (computation): At t=0 and all twelve variable coefficients zero, A has rows (v^2,0,0),(0,0,v),(0,v,0); its determinant is -v^4 and it is the chosen monomial point z.
+- Test `RankThreeMonodromyChart.determinant_sign` (non-example): The permutation (23) has sign -1. Imposing +(v-t)^4 rejects the distinguished special point in characteristic different from 2.
+- Test `RankThreeMonodromyChart.zero_coefficients_not_generic_section` (non-example): With all twelve coefficients zero at general t, det(A)=-v(v-t)^3, not -(v-t)^4. The special-fibre fixed point does not define the constant-coefficient generic section.
+
+### Q02: Explicit open genericity locus
+
+Source: AppendixB PDF202.
+
+- Use — LLHLM23 PropositionsB.0.1–B.0.2 (Q03–Q10): Make the elimination denominators and the normalization leading coefficient units before specializing.
+
+- `ExplicitGenericityOpen.polynomial` (data): Set P=7!*b*(b-1)*(a-1)*(a-2)*(a-b)*(a-b-1)*(a-b-2) in Z[a,b], with every factor and its multiplicity as printed.
+- `ExplicitGenericityOpen.localization` (constructor): Define V=Spec Z[a,b,1/P] and its open immersion into A^2_Z by the localization universal property.
+- `ExplicitGenericityOpen.points` (characterisation): A ring map Z[a,b,1/P]→R is a pair (a_R,b_R) for which P(a_R,b_R) is a unit. Over a general ring nonzero is insufficient.
+- `ExplicitGenericityOpen.factor_units` (simp): Invertibility of P is equivalent to invertibility of every displayed factor, including 7!, in the commutative target ring.
+- `ExplicitGenericityOpen.DVR_specialization` (characterisation): For a coefficient DVR, the pair lies in V exactly when P has nonzero residue. In mixed characteristic this requires residue characteristic p>7 and avoidance of each displayed hyperplane modulo p.
+- `ExplicitGenericityOpen.base_change` (functoriality): Every coefficient map preserving the chosen pair transports its unit witnesses, giving the canonical base change of all chart algebras over V.
+
+- Test `ExplicitGenericityOpen.F11_point` (computation): Over F_11, (a,b)=(5,2) belongs to V: 7!,2,1,4,3,3,2,1 are all nonzero.
+- Test `ExplicitGenericityOpen.small_prime_excluded` (non-example): There are no F_7-points of V because 7!=0; checking only the linear factors misses this exclusion.
+- Test `ExplicitGenericityOpen.nonzero_not_unit` (non-example): At integer values (a,b)=(5,2), P is nonzero in Z but not a unit. This pair does not define a Z-point of V.
+
+### Q07: Partial normalization by an explicit fraction
+
+Source: AppendixB PDF203–204.
+
+- Use — LLHLM23 PropositionB.0.2 (Q08–Q10): Obtain the normalization after t=-p specialization and compute component splitting in Table1.
+
+- `ExplicitPartialNormalization.fraction_subalgebra` (constructor): Over V and the integral chart algebra R of Q03, let W=-t*d21/c22 in Frac(R), and form the R-subalgebra generated by W. Require the proved domain and nonzero-denominator hypotheses.
+- `ExplicitPartialNormalization.presentation` (equivalence): Compare this subalgebra with the seven-equation quotient recorded in sourceData.appendixB.partialNormalizationEquations. Proving equality includes ruling out extra c22-torsion in the presented algebra; the rational substitution alone proves only one direction.
+- `ExplicitPartialNormalization.integrality` (relation): The sixth displayed equation is quadratic in W with leading coefficient (a-1)(b-1)(a-b), a unit on V. Divide by that unit to obtain a monic relation and deduce finiteness of the generated subalgebra over R.
+- `ExplicitPartialNormalization.birational` (equivalence): After inverting c22, the first relation uniquely gives W=-t*d21/c22 and the map is an isomorphism. Together with the subalgebra realization this identifies fraction fields.
+- `ExplicitPartialNormalization.normalization_after_specialization` (compatibility): Use PropositionB.0.2 for O-points (t,a,b)=(-p,a,b) in X×V to conclude O-flatness and normality of the specialized algebra. Do not extend this normality claim to coefficient points outside V.
+- `ExplicitPartialNormalization.special_fiber_components` (data): Use the complete Table1 primary/component data already transcribed to describe preimages of the seven special-fibre components, retaining all splitting branches and their equations.
+
+- Test `ExplicitPartialNormalization.denominator_open` (computation): On c22 invertible, the first relation eliminates W and the inverse map is the rational formula -t*d21/c22.
+- Test `ExplicitPartialNormalization.origin_fiber_nonreduced` (non-example): Over F_11 at (a,b)=(5,2), set t=c12=c13=d21=c22=d31=d33=0. The seven relations reduce to W^2=0 up to a unit, so the fibre of the finite map is F_11[W]/(W^2), not a single reduced point.
+- Test `ExplicitPartialNormalization.boundary_not_fraction_evaluation` (non-example): At c22=0 the subalgebra morphism still has a fibre, but evaluating the rational expression by division is undefined. The finite-algebra presentation is required there.
+
+### Z02: Explicit affine Springer component matrix and inverse
+
+Source: Cited input [1], Boixeda Alvarez arXiv:1910.04780v3 AppendixB.2–B.5, PDF8–17; corrected E29–E31..
+
+- Use — LLHLM23 LLHLM23 Section4.3, using Boixeda Alvarez AppendixB.2–B.5: Provide explicit affine opens and the nonvanishing minors used to place Weyl fixed points in component closures.
+
+- `AffineSpringerPathMatrix.exponents` (constructor): For w in the Type A fundamental box and i<j, choose a^w_ji as the least integer k for which w^(-1)(e_i-e_j)+k*delta is a positive affine root; retain the source positivity convention.
+- `AffineSpringerPathMatrix.path_matrix` (constructor): Use diagonal entries 1 and, for j>i, sum over increasing paths i=i1<...<ik=j of the product over l of (s_il-s_i(l+1))/(s_il-s_ik), times t^(sum_l a^w_i(l+1),il) times the corresponding A variables. Distinct eigenvalues over the field make denominators units.
+- `AffineSpringerPathMatrix.inverse` (equivalence): Use path coefficients (-1)^(k-1) product_l (s_il-s_i(l+1))/(s_i1-s_i(l+1)) for the inverse. Verify both products are identity by the unitriangular recursion, retaining the E30 correction of s_1 to the path-start eigenvalue.
+- `AffineSpringerPathMatrix.conjugated_entries` (simp): Prove the strict lower entry of M^(-1)*t*s*M is t^(a^w_ji+1) A_ji (s_j-s_i); higher-path contributions cancel. The diagonal entries are t*s_i.
+- `AffineSpringerPathMatrix.affine_open` (relation): Use the exponent condition and conjugated-entry formula for affine Springer membership; then prove the parameter map identifies an affine open of the selected component. The matrix identity alone does not establish openness or the component dimension.
+- `AffineSpringerPathMatrix.fixed_point_minors` (compatibility): Translate intersection with the attracting chart into nonsingularity of the source finite minors, using zero lattice intersection (E29). Keep the degree-maximization and Vandermonde argument as further proof obligations; when expanding its final matrix use the last-column cofactor (E31).
+
+- Test `AffineSpringerPathMatrix.two_by_two` (computation): For n=2 the only strict lower entry is x=t^a A21, so M=I+xE21 and M^(-1)=I-xE21; the conjugated lower entry is t*x*(s2-s1).
+- Test `AffineSpringerPathMatrix.path_start_not_one` (non-example): For the path 2<3, the inverse coefficient must be -1. The printed expression -(s2-s3)/(s1-s3) generally fails, while the corrected denominator s2-s3 gives -1.
+- Test `AffineSpringerPathMatrix.three_step_inverse` (computation): For the path 1<2<3, put r=(s1-s2)/(s1-s3), so M31 contains r*x32*x21. The inverse coefficient on x32*x21 is 1-r=(s2-s3)/(s1-s3), agreeing with the corrected path formula.
+- Test `AffineSpringerPathMatrix.regular_semisimple_boundary` (non-example): If s1=s3, the length-three path coefficient has a zero denominator and the constructor is outside its domain; no limiting matrix is supplied by this formula.
+
+### L05: Continuous evaluation of multivariate power series
+
+Source: Mathlib/RingTheory/MvPowerSeries/Evaluation.lean:228,262,281.
+
+- Use — LLHLM23 Z15–Z22 and complete-local product adapters: Evaluate power-series presentations at topologically nilpotent coordinates while retaining all completeness hypotheses.
+- Use — LLHLM23 Analytic/completion supplier interfaces: Distinguish existing continuous formal evaluation from the additional rigid analytic root-evaluation construction G01.
+
+- `ContinuousPowerSeriesEvaluation.hasEval` (data): Reuse MvPowerSeries.HasEval: each coordinate is topologically nilpotent and the coordinate family tends to zero along the cofinite filter. For finite variables only the latter condition becomes vacuous.
+- `ContinuousPowerSeriesEvaluation.eval` (constructor): Reuse MvPowerSeries.eval₂Hom for a continuous coefficient homomorphism and a HasEval family, with the pinned uniform, complete, Hausdorff, topological-ring and linear-topology assumptions. No new evaluation carrier is planned.
+- `ContinuousPowerSeriesEvaluation.constants_variables` (simp): Use the existing eval₂_C and eval₂_X formulas, together with coe_eval₂Hom, to compute constants and coordinate variables.
+- `ContinuousPowerSeriesEvaluation.continuity` (structure): Reuse continuous_eval₂ and uniformContinuous_eval₂ on the same hypothesis domain.
+- `ContinuousPowerSeriesEvaluation.unique` (extensionality): Reuse eval₂_unique: any continuous map agreeing with polynomial evaluation equals eval₂. The comparison map need not be assumed a ring homomorphism for this uniqueness statement.
+- `ContinuousPowerSeriesEvaluation.compose` (functoriality): Reuse comp_eval₂ and HasEval.map for a continuous homomorphism to a target satisfying the same complete Hausdorff linearly topologized conditions.
+
+- Test `ContinuousPowerSeriesEvaluation.zero_coordinates` (degenerate): Using HasEval.zero, evaluation at all-zero coordinates gives the coefficient homomorphism applied to the constant coefficient.
+- Test `ContinuousPowerSeriesEvaluation.p_adic_geometric_series` (computation): In the p-adic topology on Z_p, the coordinate p satisfies HasEval for one variable and evaluation of sum_(m>=0)X^m is (1-p)^(-1).
+- Test `ContinuousPowerSeriesEvaluation.unit_coordinate_invalid` (non-example): The coordinate 1 is not topologically nilpotent in a nonzero Hausdorff p-adic ring such as Z_p, so the same geometric series cannot be evaluated there through eval₂Hom.
+- Test `ContinuousPowerSeriesEvaluation.infinite_family_condition` (non-example): For infinitely many variables over Z_p, taking every coordinate equal to p makes each coordinate topologically nilpotent but does not make the family tend to zero along the cofinite filter; HasEval fails.
+
+### Z15: Saturated jets at a DVR-valued point
+
+Source: KWII Proposition2.2(ii), author PDF9; explicit proof refinement for LLHLM23 Theorem3.7.1, published PDF79.
+
+- Use — Z12 via Z17–Z22: These finite free quotients separate the integral completed tensor before passage to the formal generic-point product.
+
+- `SaturatedPointJet.ideal` (constructor): Form q^n and contract along R→R[1/π]; identify membership with some π-power multiple in P^n.
+- `SaturatedPointJet.transition` (functoriality): For m≤n construct Q_n→Q_m from J_n⊂J_m; prove identity and composition, compatibility of augmentations to O, and J_1=P.
+- `SaturatedPointJet.torsionFree` (characterisation): Multiplication by π on Q_n is injective, by saturation; combine with DVR factorization for torsionfreeness.
+- `SaturatedPointJet.map` (functoriality): A local O-algebra map commuting with the chosen retractions carries J_n into J_n and induces a compatible map of quotient systems. No arbitrary base-change equality is asserted.
+- `SaturatedPointJet.genericFiber` (compatibility): Construct the canonical Q_n⊗_O K ≅ A/q^n, compatible in n; see Z18.
+- `SaturatedPointJet.free` (data): Under the given Noetherian hypotheses Q_n is finite free over O by Z17; do not choose bases functorially.
+
+- Test `SaturatedPointJet.power_series` (computation): For R=O[[x]] and xi(x)=0, J_n=(x^n) and Q_n is free on 1,x,...,x^(n-1). The transition Q_(n+1)→Q_n kills x^n.
+- Test `SaturatedPointJet.saturation_strict` (non-example): For R=O[[x,y]]/(pi*y-x^2), P=(x,y), y belongs to J_2 because pi*y=x^2, but y is not in P^2. Saturation cannot be omitted.
+- Test `SaturatedPointJet.torsion_boundary` (non-example): For R=O[[x]]/(pi*x) and xi(x)=0, every J_n=(x). The quotient system does not separate x; separation requires the extra hypotheses of Z20–Z22.
+- Test `SaturatedPointJet.first_jet` (degenerate): J_1=P since R/P=O is pi-torsion-free, so Q_1≅O with its specified augmentation.
+
+## Earlier extraction and continuation history
+
+The earlier report follows intact; its numerical API censuses are historical.
+
+---
+
 # LLHLM23 universal-geometry API continuation — Codex, codex-a71f92
 
 23 September 2026. Refs #1254. Continues merged #2350 at `4d0a3730ad392ed277d4ca56c9881340d1f6806e`.
