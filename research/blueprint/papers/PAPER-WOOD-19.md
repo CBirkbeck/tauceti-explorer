@@ -1,14 +1,16 @@
 # PAPER-WOOD-19 — Nonabelian Cohen–Lenstra moments
 
-Partial checkpoint, not a completed extraction or formalisation. There are **319 items: 7 library, 13 planned, 299 missing**; every missing item has exactly one route. All 299 inherited identifiers and all 72 source-table rows are preserved. This continuation adds /300–/319 and routes /143 as an **unproved proposition**, not as an established theorem. Routing completeness does not establish mathematical or source closure.
+Partial checkpoint, not a completed extraction or formalisation. There are **326 items: 8 library, 13 planned, 305 missing**; every missing item has exactly one route. All 319 inherited identifiers and all 72 source-table rows are preserved. This continuation adds /320–/326, reads the published journal article completely and reproduces all 41 type rows, 31 of 31 multiplier rows, and all centers with GAP. The non-good ordinary-limit and original-source obligations remain open.
 
-Agent: Codex, session codex-a71f92, issue #1330. Current claim comment 5774728858 was confirmed by bot comment 5774731090 on 22 September 2026; the whole issue was reread after confirmation. This preserves the earlier PR #1550 continuation and Claude Code cc-fb70e5's /298–/299 correction.
+Agent: Codex, session codex-c83e7a, issue #1330. Claim 5787023950 was confirmed by bot 5787025157 on 23 September 2026. The whole issue was reread after confirmation. Prior work from PRs #1550, #1645, #1827 and #1839 is preserved; inherited reading and tests below are dated separately.
 
 ## Sources and what was actually read
 
 Main source: Melanie Matchett Wood, with Appendix A jointly with Philip Matchett Wood, *Duke Mathematical Journal* 168(3) (2019), 377–427, [DOI](https://doi.org/10.1215/00127094-2018-0037). The [author's page](https://people.math.harvard.edu/~mmwood/Publications/) links the older [arXiv v2 preprint](https://arxiv.org/pdf/1702.04644v2), dated 13 July 2018. The earlier continuation read all 40 pages, every proof, Appendix A and references, and visually inspected tables pp.33–34 and Figure 1 p.37.
 
-The bibliographic record matches, but final typeset wording is not certified: the publisher endpoint returned HTML and the NSF published-copy endpoint timed out. The prior checkpoint inspected Duke_Final_Revision.tex; this continuation did not re-download that archive. No claim is made that access to the preprint establishes sentence-level equivalence with the published article.
+On 23 September this worker acquired the [published journal PDF from NSF PAR](https://par.nsf.gov/servlets/purl/10152050), SHA-256 `154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d`. It has 52 PDF pages: printed pp.377–427 followed by one blank page. All 51 content pages, every proof, both tables, the Appendix and references were read. Printed pp.379,394,402,407,409,411,418,419,421,423 were also checked as rendered pages. All eight main-paper source-issue passages persist in the journal, with precise locations below. This is full reading plus targeted collation, not a complete automated sentence diff. The inherited unqualified page locators remain arXiv-v2 locators; `publishedLocator` fields use journal pagination.
+
+The supplementary reading in the following list is inherited from earlier checkpoints. Those papers were not all reread in this continuation.
 
 Additional reading:
 
@@ -19,7 +21,7 @@ Additional reading:
 - [Delange (1954)](https://www.numdam.org/item/ASENS_1954_3_71_3_213_0.pdf): standing hypotheses p.213, §5.2.1 Theorem III and its proof pp.235–238, not the whole article.
 - [Bhargava](https://arxiv.org/pdf/1402.0031): Theorem 1.4 and context pp.3–4, full proof §4.4 pp.23–25. [Alberts, published JTNB version](https://www.numdam.org/item/JTNB_2020__32_3_631_0.pdf): Corollary 4.10 and Theorem 4.11 with proofs pp.656–657.
 
-Additional reading on 22 September: Wood19 §§4.1–4.4, including the complete fixed-point and counting proofs; EVW12 §§8.6.2–8.7.3; Wood21's marking correction and a visual check of the Lemma 2.1 displayed word. The NSF published-copy request again timed out.
+Earlier additional reading on 22 September: Wood19 §§4.1–4.4, including the complete fixed-point and counting proofs; EVW12 §§8.6.2–8.7.3; Wood21's marking correction and a visual check of the Lemma 2.1 displayed word. The NSF published-copy request again timed out.
 
 For the remaining component action, [Seguin, *Fields of Definition of Components of Hurwitz Spaces*](https://beranger-seguin.fr/assets/pdf/articles/fielddef.pdf), author-hosted 26-page version, was read in §§1–2, §§3.1–3.2 and §6, including every proof there. This is selected supplementary reading, not a full-paper read. Its SHA-256 is bd2084d9af14256e1bbca39d085ebcb73d7a0f191d1d13b68e16e2059484712c. The original Cau theorem used in §3 and the §4/Seg24 dependencies of Proposition 6.2 are not source-closed.
 
@@ -49,7 +51,7 @@ Section 7 proves elementary-two divergence with exponent 2^k−1. The continuati
 
 ## Ownership and pinned-library decisions
 
-Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The five inherited library classifications were rechecked in the earlier continuation; this continuation additionally read the two finite-topology/filter interfaces at the same pins:
+Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Earlier continuations checked the seven inherited library classifications below. On 23 September the full pinned `Mathlib/GroupTheory/Goursat.lean` was additionally read; /320 imports `Subgroup.goursat_surjective` and `Subgroup.goursat` rather than planning Goursat again:
 
 | Item | Declaration and limited scope |
 | --- | --- |
@@ -60,6 +62,7 @@ Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf
 | /129 | NumberField.finite_of_discr_bdd: fixed-ambient-field Hermite finiteness. |
 | /311 | Finite.instDiscreteTopology and Set.Finite.isDiscrete: finite subsets of T1 spaces are discrete. |
 | /312 | Filter.tendsto_pure: convergence to a pure filter is eventual equality. |
+| /320 | Subgroup.goursat_surjective and Subgroup.goursat: quotient-graph classification, with no finiteness hypothesis. |
 
 TauCeti.schurMultiplier is H²(G,k×), not Wood's H₂(G,ℤ). Existing ordinary Schur covers belong to upstream InductionRestriction Layer 7. Full upstream ClassFieldTheory, InductionRestriction and ArithmeticDirichletSeries READMEs were read. Reviewed AUDIT-07/AUDIT-09 statistics/inverse-Galois entries, AUDIT-02 duality, AUDIT-20 FA.4 and AUDIT-01 SF.2 were read with the relevant roadmap stages. Nearby analytic and library searches were also checked. These audits are ownership/evidence records, not proofs of the paper's results.
 
@@ -68,13 +71,13 @@ The ownership screen covered the atlas, additional roadmaps, packets, accepted r
 | Route | Items | Boundary |
 | --- | ---: | --- |
 | ArithmeticStatistics ST.0 | 16 | Families, types, infinity and weights. |
-| ArithmeticStatistics ST.3 | 148 | Number-field moments, known cases, Euler factors, finite data and appendix algorithm. |
+| ArithmeticStatistics ST.3 | 153 | Number-field moments, known cases, Euler factors, finite data and appendix algorithm. |
 | ArithmeticStatistics ST.5 | 19 | Function-field consequences and convergence modes. |
 | InverseGalois IG.1 | 5 | Prime-to-p and tangential peripheral interfaces. |
 | InverseGalois IG.3 | 7 | Braid components and invariant comparison. |
 | InverseGalois IG.4 | 21 | Central tame lifts and arithmetic invariants. |
 | InverseGalois IG.5 | 18 | Marked Hurwitz families and fixed-degree uniform estimates. |
-| InductionRestriction, Part II | 61 | Reduced Schur covers, universal marked extensions, discrete actions and finite examples. |
+| InductionRestriction, Part II | 62 | Reduced Schur covers, universal marked extensions, discrete actions and finite examples. |
 | ArithmeticGaloisDuality R02.4 | 1 | Explicit function-field prime-to-p extension of the current number-field-emphasized scope. |
 | ArithmeticDirichletSeries, Part II | 3 | Generic higher-pole Laplace/Dirichlet Tauberian theorem. |
 
@@ -141,7 +144,7 @@ All missing items are now routed, including the unproved proposition /143. The f
 - The bad-type proof establishes a liminf bound. The new /308 criterion reduces the printed ordinary q-limit to eventual constancy of the whole fixed-degree normalized component profile. Neither that constancy for every bad type nor a genuine admissible-type counterexample is proved. Stable square-class obstructions and boundary components both need attention.
 - The original Romagny–Wewers, Fried–Völklein, Artin–Tate and several SGA proofs remain source debts. Alberts's Lemmermeyer and Goldfeld–Hoffstein inputs have not been independently decomposed.
 - No published computation code, exact cubic data version, class-group certificate, prime-2 filtering test or sampling reconstruction was acquired. The synthetic finite-module test below does not reproduce Figure 1.
-- All 41 type rows and 31 multiplier/center rows remain source-reported computations; no GAP reproduction or reduced-multiplier certificate is claimed.
+- All 41 type rows, 31 of 31 multiplier rows and all 31 center entries are now reproduced in GAP. Proof-assistant-checked computation certificates remain unbuilt. This does not certify the Appendix number-field program or Figure 1.
 
 Earlier source corrections are preserved: Proposition 4.4 requires admissibility and the kernel projection; bare swap C2 inside C3≀C2 is a rejection test. The peripheral presentation is for the maximal prime-to-p quotient, not the whole tame fundamental group. Split real infinity contributes zero discriminant degree, and the dimension normalizations are 2n or 2n−1 as appropriate. Appendix A's trivial-action group is C2²×C3 of order 12, not the printed order-18 group.
 
@@ -276,7 +279,7 @@ print(f"PASS: {checks} assertions; {fiber_cases} finite obstruction fibers; "
 
 ## Verification and reproducible finite tests
 
-The current paper schema/source-issue checker passes. Additional structural checks verify 319 distinct IDs, 299 exact-once missing-item routes, all explicit prerequisite targets and an acyclic dependency graph, inherited-ID preservation and API/test coverage for the newly added definitions/constructions. Ten source issues are recorded as unreviewed, not as accepted errata. No Lean file is required for this paper job; none was compiled and nothing is claimed formalised.
+The preceding checkpoint verified 319 distinct IDs and 299 exact-once missing-item routes. The 23 September validation verifies 326 IDs and 305 exact-once missing-item routes, all explicit prerequisite targets and an acyclic dependency graph, inherited-ID preservation and four API/four test contracts for the new construction /321. Ten source issues are recorded as unreviewed, not as accepted errata. No Lean file is required for this paper job; none was compiled and nothing is claimed formalised.
 
 The following standalone Python regression was run: **563 exact assertions passed**. It tests the new finite calculations, not analytic continuation, field-table correctness or formal proof. Its SHA-256 is b112a738e1bcc8798db254070cc2ca7235eb109f8de5afea13a1e3d6191d569d.
 
@@ -416,3 +419,225 @@ The extraction now separates three things:
 All three go to ArithmeticStatistics ST.3 with the other conjectures (/29–/31); /144 stays with IG.4. The correction is also recorded in `research/blueprint/errata/PAPER-WOOD-19.json` (E7). It is the extraction's correction, not Wood's statement.
 
 **/143 remains mathematically open, now routed as an unproved proposition.** The original component argument gives a liminf. The present continuation analyzes all stable fibers and identifies eventual constancy of the whole normalized component profile as the exact remaining condition. Boundary components need their full Galois action; it has not been proved to be only cyclotomic. Neither ordinary-limit existence for every bad type nor a genuine counterexample is established. See the new /300–/319 analysis and source issue E1.
+
+## 23 September: published collation and finite-table reproduction
+
+The [primary EVW12 arXiv record](https://arxiv.org/abs/1212.0923), checked on 23 September, identifies v2 as the withdrawal notice (19 November 2013), with no PDF. Wood cites that version in the journal bibliography; the inherited mathematical reading is v1. There is no second revised mathematical PDF being silently substituted. The withdrawal scope and exact proof obligations remain as above.
+
+The source issue IDs and their original provenance are retained. E1–E8 concern the main paper; E9–E10 concern Wood21 and are not a claim of journal collation for that other paper. The author publication page and a bounded title/erratum/correction search were checked on 23 September; no correction for this paper was found. This does not establish novelty, and none of the ten findings has been independently accepted in this job.
+
+| Source issue | Published location | Result of collation |
+| --- | --- | --- |
+| E1 | Theorem 1.2 p.379; Theorem 4.8 pp.406–407; proof pp.408–410 | Ordinary limit remains printed; the selected-component argument supplies a liminf lower bound. |
+| E2 | Definition 3.12 p.394; proof pp.395–396 | The tame quotient is still called free pro-prime-to-p; the corrected interface takes its maximal prime-to-p quotient. |
+| E3 | Proposition 4.4 pp.402–403 | The statement still allows an arbitrary subgroup without the kernel-projection surjectivity needed by its inverse construction. |
+| E4 | Proof of Theorem 1.2 p.407 | The displayed discriminant slice still uses q^n rather than q^(2n). |
+| E5 | Proof of Theorem 4.8 p.409 | The same group subscripts and dimension exponents require the recorded correction. |
+| E6 | Real-case discriminant sentence p.409 | The extra infinity contribution remains despite split infinity. |
+| E7 | Conjecture 5.1 p.411; Lemma 3.11 p.393 | Arbitrary u is still allowed. Its value u=1 refutes the literal statement when the torsion target is nontrivial. The journal's torsion notation is also malformed. |
+| E8 | Appendix A.1 p.421 | The trivial-action group is still written with order 18 instead of C₂²×C₃ of order 12. |
+
+The A₄ example supporting E7 no longer rests solely on the source's table: the independent GAP execution below gives its reduced multiplier C₂. This is computational evidence for that finite-group input; the homomorphism identity I(ρ,1)=1 is the separate mathematical argument. The corrected generator-form conjecture /298 remains a conjecture.
+
+### Why the finite enumeration is exhaustive
+
+For H≤G² projecting onto both factors, pinned Mathlib already supplies its Goursat normal subgroups and quotient isomorphism (/320). If H is swap-stable, the two normal subgroups coincide, say N, and the quotient automorphism α satisfies α²=id. Every embedded type containing the fixed swap is consequently
+
+    H(N,α) = {(a,b) : α(aN)=bN},     F(N,α) = H(N,α) ⋊ ⟨τ⟩.
+
+The candidate has order 2|G||N|. Its outside involutions are exactly ((a,a⁻¹),τ) with α(aN)=a⁻¹N. Enumerating all normal N and all α with α²=id, generating by this explicit set, and accepting exactly the expected order therefore exhausts the admissible embedded types. Abstract identification happens only after this test. In particular the full wreath product for an abelian nontrivial G is not accepted merely because it contains τ. Items /321–/323 state the construction and proof; /325 gives diagonal-automorphism transport. Existing `RegularWreathProduct` remains the Lean carrier; GAP's permutation model is a computational realization.
+
+For a good type, Lemma 6.2 implies F^ab=C₂. Hence ker(F→C₂)=[F,F], and c is intrinsically the involutions outside the derived subgroup. Abstract group isomorphisms preserve this c; /326 proves that checking one realization suffices for the good-type multiplier and center. For non-good types the program actually checks the class count across every enumerated realization with the same abstract ID in the tested range.
+
+### Reduced multiplier calculation and computational boundary
+
+Given GAP's Schur-cover epimorphism S→F, let A be its kernel. The program checks A≤Z(S)∩[S,S], then constructs the subgroup R generated by commutators of lifts of commuting pairs with first entry in c. It returns A/R, as required by Wood §2.3. For the large simple-group rows it uses one representative of each class and generators of its centralizer. This is exact: for fixed x the central commutator is a homomorphism on C_F(x), and simultaneous conjugation leaves its central value unchanged (/324). All pairs were used for the small-group batches.
+
+For the A₄ order-96 type the computed data are |S|=768, A≅C₂³ and |R|=4, giving A/R≅C₂. For the other A₄ type S₄, A≅C₂ and |R|=2, giving the trivial reduced multiplier. This distinction checks that taking the ordinary Schur multiplier alone would give the wrong result.
+
+The runtime was GAP 4.15.1, SmallGrp 1.5.4 and AutPGrp 1.11.1; GAPDoc 1.6.7 also loaded. Polycyclic did not load and was not used. The exact API documentation and implementation were inspected in GAP's `lib/gprd.gd`, `lib/schur.gd` and the generic `lib/schur.gi` method; the [versioned Schur-cover source](https://github.com/gap-system/gap/blob/v4.15.1/lib/schur.gd) specifies the epimorphism's kernel. The computations trust GAP's finite-group and Schur-cover algorithms. Checking the stem conditions does not alone prove maximality; the Schur-cover routine supplies that part. No Lean proof or proof-assistant-checked certificate is claimed. No author computation code, cubic-field data or class-group certificates were obtained.
+
+The following table records Table 2 in its printed order. `SG(a,b)` means SmallGroup(a,b); the two large wreath products are specified explicitly and have no artificial SmallGroups ID. The reduced-multiplier columns are abelian invariant-factor lists, with [] denoting the trivial group.
+
+| Row | G identifier | F identifier | Schur multiplier | Order of R | Reduced multiplier | Center |
+| --- | --- | --- | --- | ---: | --- | ---: |
+| 1 | SG(3,1) | SG(6,1) | [] | 1 | [] | 1 |
+| 2 | SG(5,1) | SG(10,1) | [] | 1 | [] | 1 |
+| 3 | SG(7,1) | SG(14,1) | [] | 1 | [] | 1 |
+| 4 | SG(9,1) | SG(18,1) | [] | 1 | [] | 1 |
+| 5 | SG(9,2) | SG(18,4) | [3] | 1 | [3] | 1 |
+| 6 | SG(11,1) | SG(22,1) | [] | 1 | [] | 1 |
+| 7 | SG(12,3) | SG(24,12) | [2] | 2 | [] | 1 |
+| 8 | SG(12,3) | SG(96,227) | [2, 2, 2] | 4 | [2] | 1 |
+| 9 | SG(13,1) | SG(26,1) | [] | 1 | [] | 1 |
+| 10 | SG(15,1) | SG(30,3) | [] | 1 | [] | 1 |
+| 11 | SG(17,1) | SG(34,1) | [] | 1 | [] | 1 |
+| 12 | SG(19,1) | SG(38,1) | [] | 1 | [] | 1 |
+| 13 | SG(21,1) | SG(294,7) | [] | 1 | [] | 1 |
+| 14 | SG(21,2) | SG(42,5) | [] | 1 | [] | 1 |
+| 15 | SG(23,1) | SG(46,1) | [] | 1 | [] | 1 |
+| 16 | SG(24,3) | SG(48,29) | [] | 1 | [] | 2 |
+| 17 | SG(24,3) | SG(384,18130) | [2, 2] | 4 | [] | 2 |
+| 18 | SG(25,1) | SG(50,1) | [] | 1 | [] | 1 |
+| 19 | SG(25,2) | SG(50,4) | [5] | 1 | [5] | 1 |
+| 20 | SG(27,1) | SG(54,1) | [] | 1 | [] | 1 |
+| 21 | SG(27,2) | SG(54,7) | [3] | 1 | [3] | 1 |
+| 22 | SG(27,3) | SG(54,8) | [] | 1 | [] | 3 |
+| 23 | SG(27,3) | SG(162,46) | [3, 3] | 1 | [3, 3] | 3 |
+| 24 | SG(27,4) | SG(162,17) | [] | 1 | [] | 3 |
+| 25 | SG(27,5) | SG(54,14) | [3, 3, 3] | 1 | [3, 3, 3] | 1 |
+| 26 | SG(29,1) | SG(58,1) | [] | 1 | [] | 1 |
+| 27 | SG(31,1) | SG(62,1) | [] | 1 | [] | 1 |
+| 28 | A₅ | SG(120,34) | [2] | 2 | [] | 1 |
+| 29 | A₅ | A₅≀C₂ | [2] | 1 | [2] | 1 |
+| 30 | PSL(3,2) | SG(336,208) | [2] | 2 | [] | 1 |
+| 31 | PSL(3,2) | PSL(3,2)≀C₂ | [2] | 1 | [2] | 1 |
+
+All Table 1 rows are matched by row number in the result JSON's `computationEvidence`, with concrete group IDs, outside-involution class counts, center orders and numbers of involutions. The first 35 rows use all groups of orders 2–15; the final six use A₅ and PSL(3,2). Table 2's 27 small-group rows were selected from all groups of orders 2–31, rather than only constructing the already-listed good groups. The Schur and center entries for every completed row match the printed values.
+
+The new construction /321 has four API contracts (membership/projections, swap, cardinality and transport) and four planned Lean tests (trivial quotient, identity graph, abelian inversion and the A₄ sum-kernel). This continues the inherited API rather than asserting full API closure for all older definitions. New enumeration consumers stay in ST.3; /324 extends the existing reduced-Schur Part II. No new roadmap is proposed.
+
+### Reproduction programs
+
+The exact executed programs are included below. Run each with GAP 4.15.1 and the listed packages using `gap -q -b -T program.g`. `SetAssertionLevel(1)` enables the checks. Require the `FINISHED` marker and reject any GAP error: GAP can return shell status zero after an interpreter error. No tests in this code claim to prove a number-field limit.
+
+Small-group batch A (orders 2–15):
+
+```gap
+SetAssertionLevel(1);
+SizeScreen([200,24]);
+# Enumerate every swap-stable subdirect product by Goursat's lemma.
+Types := function(G)
+ local W,e1,e2,t,out,N,p,Q,a,x,cs,F,expected,id;
+ W:=WreathProduct(G,SymmetricGroup(2));
+ e1:=Embedding(W,1); e2:=Embedding(W,2);
+ t:=Image(Embedding(W,3),(1,2)); out:=[];
+ for N in NormalSubgroups(G) do
+  p:=NaturalHomomorphismByNormalSubgroup(G,N); Q:=Image(p);
+  for a in AutomorphismGroup(Q) do
+   if not IsOne(a^2) then continue; fi;
+   cs:=List(Filtered(Elements(G),x->Image(a,Image(p,x))=Image(p,x)^-1),
+       x->Image(e1,x)*Image(e2,x^-1)*t);
+   F:=Group(cs);
+   expected:=2*Size(G)*Size(N);
+   if Size(F)<>expected then continue; fi;
+   Assert(1,t in F);
+   Assert(1,ForAll(cs,x->Order(x)=2));
+   Assert(1,Size(Kernel(RestrictedMapping(Projection(W),F)))=Size(F)/2);
+   Assert(1,Set(cs)=Filtered(Elements(F),x->Order(x)=2 and Image(Projection(W),x)<>One(SymmetricGroup(2))));
+   id:=IdGroup(F);
+   Add(out,rec(F:=F,c:=cs,id:=id,normalsize:=Size(N),quotientsize:=Size(Q),
+       classes:=Size(Set(cs,x->ConjugacyClass(F,x))),center:=Size(Center(F))));
+  od;
+ od;
+ return out;
+end;
+ReducedForWood := function(F,c)
+ local epi,S,A,rel,x,y,R;
+ epi:=EpimorphismSchurCover(F); S:=Source(epi); A:=Kernel(epi);
+ Assert(1,IsSubgroup(Center(S),A));
+ Assert(1,IsSubgroup(DerivedSubgroup(S),A));
+ rel:=[];
+ for x in c do for y in Centralizer(F,x) do
+  Add(rel,Comm(PreImagesRepresentative(epi,x),PreImagesRepresentative(epi,y)));
+ od; od;
+ R:=Subgroup(S,rel);
+ Assert(1,IsSubgroup(A,R));
+ return rec(schur:=AbelianInvariants(A),reduction:=Size(R),reduced:=AbelianInvariants(A/R));
+end;
+for n in [2..15] do
+ for j in [1..NrSmallGroups(n)] do
+  G:=Image(IsomorphismPermGroup(SmallGroup(n,j)));;
+  rows:=Types(G);;
+  seen:=[];;
+  for row in rows do
+   if row.id in seen then continue; fi;
+   Add(seen,row.id);
+   Print("TYPE ",[n,j]," ",row.id," ",row.classes," ",row.center," ",Size(row.c),"\n");
+   # Every embedded realization with this abstract group must have the same class count.
+   Assert(1,ForAll(Filtered(rows,r->r.id=row.id),r->r.classes=row.classes));
+   if row.classes=1 then
+    red:=ReducedForWood(row.F,row.c);;
+    Print("MULT ",[n,j]," ",row.id," ",red.schur," ",red.reduction," ",red.reduced,"\n");
+   fi;
+  od;
+  Print("EMBEDDINGS ",[n,j]," ",Length(rows),"\n");
+ od;
+od;
+Print("FINISHED\n");
+QUIT;
+```
+
+Small-group batch B was exactly the same program with `for n in [2..15] do` replaced by `for n in [16..31] do`; both batches reached `FINISHED`. This also examined additional bad types outside Table 1's printed range; no claim of embedding independence beyond the paper's range is inferred from those auxiliary outputs.
+
+Simple-group batch (including the reduced relation optimization /324):
+
+```gap
+SetAssertionLevel(1);
+SizeScreen([200,24]);
+# Enumerate every swap-stable subdirect product by Goursat's lemma.
+Types := function(G)
+ local W,e1,e2,t,out,N,p,Q,a,x,cs,F,expected,id;
+ W:=WreathProduct(G,SymmetricGroup(2));
+ e1:=Embedding(W,1); e2:=Embedding(W,2);
+ t:=Image(Embedding(W,3),(1,2)); out:=[];
+ for N in NormalSubgroups(G) do
+  p:=NaturalHomomorphismByNormalSubgroup(G,N); Q:=Image(p);
+  for a in AutomorphismGroup(Q) do
+   if not IsOne(a^2) then continue; fi;
+   cs:=List(Filtered(Elements(G),x->Image(a,Image(p,x))=Image(p,x)^-1),
+       x->Image(e1,x)*Image(e2,x^-1)*t);
+   F:=Group(cs);
+   expected:=2*Size(G)*Size(N);
+   if Size(F)<>expected then continue; fi;
+   Assert(1,t in F);
+   Assert(1,ForAll(cs,x->Order(x)=2));
+   Assert(1,Size(Kernel(RestrictedMapping(Projection(W),F)))=Size(F)/2);
+   Assert(1,Set(cs)=Filtered(Elements(F),x->Order(x)=2 and Image(Projection(W),x)<>One(SymmetricGroup(2))));
+   if Size(F)>2000 then id:=[Size(F),0]; else id:=IdGroup(F); fi;
+   Add(out,rec(F:=F,c:=cs,id:=id,normalsize:=Size(N),quotientsize:=Size(Q),
+       classes:=Size(Set(cs,x->ConjugacyClass(F,x))),center:=Size(Center(F))));
+  od;
+ od;
+ return out;
+end;
+ReducedForWood := function(F,c)
+ local epi,S,A,rel,x,y,R;
+ epi:=EpimorphismSchurCover(F); S:=Source(epi); A:=Kernel(epi);
+ Assert(1,IsSubgroup(Center(S),A));
+ Assert(1,IsSubgroup(DerivedSubgroup(S),A));
+ rel:=[];
+ for x in List(Set(c,x->ConjugacyClass(F,x)),Representative) do for y in GeneratorsOfGroup(Centralizer(F,x)) do
+  Add(rel,Comm(PreImagesRepresentative(epi,x),PreImagesRepresentative(epi,y)));
+ od; od;
+ R:=Subgroup(S,rel);
+ Assert(1,IsSubgroup(A,R));
+ return rec(schur:=AbelianInvariants(A),reduction:=Size(R),reduced:=AbelianInvariants(A/R));
+end;
+for G in [AlternatingGroup(5),PSL(3,2)] do
+ rows:=Types(G);; seen:=[];;
+ for row in rows do
+  if row.id in seen then continue; fi;
+  Add(seen,row.id);
+  Print("TYPE_BIG ",Size(G)," ",row.id," ",row.classes," ",row.center," ",Size(row.c),"\n");
+  Assert(1,ForAll(Filtered(rows,r->r.id=row.id),r->r.classes=row.classes));
+  if row.classes=1 then
+   red:=ReducedForWood(row.F,row.c);;
+   Print("MULT_BIG ",Size(G)," ",row.id," ",red.schur," ",red.reduction," ",red.reduced,"\n");
+  fi;
+ od;
+ Print("EMBEDDINGS_BIG ",Size(G)," ",Length(rows),"\n");
+od;
+Print("FINISHED\n");
+QUIT;
+```
+
+Program and output hashes:
+
+| Program | Program SHA-256 | Output SHA-256 | Reached FINISHED |
+| --- | --- | --- | --- |
+| table-check.g | af5c992943263e88112544351cc3030776e0fd47072b4bacd7d9bc590c7b1eee | 749bc0a883846e22b41bfce3a5624046c6a9ebf61029567425712cd7d9519060 | True |
+| table-check-16-31.g | ee73bfb77fc85171907a84831f21e40f6aa35e9dd8fb75cf811be4ce77ab4e43 | 91d4b17c166397aa9993915598759e14a570136d5faba2bd0c1ff7be8b657206 | True |
+| table-check-big.g | b9fcebe9fd5b6f59a840a01f51b27183c4a10e0689e3d1f2dc66675ef06e582a | a9cb5eb6cfdd07bb7494d606aa809647c08b555c7ed75d6bc24a1c2ad86f16ad | True |
+
+Current execution status: **41/41 type rows, 31/31 multiplier rows and 31/31 centers reproduced**. All three programs reached FINISHED without GAP errors. The two inherited Python regression programs above remain unchanged and were rerun successfully: 6,588 and 563 assertions. The paper checker, file-intake checker and structural validation were run for this continuation. No Lean file was required, written or compiled.
