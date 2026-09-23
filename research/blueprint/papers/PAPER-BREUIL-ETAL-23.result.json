@@ -7,20 +7,20 @@
     "authors": "Christophe Breuil, Florian Herzig, Yongquan Hu, Stefano Morra and Benjamin Schraen",
     "venue": "Inventiones Mathematicae 234 (2023), 1–128",
     "doi": "10.1007/s00222-023-01202-8",
-    "arxiv": "2009.03127v4",
-    "url": "https://arxiv.org/pdf/2009.03127v4",
+    "arxiv": "2009.03127v7",
+    "url": "https://arxiv.org/pdf/2009.03127v7",
     "sha256": "8f06c68bbb85aa3d13420181197167b3ce9158dc117e96da6299718765f99e7a",
     "accessed": "2026-09-23",
-    "version": "arXiv v4, 9 June 2023, 112 pages, 'Final version, to appear in Inventiones Mathematicae'. The Springer PDF returned HTML here; numbering is taken from v4."
+    "version": "arXiv v7, 9 June 2023, 112 pages, 'Final version, to appear in Inventiones Mathematicae'. The first extraction recorded this file as v4; the recorded SHA-256 8f06c68bbb85aa3d13420181197167b3ce9158dc117e96da6299718765f99e7a, the date and the page count are those of v7, which cc-d67081 re-downloaded and confirmed byte for byte on 2026-09-23. https://arxiv.org/pdf/2009.03127v4 is a different document (v4, 14 September 2021, 107 pages, SHA-256 98a9e688b7baa71350631656dd9eba3072e3ef1c68f17f56db5279dd1bfecc46) with different numbering, so the version label and URL are corrected here and in every locator. The Springer PDF of DOI 10.1007/s00222-023-01202-8 returned HTML here."
   },
-  "summary": "Breuil, Herzig, Hu, Morra and Schraen prove that for a totally real F unramified at p > 2, an inert place v of degree f and a generic modular r: G_F → GL_2(F), the r-part of the mod p cohomology of Shimura curves at infinite level at v has Gelfand–Kirillov dimension f (Theorem 1.1). The proof combines a local criterion for GK dimension through the graded Iwasawa algebra of the pro-p Iwahori and multiplicity-one results (§§5–6), explicit lattices in projective envelopes (§7), and freeness of patched modules from explicit tame potentially Barsotti–Tate deformation rings (§§3–4, 8). Consequences include Banach lifts and flatness of completed cohomology over the big Hecke algebra. Partial first extraction (cc-442dc5): the main theorems and the key definitions are items; the remaining numbered lemmas and propositions are listed in the handoff.",
+  "summary": "Breuil, Herzig, Hu, Morra and Schraen prove that for a totally real F unramified at p > 2, an inert place v of degree f and a generic modular r: G_F → GL_2(F), the r-part of the mod p cohomology of Shimura curves at infinite level at v has Gelfand–Kirillov dimension f (Theorem 1.1). The proof combines a local criterion for GK dimension through the graded Iwasawa algebra of the pro-p Iwahori and multiplicity-one results (§§5–6), explicit lattices in projective envelopes (§7), and freeness of patched modules from explicit tame potentially Barsotti–Tate deformation rings (§§3–4, 8). Consequences include Banach lifts and flatness of completed cohomology over the big Hecke algebra. Partial extraction. The first checkpoint (cc-442dc5) made the main theorems and the key definitions items; the second (cc-d67081) corrected the source version from v4 to v7 and added the 25 numbered statements of §§2.3–3.3 — tame inertial types and genericity, the combinatorics of Serre weights, Kisin modules with descent data, gauge bases, the monodromy condition and the classification of tame representations — with exact statements. The numbered statements of §§4–8 are still listed in the handoff.",
   "items": [
     {
       "id": "PAPER-BREUIL-ETAL-23/gk-dim",
       "kind": "definition",
       "name": "Gelfand–Kirillov dimension of an admissible smooth representation",
       "statement": "For an admissible smooth representation π of GL2(Fv) over F, dim_{GL2(Fv)}(π) is the Gelfand–Kirillov dimension of its dual π^∨ as a finitely generated module over the Iwasawa algebra of a uniform open pro-p subgroup, following the review of Gelfand–Kirillov dimension in §5.1.",
-      "locator": "arXiv:2009.03127v4 (final version), §5.1",
+      "locator": "arXiv:2009.03127v7 (final version), §5.1",
       "status": "missing",
       "prerequisites": [],
       "implementationStatus": "unchecked",
@@ -31,7 +31,7 @@
       "kind": "theorem",
       "name": "Graded Iwasawa algebra of the pro-p Iwahori",
       "statement": "The graded ring gr_m F[[I1/Z1]] for the m-adic filtration is computed explicitly (Theorem 5.3.4); it is not commutative, since I1/Z1 is not uniform.",
-      "locator": "arXiv:2009.03127v4 (final version), §5.3, Theorem 5.3.4",
+      "locator": "arXiv:2009.03127v7 (final version), §5.3, Theorem 5.3.4",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/gk-dim"
@@ -44,7 +44,7 @@
       "kind": "theorem",
       "name": "Upper bound for the Gelfand–Kirillov dimension (Theorem 1.6)",
       "statement": "If π is admissible smooth over F with a central character and [π[m^3_{I1/Z1}] : χ] = [π[m_{I1/Z1}] : χ] for every character χ of I with [π[m_{I1/Z1}] : χ] ≠ 0, then dim_{GL2(Fv)}(π) ≤ f.",
-      "locator": "arXiv:2009.03127v4 (final version), Corollary 5.3.5; Theorem 1.6 (introduction form)",
+      "locator": "arXiv:2009.03127v7 (final version), Corollary 5.3.5; Theorem 1.6 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/graded-iwahori"
@@ -57,7 +57,7 @@
       "kind": "definition",
       "name": "Connected semisimple representations of the Iwahori",
       "statement": "A semisimple smooth representation V of I over F is connected if any two distinct characters in V are joined by a chain of characters of V with consecutive members linked as in Definition 6.4.2.",
-      "locator": "arXiv:2009.03127v4 (final version), Definition 6.4.2",
+      "locator": "arXiv:2009.03127v7 (final version), Definition 6.4.2",
       "status": "missing",
       "prerequisites": [],
       "implementationStatus": "unchecked",
@@ -68,7 +68,7 @@
       "kind": "theorem",
       "name": "Multiplicity one for the pro-p Iwahori (Theorem 1.5)",
       "statement": "If π is admissible smooth over F with a central character satisfying (i) and (ii) of Theorem 6.4.7, then [π[m^3_{I1/Z1}] : χ] = [π[m_{I1/Z1}] : χ] for every character χ of I with [π[m_{I1/Z1}] : χ] ≠ 0.",
-      "locator": "arXiv:2009.03127v4 (final version), Proposition 6.4.6; Theorem 1.5 (introduction form)",
+      "locator": "arXiv:2009.03127v7 (final version), Proposition 6.4.6; Theorem 1.5 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/connected-socle"
@@ -81,7 +81,7 @@
       "kind": "theorem",
       "name": "Local criterion for Gelfand–Kirillov dimension f (Theorem 1.4)",
       "statement": "Let π be admissible smooth over F with a central character such that (i) π^{K1} ≅ D0(r_v^∨)^{⊕r} as GL2(k)-representations for some r ≥ 1 and (ii) [π[m^2_{K1/Z1}] : σ] = [π[m_{K1/Z1}] : σ] for every Serre weight σ of r_v^∨. Then dim_{GL2(Fv)}(π) ≤ f. Theorem 6.4.7 proves a slightly stronger statement.",
-      "locator": "arXiv:2009.03127v4 (final version), Theorem 6.4.7; Theorem 1.4 (introduction form)",
+      "locator": "arXiv:2009.03127v7 (final version), Theorem 6.4.7; Theorem 1.4 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/iwahori-mult-one",
@@ -95,7 +95,7 @@
       "kind": "theorem",
       "name": "The lattices L_j and projective envelopes (Theorem 1.7)",
       "statement": "For the K-stable lattices L_j of §7.3 there is a K-equivariant isomorphism L_{f−1}/pL_{f−1} ≅ (Proj_{K/Z1} σ)/m^2_{K1/Z1}.",
-      "locator": "arXiv:2009.03127v4 (final version), Corollary 7.3.4; Theorem 1.7 (introduction form)",
+      "locator": "arXiv:2009.03127v7 (final version), Corollary 7.3.4; Theorem 1.7 (introduction form)",
       "status": "missing",
       "prerequisites": [],
       "implementationStatus": "unchecked",
@@ -106,7 +106,7 @@
       "kind": "definition",
       "name": "N-generic Galois representations and tame types",
       "statement": "Tame inertial types are parametrized by pairs (s, μ) ∈ W × X*(T) (Definition 2.3.1); a tame type (Definition 2.3.3) and a representation ρ: G_K → GL_n(F) (Definition 2.3.4) are N-generic when the relevant exponents avoid a neighbourhood of size N of the walls.",
-      "locator": "arXiv:2009.03127v4 (final version), §2.3, Definitions 2.3.1, 2.3.3, 2.3.4",
+      "locator": "arXiv:2009.03127v7 (final version), §2.3, Definitions 2.3.1, 2.3.3, 2.3.4",
       "status": "missing",
       "prerequisites": [],
       "implementationStatus": "unchecked",
@@ -117,7 +117,7 @@
       "kind": "construction",
       "name": "Kisin modules with tame descent data and the monodromy condition",
       "statement": "Kisin modules of height in [0, h] with descent data of tame type τ, their gauge bases and the monodromy condition, as in Definitions 3.1.1–3.1.8.",
-      "locator": "arXiv:2009.03127v4 (final version), §3.1, Definitions 3.1.1–3.1.8",
+      "locator": "arXiv:2009.03127v7 (final version), §3.1, Definitions 3.1.1–3.1.8",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/generic"
@@ -130,7 +130,7 @@
       "kind": "theorem",
       "name": "Potentially Barsotti–Tate deformation rings for one and several tame types",
       "statement": "For generic r_v, the potentially Barsotti–Tate deformation rings of one tame type (§4.2) and of several types together (§4.3) are computed explicitly (Propositions 4.2.1, 4.3.1 and 4.3.3).",
-      "locator": "arXiv:2009.03127v4 (final version), §§4.2–4.3",
+      "locator": "arXiv:2009.03127v7 (final version), §§4.2–4.3",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/kisin-descent"
@@ -143,7 +143,7 @@
       "kind": "construction",
       "name": "The patching functor M∞",
       "statement": "The Taylor–Wiles–Kisin patched module M∞ over R∞ with its GL2(OFv)-action and the functor σ ↦ M∞(σ) on finite representations, set up for a quaternion algebra D over a totally real F split at one infinite place and at v.",
-      "locator": "arXiv:2009.03127v4 (final version), §8.1",
+      "locator": "arXiv:2009.03127v7 (final version), §8.1",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/def-rings"
@@ -156,7 +156,7 @@
       "kind": "theorem",
       "name": "Freeness of M∞(L_j) (Theorem 1.8)",
       "statement": "For j ∈ {−1, …, f − 1}, M∞(L_j) is free of finite rank over R∞/Ann_{R∞}(M∞(L_j)), and the rank depends neither on j nor on the Serre weight σ ∈ W(r_v^∨).",
-      "locator": "arXiv:2009.03127v4 (final version), Corollary 8.3.9; Theorem 1.8 (introduction form)",
+      "locator": "arXiv:2009.03127v7 (final version), Corollary 8.3.9; Theorem 1.8 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/patching",
@@ -170,7 +170,7 @@
       "kind": "theorem",
       "name": "Structure of π[m^2_{K1/Z1}] (Theorem 1.9)",
       "statement": "For π as in (2), π[m^2_{K1/Z1}] ≅ (⊕_{σ ∈ W(r_v^∨)} D̃_σ)^{⊕r}.",
-      "locator": "arXiv:2009.03127v4 (final version), Theorem 8.4.2; Theorem 1.9 (introduction form)",
+      "locator": "arXiv:2009.03127v7 (final version), Theorem 8.4.2; Theorem 1.9 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/freeness"
@@ -183,7 +183,7 @@
       "kind": "theorem",
       "name": "Gelfand–Kirillov dimension of the patched representation (Theorem 1.10)",
       "statement": "For π as in (2), dim_{GL2(Fv)}(π) = f.",
-      "locator": "arXiv:2009.03127v4 (final version), Theorem 8.4.1; Theorem 1.10 (introduction form)",
+      "locator": "arXiv:2009.03127v7 (final version), Theorem 8.4.1; Theorem 1.10 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/k1-invariants",
@@ -197,7 +197,7 @@
       "kind": "theorem",
       "name": "Gelfand–Kirillov dimension of mod p cohomology of Shimura curves (Theorem 1.1)",
       "statement": "Assume r is generic and r|G_{F(ζ_p)} is absolutely irreducible, with level V = ∏_{w≠v} V_w as in §1.2. Then for π as in (1), the r-part of the mod p cohomology of Shimura curves at infinite level at v, dim_{GL2(Fv)}(π) = f.",
-      "locator": "arXiv:2009.03127v4 (final version), Corollary 8.4.6; Theorem 1.1 (introduction form)",
+      "locator": "arXiv:2009.03127v7 (final version), Corollary 8.4.6; Theorem 1.1 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/gk-patched"
@@ -210,7 +210,7 @@
       "kind": "theorem",
       "name": "Banach lifts (Theorem 1.3)",
       "statement": "Under Theorem 1.1's hypotheses, for any x: R∞ → O′, Hom_cont(M∞ ⊗_{R∞,x} O′, E′) is a nonzero admissible unitary Banach representation of GL2(Fv) with an invariant unit ball lifting π ⊗_F F′.",
-      "locator": "arXiv:2009.03127v4 (final version), Corollary 8.4.4; Theorem 1.3 (introduction form)",
+      "locator": "arXiv:2009.03127v7 (final version), Corollary 8.4.4; Theorem 1.3 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/gk-patched"
@@ -223,13 +223,238 @@
       "kind": "theorem",
       "name": "Flatness of the dual of completed cohomology (Theorem 1.2)",
       "statement": "There is an isomorphism R_{r,S} → T̂(V^v)_{m_r}; the dual of completed H^1 localized at r is faithfully flat over T̂(V^v)_{m_r}, which is a complete intersection.",
-      "locator": "arXiv:2009.03127v4 (final version), Corollary 8.5.1; Theorem 1.2 (introduction form)",
+      "locator": "arXiv:2009.03127v7 (final version), Corollary 8.5.1; Theorem 1.2 (introduction form)",
       "status": "missing",
       "prerequisites": [
         "PAPER-BREUIL-ETAL-23/main"
       ],
       "implementationStatus": "unchecked",
       "note": "Notation abbreviated; copy the exact module and fixed-character conventions of §8.5 in the next continuation."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/tame-type-tau",
+      "kind": "definition",
+      "name": "The tame inertial type τ(s, μ + η)",
+      "statement": "Fix (s, μ) ∈ W × X*(T). Write s = (s_0, …, s_{f−1}) ∈ W, set s_τ = s_0 s_{f−1} s_{f−2} ⋯ s_1 ∈ S_n and let r be the order of s_τ; put f′ = rf and e′ = p^{f′} − 1. Let K′/K be the unramified extension of degree r with residue field k′, fix an embedding σ′_0 : k′ ↪ F extending σ_0 and identify 𝒥′ = Hom(k′, F) with {0, …, f′ − 1} by σ′_{j′} = σ′_0 ∘ φ^{j′} ↦ j′. Let ω_{f′} : I_K → F^× be the tame fundamental character, the composite I_K = I_{K′} ↠ O_{K′}^× ↠ k′^× → F^× whose first map is the local Artin map normalized so that uniformizers correspond to geometric Frobenius elements, and let ω̃_{f′} : I_K → O^× be its Teichmüller lift. Define α′_{(s,μ),j′} = s_1^{-1} s_2^{-1} ⋯ s_{j′}^{-1}(μ_{j′} + η_{j′}) ∈ Z^n for j′ ∈ Z (indices mod f), so that α′_{(s,μ),j′+kf} = s_τ^{−k} α′_{(s,μ),j′}, and set a′^{(j′)}_{(s,μ)} = Σ_{i′=0}^{f′−1} α′_{(s,μ),−j′+i′} p^{i′} ∈ Z^n. Then τ(s, μ + η) = ⊕_{1≤i≤n} ω̃_{f′}^{a′^{(0)}_{(s,μ),i}} : I_K → GL_n(O). Equivalently, with a^{(0)} = Σ_{j=0}^{f−1} α′_{(s,μ),j} p^j, τ(s, μ + η) = ⊕_{1≤i≤n} ω̃_{f′}^{Σ_{0≤k≤r−1} a^{(0)}_{s_τ^k(i)} p^{fk}}. It is a tame inertial type, i.e. extends to G_K; τ̄(s, μ + η) denotes its reduction mod ϖ.",
+      "locator": "arXiv:2009.03127v7 (final version), §2.3, Definition 2.3.1 with (11) and (12), p. 14",
+      "status": "missing",
+      "note": "Checked on a page image. Remark 2.3.2 warns that, because the embeddings of k in F are labelled by σ_j = σ_0 ∘ φ^j here, this definition is not compatible with [LLHL19, Def. 2.2.1], a choice made for compatibility with [Her09] and [GHS18]."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/n-generic-type",
+      "kind": "definition",
+      "name": "N-generic tame inertial types and lowest alcove presentations",
+      "statement": "Let τ be a tame inertial type and N ∈ Z_{≥0}. (i) τ is N-generic if τ ≅ τ(s, λ + η) for some s ∈ W and λ ∈ X*(T) which is N-deep in the alcove C̲_0. (ii) A lowest alcove presentation of τ is a pair (s, μ) ∈ W × C̲_0 with τ ≅ τ(s, μ + η).",
+      "locator": "arXiv:2009.03127v7 (final version), §2.3, Definition 2.3.3, pp. 14–15",
+      "status": "missing",
+      "note": "Remark 2.3.5: if τ is N-generic and (s, λ) is a lowest alcove presentation, λ need not be N-deep in C̲_0, but is (N−1)-deep by [LLHL19, Prop. 2.2.16]."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/n-generic-rhobar",
+      "kind": "definition",
+      "name": "N-generic Galois representations",
+      "statement": "Let ρ̄ : G_K → GL_n(F) and N ∈ N. Writing ρ̄^{ss}|_{I_K} for the restriction to inertia of the semisimplification, ρ̄ is N-generic if ρ̄^{ss}|_{I_K} ≅ τ̄(s, μ) for some s ∈ W and μ − η ∈ X*(T) which is N-deep in C̲_0.",
+      "locator": "arXiv:2009.03127v7 (final version), §2.3, Definition 2.3.4, p. 15",
+      "status": "missing",
+      "note": "The paper notes the shift of convention: what is written μ here was μ + η in Definition 2.3.1."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/orientation",
+      "kind": "definition",
+      "name": "The orientation s′_or of a lowest alcove presentation",
+      "statement": "For a lowest alcove presentation (s, μ), the orientation s′_or ∈ (S_n)^{Hom(k′,F)} ≅ W^r of α′_{(s,μ)} is defined by s′_{or,j′} = s_1^{-1} ⋯ s_{j′}^{-1} (with the convention of §2.3). If μ ∈ X*(T) is 0-deep in C̲_0 then s′_{or,j′} is the unique element of W for which (s′_{or,j′})^{-1}(α′^{(j′)}_{(s,μ)}) ∈ X*(T) is dominant, and (s′_{or,−j′})^{-1}(α′_{(s,μ),j′}) = s_{j′}^{-1}(μ_{j′} + η_{j′}).",
+      "locator": "arXiv:2009.03127v7 (final version), §2.3, Remarks 2.3.5 and 2.3.6 with (13), p. 15",
+      "status": "missing",
+      "note": "The orientation is the bookkeeping device used throughout §3 to normalize the matrices of a Kisin module; it is not stated as a numbered result in the paper."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/lambda-lattice",
+      "kind": "definition",
+      "name": "The lattices Λ_W, Λ_R, Λ_W^μ, the map t_μ and the set Σ",
+      "statement": "Λ_W = X*(T)/X^0(T) with its natural inclusion Λ_R ↪ Λ_W, identified with (2Z)^𝒥 ⊆ Z^𝒥 under Λ_W ≅ Z^𝒥. For μ ∈ X*(T), Λ_W^μ ⊆ Λ_W is the subset defined in §2.1 and t_μ : Λ_W^μ → X*(T)/(p − π)X^0(T) is the induced map, with image in X_reg(T)/(p − π)X^0(T). In coordinates: if μ = (a_j, b_j)_j ∈ X*(T) and ω = (2n_j + δ_j)_j ∈ Λ_W^μ with n_j ∈ Z and δ_j ∈ {0,1}, then a representative of t_μ(ω) is (t_μ(ω))_j = (a_j + n_j + δ_j, b_j − n_j) if δ_{j+1} = 0, and (b_j − 1 − n_j, a_j + n_j + δ_j − p + 1) if δ_{j+1} = 1. For J ⊆ 𝒥 put η_J = Σ_{j∈J} η_j ∈ X*(T) and let η̄_J be its image in Λ_W; Σ ⊆ Λ_W is the set {η̄_J : J ⊆ 𝒥}.",
+      "locator": "arXiv:2009.03127v7 (final version), §2.4, (14) and the paragraph before Proposition 2.4.2, p. 16",
+      "status": "missing",
+      "note": "Checked on a page image. Remark 2.4.1: in [LMS22, §2.2] Λ_W^μ is written Λ_W^{μ+η} and t_μ is written t_{μ+η}."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/serre-weights-tame",
+      "kind": "theorem",
+      "name": "Proposition 2.4.2 — the Serre weights of a tame ρ̄",
+      "statement": "Suppose ρ̄ : G_K → GL_2(F) is tame with ρ̄|_{I_K} ≅ τ̄(s, μ) for some (s, μ) ∈ W × X*(T) with μ − η lying 1-deep in C̲_0. Then W(ρ̄) = {F(t_{μ−η}(sω)) : ω ∈ Σ}.",
+      "locator": "arXiv:2009.03127v7 (final version), §2.4, Proposition 2.4.2 with (15), p. 16",
+      "status": "missing",
+      "note": "Checked on a page image. W(ρ̄) is the set of Serre weights of Buzzard–Diamond–Jarvis [BDJ10, §3]; the proof identifies the right-hand side with W_obv(ρ̄) of [GHS18, Def. 7.1.3] and quotes [GHS18, Ex. 7.1.7]. The cited inputs were not read."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/jh-factors-type",
+      "kind": "theorem",
+      "name": "Proposition 2.4.3 — the Jordan–Hölder factors of σ̄(τ)",
+      "statement": "Suppose τ = τ(sw^{-1}, μ − sw^{-1}(ν)) for some (s, μ), (w, ν) ∈ W × X*(T) with μ − sw^{-1}(ν) − η lying 1-deep in C̲_0. If ν ∈ η + Λ_R, then JH(σ̄(τ)) = {F(t_{μ−η}(sw^{-1}(ω − ν̄))) : ω ∈ Σ}.",
+      "locator": "arXiv:2009.03127v7 (final version), §2.4, Proposition 2.4.3, p. 16",
+      "status": "missing",
+      "note": "Checked on a page image. σ(τ) is the GL_2(O_K)-type attached to τ by inertial local Langlands and σ̄(τ) its reduction; the proof quotes [LLHL19, Cor. 2.3.5] and [DL21, Prop. 2.15], which were not read."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/change-of-origin",
+      "kind": "theorem",
+      "name": "Lemma 2.4.4 — change of origin for t_μ",
+      "statement": "Let ω ∈ Λ_W^μ and λ ∈ X*(T) with t_μ(ω) ≡ λ mod (p − π)X^0(T). Then w_ω^{-1}(ω′) + ω ∈ Λ_W^μ and t_λ(ω′) = t_μ(w_ω^{-1}(ω′) + ω) for all ω′ ∈ Λ_W^λ; equivalently t_μ(ω′) = t_λ(w_ω(ω′ − ω)) for ω′ ∈ Λ_W^μ.",
+      "locator": "arXiv:2009.03127v7 (final version), §2.4, Lemma 2.4.4, p. 17",
+      "status": "missing",
+      "note": "Obtained from [LMS22, Prop. 2.5]. Remark 2.4.5 records that w_ω = w_{0,J} when ω ≡ η_J mod Λ_R, and that w_ν = 1 for ν ∈ Λ_R. Remark 2.4.7: the change-of-origin map Λ_W^λ → Λ_W^μ preserves adjacency, and under Λ_W ≅ Z^𝒥 has the form (a_0, …, a_{f−1}) ↦ (ε_0a_0 + n_0, …, ε_{f−1}a_{f−1} + n_{f−1}) with ε_i ∈ {±1}, n_i ∈ Z."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/ext-adjacent-weights",
+      "kind": "theorem",
+      "name": "Lemma 2.4.6 — extensions between Serre weights",
+      "statement": "For ω, ω′ ∈ Λ_W^μ, dim_F Ext^1_{GL_2(k)}(F(t_μ(ω)), F(t_μ(ω′))) = 1 if ω and ω′ are adjacent and 0 otherwise.",
+      "locator": "arXiv:2009.03127v7 (final version), §2.4, Lemma 2.4.6, p. 17",
+      "status": "missing",
+      "note": "Adjacency is the graph structure on Λ_W^μ ≅ Z^𝒥 recalled in §2.4. This is what makes the combinatorics of §6 a graph problem."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/kisin-matrices",
+      "kind": "definition",
+      "name": "Definition 3.1.1 — the matrices C_{M,β} and A_{M,β}",
+      "statement": "For a Kisin module M ∈ Y^{[0,h],τ}(R) with eigenbasis β, C^{(j′)}_{M,β} ∈ M_n(R⟦u′⟧) is the matrix of φ*(M^{(j′)}) → M^{(j′+1)} with respect to the bases φ*(β^{(j′)}) and β^{(j′+1)}, i.e. β^{(j′+1)} C^{(j′)}_{M,β} = φ_M(φ*(β^{(j′)})), and A^{(j′)}_{M,β} ∈ M_n(R⟦v⟧) is the renormalization of C^{(j′)}_{M,β} by the orientation, as in the display of Definition 3.1.1.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.1.1, Definition 3.1.1, p. 18",
+      "status": "missing",
+      "note": "Remark 3.1.2 cautions that Ad(ṡ(u′)^μ) means Ad(ṡ)Ad((u′)^μ), not Ad((u′)^{s(μ)}), where ṡ is the permutation matrix of s and (u′)^μ = Diag((u′)^{μ_1}, …, (u′)^{μ_n}). Remark 3.1.3: the notions of eigenbasis and of A_{M,β} depend on the chosen lowest alcove presentation (s, μ) of τ; since μ is 1-deep in C̲_0, A^{(j′)}_{M,β} depends only on j′ mod f and is upper triangular modulo v. The renormalization display was not transcribed here in full; a formalisation must take it from the source."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/kisin-shape",
+      "kind": "definition",
+      "name": "Definition 3.1.4 — the shape of a Kisin module",
+      "statement": "Let M̄ ∈ Y^{[0,h],τ}(F) and let I(F) be the Iwahori subgroup of GL_n(F⟦v⟧) of matrices upper triangular modulo v. M̄ has shape w̃ ∈ W̃^∨ with respect to τ if for any eigenbasis β̄ of M̄ the equality I(F) A^{(j)}_{M̄,β̄} I(F) = I(F) w̃_j I(F) holds in GL_n(F((v))) for all j = 0, …, f − 1.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.1.1, Definition 3.1.4, p. 19",
+      "status": "missing",
+      "note": "Checked on a page image. The notion is independent of β̄ by [LLHLM18, Prop. 2.15, 2.16], but again depends on the chosen lowest alcove presentation of τ."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/gauge-basis-exists",
+      "kind": "theorem",
+      "name": "Proposition 3.1.5 — existence and uniqueness of a gauge basis",
+      "statement": "Let R be a complete noetherian local O-algebra with residue field F and let τ be an (h+1)-generic tame inertial type. Let M ∈ Y^{[0,h],τ}(R) with an isomorphism M ⊗_R F ≅ M̄. Then there is an eigenbasis β of M lifting β̄ such that for all 1 ≤ i, k ≤ n and all j = 0, …, f − 1: (i) A^{(j)}_{ik} ∈ v^{δ_{i>k}} R[v + p]; (ii) deg_v(A^{(j)}_{ik}) ≤ ν_{j,k} − δ_{i<w_j(k)}, with equality if (i, k) = (w_j(k), k); where A^{(j)} = A^{(j)}_{M,β}, δ_{i>k} ∈ {0,1} is 1 exactly when i > k, and δ_{i<w_j(k)} ∈ {0,1} is 1 exactly when i < w_j(k). Such a β is unique up to scaling by {(t_j)_{j∈𝒥′} ∈ (ker(T(R) → T(F)))^{f′} : t_j = t_k for j ≡ k mod f}.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.1.1, Proposition 3.1.5, p. 19",
+      "status": "missing",
+      "note": "Checked on a page image. Here w̃ = (w_j t_{ν_j})_j ∈ W̃^∨ is the shape of M̄ with respect to τ, fixed together with a gauge basis β̄ of M̄ before the statement. The result generalizes [LLHLM18, Thm. 4.1, 4.16] and [LLHL19, Prop. 3.4.3] and is a particular case of [LLHLM23, Prop. 5.2.7], which was not read."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/gauge-basis",
+      "kind": "definition",
+      "name": "Definition 3.1.6 — gauge basis",
+      "statement": "For R a complete noetherian local O-algebra with residue field F and M ∈ Y^{[0,h],τ}(R) with M ⊗_R F ≅ M̄, a gauge basis of M is an eigenbasis β lifting β̄ satisfying conditions (i) and (ii) of Proposition 3.1.5.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.1.1, Definition 3.1.6, p. 20",
+      "status": "missing",
+      "note": "For M̄ itself the notion of gauge basis is recalled from [LLHL19, Def. 3.2.23]: a gauge basis always exists and is unique up to scaling by {(t_j)_{j∈𝒥′} ∈ T(F)^{f′} : t_j = t_k for j ≡ k mod f}."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/monodromy-derivation",
+      "kind": "theorem",
+      "name": "Proposition 3.1.7 — the monodromy derivation",
+      "statement": "Let M ∈ Y^{[0,h],τ}(R) for R a p-adically complete flat O-algebra topologically of finite type. Then M^rig[1/λ] carries a unique derivation N_{M^rig} over N_∇ with N_{M^rig} φ_{M^rig} = E(u′) φ_{M^rig} N_{M^rig} and N_{M^rig} ≡ 0 mod u′, compatibly with the decomposition into the components M^{rig,(j′)}.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.1.2, Proposition 3.1.7, p. 20",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/monodromy-condition",
+      "kind": "definition",
+      "name": "Definition 3.1.8 — the monodromy condition",
+      "statement": "For M ∈ Y^{[0,h],τ}(R) with eigenbasis β, the monodromy condition is that λ^{h−1} N^{(j′)}_{M^rig,β} vanishes to order h − 1 at u′ = (−p)^{1/e} for every j′. It is equivalent to N_{M^rig}(M^rig) ⊆ M^rig.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.1.2, Definition 3.1.8, p. 20",
+      "status": "missing",
+      "note": "The equivalence is seen as in [LLHLM18, Prop. 5.3]."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/monodromy-explicit",
+      "kind": "theorem",
+      "name": "Proposition 3.1.9 — the monodromy condition in coordinates",
+      "statement": "Let M ∈ Y^{[0,h],τ}(R) with eigenbasis β. The monodromy condition is equivalent to (d/du′)^t |_{u′=(−p)^{1/e′}} [ Ad((s′_{or,j′})^{-1}(u′)^{−a′^{(j′)}_{(s,μ)}}) (λ^{h−1} N^{(j′)}_{M^rig,β}) ] = 0 for all t = 0, …, h − 2 and j′ = 0, …, f′ − 1, and depends only on j′ mod f. If moreover τ is N-generic with N ≥ 2h − 3 and (N−1)(p−1) ≥ h, the condition takes the form (d/dv)^t |_{v=−p} (P_N(A^{(j−1)}_{M,β})) + O(p^{N−(h−1)−t}) = 0 for all j = 0, …, f − 1 and t = 0, …, h − 2, where P_N(A^{(j−1)}_{M,β}) = (−e′ v (d/dv) A^{(j−1)}_{M,β} − [Diag((s′_{or,j})^{-1}(a′^{(j)}_{(s,μ)})), A^{(j−1)}_{M,β}]) (v+p)^h (A^{(j−1)}_{M,β})^{-1} is the leading term of the monodromy condition, and the terms O(p^{N−(h−1)−t}) are specific but inexplicit elements of p^{N−(h−1)−t} M_2(R).",
+      "locator": "arXiv:2009.03127v7 (final version), §3.1.2, Proposition 3.1.9 with (16) and (17), p. 21",
+      "status": "missing",
+      "note": "Checked on a page image. Attributed to [LLHLM18]; the proof is a generalization of [LLHL19, Prop. 3.4.12], the case h = n − 1, N = 2n − 1. The leading term P_N is what the explicit presentations of the deformation rings in §4 are computed from."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/good-pair",
+      "kind": "definition",
+      "name": "Definition 3.2.1 — good pairs (s, μ)",
+      "statement": "(s, μ) ∈ W × X*(T) is good if Σ_{j=0}^{fd(i)−1} p^j (s_1^{-1} ⋯ s_j^{-1}(μ_j))_i ≢ 0 mod (q^{d(i)} − 1)/(q^d − 1) for all 1 ≤ i ≤ n and all d | d(i) with 1 ≤ d < d(i), where d(i) ≥ 1 is minimal with s_1^{-1}s_2^{-1} ⋯ s_{fd(i)}^{-1}(i) = i and the indices are taken modulo f.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.2, Definition 3.2.1, p. 22",
+      "status": "missing",
+      "note": "Generalizes [Her09, Def. 6.19]. Remark 3.2.2: τ(s, μ) is the restriction to I_K of an irreducible n-dimensional representation of G_K if and only if s_τ has order n and (s, μ) is good."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/good-deep",
+      "kind": "theorem",
+      "name": "Lemma 3.2.3 — deep pairs are good",
+      "statement": "If μ − η ∈ C̲_0 then (s, μ) is good for every s ∈ W.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.2, Lemma 3.2.3, p. 22",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/etale-module-w-D",
+      "kind": "definition",
+      "name": "Definition 3.2.4 — the étale φ-module M(w̃, D)",
+      "statement": "For w̃ ∈ W̃^∨ and D ∈ T(F), M(w̃, D) is the étale φ-module free of rank n over k((v)) ⊗_{F_p} F with Mat(φ^{(j)}) = D_j w̃_j ∈ GL_n(F((v))) with respect to the standard basis, where W̃^∨ embeds into GL_n(F((v)))^f as at the end of §2.1.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.2, Definition 3.2.4 (after [LLHL19, Def. 3.1.1]), p. 22",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/tame-rep-w-D",
+      "kind": "definition",
+      "name": "Definition 3.2.5 — the tame representation V(w̃, D)",
+      "statement": "For w̃ ∈ W̃^∨ and D ∈ T(F), V(w̃, D) is the unique tame representation of G_K over F of dimension n with V(w̃, D)|_{G_{K_∞}} ≅ V*_{K_∞}(M(w̃, D)).",
+      "locator": "arXiv:2009.03127v7 (final version), §3.2, Definition 3.2.5, p. 22",
+      "status": "missing",
+      "note": "Existence and uniqueness are guaranteed by [LLHL19, Prop. 3.1.2] and the equivalence for tame representations in [LLHL19, §3.1]."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/unramified-twist-V",
+      "kind": "theorem",
+      "name": "Lemma 3.2.6 — unramified twists of V(w̃, D)",
+      "statement": "For λ ∈ (F^×)^f, V(w̃, λD) ≅ V(w̃, D) ⊗_F nr(∏_{j=0}^{f−1} λ_j), where nr(α) is the unramified character of G_K sending an arithmetic Frobenius to α ∈ F^×.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.2, Lemma 3.2.6, p. 23",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/tame-classification",
+      "kind": "theorem",
+      "name": "Proposition 3.2.7 — tame representations with a given type",
+      "statement": "Let w̃ ∈ W̃^∨ and suppose w̃* = t_{μ′} s′ ∈ W̃ is such that (s′, μ′) ∈ W × X*(T) is good. Then {ρ : G_K → GL_n(F) semisimple : ρ|_{I_K} ≅ τ̄(s′, μ′)}/≅ = {V(w̃, D) : D ∈ T(F)}/≅.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.2, Proposition 3.2.7 with (19), p. 23",
+      "status": "missing",
+      "note": "The proof uses [LLHL19, Prop. 3.1.2] for V(w̃, D)|_{I_K} ≅ τ̄(s′, μ′) and then shows both that V(w̃, D) is semisimple and that the left side is contained in the right; the cited input was not read."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/cyclotomic-free-hom",
+      "kind": "theorem",
+      "name": "Lemma 3.2.8 — restriction to G_{K_∞} on homomorphisms",
+      "statement": "If ρ_1, ρ_2 are finite-dimensional representations of G_K over F such that ρ_1^∨ ⊗_F ρ_2 is cyclotomic free, then the natural map Hom_{G_K}(ρ_1, ρ_2) → Hom_{G_{K_∞}}(ρ_1|_{G_{K_∞}}, ρ_2|_{G_{K_∞}}) is an isomorphism.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.2, Lemma 3.2.8, p. 23",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/isom-descent",
+      "kind": "theorem",
+      "name": "Corollary 3.2.9 — isomorphisms descend from G_{K_∞}",
+      "statement": "If ρ_1, ρ_2 are finite-dimensional representations of G_K over F with ρ_1 2-generic, then the natural injective map Isom_{G_K}(ρ_1, ρ_2) → Isom_{G_{K_∞}}(ρ_1|_{G_{K_∞}}, ρ_2|_{G_{K_∞}}) is a bijection.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.2, Corollary 3.2.9, p. 24",
+      "status": "missing",
+      "note": "This is what lets the paper work with Kisin modules, i.e. over G_{K_∞}, without losing information about G_K."
+    },
+    {
+      "id": "PAPER-BREUIL-ETAL-23/irreducibility-lemma",
+      "kind": "theorem",
+      "name": "Lemma 3.3.1 — irreducibility of x_1x_2 + ϖ^d f",
+      "statement": "Let A = O⟦x_1, …, x_n⟧ with O a complete DVR with uniformizer ϖ and n ≥ 2. If f ∈ A^× and d > 0 then x_1x_2 + ϖ^d f is irreducible in A. Moreover the ideals (x_1x_2 + ϖ^d f) and (x_1) are distinct, and (x_1x_2 + ϖ^d f_1) and (x_1x_2 + ϖ^d f_2) are distinct if f_1 ≢ f_2 mod m_A.",
+      "locator": "arXiv:2009.03127v7 (final version), §3.3, Lemma 3.3.1, p. 24",
+      "status": "missing",
+      "note": "A commutative-algebra lemma, used in §4 to identify the components of the deformation rings; the only statement of the paper that is not about representations."
     }
   ],
   "routes": [
@@ -245,7 +470,10 @@
         "PAPER-BREUIL-ETAL-23/connected-socle",
         "PAPER-BREUIL-ETAL-23/iwahori-mult-one",
         "PAPER-BREUIL-ETAL-23/local-gk",
-        "PAPER-BREUIL-ETAL-23/lattice-L"
+        "PAPER-BREUIL-ETAL-23/lattice-L",
+        "PAPER-BREUIL-ETAL-23/lambda-lattice",
+        "PAPER-BREUIL-ETAL-23/change-of-origin",
+        "PAPER-BREUIL-ETAL-23/ext-adjacent-weights"
       ],
       "brief": "Smooth mod p representations of GL_2 over a finite unramified extension K of Q_p, p > 2: Gelfand–Kirillov dimension of admissible representations via the Iwasawa algebra of a uniform pro-p subgroup, Lazard's filtrations and the explicit graded ring of the pro-p Iwahori modulo the centre; multiplicity-one criteria for Iwahori and K1 invariants; diagrams D0(ρ) of Breuil–Paškūnas; and the lattices in projective envelopes of Serre weights. Final theorems: Corollary 5.3.5, Proposition 6.4.6, Theorem 6.4.7 and Corollary 7.3.4 of Breuil–Herzig–Hu–Morra–Schraen. Import completed group algebras from PadicMeasuresIwasawaAlgebras and smooth representations from SmoothRepresentationsOfLocalGroups. The id is the one proposed by the extraction of Colmez–Dospinescu–Nizioł (2023), so both papers feed one roadmap.",
       "reason": "The local mod p theory of GL_2(K) for K ≠ Q_p is not planned in the atlas; the same new roadmap was proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-23, and this paper adds its GK-dimension layer."
@@ -259,7 +487,29 @@
       "items": [
         "PAPER-BREUIL-ETAL-23/generic",
         "PAPER-BREUIL-ETAL-23/kisin-descent",
-        "PAPER-BREUIL-ETAL-23/def-rings"
+        "PAPER-BREUIL-ETAL-23/def-rings",
+        "PAPER-BREUIL-ETAL-23/tame-type-tau",
+        "PAPER-BREUIL-ETAL-23/n-generic-type",
+        "PAPER-BREUIL-ETAL-23/n-generic-rhobar",
+        "PAPER-BREUIL-ETAL-23/orientation",
+        "PAPER-BREUIL-ETAL-23/serre-weights-tame",
+        "PAPER-BREUIL-ETAL-23/jh-factors-type",
+        "PAPER-BREUIL-ETAL-23/kisin-matrices",
+        "PAPER-BREUIL-ETAL-23/kisin-shape",
+        "PAPER-BREUIL-ETAL-23/gauge-basis-exists",
+        "PAPER-BREUIL-ETAL-23/gauge-basis",
+        "PAPER-BREUIL-ETAL-23/monodromy-derivation",
+        "PAPER-BREUIL-ETAL-23/monodromy-condition",
+        "PAPER-BREUIL-ETAL-23/monodromy-explicit",
+        "PAPER-BREUIL-ETAL-23/good-pair",
+        "PAPER-BREUIL-ETAL-23/good-deep",
+        "PAPER-BREUIL-ETAL-23/etale-module-w-D",
+        "PAPER-BREUIL-ETAL-23/tame-rep-w-D",
+        "PAPER-BREUIL-ETAL-23/unramified-twist-V",
+        "PAPER-BREUIL-ETAL-23/tame-classification",
+        "PAPER-BREUIL-ETAL-23/cyclotomic-free-hom",
+        "PAPER-BREUIL-ETAL-23/isom-descent",
+        "PAPER-BREUIL-ETAL-23/irreducibility-lemma"
       ],
       "brief": "Local Galois deformation rings and their components, extended to tamely potentially Barsotti–Tate deformation rings of generic two-dimensional mod p representations of G_K, K/Q_p unramified: tame inertial types and genericity, Kisin modules with tame descent data, gauge bases and the monodromy condition, explicit presentations for one tame type and for several types at once. Final theorems: the presentations of §§4.2–4.3 of Breuil–Herzig–Hu–Morra–Schraen, feeding the patching argument. Import Kisin modules and Breuil–Kisin theory from FiniteFlatGroupsAndIntegralPadicHodgeTheory.",
       "reason": "Explicit tame potentially Barsotti–Tate deformation rings for unramified K extend the existing local deformation roadmap."
@@ -286,11 +536,30 @@
   "sourceIssues": [],
   "completion": {
     "agent": "Claude Code",
-    "session": "cc-442dc5",
+    "session": "cc-d67081",
     "issue": 1241,
     "date": "2026-09-23",
     "status": "partial",
-    "reading": "Introduction (§1) read; definitions and section structure of §§2–8 surveyed; the numbered statements behind Theorems 1.1–1.10 located.",
-    "changes": "First extraction: 17 items and three routes."
-  }
+    "continues": [
+      "cc-442dc5"
+    ],
+    "baseResultBlob": "05852a05749da7351cb3c864aae374d647aacda3",
+    "baseReportBlob": "ed5cd5e3eb0fbc572433f637f079b1f06a5d72f7",
+    "baseHandoffBlob": "a9feab1daa9b021f0329fb9fac42dd3c11c852f0",
+    "reading": "arXiv v7 §§2.3–3.3 read in full; the displays of Definition 2.3.1, Propositions 2.4.2–2.4.3, Proposition 3.1.5 and Proposition 3.1.9 checked on page images of pp. 14, 16, 19 and 21. §§4–8 were not read in this checkpoint, and the inherited items were not re-verified against the source.",
+    "changes": "Corrected the source version, URL and every locator from v4 to v7, the file whose SHA-256 the source block already recorded; added 25 items for the numbered statements of §§2.3–3.3, routed to the two existing Galois-side and GL_2 routes; updated the summary. All 17 inherited item ids, their statements and the three routes are otherwise unchanged.",
+    "stableIds": "All 17 inherited ids retained; only their locator strings changed, from v4 to v7. No inherited statement, status, note or route reason was edited.",
+    "lean": "none"
+  },
+  "completionHistory": [
+    {
+      "agent": "Claude Code",
+      "session": "cc-442dc5",
+      "issue": 1241,
+      "date": "2026-09-23",
+      "status": "partial",
+      "reading": "Introduction (§1) read; definitions and section structure of §§2–8 surveyed; the numbered statements behind Theorems 1.1–1.10 located.",
+      "changes": "First extraction: 17 items and three routes."
+    }
+  ]
 }
