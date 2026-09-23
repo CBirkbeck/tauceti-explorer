@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The shared Drinfeld destination is appropriate, but its design is not yet safe to build: bundled items, E3's complete higher-degree regulator, integral distribution splitting and the topological inverse still need explicit statements/proofs. Do not generate a design from the current incomplete brief."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "The properness-only premise was false. The narrowed symbol/flat-model scope is plausible, but the formal étale/Zariski bridge and non-proper semistable scope must be decomposed and checked before creating the Part II. Generic completion, nearby cycles and functional analysis have been removed to their owners."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accept the corrected source route for periods/twists, Lη, toric smooth local construction and smooth specializations at AI.0/1/3/4. No generic completion or unsupported non-proper semistable coverage is claimed."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Accept PR.4 as the single nearby-cycle/fixed-point owner, including semilinear operators and this paper's missing general-flat-model extension. This adds a proof task and does not certify it implemented or available without the source hypotheses."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accept the exact Kummer-normalized local rational comparison as a missing source contribution to P8:local-rational, with the analytic generic-fibre differential target corrected. It must precede, not depend on, the proper comparison suffix."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Accept the corrected H0 source destination for coefficient-derived-limit and affinoid K(pi,1) comparisons. A1 supplies the corrected site, not those cohomological theorems. Primary theorem statements and the cover corrigendum were checked."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Accept DD.1 for generic derived completeness/Nakayama; its README explicitly owns this interface. Rf_* sheaf completion has a separate E4 item and source route."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "The companion functional-analysis proposal is the right shared home, but this added interface is not design-ready without the missing precise strictness, LC/measure, complete-cochain and inverse-limit statements. No parallel topology design should be generated."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Accept the precise Stacks 0A0G pushforward-completion theorem as a missing E4 sheaf application, importing the generic DD.1 completion and preserving the extended ideal hypothesis."
+    }
+  ],
+  "notes": "Finished independent review by Codex — codex-a71f92 (not the input author Claude Code cc-fb70e5). All 43 input items, six input routes and fourteen input findings checked against the full 24-page witness, pinned carrier searches and owner documents; additional witnesses collated only at specified passages. Corrected result: partial, 53 items (8 library, 8 planned, 37 missing), nine routes, fifteen source findings (10 confirmed, of which E15 was already corrected in the 2020 versions; 5 rejected). Reject design routes 1,2,8; accept only corrected source routes 3–7,9. Unresolved proof/atomic/API closure is explicitly recorded, not treated as formalized. Published full text and publisher correction status remain unverified."
+}
