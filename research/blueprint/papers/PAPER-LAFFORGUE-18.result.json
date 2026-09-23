@@ -13,7 +13,12 @@
       "The whole of arXiv 1209.5352v10 (10 January 2018), 184 pp., in French: the introduction (§0, pp. 1–41) and all sixteen chapters, together with the bibliography. SHA-256 b37715f9c42862b7560d8b71da07924376e3cbbbe862ef9e89a57d8c91a64295, fetched and read 2026-09-22. Locators are the pages of that version together with the paper's own statement numbers, which are stable across its versions.",
       "The published version could not be consulted: ams.org returns HTTP 403 to every client tried, and no other copy was found. v10 is the last arXiv version and is contemporaneous with publication (JAMS 31, issue 3, 2018); Crossref records no correction notice for DOI 10.1090/jams/897. All recorded source issues are therefore against v10 and may have been corrected in production.",
       "Pages 140, 145, 152, 154, 160, 164, 169, 171 and 172 were additionally read as rendered images, because the text layer flattens the sub- and superscripts on which several of the recorded items turn."
-    ]
+    ],
+    "publishedVersionCheck": {
+      "byReview": "REV-PAPER-LAFFORGUE-18",
+      "date": "2026-09-23",
+      "result": "The extraction's statement that the published JAMS version could not be consulted is CORRECT, and this review confirmed it independently rather than taking it on trust. Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at https://www.ams.org/jams/2018-31-03/S0894-0347-2018-00897-5/S0894-0347-2018-00897-5.pdf, but that URL returns HTTP 403 to curl and, to a browser user-agent, an HTML bot interstitial rather than a PDF; the r.jina.ai proxy returns the JAMS issue listing instead of the article. All findings therefore stand against arXiv v10 only, as the extraction says."
+    }
   },
   "summary": "This is the paper that proves the global Langlands correspondence in the “automorphic to Galois” direction for every connected reductive group over a global function field. Let X be a smooth projective geometrically irreducible curve over F_q with function field F, G reductive over F, N ⊂ X a finite subscheme, K_N the associated level subgroup and Ξ ⊂ Z(F)\\\\Z(A) a lattice. Théorème 11.11 (split case) and Théorème 12.3 (general case) give a **canonical** decomposition of the space of cuspidal automorphic forms C^{cusp}_c(Bun_{G,N}(F_q)/Ξ, Q̄_ℓ) = ⊕_σ H_σ indexed by global Langlands parameters — Ĝ(Q̄_ℓ)-conjugacy classes of continuous semisimple σ : Gal(F̄/F) → ^LG(Q̄_ℓ) unramified outside N — compatible with the Satake isomorphism at every unramified place and with the limit over N. The article is completely independent of the Arthur–Selberg trace formula. It rests on two ingredients: the moduli of shtukas, introduced by Drinfeld for GL_r and generalized to reductive groups by Varshavsky, and the geometric Satake equivalence of Lusztig, Drinfeld, Ginzburg and Mirković–Vilonen.\n\nThe mechanism is this. For every finite set I and every representation W of (Ĝ)^I there is a stack Cht^{(I_1,…,I_k)}_{N,I,W} of shtukas with legs (x_i)_{i∈I} — the intersection of a Hecke stack with the graph of the Frobenius of Bun_{G,N} — which plays the role of a Shimura variety but exists for every I and every W, not only for a minuscule coweight. Its degree-zero compactly supported cohomology, H^{0,≤μ,E}_{N,I,W}, is a functor in W on (X ∖ N)^I, carries commuting partial Frobenius morphisms and Hecke operators, and is compatible with the coalescence of legs (Théorème 1.17 c), Proposition 4.12). Creation and annihilation morphisms attached to Ĝ-invariant vectors x ∈ W and ξ ∈ W^* let one write the unramified Hecke operator T(h_{V,v}) as create two legs at v → apply the partial Frobenius → annihilate (Proposition 6.2), which extends every Hecke operator to all of (X ∖ N)^I (Corollaire 6.5) and yields the **Eichler–Shimura relations** (Proposition 7.1): the partial Frobenius at a leg is killed by a polynomial in the Hecke operators, by a tensor-algebra argument modelled on a proof of Cayley–Hamilton. Those relations make the **Hecke-finite** part of the cohomology a union of constructible subsheaves stable under the partial Frobenius (Proposition 8.27), so **Drinfeld’s lemma** applies and gives it an action of Gal(F̄/F)^I; the specialization map identifies the fibre at Δ(η̄) with the one at η̄^I (Corollaire 8.34). The resulting spaces H_{I,W} form a functor in W with coalescence isomorphisms and H_{∅,1} = C^{cusp}_c (Proposition 9.7) — the last equality because Hecke-finite = cuspidal (Proposition 8.23).\n\nFrom these three properties alone the **excursion operators** S_{I,W,x,ξ,(γ_i)} are built: create legs at one generic point, let Galois move them around the curve independently, bring them back, annihilate. They generate a commutative algebra B, depend only on the invariant function f ∈ O(Ĝ\\\\(Ĝ)^I/Ĝ) attached to (W, x, ξ), satisfy explicit relations (Lemme 10.1, Proposition 10.8), are continuous, contain the unramified Hecke operators (Lemme 10.2) and are unramified outside N (Proposition 10.10, found by Böckle, Harris, Khare and Thorne). Spectral decomposition of B gives a decomposition into generalized eigenspaces — B is not known to be reduced, so simultaneous diagonalization is not available — and Proposition 11.7 turns each character of B into a semisimple parameter σ, unique up to conjugacy, using Richardson’s theorem that a tuple has a closed diagonal conjugation orbit exactly when it is semisimple.\n\n§12 redoes everything for non-split G, with parahoric Bruhat–Tits models, the twisted geometric Satake equivalence, the L-group, and Bun_{G,N}(F_q) as a ker^1(F, G)-indexed union of adelic quotients for inner forms; §13 obtains the same decomposition with F̄_ℓ-coefficients; §14 sketches the metaplectic case; §15 relates the excursion operators to geometric Langlands; §16 shows how the theorem reproves the recursion ingredient of Laurent Lafforgue’s theorem for GL_r. Conjectures 12.7 and 12.12 state what is expected and unproved: that the parameters come from elliptic Arthur parameters, and that the decomposition is motivic and independent of ℓ.",
   "items": [
@@ -953,7 +958,12 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located at §4.1, pp. 64–65. The correction — that the second correspondence should be b = (b_2, b_3) with v : b_{3,!}(b_2^*(F_2)) → F_3, and the composition condition p_1∘a_1 = p_2∘a_2 = p_3∘b_3 — follows the extraction's reading of the composition of cohomological correspondences being set up there; I verified the quotation but did not re-derive the indexing, so that part rests on the extraction. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     },
     {
       "id": "PAPER-LAFFORGUE-18/E2",
@@ -968,7 +978,12 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located at §8.6, p. 116, and the surrounding text is as the finding describes: the page reads 'champ constant Bun_{G,N}(F_q) sur η^∅ = Spec(F_q)' and displays (8.4). The finding turns on the superscript (I) of Cht^{(I)}, which the text layer flattens and which my page-image crops did not capture cleanly; the claim that it reads ({0}) where it should read (∅) therefore rests on the extraction's reading rather than on a check of mine. The correction is consistent with the surrounding I = ∅ discussion. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     },
     {
       "id": "PAPER-LAFFORGUE-18/E3",
@@ -983,7 +998,12 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively at p. 86, in the proof of Lemme 6.11. The page prints '(de façon encore plus canonique pr_1^*(F^{(I)}) et pr_1^*(F^{(I)}) sont tous les deux image inverse de S_{I,W,E})' — pr_1^* twice — while the sentence immediately above introduces both projections: 'Comme les projections pr_1 et pr_2 de …'. The second must be pr_2^*. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     },
     {
       "id": "PAPER-LAFFORGUE-18/E4",
@@ -998,7 +1018,12 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located in the proof of (7.2) on p. 103 and in the definition of C_n(U) on p. 104. The two corrections — C_{{1,…,i}}(T, κ_i) on p. 103, and the earlier notation being C_{{1,…,n}}(T,U) with the subscript the set J of the definition C_J(T,U) — rest on the extraction's collation of the definition with its two uses, which I did not repeat. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     },
     {
       "id": "PAPER-LAFFORGUE-18/E5",
@@ -1013,7 +1038,12 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located at Lemme 11.10, p. 145. The corrections — that the unique element should be g ∈ H(Q̄_ℓ) and that it lies in D(g_1,…,g_n) — follow the extraction's reading of the uniqueness argument in §11, which I did not re-derive. Worth noting that this lemma is one of the four items the extraction routes to LanglandsParameterStacks, so the statement matters beyond this paper. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     },
     {
       "id": "PAPER-LAFFORGUE-18/E6",
@@ -1028,7 +1058,12 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively at §12.2.3, p. 154, which prints 'On rappelle que dans (12.1) la somme est indexée par ker^1(F,G)'. But (12.1), on p. 150, is the inclusion G(F)\\G(A)/K_N ⊂ Bun_{G,N}(F_q) — there is no sum in it at all. The decomposition indexed by ker^1(F,G) is (12.2) on the same page, Bun_{G,N}(F_q) = ⊔_α G_α(F)\\G_α(A)/K_N, and p. 150 itself refers twice to 'le membre de droite de (12.2)'. The reference should be (12.2). Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     },
     {
       "id": "PAPER-LAFFORGUE-18/E7",
@@ -1043,7 +1078,12 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located in the proof of Lemme 12.19 c), p. 160. The correction, that the pair should be (^Lβ^{ad}, ^Lβ^{ab}) : ^LG^{ad} × ^LG^{ab} → ^LG, follows the extraction's reading of the map being composed with; I verified the quotation but not the derivation. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     },
     {
       "id": "PAPER-LAFFORGUE-18/E8",
@@ -1058,7 +1098,12 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Remarque 12.4, p. 152, which prints lim_N C_c^{cusp}(Bun_{G,N}(F_q)/Ξ, Q̄_ℓ) = ⊕_{α∈ker^1(F,G)} C_c^{cusp}(G_α(F)\\G_α(A)/Ξ, E) — Q̄_ℓ on the left and E on the right of one displayed equality. The ambient coefficient field in this remark is Q̄_ℓ, as the next display confirms with Hom_{G(A)}(π, lim_N C_c^{cusp}(…, Q̄_ℓ)), so the E on the right is the slip. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     },
     {
       "id": "PAPER-LAFFORGUE-18/E9",
@@ -1073,7 +1118,12 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located at Théorème 13.2 and Remarque 13.3, p. 169. The extraction records that it verified this one on a rendered page image, which is the right standard here, since the correction is the superscript F̄_ℓ on 𝔥_σ and superscripts are exactly what the text layer flattens. I did not repeat that rendering, so this verdict rests on the extraction's image reading. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     },
     {
       "id": "PAPER-LAFFORGUE-18/E10",
@@ -1088,7 +1138,12 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located at §14, p. 171. Again the extraction records verification on a rendered page image, and again rightly: the correction is a tilde, (^LG̃)^I for (^LG)^I, and tildes are flattened by the text layer. This verdict rests on that reading. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     },
     {
       "id": "PAPER-LAFFORGUE-18/E11",
@@ -1103,7 +1158,12 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located at §14, p. 172. The correction — H̃^{0,≤µ,E}_{N,I,W} for the printed H̃^{0,≤µ,Q̄_ℓ}_{N,I,V} — is consistent with the notation used elsewhere in the paper: I read the display on p. 116 as a page image in the course of checking E2, and it prints H^{0,≤µ,E}_{N,I,W}, with coefficient E and representation W. That corroborates both halves of the correction, though I did not render p. 172 itself. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     },
     {
       "id": "PAPER-LAFFORGUE-18/E12",
@@ -1118,7 +1178,23 @@
         "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
         "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
         "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the two elements that a text search settles decisively: 'éventuellemement' occurs exactly once in the paper, at p. 170, and 'mais mais' occurs exactly once, at p. 55 — both plainly typographical. The remaining elements of this bundle (the misspellings in §4.4, §8 and the bibliography) rest on the extraction's reading; they are of the same kind and there is no reason to doubt them, but I did not check each one. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026).",
+        "by": "REV-PAPER-LAFFORGUE-18"
+      }
     }
-  ]
+  ],
+  "verification": {
+    "agent": "Claude Code",
+    "session": "cc-d67081",
+    "issue": 1433,
+    "job": "REV-PAPER-LAFFORGUE-18",
+    "date": "2026-09-23",
+    "verdict": "accept",
+    "read": "arXiv 1209.5352v10, re-fetched and hashed to b37715f9…4295, matching the record; 184 pages in French. Every one of the 12 recorded mistakes checked at its locator, with pp. 116 and 154 read on page images.",
+    "changes": "No change to any item, status, route or locator. All 12 recorded mistakes carry review verdicts and all are confirmed; four were verified decisively and for the rest the verdict states what rests on the extraction. A publishedVersionCheck record was added to the source block confirming, independently, that the published JAMS text is not retrievable.",
+    "lean": "none"
+  }
 }
