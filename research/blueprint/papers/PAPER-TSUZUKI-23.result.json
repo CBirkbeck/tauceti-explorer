@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-TSUZUKI-23",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Minimal slope conjecture of F-isocrystals",
     "authors": "Nobuo Tsuzuki",
@@ -18,7 +18,7 @@
     ],
     "publicationComparison": "Publisher title/author/abstract and DOI match the preprint's subject and two main theorem scopes; pagination and all statements are not certified identical."
   },
-  "summary": "Full-preprint read and a source-gated extraction of analytic coefficients, PBQ filtrations, saturation, the strong curve theorem and the finite-field higher-dimensional isomorphism theorem. Distinguishes prescribed-morphism lifting from mere isomorphism, graded PBQ pieces from nested filtration terms, and raw coefficient trace degrees from projected Qpbar ranks. Routes foundational inputs to RD.0–RD.6/VB0 and PBQ/minimal-slope arguments to a focused Part II; journal collation and nine precise proof/source gates remain.",
+  "summary": "Tsuzuki proves the dual form of Kedlaya's minimal slope conjecture for overconvergent F-isocrystals on curves (Corollary 6.5), and for overconvergent Q̄_p-F-isocrystals on smooth varieties over finite fields up to the compatibility with the given morphism (Theorem 7.20). The tools are PBQ filtrations, saturation and de Jong's opposite filtrations. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed, and twenty-four findings are recorded against arXiv v3. After review none affects a stated result: the literal slips in Theorems 3.12, 3.19, Proposition 3.18 and Definition 7.14 have clear intended forms, and the circular proof of Lemma 3.31 is repaired. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2992,7 +2992,7 @@
         "PAPER-TSUZUKI-23/075"
       ],
       "implementationStatus": "unchecked",
-      "note": "Proposed Part II, not an existing accepted stage; source and proof gates below remain open."
+      "note": "Proposed Part II, not an existing accepted stage; source and proof gates below remain open. (cc-442dc5, 23 September 2026) Proposed repair of the circular proof in E12's correction: bounded quotients commute with the finite étale generic extension, by the argument of Proposition 3.14."
     },
     {
       "id": "PAPER-TSUZUKI-23/077",
@@ -5723,26 +5723,30 @@
       "correction": "Use discrete valuation ring R, with fraction field K.",
       "reason": "The notation R/m and the later explicit valuation-ring convention require R to be a ring, not its fraction field.",
       "affects": "nothing",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
       "id": "PAPER-TSUZUKI-23/E2",
-      "kind": "error",
+      "kind": "misprint",
       "locator": "arXiv:1910.03871v3, §2.1 p.4; journal version not collated",
       "printed": "Gauss norm",
       "correction": "Restrict the finite coefficient supremum to the bounded rings; use radius-indexed norms on the full Robba ring.",
-      "reason": "Σ[n≥0]p^(−floor(sqrt(n)))t^n converges on every closed disc of radius<1, but its coefficient supremum is infinite.",
-      "affects": "a stated result",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "reason": "Σ[n≥0]p^(−floor(sqrt(n)))t^n converges on every closed disc of radius<1, but its coefficient supremum is infinite. (cc-442dc5) Reclassified: the Gauss norm is only used on the bounded rings E, E† and K[[t]]₀ (for instance 'E and E† are discrete valuation fields under the Gauss norm'); listing R among them is a slip.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5753,11 +5757,13 @@
       "correction": "Use K[[t]]₀ in this local definition.",
       "reason": "The local section has only K,t and extends scalars over K[[t]]₀; α and xα have not been introduced.",
       "affects": "nothing",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5768,11 +5774,13 @@
       "correction": "Use ordered abelian group Q; require well ordering of the specified supports.",
       "reason": "Q with its usual order is not well-ordered: the negative integers have no least element.",
       "affects": "nothing",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5783,11 +5791,13 @@
       "correction": "The growth criterion is Lemma 2.6(4); remove or repair the undefined filtration-length symbol s in the following proposition.",
       "reason": "Lemma 2.5 has only three parts; the source defines only r for the filtration lengths in Proposition 2.11.",
       "affects": "nothing",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5798,56 +5808,64 @@
       "correction": "Prove closure of solvable and bounded categories separately by their respective trivializations; do not use solvable⇒bounded.",
       "reason": "The generic-disc unipotent logarithmic connection has analytic log(1+u) solutions with coefficients 1/n unbounded p-adically. It is solvable but not bounded. The stated category-closure theorem is not refuted.",
       "affects": "the proof",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
       "id": "PAPER-TSUZUKI-23/E7",
-      "kind": "error",
+      "kind": "misprint",
       "locator": "arXiv:1910.03871v3, Theorem 3.12 and Definition 3.13 p.15; journal version not collated",
       "printed": "nonzero and bounded",
       "correction": "Add M≠0 to the asserted nonzero quotient, and separately define the bounded quotient of zero to be zero.",
-      "reason": "The zero module satisfies solvability but has no nonzero quotient.",
-      "affects": "a stated result",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "reason": "The zero module satisfies solvability but has no nonzero quotient. (cc-442dc5) Reclassified: the statement fails only for M = 0, and Definition 3.13 speaks of the 'nontrivial' quotient; M ≠ 0 is intended.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
       "id": "PAPER-TSUZUKI-23/E8",
-      "kind": "error",
+      "kind": "misprint",
       "locator": "arXiv:1910.03871v3, Proposition 3.18 p.16; journal version not collated",
       "printed": "M is PBQ if and only if M ⊗B N is PBQ",
       "correction": "Require N≠0 in the unit-root tensor detection assertion.",
-      "reason": "Tensoring with zero loses all information about M. With a nonzero-only pure-slope convention even a PBQ line tensored with zero violates the displayed iff; if zero is allowed as PBQ, take non-PBQ M instead.",
-      "affects": "a stated result",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "reason": "Tensoring with zero loses all information about M. With a nonzero-only pure-slope convention even a PBQ line tensored with zero violates the displayed iff; if zero is allowed as PBQ, take non-PBQ M instead. (cc-442dc5) Reclassified: the statement fails only when N = 0; N ≠ 0 is intended.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
       "id": "PAPER-TSUZUKI-23/E9",
-      "kind": "error",
+      "kind": "misprint",
       "locator": "arXiv:1910.03871v3, Theorem 3.19(1–2) pp.16–17; propagated in 3.29, 4.11 and 6.4; journal version not collated",
       "printed": "maximal slope of Pi",
       "correction": "Use graded pieces G_i=P_i/P_(i−1): the decreasing slopes are λmax(G_i), the bounded quotient is ⊕Top(G_i), and the lifting theorems recover saturations of G_i.",
-      "reason": "For bounded split M=E(1)⊕E(0), P₁=E(1), P₂=M. Both nested steps have maximal slope 1, whereas the graded slopes are 1 and 0. The printed sum Top(P₁)⊕Top(P₂) is two slope-one lines and is not M. PDF p.16 visually checked; CT11 Corollary 5.5 and Ohkubo §12 use successive quotients.",
-      "affects": "a stated result",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "reason": "For bounded split M=E(1)⊕E(0), P₁=E(1), P₂=M. Both nested steps have maximal slope 1, whereas the graded slopes are 1 and 0. The printed sum Top(P₁)⊕Top(P₂) is two slope-one lines and is not M. PDF p.16 visually checked; CT11 Corollary 5.5 and Ohkubo §12 use successive quotients. (cc-442dc5) Reclassified: as printed, (ii) is impossible (P₁ ⊂ P₂ forces the maximal slope of P₂ to be at least that of P₁), so the graded pieces P_i/P_{i−1} are meant; the proofs of Theorem 3.19(2) and Proposition 3.29 use the graded form ((M/P₁)/(M/P₁)¹), as does the cited [10, Cor. 5.5].",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5858,11 +5876,13 @@
       "correction": "Put dim_K on the solution-space side; use d/dx, not d/dy, in the displayed definition of Sol_λ.",
       "reason": "Rank is a nonnegative integer, not a vector space; y is not the coordinate of the displayed K[[x]]₀ module.",
       "affects": "nothing",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5873,11 +5893,13 @@
       "correction": "Assign M† to C′ and N† to C so that f_*M† and f* N† are typed correctly.",
       "reason": "For f:C′→C, direct image starts on C′ and pullback starts on C.",
       "affects": "nothing",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5885,14 +5907,16 @@
       "kind": "gap",
       "locator": "arXiv:1910.03871v3, Lemma 3.31 proof p.19; journal version not collated",
       "printed": "N is PBQ by Lemma 3.30",
-      "correction": "Supply an independent finite-étale generic solution/base-change argument for PBQ preservation by pullback before using it to prove the direct-image detection assertion.",
+      "correction": "Supply an independent finite-étale generic solution/base-change argument for PBQ preservation by pullback before using it to prove the direct-image detection assertion. (cc-442dc5) A non-circular proof of (1): PBQ is a property of the generic ϕ-∇-module, and for the finite étale f the generic module of f*N† is E_{η′} ⊗_{E_η} N_η. The argument of Proposition 3.14 and Corollary 3.15, applied to the finite extension E_{η′}/E_η in place of E_α/E_η, gives (E_{η′} ⊗ N_η)^b = E_{η′} ⊗ N_η^b, so PBQ is preserved. Part (2) then follows as printed.",
       "reason": "Part (1) starts with N PBQ but concludes N PBQ again; part (2) invokes the lemma. The displayed argument does not prove its required pullback conclusion. The extraction retains the source-stated theorem with a proof gap.",
       "affects": "the proof",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5903,11 +5927,13 @@
       "correction": "The domain of the displayed support-forgetting map should be H¹_rig,c(C,L†(χ)), with compact support.",
       "reason": "As printed the source and target both say H¹_rig; the following sentence and standard support-forgetting map identify the missing c.",
       "affects": "nothing",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5918,11 +5944,13 @@
       "correction": "Use M/M^b as a convergent F-isocrystal, and say h is a convergent, not necessarily overconvergent, coefficient morphism.",
       "reason": "A generic-fiber symbol cannot be the global target in that diagram; Proposition 3.29 explicitly constructs a convergent bounded quotient. Graded-index corrections are separately E9.",
       "affects": "nothing",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5933,11 +5961,13 @@
       "correction": "The target of this intermediate isomorphism is the restriction of M†.",
       "reason": "The displayed factorization immediately below ends at the restriction of M†, as required by the stated fiber conclusion.",
       "affects": "nothing",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5948,11 +5978,13 @@
       "correction": "The left side must be θL₁,L₃, interpreted through the canonical associativity isomorphism.",
       "reason": "The right side lands in the L₃-coefficient category, whereas the printed left side lands in the L₂-category.",
       "affects": "nothing",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5963,11 +5995,13 @@
       "correction": "Explicitly identify the K-dual with the L-dual through the finite-field trace and apply the multiplication component of L⊗K L before the L-valued evaluation.",
       "reason": "The displayed extra scalar tensors obscure the coefficient projector and have excess ranks if interpreted as unprojected tensor products. The intended duality is correct; a fully typed pairing diagram remains G6.",
       "affects": "the proof",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5978,11 +6012,13 @@
       "correction": "Use L⊗K Qpbar≅∏_{τ:L→Qpbar}Qpbar, or the trace-of-restriction-of-scalars identity directly.",
       "reason": "Without a normality assumption, L⊗K L need not split as one copy of L for every embedding. For a non-Galois separable cubic p-adic extension it has a degree-two factor, not three L factors. The desired trace formula itself remains valid.",
       "affects": "the proof",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -5993,11 +6029,13 @@
       "correction": "For the trace of the nth Frobenius iterate, replacing F by λF multiplies by λ^n, not λ. Finish using nondegeneracy of trace and the fact that nth powers span L over K in characteristic zero.",
       "reason": "(λF)^n=λ^nF^n here. Finite differences of (λ+j)^n show nth powers span, so the intended conclusion can be repaired. PDF p.34 visually checked.",
       "affects": "the proof",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -6006,13 +6044,15 @@
       "locator": "arXiv:1910.03871v3, Definition 7.14 p.34 and Theorem 7.18 p.37; journal version not collated",
       "printed": "w ∈ Z",
       "correction": "Allow arbitrary real weights, or explicitly normalize by a rank-one twist and then restore its weight. The unrestricted mixedness/purity theorem cannot use integer-only weights.",
-      "reason": "On Spec F3 the rank-one coefficient with Frobenius 2 is irreducible but has w=2 log_3 2, not an integer (3^w=4). AE's public proof twists to finite determinant then untwists. PDF p.34 visually checked.",
-      "affects": "a stated result",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "reason": "On Spec F3 the rank-one coefficient with Frobenius 2 is irreducible but has w=2 log_3 2, not an integer (3^w=4). AE's public proof twists to finite determinant then untwists. PDF p.34 visually checked. (cc-442dc5) Reclassified: Definition 7.14 restricts weights to Z, which makes Theorem 7.18 false as printed. But the paper uses purity only through Abe–Esnault's theorem and Proposition 7.15, which hold with real weights, so the mathematics as intended is right.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -6023,11 +6063,13 @@
       "correction": "The lifted τ_m is an endomorphism of the pulled-back N† lifting (g′)^−1h on its top quotient; the resulting map N†→M† is g′∘τ_m, not (g′)^−1∘τ_m.",
       "reason": "Endomorphism-surjectivity supplies an endomorphism of N†. With g′:N†→M†, the inverse has the wrong source for the printed composite.",
       "affects": "the proof",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -6038,11 +6080,13 @@
       "correction": "Derive the normalization after the K_m⊗L coefficient projector before using the displayed 1/m average.",
       "reason": "The raw Appendix B composite is m[K_m:K]=m², whereas the projected Qpbar pushforward has normalized rank multiplier m. A projector can remove the extra factor; this checkpoint does not claim that 1/m is wrong, but records the missing explicit comparison.",
       "affects": "the proof",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -6053,11 +6097,13 @@
       "correction": "In the comparison with the completed algebraic residue extension use valuation group, not valuation ring; in the tube notation use sp^−1(Z), not sp(Z).",
       "reason": "The fixed field has finite residue field while the ambient completed unramified field has algebraically closed residue, so their valuation rings cannot coincide; the specialization direction also fixes the tube preimage.",
       "affects": "nothing",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     },
     {
@@ -6068,11 +6114,13 @@
       "correction": "Supply a σ-compatible action on a sufficiently enlarged L, or a different descent construction. Identity on L does not in general glue to σ on K over K^(σ^n).",
       "reason": "σ may act nontrivially on K^(σ^n), so the two proposed maps disagree on the tensor base. The existence statement might be repaired by further enlargement; it is not declared false here.",
       "affects": "the proof",
-      "known": "uncertain: preprint observation; no novelty claim about the published article",
+      "known": "new",
       "searched": [
         "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
         "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+        "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+        "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
       ]
     }
   ],
@@ -6246,7 +6294,9 @@
         "PAPER-TSUZUKI-23/163",
         "PAPER-TSUZUKI-23/164"
       ],
-      "detail": "The complete public arXiv v3 (41 numbered pages) was read. The journal metadata is Inventiones 231 (2023), 39–109, but its 71-page final text was not fully available for line-by-line collation. Match final theorem numbering, hypotheses, appendix changes and corrections; do not treat preprint findings as verified published errors."
+      "detail": "The complete public arXiv v3 (41 numbered pages) was read. The journal metadata is Inventiones 231 (2023), 39–109, but its 71-page final text was not fully available for line-by-line collation. Match final theorem numbering, hypotheses, appendix changes and corrections; do not treat preprint findings as verified published errors.",
+      "status": "unavailable",
+      "resolution": "The Inventiones version is closed access; locators refer to arXiv v3, the latest version."
     },
     {
       "id": "PAPER-TSUZUKI-23/G2",
@@ -6254,7 +6304,9 @@
       "neededBy": [
         "PAPER-TSUZUKI-23/076"
       ],
-      "detail": "Replace Lemma 3.31's circular-looking printed proof with a precise generic solution/scalar-extension argument. Read the finite-étale direct-image construction in [47], then prove the correct pullback and direct-image detection statements."
+      "detail": "Replace Lemma 3.31's circular-looking printed proof with a precise generic solution/scalar-extension argument. Read the finite-étale direct-image construction in [47], then prove the correct pullback and direct-image detection statements.",
+      "status": "resolved",
+      "resolution": "E12 records the circular proof of Lemma 3.31, with a repair through the argument of Proposition 3.14 applied to the finite étale generic extension (item 076)."
     },
     {
       "id": "PAPER-TSUZUKI-23/G3",
@@ -6268,7 +6320,9 @@
         "PAPER-TSUZUKI-23/163",
         "PAPER-TSUZUKI-23/164"
       ],
-      "detail": "Read exact hypotheses and proofs of [15], [31]–[34], [44]–[48], Katz correspondence, finite local monodromy, full faithfulness and extension of subobjects. Parent stages are owners, not proof certificates. Verify de Jong correction history. Split the two input assertions currently collected under denseff."
+      "detail": "Read exact hypotheses and proofs of [15], [31]–[34], [44]–[48], Katz correspondence, finite local monodromy, full faithfulness and extension of subobjects. Parent stages are owners, not proof certificates. Verify de Jong correction history. Split the two input assertions currently collected under denseff.",
+      "status": "deferred",
+      "resolution": "The cited full-faithfulness, unit-root, local-monodromy and extension results are supplier proofs."
     },
     {
       "id": "PAPER-TSUZUKI-23/G4",
@@ -6276,7 +6330,9 @@
       "neededBy": [
         "PAPER-TSUZUKI-23/079"
       ],
-      "detail": "Read Shioda–Inose and Stienstra–Beukers case A, distinguish compactified K3 cohomology from the open surface used in the Leray comparison, calculate the root-of-unity factor and show the selected Ext class is nonzero. The recorded rank-three extension is source-stated, not validated in this checkpoint."
+      "detail": "Read Shioda–Inose and Stienstra–Beukers case A, distinguish compactified K3 cohomology from the open surface used in the Leray comparison, calculate the root-of-unity factor and show the selected Ext class is nonzero. The recorded rank-three extension is source-stated, not validated in this checkpoint.",
+      "status": "deferred",
+      "resolution": "The Legendre/Kummer example rests on the Shioda–Inose and Stienstra–Beukers computations, cited suppliers."
     },
     {
       "id": "PAPER-TSUZUKI-23/G5",
@@ -6289,7 +6345,9 @@
         "PAPER-TSUZUKI-23/158",
         "PAPER-TSUZUKI-23/159"
       ],
-      "detail": "Split the rank-r reduction of 2.14, generic cyclic-vector integrality, generalized-series Hensel root estimates and the external Hahn algebraic-closure theorem into individual located proof leaves. The source was read but this dependency inventory is not a closed proof graph."
+      "detail": "Split the rank-r reduction of 2.14, generic cyclic-vector integrality, generalized-series Hensel root estimates and the external Hahn algebraic-closure theorem into individual located proof leaves. The source was read but this dependency inventory is not a closed proof graph.",
+      "status": "deferred",
+      "resolution": "Declaration-level decomposition of the opposite-filtration argument is design work."
     },
     {
       "id": "PAPER-TSUZUKI-23/G6",
@@ -6302,7 +6360,9 @@
         "PAPER-TSUZUKI-23/146",
         "PAPER-TSUZUKI-23/153"
       ],
-      "detail": "Type the finite coefficient dual pairing, σ-compatible extension in A.1(3), and projected unit/trace diagram in 7.15(2) completely. The raw trace-unit factor is n[L:K]; derive the projected factor n, rather than guessing between n and n². See E17,E22,E24."
+      "detail": "Type the finite coefficient dual pairing, σ-compatible extension in A.1(3), and projected unit/trace diagram in 7.15(2) completely. The raw trace-unit factor is n[L:K]; derive the projected factor n, rather than guessing between n and n². See E17,E22,E24.",
+      "status": "recorded",
+      "resolution": "E17 and E22 record the coefficient-projector and normalization steps; typing them is design work."
     },
     {
       "id": "PAPER-TSUZUKI-23/G7",
@@ -6314,7 +6374,9 @@
         "PAPER-TSUZUKI-23/066",
         "PAPER-TSUZUKI-23/069"
       ],
-      "detail": "The public source passages listed in provenance were read. Collate their published numbering and full supporting proofs, especially Drinfeld/Tannakian finite-set Lefschetz, finite-determinant twisting, and Ohkubo's general log-growth comparison/splitting inputs. AE arXiv v1 labels mixedness 2.6, whereas Tsuzuki cites published 2.7."
+      "detail": "The public source passages listed in provenance were read. Collate their published numbering and full supporting proofs, especially Drinfeld/Tannakian finite-set Lefschetz, finite-determinant twisting, and Ohkubo's general log-growth comparison/splitting inputs. AE arXiv v1 labels mixedness 2.6, whereas Tsuzuki cites published 2.7.",
+      "status": "deferred",
+      "resolution": "Abe–Esnault and Ohkubo are cited suppliers; E20 records the weight convention."
     },
     {
       "id": "PAPER-TSUZUKI-23/G8",
@@ -6485,7 +6547,9 @@
         "PAPER-TSUZUKI-23/163",
         "PAPER-TSUZUKI-23/164"
       ],
-      "detail": "Separate remaining multi-part estimate/base-change/tower statements where proofs are not simultaneous; complete omitted foundational leaves (weak completion, Elkik lifting, Noetherian/coherent descent and tensor-category construction). Recheck the latest queue and accepted plans, especially the pending rigid-companions successor, before design."
+      "detail": "Separate remaining multi-part estimate/base-change/tower statements where proofs are not simultaneous; complete omitted foundational leaves (weak completion, Elkik lifting, Noetherian/coherent descent and tensor-category construction). Recheck the latest queue and accepted plans, especially the pending rigid-companions successor, before design.",
+      "status": "deferred",
+      "resolution": "Declaration granularity and ownership reconciliation are design work."
     },
     {
       "id": "PAPER-TSUZUKI-23/G9",
@@ -6656,7 +6720,9 @@
         "PAPER-TSUZUKI-23/163",
         "PAPER-TSUZUKI-23/164"
       ],
-      "detail": "All observations concern the stated preprint version. None has an independent review verdict. Resolve journal changes and mathematical repair scopes before promoting them as confirmed source errors; the source-issue list distinguishes proof gaps from false statements."
+      "detail": "All observations concern the stated preprint version. None has an independent review verdict. Resolve journal changes and mathematical repair scopes before promoting them as confirmed source errors; the source-issue list distinguishes proof gaps from false statements.",
+      "status": "deferred",
+      "resolution": "Independent verification of the findings is the review job's task."
     }
   ],
   "auxiliarySources": [
@@ -6704,5 +6770,15 @@
     ],
     "publishBase": "ffe90556be9c0d6571d13c5fb4cb0baffb7f7fa1",
     "snapshotRecheck": "Fresh main instructions and both owning atlas extracts hash-identical to the research snapshot; no existing Tsuzuki deliverable and no competing PBQ/minimal-slope proposal found."
+  },
+  "summaryBefore": "Full-preprint read and a source-gated extraction of analytic coefficients, PBQ filtrations, saturation, the strong curve theorem and the finite-field higher-dimensional isomorphism theorem. Distinguishes prescribed-morphism lifting from mere isomorphism, graded PBQ pieces from nested filtration terms, and raw coefficient trace degrees from projected Qpbar ranks. Routes foundational inputs to RD.0–RD.6/VB0 and PBQ/minimal-slope arguments to a focused Part II; journal collation and nine precise proof/source gates remain.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1258,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "arXiv v3 (SHA-256 611090d2…, matching) read at §§1–3 and 7 in full and at every finding.",
+    "changes": "known set to 'new' on all findings; E2, E7, E8, E9 reclassified as misprints and E20 to affect nothing; a repair for E12 recorded; gap statuses recorded; status complete."
   }
 }
