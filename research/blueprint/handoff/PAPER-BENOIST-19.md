@@ -1,15 +1,28 @@
-# PAPER-BENOIST-19 continuation handoff
+# PAPER-BENOIST-19 handoff
 
-Codex, session codex-c83e7a, issue1454; continuation of PR2016. **Partial**: the local finite-cover/resolution distinction is supplied, while the separate Jannsen and nonconstant-evaluation gates remain open.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged Codex checkpoints. Issue #1454. Date: 23 September 2026.
 
-Preserved IDs01–167 and the prior uniform-evaluation repair. Added168–185:185 total,13 library,13 planned,159 missing,10 routes. All missing items have exactly one route. There are69 definitions/constructions with207 proposed tests:28 structured API contracts on10 items and59 compact legacy API outlines. The explicit DAG has132 internal and14 external edges. There are19 unreviewed source findings. E1 is expanded; E2–17 are preserved; E18 corrects the fixed centre to w=0, and E19 records the harmless scalar normalization in(5.5). Preserve the withdrawal of the p.100 label suspicion.
+## Saved
 
-Read the new report’s local geometry and items174–185 first. The finite cover is C=Spec(O⊕L⁻¹(−R)), z²=rs. The projective rv²=sw² model is already the resolution at R∩D and is isomorphic to C near Sing R. Its remaining nodes are at w=0; blowing up those fixed ambient points gives the smooth family. Both resolutions preserve functions, giving the finite Stein model. The two-chart Čech calculation also gives higher-direct-image vanishing locally. The auxiliary curves are graph sections, may meet where g=0, and are not the entire inverse image of C0, which includes exceptional P1 fibres. Their root restriction is sqrt(a1)rg before rescaling g. Pushforward in(5.5) needs left exactness, not finiteness.
+- **Items.** 187 items. Every missing item is routed exactly once, and every numbered statement is an item.
+  - New: Conjectures 0.9 and 0.11, as items 186 and 187.
+- **Mistakes.** Nineteen, against the published Numdam PDF.
+  - **E3 and E4.** They now affect a stated result: Propositions 4.4, 4.5 and 6.6 are not established when the evaluation [α̃]_0 is nonconstant on Ψ.
+    - The main theorems use only Ψ = Θ through Proposition 6.7, where the evaluation is 0 and the checkpoint's repair applies.
+  - **E1.** Unchanged: the §3.1 cover is not finite.
+  - **Reclassified to affect nothing.** E6, E11, E12, E16 and E18.
+- **Gaps.**
+  - G2, G4, G5, G7, G8 and G12 are resolved.
+  - G1, G4a, G4b, G6 and G9 are recorded as findings.
+  - G10 and G11 are deferred.
 
-Generic Rees blowups and the split-node calculation import upstream StableReduction layer4, shared with R09.7a. R03.3 supplies hypersurface Cohen–Macaulayness and Serre normality, coalescing BIP23/087. SF.1 supplies the Witaszek22 Stein request, SF.0/SF.3 the relative-Spec/line-bundle interfaces, and SF.2 coherent Čech/base-change machinery. These are shared supplier obligations, not built theorem claims. Keep the existing topology, Hodge, quadratic-form and period-index PartII owners.
+## Resume
 
-Next resolve G10: obtain Jannsen’s lemma p.268, DOI10.1007/978-94-011-4098-0_8, or reconstruct and validate the exact signed diagram chase in(4.3)–(4.5), including the injective-complex replacement. Historical access failures are not a source reading. The uniform-evaluation main branch still depends on this input. General G4a/G4b, smaller G6/G9 details and G11’s unread prerequisite interiors remain. Expand the59 legacy API outlines before claiming protocol-level completeness. Do not mark the extraction complete merely because G1’s local calculations are supplied.
+The job is complete. For a reviewer:
 
-Fresh reading was published pp76–80 and85–87, author-copy p15, images76/77, and the displayed Stacks03H0/03H2/0AY8/031S proofs. The complete48-page reading remains attributed to PR2016. Transitive Stacks sources were not all read. Exact pinned quadratic-algebra statements were inspected. Catalogue snapshot `e238ff36f37a6456671946a8293ad613dc410409` has530 verified blobs; the late changed/new paper routes were screened without claiming full readings.
+1. Check E3 on p. 84, the (a, b, c) ↦ (0, b + a[e]_1, …) step.
+2. Check the claim that Proposition 6.7 applies Proposition 6.6 only with Ψ = Θ (p. 95).
 
-Validation: paper schema and intake file checks pass; structural/hash/dependency checks pass;73435 exact new diagnostics and7926 unchanged prior diagnostics pass. The new certificate is embedded in the JSON. These are not Lean proofs; no Lean file requested or compiled. Only the two paper deliverables and this handoff are submitted. All source findings await independent review.
+## Validation
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.
