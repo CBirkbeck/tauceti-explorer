@@ -45,11 +45,12 @@
     },
     "SchemeAndStackFoundations:SF.1": {
       "action": "narrow",
-      "keeps": "Keep effective fpqc/fppf descent for explicitly specified effective object classes beyond the polarized etale case; algebraic-space quotients, representable diagonals, atlas independence, and the distinction between stacks, moduli functors, coarse and fine spaces. On polarized etale data compare the broader construction with SR Layer 2, including morphisms, sections and the polarization cocycle. Neither arbitrary scheme descent nor properness of a moduli stack follows from this import.",
+      "keeps": "Keep effective fpqc/fppf descent for explicitly specified effective object classes beyond the polarized etale case of SR Layer 2 and beyond the classes owned by Tau Ceti ModularCurves 0E (affine schemes, finite locally free schemes and closed subschemes, sections and morphisms, polarized projective relative curves, group objects, finite group actions and torsors, with spreading out); algebraic-space quotients, representable diagonals, atlas independence, and the distinction between stacks, moduli functors, coarse and fine spaces. On polarized etale data compare the broader construction with SR Layer 2, including morphisms, sections and the polarization cocycle. Neither arbitrary scheme descent nor properness of a moduli stack follows from this import.",
       "suppliedBy": [
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out"
       ],
-      "reason": "Remove a second construction of polarized etale scheme descent already owned by SR Layer 2. Preserve the genuinely broader descent and space/stack targets and their effectiveness hypotheses."
+      "reason": "Remove a second construction of polarized etale scheme descent already owned by SR Layer 2. Preserve the genuinely broader descent and space/stack targets and their effectiveness hypotheses. Review correction: Tau Ceti ModularCurves 0E already owns effective faithfully flat descent for its listed classes, so those are imports too."
     },
     "SchemeAndStackFoundations:SF.2": {
       "action": "keep",
@@ -355,6 +356,31 @@
       "source": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
       "target": "TropicalAndBerkovichArithmetic:TB.2",
       "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "SchemeAndStackFoundations:SF.1",
+      "reason": "Named import for the construction-ownership boundary in SchemeAndStackFoundations:SF.1: the effective faithfully flat descent classes of ModularCurves 0E are imported, and SF.1 proves only the broader classes and the algebraic-space/stack interfaces (review correction)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1 after the review correction naming ModularCurves 0E as a supplier; inherited interface, not a claim that every supplier theorem is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1 after the review correction naming ModularCurves 0E as a supplier; inherited interface, not a claim that every supplier theorem is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "LogicAndDefinabilityInNumberTheory:LD.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1 after the review correction naming ModularCurves 0E as a supplier; inherited interface, not a claim that every supplier theorem is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "SchemeAndStackFoundations:SF.2",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1 after the review correction naming ModularCurves 0E as a supplier; inherited interface, not a claim that every supplier theorem is used."
     }
   ],
   "owners": [
@@ -500,7 +526,14 @@
       ]
     },
     {
-      "target": "Effective fpqc/fppf descent beyond that polarized etale case, with specified effective classes and algebraic-space/stack interfaces",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "Effective faithfully flat descent with cocycle and uniqueness statements for affine schemes, finite locally free schemes and closed subschemes, sections and morphisms, polarized projective relative curves, group objects on a descended scheme, finite group actions and torsors, and the corresponding spreading-out",
+      "formerly": [
+        "SchemeAndStackFoundations:SF.1"
+      ]
+    },
+    {
+      "target": "Effective fpqc/fppf descent beyond that polarized etale case and the ModularCurves 0E classes, with specified effective classes and algebraic-space/stack interfaces",
       "owner": "SchemeAndStackFoundations:SF.1",
       "formerly": []
     },
@@ -516,5 +549,16 @@
       "owner": "SchemeAndStackFoundations:SF.5",
       "formerly": []
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-25",
+    "date": "2026-09-23",
+    "notes": "Checked against both member documents, the anchor layers named in the proposal (EllipticCurves 4 and 8, StableReduction 1, 2, 4 and 6–9, JacobianChallenge D and F), ArithmeticGaloisRepresentations R01.3 and the family evidence. All duplication leads are resolved with one owner each. The three narrowings keep every original target or name its supplier, and every consumer of SF.0, SF.1 and SF.4 receives links from the new suppliers. With the twelve accepted restructurings applied, all 60 links apply and none closes a cycle; the same holds when all unreviewed proposals are applied, in either order. One missed duplicate was corrected in place: Tau Ceti ModularCurves 0E already owns effective faithfully flat descent for its listed classes. See REV-RS-25.md.",
+    "corrections": [
+      "layers[SchemeAndStackFoundations:SF.1]: added tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out to suppliedBy; keeps now excludes the ModularCurves 0E descent classes as well as the polarized étale case; reason records the correction.",
+      "owners: new entry, owner ModularCurves 0E, for effective faithfully flat descent of its listed classes (formerly SF.1); the SF.1 owner entry now says \"beyond that polarized etale case and the ModularCurves 0E classes\".",
+      "links: added ModularCurves 0E -> SF.1 (named import) and the forwarding links ModularCurves 0E -> DM.3, GS.0, LD.3 and SF.2 for the consumers of the narrowed SF.1."
+    ]
+  }
 }
