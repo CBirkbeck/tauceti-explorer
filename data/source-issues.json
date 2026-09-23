@@ -3917,6 +3917,75 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-ANDRE-18-B/E13",
+   "kind": "misprint",
+   "locator": "§0.1, footnote 1, p.72 (published version)",
+   "printed": "Les énoncés suivants sont équivalents¹ … ¹ … L'implication (1) ⇒ (3) est implicite dans [27, 23]; (1) ⇔ (4), voir [14]; (1) ⇒ (2) est élémentaire … pour la réciproque, voir [9]; (4) ⇒ (5), voir [14, 10]; (5) ⇒ (6), implicite dans [11, 14].",
+   "correction": "The arrows for the two statements that were renumbered should close: (1) ⇔ (3) and (4) ⇔ (5).",
+   "reason": "Statements (1)–(5) are asserted to be equivalent, but the footnote supplies only (1) ⇒ (3) and only (4) ⇒ (5); (3) ⇒ (1) and (5) ⇒ (4) appear nowhere. Both converses are in the works cited at those very places: the reference given for (3) is Ohi, “Direct summand conjecture and descent for flatness”, whose title is the equivalence, and the second reference given for (5) is Dutta, “On the canonical element conjecture”. The 2016 preprint, whose list has no flat-descent item and numbers the remaining statements (1)–(5), states the corresponding attributions as two-sided: “Pour l'équivalence (1) ⇔ (3), voir [H2, th. 6.1]” for the monomial statement and “Pour (3) ⇒ (4), voir [H2], et [Du] pour la réciproque” for the complex/dimension statement. The one-sided arrows are an artefact of inserting the new statement (3) and shifting the numbering.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Published version read directly: the open-access version of record on Centre Mersenne, https://pmihes.centre-mersenne.org/item/10.1007/s10240-017-0097-9.pdf, 23 pages, sha256 34da107d0b96149d9a6779ec1694a0cbb096136d021114b59427024ef3d47053 — the same file the extraction already records. Fetched 23 September 2026 and read with a font-aware text extraction (the /Differences and /ToUnicode tables of the embedded Type 1 fonts), so the printed mathematics, not a lossy text layer, was compared at each locator.",
+    "arXiv listing for 1609.00345, checked 23 September 2026: a single version v1 (1 September 2016), whose LaTeX source (e-print sha256 878082a3d2be43ed19a333ccd5db57be0033c937ea87cd4f765267cc2e08b3b6) was read at the corresponding passages. It predates publication, so it cannot correct the published text; it is used here only as evidence of what changed between preprint and print.",
+    "HAL record hal-01357338 (deposited 29 August 2016), checked 23 September 2026: it carries the same 2016 file (FactDirect7.pdf) and no later version.",
+    "Crossref record for 10.1007/s10240-017-0097-9, fetched 23 September 2026: no update, correction or erratum is registered against it.",
+    "No published erratum is known to this extraction; recorded as new and awaiting independent review."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E14",
+   "kind": "gap",
+   "locator": "§1.2.1, p.76 (published version)",
+   "printed": "Alors le quotient ℬ≤1⟨U⟩/(λU − f) est sans π-torsion : en effet, il suffit de voir que tout élément annulé par λ est nul ; or si Σ b_m U^m relève un tel élément, l'équation λ(Σ b_m U^m) = (λU − f) Σ₀^∞ a_m U^m, a_m ∈ ℬ≤1, implique que λ divise tous les a_m puisque la multiplication par f est injective modulo λ.",
+   "correction": "Run the displayed argument with π in place of λ. Absence of λ-torsion gives absence of π-torsion only when |λ| ≤ |π|, which is not assumed; the same computation with an arbitrary nonzero μ ∈ 𝒦° proves the stronger and correct statement that the quotient is torsion-free over 𝒦°.",
+   "reason": "The sentence announces the absence of π-torsion for π ∈ 𝒦°° and then says it suffices to treat λ, but the two differ: if |π| < |λ| then λ-torsion is contained in π-torsion, not the other way round, so the reduction goes the wrong way. Nothing is lost, because the argument does not use any property of λ beyond f being injective modulo it: for any nonzero μ ∈ 𝒦°, comparing coefficients in μ Σ b_m U^m = (λU − f) Σ a_m U^m gives μ b₀ = −f a₀, hence a₀ ∈ μℬ≤1 since multiplication by f is isometric, and then μ b_m = λ a_{m−1} − f a_m gives a_m ∈ μℬ≤1 by induction; so the lifted element lies in (λU − f)ℬ≤1⟨U⟩ and is zero. In the only use, §2.5.2 with λ = π^i and λ = π_{ik}, one does have |λ| ≤ |π|, so the printed reduction is harmless there.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Published version read directly: the open-access version of record on Centre Mersenne, https://pmihes.centre-mersenne.org/item/10.1007/s10240-017-0097-9.pdf, 23 pages, sha256 34da107d0b96149d9a6779ec1694a0cbb096136d021114b59427024ef3d47053 — the same file the extraction already records. Fetched 23 September 2026 and read with a font-aware text extraction (the /Differences and /ToUnicode tables of the embedded Type 1 fonts), so the printed mathematics, not a lossy text layer, was compared at each locator.",
+    "arXiv listing for 1609.00345, checked 23 September 2026: a single version v1 (1 September 2016), whose LaTeX source (e-print sha256 878082a3d2be43ed19a333ccd5db57be0033c937ea87cd4f765267cc2e08b3b6) was read at the corresponding passages. It predates publication, so it cannot correct the published text; it is used here only as evidence of what changed between preprint and print.",
+    "HAL record hal-01357338 (deposited 29 August 2016), checked 23 September 2026: it carries the same 2016 file (FactDirect7.pdf) and no later version.",
+    "Crossref record for 10.1007/s10240-017-0097-9, fetched 23 September 2026: no update, correction or erratum is registered against it.",
+    "No published erratum is known to this extraction; recorded as new and awaiting independent review."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E15",
+   "kind": "misprint",
+   "locator": "§1.2.1, formula (2), p.77 (published version); the same slip is in arXiv:1609.00345v1",
+   "printed": "si la valuation de 𝒦 et discrète, et",
+   "correction": "si la valuation de 𝒦 est discrète",
+   "reason": "A typographical slip for “est”, carried over unchanged from the 2016 preprint, whose source reads “si la valuation de $\\sK$ et discrète”. It separates the two cases of the unit-ball formula, so the intended reading is not in doubt.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Published version read directly: the open-access version of record on Centre Mersenne, https://pmihes.centre-mersenne.org/item/10.1007/s10240-017-0097-9.pdf, 23 pages, sha256 34da107d0b96149d9a6779ec1694a0cbb096136d021114b59427024ef3d47053 — the same file the extraction already records. Fetched 23 September 2026 and read with a font-aware text extraction (the /Differences and /ToUnicode tables of the embedded Type 1 fonts), so the printed mathematics, not a lossy text layer, was compared at each locator.",
+    "arXiv listing for 1609.00345, checked 23 September 2026: a single version v1 (1 September 2016), whose LaTeX source (e-print sha256 878082a3d2be43ed19a333ccd5db57be0033c937ea87cd4f765267cc2e08b3b6) was read at the corresponding passages. It predates publication, so it cannot correct the published text; it is used here only as evidence of what changed between preprint and print.",
+    "HAL record hal-01357338 (deposited 29 August 2016), checked 23 September 2026: it carries the same 2016 file (FactDirect7.pdf) and no later version.",
+    "Crossref record for 10.1007/s10240-017-0097-9, fetched 23 September 2026: no update, correction or erratum is registered against it.",
+    "No published erratum is known to this extraction; recorded as new and awaiting independent review."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-ANDRE-18/E1",
    "kind": "error",
    "locator": "Published §2.2.4, second paragraph, p. 13; the same assertion and proof are in arXiv:1609.00320v1 §2.2.4, p. 12",
@@ -71204,9 +71273,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Checked the published text at all four locators and re-derived the counterexample. A wild automorphism σ of C_p over Q_p exists by extending a transcendence basis, and is discontinuous, hence non-isometric, so ν and ν∘σ are two distinct multiplicative — therefore spectral — Q_p-algebra norms for each of which C_p is complete (σ is an isometry (C_p,ν∘σ)→(C_p,ν)); the printed uniqueness claim of §2.2.4 p.13 is false. The finite-group counterexample to the parenthesis of Lemme 2.4.1(2) p.22 also holds as written: on B=C_p×C_p with N(x,y)=max(ν(x),ν∘σ(y)) — spectral because each factor norm is multiplicative, and complete — the transposition carries (t,0) of norm ν(t) to (0,t) of norm ν(σ(t)), and these differ for some t. I also checked the repair the entry proposes: continuity of each group element does suffice, since a continuous automorphism carries N to an equivalent spectral norm and the spectral radius lim‖f^n‖^(1/n) depends only on the topology; the transposition above is discontinuous, so it does not undercut that repair. The uses on p.24 and p.41 are as described, and the p.41 one is self-repairing because the text there also cites the fixed-topology form."
   },
   {
    "id": "PAPER-ANDRE-18/E2",
@@ -71225,9 +71294,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed at both occurrences. Numbered paragraph 2.2.2 of the published text introduces uniform algebras and asserts no uniqueness; the statements « au plus une norme spectrale » that both passages invoke are in 2.2.4. The correction is right, and by E1 the reference should be to the fixed-topology form of that statement rather than to the complete-norm form."
   },
   {
    "id": "PAPER-ANDRE-18/E4",
@@ -71246,9 +71315,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Recomputed the valuation. |1+i|=2^(-1/2) because |(1+i)^2|=|2i|=1/2, so |(i+1)/2|=2^(-1/2)/2^(-1)=2^(1/2) and the product is 2^(3/2), not the printed 2^(-3/2). The sign of the exponent is what carries the example: the standing hypotheses bound the product by |2|^(-1)=2, so 2^(3/2)>2 is the contradiction the paragraph draws, whereas the printed 2^(-3/2) is below the bound and yields none. The correction and its reach (the proof of that example only) are right."
   },
   {
    "id": "PAPER-ANDRE-18/E5",
@@ -71267,9 +71336,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed against the published formula (2.17). The middle term prints an inversion of p where the construction inverts the pseudo-uniformiser: the sentence immediately following uses [1/ϖ], and the characteristic-p setting in which this tilted object is used makes inverting p vacuous, which would collapse the stated identification. The correction is the paper's own usage."
   },
   {
    "id": "PAPER-ANDRE-18/E6",
@@ -71288,9 +71357,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed, and the replacement bound is provable, so the lemma is intact. The printed inf_m |(g/λ)^m a| ≥ 1 fails whenever |a|<1, already at m=0, and that is the generic case for a ∈ A°; A=K, g=1, a=λ=ϖ gives inf=|ϖ|. The proposed ≥|a|>0 follows from power-multiplicativity and submultiplicativity: |ga|^m=|(ga)^m|=|g^m a^m| ≤ |g^m a|·|a|^(m-1), hence |(g/λ)^m a|=|g^m a|·|λ|^(-m) ≥ |a|·(|ga|/(|a||λ|))^m ≥ |a|, using |a||λ| ≤ |λ| ≤ |ga|. The stated reach — the proof only — is right."
   },
   {
    "id": "PAPER-ANDRE-18/E7",
@@ -71309,9 +71378,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed at the printed presentation: the complement in the relation carries a different index from the generator it is paired with. I checked the entry's strengthened reason rather than taking it on trust: imposing the printed relation for every pair of indices forces all the generators equal to one element x with 2x=1, and with the printed meet relations x^2=x, so x=2x^2=2x=1 and then 1=0, i.e. the presented algebra is the zero ring rather than the prescribed Boolean one. Deleting the stray prime restores the characteristic-function relations."
   },
   {
    "id": "PAPER-ANDRE-18/E8",
@@ -71330,9 +71399,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed. A K-algebra morphism out of K is unique and sends 1 to 1, so the printed arrow « 1 ↦ a_n » out of K is ill-typed unless a_n=1; the free object on one topologically bounded generator is K⟨T⟩ with T ↦ a_n, which is what the rest of the paragraph manipulates. The correction covers the second occurrence, the single proposed morphism, as well. Affects the proof's wording only."
   },
   {
    "id": "PAPER-ANDRE-18/E9",
@@ -71351,9 +71420,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed. In the characteristic-zero part of step (c) a nonzero A_α has characteristic zero, while a rational localisation of A♭ has characteristic p, so the A_α cannot be localisations of A♭; they are the untilts (A♭_α)^♯ of the localisations of A♭, equivalently rational localisations of A, and the square's vertical arrows are precisely the equivalences « données par ♯ ». The correction is right and the argument is unaffected once read this way."
   },
   {
    "id": "PAPER-ANDRE-18/E10",
@@ -71372,9 +71441,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed in the published proof. B^G=A holds by the standing hypothesis, so the printed chain would equate the whole invariant ring with a ring of integral elements; the object the step needs is (B°)^G, and (B°)^G=A∩B°=A° then follows from the identity established earlier in 2.4.1 together with G-stability of B°. Reach « nothing » is right: the intended reading is the one used downstream."
   },
   {
    "id": "PAPER-ANDRE-18/E11",
@@ -71393,9 +71462,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed. The step cited is p-radicial closedness of A[1/g] in B[1/g], which is condition (2) of the lemma, not condition (1). I also checked the locator, because the paper runs two counters and has both a numbered paragraph 2.5.3 and a Lemme 2.5.3: the misprint is in the proof of the Lemme, which is where the entry points. Harmless direct-citation repair."
   },
   {
    "id": "PAPER-ANDRE-18/E12",
@@ -71414,9 +71483,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed against Crossref for DOI 10.1016/j.jpaa.2015.07.008, which gives Kazuma Shimomoto, « An application of the almost purity theorem to the homological conjectures », J. Pure Appl. Algebra 220(2), February 2016, 621–632. The printed entry is wrong in the year and omits the pages; volume 220 of that journal is 2016 throughout. Bibliographic only, as recorded."
   },
   {
    "id": "PAPER-ANDRE-18/E13",
@@ -71435,9 +71504,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed, and decided by the paper against itself. Théorème 0.3.1(1) p.2 announces « l'inclusion A → B », while Proposition 5.3.1(2) p.68 — which the text names as the result 0.3.1 follows from — asserts only that B is the largest perfectoid A-algebra contained in B′, with no injectivity of the structure map; and part (3) of both statements adds faithfulness of B′ separately, which is exactly the hypothesis an inclusion would need. The correction states the right object and keeps that faithfulness where it belongs."
   },
   {
    "id": "PAPER-ANDRE-18/E14",
@@ -71456,9 +71525,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed at the source, statement and proof. Güntzer (1974) Lemma 3.5, printed p.116, reads: « Let A be a k-Banach algebra with norm ‖ ‖. Assume that char k = p > 0. Then the following statements are equivalent: (a) f ↦ inf_i ‖f^(p^i)‖^(p^(-i)), f ∈ A, is a norm inducing the same topology as ‖ ‖; (b) there is a power multiplicative k-algebra norm on A inducing the same topology as ‖ ‖; (c) A^p is closed in A. » — no reducedness hypothesis — while the proof of (c)⇒(a) on p.117 asserts that ‖f‖_i := ‖f^(p^i)‖^(p^(-i)) is a k-algebra norm, which fails for a nonzero nilpotent. The omission is not harmless: for k=F_p((t)) and A=k[ε]/(ε²) with the max norm, A^p=k^p is closed, so (c) holds, yet |ε|²=|ε²|=0 rules out any power-multiplicative norm, so (a) and (b) fail and the equivalence as printed is false. As the entry says, this is a defect of the cited source and is already recorded in André's footnote 16 p.36, which I read verbatim; it is therefore not a mistake of the paper under review."
   },
   {
    "id": "PAPER-ANDRE-18/E15",
@@ -71477,9 +71546,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed as a defect in the stated claim, with one qualification worth recording. Continuous K-algebra morphisms K⟨T⟩ → A correspond to elements of A°, not of A: on A=K the assignment T ↦ ϖ^(-1) is not continuous, so the Tate algebra is not left adjoint to the underlying set of the whole algebra, and A ↦ A° is the right adjoint, as the correction says. The qualification is that the reach is nil in practice: the paragraph's mathematical claim is given an independent direct proof immediately before, and no later passage cites the adjunction as such."
   },
   {
    "id": "PAPER-ANDRE-18/E16",
@@ -71498,9 +71567,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed by an explicit counterexample of my own. Take A=K×K with the max norm, g=(1,ϖ), λ=ϖ, μ=1: the rational domains are {|g| ≥ |ϖ|}, both points, and {|g| ≥ 1}, the first point only, so A{ϖ/g}^u=A, A{1/g}^u=K, and the transition map is the first projection, which kills (0,1). Here g is a non-zero-divisor, so that hypothesis does not rescue the printed sentence. The entry's own caveat is also right: multiplication by this g is not isometric, so the restricted reading suggested at the end of the correction is untouched by the counterexample."
   },
   {
    "id": "PAPER-ANDRE-18/E17",
@@ -71519,9 +71588,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed verbatim in the published text: the sentence ends « ... remplace l'usage . » with the object of « l'usage » missing, so the clause is truncated in print. The intended content is recoverable from the paper itself — footnote 19 and Remarque 3.4.5(1), « l'argument galoisien de la prop. 3.4.2 permet de se dispenser des anneaux de Robba de [21] » — which is what the second repair in the correction restores. Reach « nothing » is right."
   },
   {
    "id": "PAPER-ANDRE-18/E18",
@@ -71540,9 +71609,9 @@
    "owner": "PAPER-ANDRE-18",
    "file": "research/blueprint/errata/PAPER-ANDRE-18.json",
    "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-ANDRE-18",
+   "reviewReason": "Confirmed. That step of the construction works at a point x of the adic spectrum and takes a colimit over rational localisations shrinking to x, so the henselian colimit has completion H(x)°, not the global A°; reading the colimit with the seminorm induced by x and separated completion, as the correction says, is what the surrounding approximation references require. The proof is unaffected once read that way."
   },
   {
    "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1",
