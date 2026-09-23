@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-CHARLES-16",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Birational boundedness for holomorphic symplectic varieties, Zarhin’s trick for K3 surfaces, and the Tate conjecture",
     "authors": "François Charles",
@@ -42,7 +42,7 @@
       }
     ]
   },
-  "summary": "Extraction of Charles’s arbitrary-field Zarhin construction, complex IHS birational boundedness and finite-field Tate arguments. Retains prior full Charles and LMS manuscript reading, corrected source statements and the primitive-lattice continuation, and preserves cc-fb70e5’s G1 repair. This continuation decomposes the common-field prime selection in characteristic at least five, including rational Tate descent, corrected reciprocal discriminants and unit representation, and exact upstream/library imports. The literal item113 and moduli item127 remain unrouted; characteristic2/3 inputs and original geometric prerequisite proofs remain open. There are17 source findings, including seven inherited errata entries. No Lean implementation or closure is claimed.",
+  "summary": "Charles proves birational boundedness for holomorphic symplectic varieties, constructs Zarhin-type fourfolds from K3 surfaces over any field, and deduces the Tate conjecture for K3 surfaces over finite fields of characteristic at least 5, and of any characteristic when the Picard number is at least 2. Complete (cc-442dc5): every numbered statement and cited input is an item, and every missing item is routed exactly once. Lemma 4.5 is restated and proved after a finite extension (E8). Twenty-one findings are recorded, including the unverified nonsuperspecial hypothesis for the partners (E21). Supplier proofs are deferred. Not formalised.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -4587,6 +4587,10 @@
         {
           "where": "PAPER-CHARLES-16/80",
           "how": "The consumer Integral Kuga–Satake mapping uses this object through the following explicit contracts."
+        },
+        {
+          "where": "PAPER-CHARLES-16/143",
+          "how": "Remark 3.9 applies Proposition 2.6's argument in this setup."
         }
       ],
       "unitTests": [
@@ -5697,13 +5701,30 @@
     {
       "id": "PAPER-CHARLES-16/113",
       "kind": "theorem",
-      "name": "Literal norm-one selection claim needs a square-class argument",
-      "statement": "Charles Lemma 4.5 claims that, if Br(X) is infinite, there are finitely many rational primes p_i such that all sufficiently large ℓ with every p_i a square modulo ℓ have a vector α∈T(X,Zℓ) of square one. The printed proof's passage from ℓ-valuation bounds to finitely supported rational discriminant square classes has not been justified here.",
-      "locator": "Lemma 4.5, pp.520–521",
+      "name": "Norm-one vectors in the transcendental lattice (corrected Lemma 4.5)",
+      "statement": "Let X be a K3 surface over a finite field k with NS(X_k̄) = NS(X) and Br(X) infinite. Assume Frobenius acts semisimply on the eigenvalue-1 part of H²(X_k̄, Q_ℓ(1)) (item 111) and that −1 is not a Frobenius eigenvalue on it. The second condition holds after a finite extension of k, which keeps Br(X) infinite. Let g be the characteristic polynomial of Frobenius on the complement of the invariants, and put c = −g(1)g(−1)·disc NS(X) ∈ Q^×. Let x_1, …, x_r be −1 and the primes dividing the numerator or denominator of c. Then for every sufficiently large ℓ such that each x_i is a square modulo ℓ, there is α ∈ T(X, Z_ℓ) with α² = 1. The printed lemma omits the eigenvalue condition and −1 (E8).",
+      "locator": "Lemma 4.5, pp. 520–521, corrected (E8)",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Unrouted checkpoint: see explicit gap register."
+      "note": "Restated by Claude Code (cc-442dc5, 23 September 2026) with the rational-discriminant repair of E8, and routed. It gives the printed form of the lemma after the finite extension, with −1 among the p_i. The checkpoint's split-prime substitute (items 114 and simultaneous-k3-norm) is kept. Proposed target; no Lean declaration is claimed.",
+      "prerequisites": [
+        "PAPER-CHARLES-16/111",
+        "PAPER-CHARLES-16/112",
+        "PAPER-CHARLES-16/k3-determinant",
+        "PAPER-CHARLES-16/cayley-discriminant",
+        "PAPER-CHARLES-16/integral-orthogonal-split",
+        "PAPER-CHARLES-16/unit-representation-lift",
+        "PAPER-CHARLES-16/rank-one-norm",
+        "PAPER-CHARLES-16/finite-extension-tate-descent"
+      ],
+      "proofSteps": [
+        "By Hochschild–Serre, H²(X, Z_ℓ(1)) = L^G for L = H²(X_k̄, Z_ℓ(1)). By semisimplicity, V = L ⊗ Q_ℓ splits as V^G ⊕ V′ with V′ = (F−1)V. The two summands are orthogonal, since b(x, Fy − y) = b(F⁻¹x − x, y) = 0 for x ∈ V^G, and both are nondegenerate.",
+        "The characteristic polynomial g of F on V′ has rational coefficients independent of ℓ (item 111). By assumption g(1)g(−1) ≠ 0, so det V′ ≡ g(1)g(−1) by cayley-discriminant. With det V ≡ −1 (k3-determinant), det V^G ≡ −g(1)g(−1). NS(X) ⊗ Q_ℓ ⊂ V^G is nondegenerate, so disc T(X, Q_ℓ) ≡ c.",
+        "Take ℓ ≠ 2, p prime to the numerators and denominators of g(1), disc NS(X) and c. Then g(F)/g(1) is an integral projector on L with image L^G, so L^G is an orthogonal summand of the unimodular L and is unimodular. NS ⊗ Z_ℓ is unimodular, so L^G = NS ⊗ Z_ℓ ⊕ T(X, Z_ℓ) with T unimodular (integral-orthogonal-split).",
+        "T ≠ 0 (item 112). If rank T ≥ 2, unit-representation-lift gives α with α² = 1. If rank T = 1, T = Z_ℓe with e² = u ∈ Z_ℓ^×, and u ≡ c. Since −1 and every prime factor of c are squares modulo ℓ, c is a square modulo ℓ, so u is a square (rank-one-norm) and α = e/√u.",
+        "If −1 is an eigenvalue, the determinant of the (−1)-eigenspace is not fixed by g, so the argument needs the extension. It changes T(X, Z_ℓ), but §4.2 uses the lemma only to contradict the Tate conjecture, which descends (finite-extension-tate-descent). Lemma 4.6 (item 118) supplies infinitely many such ℓ."
+      ]
     },
     {
       "id": "PAPER-CHARLES-16/114",
@@ -6057,13 +6078,19 @@
     {
       "id": "PAPER-CHARLES-16/127",
       "kind": "theorem",
-      "name": "Polarized partner applicability gate",
-      "statement": "To apply corrected Proposition 3.17 to every selected X_n, one must prove H_n is ample (up to the permitted sign/choice) and that the surfaces meet the nonsuperspecial hypothesis. The paper sketches a relative projective deformation with generic Picard rank one; the precise simultaneous gerbe, line-bundle and moduli lift and the nonsuperspecial transfer remain to verify.",
-      "locator": "Proof of Theorem 1.3 pp.522–523",
+      "name": "Hypotheses of Proposition 3.17 for the twisted partners",
+      "statement": "In the proof of Theorem 1.3 (characteristic ≥ 5, X nonsuperspecial, D ample of square 2d):\n(a) For each n, one of H_n^{±1} is ample on X_n. This follows from a deformation of (X, D) over a DVR whose generic fibre has Picard rank one, carrying the ℓ-power Brauer class α_n and v_n, and from item 128 applied to the relative moduli space.\n(b) Proposition 3.17 then applies to (X_n, H_n^{±1}), of degree 2dℓ^{2n}, for every n with ℓ^{2n} ≡ 1 mod N and X_n nonsuperspecial.\nThe paper verifies neither that the X_n are nonsuperspecial nor that infinitely many admissible n have X_n nonsuperspecial (E21).",
+      "locator": "Proof of Theorem 1.3, pp. 522–523",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Unrouted checkpoint: see explicit gap register."
+      "note": "Restated by Claude Code (cc-442dc5, 23 September 2026) and routed. Part (a) is the paper's sketch completed by item 128. The family's construction is a supplier step (G4). Part (b)'s nonsuperspecial hypothesis is the paper's gap E21. Proposed target; no Lean declaration is claimed.",
+      "prerequisites": [
+        "PAPER-CHARLES-16/73",
+        "PAPER-CHARLES-16/126",
+        "PAPER-CHARLES-16/128",
+        "PAPER-CHARLES-16/131"
+      ]
     },
     {
       "id": "PAPER-CHARLES-16/128",
@@ -7084,6 +7111,43 @@
           "match": "Fresh reading scopes and pinned statement records are in continuationPrimeSelection. Proposed mathematical interface, not a compiled Lean declaration."
         }
       ]
+    },
+    {
+      "id": "PAPER-CHARLES-16/cayley-discriminant",
+      "kind": "theorem",
+      "name": "Determinant of an isometry space without eigenvalues ±1",
+      "statement": "Let (V, b) be a finite-dimensional nondegenerate symmetric bilinear space over a field of characteristic not 2, and F an isometry of V whose characteristic polynomial g satisfies g(1)g(−1) ≠ 0. Then dim V is even and det b ≡ g(1)g(−1) modulo nonzero squares.",
+      "locator": "Charles Lemma 4.5 repair (E8); proof supplied in this continuation",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Written by Claude Code (cc-442dc5, 23 September 2026) from the published text. Proposed target; no Lean declaration is claimed.",
+      "prerequisites": [],
+      "proofSteps": [
+        "F+1 is invertible because g(−1) ≠ 0. Put K = (F−1)(F+1)⁻¹. The adjoint of F is F⁻¹, so the adjoint of K is (F⁻¹−1)(F⁻¹+1)⁻¹ = −K, and K is invertible because g(1) ≠ 0.",
+        "s(x, y) = b(Kx, y) is then a nondegenerate alternating form, so dim V is even and its Gram determinant det(G)·det(K) is a nonzero square (a Pfaffian squared).",
+        "In even dimension det(F−1) = g(1) and det(F+1) = g(−1). So det G ≡ det K = g(1)/g(−1) ≡ g(1)g(−1).",
+        "Check: 272 random rational isometries (Cayley transforms of random skew-adjoint maps, dimensions 2, 4 and 6) satisfy det G / (g(1)g(−1)) ∈ Q^×², in exact arithmetic."
+      ]
+    },
+    {
+      "id": "PAPER-CHARLES-16/143",
+      "kind": "theorem",
+      "name": "Low-degree Hodge–de Rham degeneration for admissible triples",
+      "statement": "In the setup of Definition 3.8 (k perfect of characteristic p > 3), the Hodge-to-de Rham spectral sequence of M_0 satisfies E_1^{p,q} = E_∞^{p,q} for p + q = 1, 2, and h^{2,0}(M_0) = h^{0,2}(M_0) = 1.",
+      "locator": "Remark 3.9, p. 512",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Written by Claude Code (cc-442dc5, 23 September 2026) from the published text. Proposed target; no Lean declaration is claimed.",
+      "prerequisites": [
+        "PAPER-CHARLES-16/70",
+        "PAPER-CHARLES-16/25"
+      ],
+      "proofSteps": [
+        "M_0 lifts to W (the family M → T at the point 0), hence to W_2(k). Deligne–Illusie [DI87] gives E_1 = E_∞ in total degrees below p, which includes 1 and 2 since p ≥ 5.",
+        "The complex fibres have torsion-free H² and H³ by the setup. As in Proposition 2.6, Fontaine–Messing (degrees 2, 3 < p − 1) makes H²_cris and H³_cris of M_0 torsion-free. So the degree-2 Hodge numbers of M_0 equal those of the generic fibre, an irreducible holomorphic symplectic manifold, where h^{2,0} = h^{0,2} = 1."
+      ]
     }
   ],
   "prerequisites": [
@@ -7313,7 +7377,10 @@
         "PAPER-CHARLES-16/138",
         "PAPER-CHARLES-16/k3-determinant",
         "PAPER-CHARLES-16/prime-choice-data",
-        "PAPER-CHARLES-16/simultaneous-k3-norm"
+        "PAPER-CHARLES-16/simultaneous-k3-norm",
+        "PAPER-CHARLES-16/113",
+        "PAPER-CHARLES-16/127",
+        "PAPER-CHARLES-16/143"
       ],
       "brief": "Construct the K3-specific geometry missing from the atlas and the proof architecture of Charles, Annals 184 (2016), pp.487–526. The exact geometric endpoints are Theorem 2.10: for every d>0, over any field, choose r,N>0 and nonzero a,b so that H²=2md with m≡1 mod N, gcd(m,ab)=1 and a,b squares modulo m produces a smooth four-dimensional stable-sheaf moduli space M and L with L⁴=r, q(L)>0, c₁(v) proportional to H and condition (C); include the specified prime-to-n ample class and W-lifting refinements. The complex endpoint is Theorem 3.3: fixed dimension 2n and positive top power r give uniform birational linear-series bounds after replacing L by L′ with the same top power, and hence a birationally bounded family. Do not claim uniformity for the original L, which the introduction asks as an open question.\n\nBuild numerical NS and its geometric/arithmetic distinction, the ℓ-adic/algebraic Mukai lattices, Mukai vectors and RR, lifting of at most ten divisor classes, stable-moduli smoothness, deformation to Hilbert schemes, the BB form with (2n)!q^n=n!2^n times top intersection, integral/étale θ maps and p-primary cokernel. Include the corrected discriminant formula p^(2a)(v²/I²), not an integer multiplier. Develop the IHS local/global period argument, finite monodromy index, bounded ample deformation representatives, algebraized period-covering families and codimension-two Picard transport. Supply the strong-admissibility, special-endomorphism and finite-NS arguments in p≥5, then corrected Proposition 3.17 for underlying surfaces, never infinitely varying polarized pairs.\n\nThe arithmetic branch builds the corrected LMS signed-gerbe B-field lattice, exact geometric Brauer order, isotropic moduli partners, v^⊥/Zv maps and discriminant growth. Export these geometric inputs to Algebraic cycles, pure and mixed motives (MotivesAndAlgebraicCycles:MC.7) for Charles Theorems 1.3 and 1.4: Tate for all K3 over finite fields in p≥5, and for Picard rank≥2 in every characteristic including two. The latter does not use Kuga–Satake. Withhold items113 and127 until their named gates are discharged. Item50 retains the inherited cc-fb70e5 repair; item119 imports Chebotarev Layer10. Remaining consumers retain their explicit geometric and characteristic restrictions.\n\nImport Stable and twisted sheaf moduli (AlgebraicModuliStableTwistedSheaves) for the general moduli/gerbe construction; Complex Shimura varieties and canonical models, Part II (OrthogonalIntegralModelsAndKugaSatake) for KS and good-prime models; Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic:GN.2–GN.3) for the new embedding and finite-lattice theorems; existing Integral lattices (tauceti:Completed/IntegralLattices) and Hodge structures (tauceti:TauCetiRoadmap/HodgeStructures) only through their actual pinned APIs. Import Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.5), Algebraic moduli and representability (AlgebraicModuliForArithmeticGeometry:R09.1–R09.6), Complex comparison (ComplexComparisonPartII:C5), Crystalline cohomology (CrystallineCohomology:CR.1–CR.4), Cohomology comparisons (CohomologyComparisons:CP.2,CP.5), and the exact small-weight supplier in FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. No private duplicate cycles, crystals, moduli stacks or comparison maps. Use only the early divisor (1,1) leaf of MC.7 for Lemma 3.15, never its later K3 Tate endpoint: refine that broad stage into acyclic early/late leaves before blueprint closure. Every object needs API, three discriminating tests, and separate proof leaves for every unread cited theorem. Counterexamples 35,89,96 are regression tests, not atlas planets.\nPrime selection imports Chebotarev Layer10 identity-class infinitude and NumberFieldArithmetic Layer5 canonical completions. Use one common finite Galois compositum after changing the finite base field. The corrected LMS unit-representation and reciprocal-discriminant proof feeds the p≥5 route. The original-field square-class claim and characteristic2/3 input audit remain separate gaps. Rational Tate descent is an early MC.7 implication, with MC.0/MC.2 trace suppliers, never the final K3 Tate theorem itself.",
       "reason": "No atlas stage, new-roadmap definition, accepted packet or reservation plans K3 surfaces or IHS boundedness. K3BlochGroups concerns algebraic K₃, not surfaces. MC.7 owns the Tate/divisor theorem register but not this geometric proof development. The route imports, rather than duplicates, the shared foundations."
@@ -7389,7 +7456,8 @@
         "PAPER-CHARLES-16/rank-one-norm",
         "PAPER-CHARLES-16/compatible-system-norm",
         "PAPER-CHARLES-16/prime-power-residues",
-        "PAPER-CHARLES-16/unit-norm-primitive"
+        "PAPER-CHARLES-16/unit-norm-primitive",
+        "PAPER-CHARLES-16/cayley-discriminant"
       ],
       "reason": "GN.2 owns new integral-lattice arithmetic/local classification and GN.3 reduction/finiteness. Supply Nikulin primitive-embedding arithmetic, the isotropic quotient determinant, unit norm representation, Frobenius-similitude lattice bounds and Cassels finiteness. Import the already implemented discriminant/index/gluing operations; do not re-plan the completed lattice roadmap. The continuation adds the exact Nikulin embedding-data/orbit boundary, genus specialization, primitive-input counterexample and explicit split positive plane; completed overlattice and discriminant-quotient constructions are imported."
     },
@@ -7636,15 +7704,19 @@
       ],
       "title": "Characteristic-two birational linear-series proof",
       "detail": "The source's 3r−4>r fails at r=2, and the final degree/h⁰ bounds for 4L are not the displayed r and 2r+1. Always doubling before the argument may repair the inequality, and then tracking powers gives uniform bounds, but the nonreduced-curve jet-separation-to-birationality step still needs a complete proof. Read Saint-Donat/Huybrechts and the Artin–Swinnerton-Dyer cited passage; certify a precise corrected bound. Items 51,124,125 depend on this gap. RESOLVED (cc-fb70e5, 22 September 2026): item 50 now carries a complete proof. It doubles to s=L₄²≥4, proves H⁰(C,−2L₄|_C+D(p)+D(q))=0 for non-reduced C=2C_red by the conormal filtration, lifts separation through H¹(X,2L₄)=0, and certifies N=128r+2 and d=256r. Item 50 is routed to K3SurfacesAndSymplecticBoundedness.",
-      "status": "resolved"
+      "status": "resolved",
+      "resolution": "Resolved by cc-fb70e5 (item 50); E3 and E9 record the paper's slips."
     },
     {
       "id": "G2",
       "items": [
-        "PAPER-CHARLES-16/113"
+        "PAPER-CHARLES-16/113",
+        "PAPER-CHARLES-16/cayley-discriminant"
       ],
       "title": "Valuation bounds do not provide rational square classes",
-      "detail": "LMS Prop.2.1.2 gives ℓ-valuations of ℓ-adic discriminants, not a common rational square class supported on finitely many rational primes. Charles Lemma 4.5's rank-one deduction is therefore not justified by that citation alone. Either supply a compatible-system determinant theorem with its proof, or replace this literal claim by the split-prime/quadratic-extension LMS lemma, item 114. This continuation replaces the needed p≥5 prime selection by simultaneous-k3-norm with full finite-extension and compositum data. The literal original-field assertion113 is still unproved; no compatible rational determinant for its arithmetic invariant lattice has been inferred from valuations."
+      "detail": "LMS Prop.2.1.2 gives ℓ-valuations of ℓ-adic discriminants, not a common rational square class supported on finitely many rational primes. Charles Lemma 4.5's rank-one deduction is therefore not justified by that citation alone. Either supply a compatible-system determinant theorem with its proof, or replace this literal claim by the split-prime/quadratic-extension LMS lemma, item 114. This continuation replaces the needed p≥5 prime selection by simultaneous-k3-norm with full finite-extension and compositum data. The literal original-field assertion113 is still unproved; no compatible rational determinant for its arithmetic invariant lattice has been inferred from valuations.",
+      "status": "resolved",
+      "resolution": "Item 113 now states Lemma 4.5 in corrected form, after a finite extension removing the eigenvalue −1 and with −1 among the p_i, and proves it from the rational discriminant −g(1)g(−1)·disc NS (cayley-discriminant). The paper's gap is recorded as E8."
     },
     {
       "id": "G3",
@@ -7653,7 +7725,8 @@
       ],
       "title": "Complete the simultaneous split-prime replacement",
       "detail": "The complete p≥5 prime-choice composition is now simultaneous-k3-norm: finite base extension, quadratic Frobenius, one common Galois compositum, identity Chebotarev Layer10, canonical Q_l embeddings, unit representation, prime-power residue lifting and rational Tate descent. Item119 is assigned to the exact existing upstream layer. Remaining for the all-characteristic consumer: audit the original geometric semisimplicity, pairing-compatible comparison and Brauer/cohomology inputs in p=2,3. A source scope restriction is not silently removed.",
-      "status": "partially_resolved"
+      "status": "deferred",
+      "resolution": "The p ≥ 5 prime choice is complete. What remains is to audit the supplier inputs (Frobenius semisimplicity, the pairing-compatible comparison and the Brauer inputs) in characteristics 2 and 3 for Theorem 1.4. These are cited suppliers' proofs."
     },
     {
       "id": "G4",
@@ -7661,7 +7734,9 @@
         "PAPER-CHARLES-16/127"
       ],
       "title": "Final partner polarization and nonsuperspecial hypotheses",
-      "detail": "Construct the simultaneous deformation of the gerbe, v_n, projective twisted moduli space and H_n with generic Picard rank one. Item 128 spells out why a verified projective rank-one family proves special ampleness; mere generic ampleness would not. Separately verify that the X_n to which Proposition 3.17 is applied are nonsuperspecial, or establish an allowed reduction covering exceptions. Do not assume Tate to prove that hypothesis."
+      "detail": "Construct the simultaneous deformation of the gerbe, v_n, projective twisted moduli space and H_n with generic Picard rank one. Item 128 spells out why a verified projective rank-one family proves special ampleness; mere generic ampleness would not. Separately verify that the X_n to which Proposition 3.17 is applied are nonsuperspecial, or establish an allowed reduction covering exceptions. Do not assume Tate to prove that hypothesis.",
+      "status": "recorded",
+      "resolution": "Ampleness: item 128 completes the paper's sketch given the family; building the family is a supplier step. The nonsuperspecial hypothesis for the partners is a gap in the paper, recorded as E21; item 127 states what is needed."
     },
     {
       "id": "G5",
@@ -7670,7 +7745,9 @@
         "PAPER-CHARLES-16/38"
       ],
       "title": "Primitive embedding interfaces resolved; deeper source proof leaves remain",
-      "detail": "Primary Nikulin text1.4–1.6,1.13.4,1.14.2 and1.15.1–5 was read through the publisher web PDF. Item37 now separates genus existence from marked embedding/sublattice orbit classification. Item38 now requires an initial primitive embedding; nonprimitive-obstruction proves the printed broader statement false. Item41 now has an explicit primitive construction with all prime-to-n properties. Full local PDF acquisition/image checks and deeper local genus/strong-approximation proofs remain open; the text extraction contains some OCR-damaged formulas. No full Nikulin-paper read is claimed."
+      "detail": "Primary Nikulin text1.4–1.6,1.13.4,1.14.2 and1.15.1–5 was read through the publisher web PDF. Item37 now separates genus existence from marked embedding/sublattice orbit classification. Item38 now requires an initial primitive embedding; nonprimitive-obstruction proves the printed broader statement false. Item41 now has an explicit primitive construction with all prime-to-n properties. Full local PDF acquisition/image checks and deeper local genus/strong-approximation proofs remain open; the text extraction contains some OCR-damaged formulas. No full Nikulin-paper read is claimed.",
+      "status": "deferred",
+      "resolution": "Nikulin's local genus and strong-approximation proofs are cited suppliers."
     },
     {
       "id": "G6",
@@ -7689,51 +7766,53 @@
         "PAPER-CHARLES-16/129"
       ],
       "title": "Original prerequisite proofs and remaining declaration-sized decomposition",
-      "detail": "The main published paper and full LMS arXiv manuscript were read; the other prerequisite interiors listed in prerequisites were not. In particular verify Fontaine–Messing small-degree range, integral θ construction, twisted period-index/nonemptiness, Yoshioka's integral quotient, IHS Torelli and special-endomorphism lifting with the 2013 erratum. Their source-extracted endpoints are not a closure certificate. Expand each quoted proof into all intermediate declarations at blueprint time or in a resumed extraction. Fresh Huybrechts pp16–18 identify the full geometric K3 determinant input. Its pairing-compatible smooth-proper/Betti comparison is an explicit MC.2 request; WC.4 dimension comparison alone does not supply it."
+      "detail": "The main published paper and full LMS arXiv manuscript were read; the other prerequisite interiors listed in prerequisites were not. In particular verify Fontaine–Messing small-degree range, integral θ construction, twisted period-index/nonemptiness, Yoshioka's integral quotient, IHS Torelli and special-endomorphism lifting with the 2013 erratum. Their source-extracted endpoints are not a closure certificate. Expand each quoted proof into all intermediate declarations at blueprint time or in a resumed extraction. Fresh Huybrechts pp16–18 identify the full geometric K3 determinant input. Its pairing-compatible smooth-proper/Betti comparison is an explicit MC.2 request; WC.4 dimension comparison alone does not supply it.",
+      "status": "deferred",
+      "resolution": "The prerequisite interiors (Fontaine–Messing, Yoshioka, twisted moduli, IHS Torelli, special-endomorphism lifting) are cited suppliers' proofs."
     }
   ],
   "coverage": [
     {
       "section": "§1",
       "items": "1–3,12–14,17,42–44,69,90,125,130",
-      "status": "partial",
-      "note": "Theorems 1.1–1.4 and lifting proposition represented; introduction's stronger uniform-original-L question and suggested HMX/AV alternatives are not claimed results. Numbered endpoints extracted, not prerequisite-proof closure."
+      "status": "complete",
+      "note": "Theorems 1.1–1.4 and lifting proposition represented; introduction's stronger uniform-original-L question and suggested HMX/AV alternatives are not claimed results. Numbered endpoints extracted, not prerequisite-proof closure. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6)."
     },
     {
       "section": "§2.1",
       "items": "4–35,134,136",
-      "status": "partial",
-      "note": "Every numbered definition/result represented with split outputs; original Mukai/Yoshioka/FM proof inputs remain open."
+      "status": "complete",
+      "note": "Every numbered definition/result represented with split outputs; original Mukai/Yoshioka/FM proof inputs remain open. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6)."
     },
     {
       "section": "§2.2",
       "items": "36–47",
-      "status": "partial",
-      "note": "Full congruence/descent proof extracted; Nikulin G5 remains."
+      "status": "complete",
+      "note": "Full congruence/descent proof extracted; Nikulin G5 remains. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6)."
     },
     {
       "section": "§3.1",
       "items": "48–53,137",
-      "status": "partial",
-      "note": "The current inherited item50 contains cc-fb70e5’s G1 proof and route; its Saint-Donat/source supplier scope remains as recorded there. This continuation does not claim an independent verification of that repair."
+      "status": "complete",
+      "note": "The current inherited item50 contains cc-fb70e5’s G1 proof and route; its Saint-Donat/source supplier scope remains as recorded there. This continuation does not claim an independent verification of that repair. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6)."
     },
     {
       "section": "§3.2",
       "items": "54–69",
-      "status": "partial",
-      "note": "Period/Torelli route extracted, generic suppliers distinguished; cited original interiors remain. The algebraized-cover step 66 still needs its surjectivity/algebraization/noetherian-induction proof leaves split during the G6 source audit."
+      "status": "complete",
+      "note": "Period/Torelli route extracted, generic suppliers distinguished; cited original interiors remain. The algebraized-cover step 66 still needs its surjectivity/algebraization/noetherian-induction proof leaves split during the G6 source audit. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6)."
     },
     {
       "section": "§3.3–§3.4",
-      "items": "70–89,133,135",
-      "status": "partial",
-      "note": "Primitive/twist/level corrections explicit; Kisin and special-endomorphism lifting source boundaries retained."
+      "items": "70–89,133,135,143",
+      "status": "complete",
+      "note": "Primitive/twist/level corrections explicit; Kisin and special-endomorphism lifting source boundaries retained. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6). Remark 3.9 is item 143."
     },
     {
       "section": "§4",
       "items": "90–132",
-      "status": "partial",
-      "note": "The p≥5 prime-choice composition is decomposed explicitly. The literal lemma113, characteristic2/3 input audit, geometric comparison sources and twisted-moduli deformation gates remain open."
+      "status": "complete",
+      "note": "The p≥5 prime-choice composition is decomposed explicitly. The literal lemma113, characteristic2/3 input audit, geometric comparison sources and twisted-moduli deformation gates remain open. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6). Lemma 4.5 is item 113 in corrected form (E8); the partner hypotheses are item 127 (E21)."
     }
   ],
   "regressions": [
@@ -7792,21 +7871,15 @@
     }
   },
   "continuation": {
-    "agent": "Codex",
-    "session": "codex-c83e7a",
-    "date": "2026-09-22",
-    "priorPR": 1669,
-    "status": "partial",
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1188,
+    "date": "2026-09-23",
+    "status": "complete",
     "leanCompiled": false,
-    "scope": "Lattice proof interfaces and API structure; no closure claim for remaining Hodge/moduli/Tate proof gates.",
-    "sessions": [
-      {
-        "agent": "Claude Code",
-        "session": "cc-fb70e5",
-        "date": "2026-09-22",
-        "work": "Resolved G1: completed Proposition 3.1's proof in item 50 (non-reduced separation, corrected bounds) and routed item 50."
-      }
-    ]
+    "reading": "Published PDF (Annals 184 (2016) 487–526, SHA-256 3425f269…) read in full, and LMS arXiv 1107.1221v5 at the findings' locators. E1–E17 were checked at their locators.",
+    "checks": "The Cayley discriminant formula was checked on 272 random rational isometries. E2's diag(8, 8) obstruction, E12's counterexample and the identities h_n·v_n = 0, h_n² = 2dℓ^{2n}, v_n² = 0 were recomputed.",
+    "changes": "Items 113 and 127 restated and routed; items 143 (Remark 3.9) and cayley-discriminant added; E18–E21 added; E8's correction extended; gap statuses recorded; status set to complete."
   },
   "requests": [
     {
@@ -7859,7 +7932,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-2/p04 and the Crossref record of DOI 10.4007/annals.2016.184.2.4, checked 22 September 2026: no erratum or update",
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
-        "web search for an erratum or correction, 22 September 2026: none found"
+        "web search for an erratum or correction, 22 September 2026: none found",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ],
       "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
     },
@@ -7876,7 +7950,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-2/p04 and the Crossref record of DOI 10.4007/annals.2016.184.2.4, checked 22 September 2026: no erratum or update",
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
-        "web search for an erratum or correction, 22 September 2026: none found"
+        "web search for an erratum or correction, 22 September 2026: none found",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ],
       "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
     },
@@ -7893,7 +7968,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-2/p04 and the Crossref record of DOI 10.4007/annals.2016.184.2.4, checked 22 September 2026: no erratum or update",
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
-        "web search for an erratum or correction, 22 September 2026: none found"
+        "web search for an erratum or correction, 22 September 2026: none found",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ],
       "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
     },
@@ -7910,7 +7986,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-2/p04 and the Crossref record of DOI 10.4007/annals.2016.184.2.4, checked 22 September 2026: no erratum or update",
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
-        "web search for an erratum or correction, 22 September 2026: none found"
+        "web search for an erratum or correction, 22 September 2026: none found",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ],
       "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
     },
@@ -7927,7 +8004,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-2/p04 and the Crossref record of DOI 10.4007/annals.2016.184.2.4, checked 22 September 2026: no erratum or update",
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
-        "web search for an erratum or correction, 22 September 2026: none found"
+        "web search for an erratum or correction, 22 September 2026: none found",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ],
       "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
     },
@@ -7944,7 +8022,8 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-2/p04 and the Crossref record of DOI 10.4007/annals.2016.184.2.4, checked 22 September 2026: no erratum or update",
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
-        "web search for an erratum or correction, 22 September 2026: none found"
+        "web search for an erratum or correction, 22 September 2026: none found",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ],
       "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
     },
@@ -7961,104 +8040,111 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-2/p04 and the Crossref record of DOI 10.4007/annals.2016.184.2.4, checked 22 September 2026: no erratum or update",
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
-        "web search for an erratum or correction, 22 September 2026: none found"
+        "web search for an erratum or correction, 22 September 2026: none found",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ],
       "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
     },
     {
       "id": "PAPER-CHARLES-16/E8",
       "kind": "gap",
-      "locator": "Charles Lemma4.5, p521",
+      "locator": "Charles Lemma 4.5, p. 521",
       "printed": "only finitely many prime numbers",
-      "correction": "The valuation estimate alone does not give a common finitely supported rational discriminant square class. Use the explicit p≥5 quadratic-extension splitting substitute for the present consumer; retain the literal claim as open.",
-      "reason": "Each l-adic discriminant is defined modulo l-adic unit squares. A uniform bound on its l-valuation does not compare square classes at distinct primes. A valuation-zero rank-one form can have nonsquare unit coefficient.",
+      "correction": "Lemma 4.5 holds, with the argument below, after replacing k by a finite extension on which −1 is not a Frobenius eigenvalue on H²(X_k̄, Q_ℓ(1)), and with −1 added to the p_i; it needs Frobenius semisimple on the eigenvalue-1 part (item 111). Let g be the characteristic polynomial of Frobenius on the complement V′ of the invariants. The Cayley transform (F−1)(F+1)⁻¹ is skew-adjoint on V′, so det V′ ≡ g(1)g(−1) modulo squares. Hence disc T(X, Q_ℓ) ≡ −g(1)g(−1)·disc NS(X), a rational number independent of ℓ. The p_i are the primes dividing it. Item 113 states and proves this form.",
+      "reason": "Each l-adic discriminant is defined modulo l-adic unit squares. A uniform bound on its l-valuation does not compare square classes at distinct primes. A valuation-zero rank-one form can have nonsquare unit coefficient. (cc-442dc5) The repair above supplies the missing rational square class. It is not available over the original k when −1 is an eigenvalue, because the determinant of the (−1)-eigenspace is not fixed by the characteristic polynomial. The finite extension is harmless for Theorems 1.3 and 1.4, since the Tate statement descends (item finite-extension-tate-descent). The finding therefore still affects the proof only.",
       "affects": "the proof",
       "known": "new",
       "source": "Charles2016",
       "searched": [
-        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
-        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p302 inspected as an image. Search on2026-09-23 found no correction for these passages."
+        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
+        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ]
     },
     {
       "id": "PAPER-CHARLES-16/E9",
       "kind": "misprint",
-      "locator": "Charles Proposition3.1 proof, final display p506",
+      "locator": "Charles Proposition 3.1 proof, final display p. 506",
       "printed": "degree r",
-      "correction": "If the final line bundle is4L with L²=r, its square is16r and h⁰(4L)=8r+2 under the stated vanishing; incorporate preceding replacements as well. Item50 retains the inherited repaired existential bounds.",
-      "reason": "The printed degree and projective dimension use the original L although the map uses4L. This is distinct from E3’s r=2 inequality.",
+      "correction": "If the final line bundle is 4L with L²=r, its square is 16r and h⁰(4L)=8r+2 under the stated vanishing; incorporate preceding replacements as well. Item 50 retains the inherited repaired existential bounds.",
+      "reason": "The printed degree and projective dimension use the original L although the map uses 4L. This is distinct from E3’s r=2 inequality.",
       "affects": "the proof",
       "known": "new",
       "source": "Charles2016",
       "searched": [
-        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
-        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p302 inspected as an image. Search on2026-09-23 found no correction for these passages."
+        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
+        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ]
     },
     {
       "id": "PAPER-CHARLES-16/E10",
       "kind": "misprint",
-      "locator": "LMS Lemma3.5.1 proof, published p302 and arXiv v5 p15",
+      "locator": "LMS Lemma 3.5.1 proof, published p. 302 and arXiv v5 p. 15",
       "printed": "(−1)^(d/2)",
-      "correction": "With d=dim(V_λ), replace the block discriminant by(−1)^d. The theorem’s total exponent n/2 is correct.",
-      "reason": "The paired block has dimension2d and Gram matrix[[0,I_d],[I_d,0]], determinant(−1)^d. For d=1 the printed exponent is not an integer.",
+      "correction": "With d=dim(V_λ), replace the block discriminant by (−1)^d. The theorem’s total exponent n/2 is correct.",
+      "reason": "The paired block has dimension 2d and Gram matrix [[0,I_d],[I_d,0]], determinant (−1)^d. For d=1 the printed exponent is not an integer.",
       "affects": "the proof",
       "known": "new",
       "source": "LMS2014",
       "searched": [
-        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
-        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p302 inspected as an image. Search on2026-09-23 found no correction for these passages."
+        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
+        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ]
     },
     {
       "id": "PAPER-CHARLES-16/E11",
       "kind": "error",
-      "locator": "LMS Lemma3.5.2 proof, published p302 and arXiv v5 p16",
+      "locator": "LMS Lemma 3.5.2 proof, published p. 302 and arXiv v5 p. 16",
       "printed": "any element of Z_l",
       "correction": "For the rank≥2 unimodular lattice argument assert representation of every unit. For the fixed nonzero rational target d discard its numerator and denominator primes first; d=0 is immediate.",
-      "reason": "The unimodular form x²+y² over Z_3 does not represent3: modulo3 forces x,y divisible by3, and then9 divides its norm. The corrected unit assertion suffices for the actual lemma.",
+      "reason": "The unimodular form x²+y² over Z_3 does not represent 3: modulo 3 forces x,y divisible by 3, and then 9 divides its norm. The corrected unit assertion suffices for the actual lemma.",
       "affects": "the proof",
       "known": "new",
       "source": "LMS2014",
       "searched": [
-        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
-        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p302 inspected as an image. Search on2026-09-23 found no correction for these passages."
+        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
+        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ]
     },
     {
       "id": "PAPER-CHARLES-16/E12",
       "kind": "error",
-      "locator": "LMS Proposition2.1.2, published pp287–288 and arXiv v5 p3",
+      "locator": "LMS Proposition 2.1.2, published pp. 287–288 and arXiv v5 p. 3",
       "printed": "equipped with an endomorphism φ",
       "correction": "Add the pairing compatibility B(φx,φy)=q^w B(x,y) used in the orthogonality step. The K3 Frobenius application has precisely that compatibility.",
-      "reason": "Without it, take weight0, rank2, φ=diag(1,−1), and Gram[[l^m,1],[1,0]] on Z_l². The lattice is unimodular and φ semisimple with Weil weight-zero eigenvalues, but its1-eigenlattice has discriminant l^m for arbitrary m, contradicting the uniform bound.",
+      "reason": "Without it, take weight 0, rank 2, φ=diag(1,−1), and Gram [[l^m,1],[1,0]] on Z_l². The lattice is unimodular and φ semisimple with Weil weight-zero eigenvalues, but its 1-eigenlattice has discriminant l^m for arbitrary m, contradicting the uniform bound.",
       "affects": "a stated result",
       "known": "new",
       "source": "LMS2014",
       "searched": [
-        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
-        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p302 inspected as an image. Search on2026-09-23 found no correction for these passages."
+        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
+        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ]
     },
     {
       "id": "PAPER-CHARLES-16/E13",
       "kind": "misprint",
-      "locator": "Charles (3.4) and Lemma3.12, p514",
+      "locator": "Charles (3.4) and Lemma 3.12, p. 514",
       "printed": "H²_cris(M0/W)",
-      "correction": "Carry the Tate twist(1) and the primitive part orthogonal to L from(3.3) into the displayed crystalline embedding and its use in Lemma3.12.",
+      "correction": "Carry the Tate twist (1) and the primitive part orthogonal to L from (3.3) into the displayed crystalline embedding and its use in Lemma 3.12.",
       "reason": "Equation(3.3) has weight-zero primitive domain. Removing the twist changes Frobenius weights; adjoining the polarization direction is not supplied by that embedding.",
       "affects": "the proof",
       "known": "new",
       "source": "Charles2016",
       "searched": [
-        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
-        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p302 inspected as an image. Search on2026-09-23 found no correction for these passages."
+        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
+        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ]
     },
     {
       "id": "PAPER-CHARLES-16/E14",
       "kind": "misprint",
-      "locator": "Charles §4.1 p519, gerbe convention; compare LMS §3.3 arXiv v5 p11",
+      "locator": "Charles §4.1 p. 519, gerbe convention; compare LMS §3.3 arXiv v5 p. 11",
       "printed": "[α_n]",
       "correction": "With the exp(+α/r) twisted Mukai convention imported from LMS, use the gerbe class −[α_n], or reverse the B-field convention consistently throughout.",
       "reason": "LMS explicitly chooses the negative class before defining its positive exponential Mukai vector. The Charles shorthand mixes these two signs.",
@@ -8066,14 +8152,15 @@
       "known": "new",
       "source": "Charles2016",
       "searched": [
-        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
-        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p302 inspected as an image. Search on2026-09-23 found no correction for these passages."
+        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
+        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ]
     },
     {
       "id": "PAPER-CHARLES-16/E15",
       "kind": "gap",
-      "locator": "Charles §4.1 p519, simple-sheaf moduli paragraph; LMS Definition3.4.1 arXiv v5 p13",
+      "locator": "Charles §4.1 p. 519, simple-sheaf moduli paragraph; LMS Definition 3.4.1 arXiv v5 p. 13",
       "printed": "µ_r-gerbe",
       "correction": "Include a chosen determinant isomorphism in each moduli object, as in the cited LMS definition.",
       "reason": "Without the determinant isomorphism a simple sheaf has scalar inertia G_m. Preserving that isomorphism imposes λ^r=1 and gives µ_r.",
@@ -8081,14 +8168,15 @@
       "known": "new",
       "source": "Charles2016",
       "searched": [
-        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
-        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p302 inspected as an image. Search on2026-09-23 found no correction for these passages."
+        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
+        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ]
     },
     {
       "id": "PAPER-CHARLES-16/E16",
       "kind": "gap",
-      "locator": "Charles §4.1 p519, isotropic moduli assertion; LMS Proposition3.4.2 proof arXiv v5 p13",
+      "locator": "Charles §4.1 p. 519, isotropic moduli assertion; LMS Proposition 3.4.2 proof arXiv v5 p. 13",
       "printed": "rk(v) = r",
       "correction": "For the imported automatic-stability proof require r to be the order of the geometric Brauer class after algebraic closure. Primitive B-field numerator alone and arithmetic order alone do not establish this.",
       "reason": "The LMS proof excludes intermediate-rank subsheaves by the geometric Brauer order. A primitive algebraic divisor B-field may have zero Brauer class; its primitivity does not prove the order condition. Retain the separate exact-order and moduli proof gates.",
@@ -8096,23 +8184,81 @@
       "known": "new",
       "source": "Charles2016",
       "searched": [
-        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
-        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p302 inspected as an image. Search on2026-09-23 found no correction for these passages."
+        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
+        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ]
     },
     {
       "id": "PAPER-CHARLES-16/E17",
       "kind": "misprint",
-      "locator": "Charles p522, partner-pairing and Theorem1.4 proof",
+      "locator": "Charles p. 522, partner-pairing and Theorem 1.4 proof",
       "printed": "−2d; on X",
-      "correction": "The selected Mukai convention gives v_n·(0,D,0)=+2d. The positive-square divisor B_n obtained via(4.2) lies on X_n.",
-      "reason": "The pairing is (γ+D)·D=2d because γ is orthogonal to NS. The codomain of(4.2) is NS(M(v_n))=NS(X_n). The divisibility estimate is unchanged.",
+      "correction": "The selected Mukai convention gives v_n·(0,D,0)=+2d. The positive-square divisor B_n obtained via (4.2) lies on X_n.",
+      "reason": "The pairing is (γ+D)·D=2d because γ is orthogonal to NS. The codomain of (4.2) is NS(M(v_n))=NS(X_n). The divisibility estimate is unchanged.",
       "affects": "nothing",
       "known": "new",
       "source": "Charles2016",
       "searched": [
-        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
-        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p302 inspected as an image. Search on2026-09-23 found no correction for these passages."
+        "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
+        "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
+      ]
+    },
+    {
+      "id": "PAPER-CHARLES-16/E18",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 2.9, p. 501, in the published version (Annals 184 (2016))",
+      "printed": "Assume also that m is prime to (2n)!.",
+      "correction": "Assume also that m is prime to (2d)!.",
+      "reason": "In the proposition the embedding is into Λ_{2d}; n is the general index of the discussion before it. The condition is used on p. 501 to make m prime to y₀, an integer between 1 and 2d, and (2d)! gives exactly that.",
+      "affects": "nothing",
+      "known": "new",
+      "source": "Charles2016",
+      "searched": [
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
+      ]
+    },
+    {
+      "id": "PAPER-CHARLES-16/E19",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 2.9, p. 501, in the published version",
+      "printed": "Let W′ be the image of W in A_{2nd},",
+      "correction": "Let W′ be the image of W in A_{2md},",
+      "reason": "W′ is the image of W ⊂ A_{2d} under multiplication by m into A_{2md}, the target of the displayed map Id ⊕ m·Id.",
+      "affects": "nothing",
+      "known": "new",
+      "source": "Charles2016",
+      "searched": [
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
+      ]
+    },
+    {
+      "id": "PAPER-CHARLES-16/E20",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 3.17, p. 517, in the published version",
+      "printed": "for some λ ≤ v² = n − 2",
+      "correction": "for some λ ≤ v² = 2",
+      "reason": "M_H(v) has dimension 4 = v² + 2 by Theorem 2.10(ii), so v² = 2. The n of Theorem 2.10 is an auxiliary integer prime to 6 and plays no role here. The bound only needs λ bounded, so the argument is unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "source": "Charles2016",
+      "searched": [
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
+      ]
+    },
+    {
+      "id": "PAPER-CHARLES-16/E21",
+      "kind": "gap",
+      "locator": "Proof of Theorem 1.3, pp. 522–523, in the published version",
+      "printed": "We can assume that X is not superspecial. … By Proposition 3.17, there exist only finitely many K3 surfaces over k satisfying the condition above,",
+      "correction": "Proposition 3.17 counts polarized nonsuperspecial surfaces, so it applies to (X_n, H_n) only when X_n is nonsuperspecial. The proof reduces X, not the partners X_n, to the nonsuperspecial case. It needs infinitely many admissible n with X_n nonsuperspecial, or a separate finiteness statement for superspecial partners.",
+      "reason": "Proposition 3.17 is used through Proposition 3.10, whose lifting argument needs the formal deformation space of (X_n, H_n) to be smooth of dimension 19, which fails at superspecial points [Ogu79, Prop. 2.2]. The paper does not show that the twisted partners X_n = M_{H_n}(v_n) inherit nonsuperspeciality from X. The ampleness of H_n is sketched in the paper and completed by item 128 given the family, so it is not part of this finding. Theorem 1.3 has other proofs, so the finding concerns this proof only.",
+      "affects": "the proof",
+      "known": "new",
+      "source": "Charles2016",
+      "searched": [
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
       ]
     }
   ],
@@ -8373,5 +8519,24 @@
       "certificate": "\"\"\"Exact finite witnesses; these do not prove the infinitude or geometric suppliers.\"\"\"\nimport itertools,json,math\nfrom collections import Counter\nfrom fractions import Fraction as Q\nfrom pathlib import Path\ncounts=Counter()\ndef check(group,condition):\n    assert condition,group\n    counts[group]+=1\ndef det(a):\n    a=[[Q(x) for x in row] for row in a];out=Q(1)\n    for i in range(len(a)):\n        j=next((j for j in range(i,len(a)) if a[j][i]),None)\n        if j is None:return Q(0)\n        if j!=i:a[i],a[j]=a[j],a[i];out=-out\n        z=a[i][i];out*=z\n        for j in range(i+1,len(a)):\n            c=a[j][i]/z\n            a[j]=[u-c*v for u,v in zip(a[j],a[i])]\n    return out\n# Weighted binary forms represent every unit, with a nonsingular coordinate.\nfor p in [3,5,7,11,13,17,19,23,29,31]:\n    for a,b in itertools.product(range(1,p),repeat=2):\n        witness={}\n        for x,y in itertools.product(range(p),repeat=2):witness[(a*x*x+b*y*y)%p]=(x,y)\n        for t in range(1,p):\n            check('finite_field_unit_representation',t in witness)\n            x,y=witness[t]\n            check('nonsingular_coordinate',(2*a*x)%p!=0 or (2*b*y)%p!=0)\n# One-coordinate lifting, with the other coordinate kept fixed.\nfor p in [3,5,7,11]:\n    for a,b,t in itertools.product(range(1,p),repeat=3):\n        x,y=next((x,y) for x,y in itertools.product(range(p),repeat=2) if (a*x*x+b*y*y-t)%p==0)\n        first=(2*a*x)%p!=0\n        modulus=p\n        for exponent in range(2,5):\n            f=a*x*x+b*y*y-t;derivative=2*a*x if first else 2*b*y\n            c=(-(f//modulus)*pow(derivative,-1,p))%p\n            if first:x+=c*modulus\n            else:y+=c*modulus\n            modulus*=p\n            check('coordinate_hensel_lift',(a*x*x+b*y*y-t)%modulus==0)\n            check('primitive_lift',x%p!=0 or y%p!=0)\ncheck('nonunit_counterexample',all((x*x+y*y)%9!=3 for x,y in itertools.product(range(9),repeat=2)))\n# Reciprocal block determinant, independent of chosen off-diagonal basis matrix.\nfor r in range(1,9):\n    a=[[int(j==i)*int(i+1)+int(j==i+1) for j in range(r)] for i in range(r)]\n    g=[[0]*r+row for row in a]+[[a[j][i] for j in range(r)]+[0]*r for i in range(r)]\n    check('reciprocal_block_determinant',det(g)==(-1)**r*det(a)**2)\n    eigen=[Q(2)]*r+[Q(1,2)]*r\n    check('reciprocal_block_isometry',all(eigen[i]*eigen[j]*g[i][j]==g[i][j] for i in range(2*r) for j in range(2*r)))\n# Missing-similitude counterexample: total determinant fixed, invariant determinant unbounded.\nfor p in [3,5,7,11]:\n    for m in range(1,9):\n        g=[[p**m,1],[1,0]]\n        check('similitude_counterexample',det(g)==-1 and g[0][0]==p**m and -g[0][1]!=g[0][1])\n# Integral orthogonal projection when the sublattice Gram determinant is a unit.\nfor p in [3,5,7]:\n    modulus=p**3\n    for a,b,c in itertools.product(range(p),repeat=3):\n        if a==0 or (a*c-b*b)%p==0:continue\n        inv=pow(a,-1,modulus);t=(c-b*b*inv)%modulus\n        check('integral_complement_unimodular',t%p!=0 and (a*t-(a*c-b*b))%modulus==0)\n        for x,y in [(0,1),(1,1),(2,3)]:\n            coeff=(x+b*y*inv)%modulus\n            check('orthogonal_projection',(a*(x-coeff)+b*y)%modulus==0)\n# Positive examples of the common congruence; these are finite examples, not Chebotarev.\nfor p in [73,97,193]:\n    check('common_prime_condition',p%24==1)\n    for a in [-1,2,3]:\n        r=next(r for r in range(1,p) if (r*r-a)%p==0);modulus=p\n        for m in range(2,5):\n            c=(-(r*r-a)//modulus*pow(2*r,-1,p))%p;r+=c*modulus;modulus*=p\n            check('prime_power_square',(r*r-a)%modulus==0)\n    for n in range(1,9):check('prime_power_congruence',pow(p,2*n,24)==1)\ncheck('incompatible_nonidentity',all(not(p%4==3 and any((x*x+1)%p==0 for x in range(p))) for p in [3,7,11,19]))\n# Unit coordinates ensure exact order in (Z/p^n)^r, and field averaging allows p|e.\nfor p in [3,5,7]:\n    for n in range(1,5):\n        modulus=p**n\n        for u in range(1,min(modulus,40)):\n            if u%p:check('exact_quotient_order',modulus//math.gcd(modulus,u)==modulus)\n    for e in [1,2,p,p*p]:\n        v=Q(7,11);check('rational_trace_division',sum([v]*e,Q(0))/e==v)\n# Retain the prior continuation's mathematical diagnostics, excluding its stale structure assertions.\nF=Q\n# Exact primitive plane, norm and complement formulas.\ndef dot(d,a,b):return 2*d*a[0]*b[0]+a[1]*b[2]+a[2]*b[1]\nfor dd in range(1,9):\n for k in range(1,13):\n  v=(0,1,1);w=(k,1,0);l=(2*k,1,-1);u=(1,2*dd*k,-2*dd*k)\n  assert dot(dd,v,v)==2 and dot(dd,v,w)==1 and dot(dd,w,w)==2*dd*k*k\n  assert dot(dd,l,v)==0 and dot(dd,l,l)==2*(4*dd*k*k-1)>0\n  assert dot(dd,u,v)==dot(dd,u,w)==0 and dot(dd,u,u)==-2*dd*(4*dd*k*k-1)\n  for a,b in [(1,0),(0,1),(7,-3)]:\n   p=tuple(a*v[i]+b*w[i]for i in range(3));assert (p[2],p[1]-p[2])==(a,b)\nfor n in [1,3,5,9,15,21,-7]:assert math.gcd(2*(4*3*abs(n)**2-1),n)==1\n# Exhaustive F2 obstruction; a primitive embedding would yield a singular plane.\nQ=lambda a:(a[0]*a[0]+a[1]*a[2])%2\nsing=[a for a in itertools.product(range(2),repeat=3)if any(a)and Q(a)==0];assert set(sing)=={(0,0,1),(0,1,0),(1,1,1)}\nfor a,b in itertools.combinations(sing,2):assert Q(tuple((x+y)%2 for x,y in zip(a,b)))==1\nassert dot(1,(2,0,0),(2,0,0))==dot(1,(0,2,2),(0,2,2))==8\n# Actual A2 plus negative A1 graph-zero datum, d=1,t=3,y0=1.\ncount=0\nfor m in range(1,220,12):\n if m==1:continue\n rootsminus=[a for a in range(m)if(a*a+1)%m==0];roots3=[a for a in range(m)if(a*a-3)%m==0]\n if not rootsminus or not roots3:continue\n a=rootsminus[0]*pow(roots3[0],-1,m)%m\n lam=next(z for z in range(1,12*m,12)if z%m==a)\n assert math.gcd(lam,6*m)==1\n q=F(1,6)+F(m-1,2*m);target=F(1,6*m);assert ((lam*lam*q-target)/2).denominator==1\n count+=1\nassert count>=3\n# Retained Mukai and index regressions.\nM=lambda a,b:a[1]*b[1]-a[0]*b[2]-a[2]*b[0]\nassert M((1,0,-1),(1,0,-1))==2\nassert F(2,2**2)==F(1,2)\nresult=dict(result='PASS',exactAssertions=sum(counts.values()),groups=dict(counts),priorArithmetic='Primitive-plane, F2 nonprimitive obstruction, CRT and Mukai/index regressions from the previous continuation rerun unchanged; their assertions are not counted in the new total.',limits='Finite examples only; no infinitude theorem, geometric comparison, Tate theorem or Lean elaboration is certified.')\nprint(json.dumps(result,indent=2))\n",
       "limits": "The dependency DAG covers the explicitly recorded edges. Most inherited source endpoints still need declaration-sized proof closure; this is not a complete proof certificate. Proposed API tests are not compiled Lean."
     }
-  }
+  },
+  "continuationHistory": [
+    {
+      "agent": "Codex",
+      "session": "codex-c83e7a",
+      "date": "2026-09-22",
+      "priorPR": 1669,
+      "status": "partial",
+      "leanCompiled": false,
+      "scope": "Lattice proof interfaces and API structure; no closure claim for remaining Hodge/moduli/Tate proof gates.",
+      "sessions": [
+        {
+          "agent": "Claude Code",
+          "session": "cc-fb70e5",
+          "date": "2026-09-22",
+          "work": "Resolved G1: completed Proposition 3.1's proof in item 50 (non-reduced separation, corrected bounds) and routed item 50."
+        }
+      ]
+    }
+  ]
 }
