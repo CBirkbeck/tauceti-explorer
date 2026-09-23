@@ -98040,7 +98040,7 @@
    "kind": "misprint",
    "locator": "Published p.662, EWM definition; arXivv2 p.8",
    "printed": "dim V<dim f(V)",
-   "correction": "Reverse the inequality: dim f(V)<dim V. Quantify over all integral closed subvarieties, not just curves.",
+   "correction": "Reverse only the contraction inequality to dim f(V)<dim V. The source already quantifies over every integral closed subscheme.",
    "reason": "An image cannot have larger dimension. A constant map contracts a positive-dimensional variety; the printed inequality never detects it. Image inspected. BMPSTWW Remark2.49 addresses a different curve-only-definition issue. (cc-442dc5) Reclassified to affect nothing: the definition on p.662 already quantifies over every integral closed subscheme V ⊆ X ('V is contracted (that is, dim V < dim f(V)) if and only if L|V is not relatively big'), so only the parenthetical inequality is reversed, and its meaning (dim f(V) < dim V) is clear from 'contracted'. The second sentence of the correction is not needed.",
    "affects": "nothing",
    "known": "new",
@@ -98049,14 +98049,17 @@
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed in published p.662 image and v2 p.8: only the inequality is reversed. The all-integral-subschemes quantifier is already printed, so remove that alleged second correction."
   },
   {
    "id": "PAPER-WITASZEK-22/E2",
@@ -98072,14 +98075,17 @@
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed: the finite closed point Spec k→P¹ with O_P¹ has big pullback in dimension zero and nonbig O_P¹. The projection-degree proof requires a finite surjection. Proposition 5.2 selects a surjecting component, so its use survives."
   },
   {
    "id": "PAPER-WITASZEK-22/E3",
@@ -98095,14 +98101,17 @@
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed as an omitted hypothesis in the introduction, not a counterexample to a stronger theorem: p.657 omits perfect residue fields explicitly present in Corollary 6.7 on pp.699–700. Keep the formal corollary intact."
   },
   {
    "id": "PAPER-WITASZEK-22/E4",
@@ -98118,14 +98127,17 @@
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Rejected as an established mathematical gap. Empty conductor is compatible with the standard connectedness convention (no separation into two nonempty opens), and zero-dimensional may mean dimension at most zero. The finding supplies no nonempty disconnected example or invalid downstream inference. Keel p.280 expressly allows empty conductor. Keep the empty-or-at-most-one-point contract as a useful clarification without asserting a new error."
   },
   {
    "id": "PAPER-WITASZEK-22/E5",
@@ -98142,14 +98154,18 @@
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
     "Sean Keel Basepoint freeness Lemma5.2 erratum search; reread arXiv math/9901149 pp.279–282; no matching correction located",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim.",
+    "Independent review: https://arxiv.org/abs/math/9901149 (single published-version upload), PDF printed pp.279–282 and bounded Keel-title/Lemma5.2 correction searches inspected."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed at Keel published p.281 and Witaszek p.701. The ruled surface over C with a nontorsion degree-zero summand is smooth/projective, has nef tautological bundle of numerical dimension one and h0(L^m)=1 for every positive m. Thus the printed effectiveness condition fails. The existing moving-pencil repair is sound after stating integral surfaces and a surjective map to the curve; linear Euler growth supplies at least two sections in the application."
   },
   {
    "id": "PAPER-WITASZEK-22/E6",
@@ -98165,14 +98181,17 @@
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed in published p.664 image. The nonnormal cubic Q(cuberoot(2))/Q has tensor product K×K[T]/(T²+aT+a²), with irreducible quadratic factor because K is real and discriminant is −3a². Splitting over K needs a splitting hypothesis. Characteristic-zero radicial triviality follows instead from the pinned purely-inseparable/separable bijectivity theorem."
   },
   {
    "id": "PAPER-WITASZEK-22/E7",
@@ -98188,14 +98207,17 @@
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed by the p.673 diagram: p:Y→X, g:Y→Y′, so q:Y′→X is p composed with g inverse. The printed order is ill-typed."
   },
   {
    "id": "PAPER-WITASZEK-22/E8",
@@ -98211,14 +98233,17 @@
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed in p.677 image. The false i=0 endpoint is not used by the displayed sum. The pinned binomial valuation formula proves the positive range; 6254 finite arithmetic checks also passed."
   },
   {
    "id": "PAPER-WITASZEK-22/E9",
@@ -98234,14 +98259,17 @@
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed in p.679 image: the paragraph ends Step 2 and the next paragraph starts Step 3. The last reference to Step 1 is a label slip."
   },
   {
    "id": "PAPER-WITASZEK-22/E10",
@@ -98257,14 +98285,17 @@
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed in p.697 image: the target omitted in the prose is Z, as shown by the very next square."
   },
   {
    "id": "PAPER-WITASZEK-22/E11",
@@ -98280,14 +98311,17 @@
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed in p.703 image and v2 p.45. The published bibliography repeats Kee03 for Keel and Keeler; v2 distinguishes a/b. Preserve this as a known version difference."
   },
   {
    "id": "PAPER-WITASZEK-22/E12",
@@ -98301,14 +98335,15 @@
    "searched": [
     "Current Stacks page, its displayed proof and comments inspected on2026-09-23.",
     "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: full current tag statement, proof and comments read; retrieved HTML hash recorded in independentVerification.sourceFiles. For E14 compare 02OD and its correction comment."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed against the current full Stacks 08AR proof. The projective embedding is Z′→P^n_A×_A Z, and the full-support adjunction uses π:Z′→Z because G=π_*L^d lives on Z, not on Spec A. Its target is L^d."
   },
   {
    "id": "PAPER-WITASZEK-22/E13",
@@ -98322,14 +98357,15 @@
    "searched": [
     "Current Stacks page, its displayed proof and comments inspected on2026-09-23.",
     "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: full current tag statement, proof and comments read; retrieved HTML hash recorded in independentVerification.sourceFiles. For E14 compare 02OD and its correction comment."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed against the current full Stacks 08AY proof: m≥c3(n)+c1+n and k=n+m yield the sufficient absolute bound k≥c3(n)+c1+2n. This repairs the bound furnished by the argument; it is not a counterexample to the existential theorem or a claim of minimality."
   },
   {
    "id": "PAPER-WITASZEK-22/E14",
@@ -98344,14 +98380,36 @@
     "Current Stacks page, its displayed proof and comments inspected on2026-09-23.",
     "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence.",
     "Compared Stacks02OD and its correction comments.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching).",
+    "Independent review 2026-09-23: full current tag statement, proof and comments read; retrieved HTML hash recorded in independentVerification.sourceFiles. For E14 compare 02OD and its correction comment."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
    "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Confirmed against current Stacks 08B1, compared with corrected scheme analogue 02OD: the closed-immersion pushforward takes F_n on X_n. The current space display still writes F."
+  },
+  {
+   "id": "PAPER-WITASZEK-22/E15",
+   "kind": "misprint",
+   "locator": "Published p.662, last sentence of EWM paragraph (and preceding nef fibre paragraph); arXiv v2 pp.7–8",
+   "printed": "y ∈ Y",
+   "correction": "Test on fibres X_s over points s∈S of the structural base. The contraction target Y is not the base S. Make the same base-letter correction in the preceding relative-nef paragraph.",
+   "reason": "Set S=Spec k, X=Y=P¹, f=id and L=O. Every f-fibre is a point, where the identity and L satisfy the EWM equivalence, but globally f does not contract P¹ although L is not big. Thus testing over Y gives a false equivalence; the preceding setup fixes π:X→S.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review 2026-09-23: Annals article page https://annals.math.princeton.edu/2022/195-2/p04 and Witaszek author publications page https://sites.math.northwestern.edu/lro1793/publications.html; no linked correction located.",
+    "Independent review: https://arxiv.org/abs/2002.11915 lists v2 dated 23 January 2022 as latest; selected v2 source loci compared with the published PDF.",
+    "Bounded exact-title/author erratum and correction searches on 2026-09-23 did not locate a relevant correction in the returned results; no exhaustive absence claim."
+   ],
+   "owner": "PAPER-WITASZEK-22",
+   "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
+   "citation": "Jakub Witaszek, \"Keel's base point free theorem and quotients in mixed characteristic\", Annals of Mathematics 195 (2022), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-WITASZEK-22",
+   "reviewReason": "Published page image and v2 pp.7–8 inspected. This is the structural-base letter slip, independently of E1’s reversed inequality. The point-fibre test above distinguishes the two readings; the intended S-fibre reading is used in the corrected planning contract."
   },
   {
    "id": "PAPER-WOOD-19/E1",
