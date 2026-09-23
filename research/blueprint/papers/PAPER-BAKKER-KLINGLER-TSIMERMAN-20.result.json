@@ -4,22 +4,37 @@
   "status": "partial",
   "agent": {
     "name": "Codex",
-    "session": "codex-c83e7a",
-    "date": "2026-09-22"
+    "session": "codex-a71f92",
+    "date": "2026-09-23",
+    "previousContributors": [
+      {
+        "name": "Codex",
+        "session": "codex-c83e7a",
+        "pullRequest": 1670
+      },
+      {
+        "name": "Claude Code",
+        "session": "cc-fb70e5",
+        "pullRequest": 1840
+      }
+    ]
   },
   "source": {
     "title": "Tame topology of arithmetic quotients and algebraicity of Hodge loci",
     "authors": "Benjamin Bakker, Bruno Klingler, Jacob Tsimerman",
-    "venue": "Journal of the American Mathematical Society33(2020),917–939",
+    "venue": "Journal of the American Mathematical Society 33 (2020), 917–939",
     "doi": "10.1090/jams/952",
-    "url": "https://benjamin-bakker.github.io/DefArith.pdf",
+    "url": "https://par.nsf.gov/servlets/purl/10200187",
     "readSections": [
-      "Entire author copy: pages1–23, §§1–5, AppendixA and references.",
-      "Entire four-page official correction, including compact-choice, morphism and rational-Siegel-pullback corrections."
+      "Complete published original, printed pp.917–939: §§1–5, Appendix A, acknowledgements and references.",
+      "Published images pp.921,923,926–928,930–933,935 inspected for formula and symbol verification.",
+      "Complete four-page official erratum reread; author copy compared at the main statements and recorded findings.",
+      "Earlier contributors read the complete author copy and selected prerequisite papers to the exact extents in provenance."
     ],
-    "version": "Full author PDF read together with official erratum (JAMS36(2023), DOI10.1090/jams/1025). Published metadata checked; full typeset collation remains G1."
+    "version": "Typeset published original, read completely, with official JAMS 36 (2023) erratum (DOI 10.1090/jams/1025). Author copy compared at main statements and every recorded finding; no claim of exhaustive glyph-by-glyph collation.",
+    "arxiv": "1810.04801v2"
   },
-  "summary": "The corrected paper gives fixed-maximal-compact semialgebraic arithmetic quotient structures and compatible morphisms, finite Siegel containment for period maps, R_an,exp definability of period maps on algebraic bases and algebraicity of individual exceptional Hodge-locus components. This partial extraction imports existing Hodge carriers and reduction/variation owners, proposes two Part II extensions, and records the remaining source and proof-interface gaps. A continuation recorded seven source mistakes in sourceIssues: four new (E1–E4) and three already corrected by the official erratum (E5–E7). It also repaired the proof of Lemma 4.5.",
+  "summary": "The corrected paper supplies fixed-K semialgebraic arithmetic quotients and compatible morphisms, finite Siegel containment, definable algebraic-base period maps and algebraicity of exceptional Hodge-locus components. This partial continuation adds a quantitative finite-permutation basis-transfer proof, finite-relation properness and a buffered-chart transition proof; imports Cholesky and adjugate inverse instead of re-planning them; and checks 29 unreviewed source findings against the published copy. Original reduction, Hodge-analytic, finite-chart and algebraization prerequisites remain explicitly open.",
   "items": [
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/pure-hodge",
@@ -39,17 +54,17 @@
       "api": [
         {
           "name": "BKT.PureHodge.pieceDecomposition",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "Recover F^a as the direct sum of H^(p,k−p) with p≥a."
         },
         {
           "name": "BKT.PureHodge.conjugatePiece",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "Conjugation sends H^(p,k−p) to H^(k−p,p)."
         },
         {
           "name": "BKT.PureHodge.shiftWeight",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "A Tate shift by m has weight k−2m and filtration F^(p+m)."
         }
       ],
@@ -76,7 +91,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.PureHodge.test1",
+          "kind": "degenerate",
+          "statement": "The rank-one type (0,0) reconstructs its two-step filtration."
+        },
+        {
+          "name": "BKT.PureHodge.test2",
+          "kind": "characterisation",
+          "statement": "An effective rank-two weight-one structure exchanges (1,0) and (0,1)."
+        },
+        {
+          "name": "BKT.PureHodge.test3",
+          "kind": "non-example",
+          "statement": "An opposedness check rejects a rank-one purported odd-weight real structure."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/local-system",
@@ -96,17 +128,17 @@
       "api": [
         {
           "name": "BKT.LocalSystem.transportIdentity",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "Transport along the constant path is the identity."
         },
         {
           "name": "BKT.LocalSystem.transportCompose",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "Transport along a concatenation is the composite in the selected path convention."
         },
         {
           "name": "BKT.LocalSystem.finiteFreeFibres",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "A PVHS adapter explicitly requires each integral fibre finite free; this is additional to LocalCoefficientSystem."
         }
       ],
@@ -133,7 +165,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.LocalSystem.test1",
+          "kind": "characterisation",
+          "statement": "A constant Z² system has identity loop transport."
+        },
+        {
+          "name": "BKT.LocalSystem.test2",
+          "kind": "characterisation",
+          "statement": "A circle system with an invertible integral matrix records that matrix as monodromy."
+        },
+        {
+          "name": "BKT.LocalSystem.test3",
+          "kind": "non-example",
+          "statement": "The constant Z/2 system is a local system but is rejected by the finite-free PVHS adapter."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-point",
@@ -160,12 +209,12 @@
         },
         {
           "name": "BKT.PeriodPoint.hodgeRanks",
-          "role": "computation",
+          "role": "example",
           "statement": "The prescribed Hodge dimensions sum to the complex dimension."
         },
         {
           "name": "BKT.PeriodPoint.fixedPolarization",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The same input integral form polarizes every point; changing the form changes the parameter, not a field of the point."
         }
       ],
@@ -192,7 +241,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.PeriodPoint.test1",
+          "kind": "characterisation",
+          "statement": "A standard polarized elliptic Hodge filtration yields a point."
+        },
+        {
+          "name": "BKT.PeriodPoint.test2",
+          "kind": "non-example",
+          "statement": "A Hodge type whose total dimension is wrong cannot yield a point."
+        },
+        {
+          "name": "BKT.PeriodPoint.test3",
+          "kind": "non-example",
+          "statement": "Negating the standard weight-one polarization without changing the filtration fails positivity."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/weil-operator",
@@ -214,17 +280,17 @@
       "api": [
         {
           "name": "BKT.WeilOperator.onPiece",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "C acts on H^(p,q) by i^(p−q)."
         },
         {
           "name": "BKT.WeilOperator.square",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "C²=(−1)^k times the identity in weight k."
         },
         {
           "name": "BKT.WeilOperator.realCompatibility",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "C commutes with conjugation on the real form."
         }
       ],
@@ -251,7 +317,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.WeilOperator.test1",
+          "kind": "degenerate",
+          "statement": "Weight zero type (0,0) gives C=1."
+        },
+        {
+          "name": "BKT.WeilOperator.test2",
+          "kind": "characterisation",
+          "statement": "Effective weight one gives C²=−1."
+        },
+        {
+          "name": "BKT.WeilOperator.test3",
+          "kind": "characterisation",
+          "statement": "Weight two with type (1,1) gives C=1, preventing the mistaken universal formula C=−1 in even weight."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-form",
@@ -275,17 +358,17 @@
       "api": [
         {
           "name": "BKT.HodgeForm.conventionConjugate",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "h_lib(u,v)=conj(h_BKT(u,v)) with the displayed Weil and polarization conventions."
         },
         {
           "name": "BKT.HodgeForm.diagonalAgreement",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "h_lib(u,u)=h_BKT(u,u) is real."
         },
         {
           "name": "BKT.HodgeForm.sesquilinearity",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "h_lib(au,bv)=conj(a)b h_lib(u,v)."
         }
       ],
@@ -312,7 +395,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.HodgeForm.test1",
+          "kind": "characterisation",
+          "statement": "For a normalized u, h_lib(iu,u)=−i while h_BKT(iu,u)=i."
+        },
+        {
+          "name": "BKT.HodgeForm.test2",
+          "kind": "characterisation",
+          "statement": "Diagonal scaling by i preserves the norm."
+        },
+        {
+          "name": "BKT.HodgeForm.test3",
+          "kind": "degenerate",
+          "statement": "The zero vector has zero norm and is excluded from strict positivity."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-positive",
@@ -354,18 +454,18 @@
       "api": [
         {
           "name": "BKT.MixedHodge.gradedPure",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The k-th rational weight graded with its induced F is pure of weight k."
         },
         {
           "name": "BKT.MixedHodge.rationalWeight",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "Complex weights are complexifications of rational subspaces and are conjugation-stable."
         },
         {
           "name": "BKT.MixedHodge.pureAsMixed",
-          "role": "constructor",
-          "statement": "A pure weight-k structure defines a mixed structure with only gr_k nonzero."
+          "statement": "A pure weight-k structure defines a mixed structure with only gr_k nonzero.",
+          "role": "constructor"
         }
       ],
       "uses": [
@@ -391,7 +491,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.MixedHodge.test1",
+          "kind": "degenerate",
+          "statement": "A pure weight-zero line gives a one-step W."
+        },
+        {
+          "name": "BKT.MixedHodge.test2",
+          "kind": "degenerate",
+          "statement": "A split sum of weights zero and two has the prescribed two gradeds."
+        },
+        {
+          "name": "BKT.MixedHodge.test3",
+          "kind": "non-example",
+          "statement": "Putting a weight-zero F on a nonzero gr_2 is rejected."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/deligne-bigrading",
@@ -413,17 +530,17 @@
       "api": [
         {
           "name": "BKT.DeligneBigrading.recoverF",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "F^a is the sum of I^(p,q) for p≥a."
         },
         {
           "name": "BKT.DeligneBigrading.recoverW",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "W_k is the sum of I^(p,q) for p+q≤k."
         },
         {
           "name": "BKT.DeligneBigrading.conjugateModuloLower",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "conj I^(p,q) equals I^(q,p) modulo pieces with first index<q and second index<p."
         }
       ],
@@ -450,7 +567,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.DeligneBigrading.test1",
+          "kind": "characterisation",
+          "statement": "In a pure structure I^(p,q) equals its Hodge piece."
+        },
+        {
+          "name": "BKT.DeligneBigrading.test2",
+          "kind": "characterisation",
+          "statement": "A real-split mixed example has exact conjugation symmetry."
+        },
+        {
+          "name": "BKT.DeligneBigrading.test3",
+          "kind": "non-example",
+          "statement": "A non-real-split extension must satisfy only the lower-term congruence, not exact symmetry."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/deligne-direct-sum",
@@ -493,17 +627,17 @@
       "api": [
         {
           "name": "BKT.NilpotentExp.truncate",
-          "role": "computation",
+          "role": "example",
           "statement": "If N^m=0, exp_nil(zN)=Σ_(j<m) z^j N^j/j!."
         },
         {
           "name": "BKT.NilpotentExp.commutingSum",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "For commuting nilpotents A,B, exp_nil(A+B)=exp_nil(A)exp_nil(B)."
         },
         {
           "name": "BKT.NilpotentExp.inverse",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "exp_nil(N)exp_nil(−N)=1."
         }
       ],
@@ -530,7 +664,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.NilpotentExp.test1",
+          "kind": "characterisation",
+          "statement": "For N²=0 the exponential is 1+zN."
+        },
+        {
+          "name": "BKT.NilpotentExp.test2",
+          "kind": "characterisation",
+          "statement": "For N³=0 but N²≠0 the quadratic coefficient is 1/2."
+        },
+        {
+          "name": "BKT.NilpotentExp.test3",
+          "kind": "non-example",
+          "statement": "Noncommuting elementary 2×2 nilpotents are rejected by the commuting-sum contract."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/real-definable-structure",
@@ -550,17 +701,17 @@
       "api": [
         {
           "name": "BKT.RealDefinableStructure.semialgebraicInclusion",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "Every semialgebraic set with real parameters is definable."
         },
         {
           "name": "BKT.RealDefinableStructure.project",
-          "role": "closure",
+          "role": "structure",
           "statement": "Coordinate projections of definable sets are definable."
         },
         {
           "name": "BKT.RealDefinableStructure.boolean",
-          "role": "closure",
+          "role": "structure",
           "statement": "Finite unions and complements are definable in each fixed arity."
         }
       ],
@@ -587,7 +738,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.RealDefinableStructure.test1",
+          "kind": "characterisation",
+          "statement": "Project the unit circle onto [−1,1]."
+        },
+        {
+          "name": "BKT.RealDefinableStructure.test2",
+          "kind": "non-example",
+          "statement": "A singleton with an arbitrary real parameter is admitted."
+        },
+        {
+          "name": "BKT.RealDefinableStructure.test3",
+          "kind": "non-example",
+          "statement": "There is no contract for arbitrary countable unions, such as the integers."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/o-minimal",
@@ -609,17 +777,17 @@
       "api": [
         {
           "name": "BKT.OMinimal.oneDimensionalDecomposition",
-          "role": "elimination",
+          "role": "projection",
           "statement": "A definable subset of R is a finite union of points and intervals."
         },
         {
           "name": "BKT.OMinimal.discreteFinite",
-          "role": "consequence",
+          "role": "other",
           "statement": "A definable discrete subset of R is finite."
         },
         {
           "name": "BKT.OMinimal.reduct",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "An ordered-field reduct of an o-minimal expansion is o-minimal."
         }
       ],
@@ -646,7 +814,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.OMinimal.test1",
+          "kind": "characterisation",
+          "statement": "A union of two intervals and three isolated points is allowed."
+        },
+        {
+          "name": "BKT.OMinimal.test2",
+          "kind": "characterisation",
+          "statement": "The integers are excluded."
+        },
+        {
+          "name": "BKT.OMinimal.test3",
+          "kind": "characterisation",
+          "statement": "The set {1/n:n≥1} is excluded despite having only one accumulation point."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/restricted-analytic",
@@ -663,17 +848,17 @@
       "api": [
         {
           "name": "BKT.RestrictedAnalytic.bufferRestriction",
-          "role": "constructor",
-          "statement": "An analytic function on a neighborhood of a closed box gives a restricted analytic function on that box."
+          "statement": "An analytic function on a neighborhood of a closed box gives a restricted analytic function on that box.",
+          "role": "constructor"
         },
         {
           "name": "BKT.RestrictedAnalytic.rescaleBox",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "Affine rescaling between compact boxes preserves restricted analyticity."
         },
         {
           "name": "BKT.RestrictedAnalytic.complexComponents",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "Real and imaginary parts of a holomorphic function on a buffered compact polydisk are R_an-definable."
         }
       ],
@@ -700,7 +885,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.RestrictedAnalytic.test1",
+          "kind": "characterisation",
+          "statement": "Sine on [−10,10] with its entire extension is admitted."
+        },
+        {
+          "name": "BKT.RestrictedAnalytic.test2",
+          "kind": "non-example",
+          "statement": "An analytic function on only the open unit disk is not automatically supplied on its closure."
+        },
+        {
+          "name": "BKT.RestrictedAnalytic.test3",
+          "kind": "characterisation",
+          "statement": "The function exp(−(1+z)/(1−z)) passes on |z|≤1/2 but has no analytic buffer at z=1."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/tame-structures",
@@ -723,17 +925,17 @@
       "api": [
         {
           "name": "BKT.TameStructures.algebraicToAnalytic",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "R_alg-definable sets are R_an-definable."
         },
         {
           "name": "BKT.TameStructures.analyticToCombined",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "R_an-definability implies R_an,exp-definability."
         },
         {
           "name": "BKT.TameStructures.realExpDefinable",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The real exponential is definable in R_exp and R_an,exp."
         }
       ],
@@ -760,7 +962,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.TameStructures.test1",
+          "kind": "characterisation",
+          "statement": "A polynomial graph is definable in all four structures."
+        },
+        {
+          "name": "BKT.TameStructures.test2",
+          "kind": "characterisation",
+          "statement": "The real exponential graph is admitted in the combined structure."
+        },
+        {
+          "name": "BKT.TameStructures.test3",
+          "kind": "non-example",
+          "statement": "Full real sine cannot be declared definable in any of these o-minimal structures."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/o-minimality-inputs",
@@ -797,17 +1016,17 @@
       "api": [
         {
           "name": "BKT.FiniteDefinableAtlas.compatibleRefinement",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "Finite definable refinements produce the same definable subsets."
         },
         {
           "name": "BKT.FiniteDefinableAtlas.graphCriterion",
-          "role": "elimination",
+          "role": "projection",
           "statement": "A map is definable iff its graph is definable in all pairs of charts."
         },
         {
           "name": "BKT.FiniteDefinableAtlas.finiteGlue",
-          "role": "closure",
+          "role": "structure",
           "statement": "Compatible definable maps on a finite definable cover glue definably."
         }
       ],
@@ -834,7 +1053,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.FiniteDefinableAtlas.test1",
+          "kind": "characterisation",
+          "statement": "Two finite stereographic charts give a definable circle."
+        },
+        {
+          "name": "BKT.FiniteDefinableAtlas.test2",
+          "kind": "characterisation",
+          "statement": "A finite refinement preserves graph definability."
+        },
+        {
+          "name": "BKT.FiniteDefinableAtlas.test3",
+          "kind": "characterisation",
+          "statement": "A countable atlas alone is insufficient for the finite-gluing theorem."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/definable-map-calculus",
@@ -869,17 +1105,17 @@
       "api": [
         {
           "name": "BKT.AnalyticCorners.interior",
-          "role": "constructor",
-          "statement": "The depth-zero locus is a real analytic n-manifold."
+          "statement": "The depth-zero locus is a real analytic n-manifold.",
+          "role": "structure"
         },
         {
           "name": "BKT.AnalyticCorners.ambientExtension",
-          "role": "elimination",
+          "role": "projection",
           "statement": "Each chart transition has an analytic extension on an ambient neighborhood."
         },
         {
           "name": "BKT.AnalyticCorners.depthInvariant",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "The number of local boundary hyperplanes through a point is chart-independent."
         }
       ],
@@ -906,7 +1142,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.AnalyticCorners.test1",
+          "kind": "characterisation",
+          "statement": "The origin of [0,∞)² has depth two."
+        },
+        {
+          "name": "BKT.AnalyticCorners.test2",
+          "kind": "degenerate",
+          "statement": "A positive point of [0,∞) has depth zero."
+        },
+        {
+          "name": "BKT.AnalyticCorners.test3",
+          "kind": "non-example",
+          "statement": "The map x↦sqrt(x) at zero fails the required analytic transition extension."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/corner-boundary",
@@ -925,17 +1178,17 @@
       "api": [
         {
           "name": "BKT.CornerBoundary.dimension",
-          "role": "computation",
+          "role": "example",
           "statement": "The boundary has dimension n−1 when n≥1."
         },
         {
           "name": "BKT.CornerBoundary.branchImmersion",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The map (x,b)↦x is weakly analytic and locally an immersion."
         },
         {
           "name": "BKT.CornerBoundary.fibreDepth",
-          "role": "computation",
+          "role": "example",
           "statement": "The fibre over x has one element for each local boundary branch, hence cardinality depth(x)."
         }
       ],
@@ -962,7 +1215,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.CornerBoundary.test1",
+          "kind": "characterisation",
+          "statement": "At a quadrant vertex the fibre has two points."
+        },
+        {
+          "name": "BKT.CornerBoundary.test2",
+          "kind": "characterisation",
+          "statement": "At an edge interior the fibre has one point."
+        },
+        {
+          "name": "BKT.CornerBoundary.test3",
+          "kind": "characterisation",
+          "statement": "At an interior point the fibre is empty."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/definable-corners",
@@ -982,18 +1252,18 @@
       "api": [
         {
           "name": "BKT.DefinableCorners.orthantCharts",
-          "role": "elimination",
+          "role": "projection",
           "statement": "Each chart image is relatively open in a definable orthant."
         },
         {
           "name": "BKT.DefinableCorners.definableInterior",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The locus where all boundary coordinates are positive is definable."
         },
         {
           "name": "BKT.DefinableCorners.boundaryCharts",
-          "role": "constructor",
-          "statement": "Restricting one coordinate to zero constructs the finite definable boundary atlas with its branch labels."
+          "statement": "Restricting one coordinate to zero constructs the finite definable boundary atlas with its branch labels.",
+          "role": "constructor"
         }
       ],
       "uses": [
@@ -1019,27 +1289,46 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.DefinableCorners.test1",
+          "kind": "characterisation",
+          "statement": "A square has four local edge branches."
+        },
+        {
+          "name": "BKT.DefinableCorners.test2",
+          "kind": "non-example",
+          "statement": "The two branches at a vertex remain distinct."
+        },
+        {
+          "name": "BKT.DefinableCorners.test3",
+          "kind": "non-example",
+          "statement": "An arbitrary nondefinable transition is rejected even if it is a homeomorphism."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compact-corners-definable",
       "kind": "theorem",
       "name": "Compact analytic corners admit a canonical R_an structure",
-      "statement": "A compact real analytic manifold with corners admits a canonical R_an-definable structure compatible with its analytic atlas. Independence means definable identity between constructions using different finite buffered chart covers.",
+      "statement": "A compact real analytic manifold with corners admits an R_an-definable structure obtained from any finite buffered analytic chart cover. Two such constructions have definable identity maps, giving a canonical structure. Compatibility is not asserted for arbitrary nonbuffered analytic charts.",
       "locator": "PropositionA.2, first assertion",
       "status": "missing",
       "prerequisites": [
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/restricted-analytic",
-        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/definable-corners"
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/definable-corners",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/buffered-transition-graph"
       ],
       "proofSteps": [
-        "Shrink analytic coordinate boxes with closures inside larger coordinate neighborhoods.",
-        "Compactness supplies a finite cover; restricted analytic transitions on the buffered closures are definable.",
-        "Use a common finite refinement to prove independence. Relative compactness alone without extension control is insufficient."
+        "For every point choose a corner chart and a smaller relatively open semialgebraic box with compact closure inside the original chart domain. Its image is a neighborhood; use compactness to select finitely many such neighborhoods.",
+        "Apply buffered-transition-graph to every pair of the selected charts. This verifies both definable overlaps and definable transitions, not merely analyticity on open overlaps.",
+        "For two choices of buffered covers, apply the same graph lemma to all mixed pairs. The identity is definable, proving independence.",
+        "Apply the construction to local boundary branches to obtain the canonical finite boundary atlas and its definable immersion."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "L",
-      "note": ""
+      "note": "Compatibility is asserted for buffered finite analytic subatlases; an arbitrary nonbuffered analytic chart need not be globally subanalytic. SourceIssues E17 records the missing buffer in the printed argument."
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/boundary-interior-definable",
@@ -1079,17 +1368,17 @@
       "api": [
         {
           "name": "BKT.CartanMaximalCompact.fixedSubgroup",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "K is the fixed subgroup of the chosen Cartan involution."
         },
         {
           "name": "BKT.CartanMaximalCompact.conjugateChoice",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "Conjugation by g transports K and its Cartan involution together."
         },
         {
           "name": "BKT.CartanMaximalCompact.containsCompact",
-          "role": "existence",
+          "role": "constructor",
           "statement": "For a compact subgroup M in a real linear reductive group, choose maximal compact K containing M."
         }
       ],
@@ -1116,7 +1405,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.CartanMaximalCompact.test1",
+          "kind": "characterisation",
+          "statement": "For SL₂(R), transpose-inverse has fixed group SO₂."
+        },
+        {
+          "name": "BKT.CartanMaximalCompact.test2",
+          "kind": "characterisation",
+          "statement": "Conjugating SO₂ transports the involution."
+        },
+        {
+          "name": "BKT.CartanMaximalCompact.test3",
+          "kind": "non-example",
+          "statement": "An arbitrary compact-subgroup inclusion does not imply stability of an embedded reductive subgroup under the ambient involution."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/arithmetic-quotient",
@@ -1135,17 +1441,17 @@
       "api": [
         {
           "name": "BKT.ArithmeticQuotient.quotientWellDefined",
-          "role": "constructor",
-          "statement": "The class of h identifies γhm with h for γ∈Γ and m∈M."
+          "statement": "The class of h identifies γhm with h for γ∈Γ and m∈M.",
+          "role": "relation"
         },
         {
           "name": "BKT.ArithmeticQuotient.fixedKParameter",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The definable structure is indexed by a maximal compact K containing M."
         },
         {
           "name": "BKT.ArithmeticQuotient.neatUpgrade",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "A finite-index neat subgroup yields a finite covering of the torsion-free quotient; boundary freeness uses neatness explicitly."
         }
       ],
@@ -1172,7 +1478,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.ArithmeticQuotient.test1",
+          "kind": "characterisation",
+          "statement": "M=K specializes to the symmetric quotient."
+        },
+        {
+          "name": "BKT.ArithmeticQuotient.test2",
+          "kind": "characterisation",
+          "statement": "M proper in K retains the larger homogeneous fibre."
+        },
+        {
+          "name": "BKT.ArithmeticQuotient.test3",
+          "kind": "non-example",
+          "statement": "Two choices of K above the same M are not definitionally equated as definable structures."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compatible-morphism",
@@ -1191,17 +1514,17 @@
       "api": [
         {
           "name": "BKT.CompatibleMorphism.quotientMap",
-          "role": "constructor",
-          "statement": "The two level/stabilizer inclusions make [h′]↦[φ(h′)g] well defined."
+          "statement": "The two level/stabilizer inclusions make [h′]↦[φ(h′)g] well defined.",
+          "role": "constructor"
         },
         {
           "name": "BKT.CompatibleMorphism.cartanImageStable",
-          "role": "elimination",
+          "role": "projection",
           "statement": "The chosen target Cartan involution stabilizes the image Lie algebra."
         },
         {
           "name": "BKT.CompatibleMorphism.translateCompact",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "Right translation by g identifies the compact data gKg⁻¹ and K without requiring Int(g) to be defined over Q."
         }
       ],
@@ -1228,7 +1551,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.CompatibleMorphism.test1",
+          "kind": "characterisation",
+          "statement": "The identity satisfies all hypotheses."
+        },
+        {
+          "name": "BKT.CompatibleMorphism.test2",
+          "kind": "characterisation",
+          "statement": "A rational Hecke map with the compatible compact choices is admitted."
+        },
+        {
+          "name": "BKT.CompatibleMorphism.test3",
+          "kind": "non-example",
+          "statement": "The conjugated torus example with K_H⊂K_G but unstable image is rejected."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/rational-parabolic-data",
@@ -1250,17 +1590,17 @@
       "api": [
         {
           "name": "BKT.RationalParabolicData.leviQuotient",
-          "role": "constructor",
-          "statement": "P/N_P is the rational reductive Levi quotient."
+          "statement": "P/N_P is the rational reductive Levi quotient.",
+          "role": "data"
         },
         {
           "name": "BKT.RationalParabolicData.cartanLift",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "K specifies a real Cartan-stable lift of that quotient."
         },
         {
           "name": "BKT.RationalParabolicData.horosphericalCoordinates",
-          "role": "elimination",
+          "role": "projection",
           "statement": "Every g admits the N_P A_P M_P K factorization with the stated stabilizers."
         }
       ],
@@ -1287,7 +1627,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.RationalParabolicData.test1",
+          "kind": "characterisation",
+          "statement": "The upper triangular subgroup of SL₂ gives a one-dimensional split torus."
+        },
+        {
+          "name": "BKT.RationalParabolicData.test2",
+          "kind": "characterisation",
+          "statement": "A Q-anisotropic group has no proper rational parabolic."
+        },
+        {
+          "name": "BKT.RationalParabolicData.test3",
+          "kind": "non-example",
+          "statement": "A Cartan-stable real lift is not automatically certified rational."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/positive-root-cone",
@@ -1306,17 +1663,17 @@
       "api": [
         {
           "name": "BKT.PositiveRootCone.inverseRootPositive",
-          "role": "computation",
+          "role": "example",
           "statement": "For a∈A_P, every inverse-root coordinate is positive."
         },
         {
           "name": "BKT.PositiveRootCone.coneImage",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "A_(P,t) maps to coordinates strictly between 0 and 1/t."
         },
         {
           "name": "BKT.PositiveRootCone.rankZero",
-          "role": "computation",
+          "role": "example",
           "statement": "For an empty simple-root set the cone condition is vacuous and the corner factor is a point."
         }
       ],
@@ -1343,7 +1700,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.PositiveRootCone.test1",
+          "kind": "characterisation",
+          "statement": "For SL₂, a=diag(s,s⁻¹) has inverse root s⁻²."
+        },
+        {
+          "name": "BKT.PositiveRootCone.test2",
+          "kind": "degenerate",
+          "statement": "Letting s→∞ approaches the zero boundary coordinate."
+        },
+        {
+          "name": "BKT.PositiveRootCone.test3",
+          "kind": "degenerate",
+          "statement": "The rank-zero case adds no artificial boundary."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-set",
@@ -1365,17 +1739,17 @@
       "api": [
         {
           "name": "BKT.SiegelSet.semialgebraic",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "A Siegel set with semialgebraic relatively compact U,W is semialgebraic."
         },
         {
           "name": "BKT.SiegelSet.coneMonotonicity",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "Increasing t shrinks the Siegel set with U,W fixed."
         },
         {
           "name": "BKT.SiegelSet.quotientImage",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "The image under G→G/M is semialgebraic in the homogeneous model."
         }
       ],
@@ -1402,7 +1776,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.SiegelSet.test1",
+          "kind": "degenerate",
+          "statement": "The SL₂ cusp strip is a rank-one example."
+        },
+        {
+          "name": "BKT.SiegelSet.test2",
+          "kind": "characterisation",
+          "statement": "Replacing t by a larger t shrinks its cusp cone."
+        },
+        {
+          "name": "BKT.SiegelSet.test3",
+          "kind": "non-example",
+          "statement": "Comparison of sets associated to different K requires a new theorem and is not accepted as a same-K overlap invocation."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-translation",
@@ -1526,27 +1917,27 @@
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/definably-proper-quotient"
       ],
       "proofSteps": [
-        "Use the semialgebraic compact-group equivalence relation on G×G.",
-        "Its definably proper quotient gives the model and projection; multiplication descends to the action.",
-        "Alternatively use a faithful orbit with compact stabilizer and finite invariant polynomials. The original external quotient/invariant-theory proofs remain source leaves."
+        "Use E={(g,gm):g∈G,m∈M} as a semialgebraic relation in G×G. Compactness of M makes the coordinate projections proper.",
+        "Apply the exact proper semialgebraic quotient theorem to obtain the quotient topology and projection; multiplication descends to the semialgebraic left action.",
+        "Do not follow the first printed proof's composition with M-invariant polynomials on the representation: it may collapse distinct right cosets (E8). The second proof remains the planned route, with the external quotient theorem retained as a source gap."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "Q",
-      "note": "",
+      "note": "Corrected E8 and E9. The orbit map itself separates right cosets; subsequently taking invariants for the left M-action destroys this separation.",
       "api": [
         {
           "name": "BKT.CompactHomogeneousModel.projection",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "G→G/M is semialgebraic and has the quotient topology."
         },
         {
           "name": "BKT.CompactHomogeneousModel.leftAction",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The G-action on the model is semialgebraic."
         },
         {
           "name": "BKT.CompactHomogeneousModel.orbitEquality",
-          "role": "elimination",
+          "role": "projection",
           "statement": "Two points of G have the same image iff their quotient lies in M."
         }
       ],
@@ -1571,9 +1962,36 @@
           "name": "BKT.CompactHomogeneousModel.test3",
           "statement": "The later arithmetic Γ quotient is not included in this compact-orbit construction.",
           "status": "proposed"
+        },
+        {
+          "name": "BKT.CompactHomogeneousModel.leftInvariantCollapse",
+          "status": "proposed",
+          "statement": "For G=SL₂(R), M=SO₂(R), g=diag(2,1/2), k=[[0,-1],[1,0]], gM≠kgM, while every M-invariant polynomial on Sym₂(R)⊕R agrees at (ggᵀ,1) and (kggᵀkᵀ,1)."
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.CompactHomogeneousModel.test1",
+          "kind": "characterisation",
+          "statement": "M={1} recovers G."
+        },
+        {
+          "name": "BKT.CompactHomogeneousModel.test2",
+          "kind": "characterisation",
+          "statement": "For G=SL₂ and M=SO₂ the model agrees with the upper half-plane as a real homogeneous space."
+        },
+        {
+          "name": "BKT.CompactHomogeneousModel.test3",
+          "kind": "non-example",
+          "statement": "The later arithmetic Γ quotient is not included in this compact-orbit construction."
+        },
+        {
+          "name": "BKT.CompactHomogeneousModel.leftInvariantCollapse",
+          "kind": "characterisation",
+          "statement": "For G=SL₂(R), M=SO₂(R), g=diag(2,1/2), k=[[0,-1],[1,0]], gM≠kgM, while every M-invariant polynomial on Sym₂(R)⊕R agrees at (ggᵀ,1) and (kggᵀkᵀ,1)."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/definably-proper-quotient",
@@ -1608,17 +2026,17 @@
       "api": [
         {
           "name": "BKT.BsCorner.interiorCoordinates",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "The positive-coordinate locus identifies with G through the horospherical coordinates."
         },
         {
           "name": "BKT.BsCorner.faceLabel",
-          "role": "computation",
+          "role": "example",
           "statement": "Vanishing-coordinate subsets select the corresponding rational-parabolic boundary face."
         },
         {
           "name": "BKT.BsCorner.weakAnalyticOverlap",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "Transition maps between incident corners extend analytically to ambient neighborhoods on their domains."
         }
       ],
@@ -1645,7 +2063,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.BsCorner.test1",
+          "kind": "degenerate",
+          "statement": "Rank one has a single cusp coordinate."
+        },
+        {
+          "name": "BKT.BsCorner.test2",
+          "kind": "non-example",
+          "statement": "Rank two has distinct codimension-one faces and their intersection."
+        },
+        {
+          "name": "BKT.BsCorner.test3",
+          "kind": "degenerate",
+          "statement": "Rank zero produces no boundary face."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/general-bs-space",
@@ -1668,17 +2103,17 @@
       "api": [
         {
           "name": "BKT.GeneralBsSpace.interiorEmbedding",
-          "role": "constructor",
-          "statement": "G embeds as the open depth-zero locus of the glued space."
+          "statement": "G embeds as the open depth-zero locus of the glued space.",
+          "role": "projection"
         },
         {
           "name": "BKT.GeneralBsSpace.boundaryStratum",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "The stratum for P is N_P×M_PK."
         },
         {
           "name": "BKT.GeneralBsSpace.symmetricSpecialization",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "Taking the right quotient by M=K agrees with the ALS.2 Borel–Serre space."
         }
       ],
@@ -1705,7 +2140,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.GeneralBsSpace.test1",
+          "kind": "degenerate",
+          "statement": "The rank-one chart has the prescribed cusp stratum."
+        },
+        {
+          "name": "BKT.GeneralBsSpace.test2",
+          "kind": "characterisation",
+          "statement": "The M=K specialization agrees with the imported symmetric space."
+        },
+        {
+          "name": "BKT.GeneralBsSpace.test3",
+          "kind": "non-example",
+          "statement": "A general group homomorphism is not automatically given an extension to these compactifications."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/corner-embedding",
@@ -1771,26 +2223,30 @@
       "prerequisites": [
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compact-homogeneous-model",
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-finite-cover",
-        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-finite-overlap"
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-finite-overlap",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/finite-siegel-relation-proper"
       ],
-      "proofSteps": [],
+      "proofSteps": [
+        "Represent each overlap by its finite collection of semialgebraic action graphs.",
+        "Use finite-siegel-relation-proper for the closed tagged pieces; apply the exact quotient theorem only after its external contract has been checked."
+      ],
       "implementationStatus": "unchecked",
       "routingGroup": "Q",
       "note": "",
       "api": [
         {
           "name": "BKT.SiegelEquivalenceRelation.finiteWitnesses",
-          "role": "elimination",
+          "role": "projection",
           "statement": "For each pair of fixed-K pieces only a finite subset of Γ can identify their points."
         },
         {
           "name": "BKT.SiegelEquivalenceRelation.equivalenceLaws",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The orbit relation on the tagged union is reflexive, symmetric and transitive."
         },
         {
           "name": "BKT.SiegelEquivalenceRelation.definableProper",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The chosen closure presentation has a semialgebraic proper relation; use a quotient theorem with that exact hypothesis."
         }
       ],
@@ -1817,7 +2273,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.SiegelEquivalenceRelation.test1",
+          "kind": "characterisation",
+          "statement": "Two tagged representatives of the same orbit are identified."
+        },
+        {
+          "name": "BKT.SiegelEquivalenceRelation.test2",
+          "kind": "non-example",
+          "statement": "An overlap may identify distinct points inside one tagged piece."
+        },
+        {
+          "name": "BKT.SiegelEquivalenceRelation.test3",
+          "kind": "non-example",
+          "statement": "The construction does not assert that an entire Siegel piece injects as one coordinate chart."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/arithmetic-definable-structure",
@@ -1961,18 +2434,18 @@
       "api": [
         {
           "name": "BKT.HeckeCorrespondence.intersectionLevel",
-          "role": "constructor",
-          "statement": "Γ∩g⁻¹Γg has finite index in both arithmetic groups."
+          "statement": "Γ∩g⁻¹Γg has finite index in both arithmetic groups.",
+          "role": "other"
         },
         {
           "name": "BKT.HeckeCorrespondence.firstLeg",
-          "role": "constructor",
-          "statement": "The first leg is the quotient projection from the intersection level."
+          "statement": "The first leg is the quotient projection from the intersection level.",
+          "role": "projection"
         },
         {
           "name": "BKT.HeckeCorrespondence.secondLeg",
-          "role": "constructor",
-          "statement": "The second leg sends the class of h to the class of gh and uses rational Int(g) with the corresponding right translation."
+          "statement": "The second leg sends the class of h to the class of gh and uses rational Int(g) with the corresponding right translation.",
+          "role": "projection"
         }
       ],
       "uses": [
@@ -1998,7 +2471,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.HeckeCorrespondence.test1",
+          "kind": "characterisation",
+          "statement": "g=1 gives two identical legs."
+        },
+        {
+          "name": "BKT.HeckeCorrespondence.test2",
+          "kind": "characterisation",
+          "statement": "A central rational g yields the expected level-preserving translation."
+        },
+        {
+          "name": "BKT.HeckeCorrespondence.test3",
+          "kind": "non-example",
+          "statement": "An arbitrary real g is not assumed to commensurate Γ."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hecke-definable",
@@ -2081,17 +2571,17 @@
       "api": [
         {
           "name": "BKT.PolarizedVariation.flatPolarization",
-          "role": "elimination",
+          "role": "projection",
           "statement": "Parallel transport preserves the fixed integral bilinear form."
         },
         {
           "name": "BKT.PolarizedVariation.griffiths",
-          "role": "elimination",
+          "role": "projection",
           "statement": "The connection sends F^p into F^(p−1)⊗Ω¹."
         },
         {
           "name": "BKT.PolarizedVariation.holomorphicPullback",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "Holomorphic pullback preserves an integral polarized variation and its weight."
         }
       ],
@@ -2118,7 +2608,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.PolarizedVariation.test1",
+          "kind": "characterisation",
+          "statement": "A constant polarized Hodge structure defines a variation."
+        },
+        {
+          "name": "BKT.PolarizedVariation.test2",
+          "kind": "characterisation",
+          "statement": "A weight-one map to the upper half-plane is automatically horizontal."
+        },
+        {
+          "name": "BKT.PolarizedVariation.test3",
+          "kind": "non-example",
+          "statement": "An arbitrary higher-weight holomorphic flag map is rejected unless Griffiths transversality holds."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/general-period-domain",
@@ -2142,18 +2649,18 @@
       "api": [
         {
           "name": "BKT.GeneralPeriodDomain.pointEquivalence",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "The analytic domain has the existing PeriodDomain.Point carrier with the fixed lattice/form/type."
         },
         {
           "name": "BKT.GeneralPeriodDomain.compactDualAction",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The complexified algebraic group acts algebraically on the flag compact dual."
         },
         {
           "name": "BKT.GeneralPeriodDomain.horizontalTangent",
-          "role": "constructor",
-          "statement": "The horizontal subbundle is the degree −1 filtration-lowering part of the tangent space."
+          "statement": "The horizontal subbundle is the degree −1 filtration-lowering part of the tangent space.",
+          "role": "characterisation"
         }
       ],
       "uses": [
@@ -2179,7 +2686,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.GeneralPeriodDomain.test1",
+          "kind": "characterisation",
+          "statement": "Effective weight one produces the usual Siegel domain."
+        },
+        {
+          "name": "BKT.GeneralPeriodDomain.test2",
+          "kind": "characterisation",
+          "statement": "The orbit lies openly in its compact dual as a real domain."
+        },
+        {
+          "name": "BKT.GeneralPeriodDomain.test3",
+          "kind": "non-example",
+          "statement": "A non-Hermitian period domain is not identified with G/K when M is smaller than K."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-datum",
@@ -2200,17 +2724,17 @@
       "api": [
         {
           "name": "BKT.HodgeDatum.adjointCartan",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The Weil operator of the adjoint polarized Hodge structure induces the canonical Cartan involution."
         },
         {
           "name": "BKT.HodgeDatum.stabilizerContained",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The point stabilizer M lies in its canonical maximal compact K_t."
         },
         {
           "name": "BKT.HodgeDatum.hodgeMorphismsPreserve",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "A morphism of Hodge data preserves the Cartan data and stabilizes the image Lie algebra under the target involution."
         }
       ],
@@ -2237,7 +2761,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.HodgeDatum.test1",
+          "kind": "characterisation",
+          "statement": "A weight-one datum gives the standard compact stabilizer."
+        },
+        {
+          "name": "BKT.HodgeDatum.test2",
+          "kind": "non-example",
+          "statement": "The adjoint representation loses the center and is not identified with the original lattice representation."
+        },
+        {
+          "name": "BKT.HodgeDatum.test3",
+          "kind": "non-example",
+          "statement": "A bare rational group homomorphism need not be a Hodge morphism."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-manifold",
@@ -2257,17 +2798,17 @@
       "api": [
         {
           "name": "BKT.HodgeManifold.analyticQuotient",
-          "role": "constructor",
-          "statement": "At neat level Γ acts freely and properly on D, giving the complex analytic quotient."
+          "statement": "At neat level Γ acts freely and properly on D, giving the complex analytic quotient.",
+          "role": "constructor"
         },
         {
           "name": "BKT.HodgeManifold.canonicalDefinable",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "Use arithmetic-definable-structure with the Hodge-derived K_t."
         },
         {
           "name": "BKT.HodgeManifold.levelChange",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "Finite-index level changes give finite holomorphic definable maps."
         }
       ],
@@ -2294,7 +2835,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.HodgeManifold.test1",
+          "kind": "characterisation",
+          "statement": "A neat modular quotient is an example."
+        },
+        {
+          "name": "BKT.HodgeManifold.test2",
+          "kind": "non-example",
+          "statement": "A general non-Hermitian Hodge quotient is not asserted algebraic."
+        },
+        {
+          "name": "BKT.HodgeManifold.test3",
+          "kind": "characterisation",
+          "statement": "Changing level preserves the canonical compact choice."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-map",
@@ -2314,17 +2872,17 @@
       "api": [
         {
           "name": "BKT.PeriodMap.localLift",
-          "role": "constructor",
-          "statement": "A flat marking on a simply connected open set sends each fibre filtration to a period-domain point."
+          "statement": "A flat marking on a simply connected open set sends each fibre filtration to a period-domain point.",
+          "role": "constructor"
         },
         {
           "name": "BKT.PeriodMap.deckEquivariance",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "Changing a lift by a deck transformation acts through its integral monodromy."
         },
         {
           "name": "BKT.PeriodMap.horizontalHolomorphic",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The local lifts and descended period map are holomorphic and horizontal."
         }
       ],
@@ -2351,7 +2909,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.PeriodMap.test1",
+          "kind": "characterisation",
+          "statement": "A constant variation gives a constant period map."
+        },
+        {
+          "name": "BKT.PeriodMap.test2",
+          "kind": "degenerate",
+          "statement": "For a punctured disk with nontrivial unipotent monodromy, the lift transforms by T around one turn."
+        },
+        {
+          "name": "BKT.PeriodMap.test3",
+          "kind": "characterisation",
+          "statement": "A change of marking conjugates the representation and gives the same unmarked quotient map."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-morphism-compatible",
@@ -2429,17 +3004,17 @@
       "api": [
         {
           "name": "BKT.MonodromyLogarithms.finiteLog",
-          "role": "computation",
+          "role": "example",
           "statement": "If (T−1)^m=0 the displayed logarithm truncates before degree m."
         },
         {
           "name": "BKT.MonodromyLogarithms.exponentialInverse",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "exp_nil(log T)=T."
         },
         {
           "name": "BKT.MonodromyLogarithms.commutingLogs",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "Commuting unipotent T_i yield commuting nilpotent logarithms N_i."
         }
       ],
@@ -2466,7 +3041,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.MonodromyLogarithms.test1",
+          "kind": "characterisation",
+          "statement": "T=1 yields N=0."
+        },
+        {
+          "name": "BKT.MonodromyLogarithms.test2",
+          "kind": "characterisation",
+          "statement": "For T=1+N with N²=0, log T=N."
+        },
+        {
+          "name": "BKT.MonodromyLogarithms.test3",
+          "kind": "characterisation",
+          "statement": "A quasi-unipotent T with eigenvalue −1 must first pass to a power cover."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-orbit",
@@ -2486,17 +3078,17 @@
       "api": [
         {
           "name": "BKT.NilpotentOrbit.untwistedDescent",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "exp(−Σz_iN_i)Φtilde(z) is invariant under integral shifts z_i↦z_i+1."
         },
         {
           "name": "BKT.NilpotentOrbit.twistRecovery",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "Φtilde(z)=exp(Σz_iN_i)Ψ(q(z))."
         },
         {
           "name": "BKT.NilpotentOrbit.deepPositivity",
-          "role": "elimination",
+          "role": "projection",
           "statement": "A nilpotent orbit lies in D only after the stipulated lower bound on all imaginary coordinates."
         }
       ],
@@ -2523,7 +3115,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.NilpotentOrbit.test1",
+          "kind": "characterisation",
+          "statement": "For N_i=0 and constant F the orbit is constant."
+        },
+        {
+          "name": "BKT.NilpotentOrbit.test2",
+          "kind": "characterisation",
+          "statement": "One integral shift cancels T_i with exp(−N_i)."
+        },
+        {
+          "name": "BKT.NilpotentOrbit.test3",
+          "kind": "non-example",
+          "statement": "Membership of F in the compact dual does not by itself assert the orbit lies in D at small height."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-extension",
@@ -2558,18 +3167,18 @@
       "api": [
         {
           "name": "BKT.BoundedSector.imaginaryOrderCover",
-          "role": "constructor",
-          "statement": "The finitely many coordinate permutations cover all choices of imaginary-coordinate order."
+          "statement": "The finitely many coordinate permutations cover all choices of imaginary-coordinate order.",
+          "role": "other"
         },
         {
           "name": "BKT.BoundedSector.boundedTrig",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "Sine and cosine of 2π Re z are restricted analytic on bounded real intervals."
         },
         {
           "name": "BKT.BoundedSector.angularSeams",
-          "role": "constructor",
-          "statement": "A finite family of overlapping intervals covers one full turn without omitting the positive ray."
+          "statement": "A finite family of overlapping intervals covers one full turn without omitting the positive ray.",
+          "role": "other"
         }
       ],
       "uses": [
@@ -2595,7 +3204,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.BoundedSector.test1",
+          "kind": "characterisation",
+          "statement": "In two variables both y₁≥y₂ and y₂≥y₁ are needed."
+        },
+        {
+          "name": "BKT.BoundedSector.test2",
+          "kind": "characterisation",
+          "statement": "The strip 0<Re z<1 alone misses the positive-real q ray."
+        },
+        {
+          "name": "BKT.BoundedSector.test3",
+          "kind": "characterisation",
+          "statement": "A height cutoff only covers a smaller punctured disk; the remaining annulus needs a separate buffered chart."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/sector-exponential-definable",
@@ -2656,17 +3282,17 @@
       "api": [
         {
           "name": "BKT.RoughFunctionRings.coefficientPullback",
-          "role": "constructor",
-          "statement": "An analytic coefficient on a neighborhood of the closed polydisk pulls back along q."
+          "statement": "An analytic coefficient on a neighborhood of the closed polydisk pulls back along q.",
+          "role": "constructor"
         },
         {
           "name": "BKT.RoughFunctionRings.laurentClosure",
-          "role": "closure",
+          "role": "structure",
           "statement": "The coefficient algebra with x_i,y_i,y_i⁻¹ is closed under sums and products."
         },
         {
           "name": "BKT.RoughFunctionRings.nonzeroDomain",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "A rational expression is evaluated only on its denominator-nonvanishing domain."
         }
       ],
@@ -2693,7 +3319,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.RoughFunctionRings.test1",
+          "kind": "characterisation",
+          "statement": "The function y₁/y₂ is included."
+        },
+        {
+          "name": "BKT.RoughFunctionRings.test2",
+          "kind": "characterisation",
+          "statement": "A buffered coefficient q₁ times y₂² is included."
+        },
+        {
+          "name": "BKT.RoughFunctionRings.test3",
+          "kind": "non-example",
+          "statement": "A denominator vanishing inside the sector cannot be inverted on that whole sector."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/rough-monomial",
@@ -2712,17 +3355,17 @@
       "api": [
         {
           "name": "BKT.RoughMonomial.positive",
-          "role": "elimination",
+          "role": "projection",
           "statement": "A roughly monomial function is everywhere strictly positive."
         },
         {
           "name": "BKT.RoughMonomial.productExponents",
-          "role": "closure",
+          "role": "structure",
           "statement": "Products add exponent vectors and multiply lower/upper constants."
         },
         {
           "name": "BKT.RoughMonomial.inverseExponents",
-          "role": "closure",
+          "role": "structure",
           "statement": "Reciprocals negate exponents and invert/swap the comparison constants."
         }
       ],
@@ -2749,7 +3392,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.RoughMonomial.test1",
+          "kind": "characterisation",
+          "statement": "The function y₁²/y₂ is roughly monomial with constants one."
+        },
+        {
+          "name": "BKT.RoughMonomial.test2",
+          "kind": "non-example",
+          "statement": "The zero function is rejected."
+        },
+        {
+          "name": "BKT.RoughMonomial.test3",
+          "kind": "non-example",
+          "statement": "exp(−y₁) on an unbounded sector is not comparable below to any integral monomial."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/rough-polynomial",
@@ -2768,17 +3428,17 @@
       "api": [
         {
           "name": "BKT.RoughPolynomial.sum",
-          "role": "closure",
+          "role": "structure",
           "statement": "A sum of rough polynomials is a rough polynomial after multiplying the positive rough-monomial denominators."
         },
         {
           "name": "BKT.RoughPolynomial.product",
-          "role": "closure",
+          "role": "structure",
           "statement": "A product is rough polynomial with product denominator."
         },
         {
           "name": "BKT.RoughPolynomial.splitComplex",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "Complex rough-polynomial entries have real and imaginary parts in the real class."
         }
       ],
@@ -2805,7 +3465,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.RoughPolynomial.test1",
+          "kind": "characterisation",
+          "statement": "A polynomial divided by y₁/y₂ is included."
+        },
+        {
+          "name": "BKT.RoughPolynomial.test2",
+          "kind": "degenerate",
+          "statement": "The zero numerator is allowed, unlike in RoughMonomial."
+        },
+        {
+          "name": "BKT.RoughPolynomial.test3",
+          "kind": "non-example",
+          "statement": "Inverting a rough polynomial with zeros is not a closure operation."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/rough-ring-laws",
@@ -2838,9 +3515,9 @@
         "Clear roughly monomial denominators and reduce to g = 1 with f ∈ O[x, y, y⁻¹]. Expand f = Σ_j a_j x_1^{j_1} y_1^{j_2}. Taylor-expand the coefficients in t_1 = e(z_1): the terms that depend on t_1 are O(y_1^A e^{−2πy_1}), faster than every monomial, so the a_j may be taken independent of z_1.",
         "Fixing the other variables along fixed-tail curves forces j_2 ≤ 0. Since y_1 ≥ y_2, it is then enough to bound |a_j| y_2^{j_2}.",
         "For m ≥ 1 and c ∈ {0, …, r_1}, substitute z_1 = mz_2 + c. This maps Σ_{n−1}^{R′} into Σ_n^{mR′+c}, and affine curves of the lemma's shape to affine curves of the same shape (α_1 = 1, α_2 = m, β_2 = c). So f_{m,c} satisfies the hypothesis on every Σ_{n−1}^{R′}, and induction gives f_{m,c} ≪ 1 on Σ_{n−1}. The printed proof applies this with the hypothesis only on Σ_n, where the substituted sets are empty for c ≥ 1 (E2).",
-        "The r_1-th finite difference in c of Σ_j a_j (mx_2 + c)^{j_1}(my_2)^{j_2} keeps exactly the j_1 = r_1 terms, multiplied by r_1!. A Vandermonde combination over r_2 + 1 distinct m isolates a_{j_max} y_2^{r_2} ≪ 1. Subtract that term and repeat for each j in lexicographic order.",
+        "Use the normalized finite difference (−1)^r/r! Σ_(c=0)^r (−1)^c binom(r,c) f_(m,c), where r is the largest x₁-degree. It isolates Σ_j a_(r,j)m^j y₂^j. If the remaining exponents j lie in [−L,0], take L+1 distinct positive integers m; this is the ordinary Vandermonde matrix at 1/m for powers 0,…,L. Its inverse is constant, hence bounds each a_(r,j)y₂^j. Subtract those terms and descend in x₁-degree. The prior continuation's r₂+1 count was invalid when r₂<0; that was an extraction slip, not a printed-source error.",
         "On Σ_n, |x_1| < 1, so |f| ≤ Σ_j |a_j| y_1^{j_2} ≪ 1.",
-        "Application (§4.5): the curvewise reducedness comes from Schmid's one-variable Corollary 5.29 and the norm estimates of Theorem 4.8. These are uniform for real parts in any bounded interval (Theorem 1.5 is stated on H^n_{R,η} for all R), so they supply the R-uniform hypothesis. Certifying that uniformity in the cited sources belongs to G3."
+        "For the application in §4.5, establish curvewise bounds on every bounded real strip from the original Schmid and norm estimates. Theorem 1.5 is the conclusion, so its R-quantifier is not evidence for these inputs. G3 retains their unverified original-source uniformity."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "L",
@@ -2863,17 +3540,17 @@
       "api": [
         {
           "name": "BKT.MonodromyWeightFiltration.lowersTwo",
-          "role": "elimination",
+          "role": "projection",
           "statement": "N maps W_j into W_(j−2)."
         },
         {
           "name": "BKT.MonodromyWeightFiltration.gradedLefschetz",
-          "role": "elimination",
+          "role": "projection",
           "statement": "N^j induces gr_j≃gr_(−j)."
         },
         {
           "name": "BKT.MonodromyWeightFiltration.weightShift",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "For pure weight k use W_actual_l=W(N)_(l−k)."
         }
       ],
@@ -2900,7 +3577,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.MonodromyWeightFiltration.test1",
+          "kind": "degenerate",
+          "statement": "N=0 gives the centered filtration with sole graded at zero."
+        },
+        {
+          "name": "BKT.MonodromyWeightFiltration.test2",
+          "kind": "degenerate",
+          "statement": "A size-two Jordan block has centered nonzero gradeds at −1 and 1."
+        },
+        {
+          "name": "BKT.MonodromyWeightFiltration.test3",
+          "kind": "non-example",
+          "statement": "Keeping those indices without adding k gives the wrong limiting weight convention."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/nilpotent-cone-weights",
@@ -2957,17 +3651,17 @@
       "api": [
         {
           "name": "BKT.SimultaneousSplitting.recoverComplexFiltrations",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "Summing I^(p,q₁,…,q_n) with p≥a or p+q_j≤b recovers F^a or shifted W_j,b."
         },
         {
           "name": "BKT.SimultaneousSplitting.recoverRationalWeights",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "Summing J_s with s_j≤b recovers the centered rational W_j,b."
         },
         {
           "name": "BKT.SimultaneousSplitting.finiteSupport",
-          "role": "elimination",
+          "role": "projection",
           "statement": "Only finitely many multi-indices have nonzero summands and their direct sum is the whole space."
         }
       ],
@@ -2994,7 +3688,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.SimultaneousSplitting.test1",
+          "kind": "characterisation",
+          "statement": "For n=1 the complex splitting specializes to the relevant Deligne splitting."
+        },
+        {
+          "name": "BKT.SimultaneousSplitting.test2",
+          "kind": "non-example",
+          "statement": "The rational J does not claim to split the Hodge filtration."
+        },
+        {
+          "name": "BKT.SimultaneousSplitting.test3",
+          "kind": "non-example",
+          "statement": "For n>1 the built one-MHS splitting alone cannot certify all the weight recovery conditions."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/distributive-weight-family",
@@ -3072,17 +3783,17 @@
       "api": [
         {
           "name": "BKT.NegativeLieChart.localInverse",
-          "role": "constructor",
-          "statement": "On a sufficiently small neighborhood, exponentiating the negative complement and acting on F gives a local chart in the compact dual."
+          "statement": "On a sufficiently small neighborhood, exponentiating the negative complement and acting on F gives a local chart in the compact dual.",
+          "role": "constructor"
         },
         {
           "name": "BKT.NegativeLieChart.zeroAtOrigin",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "v(0)=0 and g(0)=1."
         },
         {
           "name": "BKT.NegativeLieChart.movingFrame",
-          "role": "rewrite",
+          "role": "simp",
           "statement": "γ(z)=exp(Σz_iN_i)g(q(z)) transports F to the varying filtration."
         }
       ],
@@ -3109,7 +3820,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.NegativeLieChart.test1",
+          "kind": "characterisation",
+          "statement": "The exact nilpotent orbit gives v=0 and g=1."
+        },
+        {
+          "name": "BKT.NegativeLieChart.test2",
+          "kind": "characterisation",
+          "statement": "Shrinking the polydisk is recorded in the chart domain."
+        },
+        {
+          "name": "BKT.NegativeLieChart.test3",
+          "kind": "characterisation",
+          "statement": "There is no global inverse of the exponential chart on the full flag variety."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/horizontal-perturbation",
@@ -3174,7 +3902,7 @@
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-adapted-flag",
       "kind": "construction",
       "name": "Flag adapted to the Hodge filtration",
-      "statement": "Choose an ordered basis w_i of the simultaneous complex splitting with decreasing first Hodge index p_i, and let K_i=span(w₁,…,w_i). The transported flag γK_i refines the varying Hodge filtration. Write B(u,v)=Q(u,conj v), which is generally indefinite.",
+      "statement": "Choose an ordered basis w_i of the simultaneous complex splitting with decreasing first Hodge index p_i, and let K_i=span(w₁,…,w_i). The transported flag γK_i refines the varying Hodge filtration. Write B(u,v)=Q(u,conj v), which is generally indefinite. In pure weight k, B(v,u)=(−1)^k conjugate(B(u,v)); it is skew-Hermitian for odd k and i^kB is Hermitian.",
       "locator": "Lemma4.7 proof, p.16",
       "status": "missing",
       "prerequisites": [
@@ -3184,22 +3912,22 @@
       "proofSteps": [],
       "implementationStatus": "unchecked",
       "routingGroup": "H",
-      "note": "",
+      "note": "E21 records the parity mislabel in the source. The determinant identities are sesquilinear, with the indicated phases.",
       "api": [
         {
           "name": "BKT.HodgeAdaptedFlag.refinesF",
-          "role": "integration",
+          "role": "compatibility",
           "statement": "The subflag at each Hodge-index cutoff equals that filtration step."
         },
         {
           "name": "BKT.HodgeAdaptedFlag.transportFlag",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "γ maps K_i to the corresponding refined varying Hodge flag."
         },
         {
           "name": "BKT.HodgeAdaptedFlag.gramConvention",
-          "role": "computation",
-          "statement": "B(u,v)=Q(u,conj v) is linear in the first variable and need not be positive definite."
+          "role": "example",
+          "statement": "B(u,v)=Q(u,conj v) is linear in the first variable and need not be positive definite. Its symmetry parity is (−1)^k, not uniformly Hermitian."
         }
       ],
       "uses": [
@@ -3223,9 +3951,36 @@
           "name": "BKT.HodgeAdaptedFlag.test3",
           "statement": "An isotropic line for an indefinite B shows why positive-definite Gram–Schmidt cannot be used without the adapted-flag nondegeneracy proof.",
           "status": "proposed"
+        },
+        {
+          "name": "BKT.HodgeAdaptedFlag.oddWeightParity",
+          "statement": "For the standard alternating weight-one form and u=(1,i), B(u,u)=−2i, while iB(u,u)=2.",
+          "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.HodgeAdaptedFlag.test1",
+          "kind": "characterisation",
+          "statement": "A polarized two-step Hodge decomposition gives the prescribed ordered flag."
+        },
+        {
+          "name": "BKT.HodgeAdaptedFlag.test2",
+          "kind": "non-example",
+          "statement": "A generic ordering is not automatically Hodge-adapted."
+        },
+        {
+          "name": "BKT.HodgeAdaptedFlag.test3",
+          "kind": "non-example",
+          "statement": "An isotropic line for an indefinite B shows why positive-definite Gram–Schmidt cannot be used without the adapted-flag nondegeneracy proof."
+        },
+        {
+          "name": "BKT.HodgeAdaptedFlag.oddWeightParity",
+          "kind": "non-example",
+          "statement": "For the standard alternating weight-one form and u=(1,i), B(u,u)=−2i, while iB(u,u)=2."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/indefinite-gram-minors",
@@ -3381,17 +4136,17 @@
       "api": [
         {
           "name": "BKT.ReducedForm.offDiagonal",
-          "role": "elimination",
+          "role": "projection",
           "statement": "Reducedness gives |b_ij|<C b_ii for every ordered pair."
         },
         {
           "name": "BKT.ReducedForm.diagonalOrder",
-          "role": "elimination",
+          "role": "projection",
           "statement": "For i<j, b_ii<C b_jj; this condition depends on the ordering of the basis."
         },
         {
           "name": "BKT.ReducedForm.permutationRepair",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "After obtaining uniform off-diagonal and determinant bounds, sort diagonal lengths; one of finitely many basis permutations then satisfies full reducedness with a suitable uniform constant."
         }
       ],
@@ -3418,7 +4173,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.ReducedForm.test1",
+          "kind": "characterisation",
+          "statement": "For diag(1,T), T≥1, the standard order satisfies the diagonal condition with C>1."
+        },
+        {
+          "name": "BKT.ReducedForm.test2",
+          "kind": "non-example",
+          "statement": "The reversed order fails that condition uniformly as T→∞ although product/determinant stays one."
+        },
+        {
+          "name": "BKT.ReducedForm.test3",
+          "kind": "characterisation",
+          "statement": "At C=1 strict inequalities exclude even the identity form; tests must use C>1."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/reduction-siegel-dictionary",
@@ -3443,19 +4215,27 @@
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/basis-change-reducedness",
       "kind": "theorem",
       "name": "Basis change with determinant control and finite ordering",
-      "statement": "Fix rational bases e,e′. If b is (e′,C′)-reduced and ∏b(e_i,e_i)≤C det(b in e), then the off-diagonal bounds in basis e hold with a constant depending only on e,e′,C,C′. After ordering e by increasing b-length, the full reducedness conditions hold with a uniform enlarged constant. Only finitely many permutations are used.",
+      "statement": "Fix real bases e,e′ of an n-dimensional real vector space, n≥1, C′≥1 and C≥1. Suppose b is (e′,C′)-reduced and ∏b(e_i,e_i)≤C det(b in e). With the constants of basis-change-offdiagonal, let K=C′³ max_(i,j)(L_iL_j/m_i²). For any C″>max(1,C,K), some permutation σ ordering the b(e_i,e_i) increasingly makes b (σe,C″)-reduced. The finite set of possible σ is independent of b. Rational bases are the arithmetic specialization.",
       "locator": "§4.5, p.18, basis-transfer assertion with explicit ordering qualification",
       "status": "missing",
       "prerequisites": [
-        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/reduced-form"
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/reduced-form",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/basis-change-offdiagonal"
       ],
       "proofSteps": [
-        "Use the integral/rational change-of-basis matrix and the determinant-product bound to control off-diagonal entries.",
-        "Retain a finite permutation of the basis to impose the diagonal ordering."
+        "Apply basis-change-offdiagonal to obtain all-pairs bounds in e with K independent of b.",
+        "Choose a permutation σ sorting the finitely many diagonal lengths; positivity and C″>1 imply the strict ordering inequality required by Definition 4.11, even at ties.",
+        "Permutation changes neither the product of diagonal entries nor the determinant of the Gram matrix. C″>C supplies the strict determinant/product inequality.",
+        "The all-pairs off-diagonal bounds survive permutation and become strict because C″>K and all diagonal lengths are positive."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "A",
-      "note": "The printed assertion of full reducedness in the unchanged ordered basis is too strong: reversing the basis for diag(1,T) preserves determinant-product control but violates the ordering uniformly as T→∞. The quantitative off-diagonal proof still needs the original reduction-theory audit. Recorded as sourceIssues E3."
+      "note": "Quantitative proof supplied by codex-a71f92. This resolves the basis-transfer portion of G5, not the finite boundary-chart or analytic-input portions. E3 remains an unreviewed correction to the printed fixed-order assertion.",
+      "acceptance": [
+        "The reversed basis of diag(1,T) is repaired by a permutation, never by an order-independent bound in the unreordered basis.",
+        "Rank one and equal-length ties require enlarging the constant above 1.",
+        "The change matrix may be rational or real but must be fixed as the form varies."
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/determinant-weight-bound",
@@ -3772,17 +4552,17 @@
       "api": [
         {
           "name": "BKT.SpecialHodgeSubvariety.subdatumImage",
-          "role": "constructor",
-          "statement": "Form the image of the compatible arithmetic Hodge morphism at the chosen levels."
+          "statement": "Form the image of the compatible arithmetic Hodge morphism at the chosen levels.",
+          "role": "constructor"
         },
         {
           "name": "BKT.SpecialHodgeSubvariety.properGenericCondition",
-          "role": "elimination",
+          "role": "projection",
           "statement": "The defining exceptional datum has strictly smaller generic Mumford–Tate group."
         },
         {
           "name": "BKT.SpecialHodgeSubvariety.rationalTranslate",
-          "role": "transport",
+          "role": "functoriality",
           "statement": "Rational translates and connected arithmetic components are included in the same countable source family."
         }
       ],
@@ -3809,7 +4589,24 @@
           "status": "proposed"
         }
       ],
-      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized."
+      "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
+      "tests": [
+        {
+          "name": "BKT.SpecialHodgeSubvariety.test1",
+          "kind": "characterisation",
+          "statement": "A proper extra-Hodge-tensor condition is admitted."
+        },
+        {
+          "name": "BKT.SpecialHodgeSubvariety.test2",
+          "kind": "characterisation",
+          "statement": "The identity morphism of the generic datum is excluded from the exceptional family."
+        },
+        {
+          "name": "BKT.SpecialHodgeSubvariety.test3",
+          "kind": "non-example",
+          "statement": "The entire countable union is not automatically asserted definable."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-image-analytic",
@@ -4006,6 +4803,143 @@
       "implementationStatus": "unchecked",
       "routingGroup": "H",
       "note": "Finite global level-cover and extension details remain to be decomposed; no claim of a compact-target proof independent of the Hodge degeneration inputs."
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/cholesky-reconstruction",
+      "kind": "theorem",
+      "name": "Existing Cholesky reconstruction",
+      "statement": "For a positive-definite real symmetric n×n matrix A, the pinned Cholesky factor L is lower triangular with positive diagonal and satisfies L Lᵀ=A.",
+      "locator": "Pinned TauCeti/LinearAlgebra/Matrix/Cholesky/Basic.lean:90–107",
+      "status": "library",
+      "prerequisites": [],
+      "proofSteps": [],
+      "implementationStatus": "unchecked",
+      "routingGroup": "L",
+      "note": "The factor, triangularity and reconstruction are already implemented; no new Cholesky construction is planned.",
+      "library": [
+        "tauceti:TauCeti.cholesky",
+        "tauceti:TauCeti.cholesky_mul_transpose"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/matrix-adjugate-inverse",
+      "kind": "theorem",
+      "name": "Existing adjugate inverse identity",
+      "statement": "For a square matrix A over a commutative ring, its nonsingular inverse is Ring.inverse(det A) times adjugate A. Over R with det A≠0 this is (det A)⁻¹ adjugate A.",
+      "locator": "Pinned Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean:163–173",
+      "status": "library",
+      "prerequisites": [],
+      "proofSteps": [],
+      "implementationStatus": "unchecked",
+      "routingGroup": "L",
+      "note": "Read with the singular-case convention; consumers below have positive determinant.",
+      "library": [
+        "mathlib:Matrix.inv_def"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/determinant-coordinate-control",
+      "kind": "theorem",
+      "name": "Determinant-controlled lower bound for a coordinate",
+      "statement": "Let B be a positive-definite real symmetric n×n matrix, n≥1, d_k=B_kk, and D≥1 with ∏_k d_k≤D det B. For any real coordinate vector a and any k, aᵀBa≥a_k² d_k/D.",
+      "locator": "Continuation derivation from published §4.5, p.933",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/cholesky-reconstruction",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/matrix-adjugate-inverse"
+      ],
+      "proofSteps": [
+        "Prove the positive-definite Hadamard inequality from the existing Cholesky factor: det H=∏L_ii² and H_ii=∑_j L_ij²≥L_ii², so det H≤∏H_ii. This includes the empty principal minor with determinant 1.",
+        "The kth diagonal cofactor of B is the determinant of its positive-definite principal minor. The adjugate formula and the preceding inequality give (B⁻¹)_kk≤(∏_{j≠k}d_j)/det B≤D/d_k.",
+        "Set v=B⁻¹e_k. Positivity of (a-tv)ᵀB(a-tv) for every real t gives a_k²≤(aᵀBa)(vᵀBv)=(aᵀBa)(B⁻¹)_kk by minimizing this quadratic (or expanding its discriminant). Combine the bounds."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "A",
+      "note": "Derived planning lemma, not asserted as a separately numbered result of the source.",
+      "acceptance": [
+        "For diagonal B and D=1 the inequality is exactly one summand of ∑d_j a_j².",
+        "For B=[[1,r],[r,1]], |r|<1, the minimal allowed D is 1/(1-r²), and a=(1,-r) attains equality at k=1.",
+        "No bound with fixed D survives r→1 unless the determinant/product hypothesis is retained."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/basis-change-offdiagonal",
+      "kind": "theorem",
+      "name": "Quantitative off-diagonal transfer in a fixed basis",
+      "statement": "Let n≥1 and B be the Gram matrix in the ordered basis e′ of a positive-definite real form b. Suppose C′≥1, |B_ab|≤C′d_a for all a,b, d_a≤C′d_b for a<b, and ∏d_a≤C′det B, where d_a=B_aa. Let e_i=∑_a A_ai e′_a be another fixed real basis. Put k_i=max{a:A_ai≠0}, m_i=|A_(k_i),i| and L_i=∑_a|A_ai|. Then |b(e_i,e_j)|≤C′³ L_i L_j m_i⁻² b(e_i,e_i) for all i,j. The change matrix is fixed; the bound is uniform in b.",
+      "locator": "Continuation derivation from published §4.5, p.933",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/determinant-coordinate-control",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/reduced-form"
+      ],
+      "proofSteps": [
+        "For a≤k_i, the ordering hypothesis gives d_a≤C′d_(k_i), including equality of indices since C′≥1.",
+        "Expand b(e_i,e_j) in e′. Its absolute value is at most C′² d_(k_i)L_iL_j, using the all-pairs bound on B_ab; no ordering of the new basis is used.",
+        "determinant-coordinate-control with D=C′ and coordinate k_i gives b(e_i,e_i)≥m_i²d_(k_i)/C′. Divide and combine. Since A is invertible each column is nonzero, so m_i>0.",
+        "This off-diagonal conclusion does not need determinant control in the new basis; that separate hypothesis is used only for its condition (3)."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "A",
+      "note": "Derived planning lemma, not asserted as a separately numbered result of the source.",
+      "acceptance": [
+        "For identity A the displayed bound is C′³.",
+        "For a permutation A it remains independent of all diagonal ratios.",
+        "For a fixed shear A=[[1,1],[0,1]] and B=diag(1,T), T≥1, all cross terms satisfy the displayed bound uniformly in T."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/buffered-transition-graph",
+      "kind": "theorem",
+      "name": "Definability of buffered analytic chart transitions",
+      "statement": "Let φ_i:U_i→X and φ_j:U_j→X be compatible real analytic corner charts. Let B_i⊂U_i and B_j⊂U_j be relatively open semialgebraic boxes whose closures are compact subsets of the respective original chart domains. Then the graph of φ_j⁻¹φ_i on B_i∩φ_i⁻¹(φ_j(B_j)) is globally subanalytic, hence R_an-definable.",
+      "locator": "Published Proposition A.2, pp.935–936; explicit compact-graph repair of its transition step",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/restricted-analytic",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/analytic-corners",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/tame-structures"
+      ],
+      "proofSteps": [
+        "In cl(B_i)×cl(B_j), the matching-point set C={(u,v):φ_i(u)=φ_j(v)} is closed by the Hausdorff property of X and is compact.",
+        "At each point of C the chart transition extends analytically to an ambient neighborhood, by analytic compatibility. Choose smaller product boxes with compact closure in such neighborhoods. Finitely many cover C.",
+        "On each chosen compact product box the transition graph is defined by finitely many analytic equalities; intersect with the semialgebraic B_i×B_j. The analytic maps have extension across these boxes, so each piece is R_an-definable.",
+        "The full graph is the finite union of these pieces. Its projections give the overlap domains, and reversing the factors gives the inverse graph. The same argument works for two different buffered finite covers."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "L",
+      "note": "Derived planning lemma, not asserted as a separately numbered result of the source.",
+      "acceptance": [
+        "For a quadrant, restrictions to zero-coordinate faces retain the same finite graph description.",
+        "The buffer condition excludes x↦x+(x²/4)sin(1/x) on the entire interval (0,1).",
+        "On any closed subinterval [a,b]⊂(0,1), that same analytic reparametrization has a restricted-analytic graph."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/finite-siegel-relation-proper",
+      "kind": "theorem",
+      "name": "Properness of the finite relation on Siegel closures",
+      "statement": "Let X be a locally compact Hausdorff semialgebraic space with a group acting by semialgebraic homeomorphisms. Let C₁,…,C_r⊂X be closed semialgebraic subsets. Assume for each ordered pair only finitely many group elements have γC_i∩C_j≠∅. Then on C=⊔C_i the orbit relation E⊂C×C is semialgebraic, closed, and both coordinate projections E→C are proper.",
+      "locator": "Published §3.1, p.926; expanded proof of the proper-relation assertion",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compact-homogeneous-model",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-finite-overlap"
+      ],
+      "proofSteps": [
+        "For each pair i,j and its finite set of γ, the relation piece is the graph y=γx restricted to the closed domain C_i∩γ⁻¹C_j. It is closed and semialgebraic.",
+        "There are finitely many pairs and witnesses, so their union is closed and semialgebraic.",
+        "Over a compact subset K of the tagged C_i, each graph piece is homeomorphic to the closed subset K∩γ⁻¹C_j, hence compact. Finite union proves the first projection proper; inversion of γ proves the second.",
+        "Specialize C_i to the closures of the selected fixed-K Siegel sets. This proves properness only; a finite manifold atlas still needs a local-slice/refinement theorem."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "Q",
+      "note": "Derived planning lemma, not asserted as a separately numbered result of the source.",
+      "acceptance": [
+        "If one piece contains x and γx, they remain identified; injectivity of a whole piece is not assumed.",
+        "An open interval piece need not give a proper projection when its orbit meets an omitted endpoint: closedness is used.",
+        "Empty overlaps contribute no graph; the trivial group yields the diagonal relation."
+      ]
     }
   ],
   "routes": [
@@ -4032,9 +4966,11 @@
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/reduced-form",
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/reduction-siegel-dictionary",
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/basis-change-reducedness",
-        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/cocompact-no-unipotents"
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/cocompact-no-unipotents",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/determinant-coordinate-control",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/basis-change-offdiagonal"
       ],
-      "reason": "AA.3 owns rational parabolics, reduction theory and Siegel sets. Add the fixed-K corrected Orr containment, rational pullback, reduced-form dictionary and cusp separation here. Import the general Cartan/Iwasawa construction from the existing upstream LieGroups Layer 9; never re-plan it."
+      "reason": "AA.3 owns rational parabolics, reduction theory and Siegel sets. Add the fixed-K corrected Orr containment, rational pullback, reduced-form dictionary and cusp separation here. Import the general Cartan/Iwasawa construction from the existing upstream LieGroups Layer 9; never re-plan it. The quantitative basis-transfer lemmas consume existing Cholesky factorization; AA.3 only owns the arithmetic reduction adapters."
     },
     {
       "route": "source",
@@ -4066,7 +5002,8 @@
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/exponential-dominates-monomials",
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/definable-analytic-chow",
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hermitian-structure-comparison",
-        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/definable-finite-components"
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/definable-finite-components",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/buffered-transition-graph"
       ],
       "reason": "Use the existing owner of selected o-minimal structures and definable geometry for finite atlases, analytic corners, proper definable quotient interfaces, restricted analytic functions, the sector rough-function lemma and definable analytic Chow. These are general suppliers shared with Shimura Ax-Schanuel and arithmetic quotient consumers; the prior MPT route already requests the same definable Chow and algebraic-target uniformization inputs."
     },
@@ -4138,7 +5075,8 @@
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hecke-correspondence",
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hecke-definable",
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compact-choice-obstruction",
-        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/symmetric-space-canonical"
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/symmetric-space-canonical",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/finite-siegel-relation-proper"
       ],
       "reason": "ALS.2 owns the symmetric M=K Borel–Serre compactification. General compact stabilizers M⊂K, fixed-K definable structures and their corrected functoriality require an extension of those objects, not a second reduction-theory roadmap.",
       "brief": "Import Arithmetic locally symmetric spaces and their cohomology (ArithmeticLocallySymmetricSpaces ALS.0 and ALS.2), Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups AA.3), Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory LD.0/LD.6), and the upstream Lie groups roadmap (tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups Layer 9). For connected semisimple rational G, torsion-free arithmetic Γ, connected compact M and a chosen maximal compact K containing M, construct the R_alg-definable structure on Γ\\G/M characterized by fixed-K Siegel charts. For neat Γ construct the general Borel–Serre analytic manifold with corners and prove that its compactification induces the same R_an structure on the interior. Specializing M=K must recover ALS.2. Prove semialgebraic definability of the corrected morphisms (φ,g), with rational φ, the level/stabilizer/compact inclusions and target Cartan involution preserving the image Lie algebra. Use corrected Orr–Schnell containment and BGST Proposition28.1 with its forward-containment hypothesis. Prove Hecke definability and the canonical symmetric-space formulation. Decompose the semialgebraic homogeneous quotient, finite proper equivalence relation, local slice refinement, boundary gluing and nonsurjective/surjective morphism adapters. Never assert K-independence for a fixed general Γ\\G/M or functoriality of Borel–Serre compactifications. Tests must include SL₂ with two compact choices, the Cartan-unstable torus, rank-zero boundary and the M=K specialization. Suggested later file: TauCeti/NumberTheory/ArithmeticQuotient/Definability.lean. This is a partial design brief with the explicit source gaps below."
@@ -4198,7 +5136,7 @@
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compact-target-analytic-definability"
       ],
       "reason": "Upstream HodgeStructures L0–L3 supplies pure/mixed structures, polarizations, Deligne splitting and period-domain points, all largely built. It explicitly reserves the period-domain manifold structure for a successor. The multivariable degeneration, non-Hermitian domain geometry and period-map/locus theorems therefore extend this direction.",
-      "brief": "Import Hodge structures (pure, mixed, and polarized) (tauceti:TauCetiRoadmap/HodgeStructures L0–L3) through the pinned carriers, positive Hodge form, Weil operator and Deligne decomposition; import the general polarized-variation definition from ShimuraData D3, normal-crossing compactifications from AlgebraicModuliForArithmeticGeometry R09.7d, rational reduction from AdelicAlgebraicGroups AA.3, analytic spaces from ComplexComparisonPartII C0, and definable geometry/Chow from LogicAndDefinabilityInNumberTheory LD.6. Use ArithmeticQuotientDefinability for corrected fixed-K quotient structures. Construct the complex manifold and compact dual on the existing period-point carrier, the canonical Hodge Cartan involution and compatible Hodge morphisms. Prove Theorem1.5: for a local unipotent pure polarized integral variation and any bounded real width R and positive height η, the lifted period map on H_(R,η)^n lies in finitely many fixed-canonical-K Siegel sets. Establish nilpotent extension, centered monodromy weights, simultaneous rational and complex splittings, both Kashiwara norm estimates, the horizontal correction, indefinite Gram determinant formulas, rough entries and finite-permutation reducedness. Establish the faithful adjoint/central-cover representation adapter before using SL(V) reduction. Then prove Theorem1.3: every such variation on smooth complex quasi-projective S has an R_an,exp-definable period map. Local use must shrink and buffer disks and cover angular seams. Finally prove Theorem1.6: the exceptional Hodge locus is a countable union of closed irreducible algebraic subvarieties, through closed analytic proper special images and definable Chow applied individually to their pullbacks. Exclude the generic identity subdatum; do not call the countable union definable. Supply Borel algebraicity only as an imported/alternative proof at ShimuraVarieties V3. Tests include zero monodromy, the zero-vector exclusion, weight shifts, conjugation conventions, a non-Hermitian domain, reversed reduced bases and the outer-boundary period-map example. Suggested later file: TauCeti/Geometry/Hodge/Variation/DefinablePeriodMap.lean. Original analytic inputs and the curve-test domain repair remain open in this partial brief."
+      "brief": "Import Hodge structures (pure, mixed, and polarized) (tauceti:TauCetiRoadmap/HodgeStructures L0–L3) through the pinned carriers, positive Hodge form, Weil operator and Deligne decomposition; import the general polarized-variation definition from ShimuraData D3, normal-crossing compactifications from AlgebraicModuliForArithmeticGeometry R09.7d, rational reduction from AdelicAlgebraicGroups AA.3, analytic spaces from ComplexComparisonPartII C0, and definable geometry/Chow from LogicAndDefinabilityInNumberTheory LD.6. Use ArithmeticQuotientDefinability for corrected fixed-K quotient structures. Construct the complex manifold and compact dual on the existing period-point carrier, the canonical Hodge Cartan involution and compatible Hodge morphisms. Prove Theorem1.5: for a local unipotent pure polarized integral variation and any bounded real width R and positive height η, the lifted period map on H_(R,η)^n lies in finitely many fixed-canonical-K Siegel sets. Establish nilpotent extension, centered monodromy weights, simultaneous rational and complex splittings, both Kashiwara norm estimates, the horizontal correction, indefinite Gram determinant formulas, rough entries and finite-permutation reducedness. Establish the faithful adjoint/central-cover representation adapter before using SL(V) reduction. Then prove Theorem1.3: every such variation on smooth complex quasi-projective S has an R_an,exp-definable period map. Local use must shrink and buffer disks and cover angular seams. Finally prove Theorem1.6: the exceptional Hodge locus is a countable union of closed irreducible algebraic subvarieties, through closed analytic proper special images and definable Chow applied individually to their pullbacks. Exclude the generic identity subdatum; do not call the countable union definable. Supply Borel algebraicity only as an imported/alternative proof at ShimuraVarieties V3. Tests include zero monodromy, the zero-vector exclusion, weight shifts, conjugation conventions, a non-Hermitian domain, reversed reduced bases and the outer-boundary period-map example. Suggested later file: TauCeti/Geometry/Hodge/Variation/DefinablePeriodMap.lean. The repaired widened-sector curve lemma and quantitative finite-permutation basis transfer are supplied. Original analytic inputs, their bounded-real-width uniformity, and finite boundary-chart adapters remain open in this partial brief."
     }
   ],
   "provenance": [
@@ -4208,7 +5146,8 @@
       "sha256": "b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e",
       "accessed": "2026-09-22",
       "pages": 23,
-      "readExtent": "Entire author copy: pages1–23, §§1–5, AppendixA and references."
+      "readExtent": "Entire author copy: pages1–23, §§1–5, AppendixA and references.",
+      "readBy": "Entire copy: codex-c83e7a. Main statements and all findings compared: codex-a71f92 on 2026-09-23."
     },
     {
       "name": "erratum",
@@ -4216,7 +5155,8 @@
       "sha256": "86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7",
       "accessed": "2026-09-22",
       "pages": 4,
-      "readExtent": "Entire four-page official correction, including compact-choice, morphism and rational-Siegel-pullback corrections."
+      "readExtent": "Entire four-page official correction, including compact-choice, morphism and rational-Siegel-pullback corrections.",
+      "readBy": "Entire copy: codex-c83e7a; reread completely by codex-a71f92 on 2026-09-23."
     },
     {
       "name": "orr-schnell",
@@ -4224,7 +5164,8 @@
       "sha256": "ab7fc45b42a625382fa9649b1ae0ace75f6ebfecf999a9552c7b31e63d06568c",
       "accessed": "2026-09-22",
       "pages": 10,
-      "readExtent": "Entire article pp1231–1237 (PDF2–8); ten-page file also contains cover matter."
+      "readExtent": "Entire article pp1231–1237 (PDF2–8); ten-page file also contains cover matter.",
+      "readBy": "Earlier contributors, unless this entry explicitly records the codex-a71f92 reread."
     },
     {
       "name": "bgst",
@@ -4232,7 +5173,8 @@
       "sha256": "5dd8ad61c1dab6a781bc8edad76f1df964d5a5472b413cf1e03f67f1a02a170b",
       "accessed": "2026-09-22",
       "pages": 27,
-      "readExtent": "Author version dated13December2021, PDF13–15 only: Theorem27.1 and full Proposition28.1 proof."
+      "readExtent": "Author version dated13December2021, PDF13–15 only: Theorem27.1 and full Proposition28.1 proof.",
+      "readBy": "Earlier contributors, unless this entry explicitly records the codex-a71f92 reread."
     },
     {
       "name": "schmid",
@@ -4240,7 +5182,8 @@
       "sha256": "26f446e0bb5fbd7635ef5d7962fca30740cc17ee8c3e821a7e3d3fef7c284836",
       "accessed": "2026-09-22",
       "pages": 109,
-      "readExtent": "PDF20,22–23,34–35 (printed230,232–233,244–245): Borel4.5 full proof, nilpotent-orbit setup/statement, Corollary5.29 proof."
+      "readExtent": "PDF20,22–23,34–35 (printed230,232–233,244–245): Borel4.5 full proof, nilpotent-orbit setup/statement, Corollary5.29 proof.",
+      "readBy": "Earlier contributors, unless this entry explicitly records the codex-a71f92 reread."
     },
     {
       "name": "kashiwara",
@@ -4248,7 +5191,8 @@
       "sha256": "6724c820167c7c2122d3d4943c1358ec38bbf89984d512184b7d852bcf6238a6",
       "accessed": "2026-09-22",
       "pages": 24,
-      "readExtent": "PDF11–14 and18–24, printed863–866 and870–875; image of printed870 inspected for norm-square formulas. Section4 proof text read but missing OCR formulas prevent full proof verification."
+      "readExtent": "PDF11–14 and18–24, printed863–866 and870–875; image of printed870 inspected for norm-square formulas. Section4 proof text read but missing OCR formulas prevent full proof verification.",
+      "readBy": "Earlier contributors, unless this entry explicitly records the codex-a71f92 reread."
     },
     {
       "name": "arxiv-v2",
@@ -4256,7 +5200,17 @@
       "sha256": "9f997104c775342fa49ba54f4b4782650f1da07a3bdc1717be977f86cc4ddcdc",
       "accessed": "2026-09-22",
       "pages": 23,
-      "readExtent": "Continuation (cc-fb70e5): Theorem 4.1, Lemma 4.5 and proof, §4.5 and Appendix A.1 compared with the author copy; same wording."
+      "readExtent": "Continuation (cc-fb70e5): Theorem 4.1, Lemma 4.5 and proof, §4.5 and Appendix A.1 compared with the author copy; same wording.",
+      "readBy": "Earlier contributors, unless this entry explicitly records the codex-a71f92 reread."
+    },
+    {
+      "name": "published",
+      "url": "https://par.nsf.gov/servlets/purl/10200187",
+      "sha256": "b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058",
+      "accessed": "2026-09-23",
+      "pages": 23,
+      "readExtent": "Complete typeset paper, printed pp.917–939, including references. Page images 921,923,926–928,930–933,935 checked. Focused author-copy collation of main statements and sourceIssues E1–E29.",
+      "readBy": "Codex codex-a71f92"
     }
   ],
   "baseline": {
@@ -4300,6 +5254,22 @@
       {
         "file": "Mathlib/RingTheory/Nilpotent/Exp.lean",
         "locations": "IsNilpotent.exp, exp_eq_sum, exp_add_of_commute, lines52–88"
+      },
+      {
+        "file": "TauCeti/LinearAlgebra/Matrix/Cholesky/Basic.lean",
+        "locations": "Complete pp-equivalent lines 1–145; PosDiagLowerTriangular, cholesky and cholesky_mul_transpose at lines 48,98,111."
+      },
+      {
+        "file": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean",
+        "locations": "Matrix.inv_def, lines 163–183."
+      },
+      {
+        "file": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "locations": "adjugate_apply and cofactor determinant formula, lines 170–215."
+      },
+      {
+        "file": "Mathlib/LinearAlgebra/Matrix/PosDef.lean",
+        "locations": "PosDef inverse and principal-submatrix facts, selected lines 480–530."
       }
     ],
     "searchAudit": {
@@ -4316,18 +5286,20 @@
       "Borel.Serre": [],
       "semialgebraic": [],
       "semi.algebraic": []
-    }
+    },
+    "continuationExplorer": "2acbcd4230930bd05771aa7d5203cac7004c4f0c"
   },
   "verificationGaps": [
     {
       "id": "G1",
-      "scope": "Published-version collation",
-      "remaining": "The entire 23-page author paper and four-page official erratum were read, and title/authors/venue/DOI match publisher metadata. The full publisher PDF could not be downloaded in this run; compare its statements, numbering and formulas line-by-line with the author copy before certifying completeness."
+      "scope": "Published-version access and statement/locator collation",
+      "status": "resolved",
+      "remaining": "Resolved by codex-a71f92: acquired and read all printed pp.917–939; verified main statements and recorded findings against the author copy and official erratum. This closes the missing-published-copy gate, not an assertion that every editorial glyph was exhaustively compared."
     },
     {
       "id": "G2",
       "scope": "Arithmetic reduction and quotient foundations",
-      "remaining": "Read/decompose the original Borel–Harish-Chandra and Borel–Serre proofs and the original Orr2018 proof invoked by the fully read Orr–Schnell correction. Verify compact homogeneous quotient, proper definable relation and finite local chart refinement. The source surjection-as-product step needs finite-index arithmetic and compact-stabilizer adapters; do not assume an exact product quotient. Mostow compatibility and Raghunathan cocompact-lattice inputs remain original-source leaves."
+      "remaining": "Read/decompose original Borel–Harish-Chandra, Borel–Serre/Borel–Ji and original Orr proofs. The new finite-siegel-relation-proper item supplies a finite closed-graph properness proof; the second compact homogeneous quotient proof still imports an unextracted quotient theorem. Establish finite local chart refinement (E23), the real-translation adapter (E18), and surjective arithmetic/compact-stabilizer adapters (E19). The invariant-polynomial alternative proof fails (E8). Mostow and Raghunathan original-source leaves remain."
     },
     {
       "id": "G3",
@@ -4337,18 +5309,18 @@
     {
       "id": "G4",
       "scope": "Rough-polynomial curve test",
-      "remaining": "Resolved by the continuation (Claude Code cc-fb70e5). The gap is recorded as sourceIssues E2, and the lemma is restated and proved with the curve hypothesis on the sectors Σ_n^R for all R (item rational-curve-test). What remains is to check, in the cited sources, the R-uniformity of Schmid Corollary 5.29 and of the CKS/Kashiwara norm estimates; that now belongs to G3. Original text: Lemma4.5 substitutes z₁=mz₂+i in a domain initially written 0<Re z₁<1. Supply buffered/subdivided horizontal rectangles and the exact finite interpolation argument preserving all coefficient domains. This records a proof-interface gap, not a claim that the lemma is false.",
+      "remaining": "Resolved by the continuation (Claude Code cc-fb70e5). The gap is recorded as sourceIssues E2, and the lemma is restated and proved with the curve hypothesis on the sectors Σ_n^R for all R (item rational-curve-test). What remains is to check, in the cited sources, the R-uniformity of Schmid Corollary 5.29 and of the CKS/Kashiwara norm estimates; that now belongs to G3. Original text: Lemma4.5 substitutes z₁=mz₂+i in a domain initially written 0<Re z₁<1. Supply buffered/subdivided horizontal rectangles and the exact finite interpolation argument preserving all coefficient domains. This records a proof-interface gap, not a claim that the lemma is false. Codex-a71f92 checked the finite interpolation step: after restricting y₁ powers to −L,…,0 use L+1 distinct slopes and their inverse-power Vandermonde matrix. The finite-difference normalization includes (−1)^(r−i); the printed sign discrepancy is E22. Application still requires the noncircular G3 uniformity input.",
       "status": "resolved"
     },
     {
       "id": "G5",
       "scope": "Reducedness and local-scope repairs",
-      "remaining": "The printed basis-change assertion needs a finite basis permutation: determinant/product bounds do not control an arbitrary fixed order. The draft states that corrected interface and gives an explicit diagonal example; write its quantitative full proof. The whole-open-polydisk statement must be restricted to smaller buffered disks; verify all finite angular/face charts for Theorem1.5 with arbitrary η and global finite-level descent. Continuation: the printed basis-transfer sentence and Theorem 4.1 are recorded as sourceIssues E3 and E1."
+      "remaining": "The quantitative basis-transfer portion is resolved: determinant-coordinate-control, basis-change-offdiagonal and basis-change-reducedness give explicit constants and finite permutations. The whole-open-polydisk statement still needs a full finite buffered angular/face-chart proof for arbitrary η, and finite-level global descent. E1 and E3 remain unreviewed source findings."
     },
     {
       "id": "G6",
       "scope": "Definable algebraization and Hodge locus inputs",
-      "remaining": "Acquire Peterzil–Starchenko definable Chow and original o-minimality proofs. Prove the R_an,exp comparison between the arithmetic and algebraic structures in the Hermitian target, auditing KUY16 for independence from the Borel theorem being reproved. Decompose algebraic graph regularity, proper Hodge-image/Remmert inputs and the countable exceptional-tensor/subdatum correspondence. No whole-locus definability follows."
+      "remaining": "Acquire Peterzil–Starchenko definable Chow and original o-minimality proofs. Prove the R_an,exp comparison between the arithmetic and algebraic structures in the Hermitian target, auditing KUY16 for independence from the Borel theorem being reproved. Decompose algebraic graph regularity, proper Hodge-image/Remmert inputs and the countable exceptional-tensor/subdatum correspondence. No whole-locus definability follows. The exceptional-family correction E28 and singular-source Borel proof gap E29 require explicit adapters. Buffered analytic corners are now proved via compact matching graphs (E17), independently of these deeper algebraization inputs."
     }
   ],
   "prerequisites": [
@@ -4594,132 +5566,503 @@
           "sha256": "bc60aa376dd09ef339b1f4ec2a8e966da7c2ea7eab5648a2fb79ceb947be8be3"
         }
       ]
+    },
+    "continuation": {
+      "session": "codex-a71f92",
+      "commit": "2acbcd4230930bd05771aa7d5203cac7004c4f0c",
+      "read": "Upstream HodgeStructures and UniversalCovers documents read completely. Selected owner descriptions and available reviewed entries reread for AA.3, ALS.0/2, ShimuraData D3 and ComplexComparison C0/C4; LD.0/6 descriptions read, but no reviewed library-audit entries for those stages were present.",
+      "newLibraryImports": "Pinned TauCeti Cholesky reconstruction and Mathlib Matrix.inv_def read; Cholesky remains upstream StandardDistributions Layer 6, not re-planned at AA.3.",
+      "collisionScreen": "Current roadmap, packet, decomposition and reserved-id files screened for the two proposed Part II identifiers. Other paper briefs referring to these identifiers are consumers of the shared proposals, not parallel new owners.",
+      "scope": "Existing detailed input hashes above describe the earlier contributor's snapshot, not this continuation; this commit records the new screen.",
+      "finalMain": "75c4b1cdcd5a2b641d52aea10c7933cb61f7c671"
     }
   },
   "verification": {
     "counts": {
-      "library": 10,
+      "library": 12,
       "planned": 12,
-      "missing": 96
+      "missing": 100
     },
-    "items": 118,
+    "items": 124,
     "definitionsAndConstructions": 44,
     "apiContracts": 132,
-    "proposedTests": 132,
+    "proposedTests": 134,
+    "dependencyEdges": 234,
+    "sourceIssues": 29,
     "leanCompiled": false,
-    "meaning": "Planning extraction only. No new Lean declarations or proofs are claimed; finite executable diagnostics are separate from proposed Lean tests.",
+    "meaning": "Partial planning extraction. No new Lean declarations, no executed Lean tests, and no independent review verdicts. tests is the standard proposed-test ledger; unitTests is retained for backward compatibility and is not counted twice.",
     "checks": [
-      "check_paper.py: pass",
-      "intake.py check-files: 3 files, 0 problems",
-      "Custom dependency/API/route/provenance/finite diagnostic checks: pass",
-      "Fresh-main input, ownership and deliverable concurrency checks: pass",
-      "Continuation (cc-fb70e5): sourceIssues E1–E7 checked at their locators in the author copy (sha b559c652…), arXiv v2 and the erratum (sha 86d76a5d…). E1's fibre was checked numerically for 0<|n|≤2000 and E3's diagonal example by hand. check_paper.py: pass."
+      "check_paper.py: pass (124 items, 29 source issues).",
+      "intake.py check-files: 3 deliverables, 0 problems.",
+      "unittest test_check_paper: 9 passed; test_check_errata: 3 passed; test_source_issues: 7 passed.",
+      "Exact rational diagnostics: 300 SPD/basis cases in ranks 1–4; empty minors; 7 signed finite differences; 7 inverse-power Vandermonde matrices; SL2 and odd-weight examples passed.",
+      "Custom 124-node acyclic dependency graph, 132 API contracts, 134 proposed tests, 100 uniquely routed missing items and absence of self-review verdicts: pass.",
+      "Fresh-main concurrency check at 75c4b1cdcd5a2b641d52aea10c7933cb61f7c671: no changes to the three deliverables or binding instructions since the claim snapshot; ownership/ID checks repeated."
     ]
   },
   "sourceIssues": [
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1",
       "kind": "error",
-      "locator": "Theorem 4.1, p.13 of the author copy (= arXiv 1810.04801v2, p.13); the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+      "locator": "Theorem 4.1, JAMS p.928, proof p.929; author p.13–14",
       "printed": "\"Theorem 4.1. Let V be a polarized variation of pure Hodge structures of weight k over the punctured polydisk (∆*)^n, with period map Φ: (∆*)^n → S_{Γ,G,M}. Then Φ is R_an,exp-definable.\" (∆ is the unit disk, p.4.)",
       "correction": "Definability holds only after shrinking. For some radius 0 < ρ < 1, the restriction of Φ to (∆*_ρ)^n is R_an,exp-definable, and then for every ρ < 1 by compactness of the remaining annular pieces. The reduction in §4.1 must use charts whose shrunken polydisks still cover the compactification.",
       "reason": "Counterexample (n = 1, trivial monodromy). Let f(z) = exp(−(1+z)/(1−z)) on the unit disk, so |f| < 1, and τ = 2i + εf with ε small, so that τ(∆) lies in a disk on which π: H → Γ\\H is injective (Γ torsion-free, e.g. Γ(3)). τ is the period map of a polarized weight-one integral VHS. But Φ^{−1}(π(2i + ε/e)) contains the points z_n = 2πin/(2 + 2πin), n ≠ 0, where f = 1/e. These form an infinite discrete set accumulating at 1, which is impossible for a fibre of a definable map. The proof itself allows for this: it says 'after maybe shrinking the polydisk' (p.14), and its Siegel set S_H (y > 1) covers only |q| < e^{−2π}. Theorem 1.3 is unaffected, since §4.1 can use finitely many shrunken charts. Checked numerically: |f(z_n) − 1/e| < 1e−8 for 0 < |n| ≤ 2000. Noted by the extraction (item local-outer-boundary-obstruction).",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
-        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
-        "Benjamin Bakker's web page (author copy and erratum)"
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
       ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E2",
       "kind": "gap",
-      "locator": "Proof of Lemma 4.5, p.15 of the author copy (= arXiv v2 p.15); the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+      "locator": "Lemma 4.5 proof, JAMS p.930; author p.15",
       "printed": "\"Consider for each positive integer m and real number c the function f_{m,c} which we obtain from f by setting z_1 = mz_2 + c. Note that the assumptions of the lemma still apply to f_{m,c}, and it follows by induction on n that f_{m,c} ≪ 1 on all of Σ_{n−1}\"",
-      "correction": "State the lemma, and verify its curve hypothesis, on the wider sectors Σ_n^R = {|x_i| < R, y_1 ≥ ⋯ ≥ y_n > 1} for every R, with constants depending on R. The substitution then maps Σ_{n−1}^{R′} into Σ_n^{mR′+c}, and the induction goes through unchanged. In the application in §4.5, the curve bounds come from Schmid's one-variable Corollary 5.29 and the norm estimates of Theorem 4.8, which hold for real parts in any bounded interval; Theorem 1.5 is already stated on H^n_{R,η} for all R.",
+      "correction": "State the lemma, and verify its curve hypothesis, on wider sectors Σ_n^R={|x_i|<R,y₁≥⋯≥y_n>1} for every R, with constants depending on R. The substitution maps Σ_(n−1)^R′ into Σ_n^(mR′+|c|). The application needs original-source bounded-real-width uniformity for Schmid Corollary 5.29 and the CKS/Kashiwara norm estimates; G3 records that this is still unverified. The R-quantifier of the target Theorem 1.5 is not evidence for its prerequisites.",
       "reason": "Σ_n is defined with 0 < x_i < 1 (Definition 4.4). The proof uses c = 0, 1, …, r_1 and m ≥ 1. For c ≥ 1, x_1 = mx_2 + c > 1, so Σ_n ∩ {z_1 = mz_2 + c} is empty. For c = 0 it is only the strip x_2 < 1/m. So the hypothesis gives no information about f_{m,c} on Σ_{n−1}. The functions extend there (the coefficients in O are periodic in x and f is polynomial in x), but the bound is assumed only on Σ_n. With the R-uniform hypothesis, the finite difference in c isolates the top x_1-degree, the Vandermonde step in m isolates each y-power, and |x_1| < 1 on Σ_n finishes the proof, as printed. Noted by the extraction (verification gap G4); the repair is given by this continuation.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
-        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
-        "Benjamin Bakker's web page (author copy and erratum)"
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
       ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E3",
       "kind": "error",
-      "locator": "Proof of Theorem 1.5 (§4.5), p.18 of the author copy; the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+      "locator": "§4.5, JAMS p.933; author p.18",
       "printed": "\"Moreover, if b is (e′, C′)-reduced and e is a basis for which condition (3) of Definition 4.11 holds for some C > 0, then b will also be (e, C″)-reduced for some C″ = C″(e, C, e′, C′) > 0.\"",
       "correction": "Condition (2), the ordering b(e_i) < C b(e_j) for i < j, transfers only up to a permutation of e. Conclude that b is (σe, C″)-reduced for some permutation σ, which is one of finitely many.",
       "reason": "Take e′ = (e_1, e_2), e = (e_2, e_1) and b = diag(1, T) with T ≥ 1. Then b is (e′, 2)-reduced and satisfies condition (3) for e (b(e_2)b(e_1) = T = det b), but condition (2) for e would need T = b(e_2) < C″b(e_1) = C″ for all T. The proof immediately adds 'we may assume (2) as there are only finitely many orderings of the basis', which is the corrected form, so Theorem 1.5 is unaffected. Noted by the extraction (item basis-change-reducedness).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
-        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
-        "Benjamin Bakker's web page (author copy and erratum)"
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
       ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E4",
       "kind": "misprint",
-      "locator": "Appendix A.1, p.20 of the author copy; the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+      "locator": "Appendix A.1, JAMS p.934, contrasted with A.3 p.936; author p.20–22",
       "printed": "\"Given X a real-analytic n-manifold with corners, one defines its boundary ∂X (cf. [Joy12, def. 2.6]. This is a real-analytic n-manifold with corners for n > 0\"",
       "correction": "∂X is a real-analytic (n − 1)-manifold with corners.",
       "reason": "The boundary of an n-manifold with corners in Joyce's sense is (n − 1)-dimensional; for [0,∞) it is a point. The appendix itself later says 'the compact real-analytic (n − 1)-manifold with corners ∂X' (proof of Proposition A.2). Noted by the extraction (item corner-boundary).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
-        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
-        "Benjamin Bakker's web page (author copy and erratum)"
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
       ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E5",
       "kind": "error",
-      "locator": "Theorem 1.1(1), p.3, Definition 2.5, p.8, and Proposition 2.7 of the author copy",
+      "locator": "Theorem 1.1(1), JAMS p.919; Definition 2.5 and Proposition 2.7, p.924",
       "printed": "\"(1) The arithmetic quotient S_{Γ,G,M} := Γ\\G/M admits a natural structure of R_alg-definable manifold, characterized by the following property. ... S ⊂ G/M a semi-algebraic Siegel set ...\"",
       "correction": "The definable structure depends on a choice of maximal compact subgroup K ⊃ M. For each such K there is a structure S_{Γ,G,M,K}, characterized by the Siegel sets associated to K. Definition 2.5 must fix K, and Proposition 2.7 holds when all Siegel sets use the same K (Erratum, Theorem 1.2(1)).",
       "reason": "Erratum §1.6.1: for G = SL₂, a Siegel set built with K_x is not contained in finitely many Siegel sets built with K_i when x ≠ i, so the two structures on Γ\\G differ. The Hodge-theoretic statements are unaffected, because Hodge manifolds carry a canonical K (Erratum §1.4).",
       "affects": "a stated result",
       "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §1.1 and Theorem 1.2(1)",
       "searched": [
-        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
-        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
-        "Benjamin Bakker's web page (author copy and erratum)"
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
       ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E6",
       "kind": "error",
-      "locator": "Theorem 1.1(2), p.3 of the author copy",
+      "locator": "Theorem 1.1(2), JAMS p.919",
       "printed": "\"(2) Any morphism f: S_{Γ′,G′,M′} → S_{Γ,G,M} of arithmetic quotients is R_alg-definable.\"",
       "correction": "Only morphisms compatible with the chosen maximal compacts are definable: maps Γ′h′M′ ↦ Γφ(h′)gM with φ(Γ′) ⊂ Γ, φ(M′) ⊂ gMg^{−1}, φ(K′) ⊂ gKg^{−1}, and θ_{gKg^{−1}} preserving φ(g′) (Erratum, Theorem 1.2(2)).",
       "reason": "Erratum §1.6.2, using Orr–Schnell's examples: without the Cartan-involution condition, the image of a Siegel set is not contained in finitely many translates of Siegel sets, so the morphism is not definable. Morphisms of Hodge manifolds satisfy the condition (Erratum, Corollary 1.3).",
       "affects": "a stated result",
       "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §§1.1, 1.3 and Theorem 1.2(2)",
       "searched": [
-        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
-        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
-        "Benjamin Bakker's web page (author copy and erratum)"
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
       ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E7",
       "kind": "error",
-      "locator": "Proof of Theorem 1.5 (§4.5), p.17 of the author copy",
+      "locator": "§4.5, JAMS p.932; author p.17",
       "printed": "\"By [B-HC62, 7.5] the preimage of any Siegel set S ⊂ X is contained in the union of finitely many Siegel sets of D.\"",
       "correction": "Cite Bakker–Grimm–Schnell–Tsimerman, Proposition 28.1, instead. [B-HC62, 7.5] concerns real Siegel sets and does not give this rational statement.",
       "reason": "The erratum (§1.5) states that the proof of Theorem 1.3 is otherwise correct, with this citation replaced. BGST Proposition 28.1 needs a forward-containment hypothesis, which the extraction retains.",
       "affects": "the proof",
       "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §1.5",
       "searched": [
-        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
-        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
-        "Benjamin Bakker's web page (author copy and erratum)"
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E8",
+      "kind": "error",
+      "locator": "Lemma 2.1 first proof, JAMS p.923; author §2.1",
+      "printed": "G/M ≃ p(G·v)",
+      "correction": "The displayed invariant-polynomial map need not separate right M-cosets. Use the second, proper semialgebraic-quotient proof, with its external quotient theorem explicitly imported.",
+      "reason": "Let G=SL₂(R), M=SO₂(R), W=Sym₂(R)⊕R with g·(A,t)=(gAgᵀ,t), v=(I,1). This line has stabilizer M. For g=diag(2,1/2) and k=[[0,−1],[1,0]]∈M, all M-invariant polynomials have equal values on g·v and kg·v. Yet gM≠kgM: the symmetric matrices diag(4,1/4) and diag(1/4,4) differ. Thus the proposed identification via p fails. This does not refute existence of a semialgebraic homogeneous quotient.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E9",
+      "kind": "misprint",
+      "locator": "Lemma 2.1 second proof, JAMS p.923",
+      "printed": "E ⊂ G × M",
+      "correction": "The ambient product is G×G.",
+      "reason": "Pairs in the relation are (g,gm), whose second entry is a point of G, not generally M.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E10",
+      "kind": "misprint",
+      "locator": "§2.2, JAMS p.923, equation (2.3)",
+      "printed": "right action",
+      "correction": "The displayed formula is left multiplication by p∈P.",
+      "reason": "Equation (2.3) sends coordinates for x to coordinates for px, not xp.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E11",
+      "kind": "misprint",
+      "locator": "Theorem 1.5, JAMS p.921",
+      "printed": "|Re z_i| ≤ C",
+      "correction": "Use R in the definition of H_(R,η), consistently with the quantified parameter.",
+      "reason": "The statement quantifies R>0 and η>0; C is not bound there.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E12",
+      "kind": "misprint",
+      "locator": "§4.2 after Remark 4.3, JAMS p.929",
+      "printed": "Theorem 1.1(2)",
+      "correction": "Refer to Theorem 1.1(1), with fixed K as in the erratum.",
+      "reason": "Part (1) supplies definability of the quotient map restricted to Siegel sets; part (2) concerns morphisms of quotients.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E13",
+      "kind": "misprint",
+      "locator": "Proof following Theorem 4.8, JAMS p.931",
+      "printed": "part (1) of Proposition 4.6",
+      "correction": "Refer to Lemma 4.7(1).",
+      "reason": "Proposition 4.6 has no numbered part (1); the immediately discussed roughly monomial diagonal assertion is Lemma 4.7(1).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E14",
+      "kind": "misprint",
+      "locator": "§4.6 heading, JAMS p.933",
+      "printed": "Theorem 1.1",
+      "correction": "Theorem 1.3 is the direct period-map input in the proof.",
+      "reason": "The proof begins by applying Theorem 1.3 to the period map f. Theorem 1.1 is a preceding arithmetic-quotient supplier, not that assertion.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E15",
+      "kind": "misprint",
+      "locator": "§5, JAMS p.933",
+      "printed": "Theorem 1.1(3)",
+      "correction": "Use Theorem 1.1(2), as restricted to Hodge morphisms by erratum Corollary 1.3.",
+      "reason": "Theorem 1.1 has only two parts; compatible Hodge morphisms are the required maps.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E16",
+      "kind": "misprint",
+      "locator": "§5, JAMS p.934, definability of Φ_S",
+      "printed": "Theorem 1.1",
+      "correction": "Use Theorem 1.3.",
+      "reason": "The period-map theorem is 1.3, not the quotient-structure theorem 1.1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E17",
+      "kind": "gap",
+      "locator": "Appendix A.3 proof of Proposition A.2, JAMS pp.935–936",
+      "printed": "relatively compact",
+      "correction": "Choose smaller semialgebraic corner boxes whose closures lie inside larger analytic charts. Prove definability of the compact matching graph and cover it by finitely many neighborhoods of analytic transition extensions. Mere boundedness of the smaller domains is insufficient.",
+      "reason": "Analytic coordinate changes between relatively compact domains need not be R_an-definable: F(x)=x+(x²/4)sin(1/x), 0<x<1, has derivative greater than 1/4 and maps diffeomorphically to a bounded interval. If F were definable, the zero set of F(x)−x, containing exactly x=1/(nπ), n≥1, would contradict o-minimality. Reparametrize an analytic arc in a compact circle by F. Thus a buffer in larger charts is necessary for the printed immediate inference. The new buffered-transition-graph item supplies a proof of the theorem, not a counterexample to its conclusion.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E18",
+      "kind": "gap",
+      "locator": "§3.2 reduction to g=e, JAMS p.927",
+      "printed": "Int(g⁻¹)",
+      "correction": "Keep the rational homomorphism φ unchanged and factor through compact data M_g=gMg⁻¹, K_g=gKg⁻¹ in the target, followed by right translation by g. Justify transport of the fixed-K quotient structures.",
+      "reason": "The definition permits arbitrary g∈G(R), but conjugating a rational homomorphism by such a g need not remain defined over Q. The preceding conjugation discussion assumed rational g. The displayed composition also reverses the functional order of the two arrows. A rationality-free right-translation adapter avoids both problems; it remains separate from the official Cartan correction.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E19",
+      "kind": "error",
+      "locator": "§3.2 surjective case, JAMS p.928",
+      "printed": "S_(Γ′,G′,M′) = S_(Γ₁,G,M₁) × S_(Γ_H,H,M_H)",
+      "correction": "A product decomposition of the semisimple group does not decompose an arbitrary compact stabilizer. Supply a compact-stabilizer quotient adapter in addition to the finite-index arithmetic step.",
+      "reason": "Take G′=PSL₂(R)×PSL₂(R), projection to the first factor, Γ′=Γ₁×Γ₂ with torsion-free arithmetic factors, and M′ the diagonal SO₂. Its intersections with the two normal factors are trivial. The left-hand quotient has real dimension 5, whereas the displayed product of intersection-stabilizer quotients has dimension 6. Passing to finite-index arithmetic subgroups does not fix that discrepancy. The corrected morphism theorem may still hold; this literal intermediate equality does not.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E20",
+      "kind": "error",
+      "locator": "Lemma 4.7(1),(2) and Theorem 4.8(1),(2), JAMS p.931",
+      "printed": "u ∈ J_σ",
+      "correction": "Require u≠0 for positive two-sided monomial comparisons.",
+      "reason": "At u=0 the squared norm is identically zero and cannot be bounded below by a positive multiple of a positive monomial. The extraction already imposes the nonzero hypothesis.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E21",
+      "kind": "misprint",
+      "locator": "Lemma 4.7 proof, JAMS p.931, definition of B",
+      "printed": "Hermitian",
+      "correction": "B(u,v)=Q(u,conj v) is (−1)^k-Hermitian in weight k. For odd weight it is skew-Hermitian; i^kB is Hermitian. Retain phase factors in all determinant and Hodge-metric formulas.",
+      "reason": "Q(v,u)=(−1)^kQ(u,v), hence B(v,u)=(−1)^k conjugate(B(u,v)). For the standard weight-one alternating form and u=(1,i), B(u,u)=−2i. Nondegeneracy and the sesquilinear determinant identities remain valid with the correct parity.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E22",
+      "kind": "misprint",
+      "locator": "Lemma 4.5 proof, JAMS p.930, finite difference F_m",
+      "printed": "(1/r₁!) ∑_i (−1)^i binom(r₁,i) f_(m,i)",
+      "correction": "This normalization extracts (−1)^r₁ times the leading coefficient; either include that factor in the next identity or use (−1)^(r₁−i) in the definition.",
+      "reason": "Already for r₁=1 the displayed sum is f_(m,0)−f_(m,1), which is the negative of the leading coefficient. Absolute-value bounds used by the proof are unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E23",
+      "kind": "gap",
+      "locator": "§3.1 first paragraph, JAMS p.926",
+      "printed": "open real analytic charts",
+      "correction": "Choose open buffered pieces and establish a finite local slice/chart refinement after the finite proper relation construction. Do not identify entire Siegel pieces with injective coordinate charts.",
+      "reason": "The paragraph chooses U_i,W_i compact but then declares the images V_i open charts. Finite overlap alone gives a quotient relation, not injectivity of each piece; projected Siegel pieces can have self-identifications. The continuation proves properness of the relation, but deliberately leaves this finite local chart adapter in G2.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E24",
+      "kind": "misprint",
+      "locator": "§3.1, JAMS p.926, two occurrences",
+      "printed": "cl(F_i)",
+      "correction": "Use cl(S_i).",
+      "reason": "The closed pieces introduced in the preceding paragraph are cl(S_i); F_i has not been defined.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E25",
+      "kind": "misprint",
+      "locator": "Appendix A.2, JAMS p.935, mixed atlas transitions",
+      "printed": "ψ_j ∘ φ_i⁻¹",
+      "correction": "Use ψ_j⁻¹∘φ_i on the coordinate overlap.",
+      "reason": "Charts in the appendix map coordinate domains into X, so the printed order does not type as a coordinate transition.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E26",
+      "kind": "misprint",
+      "locator": "§4.5, JAMS p.932 first line and p.933 claim",
+      "printed": "S_H^b; H_Q",
+      "correction": "Use S_H^n and V_Q, respectively.",
+      "reason": "The local base has n coordinates and the rational vector space has been denoted V_Q. No exponent b or vector space H_Q is introduced.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E27",
+      "kind": "gap",
+      "locator": "§1.3 and §4.2, JAMS pp.920 and 928",
+      "printed": "G(Z) ⊂ GL(V_Z)",
+      "correction": "Use a group that acts on the variation's rational representation, or explicitly pass to a faithful adjoint/central-cover representation and compare the resulting arithmetic quotients and period maps.",
+      "reason": "In §1.3 G is the adjoint Mumford–Tate group. Its action on the original fibre is not automatic: the standard weight-one SL₂ representation does not descend to PGL₂ since −I acts nontrivially. This is a missing presentation adapter, not a claim that adjoint groups have no faithful rational representations.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E28",
+      "kind": "error",
+      "locator": "§5, JAMS pp.933–934, definition of the target Hodge locus",
+      "printed": "union of special subvarieties",
+      "correction": "For the exceptional locus use the proper Mumford–Tate-drop subdata, excluding the generic identity image. Establish its correspondence with exceptional tensors.",
+      "reason": "As defined immediately above, a special image may be the image of the identity Hodge morphism. Including it makes the union the whole target, whose pullback is all S, whereas §1.4 defines HL(S,V) using exceptional Hodge tensors. The extraction uses proper special images; the correspondence remains G6.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E29",
+      "kind": "gap",
+      "locator": "Theorem 4.12 and proof, JAMS p.933",
+      "printed": "smooth complex algebraic manifold S×S_(Γ,G,K)",
+      "correction": "Either restrict this proof to smooth S or supply algebraicity descent through a resolution/stratification and the necessary singular-source analytic comparison.",
+      "reason": "The theorem quantifies an arbitrary complex algebraic variety S, while the proof applies Theorem 1.3 and the stated smooth-source definable Chow theorem to S itself. Smoothness does not follow from that hypothesis. This is a gap in the displayed proof of the stated generality, not a counterexample to Borel's theorem.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
+        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
+        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
+        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
       ]
     }
   ]

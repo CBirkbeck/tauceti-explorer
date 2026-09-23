@@ -1,31 +1,30 @@
 # Handoff: PAPER-BAKKER-KLINGLER-TSIMERMAN-20
 
-Codex, session `codex-c83e7a`, 22 September 2026. Refs #1422. Status: partial.
+Codex `codex-a71f92`, 23 September 2026. Refs #1422. **Partial checkpoint.**
+Preserves contributions from `codex-c83e7a` and `cc-fb70e5`.
 
-The full author paper and official erratum were read. The result contains 118 stable items, 222 dependency edges, 44 definitions/constructions with 132 API contracts and 132 proposed tests, 10 exact library imports, 12 existing plans and 96 missing items routed once through eight routes. Two Part II proposals extend ALS and upstream HodgeStructures. No Lean file or compiled proof is claimed.
+## Completed in this continuation
 
-Preserve the official erratum's fixed-K parameter, same-K Siegel comparisons and Cartan-compatible morphism conditions. Preserve the rational forward-containment hypothesis in BGST28.1. Hodge morphisms have the canonical compatible compact data; general morphisms do not. Preserve existing carriers and owners, especially ShimuraData D3 for the general VHS definition, AA.3 for reduction, LD.6 for definable Chow, ALS.2 for the symmetric Borel–Serre construction, and upstream HodgeStructures L0–L3 for built Hodge algebra and point carriers.
+- Acquired/read all published pp.917–939 and reread the official erratum. Main statements and every finding have published locators; selected formula images were checked. G1 is resolved for published access and statement/locator collation, not exhaustive editorial collation.
+- Added six stable items: `cholesky-reconstruction`, `matrix-adjugate-inverse`, `determinant-coordinate-control`, `basis-change-offdiagonal`, `buffered-transition-graph`, and `finite-siegel-relation-proper`.
+- Supplied explicit basis-transfer constants and finite sorting, resolving the quantitative portion of G5. Proved finite-relation properness and buffered-chart transition definability; local slice refinement remains open.
+- Corrected finite-difference sign and inverse-power Vandermonde interpolation in the repaired widened-sector curve lemma. G4 stays resolved; analytic uniformity remains G3.
+- Added E8–E29; retained E1–E7 and official erratum attribution. All 29 source findings await independent review.
+- Normalized API roles and standard `tests` metadata. Counts: 124 items (12 library, 12 planned, 100 missing), 234 dependency edges, 44 definitions/constructions, 132 API contracts, 134 proposed tests, eight routes. `unitTests` mirrors the earlier ledger and is not counted twice.
 
-## Continuation 2026-09-22 (Claude Code, session `cc-fb70e5`)
+## Resume in depth
 
-This continuation recorded `sourceIssues` E1–E7 in the result. Four are new:
+1. **G2:** Read/decompose original Borel–Harish-Chandra, Borel–Serre/Borel–Ji and Orr inputs. The proper finite relation is now proved; the semialgebraic quotient theorem and finite local chart refinement are not. Replace the failed invariant-polynomial proof (E8), justify the real-translation adapter (E18), and construct the surjective arithmetic/compact-stabilizer adapter (E19). Do not assume an exact product quotient.
+2. **G3:** Finish original Schmid nilpotent-orbit/SL₂ and CKS/Kashiwara norm inputs, including bounded-real-width uniformity for the repaired curve lemma. Earlier selected reads are precisely attributed in provenance; unread proofs and OCR formulas are still unread. Finish adjoint/central-cover representation and finite-level adapters. Never substitute a single-MHS Deligne splitting for simultaneous weight splittings.
+3. **G5 remainder:** Work out the finite buffered angular/face charts for arbitrary η and global finite-level descent. The quantitative basis-transfer lemma is done; retain its strict-constant enlargement and finite permutations. The entire open punctured disk version is not a valid target.
+4. **G6:** Acquire/extract original definable Chow and o-minimality proofs. Verify the Hermitian arithmetic/algebraic target comparison independently of the Borel theorem being reproved. Finish proper Hodge images, tensor/subdatum countability, graph regularity and singular-source descent. E28 excludes the generic identity image; E29 records the smooth/general-source proof mismatch.
 
-- **E1:** Theorem 4.1 is false on the whole polydisk.
-- **E2:** a gap in the proof of Lemma 4.5.
-- **E3:** the basis-transfer sentence in §4.5.
-- **E4:** a misprint in Appendix A.1, dimension n for n−1.
+Retain fixed K, Cartan-compatible morphisms, BGST's forward-containment hypothesis, nonzero-vector hypotheses, the centered-weight shift, conjugation/parity conventions, and local boundary branches. The 29 source findings are provisional, not reviewer-confirmed facts; do not write your own review verdict or contact authors.
 
-The other three, E5–E7, are the official erratum's corrections, recorded with it as `known`. Lemma 4.5 is restated with R-uniform sectors and its proof repaired (item `rational-curve-test`), so G4 is resolved and the R-uniformity of the cited Hodge estimates moves to G3. Items, routes and counts are otherwise unchanged.
+## Owners and checks
 
-Resume with the explicit `verificationGaps` in the JSON (G4 is now resolved):
+Keep ShimuraData D3 for general VHS, AA.3 for rational reduction, LD.0/6 for tame/definable geometry, ALS.2 for the symmetric Borel–Serre case, and upstream HodgeStructures for existing linear algebra/carriers. The two Part II IDs remain shared proposals: `ArithmeticQuotientDefinability` and `DegeneratingHodgeStructures`. Benoist/Gao–Habegger references are coordinated consumers. Cholesky is an existing upstream import. LD.0/6 had no reviewed audit entry in this snapshot.
 
-1. Collate the full published 2020 version with the fully read author copy; publisher metadata alone was verified. All six acquired PDF hashes/read extents are in `provenance`.
-2. Finish original Borel–Harish-Chandra/Borel–Serre and Orr2018 proof decomposition. Orr–Schnell's correction was fully read; BGST28.1 statement and full proof were read on author pages13–15. Resolve the proper definable quotient/local slice construction and the surjective group-map arithmetic product adapter.
-3. Finish Schmid's nilpotent-orbit and one-variable SL₂ foundations, Kashiwara's earlier inputs and unread/missing image formulas. Exact selected reads are in provenance. The printed870 image confirms squared norms. Do not replace simultaneous weight splittings by the existing single-MHS Deligne splitting. Finish the faithful adjoint/central-cover representation and finite-level extension adapters.
-4. Done in the continuation: Lemma 4.5 is repaired with R-uniform sectors (E2). Check the R-uniformity of Schmid Corollary 5.29 and CKS/Kashiwara under G3.
-5. Prove the quantitative basis-permutation adapter and all finite buffered/face chart reductions. The report's diag(1,T) and Möbius period-map examples explain why fixed ordering and whole-open-disk versions are not adopted. These are derived audit qualifications, not assertions in the published erratum. The global algebraic-base theorem remains the target.
-6. Acquire Peterzil–Starchenko Chow and the original o-minimality inputs; verify that the Hermitian arithmetic/algebraic definability comparison can be used independently of Borel algebraicity. Finish graph regularity, closed analytic proper Hodge images and the exceptional tensor/subdatum countability correspondence. A countable union of algebraic loci is not automatically definable.
+Run `python3 scripts/check_paper.py research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json`; intake on the two paper files and this handoff; paper, errata and source-issue unit tests; and custom DAG/API/test/route checks. This continuation also ran 300 exact rational matrix/basis cases and finite interpolation diagnostics. Refresh main, check deliverable concurrency and ownership again before publishing.
 
-API names in this paper JSON are proposed adapters, even when their carrier is imported from the pinned library. Retain the conjugate-first library Hodge-form convention, centered-weight shift, nonzero-vector hypothesis, local-boundary branches and strict reducedness inequalities.
-
-Before submitting a continuation, refresh main and all ownership inputs, retain stable item identifiers, run `python3 scripts/check_paper.py research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json`, and check all three named files with intake. Check the custom graph, one-route coverage, API/test coverage, pinned signatures, parent/stage/area identifiers and PDF hashes. No change outside the two paper deliverables and this handoff belongs in this job.
+No Lean file is a deliverable and no Lean compilation or implementation is claimed. Only the named result, report and handoff may change.
