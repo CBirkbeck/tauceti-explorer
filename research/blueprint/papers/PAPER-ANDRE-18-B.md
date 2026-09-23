@@ -1,3 +1,60 @@
+# PAPER-ANDRE-18-B — third continuation: the independent review of E1–E4
+
+Status: **partial**. Issue #2188. Continuing agent: **Claude Code — `cc-fb70e5`**, 23 September 2026. Continues the checkpoints merged in #2210 (Codex — `codex-a71f92`) and #2222 (ChatGPT — `cgpt-20260923-4c72a9`).
+
+This tick did the first item of the previous resume order and nothing else: **the independent mathematical review the handoff asked for**. No item, route, status, API, test, baseline pin or coverage gap was altered except the `review` fields of the four source issues and the text of G6, which was **appended to**. The extraction stays **`partial`**, 83 items, five routes, for the reasons the previous worker gave.
+
+I am **not an author of any of these findings** — E1–E3 are `codex-a71f92`'s and E4 is `cgpt-20260923-4c72a9`'s — and the handoff's instruction "do not let the authoring worker mark its own finding confirmed" is respected.
+
+## Provenance, re-verified
+
+The journal PDF was re-downloaded from the recorded numdam URL and its **sha256 is byte-for-byte the recorded `34da107d…d47053`**. So the inherited provenance is confirmed independently, and every quotation below is from that file: printed pages 87, 90 and 91, which are PDF pages 17, 20 and 21.
+
+## The four verdicts: all `confirmed`
+
+- **E1** (misprint, p. 90). The page prints, in the proof of Lemma A.2.1(4)(c)⇒(b): "noter que pour tout couple (s, š) ∈ S × **Hom_S(S,R)** tel que š(s) = 1_R…". The subscript is `S` where it must be `R`: no `S`-module structure on `R` is given or used, and the composite is an `R`-linear retraction on the strength of `R`-linearity alone.
+- **E2** (misprint, p. 91). "…il existe un facteur direct (libre) de type fini **M** tel que λ(1) ∈ M \ σᵐ(𝔪)M, et on peut donc trouver d'après Nakayama une forme σᵐR-linéaire μ sur **N**…, qu'on prolonge à R par 0 sur un supplémentaire de **M**." `N` occurs nowhere else; the extension-by-zero clause presupposes the form lives on `M`. The finding is also right that this is independent of E4 — fixing the symbol leaves the division step untouched.
+- **E3** (misprint, p. 87). Proposition 4.4.1 prints "…presque de Cohen-Macaulay pour (B,x,π^{1/p^∞}) (resp. **(B**,x′,π′^{1/p^∞})". The second triple must be `(B′,x′,π′^{1/p^∞})`: `x′` is introduced in the same sentence as a maximal secant sequence **for `B′`**, and the right vertical map of diagram (20) is `B′ → D′`.
+- **E4** (error, affects a stated result, pp. 90–91). **Confirmed, and reconstructed from scratch.**
+
+## E4 in detail, and two additions to its record
+
+The printed hypotheses of Proposition A.3.1 are exactly: `R` local with maximal ideal `𝔪`, **not necessarily Noetherian**; `r ∈ 𝔪` with `R` `r`-adically separated; `σ` a **local** endomorphism with `R` **free over `σ(R)`** and `⋂_m (σᵐ(𝔪)·R) ⊆ rR`; and `S` an extension of `R` to which `σ` extends **injectively**. Every one holds for the example:
+
+| hypothesis | check |
+|---|---|
+| `R = k[[t]][ε]/(ε²)` local | maximal ideal `(t,ε)`; `a+εb` is a unit iff `a` is |
+| `r = ε ∈ 𝔪`, `R` `r`-adically separated | `ε² = 0`, so `⋂ εⁿR = 0` already at `n = 2` |
+| `σ : t ↦ t²`, fixing `ε` and `k`, local | `σ(𝔪) ⊆ (t²,ε)` |
+| `R` free over `σ(R)` | basis `1, t`, since `k[[t]] = k[[t²]] ⊕ t·k[[t²]]` |
+| `⋂_j σʲ(𝔪)·R ⊆ rR` | `σʲ(𝔪)R = (t^{2ʲ},ε)R`, intersection `= εA = rR`, so equality |
+| `S = A ⊕ εK ⊇ R`, `σ` extends injectively | same formula; `a(t) ↦ a(t²)` is injective on `k((t))` |
+
+`(c)` holds: `λ(a+εb) := εa` is additive, `R`-linear (both `λ(ρx)` and `ρλ(x)` equal `εca` for `ρ = c+εd`), and `λ(1) = ε ≠ 0`. `(b)` fails: a retraction `ρ` needs `ρ(ε) = ε`, but `ε = t^N·(εt^{-N})` with `εt^{-N} ∈ S` for **every** `N`, so `ρ(ε) ∈ ⋂_N t^N R = 0`.
+
+**Addition 1 — the example also refutes the printed `(c) ⇒ (a)`, not only `(c) ⇒ (b)`.** Because `tK = K`, we get `tS = tA ⊕ εK`, so `S/tS = A/tA = k`, while `R/tR = k ⊕ εk`. The class of `ε` dies, so for the finitely presented `P = R/tR` the map `P → P ⊗_R S` is not injective and `R → S` is not pure. The printed chain `(c) ⇔ (b) ⇒ (a)` therefore fails at its first arrow *and* end to end.
+
+**Addition 2 — the point of failure is sharper than "division by a zero divisor is ill-defined".** Here `λ(S) = εA = rR` **exactly**, so the proof's opening move — divide `λ` by a suitable power of `r` until some value escapes `rR` — is the one called for, and it is *impossible*: if `λ = r·λ′` with `λ′` `R`-linear then `ε·λ′(1) = ε` forces `λ′(1) = 1 + εd`, a unit, and `λ′(1)^{-1}λ′` would be exactly the retraction we have just excluded. So a **single** division fails; `r`-adic separation cannot help, because separation only rules out an infinite descent.
+
+**Containment.** Both applications the paper itself makes of `(c) ⇒ (b)` satisfy the repair the finding proposes: the characteristic-`p` one takes `r = 0`, where the step is vacuous (`rR = 0`, and a non-zero `λ` already has a value outside it); the mixed-characteristic one takes `R = V[[T₁,…,T_n]]` with `r` a uniformiser of a DVR — a non-zerodivisor in a domain. The example's `R` is non-reduced and its `S` is not module-finite. **Nothing in §§0–4 is affected**, which is what `affects: a stated result` should be read as meaning here.
+
+## G6 narrowed — and deliberately not turned into a finding
+
+The remaining half of G6 is the `(a) ⇒ (c)` branch. As printed on p. 91 it runs: `S` is a filtered colimit of finite **pure** sub-`R`-algebras `S_α`; `H^d_𝔪(R) ≠ 0` and injects into each `H^d_𝔪(S_α)` because `R → S_α` is split; so `H^d_𝔪(S) ≠ 0` by passage to the colimit; and then "par dualité locale, `H^d_𝔪(S)` s'identifie à `Hom_R(S^∨,E)`", whence `S^∨ ≠ 0`. Two observations for whoever closes it:
+
+1. **Only one direction is used.** The proof needs the contrapositive — `S^∨ = 0 ⟹ H^d_𝔪(S) = 0` — so the full duality isomorphism is more than required, and a design job should target the weaker statement.
+2. **That weaker statement is not formal in the colimit.** Local cohomology commutes with filtered colimits, so `H^d_𝔪(S) = colim H^d_𝔪(S_α)`, and Matlis duality over a complete regular `R` gives `H^d_𝔪(S_α) ≅ (S_α^∨)^∨` at the **finite** stages; meanwhile `S^∨ = Hom_R(colim S_α, R) = lim S_α^∨`. So the step asks that a vanishing **limit** of the `S_α^∨` force the vanishing of the **colimit** of their Matlis duals, and the natural comparison runs `colim Hom(S_α^∨,E) → Hom(lim S_α^∨,E)`, which is not an isomorphism for a general filtered system. Whether *this* system has surjective transition maps, or is Mittag-Leffler, is exactly what must be checked against Hochster 1983.
+
+Until that is checked, **neither the step nor a defect in it is asserted here**. This also narrows `PAPER-BHATT-18`'s G9, which flags the same appendix from the other side.
+
+## What this tick did not do
+
+No new item, route, API, test or gap; no Lean file; no rerun of the inherited diagnostics; no fresh reading of Hochster 1983, Hochster 2002, Bartijn–Strooker, Scholze 2012 or Gabber–Ramero, so **G0–G5 and G7 are exactly as they were**. The remaining resume order stands as written, minus its first item.
+
+---
+
+## Second checkpoint report — retained in full
+
 # PAPER-ANDRE-18-B — direct summands and big Cohen–Macaulay algebras
 
 Status: **partial**. Issue #2188. Continuing agent: ChatGPT — `cgpt-20260923-4c72a9`, 23 September 2026. This continues Codex checkpoint #2210; it is not an independent review of that checkpoint, a complete extraction, or a formalization.
