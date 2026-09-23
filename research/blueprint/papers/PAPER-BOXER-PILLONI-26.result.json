@@ -5327,7 +5327,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: §2.5.6 reduces to `$D'_+\\supseteq D_+$ and $D'_-\\supseteq D_-$', then says `We can first treat the case that $D'_+\\supseteq D_+$ and $D'_-=D_-$ and then the case $D'_+=D_+$ and $D'_-\\subseteq D_-$'. The second inclusion runs the wrong way: the two sub-cases have to compose to the case just reduced to, which needs $D'_-\\supseteq D_-$. A reversed sign, with no effect on the argument, which then treats only the first sub-case.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E32",
@@ -5342,7 +5347,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: Remark 2.6.3 says the flatness of $\\mathcal F$ `is only used to make sure that $\\mathcal F\\otimes_AM$ is again a coherent sheaf'. The underived $\\mathcal F\\otimes_AM$ is coherent for any finite $M$ over a finite-type base, flat or not; what flatness buys is that the derived tensor agrees with it, which is what the construction in §2.6.1 and Proposition 2.6.2 use and what the paper carefully distinguishes elsewhere by writing $\\otimes^{\\mathbf L}_A$. A dropped superscript that inverts the content of the remark.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E33",
@@ -5357,7 +5367,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: Lemma 2.6.6 concludes `$\\ker(d_0)$ is a direct factor of $M^0$, $\\mathrm{Im}(d_0)$ is a direct factor of $M_1$ and $\\mathrm{Im}(d_1)$ is a direct factor of $M^2$', with one subscript among superscripts. The complex is $M^0\\to M^1\\to M^2$ and no $M_1$ exists; the proof shows $A^n\\cong\\mathrm{Im}(d_0)$ is a direct factor of $M^1$. A typographical slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E34",
@@ -5372,7 +5387,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: Lemma 2.6.11 ends `then $r_\\star\\mathcal O_Y$ if $A[G]$-flat', where the sentence is stating the lemma's second conclusion, so `if' is `is'. One letter.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E35",
@@ -5387,7 +5407,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. §2.6.12 assumes only that `$X$ and $S'$ are tor independent' and then asserts a cohomological correspondence $T':(p'_2)^\\star\\mathcal F'\\to(p'_1)^!\\mathcal F'$ `deduced by base change'. Constructing it needs a base-change map for $p_1^!$ along $X'\\to X$, and that is a condition on $C$, not on $X$: what is wanted is Tor-independence of $C$ and $S'$ over $S$ as well, which makes the square formed by $p_1$ and $X'\\to X$ Tor-independent and gives the proper base change $p_1^!g^\\star\\simeq g'^\\star(p'_1)^!$. The finding is right that the cited flat base change is the wrong tool here, and that finite Tor-dimension of $p_1$ is sufficient but not needed for the construction. Proposition 2.6.13's own proof needs only the printed hypothesis, so the gap is in the construction of $T'$ that precedes it.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E36",
@@ -5402,7 +5427,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The proof of Proposition 2.7.2 replaces $\\bar p^!\\mathcal O_S$ by its stupid truncations $(\\bar p^!\\mathcal O_S)_{\\sigma\\leq m}$ and ends `Since $p$ is smooth, $(p^!\\mathcal O_S)_{\\sigma\\leq m}=p^!\\mathcal O_S$ for $m$ large enough'. Stupid truncation is not an operation on the derived category — it depends on the representing complex, which the proof never fixes — and even for a fixed representative the terms need not vanish in large degrees on $X$, so the stabilisation asserted does not follow from smoothness of $p$. The conclusion is right, and the finding gives two correct routes to it, a Milnor-sequence limit over $m$ or canonical truncations; both need the observation that $p^!\\mathcal O_S$ is concentrated in a single negative degree because $p$ is smooth, which is the content the printed sentence is reaching for.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E37",
@@ -5417,7 +5447,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a missing hypothesis. §2.8 opens `We let $(C,X,p_1,p_2)$ be a correspondence', with nothing more, and then concludes `Therefore, by theorem 2.5.1, it makes sense to consider $\\mathrm R\\Gamma(C^{(n)},\\mathcal O_{C^{(n)}})^{\\mathcal C^{(n+1)}-\\mathrm{ord}}$'. Theorem 2.5.1, and the very notation $\\mathrm R\\Gamma(X,\\mathcal F)^{\\mathcal C-\\mathrm{ord}}$, are available only under the standing assumption of §2.5 that a strict dynamic compactification exists, and every other section that uses them restates it. Lemma 2.8.1, two paragraphs earlier, is precisely the statement that the hypothesis propagates to the iterates, so adding it to §2.8 costs nothing and is clearly what is meant.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E38",
@@ -5432,7 +5467,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof of Theorem 2.7.4 says `Since $A[T,T^{-1}]_\\blacksquare\\otimes_{A[T]}A[[T]]=0$'. With the plain ring as subscript that tensor product is $A((T))$, which is not zero; the vanishing is the solid one, $A[[T]]\\otimes_{(A[T],A)_\\blacksquare}A[T,T^{-1}]_\\blacksquare=0$, which is exactly what case (1) of the proof of Lemma 2.4.3 uses and what Definition 2.4.2 writes with the analytic ring as subscript. A dropped decoration on one subscript.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E39",
@@ -5447,7 +5487,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on both items. The bottom row of the second diagram in the proof of Proposition 2.8.2 prints $\\mathrm R\\Gamma'_0$, $\\mathrm R\\Gamma'_0$, $\\mathrm R\\Gamma_0$, with the last vertex unprimed, although the proof has just set $\\mathrm R\\Gamma'_n=\\mathrm R\\Gamma_{D^{(n)}_+,D^{(n)}_-}(\\bar C^{(n)},\\mathcal O_{\\bar C^{(n)}})$ and every other vertex of that diagram is primed; the arrow into it carries the same label $(p_1)_!$ as the other down-arrow, whose target is $\\mathrm R\\Gamma'_0$. The second item, $T_n$ for $T_{n+1}$ on the next page, is the same kind of index slip in the sentence describing the zig-zag.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E40",
@@ -5462,7 +5507,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The sentence after the two localization triangles reads `The functors $j_\\star,j^!,j^\\star$ are part of our six functor formalism for the open immersion of schemes $U\\hookrightarrow X$', while the triangles just displayed use $j_!j^\\star$ and $j_\\star j^\\star$, so the three functors being contrasted with the new locale functors $\\hat i_\\star,\\hat i^\\star,\\hat i^!$ are $j_\\star$, $j_!$ and $j^\\star$. For an open immersion $j^!=j^\\star$ anyway, as the paper itself notes elsewhere, so nothing is lost; the list is simply mis-decorated.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E41",
@@ -5477,7 +5527,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: Proposition 2.9.9 says the action exists `on $\\mathrm R\\Gamma(\\hat Z_l,\\mathcal F)$, $\\mathrm R\\Gamma_c(U_l,\\mathcal F)$ and $\\mathrm R\\Gamma_c(\\hat Z_l\\setminus\\hat Z_{l-1},\\mathcal F)$ for all $i$', although the objects and the hypothesis are indexed by $l$ and no $i$ occurs anywhere in §2.9.8. A stray letter.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E42",
@@ -5492,7 +5547,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a missing hypothesis. Proposition 2.9.9 is stated for a correspondence in the sense of Definition 2.1.8, which asks only that $p_1\\times p_2$ be proper, and §2.9.5 puts no properness on $X$; but its proof ends by invoking the counit of $(p'_1)_!(p'_1)^!\\to\\mathrm{Id}$ and the action it builds needs $(p_1)_\\star=(p_1)_!$, i.e.\\ $p_1$ proper, to produce the trace back to $\\mathrm R\\Gamma(X,-)$. Definition 2.1.24 imposes exactly that for dynamic correspondences, and it holds automatically for the compactified correspondences to which the proposition is applied, so the hypothesis is available; it is just not stated.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E43",
@@ -5507,7 +5567,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. Lemma 2.10.1(3) assumes only `$U\\subseteq Z\\subseteq U'\\subseteq Y$' and disposes of the construction with `For the third point, we just use the standard adjunctions', but the first arrow $\\mathrm R\\Gamma(Y,(j_U)_!j_U^\\star\\mathcal F)\\to\\mathrm R\\Gamma_Z(Y,\\mathcal F)$ needs $j_U$ to factor through the closed immersion $i$, i.e.\\ the inclusion to hold scheme-theoretically; the paper's own $\\subseteq$ of Definition 2.1.15(1) is only set-theoretic. That is not a formality here, because the uses in Lemma 2.10.2 take $Z$ to be a complement of interiors with no scheme structure at all, which is E46's point. The lemma is true with the scheme-theoretic reading, which is what the applications can be given.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E44",
@@ -5522,7 +5587,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on both slips. The proof of Proposition 2.9.9 writes `Let $j_{C_{U_l,k}}:C_{U_l,k}\\hookrightarrow X$ be the open immersions for $k=1,2$', although $C_{U_l,k}=p_k^\\star(U_l)$ is an open subscheme of $C$ and every later use — the functors applied to $p_2^\\star\\mathcal F$ and $p_1^!\\mathcal F$, and the identification with $p_2^\\star(j_l)_!j_l^\\star\\mathcal F$ — requires the target to be $C$. And the claimed map is printed into $(p_1)_!(j_l)_\\star(j_l)^\\star\\mathcal F$, with $(j_l)_\\star$, where the triangle being built has $(j_l)_!(j_l)^\\star\\mathcal F$ in that slot; the adjunction step in the next sentence produces the $!$ version. Neither affects the construction.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E45",
@@ -5537,7 +5607,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an error. Lemma 2.10.1(4) asserts that $\\mathrm R\\Gamma_Z(Y,\\mathcal F)$ has finite cohomology groups when $Z$ is proper and $\\mathcal F$ has coherent cohomology, with no boundedness anywhere in the statement or in the setup that defines $\\mathrm R\\Gamma_Z(Y,\\mathcal F)=\\mathrm R\\Gamma(Z,i^!\\mathcal F)$. Without it the claim fails, and so does the step `the same holds for $i^!\\mathcal F$': over $R=k[x]/(x^2)$ with $Z=V(x)$, $i^!$ of an unbounded complex with coherent cohomology produces infinite-dimensional cohomology, exactly as the finding computes. Adding `bounded below' repairs both the statement and the proof, and it holds in the one place the lemma is used, Proposition 2.10.3, where $\\mathcal F$ is a coherent sheaf.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E46",
@@ -5552,7 +5627,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap. The proof of Lemma 2.10.2 applies Lemmas 2.2.7, 2.10.1 and 2.2.6, all stated for schemes and closed subschemes, to $Y=\\bar X\\setminus\\mathring D'_+$ and to supports such as $\\bar X\\setminus(\\mathring D'_+\\cup\\mathring D_-)$, which footnote 1 defines purely topologically as complements of interiors; no scheme structure is ever fixed on them, and $\\mathrm R\\Gamma_{\\emptyset,D_-}(Y,\\mathcal F)$ in the sense of Definition 2.2.4 needs one. The finding's repair — take the scheme-theoretic closure of $\\bar X\\setminus D'_+$, whose ideal vanishes on that open and whose support is exactly $\\bar X\\setminus\\mathring D'_+$ — supplies it and makes the inclusion of E43 scheme-theoretic at the same time. The conclusion is unaffected.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E47",
@@ -5567,7 +5647,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The statement of Proposition 2.10.3 and the two displays in its proof carry the interior ring on $D$ rather than on the pulled-back subscheme, and write the sign as a superscript $D^+$; no $D^+$ is defined, the data of the proposition being $(\\bar C,\\bar X,\\bar p_1,\\bar p_2,D_+,D_-)$, and what the argument needs is the interior in $\\bar C$ of $\\bar p_1^\\star D_+$, which is the set Definition 2.1.19(3) uses for compact expansion. The accent and sign placements are not distinguishable in this PDF's text layer, so for those I am relying on the finding's render; the substance is settled by the surrounding definitions whichever way the glyphs sit.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E48",
@@ -5582,7 +5667,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the two inclusions are exactly reversed. §2.11 assumes `$\\bar p_1^\\star D'_+\\subseteq\\bar p_2^\\star D''_+$ and $\\bar p_2^\\star D'_-\\subseteq\\bar p_1^\\star D''_-$'. Remark 2.11.2 then says the pairs $(D'_\\pm)$ and $(D''_\\pm)$ are compact dynamic by Proposition 2.10.4, whose hypothesis for the smaller pair $D''$ inside $\\mathring D'$ reads $\\bar p_1^\\star D''_+\\supseteq\\bar p_2^\\star D'_+$ and $\\bar p_2^\\star D''_-\\supseteq\\bar p_1^\\star D'_-$ — that is, $\\bar p_2^\\star D'_+\\subseteq\\bar p_1^\\star D''_+$ and $\\bar p_1^\\star D'_-\\subseteq\\bar p_2^\\star D''_-$, the finding's correction. The printed pair also runs against the expansion and contraction conventions of Definition 2.1.19, under which the $+$ divisor grows along $\\bar p_1$ and the $-$ divisor along $\\bar p_2$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E49",
@@ -5597,7 +5687,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on both items. Theorem 2.11.4(3) ends with a map to $\\mathrm R\\Gamma(\\bar X,\\mathcal F)^{\\mathcal C-\\mathrm{ord}}$, but §2.11 defines $\\mathcal F$ only as the restriction of $\\mathcal F''$ to $X=\\bar X\\setminus(D_+\\cup D_-)$, and the notation $\\mathrm R\\Gamma(-,-)^{\\mathcal C-\\mathrm{ord}}$ of §2.5 is for the open $X$; point (2) of the same theorem writes it correctly as $\\mathrm R\\Gamma(X,\\mathcal F)^{\\mathcal C-\\mathrm{ord}}$. And the last paragraph of the proof twice cites `(2)' where what is being verified and then applied is the factorisation hypothesis of (3). Two reference slips.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E50",
@@ -5612,7 +5707,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `We deduce that $\\mathrm R\\Gamma_{D''_+,D_-}(\\bar X,\\mathcal F'')^{\\mathrm{ord}}=\\mathrm R\\Gamma_{D''_+,D''_-}(\\bar X,\\mathcal F)^{\\mathrm{ord}}$', with an unprimed $\\mathcal F$ on the right and no closing period. $\\mathcal F$ lives only on $X$, which is strictly smaller than $X''$, so the right-hand side is not defined with it; the limit the sentence is summarising is over $\\mathrm R\\Gamma_{D''_+,D''_-}(\\bar X,\\mathcal F''(-mD_-))$, so $\\mathcal F''$ is what belongs there. A dropped prime.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E51",
@@ -5627,7 +5727,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `The maximal torus of the derived group is $T^{\\mathrm{der}}=\\{\\mathrm{diag}(t_1,\\cdots,t_g,t_g^{-1},\\cdots,t_1^{-1}).$' — the brace opened before $\\mathrm{diag}$ is never closed, while the definition of $T$ two lines above closes its own. The content is right, since the derived group of $\\mathrm{GSp}_{2g}$ is $\\mathrm{Sp}_{2g}$. A bracket.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E52",
@@ -5642,7 +5747,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the paragraph defining $^MW$ says it `is defined by the condition $wX^\\star(T)^+\\subseteq X^\\star(T)^{+,M}$, or equivalently by the condition $w^{-1}\\Phi^{+,M}\\subseteq\\Phi^+$', while ten lines above $\\Phi^{+,M}$ is fixed as the roots of $\\mathfrak u_P$ and $\\Phi^+_M$ as those of $\\mathfrak m$. The characterisation of minimal-length representatives of $W_M\\backslash W$ is $w^{-1}\\Phi^+_M\\subseteq\\Phi^+$, about the roots of the Levi, so the subscript and superscript are interchanged. The first condition and the definition as minimal-length representatives are right as printed, and I follow the finding in leaving out the attribution it could not check.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E53",
@@ -5657,7 +5767,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, and the order meant is fixed elsewhere on the same page. The sentence says `$^MW$ is the subset of $w$ such that $w^{-1}(g+1)<w^{-1}(g+2)\\cdots<w^{-1}(2g)$', with the ordinary order on $\\{1,\\dots,2g\\}$. That does pick one representative per coset, but not the minimal-length one under the paper's conventions, in which $B$ is upper triangular on the diagonal blocks and the dominant cone is $0\\geq k_1\\geq\\cdots\\geq k_g$; the order those conventions produce is the one the same page uses for $T^+(\\Q_p)$, $v(t_{g+1})\\geq\\cdots\\geq v(t_{2g})\\geq v(t_1)\\geq\\cdots\\geq v(t_g)$, and that p. 41 uses for the Iwahori flag $H_{g+1}\\subseteq\\cdots\\subseteq H_{2g}\\subseteq H_1\\subseteq\\cdots\\subseteq H_g$. So the inequalities should be read in that order, which is the finding's correction. Its remark on $w^{-1}\\Phi^{+,M}$ repeats E52 and agrees with it.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E54",
@@ -5672,7 +5787,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `An isomorphism $\\xi:(A,\\lambda,\\eta)\\to(A',\\lambda',\\eta')$ is a quasi-isogeny $\\xi:A\\to A'$ for which $\\eta'=H_1(\\xi)\\circ\\eta$ and $\\xi^D\\lambda\\xi=r\\lambda$.' The composite $\\xi^D\\lambda\\xi$ does not type-check with the unprimed $\\lambda$, since $\\xi^D$ starts from $(A')^D$ and $\\lambda$ lands in $A^D$; the condition that the quasi-isogeny respects the two quasi-polarizations is $\\xi^D\\lambda'\\xi=r\\lambda$, with the target's polarization in the middle. A dropped prime.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E55",
@@ -5687,7 +5807,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an inconsistency of ordering that runs through the paper. §3.4.1 sets $X_{\\mathrm{ord}}=(\\mu_{p^\\infty})^g\\oplus(\\Q_p/\\Z_p)^g$, multiplicative first, and accordingly gives $b_{\\mathrm{ord}}=\\mathrm{diag}(p^{-1}\\mathrm{Id}_g,\\mathrm{Id}_g)$ and, in the proof of Lemma 3.4.3, an upper-triangular $\\mathrm{Aut}(\\tilde X_{\\mathrm{ord}})$ with $\\mathrm{Hom}(\\tilde X_{\\mathrm{ord},et},\\tilde X_{\\mathrm{ord},m})$ above the diagonal; but §3.4.17 forms the level structure from an isomorphism $(\\Q_p/\\Z_p)^g\\oplus\\mu^g_{p^\\infty}\\to A[p^\\infty]$, étale first, and Remark 3.4.18 remarks on the discrepancy without resolving it. The orders matter, because only with the étale part first does $\\mathrm{Aut}^{\\mathrm{symp}}(\\tilde X_{\\mathrm{ord}})$ sit inside $P$, the stabiliser of $\\langle e_{g+1},\\dots,e_{2g}\\rangle$, which is what Lemma 3.4.3 and §3.4.17 assert. The finding's fix, one order throughout with the étale summand first, is the cleaner of the two it offers.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E56",
@@ -5702,7 +5827,12 @@
     "The authors' version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf, built 5 November 2025, 65 pp., SHA-256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6; the same text as HAL hal-05409187v1), compared at the same place with the preprint of January 2024 on G. Boxer's homepage (63 pp., SHA-256 abe69d13a842b31692e86abc387b6f9db64b8533366c1c082dbacfd88c4acc52); the published Springer text is paywalled and could not be compared, but its reference list and footnotes match the authors' version",
     "Crossref for doi:10.1007/s00222-025-01393-2 (no relation, update-to or updated-by record; no work updates it), Crossmark, the Springer article page, zbMATH Open (document 8188948), both authors' homepages and HAL: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:2502.20645v1), Gee (arXiv:2510.02756v1), Graham–Pilloni–Rodrigues Jacinto (arXiv:2311.14438v2), Graham–Rockwood (arXiv:2411.04559v1), Graham (arXiv:2403.05960v2), Grossi (arXiv:2106.05666v4), Diao–Rosso–Wu (arXiv:2506.02643v1), Barrera Salazar–del Castillo–Rosso (arXiv:2507.07423v1) and Huang–Kazi–Marannino (arXiv:2601.05406v1); none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: Lemma 3.4.3 states $J_{\\mathrm{ord}}=M_\\mu(\\Q_p)\\ltimes U_{J_{\\mathrm{ord}}}$ and then twice names the same object $U_{J_b}$ — `and $U_{J_b}=\\tilde\\mu_{p^\\infty}\\otimes_{\\Q_p}\\mathrm{Sym}^2\\Q_p^g$', `The action of $M(\\Q_p)$ on $U_{J_b}$'. The subscript $b$ is left over from the general notation $J_b$ for the automorphism group of an isocrystal, which §3.4.2 specialises to $J_{b_{\\mathrm{ord}}}=J_{\\mathrm{ord}}$ in its first line. The text after the lemma uses $U_{J_{\\mathrm{ord}}}$ throughout.",
+    "by": "Claude Code, session cc-7b31c4, issue #1200"
+   }
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E57",
