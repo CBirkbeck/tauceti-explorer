@@ -1,0 +1,348 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+  "protocol": "links-v1",
+  "status": "complete",
+  "summary": "Complete empty-incidence result for the representation-theory INDEX ID, not a survey claiming completion of its twelve child roadmaps. The subject owns zero atlas stages, so every possible catalogue stage pair fails the required subject-endpoint test. No artificial stage or child-to-child edge is emitted. A separate source-level handoff checks the six named consumers and records one explicit projective-representation counterexample.",
+  "worker": "ChatGPT Pro — cgp-212bf5d92a8b",
+  "jobId": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
+  "issue": 55,
+  "inputRevision": "dbafc759460581dbd23999a3c112149fedefe2b5",
+  "implementationStatus": "unchecked",
+  "links": [],
+  "overlaps": [],
+  "examined": [
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "note": "Full index README and complete subject extract read. Empty subject-stage set; none means no link incident to this index, not absence of relations between its children."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "none",
+      "note": "Full consumer README read; source-level routing assessment in routingNotes. No subject-owned stage exists for an incident edge."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none",
+      "note": "Full consumer README read; source-level routing assessment in routingNotes. No subject-owned stage exists for an incident edge."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "Full consumer README read; source-level routing assessment in routingNotes. No subject-owned stage exists for an incident edge."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none",
+      "note": "Full consumer README read; source-level routing assessment in routingNotes. No subject-owned stage exists for an incident edge."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "note": "Full consumer README read; source-level routing assessment in routingNotes. No subject-owned stage exists for an incident edge."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none",
+      "note": "Full consumer README read; source-level routing assessment in routingNotes. No subject-owned stage exists for an incident edge."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "note": "Full README read. Layers 0/2 and 7 supply qualified routing candidates, not root-owned endpoints. Layer 7 factor-set/projective-equivalence defect is documented with a counterexample."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none",
+      "note": "Full README read. Compact complex averaging and Peter–Weyl scope checked against automorphic/local consumers. Its stages remain child-owned; no noncompact or characteristic-p extension is inferred."
+    }
+  ],
+  "scopeCheck": {
+    "subjectExtract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory.json",
+    "subjectExtractBlob": "fc581e755ae22b42b2bae814197c1fc2343c0cb6",
+    "subjectStageIds": [],
+    "subjectStageEdges": [],
+    "indexQuote": "this page is the index and the map of how they fit together.",
+    "argument": "Let S be the set of stages whose owner is exactly roadmapId. The complete subject extract gives S = empty. A permitted link needs a source or target in S; an overlap involving a subject stage also needs an element of S. Thus the candidate domain is empty for every other catalogue roadmap, without assumptions about that other roadmap. The six supplemental roadmap-definition ID headers were inspected and none defines this subject ID. The index README independently confirms the index/child distinction.",
+    "catalogueScreenMethod": "Uniform exclusion by the empty subject-stage set. This does not claim a document-by-document proof review or keyword survey of all child topics across the catalogue. The examined list records the nine documents actually read.",
+    "childRoadmaps": [
+      "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations"
+    ],
+    "extensionIdentityChecks": [
+      {
+        "id": "AnalyticHabiroStack",
+        "path": "research/blueprint/roadmaps/AnalyticHabiroStack.json",
+        "blob": "6d34100064c7480cfc26770bd73b39c91359ee10",
+        "readScope": "top-level ID header; not a source or proof audit"
+      },
+      {
+        "id": "AnalyticStacks",
+        "path": "research/blueprint/roadmaps/AnalyticStacks.json",
+        "blob": "7eab859457d749fd5107b4baa74afb2ff20e9b9e",
+        "readScope": "top-level ID header; not a source or proof audit"
+      },
+      {
+        "id": "MordellLawrenceVenkatesh",
+        "path": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json",
+        "blob": "b18c75cd5ea017e32be3733f9d060d97dd151979",
+        "readScope": "top-level ID header; not a source or proof audit"
+      },
+      {
+        "id": "QWittVectors",
+        "path": "research/blueprint/roadmaps/QWittVectors.json",
+        "blob": "ec2e7e68136b0ef578bdceaee40328682c5d2ec7",
+        "readScope": "top-level ID header; not a source or proof audit"
+      },
+      {
+        "id": "RingStacksAndTransmutation",
+        "path": "research/blueprint/roadmaps/RingStacksAndTransmutation.json",
+        "blob": "601a0f69d0858c3ae12a8ea0247dad21f442a1f5",
+        "readScope": "top-level ID header; not a source or proof audit"
+      },
+      {
+        "id": "SolidAnalyticRings",
+        "path": "research/blueprint/roadmaps/SolidAnalyticRings.json",
+        "blob": "bd5008d8760f0657c4aac7c1be956f5076d44f8d",
+        "readScope": "top-level ID header; not a source or proof audit"
+      }
+    ]
+  },
+  "routingNotes": [
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "sections": [
+        "Existing material and ownership",
+        "R01.1",
+        "R01.4",
+        "R01.5",
+        "G7"
+      ],
+      "sourceId": "arithmetic",
+      "quote": "Finite-group representations, induction and projective representations belong to RepresentationTheory.",
+      "finding": "The family index is not an importable stage. InductionRestriction Layers 0 and 2 give specific algebraic induction candidates; Layer 7 gives the projective/factor-set candidate, with its algebraically closed coefficient convention. None of these by itself supplies continuity, integral lattice independence, coefficient descent or residual-image calculations.",
+      "action": "Replace the blanket reference by exact child or baseline statements after matching hypotheses. Keep the topological/arithmetic bridges in R01.1. In particular identify an actual characteristic-p Brauer–Nesbitt supplier for R01.1/R01.5; the family explicitly excludes modular representation theory proper. This is a supplier-verification request, not a claim that the pinned libraries lack the theorem. Do not import the false projective-equivalence sentence recorded below."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "sections": [
+        "Scope",
+        "AF.1",
+        "AF.1a",
+        "AF.4"
+      ],
+      "sourceId": "automorphic",
+      "quote": "AF.1 builds the real reductive theory missing from that existing scope.",
+      "finding": "The document already distinguishes Lie/compact foundations from its own real reductive representation theory. CompactGroups Layers 0–2 concern finite-dimensional continuous complex representations of compact Hausdorff groups; they are not Harish–Chandra globalization or a van Est comparison.",
+      "action": "Retain AF.1 and AF.1a as the respective globalization and continuous/relative-cohomology owners. Route concrete compact averaging, Lie group or highest-weight needs to the matching child stages, checking their actual coefficient and topological hypotheses. No root-stage gate is justified."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "sections": [
+        "Scope and dependencies",
+        "AS.0",
+        "AS.4"
+      ],
+      "sourceId": "spectral",
+      "quote": "Construct measurable fields of separable Hilbert spaces and their direct integrals, decomposable operators and isometric integration maps.",
+      "finding": "AS.0 explicitly constructs direct-integral analysis and AS.4 the complete automorphic spectrum. CompactGroups Layer 5 concerns compact-group Peter–Weyl Hilbert sums, not a noncompact direct-integral spectral theorem. The current spectral README names AutomorphicFormsOnReductiveGroups and SmoothRepresentationsOfLocalGroups as representation suppliers rather than an undifferentiated family import.",
+      "action": "Keep AS.0/AS.4 and the named automorphic/local suppliers. Treat the atlas root-level consumer listing as coarse navigation, not evidence for a new mathematical stage edge; do not replace the spectral input by compact Peter–Weyl."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "sections": [
+        "DWP.0",
+        "DWP.2",
+        "DWP.8"
+      ],
+      "sourceId": "weights",
+      "quote": "the required finite-rank invariant theory belongs here unless already\navailable from the representation owner",
+      "finding": "DWP.2 requires a symplectic tensor invariant/coinvariant calculation by contraction pairings in its specified rational l-adic setting. It explicitly retains ownership unless an exact representation-theory supplier is available. The index alone supplies neither that statement nor its coefficient comparison; ordinary finite-group character theory is not a substitute.",
+      "action": "Keep the DWP.2 construction obligation until a child-stage or pinned declaration is read and shown to provide the required invariant AND coinvariant interfaces with the right field/base-change hypotheses. Do not import geometric semisimplicity from finite-group Maschke: DWP.8 proves its own geometric conclusion from weights."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "sections": [
+        "QM.1",
+        "QM.6"
+      ],
+      "sourceId": "qseries",
+      "quote": "The VOA/Monster/no-ghost inputs are owned constructions within this stage, not supplied by generic LI.3.",
+      "finding": "QM.6 owns its vertex-operator, Monster, no-ghost and denominator-identity proof chain. Ordinary finite-group characters may be reusable child inputs, but the family explicitly excludes affine/general Kac–Moody and quantum-group theory. The source still lists retired FoundationsAndLibraryIntegration gates in QM.1 and QM.6.",
+      "action": "Preserve QM.6 ownership of the advanced proof chain; select exact finite-character interfaces instead of UPSTREAM:RepresentationTheory as a blanket supplier. Remove or replace the retired LI.3/LI.4 gates through the integrator; no edits to this consumer or to retirement data are made here."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "sections": [
+        "Scope, coefficients and owners",
+        "SR.0",
+        "SR.1",
+        "SR.2",
+        "SR.2a",
+        "SR.3a",
+        "SR.6"
+      ],
+      "sourceId": "smooth",
+      "quote": "Exactness for pro-p invariants requires p invertible in A.",
+      "finding": "The current document identifies Mathlib carriers, ProfiniteCohomology and its own locally profinite smooth category. Its smooth/compact induction and Jacquet functors have support, continuity, adjunction and modulus conditions absent from a bare finite-group induction theorem. The compact complex averaging theory does not justify positive-characteristic averaging.",
+      "action": "Keep the profinite-to-locally-profinite comparison in SR.0 and the local induction/Jacquet constructions in SR.2/SR.2a. Reuse algebraic finite-group results only with an explicit comparison. Preserve the coefficient restrictions on invariants and the separation between early complex theory and late integral SR.6."
+    }
+  ],
+  "sourceFindings": [
+    {
+      "sourceId": "induction",
+      "locator": "Layer 7, Factor-set classes and the second cohomology; also What is missing (build here)",
+      "quote": "Two projective representations are **projectively\n  equivalent** iff their factor sets differ by a coboundary",
+      "problem": "This implication is false for equivalence of projective representations; the subsequent warning correctly distinguishes representations from factor-set classes.",
+      "counterexample": "Over C let G = C2 and V = C^2. Send the nonidentity group element either to I2 or to diag(1,-1). Both are normalized genuine linear representations, hence both have constant factor set 1. Their projectivizations have kernels G and {1}, respectively, since diag(1,-1) is not scalar. They cannot be conjugate as maps to PGL2. Equal cocycles therefore do not classify projective representations, even in the same dimension.",
+      "correction": "Say that rescaling a chosen lift changes its factor set by a coboundary and that H2 classifies factor-set classes (and the appropriate central extensions). A fixed factor-set class has a category of twisted-group-algebra modules; it does not specify a unique projective representation. Correct the analogous phrase in What is missing. This is a handoff finding, not an edit to the child roadmap."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory"
+      ],
+      "detail": "The subject is a navigation/index object with zero owned stages, whereas the generated link/review job template expects stage-bearing roadmaps.",
+      "proposal": "Keep the index and its twelve child documents; make the queue treat the index as a collection. Do not invent parent stages or merge child mathematics. Resolve coarse consumer references through exact child/baseline interfaces. For review job REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory (#122), replace the impossible five-subject-stage spot-check by the empty-stage ownership check and review of this routing handoff. Integration and queue changes remain with the orchestrator."
+    }
+  ],
+  "sources": [
+    {
+      "id": "root",
+      "path": "content/tau-ceti/RepresentationTheory/README.md",
+      "blob": "1bb9cb7a12b64d7768b74b3ba4c9e5f5ac063401",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/tau-ceti/RepresentationTheory/README.md",
+      "readScope": "full README; its bibliography is not a claim that the cited external proofs were read"
+    },
+    {
+      "id": "arithmetic",
+      "path": "content/campaign/ArithmeticGaloisRepresentations/README.md",
+      "blob": "ae987ad3d85c7d100e9c9d82d57f94d8da9f722c",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/campaign/ArithmeticGaloisRepresentations/README.md",
+      "readScope": "full README; its bibliography is not a claim that the cited external proofs were read"
+    },
+    {
+      "id": "automorphic",
+      "path": "content/campaign/AutomorphicFormsOnReductiveGroups/README.md",
+      "blob": "dd7f035e2a60a12f757d0f64a57a9218c8b42b74",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/campaign/AutomorphicFormsOnReductiveGroups/README.md",
+      "readScope": "full README; its bibliography is not a claim that the cited external proofs were read"
+    },
+    {
+      "id": "spectral",
+      "path": "content/campaign/AutomorphicSpectralTheory/README.md",
+      "blob": "29594ef4730c01c285b382f10f62d664cf6302f6",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/campaign/AutomorphicSpectralTheory/README.md",
+      "readScope": "full README; its bibliography is not a claim that the cited external proofs were read"
+    },
+    {
+      "id": "weights",
+      "path": "content/campaign/DeligneWeightsAndPurity/README.md",
+      "blob": "4334e5da8ff334237eb2790b5a5ca291b40fa26f",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/campaign/DeligneWeightsAndPurity/README.md",
+      "readScope": "full README; its bibliography is not a claim that the cited external proofs were read"
+    },
+    {
+      "id": "qseries",
+      "path": "content/campaign/QSeriesPartitionsAndMockModularForms/README.md",
+      "blob": "2d096774ef0c12604c30d5dcba3ab85f37697975",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/campaign/QSeriesPartitionsAndMockModularForms/README.md",
+      "readScope": "full README; its bibliography is not a claim that the cited external proofs were read"
+    },
+    {
+      "id": "smooth",
+      "path": "content/campaign/SmoothRepresentationsOfLocalGroups/README.md",
+      "blob": "1aa900110c00666cf720298012bacb9cf0e6b153",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/campaign/SmoothRepresentationsOfLocalGroups/README.md",
+      "readScope": "full README; its bibliography is not a claim that the cited external proofs were read"
+    },
+    {
+      "id": "induction",
+      "path": "content/tau-ceti/RepresentationTheory/InductionRestriction/README.md",
+      "blob": "591cf0455be8ca4143176565e5d69d1c8f13b424",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/tau-ceti/RepresentationTheory/InductionRestriction/README.md",
+      "readScope": "full README; its bibliography is not a claim that the cited external proofs were read"
+    },
+    {
+      "id": "compact",
+      "path": "content/tau-ceti/RepresentationTheory/CompactGroups/README.md",
+      "blob": "6c9dc496f2ef95e0d1ead78914114ed700507afc",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/tau-ceti/RepresentationTheory/CompactGroups/README.md",
+      "readScope": "full README; its bibliography is not a claim that the cited external proofs were read"
+    }
+  ],
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [],
+    "note": "Pins recorded from baseline.json. No declaration-existence, absence, compilation or implementation claim is made by this link job."
+  },
+  "validation": {
+    "local": "JSON, schema/ownership consistency, metadata and C2 matrix checks are recorded in the handoff.",
+    "canonical": "The unmodified full-world check_links.py is to be run by the PR workflow; its actual result will be recorded in the PR/issue discussion. No local full-world pass is asserted."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
+    "date": "2026-09-23",
+    "notes": "Codex codex-c83e7a independently confirmed zero exact-owner stages in the full current atlas and six supplemental definitions, while the twelve distinct children own 105 stages. The five-own-stage request is inapplicable to this index; no child stage was misattributed to satisfy it. Checked all six routing notes, all eight source quotations and the C2 projective-kernel counterexample. The empty link/overlap result is accepted for the index only, not as approval of child roadmaps or implementations. Full-world link and intake checks passed locally.",
+    "removed": [],
+    "added": []
+  },
+  "reviewScope": {
+    "inputRevision": "879a43a59c32230f32e26b93a7af789e7a579aec",
+    "worldStages": 2007,
+    "worldRoadmaps": 218,
+    "subjectStageIds": [],
+    "childStageCounts": {
+      "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras": 8,
+      "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory": 10,
+      "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction": 10,
+      "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems": 6,
+      "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa": 10,
+      "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight": 10,
+      "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups": 7,
+      "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl": 10,
+      "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups": 7,
+      "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups": 10,
+      "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations": 10,
+      "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations": 7
+    },
+    "supplementalIds": [
+      "AnalyticHabiroStack",
+      "AnalyticStacks",
+      "MordellLawrenceVenkatesh",
+      "QWittVectors",
+      "RingStacksAndTransmutation",
+      "SolidAnalyticRings"
+    ],
+    "fiveStageSpotCheck": {
+      "status": "not_applicable_zero_owned_stages",
+      "reason": "The exact subject is an index. Exhaustively checked its ownership set instead; candidate links or stage overlaps involving that owner have an empty domain. The existing rescope proposal records the queue-template mismatch."
+    },
+    "reading": "Full index; the six consumer routing passages and the complete selected consumer stages listed in the report; full InductionRestriction 0/2/7 and CompactGroups 0/1/2/5. Original nine-file source blobs were checked against current atlas README bytes. No whole-child proof audit."
+  },
+  "reviewValidation": {
+    "links": 0,
+    "overlaps": 0,
+    "examined": 9,
+    "originalSourceBlobsMatched": 9,
+    "literalSourceQuotes": 8,
+    "counterexample": "Both C2 lifts square to I and have factor set 1; projective kernels have different sizes. Exact integer matrix diagnostic and mathematical kernel argument.",
+    "fullWorld": "check_links.py: 0 errors, 0 warnings",
+    "intake": "2 files, 0 problems",
+    "lean": "not produced or compiled"
+  }
+}

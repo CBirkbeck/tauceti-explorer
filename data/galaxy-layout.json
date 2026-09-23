@@ -2,94 +2,94 @@
  "version": 1,
  "purpose": "Directions of the subject galaxies from Mathlib, computed from shared missing theory by scripts/measure_distances.py (scripts/radial_layout.py); do not edit by hand.",
  "method": "Relatedness: 60% the rank of the cosine similarity of the prerequisite layers two galaxies rest on (each layer weighted by its rarity across galaxies, layers still to be built counting double), 40% the rank of the cosine similarity of their references' subject classes. The areas of one field rank above any pair from different fields, so a field's areas lie side by side. Directions minimise the weighted misfit to target angles that run from zero for the most related pair to a half turn for the least, with overlapping galaxies penalised; the result is turned so the roadmaps' mean direction points right, with algebraic geometry above that axis and number theory below it.",
- "stress": 91.5799,
+ "stress": 88.7702,
  "galaxies": {
   "algebraicgeometry": {
-   "direction": -8.4,
+   "direction": -25.8,
    "neighbours": [
     {
-     "galaxy": "motives",
-     "similarity": 0.781
-    },
-    {
      "galaxy": "arithmeticgeometry",
-     "similarity": 0.778
+     "similarity": 0.72
     },
     {
      "galaxy": "padic",
-     "similarity": 0.75
+     "similarity": 0.701
     },
     {
-     "galaxy": "etale",
-     "similarity": 0.727
+     "galaxy": "motives",
+     "similarity": 0.693
+    },
+    {
+     "galaxy": "geomlanglands",
+     "similarity": 0.665
     }
    ]
   },
   "algebraicnt": {
-   "direction": 17.3,
+   "direction": 16.2,
    "neighbours": [
     {
      "galaxy": "functionfields",
-     "similarity": 0.895
-    },
-    {
-     "galaxy": "commutative",
-     "similarity": 0.839
+     "similarity": 0.868
     },
     {
      "galaxy": "analytic",
-     "similarity": 0.824
+     "similarity": 0.857
     },
     {
-     "galaxy": "geomlanglands",
-     "similarity": 0.81
+     "galaxy": "commutative",
+     "similarity": 0.837
+    },
+    {
+     "galaxy": "ktheory",
+     "similarity": 0.806
     }
    ]
   },
   "analysis": {
-   "direction": -134.1,
+   "direction": -136.4,
    "neighbours": [
     {
      "galaxy": "automorphic",
-     "similarity": 0.431
+     "similarity": 0.418
     },
     {
      "galaxy": "langlands",
-     "similarity": 0.412
+     "similarity": 0.399
     },
     {
      "galaxy": "diffgeom",
-     "similarity": 0.386
+     "similarity": 0.373
     },
     {
      "galaxy": "pde",
-     "similarity": 0.386
+     "similarity": 0.373
     }
    ]
   },
   "analytic": {
-   "direction": 41.8,
+   "direction": 39.7,
    "neighbours": [
     {
-     "galaxy": "iwasawa",
-     "similarity": 0.853
+     "galaxy": "algebraicnt",
+     "similarity": 0.857
     },
     {
      "galaxy": "arithmeticgeometry",
-     "similarity": 0.843
+     "similarity": 0.848
+    },
+    {
+     "galaxy": "iwasawa",
+     "similarity": 0.841
     },
     {
      "galaxy": "functionfields",
-     "similarity": 0.827
-    },
-    {
-     "galaxy": "algebraicnt",
-     "similarity": 0.824
+     "similarity": 0.833
     }
    ]
   },
   "arithmeticgeometry": {
-   "direction": 24.2,
+   "direction": 24.6,
    "neighbours": [
     {
      "galaxy": "langlands",
@@ -97,322 +97,322 @@
     },
     {
      "galaxy": "iwasawa",
-     "similarity": 0.956
-    },
-    {
-     "galaxy": "padic",
-     "similarity": 0.938
+     "similarity": 0.961
     },
     {
      "galaxy": "automorphic",
+     "similarity": 0.946
+    },
+    {
+     "galaxy": "padic",
      "similarity": 0.934
     }
    ]
   },
   "automorphic": {
-   "direction": 12.4,
+   "direction": 9.7,
    "neighbours": [
     {
      "galaxy": "langlands",
-     "similarity": 0.981
+     "similarity": 0.988
     },
     {
      "galaxy": "iwasawa",
-     "similarity": 0.98
+     "similarity": 0.982
     },
     {
      "galaxy": "arithmeticgeometry",
-     "similarity": 0.934
+     "similarity": 0.946
     },
     {
-     "galaxy": "geomlanglands",
-     "similarity": 0.933
+     "galaxy": "padic",
+     "similarity": 0.925
     }
    ]
   },
   "combinatorics": {
-   "direction": 114.2,
+   "direction": 117.3,
    "neighbours": [
     {
      "galaxy": "analytic",
-     "similarity": 0.818
-    },
-    {
-     "galaxy": "computational",
-     "similarity": 0.668
+     "similarity": 0.768
     },
     {
      "galaxy": "finitefields",
-     "similarity": 0.636
+     "similarity": 0.72
     },
     {
      "galaxy": "elementary",
-     "similarity": 0.578
+     "similarity": 0.59
+    },
+    {
+     "galaxy": "computational",
+     "similarity": 0.581
     }
    ]
   },
   "commutative": {
-   "direction": -25.4,
+   "direction": -7.8,
    "neighbours": [
     {
      "galaxy": "ktheory",
-     "similarity": 0.911
+     "similarity": 0.909
     },
     {
      "galaxy": "iwasawa",
-     "similarity": 0.901
+     "similarity": 0.894
     },
     {
      "galaxy": "automorphic",
-     "similarity": 0.89
+     "similarity": 0.892
     },
     {
-     "galaxy": "topology",
-     "similarity": 0.874
+     "galaxy": "etale",
+     "similarity": 0.891
     }
    ]
   },
   "computational": {
-   "direction": 73.2,
+   "direction": 60.5,
    "neighbours": [
     {
      "galaxy": "finitefields",
-     "similarity": 0.974
-    },
-    {
-     "galaxy": "arithmeticgeometry",
-     "similarity": 0.758
+     "similarity": 0.97
     },
     {
      "galaxy": "elementary",
-     "similarity": 0.758
+     "similarity": 0.948
     },
     {
-     "galaxy": "combinatorics",
-     "similarity": 0.668
+     "galaxy": "arithmeticgeometry",
+     "similarity": 0.795
+    },
+    {
+     "galaxy": "algebraicnt",
+     "similarity": 0.734
     }
    ]
   },
   "diffgeom": {
-   "direction": -176.9,
+   "direction": 179.4,
    "neighbours": [
     {
      "galaxy": "analysis",
-     "similarity": 0.386
+     "similarity": 0.373
     },
     {
      "galaxy": "representations",
-     "similarity": 0.332
+     "similarity": 0.319
     },
     {
      "galaxy": "algebraicgeometry",
-     "similarity": 0.197
+     "similarity": 0.185
     },
     {
      "galaxy": "algebraicnt",
-     "similarity": 0.197
+     "similarity": 0.185
     }
    ]
   },
   "elementary": {
-   "direction": 66.4,
+   "direction": 63.0,
    "neighbours": [
     {
-     "galaxy": "analytic",
-     "similarity": 0.779
-    },
-    {
      "galaxy": "computational",
-     "similarity": 0.758
-    },
-    {
-     "galaxy": "algebraicnt",
-     "similarity": 0.751
+     "similarity": 0.948
     },
     {
      "galaxy": "finitefields",
-     "similarity": 0.735
+     "similarity": 0.867
+    },
+    {
+     "galaxy": "analytic",
+     "similarity": 0.808
+    },
+    {
+     "galaxy": "functionfields",
+     "similarity": 0.751
     }
    ]
   },
   "etale": {
-   "direction": -10.7,
+   "direction": -9.6,
    "neighbours": [
     {
      "galaxy": "padic",
-     "similarity": 0.977
+     "similarity": 0.969
     },
     {
      "galaxy": "geomlanglands",
-     "similarity": 0.934
+     "similarity": 0.91
     },
     {
      "galaxy": "ktheory",
-     "similarity": 0.912
+     "similarity": 0.893
     },
     {
-     "galaxy": "arithmeticgeometry",
-     "similarity": 0.905
+     "galaxy": "commutative",
+     "similarity": 0.891
     }
    ]
   },
   "finitefields": {
-   "direction": 60.6,
+   "direction": 68.7,
    "neighbours": [
     {
      "galaxy": "computational",
-     "similarity": 0.974
+     "similarity": 0.97
     },
     {
-     "galaxy": "etale",
-     "similarity": 0.829
+     "galaxy": "elementary",
+     "similarity": 0.867
     },
     {
-     "galaxy": "geomlanglands",
-     "similarity": 0.813
+     "galaxy": "arithmeticgeometry",
+     "similarity": 0.805
     },
     {
-     "galaxy": "padic",
-     "similarity": 0.809
+     "galaxy": "analytic",
+     "similarity": 0.758
     }
    ]
   },
   "functionfields": {
-   "direction": -0.1,
+   "direction": 0.5,
    "neighbours": [
     {
      "galaxy": "geomlanglands",
-     "similarity": 0.947
+     "similarity": 0.946
     },
     {
      "galaxy": "langlands",
-     "similarity": 0.919
+     "similarity": 0.897
     },
     {
-     "galaxy": "automorphic",
-     "similarity": 0.899
+     "galaxy": "commutative",
+     "similarity": 0.871
     },
     {
      "galaxy": "algebraicnt",
-     "similarity": 0.895
+     "similarity": 0.868
     }
    ]
   },
   "geomlanglands": {
-   "direction": 1.7,
+   "direction": 1.5,
    "neighbours": [
     {
-     "galaxy": "padic",
-     "similarity": 0.948
+     "galaxy": "functionfields",
+     "similarity": 0.946
     },
     {
-     "galaxy": "functionfields",
-     "similarity": 0.947
+     "galaxy": "padic",
+     "similarity": 0.939
     },
     {
      "galaxy": "langlands",
-     "similarity": 0.943
+     "similarity": 0.935
     },
     {
-     "galaxy": "etale",
-     "similarity": 0.934
+     "galaxy": "automorphic",
+     "similarity": 0.921
     }
    ]
   },
   "grouptheory": {
-   "direction": -104.4,
+   "direction": -102.4,
    "neighbours": [
     {
      "galaxy": "representations",
-     "similarity": 0.476
-    },
-    {
-     "galaxy": "arithmeticgeometry",
-     "similarity": 0.44
+     "similarity": 0.569
     },
     {
      "galaxy": "algebraicnt",
-     "similarity": 0.438
+     "similarity": 0.526
     },
     {
-     "galaxy": "homological",
-     "similarity": 0.416
+     "galaxy": "geomlanglands",
+     "similarity": 0.508
+    },
+    {
+     "galaxy": "iwasawa",
+     "similarity": 0.486
     }
    ]
   },
   "homological": {
-   "direction": -45.1,
+   "direction": -61.9,
    "neighbours": [
     {
      "galaxy": "motives",
-     "similarity": 0.649
+     "similarity": 0.661
     },
     {
-     "galaxy": "functionfields",
-     "similarity": 0.611
+     "galaxy": "ktheory",
+     "similarity": 0.586
+    },
+    {
+     "galaxy": "commutative",
+     "similarity": 0.583
     },
     {
      "galaxy": "algebraicnt",
-     "similarity": 0.595
-    },
-    {
-     "galaxy": "geomlanglands",
-     "similarity": 0.588
+     "similarity": 0.565
     }
    ]
   },
   "iwasawa": {
-   "direction": 20.1,
+   "direction": 20.4,
    "neighbours": [
+    {
+     "galaxy": "automorphic",
+     "similarity": 0.982
+    },
     {
      "galaxy": "langlands",
      "similarity": 0.982
     },
     {
-     "galaxy": "automorphic",
-     "similarity": 0.98
-    },
-    {
      "galaxy": "ktheory",
-     "similarity": 0.967
+     "similarity": 0.969
     },
     {
      "galaxy": "arithmeticgeometry",
-     "similarity": 0.956
+     "similarity": 0.961
     }
    ]
   },
   "ktheory": {
-   "direction": -30.4,
+   "direction": -20.6,
    "neighbours": [
     {
      "galaxy": "iwasawa",
-     "similarity": 0.967
+     "similarity": 0.969
     },
     {
      "galaxy": "langlands",
-     "similarity": 0.919
-    },
-    {
-     "galaxy": "etale",
-     "similarity": 0.912
+     "similarity": 0.917
     },
     {
      "galaxy": "commutative",
-     "similarity": 0.911
+     "similarity": 0.909
+    },
+    {
+     "galaxy": "arithmeticgeometry",
+     "similarity": 0.903
     }
    ]
   },
   "langlands": {
-   "direction": 11.1,
+   "direction": 10.7,
    "neighbours": [
+    {
+     "galaxy": "automorphic",
+     "similarity": 0.988
+    },
     {
      "galaxy": "iwasawa",
      "similarity": 0.982
-    },
-    {
-     "galaxy": "automorphic",
-     "similarity": 0.981
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -420,16 +420,20 @@
     },
     {
      "galaxy": "geomlanglands",
-     "similarity": 0.943
+     "similarity": 0.935
     }
    ]
   },
   "modeltheory": {
-   "direction": 49.3,
+   "direction": 49.8,
    "neighbours": [
     {
      "galaxy": "algebraicnt",
-     "similarity": 0.754
+     "similarity": 0.737
+    },
+    {
+     "galaxy": "geomlanglands",
+     "similarity": 0.716
     },
     {
      "galaxy": "iwasawa",
@@ -437,137 +441,133 @@
     },
     {
      "galaxy": "functionfields",
-     "similarity": 0.669
-    },
-    {
-     "galaxy": "geomlanglands",
-     "similarity": 0.668
+     "similarity": 0.686
     }
    ]
   },
   "motives": {
-   "direction": -21.6,
+   "direction": -35.6,
    "neighbours": [
     {
-     "galaxy": "algebraicgeometry",
-     "similarity": 0.781
+     "galaxy": "geomlanglands",
+     "similarity": 0.747
+    },
+    {
+     "galaxy": "commutative",
+     "similarity": 0.746
     },
     {
      "galaxy": "etale",
-     "similarity": 0.773
+     "similarity": 0.695
     },
     {
-     "galaxy": "padic",
-     "similarity": 0.706
-    },
-    {
-     "galaxy": "iwasawa",
-     "similarity": 0.701
+     "galaxy": "algebraicgeometry",
+     "similarity": 0.693
     }
    ]
   },
   "padic": {
-   "direction": 8.0,
+   "direction": 13.0,
    "neighbours": [
     {
      "galaxy": "etale",
-     "similarity": 0.977
+     "similarity": 0.969
     },
     {
      "galaxy": "geomlanglands",
-     "similarity": 0.948
-    },
-    {
-     "galaxy": "langlands",
-     "similarity": 0.941
+     "similarity": 0.939
     },
     {
      "galaxy": "arithmeticgeometry",
-     "similarity": 0.938
+     "similarity": 0.934
+    },
+    {
+     "galaxy": "langlands",
+     "similarity": 0.931
     }
    ]
   },
   "pde": {
-   "direction": -153.7,
+   "direction": -156.5,
    "neighbours": [
     {
      "galaxy": "analysis",
-     "similarity": 0.386
+     "similarity": 0.373
     },
     {
      "galaxy": "analytic",
-     "similarity": 0.336
+     "similarity": 0.323
     },
     {
      "galaxy": "algebraicgeometry",
-     "similarity": 0.197
+     "similarity": 0.185
     },
     {
      "galaxy": "algebraicnt",
-     "similarity": 0.197
+     "similarity": 0.185
     }
    ]
   },
   "probability": {
-   "direction": 151.3,
+   "direction": 149.9,
    "neighbours": [
     {
      "galaxy": "combinatorics",
-     "similarity": 0.443
+     "similarity": 0.43
     },
     {
      "galaxy": "analytic",
-     "similarity": 0.315
+     "similarity": 0.302
     },
     {
      "galaxy": "algebraicnt",
-     "similarity": 0.299
+     "similarity": 0.286
     },
     {
      "galaxy": "iwasawa",
-     "similarity": 0.287
+     "similarity": 0.274
     }
    ]
   },
   "representations": {
-   "direction": -54.3,
+   "direction": -72.2,
    "neighbours": [
     {
      "galaxy": "geomlanglands",
-     "similarity": 0.908
+     "similarity": 0.901
     },
     {
      "galaxy": "functionfields",
-     "similarity": 0.825
+     "similarity": 0.815
     },
     {
      "galaxy": "automorphic",
-     "similarity": 0.772
+     "similarity": 0.715
     },
     {
      "galaxy": "langlands",
-     "similarity": 0.767
+     "similarity": 0.709
     }
    ]
   },
   "topology": {
-   "direction": -76.4,
+   "direction": -48.1,
    "neighbours": [
     {
      "galaxy": "commutative",
-     "similarity": 0.874
+     "similarity": 0.869
     },
     {
      "galaxy": "ktheory",
-     "similarity": 0.773
+     "similarity": 0.765
     },
     {
      "galaxy": "automorphic",
-     "similarity": 0.744
+     "similarity": 0.735
     },
     {
      "galaxy": "algebraicnt",
-     "similarity": 0.605
+     "similarity": 0.584
     }
    ]
   }

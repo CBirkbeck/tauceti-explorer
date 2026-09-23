@@ -1,5 +1,25 @@
 {
  "promoted": {
+  "research/blueprint/links/tauceti_Completed_EffectiveBounds.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "6550bfaa7e4abd81",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_Completed_EffectiveBounds",
+   "sha256": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805",
+   "to": [
+    "data/links/tauceti_Completed_EffectiveBounds.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_Completed_OrthogonalL2Bases.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "c671ccfa938dc02a",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_Completed_OrthogonalL2Bases",
+   "sha256": "34ad7cad18dde976767ba8df3183e3b3ec9586ddb040ecff1654dbdd2bec5a46",
+   "to": [
+    "data/links/tauceti_Completed_OrthogonalL2Bases.json"
+   ]
+  },
   "research/blueprint/links/tauceti_TauCetiRoadmap_AdicSpaces.json": {
    "promotedAt": "2026-09-21T18:15:41Z",
    "review": "9e04af17059da165",
@@ -8,6 +28,56 @@
    "sha256": "43ec8b83183c85b01f454cb423613b9dcf2ddfbeb56731f6502fc7479392a425",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_AdicSpaces.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "893d477c5f9aa3c5",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
+   "sha256": "a568f32f0eedd94ce7d555e5a64d78cc3076ffd949450db0156ed5c39b88e2e5",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "658885961c6a3ff9",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
+   "sha256": "9ca7bc21c683c2cf5732069f04ca4e06b54016dee418e663a090ae2a2bd327e5",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "be5672f5061eaeaa",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
+   "sha256": "b9aebaab48508ccf646ab6cb80981d9427350530c1f59a1bc7266a8e45e380c4",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_Chebotarev.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "ced583988a245548",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_Chebotarev",
+   "sha256": "f9089ad78bff8c1f3820c4bc24e18ea07cb4daf0ca12ec3e799b4255d443de14",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_Chebotarev.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_ClassFieldTheory.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "4c9ca39c61894059",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
+   "sha256": "e732ef18670fa399c08d1ac38d25de93daa9b87e1d0eb4d7a083a7c8d3f689db",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_ClassFieldTheory.json"
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_EllipticCurves.json": {
@@ -20,6 +90,36 @@
     "data/links/tauceti_TauCetiRoadmap_EllipticCurves.json"
    ]
   },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "3a101decb456ef5e",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+   "sha256": "aba604fdc3648ca75b6b90c3393a858df8ef584e362295304ae999beb6ce28ed",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_LocalFieldsRamification.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "a6aea7b6a1fb3ebe",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
+   "sha256": "976784eb1ffbbb0942a42d54330a0f366d9533aac4d13290b9517a561e4d8c9d",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_LocalFieldsRamification.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "f04b436bd831aea7",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ModularCurves",
+   "sha256": "b91a81d869d9dcb193437f995876f3e7f8a1adf46cbc601feece9db0a84f8706",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_ModularCurves.json"
+   ]
+  },
   "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json": {
    "promotedAt": "2026-09-21T18:15:41Z",
    "review": "1744fd549f243e7f",
@@ -28,6 +128,66 @@
    "sha256": "8cfa86728c5293ae69df72f5504bd18c192d3e0a4aa09b8334e26f9a36683445",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_Multiquadratic.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "5f032687ba34e94d",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
+   "sha256": "28eda9a75a209959ed2575f52d6da5c8ceaecf4396477ff19dd82fb5fde18647",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "94917cbc8f86336e",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
+   "sha256": "d948a78f97a63bdc35786f237e0ecf76d3b25645d5622bb27b23ac7f537e69dd",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "b395d0294d702fd4",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
+   "sha256": "5257102d6493feb70a585e0ad03eb44acafa986e12e2e21db4c7c81d4e56f1ba",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "07e9a44a1581f3c9",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
+   "sha256": "25465cbe6da416772ffe36bd3acebeb50aad1a9f6095a73080b5f84dd62c16f9",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_RepresentationTheory.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "56a38ab89a68face",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
+   "sha256": "8448d80d5d72f622db4bb519e64dc02263c2095ec43dcfb4669b2432dd4346dc",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "974133be41558ea5",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
+   "sha256": "eee20df0852e22579519a2f142d0df8bcccb9d158912745a18c66ec72d316f30",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json"
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json": {
@@ -40,6 +200,26 @@
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json"
    ]
   },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "254b2109895d3e2e",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
+   "sha256": "d86b01675ad9213460ea78a0c02f29da4586d8775d3ba302e8a6922a1adee5f5",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "a79887192a1bb470",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
+   "sha256": "7012bb7990816fcd08b20a8aa8e94e6fff2d94bcb6ba26a297aa83715f011249",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
+   ]
+  },
   "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json": {
    "promotedAt": "2026-09-21T18:15:41Z",
    "review": "df87a9d8764e1076",
@@ -48,6 +228,81 @@
    "sha256": "962fbed050164d112342726430e5097e0659bdce5cad310f0537cc2534375a3f",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "9545a51adea31e6d",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
+   "sha256": "e753c513d03d5191f484342a954f519022c39daffd6c100db4082ba07de37dfe",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "657add8f5544ff3c",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
+   "sha256": "6c8de93ad421f59bff577fa558047627baa60ea47d152997e43dd24b14d7d78c",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
+   ]
+  },
+  "research/blueprint/restructure/RS-01.result.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "5541318cf6f46151",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-RS-01",
+   "sha256": "5af1dcec89e0917c1bc59cf9db6a73914cd8596cb732a244ae5a038d22e5bb48",
+   "to": [
+    "data/restructure/RS-01.result.json",
+    "data/restructure/RS-01.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-02.result.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "f8e20f556e4bea0e",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-RS-02",
+   "sha256": "31aabcb0086353ab033ea86e4574bea22b29c7a431ff678ba90247883a3f2d84",
+   "to": [
+    "data/restructure/RS-02.result.json",
+    "data/restructure/RS-02.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-03.result.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "b0b476bc45b0904c",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-RS-03",
+   "sha256": "dd5f6b169fb584a1866c559cbd81b764502924c6abb6b5d3fb335c9d69f45e3d",
+   "to": [
+    "data/restructure/RS-03.result.json",
+    "data/restructure/RS-03.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-05.result.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "ce34dd0b5163709a",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-RS-05",
+   "sha256": "9870348ecccf53d79ee0a5a4afb4c00eeaaa8360f101670f721975df6932d150",
+   "to": [
+    "data/restructure/RS-05.result.json",
+    "data/restructure/RS-05.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-06.result.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "de44858fa4224a80",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-RS-06",
+   "sha256": "b67b734a6a50c86dc2fcea7000a4c428fc76325049f9a06a048475fe274e08c3",
+   "to": [
+    "data/restructure/RS-06.result.json",
+    "data/restructure/RS-06.md"
    ]
   },
   "research/blueprint/restructure/RS-07.result.json": {
@@ -61,6 +316,17 @@
     "data/restructure/RS-07.md"
    ]
   },
+  "research/blueprint/restructure/RS-08.result.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "f6287a9f15a2a009",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-RS-08",
+   "sha256": "d49e0dbbac19febb66b11e1a0ef39b8e421f7b28db096b21073530d89052c992",
+   "to": [
+    "data/restructure/RS-08.result.json",
+    "data/restructure/RS-08.md"
+   ]
+  },
   "research/blueprint/restructure/RS-13.result.json": {
    "promotedAt": "2026-09-23T12:23:19Z",
    "review": "b4686d1c18162521",
@@ -70,6 +336,17 @@
    "to": [
     "data/restructure/RS-13.result.json",
     "data/restructure/RS-13.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-14.result.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "46059d040aad62ae",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-RS-14",
+   "sha256": "0c4c5f5674b72a7113750332239f7fd14ae7d159b9d1847a25b017d9d59ffc26",
+   "to": [
+    "data/restructure/RS-14.result.json",
+    "data/restructure/RS-14.md"
    ]
   },
   "research/blueprint/restructure/RS-15.result.json": {
@@ -83,6 +360,17 @@
     "data/restructure/RS-15.md"
    ]
   },
+  "research/blueprint/restructure/RS-16.result.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "c6fb9421a54c412a",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-RS-16",
+   "sha256": "e41ff45eeebf35189a97abbbb1ac7b5e9e93f92acd2ac1cb6b8c6a949c03e491",
+   "to": [
+    "data/restructure/RS-16.result.json",
+    "data/restructure/RS-16.md"
+   ]
+  },
   "research/blueprint/restructure/RS-17.result.json": {
    "promotedAt": "2026-09-23T13:13:40Z",
    "review": "202cd896260104ed",
@@ -92,6 +380,17 @@
    "to": [
     "data/restructure/RS-17.result.json",
     "data/restructure/RS-17.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-18.result.json": {
+   "promotedAt": "2026-09-23T20:18:27Z",
+   "review": "29da6ca28c65ca5e",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-RS-18",
+   "sha256": "e6b65ec21a95e4e48a11999f267aa4e6da58c4d1f425c906fb20ec0d39763660",
+   "to": [
+    "data/restructure/RS-18.result.json",
+    "data/restructure/RS-18.md"
    ]
   },
   "research/blueprint/restructure/RS-19.result.json": {

@@ -1,0 +1,1889 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+  "protocol": "links-v1",
+  "status": "complete",
+  "implementationStatus": "unchecked",
+  "summary": "Independently reviewed six incoming dependencies and four ownership overlaps; no directed pair added or withdrawn. Refreshed screening covers 217 active roadmaps in the 218-roadmap, 2007-stage snapshot. Corrected baseline reuse, distinguished planned DG/exact-functor adapters from existing foundations, and checked the two outgoing relationships already recorded in partner packets. Accepted as a link map, not as implementation or a proof audit of every roadmap theorem.",
+  "provenance": {
+    "originalWorker": "ChatGPT Pro — cgp-6fac5ad10e2c",
+    "originalPR": 538,
+    "originalPacketBlob": "0809175fb8b6fa8c5f9c4ce8f6de79da4cd51d2c",
+    "worker": "ChatGPT Pro — cgp-0d58f52c658d",
+    "jobId": "LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
+    "claimComment": 5697521683,
+    "confirmationComment": 5697523671,
+    "baseRevision": "088ac3dcfb573a1e875fcea971ce54526bbe74d3",
+    "screenRevision": "be09b0fb85faab7fc6a8646e9f524140cfa0df2e",
+    "atlasBlob": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "baseline": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "artifact": {
+      "runId": 35099069170,
+      "artifactId": 10446963221,
+      "name": "github-pages",
+      "sha256": "4e2e1610f490ae2125bc74ea94af72c1930531b80a476ace6928d6b6da4110c9"
+    },
+    "handoff": "research/blueprint/handoff/LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
+    "verificationScope": "Roadmap contracts, not implementation or independent proof review. Original source ledger preserved in PR #538 and the handoff."
+  },
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+      "reason": "Import the exact-category foundation: genuine Quillen exact structures, admissible squares, opposites and conflation-exact functors. Core carriers, relative predicates, enoughness and the Frobenius-exact predicate already exist at the pinned Tau Ceti commit. R-RELATIVE now requests documentation alignment and any genuinely missing transport API, not duplicate definitions. No general exact-derived category is imported.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "An `ExactStructure C` is an isomorphism-closed class of these pairs with\n  the self-dual Bühler axioms E0/E0op, E1/E1op, and E2/E2op.",
+          "locator": "Layer 0: Exact structures"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+          "quote": "Consume the dependency roadmap's exact structure and define:",
+          "locator": "Layer 0"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+          "quote": "This roadmap consumes the genuine Quillen exact structures, exact functors, relative\nprojective/injective objects, and Grothendieck-group conventions of\n[Grothendieck groups, Cartan maps, and Euler forms](../GrothendieckEulerForms/README.md).",
+          "locator": "Boundary and dependencies"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "The DG/A-infinity, stable/periodic/curved, hopfological, zigzag/preprojective, and McKay subjects\nare separate roadmap areas that consume this one.  No declaration from those areas is a\nprerequisite here.",
+          "locator": "Ordering and cross-roadmap dependencies"
+        }
+      ],
+      "origin": "preserved-from-PR-538"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes",
+      "reason": "Reuse integer-graded modules, homogeneous maps and Koszul conventions, not an assertion that a curved differential is square-zero. StablePeriodicCurved owns the right-curvature equations and their opposite/sign proofs. One-sided naming is recorded conservatively as inferred.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure",
+          "quote": "Package `ℤ`-graded modules both as Mathlib graded objects and, when multiplication is easier on a\n  total module, as an internal direct-sum grading.",
+          "locator": "Layer 0, first bullet"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes",
+          "quote": "Extend the DG/A-infinity roadmap's graded-algebra representation.",
+          "locator": "Layer 5, opening"
+        }
+      ],
+      "origin": "preserved-from-PR-538",
+      "reviewNote": "The signed graded-module interface is the supplier contract; its entire Layer 0 is not asserted implemented. The pinned uncurved DG module predicate requires square-zero differential. The consumer owns noncentral curvature, signed opposite curvature and handedness proofs."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes",
+      "reason": "Reuse the enriched DG-category, closed degree-zero maps and H0 interfaces on the Hom complexes of modules with fixed common curvature. The consumer proves cancellation in the Hom square; individual curved modules are not ordinary DG modules when curvature is nonzero. Preserve handedness, tensor-curvature and zero-curvature comparison obligations.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
+          "quote": "Define DG categories as categories enriched in cochain complexes of `k`-modules.  Build the\n  underlying graded category, `Z⁰` category of closed degree-zero maps, and `H⁰` homotopy category;",
+          "locator": "Layer 1, DG categories"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes",
+          "quote": "For modules of the same curvature, the graded Hom differential squares to zero. Build the DG\ncategory of curved modules, its closed degree-zero category, shift, cone, and homotopy category.",
+          "locator": "Layer 5"
+        }
+      ],
+      "origin": "preserved-from-PR-538",
+      "reviewNote": "For a degree-r homogeneous right-linear f, delta(f)=d_N f-(-1)^r f d_M has delta^2(f)=d_N^2 f-f d_M^2. At common right curvature w this is f(m)w-f(mw)=0. This validates enrichment, not square-zero differentials on the curved objects. The DG-category package is a planned supplier export."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives",
+      "reason": "Use pretr, finite shifts, sums and cones in the DG-orbit/periodic-derived hull comparison. The target has a finite-dimensional algebra of finite global dimension and generates its hull before idempotent completion. Do not substitute Perf or Karoubi completion for tria. The orbit construction, gradability and comparison proof stay with the consumer.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes",
+          "quote": "Construct the pretriangulated envelope `pretr(C)`, prove the Yoneda embedding into modules is\n  quasi-fully faithful, and identify its image with finite semi-free modules.",
+          "locator": "Layer 5"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives",
+          "quote": "the comparison between that DG\nhull, built with the pretriangulated envelope of the\n[DG and A-infinity roadmap](../DGAInfinity/README.md), and `D_n(mod-Λ)` is a target in the DG\nroadmap's vocabulary, and it is stated without a `KaroubiEnvelope`.",
+          "locator": "Layer 4, orbit category and hull"
+        }
+      ],
+      "origin": "preserved-from-PR-538",
+      "reviewNote": "Retain positive period, bounded finite compression, compatible cochain signs, object/Hom universes and finite-dimensional finite-global-dimension hypotheses. The imported envelope uses finite shifts/sums/cones; the consumer proves the DG-orbit comparison and generation before retract closure. Ordinary Verdier localization does not itself supply this enhancement."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category",
+      "reason": "The exact-functor calculus supplies composition, natural-isomorphism invariance and preservation of admissible pushouts/pullbacks used to construct the suspension comparison of a stable functor. The target separately requires preservation of projective-injectives and proves descent, choice independence and the triangle-functor law. This is a stage-specific functoriality input, not merely reuse of the exact-category carrier and not an assertion that every exact functor between Frobenius categories descends.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "Define additive functors preserving conflations, composition,\n  identity, natural-isomorphism invariance, reflection of conflations, exact equivalences, and\n  transfer of an exact structure along an equivalence.  Prove preservation of admissible\n  pushouts/pullbacks.",
+          "locator": "Layer 0: Conflation-exact functors"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category",
+          "quote": "An exact functor between Frobenius exact categories that sends projective-injectives to\nprojective-injectives descends to an additive stable functor. Construct its suspension comparison\nfrom the chosen conflations and prove it is a triangle functor.",
+          "locator": "Layer 1, final paragraph"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "The DG/A-infinity, stable/periodic/curved, hopfological, zigzag/preprojective, and McKay subjects\nare separate roadmap areas that consume this one.",
+          "locator": "Ordering and cross-roadmap dependencies"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category",
+          "quote": "[Grothendieck groups, Cartan maps, and Euler forms](../GrothendieckEulerForms/README.md).",
+          "locator": "Boundary and dependencies"
+        }
+      ],
+      "origin": "continuation-cgp-0d58f52c658d",
+      "reviewNote": "Conflation-exact functors and their elementary calculus exist, but the reviewed AUDIT-22 does not certify the planned preservation-of-admissible-squares theorem. Preservation of projective-injectives remains an independent hypothesis of stable descent; Happel triangulation and suspension comparison are not already built."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+      "reason": "Use the canonical abelian exact structure on finitely generated right modules and the induced structure on their replete full additive extension-closed Gorenstein-projective subcategory. The consumer must construct complete resolutions and prove repleteness, zero/biproduct and extension closure before applying this supplier. The supplier does not prove total acyclicity, enough relative projectives/injectives, the Frobenius assertion or Buchweitz equivalence. Two-sided noetherian and Iwanaga-Gorenstein assumptions remain where the target states them.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "Construct the split exact structure on every additive\n  category; the canonical exact structure of all short exact sequences on every abelian category;\n  and the induced structure on a replete full **additive** extension-closed subcategory.",
+          "locator": "Layer 0: The three fundamental constructions"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+          "quote": "the exact Frobenius category `Gproj-R`, with the exact structure inherited from finitely\n  generated modules;",
+          "locator": "Layer 2, Gorenstein-projectives"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+          "quote": "For a finite-dimensional `k`-algebra `A` that is self-injective on both sides, put the ordinary\nabelian exact structure on finite-dimensional right `A`-modules.",
+          "locator": "Layer 2, opening"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "The DG/A-infinity, stable/periodic/curved, hopfological, zigzag/preprojective, and McKay subjects\nare separate roadmap areas that consume this one.",
+          "locator": "Ordering and cross-roadmap dependencies"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+          "quote": "[Grothendieck groups, Cartan maps, and Euler forms](../GrothendieckEulerForms/README.md).",
+          "locator": "Boundary and dependencies"
+        }
+      ],
+      "origin": "continuation-cgp-0d58f52c658d",
+      "reviewNote": "The canonical abelian and induced extension-closed exact structures are baseline imports. Enoughness predicates already exist, but their satisfaction by Gproj and the module-category Frobenius theorem must still be proved. Finite projective resolutions do not supply bi-infinite complete resolutions."
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+        "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces"
+      ],
+      "detail": "The general finite-dimensional Frobenius-functional/symmetric-functional interface meets the graph-specific trace and basis calculation. The latter supplies examples, not a prerequisite for the generic theorem.",
+      "recommendation": "keep",
+      "proposal": "Keep one public Frobenius-functional interface, importing the existing pinned LinearMap predicates, dual-module equivalence, Nakayama and both self-injectivity theorems. Zigzag supplies graph-specific basis and trace checks; check its reviewed audit before planning those calculations anew. Preserve the partner-recorded supplier direction and explicit left/right dual convention. No reverse edge or second generic predicate.",
+      "origin": "preserved-from-PR-538",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+          "quote": "Prove that a Frobenius algebra is left and right self-injective.",
+          "locator": "Layer 0"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces",
+          "quote": "Define `tr(e_i)=0`, `tr(a)=0`, and `tr(x_i)=1`.  Prove that `tr(xy)=tr(yx)` and that\n  `(x,y) ↦ tr(xy)` is a symmetric nondegenerate bilinear form.  Package the resulting symmetric\n  Frobenius and self-injective algebra structures.",
+          "locator": "Layer 2"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups"
+      ],
+      "detail": "Both discuss bounded derived categories, but GrothendieckEulerForms explicitly excludes the general Quillen exact-derived construction needed for the Keller-Vossieck comparison.",
+      "recommendation": "keep",
+      "proposal": "Keep exact-acyclic localization and D^b(E) in StablePeriodicCurved Layer 2. Reuse the exact-structure supplier and applicable abelian infrastructure, not a nonexistent general exact-derived export from GrothendieckEulerForms Layer 2. Do not substitute K^b(E)/K^b(P).",
+      "origin": "preserved-from-PR-538",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+          "quote": "`D^b(E)/K^b(ProjInj E)` and prove it is a triangle equivalence. Here `D^b(E)` is the bounded\n  derived category of the specified Quillen exact structure.",
+          "locator": "Layer 2"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+          "quote": "A derived category of a general Quillen exact category would require\n  exact-acyclic localization infrastructure and is outside this roadmap; do not smuggle that\n  construction into this milestone.",
+          "locator": "Layer 2"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind",
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality"
+      ],
+      "detail": "Both use second-kind derived-category language. The target constructs closures and localizations for curved right modules; relative Koszul duality has coalgebraic, conilpotent and boundedness inputs. Those carriers are not identified.",
+      "recommendation": "keep",
+      "proposal": "Share the abstract triangulated closure tool only after specifying a common carrier, generating totalizations, products/coproducts and opposite conventions. Keep module and coalgebra instantiations and Koszul comparison proofs separate. No directed dependency is added before that adapter is specified.",
+      "origin": "preserved-from-PR-538",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind",
+          "quote": "Construct `D_abs`, `D_co`, and `D_ctr` as the Verdier quotients of the\ncurved homotopy category by these three subcategories, using Mathlib's `trW` localization, and\nprove their universal properties.",
+          "locator": "Layer 6"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+          "quote": "State the derived/coderived equivalence with its conilpotence and\n  boundedness conditions.",
+          "locator": "Layer 11"
+        }
+      ],
+      "reviewNote": "The generic closure tool is already separated from its curved instantiation by the consumer. Reuse existing thick envelopes and localization infrastructure; new coproduct/product triangulated closures and carrier adapters remain distinct obligations. Neither bare vocabulary nor a curved-module theorem supplies coalgebraic Koszul duality."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories"
+      ],
+      "detail": "R-RELATIVE remains a documentation inconsistency between the boundary/import prose and the layer construction verbs. However, the pinned implementation already contains relative projectives/injectives, presentations, enoughness, opposite and split/abelian comparisons, and IsFrobenius. The old proposal cannot be interpreted as a new implementation task.",
+      "recommendation": "rescope",
+      "proposal": "Align GrothendieckEulerForms Layers 0/3 and StablePeriodicCurved Layer 0 with the existing TauCeti.ExactStructure APIs. Keep exact-category foundation documentation at GEF Layer 0; import it in resolution and stable consumers without a reverse dependency. Import IsFrobenius as well. StablePeriodicCurved retains the unbuilt factoring ideal, stable quotient, module-category Frobenius applications and triangulation. Check and add only missing exact-equivalence/quotient/opposite adapters, rather than presuming all requested transport is already packaged. This is a documentation-rescope proposal, not an enacted source edit.",
+      "origin": "continuation-cgp-0d58f52c658d",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+          "quote": "This roadmap consumes the genuine Quillen exact structures, exact functors, relative\nprojective/injective objects, and Grothendieck-group conventions of\n[Grothendieck groups, Cartan maps, and Euler forms](../GrothendieckEulerForms/README.md).",
+          "locator": "Boundary"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+          "quote": "relative projective and relative injective objects through admissible lifting properties;",
+          "locator": "Layer 0"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+          "quote": "Separately, under enough projectives, construct comparison\n  maps to a fixed projective resolution, prove uniqueness up to chain homotopy, and prove the\n  projective horseshoe lemma.",
+          "locator": "Layer 3: Projective-resolution calculus"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "No declaration from those areas is a\nprerequisite here.",
+          "locator": "Ordering and cross-roadmap dependencies"
+        }
+      ]
+    }
+  ],
+  "deduplicatedLinks": [
+    {
+      "source": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-6-auslander-reiten-theory",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
+      "recordedBlob": "06902c9a285bfd281b9adf0b03443261c97244ac",
+      "reason": "Same directed pair is present in the newer QuiverRepresentations packet. Remove the duplicate from this links array without withdrawing its source-contract evidence.",
+      "preservedEvidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+          "quote": "For a class `P` of objects, define the ideal generated by maps `X → Q → Y` with `P(Q)`. The\ndefinition is its additive closure, so no closure-under-biproduct assumption is needed merely to\nform the quotient.",
+          "locator": "Layer 0"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-6-auslander-reiten-theory",
+          "quote": "it is well-defined only up to projectives, through minimal presentations and duality on\nfinite-dimensional modules, so 6B-6D are prerequisites.",
+          "locator": "Layer 6, opening"
+        }
+      ],
+      "preservedReason": "Use only the arbitrary additive quotient by maps factoring through projectives for transpose/stable-equivalence sublayer 6C. Duality uses the injective ideal with explicit opposite/handedness adapters. An arbitrary finite-dimensional bound-quiver algebra is not assumed self-injective: no Frobenius predicate or Happel triangulation is imported. The proposed public ownership split still requires independent review.",
+      "reviewNote": "The directed pair and both preserved quotations were rechecked at reviewBaseline.repositoryRevision. The recordedBlob is historical. The generic ideal quotient exists, but the ideal of maps factoring through the chosen projectives and its single-factorization/opposite adapters remain distinct work. This check does not independently approve the whole partner packet."
+    }
+  ],
+  "requests": [
+    {
+      "id": "R-RELATIVE",
+      "supplier": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "neededBy": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category",
+        "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities"
+      ],
+      "need": "Replace duplicate construction wording with imports of the pinned relative projective/injective predicates, presentations, enoughness, opposite and split/abelian comparisons, and IsFrobenius. Keep exact-equivalence transport as a separately checked API obligation; no such named transport theorem was established by this review. General stable quotients and the factoring ideal remain consumer work.",
+      "status": "baseline-reuse-and-documentation-alignment-required"
+    }
+  ],
+  "screen": {
+    "atlasRoadmaps": 212,
+    "newRoadmaps": 6,
+    "roadmaps": 218,
+    "stages": 2006,
+    "recordedStageEdges": 3508,
+    "candidateOwners": 54,
+    "matchedStages": 114,
+    "queries": [
+      "Frobenius exact",
+      "Frobenius categor",
+      "projective.injective",
+      "stable categor",
+      "stable module",
+      "stable quotient",
+      "self.injectiv",
+      "totally acyclic",
+      "total acyclicity",
+      "Gorenstein",
+      "singularity categor",
+      "D_sg",
+      "stmod",
+      "Happel",
+      "Buchweitz",
+      "matrix factori[sz]",
+      "duplex",
+      "curved",
+      "periodic complex",
+      "periodic resolution",
+      "differential module",
+      "\\bcompression\\b",
+      "\\bfolding\\b",
+      "orbit categor",
+      "pretriangulated envelope",
+      "finite semi.free",
+      "homotopy categor",
+      "Karoubi",
+      "coderived",
+      "contraderived",
+      "coacyclic",
+      "contraacyclic",
+      "absolute.acyclic",
+      "second.kind",
+      "graded.{0,30}global.dimension",
+      "exact categor",
+      "conflation",
+      "graded Hom",
+      "Koszul sign",
+      "morphism ideal",
+      "factoring ideal",
+      "factor.{0,20}through.{0,20}projective",
+      "\\bEisenbud\\b",
+      "\\bOrlov\\b",
+      "\\bStai\\b",
+      "\\bPositselski\\b",
+      "\\bGproj\\b",
+      "two.periodic",
+      "2.periodic",
+      "cyclic.grad",
+      "cyclic.complex",
+      "contractib",
+      "differential object",
+      "degreewise.split",
+      "componentwise.split",
+      "graded.opposite",
+      "admissible.pushout",
+      "admissible.pullback",
+      "complete resolution",
+      "periodicit",
+      "homotopically.projective",
+      "homotopically.injective",
+      "triangulat",
+      "Verdier",
+      "homotopy equivalen",
+      "quotient functor",
+      "linear.quotient"
+    ],
+    "additionalTerms": [
+      "Hopfological",
+      "GorensteinHomologicalAlgebra",
+      "Fukaya",
+      "StablePeriodicCurved",
+      "matrix factorization",
+      "matrix factorisation"
+    ],
+    "method": "Whole-catalogue full README/stage-description search; all matching stages and README-only contexts read. Fresh summaries for all 218 roadmaps. Per-record readScope distinguishes overview+full-text screening from full candidate-stage reading; this is not a proof audit.",
+    "scope": "Historical continuation screen at provenance.screenRevision; independent refresh is recorded in reviewCompleteness."
+  },
+  "validation": {
+    "canonical": "scripts/check_links.py: 0 errors, 0 warnings against full artifact atlas, other packets and new designs. PR CI must validate the uploaded commit separately.",
+    "checkerBlob": "88135efe5a74ef82e088f3fa3189893e27a7867a",
+    "supplemental": "All active pairs are nonduplicated; exact quotations and 218-ID coverage pass.",
+    "mathematical": "Historical statement of pending independent review; see the current review object and scoped follow-up.",
+    "scope": "Historical continuation validation; superseded for this review by reviewValidation."
+  },
+  "remainingWork": [],
+  "reviewFollowUp": [
+    "Align foundation construction verbs with the pinned APIs (R-RELATIVE); no upstream source file edited by this review.",
+    "Implement only the remaining stage obligations identified by reviewed library audits, including factoring ideals, stable categories, periodic triangulations, curved carriers and their comparisons.",
+    "Any coalgebra/curved closure reuse needs explicit carrier, generator and product/coproduct adapters. Recheck deduplication and cycles when integrating against later catalogue changes."
+  ],
+  "examined": [
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AnalyticHabiroStack",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "HS.1: root-of-unity q-Pochhammer periodicity and q-connections, not cyclic complexes."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AnalyticStacks",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "AS.1: six-functor and D-module duality, not a Frobenius stable quotient."
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "DY.0-1: periodic points and canonical heights, not periodic chain objects."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "ALS.0/2/5: contractible spaces and geometric coefficient duality; no stable-module quotient."
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "QT.5: manifold triangulations and Bloch invariants, not triangulated categories."
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "L5/L5w: source-qualified arithmetic Gorenstein/freeness input, not the target general module category."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "L4: Gorenstein/freeness is an explicit Hecke-component hypothesis, not a stable-category construction."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "CR.5: log differential modules are Kahler/connection objects, not endomorphisms with square zero."
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "P7 and ownership: bounded perfect local coefficient models do not supply general total acyclicity; external PR323 is not a catalogue endpoint."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "DD.0: cotangent and Kahler differential objects, not periodic differential modules."
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "C2: coherent enhanced sheaf descent; a homotopy-category equivalence alone is insufficient."
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "S2/S6: enhanced support functors and constructible Verdier duality, not the target ideal quotient."
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "D5: geometric maximal-Hausdorff quotient, not an additive morphism-ideal quotient."
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "DM.7: periodic bundle chains with Frobenius modifications, not square-zero periodic complexes."
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "ET.5: Lefschetz-Verdier trace and Igusa stabilization are not stable-module constructions."
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "E0/E1/E5: higher stable sheaf categories and their Karoubi envelopes; no identified Frobenius stable-quotient comparison."
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "EDC.1/8: self-injective finite coefficient rings and geometric duality do not import the field-linear Frobenius theorem or ideal quotient."
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "ES.6 explicitly consumes PadicMeasures L6 coefficient duality; no second stable-module supplier is stated."
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "F4: geometric quotient charts and marked untilts, not stable categorical quotients."
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "K.1-4/7: exact K-theory, bounded projective complexes and enhanced Morita invariance; not bare stable triangle equivalences."
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "GS4: Tannakian/Verdier duality and enhanced perfect closures, no Frobenius ideal quotient."
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "GN.6: hermitian K-theory and its periodicity; no periodic module-category comparison is stated."
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "L.1: Bott/Adams spectrum input, not periodic resolutions over hypersurfaces."
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "LV.2-3: contractible analytic neighbourhoods and period maps, not homotopically contractible module objects."
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "MC.4: motivic localization/Tate stabilization, not quotient by projective-injectives."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Ownership passage imports geometric Verdier duality; no stable-category supplier or matching stage."
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "RD.1-2: Robba connections/Frobenius, not square-zero linear endomorphisms."
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "L0/L4: arithmetic Gorenstein assumptions and triangulations of Galois families, not the target triangle category."
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "L6: restricted Gorenstein orders/Artinian reductions; retains its own ring-theoretic duality owner."
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "PG.7: triangulations of relative Robba modules, not triangulated-category construction."
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "QWittVectors",
+      "result": "none",
+      "readScope": "screen",
+      "note": "New-design scope: q-Witt/Koszul-style arithmetic constructions; no relative stable-module or curved-complex contract."
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "RT.1/4/5: cyclic products/completions, Bott spectra and enhanced localizing motives. No identification with finite folding or Frobenius quotients is supplied."
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "RingStacksAndTransmutation",
+      "result": "none",
+      "readScope": "screen",
+      "note": "New-design scope: ring stacks and stable normed-ring conditions; not a Frobenius categorical quotient."
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "SolidAnalyticRings",
+      "result": "none",
+      "readScope": "screen",
+      "note": "New-design scope: condensed/solid modules, spectra and analytic rings; no projective-injective quotient stated."
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "H.1-3/5: classifying spaces and spectra. A stable homotopy category is not an algebraic stable ideal quotient."
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "VS5: geometric/representation duality on enhanced objects, not the target stable-module quotient."
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Contractible contours, not contractible chain complexes."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Layer 9 differential module means Kahler differentials, not a square-zero endomorphism."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Stages 3/4/8 use ordinary singular/cellular complexes and topological triangulation, not periodic/stable module categories."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Layer 5 contractible strips and covering homotopies are topological, not stable categorical inputs."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Gorenstein is a cited author/name convention, not a homological predicate."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Layer 0 cyclic Tate periodicity has its own existing Tate carrier; C-TATE records the non-match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Lane ALG and Lane H read in full: filtered/bigraded ordinary complexes, stable HF invariants and periodic domains are not periodic exact-category quotients."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "links",
+      "readScope": "supplier",
+      "note": "Layers 0/1/5 supply grading, DG enrichment and pretriangulated envelopes; Layer 11 overlap retained. No unqualified DG-quotient or coderived equivalence is assumed."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Connection-matrix factorization C=Z diag(f-dagger) Z-transpose is linear algebra, not a potential matrix factorization."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Layers 1/3/9/11: manifold homotopy and PL triangulation, not triangulated stable categories."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Layer 11: arithmetic orders and proper ideals, not self-injective stable module categories."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Layers 6/9 use folding in prose about cases, not folding of complexes."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "links",
+      "readScope": "supplier",
+      "note": "Layer 0 supplies exact structures/functors to target Layers 0/1/2. Layers 2/3 expose exact-derived and relative-projective ownership boundaries.",
+      "reviewNote": "Baseline reuse replaces any plan for new relative predicates; exact-equivalence and admissible-square preservation must be checked separately."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Layer 3: topological group quotients, not additive categorical ideals."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Layer 3: derivation-stable ring quotients, not stable module categories."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "links",
+      "readScope": "supplier",
+      "note": "Layer 6 consumes only additive quotient machinery. Its packet already holds the outgoing edge; evidence preserved in deduplicatedLinks."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Layers 1/7: Clifford/Bott algebra periodicity, not cyclic chain categories."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "links",
+      "readScope": "target",
+      "note": "Target: all nine layers and acceptance boundaries; six incoming pairs, four overlaps, proposal R-RELATIVE."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Layer 2: geometric Gorenstein fibres/dualizing sheaves, not Gorenstein-projective stable categories."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "readScope": "screen",
+      "note": "No exact contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "Stage 4: contractible universal covers; no periodic or stable algebraic object."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "overlap",
+      "readScope": "supplier",
+      "note": "Generic Frobenius versus graph trace overlap retained. Outgoing Layer 0 to Zigzag Layer 2 already exists in the Zigzag packet; no duplicate.",
+      "reviewNote": "Generic Frobenius functional and self-injectivity theorems already exist at the pin; partner pair remains recorded."
+    }
+  ],
+  "existingLinks": [
+    {
+      "source": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
+      "reason": "Already-recorded generic Frobenius interface; reviewed here only for presence, direction and evidence. Import the existing baseline theorem before adding new graph-specific adapters."
+    }
+  ],
+  "historicalExaminedRetired": [
+    {
+      "roadmapId": "FoundationsAndLibraryIntegration",
+      "result": "none",
+      "readScope": "candidate",
+      "note": "LI.3 is generic exact/derived coordination; GEF owns the actual exact structures and SPC owns its specialised constructions."
+    }
+  ],
+  "reviewBaseline": {
+    "repositoryRevision": "0dcfabef140a4c8d95ae763a2bb34aef5b74a8b3",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "audit": "REV-AUDIT-23 and all nine StablePeriodicCurved entries in data/library-coverage.json; relevant GEF interfaces cross-checked with REV-AUDIT-22.",
+    "scope": "Read named declaration statements at the pins; no build or exhaustive library proof audit. Layer 0 and Layer 3 are partly built; seven other layer verdicts are not built. Existing generic components do not supply their missing specialization/triangulation."
+  },
+  "reviewCompleteness": {
+    "roadmaps": 218,
+    "activeRoadmaps": 217,
+    "stages": 2007,
+    "queries": [
+      "Frobenius exact",
+      "Frobenius categor",
+      "projective.injective",
+      "stable categor",
+      "stable module",
+      "stable quotient",
+      "self.injectiv",
+      "totally acyclic",
+      "total acyclicity",
+      "Gorenstein",
+      "singularity categor",
+      "D_sg",
+      "stmod",
+      "Happel",
+      "Buchweitz",
+      "matrix factori[sz]",
+      "duplex",
+      "curved",
+      "periodic complex",
+      "periodic resolution",
+      "differential module",
+      "\\bcompression\\b",
+      "\\bfolding\\b",
+      "orbit categor",
+      "pretriangulated envelope",
+      "finite semi.free",
+      "homotopy categor",
+      "Karoubi",
+      "coderived",
+      "contraderived",
+      "coacyclic",
+      "contraacyclic",
+      "absolute.acyclic",
+      "second.kind",
+      "graded.{0,30}global.dimension",
+      "exact categor",
+      "conflation",
+      "graded Hom",
+      "Koszul sign",
+      "morphism ideal",
+      "factoring ideal",
+      "factor.{0,20}through.{0,20}projective",
+      "\\bEisenbud\\b",
+      "\\bOrlov\\b",
+      "\\bStai\\b",
+      "\\bPositselski\\b",
+      "\\bGproj\\b",
+      "two.periodic",
+      "2.periodic",
+      "cyclic.grad",
+      "cyclic.complex",
+      "contractib",
+      "differential object",
+      "degreewise.split",
+      "componentwise.split",
+      "graded.opposite",
+      "admissible.pushout",
+      "admissible.pullback",
+      "complete resolution",
+      "periodicit",
+      "homotopically.projective",
+      "homotopically.injective",
+      "triangulat",
+      "Verdier",
+      "homotopy equivalen",
+      "quotient functor",
+      "linear.quotient",
+      "Hopfological",
+      "GorensteinHomologicalAlgebra",
+      "Fukaya",
+      "StablePeriodicCurved",
+      "matrix factorization",
+      "matrix factorisation"
+    ],
+    "matchedStageRecords": 115,
+    "stageMatchOwners": 51,
+    "readmeMatchOwners": 54,
+    "method": "Repeated all recorded queries over every stage description and available roadmap document. All nine own layers read in full. Focused rereads of GEF 0/2/3, DGA 0/1/5/7/11, Zigzag 2, Quiver 6, ClassFieldTheory 0, GeneralAlgebraicKTheory K.4/K.7, Patching P7, coefficient-orders L6, enhanced sheaves E5, RefinedTrace RT.5 and Floer ALG; further hits screened by interface and carrier. This independent spot-check supplements, rather than reattributes, the original catalogue-wide reading.",
+    "stagesChecked": [
+      "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+      "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category",
+      "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+      "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-3-differential-modules-and-periodic-complexes",
+      "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives",
+      "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes",
+      "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind",
+      "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-7-matrix-factorizations",
+      "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-8-comparison-functors-and-reconciliation"
+    ],
+    "newLinksFound": 0,
+    "decisions": [
+      "Layer 0: both outgoing generic interfaces already recorded; avoid duplicate edges and predicates.",
+      "Layers 1/2: existing exact structures do not supply stable descent or complete resolutions.",
+      "Layers 3/4: Tate periodicity and finite coefficient complexes are not general cyclic triangulations or periodic hulls.",
+      "Layer 5: reuse signed grading and DG enrichment only after common-curvature Hom cancellation.",
+      "Layer 6: no missing carrier-specific Koszul adapter established; retain overlap.",
+      "Layers 7/8: no external matrix-factorization or curved-duplex supplier found; ring maps and hypersurface comparisons retain their own hypotheses.",
+      "Enhanced stable categories, higher K-theory and localizing motives need enhancements, not a bare stable triangle equivalence."
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
+    "date": "2026-09-23",
+    "notes": "Accepted after all six directed contracts and four overlaps were checked. Corrected the baseline-reuse boundary and R-RELATIVE, added literal overlap evidence, archived one retired examined entry, and refreshed completeness across all nine own layers. No directed pair added or removed. Acceptance concerns the link map, not every theorem in its upstream roadmaps or implementation completeness.",
+    "removed": [],
+    "added": []
+  },
+  "reviewValidation": {
+    "result": "PASS",
+    "links": 6,
+    "overlaps": 4,
+    "activeRoadmaps": 217,
+    "stages": 2007,
+    "literalQuotes": 29,
+    "preservedLiteralQuotes": 2,
+    "partnerLiteralQuotes": 4,
+    "partnerPairs": 2,
+    "requiresEdges": 3746,
+    "edgesBefore": 4442,
+    "edgesAfter": 4448,
+    "acyclicBeforeAndAfter": true,
+    "canonical": "scripts/check_links.py: zero errors, zero warnings; 6 links, 4 overlaps, 217 examined.",
+    "intake": "Three allowed deliverables, zero problems.",
+    "freshMainRevision": "ace8c73cf7f3ecacc01ae259b910699cd64e7bdf",
+    "freshness": "Relevant roadmap documents, atlas, roadmap definitions and protocols unchanged. Replaced the three changed partner packets in scratch for a second full graph/deduplication check; passed. Own deliverables unchanged upstream.",
+    "lean": "No Lean file changed or compiled."
+  }
+}

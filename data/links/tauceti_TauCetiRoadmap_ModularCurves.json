@@ -1,0 +1,2548 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+  "protocol": "links-v1",
+  "status": "complete",
+  "summary": "Reviewed links for all 58 Modular Curves stages against the active catalogue: exact relative-scheme contracts, prime-level diamond compactification boundary and upstream ownership preserved. Existing pinned equation-level results are library imports; duplicated Algebraic Curves pairs remain in their owner packet. Current Legendre and affine Weil-restriction/Hodge–Tate consumers added. Rescope recommendations are proposals, not edits to upstream roadmaps.",
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors",
+      "reason": "Jacobian Challenge Layer A supplies invertible sheaves, Cartier divisors and the Cartier-divisor/line-bundle dictionary. Modular Curves 0A builds its Katz–Mazur divisor lemmas for relative curves (fibre criterion, section divisors [P], degree, incidence and equality loci, subgroup criterion) on these carriers and names the Jacobian Challenge divisor–line-bundle interface as its dependency. Layer A treats curves over a field; the statements over a base S remain 0A's work.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+          "quote": "the dictionaries\n  `Cartier ≃ line bundles` and (smooth curve) `Weil ≃ Cartier`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors",
+          "quote": "Use the general divisor and invertible-sheaf objects supplied by the Jacobian Challenge."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors",
+      "reason": "Jacobian Challenge Layer C supplies the relative effective Cartier divisor carrier. Modular Curves 0A adopts that shared definition (an effective Cartier divisor flat over S), forbids a second carrier, and proves on it the KM-specific statements: the fibre criterion, finiteness under properness, and degree as a locally constant rank.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+          "quote": "**Relative effective Cartier divisors** and **symmetric powers**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors",
+          "quote": "Use the shared definition: an effective Cartier divisor whose closed subscheme is flat over\n   `S`. Do not introduce a second carrier."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+      "reason": "Jacobian Challenge Layer B supplies Riemann–Roch and Serre duality for proper curves over a field. Modular Curves 1C applies them on each geometric fibre of E/S to compute H⁰ and H¹ of 𝒪_E(n[0]) and of positive-degree invertible sheaves, then passes to the relative statements.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+          "quote": "**Riemann–Roch** `χ(L) = deg L + 1 − g`; **Serre\n  duality**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+          "quote": "Use fibrewise Riemann–Roch and Serre duality, followed by Grauert's theorem and cohomology and base\nchange, to prove for `n>0`"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+      "reason": "Jacobian Challenge Layer C supplies proper-flat pushforward, Grauert's theorem, and cohomology and base change. Modular Curves 1C uses them to prove that R¹π_*𝒪_E(n[0]) = 0 and that π_*𝒪_E(n[0]) is locally free of rank n and commutes with arbitrary base change. This is the input to its pole-filtration construction of Weierstrass equations and to the Weierstrass-presentation theorem.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+          "quote": "**cohomology and base change / semicontinuity** (Grauert)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+          "quote": "the Jacobian Challenge contracts for curve\nRiemann–Roch, Serre duality, Grauert's theorem, and cohomology and base change."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+      "reason": "Jacobian Challenge Layer A supplies invertible sheaves and the Picard group under tensor product. Modular Curves 2D builds from them the fppf Picard functor T ↦ Pic(E_T)/Pic(T), its degree-zero part and the normalized Poincaré bundle on E ×_S E. Representability by E over an arbitrary base is 2D's own work, because the Jacobian Challenge Picard scheme is only over a field.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+          "quote": "**Invertible sheaves** on a scheme; the **Picard group** `Pic X` under `⊗`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+          "quote": "The construction consumes the general line-bundle and descent infrastructure of the Jacobian\nChallenge"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+      "reason": "Jacobian Challenge Layer C supplies coherent pushforward and cohomology and base change for proper flat families. Modular Curves 2D uses these, with the positive-degree theorem of 1C, to find fppf-locally the unique effective degree-one divisor of L([0]) and so construct λ_E : E ≅ Pic⁰_{E/S} and its inverse.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+          "quote": "Proper-flat-finitely-presented pushforward of coherent sheaves; **flat base change**;"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+          "quote": "the Jacobian Challenge contracts for invertible\nsheaves, coherent cohomology, and cohomology and base change."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "reason": "Jacobian Challenge Layer C supplies cohomology and base change and semicontinuity for proper flat families. The Modular Curves document names that roadmap as its curve-cohomology and base-change supplier. Layer 10 item 3 needs χ(·, 𝒪) to be constant across the fibres of the smooth proper relative curves X₁(N) and X₀(N) over ℤ[1/N]. It uses this to compare global differents across characteristics and prove the wild break ν = 1 in characteristics 2 and 3.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+          "quote": "**cohomology and base change / semicontinuity** (Grauert)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "together with constancy of `χ(·, O)` in smooth proper families from the\ncurve-cohomology and base-change supplier."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "This roadmap consumes the line-bundle,\ncurve-cohomology, Riemann–Roch, Serre-duality, and cohomology-and-base-change foundations from the\n[Jacobian Challenge roadmap](../JacobianChallenge/README.md)."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+      "reason": "Elliptic Curves Layer 2 constructs the equation-level Weil pairing e_N from the divisor calculus. Modular Curves 2E item 8 proves weilPairing_eq_equationLevel against TauCetiRoadmap.EllipticCurves.weilPairing over fields where N is invertible. This fixes the normalisation of the scheme-theoretic Cartier–Nishi pairing; the comparison is not used to construct the pairing.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+          "quote": "**The Weil pairing — the divisor construction.** `e_N : E[N] × E[N] → μ_N`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+          "quote": "comparison with the equation-level Weil pairing over fields where `N` is invertible"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+      "target": "ModularCurvesPartII:R12.2",
+      "reason": "Modular Curves 5B constructs the fine affine curve Y_full(N) over ℤ[1/N] for N ≥ 3, with its right GL₂(ℤ/Nℤ)-action and the determinant det_N = e_N to μ_N^prim. ModularCurvesPartII R12.2 identifies the analytic full-level quotient with this curve, and the ordered-basis determinant with the chosen root of unity. Its document requires #81's actual Y_full(N), row-vector action and Weil-pairing convention.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+          "quote": "and representability by a smooth affine scheme\n`Y_full(N)` over `ℤ[1/N]` (KM 4.7.0 and Corollary 4.7.2)"
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.2",
+          "quote": "Identify the ordered-basis determinant with the chosen root of unity."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.2",
+          "quote": "Use #81's actual affine Y₁(N), Y_full(N), fixed-pairing Y(N,ζ) and Y(rho)."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#5a-tate-normal-form-and-y₁n-for-n4",
+      "target": "ModularCurvesPartII:R12.2",
+      "reason": "Modular Curves 5A constructs Y₁(N) over ℤ[1/N] for N ≥ 4 as the fine scheme given by Tate normal form with a point of exact order N. ModularCurvesPartII R12.2 classifies Γ₁ level structures under uniformisation and proves that the analytic map to this curve is an isomorphism; its document names #81's affine Y₁(N). Modular Curves makes no fine-representability claim for N ≤ 3, so R12.2's small-level cases need the coarse or stack formulation.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#5a-tate-normal-form-and-y₁n-for-n4",
+          "quote": "For `N≥4`, this construction directly represents `Y₁(N)`; it is not routed through KM 4.7.0."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.2",
+          "quote": "Classify full, Γ₁ and Γ₀ level structures under uniformisation, and derive the corresponding analytic quotient with its functorial action."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.2",
+          "quote": "Use #81's actual affine Y₁(N), Y_full(N), fixed-pairing Y(N,ζ) and Y(rho)."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+      "target": "ModularCurvesPartII:R12.2",
+      "reason": "Modular Curves 9E supplies the coarse j-line Spec ℤ[j] and the coarse curve Y₀(N), with Y₀(N) ≅ Y_full(N)/B over ℤ[1/N] for N ≥ 3, and its coarse universal property. ModularCurvesPartII R12.2 treats Γ₀ level structures and the distinction between fine and coarse curves, and its required checks include the j-line. The algebraic level-one and Γ₀ curves it compares with are these coarse schemes, which are not fine moduli spaces.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+          "quote": "For `N≥3`, prove the coarse Borel-quotient formula through the explicit chain"
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.2",
+          "quote": "Treat automorphisms at elliptic points and the fine/coarse distinction, especially small levels."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.2",
+          "quote": "Identify the algebraic modular curves of #81 with the analytic modular curves already used by ModularForms and FuchsianOrbifolds."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+      "target": "ModularCurvesPartII:R12.1",
+      "reason": "Modular Curves 2E constructs the scheme-theoretic Weil pairing e_N : E[N] ×_S E[N] → μ_N: alternating, scheme-theoretically perfect, and normalised against the equation-level pairing. ModularCurvesPartII R12.1 compares this pairing with the analytic formula on ℂ/Λ, and its conventions require matching #81's Weil-pairing convention.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+          "quote": "e_N : E[N] ×_S E[N] ⟶ μ_N."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.1",
+          "quote": "Compare the algebraic invariant differential, periods and scheme-theoretic Weil pairing with the analytic formula."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.1",
+          "quote": "Match #81's row-vector right action and Weil-pairing convention."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ",
+      "target": "ModularCurvesPartII:R12.4",
+      "reason": "Modular Curves 5C proves that Y(ρ) ⊗ ℚ̄ is nonempty and smooth, and that a nonempty connected scheme smooth of relative dimension one over an algebraically closed field is irreducible. Together these reduce geometric irreducibility to connectedness. ModularCurvesPartII R12.4 proves the three connectedness statements of #81's §5C contract (with ComplexComparisonPartII C4), then applies #81's result to get irreducibility. Modular Curves keeps connectedness as an explicit hypothesis, so nothing links back.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ",
+          "quote": "and prove the leaf that a nonempty connected scheme smooth of relative dimension one over an\n   algebraically closed field is irreducible"
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.4",
+          "quote": "Use #81's smoothness and connected-implies-irreducible result to obtain geometric irreducibility."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.4",
+          "quote": "Discharge PR81 §5C as three named statements"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+      "target": "ModularCurvesPartII:R12.4",
+      "reason": "Modular Curves 5B supplies the fixed-pairing fibres Y(N,ζ) of det_N over ℤ[1/N,ζ_N]. ModularCurvesPartII R12.4 proves that the fixed-pairing analytic quotient is connected, transfers this to geometric connectedness of the algebraic curve, and identifies the base change of Y(ρ) with the fixed-pairing curve. It lists PR81's fixed-pairing, twisting and smoothness stages as dependencies. Y_full(N) itself is not geometrically connected.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+          "quote": "for a chosen primitive root `ζ`, the fibre `Y(N,ζ)` over `ℤ[1/N,ζ_N]`;"
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.4",
+          "quote": "Prove connectedness of the fixed-pairing analytic quotient and transfer it to geometric connectedness of the algebraic curve via analytification/base change."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.4",
+          "quote": "**Dependencies:** R12.2; PR81's fixed-pairing/twisting and smoothness stages; ComplexComparisonPartII C4."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "target": "ModularCurvesPartII:R12.3",
+      "reason": "Modular Curves Layer 10 constructs X_H as the normalisation of ℙ¹_j over ℤ[1/N] in Y_H, for N ≥ 5 prime and H ≤ (ℤ/Nℤ)ˣ/{±1}, together with the cusp subscheme and formal cusp parameters. ModularCurvesPartII R12.3 uses this compactification on exactly that class to identify the compact analytic curve with an analytification and to compare cusp widths with the Tate parameter. Composite, small, full and fixed-pairing levels use R13.4a instead.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "define\n   `X_H` as the normalisation of `ℙ¹_j` over `ℤ[1/N]` in `Y_H`"
+        },
+        {
+          "stageId": "ModularCurvesPartII:R12.3",
+          "quote": "On PR81 Layer 10's prime-N≥5 diamond-quotient class, use its existing normalization compactification."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "target": "ModularCurvesPartII:R13.4a",
+      "reason": "Modular Curves Layer 10 supplies X_H over ℤ[1/N] for the prime-level (N ≥ 5) diamond quotients. ModularCurvesPartII R13.4a proves that its separately constructed compactified coarse curves agree with these after N is inverted. Layer 10 warns that the universal property of normalisation does not by itself characterise X_H. R13.4a must also check that T is finite over ℙ¹_j and normal, that Y_H → T is an open immersion with schematically dense image, and that every component of T meets Y_H.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "**The uniqueness statement is the literal universal property of\n   normalisation — `normalizationDesc` and `normalization.hom_ext` — and nothing stronger**"
+        },
+        {
+          "stageId": "ModularCurvesPartII:R13.4a",
+          "quote": "For prime N≥5 diamond quotients, prove agreement with PR81 Layer 10 after inverting N by normalization uniqueness."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+      "target": "ModularCurvesPartII:R13.4a",
+      "reason": "Modular Curves 9D constructs coarse moduli schemes M(𝒫) of affine moduli problems by gluing invariant quotients of Galois rigidifiers. It proves the classifying map, functoriality, and the bijection on isomorphism classes over algebraically closed fields. ModularCurvesPartII R13.4a identifies the affine opens of its compactified coarse curves with these PR81 coarse schemes by the moduli universal property.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+          "quote": "Prove the classifying map, functoriality, independence of all local choices, KM 8.1.2 (`M(𝒫)` is\nnormal when `𝒫` is), and the bijection on algebraically closed field-valued isomorphism classes."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R13.4a",
+          "quote": "Identify their affine opens with PR81 by the moduli universal property."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#layer-6-the-three-elementary-integral-level-problems",
+      "target": "ModularCurvesPartII:R13.2",
+      "reason": "Modular Curves Layer 6 proves that the Drinfeld problems [Γ(N)], [Γ₁(N)] and balanced [Γ₁(N)] are relatively representable over Ell by finite schemes. ModularCurvesPartII R13.2 constructs compactified full and Γ₁ level problems on generalised elliptic curves and identifies their open substacks with these affine level problems owned by #81.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-6-the-three-elementary-integral-level-problems",
+          "quote": "Prove relative representability of the following Drinfeld problems:"
+        },
+        {
+          "stageId": "ModularCurvesPartII:R13.2",
+          "quote": "identify the open substack with the affine level problem already owned by #81."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#8d-the-cyclicity-locus-and-γ₀n",
+      "target": "ModularCurvesPartII:R13.2",
+      "reason": "Modular Curves 8D constructs the cyclicity locus and proves that [Γ₀(N)] is relatively representable, finite flat and regular of dimension two over Ell. ModularCurvesPartII R13.2 builds the correct Γ₀(n) problem for general n, using Česnavičius' refinement where the cyclic-subgroup formulation fails at the boundary, and identifies its open substack with this affine problem. On elliptic curves the cyclic-subgroup description is the right one.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#8d-the-cyclicity-locus-and-γ₀n",
+          "quote": "Identify this locus with `[Γ₀(N)]`; deduce relative representability and finiteness."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R13.2",
+          "quote": "Construct compactified full and Γ₁ level problems, and the correct Γ₀(n) problem at general n."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+      "target": "ModularCurvesPartII:R13.1",
+      "reason": "MC 1D supplies EllipticCurve S with its canonical commutative group law. R13.1 must recover it after restriction to the open subset of the BASE on which the generalized elliptic curve has smooth proper fibres. This is the precise interpretation of its phrase “on the smooth locus”: the smooth locus inside a nodal fibre is not a proper elliptic curve (the identity component is multiplicative). Generalized boundary objects remain R13.1 work.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+          "quote": "Define `EllipticCurve S` by equipping `EllipticCurveGeom S` with this canonical commutative group\nstructure."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R13.1",
+          "quote": "Prove descent and compatibility with the elliptic-scheme object of #81 on the smooth locus."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#9b-the-standard-quotient-problems",
+      "target": "ModularCurvesPartII:R14.1",
+      "reason": "Modular Curves 9B supplies the KM 7.4.2 identifications of the standard problems as quotients, including [Γ(N)] → [Γ(d)] for d ∣ N and [Γ₁(N)] → [Γ₀(N)], and fixes the diamond action on [Γ₁(N)] as P ↦ aP. ModularCurvesPartII R14.1 constructs degeneracy maps and diamond operators from the moduli interpretation and takes its algebraic modular curves from #81. Its convention that diamonds are indexed by units must match P ↦ aP, which inside SL₂ is P ↦ d⁻¹P.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#9b-the-standard-quotient-problems",
+          "quote": "Record the diamond action on `[Γ₁(N)]` as `P↦aP`; inside `SL₂` it is `P↦d⁻¹P`, not `P↦dP`."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R14.1",
+          "quote": "Construct the isogeny correspondences at good and bad primes, degeneracy maps and diamond operators from the moduli interpretation."
+        },
+        {
+          "stageId": "ModularCurvesPartII:R14.1",
+          "quote": "#81/R12/R13 supply the same modular curves algebraically and analytically."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+      "target": "AbelianSchemesAndArithmeticModuli:A1",
+      "reason": "Modular Curves 1C proves the Weierstrass-presentation theorem: a smooth proper relative genus-one curve with a section is, Zariski-locally on the base, pointed-isomorphic to a projective Weierstrass model. AbelianSchemesAndArithmeticModuli A1 uses this theorem to show that one-dimensional pointed abelian schemes are exactly #81's elliptic curves.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+          "quote": "Finally prove the Weierstrass-presentation theorem: a smooth proper relative genus-one curve with a\nsection is Zariski-locally on the base pointed-isomorphic to a projective Weierstrass model."
+        },
+        {
+          "stageId": "AbelianSchemesAndArithmeticModuli:A1",
+          "quote": "Prove that the one-dimensional pointed objects coincide with the scheme-theoretic elliptic curves of #81, using its Weierstrass-presentation theorem."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+      "target": "AbelianSchemesAndArithmeticModuli:A1",
+      "reason": "Modular Curves 1D supplies EllipticCurve S with its canonical commutative group structure. AbelianSchemesAndArithmeticModuli A1 proves an equivalence, compatible with group laws, between one-dimensional abelian schemes and these elliptic curves.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+          "quote": "Define `EllipticCurve S` by equipping `EllipticCurveGeom S` with this canonical commutative group\nstructure."
+        },
+        {
+          "stageId": "AbelianSchemesAndArithmeticModuli:A1",
+          "quote": "The comparison is an equivalence compatible with the group laws."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+      "target": "AbelianSchemesAndArithmeticModuli:A2",
+      "reason": "Modular Curves 2D constructs the relative genus-one Picard functor, the normalized Poincaré bundle with its seesaw and biextension identities, and λ_E : E ≅ Pic⁰_{E/S}. AbelianSchemesAndArithmeticModuli A2 requires its dual abelian scheme and Poincaré bundle to recover this elliptic construction, identifying the evaluation pairings and not only the underlying schemes.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+          "quote": "Prove the universal property of this normalized\n   Poincaré bundle and establish the seesaw, biextension, descent, and arbitrary-base-change\n   identities."
+        },
+        {
+          "stageId": "AbelianSchemesAndArithmeticModuli:A2",
+          "quote": "Recover the elliptic relative Picard/Poincaré construction of #81, rather than leaving two incompatible duals."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+      "target": "AbelianSchemesAndArithmeticModuli:A5",
+      "reason": "Modular Curves 1D supplies the scheme-theoretic elliptic curve over an arbitrary base. AbelianSchemesAndArithmeticModuli A5 builds the Siegel universal analytic family, and in genus one must prove agreement with #81's elliptic scheme and its differential.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+          "quote": "Define `EllipticCurve S` by equipping `EllipticCurveGeom S` with this canonical commutative group\nstructure."
+        },
+        {
+          "stageId": "AbelianSchemesAndArithmeticModuli:A5",
+          "quote": "For genus one, prove agreement with #81's actual elliptic scheme, differential, and pairing."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+      "target": "AbelianSchemesAndArithmeticModuli:A5",
+      "reason": "Modular Curves 2E supplies the scheme-theoretic Weil pairing e_N on E[N]. AbelianSchemesAndArithmeticModuli A5 compares level structures on its Siegel family with symplectic lattice trivialisations, and in genus one must prove agreement with #81's pairing, keeping track of the polarization sign.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+          "quote": "e_N : E[N] ×_S E[N] ⟶ μ_N."
+        },
+        {
+          "stageId": "AbelianSchemesAndArithmeticModuli:A5",
+          "quote": "For genus one, prove agreement with #81's actual elliptic scheme, differential, and pairing."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+      "target": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "reason": "Modular Curves 0C proves the affine case of SGA 3 V Théorème 4.1 (quotients by finite locally free equivalence relations) and the case of a free constant-group action with an invariant affine cover. It uses these for its finite étale rigidifier quotients. AlgebraicModuliForArithmeticGeometry R09.3 constructs étale equivalence-relation quotients for algebraic spaces, and must compare with this construction of #81 rather than replace it.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+          "quote": "if `X` is affine and `R ⇉ X` is an equivalence relation whose\n   two projections are finite locally free, then the quotient `X/R` exists"
+        },
+        {
+          "stageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+          "quote": "Compare with the finite étale quotient construction of #81 instead of replacing it."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+      "target": "ArithmeticGaloisRepresentations:R01.6",
+      "reason": "Modular Curves 2B defines an isogeny of elliptic curves over a base as a finite locally free surjective homomorphism, with quotients by finite locally free subgroups and factorisation through the kernel. ArithmeticGaloisRepresentations R01.6 proves that Tate modules are compatible with scheme isogenies, and its document assigns the scheme comparison to #81 and AlgebraicCurves. Modular Curves owns only the narrow function-field bridge for [N] in 2A; the comparison for arbitrary isogenies belongs to AlgebraicCurves Layer 12.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+          "quote": "Define an isogeny to be a finite locally free surjective group-scheme homomorphism of elliptic\ncurves."
+        },
+        {
+          "stageId": "ArithmeticGaloisRepresentations:R01.6",
+          "quote": "Prove compatibility with scheme isogenies."
+        },
+        {
+          "stageId": "ArithmeticGaloisRepresentations:R01.6",
+          "quote": "the scheme comparison is owned by ModularCurves #81 and AlgebraicCurves."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+      "target": "EllipticCurveModularity:R29.6",
+      "reason": "Modular Curves 1B identifies the sections of a projective Weierstrass model over a field with W.toAffine.Point. EllipticCurveModularity R29.6 states modularity on the existing elliptic-curve type as a nonconstant ℚ-morphism X₀(N_E) → E. A morphism of schemes into E needs this scheme model and its comparison of points, and the roadmap's document takes the scheme comparison from #81/AlgebraicCurves. X₀(N_E) at composite level comes from ModularCurvesPartII, not from Layer 10.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+          "quote": "Over a field and under `W.IsElliptic`, sections of `projModel W ⟶ Spec K` are naturally\n   equivalent to `W.toAffine.Point`, with infinity corresponding to the zero section."
+        },
+        {
+          "stageId": "EllipticCurveModularity:R29.6",
+          "quote": "State the unconditional theorem on the existing elliptic-curve type, with a weight-two rational newform of exact conductor and a nonconstant Q-morphism X₀(N_E)→E."
+        },
+        {
+          "stageId": "EllipticCurveModularity:R29.6",
+          "quote": "The scheme comparison comes from #81/AlgebraicCurves."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+      "target": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "reason": "Modular Curves 2A proves that E[N] is finite locally free of rank N² over any base, commutes with base change, and is étale where N is invertible. FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.5 derives inertia characters of the torsion of good ordinary and good supersingular elliptic curves from the finite flat group scheme E[p] over the ring of integers. Its document names #81 as the owner of finite locally free subgroup schemes of elliptic curves.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+          "quote": "Define `E[N]` as the scheme-theoretic kernel and prove that it is finite locally free of rank\n   `N²`, with arbitrary base change."
+        },
+        {
+          "stageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+          "quote": "Derive the inertia characters of good ordinary and supersingular elliptic-curve torsion"
+        },
+        {
+          "stageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+          "quote": "ModularCurves #81 owns finite locally free subgroup schemes of elliptic curves, their quotients and pairing theory."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+      "target": "PELModuli:M5",
+      "reason": "Modular Curves 5B constructs Y_full(N) with det_N(E,P,Q) = e_N(P,Q) and the row-vector GL₂(ℤ/Nℤ)-action. PELModuli M5 constructs Siegel moduli in every dimension and must prove the genus-one comparison with #81, including this determinant and Weil-pairing convention.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+          "quote": "det_N(E,P,Q) = e_N(P,Q);"
+        },
+        {
+          "stageId": "PELModuli:M5",
+          "quote": "Construct Siegel moduli for every dimension and the genus-one comparison with #81, including its determinant/Weil-pairing convention."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+      "target": "PerfectoidShimuraVarieties:S5",
+      "reason": "Modular Curves 5B supplies the full-level curves Y_full(N) and their fixed-pairing fibres Y(N,ζ). PerfectoidShimuraVarieties S5 compares its modular tower with the tower built directly from #81's modular curves, including fixed Weil-pairing components and tame level. Compactified cusp charts at full level lie outside Layer 10, which covers only the prime-level diamond class.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+          "quote": "for a chosen primitive root `ζ`, the fibre `Y(N,ζ)` over `ℤ[1/N,ζ_N]`;"
+        },
+        {
+          "stageId": "PerfectoidShimuraVarieties:S5",
+          "quote": "Prove comparison with the tower obtained directly from #81's modular curves, including fixed Weil-pairing components and tame level."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "target": "ShimuraCompactifications:C6",
+      "reason": "Modular Curves Layer 10 supplies X_H over ℤ[1/N] for N ≥ 5 prime and H ≤ (ℤ/Nℤ)ˣ/{±1}. ShimuraCompactifications C6 compares its generic-fibre toroidal and minimal curve for F = ℚ with PR81 Layer 10 on exactly that class. Full and composite levels go through ModularCurvesPartII R13.4a/R13.4b.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "for `N ≥ 5` **prime** and a subgroup\n`H ≤ Δ := (ℤ/Nℤ)ˣ/{±1}`, the coarse scheme `Y_H := Y₁(N)/H` over `ℤ[1/N]`"
+        },
+        {
+          "stageId": "ShimuraCompactifications:C6",
+          "quote": "Its comparison with PR81 Layer 10 is restricted to prime N≥5 diamond quotients with H≤(Z/N)×/{±1}; general full and composite levels use the new construction."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+      "target": "ShimuraVarieties:V8",
+      "reason": "Modular Curves 5B supplies, for N ≥ 3, Y_full(N) over ℤ[1/N], the determinant morphism det_N = e_N to μ_N^prim, the fibres Y(N,ζ) and the row-vector action. ShimuraVarieties V8 proves Sh_{K(N)}(GL₂, ℍ^±) ≅ Y_full(N)_ℚ. It identifies the determinant morphism with the Weil-pairing morphism and Y(N,ζ) with a fibre, and proves the dictionary between #81's row-basis action and the adelic convention.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+          "quote": "and representability by a smooth affine scheme\n`Y_full(N)` over `ℤ[1/N]` (KM 4.7.0 and Corollary 4.7.2)"
+        },
+        {
+          "stageId": "ShimuraVarieties:V8",
+          "quote": "Identify the determinant morphism with the Weil-pairing morphism."
+        },
+        {
+          "stageId": "ShimuraVarieties:V8",
+          "quote": "Prove the dictionary between row-basis actions in #81 and the adelic convention."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#5a-tate-normal-form-and-y₁n-for-n4",
+      "target": "ShimuraVarieties:V8",
+      "reason": "Modular Curves 5A supplies the fine curve Y₁(N) over ℤ[1/N] for N ≥ 4. ShimuraVarieties V8 derives the Γ₁ comparison, with its fine qualification, from #81's examples.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#5a-tate-normal-form-and-y₁n-for-n4",
+          "quote": "For `N≥4`, this construction directly represents `Y₁(N)`; it is not routed through KM 4.7.0."
+        },
+        {
+          "stageId": "ShimuraVarieties:V8",
+          "quote": "Obtain the `Γ₁` and `Γ₀` comparisons with their fine/coarse qualifications."
+        },
+        {
+          "stageId": "ShimuraVarieties:V8",
+          "quote": "M4 and ModularCurves #81 for the examples."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+      "target": "ShimuraVarieties:V8",
+      "reason": "Modular Curves 9E supplies the coarse curve Y₀(N), isomorphic over ℤ[1/N] to Y_full(N)/B when N ≥ 3, and the coarse j-line. ShimuraVarieties V8 derives the Γ₀ comparison, with its coarse qualification, from #81's examples.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+          "quote": "For `N≥3`, prove the coarse Borel-quotient formula through the explicit chain"
+        },
+        {
+          "stageId": "ShimuraVarieties:V8",
+          "quote": "Obtain the `Γ₁` and `Γ₀` comparisons with their fine/coarse qualifications."
+        },
+        {
+          "stageId": "ShimuraVarieties:V8",
+          "quote": "M4 and ModularCurves #81 for the examples."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+      "target": "HeegnerPointEulerSystems:HE.1",
+      "reason": "Modular Curves 9E supplies the coarse modular curve Y₀(N) with its coarse universal property, and 9D gives the bijection with isomorphism classes over algebraically closed fields. HeegnerPointEulerSystems HE.1 identifies CM cyclic-isogeny pairs over ℂ with points of the existing X₀(N) moduli object. CM points are not cusps, so these are points of Y₀(N). Neither text names the other, and compactification at composite level belongs to ModularCurvesPartII.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+          "quote": "Prove the resulting coarse universal property."
+        },
+        {
+          "stageId": "HeegnerPointEulerSystems:HE.1",
+          "quote": "Construct CM elliptic curves and cyclic-isogeny pairs over ℂ, identify them with the existing X₀(N) moduli objects"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+      "target": "KatoEulerSystems:L0",
+      "reason": "Modular Curves 5B supplies, for N ≥ 3, the fine affine full-level curve Y_full(N) over ℤ[1/N] and its fixed-pairing fibres. KatoEulerSystems L0 descends powers of analytic Siegel functions to units on the algebraic modular curve, which requires this integral affine model over ℤ[1/N]. The identification of analytic with algebraic curves is ModularCurvesPartII R12.2, reached through L0's recorded dependency R14.1. Kato's Y(M,N) and Y₁(N) levels must be matched to 5B and 5A; neither text names the other.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+          "quote": "and representability by a smooth affine scheme\n`Y_full(N)` over `ℤ[1/N]` (KM 4.7.0 and Corollary 4.7.2)"
+        },
+        {
+          "stageId": "KatoEulerSystems:L0",
+          "quote": "descend the appropriate powers to units on the algebraic modular curve"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+      "target": "MordellLawrenceVenkatesh:LV.2",
+      "reason": "Modular Curves 4C represents the Legendre problem by Spec ℤ[1/2][λ, 1/λ(λ−1)], with universal curve y² = x(x−1)(x−λ). MordellLawrenceVenkatesh LV.2 uses the Legendre family over the same base ℤ[1/2][t, 1/(t(1−t))] as an acceptance test for good models. The Gauss–Manin and crystalline structure remain LV.2's work; neither text names the other.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+          "quote": "Prove that it is\n   representable by `Spec ℤ[1/2][λ, 1/λ(λ-1)]` with the universal curve\n   `y²=x(x-1)(x-λ)`"
+        },
+        {
+          "stageId": "MordellLawrenceVenkatesh:LV.2",
+          "quote": "The Legendre family over $\\mathbb Z[1/2][t,1/(t(1-t))]$ is a good model"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+      "target": "MordellLawrenceVenkatesh:LV.6",
+      "reason": "MC 4C supplies the actual universal Legendre elliptic curve over Z[1/2][lambda,1/(lambda(lambda-1))]. Base change along lambda=t gives LV.6’s Legendre family after places above 2 are inverted. Its polarization uses MC 2D via the abelian-scheme comparison; cyclic variants, good-model compatibility and monodromy remain LV.6 work. LV.5 now owns surface topology, so the historical LV.5 edge is replaced.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+          "quote": "Prove that it is\n   representable by `Spec ℤ[1/2][λ, 1/λ(λ-1)]` with the universal curve\n   `y²=x(x-1)(x-λ)`"
+        },
+        {
+          "stageId": "MordellLawrenceVenkatesh:LV.6",
+          "quote": "- *The Legendre family* as an elliptic scheme over $\\mathbb P^1_{\\mathcal O}\\smallsetminus\\{0,1,\\infty\\}$ and its\n  cyclic variant $X\\to\\mathbb P^1\\smallsetminus\\{0,\\mu_m,\\infty\\}\\xrightarrow{u\\mapsto u^m}\\mathbb P^1\\smallsetminus\\{0,1,\\infty\\}$\n  as an abelian-by-finite family with good model.\n- *Legendre monodromy*: the loops around $0$ and $1$ act by $\\pm T_a^2$ and $\\pm T_b^2$ with\n  $\\hat\\imath(a,b)=\\pm1$ (derived from point pushing and twist lifting), so the family has full monodromy."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+      "target": "ReductiveGroupsPartII:RG2.0a",
+      "reason": "Import MC 0F’s affine finitely presented Weil restriction along a finite locally free base map, with arbitrary base change, for the finitely presented portion of RG2.0a (including the finite-separable-field and Deligne-torus cases). RG2.0a extends the construction to its finite-type scope and proves the adjunction/coherence and group-theoretic consequences; it must not construct a second representing algebra on the common scope. Finite type over an arbitrary non-Noetherian base is not silently upgraded to finite presentation.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+          "quote": "Construct the representable Hom functors used in Layer 3. The required general result is the\nfinite-locally-free Weil-restriction case: if `Z ⟶ S` is finite locally free and `X ⟶ Z` is affine\nof finite presentation, the functor of `Z`-morphisms is represented by an affine `S`-scheme.\nDeduce the special cases representing:"
+        },
+        {
+          "stageId": "ReductiveGroupsPartII:RG2.0a",
+          "quote": "Own restriction of scalars for affine finite-type schemes along a finite locally free base map, and its finite-separable-field specialization. Define the functor on points by T ↦ Hom over S′ from T×S S′ to X. On a free affine chart construct its representing algebra by expanding generators and relations in a basis; prove the universal property, basis independence, descent across changes of trivialization and preservation of finite type. Prove finite presentation when X/S′ is finitely presented, in particular over the relevant noetherian/field bases; finite type alone over an arbitrary base does not suffice. Affine representability is sufficient for the reductive-group and Deligne-torus consumers; arbitrary nonaffine schemes require a separately proved representability hypothesis, not an assertion that all Weil restrictions are schemes. Source: Stacks [restriction of scalars](https://stacks.math.columbia.edu/tag/05Y8) and its affine relative-morphism construction."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+      "target": "RingStacksAndTransmutation:RS.0",
+      "reason": "MC 0F’s affine finitely presented Weil restriction supplies the representing scheme in RS.0’s finite-etale field-extension example of transmutation, in particular the displayed R-to-C acceptance case. Finite-type affine schemes over a field are finitely presented. RS.0 still constructs transmutation, its stack interpretation and Zariski extension; this edge makes no claim that MC represents arbitrary nonaffine restrictions of scalars.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+          "quote": "Construct the representable Hom functors used in Layer 3. The required general result is the\nfinite-locally-free Weil-restriction case: if `Z ⟶ S` is finite locally free and `X ⟶ Z` is affine\nof finite presentation, the functor of `Z`-morphisms is represented by an affine `S`-scheme.\nDeduce the special cases representing:"
+        },
+        {
+          "stageId": "RingStacksAndTransmutation:RS.0",
+          "quote": "Weil restriction along a finite étale $L/k$ is a transmutation."
+        },
+        {
+          "stageId": "RingStacksAndTransmutation:RS.0",
+          "quote": "Weil restriction for\n$\\mathbb R\\to\\mathbb C$ is written out."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+      "target": "HodgeTateAndCanonicalSubgroups:T0",
+      "reason": "MC 0B’s finite locally free commutative Cartier duality and evaluation pairing supply the finite-level duality of characters used to construct T0’s Hodge–Tate map. Import the affine-base duality already in Tau Ceti; MC’s arbitrary-base/evaluation extensions feed the common R07.1 interface. T0 retains integral differentials, the Hodge–Tate map and the completed p-adic passage. This is not a claim that MC supplies the full Barsotti–Tate or semi-abelian degeneration package.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+          "quote": "Construct Cartier duality as a contravariant anti-equivalence on finite locally free commutative\ngroup schemes. Prove evaluation, biduality, preservation of rank, and arbitrary base change. Prove\nexactness for fppf-exact short sequences whose terms are finite locally free, and derive the\nkernel–quotient comparison only under the hypotheses which keep both objects in this category. In\nparticular, prove"
+        },
+        {
+          "stageId": "HodgeTateAndCanonicalSubgroups:T0",
+          "quote": "Build the finite-level Hodge–Tate map using Cartier duality and differentials of characters."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+        "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals"
+      ],
+      "detail": "Jacobian Challenge Layer D defines, for X → Spec k, the fppf Picard functor T ↦ Pic(X_T)/Pic(T), its rigidification by a section with a Poincaré bundle, and Pic⁰ as the degree-zero subfunctor. Modular Curves 2D defines the same functor, rigidified functor, degree-zero subfunctor and normalized Poincaré bundle for E/S over an arbitrary base, and proves representability by E. JC's genus-one acceptance check Jac(E, O) ≅ E is the case S = Spec k of 2D's λ_E.",
+      "recommendation": "rescope",
+      "proposal": "Keep both upstream roadmaps and their established order: JC D owns the general curve-over-a-field Picard/Jacobian construction, while MC 2D owns the relative genus-one construction over arbitrary S, without waiting for JC’s final representability theorem. Reuse the line-bundle and descent infrastructure already assigned to JC A/C. Record compatible Picard sheaf/rigidification interfaces and a genus-one comparison over Spec k, matching P ↦ O(P-0), the t_{-P} sign and the two zero rigidifications of the Poincare bundle. Any later general relative Picard extension must build on these interfaces; do not move MC’s existing construction into JC or prescribe a reverse prerequisite.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+          "quote": "- **The functor.** For `f : X → Spec k` proper, flat, finitely presented with\n  geometrically integral fibres (so `f_*𝒪_X = 𝒪` universally), `Pic_{X/k}` is the **fppf\n  sheafification** of `T ↦ Pic(X_T)/Pic(T)`. Keep the three notions distinct (Picard\n  *stack* vs *functor/sheaf* vs *rigidified functor*), and record the obstruction\n  (`Br`-flavoured) between `Pic(X_T)/Pic(T)` and `Pic_{X/k}(T)`. The section `x₀`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+          "quote": "Construct the relative genus-one Picard package needed here rather than assuming the field-valued\nJacobian endpoint in arbitrary families. For an elliptic curve `E/S`:"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      ],
+      "detail": "Modular Curves 7E (PD-2, PD-3) defines ordinary and supersingular for E₀/k through the connected–étale structure of E₀[p] (EllipticCurve.IsSupersingular). It also constructs relative Frobenius and Verschiebung with V∘F = p = F∘V over bases of characteristic p. Elliptic Curves Layer 3 defines IsSupersingular by E[p](K^sep) = O, and Layer 1 constructs the Frobenius twist, relative Frobenius and Verschiebung with V∘F = [p]. So the same predicates and isogenies are built twice, once on schemes and once on equations, and no comparison is stated between them.",
+      "recommendation": "keep",
+      "proposal": "Keep both; the boundary between scheme-level and equation-level theory is deliberate. Beside 7E's existing bridges for deg [N] and the Weil pairing, add comparison lemmas over a field for elliptic W. First, IsSupersingular for projModel W agrees with Elliptic Curves' IsSupersingular. Second, the scheme Frobenius and Verschiebung of projModel W match the equation-level maps under 2A's function-field identification.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+          "quote": "2. **PD-2, connected–étale.** Base: a henselian local ring. Construct the connected–étale\n   sequence of a finite locally free commutative group scheme, functorial, compatible with local\n   base change of henselian local rings. Over a perfect field the sequence splits; for a\n   henselian local base with perfect residue field, this is a splitting of the special fibre,\n   not an assertion that the whole sequence over the local ring splits. Applied to `E₀[pⁿ]`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+          "quote": "**relative Frobenius** `F_{W/K} : W → W^{(p)}` with its function-field pullback and its\n  point-level formula; iterated twists `W^{(p^r)}` and iterated relative Frobenius;\n  compatibility with base change; the factorisation of every isogeny as\n  `φ = φ_sep ∘ F_{W/K}^r` with uniqueness and the degree/separability formulas\n  (AEC II.2.12); and **Verschiebung** `V` as the dual of relative Frobenius, with"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+          "quote": "- **The ordinary/supersingular dichotomy, defined geometrically.** For elliptic `E` over **any**\n  field `K` of characteristic `p > 0`, `E` is **supersingular** when `E[p](Kˢᵉᵖ) = O` and\n  **ordinary** otherwise (`IsSupersingular`, `IsOrdinary`; AEC V.3.1(i)). ⚠ The\n  definition is the geometric one and **not** a congruence on the trace: it is the notion that\n  makes sense over an arbitrary field of characteristic `p`, where there is no `a_q` at all, and"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#7c-formal-completion-at-the-zero-section",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
+      ],
+      "detail": "Modular Curves 7C constructs the formal group Ê of an elliptic curve over a complete local ring, the parameter X with completed local ring A[[X]], coordinate changes X ↦ uX + ⋯ and the p-series; 8C uses the series [a](X). Elliptic Curves Layer 1 constructs the elliptic formal group law Ê over the coefficient ring, as an instance of Mathlib's RingTheory/FormalGroup, with [m] on Ê. Over a local base E has a global Weierstrass model, so both describe the same formal group law in the parameter z = −x/y. The reviewed AUDIT-12 and pinned source show that the equation-level formal group law has already landed in Tau Ceti; it is not a future EC deliverable.",
+      "recommendation": "rescope",
+      "proposal": "MC 7C keeps intrinsic formal completion, the conormal-line trivialization and compatibility with the scheme group law. In a Weierstrass parameter import WeierstrassCurve.formalGroup, isComm_formalGroup and map_formalGroup from Tau Ceti f790474 (FormalGroup/Basic.lean), then prove the coordinate comparison. The [m]-series and its comparison with the scheme morphism remain obligations: the existing formal-group carrier alone does not prove them. Do not rebuild the coordinate addition series or add a dependency waiting for it.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#7c-formal-completion-at-the-zero-section",
+          "quote": "with the scheme group law and with complete local base change. After choosing a parameter—that is,\na trivialisation of the conormal line—construct an isomorphism of the completed local ring with\n`A[[X]]`; prove that another parameter acts by a power series `X↦uX+⋯` with `u∈Aˣ`, and state all\ncoordinate formulae equivariantly under this change. In the chosen coordinate identify the\ncompleted divisor `n[0]` with `(Xⁿ=0)`. Relate the formal `p`-series to Frobenius and Verschiebung."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+          "quote": "- **The formal group — four milestones with four different hypothesis sets, not one.**\n  (i) The elliptic formal group *law* `Ê` over the coefficient ring, from expanding the group\n  law at `O` (AEC IV.1), as an instance of Mathlib's `RingTheory/FormalGroup`; `[m]` on `Ê`.\n  (ii) The formal logarithm and exponential, over a coefficient ring containing `ℚ`\n  (characteristic-zero hypotheses only here). (iii) Convergence: over a complete valued"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ],
+      "detail": "Modular Curves Layer 10 builds the Tate curve over ℤ[1/N]((q)) with T[N], its [Γ₀(N)]-structures and formal cusp parameters (KM 8.7–8.11, 10.8). Elliptic Curves Layer 4 defines the Tate-curve coefficients a₄ and a₆ as q-series over ℤ⟦q⟧, proves the divisibility by 12, and gives Δ(q) and j(q) = 1/q + 744 + ⋯ before specialising to complete fields. The integral Weierstrass equation over ℤ⟦q⟧ and its Δ and j identities belong to both. Modular Curves states that EC's uniformisation L^×/q^ℤ ≅ E_q(L) is not a supplier, which is correct for the uniformisation itself.",
+      "recommendation": "rescope",
+      "proposal": "Share EC 4’s integral coefficient-series construction before valued-field specialization: a4,a6 in Z[[q]], coefficientwise divisibility by 12, and discriminant identities. j(q) is Laurent, and the equation over Z[[q]] has singular special fibre at q=0; call it an elliptic curve only after inverting q so its discriminant becomes a unit. MC 10 imports those coefficients through its projective-scheme adapter over Z[1/N]((q)) and keeps torsion subgroup schemes, level structures, integral closures and formal cusp parameters. EC’s point-level analytic uniformization is not a supplier of these scheme-theoretic conclusions.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "8.7–8.11 and 10.8, built here as its own milestone**: the groups `T[N]` and the Tate curve\n   over `ℤ[1/N]((q))` with its subgroup schemes and `[Γ₀(N)]`-structures, the integral closure\n   of the `q`-adic local ring in the corresponding level cover, and the resulting formal\n   parameters along `Cusps_H`, with the cusp count as the orbit count of KM 10.6's cusp-labels.\n   ⚠ The elliptic-curves roadmap's Tate strand — uniformisation `L^× / q^ℤ ≅ E_q(L)` over a"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+          "quote": "milestones. The coefficients are explicit `q`-series **defined over `ℤ⟦q⟧` first**:\n  `a₄ = −5s₃(q)` and, for `a₆`, the series `−(5s₃ + 7s₅)/12` — where the divisibility of the\n  numerator's coefficients by `12` is a **theorem** (so the division happens in `ℤ⟦q⟧`, and\n  only then is the series mapped to `K`; no division by `12` in the field, which residue\n  characteristics `2` and `3` would forbid), `s_k(q) = Σ_{n≥1} n^k qⁿ/(1 − qⁿ)` — convergent"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ],
+      "detail": "Modular Curves 2A proves three things: K(projModel W) ≃ W.toAffine.FunctionField; morphisms from an integral scheme to a separated target that agree at the generic point are equal; and a nonconstant finite morphism of smooth projective integral curves over a field is finite flat, with fibre length equal to the function-field degree. Algebraic Curves Layer 12 (12B–12D) proves the general normalisation, generic-point and anti-equivalence statements, and names isogenies of W.FunctionField as its acceptance instance. 2A is the elliptic special case, kept narrow on purpose.",
+      "recommendation": "keep",
+      "proposal": "Keep MC 2A’s deliberately narrow elliptic bridge. Import the existing equation-level degree theorem directly from the pin and existing generic-point extensionality under its reducedness/separatedness hypotheses; keep the missing model/function-field and relative-flatness comparisons explicit. AC 12’s general curve/function-field dictionary must agree with this bridge on elliptic models when available. No reverse prerequisite from AC’s final layer and no expansion of MC into arbitrary-isogeny comparison.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+          "quote": "4. Compute the field-level degree as `N²` by the narrow function-field bridge below.\n5. Deduce that every geometric fibre has length `N²` and is nonempty, and hence that `[N]` is\n   surjective.\n6. Prove the curve-flatness lemma used here: a finite morphism between `S`-smooth relative curves\n   whose geometric fibres all have the same length is finite locally free. Derive it from the local"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "- **12C — morphisms and the anti-equivalence.**\n  *Prerequisites*: 12A–12B and the universal property of normalization.\n  *Categories*: on the field side, field extensions with\n  `Algebra.EssFiniteType k F` and `Algebra.trdeg k F = 1` (equivalently Layer 0's\n  `IsFunctionField k F`), with `k`-embeddings; on the geometric side, integral regular"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+        "ModularCurvesPartII:R13.3"
+      ],
+      "detail": "Modular Curves Layer 10 builds the formal-cusp package: the Tate curve over ℤ[1/N]((q)) with T[N] and [Γ₀(N)]-structures, the integral closure of the q-adic local ring, formal parameters, cusp widths 1 and N, and the cusp count as orbits of KM 10.6 cusp labels. It separates the non-reduced cusp fibre, its reduced locus and its Cartier structure, and handles ramification and stabilisers in characteristics 2 and 3. ModularCurvesPartII R13.3 extends the Tate curve to generalised elliptic curves, computes completed local rings and cusp widths, and records ramification and stabilisers in characteristics 2 and 3. It separates the same three cusp-fibre assertions. On the prime-level diamond class over ℤ[1/N] both compute the same objects.",
+      "recommendation": "rescope",
+      "proposal": "R13.3 imports Layer 10's formal-cusp package on that class (N ≥ 5 prime, H ≤ (ℤ/Nℤ)ˣ/{±1}, over ℤ[1/N]), as R12.3 already does for the compactification. It adds only the boundary data of generalised elliptic curves, composite and small levels, and primes dividing the level. Prove that the formal parameters agree where both are defined; do not recompute Layer 10's cusp widths or its table of stabilisers in characteristics 2 and 3.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "8.7–8.11 and 10.8, built here as its own milestone**: the groups `T[N]` and the Tate curve\n   over `ℤ[1/N]((q))` with its subgroup schemes and `[Γ₀(N)]`-structures, the integral closure\n   of the `q`-adic local ring in the corresponding level cover, and the resulting formal\n   parameters along `Cusps_H`, with the cusp count as the orbit count of KM 10.6's cusp-labels.\n   ⚠ The elliptic-curves roadmap's Tate strand — uniformisation `L^× / q^ℤ ≅ E_q(L)` over a"
+        },
+        {
+          "stageId": "ModularCurvesPartII:R13.3",
+          "quote": "Extend the Tate curve to the generalised-elliptic setting, classify boundary level data and compute completed local rings, cusp widths and the Hodge line. Prove the formal comparison used in the q-expansion principle. Record ramification and stabilisers, including characteristics 2 and 3. The finite-flat cusp fibre, its reduced locus, and its Cartier structure are distinct assertions."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+        "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+        "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+        "AbelianSchemesAndArithmeticModuli:A3"
+      ],
+      "detail": "AbelianSchemesAndArithmeticModuli A3 constructs fppf quotients of abelian schemes by finite locally free subgroups, and isogenies with their duals. It shows that [n] is finite locally free of rank n^{2g}, étale when n is invertible, and builds the Weil pairing A[n] × A∨[n] from Cartier duality. In relative dimension one these are Modular Curves 2B (E/C), 2A (E[N] of rank N²) and 2E (the Cartier–Nishi pairing and e_N). A1 and A2 require comparisons with #81's elliptic curves and Picard/Poincaré construction; A3 states none.",
+      "recommendation": "keep",
+      "proposal": "Keep both: the genus-one routes in Modular Curves are upstream and specific. Add genus-one comparison lemmas to A3, as A1 and A2 already have. A/C should agree with 2B's E/C, and the rank-n^{2g} theorem should specialise to 2A. The pairing A[n] × A∨[n] composed with λ_E should agree with 2E's e_N, with the sign fixed. The roadmap's completion test, which compares elliptic Weil pairings through both APIs, then becomes a theorem.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+          "quote": "8. Define `E[N]` as the scheme-theoretic kernel and prove that it is finite locally free of rank\n   `N²`, with arbitrary base change.\n9. Compute the differential of `[N]` at the identity and prove that `[N]`, hence `E[N]`, is étale\n   where `N` is invertible."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+          "quote": "Define an isogeny to be a finite locally free surjective group-scheme homomorphism of elliptic\ncurves. For a finite locally free subgroup scheme `C ⊆ E`, construct the quotient by the following\nfixed route."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+          "quote": "For an isogeny `φ : E ⟶ E'`, restrict the Poincaré biextension to construct the Cartier–Nishi pairing"
+        },
+        {
+          "stageId": "AbelianSchemesAndArithmeticModuli:A3",
+          "quote": "For a finite locally free subgroup, construct the fppf quotient abelian scheme and prove its universal property, flatness, and base-change compatibility. Construct isogenies and their duals. Prove that `[n]` is finite locally free of rank `n^(2g)` for `n≠0` on a relative-dimension-`g` component, and is étale precisely under the appropriate invertibility condition."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+        "AbelianSchemesAndArithmeticModuli:A4"
+      ],
+      "detail": "Modular Curves 7F ST-1 formalises the Serre–Tate equivalence: deformations of E₀ over artinian local W(k)-algebras are equivalent to deformations of E₀[p^∞]. Its source, Katz's Serre–Tate local moduli, Theorem 1.2.1, is stated for abelian schemes. AbelianSchemesAndArithmeticModuli A4 proves the Serre–Tate equivalence for abelian schemes with endomorphism and polarization structures. The same theorem is planned twice.",
+      "recommendation": "rescope",
+      "proposal": "Preserve upstream MC 7F’s elliptic Serre–Tate equivalence and ST-2–ST-5. A4 generalizes the deformation statement to abelian schemes with endomorphism and polarization structures, using the common p-divisible API, and proves its specialization agrees with MC 7F through the A1 genus-one equivalence. It owns the additional structures and tangent comparison via Grothendieck–Messing. Do not make upstream MC wait for A4 or re-plan MC’s elliptic proof as a specialization of a future campaign theorem.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+          "quote": "1. **ST-1, the Serre–Tate equivalence.** For `R` artinian local as above and `E₀/k`, the functor\n   `E/R ↦ E[p^∞]` is an equivalence from the groupoid of deformations of `E₀` over `R` to the\n   groupoid of deformations of `E₀[p^∞]` over `R`, functorially in `R` and compatibly with the\n   identifications of special fibres. KM invoke this by name and do not prove it (p. 134); the\n   proof source is Katz, *Serre–Tate local moduli*, Theorem 1.2.1, added to §References."
+        },
+        {
+          "stageId": "AbelianSchemesAndArithmeticModuli:A4",
+          "quote": "Import p-divisible groups, Cartier duality and connected–étale sequences from R07.1–R07.2, and Grothendieck–Messing deformation theory from R07.6 of [FiniteFlatGroupsAndIntegralPadicHodgeTheory](../FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md). Prove the Serre–Tate equivalence for deformations of abelian schemes with endomorphism and polarization structures; identify its tangent map with the Hodge filtration. The group-theoretic deformation category is the imported one."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+        "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "detail": "Modular Curves 0G constructs the relative Grassmannian of locally free rank-N quotients (affine charts, transition maps, gluing, universal property). It then cuts out Hopf-ideal loci to get the parameter scheme of rank-N subgroup schemes. 0F represents Weil restriction of affine finitely presented X → Z along finite locally free Z → S by an affine scheme. AlgebraicModuliForArithmeticGeometry R09.1 constructs Grassmannians with their universal properties, and its handoff lists the chart equations, universal quotient, flattening locus and gluing. R09.3 owns Weil restriction along finite locally free bases as an algebraic space (Stacks 05YC/05YF). Both roadmaps claim the relative Grassmannian scheme and Weil restriction.",
+      "recommendation": "rescope",
+      "proposal": "Build the relative Grassmannian once. AM's summary says to 'Reassign any item already claimed by a live supplier rather than duplicate it', so AM R09.1 should import MC 0G's relative Grassmannian and universal quotient. AM then adds projective bundles, flag schemes, Hilbert polynomials and boundedness. MC 0G keeps the Hopf-ideal equations and the parameter scheme of subgroup schemes. AM R09.3 states its algebraic-space Weil restriction as an extension of MC 0F's affine case, with a comparison lemma.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+          "quote": "Construct the representable Hom functors used in Layer 3. The required general result is the\nfinite-locally-free Weil-restriction case: if `Z ⟶ S` is finite locally free and `X ⟶ Z` is affine\nof finite presentation, the functor of `Z`-morphisms is represented by an affine `S`-scheme.\nDeduce the special cases representing:"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+          "quote": "relative Grassmannian of locally free rank-`N` quotients of its Hopf algebra. Cut out the unit,\nmultiplication, counit, comultiplication, antipode, and Hopf-ideal equations as closed loci. Prove\nthat the relative spectrum of the universal quotient is a finite locally free subgroup scheme of\n`G`, has rank `N`, and commutes with arbitrary base change. The resulting parameter scheme is\nprojective and finitely presented over `S`, with the stated universal subgroup. It is not asserted"
+        },
+        {
+          "stageId": "AlgebraicModuliForArithmeticGeometry:R09.1",
+          "quote": "Construct projective bundles, Grassmannians and flag schemes with their quotient/subbundle universal properties, universal sheaves and base-change laws. Include relative ampleness and very ampleness, Hilbert polynomials and boundedness statements in the exact Noetherian setting later used. Prove the closedness of the equations defining invariant subbundles and Frobenius-stable lattices. R05 consumes this layer, not the later arithmetic moduli."
+        },
+        {
+          "stageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+          "quote": "For each Hilbert/Quot application fix the projective morphism, coherent sheaf, Hilbert polynomial and base category. Construct the Grassmannian chart equations, universal quotient, flattening locus and gluing; extract the actual universal family. R09.3 additionally owns Weil restriction as an algebraic space for finite locally free bases, with the Stacks 05YC base-change map and 05YF representability proof."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "SchemeAndStackFoundations:SF.1",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ],
+      "detail": "MC 0E and StableReduction 2 both explicitly plan effective descent of projective relative curves equipped with descended relatively ample invertible sheaves; AlgebraicModuli R09.3 also names polarized projective objects. SF.1 is only an umbrella promise of effective descent for required objects, not a precise theorem identifying a fourth polarized construction. Descent of morphisms does not by itself imply effectiveness for objects, and descending a line bundle is different from descending the scheme carrying it.",
+      "recommendation": "rescope",
+      "proposal": "Keep the existing MC 0E polarized-curve theorem as the concrete supplier and coordinate its common scope with upstream StableReduction 2 via a named compatibility contract. Campaign R09.3/SF.1 import the applicable existing cases and add broader polarized projective-scheme or stack results with explicit hypotheses and compatibility. Do not transfer MC ownership to SF.1 or expand MC’s scope by fiat. Always carry the relatively ample bundle and its descent datum; retain SR’s separate contraction descent.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+          "quote": "- affine schemes;\n- finite locally free schemes and closed subschemes;\n- sections and morphisms;\n- projective relative curves equipped with a compatibly descended relatively ample line bundle;\n- group objects and homomorphisms on an underlying scheme already descended by one of these\n  effective cases;\n- the group law and all group axioms;\n- finite locally free subgroup schemes and equalities of Cartier divisors;\n- level structures;\n- finite group actions and torsors."
+        },
+        {
+          "stageId": "AlgebraicModuliForArithmeticGeometry:R09.3",
+          "quote": "Construct étale equivalence-relation quotients, their morphisms, fibre products and properties needed for coarse modular curves and relative moduli. Compare with the finite étale quotient construction of #81 instead of replacing it. Prove effective descent for the sheaves, finite flat groups, polarisations and projective objects used by the arithmetic applications. Separate descent of a line bundle from descent of an object equipped with that line bundle."
+        },
+        {
+          "stageId": "SchemeAndStackFoundations:SF.1",
+          "quote": "**Construct and export.** Prove effective fpqc/fppf descent for the required objects, algebraic-space quotients, representable diagonals and atlas independence. Separate a moduli functor from a stack and a coarse space from a fine moduli object."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+          "quote": "- Build effective étale descent for schemes equipped with a compatible relatively ample\n  invertible sheaf: descend the graded quasi-coherent section algebra and recover the scheme\n  by relative `Proj`. Include descent of morphisms, sections, multiplication, and the\n  polarization, with cocycle and base-change coherence. Do not use effectiveness of arbitrary\n  scheme descent without a polarization or invoke a moduli stack."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+        "AlgebraicModuliForArithmeticGeometry:R09.5"
+      ],
+      "detail": "Modular Curves 9D constructs coarse moduli schemes M(𝒫) of affine moduli problems over Ell. It takes quotients 𝕄(𝒫,δ)/G by Galois rigidifiers ([Γ(3)] on D(3), [Γ(4)] on D(2)), glues them, proves the classifying map and the bijection on field points, and proves KM 8.1.5–8.1.6 on quotients and base change; 9E adds the coarse j-line. AlgebraicModuliForArithmeticGeometry R09.5 proves that coarse spaces exist for the finite-inertia and quotient presentations used in the programme, with exact base-change statements. It also adds or removes auxiliary level prime to the characteristic to rigidify automorphisms. Its required checks compare the coarse j-line with the moduli stack of elliptic curves. For elliptic moduli problems these are the same constructions.",
+      "recommendation": "rescope",
+      "proposal": "AM R09.5 keeps the general coarse-space theorem for stacks with finite inertia (generalised elliptic curves, abelian schemes). It proves that on Modular Curves' affine problems over Ell this recovers 9D's M(𝒫) and its base-change statements, rather than rebuilding auxiliary-level rigidification for elliptic curves. Its check on the coarse j-line should use 9E's coarseJLine_int.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+          "quote": "For an affine moduli problem `𝒫`, construct `M(𝒫)` as in KM 8.1.1 Zariski-locally on the\ncoefficient ring. On an open where some `N≥3` is invertible, choose a representable finite étale\nGalois rigidifier `δ` with group `G` and set `M(𝒫)=𝕄(𝒫,δ)/G`, the invariant quotient of Layer 0C.\nKM's own examples are the naive problems `[Γ(N)]`, which are `GL₂(ℤ/Nℤ)`-torsors over\n`Ell/ℤ[1/N]` and are representable by KM 4.7.0; over `Spec ℤ` use `[Γ(3)]` on `D(3)` and"
+        },
+        {
+          "stageId": "AlgebraicModuliForArithmeticGeometry:R09.5",
+          "quote": "Prove existence of coarse spaces for the particular finite-inertia/quotient presentations used in this programme, together with the exact base-change statements available. Construct removal or addition of auxiliary prime-to-characteristic level and show how it rigidifies automorphisms. Include normalisation, schematic closure and descent of finite correspondences. Do not infer fine representability by forgetting automorphisms from a coarse object."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#7b-local-algebra-and-local-schemes",
+        "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+        "AlgebraicModuliForArithmeticGeometry:R09.6"
+      ],
+      "detail": "Modular Curves 7B identifies the completed strict-henselian local ring of a rigidified finite moduli scheme at a geometric point with the ring pro-representing the marked deformation groupoid, functorially in the rigidifier. 7D compares the universal deformation over W(k)[[T]] with completed local rings of representing moduli schemes. AlgebraicModuliForArithmeticGeometry R09.6 relates the deformation functor at a geometric point to the completed local ring of the constructed scheme or stack, including stabilisers and versality. 7B and 7D are the elliptic case.",
+      "recommendation": "keep",
+      "proposal": "Keep 7B and 7D as the concrete Katz–Mazur statements; they work with rigidified finite schemes, not stacks. When R09.6 exists, add a lemma showing that it specialises to 7B on rigidified elliptic moduli problems. Use 7B and 7D as R09.6's elliptic acceptance test instead of proving the elliptic case a second time.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#7b-local-algebra-and-local-schemes",
+          "quote": "Apply the strict-henselisation, completion, regularity, openness, support, miracle-flatness, and rank\ntheorems owned by Layer 4D. For a geometric point of a rigidified finite moduli scheme, identify its\ncompleted strict-henselian local ring with the ring prorepresenting the corresponding marked\ndeformation groupoid. Prove that this identification transports the universal family and the level\nstructure and is functorial under a change of rigidifier. This is the local-moduli comparison used\nin the homogeneity and regularity arguments; it does not reconstruct the general local-scheme API."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+          "quote": "For an elliptic curve `E₀` over an algebraically closed field `k` of characteristic `p`, define the\ncategory of complete local noetherian `W(k)`-algebras equipped with an identification of their\nresidue field with `k`. Define a deformation to be an elliptic curve over such an algebra together\nwith an identification of its special fibre with `E₀`, and retain isomorphisms as a groupoid.\nConstruct the universal marked deformation over `W(k)[[T]]`. Prove its universal property,\ncompatibility with rigidification, and comparison with the completed local ring of a representing\nmoduli scheme."
+        },
+        {
+          "stageId": "AlgebraicModuliForArithmeticGeometry:R09.6",
+          "quote": "Relate the deformation functor at a geometric point to the completed local ring of the constructed scheme or stack, including stabilisers and versality. Prove algebraisation statements needed by R10/R13, using the formal geometry of R05 at the relevant layer. Export named universal properties for every parameter space consumed by the arithmetic roadmaps. Any invocation of Artin representability must include its hypotheses and a proof or an assigned supplier of the theorem itself."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+        "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+      ],
+      "detail": "Modular Curves 0B builds, over any base, the category of finite locally free commutative group schemes. It covers kernels with base change, fppf quotients by closed finite locally free subgroups with fppf exactness, and constant and diagonalizable group schemes. It also covers Cartier duality (biduality, rank, base change, exactness, (ℤ/N)^D ≅ μ_N) and the theorem that a group of rank N is killed by N; 0C supplies torsor and equivalence-relation quotients. FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 develops Cartier duality, finite-flat subgroup and quotient constructions, and fpqc descent. Its document calls FFG 'the sole owner of dimension-general finite flat commutative group schemes, Cartier duality and Barsotti–Tate groups'. The same document also says that #81 owns the elliptic subgroup and pairing theory and that FFG extends that work. Ownership of general Cartier duality therefore conflicts.",
+      "recommendation": "rescope",
+      "proposal": "MC 0B/0C retain their upstream arbitrary-base finite locally free theory. All consumers first import the affine-base category and Cartier anti-equivalence already in Tau Ceti f790474, with natural biduality and base change. MC adds the non-affine-base, evaluation/rank/exactness and applicable quotient-representability work. An arbitrary homomorphism’s kernel is a group scheme but need not be finite locally free; quotient representability, flatness and local finite presentation require the stated hypotheses. R07.1 builds on this common theory for connected–etale sequences, closures, Raynaud and p-divisible/Tate-module additions; remove its incompatible sole-ownership claim rather than duplicate duality.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+          "quote": "Construct Cartier duality as a contravariant anti-equivalence on finite locally free commutative\ngroup schemes. Prove evaluation, biduality, preservation of rank, and arbitrary base change. Prove\nexactness for fppf-exact short sequences whose terms are finite locally free, and derive the\nkernel–quotient comparison only under the hypotheses which keep both objects in this category. In\nparticular, prove"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+          "quote": "3. **Finite locally free equivalence relations and free actions.** Prove SGA 3, Exposé V,\n   Théorème 4.1 in the affine case: if `X` is affine and `R ⇉ X` is an equivalence relation whose\n   two projections are finite locally free, then the quotient `X/R` exists, is affine, the map\n   `X ⟶ X/R` is finite locally free and surjective, and `R = X ×_{X/R} X`; hence `X/R` represents\n   the fppf quotient sheaf. Deduce the constant-group case: if a finite constant group acts freely"
+        },
+        {
+          "stageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+          "quote": "Develop Cartier duality, connected–étale sequences over the allowed bases, generic and special fibres, finite-flat subgroup and quotient constructions, and fpqc descent. Define a p-divisible group as compatible finite locally free levels with the exactness and rank conditions. Construct its Tate module and compare duality with the cyclotomic twist. Finite-flat closure of a generic subgroup requires a proof under the correct base hypotheses."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "detail": "Modular Curves 7E schedules a short list of p-divisible-group statements. PD-1 is the tower E[p^∞] with PDivisibleGroupIso. PD-2 is the connected–étale sequence of finite locally free commutative group schemes over henselian local rings, with the ordinary/supersingular dichotomy. PD-3 is Frobenius and Verschiebung. PD-5 classifies E₀[p^∞] over an algebraically closed field using Lazard's height classification, and Dieudonné theory is explicitly excluded. FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 defines p-divisible groups and connected–étale sequences in general. R07.2 proves the Dieudonné classification, including Frobenius and Verschiebung and the ordinary and supersingular cases.",
+      "recommendation": "rescope",
+      "proposal": "Keep MC 7E’s KM-scoped PD-1–PD-5. R07.1 imports matching finite-level and henselian connected–etale results and extends the p-divisible interface; R07.2 adds Dieudonne classification and compares its ordinary/supersingular elliptic specializations with PD-2/PD-5. The connected–etale splitting is on the special fibre over a perfect residue field, not automatically over the whole henselian base. Neither Dieudonne theory nor general Oort–Tate classification becomes a prerequisite for MC’s limited route.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+          "quote": "2. **PD-2, connected–étale.** Base: a henselian local ring. Construct the connected–étale\n   sequence of a finite locally free commutative group scheme, functorial, compatible with local\n   base change of henselian local rings. Over a perfect field the sequence splits; for a\n   henselian local base with perfect residue field, this is a splitting of the special fibre,\n   not an assertion that the whole sequence over the local ring splits. Applied to `E₀[pⁿ]`"
+        },
+        {
+          "stageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+          "quote": "Develop Cartier duality, connected–étale sequences over the allowed bases, generic and special fibres, finite-flat subgroup and quotient constructions, and fpqc descent. Define a p-divisible group as compatible finite locally free levels with the exactness and rank conditions. Construct its Tate module and compare duality with the cyclotomic twist. Finite-flat closure of a generic subgroup requires a proof under the correct base hypotheses."
+        },
+        {
+          "stageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+          "quote": "Construct Dieudonné modules over perfect residue fields and prove the classification in the covariant or contravariant convention chosen above. Include Frobenius/Verschiebung, dimensions, heights, slopes and the ordinary/supersingular cases. Supply the deformation results needed for p-divisible groups over nilpotent thickenings. Field-valued abelian varieties are imported from JacobianChallenge/R10; their p-divisible groups are an application."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori"
+      ],
+      "detail": "Both roadmaps contain historical affine Hopf dictionary, kernels and diagonalizable-group plans. At Mathlib 082e2d3, hopfSpec is fully faithful with affine essential image; Tau Ceti f790474 assembles the anti-equivalence and supplies affine-base finite locally free Cartier duality. The overlapping affine foundation is library reuse, not new work to allocate between roadmaps. RG’s general noncommutative affine groups and positive-dimensional quotients are broader than MC’s finite commutative theory.",
+      "recommendation": "rescope",
+      "proposal": "Import TauCeti.commHopfAlgCatOpEquivAffineGroupSchemeCat and the existing affine-base Cartier duality, preserving their affine-base hypotheses. Reuse existing affine kernel/diagonalizable interfaces after checking each target, rather than rebuilding them. MC keeps arbitrary-base finite locally free extensions and quotient representability with hypotheses. RG retains its general affine-group, reductive-quotient and torus extensions; do not replace them by finite commutative special cases. Neither upstream roadmap is re-planned, and the full anti-equivalence is not misattributed to a new Mathlib construction.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+          "quote": "Develop the affine-group-scheme/Hopf-algebra anti-equivalence from `Group/Affine.lean` and the\ncategory of finite locally free commutative group schemes. Construct scheme-theoretic kernels of arbitrary homomorphisms and\nprove their base-change property, but do not assert that such a kernel is always finite locally\nfree: its rank can jump. For a closed finite locally free subgroup `C ⊆ G`, construct the fppf\nquotient under the representability hypotheses of Layer 0C and prove that the resulting sequence\nis exact as a sequence of fppf sheaves. Construct separately the constant finite group scheme and\nthe diagonalizable group scheme:"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+          "quote": "antipode. Assemble these into a full **anti-equivalence**\n  `(CommHopfAlg k)ᵒᵖ ≌ AffGrpSch k` (finite-type/smooth kept as predicates, not baked into\n  the category) and a third equivalence with representable group functors. (Consume\n  `CoalgCat/ComonEquivalence`, `Grp_`, `CommAlgCat`; the Toric route gives one direction\n  once available.)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+          "quote": "`ε(I)=0`, `S(I) ⊆ I`; the quotient Hopf algebra `A/I`; the anti-equivalence; kernels.\n- **Normality and quotients:** normal = Hopf ideal stable under the adjoint coaction\n  (needs the conjugation/adjoint morphism at Hopf level). The quotient `G/H` is first the\n  **fppf sheaf quotient**; whether it is represented by a scheme (and when by an *affine*\n  one, e.g. `H` reductive, by Matsushima) is a **theorem with hypotheses**, not automatic."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+          "quote": "- **Diagonalizable groups and groups of multiplicative type:** the anti-equivalence\n  `M ↦ D(M) = Spec k[M]` between finitely generated abelian groups and diagonalizable\n  groups; `μ_n = D(ℤ/n)`, `𝔾_m = D(ℤ)`; the non-smooth example `μ_p` in characteristic `p`.\n  (*Cartier duality* proper is the duality of **finite locally free** commutative group\n  schemes, a related but distinct statement to develop separately.)"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+        "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+        "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+        "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+        "EllipticKTheory:E.1"
+      ],
+      "detail": "EllipticKTheory E.1 constructs, for an elliptic Weierstrass equation over a field, the smooth projective scheme with its section at infinity. It proves smoothness and properness and identifies the function field. It compares F-points and the group law with Mathlib's point group, and compares function-field isogenies with scheme morphisms. Modular Curves already supplies most of this. 1A gives the scheme model over any ring, with properness, smoothness and base change. 1B gives the dictionary for field points, and 1D the agreement of the group law with Mathlib's on field-valued fibres. 2A gives the function-field identification and the bridge for [N].",
+      "recommendation": "rescope",
+      "proposal": "E.1 imports MC 1A/1B/1D/2A over a field and proves the required adapters and consequences on that same model. Smoothness, properness and geometric connectedness come from the upstream elliptic model/presentation package; regularity needs its smooth-over-a-field algebraic-geometric justification, not a second curve construction. General divisor pullbacks and arbitrary-isogeny comparison use AC 12. Retain only the K-theory-specific interface and missing comparisons; remove the competing scheme-specialization ownership claim.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+          "quote": "For `W : WeierstrassCurve R`, construct the projective cubic"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+          "quote": "1. Over a field and under `W.IsElliptic`, sections of `projModel W ⟶ Spec K` are naturally\n   equivalent to `W.toAffine.Point`, with infinity corresponding to the zero section. Without\n   ellipticity the latter type omits singular affine points: for `y² = x³` over `𝔽₅`, the\n   projective cubic has six rational points but `W.toAffine.Point` has five. A dictionary for\n   a singular model must use its full point set or restrict the scheme side to its smooth locus."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+          "quote": "Define `EllipticCurve S` by equipping `EllipticCurveGeom S` with this canonical commutative group\nstructure. Use Mathlib's result from `AlgebraicGeometry/Group/Abelian.lean` when it applies, rather\nthan reproving commutativity from scratch. Uniqueness among all compatible group structures follows\nin Layer 2D from the theorem that pointed morphisms are automatically homomorphisms."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+          "quote": "4. Compute the field-level degree as `N²` by the narrow function-field bridge below.\n5. Deduce that every geometric fibre has length `N²` and is nonempty, and hence that `[N]` is\n   surjective.\n6. Prove the curve-flatness lemma used here: a finite morphism between `S`-smooth relative curves\n   whose geometric fibres all have the same length is finite locally free. Derive it from the local"
+        },
+        {
+          "stageId": "EllipticKTheory:E.1",
+          "quote": "For an elliptic Weierstrass equation over a field F, construct its smooth projective scheme with the specified section at infinity. Prove the affine-chart equations, smoothness, properness, geometric connectedness, regularity and the identification of its function field. Compare scheme-valued F-points and their group law with the existing Weierstrass point group."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+      ],
+      "detail": "Modular Curves 0D constructs, over a field K, the equivalence between finite étale K-schemes and finite continuous Gal(K^s/K)-sets. It proves that the equivalence preserves products and transports group objects, commutative group objects, homomorphisms and alternating pairings, as 5C needs for V_ρ. InverseGaloisAndArithmeticFundamentalGroups IG.0 constructs the profinite automorphism group of the geometric fibre functor on finite étale covers and its equivalence with finite continuous sets. Its acceptance test is 'Recover the absolute Galois group for Spec K'. The equivalence over Spec K is built twice.",
+      "recommendation": "rescope",
+      "proposal": "IG.0 owns the general Galois-category equivalence for connected schemes, and its acceptance test for Spec K reuses MC 0D. MC 0D keeps the transport of group objects, homomorphisms and alternating pairings, and may later be re-derived from IG.0. Record one lemma comparing the two normalisations of the fibre functor.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+          "quote": "Over a field `K`, construct the equivalence between finite étale `K`-schemes and finite continuous\n`Gal(Kˢ/K)`-sets. Prove that it preserves products and transports group objects, commutative group\nobjects, homomorphisms, and alternating pairings. This is the input for `V_ρ` in Layer 5C."
+        },
+        {
+          "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+          "quote": "**Construction:** Construct the profinite automorphism group of the geometric fibre functor on finite étale covers, together with its equivalence to finite continuous sets. Treat connected components and base-point change as explicit equivalences."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+        "DeformationAndDerivedPatchingAlgebra:R03.1"
+      ],
+      "detail": "Modular Curves 7D defines the category of complete local noetherian W(k)-algebras whose residue field is identified with k, the deformation groupoid over it, and the universal deformation over W(k)[[T]]. DeformationAndDerivedPatchingAlgebra R03.1 constructs coefficient categories, with presentations as inverse limits of Artinian quotients, continuous maps from power-series rings and completed tensor products. Both define the same coefficient category C_{W(k)}.",
+      "recommendation": "rescope",
+      "proposal": "Keep MC 7D’s upstream coefficient category over W(k), with k algebraically closed/perfect as required and its residue-field identification. R03.1 generalizes coefficient-ring and completed-tensor APIs and identifies its W(k) instance with this category, including continuous morphisms and Artinian-quotient compatibility. A coefficient category restricted to finite residue fields cannot be substituted here. Do not make MC’s universal deformation wait for the campaign category or silently duplicate it.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+          "quote": "For an elliptic curve `E₀` over an algebraically closed field `k` of characteristic `p`, define the\ncategory of complete local noetherian `W(k)`-algebras equipped with an identification of their\nresidue field with `k`. Define a deformation to be an elliptic curve over such an algebra together\nwith an identification of its special fibre with `E₀`, and retain isomorphisms as a groupoid.\nConstruct the universal marked deformation over `W(k)[[T]]`. Prove its universal property,\ncompatibility with rigidification, and comparison with the completed local ring of a representing\nmoduli scheme."
+        },
+        {
+          "stageId": "DeformationAndDerivedPatchingAlgebra:R03.1",
+          "quote": "Construct the coefficient categories and prove presentation as inverse limits of Artinian quotients. Develop continuous maps from power-series rings, completed tensor products over O, residue-field extension, and descent/ascent of finite generation. State exactly when completed tensor products remain Noetherian and local. Nilpotent ideals, small extensions, and square-zero extensions receive explicit APIs used by the deformation functors."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas"
+      ],
+      "detail": "Modular Curves Layer 10 counts the geometric cusps of X_H: m_H of each width 1 and N, counted as orbits of KM 10.6 cusp labels. It also locates the ramification of X₁(N) → X₀(N) over j = 1728 (present iff N ≡ 1 mod 4) and over j = 0 (present iff N ≡ 1 mod 3). ModularForms Layer 10A computes cusp orbits Γ\\ℙ¹(ℚ), ε∞ and the elliptic-point counts ε₂ and ε₃ for congruence subgroups on the analytic curve X(Γ). For the prime-level diamond class the same combinatorial counts appear on algebraic and analytic carriers.",
+      "recommendation": "keep",
+      "proposal": "Keep both carriers; ModularForms explicitly declines algebraic moduli. Prove the group-theoretic counts for Γ_H (N ≥ 5 prime) once, as a combinatorial lemma on (ℤ/Nℤ)ˣ-orbits and elliptic fixed points, and cite it from both layers. ModularCurvesPartII R12.3 compares the resulting cusp sets.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "parameters along `Cusps_H`, with the cusp count as the orbit count of KM 10.6's cusp-labels.\n   ⚠ The elliptic-curves roadmap's Tate strand — uniformisation `L^× / q^ℤ ≅ E_q(L)` over a\n   complete rank-one valued field — is a *different, point-level object* and is **not** a\n   supplier for this formal calculation; the two are related, and neither substitutes for the\n   other."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas",
+          "quote": "cofiniteness, identify its cusp-orbit subtype with `Γ\\ℙ¹(ℚ)`, and compute the **cusp count**\n  `ε∞` and **elliptic-point counts** `ε₂, ε₃` (periods `2, 3`, counted in the effective\n  `PSL₂(ℤ)`-image). Define the cohomological genus only after the `H¹`-finiteness theorem\n  below, then identify it with the generic genus used by the shared Riemann–Hurwitz theorem. These\n  arithmetic counts and this comparison, not a second compactification, are built in this layer."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+        "ReductiveGroupsPartII:RG2.0a"
+      ],
+      "detail": "Both construct affine Weil restriction along a finite locally free base map. Their common scope is affine finitely presented X; RG2.0a also states a broader finite-type scope and group-theoretic properties.",
+      "recommendation": "rescope",
+      "proposal": "RG2.0a imports the upstream MC 0F representing object and arbitrary-base-change theorem on the common scope, then extends it with its finite-type and reductive-group/Deligne-torus contracts. Compare universal properties and coherence rather than construct a second affine representing algebra. Keep nonaffine representability and inseparable reductivity outside this imported claim.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+          "quote": "Construct the representable Hom functors used in Layer 3. The required general result is the\nfinite-locally-free Weil-restriction case: if `Z ⟶ S` is finite locally free and `X ⟶ Z` is affine\nof finite presentation, the functor of `Z`-morphisms is represented by an affine `S`-scheme.\nDeduce the special cases representing:"
+        },
+        {
+          "stageId": "ReductiveGroupsPartII:RG2.0a",
+          "quote": "Own restriction of scalars for affine finite-type schemes along a finite locally free base map, and its finite-separable-field specialization. Define the functor on points by T ↦ Hom over S′ from T×S S′ to X. On a free affine chart construct its representing algebra by expanding generators and relations in a basis; prove the universal property, basis independence, descent across changes of trivialization and preservation of finite type. Prove finite presentation when X/S′ is finitely presented, in particular over the relevant noetherian/field bases; finite type alone over an arbitrary base does not suffice. Affine representability is sufficient for the reductive-group and Deligne-torus consumers; arbitrary nonaffine schemes require a separately proved representability hypothesis, not an assertion that all Weil restrictions are schemes. Source: Stacks [restriction of scalars](https://stacks.math.columbia.edu/tag/05Y8) and its affine relative-morphism construction."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    }
+  ],
+  "examined": [
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "links",
+      "note": "Focal roadmap: full document (Scope, Conventions, Layers 0–10, Mazur interface, dependency order, worked examples, references, provenance, API hygiene) and all 58 stage descriptions read. Inputs and outputs of each stage recorded in the job's scratch notes; there were no prior stageEdges. Independent review: current stage contracts reread; see review and completenessSpotChecks for corrected edges and ownership."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "overlap",
+      "note": "Introduction, standing hypotheses, inventories and Layers 0, 3, 4 read; Layer 9 keyword-screened. Overlap with 0B (Hopf dictionary, kernels and quotients, D(M)/μ_n, Cartier duality; rescope)."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none",
+      "note": "Summary and stage contexts read. The λ-uniformisation ℍ/Γ(2) is analytic; 4C's Legendre problem is algebraic moduli."
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none",
+      "note": "Summary and CN.3 read. Curves and modular forms come via ModularCurvesPartII R12.5 and R14.1."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "note": "Summary and QM.6 read. Uses ModularCurvesPartII R12.3 only."
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none",
+      "note": "Summary, stage list and keyword contexts read. Generic analytification of group schemes; no Modular Curves stage is used."
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "none",
+      "note": "Summary, stage list and H1:henselian read. Affinoid henselisation, not 4D's strict henselisation of schemes."
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "none",
+      "note": "Summary and keyword contexts read. The elliptic-curve checks consume EllipticCurves, not Modular Curves."
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "links",
+      "note": "Full document and all stages read. Explicit links 1C, 1D → A1; 2D → A2; 1D, 2E → A5. Overlaps: 2A/2B/2E vs A3 (genus-one case; keep with comparison lemmas), 7F vs A4 (Serre–Tate; rescope)."
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "links",
+      "note": "Full document and all stages read. Explicit link 0C → R09.3. Overlaps: 0F/0G vs R09.1/R09.3 (Grassmannian, Weil restriction), 0E vs R09.3 (polarised descent), 9D vs R09.5 (coarse spaces), 7B/7D vs R09.6 (deformation/completed local ring; keep)."
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none",
+      "note": "C0–C6 read. C4 supplies statement (iii) of Modular Curves 5C's external connectedness contract ('as required by PR81 §5C'), but no Modular Curves stage consumes it: 5C keeps it as a hypothesis and the consumer is ModularCurvesPartII R12.4. The sentence in 5C 'No roadmap in this repository owns these statements' is now out of date."
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none",
+      "note": "Summary and CM.1 read. 'Matches the existing elliptic scheme' is ambiguous between 1D (via AbelianSchemes A5) and EllipticKTheory E.1, so no link."
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "links",
+      "note": "Full document read. Explicit link 2A → R07.5. Overlaps: 0B/0C vs R07.1 (conflicting ownership of Cartier duality; rescope), 7E vs R07.1/R07.2 (p-divisible groups, Dieudonné; rescope)."
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "overlap",
+      "note": "Summary, stage list and IG.0 read. Overlap with 0D (finite étale schemes and Galois sets over a field; rescope)."
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "links",
+      "note": "New roadmap; summary, LV.2 and LV.5 read, stage list screened. Inferred links 4C → LV.2 and 4C → LV.5 (Legendre family over ℤ[1/2][t, 1/(t(1−t))]). Independent review: current stage contracts reread; see review and completenessSpotChecks for corrected edges and ownership."
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none",
+      "note": "Summary and keyword contexts read. Néron models of abelian varieties; Modular Curves excludes Néron models."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "links",
+      "note": "Scope, conventions, Layers 7–12, ordering, contract table and coordination read; Layers 0–6 keyword-screened. Explicit links from Layers 7, 8, 9 and 12 into Layer 10 item 3, named by Modular Curves. Overlap: 2A's narrow function-field bridge vs Layer 12 (keep). AC's contract table does not yet list Modular Curves as a consumer of Layers 7–9."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "none",
+      "note": "Ownership passages and keyword contexts read. 'X(Γ), modular curves, and everything q-expansion-flavoured stay in ModularForms'; the Lenstra route avoids j."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "links",
+      "note": "Header, conventions, Mathlib inventories and Layers 0–5 read in full; Layers 6–8, ordering and provenance read in targeted passages. Explicit links: Layer 1 (deg [n] = n², Aut(E,O)) and Layer 2 (Weil pairing). Overlaps: supersingular and F/V (L1/L3 vs 7E, keep), formal group (L1 vs 7C), Tate q-series (L4 vs Layer 10). Layer 8 assigns modular degree and Manin constant to 'a modular-curves roadmap'; Modular Curves does not own them."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "links",
+      "note": "Full document and all six layers read. Layers A–C are the named suppliers: explicit links into 0A, 1C, 2D and Layer 10. Layer D overlaps 2D (Picard functor over a base; rescope). Layers E–F are not used."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "overlap",
+      "note": "Summary, stage list and keyword contexts in all stages read. Layer 2's polarised effective descent belongs to the descent overlap with 0E."
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "overlap",
+      "note": "Summary, stage list and R03.1–R03.3 read. Overlap: R03.1 vs 7D (coefficient category; rescope). R03.3's Cohen–Macaulay theory is adjacent to 4D's miracle flatness but not identical."
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "overlap",
+      "note": "All SF stages read. SF.1 (effective fpqc/fppf descent) belongs to the polarised-descent overlap with 0E."
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none",
+      "note": "Summary and keyword contexts read. Eisenstein ideal for U(3,1) Klingen families; Beilinson–Flach classes on modular curves via ModularCurvesPartII."
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none",
+      "note": "Summary and keyword contexts read. Hilbert and CM Igusa theory; no Modular Curves stage."
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none",
+      "note": "Summary and GH.0 read. Universal families and compactifications are attributed to ModularCurvesPartII."
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none",
+      "note": "Summary, GZ.3, GZ.6 and GZ.7 read. Curves come via ModularCurvesPartII R14. GZ.3 constructs modular degrees and Manin constants, closing the gap left by EllipticCurves Layer 8."
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "links",
+      "note": "Summary and HE.0–HE.2 read; stage list screened. Inferred link 9E → HE.1 (CM cyclic-isogeny pairs as points of Y₀(N))."
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "none",
+      "note": "Summary and I.5 read. The Eisenstein ideals there are Hilbert and Mazur–Wiles, not X₀(N)."
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "links",
+      "note": "Full document read. Inferred link 5B → L0 (Siegel units on the integral affine curve); analytic–algebraic comparison via ModularCurvesPartII R12.2."
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none",
+      "note": "Summary and keyword contexts read. Modularity comes from its owning roadmap."
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none",
+      "note": "Summary and keyword contexts in all stages read. Heegner, Gross–Zagier and Kato routes; curves come through the owning roadmaps."
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none",
+      "note": "Summary and R15.1–R15.3 read. It names ModularCurvesPartII R12–R14 as geometric supplier. Its Hasse invariant and Frobenius/Verschiebung need generalised elliptic curves, which go beyond 7E."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "links",
+      "note": "Full document read. Explicit link 2B → R01.6 (scheme isogenies); the document assigns the scheme comparison to #81 and AlgebraicCurves."
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "none",
+      "note": "Summary and B4 read. The GL₂ Hodge line comes through Shimura varieties; no exact match."
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none",
+      "note": "Summary and keyword contexts read. No modular-curve geometry is used directly."
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "links",
+      "note": "Full document read. Explicit link 1B → R29.6 (scheme model of E for X₀(N_E) → E). X₀(N_E) at composite level comes from ModularCurvesPartII."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none",
+      "note": "Summary and keyword contexts read. Lubin–Tate and p-divisible deformation spaces of unitary type."
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none",
+      "note": "Stage list and keyword contexts read. GL₂ comparisons go through ModularCurvesPartII R12.2 and ShimuraVarieties V8."
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "links",
+      "note": "Summary and keyword contexts read. Hilbert/abelian route; the elliptic O(1) check does not use Modular Curves stages. Independent review: current stage contracts reread; see review and completenessSpotChecks for corrected edges and ownership."
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none",
+      "note": "Summary and keyword contexts read. Central leaves of PEL type, not Katz–Mazur Igusa curves."
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "links",
+      "note": "Full document and all 20 stages read. Thirteen explicit links (R12.1–R12.4, R13.1, R13.2, R13.4a, R14.1). Overlap between Layer 10's formal-cusp package and R13.3 (rescope). No links from this roadmap back into Modular Curves, since 5C keeps connectedness as a hypothesis."
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "links",
+      "note": "Full document read. Explicit link 5B → M5 (genus-one comparison, determinant/Weil-pairing convention)."
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none",
+      "note": "Summary, L0 and L0a read. Its modular geometry is ModularCurvesPartII R14.1; 'integral level structures and diamond actions' on the ordinary tower do not match any Modular Curves stage exactly."
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "links",
+      "note": "S1–S6 read. Explicit link 5B → S5 (tower from #81's curves, fixed Weil-pairing components)."
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none",
+      "note": "Summary and keyword contexts read. Twisted Hilbert–Blumenthal moduli and Moret-Bailly; Y(ρ) is not used."
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none",
+      "note": "Summary and R20.2/R20.5 contexts read. Bad models come through ModularCurvesPartII R13 and R14."
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "links",
+      "note": "All stages read. Explicit link Layer 10 → C6 (comparison restricted to the prime diamond class). C4 takes generalised elliptic curves from ModularCurvesPartII, not from Modular Curves."
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "links",
+      "note": "V0, V1, V8, V8.general and document mentions read. Explicit links 5B, 5A, 9E → V8. The compactification comparison goes through ModularCurvesPartII R13.4a/b."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "overlap",
+      "note": "Scope, Layer 0 and Layer 10A/10B read, with keyword contexts in all layers. Its analytic Γ\\ℍ adds 'no competing quotient carrier, functor, representability claim, or algebraic moduli problem'. Small overlap: cusp and elliptic-point counts (keep)."
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "overlap",
+      "note": "E.1 read, E.6 in context. E.1 rebuilds the scheme model of a Weierstrass equation over a field, the points comparison and the isogeny comparison (overlap with 1A/1B/1D/2A; rescope)."
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "none",
+      "note": "Summary, ER.7 and KU-modularparam read. Modular units and parametrisations come via ModularCurvesPartII R14.6 at general level."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none",
+      "note": "Scope and ownership read. Analytic quotients only; 'proves no GAGA equivalence'."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "none",
+      "note": "Summary and stage keyword screen (group schemes, Cartier duality, modular curves, level structures). None of Modular Curves' objects is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Unrelated to elliptic moduli; keyword matches (e.g. Legendre transform, Bessel J₀) were noise."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Unrelated to elliptic moduli; keyword matches (e.g. Legendre transform, Bessel J₀) were noise."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Unrelated to elliptic moduli; keyword matches (e.g. Legendre transform, Bessel J₀) were noise."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Unrelated to elliptic moduli; keyword matches (e.g. Legendre transform, Bessel J₀) were noise."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Unrelated to elliptic moduli; keyword matches (e.g. Legendre transform, Bessel J₀) were noise."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Unrelated to elliptic moduli; keyword matches (e.g. Legendre transform, Bessel J₀) were noise."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Unrelated to elliptic moduli; keyword matches (e.g. Legendre transform, Bessel J₀) were noise."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Unrelated to elliptic moduli; keyword matches (e.g. Legendre transform, Bessel J₀) were noise."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Unrelated to elliptic moduli; keyword matches (e.g. Legendre transform, Bessel J₀) were noise."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Adelic and automorphic carriers; no scheme-theoretic modular-curve use."
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Adelic and automorphic carriers; no scheme-theoretic modular-curve use."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Adelic and automorphic carriers; no scheme-theoretic modular-curve use."
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Adelic and automorphic carriers; no scheme-theoretic modular-curve use."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Adelic and automorphic carriers; no scheme-theoretic modular-curve use."
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Adelic and automorphic carriers; no scheme-theoretic modular-curve use."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "links",
+      "note": "Summary and stage keyword screen. Adelic and automorphic carriers; no scheme-theoretic modular-curve use. Independent review: current stage contracts reread; see review and completenessSpotChecks for corrected edges and ownership."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Adelic and automorphic carriers; no scheme-theoretic modular-curve use."
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none",
+      "note": "Summary and stage keyword screen. General cohomology theories; where elliptic curves appear, they are acceptance examples taken from EllipticCurves."
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Diamonds, local Langlands and affine Grassmannians; no link."
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. No Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Function-field analogues (Drinfeld modules, shtukas); shared vocabulary only."
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Function-field analogues (Drinfeld modules, shtukas); shared vocabulary only."
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Function-field analogues (Drinfeld modules, shtukas); shared vocabulary only."
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Function-field analogues (Drinfeld modules, shtukas); shared vocabulary only."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve inputs, where present, come through ModularCurvesPartII, KatoEulerSystems or HeegnerPointEulerSystems."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Modular-curve geometry comes through ModularCurvesPartII R12–R14, HilbertModularVarieties or ShimuraVarieties; no direct use or duplication."
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none",
+      "note": "Summary and stage keyword screen. K-theory and regulators; no Modular Curves object is used or duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Topological carriers only; the analytic uniformisation in 5C's contract is owned by ModularCurvesPartII."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Topological carriers only; the analytic uniformisation in 5C's contract is owned by ModularCurvesPartII."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Topological carriers only; the analytic uniformisation in 5C's contract is owned by ModularCurvesPartII."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Topological carriers only; the analytic uniformisation in 5C's contract is owned by ModularCurvesPartII."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Topological carriers only; the analytic uniformisation in 5C's contract is owned by ModularCurvesPartII."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none",
+      "note": "Summary and stage keyword screen. Topological carriers only; the analytic uniformisation in 5C's contract is owned by ModularCurvesPartII."
+    },
+    {
+      "roadmapId": "AnalyticHabiroStack",
+      "result": "none",
+      "note": "Summary and stage keyword screen refreshed. No exact additional finite elliptic-scheme supplier/consumer contract established. Analytic or derived uses of similarly named objects are not identified with MC finite locally free constructions.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    },
+    {
+      "roadmapId": "AnalyticStacks",
+      "result": "none",
+      "note": "Summary and stage keyword screen refreshed. No exact additional finite elliptic-scheme supplier/consumer contract established. Analytic or derived uses of similarly named objects are not identified with MC finite locally free constructions.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    },
+    {
+      "roadmapId": "QWittVectors",
+      "result": "none",
+      "note": "Summary and stage keyword screen refreshed. No exact additional finite elliptic-scheme supplier/consumer contract established. Analytic or derived uses of similarly named objects are not identified with MC finite locally free constructions.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    },
+    {
+      "roadmapId": "RingStacksAndTransmutation",
+      "result": "links",
+      "note": "Summary and stage keyword screen refreshed. RS.0 read in full: affine Weil-restriction example imports MC 0F; stack transmutation remains its own work.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    },
+    {
+      "roadmapId": "SolidAnalyticRings",
+      "result": "none",
+      "note": "Summary and stage keyword screen refreshed. No exact additional finite elliptic-scheme supplier/consumer contract established. Analytic or derived uses of similarly named objects are not identified with MC finite locally free constructions.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    }
+  ],
+  "provenance": {
+    "jobId": "LINK-tauceti_TauCetiRoadmap_ModularCurves",
+    "worker": "Claude Opus 5 (1M context), unattended link job",
+    "date": "2026-09-16",
+    "atlasEdition": "2026-09-15-comprehensive-roadmap-revision",
+    "atlasSha256": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
+    "focalDocumentSha256": "18da17ea4e8b66b9cfc2a2227f99b5c5aeae4ecb52afd97cbccd72ed29c2e2e6",
+    "repositorySnapshotHead": "faa5423b925964415cc926802ab206567719d3f4",
+    "libraryVerification": "No declaration-source verification was needed or performed; links concern roadmap text only."
+  },
+  "deduplicatedLinks": [
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json",
+      "reason": "Same directed pair already recorded there; retain its supplier contract and avoid a second edge in this packet.",
+      "preservedEvidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+          "quote": "**The Hurwitz genus formula** (Thm. 3.4.13 — no perfectness consumed)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "owns the different divisor, Dedekind's different theorem, and the Hurwitz genus formula\n   (its Layer 7)"
+        }
+      ],
+      "originalLink": 11
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json",
+      "reason": "Same directed pair already recorded there; retain its supplier contract and avoid a second edge in this packet.",
+      "preservedEvidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+          "quote": "**Hilbert's different formula `d(P′∣P) = ∑_{i≥0} (|G_i| − 1)`**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "the lower-numbering ramification groups `G_i(P′∣P)` with **Hilbert's\n   different formula** `d(P′∣P) = Σ_{i≥0}(|G_i| − 1)` (its Layer 8"
+        }
+      ],
+      "originalLink": 12
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json",
+      "reason": "Same directed pair already recorded there; retain its supplier contract and avoid a second edge in this packet.",
+      "preservedEvidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+          "quote": "**The comparison theorem** (IV.3): the derivation `δ(x) := Cotr_{F/k(x)}(η)` into\n  Weil differentials"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "and the Kähler-differential comparison (its Layer 9)"
+        }
+      ],
+      "originalLink": 13
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json",
+      "reason": "Same directed pair already recorded there; retain its supplier contract and avoid a second edge in this packet.",
+      "preservedEvidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "**12C — morphisms and the anti-equivalence.**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "its Layer 12 dictionary carries those function-field statements to the smooth proper\n   fibres used here, one connected component at a time"
+        }
+      ],
+      "originalLink": 14
+    }
+  ],
+  "libraryReuse": [
+    {
+      "originalLink": 8,
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+      "library": "Tau Ceti f790474",
+      "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Degree.lean",
+      "declarations": [
+        "TauCeti.Isogeny.degree_mulByIntIsogenyOfNeZero"
+      ],
+      "scope": "For an elliptic Weierstrass equation over a field and every nonzero integer n, the equation-level isogeny has degree n.natAbs^2, including inseparable cases. Import this result now. MC 2A still owns the scheme/function-field bridge, relative flatness and rank of E[N]; the library theorem does not discharge them.",
+      "preservedEvidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+          "quote": "base-change compatibility, and **`deg [n] = n²`** (AEC III.6.2)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+          "quote": "consume the equation-level theorem `deg [N] = N²` from\nthe Elliptic Curves roadmap, including its division-polynomial and inseparable cases."
+        }
+      ]
+    },
+    {
+      "originalLink": 10,
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "library": "Tau Ceti f790474",
+      "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+      "declarations": [
+        "WeierstrassCurve.autGroup",
+        "WeierstrassCurve.autGroupMulEquiv"
+      ],
+      "scope": "The VariableChange stabilizer carrier exists over any commutative ring; over a field, with IsElliptic and j different from 0 and 1728, its group is Multiplicative (ZMod 2). Layer 10 imports these through its scheme/equation comparison. Its exceptional characteristic-2/3 groups, actions and normalizers remain new. No need to wait for an endomorphism-ring presentation to use the existing stabilizer carrier.",
+      "preservedEvidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+          "quote": "**`Aut (E, O)` is built here too**, as the units of the endomorphism ring over the field at\n  hand"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "the elliptic-curves\nroadmap's `Aut(E)` carrier — the characteristic-`2`/`3` classification"
+        }
+      ]
+    }
+  ],
+  "completenessSpotChecks": [
+    {
+      "stage": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+      "terms": "Cartier duality; finite locally free",
+      "finding": "Added finite-level Hodge–Tate use in T0. Existing A3/A4/FFG overlaps retain common ownership. Habiro HS.2 analytic Cartier duality is a different contract."
+    },
+    {
+      "stage": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+      "terms": "Weil restriction; restriction of scalars",
+      "finding": "Added RG2.0a common-scope dependency/overlap and RS.0 finite-etale affine example. Arbitrary nonaffine restrictions are not supplied."
+    },
+    {
+      "stage": "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+      "terms": "Weierstrass; genus one; presentation",
+      "finding": "A1 comparison already recorded; E.1 duplication remains an overlap. No new exact edge."
+    },
+    {
+      "stage": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+      "terms": "multiplication; finite locally free; torsion",
+      "finding": "R07.5 retained. Equation-level degree already in the pin; remove L8 as a pending supplier."
+    },
+    {
+      "stage": "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+      "terms": "Legendre; rigidifier",
+      "finding": "LV.2 good-model input retained; replace stale LV.5 edge by LV.6. Legendre symbol/convex duality matches rejected."
+    },
+    {
+      "stage": "tauceti:TauCetiRoadmap/ModularCurves#7c-formal-completion-at-the-zero-section",
+      "terms": "formal group; completion",
+      "finding": "Coordinate formal group already in Tau Ceti; intrinsic completion/comparison remains MC. Correct overlap O3, no artificial future edge."
+    },
+    {
+      "stage": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+      "terms": "Serre–Tate; deformation",
+      "finding": "A4 generalization must compare with the upstream elliptic case. Igusa IG.0 needs PEL/p-divisible data beyond MC; no blanket MC supplier edge."
+    },
+    {
+      "stage": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "terms": "cusp; Aut(E); normalization; modular curve",
+      "finding": "Four AC suppliers already recorded in their packet; existing Aut stabilizer/generic classification are library imports. Preserve prime-level diamond scope; full/composite compactifications belong to Part II."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ModularCurves",
+    "date": "2026-09-23",
+    "notes": "Independently reviewed all 46 original links and 19 overlaps, all 58 focal stages and reviewed AUDIT-12. Corrected 34 whitespace-normalized quotations, repaired one stale endpoint, deduplicated four AC pairs and replaced two already-built supplier edges by pinned library reuse. Added three missing directed contracts plus the retargeted Legendre edge and one overlap; refreshed all 217 active roadmap entries. 36 retained explicit labels lowered conservatively: reciprocal naming is not established by both texts. Upstream ownership, affine/general-base duality, generalized smooth-base restriction and formal/analytic Tate scope corrected. See report for validation and limits.",
+    "removed": [
+      {
+        "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "target": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+        "reason": "Required equation-level result already exists at the pin; see libraryReuse."
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+        "reason": "Required equation-level result already exists at the pin; see libraryReuse."
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+        "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+        "reason": "Already in AlgebraicCurves packet."
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+        "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+        "reason": "Already in AlgebraicCurves packet."
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+        "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+        "reason": "Already in AlgebraicCurves packet."
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+        "reason": "Already in AlgebraicCurves packet."
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+        "target": "MordellLawrenceVenkatesh:LV.5",
+        "reason": "LV.5 is surface topology; Legendre construction moved to LV.6."
+      }
+    ],
+    "added": [
+      {
+        "source": "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+        "target": "MordellLawrenceVenkatesh:LV.6"
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+        "target": "ReductiveGroupsPartII:RG2.0a"
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+        "target": "RingStacksAndTransmutation:RS.0"
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+        "target": "HodgeTateAndCanonicalSubgroups:T0"
+      }
+    ]
+  },
+  "reviewProvenance": {
+    "agent": "Codex",
+    "session": "codex-hjdg0j",
+    "date": "2026-09-23",
+    "baseCommit": "5d009add6178a4852be5cbe7ca5987e07f80a1f3",
+    "libraryAudit": "AUDIT-12 / REV-AUDIT-12; all 58 focal entries",
+    "mathlibPin": "082e2d3",
+    "tauCetiPin": "f790474",
+    "note": "Original author/provenance retained as history. Library source verification was performed by this review; the original no-verification statement does not describe this review."
+  }
+}

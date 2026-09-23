@@ -1,0 +1,1294 @@
+{
+  "family": "RS-14",
+  "roadmaps": {
+    "DirichletPadicLFunctions": {
+      "action": "keep",
+      "reason": "Retain the explicit rational-field arithmetic spine: Bernoulli/Mellin comparisons, Kubota–Leopoldt and all tame characters, branches/logarithmic values/poles, dyadic corrections, and the measure-valued Eisenstein expansion. Import existing classical carriers and the generic analytic suppliers; these arithmetic constructions are not already supplied by them."
+    },
+    "AutomorphicPadicLFunctions": {
+      "action": "extend",
+      "extends": "DirichletPadicLFunctions",
+      "title": "Dirichlet p-adic L-functions, special values, and Eisenstein measures, Part II: Ray-class and automorphic interpolation",
+      "reason": "DirichletPadicLFunctions is the first roadmap prerequisite. Its rational-field pseudomeasures, tame-character construction and Eisenstein measure are the boundary, not targets to construct again. Start beyond that boundary with global-unit descent on general ray-class limits, BSW GL2/F evaluation, Deligne–Ribet over totally real fields, ordinary Katz, and the distinct EHLS/Hsieh/Eischen–Wan branches; prove compatibility with the imported rational cases. Other geometric and modular-symbol suppliers remain prerequisites. The first-roadmap ordering does not add artificial dependencies between unrelated proof stages."
+    }
+  },
+  "layers": {
+    "DirichletPadicLFunctions:L0": {
+      "action": "narrow",
+      "keeps": "Own RJW Theorem 2.4's actual Mellin continuation argument, decay and differentiation proofs and its Bernoulli/smoothing application; compare the imported generalized Bernoulli quantities with complex L-values and prove algebraicity through chosen complex and p-adic embeddings. Reuse the already proved zeta(0) and negative-zeta, Gauss-inversion and character/conductor APIs. Own the explicit identification of the existing Dedekind series with AL.1's meromorphic germ, its simple-pole proof and equality of residue with the existing real class-number limit, without repeating the unit-volume calculation. Instantiate the imported rational idele/infinity-type dictionary in RJW 2.9/2.11 and prove normalization commutativity. All original positive and exceptional-conductor tests survive.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+        "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+        "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic"
+      ],
+      "reason": "Generalized Bernoulli and finite Fourier/Gauss data for character Eisenstein series belong to the existing ModularForms layer; classical Dirichlet continuation, Euler-factor and conductor interfaces belong upstream to Mathlib (the owners the accepted RS-07 named when it dropped AnalyticNumberTheory:AN.1), general adelic continuation to AL.1, and idele characters/infinity types to GlobalNumberFields. Specific source proof routes and residue/embedding comparisons remain here. These supplier plans are not declarations that the missing parts are built."
+    },
+    "DirichletPadicLFunctions:L1": {
+      "action": "narrow",
+      "keeps": "Construct F_a(T)=1/T-a/((1+T)^a-1) integrally by cancellation for a>1 prime to p, instantiate the Amice inverse, and prove its moments, psi-invariance and the unit-restriction Euler factor. Construct x^-1 Res(mu_a), verify the regular-denominator and compatibility hypotheses of the shared pseudo-measure construction, and prove the resulting zeta_p is independent of a. Prove interpolation for every k>=1, keeping the k=1 zero Euler factor with zeta(0)=-1/2, odd-p parity/descent and smoothed/characterwise denominator-qualified Kummer congruences. Preserve the separate integral dyadic normalization and all scalar-extension maps.",
+      "suppliedBy": [
+        "PadicMeasuresIwasawaAlgebras:L2",
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "reason": "Import generic Mahler–Amice operators and localized pseudo-measure existence/evaluation instead of reimplementing them. Arithmetic cancellation, moment formulas and the actual smoothing-regularity witnesses remain here. Evaluation is only on the localization with nonvanishing character denominator, not every element of the total quotient ring."
+    },
+    "DirichletPadicLFunctions:L2": {
+      "action": "narrow",
+      "keeps": "Construct the actual p-power-character twists of the arithmetic measures and prove their roots-of-unity/Gauss calculation using the shared operator identities. Construct integral zeta_eta for primitive tame conductor D>1 prime to p; prove RJW 5.1/5.7, primitive-conductor evaluation at p, the separate trivial-character branch, coefficient-field descent/scalar extension, and primitive/imprimitive Euler-factor comparisons, including every exercise calculation in the existing contract.",
+      "suppliedBy": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "reason": "The generic twisting/restriction/roots-of-unity operators are supplied once by PM L2. Their arithmetic Gauss computation and all tame-character measures are retained here."
+    },
+    "DirichletPadicLFunctions:L3": {
+      "action": "narrow",
+      "keeps": "On the imported character components and compatible normalized logarithm, construct the Dirichlet branches and prove RJW 5.17/5.20. Own the complex cyclotomic-log L(1,chi) formula and Leopoldt's Theorem 6.1, including pure p-power conductor and exact Gauss/root-of-unity conventions. Prove Theorem 7.1's trivial-component pole, numerator evaluation, convergence, auxiliary log nonvanishing, division by its simple zero, residue 1-p^-1 in the specified s-coordinate and its coordinate-change law. Retain the integral p=2 construction with ±1 times (1+4Z_2). Export the k=1 formula to ColemanIntegration L3; do not import that later polylogarithm-value theorem.",
+      "suppliedBy": [
+        "ColemanIntegration:L0",
+        "LocallyAnalyticDistributions:L3"
+      ],
+      "reason": "ColemanIntegration L0 supplies the common analytic log_p(p)=0 and branch-change theory; LAD L3 supplies analytic Mellin coordinates/component operations. This layer owns the specific L-value and residue formulas. The direction Coleman L0 -> Dirichlet L3 -> Coleman L3 avoids a circular positive-value proof."
+    },
+    "DirichletPadicLFunctions:L4": {
+      "action": "narrow",
+      "keeps": "Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus"
+      ],
+      "reason": "The existing ModularForms layer owns classical character Eisenstein series, their generalized Bernoulli/Gauss translation and exceptional-weight conventions. The new measure and its arithmetic congruences remain here and supply the rational Deligne–Ribet comparison."
+    },
+    "DirichletPadicLFunctions:KU-zeta": {
+      "action": "keep",
+      "reason": "Retain the source-unit checkpoint, its L0/AL.1 aggregation and H KU-existing prerequisite, and every original consumer/edge. It is not a second zeta construction or a completion claim."
+    },
+    "AutomorphicPadicLFunctions:L0": {
+      "action": "narrow",
+      "keeps": "Construct the inverse-limit ray-class quotient at fixed tame modulus and p-power conductor from the existing finite groups/maps; retain the closure of global units and torsion, and prove the dimension formula with the Leopoldt defect. Instantiate global reciprocity and the generic character/distribution constructions on that actual quotient. Construct algebraic/p-adic avatars through embeddings and prove compatibility with the imported complex characters, infinity types and conductors. Own finite-level evaluation, descent, norm/twist/tame-change maps and the conditional cohomological evaluation principle with actual lifts, norm relations and growth/uniqueness hypotheses; no universal existence axiom.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "PadicMeasuresIwasawaAlgebras:L0a",
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "LocallyAnalyticDistributions:L3"
+      ],
+      "reason": "Finite ray groups, complex Hecke characters/infinity types and global Artin reciprocity have fixed Tau Ceti owners. PM L0a owns rigid representability/universal characters; PM L1 owns completed-group-ring measure algebra; LAD L3 supplies the analytic Mellin/evaluation refinement. The arithmetic inverse-limit quotient, unit descent and application-specific hypotheses are new, not a second copy of those foundations."
+    },
+    "AutomorphicPadicLFunctions:L1": {
+      "action": "narrow",
+      "keeps": "Retain the imported arithmetic quotient, Borel–Serre, Hecke-local-system, automorphic-cohomology and GL2 L-function carriers. Own BSW's evaluation cycles in degree r1+r2, signs, rational/period structures and Theorem 5.7 over general F. Prove the F=Q identification with the existing modular-symbol period lines and critical-value formula, including orientation, character inverses, Gauss factors and all period choices; do not reconstruct the rational modular-symbol theorem.",
+      "suppliedBy": [
+        "ModularSymbolsPadicLFunctions:L1"
+      ],
+      "reason": "The rational-field critical-value theorem is owned by ModularSymbols L1. General-field construction and the comparison of actual cycles/maps are retained, not replaced by a black-box abstract interpolation hypothesis."
+    },
+    "AutomorphicPadicLFunctions:L2": {
+      "action": "narrow",
+      "keeps": "Construct BSW's distribution coefficient systems, actual specialized cohomology, eigenlifts, automorphic cycles and evaluations over F. Prove control for admissible (k,v), k+2v parallel, with h_q<(min_{sigma|q}k_sigma+v_q(lambda)+1)/e_q, normalized U_q, source p-level conditions and a coefficient field containing the embeddings/eigenvalues. Prove unit descent, distribution/norm relations, per-place growth and Theorem 11.1 with individually specified sign, discriminant, Gauss, refined-eigenvalue, period and Euler factors. Compare the constructed F=Q instance to imported modular symbols, and retain Hilbert/nonparallel-admissible and Bianchi tests. General-field families retain their cohomological-control/nonabelian-Leopoldt hypotheses; a single-form theorem does not prove them.",
+      "suppliedBy": [
+        "ModularSymbolsPadicLFunctions:L2",
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "reason": "Import the rational small-slope/eigenlift/interpolation theorem and the group-independent compact-operator/Fredholm machinery. BSW's ramified, multivariable coefficient estimates and arithmetic control theorem remain new."
+    },
+    "AutomorphicPadicLFunctions:L3": {
+      "action": "narrow",
+      "keeps": "Own Deligne–Ribet over general totally real F: algebraicity of partial zeta values, Hilbert Eisenstein construction on canonical geometric objects, integral congruences, bounded denominators, smoothing and Euler factors. Import the rational zeta_p, all tame-character measures and Eisenstein measure from Dirichlet L1/L2/L4 and prove equality on the actual F=Q character domain with identical normalizations. Retain any Shintani realization as a proved computational comparison. For ordinary CM type, import CM abelian varieties/reflex data and the canonical geometric expansion/Igusa inputs; own the Katz-specific ordinary deformation/lift where not supplied, differential operators, CM periods, Eisenstein measure, critical-character evaluation and all required integral comparisons. Do not infer mixed-characteristic Igusa lifts from the special-fiber theorem, or extend Katz to nonordinary CM primes/all infinity types. Export one actual Deligne–Ribet object to IntegralIwasawa I.3, which owns its Stickelberger dictionary.",
+      "suppliedBy": [
+        "DirichletPadicLFunctions:L1",
+        "DirichletPadicLFunctions:L2",
+        "DirichletPadicLFunctions:L4",
+        "ShimuraVarieties:V5",
+        "AutomorphicBundles:B5",
+        "IgusaVarietiesAndTorsionConcentration:IG.1"
+      ],
+      "reason": "The three distinct rational-field overlap leads all point from Dirichlet into this comparison, never in reverse. CM theory and generic geometric expansion/Igusa constructions have canonical owners. Missing Katz/Hilbert source-specific integral hypotheses stay explicit here rather than being declared supplied by a broader name."
+    },
+    "AutomorphicPadicLFunctions:L3h": {
+      "action": "keep",
+      "reason": "Retain Hsieh published Theorems A–C and section 6 in full: actual toric test vectors, CM evaluations and square-root distribution, its square's central-value interpolation, squarefree n-minus and Hypothesis A root numbers, p-ordinary CM type without assuming pi ordinary, and every extra unramified-p/residual/character-image-order/conductor condition for mu=0 and nonvanishing. Preserve finite-exception versus higher-dimensional Zariski-density distinction and all congruence/GH/BSD consumers. Katz/EHLS do not replace this theorem."
+    },
+    "AutomorphicPadicLFunctions:L4": {
+      "action": "narrow",
+      "keeps": "Instantiate the canonical unitary PEL variety, bundles, compactifications, extensions, expansions and special-fiber Igusa tower in EHLS's exact datum; prove all additional source-specific mixed-characteristic ordinary lifts, coherent-cohomology/base-change/integrality conditions not supplied by those contracts. Own ordinary Hecke modules and pairings, differential operators, Eisenstein measure, doubling embedding, global identity and ramified/p-adic local calculations. Prove Main Theorem 9.2.2 for the stated anti-holomorphic cuspidal ordinary representation, tame type, coefficient modules and bases, retaining Hypotheses 7.3.2/7.3.3 and Proposition–Hypothesis 7.3.5. The output stays in the specified completed Iwasawa–Hecke/period-module tensor product with its congruence and local factors; no blanket freeness/Gorenstein/minimality assumption is discharged by generic geometry.",
+      "suppliedBy": [
+        "PELModuli:M5",
+        "ShimuraCompactifications:C2",
+        "ShimuraCompactifications:C5",
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B5",
+        "IgusaVarietiesAndTorsionConcentration:IG.1"
+      ],
+      "reason": "Make the document's canonical-ownership instruction explicit at stage level: import existing geometry, then prove the EHLS-specific arithmetic construction and every additional integral instance. IG.1 supplies only its stated special-fiber/finite-level geometry, not a characteristic-zero ordinary tower by itself."
+    },
+    "AutomorphicPadicLFunctions:L4e": {
+      "action": "keep",
+      "reason": "Retain the distinct Eischen–Wan arXiv:1404.7153v2 vector-valued finite-slope Klingen construction, auxiliary character/refinement/integral sections and exact local/global interpolation over the imaginary-quadratic field at odd split p. Theorem 5.8/Corollary 5.9's constant-term divisibility remains restricted to r=2. Preserve imports from PadicFamilies L2a and the outgoing L2/L2s/BSD.6a handoffs. Neither ordinary EHLS nor a general eigenvariety proves this construction; congruence/Galois-class arguments remain AutomorphicCongruences' work."
+    },
+    "AutomorphicPadicLFunctions:L5": {
+      "action": "narrow",
+      "keeps": "Own comparisons of periods, coefficient extensions and primitive/imprimitive normalizations between all constructed analytic instances, and their relationship to L0's conditional evaluation principle. On Selmer L4's explicit realization/criticality data, define once the analytic Coates–Perrin-Riou/Panchishkin existence proposition with critical set, period/refinement/Panchishkin choices and the precise interpolation formula. Export this proposition to ModularIwasawaMainConjectures L5; its Greenberg/arithmetic-main-conjecture propositions and examples remain there. RJW Remark 13.24 remains context, not a universal noncommutative theorem. No existence constructor is introduced.",
+      "suppliedBy": [
+        "SelmerIwasawaCohomology:L4"
+      ],
+      "reason": "Shared realization/criticality and finite-versus-ordinary local-condition comparisons are imported, not redefined. Analytic existence is distinct from Selmer L4's RJW 13.21 arithmetic conjecture; identify their actual input records rather than identifying their conclusions."
+    },
+    "AutomorphicPadicLFunctions:KU-hilberteisenstein": {
+      "action": "narrow",
+      "keeps": "Retain the full original source-unit readiness checkpoint aggregating Automorphic L3 and IntegralIwasawa I.3 with all original prerequisites, consumers and map-level compatibility obligations. Verify that missing Hilbert modular/q-expansion prerequisites are completed at L3 or its named geometric suppliers; no weight-two shortcut and no second construction at this checkpoint.",
+      "suppliedBy": [
+        "AutomorphicPadicLFunctions:L3"
+      ],
+      "reason": "Resolve the checkpoint's 'owns any missing modular-form and q-expansion prerequisites' wording as a readiness obligation for L3's construction. No mathematical target or source-unit edge is dropped."
+    }
+  },
+  "links": [
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "target": "ColemanIntegration:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "ColemanIntegration:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "target": "DirichletPadicLFunctions:KU-zeta",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "DirichletPadicLFunctions:KU-zeta",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "target": "DirichletPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "DirichletPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "target": "DirichletPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "DirichletPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "target": "IntegralIwasawaTheory:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "IntegralIwasawaTheory:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "target": "ModularSymbolsPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "ModularSymbolsPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "target": "SpecialValuesBirchTate:B.1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "SpecialValuesBirchTate:B.1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0. (Review correction: the accepted RS-07 dropped AnalyticNumberTheory:AN.1 and named this upstream owner.)"
+    },
+    {
+      "source": "AutomorphicBundles:B2",
+      "target": "AutomorphicCongruences:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "AutomorphicBundles:B2",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L4; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "AutomorphicBundles:B2",
+      "target": "AutomorphicPadicLFunctions:L4e",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "AutomorphicBundles:B2",
+      "target": "AutomorphicPadicLFunctions:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "AutomorphicBundles:B3",
+      "target": "AutomorphicCongruences:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "AutomorphicBundles:B3",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L4; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "AutomorphicBundles:B3",
+      "target": "AutomorphicPadicLFunctions:L4e",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "AutomorphicBundles:B3",
+      "target": "AutomorphicPadicLFunctions:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "AutomorphicBundles:B5",
+      "target": "AutomorphicCongruences:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "AutomorphicBundles:B5",
+      "target": "AutomorphicCongruences:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "AutomorphicBundles:B5",
+      "target": "AutomorphicCongruences:L5w",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "AutomorphicBundles:B5",
+      "target": "AutomorphicPadicLFunctions:KU-hilberteisenstein",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "AutomorphicBundles:B5",
+      "target": "AutomorphicPadicLFunctions:L3",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L3; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "AutomorphicBundles:B5",
+      "target": "AutomorphicPadicLFunctions:L3h",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "AutomorphicBundles:B5",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3. Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L4; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "AutomorphicBundles:B5",
+      "target": "AutomorphicPadicLFunctions:L4e",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "AutomorphicBundles:B5",
+      "target": "AutomorphicPadicLFunctions:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "AutomorphicBundles:B5",
+      "target": "IntegralIwasawaTheory:I.3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "AutomorphicBundles:B5",
+      "target": "PadicFamilies:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "ColemanIntegration:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "DirichletPadicLFunctions:KU-zeta",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "DirichletPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "DirichletPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "IntegralIwasawaTheory:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "ModularSymbolsPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "SpecialValuesBirchTate:B.1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "AutomorphicPadicLFunctions:L3",
+      "target": "AutomorphicPadicLFunctions:KU-hilberteisenstein",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:KU-hilberteisenstein; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "AutomorphicPadicLFunctions:L3",
+      "target": "IntegralIwasawaTheory:KU-brumerstark",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:KU-hilberteisenstein. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:KU-hilberteisenstein."
+    },
+    {
+      "source": "AutomorphicPadicLFunctions:L3",
+      "target": "IntegralIwasawaTheory:KU-oddmain",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:KU-hilberteisenstein. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:KU-hilberteisenstein."
+    },
+    {
+      "source": "AutomorphicPadicLFunctions:L5",
+      "target": "ModularIwasawaMainConjectures:L5",
+      "reason": "Import the analytic Coates–Perrin-Riou/Panchishkin existence proposition on the common realization data. Keep Greenberg and arithmetic main-conjecture propositions distinct; do not assert existence."
+    },
+    {
+      "source": "ColemanIntegration:L0",
+      "target": "ColemanIntegration:L3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L3."
+    },
+    {
+      "source": "ColemanIntegration:L0",
+      "target": "DirichletPadicLFunctions:L3",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L3; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "ColemanIntegration:L0",
+      "target": "DirichletPadicLFunctions:L4",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L3."
+    },
+    {
+      "source": "ColemanIntegration:L0",
+      "target": "IntegralIwasawaTheory:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "AutomorphicCongruences:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "AutomorphicCongruences:L5w",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "AutomorphicPadicLFunctions:KU-hilberteisenstein",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "AutomorphicPadicLFunctions:L3",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L3; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "AutomorphicPadicLFunctions:L3h",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "IntegralIwasawaTheory:I.3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "PadicFamilies:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "AutomorphicCongruences:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "AutomorphicCongruences:L5w",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "AutomorphicPadicLFunctions:KU-hilberteisenstein",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "AutomorphicPadicLFunctions:L3",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L3; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "AutomorphicPadicLFunctions:L3h",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "IntegralIwasawaTheory:I.3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "PadicFamilies:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L3",
+      "target": "ColemanIntegration:L3",
+      "reason": "The positive-integer polylogarithm-value theorem compares k=1 with the already constructed Leopoldt value; it does not supply the earlier logarithm construction."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L3",
+      "target": "IntegralIwasawaTheory:L0",
+      "reason": "Use the existing complex cyclotomic-log L(1,chi) formula in the unit-regulator determinant, keeping its Gauss/primitive-character normalization."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L4",
+      "target": "AutomorphicCongruences:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L4",
+      "target": "AutomorphicCongruences:L5w",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L4",
+      "target": "AutomorphicPadicLFunctions:KU-hilberteisenstein",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L4",
+      "target": "AutomorphicPadicLFunctions:L3",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L3; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L4",
+      "target": "AutomorphicPadicLFunctions:L3h",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L4",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L4",
+      "target": "IntegralIwasawaTheory:I.3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L4",
+      "target": "PadicFamilies:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "target": "AutomorphicCongruences:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "target": "AutomorphicCongruences:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "target": "AutomorphicCongruences:L5w",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "target": "AutomorphicPadicLFunctions:KU-hilberteisenstein",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "target": "AutomorphicPadicLFunctions:L3",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L3; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "target": "AutomorphicPadicLFunctions:L3h",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3. Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L4; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "target": "AutomorphicPadicLFunctions:L4e",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "target": "AutomorphicPadicLFunctions:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "target": "IntegralIwasawaTheory:I.3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "target": "PadicFamilies:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L3",
+      "target": "AutomorphicPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L3",
+      "target": "AutomorphicPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L0."
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L3",
+      "target": "ColemanIntegration:L3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L3."
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L3",
+      "target": "DirichletPadicLFunctions:L3",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L3; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L3",
+      "target": "DirichletPadicLFunctions:L4",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L3."
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L3",
+      "target": "IntegralIwasawaTheory:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L3."
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4",
+      "target": "AutomorphicPadicLFunctions:L2",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L2; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4",
+      "target": "AutomorphicPadicLFunctions:L3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L2. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L2."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L1",
+      "target": "AutomorphicPadicLFunctions:L1",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L1; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L1",
+      "target": "AutomorphicPadicLFunctions:L2",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L1. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L1."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "AutomorphicPadicLFunctions:L2",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L2; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "AutomorphicPadicLFunctions:L3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L2. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L2."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0a",
+      "target": "AutomorphicPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0a",
+      "target": "AutomorphicPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L0."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0a",
+      "target": "LocallyAnalyticDistributions:L3",
+      "reason": "Use the single rigid character-space representability/universal-character owner; LAD supplies its analytic Mellin refinement, not a second space."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L1",
+      "target": "AutomorphicPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L1",
+      "target": "AutomorphicPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L0."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "AutomorphicPadicLFunctions:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L2. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L2."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "ColemanPowerSeries:L2",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L1. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L1."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "DirichletPadicLFunctions:L1",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L1; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "DirichletPadicLFunctions:L2",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L1. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L1. Import the supplier's precise contract removed from DirichletPadicLFunctions:L2; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "DirichletPadicLFunctions:L3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L2. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L2."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "IntegralIwasawaTheory:I.3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L2. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L2."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L3",
+      "target": "ColemanPowerSeries:L2",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L1. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L1."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L3",
+      "target": "DirichletPadicLFunctions:L1",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L1; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L3",
+      "target": "DirichletPadicLFunctions:L2",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L1. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L1."
+    },
+    {
+      "source": "PELModuli:M5",
+      "target": "AutomorphicCongruences:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "PELModuli:M5",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L4; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "PELModuli:M5",
+      "target": "AutomorphicPadicLFunctions:L4e",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "PELModuli:M5",
+      "target": "AutomorphicPadicLFunctions:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L4",
+      "target": "AutomorphicPadicLFunctions:L5",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L5; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "ShimuraCompactifications:C2",
+      "target": "AutomorphicCongruences:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "ShimuraCompactifications:C2",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L4; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "ShimuraCompactifications:C2",
+      "target": "AutomorphicPadicLFunctions:L4e",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "ShimuraCompactifications:C2",
+      "target": "AutomorphicPadicLFunctions:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "ShimuraCompactifications:C5",
+      "target": "AutomorphicCongruences:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "ShimuraCompactifications:C5",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L4; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "ShimuraCompactifications:C5",
+      "target": "AutomorphicPadicLFunctions:L4e",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "ShimuraCompactifications:C5",
+      "target": "AutomorphicPadicLFunctions:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L4."
+    },
+    {
+      "source": "ShimuraVarieties:V5",
+      "target": "AutomorphicCongruences:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "ShimuraVarieties:V5",
+      "target": "AutomorphicCongruences:L5w",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "ShimuraVarieties:V5",
+      "target": "AutomorphicPadicLFunctions:KU-hilberteisenstein",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "ShimuraVarieties:V5",
+      "target": "AutomorphicPadicLFunctions:L3",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L3; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "ShimuraVarieties:V5",
+      "target": "AutomorphicPadicLFunctions:L3h",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "ShimuraVarieties:V5",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "ShimuraVarieties:V5",
+      "target": "IntegralIwasawaTheory:I.3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "ShimuraVarieties:V5",
+      "target": "PadicFamilies:L5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L3. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L3."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "AutomorphicPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "AutomorphicPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "target": "AutomorphicPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "target": "AutomorphicPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "target": "ColemanIntegration:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "target": "DirichletPadicLFunctions:KU-zeta",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "target": "DirichletPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "target": "DirichletPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "target": "IntegralIwasawaTheory:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "target": "ModularSymbolsPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "target": "SpecialValuesBirchTate:B.1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+      "target": "AutomorphicPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+      "target": "AutomorphicPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "AutomorphicPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from AutomorphicPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "AutomorphicPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through AutomorphicPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from AutomorphicPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "ColemanIntegration:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "DirichletPadicLFunctions:KU-zeta",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "DirichletPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "DirichletPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "IntegralIwasawaTheory:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "ModularSymbolsPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "SpecialValuesBirchTate:B.1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "target": "AutomorphicPadicLFunctions:L3",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L4. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L4."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "target": "ColemanIntegration:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "target": "DirichletPadicLFunctions:KU-zeta",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "target": "DirichletPadicLFunctions:L0",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L0; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "target": "DirichletPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "target": "DirichletPadicLFunctions:L4",
+      "reason": "Import the supplier's precise contract removed from DirichletPadicLFunctions:L4; the narrowed layer retains its source-specific instance, proof obligations and comparison maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "target": "IntegralIwasawaTheory:L0",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "target": "ModularSymbolsPadicLFunctions:L1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "target": "SpecialValuesBirchTate:B.1",
+      "reason": "Direct handoff of the shared prerequisite formerly exposed through DirichletPadicLFunctions:L0. Consume only the stated supplier scope; the original arithmetic export and its edge remain available from DirichletPadicLFunctions:L0."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Generalized Bernoulli quantities and finite Fourier/primitive Gauss translation required by classical character Eisenstein coefficients (reuse existing inversion; prove missing composite-conductor cases at the existing owner)",
+      "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+        "DirichletPadicLFunctions:L0",
+        "DirichletPadicLFunctions:L4"
+      ]
+    },
+    {
+      "target": "Classical complex Dirichlet continuation, completed functional equation and imprimitive Euler-factor API, reusing pinned library declarations",
+      "owner": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "formerly": [
+        "DirichletPadicLFunctions:L0"
+      ]
+    },
+    {
+      "target": "Primitive Dirichlet characters, conductor and orthogonality as used by the Dirichlet p-adic interpolation",
+      "owner": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "formerly": [
+        "DirichletPadicLFunctions:L0"
+      ]
+    },
+    {
+      "target": "General adelic GL1 continuation and trivial-Hecke-character pole; D L0 retains the Dedekind-series/germ/class-number-residue comparison",
+      "owner": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "formerly": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "DirichletPadicLFunctions:L0",
+        "DirichletPadicLFunctions:KU-zeta"
+      ]
+    },
+    {
+      "target": "Complex Hecke/ray characters, local components and conductor dictionary, including the rational Dirichlet identification",
+      "owner": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "AutomorphicPadicLFunctions:L0",
+        "DirichletPadicLFunctions:L0"
+      ]
+    },
+    {
+      "target": "Archimedean character connectedness and algebraic infinity types",
+      "owner": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "AutomorphicPadicLFunctions:L0",
+        "DirichletPadicLFunctions:L0"
+      ]
+    },
+    {
+      "target": "Finite ray-class groups and modulus-transition maps, not their new p-power inverse-limit/unit-closure analysis",
+      "owner": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+        "AutomorphicPadicLFunctions:L0"
+      ]
+    },
+    {
+      "target": "Global Artin reciprocity with its existing arithmetic Frobenius normalization",
+      "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "AutomorphicPadicLFunctions:L0"
+      ]
+    },
+    {
+      "target": "Rigid character-space representability, universal characters and base charts for compact abelian p-adic analytic groups",
+      "owner": "PadicMeasuresIwasawaAlgebras:L0a",
+      "formerly": [
+        "PadicMeasuresIwasawaAlgebras:L0a",
+        "AutomorphicPadicLFunctions:L0",
+        "LocallyAnalyticDistributions:L3"
+      ]
+    },
+    {
+      "target": "Completed group-ring/bounded measure convolution algebra and coefficient extension on the actual profinite group",
+      "owner": "PadicMeasuresIwasawaAlgebras:L1",
+      "formerly": [
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "AutomorphicPadicLFunctions:L0"
+      ]
+    },
+    {
+      "target": "Analytic Mellin transforms, component/evaluation and coordinate-change operations on the shared character space",
+      "owner": "LocallyAnalyticDistributions:L3",
+      "formerly": [
+        "LocallyAnalyticDistributions:L3",
+        "AutomorphicPadicLFunctions:L0",
+        "DirichletPadicLFunctions:L3"
+      ]
+    },
+    {
+      "target": "Generic Mahler–Amice transforms, restriction/twist/roots-of-unity, phi/psi and multiplication by x or x^-1 on units",
+      "owner": "PadicMeasuresIwasawaAlgebras:L2",
+      "formerly": [
+        "PadicMeasuresIwasawaAlgebras:L2",
+        "DirichletPadicLFunctions:L1",
+        "DirichletPadicLFunctions:L2"
+      ]
+    },
+    {
+      "target": "Generic commutative pseudomeasure localization, denominator-qualified character evaluation and independence of regular smoothing choice",
+      "owner": "PadicMeasuresIwasawaAlgebras:L3",
+      "formerly": [
+        "PadicMeasuresIwasawaAlgebras:L3",
+        "DirichletPadicLFunctions:L1"
+      ]
+    },
+    {
+      "target": "Actual rational Kubota–Leopoldt pseudomeasure, smoothed moments, arithmetic regularity and Kummer congruences",
+      "owner": "DirichletPadicLFunctions:L1",
+      "formerly": [
+        "DirichletPadicLFunctions:L1",
+        "AutomorphicPadicLFunctions:L3",
+        "IntegralIwasawaTheory:I.3",
+        "ColemanPowerSeries:L2"
+      ]
+    },
+    {
+      "target": "Actual rational tame-character integral measures, primitive/p-power-conductor interpolation and field-of-values descent",
+      "owner": "DirichletPadicLFunctions:L2",
+      "formerly": [
+        "DirichletPadicLFunctions:L2",
+        "AutomorphicPadicLFunctions:L3",
+        "IntegralIwasawaTheory:I.3"
+      ]
+    },
+    {
+      "target": "Classical nebentypus Eisenstein modular forms and their generalized Bernoulli/Gauss q-expansions, with exceptional-weight conventions",
+      "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+        "DirichletPadicLFunctions:L4",
+        "AutomorphicPadicLFunctions:L3"
+      ]
+    },
+    {
+      "target": "Rational measure-valued Eisenstein q-expansion, p-stabilized specialization and tame integral coefficient congruences",
+      "owner": "DirichletPadicLFunctions:L4",
+      "formerly": [
+        "DirichletPadicLFunctions:L4",
+        "AutomorphicPadicLFunctions:L3"
+      ]
+    },
+    {
+      "target": "The common p-adic logarithm normalized by log_p(p)=0, compatible extension and branch change",
+      "owner": "ColemanIntegration:L0",
+      "formerly": [
+        "ColemanIntegration:L0",
+        "DirichletPadicLFunctions:L3"
+      ]
+    },
+    {
+      "target": "Complex cyclotomic-log L(1,chi) formula used in the cyclotomic-unit regulator",
+      "owner": "DirichletPadicLFunctions:L3",
+      "formerly": [
+        "DirichletPadicLFunctions:L3",
+        "IntegralIwasawaTheory:L0"
+      ]
+    },
+    {
+      "target": "Leopoldt's p-adic value-at-one formula; positive-value Coleman theorem compares its k=1 specialization to this theorem",
+      "owner": "DirichletPadicLFunctions:L3",
+      "formerly": [
+        "DirichletPadicLFunctions:L3",
+        "ColemanIntegration:L3"
+      ]
+    },
+    {
+      "target": "Rational modular-symbol period lines and normalized critical-value formula; BSW retains the general-field cycles and Q comparison",
+      "owner": "ModularSymbolsPadicLFunctions:L1",
+      "formerly": [
+        "ModularSymbolsPadicLFunctions:L1",
+        "AutomorphicPadicLFunctions:L1"
+      ]
+    },
+    {
+      "target": "Rational modular-symbol small-slope control, eigenlift and interpolation; BSW retains the ramified general-field theorem and comparison",
+      "owner": "ModularSymbolsPadicLFunctions:L2",
+      "formerly": [
+        "ModularSymbolsPadicLFunctions:L2",
+        "AutomorphicPadicLFunctions:L2"
+      ]
+    },
+    {
+      "target": "Group-independent compact-operator and Fredholm apparatus; arithmetic coefficient estimates/control are still BSW's obligation",
+      "owner": "LocallyAnalyticDistributions:L4",
+      "formerly": [
+        "LocallyAnalyticDistributions:L4",
+        "AutomorphicPadicLFunctions:L2"
+      ]
+    },
+    {
+      "target": "CM abelian varieties, CM/reflex types and norms, and the main CM theorem, not Katz's p-adic evaluation",
+      "owner": "ShimuraVarieties:V5",
+      "formerly": [
+        "ShimuraVarieties:V5",
+        "AutomorphicPadicLFunctions:L3"
+      ]
+    },
+    {
+      "target": "Canonical q/Fourier–Jacobi expansion and boundary-vanishing principles on automorphic bundles under their stated base/coefficient hypotheses",
+      "owner": "AutomorphicBundles:B5",
+      "formerly": [
+        "AutomorphicBundles:B5",
+        "AutomorphicPadicLFunctions:L3",
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "target": "Canonical special-fiber Igusa varieties, torsors and stated finite-level models/actions; mixed-characteristic Katz/EHLS lifts require additional proofs",
+      "owner": "IgusaVarietiesAndTorsionConcentration:IG.1",
+      "formerly": [
+        "IgusaVarietiesAndTorsionConcentration:IG.1",
+        "AutomorphicPadicLFunctions:L3",
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "target": "Unitary PEL example with specified signatures, polarization and good-prime/reflex-field checks",
+      "owner": "PELModuli:M5",
+      "formerly": [
+        "PELModuli:M5",
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "target": "Characteristic-zero toroidal compactification by gluing, with the stated fan/level hypotheses",
+      "owner": "ShimuraCompactifications:C2",
+      "formerly": [
+        "ShimuraCompactifications:C2",
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "target": "Integral good-base PEL compactification and its precise higher-level finiteness charts",
+      "owner": "ShimuraCompactifications:C5",
+      "formerly": [
+        "ShimuraCompactifications:C5",
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "target": "Canonical automorphic bundles attached to Levi/parabolic representations and their coefficient realizations",
+      "owner": "AutomorphicBundles:B2",
+      "formerly": [
+        "AutomorphicBundles:B2",
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "target": "Canonical/subcanonical extensions and coherent pushforwards, without falsely making every pushforward a vector bundle",
+      "owner": "AutomorphicBundles:B3",
+      "formerly": [
+        "AutomorphicBundles:B3",
+        "AutomorphicPadicLFunctions:L4"
+      ]
+    },
+    {
+      "target": "Explicit realization/criticality input and finite-versus-ordinary local-condition comparisons; no analytic-existence theorem",
+      "owner": "SelmerIwasawaCohomology:L4",
+      "formerly": [
+        "SelmerIwasawaCohomology:L4",
+        "AutomorphicPadicLFunctions:L5"
+      ]
+    },
+    {
+      "target": "Analytic Coates–Perrin-Riou/Panchishkin existence proposition with complete interpolation data, distinct from arithmetic main conjectures",
+      "owner": "AutomorphicPadicLFunctions:L5",
+      "formerly": [
+        "AutomorphicPadicLFunctions:L5",
+        "ModularIwasawaMainConjectures:L5"
+      ]
+    },
+    {
+      "target": "Actual general-field Hilbert Eisenstein/congruence/Deligne–Ribet construction; Integral I.3 owns its Stickelberger comparison and KU is only readiness",
+      "owner": "AutomorphicPadicLFunctions:L3",
+      "formerly": [
+        "AutomorphicPadicLFunctions:L3",
+        "AutomorphicPadicLFunctions:KU-hilberteisenstein",
+        "IntegralIwasawaTheory:I.3"
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-14",
+    "date": "2026-09-23",
+    "notes": "All 15 stages of the two members have entries (12 narrow, 3 keep). The 3 evidence pairs share owner entries, and every consumer of the 12 narrowed layers receives links from each supplier. The extension of AutomorphicPadicLFunctions is titled exactly \"<DirichletPadicLFunctions title>, Part II: …\" and starts beyond the rational-field constructions. The sampled narrowings (Dirichlet L0 and L4, Automorphic L3) keep every original target not supplied by a named owner. The owners agree with the accepted RS-13 (AL.1 analytic GL1 theory; L0 owns the algebraic-to-complex comparison; ModularForms Layer 0 owns the generalized Bernoulli quantities). One correction: the proposal still used AnalyticNumberTheory:AN.1, which the accepted RS-07 drops, as a supplier, an owner and the source of eight links; these now name the upstream Mathlib owners RS-07 chose. With the twelve accepted restructurings applied, no link closes a cycle. See REV-RS-14.md.",
+    "corrections": [
+      "layers[DirichletPadicLFunctions:L0].suppliedBy: replaced AnalyticNumberTheory:AN.1 (dropped by the accepted RS-07) with UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions and UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality, the owners RS-07 named; the reason records this.",
+      "owners: the AN.1 entry for the classical Dirichlet continuation/conductor/Euler-factor API is replaced by two entries with those upstream owners (formerly DirichletPadicLFunctions:L0), matching RS-07.",
+      "links: each of the eight links AN.1 -> X (ColemanIntegration L0, DirichletPadicLFunctions KU-zeta, L0 and L1, EllipticRegulators ER.5, IntegralIwasawaTheory L0, ModularSymbolsPadicLFunctions L1, SpecialValuesBirchTate B.1) is replaced by links from the two upstream owners; they are recorded contracts that restructure.py does not draw, where the AN.1 links would have drawn new edges out of a hidden stage."
+    ]
+  }
+}
