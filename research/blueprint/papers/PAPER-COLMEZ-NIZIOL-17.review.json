@@ -1,0 +1,61 @@
+{
+  "paper": "PAPER-COLMEZ-NIZIOL-17",
+  "protocol": "paper-review-v1",
+  "status": "complete",
+  "verdict": "revise",
+  "by": "independent-review-REV-PAPER-COLMEZ-NIZIOL-17",
+  "agent": "Codex — codex-hjdg0j",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "Reject for revision: a second semistable comparison owner duplicates CohomologyComparisons:CP.4, which already includes formal models. The genuinely new integral log-syntomic and quantitative nearby-cycle extension belongs in that direction as a Part II, after splitting the CP.4 overlap and shared syntomic suppliers. API/proof closure is still absent."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Reject the current combined brief: the parent/Part-II direction is appropriate and the Liu–Zhu proposal must be shared, but the relative geometric tower is not the parent’s fixed-field PG.0–5 theorem. Split elementary monomials, ψ, generic Koszul resolutions, fat log-PD envelopes and continuous-cochain suppliers. Resolve E25–E32 and generic Koszul ownership before accepting the design instructions."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "Reject current whole-item scope: R06.1 and P7 supply local/one-variable inputs, not the complete relative log rings in items 210 and 253. Those items are now missing; move their relative extension to the common Part II and retain only explicit shared sub-contracts here."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "Reject current mixed scope: CR.5 owns log charts/envelopes and CR.6 the Hyodo–Kato complex, but log-syntomic sites, the syntomic fibre sequence and the open filtered comparison are not supplied as stated. E28 corrects the latter. Split those additions from valid log/HK imports."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "Reject: D.2 is restricted to smooth/unramified regulator constructions; L1, not D.2, owns the local-field Bloch–Kato maps. Items 4,5,8,9 have broader logarithmic/integral or formal-scheme hypotheses and are now missing."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "Reject the present item linkage, while retaining P3 as the almost-purity supplier. Item 251 bundles completed geometric rings, tilts and Witt constructions; P3 is the finite-étale tilting/almost-purity theorem, not the full bundle. Split the P0/P2 carrier input, existing Witt-vector implementation and relative construction before routing it."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "Reject: AI.0’s absolute A_inf normalization does not by itself supply relative theta-kernel/principality and all fundamental exact sequences in items 252,255. The pinned library already has theta and BDeRhamPlus carriers; use those and plan the missing comparisons. E31 leaves an integral normalization obligation."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "Reject until the comparison of categories is supplied: VB3’s diamond/sheaf-of-sections formulation does not directly prove exactness on every sympathetic algebra in Colmez’s original functor category, nor the full height/dimension calculus imported here. Keep one BC owner and request the precise bridge."
+    },
+    {
+      "route": 9,
+      "verdict": "reject",
+      "reason": "Reject current H1 ownership: the audited H1 is a specific henselian/formal/adic comparison programme. It does not assert Lütkebohmert’s rigid Riemann existence theorem as written. Separate that extension and prove the exact affine rigid-GAGA specialization used by item 160; do not infer it from the stage title."
+    },
+    {
+      "route": 10,
+      "verdict": "reject",
+      "reason": "Reject: A1 explicitly owns geometric sites, not derived cohomology. The p-primary K(π,1) vanishing theorem with horizontal divisor requires its own cohomological owner and log-purity/finite-cover proof; item 159 is now missing."
+    }
+  ],
+  "notes": "Checked all 169 original items, ten routes and 23 source findings against the complete authors version. Preserve all original IDs, split item 274 to repair the ψ cycle, and retain partial extraction status. E1 rejected, E2–E23 confirmed with corrected/narrowed reasoning; E24–E37 added and checked. No route is ready for intake; all 75 definition/construction APIs and tests plus recursive supplier closure remain."
+}
