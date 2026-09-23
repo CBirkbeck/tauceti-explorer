@@ -63,3 +63,35 @@ He–Nie, *Minimal length elements of extended affine Weyl group* (the whole com
 ## Checks
 
 `scripts/check_paper.py`: ok with `"status": "complete"`, so exactly-once routing of the 100 missing items is enforced and the 13 findings pass `scripts/source_issues.py`; `research/blueprint/intake.py check-files` reports no problems on the three deliverables. Both Part II ids are free in `data/atlas.json` and in `research/blueprint/roadmaps/`, their parents exist (one of atlas origin, one a Tau Ceti roadmap), every `planned` stage id belongs to the roadmap of its source route, and the seven `library` items cite declarations in the pinned libraries (Mathlib 082e2d3, Tau Ceti f790474). The `result.json` is re-emitted at the file's own indentation, so the diff is readable.
+
+## Review (REV-PAPER-HE-18, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1407), **accepted** this
+extraction and all seven routes, with two corrections in place. The full record is
+[REV-PAPER-HE-18.md](../reviews/REV-PAPER-HE-18.md).
+
+**Correction 1 — provenance.** The recorded `source.sha256` cannot be reproduced: the Cambridge PDF
+is stamped per download. Two downloads seconds apart gave `45002919…` and `90b506ca…`, identical in
+length and differing only in the `/ModDate` and the bytes downstream of it, which is also why this
+file records a different hash in `source.continuation` for the same URL. A `sha256Note` now records
+this and names the reproducible pin: `comparisonVersion.sha256` for arXiv v3, which reproduces
+exactly.
+
+**Correction 2 — a Part II title.** The `RootSystemsPartIIDominanceAndDemazure` route spelled the
+parent "Cartan–Killing" with an en dash; the atlas title and the same route in `PAPER-HE-21`,
+`PAPER-KISIN-PAPPAS-ZHOU-26` and `PAPER-ZHU-17` use a hyphen, so the hyphen is restored. (Separately,
+`PAPER-LE-LEHUNG-LEVIN-ETAL-23` routes to that id under a different title; that file is not this
+job's.)
+
+Structure: 123 items, all 100 missing routed exactly once; all stage and planned layer ids exist;
+all seventeen library declarations resolve at the pins; every numbered theorem, proposition, lemma
+and corollary is carried into an item or a finding, only three bibliographic remarks are not; 52 of
+57 locator checks land exactly. The planned items appearing inside source routes are allowed by
+PROTOCOL §16.
+
+All thirteen findings are **confirmed**. The substantial ones hold up: E1's statement (a) does not
+follow from the finiteness of θ-orbits, because the image of a θ-twisted class in Ω is the coset
+`[w] + (1 − θ)Ω` — take `Ω = Z²` with θ the swap; E3 and E6 both turn on the coefficient ring, where
+finite generation of a dual and a dimension count are unavailable over a general commutative
+`Z[1/p]`-algebra; and E5's pro-p subgroup gives no σ-descent, which needs Lang's theorem for a
+connected unipotent group.
