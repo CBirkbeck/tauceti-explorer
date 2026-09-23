@@ -2992,3 +2992,33 @@ print(json.dumps(result,indent=2))
 - Shelstad, Tempered endoscopy for real groups III: Inversion of transfer and L-packet structure: https://doi.org/10.1090/S1088-4165-08-00337-3. Packet cardinality, generic normalization and the component comparison.
 - Kaletha, Global rigid inner forms and multiplicities of discrete automorphic representations: https://arxiv.org/abs/1501.01667. Full global gerbe/localization, global Tate–Nakayama, Proposition4.1 and conditional Proposition4.2, with its own errata.
 - Kottwitz, Sign changes in harmonic analysis on reductive groups: https://doi.org/10.2307/1999316. The local e(G) sign and its Levi compatibility used in Proposition5.10.
+
+## Review (REV-PAPER-KALETHA-16, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1191](https://github.com/CBirkbeck/tauceti-explorer/issues/1191). **Verdict: accept.** All seven
+routes accepted; fourteen findings confirmed and **one rejected**.
+
+- **Both sources fetched and hashed**, neither of which the extraction had hashed: the published
+  Annals PDF (`55fc2ed2…7c2b`, 74 pages, printed page = PDF page + 558) and the author's errata
+  (`31e5f2d4…c31b5`), whose §3 was read in full.
+- **E01–E06 check out against the errata**, which carries headings "Proposition 3.6", "Section 4.4",
+  "Formula (4.8)", "Proof of Lemma 4.7", "Corollary 5.4" and "Section 5.6" — one per finding — so
+  their `known` fields are right and the register lists them as already corrected in print.
+- **E07 reaches a stated result.** §3.4 divides by `Z¹(Γ, G₁_sc)`, the cover of the *twist*, but
+  states the criterion for `H¹ → H¹_ab` to be injective as `H¹(Γ, G_sc) = 1`. Over ℝ with `G = SL₂`
+  that holds while `|H¹(ℝ, SU(2))| = 2` (Serre III.4.5), so the criterion is insufficient in the real
+  case — exactly the sensitivity the author's own errata notes for Corollary 5.4. The p-adic and
+  torus cases the paper names are unaffected.
+- **E15 is rejected.** The printed `Z(Ĝ_sc)` in §5.7 is correct: the class has coefficients in the
+  physical `Z(G_sc)` and *corresponds via Corollary 5.4* to a character of the dual centre, and
+  Corollary 5.4's own remark computes `π₀(Z(Ĝ̄)⁺) = Z([Ĝ]_sc)`. The proposed replacement would make
+  the sentence false.
+- **Corrected in place:** every `printed` field now carries a verbatim quotation of the published
+  text. All fifteen were bare symbols (`a`, `p`, `ζ_k`, `σ(g)`, …), which the public register would
+  have printed as "The source says `a`". The originals are kept in `printedAsRecorded`.
+- **Items and routes:** 157 items (21 library, 24 planned, 112 missing), each missing item routed
+  once; all ten stage ids and twenty planned targets present; the Part II title is an exact prefix
+  extension and its id free.
+
+Full report: `research/blueprint/reviews/REV-PAPER-KALETHA-16.md`.
