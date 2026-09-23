@@ -231,7 +231,7 @@
     {
       "source": "RelativeFarguesFontaine:RF3",
       "target": "VectorBundlesAndIsocrystals:VB2:ampleness",
-      "reason": "Retain O(1), graded sections and the formal Proj map; positive generation, ampleness and GAGA are proved by this later consumer."
+      "reason": "Retain the early rank-one O(1), graded section algebra and chartwise Proj-map inputs. The full global map remains a target, but requires a proved positive-section cover and justified tautological-twist comparison; its acyclic ownership relative to this later positive-generation, ampleness and GAGA stage is unresolved. This link does not assert that the global map is already constructed."
     },
     {
       "source": "FarguesFontaineDiamonds:F0",
@@ -647,17 +647,12 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-RS-20",
-    "date": "2026-09-21",
-    "notes": "Independent review by ChatGPT Pro, session cg-6b83f1, not the RS-20 author (gpt-20260921-c74f2a). Both member documents, anchor, all 17 stages, 24 inherited nodes, family leads, suppliers and external consumers were examined. Clear corrections are applied below and documented in REV-RS-20.md. One blocking ownership/proof boundary remains: RF3 requires a global-section covering and tautological-twist input for its global Proj morphism while the relevant general generation theorem is in downstream VB2:ampleness. Choose and implement an acyclic precise supplier or split before applying this proposal. Schema and whole-atlas stage-DAG checks do not establish that input. This is a completed review with a negative verdict, not a completed blueprint or proof.",
+    "reviewer": "independent-review-REV-RS-20~2",
+    "date": "2026-09-23",
+    "notes": "Completed independent second review by Codex, session codex-a71f92, of the proposal authored by gpt-20260921-c74f2a and amended by cg-6b83f1. Re-read both member documents, the full AdicSpaces anchor, all 17 member stages, all 24 inherited nodes and seven open gaps, 24 family evidence rows, five external ownership suppliers, and all 12 distinct external consumers of the proposed exports. Preserved the seven prior amendments and all targets. Independently checked the cited FS/Stacks passages and three positive pinned Mathlib declaration files. Corrected one residual link rationale which still implied an unconditional global Proj map. The RF3 positive-section covering/twist lemma still has no implemented acyclic owner or split before downstream VB2:ampleness; schema and graph validation cannot settle this mathematical blocker. All 79 proposal links, 21 external exports and 43 supplier-to-original-consumer forwarding checks pass; the whole-atlas graph and union with pending link maps are acyclic, while adding VB2:ampleness -> RF3 is cyclic. See REV-RS-20~2.md for scope, reproducibility and handoff; no blueprint gap is declared closed.",
     "corrections": [
-      "Added RF1 -> RF2:integral-divisors for the relative X_S quotient used in the all-degree Cartier and descent arguments.",
-      "Corrected the inherited n=1 chart-coordinate contract to t_1^sharp = pi/[varpi] and retained the integral special-fibre test.",
-      "Recorded required reuse/comparison with the existing pinned Mathlib BDeRhamPlus and BDeRham definitions; the original report incorrectly treats BDeRham as unconstructed and names a nonexistent FontaineThetaKer declaration in that file.",
-      "Separated the specified doubled-leg multiplicity test from genuinely unsplit ordered-leg descent; preserved v-sheafification rather than demanding a splitting obstruction from an already split pair.",
-      "Made the raw RF0 coefficient-node reference explicit so that no completed aggregate-to-child dependency is introduced.",
-      "Assigned the full arbitrary-rank isocrystal-to-bundle exact tensor functor to VB1, retaining direct rank-one O(n) descent in RF3 and forwarding its general consumers through their existing VB1 inputs.",
-      "Replaced the unsupported no-hypothesis global Proj-map claim with its exact covering and twist obligations while retaining the full target; left the unresolved acyclic owner split visible as the reason for needs_changes."
+      "Qualified the RF3 -> VB2:ampleness link rationale: only the early rank-one, graded-algebra and chart-map inputs are presently assigned; the global morphism and tautological comparison remain retained targets pending a proved covering/twist input and acyclic ownership decision.",
+      "Replaced the top-level review metadata with this completed independent second review and retained needs_changes. The seven mathematical amendments made by independent-review-REV-RS-20 remain unchanged; their authorship and the outstanding blocker are documented in REV-RS-20~2.md."
     ]
   }
 }
