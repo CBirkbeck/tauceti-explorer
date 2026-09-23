@@ -1,0 +1,57 @@
+{
+  "paper": "PAPER-VANHOFTEN-24",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "SchemeAndStackFoundations (source, 28 items) — Accept. SF.0, SF.1 and SF.3 all exist in the atlas, and the 28 items routed there are the perfect-scheme and stack foundations van Hoften uses rather than proves: weakly perfectly smooth morphisms, deperfections, perfections of algebraic spaces and the dimension theory of §2.1. The largest source route in the extraction, and correctly so — §2.1 is a self-contained foundations section whose statements belong to the parent, not to a Part II."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "ReductiveGroupsPartII (source, 11 items) — Accept. RG2.1, RG2.3 and RG2.4 exist. The parahoric and very special material of §2.2 is imported from Bruhat–Tits theory and Zhu's work; routing it to the reductive-groups Part II rather than inventing a parahoric roadmap is the right identity choice."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "GeometricSatakeAndFusion (source, 7 items) — Accept. The three-component stage id GeometricSatakeAndFusion:GS0:Witt-geometry exists and owns exactly the Witt-vector affine Grassmannian and affine flag variety the seven items need."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "BunGAndNewtonStrata (source, 3 items) — Accept. BG0 and BG1 exist and own the isocrystal and Newton-stratification input the three items take as given."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "EndoscopicTransferAndUnitaryTraceComparison (source, 4 items) — Accept. ET.0 exists and owns the abelianised Galois cohomology and inner-twisting bookkeeping that §4.3 imports — which is also where finding E17 sits, so the route is carrying the right material."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "AbelianSchemesAndArithmeticModuli (source, 2 items) — Accept. A2, A3 and A4 exist and own abelian schemes and their p-divisible groups, the two items' subject."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "HeckeStacksAndLocalShtukasIntegralPartII (part-ii, 23 items) — Accept, and it is a joined proposal, not a rival identity: PAPER-GLEASON-LIM-XU-26, PAPER-KISIN-PAPPAS-ZHOU-26 and PAPER-ZHU-17 propose the same id, and the parent HeckeStacksAndLocalShtukas is recorded. The 23 items are the integral local-shtuka stacks at parahoric level that §2.3 constructs."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "FiniteFlatGroupsWithTensorsPartII (part-ii, 6 items) — Accept, and joined: PAPER-KISIN-17, PAPER-KISIN-PAPPAS-18, PAPER-KISIN-PAPPAS-ZHOU-26, PAPER-KISIN-ZHOU-25 and PAPER-ZHU-17 all propose the same id, under the parent FiniteFlatGroupsAndIntegralPadicHodgeTheory. The six items are the tensor-decorated Dieudonne theory §3.1 uses."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig (part-ii, 28 items) — Accept, and joined with PAPER-GLEASON-LIM-XU-26, PAPER-HE-21, PAPER-KISIN-17 and PAPER-ZHU-17. This is where Appendix A by Rong Zhou lands — connectedness of affine Deligne–Lusztig varieties at very special level — and it is the right home for it: the appendix is a self-contained ADLV result, not a Shimura-variety statement."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "ShimuraVarietiesHondaTatePartII (part-ii, 57 items) — Accept, the largest route and the paper's own contribution: the mod p points, isogeny classes and the He–Rapoport axioms at parahoric level. Joined with six other papers (PAPER-BOXER-PILLONI-26, PAPER-FARB-KISIN-WOLFSON-24, PAPER-GLEASON-LIM-XU-26, PAPER-KISIN-17, PAPER-KISIN-MADAPUSIPERA-SHIN-22, PAPER-KISIN-PAPPAS-18) under the parent ShimuraVarieties, so no sibling identity is invented for what is squarely the Langlands–Rapoport circle of ideas."
+    }
+  ],
+  "notes": "Independent review of issue #1360's extraction (codex-c83e7a and cc-442dc5); cc-fb70e5 appears nowhere in its files. All ten routes accepted; all 34 recorded findings confirmed; one item locator corrected in place (R02: Lemma 2.2.3 -> Lemma 2.2.2, since 'Lemma 2.2.3' occurs zero times in the paper and 2.2.3 is a numbered paragraph); one new finding added (E35). Numbering was reproduced by simulating the shared subsubsection counter (statements) and subsection counter (appendix), giving 146 numbered objects = 80 statements + 66 bare headings, which returns the number and the kind of every statement the findings cite. Coverage after the R02 fix is 78 of 80 statements; the residue is Proposition 2.2.17 (close to item S08) and Remark A1.4. The reference audit is clean: 216 word+ref citations with no word/environment mismatch, no duplicate labels, no undefined references. All 23 pinned declarations verify at the recorded commits: each statementRead is byte-identical to the source at its recorded line range, and the recorded sha256 is the whole-module hash, which matches. The recorded published-PDF hash is not reproducible because Cambridge Core watermarks each download with the downloader's IP and a timestamp; content (67 pages, title, abstract) checks out."
+}

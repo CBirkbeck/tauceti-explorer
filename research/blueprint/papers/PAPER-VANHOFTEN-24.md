@@ -3557,3 +3557,42 @@ The common correction search examined the Cambridge article and listing, the lat
 The JSON input manifest records 371 repository blobs at `4e324e26a67fb00e019d0a293160ce784680d027`, including reviewed coverage, stages, packets, reserved ids and prior paper candidates. Source archives record their URL, digest, access date and actual reading scope. Invalid or unread downloads are not evidence for a theorem.
 
 All 193 item ids are unique; 165 missing items each have exactly one route. The internal dependency graph was checked for unresolved references and cycles. Every definition/construction has at least three API statements and three mathematical test specifications. Pinned module hashes and source/archive hashes are verified by the scratch verifier. The paper schema and deliverable-path checks are run before publication. Exact rational/integer diagnostics check the unitary sign, SL2 factorization, conjugacy transport, dimensions, coinvariants, relation direction, word order and small counterexample witnesses. These diagnostics are not Lean theorem checks.
+
+## Independent review (cc-fb70e5, 23 September 2026)
+
+**Accept.** All ten routes accepted, no substantive coverage gap, all 34 recorded findings confirmed, one
+item locator corrected in place, one new finding added. The full review is in
+[`reviews/REV-PAPER-VANHOFTEN-24.md`](../reviews/REV-PAPER-VANHOFTEN-24.md).
+
+The recorded published-PDF hash does not reproduce, and cannot: **Cambridge Core watermarks every download**
+with the downloader's IP address and a timestamp, so those bytes differ per reader. Content checks out (67
+pages from the page tree's `/Count`, correct title and abstract), and the arXiv v4 e-print — which the
+extraction records no hash for — is `f6b56838…`.
+
+This paper's numbering is unusual and had to be simulated to check anything: statements share the
+**`subsubsection`** counter, so a bare heading consumes a number like a theorem does, while the appendix
+environments share the **`subsection`** counter. That gives **146 numbered objects = 80 statements + 66 bare
+headings**, and it returns the number *and* the kind of every statement the findings cite. It is also what
+produced the one defect found here: item **R02** was located at `Lemma2.2.3`, but "Lemma 2.2.3" occurs zero
+times in the paper — 2.2.3 is one of those numbered paragraphs, and R02's statement is **Lemma 2.2.2**.
+Corrected in place. Coverage is then 78 of 80 statements, the residue being Proposition 2.2.17 (close to item
+S08) and Remark A1.4.
+
+The reference audit is clean: **216 hand-written word+reference citations with no word/environment mismatch**,
+no duplicate labels, no undefined references — this paper uses no cleveref, so the mismatch class was live
+here and simply does not occur. All **23 pinned declarations verify** at the recorded commits, each
+`statementRead` byte-identical to its source line range; the recorded `sha256` is the **whole-module** hash,
+which matches (declarations sharing a file share a hash, so assuming the obvious per-declaration convention
+reports seventeen false mismatches). All four Part II routes reuse identities already proposed by
+neighbouring papers — Kisin, Kisin–Pappas, Kisin–Zhou, Zhu, He, Gleason–Lim–Xu — under recorded parents, and
+Appendix A is routed to the affine Deligne–Lusztig Part II rather than the Shimura-variety one, which is
+where an ADLV result belongs.
+
+All 34 findings are confirmed. **E30 is the one worth flagging: it exists only in the published version.**
+Cambridge's p. 62 adds an intermediate limit expression, absent from arXiv v4, whose product carries
+$\dot t^{\sigma^i(\alpha^\vee)}$ with positive exponents while the very next equality gives
+$\dot t^{-\sum_i \sigma^i(\alpha^\vee)}$ — a reviewer checking that finding against the preprint alone would
+reject it wrongly. **One finding is added, E35**: in the diagram of Proposition 3.1.12's proof the vertical
+arrow command sits inside the `\left(...\right)` pair of $\operatorname{GL}(\bigoplus\Lambda_{i,p})$, and the
+two parentheses of that column consequently print at different sizes. Typographic only, in the same diagram
+that E13 is about.
