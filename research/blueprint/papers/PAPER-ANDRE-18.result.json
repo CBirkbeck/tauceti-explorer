@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-ANDRE-18",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Le lemme d’Abhyankar perfectoïde",
     "authors": "Yves André",
@@ -9,38 +9,45 @@
     "doi": "10.1007/s10240-017-0096-x",
     "arxiv": "1609.00320",
     "url": "https://www.numdam.org/item/10.1007/s10240-017-0096-x.pdf",
-    "version": "Published version, 70 pages; published locators are used, not preprint numbering. The published PDF was downloaded from Numdam on 2026-09-22 by the third worker on this job (Claude Code, cc-fb70e5) and hashed: SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pages, journal page = PDF page. arXiv:1609.00320v1 (31 August 2016, 61 pp.) was also downloaded, SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e; it is NOT the same text — its abstract promises the ramified case « sans restriction sur le discriminant » where the published one says « sans restriction sur le lieu de ramification » and announces the new notion of almost perfectoid algebras and the Galois techniques, and its section pagination differs throughout. Locators are therefore published-only.",
-    "accessed": "2026-09-22",
+    "version": "Published NUMDAM version, 70 pages; journal page equals PDF page. Downloaded, hashed and independently read in full by Codex — codex-a71f92 for REV-PAPER-ANDRE-18. Preprint comparison in verificationHistory is inherited, not repeated in this review.",
+    "accessed": "2026-09-23",
     "readSections": [
-      "Introduction pp.1–4",
-      "§1.1–1.9 including proofs, pp.4–10",
-      "Selected §2.1–2.3 text; not fully extracted",
-      "Theorem 4.2.2 and proof, Lemma 4.2.3 and Corollary 4.2.4, pp.55–56",
-      "§4.3–4.4 including proofs, pp.58–63",
-      "§5.1–5.3 including proofs, pp.63–68",
-      "Definition 3.5.2, Lemma 3.5.3, Proposition 3.5.4 and proof, pp.46–47; relevant remarks pp.47–48",
-      "Proposition 3.8.1, pp.50–51",
-      "§4.2.1 statement and proof, pp.54–55",
-      "§5.4 text, pp.68–69 (read but application not yet extracted)",
-      "ChatGPT Pro cgp-0922-b7d49a: published §§2.1–2.3 text reread, with detailed extraction limited here to spectral-radius ingredients and comparison statements of §2.2. Published §2.2.4 p.13 compared directly with arXiv v1 §2.2.4 p.12: the same stronger uniqueness claim and maximum-norm step occur in both. Main-paper PDF screenshots still failed; no PDF bytes or hash were obtained.",
-      "Claude Code cc-fb70e5, 2026-09-22: published PDF bytes obtained and hashed, closing the provenance gap the two earlier checkpoints recorded as unreachable. §2.1–2.2 pp. 12–13 and §2.4 p. 22 read in full for the independent review of E1, together with every occurrence of the uniqueness assertion in the paper (pp. 13, 22, 41); arXiv v1 §2.2.4 compared and carries the same assertion and the same proof."
+      "Introduction, §§1–5, footnotes and bibliography, published pp.1–70, read in full.",
+      "Page images checked at pp.2,7,13,21,22,24,26,27,29,30,36,41,42,43,45,48; other statements checked against extracted PDF text."
     ],
     "sha256": "087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a",
-    "retrievalNote": "Published PDF text was read through the web PDF reader. Direct byte download failed because the execution environment could not resolve the host; PDF screenshot requests returned Internal Error. No byte hash or successful visual verification is claimed.",
+    "retrievalNote": "Published bytes retrieved from the public NUMDAM URL. SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a. Text extraction and selected page images used. No fresh arXiv PDF comparison is claimed.",
     "additionalSources": [
       {
-        "title": "Math 248A. Completion of algebraic closure",
+        "title": "Completion of algebraic closure",
         "authors": "Brian Conrad",
         "url": "https://virtualmath1.stanford.edu/~conrad/248APage/handouts/algclosurecomp.pdf",
-        "locator": "§1, Theorem 1.1 and its proof, pp.1–3",
-        "accessed": "2026-09-22",
-        "pages": 3,
-        "sha256": null,
-        "note": "Official Stanford course handout, linked from Conrad’s handout index. All three pages read; page 1 visually inspected. The theorem proves that the completion of an algebraic closure is algebraically closed. Noncompleteness of Q_p-bar is recalled on p.1 with a reference to BGR 3.4.3/1; that original proof has not been read in this session. This auxiliary source supports E1, not a claimed new prerequisite owner for the main paper."
+        "accessed": "2026-09-23",
+        "locator": "All three pages, especially Theorem 1.1",
+        "sha256": "07052ff7a8c1a25ce876ca984f28d62e513998259906bd994d3dc1622cda3f5b",
+        "note": "Full text read. Noncompleteness of the algebraic closure is recalled there with a BGR reference; the BGR proof was not read."
+      },
+      {
+        "title": "The norm of uniform convergence on the k-algebraic maximal spectrum of an algebra over a non-archimedean valuation field k",
+        "authors": "Ulrich Güntzer",
+        "url": "https://www.numdam.org/item/10.24033/msmf.164.pdf",
+        "accessed": "2026-09-23",
+        "locator": "Lemma 3.5 and proof, printed pp.116–117, PDF pp.17–18",
+        "sha256": "c81847caaf38dea6778e067d2d0389d3922e6528c9350fdd47da59e6220a939a",
+        "note": "These two pages read as text and images, not the whole memoir."
+      },
+      {
+        "title": "Almost Ring Theory, author-hosted releaseLNM",
+        "authors": "Ofer Gabber and Lorenzo Ramero",
+        "url": "https://pro.univ-lille.fr/fileadmin/user_upload/pages_pros/lorenzo_ramero/releaseLNM.pdf",
+        "accessed": "2026-09-23",
+        "locator": "Printed pp.37–38, Definition 2.4.23 through Proposition 2.4.28 and its proof",
+        "sha256": "d6c1e641ce29cfe881f5a23dbef74fa59eb9403081a4638210ebd7b1c4140050",
+        "note": "Evaluation ideal and faithful-flatness criterion read directly; no whole-book reading claimed."
       }
     ]
   },
-  "summary": "Partial second checkpoint: 85 items (8 exact pinned-library imports, 35 inherited planned items, 42 missing). All 72 inherited item objects and their two routes are preserved. The new spectral-radius layer imports Mathlib smoothingFun rather than rebuilding it or confusing it with the minpoly-based spectralNorm. Four valid comparison lemmas have complete mathematical proofs but explicitly pending generic ownership; one unrouted diagnostic records the stronger false norm-uniqueness assertion in source issue E1. This is not full extraction, a final routing decision, an independent review or a Lean implementation.",
+  "summary": "Independent review: revise. Published paper read in full; 209 interfaces (12 library, 62 planned, 135 provisional missing), three routes (one accepted source route, two rejected proposals), and 20 source findings (19 confirmed, E3 rejected). Concrete mathematical and provenance errors corrected, five omitted §3.5 interfaces and an evaluation-ideal definition added, and four pinned library subinterfaces exposed. Generic-owner, granularity and proof-closure gaps prevent complete extraction or design approval.",
   "items": [
     {
       "id": "PAPER-ANDRE-18/1.1-setting",
@@ -244,12 +251,13 @@
       "id": "PAPER-ANDRE-18/1.7-flat-projective",
       "kind": "theorem",
       "name": "Flatness of almost projective modules",
-      "statement": "Every almost projective module is flat. A faithful almost projective A-module, with faithfulness defined by the monomorphism A→End(P)ᵃ, is faithfully flat.",
+      "statement": "Every almost projective A-module P is flat. Writing P*=Hom_A(P,A) in the almost category and E_{P/A}=image(P⊗_A P*→A), it is faithfully flat iff E_{P/A}=A. Mere faithfulness A→End(P)ᵃ is not sufficient for an arbitrary almost projective module.",
       "locator": "§1.7.2(1), p.7",
       "status": "planned",
       "planned": [
         "PerfectoidSpaces:P0"
-      ]
+      ],
+      "note": "Corrected using E19 and Gabber–Ramero Definition 2.4.23, Proposition 2.4.28(iv). Do not replace evaluation by a trace of arbitrary infinite-rank endomorphisms."
     },
     {
       "id": "PAPER-ANDRE-18/1.7-exterior-trace",
@@ -716,7 +724,8 @@
       "name": "The maximal perfectoid Abhyankar envelope",
       "statement": "For D of §5.3, D^♮ is the largest perfectoid A-algebra contained in B′, with continuous A-algebra structure. Its localization after inverting g is B′. The maximal object is D^♮, not an assertion that the almost-perfectoid algebra D itself is perfectoid.",
       "locator": "Proposition 5.3.1(2); Theorem 0.3.1(1), pp.2–3,68",
-      "status": "missing"
+      "status": "missing",
+      "note": "E13: the map A→D^♮ need not be injective; D^♮ contains the image of A in B′. Keep faithfulness only where needed, notably the trace assertion."
     },
     {
       "id": "PAPER-ANDRE-18/5.3.1-trace",
@@ -857,12 +866,12 @@
     },
     {
       "id": "PAPER-ANDRE-18/2.2.4-abstract-uniqueness-source",
-      "kind": "theorem",
-      "name": "Diagnostic: uniqueness from completeness alone on an abstract algebra",
-      "statement": "The source asserts that a K-algebra has at most one spectral norm making it complete, without fixing its topology or assuming continuity of the identity. Source issue E1 records a counterexample on the abstract Q_p-algebra C_p and the failure of completeness for the maximum norm. This literal assertion is not an accepted theorem target.",
+      "kind": "construction",
+      "name": "Counterexample to uniqueness of complete spectral norms on an abstract algebra",
+      "statement": "On C_p choose an automorphism σ fixing Q_p-bar and sending a transcendental element t to pt. Then ν and ν∘σ are different complete multiplicative Q_p-algebra norms, and their maximum is incomplete. This is a negative test for any proposed automatic-topology theorem, not the false theorem printed in §2.2.4.",
       "locator": "Published §2.2.4, second paragraph, p.13; same claim in arXiv:1609.00320v1 §2.2.4, p.12",
       "status": "missing",
-      "note": "Unrouted diagnostic. The algebraic automorphism used in E1 fixes the dense subfield Q_p-bar but is not continuous. Its two pulled-back norms are separately complete and multiplicative. Independent review has not yet confirmed this finding; neither failure of the main Abhyankar theorem nor a complete audit of all downstream uses is claimed."
+      "note": "E1 is independently confirmed; route 3 remains rejected on ownership grounds. No failure of the main Abhyankar theorem is inferred."
     },
     {
       "id": "PAPER-ANDRE-18/2.1.1-normed-algebra",
@@ -879,7 +888,7 @@
       "id": "PAPER-ANDRE-18/2.1.1-multiplicative-integral",
       "kind": "theorem",
       "name": "A multiplicative norm forces a domain",
-      "statement": "A K-algebra carrying a multiplicative norm is an integral domain.",
+      "statement": "A nonzero K-algebra carrying a multiplicative norm is an integral domain. Without nontriviality the norm argument gives only absence of nonzero zero divisors; the zero algebra is allowed elsewhere in the source.",
       "locator": "§2.1.1, p. 11",
       "status": "planned",
       "planned": [
@@ -892,10 +901,11 @@
       "name": "Normed K-algebras, K-Ban, and continuous morphisms",
       "statement": "Morphisms of normed K-algebras are the continuous algebra homomorphisms, equivalently those bounded on A_{≤1}, equivalently those with ‖φ‖ = sup_{a≠0}|φ(a)|/|a| < ∞; φ is isometric if |φ(a)|=|a| for all a. K-Ban is the full subcategory of complete objects; for A∈K-Ban the A-Banach algebras form A-Ban.",
       "locator": "§2.1.1, p. 11",
-      "status": "planned",
-      "planned": [
+      "status": "missing",
+      "priorPlanned": [
         "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
-      ]
+      ],
+      "ownershipReview": "The cited stage does not establish this whole categorical contract. Provisional candidate in rejected route 2; no new owner is approved."
     },
     {
       "id": "PAPER-ANDRE-18/2.1.2-bicompleteness-ban",
@@ -903,10 +913,11 @@
       "name": "K-Ban has finite limits and finite colimits",
       "statement": "K-Ban has initial object K, final object 0, amalgamated sums B⊗̂_A C (the separated completion of B⊗_A C for the tensor-product semi-norm) and fibre products B×_A C, hence finite colimits and finite limits. The functor −⊗̂_K A is left adjoint to the forgetful functor A-Ban → K-Ban.",
       "locator": "§2.1.2, p. 11",
-      "status": "planned",
-      "planned": [
+      "status": "missing",
+      "priorPlanned": [
         "AdicSpacesPartII:R0"
-      ]
+      ],
+      "ownershipReview": "The cited stage does not establish this whole categorical contract. Provisional candidate in rejected route 2; no new owner is approved."
     },
     {
       "id": "PAPER-ANDRE-18/2.1.2-quotient-isometry",
@@ -941,7 +952,8 @@
       "status": "planned",
       "planned": [
         "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
-      ]
+      ],
+      "note": "Residual Banach comparison and properties after importing the two new library carrier items. Do not reconstruct A° or A°° privately. The compound item still needs splitting and per-property provider checks."
     },
     {
       "id": "PAPER-ANDRE-18/2.1.5-tate-algebra",
@@ -977,12 +989,13 @@
       "id": "PAPER-ANDRE-18/2.2.2-uniform",
       "kind": "definition",
       "name": "Uniform normed algebras",
-      "statement": "A normed K-algebra is uniform if A° is bounded, equivalently if the norm is equivalent to its spectral semi-norm (one inclusion because A° lies in the unit ball of |·|_sp, the other from |a| ≤ |a|_sp·sup_{b∈A°}|b|). Every uniform normed algebra is reduced, and if |K| is dense in R₊ then A°°=K°°A°=(A°°)².",
+      "statement": "A normed K-algebra is uniform if A° is bounded, equivalently its norm is equivalent to its spectral seminorm. If C=sup_{b∈A°}‖b‖ and 0<|c|<1, then |a|_sp≤‖a‖≤C|c|^(-1)|a|_sp. The sharp factor C requires a dense value group. A uniform normed algebra is reduced; if |K×| is dense, A°°=K°°A°=(A°°)².",
       "locator": "§2.2.2, p. 13",
       "status": "planned",
       "planned": [
         "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
-      ]
+      ],
+      "note": "E20 corrects the printed auxiliary estimate. The equivalence remains valid. The retained upstream pointer is a supplier lead for topological uniformity; the precise norm comparison still requires a contract/API bridge."
     },
     {
       "id": "PAPER-ANDRE-18/2.2.3-examples-uniform",
@@ -1057,7 +1070,8 @@
       "name": "Integral, almost integral and p-radicial closures",
       "statement": "For R ⊆ S, an element is integral (resp. almost integral) over R if its powers generate (resp. are contained in) a finite-type R-submodule of S; the corresponding subrings are the integral closure R⁺_S and the complete integral closure R*_S, with R⁺_S ⊆ R*_S and equality for R noetherian. R⁺_S is integrally closed in S but R*_S need not be completely integrally closed. An element is p-radicial over R if some p^n-th power lies in R; the p-radicial closure R†_S is the smallest intermediate ring that is p-radicially closed, the increasing union of R₀=R, R_{i+1}= the subring generated by the p-radicial elements of R_i, and R†_S ⊆ R⁺_S. In characteristic p, or when S=R[1/p], the p-radicial elements already form a subring. All three closures are functorial; integral and p-radicial closure commute with localization, complete integral closure does not.",
       "locator": "§2.3.1, p. 15",
-      "status": "missing"
+      "status": "missing",
+      "note": "Ordinary integral closure is imported by the new library item. Mathlib's IsAlmostIntegral and completeIntegralClosure use a regular denominator in the base ring; comparison with the paper's finite-submodule definition requires localization/fraction-ring hypotheses. They cannot replace arbitrary-extension complete integrality without a bridge."
     },
     {
       "id": "PAPER-ANDRE-18/2.3.2-dictionary-setting",
@@ -1151,9 +1165,10 @@
       "id": "PAPER-ANDRE-18/2.3.5-almost-iso-integral",
       "kind": "theorem",
       "name": "Almost isomorphism is detected on the unit ball",
-      "statement": "A morphism φ:B→C of uniform A-Banach algebras is an almost isomorphism in the setting (A°,𝔪) iff its restriction φ°:B°→C° is, i.e. iff φ^â is an isomorphism.",
+      "statement": "In the source's almost setting (A°,m), with m²=m, flat tensor square and m=K°°m, a continuous A-algebra morphism φ:B→C of uniform Banach algebras is an ordinary almost isomorphism iff φ°:B°→C° is an almost isomorphism, equivalently φ^â is invertible in the topological almost category.",
       "locator": "Lemme 2.3.5, p. 21",
-      "status": "missing"
+      "status": "missing",
+      "note": "Proof-closure obligation: distinguish ordinary φᵃ from topological φ^â, the latter defined using (φ°)ᵃ. The printed proof on p.21 appears to repeat the topological hypothesis where the converse needs the ordinary one. Supply the ordinary-to-integral implication; no new confirmed erratum or proof repair is asserted here."
     },
     {
       "id": "PAPER-ANDRE-18/2.4.1-intersection",
@@ -1175,16 +1190,16 @@
       "id": "PAPER-ANDRE-18/2.4.1-invariants",
       "kind": "theorem",
       "name": "Lemme 2.4.1(2): invariants under a finite group and integrality",
-      "statement": "Let a finite group G act on B with B^G=A, and suppose G preserves the norm. Then B^{oG}=A°, B is integral over A, B° is integral over A°, and B° is the integral closure of A° in B. The hypothesis holds in particular when the norm is spectral and complete — but the paper justifies that by the uniqueness of a complete spectral norm, which is false as stated; see source issue E1. What repairs it is the papers own part (3): γ(b) satisfies the same monic polynomial ∏_{γ∈G}(T−γ(b))∈A[T] as b, whose coefficients determine the spectral value by [6, 3.1.2 prop. 1].",
+      "statement": "Let A⊂B be the normed extension of uniform A in Lemme 2.4.1, with A carrying the restricted norm. If a finite group G acts with B^G=A and preserves the norm, then (B°)^G=A°, B is integral over A, B° is integral over A°, and B° is the integral closure of A° in B. Completeness and spectrality alone do not imply invariance.",
       "locator": "Lemme 2.4.1(2) and its proof, p. 22",
       "status": "missing",
-      "note": "Statement recorded in its corrected form: the G-invariance of the spectral norm is derived from the characteristic polynomial, not from uniqueness of the complete spectral norm (E1, E10)."
+      "note": "E1 and E10. Retain explicit norm invariance, or continuous group automorphisms together with a spectral norm. Delete the original circular orbit-polynomial repair. Ordinary finite-group integrality is separately imported below; the norm and integral-element comparison remains."
     },
     {
       "id": "PAPER-ANDRE-18/2.4.1-unique-invariant-norm",
       "kind": "theorem",
       "name": "Lemme 2.4.1(3)–(4): the unique G-invariant spectral norm",
-      "statement": "If in addition B is uniform, |·|_sp is the unique G-invariant spectral norm on B extending that of A: for b∈B the polynomial ∏_{γ∈G}(T−γ(b))=T^d+Σa_iT^{d−i}∈A[T] gives max_γ|γ(b)|′ = max_i|a_i|^{1/i} (2.11) for any such norm |·|′, whence equality with |·|_sp by G-invariance. If moreover the norm of B is spectral and g∈A, then multiplication by g in B is injective (resp. isometric) as soon as multiplication by g in A is, since replacing b by ab replaces a_i by a^i a_i.",
+      "statement": "In the norm-invariant finite-group setting of Lemme 2.4.1(2), if B is uniform, |·|_sp is the unique G-invariant spectral norm on B extending that of A: for b∈B the polynomial ∏_{γ∈G}(T−γ(b))=T^d+Σa_iT^{d−i}∈A[T] gives max_γ|γ(b)|′ = max_i|a_i|^{1/i} (2.11) for any such norm |·|′, whence equality with |·|_sp by G-invariance. If moreover the norm of B is spectral and g∈A, then multiplication by g in B is injective (resp. isometric) as soon as multiplication by g in A is, since replacing b by ab replaces a_i by a^i a_i.",
       "locator": "Lemme 2.4.1(3)–(4), formula (2.11), p. 22",
       "status": "missing"
     },
@@ -1200,17 +1215,19 @@
       "id": "PAPER-ANDRE-18/2.4.2-finite-etale-faithful",
       "kind": "theorem",
       "name": "Forgetting the norm is fully faithful on finite étale algebras",
-      "statement": "For A a uniform Banach K-algebra, the functor {finite étale uniform Banach A-algebras} → {finite étale A-algebras} that forgets the norm is fully faithful; a quotient of a finite étale A-algebra is a direct factor, which reduces fullness to isomorphisms, and those are isometric by uniqueness of the complete spectral norm. It is in fact an equivalence ([21, prop. 2.8.16(b)]), a fact the paper does not use.",
+      "statement": "For a uniform Banach K-algebra A, forgetting the topology from finite étale uniform Banach A-algebras is fully faithful. Algebraic homomorphisms between such finite projective A-modules are continuous for their canonical finite-projective topologies; the given Banach topologies agree by the open mapping theorem. Remark 2.4.4 also cites essential surjectivity, not used subsequently.",
       "locator": "Lemme 2.4.2 and Remarque 2.4.4, pp. 23–24",
-      "status": "missing"
+      "status": "missing",
+      "note": "E1: do not use uniqueness on an abstract algebra. Nor is an arbitrary quotient of a finite étale algebra a direct factor (A=K⟨T⟩, quotient by T); the restricted finite-étale quotient case must be distinguished. The finite-projective continuity proof avoids both shortcuts."
     },
     {
       "id": "PAPER-ANDRE-18/2.5.1-monomorphisms",
       "kind": "theorem",
       "name": "Monomorphisms and free objects in K-uBan",
-      "statement": "The monomorphisms of K-uBan are exactly the injective continuous homomorphisms. K-uBan has free objects, S ↦ K⟨T_s⟩_{s∈S} being left adjoint to the forgetful functor to sets, with Hom(K⟨T⟩,B)=B°.",
+      "statement": "The monomorphisms of K-uBan are exactly the injective continuous homomorphisms. S↦K⟨T_s⟩ is left adjoint to B↦B°, with Hom(K⟨T⟩,B)=B°; it is not left adjoint to the underlying set of the entire algebra.",
       "locator": "§2.5.1, p. 24",
-      "status": "missing"
+      "status": "missing",
+      "note": "E15: the Tate-algebra free-object statement is adjoint to B↦B°, not the whole underlying set. The direct proof of monomorphism detection can be used independently."
     },
     {
       "id": "PAPER-ANDRE-18/2.5.2-root-setting",
@@ -1288,13 +1305,14 @@
     {
       "id": "PAPER-ANDRE-18/2.6.2-rational-localization",
       "kind": "construction",
-      "name": "Uniform rational localization A{f₁,…,f_n/f}",
-      "statement": "For f₁,…,f_n,f generating the unit ideal, A{f₁,…,f_n/f} := A⟨U₁,…,U_n⟩/(fU_i−f_i)⁻_i (2.21) is the universal Banach A-algebra in which f becomes invertible and the f_i/f are power-bounded; A→A{f₁,…,f_n/f} is an epimorphism because A[1/f]→A{…} has dense image. For n=1, f₁=1 one writes A{1/f} := A⟨U⟩/(fU−1)⁻ (2.22), universal for f invertible with inverse in the unit ball; A{1/f}=0 when f∈A°°. The reference [6, 6.1.4] assumes A affinoid, so that the ideal is closed; substituting its closure, the arguments hold for an arbitrary Banach K-algebra.",
+      "name": "Ordinary Banach rational localization and its universal property",
+      "statement": "For f₁,…,f_n,f generating the unit ideal, A{f₁,…,f_n/f} := A⟨U₁,…,U_n⟩/(fU_i−f_i)⁻_i (2.21) is the universal Banach A-algebra in which f becomes invertible and the f_i/f are power-bounded; A→A{f₁,…,f_n/f} is an epimorphism because A[1/f]→A{…} has dense image. For n=1, f₁=1 one writes A{1/f} := A⟨U⟩/(fU−1)⁻ (2.22), universal for f invertible with power-bounded inverse; A{1/f}=0 when f∈A°°. The reference [6, 6.1.4] assumes A affinoid, so that the ideal is closed; substituting its closure, the arguments hold for an arbitrary Banach K-algebra.",
       "locator": "§2.6.2, formulas (2.21)–(2.22) with footnote 12, pp. 27–28",
       "status": "planned",
       "planned": [
         "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf"
-      ]
+      ],
+      "note": "The displayed completed quotient is the ordinary Banach localization. Its subsequent uniformization is a different construction. Power-bounded elements coincide with the unit ball only for the spectral norm; a continuous morphism need not be contractive for an arbitrary chosen norm."
     },
     {
       "id": "PAPER-ANDRE-18/2.6.1-closed-ideal",
@@ -1352,9 +1370,10 @@
       "id": "PAPER-ANDRE-18/2.6.4-injectivity-criterion",
       "kind": "theorem",
       "name": "When ι_{λ/g} is injective",
-      "statement": "ι_{λ/g} is injective iff (inf_m |(g/λ)^m a|_A = 0 ⇒ a = 0), which holds when multiplication by g in A is isometric. The morphisms A{λ/g}^u → A{μ/g}^u are always injective, although multiplication by g in A{λ/g}° is not isometric for |λ|<1. Injectivity can fail for A uniform without g-torsion: the completion of K°[T₁,T₂,T₂T₁^i/ϖ^i]_{i≥1} is the unit ball of such an A, and ι_{λ/T₁}(T₂)=0 whenever |λ|>|ϖ|.",
+      "statement": "The map ι_{λ/g} is injective iff inf_m |(g/λ)^m a|=0 implies a=0. This holds when multiplication by g is isometric (with the source's 0<|λ|≤1). Restriction maps between these localizations are not injective unconditionally: A=K×K, g=(1,ϖ), λ=ϖ, μ=1 gives A→K by first projection. Non-zero-divisibility of g is insufficient. Any isometric-case transition theorem must retain its hypotheses explicitly.",
       "locator": "Remarques 2.6.4, pp. 29–30",
-      "status": "missing"
+      "status": "missing",
+      "note": "E16 removes the unconditional assertion. E6 repairs the positive lower bound in the preceding inverse-limit argument without assuming multiplicativity of the spectral norm."
     },
     {
       "id": "PAPER-ANDRE-18/2.7.1-uniform-products",
@@ -1554,9 +1573,10 @@
       "id": "PAPER-ANDRE-18/3.2.3-standard-examples",
       "kind": "construction",
       "name": "K⟨T^{1/p^∞}⟩, its universal property, and the Witt description of Â_∞",
-      "statement": "K⟨T^{1/p^∞}⟩ = ucolim_i K[T^{1/p^i}] is perfectoid with unit ball K°⟨T^{1/p^∞}⟩, and more generally A⟨T^{1/p^∞}⟩ is perfectoid for A perfectoid; the pair (A⟨T^{1/p^∞}⟩,(T^{1/p^∞})) is universal among pairs (B,(g^{1/p^∞})) with B an A-perfectoid algebra and (g^{1/p^∞}) a compatible system of p^m-th roots of an element of B°. With A_i := K_i°[[T_1^{1/p^i},…,T_n^{1/p^i}]]⊗_{K_i°}K_i, each A_i° is a complete regular noetherian local ring of dimension n+1 with A_i° ≡ (A_{i+1}°)^p mod p, so Â_∞ = ucolim A_i is a perfectoid K̂_∞-algebra; its unit ball is strictly contained in K̂_∞°[[T^{1/p^∞}]]^ and satisfies Â_∞° ≅ W(k[[T_1^{1/p^∞},…,T_n^{1/p^∞}]])^ ⊗̂_{W(k)} K̂_∞° (3.1).",
+      "statement": "K⟨T^{1/p^∞}⟩ = ucolim_i K⟨T^{1/p^i}⟩ is perfectoid with unit ball K°⟨T^{1/p^∞}⟩, and more generally A⟨T^{1/p^∞}⟩ is perfectoid for A perfectoid; the pair (A⟨T^{1/p^∞}⟩,(T^{1/p^∞})) is universal among pairs (B,(g^{1/p^∞})) with B an A-perfectoid algebra and (g^{1/p^∞}) a compatible system of p^m-th roots of an element of B°. With A_i := K_i°[[T_1^{1/p^i},…,T_n^{1/p^i}]]⊗_{K_i°}K_i, each A_i° is a complete regular noetherian local ring of dimension n+1 with A_i° ≡ (A_{i+1}°)^p mod p, so Â_∞ = ucolim A_i is a perfectoid K̂_∞-algebra; its unit ball is strictly contained in K̂_∞°[[T^{1/p^∞}]]^ and satisfies Â_∞° ≅ W(k[[T_1^{1/p^∞},…,T_n^{1/p^∞}]])^ ⊗̂_{W(k)} K̂_∞° (3.1).",
       "locator": "Exemples 3.2.3, formula (3.1), p. 37",
-      "status": "missing"
+      "status": "missing",
+      "note": "The finite levels in K-uBan are completed Tate algebras, not uncompleted polynomial rings. Equivalently form and then complete the algebraic root tower. Remaining bundled examples require granular splitting."
     },
     {
       "id": "PAPER-ANDRE-18/3.3.1-tilt-field",
@@ -1687,7 +1707,7 @@
       "statement": "Given Proposition 3.4.2, the second equivalence of Théorème 3.4.1 amounts to (∗)_A: every finite étale A-algebra is perfectoid. In characteristic p this holds because a finite étale algebra over a perfect ring is perfect. In characteristic 0 the sketch runs: (a) (∗)_L for L/K finite; (b) the Gelfand transform Γ(A) is perfectoid, being a uniform product of the perfectoid fields ℋ(x), so B⊗_AΓ(A) is perfectoid and spectral; (c) Γ(A♭) ≅ Γ(A)♭, the ℋ(x)♭ are uniform colimits of rational localizations A♭_α of A♭ and ℋ(x) of their untilts A_α, which are rational localizations of A, giving an essentially commutative square of equivalences whose verticals are ♯ and whose horizontals are Elkik-style approximation; (d) compactness of ℳ(A) gives a finite cover by rational localizations over which B becomes perfectoid, and one descends by the sheaf properties of perfectoid algebras. Part (2) of the theorem then follows from part (1), from Théorème 3.3.2 and from Grothendieck’s remarkable equivalence.",
       "locator": "§3.4.4 with its four steps, pp. 42–43",
       "status": "missing",
-      "note": "Step (c) is printed with \"les basculés A_α qui sont des localisations rationnelles de A♭\"; the A_α are the untilts and are rational localizations of A (source issue E9). The sketch invokes prop. 3.7.1, rem. 3.6.4 and prop. 3.8.1, proved later; André asks the reader to check that no vicious circle arises."
+      "note": "E9 identifies the untilts as localizations of A. E18 replaces the pointwise completed colimit by H(x)°, not the global A°; use the x-seminorm and separated completion. E17 deletes an unfinished clause only. Henselian approximation, rational-localization compatibility and the noncircular proof ordering remain explicit proof-closure obligations."
     },
     {
       "id": "PAPER-ANDRE-18/3.4.5-generalized-base",
@@ -1747,7 +1767,7 @@
       "id": "PAPER-ANDRE-18/3.6.2-dense-image-remark",
       "kind": "theorem",
       "name": "Dense images, surjectivity and the canonical factorisation",
-      "statement": "If φ:B→C has dense image and B is perfectoid then C is perfectoid; if moreover φ is surjective and B spectral, the spectral norm of C is the quotient norm and the induced map of unit balls is almost surjective. Hence φ is surjective iff φ♭ is, the condition being almost surjectivity of φ° mod ϖ, identified with φ♭° mod ϖ♭. Since ker φ♭ is a closed radicial ideal, B♭/ker φ♭ is perfectoid and φ factors in K-Perf as B → (B♭/ker φ♭)♯ → (B/ker φ)^u → C with the first surjective, the second simultaneously an extremal epimorphism of uniform Banach algebras and a monomorphism. André states these results are not used in the sequel.",
+      "statement": "If φ:B→C has dense image and B is perfectoid then C is perfectoid; if moreover φ is surjective and B spectral, the spectral norm of C is the quotient norm and the induced map of unit balls is almost surjective. Hence φ is surjective iff φ♭ is, the condition being almost surjectivity of φ° mod ϖ, identified with φ♭° mod ϖ♭. Since ker φ♭ is a closed radicial ideal, B♭/ker φ♭ is perfectoid and φ factors in K-Perf as B → (B♭/ker φ♭)♯ → (B/ker φ)^u → C with the first surjective, the second simultaneously an extremal epimorphism in K-uBan and a monomorphism in K-Perf (different categories). André states these results are not used in the sequel.",
       "locator": "Remarque 3.6.2, p. 49; [21, th. 3.6.17(b), prop. 3.6.9(c), 3.1.6 d]",
       "status": "missing"
     },
@@ -1794,12 +1814,13 @@
       "id": "PAPER-ANDRE-18/3.8.1-perfectoid-limits",
       "kind": "theorem",
       "name": "K-Perf is complete, and what its limits are",
-      "statement": "The category of perfectoid K-algebras is complete, because K-uBan is complete and K-Perf is coreflective in it. In characteristic p the embedding also has a left adjoint and so reflects limits: perfectoid limits are the uniform limits, and ♭ commutes with ulim. In characteristic 0 one obtains them by tilting: perfectoid limits are ulim^♮.",
+      "statement": "The category of perfectoid K-algebras is complete, because K-uBan is complete and K-Perf is coreflective in it. In characteristic p the embedding also has a left adjoint and so preserves limits, with the indicated limits computed in K-uBan: perfectoid limits are the uniform limits, and ♭ commutes with ulim. In characteristic 0 one obtains them by tilting: perfectoid limits are ulim^♮.",
       "locator": "§3.8.1, pp. 50–51",
-      "status": "planned",
-      "planned": [
+      "status": "missing",
+      "priorPlanned": [
         "PerfectoidSpaces:P5"
-      ]
+      ],
+      "ownershipReview": "The cited stage does not establish this whole categorical contract. Provisional candidate in rejected route 2; no new owner is approved."
     },
     {
       "id": "PAPER-ANDRE-18/3.8.2-limits-differ",
@@ -1823,7 +1844,8 @@
       "name": "The tilt of a perfectoid limit",
       "statement": "For char K = 0 with ϖ = #(ϖ♭), the perfectoid limit of a projective system of perfectoid K♭-algebras is their uniform limit. For a system of perfectoid K-algebras with uniform limit A, the perfectoid limit is A♮, whose tilt is determined by (A♮)^{♭o} = A^{♭o} = lim_F A° = lim_{F,α}A^{αo} = lim_α A^{α♭o} = lim_{F,α}(A^{αo}/ϖ) (3.17); A♮ → A is not an isomorphism in general.",
       "locator": "§3.8.4, formula (3.17), pp. 51–52",
-      "status": "missing"
+      "status": "missing",
+      "note": "The inverse limit of A° along x↦x^p in mixed characteristic is first a multiplicative-monoid construction. That power map is not additive on A°. The ring law is transported through the characteristic-p reduction description; do not implement an inverse system of mixed-characteristic rings with Frobenius ring maps."
     },
     {
       "id": "PAPER-ANDRE-18/3.8.5-prophylactic-limit",
@@ -1839,10 +1861,11 @@
       "name": "K-Perf is cocomplete",
       "statement": "The category of perfectoid K-algebras has filtered colimits, namely the uniform colimits, since Frobenius stays surjective on colim(B_α^{oa}/ϖ) ≅ (ucolim B_α)^{oa}/ϖ (3.18); having also amalgamated sums ⊗̂^u = ⊗̂, it is cocomplete, colimits being computed as in K-uBan and commuting with tilting.",
       "locator": "§3.9.1, formula (3.18), p. 52",
-      "status": "planned",
-      "planned": [
+      "status": "missing",
+      "priorPlanned": [
         "PerfectoidSpaces:P5"
-      ]
+      ],
+      "ownershipReview": "The cited stage does not establish this whole categorical contract. Provisional candidate in rejected route 2; no new owner is approved."
     },
     {
       "id": "PAPER-ANDRE-18/3.9.2-colimit-examples",
@@ -1872,10 +1895,110 @@
       "id": "PAPER-ANDRE-18/5.4-noether-normalisation",
       "kind": "construction",
       "name": "Almost perfectoid envelopes of affinoid algebras",
-      "statement": "Let B be a reduced affinoid K-algebra of dimension n. Choose a Noether normalisation making B a finite extension of A := K⟨T_{≤n}⟩, and choose g ∈ A° such that B[1/g] is étale over A[1/g]. Let 𝒜 be the almost perfectoid algebra g^{−1/p^∞}K⟨T_{≤n}^{1/p^∞},g^{1/p^∞}⟩ and let ℬ be the integral closure of B⊗_A𝒜 in B⊗_A𝒜[1/g]. Then ℬ is almost perfectoid by Proposition 5.3.1, and ℬ^{oa} is finite étale over 𝒜^{oa} modulo every power of p, in the setting (K°[T^{1/p^∞}],(ϖT)^{1/p^∞}K°[T^{1/p^∞}]) via T^{1/p^k} ↦ g^{1/p^k}. If Question 3.5.1 has a positive answer then 𝒜 and ℬ are even perfectoid. This attaches perfectoid algebras to an arbitrary reduced affinoid algebra, where previous constructions were confined to toric situations governed by the logarithmic form of Faltings’ almost purity theorem.",
+      "statement": "Let B be a reduced affinoid K-algebra of dimension n. Choose a Noether normalisation making B a finite extension of A := K⟨T_{≤n}⟩, and choose g ∈ A° such that B[1/g] is étale over A[1/g]. Let 𝒜 be the almost perfectoid algebra g^{−1/p^∞}K⟨T_{≤n}^{1/p^∞},g^{1/p^∞}⟩ and let ℬ be the integral closure of B⊗_A𝒜 in B⊗_A𝒜[1/g]. Then ℬ is almost perfectoid by Proposition 5.3.1, and ℬ^{oa} is finite étale over 𝒜^{oa} modulo every power of p, in the setting (K°[T^{1/p^∞}],(ϖT)^{1/p^∞}K°[T^{1/p^∞}]) via T^{1/p^k} ↦ g^{1/p^k}. If Question 3.5.1 has a positive answer then 𝒜 and ℬ are even perfectoid. This constructs almost perfectoid envelopes, and conditionally perfectoid ones, for the specified reduced affinoid algebra and choices, where previous constructions were confined to toric situations governed by the logarithmic form of Faltings’ almost purity theorem.",
       "locator": "§5.4, pp. 68–69",
       "status": "missing",
       "note": "The hypotheses are choices: the Noether normalisation, and an element g with B[1/g] étale over A[1/g], whose existence the paper does not argue here. The perfectoidness of 𝒜 and ℬ is conditional on Question 3.5.1 (p. 46), which the paper leaves open in characteristic 0. The tensor products are printed uncompleted."
+    },
+    {
+      "id": "PAPER-ANDRE-18/1.7-evaluation-ideal",
+      "kind": "definition",
+      "name": "Evaluation ideal of an almost module",
+      "statement": "For an almost A-module P define E_{P/A} as the image of evaluation P⊗_A Hom_A(P,A)→A. It is an ideal; for almost projective P its equality to A characterizes faithful flatness. It is not defined by an endomorphism trace without finite-projectivity hypotheses.",
+      "locator": "§1.7.2(1), p.7, corrected via Gabber–Ramero Definition 2.4.23 and Proposition 2.4.28(iv)",
+      "status": "planned",
+      "planned": [
+        "PerfectoidSpaces:P0"
+      ],
+      "note": "Required correction interface for E19."
+    },
+    {
+      "id": "PAPER-ANDRE-18/3.5.1-categorical-monomorphisms",
+      "kind": "theorem",
+      "name": "Perfectoid monomorphisms detected after tilting",
+      "statement": "A morphism of perfectoid K-algebras is a categorical monomorphism iff its tilt is injective. In characteristic p this is equivalent to underlying injectivity; in characteristic zero a categorical monomorphism need not be injective.",
+      "locator": "Numbered paragraph 3.5.1, p.45",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18/3.5.2-noninjective-monomorphism",
+      "kind": "construction",
+      "name": "Noninjective monomorphism in mixed characteristic",
+      "statement": "The evaluation K̂_cycl,∞⟨T^(1/p^∞)⟩→L, where L is the completion of the extension adjoining compatible p-power roots of p and T maps to p, is not injective; its tilt is injective. It is therefore a categorical monomorphism of perfectoid algebras despite having a nonzero underlying kernel.",
+      "locator": "Numbered example 3.5.2, p.45",
+      "status": "missing",
+      "note": "The cyclotomic base and compatible roots are part of the source example. This is distinct from Definition 3.5.2 on p.46."
+    },
+    {
+      "id": "PAPER-ANDRE-18/3.5.4-left-adjoint-criterion",
+      "kind": "theorem",
+      "name": "Almost perfectoidness via the corrected left adjoint",
+      "statement": "For a uniform Banach K⟨T^(1/p^∞)⟩-algebra B in the ramified almost setting, B is almost perfectoid iff the corrected left-adjoint representative (B^â)^!! is perfectoid. The hat on the corrected functor includes the topological construction of §2.3.",
+      "locator": "Proposition 3.5.4(6), p.47",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18/3.5.5-integral-equivalence",
+      "kind": "theorem",
+      "name": "Integral characterization of almost perfectoid algebras",
+      "statement": "In the ramified almost setting, A↦(A°)ᵃ identifies almost perfectoid K⟨T^(1/p^∞)⟩^â-algebras with K⟨T^(1/p^∞)⟩°ᵃ-algebras flat over K°, ϖ-adically complete and with x↦x^p giving a bijection Aᵃ/ϖ^(1/p)→Aᵃ/ϖ. Keep the chosen compatible roots and almost base.",
+      "locator": "Lemme 3.5.5, p.48 (not the numbered remarks 3.5.5)",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18/3.5.6-almost-finite-etale",
+      "kind": "theorem",
+      "name": "Finite étale equivalence over an almost perfectoid base",
+      "statement": "For an almost perfectoid A, B↦(B°)ᵃ gives an equivalence between almost perfectoid A^â-algebras almost finite étale in the sense that Bᵃ is finite étale over Aᵃ, and finite étale (A°)ᵃ-algebras. Inversion of ϖ gives the inverse integral-to-Banach construction.",
+      "locator": "Definition preceding Proposition 3.5.6 and Proposition 3.5.6, p.48",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18/2.1.4-power-bounded-carrier",
+      "kind": "definition",
+      "name": "Topological power-bounded subring",
+      "statement": "For a nonarchimedean commutative topological ring A, the power-bounded elements form the subring A°. This imports the topological carrier; identification of Huber boundedness with norm-bounded powers in the paper remains an explicit comparison.",
+      "locator": "§2.1.4, p.12",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.Huber.IsPowerBounded",
+        "tauceti:TauCeti.Huber.powerBoundedSubring"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18/2.1.4-topologically-nilpotent-carrier",
+      "kind": "definition",
+      "name": "Topologically nilpotent ideal in the power-bounded ring",
+      "statement": "For a nonarchimedean commutative topological ring A, topologically nilpotent elements form an ideal of A°, not generally of A. Import this carrier before proving the paper's Banach-specific properties.",
+      "locator": "§2.1.4, p.12",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.Huber.topologicallyNilpotentIdeal"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18/2.3.1-ordinary-integral-closure",
+      "kind": "definition",
+      "name": "Ordinary integral closure as a subalgebra",
+      "statement": "For commutative rings R,S and an R-algebra S, integralClosure R S is the subalgebra of elements integral over R. For the paper's inclusions use their induced algebra structure.",
+      "locator": "Numbered paragraph §2.3.1, p.15",
+      "status": "library",
+      "library": [
+        "mathlib:integralClosure",
+        "mathlib:mem_integralClosure_iff"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18/2.4.1-finite-invariant-integrality",
+      "kind": "theorem",
+      "name": "Algebraic integrality of a finite-group invariant extension",
+      "statement": "If a finite group G acts on a commutative algebra B and every G-fixed element comes from A (Algebra.IsInvariant A B G), then B is integral over A. Apply to the invariant subring with the paper's inclusion; no norm invariance is required for this algebraic subresult.",
+      "locator": "Lemme 2.4.1(2), p.22, algebraic subresult only",
+      "status": "library",
+      "library": [
+        "mathlib:Algebra.IsInvariant.isIntegral"
+      ],
+      "note": "MulSemiringAction.charpoly, charpoly_monic and charpoly_eval supply the orbit-polynomial proof; this is not an automatic spectral-norm invariance theorem."
     }
   ],
   "prerequisites": [
@@ -1972,7 +2095,7 @@
     {
       "citation": "K. Shimomoto, An application of the almost purity theorem to the homological conjectures, J. Pure Appl. Algebra 220 (2016), 621–632 [32]",
       "link": "https://doi.org/10.1016/j.jpaa.2015.07.008",
-      "why": "Statement 4.9, cited on p. 44. Note that the paper's bibliography dates it 220 (2014) and gives no pages; the volume appeared in 2016 (see source issue E3)."
+      "why": "Statement 4.9, cited on p. 44. Note that the paper's bibliography dates it 220 (2014) and gives no pages; the volume appeared in 2016 (see source issue E12)."
     },
     {
       "citation": "T. Szamuely, Galois groups and fundamental groups, Cambridge Stud. Adv. Math. 117, CUP, 2009 [33]; and SGA 4 II, Lecture Notes in Math. 270 [3]",
@@ -2034,9 +2157,10 @@
         "PAPER-ANDRE-18/1.9.2-galois-envelope",
         "PAPER-ANDRE-18/1.9.3-galois-rigidity",
         "PAPER-ANDRE-18/3.8.1-invariants",
-        "PAPER-ANDRE-18/3.8.1-invariants-tilt"
+        "PAPER-ANDRE-18/3.8.1-invariants-tilt",
+        "PAPER-ANDRE-18/1.7-evaluation-ideal"
       ],
-      "reason": "Section 1 provides general-base almost algebra and the Galois proof auxiliaries used in P3. Proposition 3.8.1 supplies finite-group invariants within P8. These are existing stage contracts, not new owners. The abstract base strengthens the field-only opening of the older integrated P0 decomposition without duplicating the current general P0 plan."
+      "reason": "P0 owns general-base almost algebra, adjoints, projectivity and the corrected evaluation-ideal criterion; P3 owns the finite-étale/Galois almost-purity auxiliaries; P8 owns finite-group perfectoid invariants. These are sources of existing stage contracts, not new owners. Import the generic Serre-localization and finite-group algebra already in the libraries; keep the ramified almost base explicit."
     },
     {
       "route": "part-ii",
@@ -2082,6 +2206,8 @@
         "PAPER-ANDRE-18/5.3.1-ordinary-comparison",
         "PAPER-ANDRE-18/5.3.1-maximal",
         "PAPER-ANDRE-18/5.3.1-trace",
+        "PAPER-ANDRE-18/2.1.1-category-ban",
+        "PAPER-ANDRE-18/2.1.2-bicompleteness-ban",
         "PAPER-ANDRE-18/2.1.2-quotient-isometry",
         "PAPER-ANDRE-18/2.1.2-finite-projective-complete",
         "PAPER-ANDRE-18/2.1.3-orthogonal-basis",
@@ -2158,17 +2284,24 @@
         "PAPER-ANDRE-18/3.6.2-dense-image-remark",
         "PAPER-ANDRE-18/3.6.3-standard-localization",
         "PAPER-ANDRE-18/3.7.1-gelfand-perfectoid",
+        "PAPER-ANDRE-18/3.8.1-perfectoid-limits",
         "PAPER-ANDRE-18/3.8.2-limits-differ",
         "PAPER-ANDRE-18/3.8.3-infinite-groups",
         "PAPER-ANDRE-18/3.8.4-tilt-of-limits",
         "PAPER-ANDRE-18/3.8.5-prophylactic-limit",
+        "PAPER-ANDRE-18/3.9.1-cocomplete-perfectoid",
         "PAPER-ANDRE-18/3.9.2-colimit-examples",
         "PAPER-ANDRE-18/4.1-riemann-classical",
         "PAPER-ANDRE-18/4.1-weaker-unit-ball",
-        "PAPER-ANDRE-18/5.4-noether-normalisation"
+        "PAPER-ANDRE-18/5.4-noether-normalisation",
+        "PAPER-ANDRE-18/3.5.1-categorical-monomorphisms",
+        "PAPER-ANDRE-18/3.5.2-noninjective-monomorphism",
+        "PAPER-ANDRE-18/3.5.4-left-adjoint-criterion",
+        "PAPER-ANDRE-18/3.5.5-integral-equivalence",
+        "PAPER-ANDRE-18/3.5.6-almost-finite-etale"
       ],
-      "brief": "Extend Perfectoid rings and spaces (PerfectoidSpaces) beyond its unramified P3 theorem, without rebuilding P0 almost mathematics, P1 tilting, P2 rational localization or P8 finite-group invariants. Import the general topological algebra from foundations of adic spaces (tauceti:TauCetiRoadmap/AdicSpaces) and the appropriate tensor-product prefix of Adic spaces, Part II (AdicSpacesPartII), verifying its precise stage ownership before blueprinting. First construct the almost-Banach category for the explicitly specified ramified ideal (ϖT)^(1/p^∞), almost-perfectoid algebras and the right perfectoid coreflection. Do not identify that right adjoint with the prismatic universal perfectoidization of PerfectoidQuotients. Prove André Proposition 4.2.1 with its integral root-localization models, Theorem 4.2.2 identifying lim_j A{ϖ^j/g}° with the intersection g^(-1/p^∞)A°, and its complete-integral-closure assertion. Retain the non-zero-divisor and compatible-root hypotheses. Establish the inverse-limit Frobenius criterion with only the implication directions proved in Proposition 4.3.1; prove Proposition 4.4.1 by its summable annihilator estimates, rather than assuming surjective transition maps. Construct the compatible annular category and Theorem 4.4.2: localization is fully faithful with uniform-limit right adjoint and isomorphic unit, but arbitrary essential surjectivity is not an output. For B′ finite étale over A[1/g], prove all three parts of Proposition 4.4.4 and the recovery B[1/g]≅B′. The final categorical theorem is exactly Theorem 5.2.1: complete A°ᵃ-algebras finite étale modulo every p^m and after inverting g are equivalent, by inverting ϖ, to almost-perfectoid A^â-algebras finite étale after inverting g, and then to finite étale A[1/g]-algebras by inverting g. Prove separately Proposition 5.2.3 in its two different almost bases. Prove the identifications and maximality in Proposition 5.3.1, distinguishing the almost-perfectoid integral envelope D from the largest perfectoid A-algebra D^♮ in B′. State trace almost-surjectivity only when B′ is faithful. Preserve Questions 3.5.1, 4.4.3 and 5.2.2 as boundaries rather than theorem targets. Complete extraction of the source’s §2–3 foundations, examples and §5.4 application before this brief is approved; any general missing construction already owned elsewhere must be imported rather than retained here. The current item list is a checkpoint, not an exhaustive blueprint.\n\nScope after the third pass (Claude Code, cc-fb70e5). The Part II now carries the whole of the paper that the atlas does not already plan, in four blocks. (i) §2, the bicomplete category K-uBan of uniform Banach K-algebras: the spectral semi-norm and uniformity, the dictionary of Sorite 2.3.1 between uniform Banach algebras and flat ϖ-adically complete K°-algebras with (·)_* = Hom(K°°,−), the almost-elements endofunctor and the corrected left adjoint (·)^!!, the topological almost category A^â-uBan, integral extensions and the invariant-norm lemma 2.4.1, the root saturation g^{−1/p^∞}B° with its six closedness criteria, extremal epimorphisms and uniform rational localization, uniform products and the Gelfand transform, uniform limits and colimits, and the identification of A⟨g^{1/p^∞}⟩ as a colimit of localizations. This block is generic normed-algebra and category theory and the design job must EXPORT it rather than bury it: its long-term home is the Tau Ceti Foundations of adic spaces roadmap (Layer 0 already owns boundedness, A°, A°°, Tate algebras, completion and the open mapping theorem, and Layer 3 the rational localisation), which a source route cannot re-plan. (ii) §3.5–3.9, the parts of the perfectoid category the atlas does not plan: almost perfectoid algebras, K-Perf as a coreflective subcategory with the functor ♮ = ♯∘♭, perfectoid limits as ulim^♮ and the counterexamples separating them from uniform limits, invariants under a finite group of isometries, and the Gelfand transform of a perfectoid algebra. (iii) §4, the perfectoid Riemann extension theorem and the complete integral closure it computes. (iv) §5, the perfectoid Abhyankar lemma itself and the almost perfectoid envelopes of §5.4, whose statement must keep its choices (Noether normalisation, the element g with B[1/g] étale over A[1/g]) and its conditional clause (Question 3.5.1 is open in characteristic 0). Items are stated in corrected form wherever a source issue bites; see sourceIssues E1, E4–E9 and the notes on the items concerned.",
-      "reason": "The read P0–P9 contracts cover perfectoid foundations and unramified almost purity but not the ramified saturation and extension theorem. PerfectoidQuotients Q2–Q4 instead cover prismatic universal perfectoidization, André flatness, and Zariski closed quotients. The specific ramification direction therefore proposes a Part II; a final catalogue-wide collision and general-supplier audit is still required. Area corrected from 'cohomology' to 'padic': 'cohomology' is the atlas *group* of PerfectoidSpaces in data/atlas.json, not a galaxy id of data/galaxies.json, which is what a route's area must be. scripts/check_paper.py does not validate the field, so the error was silent."
+      "brief": "PROVISIONAL — rejected by REV-PAPER-ANDRE-18, not an approved design instruction. The genuinely ramified candidates are the almost-Banach category with the specified ideal (ϖT)^(1/p^∞), almost perfectoid algebras, the right perfectoid coreflection, root saturation, Theorem 4.2.2 with its non-zero-divisor and compatible-root hypotheses, Proposition 4.3.1 with exactly its implication directions, the derived-limit estimates of Proposition 4.4.1, and the localization/limit adjunction of Theorem 4.4.2 (not arbitrary essential surjectivity). Continue through Proposition 4.4.4, the two equivalences of Theorem 5.2.1, both almost bases of Proposition 5.2.3, and the distinct almost-perfectoid and maximal-perfectoid envelopes of Proposition 5.3.1. Trace almost-surjectivity retains faithfulness. Keep the questions and conditional application of §5.4 conditional. Import P0 almost algebra, P1 tilting, P2 localization/tensor results, P3 almost purity and P8 finite-group invariants, with their library foundations. Do not identify this right adjoint with PerfectoidQuotients Q2 universal perfectoidization. Before approval, separate generic §2 Banach categories, uniform limits/colimits and Gelfand constructions into their actual supplier contracts after a catalogue-wide collision search; neither the existing upstream roadmap nor AdicSpacesPartII:R0 licenses the present omnibus block. The attached candidate list preserves coverage during revision and assigns no final ownership.",
+      "reason": "Ramified Riemann extension and Abhyankar envelopes plausibly extend PerfectoidSpaces, unlike Q2–Q4's prismatic universal perfectoidization/flatness/closed quotients. However this route currently mixes those results with generic foundations and possibly already-owned perfectoid constructions. A deferred promise to export them is not ownership closure under §15."
     },
     {
       "route": "source",
@@ -2183,19 +2316,35 @@
         "PAPER-ANDRE-18/2.2-comparable-complete-norms",
         "PAPER-ANDRE-18/2.2.4-abstract-uniqueness-source"
       ],
-      "reason": "These five are pure normed-algebra statements with no perfectoid content: a bounded ring homomorphism contracts spectral radii; comparable semi-norms have the same spectral-radius function; two power-multiplicative K-algebra norms defining the same topology are equal; if both are complete, continuity in one direction suffices, by the open mapping theorem; and the source form of the paper’s §2.2.4, whose stronger completeness variant is false (sourceIssue E1). Their natural owner is the Tau Ceti roadmap Foundations of adic spaces, whose Layer 0 already plans boundedness, A° and A°°, Tate algebras, completion and the open mapping theorem (0.1, 0.3, 0.6) — but scripts/check_paper.py forbids a source route from re-planning a Tau Ceti roadmap, and its Part II in the atlas is AdicSpacesPartII, whose R0 is the stage that already depends on \"AdicSpaces and complete topological algebra\". They are routed there rather than developed privately inside PerfectoidRamification, which is what the second checkpoint asked for and deliberately left unrouted. If the design job judges R0 too narrow, they belong in a dedicated topological-algebra stage of the same Part II, not in a new roadmap."
+      "reason": "Provisional, rejected: these generic norm-comparison results and a negative uniqueness test do not belong to AdicSpacesPartII:R0 merely because it imports complete topological algebra. R0 plans geometric morphisms and restricted admissible affinoid tensor products, not a general normed-algebra foundation stage. Resolve the actual supplier before using this route."
     }
   ],
   "conventions": {
     "base": "Unless a statement specifies (K°,K°°), ramified almostification uses (K°[T^(1/p^∞)],(ϖT)^(1/p^∞)), with 0≠ϖ∈K°°, |p|≤|ϖ| and chosen compatible p-power roots. Equivalent completed-coordinate base changes are those in the source.",
     "coreflection": "The symbol ♮ denotes André’s right-adjoint perfectoid coreflection of a uniform Banach algebra, with counit B^♮→B. It is not the universal integral perfectoidization of the prismatic quotient roadmap.",
     "integralClosure": "Ordinary integral closure and complete integral closure are separate notions. The latter uses almost-integral elements and is not a synonym for completion.",
-    "scope": "This is an explicitly incomplete checkpoint. Statements involving constructions whose full source treatment is not extracted retain that boundary in the report and handoff."
+    "scope": "Independent review complete with verdict revise; extraction remains partial. Source reading is complete, but granular extraction, provider comparisons and ownership closure are not."
   },
   "verification": {
-    "kind": "Independent re-reading of the published text, plus exact finite checks; not a Lean formalization and not a proof of any theorem of the paper.",
-    "thirdPass": "Claude Code, session cc-fb70e5, 2026-09-22. Obtained the published PDF bytes and hashed them, closing the provenance gap left open by the two earlier checkpoints. Read §§2.1–2.9, 3.1–3.4, 3.6–3.9, 4.1 and 5.4 in full and extracted them into 114 new items; re-read §2.2.4, §2.4 and §3.4 for the independent review of E1 and audited every occurrence of the assertion it concerns (pp. 13, 22, 41). Verified each recorded source issue in the published text, using page images at 300–340 dpi wherever a glyph or an exponent decides the matter, and dropped the reported candidates that could not be confirmed. Counted the collisions between the paragraph and statement counters mechanically over all 70 pages (44). Re-checked the ten Mathlib declarations of the library items at the pin. Verified the prerequisite DOIs through Crossref.",
-    "structural": "scripts/check_paper.py passes with \"status\": \"complete\", which enforces that every missing item is routed exactly once; 199 items (126 missing, 65 planned, 8 library), 3 routes, 22 prerequisites, 11 source issues."
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "date": "2026-09-23",
+    "kind": "Completed independent negative review; no Lean formalization.",
+    "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauCetiCommit": "f790474821cf4256814db967cb154e7af3d0c369",
+    "sourceReading": "Entire published paper and extraction read; auxiliary reading scopes in source.additionalSources.",
+    "libraryAudit": "Read data/library-coverage.json and relevant AUDIT-35/38/39 leads. The generated coverage index is not itself evidence of absence; AUDIT-39 has an embedded accepted review despite index lag. Exact declarations behind all retained library items were opened at the pins. Broader partial providers are documented in the report. Exhaustive per-item residual provider certification is not complete.",
+    "structural": "check_paper.py passed; intake check-files reported 5 files and 0 problems; 55 relevant unit tests passed; supplemental unique-ID/count/single-route/source-verdict assertions and finite E4/E6/E7/E16/E20 regression checks passed. No Lean compilation.",
+    "counts": {
+      "library": 12,
+      "planned": 62,
+      "missing": 135
+    },
+    "sourceIssueCounts": {
+      "confirmed": 19,
+      "rejected": 1
+    },
+    "lean": "No Lean deliverable required; no Lean build run."
   },
   "prerequisiteCandidates": [
     {
@@ -2219,60 +2368,92 @@
   ],
   "gaps": [
     {
-      "id": "foundational-granularity",
-      "detail": "Several of the §1 almost-algebra items inherited from the first checkpoint still combine related assertions in one package (adjoints, descent and base change, traces and exterior powers). They are all `planned` against PerfectoidSpaces:P0, so nothing is unrouted, but the design job should split them to one result per interface. The §2–§5 items added in the third pass are already at that granularity."
+      "id": "granularity-and-coverage",
+      "detail": "Split bundled §1 items, §2.1.4, Sorite 2.3.1, §3.2.3 and other multi-assertion entries. The five added §3.5 interfaces repair concrete omissions, not all coverage: explicitly extract §4.2.5's conditional root-free extension, §4.2.6's completed tower/H¹ annihilation interfaces, §4.2.7's invariant example and §5.2.1's nonclosed principal-ideal warning."
     },
     {
-      "id": "library-audit",
-      "detail": "The ten Mathlib declarations cited by the eight `library` items were re-checked at pin 082e2d3 in Mathlib/Analysis/Normed/Unbundled/SmoothingSeminorm.lean and all exist (smoothingFun and smoothingSeminormSeq are abbrevs, smoothingSeminorm a def, the other seven theorems). A per-item pinned-declaration search for all 199 items has not been carried out, and no claim of absence from either pinned library is made for the items marked `missing`."
+      "id": "provider-closure",
+      "detail": "Eight original smoothing entries and the four added library subinterfaces are checked at the pins. Read broader providers in the review's reuse ledger before rebuilding: Serre localization, almost integrality with its narrower hypotheses, PreTilt/untilt and Fontaine theta. Missing means unresolved residual coverage, not proved library absence; an exhaustive per-item declaration/API and comparison audit remains."
     },
     {
-      "id": "topological-algebra-ownership",
-      "detail": "The §2 apparatus is generic: the category of uniform Banach algebras, its limits and colimits, the Gelfand transform, the dictionary with flat ϖ-adically complete K°-algebras. Its long-term owner is the Tau Ceti roadmap Foundations of adic spaces, whose Layer 0 already plans boundedness, A°, A°°, Tate algebras, completion and the open mapping theorem, and whose Layer 3 plans rational localisation — but scripts/check_paper.py forbids a source route from re-planning a Tau Ceti roadmap, and only the five purely normed-algebra comparison statements have been routed to its campaign Part II (AdicSpacesPartII:R0). The design job for PerfectoidRamification must therefore export the rest of §2 as reusable interfaces rather than develop it privately, and the maintainer may prefer to move that block wholesale into a topological-algebra stage of AdicSpacesPartII."
+      "id": "ownership",
+      "detail": "Reject routes 2 and 3 until generic Banach suppliers and catalogue-wide collisions are resolved. In particular P5's cofiltered space limits/filtered algebra colimits are not arbitrary inverse limits of rings, nor by themselves all algebra colimits. R0's admissible geometric tensor products are not finite bicompleteness of all K-Ban. Four overbroad planned statuses were demoted to provisional missing candidates."
     },
     {
-      "id": "open-questions-not-targets",
-      "detail": "Three statements of the paper are questions, not theorems, and must not be planned as targets: Question 3.5.1 (is g^{−1/p^∞}B°[1/ϖ] perfectoid? — open in characteristic 0, clear in characteristic p), Question 4.4.3, and the conditional clause of §5.4, whose conclusion that 𝒜 and ℬ are perfectoid holds only if Question 3.5.1 has a positive answer. §3.4.4 is likewise an explicit sketch that invokes prop. 3.7.1, rem. 3.6.4 and prop. 3.8.1 before they are proved, with the author asking the reader to check that no vicious circle arises."
+      "id": "proof-closure",
+      "detail": "Supply ordinary-to-integral almost-isomorphism comparison in Lemme 2.3.5 without confusing φᵃ and φ^â. Expand the §3.4.4 sketch with pointwise henselian approximation and an acyclic proof order. E1's norm repairs require application-specific continuity, not orbit-polynomial automatic invariance. No complete proof certification is claimed."
     },
     {
-      "id": "source-issue-review",
-      "detail": "The eleven source issues are this worker's findings, independently re-read in the published text (and on rendered page images where a glyph or exponent decides the matter). They have not been put to the authors, and no published erratum was found. E1 is the one that touches a stated result and has been audited to its single use, in the proof of Lemme 2.4.1(2); the reviewer should check that audit before the routes are accepted."
+      "id": "questions-and-boundaries",
+      "detail": "Questions 3.5.1, 4.4.3 and 5.2.2 remain questions in the version read; the §5.4 perfectoid conclusion is conditional there. No claim is made about their current research status. Source reading and this negative review are complete; the extraction is not."
     }
   ],
   "sourceIssues": [
     {
       "id": "PAPER-ANDRE-18/E1",
+      "title": "Completeness alone does not determine the spectral norm",
       "kind": "error",
       "affects": "a stated result",
-      "locator": "Published §2.2.4, second paragraph, p. 13; the same assertion and proof are in arXiv:1609.00320v1 §2.2.4, p. 12",
-      "printed": "On en déduit qu'une K-algèbre A admet au plus une norme spectrale pour laquelle elle est complète : en effet, si || 1, || 2 sont deux telles normes, on peut supposer, en remplaçant la première par le supremum des deux, que le morphisme identique (A,|| 1) → (A,|| 2) est continu. Par le théorème de l'image ouverte de Banach [7, I.3.3, th. 1], || 1 est équivalente à || 2, donc ce morphisme est bicontinu et l'on conclut de ce qui précède que || 1 = || 2.",
-      "correction": "The assertion is false as stated. Keep the preceding sentence, which is what the paper actually needs and which is true: the spectral norm of a uniform normed algebra is the unique spectral norm compatible with its topology. A completeness variant must add a hypothesis making the two norms comparable — for instance that the identity is continuous in one direction, or that the maximum of the two is complete.",
-      "reason": "Take K = Q_p and A = C_p as an abstract Q_p-algebra. Choose t in a transcendence basis B of C_p over the algebraic closure F of Q_p; since F(pt) = F(t), the set (B∖{t}) ∪ {pt} is again a transcendence basis, so there is a field automorphism σ of C_p over F with σ(t) = pt. Then |x|' := |σ(x)| is again a multiplicative Q_p-algebra norm, and (C_p,|·|') is complete because σ is an isometric bijection onto (C_p,|·|); but |t|' = |pt| = p^{-1}|t| ≠ |t|. So C_p carries two distinct complete spectral — indeed multiplicative — norms. The step that fails is the replacement of ||1 by the supremum: for a_n ∈ F converging to t for |·|, one has |a_n − x|' = |a_n − σ(x)|, so the same sequence converges to σ^{-1}(t) = p^{-1}t for |·|'; it is Cauchy for the maximum of the two norms and has two different limits, so the maximum is not complete and the open mapping theorem does not apply to it. Downstream audit (every occurrence of the assertion in the paper is on pp. 13, 22 and 41): it is USED once, in the proof of Lemme 2.4.1(2) p. 22 — « Notons par ailleurs que si la norme est spectrale complète, elle est unique avec cette propriété (cf. 2.2.2), donc préservée par G » — and the counterexample above is exactly of that shape, a non-continuous automorphism moving the norm. That use is repairable by the paper's own part (3): γ(b) satisfies the same monic polynomial ∏_{γ∈G}(T−γ(b)) ∈ A[T] as b, whose coefficients determine the spectral value by [6, 3.1.2, prop. 1], so |·|_sp is G-invariant for that reason. On p. 41 the assertion is invoked for the perfectoidness of a finite étale extension, but the valid reason — uniqueness of the spectral norm compatible with the canonical topology of a finite projective module — is given in the same parenthesis. No main theorem is affected.",
-      "known": "New candidate finding in this extraction; no published correction located in the searches recorded below. This is not a claim of exhaustive historical novelty. Independent review pending.",
+      "locator": "Published §2.2.4 p.13; Lemme 2.4.1(2) p.22; Lemme 2.4.2 proof p.24; discussion after Théorème 3.4.1 p.41.",
+      "printed": "« au plus une norme spectrale » (p.13); the surrounding assertion imposes completeness, but no fixed topology. Its proof replaces two norms by their maximum.",
+      "correction": "Keep uniqueness for a fixed topology. If both norms are complete, a continuous identity in one direction suffices by open mapping. Delete the automatic-invariance parenthesis in Lemme 2.4.1(2), or require continuity of the finite-group action; retain its explicit norm-invariance hypothesis. Reprove applications using their additional hypotheses.",
+      "reason": "Let F be the algebraic closure of Q_p inside C_p. It is dense and properly contained in C_p. Extend t from C_p minus F to a transcendence basis over F. The automorphism of the rational function field sending t to pt and fixing the other basis elements and F extends to an automorphism σ of its algebraic closure C_p. Thus ν(x)=|x| and ν′(x)=|σ(x)| are distinct complete multiplicative Q_p-algebra norms, with ν′(t)=p^(-1)ν(t). For a_n in F tending to t in ν, the same sequence tends to p^(-1)t in ν′. It is Cauchy for max(ν,ν′) but cannot have a limit for that norm. There is also an actual finite-group counterexample to the parenthesis of Lemme 2.4.1(2): put B=C_p×C_p with N(x,y)=max(ν(x),ν′(y)), let G=C_2 swap factors, and give A=B^G=diagonal C_p its induced norm max(ν,ν′). B is complete and spectral; A is uniform normed, exactly as allowed in §2.4.1, though incomplete. The swap takes (t,0), of norm ν(t), to (0,t), of norm p^(-1)ν(t). The proposed old repair from (2.11) is invalid: that formula determines max_γ N(γb), not N(b), and its proof of individual equality uses G-invariance. The prior extraction also missed the invocation on p.24. For a finite projective algebra over a complete A, its given complete Banach topology agrees with the canonical module topology: choose finite generators, use the continuous surjection A^n→B and open mapping. A-linear isomorphisms are then continuous, so fixed-topology uniqueness applies to p.24 and p.41. This does not repair the general parenthesis on p.22, where A need not be complete.",
+      "known": "new",
       "searched": [
-        "NUMDAM published PDF (SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pp.), read 2026-09-21 and again 2026-09-22; the article's DOI page and the YMSC Acta entry.",
-        "arXiv:1609.00320v1 (31 August 2016, 61 pp., SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e) and its submission history. The preprint is NOT the same text as the published version — different abstract and pagination — so it is used only to date a reading, never as a locator.",
-        "Web and repository searches for an André erratum or corrigendum to this paper, including the exact French phrases at issue; none found. This is not a claim of exhaustive novelty.",
-        "The published version is itself revised: received 28 August 2016, revised 16 November 2017, accepted 20 November 2017, and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions ». Everything below therefore survived one round of expert correction.",
-        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded."
-      ]
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "v1 §2.2.4 p.12, Lemme 2.4.1 p.20, Lemme 2.4.2 p.21 and discussion p.37 contain the same uses. The old assertion that all occurrences lie on pp.13,22,41 is incorrect.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E1",
+      "supportingSource": "Brian Conrad, Completion of algebraic closure, §1 and Theorem 1.1, https://virtualmath1.stanford.edu/~conrad/248APage/handouts/algclosurecomp.pdf. All 3 pages read; algebraic closedness proved there, noncompleteness of Q_p-bar stated there with a BGR reference. BGR itself was not read in this errata job.",
+      "scope": "The abstract uniqueness claim and the automatic-isometry parenthesis are false. The norm-preserving version of the lemma remains available. This job does not certify the absence of effects in every later proof, and does not assert that the central Abhyankar equivalence is false.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked published pp.13,22,24,41 and Conrad's auxiliary theorem. Pullback by a wild automorphism of C_p fixing Q_p-bar gives different complete multiplicative norms; their maximum need not be complete. On C_p×C_p the transposition need not preserve max(ν(x),ν(σ(y))), disproving the automatic finite-group invariance as well. The original extraction's characteristic-polynomial repair is circular: part (3) already assumes invariance, and the orbit polynomial determines an orbit maximum, not each norm. Finite-projective topology supplies the separate continuity repair for the finite-étale application; no global downstream proof certification follows.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Checked the published text at all four locators and re-derived the counterexample. A wild automorphism σ of C_p over Q_p exists by extending a transcendence basis, and is discontinuous, hence non-isometric, so ν and ν∘σ are two distinct multiplicative — therefore spectral — Q_p-algebra norms for each of which C_p is complete (σ is an isometry (C_p,ν∘σ)→(C_p,ν)); the printed uniqueness claim of §2.2.4 p.13 is false. The finite-group counterexample to the parenthesis of Lemme 2.4.1(2) p.22 also holds as written: on B=C_p×C_p with N(x,y)=max(ν(x),ν∘σ(y)) — spectral because each factor norm is multiplicative, and complete — the transposition carries (t,0) of norm ν(t) to (0,t) of norm ν(σ(t)), and these differ for some t. I also checked the repair the entry proposes: continuity of each group element does suffice, since a continuous automorphism carries N to an equivalent spectral norm and the spectral radius lim‖f^n‖^(1/n) depends only on the topology; the transposition above is discontinuous, so it does not undercut that repair. The uses on p.24 and p.41 are as described, and the p.41 one is self-repairing because the text there also cites the fixed-topology form.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
     },
     {
       "id": "PAPER-ANDRE-18/E2",
+      "title": "Uniqueness cross-references point to the definition of uniformity",
       "kind": "misprint",
       "affects": "nothing",
-      "locator": "Published p. 22 (proof of Lemme 2.4.1(2)) and p. 41 (after Théorème 3.4.1)",
-      "printed": "« … elle est unique avec cette propriété (cf. 2.2.2) … » (p. 22) and « … et aussi l'unique norme spectrale compatible avec la topologie canonique du A-module projectif fini B, cf. 2.2.2 » (p. 41).",
-      "correction": "Both should cite 2.2.4.",
-      "reason": "The uniqueness assertions are made in numbered paragraph 2.2.4; numbered paragraph 2.2.2 is the definition of a uniform algebra. §2.2 contains no labelled statement, so the reference 2.2.2 is unambiguous and simply points at the wrong paragraph.",
+      "locator": "Published Lemme 2.4.1(2) proof p.22 and after Théorème 3.4.1 p.41.",
+      "printed": "« cf. 2.2.2 »",
+      "correction": "Replace both references by numbered paragraph 2.2.4; use the qualified norm statement of E1.",
+      "reason": "Paragraph 2.2.2 defines uniformity. The fixed-topology and completeness claims occur in paragraph 2.2.4. Changing the reference does not repair the false completeness claim.",
       "known": "new",
       "searched": [
-        "NUMDAM published PDF (SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pp.), read 2026-09-21 and again 2026-09-22; the article's DOI page and the YMSC Acta entry.",
-        "arXiv:1609.00320v1 (31 August 2016, 61 pp., SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e) and its submission history. The preprint is NOT the same text as the published version — different abstract and pagination — so it is used only to date a reading, never as a locator.",
-        "Web and repository searches for an André erratum or corrigendum to this paper, including the exact French phrases at issue; none found. This is not a claim of exhaustive novelty.",
-        "The published version is itself revised: received 28 August 2016, revised 16 November 2017, accepted 20 November 2017, and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions ». Everything below therefore survived one round of expert correction.",
-        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded."
-      ]
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "Same incorrect number in v1 pp.20 and 37.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E2",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked both printed cross-references: the uniqueness discussion is numbered paragraph 2.2.4, not 2.2.2. Only its fixed-topology form is usable after E1.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at both occurrences. Numbered paragraph 2.2.2 of the published text introduces uniform algebras and asserts no uniqueness; the statements « au plus une norme spectrale » that both passages invoke are in 2.2.4. The correction is right, and by E1 the reference should be to the fixed-topology form of that statement rather than to the complete-norm form.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
     },
     {
       "id": "PAPER-ANDRE-18/E3",
@@ -2280,152 +2461,541 @@
       "affects": "nothing",
       "locator": "Throughout the paper; measured over all 70 pages",
       "printed": "Numbered paragraphs and labelled statements are printed with the same style of number, e.g. « 2.4.1. Soit A une K-algèbre normée uniforme … » and « Lemme 2.4.1. » on p. 22, or « 3.5.5. Remarques. » on p. 47 and « Lemme 3.5.5. » on p. 48.",
-      "correction": "The two sequences need distinct numbering, or every cross-reference needs to name the kind of object it points to.",
-      "reason": "The paper runs two independent counters within each section, both displayed as §.§.k. A mechanical comparison of the numbered paragraphs against the labelled statements finds 44 numbers that denote two different objects, among them 1.7.1, 1.9.2, 1.9.3, 2.3.2–2.3.5, 2.4.2, 2.5.1–2.5.3, 2.6.1–2.6.3, 2.8.1, 2.8.2, 2.9.1–2.9.3, 3.1.1, 3.1.2, 3.2.1, 3.2.2, 3.3.1, 3.3.4, 3.4.1, 3.4.3, 3.4.4, 3.5.1–3.5.5, 3.6.1, 3.7.1, 3.8.1, 4.2.1–4.2.3, 4.3.1, 4.4.1–4.4.3 and 5.2.1; several collide on the same page. A bare cross-reference of the form « cf. X.Y.Z » is therefore ambiguous, and every locator in this extraction has to say which of the two it means.",
-      "known": "new",
+      "correction": "Do not renumber the source. Use qualified locators such as numbered paragraph, Lemma, Proposition or Remark in this extraction.",
+      "reason": "Distinct counters for numbered exposition and named statements are a source convention. Duplicate numerals alone do not establish a misprint; each ambiguous reference must be tested in context. The inherited numerical collision count is not independently certified here.",
+      "known": "Rejected candidate; locator convention, not a confirmed source error.",
       "searched": [
         "NUMDAM published PDF (SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pp.), read 2026-09-21 and again 2026-09-22; the article's DOI page and the YMSC Acta entry.",
         "arXiv:1609.00320v1 (31 August 2016, 61 pp., SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e) and its submission history. The preprint is NOT the same text as the published version — different abstract and pagination — so it is used only to date a reading, never as a locator.",
         "Web and repository searches for an André erratum or corrigendum to this paper, including the exact French phrases at issue; none found. This is not a claim of exhaustive novelty.",
         "The published version is itself revised: received 28 August 2016, revised 16 November 2017, accepted 20 November 2017, and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions ». Everything below therefore survived one round of expert correction.",
-        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded."
-      ]
+        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "by": "REV-PAPER-ANDRE-18",
+        "reason": "The observed separate paragraph and theorem counters are real, but no unintended printed statement follows merely from their overlap. Retain qualified locators; reject E3 as an erratum."
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E4",
+      "title": "Sign of the 2-adic absolute-value exponent",
       "kind": "misprint",
       "affects": "the proof",
-      "locator": "Exemple prophylactique 3.4.2, published p. 41, last displayed inequality",
-      "printed": "Montrons que f n'a pas de racine carrée modulo 2 : si e = a₁ + a₂√g ∈ Â∞[√g]^o vérifie e² − f ∈ 2Â∞[√g]^o ⊂ Â∞^o[√g], on a 2a₁a₂ − (i+1)/2 ∈ Â∞^o, d'où |a₁(0)a₂(0)| = 2^{−3/2}, ce qui contredit le fait que a₁(0), 2a₂(0) ∈ K^o.",
-      "correction": "|a₁(0)a₂(0)| = 2^{3/2}, equivalently |2|^{−3/2}.",
-      "reason": "Normalise v(2) = 1. Here i = ζ₄, and (1+i)² = 2i gives v(1+i) = 1/2, so v((i+1)/2) = −1/2. Since the difference lies in the unit ball, v(2a₁a₂) = −1/2 and hence v(a₁a₂) = −3/2, i.e. |a₁(0)a₂(0)| = 2^{3/2} ≈ 2.83. The contradiction sought is with a₁(0) ∈ K° and 2a₂(0) ∈ K°, which give |a₁(0)a₂(0)| ≤ 2: the printed value 2^{−3/2} ≈ 0.354 is perfectly compatible with that bound and yields no contradiction, whereas 2^{3/2} does. Read on the page rendered at 340 dpi, where the minus sign in the exponent is unambiguous. The example itself — that Â∞[√g] is not perfectoid — stands.",
+      "locator": "Published Exemple prophylactique 3.4.2 p.41, final norm equality.",
+      "printed": "|a₁(0)a₂(0)|=2^(−3/2)",
+      "correction": "The right hand side is 2^(3/2), with |2|=1/2.",
+      "reason": "With v(2)=1 and i²=−1, (1+i)²=2i gives v((1+i)/2)=−1/2. Since 2a₁(0)a₂(0) differs from (1+i)/2 by an integral element, v(a₁(0)a₂(0))=−3/2. This contradicts v(a₁(0))≥0 and v(a₂(0))≥−1. The printed absolute value does not. This repairs the displayed contradiction, not an independent reproof of every assertion in the example.",
       "known": "new",
       "searched": [
-        "NUMDAM published PDF (SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pp.), read 2026-09-21 and again 2026-09-22; the article's DOI page and the YMSC Acta entry.",
-        "arXiv:1609.00320v1 (31 August 2016, 61 pp., SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e) and its submission history. The preprint is NOT the same text as the published version — different abstract and pagination — so it is used only to date a reading, never as a locator.",
-        "Web and repository searches for an André erratum or corrigendum to this paper, including the exact French phrases at issue; none found. This is not a claim of exhaustive novelty.",
-        "The published version is itself revised: received 28 August 2016, revised 16 November 2017, accepted 20 November 2017, and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions ». Everything below therefore survived one round of expert correction.",
-        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded."
-      ]
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "v1 p.37 has the same negative exponent, but its example uses n=2 and g=T₁+T₂ instead of the published n=1 and g=T+4; those examples are not identical.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked p.41 and recomputed v_2(1+i)=1/2. Thus v_2((1+i)/2)=-1/2 and the product has valuation -3/2, giving 2^(3/2), above the bound 2 needed for contradiction.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Recomputed the valuation. |1+i|=2^(-1/2) because |(1+i)^2|=|2i|=1/2, so |(i+1)/2|=2^(-1/2)/2^(-1)=2^(1/2) and the product is 2^(3/2), not the printed 2^(-3/2). The sign of the exponent is what carries the example: the standing hypotheses bound the product by |2|^(-1)=2, so 2^(3/2)>2 is the contradiction the paragraph draws, whereas the printed 2^(-3/2) is below the bound and yields none. The correction and its reach (the proof of that example only) are right.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
     },
     {
       "id": "PAPER-ANDRE-18/E5",
+      "title": "Invert the pseudouniformizer in the root-saturation formula",
       "kind": "misprint",
-      "affects": "nothing",
-      "locator": "Formula (2.17), published p. 26",
-      "printed": "(2.17)  g^{−1/p^∞}B = g^{−1/p^∞}B^o[1/p] = B_*",
-      "correction": "g^{−1/p^∞}B^o[1/ϖ].",
-      "reason": "Throughout the paper B = B^o[1/ϖ], and four lines below the same display André writes « mais g^{−1/p^∞}B^o[1/ϖ] peut être distincte de g^{−1/p^∞}B », the same expression with the uniformizer. The companion Exemple 2.5.4, three lines further on, works over a field K perfect of characteristic p, where [1/p] would give the zero ring.",
+      "affects": "a stated result",
+      "locator": "Published formula (2.17), paragraph 2.5.3(1), p.26.",
+      "printed": "g^(−1/p^∞)B=g^(−1/p^∞)B°[1/p]=B_*",
+      "correction": "Use [1/ϖ] in the middle expression.",
+      "reason": "The setting includes characteristic p, where inversion of p gives the zero ring. Already g=1 and B=K≠0 refute the printed equality. The surrounding discussion uses [1/ϖ], and B=B°[1/ϖ]. The intended formula is clear, but its literal printed version is a false stated equality.",
       "known": "new",
       "searched": [
-        "NUMDAM published PDF (SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pp.), read 2026-09-21 and again 2026-09-22; the article's DOI page and the YMSC Acta entry.",
-        "arXiv:1609.00320v1 (31 August 2016, 61 pp., SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e) and its submission history. The preprint is NOT the same text as the published version — different abstract and pagination — so it is used only to date a reading, never as a locator.",
-        "Web and repository searches for an André erratum or corrigendum to this paper, including the exact French phrases at issue; none found. This is not a claim of exhaustive novelty.",
-        "The published version is itself revised: received 28 August 2016, revised 16 November 2017, accepted 20 November 2017, and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions ». Everything below therefore survived one round of expert correction.",
-        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded."
-      ]
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "v1 formula (2.18), p.23, has the same [1/p].",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked formula (2.17), p.26. In characteristic p, inverting p makes the ring zero; g=1 and B=K already contradict the printed identity. Inverting ϖ is the construction and agrees with the next sentence.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the published formula (2.17). The middle term prints an inversion of p where the construction inverts the pseudo-uniformiser: the sentence immediately following uses [1/ϖ], and the characteristic-p setting in which this tilted object is used makes inverting p vacuous, which would collapse the stated identification. The correction is the paper's own usage.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
     },
     {
       "id": "PAPER-ANDRE-18/E6",
+      "title": "Lower bound in the localization-injectivity proof",
       "kind": "error",
       "affects": "the proof",
-      "locator": "Proof of Lemme 2.6.3, published p. 29",
-      "printed": "En effet, on peut supposer || spectrale. Pour tout a ∈ A^o ∖ 0 et tout λ ∈ K^o ∖ 0, on a |a|_{A{λ/g}} = inf_m |(g/λ)^m a|. Si |λ| ≤ |ga|, inf_m |(g/λ)^m a| ≥ 1, donc l'image de a dans A{λ/g}^o n'est pas nulle.",
-      "correction": "inf_m |(g/λ)^m a| ≥ |a| > 0, which is what the conclusion needs.",
-      "reason": "The printed bound is false: take A = K⟨T⟩ with its Gauss norm, which is spectral, g = T, a = ϖ and any λ with |λ| ≤ |ga| = |ϖ|. Then |(T/λ)^m ϖ| = |ϖ||λ|^{−m}, whose infimum over m ≥ 0 is attained at m = 0 and equals |ϖ| < 1. The correct bound follows from the same hypothesis: a ∈ A° and |·| spectral give |a| ≤ 1, so |λ| ≤ |g||a| ≤ |g| and every |(g/λ)^m a| ≥ |a|. The statement of Lemme 2.6.3 is unaffected.",
+      "locator": "Published Lemme 2.6.3 proof, p.29.",
+      "printed": "inf_m |(g/λ)^m a|≥1",
+      "correction": "Replace 1 by |a|>0, under the stated assumptions a∈A° minus {0} and 0<|λ|≤|ga|.",
+      "reason": "For A=K⟨T⟩, g=T, a=ϖ and λ=ϖ, the infimum over m≥0 equals |ϖ|<1, attained at m=0. The image of the scalar ϖ in this nonzero K-algebra also necessarily has norm |ϖ|. For the correction one must not assume a spectral norm is multiplicative. Power multiplicativity and submultiplicativity instead give |ga|^m=|(ga)^m|≤|g^m a| |a|^(m−1) for m≥1. Hence |(g/λ)^m a|≥(|ga|/|λ|)^m |a|^(1−m)≥|a|. The m=0 term is |a|. Since ga≠0, a sufficiently small nonzero λ exists, proving the desired nonvanishing. The old extraction had the right bound but an invalid multiplicativity shortcut.",
       "known": "new",
       "searched": [
-        "NUMDAM published PDF (SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pp.), read 2026-09-21 and again 2026-09-22; the article's DOI page and the YMSC Acta entry.",
-        "arXiv:1609.00320v1 (31 August 2016, 61 pp., SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e) and its submission history. The preprint is NOT the same text as the published version — different abstract and pagination — so it is used only to date a reading, never as a locator.",
-        "Web and repository searches for an André erratum or corrigendum to this paper, including the exact French phrases at issue; none found. This is not a claim of exhaustive novelty.",
-        "The published version is itself revised: received 28 August 2016, revised 16 November 2017, accepted 20 November 2017, and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions ». Everything below therefore survived one round of expert correction.",
-        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded."
-      ]
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "Same bound in v1 Lemme 2.6.3, p.26.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E6",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked p.29. The m=0 term is |a| and may be below 1. Power-multiplicativity and submultiplicativity give |ga|^m≤|g^m a||a|^(m−1), hence |(g/λ)^m a|≥|a| for |a|≤1 and 0<|λ|≤|ga|. This does not assume that a spectral norm is multiplicative.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the replacement bound is provable, so the lemma is intact. The printed inf_m |(g/λ)^m a| ≥ 1 fails whenever |a|<1, already at m=0, and that is the generic case for a ∈ A°; A=K, g=1, a=λ=ϖ gives inf=|ϖ|. The proposed ≥|a|>0 follows from power-multiplicativity and submultiplicativity: |ga|^m=|(ga)^m|=|g^m a^m| ≤ |g^m a|·|a|^(m-1), hence |(g/λ)^m a|=|g^m a|·|λ|^(-m) ≥ |a|·(|ga|/(|a||λ|))^m ≥ |a|, using |a||λ| ≤ |λ| ≤ |ga|. The stated reach — the proof only — is right.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
     },
     {
       "id": "PAPER-ANDRE-18/E7",
-      "kind": "error",
+      "title": "Complement index in the Boolean presentation",
+      "kind": "misprint",
       "affects": "a stated result",
-      "locator": "§2.7.2, published p. 30",
-      "printed": "Inversement, partons d'une algèbre de Boole B et construisons la K-algèbre de Banach uniforme A := (K⟨T_b⟩_{b∈B}/(T_bT_{b′} − T_{b∧b′}, T_b + T_{¬b′} − 1))^u topologiquement engendrée par les idempotents T_b. On a B(A) ≅ B.",
-      "correction": "T_b + T_{¬b} − 1.",
-      "reason": "As printed the relations are indexed by all pairs (b,b′), so T_b + T_{¬b′} = 1 = T_{b′} + T_{¬b′} for all b, b′, forcing T_b = T_{b′} and collapsing the Boolean algebra of idempotents of A to {0,1}. That contradicts the assertion B(A) ≅ B made in the next sentence, on which the whole construction of a spectral Banach algebra with no decomposition into connected factors depends.",
+      "locator": "Published paragraph 2.7.2 p.30, presentation of the uniform Banach algebra.",
+      "printed": "T_b+T_¬b′−1",
+      "correction": "Use T_b+T_¬b−1, with the same index in each complement relation.",
+      "reason": "With the printed relations for all pairs (b,b′), subtracting two complement relations makes every T_b equal to x. The meet relations give x²=x and the complement relation gives 2x=1. Thus x=(2x)x=2x²=2x=1, then 2=1 and 1=0. The quotient is the zero ring, not an algebra with the prescribed nontrivial Boolean algebra. This strengthens and corrects the old reason, which said the idempotents merely collapse to {0,1}. Removing the prime restores the intended characteristic-function relations.",
       "known": "new",
       "searched": [
-        "NUMDAM published PDF (SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pp.), read 2026-09-21 and again 2026-09-22; the article's DOI page and the YMSC Acta entry.",
-        "arXiv:1609.00320v1 (31 August 2016, 61 pp., SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e) and its submission history. The preprint is NOT the same text as the published version — different abstract and pagination — so it is used only to date a reading, never as a locator.",
-        "Web and repository searches for an André erratum or corrigendum to this paper, including the exact French phrases at issue; none found. This is not a claim of exhaustive novelty.",
-        "The published version is itself revised: received 28 August 2016, revised 16 November 2017, accepted 20 November 2017, and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions ». Everything below therefore survived one round of expert correction.",
-        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded."
-      ]
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "Same stray prime in v1 p.27.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E7",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked p.30 image. With two independent complement indices all generators equal x, 2x=1 and x²=x, forcing 1=0. The printed ring is zero. Matching the two indices restores Boolean characteristic-function relations.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the printed presentation: the complement in the relation carries a different index from the generator it is paired with. I checked the entry's strengthened reason rather than taking it on trust: imposing the printed relation for every pair of indices forces all the generators equal to one element x with 2x=1, and with the printed meet relations x^2=x, so x=2x^2=2x=1 and then 1=0, i.e. the presented algebra is the zero ring rather than the prescribed Boolean one. Deleting the stray prime restores the characteristic-function relations.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
     },
     {
       "id": "PAPER-ANDRE-18/E8",
+      "title": "The test object for an arbitrary power-bounded element",
       "kind": "misprint",
-      "affects": "nothing",
-      "locator": "§2.7.1, published p. 30",
-      "printed": "Les produits infinis d'algèbres de Banach n'existent pas en général : si A n'est pas uniforme et si a_n est une suite non bornée d'éléments de A^o, la donnée des morphismes K --1↦a_n--> A ne peut équivaloir à celle d'un morphisme de K vers une algèbre de Banach.",
-      "correction": "The source of the test morphisms is the free object K⟨T⟩, with T ↦ a_n, and likewise « un morphisme de K⟨T⟩ vers une algèbre de Banach ».",
-      "reason": "A unital K-algebra homomorphism K → A sends 1 to 1, so the morphisms described do not exist unless a_n = 1. What makes the argument work is the free object of §2.1.5 and §2.5.1, for which Hom(K⟨T⟩,A) = A°; the unbounded sequence then gives a family of morphisms that no single Banach algebra can corepresent.",
+      "affects": "the proof",
+      "locator": "Published paragraph 2.7.1 p.30, first paragraph.",
+      "printed": "K —(1↦a_n)→ A",
+      "correction": "Replace the source by K⟨T⟩ and the assignment by T↦a_n; also replace the source of the proposed single morphism by K⟨T⟩.",
+      "reason": "Unital K-algebra maps K→A send 1 to 1. Paragraph 2.1.5 gives the needed Tate-algebra universal property. To make the product obstruction precise, if a product P of copies of a nonuniform A existed with bounded projections π_n, choose a_n∈A° with ||a_n||>n max(1,||π_n||). Universal mapping gives f:K⟨T⟩→P. For b=f(T), ||a_n||=||π_n(b)||≤||π_n|| ||b||, a contradiction for n>||b||. This avoids assuming all projection norms have a common bound.",
       "known": "new",
       "searched": [
-        "NUMDAM published PDF (SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pp.), read 2026-09-21 and again 2026-09-22; the article's DOI page and the YMSC Acta entry.",
-        "arXiv:1609.00320v1 (31 August 2016, 61 pp., SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e) and its submission history. The preprint is NOT the same text as the published version — different abstract and pagination — so it is used only to date a reading, never as a locator.",
-        "Web and repository searches for an André erratum or corrigendum to this paper, including the exact French phrases at issue; none found. This is not a claim of exhaustive novelty.",
-        "The published version is itself revised: received 28 August 2016, revised 16 November 2017, accepted 20 November 2017, and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions ». Everything below therefore survived one round of expert correction.",
-        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded."
-      ]
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "Same K and 1↦a_n in v1 p.26.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E8",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked p.30. A K-algebra map from K must send 1 to 1. The test object is K⟨T⟩ with T sent to the chosen power-bounded element. In the product obstruction choose the elements to exceed n times the individual projection bound; no uniform bound for all projections is assumed.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. A K-algebra morphism out of K is unique and sends 1 to 1, so the printed arrow « 1 ↦ a_n » out of K is ill-typed unless a_n=1; the free object on one topologically bounded generator is K⟨T⟩ with T ↦ a_n, which is what the rest of the paragraph manipulates. The correction covers the second occurrence, the single proposed morphism, as well. Affects the proof's wording only.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
     },
     {
       "id": "PAPER-ANDRE-18/E9",
+      "title": "Untilts are localizations of the untilted algebra",
       "kind": "misprint",
-      "affects": "nothing",
-      "locator": "§3.4.4, step (c), published p. 43",
-      "printed": "Les corps perfectoïdes H(x)♭ sont colimites uniformes de localisations rationnelles A♭_α de A♭, et H(x) est colimite uniforme des basculés A_α qui sont des localisations rationnelles de A♭, cf. rem. 3.6.4.",
-      "correction": "« … des débasculés A_α qui sont des localisations rationnelles de A ».",
-      "reason": "A_α has characteristic 0 and A♭ characteristic p, so A_α cannot be a rational localization of A♭; and the A_α are untilts, not tilts, as the next two lines confirm by giving the vertical equivalences of the square by ♯.",
+      "affects": "the proof",
+      "locator": "Published paragraph 3.4.4(c), p.43, before the square.",
+      "printed": "« basculés Aα »; the indicated base is A♭.",
+      "correction": "The Aα are untilts (A♭_α)^♯ and rational localizations of A.",
+      "reason": "This part of the argument assumes characteristic zero. A nonzero Aα has characteristic zero, while a rational localization of A♭ has characteristic p. The displayed vertical functor ♯ confirms the direction. See E18 for a separate base-ring slip later in the same paragraph.",
       "known": "new",
       "searched": [
-        "NUMDAM published PDF (SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pp.), read 2026-09-21 and again 2026-09-22; the article's DOI page and the YMSC Acta entry.",
-        "arXiv:1609.00320v1 (31 August 2016, 61 pp., SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e) and its submission history. The preprint is NOT the same text as the published version — different abstract and pagination — so it is used only to date a reading, never as a locator.",
-        "Web and repository searches for an André erratum or corrigendum to this paper, including the exact French phrases at issue; none found. This is not a claim of exhaustive novelty.",
-        "The published version is itself revised: received 28 August 2016, revised 16 November 2017, accepted 20 November 2017, and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions ». Everything below therefore survived one round of expert correction.",
-        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded."
-      ]
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "Both slips also occur in v1 p.38.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E9",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked p.43. In mixed characteristic the untilts have characteristic zero, not p; they are rational localizations of A, not of A♭.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. In the characteristic-zero part of step (c) a nonzero A_α has characteristic zero, while a rational localisation of A♭ has characteristic p, so the A_α cannot be localisations of A♭; they are the untilts (A♭_α)^♯ of the localisations of A♭, equivalently rational localisations of A, and the square's vertical arrows are precisely the equivalences « données par ♯ ». The correction is right and the argument is unaffected once read this way.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
     },
     {
       "id": "PAPER-ANDRE-18/E10",
+      "title": "Missing power-bounded superscript in invariants",
       "kind": "misprint",
       "affects": "nothing",
-      "locator": "Proof of Lemme 2.4.1(2), published p. 22",
-      "printed": "Par hypothèse, G préserve B^o. On a B^G = A ∩ B^o = A^o.",
-      "correction": "B^{oG} = A ∩ B^o = A^o.",
-      "reason": "The hypothesis of the lemma is B^G = A, so as printed the display asserts A = A°, which is false in general; what is being computed is the ring of invariants of B°, and the conclusion stated in the lemma is B^{oG} = A°.",
+      "locator": "Published Lemme 2.4.1(2), proof p.22.",
+      "printed": "B^G=A∩B°=A°",
+      "correction": "Use (B°)^G=A∩B°=A°.",
+      "reason": "The preceding hypothesis is B^G=A, while the statement correctly concludes (B°)^G=A°. For the trivial action on B=A=K, the printed equation would assert K=K°. It is a slip in the proof, independent of E1.",
       "known": "new",
       "searched": [
-        "NUMDAM published PDF (SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pp.), read 2026-09-21 and again 2026-09-22; the article's DOI page and the YMSC Acta entry.",
-        "arXiv:1609.00320v1 (31 August 2016, 61 pp., SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e) and its submission history. The preprint is NOT the same text as the published version — different abstract and pagination — so it is used only to date a reading, never as a locator.",
-        "Web and repository searches for an André erratum or corrigendum to this paper, including the exact French phrases at issue; none found. This is not a claim of exhaustive novelty.",
-        "The published version is itself revised: received 28 August 2016, revised 16 November 2017, accepted 20 November 2017, and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions ». Everything below therefore survived one round of expert correction.",
-        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded."
-      ]
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "v1 p.20 omits the superscript in both the statement and proof. The published statement corrects it, but the proof does not.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E10",
+      "alreadyCorrectedOccurrence": "The statement of published Lemme 2.4.1(2) corrects the v1 statement. The remaining proof occurrence is still uncorrected.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked p.22. The standing hypothesis is B^G=A; the integral-element equality must instead begin (B°)^G.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published proof. B^G=A holds by the standing hypothesis, so the printed chain would equate the whole invariant ring with a ring of integral elements; the object the step needs is (B°)^G, and (B°)^G=A∩B°=A° then follows from the identity established earlier in 2.4.1 together with G-stability of B°. Reach « nothing » is right: the intended reading is the one used downstream.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
     },
     {
       "id": "PAPER-ANDRE-18/E11",
+      "title": "Direct hypothesis for root extraction",
       "kind": "misprint",
       "affects": "nothing",
-      "locator": "Proof of Lemme 2.5.3, step (2) ⇒ (6), published p. 27",
-      "printed": "Soit b ∈ (g^{−1/p^∞}B^o)*_{B[1/g]} : il existe m tel que pour tout n, (ϖg)^m b^{p^n} ∈ g^{−1/p^∞}B^o, donc ϖ_{m/p^n} g^{m/p^n} b ∈ g^{−1/p^∞}B^o d'après (1).",
-      "correction": "d'après (2).",
-      "reason": "The hypothesis in force in this implication is (2), p-radicial closedness in B[1/g]; condition (1) concerns closedness in B°[1/g], and the element ϖ_{m/p^n}g^{m/p^n}b is only known to lie in B[1/g]. The slip is harmless, since (2) trivially implies (1), but the citation points at the condition that does not apply.",
+      "locator": "Published Lemme 2.5.3 proof, implication (2)⇒(6), p.27.",
+      "printed": "« d’après (1) »",
+      "correction": "Cite (2) for p-radicial closedness in B[1/g].",
+      "reason": "The root being tested is initially an element of B[1/g]; (1) is formulated in B°[1/g]. Condition (2) is the direct hypothesis. This is only a citation improvement: (1)⇒(2) has just been proved, and its denominator argument can supply the missing membership if desired. It is not a counterexample to the lemma.",
       "known": "new",
       "searched": [
-        "NUMDAM published PDF (SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pp.), read 2026-09-21 and again 2026-09-22; the article's DOI page and the YMSC Acta entry.",
-        "arXiv:1609.00320v1 (31 August 2016, 61 pp., SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e) and its submission history. The preprint is NOT the same text as the published version — different abstract and pagination — so it is used only to date a reading, never as a locator.",
-        "Web and repository searches for an André erratum or corrigendum to this paper, including the exact French phrases at issue; none found. This is not a claim of exhaustive novelty.",
-        "The published version is itself revised: received 28 August 2016, revised 16 November 2017, accepted 20 November 2017, and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions ». Everything below therefore survived one round of expert correction.",
-        "Third pass (Claude Code, session cc-fb70e5, 2026-09-22): every item below was read in the published text by this worker, and those turning on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims reported by the section readers that this worker could not confirm personally were dropped rather than recorded."
-      ]
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "Same reference in v1 Sorite 2.5.3 proof p.24.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E11",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked p.27. Condition (2) is p-radicial closedness after inverting g. Condition (1) was already shown to imply it, so this repairs the direct reference without changing the theorem.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The step cited is p-radicial closedness of A[1/g] in B[1/g], which is condition (2) of the lemma, not condition (1). I also checked the locator, because the paper runs two counters and has both a numbered paragraph 2.5.3 and a Lemme 2.5.3: the misprint is in the proof of the Lemme, which is where the entry points. Harmless direct-citation repair.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E12",
+      "title": "Publication year of the Shimomoto reference",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Published bibliography [32], p.70; earlier extraction prerequisites and final report paragraph.",
+      "printed": "220 (2014)",
+      "correction": "Journal of Pure and Applied Algebra 220(2) (2016), 621–632, DOI 10.1016/j.jpaa.2015.07.008.",
+      "reason": "The author’s institutional publication record gives volume 220(2), February 2016 and these pages. The extraction already noted this discrepancy in passing but mistakenly referred to its numbering finding E3. This is a bibliographic correction, with no change to a mathematical assertion.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "v1 bibliography [31], p.61, also gives 220 (2014).",
+      "supportingSource": "Kazuma Shimomoto institutional publication record: https://strdb.s.isct.ac.jp/html/100003320_en.html; DOI publisher endpoint could not be read during this check.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked bibliography and the author's institutional publication metadata for DOI 10.1016/j.jpaa.2015.07.008: volume 220(2), pp.621–632, is 2016, not the printed 2014.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against Crossref for DOI 10.1016/j.jpaa.2015.07.008, which gives Kazuma Shimomoto, « An application of the almost purity theorem to the homological conjectures », J. Pure Appl. Algebra 220(2), February 2016, 621–632. The printed entry is wrong in the year and omits the pages; volume 220 of that journal is 2016 throughout. Bibliographic only, as recorded.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E13",
+      "title": "An arbitrary finite étale algebra need not contain the base",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Published Théorème 0.3.1(1), p.2; compare Proposition 5.3.1(2), p.68. Earlier report unit-test note on a nonfaithful projection.",
+      "printed": "« l’inclusion » A↪B",
+      "correction": "State the maximal perfectoid A-algebra B inside B′, with continuous structure map A→B and containing the image of A. Alternatively add faithfulness of B′ over A[1/g] if an inclusion A↪B is required. Keep the explicit faithfulness assumption for the trace statement in part (3).",
+      "reason": "Take any nonzero perfectoid field K, A=K×K, g=1 with its compatible roots, and B′=K via first projection. The algebra B′ is finite étale over A (a direct factor), but the nonzero idempotent (0,1) maps to zero. No A-compatible inclusion A↪B⊂B′ exists. B=K does satisfy the version using a structure map. Proposition 5.3.1(2) already uses the correct A-algebra wording. Thus this finding concerns the introductory containment/inclusion clause, not the ramified equivalence or the trace conclusion under its stated hypothesis.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "Same inclusion wording in v1 Théorème 0.3.1(1), p.2.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked Theorem 0.3.1 and Proposition 5.3.1. Let A=K×K, g=1 and B′=K via first projection: B′ is finite étale but the structure map is not injective. Maximal perfectoid A-algebra inside B′ is the correct formulation; faithfulness remains necessary in the trace assertion.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and decided by the paper against itself. Théorème 0.3.1(1) p.2 announces « l'inclusion A → B », while Proposition 5.3.1(2) p.68 — which the text names as the result 0.3.1 follows from — asserts only that B is the largest perfectoid A-algebra contained in B′, with no injectivity of the structure map; and part (3) of both statements adds faithfulness of B′ separately, which is exactly the hypothesis an inclusion would need. The correction states the right object and keeps that faithfulness where it belongs.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E14",
+      "title": "Reducedness in the cited Güntzer lemma (already corrected by André)",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Güntzer (1974), Lemma 3.5 pp.116–117 (NUMDAM PDF pp.17–18). André published §3.2.2(2) p.36, footnote 16, explicitly records the correction.",
+      "printed": "« A^p is closed in A. » (Güntzer, condition (c))",
+      "correction": "Assume A reduced in Lemma 3.5, or add reducedness to (c). This is an error in the cited source, not an error by André.",
+      "reason": "For a complete perfect nonarchimedean field k of characteristic p, the dual-number Banach algebra A=k[ε]/(ε²), with its finite-dimensional maximum norm, has A^p=k, a closed subspace. Yet any power-multiplicative norm would satisfy ||ε||^p=||ε^p||=0, contradicting separation. Thus (c) alone cannot imply (a) or (b). In the printed proof on p.117 the functions ||f^(p^i)||^(1/p^i) are called norms; reducedness is necessary there. André supplies it explicitly.",
+      "known": "André, published §3.2.2(2), p.36 footnote 16, DOI 10.1007/s10240-017-0096-x; already in arXiv:1609.00320v1 p.32 footnote 18.",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "The correction is already in André v1 §3.2.2(2), p.32 footnote 18, and remains in the published version.",
+      "source": "GUNTZER-74",
+      "sourceUrl": "https://www.numdam.org/item/10.24033/msmf.164.pdf",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Güntzer Lemma 3.5 and its proof on printed pp.116–117, and André footnote 16 p.36. For k=F_p((t)), k[ε]/ε² has closed Frobenius image k^p but cannot carry a power-multiplicative norm. Reducedness is necessary. André already records this correction; it is not a new error of André.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the source, statement and proof. Güntzer (1974) Lemma 3.5, printed p.116, reads: « Let A be a k-Banach algebra with norm ‖ ‖. Assume that char k = p > 0. Then the following statements are equivalent: (a) f ↦ inf_i ‖f^(p^i)‖^(p^(-i)), f ∈ A, is a norm inducing the same topology as ‖ ‖; (b) there is a power multiplicative k-algebra norm on A inducing the same topology as ‖ ‖; (c) A^p is closed in A. » — no reducedness hypothesis — while the proof of (c)⇒(a) on p.117 asserts that ‖f‖_i := ‖f^(p^i)‖^(p^(-i)) is a k-algebra norm, which fails for a nonzero nilpotent. The omission is not harmless: for k=F_p((t)) and A=k[ε]/(ε²) with the max norm, A^p=k^p is closed, so (c) holds, yet |ε|²=|ε²|=0 rules out any power-multiplicative norm, so (a) and (b) fail and the equivalence as printed is false. As the entry says, this is a defect of the cited source and is already recorded in André's footnote 16 p.36, which I read verbatim; it is therefore not a mistake of the paper under review.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E15",
+      "title": "Specify the unit-ball functor in the free-object adjunction",
+      "kind": "gap",
+      "affects": "a stated result",
+      "locator": "Published paragraphs 2.5.1 p.24 and 3.5.1 p.45 (the latter in characteristic p).",
+      "printed": "« foncteur oubli » K-uBan→Ens; similarly K-Perf→Ens.",
+      "correction": "Specify A↦A° as the right adjoint. The asserted Tate-algebra formulas are not left adjoints to the underlying set of the whole algebra.",
+      "reason": "For one generator, continuous K-algebra maps K⟨T⟩→A correspond to A°, by paragraph 2.1.5. For A=K and 0<|ϖ|<1, the assignment T↦ϖ^(−1) cannot be continuous: T^n stays bounded while its images do not. Thus it does not represent arbitrary elements of A. In characteristic p, the analogous perfectoid free object represents A° because compatible p-power roots are unique. If the author intended the unit-ball functor, the mathematics is correct and only that unstated interpretation must be supplied. The earlier extraction retained the ambiguity.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "Same unspecified functor in v1 pp.21 and 39.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked pp.24,45. Continuous maps K⟨T⟩→A correspond to A°, not all of A; T↦ϖ^(-1) is not continuous. The characteristic-p perfected version has the same restriction. The preceding direct monomorphism argument is not invalidated.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a defect in the stated claim, with one qualification worth recording. Continuous K-algebra morphisms K⟨T⟩ → A correspond to elements of A°, not of A: on A=K the assignment T ↦ ϖ^(-1) is not continuous, so the Tate algebra is not left adjoint to the underlying set of the whole algebra, and A ↦ A° is the right adjoint, as the correction says. The qualification is that the reach is nil in practice: the paragraph's mathematical claim is given an independent direct proof immediately before, and no later passage cites the adjunction as such.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E16",
+      "title": "Uniform rational-localization transition maps need not be injective",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Published paragraph 2.6.4(1), p.29, immediately after Lemme 2.6.3.",
+      "printed": "A{λ/g}^u→A{μ/g}^u; « tous injectifs »",
+      "correction": "Remove the general injectivity assertion. Any later use needs hypotheses ensuring the particular restriction map is injective, or its own proof. Non-zero-divisibility of g alone is insufficient. If the sentence is intended only to continue the preceding isometric-multiplication case, state that restriction explicitly; the counterexample here does not address that restricted version.",
+      "reason": "Let A=K×K with the spectral maximum norm, choose 0<|ϖ|<1, and set g=(1,ϖ), λ=ϖ, μ=1. The element g is invertible, hence a non-zero-divisor. In the first localization λ/g=(ϖ,1) is already power-bounded, so A{λ/g}^u=A. In the second localization, the first factor is K, while the second factor is K⟨U⟩/(ϖU−1)=0 because 1−ϖU has the convergent geometric-series inverse. Thus A{μ/g}^u=K, and the transition is first projection, killing (0,1). Both localizations are uniform; choose K perfectoid with roots of ϖ if that extra restriction is desired. Density of A[1/g] in the source does not imply injectivity of restriction. The inverse-limit injectivity of Lemme 2.6.3 is a different assertion and is not refuted.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "Same assertion in v1 paragraph 2.6.4(1), p.26.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked p.29. A=K×K, g=(1,ϖ), λ=ϖ, μ=1 gives the transition A→K by first projection, killing (0,1), although g is invertible. This refutes the unconditional reading, not the preceding restricted isometric-multiplication case.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by an explicit counterexample of my own. Take A=K×K with the max norm, g=(1,ϖ), λ=ϖ, μ=1: the rational domains are {|g| ≥ |ϖ|}, both points, and {|g| ≥ 1}, the first point only, so A{ϖ/g}^u=A, A{1/g}^u=K, and the transition map is the first projection, which kills (0,1). Here g is a non-zero-divisor, so that hypothesis does not rescue the printed sentence. The entry's own caveat is also right: multiplication by this g is not isometric, so the restricted reading suggested at the end of the correction is untouched by the counterexample.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E17",
+      "title": "Dangling sentence in the almost-purity proof sketch",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Published paragraph 3.4.4, p.42, immediately before the characteristic-p case.",
+      "printed": "« remplace l’usage . »",
+      "correction": "Delete the unfinished clause following the parenthetical discussion of circularity; alternatively restore a complete sentence about the Galois argument replacing Robba-ring methods.",
+      "reason": "The clause has no subject for the replacement and no object after usage. The complete explanation already appears above Proposition 3.4.2 and again in §3.4.5(1). This is an editorial remnant, not an additional missing mathematical argument.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "Absent from the corresponding v1 paragraph 3.4.4 p.37: that text passes directly from the parenthesis to the characteristic-p case.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked p.42: the dangling clause has a missing object. Deleting it is an editorial repair, not a claim that the surrounding proof sketch has been closed.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim in the published text: the sentence ends « ... remplace l'usage . » with the object of « l'usage » missing, so the clause is truncated in print. The intended content is recoverable from the paper itself — footnote 19 and Remarque 3.4.5(1), « l'argument galoisien de la prop. 3.4.2 permet de se dispenser des anneaux de Robba de [21] » — which is what the second repair in the correction restores. Reach « nothing » is right.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E18",
+      "title": "Completion at a point in the approximation square",
+      "kind": "misprint",
+      "affects": "the proof",
+      "locator": "Published paragraph 3.4.4(c), p.43, parenthesis after the approximation references.",
+      "printed": "colim Aα°; « de complété A° »",
+      "correction": "The completion in this pointwise construction is H(x)°, not the original global A°; interpret the colimit with the seminorm induced by x and separated completion.",
+      "reason": "The same paragraph constructs the completed residue field H(x) as the uniform colimit of the localizations Aα and uses it as the bottom-right corner of the square. Even for A=K×K and x the point on the first factor, a rational neighborhood isolates that factor, so this completion is K° rather than K°×K°. Correcting the symbol identifies the intended completion; this finding does not by itself establish the henselian or approximation claims cited in the sketch.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "versionComparison": "Same global A° in v1 p.38.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked p.43. At a point of A=K×K selecting the first factor, the local residue completion is K, not A. The construction uses the x-seminorm and separated completion H(x)°, not the global A°. This does not itself prove the henselian approximation step.",
+        "by": "REV-PAPER-ANDRE-18"
+      },
+      "priorReview": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. That step of the construction works at a point x of the adic spectrum and takes a colimit over rational localisations shrinking to x, so the henselian colimit has completion H(x)°, not the global A°; reading the colimit with the seminorm induced by x and separated completion, as the correction says, is what the surrounding approximation references require. The proof is unaffected once read that way.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      },
+      "provenance": "Reconciled from the separate errata job (Codex codex-hjdg0j) and REV-ERRATA-PAPER-ANDRE-18 (Claude Code cc-fb70e5); independently checked in this extraction review. Those files are not modified."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E19",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Published numbered paragraph §1.7.2(1), p.7, unrestricted faithful-projective assertion",
+      "printed": "« et fidèlement plat s’il est fidèle » (for an arbitrary almost projective P).",
+      "correction": "Every almost projective module is flat. Faithful flatness is equivalent to the evaluation ideal E_{P/A}=image(P⊗_A P*→A) being A; mere injectivity of A→End(P)ᵃ is insufficient in this generality. Use Gabber–Ramero Proposition 2.4.28(iv), with Definition 2.4.23, for this exact criterion.",
+      "reason": "Use the ordinary almost base (V,m)=(R,R), R=∏_{n∈N}F₂ and P=⊕_{n∈N}Re_n, the finite-support ideal. Each Re_n is projective, so P is projective; ann_R(P)=0, so it is faithful. But P²=P is proper, and P⊗_R(R/P)=P/P²=0 while R/P≠0. Hence P is not faithfully flat. The counterexample is infinite: no finite-coordinate computation is claimed to prove it. The cited Gabber–Ramero evaluation-ideal criterion and proof were read directly. This finding concerns the unrestricted sentence, not a claim that any particular almost-finite-projective downstream use is false.",
+      "known": "New candidate in this review; no published correction located in the bounded search recorded below. Not an assertion of historical novelty.",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-ANDRE-18",
+        "reason": "Use the ordinary almost base (V,m)=(R,R), R=∏_{n∈N}F₂ and P=⊕_{n∈N}Re_n, the finite-support ideal. Each Re_n is projective, so P is projective; ann_R(P)=0, so it is faithful. But P²=P is proper, and P⊗_R(R/P)=P/P²=0 while R/P≠0. Hence P is not faithfully flat. The counterexample is infinite: no finite-coordinate computation is claimed to prove it. The cited Gabber–Ramero evaluation-ideal criterion and proof were read directly. This finding concerns the unrestricted sentence, not a claim that any particular almost-finite-projective downstream use is false."
+      }
+    },
+    {
+      "id": "PAPER-ANDRE-18/E20",
+      "kind": "error",
+      "affects": "the proof",
+      "locator": "Published numbered paragraph §2.2.2, p.13, displayed estimate in the uniformity equivalence",
+      "printed": "‖a‖ ≤ |a|_sp sup_{b∈A°} ‖b‖",
+      "correction": "With C=sup_{b∈A°}‖b‖ and any c∈K with 0<|c|<1, the universally valid estimate is ‖a‖≤C|c|^(-1)|a|_sp. The sharp constant C is valid if |K×| is dense. Uniformity is still equivalent to equivalence with the spectral norm.",
+      "reason": "Take K=Q_p, A=Q_p(π) with π²=p, and the coefficient norm ‖a+bπ‖=max(|a|,|b|). It is normalized, complete and submultiplicative. Its spectral norm is max(|a|,p^(-1/2)|b|), since the two summands have valuations of different parity. Thus A°=Z_p+Z_pπ and C=1, but ‖π‖=1>p^(-1/2)=|π|_sp. For the repaired estimate choose scalar powers of c so that the rescaled spectral value is strictly below 1 and at least |c|; their powers are bounded, giving the stated constant. If the spectral value is zero, arbitrary scalar rescaling is power-bounded and boundedness of A° forces a=0. This refutes the auxiliary inequality, not the uniformity equivalence.",
+      "known": "New candidate in this review; no published correction located in the bounded search recorded below. Not an assertion of historical novelty.",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/1609.00320 lists only v1, 31 August 2016. No fresh reading of that PDF is claimed.",
+        "2026-09-23: journal article https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0096-x/, volume https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/ and publisher https://link.springer.com/article/10.1007/s10240-017-0096-x checked; no linked formal correction found.",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ is a minimal contact page, not a comprehensive corrections list. Title/author plus erratum/correction and exact norm/faithfulness queries returned no formal correction; this is not an exhaustive novelty claim."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-ANDRE-18",
+        "reason": "Take K=Q_p, A=Q_p(π) with π²=p, and the coefficient norm ‖a+bπ‖=max(|a|,|b|). It is normalized, complete and submultiplicative. Its spectral norm is max(|a|,p^(-1/2)|b|), since the two summands have valuations of different parity. Thus A°=Z_p+Z_pπ and C=1, but ‖π‖=1>p^(-1/2)=|π|_sp. For the repaired estimate choose scalar powers of c so that the rescaled spectral value is strictly below 1 and at least |c|; their powers are bounded, giving the stated constant. If the spectral value is zero, arbitrary scalar rescaling is power-bounded and boundedness of A° forces a=0. This refutes the auxiliary inequality, not the uniformity equivalence."
+      }
     }
   ],
   "verificationHistory": [
@@ -2450,6 +3020,58 @@
       "routeStatus": "Provisional, not ready for independent acceptance: finish source extraction, audit existing declarations and general ownership, and screen new roadmaps/reserved IDs before promoting the proposed extension.",
       "lean": "No Lean deliverable is required by this paper-extraction issue; no Lean compilation was performed.",
       "localCheck": "The unmodified repository check_paper.py was executed against a deliberately scoped local catalogue containing the verified PerfectoidSpaces P0–P9 IDs. This checks schema, cited owner IDs and route multiplicity only; it is not a full-atlas or library audit. The source script blob is cf3cae9e7d2d41209bf9fa4d719fd6fe17a69f1f."
+    },
+    {
+      "agent": "Inherited extraction through PR #2009",
+      "source": {
+        "title": "Le lemme d’Abhyankar perfectoïde",
+        "authors": "Yves André",
+        "venue": "Publications Mathématiques de l’IHÉS 127 (2018), 1–70",
+        "doi": "10.1007/s10240-017-0096-x",
+        "arxiv": "1609.00320",
+        "url": "https://www.numdam.org/item/10.1007/s10240-017-0096-x.pdf",
+        "version": "Published version, 70 pages; published locators are used, not preprint numbering. The published PDF was downloaded from Numdam on 2026-09-22 by the third worker on this job (Claude Code, cc-fb70e5) and hashed: SHA-256 087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a, 70 pages, journal page = PDF page. arXiv:1609.00320v1 (31 August 2016, 61 pp.) was also downloaded, SHA-256 485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e; it is NOT the same text — its abstract promises the ramified case « sans restriction sur le discriminant » where the published one says « sans restriction sur le lieu de ramification » and announces the new notion of almost perfectoid algebras and the Galois techniques, and its section pagination differs throughout. Locators are therefore published-only.",
+        "accessed": "2026-09-22",
+        "readSections": [
+          "Introduction pp.1–4",
+          "§1.1–1.9 including proofs, pp.4–10",
+          "Selected §2.1–2.3 text; not fully extracted",
+          "Theorem 4.2.2 and proof, Lemma 4.2.3 and Corollary 4.2.4, pp.55–56",
+          "§4.3–4.4 including proofs, pp.58–63",
+          "§5.1–5.3 including proofs, pp.63–68",
+          "Definition 3.5.2, Lemma 3.5.3, Proposition 3.5.4 and proof, pp.46–47; relevant remarks pp.47–48",
+          "Proposition 3.8.1, pp.50–51",
+          "§4.2.1 statement and proof, pp.54–55",
+          "§5.4 text, pp.68–69 (read but application not yet extracted)",
+          "ChatGPT Pro cgp-0922-b7d49a: published §§2.1–2.3 text reread, with detailed extraction limited here to spectral-radius ingredients and comparison statements of §2.2. Published §2.2.4 p.13 compared directly with arXiv v1 §2.2.4 p.12: the same stronger uniqueness claim and maximum-norm step occur in both. Main-paper PDF screenshots still failed; no PDF bytes or hash were obtained.",
+          "Claude Code cc-fb70e5, 2026-09-22: published PDF bytes obtained and hashed, closing the provenance gap the two earlier checkpoints recorded as unreachable. §2.1–2.2 pp. 12–13 and §2.4 p. 22 read in full for the independent review of E1, together with every occurrence of the uniqueness assertion in the paper (pp. 13, 22, 41); arXiv v1 §2.2.4 compared and carries the same assertion and the same proof."
+        ],
+        "sha256": "087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a",
+        "retrievalNote": "Published PDF text was read through the web PDF reader. Direct byte download failed because the execution environment could not resolve the host; PDF screenshot requests returned Internal Error. No byte hash or successful visual verification is claimed.",
+        "additionalSources": [
+          {
+            "title": "Math 248A. Completion of algebraic closure",
+            "authors": "Brian Conrad",
+            "url": "https://virtualmath1.stanford.edu/~conrad/248APage/handouts/algclosurecomp.pdf",
+            "locator": "§1, Theorem 1.1 and its proof, pp.1–3",
+            "accessed": "2026-09-22",
+            "pages": 3,
+            "sha256": null,
+            "note": "Official Stanford course handout, linked from Conrad’s handout index. All three pages read; page 1 visually inspected. The theorem proves that the completion of an algebraic closure is algebraically closed. Noncompleteness of Q_p-bar is recalled on p.1 with a reference to BGR 3.4.3/1; that original proof has not been read in this session. This auxiliary source supports E1, not a claimed new prerequisite owner for the main paper."
+          }
+        ]
+      },
+      "verification": {
+        "kind": "Independent re-reading of the published text, plus exact finite checks; not a Lean formalization and not a proof of any theorem of the paper.",
+        "thirdPass": "Claude Code, session cc-fb70e5, 2026-09-22. Obtained the published PDF bytes and hashed them, closing the provenance gap left open by the two earlier checkpoints. Read §§2.1–2.9, 3.1–3.4, 3.6–3.9, 4.1 and 5.4 in full and extracted them into 114 new items; re-read §2.2.4, §2.4 and §3.4 for the independent review of E1 and audited every occurrence of the assertion it concerns (pp. 13, 22, 41). Verified each recorded source issue in the published text, using page images at 300–340 dpi wherever a glyph or an exponent decides the matter, and dropped the reported candidates that could not be confirmed. Counted the collisions between the paragraph and statement counters mechanically over all 70 pages (44). Re-checked the ten Mathlib declarations of the library items at the pin. Verified the prerequisite DOIs through Crossref.",
+        "structural": "scripts/check_paper.py passes with \"status\": \"complete\", which enforces that every missing item is routed exactly once; 199 items (126 missing, 65 planned, 8 library), 3 routes, 22 prerequisites, 11 source issues."
+      },
+      "summary": "Partial second checkpoint: 85 items (8 exact pinned-library imports, 35 inherited planned items, 42 missing). All 72 inherited item objects and their two routes are preserved. The new spectral-radius layer imports Mathlib smoothingFun rather than rebuilding it or confusing it with the minpoly-based spectralNorm. Four valid comparison lemmas have complete mathematical proofs but explicitly pending generic ownership; one unrouted diagnostic records the stronger false norm-uniqueness assertion in source issue E1. This is not full extraction, a final routing decision, an independent review or a Lean implementation."
     }
-  ]
+  ],
+  "review": {
+    "verdict": "revise",
+    "by": "independent-review-REV-PAPER-ANDRE-18",
+    "reason": "Independent review: revise. Published paper read in full; 209 interfaces (12 library, 62 planned, 135 provisional missing), three routes (one accepted source route, two rejected proposals), and 20 source findings (19 confirmed, E3 rejected). Concrete mathematical and provenance errors corrected, five omitted §3.5 interfaces and an evaluation-ideal definition added, and four pinned library subinterfaces exposed. Generic-owner, granularity and proof-closure gaps prevent complete extraction or design approval."
+  }
 }
