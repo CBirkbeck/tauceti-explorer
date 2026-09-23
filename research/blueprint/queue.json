@@ -8343,7 +8343,8 @@
    ],
    "avoidAccountOf": "PAPER-CESNAVICIUS-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-CESNAVICIUS-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2185"
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24",
@@ -31307,8 +31308,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-HE-21",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HE-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1865"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1865",
+   "finishedAt": "2026-09-23T14:29:49Z"
   },
   {
    "id": "ERRATA-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
@@ -31422,8 +31424,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1869"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1869",
+   "finishedAt": "2026-09-23T14:29:53Z"
   },
   {
    "id": "ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
@@ -31694,7 +31697,8 @@
    ],
    "avoidAccountOf": "ERRATA-DESIGN-LV",
    "prompt": "research/blueprint/prompts/REV-ERRATA-DESIGN-LV.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1883"
   },
   {
    "id": "BP-tauceti_Completed_ContourIntegration",
