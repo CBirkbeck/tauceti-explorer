@@ -8383,8 +8383,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDRE-18-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2188"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2188",
+   "finishedAt": "2026-09-23T13:04:30Z"
   },
   {
    "id": "REV-PAPER-ANDRE-18-B",
@@ -13221,7 +13222,8 @@
    ],
    "avoidAccountOf": "RS-25",
    "prompt": "research/blueprint/prompts/REV-RS-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #849"
   },
   {
    "id": "RS-26",
@@ -30964,7 +30966,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-CESNAVICIUS-19",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CESNAVICIUS-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1800"
   },
   {
    "id": "ERRATA-PAPER-WOOD-19",
@@ -31001,7 +31004,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-WOOD-19",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-WOOD-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1803"
   },
   {
    "id": "ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -31374,8 +31378,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1871"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1871",
+   "finishedAt": "2026-09-23T13:04:33Z"
   },
   {
    "id": "ERRATA-PAPER-HARPAZ-WITTENBERG-20",
