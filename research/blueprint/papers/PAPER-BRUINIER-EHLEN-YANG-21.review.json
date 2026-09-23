@@ -1,0 +1,51 @@
+{
+  "paper": "PAPER-BRUINIER-EHLEN-YANG-21",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "Reject the present aggregate: import the built imaginary-quadratic two-rank/genus infrastructure and split off the binary-form/matrix genus-character comparison. GN.2 is a plausible adapter owner; it must not rebuild Tau Ceti Multiquadratic or the upstream Hilbert-symbol theory."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "MP.6 is the right theta-integral direction, but row 9 combines coherent Siegel–Weil, incoherent vanishing and operator identities without separate normalizations or extracted suppliers. Split these and state the volume/representation contracts before using this source route."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "MP.7 is a plausible extension owner, but its description does not explicitly supply the asserted full Shimura/Skoruppa–Zagier newform correspondence. Split the explicit lift from the isomorphism and acquire their precise sources and hypotheses."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "GZ.6 owns the incoherent derivative direction. Row 10 leaves the Kudla–Yang Fourier formulas, constant coefficient and Hilbert analogue inside quoted prerequisites; a source attribution alone does not establish this whole interface."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "GZ.7 owns finite local intersections, but rows 14–16 need separate moduli, Cartier/closure, pullback, deformation-length and weighted-intersection contracts and the external Howard/Xue/Bruinier–Yang proof suppliers."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "The proposed Part II has the right broad direction and should coalesce with PAPER-LI-23, but the brief is not buildable: unresolved global and odd-branch normalization, nonisometric example lattices, missing hypotheses, unsplit API/definition rows, and quoted analytic/arithmetic suppliers. Import GH.0/GH.1 rather than rebuilding their cycle construction; the unreviewed GSpin candidate is not a completed dependency and its n=1,2 boundary is uncovered."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "The new source route records the residual finite-discriminant Weil comparison in the shared MP.2/MP.4 direction. It is not accepted until S/T relations, contragredient/central-character conventions, dyadic cases and the finite-index sublattice comparison are individually specified."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "The new source route assigns weak-Jacobi generators and their normalizations to MP.8, the Jacobi/theta-decomposition owner imported by QM.1. It remains incomplete until the weak-ring theorem and its vector-valued comparison are extracted with API and coefficient tests."
+    }
+  ],
+  "notes": "All 46 input rows, six original routes, six source findings, six originally cited declarations and seven planned credits checked. Independent search groups cover all 38 originally missing rows. Two incomplete planned aggregates are changed to missing with residual source routes. 27 source findings are confirmed at precisely bounded scope; E3’s proposed numerical repair is withdrawn as unproved. The extraction is partial (1 library, 5 planned, 40 missing); every missing item is provisionally assigned once. All eight routes are rejected. The review is finished as a negative review, not a claim to complete recursive extraction. See research/blueprint/reviews/REV-PAPER-BRUINIER-EHLEN-YANG-21.md.",
+  "reviewer": "independent-review-REV-PAPER-BRUINIER-EHLEN-YANG-21",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "date": "2026-09-23"
+}
