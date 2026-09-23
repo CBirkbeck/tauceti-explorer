@@ -1,40 +1,49 @@
 # PAPER-ABE-25: Artin characters in the geometric case
 
-Issue [#1214](https://github.com/CBirkbeck/tauceti-explorer/issues/1214). Status: **complete**. Implementation and proof closure are not claimed.
+Issue [#1214](https://github.com/CBirkbeck/tauceti-explorer/issues/1214).
+Status: **partial**, following independent review
+[REV-PAPER-ABE-25](../reviews/REV-PAPER-ABE-25.md), issue #1215.
+All six ownership routes are accepted; the overall verdict is **revise**.
 
-- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints of Codex sessions codex-a71f92 (#1951) and codex-c83e7a (#2026), whose material follows below.
-- **The paper.** Tomoyuki Abe, *On the Serre conjecture for Artin characters in the geometric case*, Inventiones mathematicae 241 (2025), 605–622 (doi 10.1007/s00222-025-01345-w). The published version is open access.
-- **Items.** The result has **107 items: 10 library, 8 planned and 89 missing**. The checkpoint's items and routes are unchanged, and every missing item is routed exactly once.
-- **Mistakes.** Six are recorded under `sourceIssues`. arXiv v2 has the same text at every one.
-  - E3, a fixed-scheme identification in the proof of Theorem 1.6, has a repair.
-  - E4 concerns the coefficient scope of the Lu–Zheng citation.
-  - E1, E2, E5 and E6 are in the concluding remarks.
+The extraction now contains **110 items: 12 library, 8 planned and 90 missing**.
+Every missing item has one route. All six source findings are independently
+confirmed, with their individual scope and reasons in `sourceIssues.review`.
+The twelve named source-proof obligations remain open or unavailable. Coverage
+of numbered statements does not establish their recursive suppliers.
 
-## This continuation (cc-442dc5)
+The extraction was written by Codex sessions codex-a71f92 and codex-c83e7a and
+continued by Claude Code cc-442dc5. This independent correction is by Codex,
+session codex-hjdg0j, on 23 September 2026. Prior reading and validation records
+below remain attributed to those earlier passes; the review has its own exact
+reading boundaries and source hashes in `independentVerification`.
 
-**What was read.**
-- The published paper was read in full, from the checkpoint's copy (same SHA-256).
-- arXiv v2 was compared with it at every finding.
-- Lu–Zheng (arXiv 2005.08522) was read at Theorem 2.16.
-- Crossref shows no correction or update relation for the article.
+## Independent corrections
 
-**The findings were checked again.**
-- **E1.** The different is multiplicative in a tower, so v_x(D_f) = v_x(D_q) + e(q)·v_{q(x)}(D_g); Hilbert's formula gives v_x(D_q) = a_{G,X}(1). The tower x ↦ x² ↦ x⁶ in characteristic 5 has exponents 1, 2 and 5 = 1 + 2·2.
-- **E2.** At ∞′ the class is minus a total-dimension class, as in Proposition 2.5. With the printed sign at 0′, the independence of x would give Sw + [Λ[G]] = −(Sw + [Λ[G]]). The sign is therefore wrong, but the intended comparison is right, so E2 now affects nothing.
-- **E3.** z ↦ z + t² preserves z² + t²z − t in characteristic 2. The fixed scheme k[t, z]/(t², z² − t) ≅ k[z]/(z⁴) has length 4, and its closed fibre has length 2.
-- **E4.** Lu–Zheng's Theorem 2.16 assumes "Λ a Noetherian commutative ring with mΛ = 0". Theorem 1.3 as stated covers torsion rings outside that scope, so E4 now affects a stated result. The main proof uses only Λ = A/ℓⁿ.
-- **E6.** For f = uv the vanishing cycles are one tame class in degree 1, so Proposition 2.5 gives identity trace +1 = (−1)²μ_f, not −μ_f.
-- **E5** is a typo.
+- L02 now states the **field** hypothesis of the pinned `Representation.character`.
+  It does not claim that citation supplies arbitrary-ring characters.
+- L11 imports Mathlib's different-ideal tower theorem, and L12 imports Tau Ceti's coefficientwise formula with its ramification factor. G09 retains the local
+  valuation/Artin adapter, with the factor e(q), and no longer suggests rebuilding
+  the ideal identity.
+- B21 makes the geometric henselian-trait numerical conductor supplier explicit.
+  Arithmetic local fields with finite residue field do not silently supply the
+  algebraically closed residue field in §2.2. C3 and the arithmetic brief use
+  the paper's algebraically closed hypothesis; §3.1's wider wording stays with
+  its separately sourced concluding remark.
+- A21 explicitly requires the ind-étale comparison's closed fibre k. Equal
+  residue fields for an arbitrary flat local map would be insufficient.
+- A24 gives the proper/quasi-finite curve argument for a finite cover. The
+  separate Abe–Gabber refinement A18 is not needed by this application.
+- B17–B18 retain a finite projective Zℓ-algebra. B10 uses matrix traces and
+  completeness on its lattice model, independently of geometric adic comparison.
+- RelativeTraces owns the common abstract 2-categorical prefix, shared with
+  the accepted v-stack continuation. Yang–Zhao uses the same RelativeTraces and
+  GeneralBasesFourier ids; these are shared designs, not competing copies.
 
-**A new observation: the Abe–Gabber refinement is not needed.** The Remark after Theorem 1.5 cites the unpublished Abe–Gabber paper to replace the alteration by a finite cover. Theorem 1.6 applies Theorem 1.5 over the curve P¹_{t′}. There a surjective alteration from an integral scheme is proper with finite fibres, hence already finite, which is exactly what its proof uses. Gap G-GABBER is therefore not on the path of the main theorem.
-
-**Why the status is now complete.**
-- Every numbered statement of the paper, and every theorem its proofs cite, is an item. The checkpoints' coverage was checked against the paper, section by section.
-- Every missing item is routed exactly once, and the mistakes are recorded.
-- The twelve gaps now carry a status and a resolution in the result:
-  - **G-KSS is unavailable.** Kato–Saito–Saito 1988 is paywalled; its Conjecture 5.1 and Lemma 5.3 are stated as the paper uses them.
-  - **The other eleven are deferred.** Each asks for the proofs of cited suppliers (Lu–Zheng, SGA 4 and 5, EGA IV, Orgogozo, Serre, Laumon, Kashiwara–Schapira, Katz, Saito, Fulton), which are items. G-GABBER is also not needed, as explained above.
-- The W(k) ⊗ ℚ-rationality statement of §3.2 is a conjecture, recorded under `notTheorems`, not as an item.
+The independent exact diagnostics cover 386 tame towers, the length-4/length-2
+fixed-algebra discrepancy, 60 reduction-kernel systems (1,055 zero-transition
+elements), and 204 points in the nodal involution checks. They do not compute
+étale cohomology or prove projective Swan existence. No Lean file was required,
+written or compiled.
 
 ## Result and scope
 
@@ -42,7 +51,7 @@ Issue [#1214](https://github.com/CBirkbeck/tauceti-explorer/issues/1214). Status
 
 For σ≠1, define aG(σ)=−length(A/Iσ), where Iσ is generated by a−σ(a). Set aG(1) to make the sum of the values zero. The conclusions are an **actual** representation with this character and realization over Qℓ for every invertible ℓ. A virtual character with values in Qℓ is not enough. Characteristic zero and mixed characteristic are not covered by “contains a finite field.”
 
-The JSON contains 107 items: 10 exact library imports, 8 planned imports and 89 missing interfaces. Every missing interface has exactly one route. All 37 definitions/constructions have three API statements, three acceptance tests, and recorded uses. These 111 tests are proposed mathematical obligations, not executed Lean tests.
+The reviewed JSON contains 110 items: 12 exact library imports, 8 planned imports and 90 missing interfaces. Every missing interface has exactly one route. All 37 definitions/constructions have three API statements, three acceptance tests, and recorded uses. These 111 tests are proposed mathematical obligations, not executed Lean tests.
 
 ## Reading record
 
@@ -217,7 +226,7 @@ is (2u,2v)=(u,v). The critical ideal is (v,u), so μ_f=1. The corrected identity
 trace is +1, whereas the printed formula gives −1. The nonidentity theorem
 and the curve specialization are unaffected.
 
-This is a source finding awaiting independent review, not an accepted erratum.
+REV-PAPER-ABE-25 independently confirms this finding and its dimension convention.
 The published p.621 image and arXiv v2 p.14 agree. The publisher page, arXiv
 history and bounded DOI/title correction searches found no matching Abe
 correction. The empty author homepage prevents an exhaustive novelty claim.
@@ -230,7 +239,7 @@ The characteristic-cycle input stays confined to the concluding remark.
 
 ## Source findings in detail (codex-a71f92, codex-c83e7a)
 
-The next section lists each finding as recorded in the result; all six await independent review.
+The next section preserves the extraction arguments. REV-PAPER-ABE-25 independently confirms all six; its reasons are in the JSON review objects.
 
 ### E1 — missing ramification factor, §3.3 p.621
 
@@ -279,20 +288,24 @@ The earlier correction search checked the publisher page, arXiv history/selected
 - **E5** (misprint; affects nothing), Published §3.2 p.621, second sentence. *Printed:* If fact *Correction:* In fact *Reason:* Typographical substitution in an introductory phrase; the mathematical statement is unchanged.
 - **E6** (error; affects a stated result), Published §3.3 p.621, first paragraph; same formula in arXiv2405.19601v2 p.14. *Printed:* −μ_f *Correction:* For dim X=n the identity Fourier nearby-cycle trace is (−1)^n μ_f, or equivalently (CCΛ,df). The printed negative sign is the curve specialization. *Reason:* Saito arXiv1510.03018v4 Theorem4.9 equation(4.15) gives −dimtot RΦ=(CCΛ,df), and p.46/Lemma4.11(1) gives CCΛ=(−1)^n[zero-section]. Abe Proposition2.5 identifies the Fourier class with −dt(RΦ). In odd characteristic f(u,v)=uv on the regular surface, with involution (u,v)↦(−u,−v), satisfies the theorem geometry and has critical colength1. The identity trace is therefore +1, not −1. The paper’s nonidentity theorem and dimension-one conclusion are unaffected. Checked again by cc-442dc5: for f = uv the vanishing cycles are one tame class in degree 1, so the total dimension is −1, and Proposition 2.5 makes the identity trace +1 = (−1)² μ_f.
 
-## Gaps of the checkpoints and their resolution
+## Remaining source-proof obligations
 
-- **G-KSS** (unavailable). Kato–Saito–Saito 1988 (Amer. J. Math. 110) is not openly available; the DOI and JSTOR return a paywall. Its Conjecture 5.1 and Lemma 5.3 are stated as the paper uses them (items F20, G06, G07); the reduction's proof belongs to the owning route.
-- **G-LZ** (deferred). The Lu–Zheng results the paper cites are items (A01–A09, A30). Their recursive proofs belong to the relative-traces Part II. The coefficient scope is recorded as E4.
-- **G-LIMIT** (deferred). Lemma 1.4's own proof is items A10–A11; SGA 4 IX 2.7, 2.7.4 and VI 8.7.9 are cited suppliers.
-- **G-ORGO** (deferred). Orgogozo's Theorems 2.1, 7.1, 8.1, Proposition 3.1 and Remark 8.3 are stated as used (items A12, A13, A22).
-- **G-HENSEL** (deferred). The EGA IV inputs (8.3.6, 8.8.2, 18.8.11) are stated as used (items A15, A16, A20, A21, A24).
-- **G-GABBER** (deferred). Not needed by the main proof (cc-442dc5). Theorem 1.6 applies Theorem 1.5 over the curve P¹_{t′}. There a surjective alteration from an integral scheme is proper and quasi-finite, hence finite, so the Abe–Gabber refinement (the Remark after Theorem 1.5, item A18) is not used. A18 stays an item stated as printed.
-- **G-ADIC** (deferred). The integral Swan step is proved conditional on G-SWAN (B17–B20). The remaining uniform Tor bounds and the adic trace comparison belong to the owning routes.
-- **G-TRACE** (deferred). SGA 5 III 4.3 and 4.4 and Fulton 7.1(b) are stated as used (items A26, A28).
-- **G-SWAN** (deferred). Serre's §19.2 Theorem 44 is stated as used (item B03).
-- **G-EQUIVARIANT** (deferred). Kashiwara–Schapira 14.3.4 and the strictification are stated as used (items B14, F09).
-- **G-FOURIER** (deferred). Laumon's local Fourier results are stated as used (items F01–F04, F21–F23).
-- **G-REMARKS** (deferred). E1 and E2 were checked independently by cc-442dc5: E1 by the tame tower x ↦ x⁶, E2 by the sign of Proposition 2.5. The Katz, Saito and Fulton inputs of §3 are cited suppliers of concluding remarks (items R01–R06).
+The independent review restores these as open obligations. Assignment to a route
+is not a proof or a resolution. The original completion rationale is retained in
+JSON as `priorResolution`, for provenance.
+
+- **G-KSS (unavailable)** — Obtain and read Kato–Saito–Saito, Artin characters for algebraic surfaces, Conjecture 5.1 and Lemma 5.3 with the complete proof. DOI/JSTOR access yielded a non-PDF HTML response; no source text was read. Decompose reduction of arbitrary regular local rings to the geometric setup, the regular-character ambiguity, positivity of the corrected virtual class, and Qℓ rather than Qℓ(ζp) descent. This is the decisive open leaf for both main assertions. Continuation: both Saito author bibliographies were searched but supplied no copy; the DOI browser request failed. The 1988 source remains unread.
+- **G-LZ (open)** — The selected Lu–Zheng constructions, Theorem 2.16 and Proposition 2.26 were read, but the entire recursive proof infrastructure was not. Transcribe adjointable 2-morphisms of End(C), trace functor coherences, the internal-Hom/duality criterion and the Gabber LA⇒ULA input. Resolve E4 independently before extending beyond Noetherian coefficients.
+- **G-LIMIT (open)** — Finish the exact SGA4 IX 2.7/2.7.4 and VI 8.7.9 supplier decomposition for Lemma 1.4, including constructible finite generation, cohomology continuity, truncation bounds and descent of the connecting morphism. The main proof is read, the recursive SGA proof leaves are not.
+- **G-ORGO (open)** — Read Orgogozo 2006 Theorems 2.1,7.1,8.1, Proposition 3.1 and Remarks 8.3/§9.1, plus Illusie's goodness criterion. Record every noetherian-approximation, constructibility, finite-Tor and arbitrary-base-change hypothesis. Split A12–A15 further into the original source lemmas; their interfaces are not closed just because Abe invokes them.
+- **G-HENSEL (open)** — Read EGA IV 8.3.6,8.8.2,18.8.11 and the integral-normalization/strict-local Milnor-fiber arguments. Check descent of regularity/smoothness, lift of specializations, preservation of finite lengths under strict henselization, and the finite connected curve cover derived from the alteration. Verify the repaired E3 step. Continuation: A21 now proves the fixed-length repair by flat base change of a composition series; the finite-stage spreading and strict-local Milnor-fibre suppliers remain open.
+- **G-GABBER (open)** — Abe–Gabber's Transitivity and cohomological properness of nearby cycles is cited as in preparation in Abe25. A primary IHÉS author PDF was located at https://www.ihes.fr/~/gabber/nearby.pdf with a 21 November 2023 date, but only its introduction/search excerpt was inspected. Read the actual finite-cover refinement and its relation to generic goodness; do not count a located PDF as a proved supplier.
+- **G-ADIC (open)** — The integral Swan finite-generation/reduction/exactness step is now proved in B17–B20, conditional on the G-SWAN projective tower. Still prove uniform Tor/cohomological bounds and derived reduction for nearby cycles, and the adic perfect-complex trace comparison A22/A23/A29/B16. Do not infer those geometric statements from the module argument.
+- **G-TRACE (open)** — Read SGA5 III §4 (especially Example 4.3 and Theorem 4.4), Fulton Proposition 7.1(b), and the nil-invariance/relative dualizing comparison. Prove the isolated graph-diagonal intersection multiplicity equals the full nonreduced fixed length and that point-supported trace becomes the ordinary perfect trace.
+- **G-SWAN (open)** — Read Serre §19.2 Theorem 44 for projective integral Swan realizations, quotient transition isomorphisms and self-duality. Prove the compatible-tower exactness and finite generation; distinguish chosen isomorphisms from a canonical global Swan functor. Check the general henselian geometric trait hypotheses against LocalFieldsRamification's finite-residue/local-field scope. Independently distinguish the algebraically closed geometric residue field of §2.2 from arithmetic local fields: prove B21, including finite wild action and quotient independence.
+- **G-EQUIVARIANT (open)** — Complete the strictification and bounded Λ-projective model construction for actual derived Λ[G]-maps, with finite-generation/Noetherian assumptions. Read Ferrand's nonadditivity example and Kashiwara–Schapira 14.3.4 for the Ψ-acyclic/unbounded-free-resolution totalization. Never promote arbitrary triangulated trace additivity to a library theorem.
+- **G-FOURIER (open)** — Only Laumon Proposition 2.4.2.2, Theorem 2.4.3 statements and §2.6.1 proof were read. Read the earlier local Fourier construction and §§2.3/2.5 concentration/rank proofs, the ∞-local transforms used in §3.1, Abe2022 Lemma 6.4/§6.5 and Katz–Laumon vanishing. Verify the finite integral group-ring-perfect identity, not only the rational character version, before closing F07.
+- **G-REMARKS (open)** — Read Katz1986 §1.6 and its extension/concentration inputs for §3.1. Verify E1/E2 independently. Read Saito2017 Thm5.9 and Fulton Ex.14.1.5(d) with dimension/sign conventions for §3.3; this characteristic-cycle input is a concluding interpretation, not a prerequisite of the main proof. Source the classical Fontaine result and Serre's Qp counterexamples if extracting those historical assertions as separate theorem nodes. Continuation: Saito v4 pp.45–46 establishes the sign convention, and E6 records the missing factor (−1)^dimX. The full characteristic-cycle theorem proof and Fulton intersection comparison remain supplying obligations; do not reclassify them as closed by the sign calculation.
 
 ## Validation of the checkpoints (codex-c83e7a)
 

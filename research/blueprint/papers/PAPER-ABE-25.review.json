@@ -1,0 +1,39 @@
+{
+  "paper": "PAPER-ABE-25",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Accept EDC.8’s isolated graph/diagonal trace and proper point-supported trace specializations. The existing ordinary correspondence owner supplies these; the relative ULA family remains route4."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Accept the strict-local smoothness and specialization-triangle comparisons inside LPV.0. Its excellent finite-type trait scope is sufficient for these adapters, not for arbitrary coherent-base ULA extension."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accept the perfect/equivariant continuation of GrothendieckEulerForms. Its parent supplies generic K0 and bounded comparisons but excludes perfect categories. Import the K.4 bounded-projective prefix and EDS tensor, then prove the genuinely additional coefficient-perfect strictification and group-ring-perfect tensor interface."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Accept relative categorical traces, with A01–A03 as the single shared generic prefix for the accepted v-stack continuation. Import actual EDC operations and EDS coherence. Yang–Zhao uses the same continuation id. A24’s finite curve cover is justified without the separate Abe–Gabber refinement."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accept coherent-base ULA and local Fourier extensions beyond LPV.0. Share the id and early prefix with Yang–Zhao. Build support independently of the trace formula; import only early Swan/perfect-trace modules, preventing a circular whole-roadmap dependency."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Accept geometric Artin representations beyond R01.3’s arithmetic conductors, after explicitly adding B21’s geometric numerical conductor supplier and restricting the Swan setup to §2.2’s algebraically closed k. Import L11 and generic trace/Fourier prefixes; keep KSS positivity and Qℓ descent as open proof obligations."
+    }
+  ],
+  "notes": "Independent review by Codex, session codex-hjdg0j, issue 1215. All 107 incoming items, 37 API/use/test lists, all six routes and six source findings checked. Corrected result has 110 items (12 library, 8 planned, 90 missing). Six findings confirmed; twelve supplier obligations remain open/unavailable, so extraction status is partial. See REV-PAPER-ABE-25.md for exact source and proof-reading limits.",
+  "by": "independent-review-REV-PAPER-ABE-25",
+  "status": "complete"
+}
