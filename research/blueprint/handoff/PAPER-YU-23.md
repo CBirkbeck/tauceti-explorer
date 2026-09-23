@@ -1,29 +1,21 @@
 # PAPER-YU-23 handoff
 
-Partial checkpoint by Codex, session codex-a71f92. Refs #1091.
+Partial checkpoint by Codex, session codex-c83e7a, 2026-09-23. Refs #1091. Continues #2021.
 
-## Saved work
+Freshly reread the full85-page arXivv5, including every proof, Appendices A–C, index and bibliography. Original journal text remains uncollated. Fresh Lafforgue97 reading: printed pp280–281,284–287,301–308; images pp281,284,302–303,306–308. Exact source hashes/ranges are in the JSON. This is not a full read of the monograph or its cited Langlands proofs.
 
-Read the entire 85-page arXivv5 main paper, all proofs and Appendices A–C. Selected original inputs read as recorded in the report, not all cited literature. The JSON has 141 items (8 library,23 planned,110 missing),46 definition/construction APIs with tests,95 theorem proof outlines,13 routes,28 source findings, and an explicit acyclic dependency graph. Every missing item is routed once.
+The inventory now has153 items (11 library,23 planned,119 missing),50 definition/construction APIs with150 canonical tests,103 theorem proof outlines,389 dependency edges and13 routes. All141 inherited IDs/statuses are retained; every missing item is routed once. Mathlib Haar pushforward, pointwise torus Fourier inversion with summability, and finite character orthogonality are imported as142–144. Items145–153 provide cycle tori, the degree D=|w||X_L^L|, normalized transfer, smooth Fourier adapters, the exact ordered operator trace, degree recovery and induction-normalization transport. Item063's operator transcription gate is resolved, while its analytic proof gates remain open.
 
-The routes propose the counting Part II of GlobalShtukasAndFunctionFieldLanglands and the rational-GSp character Part II of the upstream ClassicalGroups roadmap. Existing function-field, spectral, L-function, weights, duality, curve, arithmetic and formal-series layers receive source additions. Pinned library declarations were read, including the existing split representation ring; no Lean formalization is claimed.
+The fresh image shows E28 was an extraction error: Yu already prints m≤x. Its original record is preserved under withdrawnSourceIssues and excluded from active errata. E1–E27 remain unreviewed. E8 is now an explicit unresolved mismatch: Laf97 p284 and Yu p32 use inverse-rho membership, but Yu p39 uses the inverse-rho basis. Do not merely reverse p32. Item153 transports the inducing character, norms and operators; a coherent comparison with the numerical L-factors still needs original-source work. E9 now distinguishes Lafforgue's connected torus/selected-preimage convention from Yu's full disconnected torus/all-lifts average. No reviewer verdict was fabricated.
 
-The report contains the complete reproducible Python exact-arithmetic script: 110864 finite assertions passed. Schema/intake/unit-test results are recorded in the PR.
+Resume in order:
 
-## Resume in this order
+1. S2: close the rho dictionary against local/global normalized induction and the Rankin–Selberg scalars; source-check Langlands unitarity/functional equations, Arthur regularization, convergence and contour shifts. Read Ch15's HN construction and Lemmas6.2.3–6.2.6. The report already gives the complete finite-cover calculation and exact151 operator order.
+2. S3: original Nitsure7.4, Schiffmann, Mellit and Chaudouard bundle/Higgs proofs, with all-characteristic coarse moduli, rational points and stack mass separated.
+3. S4: replace item123's KW01 normalizer input by its exact theorem and close Weil/Langlands/Whittaker leaves. S5: partition adapters and general zero/negative integral boundary cases beyond the checked positive range.
+4. S6–S7: leading term/density, Higgs purity and twisted Euler comparison; original ordinary-curve, monodromy, Larsen/Chavdarov and Honda–Tate inputs.
+5. S8: shared Hitchin carriers, generic matrix-tree ownership and rational GSp Part II importing existing split K0/highest-weight theory. S1:109-page journal collation and independent verification of E1–E27. Do not restore E28 as an erratum.
 
-1. S2: expand item063 into the exact spectral operator formula, collate Laf97 pp306–308 from page images, and reconcile the spherical rho/Haar/conductor normalizations. Item123's exact KW01 normalizer theorem in S4 also needs replacing with a verified statement.
-2. S3: read Nitsure Proposition7.4, Schiffmann's original bundle/Higgs proofs, the rest of Mellit and Ch15's HN/scalar-nilpotent proofs. Separate coarse rational points, G_m automorphisms and groupoid mass.
-3. S5: split partition adapters from the library carrier and close the general integral/zero/negative edge cases beyond the positive application range; verify the whole determinant-index formula symbolically.
-4. S6: close the leading term, density, Higgs purity and twisted PGL Euler inputs; no smoothness-to-purity shortcut.
-5. S7: read the original ordinary-locus, full-monodromy, Larsen/Chavdarov and Honda–Tate arguments; check Yu's infinitely-many-primes adaptation.
-6. S8: coordinate shared Hitchin carriers, reusable matrix-tree ownership and the rational GSp extension; import existing K0 and highest-weight theory.
-7. S1: obtain the 109-page journal article and collate with arXivv5. Independently verify E1–E28; do not call the findings confirmed journal errata before that.
+Validation:1209 structural assertions,55391 new exact diagnostics and a successful rerun of the inherited110864 arithmetic diagnostics. The report embeds both mathematical scripts. Paper schema and intake passed (3files,0problems). No Lean file required or compiled. All test statements are planning specifications; no infinite analytic theorem is asserted proved by finite tests.
 
-The JSON's S1–S8 lists exact affected items. Item123 is explicitly an incomplete input contract, and item063 still needs full operator expansion. Other multi-part imported statements need finer splitting at proof closure. Keep status partial until these obligations are genuinely discharged.
-
-## Provenance and restrictions
-
-Main source: https://arxiv.org/pdf/1807.04659v5 (18July2022). SHA-256 and selected supplementary read ranges are in the JSON. Publisher DOI10.4007/annals.2023.197.2.1; final journal text not read. Atlas base a79a97d5c4f2c2e2246534c119ab10a8775b13f3; publication base 3f02b067baa564e05e9f5def7a4751cf92eef40a. Mathlib082e2d3 and Tau Ceti f790474.
-
-Only the two paper deliverables and this handoff are part of the PR. No Lean file was required or compiled. No reviewer verdict was fabricated and no author was contacted.
+Pinned libraries: Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Publication input guard: a4ad60cd4c77d372c695eee0d6ef7bb5fa1b8279,560 input blobs plus the three original deliverable blobs checked before publication. Fresh AS.0–AS.6 descriptions and reviewed AUDIT14 were read; refreshed competing paper results did not duplicate the finite-cover work. Only the two paper deliverables and this handoff are submitted.
