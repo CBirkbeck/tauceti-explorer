@@ -3226,7 +3226,8 @@
    ],
    "avoidAccountOf": "PAPER-GILLE-PARIMALA-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-GILLE-PARIMALA-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1198"
   },
   {
    "id": "PAPER-BOXER-PILLONI-26",
@@ -4210,8 +4211,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -6444,8 +6445,9 @@
    ],
    "avoidAccountOf": "PAPER-ICHINO-PRASANNA-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-ICHINO-PRASANNA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1376"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1376",
+   "finishedAt": "2026-09-23T19:53:09Z"
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B",
