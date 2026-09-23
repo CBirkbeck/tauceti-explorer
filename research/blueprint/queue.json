@@ -8534,8 +8534,9 @@
    ],
    "avoidAccountOf": "PAPER-KOYMANS-PAGANO",
    "prompt": "research/blueprint/prompts/REV-PAPER-KOYMANS-PAGANO.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2195"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2195",
+   "finishedAt": "2026-09-23T14:48:37Z"
   },
   {
    "id": "DESIGN-LV",
@@ -31006,8 +31007,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1798"
+   "state": "external",
+   "note": "claimed on GitHub issue #1798"
   },
   {
    "id": "ERRATA-PAPER-CESNAVICIUS-19",
@@ -31239,8 +31240,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-HACON-WITASZEK-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HACON-WITASZEK-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1861"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1861",
+   "finishedAt": "2026-09-23T14:48:40Z"
   },
   {
    "id": "ERRATA-PAPER-CESNAVICIUS-22",
@@ -41743,8 +41745,9 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-40.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-40"
+   "state": "external",
+   "avoidAccountOf": "AUDIT-40",
+   "note": "claimed on GitHub issue #875"
   },
   {
    "id": "AUDIT-41",
