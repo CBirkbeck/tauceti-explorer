@@ -2489,7 +2489,8 @@
    ],
    "avoidAccountOf": "PAPER-BUSHNELL-HENNIART-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-BUSHNELL-HENNIART-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1154"
   },
   {
    "id": "PAPER-TEMKIN-17",
@@ -4226,8 +4227,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
