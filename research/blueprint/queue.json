@@ -4140,8 +4140,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -8504,7 +8504,8 @@
    ],
    "avoidAccountOf": "PAPER-NIKOLAUS-SCHOLZE-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-NIKOLAUS-SCHOLZE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2193"
   },
   {
    "id": "PAPER-KOYMANS-PAGANO",
@@ -10514,8 +10515,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_Completed_EffectiveBounds",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_Completed_EffectiveBounds.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #102"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #102",
+   "finishedAt": "2026-09-23T15:28:28Z"
   },
   {
    "id": "LINK-tauceti_Completed_IntegralLattices",
@@ -10586,7 +10588,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_Completed_OrthogonalL2Bases",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_Completed_OrthogonalL2Bases.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #104"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
@@ -11115,8 +11118,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #119"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #119",
+   "finishedAt": "2026-09-23T15:28:31Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_OptimalTransport",
@@ -11614,7 +11618,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #133"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
