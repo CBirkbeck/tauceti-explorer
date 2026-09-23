@@ -51613,7 +51613,7 @@
    "kind": "error",
    "locator": "Lemma 2.6.4, p.134; published Inventiones 228 (2022), NSF PDF SHA-256 dd821abd…ec89d97",
    "printed": "GS,γ = θS⁻¹ HomOλ(S,(Rbar(m))hγ)",
-   "correction": "Require a compatible norm/power lifting assertion in the Galois closure; prime-to-ell order of γ alone does not imply it. The main GI(T²−1) setting needs its own repair and is not refuted by this example.",
+   "correction": "Replace the printed equality by the exact formula G_(S,gamma)=q(N^alpha) of S23, where N is the abelian ell-kernel in the actual normal closure and q is restriction to Gal(FS/F(m)). Equality with K^h requires surjectivity of this fixed-point restriction. Prime-to-ell order supplies an order-d lift but not this surjectivity. The main GI(T²−1), j=1 setting remains open.",
    "reason": "Take F+=Q(√5), F=F+(i), ell=3, m=1, R=Z3(1), j=2 and the identity polarization (muΦ=1). Let u=(1+√5)/2 and S be its one-dimensional mod-3 Kummer class, coming from the integral finite unit class. F(m)=F(m)+=F(ζ3); its degree over F+ is four, so u remains a noncube (use the fundamental-unit description of Q(√5)). FS=F(m)(cuberoot(u)) has cyclic cubic kernel. Choose γ induced by complex conjugation, of order two; hγ=1. Complex conjugation fixes the real cuberoot and inverts ζ3, so every lift of γ has square one. All associated-prime evaluations are consequently zero, while the right side is the full cubic kernel. The Kummer/Bloch–Kato unit identification is an explicit external input to this arithmetic witness, not claimed newly formalized.",
    "affects": "a stated result",
    "known": "new",
@@ -51946,6 +51946,27 @@
     "2026-09-23: Wei Zhang publications page https://math.mit.edu/~wz2113/math/pub.html and bounded exact-title erratum/correction searches; no standalone correction located.",
     "2026-09-23: arXiv:2509.16881v1 survey read completely (35 pages); no explicit correction of these findings located there.",
     "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim."
+   ],
+   "owner": "PAPER-LIU-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
+   "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LIU-ETAL-22/E16",
+   "kind": "misprint",
+   "locator": "Lemma2.6.4 proof, printed p.134/PDF28, last Chebotarev sentence; also arXiv:1912.11942v3 PDF19",
+   "printed": "coincides with γ",
+   "correction": "The Frobenius in Gal(tilde FS/F+) must coincide with the chosen lift tilde γ; its restriction to E=F(m)+ is γ.",
+   "reason": "The sentence chooses a prime of the normal closure, whose Frobenius is in the larger Galois group. Gamma was defined only in Gal(E/F+); the immediately preceding sentence introduced its lift tilde gamma. Inserting the tilde fixes the types but does not repair the unsupported prescribed-power assertion E1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Published p.134 rendered and arXiv v3 PDF19–20 freshly read on 2026-09-23; the same missing tilde persists in v3.",
+    "https://arxiv.org/abs/1912.11942 lists v3, 17 August 2021, as the latest revision.",
+    "https://math.mit.edu/~wz2113/math/pub.html links the preprint without a correction link; an exact-title/Lemma2.6.4 erratum search found no correction. This is bounded evidence, not priority or a complete publisher errata check."
    ],
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
