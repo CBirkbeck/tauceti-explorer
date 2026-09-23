@@ -1,0 +1,1223 @@
+{
+  "paper": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Lifting and automorphy of reducible mod p Galois representations over global fields",
+    "authors": "Najmuddin Fakhruddin, Chandrashekhar Khare, Stefan Patrikis",
+    "venue": "Inventiones mathematicae 228 (2022), 415–492",
+    "doi": "10.1007/s00222-021-01085-7",
+    "arxiv": "2008.12593",
+    "url": "https://arxiv.org/abs/2008.12593v5",
+    "readSections": [
+      "arXiv 2008.12593v5 (15 October 2021; comment 'Some clarifications and corrections following referee report. Final version, to appear in Invent. Math'), read in full: 58 pages, SHA-256 6c260021acef4649492892fc266f703aa69401879bf87e1c2492bf2ef24ff1e2, fetched from https://arxiv.org/pdf/2008.12593v5 on 23 September 2026. The published version (Springer, online 12 November 2021) is paywalled and was not read; v5 is the authors' final version, posted four weeks before online publication. Page numbers are v5's.",
+      "Read: §1 (Theorems A–C, Conjecture D, Theorem E, the comparison with FKP19 and the reading guide), §2 (standing hypotheses, function-field cohomology, Lemma 2.1), §3 (Assumption 3.1, Definition 3.2, Remarks 3.3, 3.5, Lemma 3.4, Proposition 3.6, the cocycles η^(v)_b, Lemma 3.7, Proposition 3.8), §4 (Assumption 4.1, Remark 4.2, Lemma 4.3, Theorem 4.4), §5 (Assumption 5.1, Theorem 5.2 and its proof, Lemma 5.3, Proposition 5.4, Corollary 5.5, Theorem 5.6), §6 (Lemmas 6.1–6.5, Corollary 6.6, Remark 6.7, Example 6.8), §7 (Lemmas 7.1–7.3, the definition of modular of weight r and level N, Theorem 7.4, Remark 7.5, Lemma 7.6, Proposition 7.7, Remark 7.8), §8 (Theorem 8.1, Remark 8.2, Corollaries 8.3, 8.4), §9 (ι- and ξ-ordinarity, Proposition 9.1 and its proof), Appendix A (Lemmas A.1, A.3–A.5, A.7, A.9–A.11, A.14, A.18, Remarks A.2, A.6, A.8, A.12, A.15, Definition A.13, Examples A.16, A.17), Appendix B (Proposition B.1, Definition B.2, Lemma B.3, the ring R^{△λ}, Lemma B.4) and the references. Every recorded mistake was checked on the page images.",
+      "Cited inputs were not read except Pan, arXiv 1901.07166v2, Theorem 1.0.2 (to check its p = 3 hypothesis against the use in Theorem 7.4). Items resting on FKP19, HR08, KLR05, BG19, Bal12, Boo19, SW99, ANT20, Tho15, BLGGT14, Ger19, Con14, Gur99, BC14, BK19, Laf02, dJ01 and Gai07 state them as the paper uses them."
+    ]
+  },
+  "summary": "The paper proves a lifting theorem for G-valued residual representations ρ̄ : Γ_F → G(k) of global fields, reducible ones included (Theorem 5.2 = Theorem E): under Assumptions 3.1, 4.1, 5.1 (vanishing of H¹(Gal(K/F), ρ̄(𝔤^der)^*), H⁰ conditions, no common subquotients of ρ̄(𝔤^der) and ρ̄(𝔤^der)^*, local lifts) and oddness over totally real F, ρ̄ has a geometric lift with image containing Ĝ^der(O′) and prescribed local components. The method refines the authors' earlier relative deformation theory (FKP19) with a new doubling argument built on cyclic submodules and auxiliary primes t_b, t_0, so ρ̄(𝔤^der) need not be semisimple; §6 treats residually split ρ̄. Applications: every odd reducible ρ̄ : Γ_ℚ → GL_2(k), p ≥ 3, with χ̄ ≠ κ̄^{−1} arises from a newform — the actual ρ̄, not its semisimplification (Theorem 7.4 = Theorem B, via Skinner–Wiles and Pan); automorphy of many reducible GL_n-valued ρ̄ over function fields via L. Lafforgue (Theorem 8.1, Corollaries 8.3 = Theorem C, 8.4); GSp_2n compatible systems (Proposition 9.1); group-theoretic criteria (Appendix A) and ordinary components of G-valued deformation rings (Appendix B). Nothing in the atlas plans Ramakrishna-style lifting, so the global theory and its applications become a Part II of GlobalGaloisDeformations; the G-valued local material is a source of LocalGaloisDeformationRings (R08.2, R08.6, L7), function-field duality a source of ArithmeticGaloisDuality, the BLGGT14 inputs a source of ModularityAndLanglandsExtensions ML.2, and the Allen–Newton–Thorne inputs join the proposed PolarizedAutomorphyLifting. Seven misprints are recorded.",
+  "items": [
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/1",
+      "kind": "definition",
+      "name": "A residual representation arising from a newform (lattice-sensitive)",
+      "statement": "For an odd ρ̄ : Γ_ℚ → GL_2(k), k finite of characteristic p: ρ̄ arises from a newform f ∈ S_r(Γ_1(N)) (r ≥ 2) if, for E = E_{f,ι} the completion of ℚ(a_n(f)) at ι : E_f → ℚ̄_p with valuation ring O, there is a ρ_{f,ι}(Γ_ℚ)-stable lattice in E² whose integral model Γ_ℚ → GL_2(O), reduced along some O → k̄, is isomorphic to ρ̄. §7 (p. 35) calls ρ̄ : Γ_{ℚ,S} → GL_2(k) modular of weight r and level N when there are f ∈ S_r(Γ_1(N)), ι and an O_E-lattice inside ρ_{f,ι} with ρ̄_{f,ι} ≅ ρ̄ for some embedding O_E/m_E → k̄. The actual ρ̄, not its semisimplification, is to be matched.",
+      "locator": "§1, p. 2 (diagram and definition); §7, p. 35 (modular of weight r and level N)",
+      "status": "missing",
+      "note": "The atlas plans ρ_f (AutomorphicGaloisRepresentations R19.1), lattices and reduction followed by semisimplification (ArithmeticGaloisRepresentations R01.1) and Serre's statement for irreducible ρ̄, where the lattice is unique up to scaling; nothing plans the lattice-sensitive notion for residually reducible ρ_{f,ι}. Routed to the Part II's modularity layer."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/2",
+      "kind": "theorem",
+      "name": "Stable lattices of ρ_{f,ι} (Ribet, Serre)",
+      "statement": "The semisimplification of the reduction of a ρ_{f,ι}(Γ_ℚ)-stable lattice in E² does not depend on the lattice. If ρ_{f,ι} is residually irreducible, the stable lattice is unique up to E^×. If ρ_{f,ι} is residually reducible, stable lattices are never unique up to scaling, but there are only finitely many up to scaling (ρ_{f,ι} being irreducible), and at least two non-isomorphic ρ̄ arise from f.",
+      "locator": "§1, p. 2 (with the proof of Proposition 7.7)",
+      "status": "missing",
+      "note": "Independence of the semisimplification is planned in ArithmeticGaloisRepresentations R01.1 (Brauer–Nesbitt); the uniqueness and finiteness statements, and the existence of two non-isomorphic reductions, are not. They are the tree statements of the Bruhat–Tits item below; routed with it."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/3",
+      "kind": "theorem",
+      "name": "Theorem A (Hamblen–Ramakrishna 2008, Theorem 2)",
+      "statement": "Let p ≥ 3, k finite of characteristic p, and ρ̄ : Γ_ℚ → GL_2(k) continuous and indecomposable with ρ̄ ∼ (χ̄ ∗; 0 1). Assume (1) χ̄(c) = −1, χ̄ ≠ κ̄^{±1}, χ̄² ≠ 1; (2) ρ̄|_{Γ_{ℚ_p}} is either ramified, or unramified but not of the form (1 ∗; 0 1); (3) k is spanned over 𝔽_p by the values of χ̄. Then ρ̄ arises from a newform of some level N and weight r ≥ 2.",
+      "locator": "§1.1, Theorem A, pp. 2–3",
+      "status": "missing",
+      "note": "Hamblen–Ramakrishna, Amer. J. Math. 130 (2008): lift ρ̄ to an ordinary geometric ρ with Hodge–Tate weights (r − 1, 0) and apply Skinner–Wiles. Assumptions (1) and (3) make ad(ρ̄) multiplicity-free with H¹(im ρ̄, ad ρ̄) = 0; (2) makes the local problem at p smooth and ρ distinguished at p (p. 3). Superseded by Theorem 7.4; recorded in the Part II as the statement it improves."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/4",
+      "kind": "theorem",
+      "name": "Conjecture D: lifting and automorphy of L-homomorphisms",
+      "statement": "Let F be a global field of characteristic ≠ p, G′ quasi-split over F and G = ᴸG = G^∨ ⋊ Gal(F̃/F) its L-group over ℤ (F̃/F the smallest extension through which μ_{G′} factors [Bor79 §1.1]). Let S be finite, containing the primes ramified in F̃/F and, for F a number field, those above p, and ρ̄ : Γ_{F,S} → G(k) a continuous L-homomorphism; if F is a number field assume F totally real and ρ̄ odd. Then (1) there is a lift ρ : Γ_F → G(O), unramified outside a finite set, with Zariski-dense image and, for number fields, regular Hodge–Tate cocharacters; (2) there is an L-algebraic cuspidal π of G′(𝔸_F) such that one of the Galois representations ρ_{π,ι} conjecturally attached to (π, ι) [BG14, Conj. 3.2.2] is G^0(ℚ̄_p)-conjugate to ρ. If ρ̄|_{Γ_{F̃}} is absolutely irreducible, ρ and π can be taken unramified outside S.",
+      "locator": "§1.1, Conjecture D, pp. 4–5, footnote 1 and the remark on p = 2",
+      "status": "missing",
+      "note": "A conjecture, recorded as the target the lifting theorems give evidence for (Theorems B, C, E only when p ≫_G 0). Footnote 1: for G = G^0 with Zariski-dense image, Frobenius conjugacy classes determine the representation [BHKT19 Prop. 6.4]; over function fields ρ_{π,ι} is V. Lafforgue's. For p = 2 the paper suggests oddness should mean ρ̄(c_v) lifts to an order-2 η_v ∈ G(ℤ_p) with dim(𝔤^der_{ℚ̄_p})^{η_v=1} = dim Flag_{G^0}; even the trivial representation over a function field (G = GL_2) is outside the methods. Routed to the Part II's register of conditional statements."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/5",
+      "kind": "definition",
+      "name": "Standing hypotheses on G, O and the multiplier",
+      "statement": "G is a smooth group scheme over ℤ_p with G^0 split reductive and π_0(G) finite étale of order prime to p, satisfying [FKP19, Assumption 2.1]: p ≠ 2 is very good for G^der and the central isogeny G^der × Z^0_{G^0} → G^0 has kernel of order prime to p (implied by p ≫_G 0). O is the ring of integers of a finite E/ℚ_p with uniformiser ϖ and residue field k; F is a global field of characteristic prime to p. For ρ̄ : Γ_F → G(k), μ̄ : Γ_F → G/G^der(k) is its multiplier, and a lift μ : Γ_F → G/G^der(O) is fixed (de Rham above p for number fields); lifts are taken with multiplier μ (functors Lift^μ_ρ̄). Ĥ(O′) := ker(H(O′) → H(k′)) for a group scheme H over O and complete local O′ with residue field k′.",
+      "locator": "§1.2, p. 5 and §2, p. 9",
+      "status": "missing",
+      "note": "The atlas's global deformation theory is for GL_n and polarized groups (GlobalGaloisDeformations R04, G7, G8); the G-valued setting with disconnected G is new. FKP19 = Fakhruddin–Khare–Patrikis, Relative deformation theory, relative Selmer groups, and lifting irreducible Galois representations, Duke Math. J. 170 (2021), no. 16, not yet extracted (a prerequisite); the paper 'does not repeat from [FKP19] any of the local theory' (§1.4)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/6",
+      "kind": "theorem",
+      "name": "Local and global Galois cohomology over global function fields",
+      "statement": "Tate local duality [NSW00, 7.2.6] and the local Euler characteristic formula [NSW00, 7.3.1] hold for local fields of characteristic ℓ > 0 with coefficients of order prime to ℓ. For F a global field, p ≠ char F, M a finite p-primary Γ_F-module and S containing the places where M ramifies (and, for number fields, the places above p and ∞): Poitou–Tate duality and its long exact sequence [NSW00, 8.6.7, 8.6.10], the Selmer variant from the proof of [NSW00, 8.7.9], and the Greenberg–Wiles formula [NSW00, 8.7.9] hold for Γ_{F,S}.",
+      "locator": "§2, pp. 9–10, items (1)–(2)",
+      "status": "missing",
+      "note": "Number-field versions are planned: the global Euler characteristic in ArithmeticGaloisDuality R02.3, Poitou–Tate in R02.4 and the numerical Selmer bounds in R02.6. The function-field versions are not; they belong in those layers as their equal-characteristic cases."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/7",
+      "kind": "theorem",
+      "name": "Čebotarev density over global fields",
+      "statement": "For a finite Galois extension of a global field F (number field or global function field), every conjugacy class of the Galois group is the Frobenius class of a set of places of positive density; for function fields see [FJ08, §6.4].",
+      "locator": "§2, p. 10, item (3)",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "FunctionFieldArithmetic:FA.5"
+      ],
+      "note": "Number fields: Tau Ceti's Chebotarev roadmap, Layer 10 (Dirichlet-density Chebotarev; Tau Ceti already has frobeniusPrimeSet and the auxiliary-prime theorem NumberField.exists_auxiliaryPrime, but not the density theorem). Function fields: FunctionFieldArithmetic FA.5."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/8",
+      "kind": "theorem",
+      "name": "The tame quotient of a local Galois group, in both characteristics",
+      "statement": "For a local field with residue field 𝔽 of characteristic prime to p, equal or mixed characteristic, the Galois group of the maximal tamely ramified extension with pro-p ramification index is ℤ_p ⋊ Ẑ, a generator σ of Ẑ acting by στσ^{−1} = τ^{#𝔽}; hence the analysis of local lifting rings at trivial primes [FKP19, §3] applies to function fields.",
+      "locator": "§2, pp. 9–10",
+      "status": "planned",
+      "planned": [
+        "ArithmeticGaloisRepresentations:R01.2",
+        "FunctionFieldArithmetic:FA.3"
+      ],
+      "note": "ArithmeticGaloisRepresentations R01.2 constructs tame characters and the ℓ ≠ p inertia structure for local fields of number fields; FunctionFieldArithmetic FA.3 plans ramification and inertia for positive-characteristic extensions."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/9",
+      "kind": "theorem",
+      "name": "Local lifting rings in equal characteristic",
+      "statement": "For F a global function field, v a place and ρ̄ : Γ_{F_v} → G(k): the analysis of the generic fibre R^{□,μ}_ρ̄[1/ϖ] of [BG19, Theorem 3.3.3] (or [BP19, Theorem 14]) and [BG19, Lemma 3.4.1] hold, via Grothendieck's ℓ-adic monodromy theorem and Weil–Deligne representations; so for the Zariski closure R of an irreducible component of the generic fibre, [FKP19, Proposition 4.7] holds and R[1/ϖ] has an open dense regular subscheme (allowing [FKP19, Lemma 4.9]).",
+      "locator": "§2, p. 9",
+      "status": "missing",
+      "note": "LocalGaloisDeformationRings R08.2 plans the GL_2 conditions away from p at places of number fields; the G-valued generic-fibre theorem of Bellovin–Gee (Algebra Number Theory 13 (2019)) and its equal-characteristic case are not planned. Routed as a source of R08.2."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/10",
+      "kind": "theorem",
+      "name": "Lemma 2.1: abelian extensions and the conjugation action",
+      "statement": "Let L/F be a finite Galois extension and M/F abelian. Then Gal(L/F) acts trivially on Gal(LM/L) by the canonical action (σ·h = σ̃hσ̃^{−1} for any lift σ̃ ∈ Gal(LM/F)).",
+      "locator": "§2, Lemma 2.1, p. 10",
+      "status": "missing",
+      "note": "Elementary (restriction Gal(LM/L) → Gal(M/F) is injective and Gal(M/F) is abelian); used throughout without comment. Mathlib has the Galois correspondence but not this statement."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/11",
+      "kind": "definition",
+      "name": "Assumption 3.1 and the fields K, F̃, K_∞",
+      "statement": "Assume p ≫_G 0 and ρ̄ : Γ_{F,S} → G(k) continuous, unramified outside finite S (containing the places above p for number fields). Let F̃ be the smallest extension with ρ̄(Γ_{F̃}) ⊂ G^0(k), K = F(ρ̄, μ_p), and assume H¹(Gal(K/F), ρ̄(𝔤^der)^*) = 0. Fix a lift μ of μ̄; D is the largest integer with μ_{p^D} ⊂ K; K_∞ = K(μ_{p^∞}).",
+      "locator": "§3, Assumption 3.1, p. 10",
+      "status": "missing",
+      "note": "Hypothesis of the doubling method."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/12",
+      "kind": "definition",
+      "name": "Definition 3.2: trivial primes",
+      "statement": "A prime w of F is trivial if ρ̄|_{Γ_{F_w}} = 1 and N(w) ≡ 1 (mod p) (hence N(w) ≡ 1 mod p^D). Decomposition groups Γ_{F_v} ↪ Γ_F are fixed at the places of S and specified whenever auxiliary trivial primes are introduced, giving meaning to φ(σ_w), φ(τ_w) for φ ∈ H¹(Γ_{F,S′}, ρ̄(𝔤^der)) (Remark 3.3, [FKP19, Notation 5.1]).",
+      "locator": "§3, Definition 3.2 and Remark 3.3, p. 11",
+      "status": "missing",
+      "note": "FKP19 = Fakhruddin–Khare–Patrikis, Relative deformation theory, relative Selmer groups, and lifting irreducible Galois representations, Duke Math. J. 170 (2021), no. 16, not yet extracted (a prerequisite); the paper 'does not repeat from [FKP19] any of the local theory' (§1.4). Trivial primes and their local rings Lift^{μ,α} are [FKP19, §3]."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/13",
+      "kind": "construction",
+      "name": "Enlarging S to T: killing Ш¹_T(ρ̄(𝔤^der)^*)",
+      "statement": "Enlarge S by trivial primes to T with Ш¹_T(Γ_{F,T}, ρ̄(𝔤^der)^*) = 0, hence Ш²_T(Γ_{F,T}, ρ̄(𝔤^der)) = 0. This uses Assumption 3.1: a non-zero ψ ∈ H¹(Γ_{F,S}, ρ̄(𝔤^der)^*) has ψ|_{Γ_K} ≠ 0, so some w split in K has ψ|_{Γ_{F_w}} ≠ 0. K_ψ ∩ K_∞ is K or K(μ_{p^{D+1}}), so N(w) ≡ 1 mod p^D and N(w) may be chosen non-trivial mod p^{D+1}.",
+      "locator": "§3, p. 11",
+      "status": "missing",
+      "note": "As in [FKP19, §5]."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/14",
+      "kind": "theorem",
+      "name": "Lemma 3.4(1)–(3): minimal Ш for cyclic submodules",
+      "statement": "(1) There is a finite enlargement of T by trivial primes such that for every cyclic submodule M_Z = 𝔽_p[Γ_F]·Z ⊂ ρ̄(𝔤^der) (Z ∈ 𝔤^der), dim_{𝔽_p} Ш¹_T(Γ_{F,T}, M_Z^*) equals dim Ш¹_{T_max}(Γ_{F,T}, M_Z^*), T_max = S ∪ {all trivial primes}. (3) A further enlargement gives the same for the cyclic submodules M_λ = 𝔽_p[Γ_F]·λ ⊂ ρ̄(𝔤^der)^*.",
+      "locator": "§3, Lemma 3.4(1), (3), p. 11",
+      "status": "missing",
+      "note": "Ш¹_T(M_Z^*) is finite-dimensional and there are finitely many M_Z^* (Remark 3.5: killing Ш outright would need H¹(Gal(K/F), M_Z^*) = 0 for all cyclic quotients)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/15",
+      "kind": "theorem",
+      "name": "Lemma 3.4(2): one new class ramified along Z",
+      "statement": "For T as in Lemma 3.4(1) and a trivial prime w ∉ T, let L_{w,Z} ⊂ H¹(Γ_{F_w}, M_Z) be the cocycles with φ(τ_w) ∈ 𝔽_pZ. Then 0 → H¹(Γ_{F,T}, M_Z) → H¹_{L_{w,Z}}(Γ_{F,T∪w}, M_Z) —ev_{τ_w}→ 𝔽_pZ → 0 is exact (and likewise for M_λ ⊂ ρ̄(𝔤^der)^*).",
+      "locator": "§3, Lemma 3.4(2), pp. 11–12",
+      "status": "missing",
+      "note": "Proof: the Greenberg–Wiles formula twice, the M_Z^* terms cancelling by (1)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/16",
+      "kind": "construction",
+      "name": "The auxiliary primes t_b and t_0",
+      "statement": "Fix a k-basis {e^*_b}_{b∈B} of ρ̄(𝔤^der)^*; add to T a trivial prime t_b for each b ∈ B and one more trivial prime t_0. They make the fixed fields of the auxiliary cocycles linearly disjoint, avoiding the field K′ of [FKP19, Definition 5.8].",
+      "locator": "§3, p. 12",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/17",
+      "kind": "theorem",
+      "name": "Proposition 3.6 (first part): classes h^(v) spanning coker Ψ_T",
+      "statement": "Let r = dim_{𝔽_p} coker(Ψ_T : H¹(Γ_{F,T}, ρ̄(𝔤^der)) → ⊕_{v∈T} H¹(Γ_{F_v}, ρ̄(𝔤^der))). Fix c ≥ D + 1 and a Galois L/F containing K, unramified outside T and linearly disjoint over K from K_∞ composed with any fields K_ψ, ψ ∈ H¹(Γ_{F,T}, ρ̄(𝔤^der)^*). There are Y_1, …, Y_r ∈ ⊕_{v∈T} H¹(Γ_{F_v}, ρ̄(𝔤^der)) mapping to an 𝔽_p-basis of coker Ψ_T and, for each i, q_i ∈ ker((ℤ/p^c)^× → (ℤ/p^D)^×) non-trivial mod p^{D+1}, a split maximal torus T_i, root α_i and root vector X_{α_i}, and (after choosing g_{L/K,i} ∈ Gal(L/K)) a Čebotarev set C_i of trivial primes v ∉ T with a positive upper-density subset l_i and classes h^(v) ∈ H¹(Γ_{F,T∪v}, ρ̄(𝔤^der)) for v ∈ l_i, such that N(v) ≡ q_i (mod p^c) and σ_v ↦ g_{L/K,i} for v ∈ C_i, and for v ∈ l_i: h^(v)|_T = Y_i; h^(v)(τ_v) and h^(v)(τ_{t_0}) are non-zero in 𝔽_pX_{α_i}; h^(v) comes from H¹(Γ_{F,T∪v}, M_{X_{α_i}}).",
+      "locator": "§3, Proposition 3.6, pp. 12–15",
+      "status": "missing",
+      "note": "Modifies [FKP19, Proposition 5.9]: Poitou–Tate gives coker Ψ_T ≅ H¹(Γ_{F,T}, ρ̄(𝔤^der)^*)^∨; induction via the Greenberg–Wiles formula and Čebotarev in L K_{ψ_i}∏K_{ω_{i,k}}(μ_{p^c})/F, with only limited freedom in q_i when K_{ψ_i} = K(μ_{p^{D+1}})."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/18",
+      "kind": "theorem",
+      "name": "Proposition 3.6 (second part): classes ramified along a given Z",
+      "statement": "For c ≥ D + 1, L/F as above and non-zero Z ∈ 𝔤^der, there is q_Z ∈ ker((ℤ/p^c)^× → (ℤ/p^D)^×) non-trivial mod p^{D+1} and, for any g_{L/K,Z} ∈ Gal(L/K), a Čebotarev set C_Z of trivial primes (with decomposition groups) containing a positive upper-density l_Z and classes h^(v) ∈ H¹(Γ_{F,T∪v}, ρ̄(𝔤^der)), v ∈ l_Z, with N(v) ≡ q_Z (mod p^c), σ_v ↦ g_{L/K,Z}, h^(v)|_T independent of v, h^(v)(τ_v) and h^(v)(τ_{t_0}) spanning 𝔽_pZ, and h^(v) coming from H¹(Γ_{F,T∪v}, M_Z).",
+      "locator": "§3, Proposition 3.6, pp. 12–13 and 15",
+      "status": "missing",
+      "note": "The analogue of [FKP19, Lemma 5.11], rephrased without semisimplicity of ρ̄(𝔤^der) using the primes t_b and Lemma 3.4(3)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/19",
+      "kind": "construction",
+      "name": "The cocycles θ_b, θ^(v)_b and η^(v)_b",
+      "statement": "By Lemma 3.4, θ_b ∈ H¹(Γ_{F,T∖(t_0∪{t_{b′}}_{b′≠b})}, 𝔽_p[Γ_F]·e^*_b) with θ_b(τ_{t_b}) = e^*_b, and for a trivial prime v ∉ T, θ^(v)_b ∈ H¹(Γ_{F,(T∖(t_0∪{t_{b′}}))∪v}, 𝔽_p[Γ_F]·e^*_b) with θ^(v)_b(τ_v) = e^*_b; set η^(v)_b = θ_b + θ^(v)_b, so η^(v)_b(τ_v) = η^(v)_b(τ_{t_b}) = e^*_b.",
+      "locator": "§3, p. 15",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/20",
+      "kind": "theorem",
+      "name": "Lemma 3.7: linear disjointness of the fields K_{η^(v)_b}",
+      "statement": "As the trivial prime v and b ∈ B vary, the fixed fields K_{η^(v)_b} are strongly linearly disjoint over K [FKP19, Notation 5.1], and their composite is linearly disjoint from K_∞ over K.",
+      "locator": "§3, Lemma 3.7, pp. 15–16",
+      "status": "missing",
+      "note": "Proof: the image of η^(v)_b is the cyclic module generated by η^(v)_b(τ_{t_b}) (resp. τ_v), so a non-trivial intersection would ramify at t_b (resp. v); K_∞/K is unramified away from p."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/21",
+      "kind": "construction",
+      "name": "Initial mod ϖ² lift and the target local lifts",
+      "statement": "Since Ш²_T(Γ_{F,T}, ρ̄(𝔤^der)) = 0 there is a lift ρ_2 : Γ_{F,T} → G(O/ϖ²) with multiplier μ. Fix target local lifts (λ_w)_{w∈T} of multiplier μ as in [FKP19, Construction 5.6] (unramified for w ∈ T∖S, the λ_w(σ_w) generating Ĝ^der(O/ϖ²) after enlarging T); they differ from ρ_2|_w by z_T = (z_w) ∈ ⊕_{w∈T} H¹(Γ_{F_w}, ρ̄(𝔤^der)). Only the k-linear pairings ⟨·,·⟩ : 𝔤^der × (𝔤^der)^* → k and the k-linear local Tate pairings are used, with the trivial-prime calculation of [FKP19, Lemma 3.9].",
+      "locator": "§3, p. 16",
+      "status": "missing",
+      "note": "FKP19 = Fakhruddin–Khare–Patrikis, Relative deformation theory, relative Selmer groups, and lifting irreducible Galois representations, Duke Math. J. 170 (2021), no. 16, not yet extracted (a prerequisite); the paper 'does not repeat from [FKP19] any of the local theory' (§1.4)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/22",
+      "kind": "theorem",
+      "name": "Proposition 3.8: the doubling argument mod ϖ²",
+      "statement": "There is a finite index set N and, for each n ∈ N, a positive upper-density set l_n of trivial primes such that for any 2|N|-tuple (A_n, A′_n) of elements of Ĝ^der(O/ϖ²) there are trivial primes Q = (v_n, v′_n)_{n∈N} disjoint from T with {v_n, v′_n} ⊂ l_n and a class h ∈ H¹(Γ_{F,T∪Q}, ρ̄(𝔤^der)) with h|_T = z_T and, for each n, a pair (T_n, α_n) such that (1 + ϖh)ρ_2(τ_{v_n}) = (1 + ϖh)ρ_2(τ_{v′_n}) = u_{α_n}(X_n) for an α_n-root vector X_n, (1 + ϖh)ρ_2(σ_{v_n}) = A_n·z_n and (1 + ϖh)ρ_2(σ_{v′_n}) = A′_n·z′_n with z_n, z′_n ∈ Z_{G^0}(O/ϖ²) ∩ Ĝ(O/ϖ²) (determined by μ).",
+      "locator": "§3, Proposition 3.8, pp. 16–19",
+      "status": "missing",
+      "note": "h = h_old − Σ_n h^(v_n) + 2Σ_n h^(v′_n) (the 'doubling method' of Khare–Larsen–Ramakrishna 2005, used by Hamblen–Ramakrishna), with a limiting argument over Čebotarev sets using Proposition 3.6 and Lemma 3.7; analogue of [FKP19, Proposition 5.12]."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/23",
+      "kind": "definition",
+      "name": "Assumption 4.1 and Remark 4.2",
+      "statement": "In addition to Assumption 3.1: ρ̄(𝔤^der) has no trivial submodule, and there is no surjection of 𝔽_p[Γ_F]-modules ρ̄(𝔤^der) ↠ W onto an 𝔽_p[Γ_F]-subquotient W of ρ̄(𝔤^der)^*. This forces κ̄ ≠ 1 (μ_p ⊄ F; q ≢ 1 mod p for a function field with constants 𝔽_q), and the second condition follows from: no k[Γ_F]-surjection ρ̄(𝔤^der)^σ ↠ V for σ ∈ Aut(k) and V a k[Γ_F]-subquotient of ρ̄(𝔤^der)^*.",
+      "locator": "§4, Assumption 4.1 and Remark 4.2, pp. 19–20",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/24",
+      "kind": "theorem",
+      "name": "Lemma 4.3: disjointness of K(ρ_{n−1}(𝔤^der))",
+      "statement": "Let ρ̄ satisfy Assumption 4.1 and ρ_{n−1} : Γ_{F,T_{n−1}} → G(O/ϖ^{n−1}) a lift with T_{n−1} ⊃ T and im(ρ_{n−1}) ⊃ Ĝ^der(O/ϖ^{n−1}). Then L = K(ρ_{n−1}(𝔤^der)) is linearly disjoint over K from K_∞ composed with any fields K_ψ, ψ ∈ H¹(Γ_{F,T_{n−1}}, ρ̄(𝔤^der)^*).",
+      "locator": "§4, Lemma 4.3, pp. 20–21",
+      "status": "missing",
+      "note": "Proof: Gal(L/K) ≅ Ĝ^der(O/ϖ^{n−1}), whose abelian quotients are controlled by Assumption 4.1 and Lemma 2.1."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/25",
+      "kind": "theorem",
+      "name": "Theorem 4.4: mod ϖ^n lifts with controlled ramification",
+      "statement": "Let p ≫_G 0 and ρ̄ satisfy Assumptions 3.1 and 4.1; fix μ and, for v ∈ S, lifts ρ_v : Γ_{F_v} → G(O) of multiplier μ; T as before Proposition 3.6. There are T ⊂ T_2 ⊂ T_3 ⊂ ⋯ and lifts ρ_n : Γ_{F,T_n} → G(O/ϖ^n) of multiplier μ with ρ_{n+1} ≡ ρ_n (mod ϖ^n) such that: (1) at w ∈ T_n∖S ramified in ρ_n there is (T_w, α_w) with ρ_n(σ_w) ∈ T_w(O/ϖ^n), α_w(ρ_n(σ_w)) ≡ N(w) (mod ϖ^n), ρ_n|_{Γ_{F_w}} ∈ Lift^{μ,α_w}_ρ̄(O/ϖ^n), and either (a) for some s ≤ eD, ρ_s(τ_w) is a non-trivial element of U_{α_w}(O/ϖ^s) and ρ_{n′}|_{Γ_{F_w}} is Ĝ(O)-conjugate to the reduction of a fixed lift ρ_w (a formally smooth point of the generic fibre, as in [FKP19, Lemma 3.7]) for all n′ ≥ s, or (b) for s = eD, ρ_s|_{Γ_{F_w}} is trivial mod centre, α_w(ρ_{s+1}(σ_w)) ≡ N(w) ≢ 1 and β(ρ_{s+1}(σ_w)) ≢ 1 (mod ϖ^{s+1}) for all roots β; (2) ρ_n|_{Γ_{F_v}} is strictly equivalent to ρ_v (mod ϖ^n) for v ∈ S; (3) ρ_n(Γ_F) ⊃ Ĝ^der(O/ϖ^n).",
+      "locator": "§4, Theorem 4.4, pp. 20–23",
+      "status": "missing",
+      "note": "Proof: Proposition 3.6 with L = K(ρ_{n−1}(𝔤^der)), c = max{D + 1, ⌈n/e⌉}, the g_{L/K,i} chosen trivial for n − 1 ≤ eD and in general position mod ϖ^{eD+1} otherwise; doubling as in Proposition 3.8 and [FKP19, Theorem 5.14]."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/26",
+      "kind": "definition",
+      "name": "Assumption 5.1",
+      "statement": "Let p ≫_G 0 and ρ̄ satisfy Assumptions 3.1 and 4.1, with μ geometric if F is a number field. Assume H⁰(Γ_F, ρ̄(𝔤^der)^*) = 0, and that for all v ∈ S there is a lift ρ_v : Γ_{F_v} → G(O) of type μ (after enlarging O), de Rham and Hodge–Tate regular if v | p.",
+      "locator": "§5, Assumption 5.1, p. 23",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/27",
+      "kind": "definition",
+      "name": "G-valued potentially semistable lifting rings R^{□,μ,τ,v}",
+      "statement": "For v | p and a de Rham lift ρ_v : Γ_{F_v} → G(O) (semistable over a finite extension by Berger), Fontaine's construction gives an inertial type τ : I_{F_v} → G(E) up to G^0(E)-conjugacy and a p-adic Hodge type v [BG19 §2.6, Definition 2.8.2]; R^{□,μ,τ,v}_{ρ̄|Γ_{F_v}} is the quotient of the lifting ring whose E-points are the lifts of that type [Bal12, Proposition 3.0.12], and [BG19, Theorem 3.3.3] describes its generic fibre.",
+      "locator": "§1.2, p. 6 and §5, Theorem 5.2 and its proof, pp. 23–24",
+      "status": "missing",
+      "note": "Kisin's GL_n rings are planned in LocalGaloisDeformationRings R08.3 and L7 (any rank n); the G-valued rings of Balaji and Bellovin–Gee are not. Routed as a source of L7, where the extraction of Boxer–Calegari–Gee already sent the G-valued ordinary components."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/28",
+      "kind": "theorem",
+      "name": "Theorem 5.2 (= Theorem E): geometric lifts of G-valued residual representations",
+      "statement": "Let p ≫_G 0 and ρ̄ : Γ_{F,S} → G(k) satisfy Assumptions 3.1, 4.1 and 5.1; when F is a number field assume F totally real and ρ̄ odd. Fix an integer t and for each v ∈ S an irreducible component containing ρ_v of R^{□,μ}_{ρ̄|Γ_{F_v}}[1/ϖ] (v ∤ p), resp. R^{□,μ,τ,v}_{ρ̄|Γ_{F_v}}[1/ϖ] (v | p). Then there are a finite E′/E (with O′, k′), depending only on {ρ_v}, a finite set S̃ ⊃ S (which may be taken disjoint from a fixed finite S_0 disjoint from S) and a geometric lift ρ : Γ_{F,S̃} → G(O′) of ρ̄ such that ρ has multiplier μ, ρ(Γ_F) ⊃ Ĝ^der(O′), and for all v ∈ S, ρ|_{Γ_{F_v}} is congruent mod ϖ^t to a Ĝ(O′)-conjugate of ρ_v and lies on the specified component. (S̃ may depend on t; O′ does not.)",
+      "locator": "§1.2, Theorem E, pp. 5–6; §5, Theorem 5.2, pp. 23–25",
+      "status": "missing",
+      "note": "Proof: reduce to G^0 adjoint and a single π_0(G)-orbit of simple factors ([FKP19, Claim 6.13]); replace ρ_v by formally smooth points over O′ ([BG19, Thm 3.3.3], [FKP19, Lemma 4.9]); take M ≥ max{M_1, eD} from [FKP19, Cor. B.2]; run Theorem 4.4 to ρ_N; define the relative Selmer groups and finish as in [FKP19, Theorem 6.11] using Lemma 5.3 and Proposition 5.4. FKP19 = Fakhruddin–Khare–Patrikis, Relative deformation theory, relative Selmer groups, and lifting irreducible Galois representations, Duke Math. J. 170 (2021), no. 16, not yet extracted (a prerequisite); the paper 'does not repeat from [FKP19] any of the local theory' (§1.4)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/29",
+      "kind": "theorem",
+      "name": "Inputs from FKP19: local structure at S and at trivial primes",
+      "statement": "[FKP19, Proposition 4.7] (for a formally smooth point of an irreducible component R_v[1/ϖ], Selmer conditions L_{r,v}, 1 ≤ r ≤ M, with the balanced numerics of its part (3), valid mod ϖ^{n_0}); [FKP19, Lemma 4.9]; [FKP19, Lemmas 3.5, 3.7, 3.9] (the rings Lift^{μ,α} at trivial primes, formally smooth Steinberg-type points, the local duality pairing at trivial primes); [FKP19, Construction 5.6].",
+      "locator": "§§3–5, pp. 16, 20–24 (cited)",
+      "status": "missing",
+      "note": "FKP19 = Fakhruddin–Khare–Patrikis, Relative deformation theory, relative Selmer groups, and lifting irreducible Galois representations, Duke Math. J. 170 (2021), no. 16, not yet extracted (a prerequisite); the paper 'does not repeat from [FKP19] any of the local theory' (§1.4). The present paper uses these as black boxes; the Part II must plan them from FKP19 first."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/30",
+      "kind": "theorem",
+      "name": "Input from FKP19: Lazard's bound (Corollary B.2)",
+      "statement": "For Γ the preimage in G^ad(O) of (Ad∘ρ̄)(Γ_{F̃}) ⊂ G^ad(k), there is M_1 such that H¹(Γ, 𝔤^der ⊗_O O/ϖ^M) → H¹(Γ, ρ̄(𝔤^der) ⊗_O k) is zero for all M ≥ M_1.",
+      "locator": "§5, proof of Theorem 5.2, p. 24 (citing [FKP19, Corollary B.2])",
+      "status": "missing",
+      "note": "FKP19 = Fakhruddin–Khare–Patrikis, Relative deformation theory, relative Selmer groups, and lifting irreducible Galois representations, Duke Math. J. 170 (2021), no. 16, not yet extracted (a prerequisite); the paper 'does not repeat from [FKP19] any of the local theory' (§1.4). Rests on Lazard's cohomology of p-adic Lie groups."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/31",
+      "kind": "definition",
+      "name": "Relative Selmer and dual Selmer groups; balance",
+      "statement": "With M, N, S′ = T_N as in the proof of Theorem 5.2, the relative Selmer group H¹_{L_M}(Γ_{F,S′}, ρ_M(𝔤^der)) and relative dual Selmer group H¹_{L_M^⊥}(Γ_{F,S′}, ρ_M(𝔤^der)^*) of [FKP19, Definition 6.2], for Selmer conditions L_{r,v} (from [FKP19, Prop. 4.7] at S, unramified classes where ρ_N is unramified, [FKP19, Lemma 3.5] with s = eD at the new ramified primes). Their Selmer and dual Selmer groups are balanced, |H¹_{L_M}| = |H¹_{L_M^⊥}|, by the Greenberg–Wiles formula (also over function fields), and hence so are the relative groups [FKP19, Lemma 6.3].",
+      "locator": "§5, proof of Theorem 5.2, pp. 24–25",
+      "status": "missing",
+      "note": "FKP19 = Fakhruddin–Khare–Patrikis, Relative deformation theory, relative Selmer groups, and lifting irreducible Galois representations, Duke Math. J. 170 (2021), no. 16, not yet extracted (a prerequisite); the paper 'does not repeat from [FKP19] any of the local theory' (§1.4)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/32",
+      "kind": "theorem",
+      "name": "Lemma 5.3: vanishing on F*_N",
+      "statement": "With F_r = F(ρ̄, ρ_r(𝔤^der)), F*_M = F_M(μ_{p^{M/e}}), F*_N = F_N(μ_{p^{N/e}}): the map H¹(Gal(F*_N/F), ρ_M(𝔤^der)) → H¹(Gal(F*_N/F), ρ̄(𝔤^der)) is zero, and H¹(Gal(F*_N/F), ρ_M(𝔤^der)^*) = 0.",
+      "locator": "§5, Lemma 5.3, p. 25",
+      "status": "missing",
+      "note": "Generalises [FKP19, Lemma 6.4]; uses Lemma 2.1 and the choice of M."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/33",
+      "kind": "theorem",
+      "name": "Proposition 5.4: primes killing relative Selmer classes",
+      "statement": "Assume 𝔤^der is a single π_0(G)-orbit of simple factors. Let Q ⊂ Q_N be finite ([FKP19, Definition 6.6]) and 0 ≠ φ ∈ H¹_{L_M}(Γ_{F,S′∪Q}, ρ_M(𝔤^der)), 0 ≠ ψ ∈ H¹_{L_M^⊥}(Γ_{F,S′∪Q}, ρ_M(𝔤^der)^*). There is v ∈ Q_N with torus and root (T, α) such that ψ|_{Γ_{F_v}} ∉ L^{α,⊥}_{1,v} and φ|_{Γ_{F_v}} ∉ L^α_{M,v}.",
+      "locator": "§5, Proposition 5.4, pp. 25–26",
+      "status": "missing",
+      "note": "Generalises [FKP19, Proposition 6.8]: γ_1 with ρ_N(γ_1) generic and κ(γ_1) ≡ 1 mod ϖ^M but not mod ϖ^{M+1}; Čebotarev for γ_2^rγ_1, r ∈ {0, 1, 2}."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/34",
+      "kind": "theorem",
+      "name": "Corollary 5.5: 𝔤^der = 𝔰𝔩_2 needs only p ≥ 3",
+      "statement": "When 𝔤^der = 𝔰𝔩_2 the bound on p in Theorem 5.2 is p ≥ 3.",
+      "locator": "§5, Corollary 5.5, pp. 26–27",
+      "status": "missing",
+      "note": "Proof: for p ≥ 3 the trace form is perfect and any non-zero (A, B) ∈ 𝔤^der × (𝔤^der)^* can be conjugated by SL_2(𝔽_p) so that A has non-zero diagonal part and B non-zero 𝔤_{−α}-component; the other uses of p ≫_G 0 are replaced by Lemma 7.1."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/35",
+      "kind": "theorem",
+      "name": "Theorem 5.6: finitely ramified lifts without oddness",
+      "statement": "Let ρ̄ satisfy the hypotheses of Theorem 5.2 except that F is any number field (ρ̄ not assumed totally odd) and, for v | p, ρ̄|_{Γ_{F_v}} has a lift ρ_v of multiplier μ that is a formally smooth point of an irreducible component of R^{□,μ}_{ρ̄|Γ_{F_v}}[1/ϖ] of dimension (1 + [F_v : ℚ_p]) dim G^der. Then for some finite S̃ ⊃ S and O′ ⊃ O, ρ̄ has a lift ρ : Γ_{F,S̃} → G(O′) with image containing Ĝ^der(O′) and ρ|_{Γ_{F_v}} ≡ a Ĝ(O′)-conjugate of ρ_v (mod ϖ^t) for v ∈ S.",
+      "locator": "§5, Theorem 5.6, p. 27",
+      "status": "missing",
+      "note": "As [FKP19, Theorem 6.21]."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/36",
+      "kind": "theorem",
+      "name": "Lemma 6.1: conjugating a lift into the Levi",
+      "statement": "Let ρ : Γ → G(O) be continuous (Γ profinite, G connected), P a parabolic with ρ̄(Γ) ⊂ P(k), T ⊂ B ⊂ P a maximal torus and Borel determining a Levi M and P → M. There are a finite totally ramified K′/K with O′ and g ∈ G(K′) such that gρg^{−1} : Γ → G(O′) reduces to the projection of ρ̄ to M(k). If P is minimal with ρ̄(Γ) ⊂ P(k), gρg^{−1} reduces to 'the' semisimplification of ρ̄.",
+      "locator": "§6, Lemma 6.1, pp. 27–28",
+      "status": "missing",
+      "note": "Conjugation by a cocharacter η(ϖ′) contracting the unipotent radical."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/37",
+      "kind": "theorem",
+      "name": "Lemma 6.2: large Selmer groups from trivial primes",
+      "statement": "Let W ≠ 0 and W′ be finite-dimensional 𝔽_p[Γ_{F,S}]-modules and W_0 ⊂ W a non-zero subspace. For every n there is a finite set T of W′-trivial primes (N(v) ≡ 1 mod p, W′ trivial as Γ_{F_v}-module) with dim H¹_L(Γ_{F,S∪T}, W) > n, where L_v = 0 for v ∈ S and, for v ∈ T, L_v = homomorphisms Γ_{F_v} → W with I_v mapping into W_0.",
+      "locator": "§6, Lemma 6.2, pp. 28–29",
+      "status": "missing",
+      "note": "Čebotarev and the Greenberg–Wiles formula."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/38",
+      "kind": "theorem",
+      "name": "Lemma 6.3: making ρ̄ indecomposable inside a parabolic",
+      "statement": "Let G be connected reductive, P ⊊ G parabolic, M ⊃ T a Levi, ρ̄ : Γ_{F,S} → G(k) with image in M(k), and A ⊂ P an abelian unipotent subgroup normalised by M that is a product of root subgroups; P′ = A ⋊ M. There are a finite set T of ρ̄-trivial primes and ρ̄′ : Γ_{F,S∪T} → G(k) with image in P′(k) such that im ρ̄′ ⊃ A(k), the projection of ρ̄′ to M(k) is ρ̄, ρ̄′|_{Γ_{F_v}} ≃ ρ̄|_{Γ_{F_v}} for v ∈ S, and for v ∈ T, ρ̄′(Γ_{F_v}) ⊂ A(k) and ρ̄′(I_v) ⊂ u_α(k) for a root subgroup u_α : 𝔾_a → A.",
+      "locator": "§6, Lemma 6.3, p. 29",
+      "status": "missing",
+      "note": "Uses Lemma 6.2 for A(k) = ⊕ root spaces."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/39",
+      "kind": "theorem",
+      "name": "Lemma 6.4: local lifts at trivial primes for unipotent ρ̄",
+      "statement": "Let G be connected reductive, T a maximal torus, A a commutative unipotent subgroup and u_α : 𝔾_a → A a root subgroup; F_v local with N(v) ≡ 1 (mod p) and ρ̄ : Γ_{F_v} → G(k) with ρ̄(Γ_{F_v}) ⊂ A(k), ρ̄(I_v) ⊂ u_α(k). If p ≠ 2, ρ̄ lifts to ρ : Γ_{F_v} → G(O).",
+      "locator": "§6, Lemma 6.4, p. 29",
+      "status": "missing",
+      "note": "ρ̄ is tame; take ρ(τ) = u_2 unipotent and ρ(σ) = t·u_1 with t = α^∨(x), x² = N(v)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/40",
+      "kind": "theorem",
+      "name": "Lemma 6.5: killing H⁰(ρ̄(𝔤^der)) by a non-split extension",
+      "statement": "Let G be connected reductive, P a parabolic with Levi M, p ≫_G 0, and ρ̄ : Γ_{F,S} → G(k) with image in M(k), satisfying the local parts of Assumption 5.1, with H⁰(Γ_{F,S}, ρ̄(𝔤^der)) = 𝔷(M) ∩ 𝔤^der. There are a finite set T of ρ̄-trivial primes and ρ̄′ : Γ_{F,S∪T} → G(k) with image in P(k), projection to M(k) isomorphic to ρ̄, satisfying the local hypotheses of Assumption 5.1, and with H⁰(Γ_{F,S∪T}, ρ̄′(𝔤^der)) = 0.",
+      "locator": "§6, Lemma 6.5, pp. 29–30",
+      "status": "missing",
+      "note": "Lemma A.7 (applied to G^der) gives A; then Lemmas 6.3 and 6.4."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/41",
+      "kind": "theorem",
+      "name": "Corollary 6.6: lifts of residually Levi-valued ρ̄ with Zariski-dense image",
+      "statement": "Let G be connected reductive, P a parabolic with Levi M, ρ̄ : Γ_{F,S} → G(k) with image in M(k). Assume p ≫_G 0, the local parts of Assumption 5.1, H⁰(Γ_{F,S}, ρ̄(𝔤^der)) = 𝔷(M) ∩ 𝔤^der, H⁰(Γ_{F,S}, ρ̄(𝔤^der)^*) = 0, and either μ_p ⊄ F(ρ̄(𝔤^der)) or (P maximal) ρ̄ satisfies condition (2) of Lemma A.14; choose μ as in Assumption 5.1. Then there are E′/E, S̃ ⊃ S (adding trivial primes) and a geometric lift ρ : Γ_{F,S̃} → G(O′) of ρ̄ with multiplier μ and ρ(Γ_F) ∩ G^der(O′) Zariski-dense in G^der.",
+      "locator": "§6, Corollary 6.6, p. 30",
+      "status": "missing",
+      "note": "Proof: Lemma 6.5 gives ρ̄′; Lemmas A.5/A.14 and the hypotheses give Assumptions 3.1, 4.1, 5.1 for ρ̄′; Theorem 5.2 lifts ρ̄′; Lemma 6.1 returns to ρ̄."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/42",
+      "kind": "theorem",
+      "name": "Remark 6.7: representations valued in a torus",
+      "statement": "If M is a maximal torus and the image of ρ̄ lies in no proper subtorus, the H⁰(ρ̄(𝔤^der)) condition of Corollary 6.6 holds; H⁰(ρ̄(𝔤^der)^*) = 0 if κ̄^{−1} does not occur in 𝔤^der, and Lemma A.18(3) gives Assumption 4.1: so torus-valued ρ̄ have irreducible geometric lifts under simple conditions. Lemma A.11 gives maximal-parabolic examples.",
+      "locator": "§6, Remark 6.7, p. 30",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/43",
+      "kind": "construction",
+      "name": "Example 6.8: GSp_4 with residual image in the Siegel Levi",
+      "statement": "F = ℚ, G = GSp_4, P the Siegel parabolic (Levi quotient GL_2 × 𝔾_m); ρ̄ = (ρ̄_f, δ) with ρ̄_f absolutely irreducible from a newform on Γ_0(N) of weight r ≥ 2 and δ odd. If ρ̄_f is not dihedral (or, in the dihedral case, κ̄^{r−1} has order > 2 and κ̄^r, κ̄^{r−2} have order > 2), properties (a), (b) of Lemma A.11(2) hold; if the κ̄^{a(r−1)+1} have order ≥ 5 for |a| ≤ 2, Lemma A.14(1), (2) hold (Example A.16); u⁺ ≅ Sym²(ρ̄_f) ⊗ δ^{−1} has no invariants except for at most three δ in the dihedral case. Then ρ̄ has a regular geometric lift ρ : Γ_ℚ → GSp_4(O′) with ρ(Γ_ℚ) ∩ Sp_4(O′) Zariski-dense in Sp_4.",
+      "locator": "§6, Example 6.8, pp. 30–31",
+      "status": "missing",
+      "note": "For fixed r > 2 the order conditions hold for all p ≫ 0."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/44",
+      "kind": "theorem",
+      "name": "Lemma 7.1: the reducible GL_2 hypotheses",
+      "statement": "Let p ≥ 3 and ρ̄ : Γ_{F,S} → GL_2(k) (F totally real) with ρ̄ ∼ (χ̄ ∗; 0 1), χ̄(c_v) = −1 for all v | ∞, χ̄ ≠ κ̄^{−1}, and non-trivial extension class ∗. Then Assumptions 3.1, 4.1 and the first item of Assumption 5.1 hold for ρ̄.",
+      "locator": "§7, Lemma 7.1, pp. 32–33",
+      "status": "missing",
+      "note": "Proof: the only lines in ρ̄(𝔤^der) and ρ̄(𝔤^der)^* ≅ ρ̄(𝔤^der)(1) are k(χ̄) and k(χ̄κ̄); for χ̄ ≠ κ̄, H¹(Gal(K/F), ρ̄(𝔤^der)^*) reduces to Hom_{Gal(K_0/F)}(P, k(ψ)) for ψ ∈ {χ̄^{−1}κ̄, κ̄, χ̄κ̄}, P the p-Sylow subgroup, K_0 = F(χ̄, μ_p), and P ≅ ⊕𝔽_p(χ̄); the case χ̄ = κ̄ is a cocycle computation on the filtration F_2 ⊂ F_1 ⊂ F_0 = ρ̄(𝔤^der)^*. Two misprints on p. 32 (source issues E1, E2)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/45",
+      "kind": "theorem",
+      "name": "Lemma 7.2(1): local lifts away from p with given determinant",
+      "statement": "Let p ≥ 3, ρ̄ ∼ (χ̄ ∗; 0 1) on Γ_{F,S}, and μ : Γ_{F,S} → O^× a geometric lift of det ρ̄ = χ̄ of the form κ^{r−1}χ_0 (r ≥ 2, χ_0 of finite order). After enlarging O, for v ∈ S not above p there is a lift ρ_v : Γ_{F_v} → GL_2(O′) of ρ̄|_{Γ_{F_v}} with determinant μ.",
+      "locator": "§7, Lemma 7.2, first bullet, pp. 33–34",
+      "status": "missing",
+      "note": "Proof: [Dia97] and [Tay03, §1, E3] (formally smooth components), with square roots of characters. LocalGaloisDeformationRings R08.2 plans the conditions away from p; the existence of such lifts for reducible ρ̄ with prescribed determinant belongs there."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/46",
+      "kind": "theorem",
+      "name": "Lemma 7.2(2): ordinary potentially crystalline lifts at p",
+      "statement": "In the setting of Lemma 7.2(1), for v | p there is an ordinary potentially crystalline lift ρ_v : Γ_{F_v} → GL_2(O′) of ρ̄|_{Γ_{F_v}} with Hodge–Tate weights {0, r − 1} and determinant μ; and there is always an ordinary potentially crystalline lift with Hodge–Tate weights {0, r − 1} having a non-trivial unramified quotient, possibly without det ρ_v = μ. (ρ̄|_{Γ_{F_v}} is called ordinary when it is F′_v-ordinary in the sense of Definition B.2.)",
+      "locator": "§7, Lemma 7.2, second bullet, p. 34",
+      "status": "missing",
+      "note": "Proof: [BLGG12, Lemma 6.1.6] extended to general r, distinguishing peu and très ramifiée extensions. Routed as a source of LocalGaloisDeformationRings R08.6 (local statements for the global arguments)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/47",
+      "kind": "theorem",
+      "name": "Lemma 7.2(3): a crystalline lift in Serre's weight",
+      "statement": "When F = ℚ (or F is split at all places above p) and r = k(ρ̄|_{Γ_{ℚ_p}}) is Serre's weight [Ser87, §2.3], there is a crystalline lift ρ_p : Γ_{ℚ_p} → GL_2(O′) of ρ̄|_{Γ_{ℚ_p}} with Hodge–Tate weights {0, r − 1}.",
+      "locator": "§7, Lemma 7.2, third bullet, p. 34",
+      "status": "missing",
+      "note": "Proof: [BDJ10, §3.2]. Routed as a source of R08.6."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/48",
+      "kind": "definition",
+      "name": "Serre's weight k(ρ̄|_{Γ_{ℚ_p}})",
+      "statement": "The weight attached to ρ̄|_{Γ_{ℚ_p}} by Serre's recipe [Ser87, §2.3], including the reducible local cases.",
+      "locator": "§7, Lemma 7.2 and Theorem 7.4, pp. 34–35",
+      "status": "planned",
+      "planned": [
+        "AlgebraicModularFormsAndSerreWeights:R15.4"
+      ],
+      "note": "AlgebraicModularFormsAndSerreWeights R15.4 plans Serre's full piecewise recipe, including reducible local representations."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/49",
+      "kind": "theorem",
+      "name": "Lemma 7.3: the semisimplification of an odd ρ̄ is modular",
+      "statement": "Let ρ̄ : Γ_{ℚ,S} → GL_2(k) be continuous and odd. Then ρ̄^{ss} is isomorphic to the semisimplification of a residual representation arising from ρ_{f,ι} for a newform f ∈ S_r(Γ_1(N)), some N ≥ 1, r ≥ 2.",
+      "locator": "§7, Lemma 7.3, p. 35",
+      "status": "missing",
+      "note": "Irreducible case: Serre's conjecture (Khare–Wintenberger), planned in ClassicalSerreModularity R27.6. Reducible case (folklore, [SW99, §3.4]): an Eisenstein series E_r ∈ M_r(Γ_1(N)) (N divisible by a prime q ≡ 1 mod p) whose constant terms vanish mod ℘ is congruent to a newform; or use the reduction of an Eisenstein series and Θ^{p−1}-type arguments. Not planned; routed to the Part II's modularity layer."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/50",
+      "kind": "theorem",
+      "name": "Skinner–Wiles: modularity of residually reducible ordinary representations",
+      "statement": "[SW99, main theorem]: an odd irreducible p-adic ρ : Γ_ℚ → GL_2(O), unramified outside finitely many primes, ordinary at p with residual semisimplification 1 ⊕ χ̄ and χ̄|_{Γ_{ℚ_p}} ≠ 1 (with the paper's further hypotheses), arises from a newform. [SW99, Theorems A, B] give analogues over certain totally real fields (Remark 7.5).",
+      "locator": "§7, proof of Theorem 7.4 and Remark 7.5, pp. 35–36 (cited)",
+      "status": "planned",
+      "planned": [
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.5"
+      ],
+      "note": "OrdinaryAutomorphicFormsAndModularityLifting R21.5 plans the Skinner–Wiles residually reducible ordinary results."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/51",
+      "kind": "theorem",
+      "name": "Pan: the residually reducible Fontaine–Mazur theorem (ordinary case with χ̄|_{Γ_{ℚ_p}} = 1)",
+      "statement": "[Pan19]: for p odd, an odd irreducible ρ : Γ_ℚ → GL_2(E), finitely ramified, de Rham at p with distinct Hodge–Tate weights, whose residual semisimplification is a sum of two characters χ̄_1 ⊕ χ̄_2 (with χ̄_1/χ̄_2|_{Γ_{ℚ_p}} ≠ ω when p = 3), arises from a cuspidal eigenform up to twist; the paper uses the ordinary case χ̄|_{Γ_{ℚ_p}} = 1 left open by Skinner–Wiles (Pan's §6), where the lift may be non-distinguished at p.",
+      "locator": "§7, proof of Theorem 7.4, p. 35 (cited); Pan, arXiv 1901.07166v2, Theorem 1.0.2",
+      "status": "planned",
+      "planned": [
+        "GL2ModularityLifting:R32.4",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.5"
+      ],
+      "note": "GL2ModularityLifting R32.4 plans Pan's residually reducible theorem (for p ≥ 5 as needed there) and R21.5 the ordinary p = 3 branch; the ordinary theorem for all odd p (Pan §6, Theorem 6.1.2) should be recorded there. Pan's Theorem 1.0.2 was read to confirm the p = 3 condition does not bite: χ̄|_{Γ_{ℚ_3}} = 1 ≠ ω."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/52",
+      "kind": "theorem",
+      "name": "Serre's conjecture (Khare–Wintenberger)",
+      "statement": "An odd, irreducible, continuous ρ̄ : Gal(ℚ̄/ℚ) → GL_2(k) arises from a newform (of Serre's weight and level).",
+      "locator": "§1, p. 1; §7, proof of Lemma 7.3, p. 35 (cited)",
+      "status": "planned",
+      "planned": [
+        "ClassicalSerreModularity:R27.6"
+      ],
+      "note": "ClassicalSerreModularity R27.6 plans the full classical statement."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/53",
+      "kind": "theorem",
+      "name": "Theorem 7.4 (= Theorem B): modularity of reducible odd ρ̄ : Γ_ℚ → GL_2(k)",
+      "statement": "Let p ≥ 3 and ρ̄ : Γ_{ℚ,S} → GL_2(k) continuous with ρ̄ ∼ (χ̄ ∗; 0 1), χ̄(c) = −1 and χ̄ ≠ κ̄^{−1}. Then ρ̄ is modular; more precisely, for any r ≥ 2, ρ̄ is modular of weight r and some level; and ρ̄ is modular of weight k(ρ̄|_{Γ_{ℚ_p}}) and level prime to p.",
+      "locator": "§1.1, Theorem B, p. 3; §7, Theorem 7.4, pp. 35–36",
+      "status": "missing",
+      "note": "Proof (∗ ≠ 0): Lemmas 7.1, 7.2 and Corollary 5.5 give Theorem 5.2 for G = GL_2 with determinant μ = κ^{r−1}χ_0 (Kronecker–Weber for χ_0, planned in Tau Ceti's ClassFieldTheory Layer 13) and ordinary components (Lemma B.4); the lift is modular by Skinner–Wiles (χ̄|_{Γ_{ℚ_p}} ≠ 1) or Pan (χ̄|_{Γ_{ℚ_p}} = 1), the weight by local–global compatibility at p (AutomorphicGaloisRepresentations R19.5). Split case: Lemma 6.3 then Theorem 5.2 and Lemma 6.1, or Lemma 7.3 and Lemma 6.1. Improves Theorem A by dropping its conditions (2), (3) and all but one exceptional χ̄. The condition χ̄ ≠ κ̄^{−1} is expected to be superfluous (Conjecture D)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/54",
+      "kind": "theorem",
+      "name": "Remark 7.5: totally real fields and the role of lifting",
+      "statement": "Since [SW99, Theorems A, B] include residually reducible modularity over certain totally real fields, the method gives mod p modularity there too; lifting reducible ρ̄ to irreducible geometric ρ (introduced in [HR08]) is at present the only route to modularity of residually reducible representations, as it was for Serre's conjecture [KW09b, KW09c].",
+      "locator": "§7, Remark 7.5, p. 36",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/55",
+      "kind": "theorem",
+      "name": "Lemma 7.6: infinitely many extensions with the same semisimplification",
+      "statement": "Let Γ be a finite group, L an infinite field and φ : Γ → L^×. If dim_L H¹(Γ, L(φ)) > 1 or dim_L H¹(Γ, L(φ^{−1})) > 1, there are infinitely many pairwise non-conjugate (under GL_2(L)) ρ : Γ → GL_2(L) with semisimplification id ⊕ φ.",
+      "locator": "§7, Lemma 7.6, pp. 36–37",
+      "status": "missing",
+      "note": "Implicit in Berger–Klosin [BK19]. Proof: the isomorphism classes are {0} ∪ ℙ^{n−1}(L) ∪ ℙ^{m−1}(L), n = dim H¹(Γ, L(φ)), m = dim H¹(Γ, L(φ^{−1})) (the two projective spaces identified if φ = 1)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/56",
+      "kind": "theorem",
+      "name": "Serre's lemma: stable lattices and the Bruhat–Tits tree",
+      "statement": "For an irreducible ρ : Γ_ℚ → GL_2(E) whose residual semisimplification is 1 ⊕ χ̄ with 1 ≠ χ̄, the fixed points of ρ(Γ_ℚ) in the Bruhat–Tits tree of PGL_2(E) form a segment. If it is an edge, exactly two residual representations arise from stable lattices (the end points: non-split extensions of 1 by χ̄ and of χ̄ by 1); if it has length > 1, the split representation also arises (interior vertices). The set X_E of indecomposable reductions up to GL_2(k′)-conjugacy is in bijection with X_{E′} for finite E′/E.",
+      "locator": "§7, proof of Proposition 7.7, p. 37",
+      "status": "missing",
+      "note": "[BC14, Propositions 11, 32], [Bel, §1]. ReductiveGroupsPartII RG2.2 plans buildings and the SL_2 tree as an example, but not this Galois statement. Routed to the Part II with Proposition 7.7."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/57",
+      "kind": "theorem",
+      "name": "Proposition 7.7: only finitely many reducible ρ̄ at fixed weight and level",
+      "statement": "Let Γ be a finite quotient of Γ_ℚ and χ̄ : Γ → k^× a non-trivial odd character with dim_k H¹(Γ, k(χ̄)) > 1. For fixed N ≥ 1 and r ≥ 2, only finitely many of the infinitely many non-isomorphic ρ : Γ → GL_2(k̄) with semisimplification id ⊕ χ̄ (Lemma 7.6) arise from reductions of Galois-stable lattices in ρ_{f,ι} for newforms f ∈ S_r(Γ_1(N)).",
+      "locator": "§7, Proposition 7.7, p. 37",
+      "status": "missing",
+      "note": "Proof: Serre's lemma and finiteness of dim S_r(Γ_1(N)). So minimal lifts, which the Khare–Wintenberger method produces, need not exist."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/58",
+      "kind": "theorem",
+      "name": "Remark 7.8: why the Khare–Wintenberger lifting method fails",
+      "statement": "For any χ̄ : Γ_ℚ → k^×, Lemma 6.2 gives a finite quotient Γ of Γ_{ℚ,S} through which χ̄ factors with dim_k H¹(Γ, k(χ̄)) > 1. The method of [KW09a] bounds deformation rings above (R/pR finite, via some version of [dJ01, Lemma 3.15], which may fail for residually reducible ρ̄) and below (dim R > 0) and produces minimal lifts, which by Proposition 7.7 may not exist in the residually reducible case.",
+      "locator": "§1.1, p. 3 and §7, Remark 7.8, p. 37",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/59",
+      "kind": "theorem",
+      "name": "L. Lafforgue: Galois representations of cuspidal π of GL_n over function fields",
+      "statement": "For a global function field F of characteristic ℓ ≠ p, ι : ℂ ≅ ℚ̄_p and π cuspidal automorphic on GL_n(𝔸_F) with central character of finite order, there is ρ_{π,ι} : Γ_F → GL_n(ℚ̄_p) attached to π [Laf02, Théorème, p. 2; Théorème VI.1.1], and conversely every irreducible ℓ-adic representation with finite-order determinant arises (the correspondence).",
+      "locator": "§8, pp. 37–38 (cited)",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.6"
+      ],
+      "note": "GlobalShtukasAndFunctionFieldLanglands GS.6 plans L. Lafforgue's GL_n correspondence."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/60",
+      "kind": "definition",
+      "name": "Automorphic ρ̄ over a function field",
+      "statement": "ρ̄ : Γ_F → GL_n(k) is automorphic if, after extension of scalars, it is isomorphic to the reduction ρ̄_{π,ι} : Γ_F → GL_n(O_E/m_E) of some ρ_{π,ι}-stable lattice, for π cuspidal with central character of finite order.",
+      "locator": "§8, p. 38",
+      "status": "missing",
+      "note": "The lattice-sensitive notion again (not only the semisimplification)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/61",
+      "kind": "theorem",
+      "name": "Local lifts in equal characteristic (after Clozel–Harris–Taylor)",
+      "statement": "For F a global function field of characteristic ℓ ≠ p and v a place, every ρ̄ : Γ_{F_v} → GL_n(k) has a p-adic lift, as in [CHT08, Corollary 2.4.21]: §2.4.4 of loc. cit. uses only that the kernel of any surjection I_{F_v} → ℤ_p has pro-order prime to p and the structure of the maximal tame extension with p-power ramification index. Since p ∤ n, any character Γ_{F_v} → 1 + ϖO has an n-th root, so the multiplier can be matched to a global μ.",
+      "locator": "§8, proof of Theorem 8.1, p. 38",
+      "status": "missing",
+      "note": "LocalGaloisDeformationRings R08.2 plans minimally ramified conditions at places of number fields; the equal-characteristic existence statement is not planned. Routed as a source of R08.2."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/62",
+      "kind": "theorem",
+      "name": "Theorem 8.1: automorphy of reducible ρ̄ over function fields",
+      "statement": "Let p ≫_n 0, F a global function field of characteristic ≠ p, and ρ̄ : Γ_{F,S} → GL_n(k) continuous satisfying Assumptions 3.1, 4.1 and the first part of Assumption 5.1. Then ρ̄ is automorphic.",
+      "locator": "§8, Theorem 8.1, p. 38",
+      "status": "missing",
+      "note": "Proof: the second part of Assumption 5.1 holds automatically (local lifts above), then Theorem 5.2 gives a finitely ramified lift and L. Lafforgue (GS.6) makes it automorphic."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/63",
+      "kind": "theorem",
+      "name": "Remark 8.2: the absolutely irreducible case was known",
+      "statement": "When ρ̄ is absolutely irreducible the hypotheses of Theorem 8.1 hold for p ≫_n 0; this case is already known: for p ∤ n de Jong's conjecture [dJ01, Conj. 2.3] implies by [dJ01, Thm 3.5] (and [BHKT19, Thm 5.13] when ρ̄|_{Γ_{F𝔽̄}} is reducible) that ρ̄ has a lift unramified outside S; Gaitsgory [Gai07] proved de Jong's conjecture modulo results widely held to be straightforward adaptations (étale k[[t]]-sheaves, a complete proof of [MV07, Thm 14.1] with general coefficients).",
+      "locator": "§8, Remark 8.2, p. 38",
+      "status": "missing",
+      "note": "BHKT19 Theorem 5.13 is routed by that paper's extraction to its proposed Part II GValuedDeformationsAndPotentialAutomorphy; de Jong's conjecture is not in the atlas. Recorded in the Part II's function-field application with those dependencies stated."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/64",
+      "kind": "theorem",
+      "name": "Corollary 8.3 (= Theorem C): maximal parabolic case over function fields",
+      "statement": "Let p ≫_n 0, F a global function field of characteristic ℓ ≠ p, and ρ̄ : Γ_{F,S} → GL_n(k) factoring through a maximal parabolic P with Levi quotient M ≅ GL_{n_1} × GL_{n_2}; ρ̄_M = ρ̄_1 ⊕ ρ̄_2, ordered so that ρ̄ is an extension of ρ̄_2 by ρ̄_1. Assume ρ̄_M absolutely irreducible (as an M-valued representation), ρ̄_1 ≄ ρ̄_2 ⊗ ψ̄ for ψ̄ ∈ {1, κ̄^{−1}} (automatic if n_1 ≠ n_2), and, for χ̄ = det(ρ̄_1)^{n_2/d}·det(ρ̄_2)^{−n_1/d}, d = gcd(n_1, n_2), [F(ζ_p) : F(ζ_p) ∩ F(χ̄)] > b(n_1, n_2). Then ρ̄ is automorphic.",
+      "locator": "§1.1, Theorem C, p. 4; §8, Corollary 8.3, pp. 38–39",
+      "status": "missing",
+      "note": "Proof: Lemma A.14(1) gives μ_p ⊄ F(ρ̄(𝔤^der)) and Assumption 3.1 and the second part of 4.1; non-split case by Lemma A.11(1) and Theorem 8.1; split case by Lemma 6.5, Lemma A.11(1), Theorem 8.1 and Lemma 6.1. The κ̄-twisted case ρ̄_1 ≅ ρ̄_2 ⊗ κ̄ is not excluded but made vacuous by the third hypothesis (p. 39)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/65",
+      "kind": "theorem",
+      "name": "Corollary 8.4: direct sums over function fields",
+      "statement": "Let p ≫_n 0 and ρ̄ = ⊕_{i=1}^r ρ̄_i : Γ_{F,S} → GL_n(k), r > 1, with (1) each ρ̄_i absolutely irreducible, (2) ρ̄_i ≄ ρ̄_j ⊗ ψ̄ for ψ̄ ∈ {1, κ̄, κ̄^{−1}}, i ≠ j, (3) [F(ζ_p) : F(ζ_p) ∩ F(χ̄_{i,j})] > b(n) for χ̄_{i,j} = det(ρ̄_i)^{n_j}·det(ρ̄_j)^{−n_i}, i ≠ j. Then ρ̄ is automorphic.",
+      "locator": "§8, Corollary 8.4, pp. 39–40",
+      "status": "missing",
+      "note": "Proof: Lemma A.9, Corollary 6.6 (with Theorem 8.1's remarks) and Lafforgue."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/66",
+      "kind": "definition",
+      "name": "ι-ordinary automorphic representations and ξ-ordinary Galois representations",
+      "statement": "π is ι-ordinary if it satisfies [Tho15, Lemma 2.3]; for K/ℚ_p finite and ξ = (ξ_τ)_τ, ξ_τ ∈ ℤ^n_+ (ξ_1 ≥ ⋯ ≥ ξ_n), ρ : Γ_K → GL_n(ℚ̄_p) is ξ-ordinary if it satisfies [Tho15, Definition 2.5]: ρ is an iterated extension of characters ψ_1, …, ψ_n (upper triangular) with τ-labelled Hodge–Tate weight of ψ_i equal to −(ξ_{τ,n−i+1} + i − 1), strictly increasing in i. Such ρ are de Rham ([Nek93, Proposition 1.28]).",
+      "locator": "§9, pp. 40–41",
+      "status": "missing",
+      "note": "The extraction of Boxer–Calegari–Gee routed 'ι-ordinary and ordinarily automorphic' to the proposed Part II PolarizedAutomorphyLifting; this item joins it."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/67",
+      "kind": "theorem",
+      "name": "Allen–Newton–Thorne: automorphy lifting for residually reducible representations",
+      "statement": "[ANT20, Theorem 1.1]: over a CM field L′, an ι-ordinary (essentially conjugate self-dual) ρ : Γ_{L′} → GL_{2n}(ℚ̄_p) satisfying hypotheses (1)–(8) of loc. cit. — including that L′(ζ_p) ⊄ L′(ρ̄(𝔤^der)), that the ρ̄_i|_{Γ_{L′(ζ_p)}} are absolutely irreducible and distinct, that ρ̄ = ρ̄^{ss} has no quotient of order p, that ρ̄ is not induced, residual automorphy by an ι-ordinary π, and p large — is automorphic: ρ ≅ r_ι(Π) for a RACSDC Π of GL_{2n}(𝔸_{L′}).",
+      "locator": "§9, proof of Proposition 9.1, pp. 42–43 (cited)",
+      "status": "missing",
+      "note": "The extraction of Newton–Thorne 2021 routed the Allen–Newton–Thorne theorems to the proposed Part II PolarizedAutomorphyLifting; joins it."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/68",
+      "kind": "theorem",
+      "name": "Barnet-Lamb–Gee–Geraghty–Taylor: residual potential automorphy with a Steinberg place",
+      "statement": "[BLGGT14, Theorem 3.1.2] applied to ρ̄ : Γ_F → GSp_{2n}(k) (the set I a singleton; ρ̄ may be reducible) with F_avoid = F(ρ̄, ζ_p): there is a Galois totally real F′/F linearly disjoint from F(ρ̄, ζ_p) and a regular algebraic self-dual cuspidal π of GL_{2n}(𝔸_{F′}) with ρ̄|_{Γ_{F′}} ≃ r̄_ι(π), π ι-ordinary of weight 0, and — adding to the Moret-Bailly argument ([BLGGT14, Prop. 3.1.1], on T_{ρ̄ × ρ̄′} over F(ζ_N)^+) the local condition v(t(P)) < 0 above v_0 — π_{v_0} an unramified twist of Steinberg ([BLGHT11, Lemma 5.1(2)] and local–global compatibility).",
+      "locator": "§9, proof of Proposition 9.1, p. 42",
+      "status": "missing",
+      "note": "ModularityAndLanglandsExtensions ML.2 is the atlas's potential automorphy assembly, and PotentialModularityAndCompatibleSystems R23.1 plans Moret-Bailly; the Steinberg-at-v_0 modification is the paper's. Routed as a source of ML.2."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/69",
+      "kind": "theorem",
+      "name": "Compatible systems from potential automorphy (BLGGT14, Theorem 5.5.1)",
+      "statement": "The argument of [BLGGT14, Theorem 5.5.1]: a ρ that is automorphic over a suitable F′ (ρ|_{Γ_{F′}} ≅ r_ι(Π_{F′}), Π_{F′} RAESDC) belongs to a strictly pure compatible system {ρ_{ι′}} of ℓ-adic representations of Γ_F indexed by ι′ : ℂ ≅ ℚ̄_ℓ; descent from L′ = LF′ to F′ uses Gal(L′/F′)-invariance and a twist by δ_{L′/F′}.",
+      "locator": "§9, proof of Proposition 9.1, pp. 42–43",
+      "status": "missing",
+      "note": "Routed with the previous item as a source of ModularityAndLanglandsExtensions ML.2 ('track compatible systems and descent'); PotentialAutomorphyInfrastructure PA.5 supplies the compatible-system operations."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/70",
+      "kind": "theorem",
+      "name": "Local lifts for GSp_2n: Booher's minimally ramified lifts and Steinberg points",
+      "statement": "For v ∤ p, ρ̄|_{Γ_{F_v}} has a lift Γ_{F_v} → GSp_{2n}(O′) with multiplier κ^{1−2n} lying on an irreducible component of R^{□,κ^{1−2n}}_{ρ̄|Γ_{F_v}} isomorphic to O′[[X_1, …, X_{dim G^der}]] ([Boo19]); at a trivial prime v_0, a lift whose Weil–Deligne representation is a twist of the Steinberg parameter is a formally smooth point of R^{□,κ^{1−2n}}_{ρ̄|Γ_{F_{v_0}}} (via [BG19]; cf. [FKP19, Lemma 3.7]).",
+      "locator": "§9, proof of Proposition 9.1, pp. 41–42",
+      "status": "missing",
+      "note": "G-valued local deformation theory away from p is not planned (R08.2 is GL_2). Routed as a source of LocalGaloisDeformationRings R08.2."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/71",
+      "kind": "theorem",
+      "name": "Dynkin: Zariski closures containing a regular unipotent",
+      "statement": "A Zariski-closed subgroup of GSp_{2n} containing a regular unipotent element of GL_{2n}, acting symplectically, has identity component a principal GL_2 or all of GSp_{2n} (SO_{2n} contains no regular unipotent of GL_{2n}); independence of ℓ of the formal character (the rank of a maximal torus) excludes the principal GL_2 for n > 1.",
+      "locator": "§9, proof of Proposition 9.1, p. 43",
+      "status": "missing",
+      "note": "Dynkin's classification of subgroups containing a regular unipotent. Not in the atlas."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/72",
+      "kind": "theorem",
+      "name": "Proposition 9.1: GSp_2n compatible systems lifting reducible ρ̄",
+      "statement": "Let F be totally real, n ≥ 1, p ≫_n 0 with [F(ζ_p) : F] > a_{GSp_{2n}} ([FKP19, Lemma A.6]), and ρ̄ : Γ_{F,S} → GSp_{2n}(k) with absolutely GSp_{2n}-irreducible restriction to Γ_{F(ζ_p)} and similitude κ̄^{1−2n}. Assume for all v | p a lift ρ_v : Γ_{F_v} → GSp_{2n}(O) with similitude κ^{1−2n} that is ordinary of some weight ξ_v in GL_{2n}, and that ρ̄ (in GL_{2n}) is not induced from a proper subgroup. Then there are S̃ ⊃ S, O′ ⊃ O and a geometric lift ρ : Γ_{F,S̃} → GSp_{2n}(O′) with Zariski-dense image belonging to a strictly pure compatible system ρ_ι : Γ_F → GSp_{2n}(ℚ̄_ℓ), each with Zariski-dense image.",
+      "locator": "§9, Proposition 9.1, pp. 41–43",
+      "status": "missing",
+      "note": "Proof: [FKP19, Theorem A] (or Theorem E) with ordinary components (Lemma B.4) and a Steinberg place v_0; BLGGT14 residual potential automorphy; ANT20 over L′ = LF′; descent; BLGGT14 Theorem 5.5.1; Dynkin. Remark: [NT19, Cor. 5.2] gives essentially conjugate self-dual lifts over a CM extension, and [FKP20] discusses the Khare–Wintenberger method in GL-reducible settings."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/73",
+      "kind": "definition",
+      "name": "Properties (C1)–(C4) and the parabolic set-up",
+      "statement": "(C1) ρ̄(𝔤^der) has no trivial submodule; (C2) ρ̄(𝔤^der)^* has no trivial submodule; (C3) there is no surjection of 𝔽_p[Γ_F]-modules ρ̄(𝔤^der) ↠ W with W ≠ 0 a subquotient of ρ̄(𝔤^der)^*; (C4) H¹(Gal(K/F), ρ̄(𝔤^der)^*) = 0. ρ̄ factors through P(k), P a proper parabolic of a split connected reductive G, minimal with this property; π : P → M the Levi quotient, ρ̄_M = π∘ρ̄, U the unipotent radical, 𝔲 = Lie U, U^−, 𝔲^−; {𝔲_i}, {U_i} the ascending central series.",
+      "locator": "Appendix A, pp. 43–44",
+      "status": "missing",
+      "note": "(C1)–(C4) imply Assumptions 3.1, 4.1 and the first part of 5.1."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/74",
+      "kind": "theorem",
+      "name": "Lemma A.1: a P-equivariant exponential",
+      "statement": "If p ≫_G 0 there is a P-equivariant isomorphism of varieties exp : 𝔲 → U over k restricting to exp : 𝔲_i → U_i and inducing P-equivariant isomorphisms of algebraic groups 𝔲_{i+1}/𝔲_i → U_{i+1}/U_i; log = exp^{−1}. (Remark A.2: for GL_n, p > n suffices.)",
+      "locator": "Appendix A, Lemma A.1 and Remark A.2, p. 44",
+      "status": "missing",
+      "note": "Characteristic zero, then spreading out from the split model over ℤ."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/75",
+      "kind": "theorem",
+      "name": "Lemma A.3: Jordan–Hölder for central Γ-chains of a p-group",
+      "statement": "Let Γ act on a finite p-group Σ. For maximal chains {1} = Σ_0 ⊊ ⋯ ⊊ Σ_n = Σ of normal Γ-invariant subgroups with Σ_{i+1}/Σ_i central in Σ/Σ_i (so each factor is a simple 𝔽_p[Γ]-module), the multiset of factors is independent of the chain.",
+      "locator": "Appendix A, Lemma A.3, p. 44",
+      "status": "missing",
+      "note": "[Isa09, Theorem 10.5]. Mathlib has the abstract theorem (JordanHolderLattice, CompositionSeries.jordan_holder in Mathlib/Order/JordanHolder.lean) but not this operator-group instance. One index misprint (source issue E3)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/76",
+      "kind": "theorem",
+      "name": "Lemma A.4: factors of the image of Γ in U are subquotients of 𝔲",
+      "statement": "Suppose p ≫_G 0. Let Γ ⊂ P(k), Γ̄ its image in M(k) and Σ = ker(Γ → Γ̄) ⊂ U(k), with ascending central series {Σ_i}. Every irreducible Γ̄-subquotient of Σ_{i+1}/Σ_i is isomorphic to an 𝔽_p[Γ̄]-subquotient of 𝔲.",
+      "locator": "Appendix A, Lemma A.4, p. 44",
+      "status": "missing",
+      "note": "Lemmas A.1 and A.3."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/77",
+      "kind": "theorem",
+      "name": "Lemma A.5: μ_p ⊄ F(ρ̄(𝔤^der)) gives (C3) and (C4)",
+      "statement": "If p ≫_G 0 and μ_p ⊄ F(ρ̄(𝔤^der)), then (C3) and (C4) hold (even for the semisimplification of ρ̄(𝔤^der)). Whether μ_p ⊂ F(ρ̄(𝔤^der)) depends only on ρ̄_M (Remark A.6).",
+      "locator": "Appendix A, Lemma A.5 and Remark A.6, p. 45",
+      "status": "missing",
+      "note": "Proof: V″ and V″ ⊗ κ̄ would both be subquotients; for (C4), [Gur99, Theorem A] (as in [FKP19, Lemma A.1]) over F′ = F(ρ̄_M, κ̄), inflation–restriction and Lemma A.4."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/78",
+      "kind": "theorem",
+      "name": "Guralnick: small representations are completely reducible",
+      "statement": "[Gur99, Theorem A] (small representations are completely reducible), as the paper uses it: for p ≫_G 0 and ρ̄_M absolutely irreducible, the k[Γ_F]-modules built from ρ̄_M on 𝔪′, 𝔲, 𝔲^− and ρ̄(𝔤^der)^{ss} are semisimple; with [FKP19, Lemmas A.1, A.2, A.6, Corollary A.6] this gives H¹(Gal(F′/F), W) = 0 for absolutely irreducible subquotients W of ρ̄(𝔤^der)^*, semisimplicity of 𝔪′, 𝔲, 𝔲^− as ρ̄_M-modules, Z(𝔪′) = H⁰(Γ_F, ρ̄(𝔪′)) for maximal P, and the bound a_G on cyclic quotients of the image modulo the centre.",
+      "locator": "Appendix A, pp. 45, 48–50 (cited)",
+      "status": "missing",
+      "note": "Group-theoretic inputs of the criteria; not in the atlas. FKP19 = Fakhruddin–Khare–Patrikis, Relative deformation theory, relative Selmer groups, and lifting irreducible Galois representations, Duke Math. J. 170 (2021), no. 16, not yet extracted (a prerequisite); the paper 'does not repeat from [FKP19] any of the local theory' (§1.4)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/79",
+      "kind": "theorem",
+      "name": "Lemma A.7: an abelian root subgroup on which the centre of M acts faithfully",
+      "statement": "Let G be semisimple, P a parabolic with unipotent radical U and Levi M, p ≫_G 0. There is a subgroup A ⊂ U that is a product of root subgroups, normalised by M, with 𝔷(M) = Lie Z(M) acting faithfully on 𝔞 = Lie A.",
+      "locator": "Appendix A, Lemma A.7, pp. 45–46",
+      "status": "missing",
+      "note": "Proof: a maximal abelian M-submodule 𝔞 ⊂ 𝔲 has this property (otherwise enlarge it by 𝔞′ ⊂ 𝔲_f with 2f ∉ R). Remark A.8: for L-faithful maximal parabolics (all maximal parabolics in type A; one exists for every simple G by [Sha10, App. A]) one may take A = Z(U)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/80",
+      "kind": "theorem",
+      "name": "Lemma A.9: criteria for GL_n",
+      "statement": "Let P ⊂ GL_n be the standard parabolic for n = n_1 + ⋯ + n_r (r > 1), M = ∏GL_{n_i}, and ρ̄ with image in P(k) and projections ρ̄_i. If p ≫_n 0 and (1) each ρ̄_i is absolutely irreducible, (2) ρ̄_i ≄ ρ̄_j ⊗ ψ̄ for ψ̄ ∈ {1, κ̄, κ̄^{−1}}, i ≠ j, (3) [F(ζ_p) : F(ζ_p) ∩ F(χ̄_{i,j})] > b(n) for χ̄_{i,j} = det(ρ̄_i)^{n_j} det(ρ̄_j)^{−n_i}, then H⁰(Γ_F, ρ̄(𝔤^der)) ⊂ 𝔷(M) ∩ 𝔤^der and (C2), (C3), (C4) hold.",
+      "locator": "Appendix A.1.1, Lemma A.9, pp. 46–47",
+      "status": "missing",
+      "note": "Uses [FKP19, Lemma A.6] and Lemma A.5."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/81",
+      "kind": "theorem",
+      "name": "Lemma A.10: criteria for the group G_n of Clozel–Harris–Taylor",
+      "statement": "Let G = G_n [CHT08, §2.1] (G^0 ≅ GL_n × 𝔾_m, G/G^0 ≅ ℤ/2), ρ̄ : Γ_F → G(k) with L/F (cut out by G/G^0) a CM extension, r̄ = ⊕_{i=1}^s r̄_i the GL_n-part of ρ̄|_{Γ_L}, p ≫_n 0. If (1) each r̄_i is absolutely irreducible, (2) r̄_i ≄ r̄_j ⊗ ψ̄ for ψ̄ ∈ {1, κ̄, κ̄^{−1}}, i ≠ j, (3) [F(ζ_p) : F(ζ_p) ∩ F(χ̄_{i,j})] > b(n) for χ̄_{i,j} = det(r̄_i)^{n_j} det(r̄_j)^{−n_i}, then (C1)–(C4) hold.",
+      "locator": "Appendix A.1.2, Lemma A.10, p. 47",
+      "status": "missing",
+      "note": "Complex conjugation acts on 𝔤_n by x ↦ −ᵗx, giving (C1) for p ≠ 2. Index misprint in (1) (source issue E4)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/82",
+      "kind": "theorem",
+      "name": "Lemma A.11: maximal parabolics with abelian unipotent radical",
+      "statement": "Suppose [F(ζ_p) : F] ≫_G 0, P maximal and ρ̄_M absolutely irreducible, with (G, P) one of: (1) GL_n, P for n = n′ + n″ (ρ̄ an extension of ρ̄″_M by ρ̄′_M); (a) n odd, or n′ = n″ and ρ̄′_M ≄ ρ̄″_M; (b) n odd, or n′ = n″ and ρ̄′_M ≄ ρ̄″_M ⊗ κ̄^{−1}; (2) GSp_{2n}, Siegel parabolic, M ≅ GL_n × 𝔾_m: (a) ρ̄′_M preserves no non-degenerate symmetric form, (b) none up to scalar with multiplier κ̄; (3) SO_n, stabiliser of an isotropic line, M ≅ SO_{n−2} × 𝔾_m: (a) ρ̄′_M has no invariant vector, (b) no κ̄^{±1}-invariant vector; (4) SO_{2n}, stabiliser of a maximal isotropic subspace, M ≅ GL_n: (a) ρ̄_M preserves no non-degenerate alternating form, (b) none up to scalar with multiplier κ̄. If ρ̄(Γ_F) → M(k) is not injective, (a) implies (C1) and (b) implies (C2).",
+      "locator": "Appendix A.2, Lemma A.11, pp. 47–49",
+      "status": "missing",
+      "note": "Proof: (𝔤^der)^{ss} = 𝔪′ ⊕ 𝔲 ⊕ 𝔲^− semisimple by [Gur99]; the M-action on 𝔲 is λ_1 ⊗ λ_2^∨, Sym², std ⊠ std, ∧² in cases (1)–(4); centralisers of semisimple elements are connected reductive [Ste75, Theorem 3.14]. Remark A.12: similar conditions for any maximal P from [Sha10, Apps. A, B]."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/83",
+      "kind": "definition",
+      "name": "Definition A.13: property D(s, t, N)",
+      "statement": "For P maximal, let χ : Γ_F → 𝔾_m(k) be the composite Γ_F → P(k) → M̄(k) → 𝔾_m(k) (M̄ the Levi quotient of the image of P in G^ad). ρ̄ satisfies D(s, t, N) if for all σ ∈ Aut(k), all F′/F with [F′ : F] ≤ N and all m_1, m_2 ∈ ℤ with |m_1|, |m_2| ≤ t, (χ^{m_1})^σ|_{Γ_{F′}} ≠ (χ^{m_2} ⊗ κ̄^s)|_{Γ_{F′}}.",
+      "locator": "Appendix A.2, Definition A.13, p. 49",
+      "status": "missing",
+      "note": "Γ′_F printed for Γ_{F′} (source issue E5)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/84",
+      "kind": "theorem",
+      "name": "Lemma A.14: (C3) and (C4) for maximal parabolics",
+      "statement": "Suppose p ≫_G 0, P maximal and ρ̄_M absolutely irreducible. There are b, s, t, N depending only on the root datum of (G, P) such that if (1) [F(κ̄) : F(κ̄) ∩ F(χ)] > b, or (2) ρ̄ satisfies D(s, t, N), then (C3) and (C4) hold; in case (1), μ_p ⊄ F(ρ̄(𝔤^der)).",
+      "locator": "Appendix A.2, Lemma A.14, pp. 49–50",
+      "status": "missing",
+      "note": "Proof: case (1) via Remark A.6, [FKP19, Lemma A.6] and Lemma A.5; case (2) via the characters χ_1, …, χ_r of Z(M) on 𝔲, [FKP19, Cor. A.6] and inflation–restriction. Remark A.15: if χ is 𝔽_p^×-valued, σ may be ignored and (2) holds for χ = κ̄^n except for at most n_G classes mod p − 1."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/85",
+      "kind": "construction",
+      "name": "Examples A.16 and A.17: GSp_4 Siegel and GL_{2n} with blocks n + n",
+      "statement": "GSp_4, Siegel P (M = GL_2 × 𝔾_m, M̄^ad = PGL_2): N = 4, and N = 2 except in the A_4 case (N = 3) and the even dihedral case, s = 1, χ = det∘ρ̄_1 for ρ̄_M = (ρ̄_1, δ); if χ is 𝔽_p^×-valued, (C3), (C4) hold when χ^a ⊗ κ̄ has order ≥ 5 for |a| ≤ 2. GL_{2n}, P for 2n = n + n: one character of Z(M(k)) on 𝔲, s = n, N the largest abelianisation of an absolutely irreducible subgroup of PGL_n(k) × PGL_n(k); (C3), (C4) hold if (χ^{±1})^σ|_{Γ_{F′}} ≠ (χ^{±1} ⊗ κ̄^n)|_{Γ_{F′}} for [F′ : F] ≤ N.",
+      "locator": "Appendix A.2, Examples A.16, A.17, p. 50",
+      "status": "missing",
+      "note": "Dickson's classification of finite subgroups of PGL_2(k)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/86",
+      "kind": "theorem",
+      "name": "Lemma A.18: criteria for Borel-valued ρ̄",
+      "statement": "Let ρ̄ : Γ_F → G(k) with im ρ̄ ⊂ B(k), p ≫_G 0; U(ρ̄) = U(k) ∩ im ρ̄, 𝔲(ρ̄) the span of log U(ρ̄), Z(𝔲(ρ̄)) its centraliser in 𝔤^der. (1) If the trivial character does not occur in Z(𝔲(ρ̄))^{ss}, (C1) holds; (2) if κ̄^{−1} does not occur, (C2) holds; (3) if σ(χ′) ≄ χ ⊗ κ̄ for all characters χ, χ′ of Γ_F on (𝔤^der)^{ss} and σ ∈ Aut(k), then (C3) and (C4) hold ((3) depends only on ρ̄_T).",
+      "locator": "Appendix A.3, Lemma A.18, p. 51",
+      "status": "missing",
+      "note": "Proof: Ad(exp X)(Y) = Σ ad(X)^i(Y)/i! for p ≫_G 0; U(ρ̄) is the p-Sylow of Gal(K/F); Lemma A.4. Improves Ray's Borel-valued GSp_{2g} lifting [Ray18]."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/87",
+      "kind": "theorem",
+      "name": "Proposition B.1: Borel subgroups over a base are Zariski-locally conjugate",
+      "statement": "[Con14, Corollary 5.2.13]: for any O-algebra A, two Borel subgroups B_1, B_2 of G_A are G-conjugate Zariski-locally on Spec A, and N_G(T_0)-conjugate if both contain T_0; N_G(B) = B over any base [Con14, Corollary 5.2.8].",
+      "locator": "Appendix B, Proposition B.1, p. 52",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon"
+      ],
+      "note": "Tau Ceti's ReductiveGroups roadmap plans Borel subgroups and their conjugacy (Layer 7) and the relative theory over a base (Layer 8)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/88",
+      "kind": "definition",
+      "name": "The canonical torus T_G and the character χ_λ",
+      "statement": "T_G = B/R_u(B) for any Borel B ⊂ G, canonically independent of B (G(O)-conjugacy and N_G(B) = B); fix B_0 ⊃ T_0 and identify T_G ×_O A with B_0/R_u(B_0) ×_O A. For v | p and cocharacters λ_τ : 𝔾_m → T_G (τ ∈ Hom_{ℚ_p}(F_v, E)), χ_λ : I_{F_v} → T_G(O) is χ_λ(σ) = ∏_τ λ_τ(τ(rec_v^{−1}(σ))), rec_v taking uniformisers to geometric Frobenii; λ dominant regular gives a p-adic Hodge type v_λ.",
+      "locator": "Appendix B, pp. 52",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/89",
+      "kind": "definition",
+      "name": "Definition B.2: F′_v-ordinary of weight λ",
+      "statement": "Let A be a finite local E-algebra, F′_v/F_v finite and ρ : Γ_{F_v} → G(A) continuous. ρ is F′_v-ordinary of weight λ if there is a Borel B ⊂ G_A with ρ(Γ_{F_v}) ⊂ B(A) such that, for g ∈ G(A) with gBg^{−1} = B_0, the composite Γ_{F_v} → B(A) → B_0(A) → T_G(A) equals χ_λ on I_{F′_v} (independent of g).",
+      "locator": "Appendix B, Definition B.2, p. 52",
+      "status": "missing",
+      "note": "The G-valued generalisation of ordinarity; LocalGaloisDeformationRings L8 plans ordinary flags for GL_n (ACC+ §6.2.6)."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/90",
+      "kind": "theorem",
+      "name": "Bellovin–Gee: G-valued potentially semistable deformation rings (Theorem A)",
+      "statement": "[BG19, Theorem A]: the quotient R^{□,v_λ}_ρ̄ of R^□_ρ̄ whose points in finite local E-algebras are the lifts potentially semistable over F′_v of p-adic Hodge type v_λ is equidimensional, every irreducible component of R^{□,v_λ}_ρ̄[1/p] has dimension dim G + [F_v : ℚ_p] dim Fl_G, and it has an open dense regular subscheme.",
+      "locator": "Appendix B, pp. 52–53 (cited)",
+      "status": "missing",
+      "note": "Kisin's GL_n theorem is planned (R08.3, L7 'the Kisin dimension formula'); the G-valued form is not. Routed as a source of L7."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/91",
+      "kind": "theorem",
+      "name": "Lemma B.3: the ordinary flag functor is closed",
+      "statement": "Let 𝒢 ⊂ Fl_G (on R^{□,v_λ}_ρ̄-algebras) be the Borels fixed by ρ^λ_A(Γ_{F_v}) (closed; ρ^λ_A factors through B(A) for B ∈ 𝒢(A)), and 𝒢_λ ⊂ 𝒢 the B such that, Zariski-locally with gBg^{−1} = B_0, the projection of gρ^λ(σ)g^{−1} to T_G equals χ_λ(σ) for σ ∈ I_{F′_v}. Then 𝒢_λ is representable by a closed subscheme of 𝒢.",
+      "locator": "Appendix B, Lemma B.3, pp. 53–54",
+      "status": "missing",
+      "note": "The ideal is generated by c_{β,σ} with c_{β,σ}X_β = p_β(Ad(gρ^λ(σ)g^{−1})X_β) − β(χ_λ(σ))X_β for positive β, independent of g, so it descends."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/92",
+      "kind": "construction",
+      "name": "The ordinary quotient R^{△λ}_ρ̄",
+      "statement": "R^{△λ}_ρ̄ is the scheme-theoretic image of 𝒢_λ[1/p] → Spec R^{□,v_λ}_ρ̄. Λ : 𝒢_λ → Spec R^{□,v_λ}_ρ̄ is proper, so Spec R^{△λ}_ρ̄[1/p] is its image; closed points lift uniquely (λ regular); on completed local rings (R^{□,v_λ}_ρ̄[1/p])^∧_y ↠ (R^{△λ}_ρ̄[1/p])^∧_y ↪ O^∧_{𝒢_λ[1/p],ỹ}, the last pro-representing pairs (ρ, B), which forms a subfunctor, hence the map is surjective.",
+      "locator": "Appendix B, p. 54",
+      "status": "missing",
+      "note": "Following Geraghty [Ger19] in the GL_n case."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/93",
+      "kind": "theorem",
+      "name": "Lemma B.4(1): the point criterion for ordinarity",
+      "statement": "Let A be a finite local E-algebra and f : R^{□,v_λ}_ρ̄ → A an O-algebra map. Then f factors through R^{△λ}_ρ̄ iff f∘ρ^λ is F′_v-ordinary of weight λ (Definition B.2).",
+      "locator": "Appendix B, Lemma B.4(1), pp. 54–55",
+      "status": "missing",
+      "note": "cf. [Ger19, Lemma 3.10]."
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/94",
+      "kind": "theorem",
+      "name": "Lemma B.4(2)–(3): the ordinary locus is a union of components",
+      "statement": "R^{△λ}_ρ̄ is a union of irreducible components of R^{□,v_λ}_ρ̄; so R^{△λ}_ρ̄[1/p] has an open dense regular subscheme and all its components have dimension dim G + [F_v : ℚ_p] dim Fl_G. With a fixed multiplier μ : Γ_{F_v} → G/G^der(O), the same holds with dim G^der in place of dim G.",
+      "locator": "Appendix B, Lemma B.4(2), (3), pp. 54–55",
+      "status": "missing",
+      "note": "Proof: at y, O^∧_{𝒢_λ[1/p],ỹ} ≅ E[[X_1, …, X_h]]/(f_1, …, f_{h′}) with h ≥ dim G + dim Fl_G[F_v : ℚ_p] + h²(Γ_{F_v}, r(𝔟_0)) and h′ = h²(Γ_{F_v}, r(𝔟_0)), from the tangent space ker(Z¹(Γ_{F_v}, r(𝔟_0)) → Z¹(I_{F′_v}, r(𝔟_0/𝔫_0))), local Euler characteristic and H²(Γ_{F_v}, r(𝔟_0/𝔫_0)) = 0 (as [Ger19, Cor. 3.6, Lemma 3.7]); semistability is automatic ([Nek93, Prop. 1.28], [Pat16, Lemma 4.8]). The extraction of Boxer–Calegari–Gee already routed this lemma to L7. Misprints on p. 55 (source issues E6, E7)."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "N. Fakhruddin, C. Khare, S. Patrikis, Relative deformation theory, relative Selmer groups, and lifting irreducible Galois representations, Duke Math. J. 170 (2021), no. 16",
+      "link": "10.1215/00127094-2021-0003",
+      "why": "The foundation the paper cites throughout (§1.4): §3 (trivial primes, Lemmas 3.5, 3.7, 3.9), §4 (Proposition 4.7, Lemma 4.9), §5 (Notation 5.1, Construction 5.6, Propositions 5.9, 5.12, Lemma 5.11, Theorem 5.14), §6 (Definitions 6.2, 6.6, Lemmas 6.3, 6.4, Proposition 6.8, Theorems 6.9, 6.11, 6.21, Claim 6.13), Appendix A (Lemmas A.1, A.2, A.6, Corollary A.6), Corollary B.2, Theorem A. Not yet extracted; the Part II's foundation layer."
+    },
+    {
+      "citation": "S. Hamblen, R. Ramakrishna, Deformations of certain reducible Galois representations, II, Amer. J. Math. 130 (2008), 913–944",
+      "link": "10.1353/ajm.0.0008",
+      "why": "Theorem 2 (Theorem A) and the strategy of Theorem 7.4."
+    },
+    {
+      "citation": "C. Khare, M. Larsen, R. Ramakrishna, Constructing semisimple p-adic Galois representations with prescribed properties, Amer. J. Math. 127 (2005), 709–734",
+      "link": "10.1353/ajm.2005.0026",
+      "why": "The doubling method and limiting argument of Proposition 3.8."
+    },
+    {
+      "citation": "R. Bellovin, T. Gee, G-valued local deformation rings and global lifts, Algebra Number Theory 13 (2019), 333–378",
+      "link": "10.2140/ant.2019.13.333",
+      "why": "Theorem A, Theorem 3.3.3, Lemma 3.4.1, §2.6 and Definition 2.8.2: G-valued potentially semistable rings and their generic fibres (§§2, 5, 9, Appendix B)."
+    },
+    {
+      "citation": "S. Balaji, G-valued potentially semi-stable deformation rings, PhD thesis, University of Chicago (2012)",
+      "link": "https://mathscinet.ams.org/mathscinet-getitem?mr=3152673",
+      "why": "Proposition 3.0.12: the rings R^{□,μ,τ,v} of Theorem E."
+    },
+    {
+      "citation": "J. Booher, Minimally ramified deformations when ℓ ≠ p, Compos. Math. 155 (2019), 1–37; J. Booher, S. Patrikis, G-valued Galois deformation rings when ℓ ≠ p, Math. Res. Lett. 26 (2019), 973–990",
+      "link": "10.1112/S0010437X18007546",
+      "why": "Minimally ramified GSp_2n lifts (Proposition 9.1) and [BP19, Theorem 14] (§2)."
+    },
+    {
+      "citation": "J. Thorne, Automorphy lifting for residually reducible l-adic Galois representations, J. Amer. Math. Soc. 28 (2015), 785–870",
+      "link": "10.1090/s0894-0347-2014-00812-2",
+      "why": "Lemma 2.3 and Definition 2.5 (ι-ordinary, ξ-ordinary) in §9."
+    },
+    {
+      "citation": "P. Allen, J. Newton, J. Thorne, Automorphy lifting for residually reducible l-adic Galois representations, II, Compos. Math. 156 (2020), 2399–2422",
+      "link": "10.1112/s0010437x20007484",
+      "why": "Theorem 1.1 with hypotheses (1)–(8), in the proof of Proposition 9.1."
+    },
+    {
+      "citation": "T. Barnet-Lamb, T. Gee, D. Geraghty, R. Taylor, Potential automorphy and change of weight, Ann. of Math. 179 (2014), 501–609",
+      "link": "10.4007/annals.2014.179.2.3",
+      "why": "Proposition 3.1.1, Theorem 3.1.2 and Theorem 5.5.1 in the proof of Proposition 9.1."
+    },
+    {
+      "citation": "D. Geraghty, Modularity lifting theorems for ordinary Galois representations, Math. Ann. 373 (2019), 1341–1427",
+      "link": "10.1007/s00208-018-1742-4",
+      "why": "Lemma 3.10, Corollary 3.6, Lemma 3.7: the GL_n case of Appendix B."
+    },
+    {
+      "citation": "B. Conrad, Reductive group schemes, in Autour des schémas en groupes I, Panoramas et Synthèses 42–43 (2014)",
+      "link": "https://math.stanford.edu/~conrad/papers/luminysga3.pdf",
+      "why": "Corollaries 5.2.8 and 5.2.13 (Proposition B.1)."
+    },
+    {
+      "citation": "R. Guralnick, Small representations are completely reducible, J. Algebra 220 (1999), 531–541",
+      "link": "10.1006/jabr.1999.7963",
+      "why": "Theorem A, used in Lemmas A.5, A.11 and A.14."
+    },
+    {
+      "citation": "J. Bellaïche, G. Chenevier, Sous-groupes de GL2 et arbres, J. Algebra 410 (2014), 501–525",
+      "link": "10.1016/j.jalgebra.2014.02.005",
+      "why": "Propositions 11 and 32: Serre's segment lemma in the proof of Proposition 7.7."
+    },
+    {
+      "citation": "T. Berger, K. Klosin, Modularity of residual Galois extensions and the Eisenstein ideal, Trans. Amer. Math. Soc. 372 (2019), 8043–8065",
+      "link": "10.1090/tran/7851",
+      "why": "The observation behind Lemma 7.6."
+    },
+    {
+      "citation": "A. J. de Jong, A conjecture on arithmetic fundamental groups, Israel J. Math. 121 (2001), 61–84; D. Gaitsgory, On de Jong's conjecture, Israel J. Math. 157 (2007), 155–191",
+      "link": "10.1007/bf02802496",
+      "why": "Conjecture 2.3, Theorem 3.5 and Lemma 3.15 (Remarks 7.8, 8.2)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "GlobalGaloisDeformations",
+      "roadmap": "GlobalGaloisDeformationsPartIIGValuedLifting",
+      "title": "Global Galois deformation rings, Part II: lifting G-valued residual representations over global fields, including the reducible case",
+      "area": "modular",
+      "items": [
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/1",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/2",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/3",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/4",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/5",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/10",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/11",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/12",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/13",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/14",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/15",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/16",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/17",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/18",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/19",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/20",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/21",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/22",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/23",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/24",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/25",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/26",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/28",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/29",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/30",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/31",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/32",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/33",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/34",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/35",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/36",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/37",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/38",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/39",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/40",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/41",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/42",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/43",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/44",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/49",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/53",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/54",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/55",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/56",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/57",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/58",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/60",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/62",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/63",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/64",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/65",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/71",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/72",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/73",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/74",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/75",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/76",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/77",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/78",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/79",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/80",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/81",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/82",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/83",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/84",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/85",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/86"
+      ],
+      "brief": "Fakhruddin–Khare–Patrikis (Invent. Math. 228 (2022)) prove that a residual representation ρ̄ : Γ_F → G(k) of a global field — G smooth over ℤ_p with split reductive G^0 and π_0(G) of order prime to p, ρ̄ possibly reducible, odd when F is a number field — has a geometric p-adic lift with image containing Ĝ^der(O′) and prescribed local components (Theorem 5.2 = Theorem E), under Assumptions 3.1, 4.1, 5.1; Appendix A gives group-theoretic criteria for them. This Part II plans Ramakrishna-style lifting — killing dual Selmer groups by auxiliary primes to produce characteristic-zero lifts without any automorphy input — which GlobalGaloisDeformations does not.\n\nSuggested layers. (0) Foundations from FKP19 (Duke Math. J. 170 (2021)), which the paper uses as a black box and which should be extracted first, as Pan's first paper was for DESIGN-PAN: the G-valued standing hypotheses and multiplier-fixed lifting functors; trivial primes and the rings Lift^{μ,α} with their duality pairings (FKP19 §3); Selmer conditions from formally smooth points (FKP19 Prop. 4.7, Lemma 4.9); Lazard's bound (FKP19 Cor. B.2); the group theory of FKP19 Appendix A and Guralnick's theorem; FKP19's Theorem A for irreducible ρ̄. (1) Cyclic-module Galois cohomology: Lemma 2.1, killing Ш, Lemma 3.4, Proposition 3.6 (both parts), the cocycles η^(v)_b and Lemma 3.7. (2) The doubling method: the initial mod ϖ² lift, Proposition 3.8, Lemma 4.3, Theorem 4.4. (3) Relative deformation theory and Theorem 5.2: relative Selmer groups and their balance, Lemma 5.3, Proposition 5.4, Corollary 5.5, Theorem 5.6. (4) The residually split case: Lemmas 6.1–6.5, Corollary 6.6, Remark 6.7, Example 6.8. (5) Group-theoretic criteria: (C1)–(C4), Lemmas A.1–A.18, Definition A.13 and the examples. (6) Applications, each a corollary: modularity of reducible odd ρ̄ : Γ_ℚ → GL_2(k) (the lattice-sensitive notion of arising from a newform, Lemmas 7.1, 7.3, 7.6, Serre's tree lemma, Theorem 7.4 = Theorem B, Proposition 7.7, Remarks 7.5, 7.8, with Hamblen–Ramakrishna's Theorem A as the statement improved); automorphy over function fields (Theorem 8.1, Remark 8.2, Corollaries 8.3 = Theorem C and 8.4); GSp_2n compatible systems (Dynkin's theorem, Proposition 9.1); Conjecture D kept as an explicitly conditional statement.\n\nImport, never re-plan: ArithmeticGaloisDuality R02.3, R02.4, R02.6 (Euler characteristic, Poitou–Tate, Greenberg–Wiles; their function-field cases are routed there by this extraction); Tau Ceti's Chebotarev roadmap (Layer 10) and FunctionFieldArithmetic FA.5 for Čebotarev; ArithmeticGaloisRepresentations R01.1, R01.2 for representations, lattices and tame inertia; LocalGaloisDeformationRings R08.2, R08.6 and L7 for every local lifting ring, including the G-valued rings, the ordinary components of Appendix B and the local lifts of Lemma 7.2 (routed there); Tau Ceti's ReductiveGroups Layers 7–8 for Borel subgroups over a base; ReductiveGroupsPartII RG2.2 for the tree; AutomorphicGaloisRepresentations R19.1, R19.5 for ρ_f and local–global compatibility at p; AlgebraicModularFormsAndSerreWeights R15.4 for Serre's weight; OrdinaryAutomorphicFormsAndModularityLifting R21.5 (Skinner–Wiles) and GL2ModularityLifting R32.4 (Pan); ClassicalSerreModularity R27.6; GlobalShtukasAndFunctionFieldLanglands GS.6 (L. Lafforgue); ModularityAndLanglandsExtensions ML.2 and the proposed PolarizedAutomorphyLifting for BLGGT14 and Allen–Newton–Thorne.\n\nFinal theorems, stated exactly with every hypothesis: Theorem 5.2, Theorem 5.6, Corollary 6.6, Theorem 7.4, Proposition 7.7, Theorem 8.1, Corollaries 8.3 and 8.4, Proposition 9.1. Items use the corrected statements of source issues E1–E7.",
+      "reason": "Every object here is a global Galois deformation problem — lifting functors with local conditions, Selmer and dual Selmer groups, auxiliary primes chosen by Čebotarev — which is GlobalGaloisDeformations' territory. That roadmap builds deformation rings for patching (R04.1–R04.6 for GL_2, G7 polarized, G8 determinant-variable) over number fields; it has no layer that produces a characteristic-zero lift of a given ρ̄ by annihilating dual Selmer groups, none for G-valued or disconnected G, and none over function fields. So this is new work in its direction, not a rebuild. It is not a Part II of PotentialAutomorphyInfrastructure or PolarizedAutomorphyLifting (automorphy lifting, which the applications consume), nor of the proposed GValuedDeformationsAndPotentialAutomorphy (Böckle–Harris–Khare–Thorne's function-field Part II of GlobalShtukasAndFunctionFieldLanglands): that route proves finiteness of deformation rings from Lafforgue's automorphy (the Khare–Wintenberger method), which Remark 7.8 and Proposition 7.7 show cannot reach reducible ρ̄, whereas this method works over number fields and function fields alike. The GL_2 modularity statements are corollaries consuming R21.5 and R32.4; they stay as the Part II's final layer rather than a separate roadmap."
+    },
+    {
+      "route": "source",
+      "roadmap": "LocalGaloisDeformationRings",
+      "stages": [
+        "LocalGaloisDeformationRings:R08.2",
+        "LocalGaloisDeformationRings:R08.6",
+        "LocalGaloisDeformationRings:L7"
+      ],
+      "items": [
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/9",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/27",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/45",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/46",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/47",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/61",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/70",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/88",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/89",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/90",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/91",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/92",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/93",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/94"
+      ],
+      "reason": "R08.2 constructs the conditions away from p and their components; the paper's local lifts away from p (Lemma 7.2(1), Booher's minimally ramified GSp_2n lifts, Steinberg points at trivial primes) and the equal-characteristic generic-fibre theory and local lifts (§2; §8 after Clozel–Harris–Taylor §2.4.4) are statements of that layer for G-valued and function-field places. R08.6 exports local statements for the global arguments: the ordinary potentially crystalline and Serre-weight crystalline lifts of Lemma 7.2(2), (3). L7 owns potentially semistable rings of fixed Hodge and inertial type in any rank with the Kisin dimension formula; the G-valued rings of Balaji and Bellovin–Gee (Theorem A) and Appendix B's ordinary components (canonical torus, Definition B.2, Lemma B.3, R^{△λ}, Lemma B.4) extend it, and the extraction of Boxer–Calegari–Gee already sent Lemma B.4 there."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisDuality",
+      "stages": [
+        "ArithmeticGaloisDuality:R02.3",
+        "ArithmeticGaloisDuality:R02.4",
+        "ArithmeticGaloisDuality:R02.6"
+      ],
+      "items": [
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/6"
+      ],
+      "reason": "R02.3 (global Euler characteristic), R02.4 (Poitou–Tate) and R02.6 (the numerical Selmer inequalities, i.e. Greenberg–Wiles) are planned for number fields; §2 of the paper needs them, with Tate local duality and the local Euler characteristic, for global function fields and coefficients of order prime to the characteristic. They are the equal-characteristic cases of those layers."
+    },
+    {
+      "route": "source",
+      "roadmap": "ModularityAndLanglandsExtensions",
+      "stages": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "items": [
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/68",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/69"
+      ],
+      "reason": "ML.2 is the potential automorphy assembly ('track compatible systems and descent'); Proposition 9.1 uses BLGGT14 Theorem 3.1.2 (with a Steinberg place added to the Moret-Bailly conditions) and the compatible-system argument of BLGGT14 Theorem 5.5.1 in exactly that role."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PotentialAutomorphyInfrastructure",
+      "roadmap": "PolarizedAutomorphyLifting",
+      "title": "Reusable infrastructure for potential automorphy over CM fields, Part II: polarized automorphy lifting and finiteness of deformation rings",
+      "area": "automorphic",
+      "items": [
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/66",
+        "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/67"
+      ],
+      "brief": "This route coalesces with PolarizedAutomorphyLifting, proposed by PAPER-BOXER-CALEGARI-GEE-25 and extended by PAPER-NEWTON-THORNE-21; keep its id, title, parent, area and brief. Fakhruddin–Khare–Patrikis (Invent. Math. 228 (2022), §9) use two of its statements: the ι-ordinary and ξ-ordinary notions of Thorne 2015 (Lemma 2.3, Definition 2.5), with de Rhamness of ξ-ordinary representations by Nekovář's Proposition 1.28; and Allen–Newton–Thorne 2020 Theorem 1.1 (automorphy lifting for residually reducible ι-ordinary representations over CM fields), applied in Proposition 9.1 over L′ = LF′ with its hypotheses (1)–(8) checked from [F(ζ_p) : F] > a_{GSp_2n}, linear disjointness and non-inducedness. Both are already in the route's scope; this extraction records the form in which Proposition 9.1 consumes them.",
+      "reason": "Allen–Newton–Thorne and Thorne 2015 are the polarized residually reducible automorphy lifting theorems that this pending Part II owns (Newton–Thorne's extraction already routed them there); the paper only applies them."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E1",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 7.1, p. 32 (arXiv v5)",
+      "printed": "Likewise the only one-dimensional subrepresentation of ρ̄(𝔤^der)^* ≅ ρ̄(𝔤^der)(1) is isomorphic to k(χ̄κ̄), so the assumption that χ̄ ≠ κ^{−1} implies our claim.",
+      "correction": "… the assumption that χ̄ ≠ κ̄^{−1} …",
+      "reason": "The hypothesis of Lemma 7.1 is χ̄ ≠ κ̄^{−1} (mod p characters); κ is the p-adic cyclotomic character, which cannot be compared with χ̄.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+        "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+        "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E2",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 7.1, p. 32 (arXiv v5)",
+      "printed": "We therefore reduce the desired vanishing to checking that χ̄^σ is not equal to χ̄^{−1}κ̄, κ̄, or χ̄κ̄ for any σ ∈ Aut(k): but such an equality with χ̄κ̄^{−1} or χ̄κ̄ would contradict the behavior of complex conjugation (as p ≠ 2), …",
+      "correction": "… such an equality with χ̄^{−1}κ̄ or χ̄κ̄ …",
+      "reason": "The three characters to be excluded are those just listed, χ̄^{−1}κ̄, κ̄ and χ̄κ̄; χ̄^{−1}κ̄ and χ̄κ̄ are even (value (−1)(−1) = 1 at complex conjugation) while χ̄^σ is odd. χ̄κ̄^{−1} does not occur in the list (it is also even, so the argument is unaffected).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+        "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+        "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E3",
+      "kind": "misprint",
+      "locator": "Appendix A, before Lemma A.3, p. 44 (arXiv v5)",
+      "printed": "If the chain is maximal, then each Σ_{i+1}/Σ_i, i = 1, …, n, is a simple 𝔽_p[Γ]-module.",
+      "correction": "… each Σ_{i+1}/Σ_i, i = 0, …, n − 1, …",
+      "reason": "The chain is {1} = Σ_0 ⊊ Σ_1 ⊊ ⋯ ⊊ Σ_n = Σ, so its factors are Σ_{i+1}/Σ_i for 0 ≤ i ≤ n − 1; Σ_{n+1} is undefined.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+        "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+        "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E4",
+      "kind": "misprint",
+      "locator": "Lemma A.10(1), p. 47 (arXiv v5)",
+      "printed": "(1) r̄_i is absolutely irreducible for i = 1, 2 …, r.",
+      "correction": "(1) r̄_i is absolutely irreducible for i = 1, 2, …, s.",
+      "reason": "In §A.1.2 r̄ ≅ ⊕_{i=1}^s r̄_i and conditions (2), (3) of the lemma range over i ≠ j ∈ {1, …, s}; the letter r is carried over from Lemma A.9.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+        "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+        "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E5",
+      "kind": "misprint",
+      "locator": "Definition A.13, p. 49, and Example A.17, p. 50 (arXiv v5)",
+      "printed": "(χ^{m_1})^σ|_{Γ_{F′}} ≠ (χ^{m_2} ⊗ κ̄^s)|_{Γ′_F}, with [F′ : F] ≤ N (and (χ^{±1})^σ|_{Γ_{F′}} ≠ (χ^{±1} ⊗ κ̄^n)|_{Γ′_F} in Example A.17)",
+      "correction": "(χ^{m_2} ⊗ κ̄^s)|_{Γ_{F′}}, for all F′/F with [F′ : F] ≤ N (and likewise |_{Γ_{F′}} in Example A.17)",
+      "reason": "Both sides are restrictions to the absolute Galois group Γ_{F′} of the extension F′ of degree ≤ N; 'Γ′_F' is not defined, and the use in the proof of Lemma A.14 compares characters of Γ_L with [L ∩ F^{ab} : F] ≤ N.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+        "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+        "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E6",
+      "kind": "misprint",
+      "locator": "Proof of Lemma B.4, p. 55 (arXiv v5)",
+      "printed": "dim(𝔟_0) + h²(Γ_{F_v}, r(𝔟_0)) + dim(𝔟_0)[F_v : ℚ_p] − (dim(𝔟_0/𝔫_0) + [F_v : ℚ_p] dim(𝔟_0/𝔫_0) − dim(𝔟_0/𝔫_0)) = dim(𝔟_0) + h²(Γ_{F_v}, r(𝔤_0)) + dim(𝔫_0)[F_v : ℚ_p].",
+      "correction": "… = dim(𝔟_0) + h²(Γ_{F_v}, r(𝔟_0)) + dim(𝔫_0)[F_v : ℚ_p].",
+      "reason": "The h² term is carried unchanged from the left side, and the conclusion two lines later uses h² = h²(Γ_{F_v}, r(𝔟_0)); r = gρ_yg^{−1} takes values in B_0, and 𝔤_0 appears nowhere else.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+        "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+        "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E7",
+      "kind": "misprint",
+      "locator": "Proof of Lemma B.4, p. 55 (arXiv v5)",
+      "printed": "it suffices now to compute for each closed point y ∈ Spec(R^{△λ}_ρ̄[1/p])^∧_y) a lower bound on the dimension of each irreducible component of R^{△λ}_ρ̄[1/p])^∧_y) ≅ O^∧_{𝒢_λ[1/p],ỹ}",
+      "correction": "for each closed point y ∈ Spec(R^{△λ}_ρ̄[1/p]) a lower bound on the dimension of each irreducible component of (R^{△λ}_ρ̄[1/p])^∧_y ≅ O^∧_{𝒢_λ[1/p],ỹ}",
+      "reason": "The parentheses do not balance, and y is a closed point of Spec(R^{△λ}_ρ̄[1/p]) (as in the bullet points on p. 54), not of its completion at y.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+        "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+        "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+      ]
+    }
+  ]
+}
