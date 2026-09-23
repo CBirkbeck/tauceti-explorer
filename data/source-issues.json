@@ -34430,7 +34430,8 @@
    "searched": [
     "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
     "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
@@ -34451,7 +34452,8 @@
    "searched": [
     "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
     "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
@@ -34472,7 +34474,8 @@
    "searched": [
     "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
     "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
@@ -34494,7 +34497,8 @@
     "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
     "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
     "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
-    "AHK07 (arXiv math/0605137v2) Definition 2.3 compared"
+    "AHK07 (arXiv math/0605137v2) Definition 2.3 compared",
+    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
@@ -34515,7 +34519,8 @@
    "searched": [
     "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
     "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
@@ -34530,13 +34535,14 @@
    "locator": "Published version, Lemma6.6 pp.28–29 and global Q-factorial clause of Corollary6.7(1) p.29",
    "printed": "also Q-Cartier",
    "correction": "Retain a neighborhood of the special fibre in the local deformation lemma; add properness for its global application. The unrestricted global statements fail.",
-   "reason": "For R=Z_p, p>5, remove only the closed special vertex from Spec R[x,y,z,w]/(xy−zw). This is an integral flat normal excellent scheme with smooth special fibre. The closed remaining generic vertex Z is disjoint from that fibre. The ruling D=V(x,z) is Cartier away from Z and restricts to a Cartier divisor on the smooth special fibre, but it is not Q-Cartier at the generic node. On the explicit small resolution xt=zs,wt=ys, its strict-transform divisor line bundle has degree−1 on the exceptional P¹. A Cartier multiple would pull back trivially on that fibre, contradicting degree−m. The report provides the charts. Properness repairs globalization by the closed-image argument, conditional on the local theorem.",
+   "reason": "For R=Z_p, p>5, remove only the closed special vertex from Spec R[x,y,z,w]/(xy−zw). This is an integral flat normal excellent scheme with smooth special fibre. The closed remaining generic vertex Z is disjoint from that fibre. The ruling D=V(x,z) is Cartier away from Z and restricts to a Cartier divisor on the smooth special fibre, but it is not Q-Cartier at the generic node. On the explicit small resolution xt=zs,wt=ys, its strict-transform divisor line bundle has degree−1 on the exceptional P¹. A Cartier multiple would pull back trivially on that fibre, contradicting degree−m. The report provides the charts. Properness repairs globalization by the closed-image argument, conditional on the local theorem. (cc-442dc5) Rechecked in arXiv v2 (there Lemma 6.4): the proof is only a citation of [KM92, 12.1.8] and [dFH11, Proposition 3.1], which are local statements near the special fibre, so the unrestricted global formulation is not supported by its proof either.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
     "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
@@ -34557,7 +34563,8 @@
    "searched": [
     "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
@@ -34578,7 +34585,8 @@
    "searched": [
     "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
@@ -34599,7 +34607,8 @@
    "searched": [
     "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
@@ -34620,7 +34629,8 @@
    "searched": [
     "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
@@ -34641,7 +34651,8 @@
    "searched": [
     "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
