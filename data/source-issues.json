@@ -51213,14 +51213,17 @@
    "locator": "v1 p.10, §3.1.5 (13); final 2018 text not obtained",
    "printed": "Σ_(a₁+⋯+a_n≤δn)1 ≤ (nδ)^n/n!",
    "correction": "Use the weighted-partition/rank-one argument L3–L6 for a coarse replacement; do not retain this weak-composition bound.",
-   "reason": "At n=1,δ=0 the two sides are 1 and 0; even δ=1 gives 2≤1. The source's claimed sharper final exponent is not proved by the replacement.",
+   "reason": "At n=1,δ=0 the two sides are 1 and 0; even δ=1 gives 2≤1. The source's claimed sharper final exponent is not proved by the replacement. Lee 2022 §3.3 quotes a different local count from the published version (a factor ℓ^(n(n−1)δ/2), partitions weighted by (ℓ^d)^(a−ℓ(λ)), \"[7, p. 3421] and inequalities (14) and (15)\"), so the published proof of this step differs from v1 and may already avoid this finding; the published text could not be read. [cc-442dc5]",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51235,14 +51238,17 @@
    "locator": "v1 p.12, §3.2.1 orbit-map display; final 2018 text not obtained",
    "printed": "gM ↦ (m ↦ gm mod R^n)",
    "correction": "This formula does not descend from elements to orbit points. Use the isotypic congruence-kernel argument L9; general blocks still need work.",
-   "reason": "Take ℓ=3,F=Q₃(i),R=Z₃[3i],S=Z₃[i],M=S,n=1. Both 1 and −1 belong to GL₁(R), and M=(−1)M; evaluating the two proposed maps at i gives i and −i modulo R, differing by 2i∉R. Also S⊆R^∨, so the claimed target is defined. No element outside GL₁(R) is used.",
+   "reason": "Take ℓ=3,F=Q₃(i),R=Z₃[3i],S=Z₃[i],M=S,n=1. Both 1 and −1 belong to GL₁(R), and M=(−1)M; evaluating the two proposed maps at i gives i and −i modulo R, differing by 2i∉R. Also S⊆R^∨, so the claimed target is defined. No element outside GL₁(R) is used. Lee 2022 §3.3 quotes a different local count from the published version (a factor ℓ^(n(n−1)δ/2), partitions weighted by (ℓ^d)^(a−ℓ(λ)), \"[7, p. 3421] and inequalities (14) and (15)\"), so the published proof of this step differs from v1 and may already avoid this finding; the published text could not be read. [cc-442dc5]",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51257,14 +51263,17 @@
    "locator": "v1 p.9, §3.1.4 display after (10); final 2018 text not obtained",
    "printed": "M'/(F(M)∩W') ⊂ M'/F(M')",
    "correction": "There is a canonical surjection M'/F(M')→M'/F(M), not the displayed inclusion. Since F(M)⊆M', the denominator intersection is redundant.",
-   "reason": "F(M')⊆F(M)⊆M'. Passing to quotients reverses the direction of the natural map. The cardinality upper bound survives via this surjection; see L5.",
+   "reason": "F(M')⊆F(M)⊆M'. Passing to quotients reverses the direction of the natural map. The cardinality upper bound survives via this surjection; see L5. Lee 2022 §3.3 quotes a different local count from the published version (a factor ℓ^(n(n−1)δ/2), partitions weighted by (ℓ^d)^(a−ℓ(λ)), \"[7, p. 3421] and inequalities (14) and (15)\"), so the published proof of this step differs from v1 and may already avoid this finding; the published text could not be read. [cc-442dc5]",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51279,14 +51288,17 @@
    "locator": "v1 p.10, §3.1.5, power-series quotient assertion; final 2018 text not obtained",
    "printed": "R is a quotient of Z_ℓ[[X]]",
    "correction": "First pass to the unramified coefficient DVR O₀ with residue field R/rad R; then R is a quotient of O₀[[T]].",
-   "reason": "An unramified quadratic order has residue field F_(ℓ²), whereas the local ring Z_ℓ[[X]] has residue F_ℓ; no such local quotient is possible. L2 also tracks the residue degree in colength.",
+   "reason": "An unramified quadratic order has residue field F_(ℓ²), whereas the local ring Z_ℓ[[X]] has residue F_ℓ; no such local quotient is possible. L2 also tracks the residue degree in colength. Lee 2022 §3.3 quotes a different local count from the published version (a factor ℓ^(n(n−1)δ/2), partitions weighted by (ℓ^d)^(a−ℓ(λ)), \"[7, p. 3421] and inequalities (14) and (15)\"), so the published proof of this step differs from v1 and may already avoid this finding; the published text could not be read. [cc-442dc5]",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51308,7 +51320,10 @@
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51325,12 +51340,15 @@
    "correction": "The elementary discriminant bound has exponent d(d−1).",
    "reason": "The discriminant is the square of the Vandermonde product. Each unordered pair contributes two differences, so the displayed argument loses a square. The corrected bound is retained by weil-discriminant-bound; the sharp main constant is not certified.",
    "affects": "the proof",
-   "known": "new",
+   "known": "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), §3.1(2): \"The upper bound in the inequality (31) of [7] should be corrected to (2√p)^(2·C(d,2))\" (published (31) = v1 (26)).",
    "searched": [
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51347,12 +51365,15 @@
    "correction": "Keep powers of 2 with exponents proportional to g² in the fixed-p leading coefficient, or export only exp(O_p(g²)).",
    "reason": "For fixed p, log_p(2) is a nonzero constant; C·g²·log_p(2) is not o(g²). Neither the displayed equality nor the stated sharp main coefficient follows from discarding it.",
    "affects": "the proof",
-   "known": "new",
+   "known": "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), Theorem 1.1 and (9)–(10) keep the factor 2^(34g²); Lee's Lemma 3.1 (|d′(A_0)|_∞ ≤ (2g)^(2g) p^(C(2g,2))) removes it in his improved bound.",
    "searched": [
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51374,7 +51395,10 @@
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51396,7 +51420,10 @@
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51418,7 +51445,10 @@
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51440,7 +51470,10 @@
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51462,7 +51495,10 @@
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51476,15 +51512,18 @@
    "kind": "error",
    "locator": "v1 p.30, (51), compared with p.26 (39); final 2018 text not obtained",
    "printed": "[K:Q] n² log n + O(n²[K:Q]²)",
-   "correction": "The displayed factorial product contributes (1/2)[K:Q]n²log n+O([K:Q]n²). Recheck the mass normalization and all consumers before asserting a total asymptotic.",
-   "reason": "Σ_(d=1)^n log((d−1)!)=(1/2)n²log n+O(n²). For fixed K, a missing half of n²log n is not absorbed by O(n²[K:Q]²). No corrected full mass theorem is asserted without Gan–Yu and the remaining factors.",
-   "affects": "the proof",
+   "correction": "The displayed factorial product contributes (1/2)[K:Q]n²log n+O([K:Q]n²). Recheck the mass normalization and all consumers before asserting a total asymptotic. The corrected leading coefficient is 1/2 throughout: log #C_σ = (1/2)[K:Q]n² log n + O_p([K:Q]²n²), (55) becomes (1/2)Σ[K_i:Q]n_i² log n_i + O_p(g²), and Lemma 5.11 (56) becomes exp((1/2)g² log g + O_p(g²)). Example 4.12's \"≈ exp(g² log g)\" becomes exp((1/4)g² log g + O(g²)) (unimodular Z-lattices). Theorems 0.2 and 0.3 survive with rescaled thresholds (Proposition 5.10: 0.495g² log g). [cc-442dc5]",
+   "reason": "Σ_(d=1)^n log((d−1)!)=(1/2)n²log n+O(n²). For fixed K, a missing half of n²log n is not absorbed by O(n²[K:Q]²). No corrected full mass theorem is asserted without Gan–Yu and the remaining factors. Lemma 5.11 and Example 4.12 state the wrong leading term, so a stated result is affected. For E^g the principal polarizations are the classes of unimodular hermitian O_K-lattices of rank g, whose mass has logarithm (1/2)g² log g + O(g²) (the unitary group has dimension g²); Aut groups are exp(O(g log g)) by Lemma 5.8. [cc-442dc5]",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51498,15 +51537,18 @@
    "kind": "gap",
    "locator": "v1 p.33, Corollary 5.13 proof applying Conjecture 5.2; final 2018 text not obtained",
    "printed": "Conjecture 5.2 and Proposition 5.10 imply the bound for bad A",
-   "correction": "Handle the real-Weil/quaternionic factor separately, or restrict the conditional conclusion to the conjecture's CM-matrix scope.",
-   "reason": "Conjecture 5.2 assumes products of matrix algebras over CM fields; Q(√p) real Frobenius factors with quaternionic endomorphisms were already separated in §3.2.2. No covering estimate for this omitted family is supplied by that conjecture.",
-   "affects": "the proof",
+   "correction": "Assume in addition the analogue of Conjecture 5.2 for isogeny classes with factors B0 (Frobenius ±√p, End⁰ the definite quaternion algebra over Q(√p)), and conclude that a large factor E^h or B0^(h/2), h ≥ 0.99g, occurs with probability tending to 1. The printed conclusion (an elliptic factor) is not established.",
+   "reason": "Conjecture 5.2 assumes products of matrix algebras over CM fields; Q(√p) real Frobenius factors with quaternionic endomorphisms were already separated in §3.2.2. No covering estimate for this omitted family is supplied by that conjecture. The omitted family is not negligible. Principal polarizations on B0^n correspond to classes of unimodular quaternion-hermitian lattices of rank n over O_D; their mass is ∏_(i≤n)|ζ_(Q(√p))(1−2i)| up to exp(O(n²)) factors, with logarithm 2n² log n + O(n²) = (1/2)(2n)² log n. That is the same leading term per dimension as E^g (E13), so Proposition 5.10's dichotomy must allow B0^(h/2), and Corollary 5.13 cannot conclude an elliptic factor. Corollaries 5.14 and 5.20 (odd p) survive with the B0 alternative, because B0^(h/2) has the roots ±√p with multiplicity h and #B0(F_p) = (p−1)². [cc-442dc5]",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51528,7 +51570,10 @@
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51550,7 +51595,10 @@
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51562,17 +51610,20 @@
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E17",
    "kind": "error",
-   "locator": "v1 p.36, Lemma 5.19; final 2018 text not obtained",
+   "locator": "v1 p.36, Lemma 5.19 and its proof; Corollary 5.20 at p = 2",
    "printed": "E(F_p) and E(F_(p²)) are not both p-groups",
-   "correction": "Retain the checked p≥7 repair; the all-prime assertion is false.",
-   "reason": "Over F₂, y²+xy=x³+x²+1 is smooth and has 2 points over F₂ and 8 over F₄. Both groups are 2-groups. PR #1652 enumerated them; the continuation retains its finite check and the source argument's small-prime failure.",
+   "correction": "The lemma holds exactly for odd p. For odd p: if p^i = p+1−a and p^j = p+1+a then p^i+p^j = 2p+2, which forces i = 0 or j = 0 modulo p and then p^(j) = 2p+1, impossible. For p = 2 the curves with a = ±1 are counterexamples. The printed proof (\"a = 1 and b = 1\") is wrong for every p, since #E(F_(p²)) = p²+1−(a²−2p). Corollary 5.20 must exclude p = 2.",
+   "reason": "Over F₂, y²+xy=x³+x²+1 is smooth and has 2 points over F₂ and 8 over F₄. Both groups are 2-groups. PR #1652 enumerated them; the continuation retains its finite check and the source argument's small-prime failure. p = 2 satisfies the hypothesis of Lemma 5.11 (2 splits in Q(√−7)), so Corollary 5.20 as stated covers p = 2, where its proof fails; there #B0(F_2) = #B0(F_4) = 1 as well. [cc-442dc5]",
    "affects": "a stated result",
    "known": "new",
    "searched": [
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
     "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
-    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+    "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51594,7 +51645,10 @@
     "2026-09-23: inspected the published p.67 image at https://www.jmilne.org/math/articles/1968a.pdf.",
     "2026-09-23: read the author notes/errata at https://www.jmilne.org/math/articles/1968a.html; their listed corrections concern pp.78-79 and p.81, not this point notation.",
     "2026-09-23: title searches with errata and with 67/Newton did not locate an additional correction. This is a limited search, not an exhaustive novelty claim.",
-    "2026-09-23 Codex codex-7e92bd: freshly inspected the same p.67 image after downloading the author PDF, checked the author erratum page, and repeated title/errata/Newton searches; no correction to this notation located."
+    "2026-09-23 Codex codex-7e92bd: freshly inspected the same p.67 image after downloading the author PDF, checked the author erratum page, and repeated title/errata/Newton searches; no correction to this notation located.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
@@ -51615,7 +51669,73 @@
    "searched": [
     "2026-09-23: inspected the complete v1 and the rendered p.21; arXiv submission history lists only v1 at https://arxiv.org/abs/1511.02212.",
     "2026-09-23: checked both author publication pages https://www.math.toronto.edu/jacobt/ and https://sites.google.com/site/michaellipnowski/; both point to the arXiv version and no correction was located there.",
-    "2026-09-23: searched Lipnowski Tsimerman erratum large and the title with centralizer/division algebra; no applicable correction located. The DOI resolved to a publisher security page, so this limited search does not establish novelty or an error in the final 2018 article."
+    "2026-09-23: searched Lipnowski Tsimerman erratum large and the title with centralizer/division algebra; no applicable correction located. The DOI resolved to a publisher security page, so this limited search does not establish novelty or an error in the final 2018 article.",
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
+   ],
+   "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+   "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
+   "citation": "Lipnowski–Tsimerman, \"How large is A_g(F_q)?\", Duke Mathematical Journal (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E19",
+   "kind": "error",
+   "locator": "v1 p.11, (14), and p.14, (20); published Corollary 3.18 and (25) in the proof of Corollary 3.22 (numbering from Lee 2022)",
+   "printed": "≤ (∏_(λ≠μ)|λ−μ|_∞)^4 ≤ (2p^(1/2))^(4·C(2g,2)) in (14), and #G(Ẑ)/Stab(L) ≤ (2p^(1/2))^(4·C(2g,2)) in (20)",
+   "correction": "(2p^(1/2))^(8·C(2g,2)) in both places.",
+   "reason": "The exponent in §3.1.6 sums val_ℓ(λ−μ) over ordered pairs of unequal roots (δ_i = val_ℓ disc(R_i) is an ordered-pair sum), and there are 2g(2g−1) = 2·C(2g,2) ordered pairs, each with |λ−μ| ≤ 2√p. (19) gives (20) the same way.",
+   "affects": "the proof",
+   "known": "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), §3.1(1)(c) and (2).",
+   "searched": [
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
+   ],
+   "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+   "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
+   "citation": "Lipnowski–Tsimerman, \"How large is A_g(F_q)?\", Duke Mathematical Journal (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E20",
+   "kind": "error",
+   "locator": "v1 p.15, (27); published (32) (numbering from Lee 2022)",
+   "printed": "#∏Cl(O_K) ≤ (2√p)^(g²/2)·(g/2)^g·(log 2√p)^g·500^g e^g = (2√p)^((g²/2)(1+o(1)))",
+   "correction": "(2√p)^(2g²(1+o(1))) with the corrected (26) (E6); even with (26) as printed the exponent is g²(1+o(1)).",
+   "reason": "The fields K are the Frobenius fields of the simple factors, of degrees d_i with Σd_i ≤ 2g, so Σ(1/2)C(d_i,2) can be as large as (1/2)C(2g,2) ≈ g², not g²/2; with |D_K| ≤ (2√p)^(d(d−1)) the square root contributes (2√p)^(C(d,2)) and the total is (2√p)^(C(2g,2)) ≈ (2√p)^(2g²).",
+   "affects": "the proof",
+   "known": "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), §3.1(2), inequality (8).",
+   "searched": [
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
+   ],
+   "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+   "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
+   "citation": "Lipnowski–Tsimerman, \"How large is A_g(F_q)?\", Duke Mathematical Journal (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E21",
+   "kind": "error",
+   "locator": "v1 p.1, Theorem 0.1, and p.16, (28); published Theorem 0.1 and Proposition 3.23",
+   "printed": "B(p,g) = o_ε(p^((17/2+ε)g²)), from #{isomorphism classes in an isogeny class} ≤ p^((33/4)g²(1+o(1))) in (28)",
+   "correction": "B(p,g) ≤ 2^(34g²)·p^((69/4)g²(1+o(1))) by the corrected argument; the sharpest published bound is B(p,g) ≤ p^((45/4)g²(1+o(1))) (Lee, Theorem 1.4). The exponent 17/2 is not established.",
+   "reason": "Combine E19 (a factor 2 in two exponents), E20 (a factor 4 in the class-group exponent) and E7 (powers of 2 with exponent of order g² are not p^(o(g²)) for fixed p): (28) becomes 2^(34g²)p^(17g²(1+o(1))) and B(p,g) gains the factor p^(g²/4) of Corollary 2.2.",
+   "affects": "a stated result",
+   "known": "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), Theorem 1.1 (\"a (corrected) main result of [7]\") and Theorem 1.4.",
+   "searched": [
+    "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
+    "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
    "owner": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "file": "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
