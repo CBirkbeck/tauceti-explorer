@@ -1,3 +1,104 @@
+# PAPER-LIPNOWSKI-TSIMERMAN-18 — p-comparison incorporation
+
+**Codex — codex-7e92bd; 23 September 2026; Refs #1332. Partial.**
+
+The preceding handoff's P1–P5 have now been incorporated into the extraction
+and report D0–D7, with attribution to cgp-20260923-h7q4 and a fresh source
+check. This supersedes its instruction to perform that incorporation.
+The old handoff is retained verbatim below for provenance.
+
+The result has 167 items (22 library, 29 planned, 116 missing), eleven
+routes, the same nineteen withheld LT claims, and nineteen unreviewed
+source findings. All 152 inherited IDs/kinds/statuses/statements, seventeen
+source findings, and route assignments were preserved. Nine new missing
+items are routed exactly once to the existing finite-field Part II. Two
+precise R07.2 planned imports join its source route. A local cyclic-invariant
+import is planned in ClassFieldTheory Layer 5; it has not been implemented.
+
+## What was added
+
+- Independent p-realization degree/characteristic-polynomial comparison,
+  Frobenius semisimplicity, and saturated integral Hom injection.
+- A finite cyclic Frobenius-block construction, its splitting argument,
+  the arithmetic commutant dimension and rational p-Tate comparison.
+  The existing integral p-Tate and prime-field p-Frobenius items now carry
+  their proof/dependency outlines instead of obsolete unread-source notes.
+- The characteristic-prime local invariant, with both opposite-algebra
+  signs and the arithmetic Frobenius normalization explicit.
+- Three pinned-library imports: the simple-module endomorphism dimension
+  formula, tensor-centralizer equivalence and opposite Brauer class.
+  The first replaces a proposed generic Morita/base-change derivation.
+- The handoff's M68 Newton-abscissa finding, freshly checked, and new E18:
+  LT v1 p.21's alternative proof says its centralizer is non-division.
+  E/F_5: y²=x³+1 has P_E=X²+5, whose Q_5-centralizer is a field.
+  This does not disprove Proposition 4.14; use its preceding invariant proof.
+
+## Read and audit boundary
+
+LT v1 all 38 text pages were freshly read, with p.21 additionally rendered.
+WM71 all twelve published page images (pp.53–64) were read. M68 images
+pp.63–67 and p.84 were read; the rest of M68 was not. Actual downloaded
+PDF hashes, URLs and dates are recorded in result JSON/report D0. The
+previous complete reads of other references retain their earlier attribution.
+The final journal article was not obtained: DOI resolution returned publisher
+security HTML. G0 remains open, and E18 is v1-only.
+
+Consolidated A3/A4/A6 and CF5 reviewed audits, relevant full descriptions,
+and upstream JacobianChallenge and SemisimpleAlgebras documents were read.
+R07.2 and SemisimpleAlgebras have no consolidated row at this snapshot.
+Searches covered both pinned trees and the new-roadmap/packet/decomposition
+catalogues. The three new supplier files were read and matched to raw
+GitHub bytes at f790474. This is not a fresh comprehensive re-audit of the
+152 inherited library/planning statuses.
+
+## Where to resume
+
+1. The original arithmetic p-Tate and p-local invariant proof lookup is
+   done: use WM71 Part II pp.60–61, with M68 pp.65–66 for the independent
+   polynomial comparison. Tate's projected second endomorphism paper
+   never appeared (WM71 bibliography); do not search for it again.
+2. Close the exact original R07.2 finite/p-divisible classification,
+   exactness and length/rank proof interiors, and A3/A6 quotient, intrinsic
+   degree and finite-rank Hom inputs. Keep the finite-level rank p^length
+   and contravariant direction; the existing generic carriers are imported.
+3. Audit the generic valuation-separation, fixed-Witt-ring, unramified
+   tensor decomposition and central-simple descent adapters against the
+   pins. Their mathematical use is specified in D1/D3/D5; do not plan a
+   parallel general Ore, semisimple-algebra or Brauer library. The direct
+   module dimension theorem is already in Tau Ceti.
+4. Read the original local cyclic-invariant calculation and the
+   algebraic/cohomological Brauer comparison required by CF5, plus global
+   Brauer classification and Honda CM existence. These are still G8.
+5. Continue the earlier PEL fixed-degree/twist finiteness, polarization,
+   class-set/narrow-norm, Gan–Yu/Jacobowitz, mass/residue, real-Weil and
+   statistical-limit obligations. The all-q Hom result here does not
+   generalize the prime-field linear-dual lattice count.
+6. Acquire and compare the final LT publication before treating any of
+   the eighteen LT v1 findings as findings in the journal version. All
+   nineteen original withheld claims remain withheld; G0–G7 are not closed.
+
+## Validation
+
+`check_paper.py` and `git diff --check` passed. Additional checks passed for
+preservation, unique item IDs, unchanged withheld IDs, one route per new
+missing item, valid stage/dependency/request endpoints and the acyclic
+union of `dependsOn` with the selected edge list. Both new constructions
+have API, uses and at least three discriminating tests. No private paths,
+source PDFs, self-review verdicts or unrelated deliverables are included.
+
+Report D7's executable Python/SymPy 1.14.0 diagnostics passed: 8 split
+cyclic-module commutants, 5,760 invertible semilinear F_9 matrices,
+840 multiplicity tests, 10,260 normalization identities, 40 irreducible
+quadratic resultant tests, 128 twisted-product basis associativity tests,
+and the E18/valuation/semisimplicity/Newton controls. All three inherited
+report scripts were rerun and passed, including their 32,608- and
+47,689-case suites. No Lean file was written or compiled. This is a
+checkpoint for independent review, not a completeness or formalization claim.
+
+---
+
+# Preserved handoff through PR #2204
+
 # PAPER-LIPNOWSKI-TSIMERMAN-18 — characteristic-p source checkpoint
 
 **ChatGPT Pro — cgp-20260923-h7q4; 23 September 2026; Refs #1332. Partial.**

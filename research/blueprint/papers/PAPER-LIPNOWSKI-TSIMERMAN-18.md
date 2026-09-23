@@ -1,3 +1,495 @@
+# Characteristic-p comparison and Frobenius blocks
+
+**Partial checkpoint — Codex, codex-7e92bd, 23 September 2026; Refs #1332.**
+
+This incorporates the mathematical work in [PR #2204](https://github.com/CBirkbeck/tauceti-explorer/pull/2204),
+the handoff by ChatGPT Pro, cgp-20260923-h7q4. Its P1–P4 supplied the
+independent characteristic-polynomial argument, integral saturation, the
+cyclic-block proof and the two opposite-algebra signs; P5 supplied the
+Milne Newton-polygon finding. Those contributions are now represented in
+the extraction and this report, after a fresh source check.
+
+The inventory has **167 items: 22 library, 29 planned, 116 missing**.
+There are still eleven routes. The nine new missing items all belong to the
+existing finite-field Part II. Ninety-seven missing items are routed; the
+same nineteen disputed LT claims are withheld. Two precise R07.2 imports
+join its existing source route; the local cyclic invariant is a planned
+ClassFieldTheory import. All 152 previous item IDs, kinds, statuses and
+statements, their route memberships, and the seventeen earlier source
+findings are preserved. Three inherited proof notes/dependency lists are
+updated. Two unreviewed findings are appended, bringing the total to nineteen.
+
+The original p-Tate and local-invariant proofs have been located and
+decomposed. This does not close their geometric/classification inputs,
+the whole paper's extraction, or its implementation. The earlier report
+is preserved after this supplement; only its specifically identified
+unread-p-source boundaries are superseded.
+
+## D0. Sources, pins and ownership
+
+All downloads and reads below were on 23 September 2026.
+
+| Source | Fresh reading | SHA-256 |
+| --- | --- | --- |
+| [LT arXiv v1](https://arxiv.org/pdf/1511.02212v1) | All 38 pages of extracted text, including references; p.21 also image-checked | `5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a` |
+| [Waterhouse–Milne 1971](https://www.jmilne.org/math/articles/1971a.pdf), pp.53–64 (WM71) | All twelve published page images, including Part II Theorems 1–2 and their proofs | `e482e1c60ccd76a068057b18ac28cec02f2746f87048947d8c2a4c328f6c88a8` |
+| [Milne 1968](https://www.jmilne.org/math/articles/1968a.pdf), pp.63–84 (M68) | Images of pp.63–67 and p.84 only | `8abdaf4fa604d5ed7faee3f9d4e9dc9382dc35d7b79382fe3540f495fe98fc35` |
+
+M68's later extension-group proofs were not read. Prior Conrad, Yun,
+Tate 1966, Waterhouse 1969 and Bourbaki readings retain their earlier
+workers' attribution. WM71 p.64 explicitly says that Tate's projected
+second endomorphism paper does not exist; WM71 Part II is the original
+public proof to use. The DOI for LT again resolved to publisher security
+HTML. Both authors still link arXiv v1; **G0 remains open**, and no
+finding about that preprint is asserted of the final 2018 publication.
+
+The working explorer snapshot is `54dbb5b`. The reviewed A3/A4/A6 and
+ClassFieldTheory Layer 5 coverage rows were read. Consolidated R07.2 and
+SemisimpleAlgebras rows are absent at this snapshot; this is not treated
+as evidence that their whole subject is missing. The actual R07.1/R07.2,
+A3/A4/A6 and ClassFieldTheory Layer 5 descriptions, and the upstream
+JacobianChallenge and SemisimpleAlgebras documents, were read. The
+AUDIT-08 accepted review identifies the available Cartier duality and
+the absent abelian-variety Tate/Dieudonné and general torsion interfaces.
+
+At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, the
+`WittVector.Isocrystal`, Frobenius and equivariant Hom definitions were
+reread. They supply the carrier, not the group-scheme realization.
+The classification at the end of that file is one-dimensional over an
+algebraically closed field, not the required finite-group classification.
+
+The following Tau Ceti statements were read at
+`f790474821cf4256814db967cb154e7af3d0c369`. Each containing file was
+matched byte-for-byte against its raw GitHub URL at that commit.
+
+| Imported statement | Exact scope and use |
+| --- | --- |
+| `TauCeti.IsSimpleRing.finrank_end_mul_finrank_eq_sq`, `RingTheory/Semisimple/EndAlgebra.lean:144` | A finite-dimensional simple K-algebra R and a finite-dimensional compatible module M satisfy dim End_R(M) · dim R = (dim M)². Centrality and nonzero M are not required. This directly supplies D3's module dimension count. |
+| `TauCeti.tensorCentralizerAlgEquiv` and its pure-tensor evaluation, `Algebra/CentralSimple/Centralizer.lean` | Central simple B inside finite-dimensional simple T gives B⊗C_T(B)≅T by multiplication. Used inside T=End_K(V) in D5. |
+| `TauCeti.BrauerGroup.mk_op`, `Algebra/BrauerGroup/Group.lean:207` | The opposite class is the inverse class. In the same file, `mk_tensorProduct`, `mk_matrix`, and `mk_end` give the tensor, matrix and split-endomorphism comparisons used in D5. |
+
+The generic endomorphism-dimension theorem, centralizer theorem and
+Brauer-group laws are therefore imported. This continuation does not
+plan them again. The arithmetic Frobenius-block presentation and its
+application to abelian varieties are the new Part II work. The generic
+descent, unramified-field and valuation adapters still needing exact
+declaration audits are listed as requests, not assigned invented library
+names. The A3 finite-flat quotient, A6 degree/finite-rank Hom and R07.2
+finite/p-divisible classification owners remain unchanged.
+
+## D1. Degree and characteristic polynomial before p-Tate
+
+Let k=F_(p^a), W=W(k), L=Frac(W), and σ be Witt Frobenius. All uses of
+C(A) below are **contravariant**. The two new planned R07.2 items expose
+the exact inputs from WM71 p.56 and M68 p.65: exact finite-level comparison
+with C(A)/p^n=D(A[p^n]), and rank(H)=p^length_W D(H). Rank means finite
+group-scheme rank; it is neither the number of geometric points nor
+|k| raised to this length. The p-divisible comparison gives rank_W C(A)=2g.
+These classification proofs are imported, not consequences of p-Tate.
+
+For an isogeny f:A→B, exactness identifies coker C(f) with the module of
+the p-primary kernel. Its length equals v_p(deg f). For an endomorphism
+isogeny, Smith normal form over W gives the same value as v_p(det C(f)).
+This is `p-realization-degree-valuation`. Between different varieties
+one uses length or the determinant ideal; no canonical scalar determinant
+between two different vector spaces is asserted.
+
+For arbitrary u∈End_k(A), write T=C(u) and F=Bσ. Since T commutes with F,
+T=Bσ(T)B⁻¹. Thus Q=charpoly_L(T) has coefficients fixed by σ and integral,
+hence in Z_p. Let P_u be the intrinsic polynomial supplied by A6 and
+realized on V_ℓ(A), ℓ≠p. For an integral polynomial ψ with ψ(u) an
+isogeny, the determinant/degree comparison gives
+
+    v_p Res(Q,ψ) = v_p deg ψ(u) = v_p Res(P_u,ψ).
+
+The last equality uses the A6 degree identity on the prime-to-p
+realization and determinant/resultant algebra. It does not use p-Tate.
+
+Here is the separation argument supplied in the preceding handoff.
+For each monic irreducible factor R of PQ in Q_p[X], integrality of its
+roots gives R∈Z_p[X]. Choose a monic integral R_n congruent to R
+coefficientwise modulo p^(2n), and put ψ_n=R_n+p^n. At each root α of
+R the value has valuation n. At every other root β of PQ it eventually
+has the constant valuation v_p R(β). Therefore, for large n,
+
+    v_p Res(P,ψ_n) = n N_R(P) + c_P,
+
+and similarly for Q. N_R counts roots with multiplicity: a factor of
+degree d repeated e times contributes de, not just e. Equal valuations
+force equal slopes, hence equal irreducible multiplicities and P=Q.
+The test resultants are nonzero for sufficiently large n; the degree
+formula consequently ensures that ψ_n(u) is an isogeny, so these are
+admissible tests in the application.
+
+This proves `p-realization-characteristic-polynomial` relative to the
+named geometric inputs. M68 pp.65–66 provides the comparison; it cites
+Lang VII §1 Lemma 1 for uniqueness. That book lemma was not read here;
+the expanded separation argument is recorded instead. Its precise
+generic valuation, integrality-of-factors and coefficient-density
+adapters still need a pinned declaration audit under the existing local
+fields owner. They are not silently declared formalized.
+
+For Frobenius π_A specifically, centrality in the semisimple Q-algebra
+End⁰_k(A) gives a squarefree minimal polynomial. Transporting it to the
+realization gives semisimplicity of C(π_A)=F^a. This is a separate
+`p-frobenius-semisimplicity` item. F itself is semilinear when a>1.
+Specializing a=1 and taking the ordinary linear dual proves the existing
+`prime-field-p-frobenius` item. Arbitrary endomorphisms of E² can be
+nilpotent; they are not covered by the semisimplicity conclusion.
+
+## D2. Integral injection and saturation before dimension comparison
+
+Set M=Hom_k(A,B) and H=Hom_(W,F,V)(C(B),C(A)). A6 gives finite free M
+over Z. H is finite torsion-free over Z_p because W has finite Z_p-rank.
+It is p-saturated in the W-linear maps: cancel p in both equivariance
+equations. Hence reduction of H embeds in the linear maps modulo p.
+
+A homomorphism f∈M vanishes on C modulo p exactly when it kills the
+**group scheme** A[p]. By the quotient A/A[p]≅A given by [p], this is
+equivalent to f=pg for a unique g. Thus M/pM→H/pH is injective. For
+j:M⊗Z_p→H, iterated reduction proves injectivity. If j(x)=ph, the same
+mod-p injection gives x=px′, and cancellation shows h=j(x′). This proves
+`p-realization-saturated-hom` without assuming a rational rank identity.
+
+The geometric input is A3's quotient universal property and finite-level
+R07.2 faithfulness. Replacing A[p] by its geometric points loses its
+connected part and breaks the argument. End composition reverses;
+the Hom map goes from C(B) to C(A).
+
+## D3. Finite Frobenius blocks and the existing dimension theorem
+
+Factor P_A over Q_p as ∏m_i^e_i, with distinct monic irreducible m_i of
+degrees d_i. Since F^a is semisimple, V=C(A)[1/p] splits into V_i killed
+by m_i(F^a). Write K_i=Q_p[X]/m_i and θ_i=X mod m_i, which is nonzero.
+The characteristic-polynomial comparison gives
+
+    dim_L V_i = d_i e_i,       dim_Ki V_i = a e_i.
+
+The new construction `p-frobenius-block-algebra` avoids a dependency on
+an unexamined general Ore-polynomial classification. It is the finite
+direct sum of a copies of L⊗K_i, with elements ∑b_j U^j and multiplication
+
+    (b U^i)(c U^j) = b σ^i(c) θ_i^floor((i+j)/a) U^((i+j) mod a).
+
+Here σ acts on L and fixes K_i. Associativity follows from σ^a=1 and
+the elementary carry identity for the exponents; the dimension is a².
+The API specifies coefficient inclusion, generator/inverse, component
+extensionality, multiplication, the universal action and scalar extension.
+U acts as F and θ_i as F^a on V_i. The construction explicitly allows
+L⊗K_i to be a product, as happens when K_i contains L.
+
+Over an algebraic closure Ω of K_i, the coefficient algebra is Ω^a.
+Choose its cyclically ordered idempotents as diagonal matrices and U
+as a cyclic shift whose nonzero wrap weight is θ_i. The a² elements
+e_j U^r are nonzero multiples of every matrix unit, so B_i⊗Ω≅M_a(Ω).
+Descent of ideals and centers along a field extension proves central
+simplicity. `p-frobenius-block-split` records this step and the still
+required exact adapter audit under the existing semisimple-algebra owner.
+
+For the commutant dimension, the fresh pinned library check improves the
+handoff's proposed Morita/base-change proof: apply
+`TauCeti.IsSimpleRing.finrank_end_mul_finrank_eq_sq` directly to B_i and V_i.
+It gives
+
+    dim_Ki End_Bi(V_i) · a² = (a e_i)²,
+
+so the dimension is e_i². B_i-linearity is exactly L-linearity plus
+commutation with F. Distinct polynomial blocks have no intertwiners,
+by Bézout applied to their coprime annihilators. Thus
+
+    dim_Qp End_(L,F)(V) = Σ_i d_i e_i².
+
+This is `p-frobenius-centralizer-dimension`. It includes V=0 by the empty
+sum. Commuting only with F^a does not suffice: over the finite F_9 model
+with F=σ on two coordinates there are 9⁴ linear maps but only 3⁴ maps
+commuting with F.
+
+## D4. Rational comparison and the integral upgrade
+
+Prime-to-p Tate gives the same dimension for End⁰_k(A). One computes
+after a splitting field: each root of P_A contributes its multiplicity
+squared, and factoring a separable polynomial over any characteristic-zero
+completion preserves that sum. This is a generic semisimple-polynomial
+adapter, not a p-Tate hypothesis hidden in the argument.
+
+D2 gives the rational injection; D3 and the prime-to-p comparison give
+equal dimensions. This yields the End anti-isomorphism. Apply it to A×B
+and take the off-diagonal projector corners to obtain
+`rational-p-tate-hom`, with its direction C(B)→C(A). Rational equivariant
+maps admit a common p-power denominator, identifying the rationalized
+integral target with the isocrystal Hom space. Finally the integral map
+has saturated image, equal rank and finite cokernel; a finite torsion
+Z_p-module with no p-torsion is zero. This proves the existing integral
+`p-tate-hom` relative to its displayed suppliers.
+
+The dependency order is therefore
+
+    R07.2 + A3 → saturated injection
+    R07.2 + A3 + A6 → degree/polynomial comparison → Frobenius semisimplicity
+    block construction + pinned dimension theorem → p-commutant dimension
+    these + prime-to-p Tate → rational p-Tate → integral p-Tate.
+
+In particular the polynomial comparison never depends on p-Tate. The
+all-q Hom comparison is now explained; the earlier prime-field linear-dual
+lattice convention and numerical counting bounds are not generalized by it.
+
+## D5. Local invariant and two sign changes
+
+For simple A and a place v|p of Q(π), let K=Q(π)_v, with residue degree
+f_v and ramification index e_v. Put g=gcd(f_v,a), n=a/g. The coefficient
+tensor product L⊗K consists of g copies of LK, an unramified degree-n
+extension of K. WM71 p.61 explicitly identifies the Frobenius block with
+M_g(D), where D has generator U with Uc=σ^g(c)U and U^n=π.
+
+Arithmetic Frobenius of LK/K restricts to σ^(f_v) on L. Hence, if
+τ=σ^g, arithmetic Frobenius is τ^(f_v/g). The imported local cyclic
+invariant gives
+
+    inv(D) = (f_v/g) ord_v(π)/(a/g)
+           = f_v ord_v(π)/a
+           = [K:Q_p] ord_v(π)/ord_v(p^a)  in Q/Z.
+
+The module commutant has the opposite Brauer class: the tensor-centralizer
+equivalence inside End_K(V_v), together with its trivial Brauer class,
+gives [B_v][End_Bv(V_v)]=1. Rational p-Tate identifies E_v^op with that
+commutant. Its second opposite cancels the first. This is the new
+`p-endomorphism-local-invariant` item. The existing prime-field
+commutativity item consumes it. At a=1 the finite p-invariants vanish,
+while the real-place exception remains essential.
+
+The local unramified cyclic-invariant formula and algebraic/cohomological
+Brauer comparison are imported from ClassFieldTheory Layer 5, which has
+an absent invariant in the reviewed audit. WM71 invokes the cocycle
+calculation without supplying its complete proof. That input and global
+Brauer classification remain G8. Neither the generic Brauer group nor
+the tensor-centralizer theorem is missing at the pinned baseline.
+
+## D6. Two source findings, with their distinct provenance
+
+`E-MILNE68-NEWTON-ABSCISSA` is the handoff's proposed misprint in M68 p.67.
+The page prints `(c_i, ord_p(c_i))` for a polynomial's Newton polygon;
+the abscissa must be i. For 1+F the printed points collapse to one point,
+whereas the correct endpoints have abscissae zero and one. The following
+formula on the same page uses the exponent i, confirming the intended
+meaning. This does not affect the degree comparison on pp.65–66. The
+[author's erratum page](https://www.jmilne.org/math/articles/1968a.html)
+lists different corrections on pp.78–81, not this notation.
+
+`E18` is a separate finding from this continuation. LT v1 p.21 concludes
+its alternative argument in Proposition 4.14(1) by calling the Frobenius
+centralizer non-division. The curve E/F_5 given by y²=x³+1 is a concrete
+counterexample to that sentence. It is nonsingular and has affine points
+(0,1), (0,4), (2,2), (2,3), (4,0), plus infinity, so its trace is zero and
+P_E=X²+5. Its Frobenius field Q(√−5) has no real embedding. Since X²+5
+is Eisenstein over Q_5, the commutant on its two-dimensional p-realization
+is Q_5[X]/(X²+5), a field, hence a division algebra. In a companion basis,
+
+    F = [[0,−5],[1,0]],   C(F) = {xI+yF},   det(xI+yF)=x²+5y².
+
+For nonzero x,y the two summands have valuations of opposite parity,
+so the determinant cannot vanish. A field is split over its own center;
+this counterexample does **not** disprove Proposition 4.14. The preceding
+local-invariant argument proves the desired splitting and should be used.
+Neither being a centralizer nor merely being non-division as a Q_p-algebra
+would be enough to prove splitting over its center.
+
+Both findings retain `known: new` only in the protocol's limited-search
+sense. The sources/images, author pages, arXiv history and searches are
+listed in their JSON entries. No independent-review verdict is attached,
+and E18 remains v1-only until the final text can be compared.
+
+## D7. Verification and remaining work
+
+The finite diagnostic code below includes the preceding handoff's exact
+cyclic-module, semilinear, multiplicity and normalization checks, rerun
+here. The new checks add irreducible quadratic valuation tests with a
+nontrivial p^(2n) coefficient approximation, explicit twisted-product
+associativity, and the E18 point-count/commutant calculation. They test
+normalizations and failure cases; they do not establish the general
+geometric or local-class-field theorems.
+
+The repository paper checker, preservation/route/dependency/API checks,
+and `git diff --check` are recorded in the handoff after execution.
+No Lean file was written or compiled. The nineteen previously withheld
+claims remain withheld. G0–G7 retain their stated scopes; G8 now replaces
+the missing original-p-source lookup by the exact remaining classification,
+geometry, local-invariant and generic-adapter proof/audit obligations.
+
+Resume with those geometric suppliers, PEL fixed-degree/twist finiteness,
+Honda CM existence, class-set/narrow-norm issues, the final journal text,
+and the mass/residue/limit-law inputs. None is discharged by this
+characteristic-p comparison alone.
+
+### Exact diagnostics (Python 3 and SymPy 1.14.0)
+
+```python
+"""Exact finite diagnostics for the LT18 p-source continuation, not Lean proofs."""
+from fractions import Fraction
+from itertools import product, combinations_with_replacement
+from math import gcd
+import sympy as s
+
+# A split cyclic algebra is generated by diagonal idempotents and a weighted cycle.
+# Check both the a^2-dimensional span and its r^2-dimensional module commutant.
+cyclic_cases = 0
+for a in range(1, 5):
+    S = s.zeros(a)
+    for j in range(a - 1):
+        S[j + 1, j] = 1
+    S[0, a - 1] = 2
+    assert S ** a == 2 * s.eye(a)
+    E = []
+    for i in range(a):
+        e = s.zeros(a); e[i, i] = 1; E.append(e)
+    basis = [e * S ** j for e in E for j in range(a)]
+    assert s.Matrix.hstack(*(b.reshape(a*a, 1) for b in basis)).rank() == a*a
+    for r in (1, 2):
+        n = a*r
+        gens = [s.kronecker_product(g, s.eye(r)) for g in E + [S]]
+        # Column vectorization: vec(XG-GX)=(G^T tensor I-I tensor G) vec(X).
+        eq = s.Matrix.vstack(*(s.kronecker_product(g.T, s.eye(n))
+                               - s.kronecker_product(s.eye(n), g) for g in gens))
+        assert n*n - eq.rank() == r*r
+        cyclic_cases += 1
+
+# F_9 = F_3[t]/(t^2+1), encoded by x+3*y. Frobenius fixes exactly F_3.
+def add(x, y):
+    return ((x % 3 + y % 3) % 3) + 3*((x // 3 + y // 3) % 3)
+def neg(x):
+    return (-x % 3) + 3*((-(x // 3)) % 3)
+def mul(x, y):
+    a,b = x % 3, x // 3; c,d = y % 3, y // 3
+    return ((a*c-b*d) % 3) + 3*((a*d+b*c) % 3)
+def frob(x):
+    return mul(mul(x, x), x)
+def mm(A, B):
+    return tuple(add(mul(A[2*i], B[j]), mul(A[2*i+1], B[2+j]))
+                 for i in range(2) for j in range(2))
+def det(A):
+    return add(mul(A[0], A[3]), neg(mul(A[1], A[2])))
+assert all(frob(frob(x)) == x for x in range(9))
+assert {x for x in range(9) if frob(x) == x} == {0, 1, 2}
+linear_maps = semilinear_commutants = invertible_cases = 0
+for B in product(range(9), repeat=4):
+    linear_maps += 1
+    semilinear_commutants += all(frob(x) == x for x in B)
+    if det(B) == 0:
+        continue
+    # For F=B sigma, F^2=B sigma(B); its characteristic polynomial is sigma-fixed.
+    P = mm(B, tuple(frob(x) for x in B))
+    tr = add(P[0], P[3]); d = det(P)
+    assert frob(tr) == tr and frob(d) == d
+    invertible_cases += 1
+assert linear_maps == 9**4 and semilinear_commutants == 3**4
+assert invertible_cases == (9**2-1)*(9**2-9)
+
+# Valuation tests recover multiplicity in a split integral-root model.
+def vp(x, p):
+    assert x != 0
+    x = abs(x); n = 0
+    while x % p == 0:
+        x //= p; n += 1
+    return n
+multiplicity_cases = 0
+for p in (2, 3, 5):
+    for rank in range(5):
+        for roots in combinations_with_replacement(range(4), rank):
+            for alpha in range(4):
+                # psi_n(T)=T-alpha+p^n, with n beyond every nonzero separation valuation.
+                values = [sum(vp(beta-alpha+p**n, p) for beta in roots) for n in (5, 6)]
+                assert values[1] - values[0] == roots.count(alpha)
+                multiplicity_cases += 1
+
+# Arithmetic Frobenius versus the chosen cyclic generator, with ramification explicit.
+invariant_cases = 0
+for a in range(1, 13):
+    for f in range(1, 7):
+        g = gcd(a, f)
+        assert gcd(a//g, f//g) == 1
+        for e in range(1, 7):
+            for t in range(a*e + 1):
+                I = Fraction((f//g)*t, a//g)
+                assert I == Fraction(f*t, a) == Fraction(e*f*t, a*e)
+                invariant_cases += 1
+assert Fraction(1, 2) % 1 == Fraction(1, 2)
+assert (-(-Fraction(1, 2))) % 1 == Fraction(1, 2)
+# A value away from order two detects a missing sign reversal.
+assert (-(-Fraction(1, 3))) % 1 == Fraction(1, 3)
+assert (-Fraction(1, 3)) % 1 == Fraction(2, 3)
+# Group-scheme rank uses p^length, not |F_q|^length.
+p, a, length = 3, 2, 3
+assert p**length == 27 and (p**a)**length == 729
+
+print(f'PASS: {cyclic_cases} split cyclic-module commutants; '
+      f'{invertible_cases} F_9 semilinear Frobenius matrices; '
+      f'{multiplicity_cases} valuation-multiplicity tests; '
+      f'{invariant_cases} invariant-normalization identities.')
+print(f'Naive versus semilinear commutant sizes: {linear_maps} versus {semilinear_commutants}.')
+print('Finite diagnostics only; no general theorem or Lean compilation is inferred.')
+
+# Supplement to the handoff's diagnostics; same SymPy and F_9 helpers.
+x = s.symbols('x')
+quadratic_cases = 0
+for prime, constant in ((3, 1), (5, 2)):
+    R = x*x + constant
+    assert all((z*z + constant) % prime for z in range(prime))
+    for exponent in range(5):
+        for extra in range(4):
+            P = R**exponent * (x - 2)**extra
+            valuations = []
+            for n in (2, 3):
+                # A genuine coefficient perturbation of the irreducible factor.
+                psi = R + prime**n + prime**(2*n)*x
+                value = int(s.resultant(P, psi, x))
+                valuations.append(vp(value, prime))
+            assert valuations[1] - valuations[0] == 2*exponent
+            quadratic_cases += 1
+
+# The a=2 cyclic product over F_9/F_3. The F_3 basis includes both L-coordinates.
+twisted_cases = 0
+units = ((1, 0), (3, 0), (0, 1), (0, 3))
+for theta in (1, 2):
+    def crossed(X, Y):
+        b, c = X; d, e = Y
+        return (add(mul(b, d), mul(theta, mul(c, frob(e)))),
+                add(mul(b, e), mul(c, frob(d))))
+    assert crossed((0, 1), (0, 1)) == (theta, 0)
+    for A, B, C in product(units, repeat=3):
+        assert crossed(crossed(A, B), C) == crossed(A, crossed(B, C))
+        twisted_cases += 1
+    for z in range(9):
+        assert crossed((0, 1), (z, 0)) == crossed((frob(z), 0), (0, 1))
+
+# E18: point count and the exact companion-matrix commutant.
+points = [(a, b) for a in range(5) for b in range(5) if (b*b-a*a*a-1) % 5 == 0]
+assert len(points) + 1 == 6
+assert (-16*27) % 5 != 0
+F = s.Matrix([[0, -5], [1, 0]])
+a, b, c, d = s.symbols('a b c d')
+Z = s.Matrix([[a, b], [c, d]])
+assert s.linsolve(list(Z*F-F*Z), (a, b, c, d)) == s.FiniteSet((d, -5*c, c, d))
+z, w = s.symbols('z w')
+assert F.charpoly(x).as_expr() == x*x+5
+assert (z*s.eye(2)+w*F).det() == z*z+5*w*w
+# Eisenstein gives the Q_5 field; parity of valuations supplies the nonzero determinant argument.
+for i in range(-8, 9):
+    for j in range(-8, 9):
+        assert 2*i != 1+2*j
+# E^2 may have a nonsemisimple endomorphism even though Frobenius is semisimple.
+N = s.Matrix([[0, 1], [0, 0]])
+assert N != s.zeros(2) and N*N == s.zeros(2)
+# M68's printed abscissae lose the constant coefficient for 1+F.
+assert {(1, 0), (1, 0)} != {(0, 0), (1, 0)}
+print(f'PASS: {quadratic_cases} irreducible-factor valuation cases; '
+      f'{twisted_cases} twisted basis associativity cases; E18 point count and commutant; '
+      'valuation parity, nonsemisimple endomorphism and Newton-abscissa controls.')
+
+```
+
+---
+
+# Preserved report through PR #2199
+
 # Classification-source continuation: prime-field realizations and adelic levels
 
 **Status: partial; Codex, session codex-a71f92; 23 September 2026.**
