@@ -10188,7 +10188,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #93"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms",
@@ -31011,8 +31012,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1798"
+   "state": "pending",
+   "note": "released on GitHub issue #1798"
   },
   {
    "id": "ERRATA-PAPER-CESNAVICIUS-19",
@@ -31283,8 +31284,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-CESNAVICIUS-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CESNAVICIUS-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1863"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1863",
+   "finishedAt": "2026-09-23T15:04:24Z"
   },
   {
    "id": "ERRATA-PAPER-HE-21",
