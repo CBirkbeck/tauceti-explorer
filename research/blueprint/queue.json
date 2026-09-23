@@ -3706,8 +3706,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BRESCIANI-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1233"
+   "state": "external",
+   "note": "claimed on GitHub issue #1233"
   },
   {
    "id": "REV-PAPER-BRESCIANI-24",
@@ -6243,7 +6243,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAN-SAVIN-23-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1377"
   },
   {
    "id": "REV-PAPER-GAN-SAVIN-23-B",
@@ -7150,8 +7151,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ABE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1430"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1430",
+   "finishedAt": "2026-09-23T00:37:49Z"
   },
   {
    "id": "REV-PAPER-ABE-18",
