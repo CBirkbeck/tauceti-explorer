@@ -2012,8 +2012,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YUN-ZHANG-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1133"
+   "state": "external",
+   "note": "claimed on GitHub issue #1133"
   },
   {
    "id": "REV-PAPER-YUN-ZHANG-19",
@@ -7501,8 +7501,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1444"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1444",
+   "finishedAt": "2026-09-23T07:53:22Z"
   },
   {
    "id": "REV-PAPER-BHATT-ETAL-23",
