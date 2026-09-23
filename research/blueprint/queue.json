@@ -3706,8 +3706,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BRESCIANI-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1233"
+   "state": "pending",
+   "note": "released on GitHub issue #1233"
   },
   {
    "id": "REV-PAPER-BRESCIANI-24",
@@ -7041,7 +7041,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1424"
   },
   {
    "id": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
