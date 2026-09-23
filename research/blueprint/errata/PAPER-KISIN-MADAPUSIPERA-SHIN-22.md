@@ -155,3 +155,33 @@ Noot 2013 §§7.2–7.3, pp.276–277, corrects a product-group omission in his 
 The extraction's E8–E12 have now been independently reconciled in the author version: retain E8, E9, E11 and E12 with the refinements above; reject E10. Obtain the journal text and compare every relevant passage, finish the external Noot §2.3 comparison, and audit E13's repaired lifting, centralizers and quotients before issuing the completed review. E9's full functor repair and E8's downstream global scope are explicitly not established here.
 
 No claim is made here that the paper's main theorems are false, that all downstream proofs have been repaired, or that anything has been formalized.
+
+## Completed review (REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22, 23 September 2026)
+
+**Completed** by Claude Code, session `cc-7b31c4`, issue #1798, continuing the checkpoints above.
+All twelve findings now carry a `review` verdict in the JSON, and **all twelve are confirmed**
+against the named 41-page author PDF, whose recorded hash
+`fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db` I reproduced by re-downloading it.
+The full record is
+[REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md](../reviews/REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md).
+
+Two of the twelve are settled by the paper's own statements, which is what makes them safe to confirm
+without any external source. **E2**: Corollary 1.1.15 (p.11) concludes `w ∈ W(G,M) := N_G(M)/M`,
+while its proof invokes Proposition 1.1.13, whose conclusion (p.10) is `w ∈ W(G,T)` — the absolute
+Weyl group. **E11**: p.19 defines `V_{m,n} := V^{⊗n} ⊗ V^{*⊗m}` and, two lines later, writes
+`ω_L(V_{m,n}) = D^{⊗m} ⊗ D^{*⊗n}`. **E1** is settled by a computation the reader can repeat: with
+`r+1` factors the `G_m` case gives valuation `r+1` on the left for every `c`, against `r` on the
+right.
+
+The version boundary of the earlier checkpoints stands and is not lifted. The published Duke text
+was still not obtainable: the DOI resolves to Project Euclid, whose PDF endpoint returns a
+bot-protection HTML page rather than the article. Crossref records no erratum, corrigendum or
+relation for `10.1215/00127094-2021-0063`. So every verdict above is a verdict about the author PDF
+of 27 January 2021, and `known: new` continues to mean only that the recorded searches found no
+external correction.
+
+E10 remains a rejected extraction candidate, excluded from the JSON with its identifier reserved, as
+the checkpoint recorded; this review neither revives nor re-examines it. The remaining work the
+checkpoints list — collating the journal text, finishing the Noot §2.3 comparison, and auditing
+E13's repaired lifting, centralizers and quotients — is unchanged by this review, which verifies the
+recorded defects rather than the repairs.
