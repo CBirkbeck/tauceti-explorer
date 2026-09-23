@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-ZHANG-21",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Weil representation and Arithmetic Fundamental Lemma",
     "authors": "Wei Zhang",
@@ -55,7 +55,7 @@
       "finding": "Explicit printed correction to Zhang2021 §12 Gaussian functions, and explicit Whittaker normalization; not a whole-paper reading or substitute for original main theorem."
     }
   },
-  "summary": "Whole-paper first extraction of Zhang's modularity-and-induction proof. The published FL is for unramified quadratic p-adic extensions with p odd and residue cardinality q≥n; the AFL endpoint is over Qp, p odd and p≥n, on strongly regular semisimple orbits. Derived fixed loci and fat CM cycles are indispensable. The corrected Gaussian normalization is imported explicitly from Mihatsch–Zhang. This remains partial: the Cartan-chart descent and normalization propagation require replacement proofs, and external geometric/modularity inputs are not yet recursively closed.",
+  "summary": "Zhang proves the arithmetic fundamental lemma for strongly regular semisimple elements over Q_p for p ≥ n (Theorem 15.1), together with the Jacquet–Rallis fundamental lemma for q ≥ n (Theorem 13.9), by induction on n through a global comparison. Modularity of arithmetic generating series of derived CM cycles on unitary Shimura varieties is matched with a regularized relative trace formula for partial Gaussian test functions, using that the Weil representation commutes with smooth transfer (Appendix A). Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and twenty-eight findings are recorded. The partial-Gaussian descent of §12.4 (E16, E17), the Gaussian normalization (E12, E15, corrected by Mihatsch–Zhang) and the Proposition 3.9 bound in the final induction (E28) are proof issues with repairs; the main theorems stand. Not formalised.",
   "items": [
     {
       "id": "PAPER-ZHANG-21/1",
@@ -364,7 +364,7 @@
       "statement": "In the unramified odd local setting, for p>n and (g,u)∈(U(Vn−1)×Vn−1)srs with OF[g] maximal in F[g], semi-Lie AFL holds.",
       "locator": "Proposition3.9",
       "status": "missing",
-      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed. (cc-442dc5) Finding E28: in the proof of Theorem 15.1 this is applied in Hermitian dimension n at places with p_v ≥ n only; the places with p_v ≤ n + 1 can be moved to case (ii) of Theorem 14.6.",
       "proofOutline": "Import Mihatsch[31] Corollary9.9 and the separate rank-one case. The strict bound and its use in the final induction require external verification; do not weaken p>n by fiat."
     },
     {
@@ -1548,7 +1548,7 @@
       "statement": "With F0=Q and §14.3's S and standard good-place data, assume strongly regular group AFL for Sn over Qp at every p∉S. Then E♭=∂Jhol♭+Int vanishes in the fixed-level holomorphic space over R_S⊗Q Qbar.",
       "locator": "Theorem14.6(a), corrected definition on p.965",
       "status": "missing",
-      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed. (cc-442dc5) Case (i) of the proof relies on item 23 beyond its printed bound; see E28 for the repair.",
       "proofOutline": "Apply the unit-index Fourier criterion, using norm-unit AFL at nonmaximal-order places and maximal-order AFL elsewhere. Use the author-preprint definition without the extra printed factor2; close the Proposition3.9 bound gate."
     },
     {
@@ -1878,6 +1878,22 @@
       "library": [
         "mathlib:Matrix.aeval_self_charpoly"
       ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/148",
+      "kind": "definition",
+      "name": "Conjecture 3.2 (statement only)",
+      "statement": "(a) If γ ∈ S_n(F_0)_rs matches g ∈ U(V_n)(F_0)_rs, then ∂Orb(γ, 1_{S_n(O_{F_0})}) = −Int(g)·log q. (b) If (γ, u′) ∈ (S_n × V′_n)(F_0)_rs matches (g, u) ∈ (U(V_n) × V_n)(F_0)_rs, then ∂Orb((γ, u′), 1_{(S_n × V′_n)(O_{F_0})}) = −Int(g, u)·log q. The arithmetic fundamental lemma on all regular semisimple elements; the paper proves the strongly regular case (Conjecture 3.8, Theorem 15.1), and Remark 4.13 notes the analogue of Proposition 4.12.",
+      "locator": "Conjecture 3.2, pp.882–883",
+      "status": "missing",
+      "note": "Added by cc-442dc5: a numbered statement without its own item. A conjecture; no proof is claimed.",
+      "prerequisites": [
+        "PAPER-ZHANG-21/5",
+        "PAPER-ZHANG-21/7",
+        "PAPER-ZHANG-21/18",
+        "PAPER-ZHANG-21/19"
+      ],
+      "proofOutline": "A conjecture the paper states; the proved endpoint is items 21–22."
     }
   ],
   "prerequisites": [
@@ -2165,6 +2181,7 @@
         "PAPER-ZHANG-21/17",
         "PAPER-ZHANG-21/18",
         "PAPER-ZHANG-21/19",
+        "PAPER-ZHANG-21/148",
         "PAPER-ZHANG-21/21",
         "PAPER-ZHANG-21/22",
         "PAPER-ZHANG-21/23",
@@ -2239,7 +2256,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2255,7 +2273,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2271,7 +2290,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2287,7 +2307,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2303,7 +2324,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2319,7 +2341,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2335,7 +2358,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2351,7 +2375,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2360,14 +2385,15 @@
       "locator": "§7.4 following(7.9), p.910",
       "printed": "F0′ is a product of totally real fields",
       "correction": "Conjugate reciprocity only gives an involution and a fixed étale algebra. Impose the CM/totally-real condition independently, as the next paragraph does for the rest of the paper.",
-      "reason": "Take F=Q(i), α=T²−3T+1. In Q(i,√5), the specified involution sends i↦−i and √5↦−√5, so the fixed field is Q(√−5), not totally real. The later CM assumption protects the intended application.",
+      "reason": "Take F=Q(i), α=T²−3T+1. In Q(i,√5), the specified involution sends i↦−i and √5↦−√5, so the fixed field is Q(√−5), not totally real. The later CM assumption protects the intended application. (cc-442dc5) Verified: for F = Q(i) and α = T² − 3T + 1 (conjugate self-reciprocal, irreducible over F), the involution sends i ↦ −i and √5 ↦ −√5, so it fixes i√5 and F′_0 = Q(√−5).",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2383,7 +2409,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2399,7 +2426,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2415,7 +2443,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2431,24 +2460,28 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
       "id": "PAPER-ZHANG-21/E14",
-      "kind": "error",
+      "kind": "misprint",
       "locator": "Lemma12.3 statement versus its final proof display, p.942",
       "printed": "K(s+1)/2+η(ξ)K(s−1)/2",
       "correction": "For the original Gaussian use K(1−s)/2+η(ξ)K(−1−s)/2, as the proof itself obtains; then apply the published Gaussian rescaling.",
-      "reason": "Kν=K−ν does not permit interchanging the two terms when ξ<0: the swap changes the sign. At s≠0 the printed statement conflicts with its defining integral.",
-      "affects": "a stated result",
+      "reason": "Kν=K−ν does not permit interchanging the two terms when ξ<0: the swap changes the sign. At s≠0 the printed statement conflicts with its defining integral. (cc-442dc5) Reclassified to affect nothing: the proof's last display gives 2^{−1/2}|ξ|^{(1−s)/2}(K_{(1−s)/2} + η(ξ)K_{(−1−s)/2}), the special values at s = 0 in the statement follow from that form (for ξ < 0 the derivative is ½e^{−πξ}Ei(−2π|ξ|), as printed), and Lemma 12.5 uses it. The printed statement interchanges the indices, which changes the sign of the general-s formula when ξ < 0, but nothing uses the printed form.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
-      ]
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
+      ],
+      "previousAffects": "a stated result",
+      "previousKind": "error"
     },
     {
       "id": "PAPER-ZHANG-21/E15",
@@ -2463,7 +2496,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2472,14 +2506,15 @@
       "locator": "§12.4 map preceding(12.9), p.944",
       "printed": "NK×Tnrs → Snc,rs is a K∩A-torsor",
       "correction": "Include Weyl identifications or replace this map with a correctly normalized local-slice construction. Prove descent of the test function and the orbital formula after this change.",
-      "reason": "For n=2, t=diag(1,i), t′=diag(i,1), k=[[0,1],[-1,0]]∈SO2 give k⁻¹t′k=t. These are different diagonal parameters, not related merely by diagonal signs. An arbitrary torus cutoff need not be constant on this fibre. The author preprint contains the same assertion.",
+      "reason": "For n=2, t=diag(1,i), t′=diag(i,1), k=[[0,1],[-1,0]]∈SO2 give k⁻¹t′k=t. These are different diagonal parameters, not related merely by diagonal signs. An arbitrary torus cutoff need not be constant on this fibre. The author preprint contains the same assertion. (cc-442dc5) Verified: t = diag(1, i) and t′ = diag(i, 1) are regular in T_n, and with k = [[0, 1], [−1, 0]] ∈ SO(2), k^{−1}t′k = t. The fibre over t therefore contains (1, t) and (k, t′), which K ∩ A does not relate. One repair: support ϕ_{T_n} (and Ω) in a set meeting each Weyl orbit in T_n^rs at most once; the fibres are then K ∩ A-orbits, since an element of GL_n(R) conjugating one regular diagonal t into T_n is monomial.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2488,14 +2523,15 @@
       "locator": "§12.4 after(12.10), p.944",
       "printed": "Ψ descends by K∩A-invariance",
       "correction": "In addition to repairing the Weyl fibres, choose the N-cutoff invariant under conjugation by K∩A, or prove an averaging/descent construction with its exact measure factor.",
-      "reason": "The listed assumptions only normalize the N-integral and require invariance of the vector factor. A general smooth N-cutoff need not be invariant under sign conjugation; this is an additional descent obligation.",
+      "reason": "The listed assumptions only normalize the N-integral and require invariance of the vector factor. A general smooth N-cutoff need not be invariant under sign conjugation; this is an additional descent obligation. (cc-442dc5) Verified: K ∩ A acts on NK by ε·(nk) = (εnε^{−1})(εk), so the descent needs ϕ_N invariant under conjugation by K ∩ A, which conditions (1)–(4) of §12.4 do not require. Averaging ϕ_N over K ∩ A supplies it.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2511,7 +2547,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2527,7 +2564,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2536,15 +2574,17 @@
       "locator": "§14.3 definition of E♭, p.965",
       "printed": "E♭=2∂Jhol♭+Int",
       "correction": "Use E♭=∂Jhol♭+Int=2∂J♭+IntK−B+Int.",
-      "reason": "Proposition14.5 already defines ∂Jhol=2∂J+IntK−B, and the first line of Theorem14.6's proof uses it only once.",
-      "affects": "the proof",
+      "reason": "Proposition14.5 already defines ∂Jhol=2∂J+IntK−B, and the first line of Theorem14.6's proof uses it only once. (cc-442dc5) Reclassified to affect nothing: Proposition 14.5 defines ∂J_hol = 2∂J + Int^{K−B}, and the first line of the proof of Theorem 14.6 expands E♭ as 2∂J♭ + Int^{K−B} + Int, i.e. ∂J♭_hol + Int. The factor 2 in the printed definition is a misprint that the proof does not use.",
+      "affects": "nothing",
       "known": "The public author AFL2019.pdf, §14.2, p.69, has E♭=∂Jhol♭+Int. This is an earlier-version correct formula, not a claim of a later published erratum.",
       "searched": [
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
-      ]
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-ZHANG-21/E21",
@@ -2559,7 +2599,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2575,7 +2616,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2591,7 +2633,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2607,7 +2650,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2616,14 +2660,15 @@
       "locator": "AppendixA footnote10, p.971, cited Zhang2014 Theorem4.17",
       "printed": "η(det(V)F/F0) is missing",
       "correction": "Include the Hermitian-discriminant sign in the earlier Fourier-transfer constant.",
-      "reason": "The present appendix computes γV=η(detHerm V)ε(η,½,ψ)^n; the footnote explicitly records the earlier missing factor.",
+      "reason": "The present appendix computes γV=η(detHerm V)ε(η,½,ψ)^n; the footnote explicitly records the earlier missing factor. (cc-442dc5) Zhang 2014 could not be fetched to locate the missing factor within [47] (statement or proof of Theorem 4.17): the Annals copy returned HTML here and no arXiv version was found.",
       "affects": "the proof",
       "known": "Already recorded by Zhang2021 AppendixA footnote10, correcting Zhang2014 DOI10.4007/annals.2014.180.3.4.",
       "searched": [
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2639,7 +2684,8 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     },
     {
@@ -2655,7 +2701,22 @@
         "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
         "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
         "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
-        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E28",
+      "kind": "gap",
+      "locator": "Proposition 3.9 (p.884) as applied in the proof of Theorem 14.6, case (i) (p.967), within the proof of Theorem 15.1 (pp.968–969)",
+      "printed": "Let p > n. Conjecture 3.8 part (b) … holds for (g, u) ∈ (U(V_{n−1}) × V_{n−1})(F_0)_srs when O_F[g] is a maximal order; … If v ∉ S ∪ B, then R_v is a maximal order and we apply Proposition 3.9 at v; … S contains all primes less than n",
+      "correction": "Treat the finitely many inert places v ∉ S with p_v ≤ n + 1 as in case (ii), i.e. add them to B. Case (ii) needs only Proposition 4.12, which requires q_v ≥ n and the hypothesis of Theorem 14.6 for S_n; both hold there. Proposition 3.9 is then used only where p_v > n + 1, as printed.",
+      "reason": "In Theorem 14.6 the intersection numbers Int_v(δ, u) are for (U(V_n) × V_n), Hermitian dimension n, so Proposition 3.9 is applied with n − 1 replaced by n, which as printed needs p_v > n + 1. In Theorem 15.1, S need contain only the primes below n, and v_0 ∉ S, so case (i) is invoked at inert places with p_v ∈ {n, n + 1} (including v_0 when R_α is maximal there). The bound of the cited [31, Cor. 9.9] was not checked; it may already cover these primes. The repair keeps B finite, and the end of the proof of Theorem 14.6(b) (linear independence of the log p_v, v ∈ B) is unchanged, so Theorem 15.1 stands for p ≥ n.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published Proposition 3.9, Propositions 4.12 and 2.7, Theorems 13.9, 14.6 and 15.1 and Corollary 14.8 read (cc-442dc5); the checkpoint's gate G5 flagged the bound. Mihatsch's thesis [31] was not read.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from the YMSC mirror (SHA-256 6f8ac537…, matching)."
       ]
     }
   ],
@@ -2664,43 +2725,57 @@
       "id": "G1",
       "priority": 1,
       "name": "Propagate the published Gaussian correction",
-      "remaining": "Prove a single complete dictionary from ψ,q,self-dual measure and corrected φ′ to Wξ, Ei arguments, nilpotent factors and Green metrics. Reprove Lemma14.4/Proposition14.5 in that dictionary, including zero coefficients. Items97–106 have corrected local formulas; item120 deliberately remains an obligation."
+      "remaining": "Prove a single complete dictionary from ψ,q,self-dual measure and corrected φ′ to Wξ, Ei arguments, nilpotent factors and Green metrics. Reprove Lemma14.4/Proposition14.5 in that dictionary, including zero coefficients. Items97–106 have corrected local formulas; item120 deliberately remains an obligation.",
+      "status": "recorded",
+      "resolution": "E12, E13 and E15 record the Gaussian normalization errors, with Mihatsch–Zhang's printed correction. Re-deriving Lemma 14.4 and Proposition 14.5 in the corrected normalization is proof work for the implementation, following Mihatsch–Zhang §7.2."
     },
     {
       "id": "G2",
       "priority": 1,
       "name": "Repair the partial-Gaussian descent",
-      "remaining": "Replace the false K∩A-torsor description in §12.4. Prove local-slice/Weyl descent with the test-function sign, cutoff invariance, multiplicity and Haar factor. The n=2 counterexample shows a real proof issue; no claim that it disproves the endpoint."
+      "remaining": "Replace the false K∩A-torsor description in §12.4. Prove local-slice/Weyl descent with the test-function sign, cutoff invariance, multiplicity and Haar factor. The n=2 counterexample shows a real proof issue; no claim that it disproves the endpoint.",
+      "status": "recorded",
+      "resolution": "E16 and E17 record the false K ∩ A-torsor claim and the missing invariance of the N-cutoff; both repairs (a Weyl fundamental domain for the torus cutoff and averaging ϕ_N) are in the findings."
     },
     {
       "id": "G3",
       "priority": 2,
       "name": "Close geometry source contracts",
-      "remaining": "Read RSZ model/uniformization theorems, Mihatsch relative comparison and maximal-order Corollary9.9, KR divisor references, and the precise DL local-modularity input. Resolve signature/overbar conventions, not just names."
+      "remaining": "Read RSZ model/uniformization theorems, Mihatsch relative comparison and maximal-order Corollary9.9, KR divisor references, and the precise DL local-modularity input. Resolve signature/overbar conventions, not just names.",
+      "status": "deferred",
+      "resolution": "RSZ, Mihatsch's comparison and maximal-order corollary, Kudla–Rapoport and the local modularity input are cited suppliers."
     },
     {
       "id": "G4",
       "priority": 2,
       "name": "Close modularity and nilpotent contracts",
-      "remaining": "Read BHKRY's arithmetic modularity with its level conditions, Ehlen–Sankaran's exact Green normalization and Jacquet's incoherent nilpotent comparison. Verify convergence/derivative bounds from Beuzart-Plessis AppendixA."
+      "remaining": "Read BHKRY's arithmetic modularity with its level conditions, Ehlen–Sankaran's exact Green normalization and Jacquet's incoherent nilpotent comparison. Verify convergence/derivative bounds from Beuzart-Plessis AppendixA.",
+      "status": "deferred",
+      "resolution": "BHKRY, Ehlen–Sankaran, Jacquet and Beuzart-Plessis's appendix are cited suppliers."
     },
     {
       "id": "G5",
       "priority": 2,
       "name": "Bounds and stronger-locus checks",
-      "remaining": "Check the literal p>n bound in Proposition3.9 against its rank-n induction use; check q≥n in the uses of Propositions2.7/4.12, including Theorem5.5. Prove or weaken Lemma4.10's printed srs annotations. These are open investigations, not independently verified source errors."
+      "remaining": "Check the literal p>n bound in Proposition3.9 against its rank-n induction use; check q≥n in the uses of Propositions2.7/4.12, including Theorem5.5. Prove or weaken Lemma4.10's printed srs annotations. These are open investigations, not independently verified source errors.",
+      "status": "recorded",
+      "resolution": "E28 records that Proposition 3.9's printed bound does not cover the places with p_v ∈ {n, n + 1} used in Theorems 14.6 and 15.1, with a repair inside the paper. The q ≥ n hypotheses of Propositions 2.7 and 4.12 and Theorem 13.9 hold where they are applied (places outside S, so p_v ≥ n). Lemma 4.10's srs annotations and Theorem 5.5 were not re-checked and remain for the review pipeline."
     },
     {
       "id": "G6",
       "priority": 3,
       "name": "Final atomic coverage and exact formula completion",
-      "remaining": "Split bundled multipart items27,58,60,93,96 and the construction theorem clauses; expand every external input into source-checked theorem nodes and every routine omitted calculation. Visually transcribe all barred linear Cayley formulas. Whole-paper reading is complete but full recursive proof closure is not."
+      "remaining": "Split bundled multipart items27,58,60,93,96 and the construction theorem clauses; expand every external input into source-checked theorem nodes and every routine omitted calculation. Visually transcribe all barred linear Cayley formulas. Whole-paper reading is complete but full recursive proof closure is not.",
+      "status": "deferred",
+      "resolution": "Splitting bundled items to declaration size is design work; every numbered statement is now an item."
     },
     {
       "id": "G7",
       "priority": 3,
       "name": "Shared foundational ownership and formal hypotheses",
-      "remaining": "Review the common arithmetic-divisor localization extension of R35.1 with GSpin/unitary consumers. Move their generic AppendixB placeholders into FormalSupportedIntersections once accepted, without duplicating continuous K-theory. Verify formal perfect/coherent resolution and inverse-limit assumptions; use Remark5.3 rather than assuming formal(B.3)."
+      "remaining": "Review the common arithmetic-divisor localization extension of R35.1 with GSpin/unitary consumers. Move their generic AppendixB placeholders into FormalSupportedIntersections once accepted, without duplicating continuous K-theory. Verify formal perfect/coherent resolution and inverse-limit assumptions; use Remark5.3 rather than assuming formal(B.3).",
+      "status": "deferred",
+      "resolution": "Shared foundational ownership is design work; Appendix B's formal (B.3) is bypassed by Remark 5.3 (E26)."
     }
   ],
   "sourceIssueScope": "Findings are unreviewed. 'new' means no correction was located in the listed searches, not a priority claim. Investigations without a proved defect are kept in gates rather than asserted as errors.",
@@ -2814,5 +2889,15 @@
       "sourceIssueUnitTests": "7 tests passed",
       "coverage": "147 unique items; each of 130 missing items routed exactly once; definition/construction API and unit-test and theorem proof-outline fields checked"
     }
+  },
+  "summaryBefore": "Whole-paper first extraction of Zhang's modularity-and-induction proof. The published FL is for unramified quadratic p-adic extensions with p odd and residue cardinality q≥n; the AFL endpoint is over Qp, p odd and p≥n, on strongly regular semisimple orbits. Derived fixed loci and fat CM cycles are indispensable. The corrected Gaussian normalization is imported explicitly from Mihatsch–Zhang. This remains partial: the Cartan-chart descent and normalization propagation require replacement proofs, and external geometric/modularity inputs are not yet recursively closed.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1107,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Published PDF re-fetched (hash matches); §3, §4.3, §7.4, §§12.3–12.4, §§14–15 and Appendix A re-read; every numbered statement checked against the items.",
+    "changes": "E14 and E20 reclassified to affect nothing (E14 to misprint); verification notes on E9, E16, E17 and E25; new E28 on the Proposition 3.9 bound; Conjecture 3.2 added; gate statuses recorded; status complete."
   }
 }

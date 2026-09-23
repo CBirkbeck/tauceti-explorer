@@ -1,10 +1,102 @@
-# PAPER-ZHANG-21: Weil representation and Arithmetic Fundamental Lemma
+# Wei Zhang (2021): Weil representation and the arithmetic fundamental lemma, extraction and routing
+
+Issue [#1107](https://github.com/CBirkbeck/tauceti-explorer/issues/1107). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoint `codex-a71f92`, whose report follows below as history.
+- **The paper.** W. Zhang, *Weil representation and arithmetic fundamental lemma*, Ann. of Math. 193 (2021), 863–978.
+  - The published PDF was re-fetched from the YMSC mirror.
+  - Its SHA-256 (6f8ac537…) matches the checkpoint.
+- **Items.** The result has **148 items: 7 library, 10 planned and 131 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Twenty-eight are recorded under `sourceIssues`: the checkpoint's twenty-seven and one new.
+
+## This continuation (cc-442dc5)
+
+**New finding E28 (a gap; affects the proof).** Proposition 3.9 imports the maximal-order AFL "for p > n" in Hermitian dimension n − 1. The problem is in how Theorem 15.1 uses it:
+- **The use.** Case (i) of the proof of Theorem 14.6 applies Proposition 3.9 in Hermitian dimension n. As printed, that needs p_v > n + 1.
+- **The gap.** In the proof of Theorem 15.1, the set S need contain only the primes below n. So case (i) is also invoked at inert places with p_v ∈ {n, n + 1}, including v₀ when R_α is maximal there.
+- **The repair.** Add those finitely many places to the set B, so that they are handled by case (ii). Case (ii) needs only Proposition 4.12 (q_v ≥ n) and the hypothesis of Theorem 14.6.
+- **The conclusion.** B stays finite and the rest of the argument is unchanged, so Theorem 15.1 stands for p ≥ n.
+- **Not checked.** Whether the cited [31, Cor. 9.9] already covers these primes.
+
+**Reclassified.**
+- **E14.** Now a misprint that affects nothing. The proof of Lemma 12.3 derives K_{(1−s)/2} + η(ξ)K_{(−1−s)/2}. The special values in the statement and Lemma 12.5 follow that form, not the printed one.
+- **E20.** Now affects nothing. The proof of Theorem 14.6 expands E♭ as ∂J♭_hol + Int, so the extra factor 2 is not used.
+
+**Verified.**
+- **E9.** For F = Q(i) and α = T² − 3T + 1, the fixed algebra is Q(√−5).
+- **E16.** For n = 2, conjugating diag(i, 1) by the rotation through π/2 gives diag(1, i). So the fibres of the §12.4 map contain Weyl translates. A repair is noted.
+- **E17.** The N-cutoff must be invariant under conjugation by K ∩ A.
+- **E25.** Zhang 2014 could not be fetched.
+
+**Items.** Conjecture 3.2, the AFL on all regular semisimple elements, was added as a statement-only item.
+
+**Gates.**
+- **Recorded.** G1 (E12, E13, E15), G2 (E16, E17) and G5 (E28). Lemma 4.10's srs annotations and Theorem 5.5 were not re-checked; they remain for the review pipeline.
+- **Deferred.** G3, G4, G6 and G7, as cited suppliers or design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once.
+- The checkpoint's open investigations are recorded as findings or deferred with reasons.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), §1.2, pp.869–870. *Printed:* q : V → F *Correction:* For a quadratic space over F0 the codomain is F0.
+- **E2** (error; affects a stated result), §1.2 (1.13), p.872. *Printed:* φ(h)=Σξ Wφ,ξ(h), absolutely convergent *Correction:* Assume suitable smoothness for absolute Fourier summation, or use Fourier uniqueness/appropriate convergence for merely continuous functions.
+- **E3** (misprint; affects nothing), Conjecture2.3(a), p.878. *Printed:* (1K0,0) *Correction:* Use (1K0#,0) on G0=U(V0#); likewise the full-rank lattice stabilizer must be the one of Λ0#.
+- **E4** (misprint; affects nothing), Proposition2.6, p.879. *Printed:* (G0×V0)(F0)rs *Correction:* Use the correctly ranked semi-Lie pair (H0×V0), or rename G0 consistently to U(V0).
+- **E5** (misprint; affects nothing), Lemma4.2 proof, p.887. *Printed:* 1−g=1/(1+x) *Correction:* Replace the right side by 2/(1+x).
+- **E6** (misprint; affects nothing), Lemma4.3 proof, p.888. *Printed:* R(ξ) *Correction:* Use R(λ) in the polynomial pencil.
+- **E7** (misprint; affects nothing), Lemma4.9(i), p.892. *Printed:* rξ(γ′) *Correction:* Use r(γ′), or quantify ξ and require ξγ′ in the chart.
+- **E8** (misprint; affects nothing), Definitions7.1–7.2, p.907. *Printed:* u′=u∘ϕ *Correction:* For source-CM isomorphism a0:A0→A0′ use u′∘a0=ϕ∘u; after identifying A0 and A0′ use u′=ϕ∘u.
+- **E9** (error; affects a stated result), §7.4 following(7.9), p.910. *Printed:* F0′ is a product of totally real fields *Correction:* Conjugate reciprocity only gives an involution and a fixed étale algebra. Impose the CM/totally-real condition independently, as the next paragraph does for the rest of the paper.
+- **E10** (misprint; affects nothing), Proposition8.2, p.921. *Printed:* (7.5) *Correction:* The complex component projection is (8.4).
+- **E11** (misprint; affects nothing), Lemma11.1 proof, p.937, second product in the displayed estimate. *Printed:* ∏v|∞ *Correction:* Use ∏v∤∞ for the second, finite-place factor.
+- **E12** (error; affects the proof), §12.1–12.4, pp.940–945, especially(12.1),(12.6),(12.11). *Printed:* φ′=2^(−3/2)(x+y)e^(−π(x²+y²)/2) *Correction:* With ψ(b)=e^(2πib), use φ′=½(x+y)e^(−π(x²+y²)) and the positive Hermitian Gaussian e^(−2πq). Propagate the scaling to all orbital, Weil, nilpotent and Green comparisons.
+- **E13** (misprint; affects nothing), §12.1 final display, p.940. *Printed:* |a|^(1/2) *Correction:* For Hermitian dimension n the scalar factor is a^(n/2); with corrected Gaussian the exponential has 2πiq(u)(b+ia).
+- **E14** (misprint; affects nothing), Lemma12.3 statement versus its final proof display, p.942. *Printed:* K(s+1)/2+η(ξ)K(s−1)/2 *Correction:* For the original Gaussian use K(1−s)/2+η(ξ)K(−1−s)/2, as the proof itself obtains; then apply the published Gaussian rescaling.
+- **E15** (error; affects a stated result), Lemma12.5 displays, p.943. *Printed:* e^(πi|ξ|(b−ia)) *Correction:* Use the published corrected formulas: χ1(κθ)a^(1/2)e^(2πiξ(b+ia)), and for ξ<0 multiply by ½Ei(−4πa|ξ|). The general-s formula must include the unipotent phase.
+- **E16** (error; affects the proof), §12.4 map preceding(12.9), p.944. *Printed:* NK×Tnrs → Snc,rs is a K∩A-torsor *Correction:* Include Weyl identifications or replace this map with a correctly normalized local-slice construction. Prove descent of the test function and the orbital formula after this change.
+- **E17** (gap; affects the proof), §12.4 after(12.10), p.944. *Printed:* Ψ descends by K∩A-invariance *Correction:* In addition to repairing the Weyl fibres, choose the N-cutoff invariant under conjugation by K∩A, or prove an averaging/descent construction with its exact measure factor.
+- **E18** (misprint; affects nothing), §12.7, p.953, definition of the nilpotent L-derivative. *Printed:* L(s,η) *Correction:* In general rank use L(s,η′) for F′/F0′; for the 0− term differentiate the corresponding L(−s,η′) with its minus sign.
+- **E19** (misprint; affects nothing), §14.1 before Lemma14.3, p.962. *Printed:* q′(u′)=TrF0′/F0 q′(u′) *Correction:* The left side is q(u′).
+- **E20** (misprint; affects nothing), §14.3 definition of E♭, p.965. *Printed:* E♭=2∂Jhol♭+Int *Correction:* Use E♭=∂Jhol♭+Int=2∂J♭+IntK−B+Int.
+- **E21** (misprint; affects nothing), Proposition14.5 proof, p.965. *Printed:* independent of α *Correction:* Use independent of a.
+- **E22** (misprint; affects nothing), Corollary14.8 proof, p.968. *Printed:* −∂Orb·Orbaway=Intv(δ,u)·Orbaway *Correction:* Multiply the right side by log qv.
+- **E23** (misprint; affects nothing), Theorem15.1 proof, p.968, nearby Shimura space. *Printed:* non-split at v0 *Correction:* The nearby Shimura Hermitian space V is split at v0; V(v0) is the nonsplit local special-Hom space.
+- **E24** (misprint; affects nothing), AppendixA TheoremA.1, p.970. *Printed:* h∈H(F) *Correction:* Use h∈H(F0)=SL2(F0); likewise the base scalars of the generators are in F0.
+- **E25** (misprint; affects the proof), AppendixA footnote10, p.971, cited Zhang2014 Theorem4.17. *Printed:* η(det(V)F/F0) is missing *Correction:* Include the Hermitian-discriminant sign in the earlier Fourier-transfer constant.
+- **E26** (gap; affects the proof), AppendixB after(B.3), p.972. *Printed:* formal-scheme (B.3) expected *Correction:* Do not use formal support-filtration multiplicativity as established. Supply a formal Adams proof with its category hypotheses, or use Remark5.3's alternative for Proposition5.2.
+- **E27** (misprint; affects nothing), Corollary10.3 (10.8), pp.931–932. *Printed:* Ei(−2π|ξ′|v′) *Correction:* Retain a_v in Ei(−2πa_v|ξ′|v′), or explicitly specialize h∞ to a_v=1. Separately perform the later Gaussian/Green normalization conversion.
+- **E28** (gap; affects the proof), Proposition 3.9 (p.884) as applied in the proof of Theorem 14.6, case (i) (p.967), within the proof of Theorem 15.1 (pp.968–969). *Printed:* Let p > n. Conjecture 3.8 part (b) … holds for (g, u) ∈ (U(V_{n−1}) × V_{n−1})(F_0)_srs when O_F[g] is a maximal order; … If v ∉ S ∪ B, then R_v is a maximal order and we apply Proposition 3.9 at v; … S contains all primes less than n *Correction:* Treat the finitely many inert places v ∉ S with p_v ≤ n + 1 as in case (ii), i.e. add them to B. Case (ii) needs only Proposition 4.12, which requires q_v ≥ n and the hypothesis of Theorem 14.6 for S_n; both hold there. Proposition 3.9 is then used only where p_v > n + 1, as printed.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G1** (recorded). E12, E13 and E15 record the Gaussian normalization errors, with Mihatsch–Zhang's printed correction. Re-deriving Lemma 14.4 and Proposition 14.5 in the corrected normalization is proof work for the implementation, following Mihatsch–Zhang §7.2.
+- **G2** (recorded). E16 and E17 record the false K ∩ A-torsor claim and the missing invariance of the N-cutoff; both repairs (a Weyl fundamental domain for the torus cutoff and averaging ϕ_N) are in the findings.
+- **G3** (deferred). RSZ, Mihatsch's comparison and maximal-order corollary, Kudla–Rapoport and the local modularity input are cited suppliers.
+- **G4** (deferred). BHKRY, Ehlen–Sankaran, Jacquet and Beuzart-Plessis's appendix are cited suppliers.
+- **G5** (recorded). E28 records that Proposition 3.9's printed bound does not cover the places with p_v ∈ {n, n + 1} used in Theorems 14.6 and 15.1, with a repair inside the paper. The q ≥ n hypotheses of Propositions 2.7 and 4.12 and Theorem 13.9 hold where they are applied (places outside S, so p_v ≥ n). Lemma 4.10's srs annotations and Theorem 5.5 were not re-checked and remain for the review pipeline.
+- **G6** (deferred). Splitting bundled items to declaration size is design work; every numbered statement is now an item.
+- **G7** (deferred). Shared foundational ownership is design work; Appendix B's formal (B.3) is bypassed by Remark 5.3 (E26).
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## PAPER-ZHANG-21: Weil representation and Arithmetic Fundamental Lemma
 
 Worker: Codex, session codex-a71f92. Refs #1107. Status: **partial**.
 
 The whole published paper has been read, including both appendices and the bibliography. This is a substantive first extraction, not a certificate that the argument has been recursively closed or formalized. There are 147 items: 7 pinned-library ingredients, 10 planned interfaces and 130 missing items, each missing item routed exactly once. Definitions/constructions have API outlines and test obligations; theorem items have proof outlines. Seven explicit gates remain.
 
-## Result and scope
+### Result and scope
 
 Theorem13.9 proves the Jacquet–Rallis FL for an unramified quadratic extension of p-adic fields, odd residue characteristic and **q≥n**, where q is residue cardinality. Its final density argument covers relative regular semisimple orbits.
 
@@ -19,7 +111,7 @@ The proof compares a Weil-equivariant, partially linearized relative trace distr
 
 The arithmetic modularity and Green-comparison inputs used here are Q-only. The geometric local formulas often allow a more general totally real base; that does not remove the final restriction.
 
-## Versions and reading
+### Versions and reading
 
 Main source: [published journal PDF, public mirror](https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf), 116 pages, pp.863–978; [publisher record](https://annals.math.princeton.edu/2021/193-3/p05), DOI10.4007/annals.2021.193.3.5. SHA-256: `6f8ac537b4f95cf26ba907dc1d25c1b9d9157a3a4006a311b114a522177d3b45`. Downloaded/read 2026-09-23. Text lines1–6061 read sequentially, not an abstract-only extraction.
 
@@ -43,7 +135,7 @@ A crucial published correction is in [Mihatsch–Zhang, DOI10.4171/JEMS/1375](ht
 | AppendixA | Weil-transfer compatibility and discriminant correction |
 | AppendixB | Formal supported K/G, Euler degrees, Tor and closed-union lemmas |
 
-## Corrections that affect implementation
+### Corrections that affect implementation
 
 With q(x,y)=xy and ψ(b)=exp(2πib), use the later corrected linear Gaussian
 φ′(x,y)=½(x+y)exp(−π(x²+y²)), paired with exp(−2πq) on the positive Hermitian side. For ξ>0 the rank-one value is exp(−2πξ). For ξ<0 its derivative is ½exp(−2πξ)Ei(−4π|ξ|). Proposition7.4 of the correction source supplies the full Whittaker phase and weight. The original §12 formulas cannot be copied unchanged.
@@ -57,7 +149,7 @@ Two other major findings are:
 
 Keep logq and the finite-place factor2 distinct: Theorem9.4 gives 2logq because the quadratic extension's residue field has cardinality q². Keep the nearby Shimura space **split** at the distinguished good finite place, while the RZ special-Hom space is nonsplit.
 
-## Pinned libraries and ownership
+### Pinned libraries and ownership
 
 Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti: `f790474821cf4256814db967cb154e7af3d0c369`. Atlas rechecked against main commit `4232d60664eb2fbe60e48602aec83895e71ff08f`.
 
@@ -75,7 +167,7 @@ Both Lean trees were searched. Their abstract exact K0, regular-sequence predica
 
 The JSON records the relative paths/lines and the reviewed audit evidence. Accepted SF.5, PEL, AF, AL, MP and scheme-K coverage was read before classification. Existing primitive objects are never marked missing just because their arithmetic application is absent.
 
-### Routes
+#### Routes
 
 **1. GeometryOfNumbersAndQuadraticArithmetic** (source; 1 items).
 
@@ -129,17 +221,17 @@ Coalesce with PAPER-LI-ZHANG-22-B/PAPER-LI-LIU-22's existing unitary-cycle candi
 
 Retain the existing UnitaryKudlaRapoportCycles obligations and add Zhang2021's separate AFL proof branch. Import unitary formal/global models and basic uniformization from UnitaryRapoportZinkSpacesAndRSZModels; analytic matching, Weil-compatible RTF and FL from JacquetRallisRelativeTraceComparison; the generic formal supported Euler/Tor API from FormalSupportedIntersections; generic Chow operations from SchemeAndStackFoundations SF.5; scheme Adams/K-to-Chow from SchemeKTheoryOperations S.4/S.6/S.7; and the shared Green-divisor/proper-curve arithmetic pairing from ArakelovGeometryAndAbelianHeights R35.1, coordinated with GSpinSpecialDivisorHeights. Construct KR liftability divisors; group diagonal and semi-Lie derived fixed intersections; unit-denominator rank reduction; DL-stratum and fixed-g/joint local constancy; compact support modulo conjugation. Construct integral/global KR divisors, nonmaximal fat CM moduli, Hecke fixed loci and their characteristic decomposition, derived virtual one-cycles and formal/complex orbit expansions. Prove Theorems8.1/8.6 from their full modularity sources, preserving the Q-only restriction on arithmetic modularity and Ehlen–Sankaran Green comparison. Construct the normalized pairing divided by τ(ZQ)[E:F], prove good-place support and Theorem9.4's exact2logq factor, then the archimedean comparison with every Gaussian/Whittaker/Green rescaling written out. Prove Proposition14.5, corrected E=∂Jhol+Int, Theorem14.6's local separation in Qlogp, Corollary14.8 and Theorem15.1. Endpoint: unramified F/Qp, p odd,p≥n, strongly regular group Sn and literal indexed semi-Lie dimension n−1 satisfy ∂Orb=−Int logp. Do not promote Conjecture3.2's all-regular version or the later general-p-adic theorem to this paper's result. Close the maximal-order bound/rank compatibility with Mihatsch Corollary9.9 and the q-bound use in local constancy. Tests: n=1, unit special vector, nontransverse derived intersection, split-place zero, basic-only support, base-change residue degree, factor2, nearby Shimura space split at v0, and failure of log-prime separation over a base with several places above the same rational prime. Source corrections and the analytic descent/normalization gates are mandatory before final acceptance.
 
-### Acyclic ownership boundary
+#### Acyclic ownership boundary
 
 UnitaryRapoportZinkSpacesAndRSZModels supplies moduli; FormalSupportedIntersections supplies generic derived intersection degrees; JacquetRallisRelativeTraceComparison supplies analytic transfer/FL. UnitaryKudlaRapoportCycles imports all three for the arithmetic comparison. The analytic FL proof never imports the AFL. Neither the moduli owner nor the generic formal K owner imports the cycle consumer.
 
 The two unitary IDs deliberately coalesce with existing Li–Zhang/Li–Liu proposals. The generic AppendixB obligation currently mentioned inside the cycle brief is factored into a common supplier, not duplicated. Open-exhaustion formal K0 is also not the continuous K-theory of infinitesimal thickenings in the Antieau–Mathew–Morrow–Nikolaus proposal.
 
-## Source findings
+### Source findings
 
 All 27 findings are unreviewed. “New” means no correction was located in the searches recorded in each JSON entry; it is not a priority claim. Known corrections retain their references. Suspected bounds/locus problems without a proved defect are in G5, not asserted as new errors.
 
-### E1 — §1.2, pp.869–870
+#### E1 — §1.2, pp.869–870
 
 misprint; affects nothing. Printed: `q : V → F`.
 
@@ -149,7 +241,7 @@ The next displayed polarization is F0-valued; F is introduced separately for the
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E2 — §1.2 (1.13), p.872
+#### E2 — §1.2 (1.13), p.872
 
 error; affects a stated result. Printed: `φ(h)=Σξ Wφ,ξ(h), absolutely convergent`.
 
@@ -159,7 +251,7 @@ Continuity on a compact additive quotient does not imply absolutely summable Fou
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E3 — Conjecture2.3(a), p.878
+#### E3 — Conjecture2.3(a), p.878
 
 misprint; affects nothing. Printed: `(1K0,0)`.
 
@@ -169,7 +261,7 @@ K0 belongs to U(V0), the smaller acting group, while the test function belongs t
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E4 — Proposition2.6, p.879
+#### E4 — Proposition2.6, p.879
 
 misprint; affects nothing. Printed: `(G0×V0)(F0)rs`.
 
@@ -179,7 +271,7 @@ The preceding notation defines G0=U(V0#) but the semi-Lie action here is on V0.
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E5 — Lemma4.2 proof, p.887
+#### E5 — Lemma4.2 proof, p.887
 
 misprint; affects nothing. Printed: `1−g=1/(1+x)`.
 
@@ -189,7 +281,7 @@ From g=−(1−x)/(1+x), subtraction gives 1−g=2/(1+x); x=0 already gives 2 ve
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E6 — Lemma4.3 proof, p.888
+#### E6 — Lemma4.3 proof, p.888
 
 misprint; affects nothing. Printed: `R(ξ)`.
 
@@ -199,7 +291,7 @@ R is the gcd polynomial in the characteristic variable λ; ξ is a central scala
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E7 — Lemma4.9(i), p.892
+#### E7 — Lemma4.9(i), p.892
 
 misprint; affects nothing. Printed: `rξ(γ′)`.
 
@@ -209,7 +301,7 @@ The printed hypothesis only places γ′ in Sn°, and ξ is free; a rational map
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E8 — Definitions7.1–7.2, p.907
+#### E8 — Definitions7.1–7.2, p.907
 
 misprint; affects nothing. Printed: `u′=u∘ϕ`.
 
@@ -219,7 +311,7 @@ u:A0→A and ϕ:A→A′ cannot compose in the printed order. The same expressio
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E9 — §7.4 following(7.9), p.910
+#### E9 — §7.4 following(7.9), p.910
 
 error; affects a stated result. Printed: `F0′ is a product of totally real fields`.
 
@@ -229,7 +321,7 @@ Take F=Q(i), α=T²−3T+1. In Q(i,√5), the specified involution sends i↦−
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E10 — Proposition8.2, p.921
+#### E10 — Proposition8.2, p.921
 
 misprint; affects nothing. Printed: `(7.5)`.
 
@@ -239,7 +331,7 @@ Equation(7.5) is the formal/basic-locus projection; this proposition concerns co
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E11 — Lemma11.1 proof, p.937, second product in the displayed estimate
+#### E11 — Lemma11.1 proof, p.937, second product in the displayed estimate
 
 misprint; affects nothing. Printed: `∏v|∞`.
 
@@ -249,7 +341,7 @@ The preceding equality separates archimedean and nonarchimedean integrals; (11.1
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E12 — §12.1–12.4, pp.940–945, especially(12.1),(12.6),(12.11)
+#### E12 — §12.1–12.4, pp.940–945, especially(12.1),(12.6),(12.11)
 
 error; affects the proof. Printed: `φ′=2^(−3/2)(x+y)e^(−π(x²+y²)/2)`.
 
@@ -259,7 +351,7 @@ Mihatsch–Zhang gives these functions and explicitly says the functions in this
 
 Correction search: Mihatsch–Zhang, DOI10.4171/JEMS/1375, §7.2 (7.6), Proposition7.4 and footnote5, p.48; §7.3 positive Hermitian Gaussian.
 
-### E13 — §12.1 final display, p.940
+#### E13 — §12.1 final display, p.940
 
 misprint; affects nothing. Printed: `|a|^(1/2)`.
 
@@ -269,7 +361,7 @@ Formula(11.1) uses real dimension2n and diagonal entry √a, so its determinant 
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E14 — Lemma12.3 statement versus its final proof display, p.942
+#### E14 — Lemma12.3 statement versus its final proof display, p.942
 
 error; affects a stated result. Printed: `K(s+1)/2+η(ξ)K(s−1)/2`.
 
@@ -279,7 +371,7 @@ Kν=K−ν does not permit interchanging the two terms when ξ<0: the swap chang
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E15 — Lemma12.5 displays, p.943
+#### E15 — Lemma12.5 displays, p.943
 
 error; affects a stated result. Printed: `e^(πi|ξ|(b−ia))`.
 
@@ -289,7 +381,7 @@ At pure unipotent h=n(b), (11.1) forces phase e^(2πibξ); the printed general-s
 
 Correction search: Mihatsch–Zhang §7.2 Proposition7.4, DOI10.4171/JEMS/1375, with its footnote5 correction.
 
-### E16 — §12.4 map preceding(12.9), p.944
+#### E16 — §12.4 map preceding(12.9), p.944
 
 error; affects the proof. Printed: `NK×Tnrs → Snc,rs is a K∩A-torsor`.
 
@@ -299,7 +391,7 @@ For n=2, t=diag(1,i), t′=diag(i,1), k=[[0,1],[-1,0]]∈SO2 give k⁻¹t′k=t.
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E17 — §12.4 after(12.10), p.944
+#### E17 — §12.4 after(12.10), p.944
 
 gap; affects the proof. Printed: `Ψ descends by K∩A-invariance`.
 
@@ -309,7 +401,7 @@ The listed assumptions only normalize the N-integral and require invariance of t
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E18 — §12.7, p.953, definition of the nilpotent L-derivative
+#### E18 — §12.7, p.953, definition of the nilpotent L-derivative
 
 misprint; affects nothing. Printed: `L(s,η)`.
 
@@ -319,7 +411,7 @@ The preceding definition(12.26) is over the CM extension F′/F0′. The base ch
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E19 — §14.1 before Lemma14.3, p.962
+#### E19 — §14.1 before Lemma14.3, p.962
 
 misprint; affects nothing. Printed: `q′(u′)=TrF0′/F0 q′(u′)`.
 
@@ -329,7 +421,7 @@ q′ is F0′-valued and q is its F0 trace; the printed equality has incompatibl
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E20 — §14.3 definition of E♭, p.965
+#### E20 — §14.3 definition of E♭, p.965
 
 misprint; affects the proof. Printed: `E♭=2∂Jhol♭+Int`.
 
@@ -339,7 +431,7 @@ Proposition14.5 already defines ∂Jhol=2∂J+IntK−B, and the first line of Th
 
 Correction search: The public author AFL2019.pdf, §14.2, p.69, has E♭=∂Jhol♭+Int. This is an earlier-version correct formula, not a claim of a later published erratum.
 
-### E21 — Proposition14.5 proof, p.965
+#### E21 — Proposition14.5 proof, p.965
 
 misprint; affects nothing. Printed: `independent of α`.
 
@@ -349,7 +441,7 @@ The constant may depend on γ and Φ′, hence on α; the argument cancels the I
 
 Correction search: Author AFL2019.pdf, p.69, has independent of a.
 
-### E22 — Corollary14.8 proof, p.968
+#### E22 — Corollary14.8 proof, p.968
 
 misprint; affects nothing. Printed: `−∂Orb·Orbaway=Intv(δ,u)·Orbaway`.
 
@@ -359,7 +451,7 @@ The corollary statement and Theorem9.4 use the logarithmic local degree; cancell
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E23 — Theorem15.1 proof, p.968, nearby Shimura space
+#### E23 — Theorem15.1 proof, p.968, nearby Shimura space
 
 misprint; affects nothing. Printed: `non-split at v0`.
 
@@ -369,7 +461,7 @@ Changing from the positive global nearby space to signature(n−1,1) at infinity
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E24 — AppendixA TheoremA.1, p.970
+#### E24 — AppendixA TheoremA.1, p.970
 
 misprint; affects nothing. Printed: `h∈H(F)`.
 
@@ -379,7 +471,7 @@ The quadratic spaces and Weil representations here are over the base F0, not the
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-### E25 — AppendixA footnote10, p.971, cited Zhang2014 Theorem4.17
+#### E25 — AppendixA footnote10, p.971, cited Zhang2014 Theorem4.17
 
 misprint; affects the proof. Printed: `η(det(V)F/F0) is missing`.
 
@@ -389,7 +481,7 @@ The present appendix computes γV=η(detHerm V)ε(η,½,ψ)^n; the footnote expl
 
 Correction search: Already recorded by Zhang2021 AppendixA footnote10, correcting Zhang2014 DOI10.4007/annals.2014.180.3.4.
 
-### E26 — AppendixB after(B.3), p.972
+#### E26 — AppendixB after(B.3), p.972
 
 gap; affects the proof. Printed: `formal-scheme (B.3) expected`.
 
@@ -399,7 +491,7 @@ The source itself says the formal extension lacks a reference and identifies an 
 
 Correction search: Explicitly acknowledged in AppendixB and bypassed by Remark5.3.
 
-### E27 — Corollary10.3 (10.8), pp.931–932
+#### E27 — Corollary10.3 (10.8), pp.931–932
 
 misprint; affects nothing. Printed: `Ei(−2π|ξ′|v′)`.
 
@@ -409,37 +501,37 @@ Equations(8.11) and(10.4) retain the h∞ parameter, and (10.7) only computes R;
 
 Correction search: No correction located in the publisher/arXiv-history/author/later-paper searches recorded in the JSON.
 
-## What remains
+### What remains
 
-### G1: Propagate the published Gaussian correction
+#### G1: Propagate the published Gaussian correction
 
 Prove a single complete dictionary from ψ,q,self-dual measure and corrected φ′ to Wξ, Ei arguments, nilpotent factors and Green metrics. Reprove Lemma14.4/Proposition14.5 in that dictionary, including zero coefficients. Items97–106 have corrected local formulas; item120 deliberately remains an obligation.
 
-### G2: Repair the partial-Gaussian descent
+#### G2: Repair the partial-Gaussian descent
 
 Replace the false K∩A-torsor description in §12.4. Prove local-slice/Weyl descent with the test-function sign, cutoff invariance, multiplicity and Haar factor. The n=2 counterexample shows a real proof issue; no claim that it disproves the endpoint.
 
-### G3: Close geometry source contracts
+#### G3: Close geometry source contracts
 
 Read RSZ model/uniformization theorems, Mihatsch relative comparison and maximal-order Corollary9.9, KR divisor references, and the precise DL local-modularity input. Resolve signature/overbar conventions, not just names.
 
-### G4: Close modularity and nilpotent contracts
+#### G4: Close modularity and nilpotent contracts
 
 Read BHKRY's arithmetic modularity with its level conditions, Ehlen–Sankaran's exact Green normalization and Jacquet's incoherent nilpotent comparison. Verify convergence/derivative bounds from Beuzart-Plessis AppendixA.
 
-### G5: Bounds and stronger-locus checks
+#### G5: Bounds and stronger-locus checks
 
 Check the literal p>n bound in Proposition3.9 against its rank-n induction use; check q≥n in the uses of Propositions2.7/4.12, including Theorem5.5. Prove or weaken Lemma4.10's printed srs annotations. These are open investigations, not independently verified source errors.
 
-### G6: Final atomic coverage and exact formula completion
+#### G6: Final atomic coverage and exact formula completion
 
 Split bundled multipart items27,58,60,93,96 and the construction theorem clauses; expand every external input into source-checked theorem nodes and every routine omitted calculation. Visually transcribe all barred linear Cayley formulas. Whole-paper reading is complete but full recursive proof closure is not.
 
-### G7: Shared foundational ownership and formal hypotheses
+#### G7: Shared foundational ownership and formal hypotheses
 
 Review the common arithmetic-divisor localization extension of R35.1 with GSpin/unitary consumers. Move their generic AppendixB placeholders into FormalSupportedIntersections once accepted, without duplicating continuous K-theory. Verify formal perfect/coherent resolution and inverse-limit assumptions; use Remark5.3 rather than assuming formal(B.3).
 
-## Validation
+### Validation
 
 The finite/numerical sanity script ran successfully: **816 checks**. It includes corrected rank-one orbital values and derivatives, 800 exact rational Cayley identities, the missing-Weyl-fibre witness and the fixed-field counterexample. Numerical Simpson quadrature is not a formal proof or a certification of all analytic interchanges. Python's standard library suffices; no special-function package is required.
 
