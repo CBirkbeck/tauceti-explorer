@@ -1941,7 +1941,12 @@
     "the arXiv listing and submission history of arXiv:1807.04725, read 22 September 2026: v1 (12 July 2018), v2 (26 August 2018), v3 (12 May 2020) and v4 (14 December 2020), the version read; there is no later version correcting these points",
     "the published version at doi:10.1215/00127094-2020-0088 (Duke Math. J. 170 (2021), no. 9): the DOI resolves to the Project Euclid landing page, which served no article text to an automated request on 22 September 2026, so the published text was not compared and these findings are recorded against arXiv v4",
     "the second author's homepage at math.uchicago.edu/~amathew (the link given in the job), read 22 September 2026: the paper is listed with no erratum"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively, the same page settling it three times. Page 23 of v4 states ‘Lemma 3.29. Let A be an arbitrary commutative ring and let κ = max(card(A), ℵ₀)’, and the two paragraphs before Remark 3.31 refer to it twice more as ‘Lemma 3.29’; Remark 3.31 then opens ‘Proposition 3.29 and Lemma 3.27 imply that for every commutative ring A, there is a v-cover A → B such that each connected component of B is a valuation ring.’ There is no Proposition 3.29 in the paper. The number itself is right, so only the hand-typed environment name is wrong. Checked in arXiv v4, re-fetched by this review and hashed to 4cdf5593…6620, matching the recorded PDF hash byte for byte. The published Duke version remains unavailable: Unpaywall reports is_oa false for doi:10.1215/00127094-2020-0088 and lists no open location, which independently confirms the extraction’s account, and arXiv’s submission history ends at v4 (14 December 2020).",
+    "by": "REV-PAPER-BHATT-MATHEW-21"
+   }
   },
   {
    "id": "PAPER-BHATT-MATHEW-21/E2",
@@ -1956,7 +1961,12 @@
     "the arXiv listing and submission history of arXiv:1807.04725, read 22 September 2026: v1 (12 July 2018), v2 (26 August 2018), v3 (12 May 2020) and v4 (14 December 2020), the version read; there is no later version correcting these points",
     "the published version at doi:10.1215/00127094-2020-0088 (Duke Math. J. 170 (2021), no. 9): the DOI resolves to the Project Euclid landing page, which served no article text to an automated request on 22 September 2026, so the published text was not compared and these findings are recorded against arXiv v4",
     "the second author's homepage at math.uchicago.edu/~amathew (the link given in the job), read 22 September 2026: the paper is listed with no erratum"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively. The proof of Corollary 6.18 ends, on p. 52, ‘But this follows from formal glueing for étale cohomology (Proposition 6.4).’, while p. 48 states ‘Theorem 6.4 (Formal glueing squares for arc-sheaves)’ and the introduction cites the same result as ‘Theorem 6.4’ in Theorem 1.15. Again the number is right and the environment name is not. Checked in arXiv v4, re-fetched by this review and hashed to 4cdf5593…6620, matching the recorded PDF hash byte for byte. The published Duke version remains unavailable: Unpaywall reports is_oa false for doi:10.1215/00127094-2020-0088 and lists no open location, which independently confirms the extraction’s account, and arXiv’s submission history ends at v4 (14 December 2020).",
+    "by": "REV-PAPER-BHATT-MATHEW-21"
+   }
   },
   {
    "id": "PAPER-BHATT-MATHEW-21/E3",
@@ -1971,7 +1981,23 @@
     "the arXiv listing and submission history of arXiv:1807.04725, read 22 September 2026: v1 (12 July 2018), v2 (26 August 2018), v3 (12 May 2020) and v4 (14 December 2020), the version read; there is no later version correcting these points",
     "the published version at doi:10.1215/00127094-2020-0088 (Duke Math. J. 170 (2021), no. 9): the DOI resolves to the Project Euclid landing page, which served no article text to an automated request on 22 September 2026, so the published text was not compared and these findings are recorded against arXiv v4",
     "the second author's homepage at math.uchicago.edu/~amathew (the link given in the job), read 22 September 2026: the paper is listed with no erratum"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and it is the one finding that reaches a stated result. Theorem 1.19 of the introduction (p. 7), labelled ‘Theorem 7.3’, reads ‘Fix a prime ℓ and let F be an ℓ-power torsion étale sheaf on Spec(A). If A is smooth or if ℓ is not the residue characteristic of K, then H^i(Spec(A)_ét, F) = 0 for i > d.’ Theorem 7.3 itself (p. 56) has no smoothness clause at all: its part (2) assumes ‘ℓ prime to the characteristic of the residue field of K’, and part (1) gives only i > d + 1 in general. What the paper says about the smooth case is in Remark 7.4, which opens ‘We would expect that part (2) of Theorem 7.3 holds for arbitrary torsion sheaves’ and lists two special cases ‘within reach’, the second being ‘The algebraization method used to prove Lemma 7.8 below can be adapted to prove this statement when A is smooth (in the sense of rigid spaces) and F is constant’. So the introduction asserts for arbitrary ℓ-power torsion sheaves what the body offers for constant sheaves only, and offers as an adaptation rather than a proof. The same remark closes by saying that over p-adic fields ‘the general case remains out of reach by our methods’, which is the opposite of a claim. The extraction’s two proposed remedies — restrict the introduction’s smooth disjunct to constant coefficients and point at Remark 7.4(2), or write the adaptation out — are both right, and it is careful to record this as a gap in what is claimed rather than as a false statement. Checked in arXiv v4, re-fetched by this review and hashed to 4cdf5593…6620, matching the recorded PDF hash byte for byte. The published Duke version remains unavailable: Unpaywall reports is_oa false for doi:10.1215/00127094-2020-0088 and lists no open location, which independently confirms the extraction’s account, and arXiv’s submission history ends at v4 (14 December 2020).",
+    "by": "REV-PAPER-BHATT-MATHEW-21"
+   }
   }
- ]
+ ],
+ "verification": {
+  "agent": "Claude Code",
+  "session": "cc-d67081",
+  "issue": 1321,
+  "job": "REV-PAPER-BHATT-MATHEW-21",
+  "date": "2026-09-23",
+  "verdict": "accept",
+  "read": "arXiv 1807.04725v4, re-fetched and hashed to 4cdf5593067a425ca0aebc969d34efa4ef296cde613c3d9a6c671db65b9b6620, the recorded PDF hash; 64 pages. All three sourceIssues were checked at their locators, together with the statements they are compared against (Lemma 3.29 on p. 23, Theorem 6.4 on p. 48, Theorem 7.3 and Remark 7.4 on pp. 56–57). The twelve cited declarations of the four library items were opened at the pinned commits, and every stage id of the four routes and of the three planned items was checked against the atlas index. Unpaywall was queried independently for the Duke DOI and reports no open location, confirming the extraction’s account of the published version.",
+  "changes": "All 3 sourceIssues carry a review verdict and all are confirmed. Nothing else changed: no item, status, route, locator or quotation was altered, and this `verification` block is the only addition.",
+  "lean": "none"
+ }
 }
