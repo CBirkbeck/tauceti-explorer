@@ -6212,7 +6212,8 @@
    ],
    "avoidAccountOf": "PAPER-VANHOFTEN-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-VANHOFTEN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1361"
   },
   {
    "id": "PAPER-CANNING-LARSON-PAYNE-24",
