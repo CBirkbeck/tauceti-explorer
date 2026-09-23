@@ -1,0 +1,41 @@
+{
+  "paper": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The torsion direction and completed parent are appropriate, and the lattice/norm-curve replacements check mathematically. However torus-transfer-source is still a composite acquisition placeholder; splitting-field discriminant conversion, resolvent-order maximalization and HV/BK dependencies are open. Import PolynomialGaloisGroups Layer 4, ST.1 and the built elementary-2 quotient instead of duplicating them. G3/G4 prevent release of this whole route."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "The determinant-method direction is justified and the selected Taylor/interpolation/rounding replacements are sound proof plans. The route still lacks explicit supplier contracts/decomposition for proper Bezout and global root continuation/inverse graphs; bp-arc-decomposition additionally claims a stronger whole-curve cover than the replacement proves. G7 must separate that target from the sufficient finite-point cover before this route is buildable."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "The independent HV/BK supplier direction is appropriate and avoids the feedback cycle, but G3 leaves their key proof inputs unextracted. The item list also includes unproved arbitrary-genus hyperelliptic corrections and del Pezzo geometry not specified in this elliptic brief. Correct G5/G6 and reconcile general descent/height owners before creating this Part II."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "ST.0/ST.1/ST.3 are appropriate owners, but the source route has not acquired or decomposed the Baily/Cohn/fixed-resolvent counting originals. Quoting their conclusions and deferring G8 does not provide a buildable proof route. Keep the fixed-quadratic-field dependence explicit."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "The first Picard bound has a valid projective-section surjection proof and correctly imports divisor/RR/Picard suppliers. The same route includes an unproved Sedunova repair and the epsilon-free gonality target. E10/E13 and G9 remain open; split the established first-bound scope from unresolved diagnostics and finish base-field gonality/characteristic-two interfaces before release."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "GN.5 owns certified basis reductions. The prescribed-primitive-prefix construction and its recurrence c_i=1+(1/2)sum_{j<i}c_j prove the comparison at every index, including the last; attainment uses lattice discreteness. Apply the existing primitive decomposition/basis API in each free quotient. GN.1 owns successive minima and Minkowski II; Hadamard gives the other product inequality. These two quantitative adapters do not duplicate the built qualitative primitive-vector engine or number-field consumers."
+    }
+  ],
+  "notes": "Independent review completed on all 152 input rows, all eight planned credits and all original library references, with independent searches for all 107 originally missing rows. Corrected status to partial, promoted the existing 2-torsion numerical interface to library, withdrew unproved hyperelliptic and fixed-q repairs, and restored open supplier gaps. Six new source findings added; 16 confirmed, E8 rejected as an insufficiently established allegation. Only route 6 is accepted. No final JAMS collation, complete recursive supplier-proof audit, Lean compilation or new formal proof is claimed. See research/blueprint/reviews/REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md.",
+  "reviewer": "independent-review-REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "date": "2026-09-23"
+}
