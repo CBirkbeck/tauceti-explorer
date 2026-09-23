@@ -30986,8 +30986,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1853"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1853",
+   "finishedAt": "2026-09-23T11:26:22Z"
   },
   {
    "id": "REV-ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -31022,7 +31023,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-SHENDE-TSIMERMAN-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1856"
   },
   {
    "id": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
