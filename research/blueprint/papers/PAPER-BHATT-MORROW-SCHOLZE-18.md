@@ -187,3 +187,22 @@ Papers BMS1 builds on that the atlas does not yet cover:
 - Poonen (2004) and Gabber (2001), on Bertini theorems over finite fields.
 
 The DOIs were checked against Crossref.
+
+## Independent review (`REV-PAPER-BHATT-MORROW-SCHOLZE-18`, issue #1463)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, all fourteen routes accepted,
+nothing corrected in place. The full review is in
+[`reviews/REV-PAPER-BHATT-MORROW-SCHOLZE-18.md`](../reviews/REV-PAPER-BHATT-MORROW-SCHOLZE-18.md).
+
+All three recorded artifact hashes match byte for byte, including the open-access published PDF, so the
+published page numbers in the locators are checkable. Simulating the paper's shared per-section counter
+independently gives the same **237 numbered objects**, of which 229 appear in an item locator; the eight
+that do not are all remarks, and the only one with mathematical content — Remark 14.2, weakening
+Theorem C's hypothesis to a perfectoid field with all p-power roots of unity — is folded verbatim into
+every Theorem 14.1 item. Both `library` items were opened at Mathlib `082e2d3`, where the namespacing is
+subtle and this extraction gets it right: `WittVector.fontaineTheta` and
+`WittVector.fontaineTheta_teichmuller` sit inside the namespace, while `surjective_fontaineTheta` falls
+after it closes and is correctly cited bare. Ten of the fourteen routed layers name BMS1 in their own
+descriptions, and the other four own exactly the constructions their items need. All **18 findings are
+confirmed**, most of them by the paper contradicting itself; E3 carries a second slip in the same
+sentence ("a Breuil–Kisin–Fargues **modules**") that its correction does not mention.

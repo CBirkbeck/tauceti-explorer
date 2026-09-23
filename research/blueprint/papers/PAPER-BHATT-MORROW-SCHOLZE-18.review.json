@@ -1,0 +1,77 @@
+{
+ "paper": "PAPER-BHATT-MORROW-SCHOLZE-18",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. AInfCohomology is the owner in the atlas, the cited layers (AInfCohomology:AI.0) belong to it, and that layer's own description names BMS1 as its source. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: AI.0 names BMS1 §3 as its source for A_inf, θ, θ̃, μ, ξ, ξ̃ and the Breuil–Kisin–Fargues twist, and those items are planned there. The missing items are BMS1's Witt-vector level of the same theory: A_inf(S) = lim_F W_r(S), the maps θ_r and θ̃_r with"
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. AInfCohomology is the owner in the atlas, the cited layers (AInfCohomology:AI.1) belong to it, and that layer's own description names BMS1 as its source. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: AI.1 names BMS1 §§6–7 as its source and cites Lemmas 6.19–6.20 by number; the definition of Lη, its cohomology formula, monoidality, Bockstein description, base change and the Koszul calculation are planned there. The missing items are the supporting"
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. AInfCohomology is the owner in the atlas, the cited layers (AInfCohomology:AI.2) belong to it, and that layer's own description names BMS1 as its source. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: AI.2's stated source is BMS1 Definition 4.22, Lemmas 4.26–4.27 and Theorem 4.28, which are planned there. The missing items are the commutative algebra over A_inf of BMS1 §4.2 behind the BKF torsion decomposition (Proposition 4.13): Kedlaya's trivial"
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. AInfCohomology is the owner in the atlas, the cited layers (AInfCohomology:AI.3) belong to it, and that layer's own description names BMS1 as its source. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: AI.3 names BMS1 §§7–9 as its source; AΩ, the toric cover, Lemma 8.11's almost-to-honest mechanism, the q-de Rham identification, framing independence and the Frobenius are planned there. The missing items are the proofs' ingredients: coherence of W_r"
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. AInfCohomology is the owner in the atlas, the cited layers (AInfCohomology:AI.4) belong to it, and that layer's own description names BMS1 as its source. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: AI.4 names BMS1 §§8, 10–12 and Theorem 1.10 as its source; the Hodge–Tate, de Rham–Witt, de Rham, A_crys and μ-inverted specializations are planned there. The missing items are the steps of those proofs: the primitive comparison with A_inf-coefficien"
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. AInfCohomology is the owner in the atlas, the cited layers (AInfCohomology:AI.5) belong to it, and that layer's own description names BMS1 as its source. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: AI.5 plans 'the linear algebra controlling integral torsion' (BMS1 §4) and tests it with 'the examples of BMS1 §2'; Corollaries 4.15, 4.17, 4.20 and Theorems 2.1 and 2.10 are planned there. The missing items are the specialization lemmas behind those"
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept. AInfCohomology is the owner in the atlas, the cited layers (AInfCohomology:AI.7) belong to it, and that layer's own description names BMS1 as its source. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: AI.7 plans the A_inf base change of Breuil–Kisin cohomology. The missing items are BMS1 §4.4: flatness of 𝔖 → A_inf (Lemma 4.30), base change of Breuil–Kisin modules to BKF modules (Proposition 4.32) and the compatibility of the Tate twists (Corollar"
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept. CohomologyComparisons is the owner in the atlas, the cited layers (CohomologyComparisons:CP.3) belong to it, and that layer's own description names BMS1 as its source. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: CP.3 names BMS1 Theorem 1.7 and §13 as its source; the B_dR^+-cohomology, its comparison, finite freeness and the Hodge–Tate degeneration are planned there. The missing items are the supporting lemmas of §13: rigid geometry over B_dR^+/ξ^n (Lemma 13."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Accept. CohomologyComparisons is the owner in the atlas, the cited layers (CohomologyComparisons:CP.5) belong to it, and that layer's own description names BMS1 as its source. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: CP.5 names BMS1 Theorem 1.1(ii),(iii) and §2 as its source; the torsion inequality, the mod p de Rham bound and lattice recovery are planned there. The missing items are the equivalence of torsion-freeness of H^i_crys and H^i_dR (Remarks 4.21, 14.4 a"
+  },
+  {
+   "route": 10,
+   "verdict": "accept",
+   "reason": "Accept. CrystallineCohomology is the owner in the atlas, the cited layers (CrystallineCohomology:CR.3) belong to it, and that layer's own description names BMS1 as its source. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: CR.3 owns finiteness and base change of crystalline cohomology of proper smooth varieties, and its acceptance includes a torsion example from BMS1 §2. BMS1's crystalline weak Lefschetz theorem for a line bundle with bounded higher cohomology (Lemma 2"
+  },
+  {
+   "route": 11,
+   "verdict": "accept",
+   "reason": "Accept. CrystallineCohomology is the owner in the atlas, the cited layers (CrystallineCohomology:CR.4) belong to it, and that layer's own description names BMS1 as its source. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: CR.4 owns the relative Langer–Zink de Rham–Witt complex and names BMS1 §§10–11; the F-V-procomplexes, Langer–Zink's theorem, étale base change, the continuous complex and the torus basis are planned there. The missing items are the Witt-ideal lemmas"
+  },
+  {
+   "route": 12,
+   "verdict": "accept",
+   "reason": "Accept. PerfectoidQuotients is the owner in the atlas, the cited layers (PerfectoidQuotients:Q0:integral-algebra) belong to it, and the layer owns the construction the routed items need independently of this paper. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: Q0:integral-algebra constructs integral perfectoid rings in BS22's scope and their relation to Tate perfectoid rings; BMS1's definition and the Tate comparison lemmas are planned there. The missing items are the Frobenius-surjectivity equivalences (L"
+  },
+  {
+   "route": 13,
+   "verdict": "accept",
+   "reason": "Accept. FiniteFlatGroupsAndIntegralPadicHodgeTheory is the owner in the atlas, the cited layers (FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4) belong to it, and the layer owns the construction the routed items need independently of this paper. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: R07.4 constructs Breuil–Kisin modules. The missing item is the structure theorem for Breuil–Kisin modules with torsion (Proposition 4.3), which explains why the BKF definition requires M[1/p] to be free."
+  },
+  {
+   "route": 14,
+   "verdict": "accept",
+   "reason": "Accept. PadicHodgeTheory is the owner in the atlas, the cited layers (PadicHodgeTheory:P8) belong to it, and the layer owns the construction the routed items need independently of this paper. The items routed here are this paper's uses of that layer rather than new theory, and the route's reason delimits the boundary explicitly: P8 owns the proper-smooth rational comparison for rigid spaces, applying CP.3–CP.4. Theorem 5.1 also cites Scholze's finiteness of H^i_et(X_C, Z_p) for proper smooth rigid X (Forum Math. Pi 2013, Theorem 1.1), which no atlas layer plans; it is routed"
+  }
+ ],
+ "notes": "Independent review by Claude Code, session cc-fb70e5, 23 September 2026, of the extraction by session cc-442dc5 (issue #1462). cc-fb70e5 appears nowhere in it.\n\nProvenance. All three artifacts the extraction records were re-downloaded and all three hashes match byte for byte: the arXiv v3 PDF 285f7d20...9c4e072a, the v3 e-print ff989b40...262b5aa4 (integralpadicHodge.tex, 5932 lines) and the open-access published PDF on Centre Mersenne a924d36c...52702bb. The locators' published page numbers are therefore checkable, and were checked against both texts.\n\nNumbering and coverage. All theorem environments share one per-section counter. Simulating that independently gives 237 numbered objects, exactly the count the extraction reports, and 229 appear in an item locator. The eight that do not are all remarks and none is a gap: Remark 14.2, the only one with mathematical content (Theorem C needs only that C be perfectoid with all p-power roots of unity), is folded verbatim into every Theorem 14.1 item's statement and cited there by number; the other seven are introductory commentary, history, an open question and example commentary.\n\nStatuses. Both library items were opened at Mathlib 082e2d3: PreTilt (RingTheory/Perfection.lean:634), WittVector (RingTheory/WittVector/Defs.lean:52) and, in RingTheory/Perfectoid/FontaineTheta.lean, fontaineTheta (165) and fontaineTheta_teichmuller (182) inside namespace WittVector, and surjective_fontaineTheta (195), which falls after that namespace closes at line 190 and is therefore correctly cited with no namespace. The 92 planned items cite 27 layers, all of which exist, concentrated in AInfCohomology AI.1-AI.5, the roadmap whose descriptions name BMS1 as their source.\n\nRoutes. All fourteen are source routes and all are accepted. The extraction's judgement is that the atlas already owns this paper's mathematics, and it holds up: every cited layer exists in data/atlas.json, every stage belongs to the roadmap that claims it, and ten of the fourteen layer descriptions name BMS1 or its authors explicitly (AI.0-AI.5, CP.3, CP.5, CR.3, CR.4). The four that do not - AI.7, R07.4, P8 and PerfectoidQuotients Q0:integral-algebra - own the Breuil-Kisin cohomology, Breuil-Kisin modules, relative period sheaves and integral perfectoid algebra that their routed items need.\n\nMistakes in the paper. All 18 were checked at their locators in both the TeX and the published PDF and all 18 are confirmed; all are typographical and affect nothing. Several were settled by the paper against itself: the differential printed with g y where the display two lines above has g x (E7); eta_{phi(mu)} where the two neighbouring lines establish eta_mu (E13); AOmega_r against the AOmega_R of the display above (E18); Theorem 9.4(iii) cited for what its part (ii) states (E8); and E17, where the proof discusses parts (i), (ii) and (iii) of a proposition that has exactly two. E11 is a composite of five stray A's in a section that writes its base ring as S fifty-four times. E3 records a second slip in the same sentence that its correction does not mention - a plural 'modules' - which this review notes, and its substance is confirmed: the map f is never given a name, the paper introducing it only as 'the map S -> A_inf that sends T to [pi^flat]^p'.\n\nNothing was corrected in place: every locator resolves, every quotation is accurate, and no item, status or route needed changing.\n\nVerdict: accept."
+}
