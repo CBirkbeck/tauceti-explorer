@@ -1,0 +1,57 @@
+{
+  "paper": "PAPER-DUKE-IMAMOGLU-TOTH-16",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "GeometryOfNumbersAndQuadraticArithmetic GN.3–GN.4 plan reduction of binary quadratic forms, their cycles and oriented geodesics, and Duke-type equidistribution; the narrow class number, primitive forms, cycle integrals and main terms of §6 refine them."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "AutomorphicSpectralTheory AS.0–AS.4 plan the Laplacian, Eisenstein and Poincaré series, the resolvent and spectral expansion (§§5, 8) and the Bessel–Whittaker analysis of Appendix A."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "MetaplecticAutomorphicForms MP.5 and MP.7 plan half-integral weight forms, the plus space and weight-1/2 Kloosterman sums, where Theorem 4, §9 and Proposition 6 live; items 106 and 127 carry E28, E30, E33 and E8."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "AutomorphicFormsOnReductiveGroups AF.2–AF.3 plan the level-one Hecke–Maass forms and their parity."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "AutomorphicLFunctionsAndLocalFactors AL.2–AL.3 plan the standard and Rankin–Selberg L-functions of Maass forms, which the corrected (6.6) needs (E6)."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "AnalyticNumberTheory AN.3–AN.4 plan Hecke characters, completed Hecke L-functions and the class number formula (three items now planned at AN.4); Siegel's theorem and the Burgess-type estimates of §6 belong here."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "GrossZagierAndArithmeticHeights GZ.5 plans the Waldspurger/Baruch–Mao central-value identity (5.17)."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "ExponentialSumsAndCircleMethod ES.0 plans Kloosterman sums and character-sum bounds."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "No layer plans the Nielsen cores F_A of the quadratic-class Fuchsian groups Γ_A (§§2–3); the title already begins with the parent's atlas title. The brief names E19 and E20."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "No layer plans the real-quadratic signs and form characters of §§2 and 7 beyond the built genus theory; the title already begins with the parent's atlas title."
+    }
+  ],
+  "notes": "Independent review REV-PAPER-DUKE-IMAMOGLU-TOTH-16 by Claude Code, session cc-2aeb03; the extraction was written by Codex (codex-c83e7a, codex-a71f92) and Claude Code sessions (among them cc-fb70e5 and cc-442dc5, which completed it). The published Annals text (42 pages, pp. 949–990; hash matching the extraction's) was read in full on page images in five ranges against every item; DIT11, Biró (2000) and Duke (1988) were read where the extraction's items or recorded mistakes live. Corrected in place: 103 item fields (73 locators, 30 statements) and 5 notes; 31 items removed as not in the paper (the extraction's own repairs, adapters and regression examples, library-support and planning items, and steps inside the proofs of DIT11 and Biró that this paper neither states nor cites), their content kept where it is used; 31 items added, three of them planned at AnalyticNumberTheory AN.4; the brief of route 9 names the confirmed corrections; prerequisites rebuilt as 22 cited works with DOIs. Statuses: all 16 remaining library declarations opened at the pinned commits and all planned stages checked. Mistakes: E1–E16 confirmed, E3, E6, E8, E11 and E14 revised as the independent checks upheld (E6: (6.6) is false as printed, off by cosh²(πr/4); E11 a small gap in the proof of (A.1); E14 the order U₄∘W₄ in DIT11). 21 new claims were checked a second time, independently: 17 confirmed, 1 reclassified, 3 rejected; they are E17–E34. The main new ones: Lemma 6 has the opposite orientation to Lemma 5, so one of them is false as printed (E28); the proof of Theorem 1 does not show the arc crosses the circle about n_1 (E19) and reads the ideal class from distances between lifts rather than on the surface (E20); ⟨½θ, ½θ⟩ is π/2, not 6 (E22); the Conrey–Iwaniec exponent is 5/12, not 1/3 (E24); the p = 2 Euler factor of §10 is undefined (E33). With the corrections, Theorems 1–4 stand."
+}
