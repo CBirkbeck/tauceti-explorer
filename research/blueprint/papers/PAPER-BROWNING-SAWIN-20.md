@@ -477,3 +477,18 @@ for p in (2,3,5):
 print('squarefree-polynomial character-sum cases:', counts)
 print('PASS: Hankel rank, floor remainder, strict endpoint, signed Euler products and finite-field character sums')
 ```
+
+## Review (REV-PAPER-BROWNING-SAWIN-20, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its seven routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-BROWNING-SAWIN-20.md`.
+
+- **Source read:** the published version, now free on the Annals site, in full. Every item now gives its published locator with the arXiv v3 page.
+- **Statements:** 8 corrected.
+- **The extraction's repairs and topology analysis:** all 33 items are sound. Lemma 7.2 fails for the compact-open reading, and Conjecture 7.1 then fails at j = 1.
+- **New items:** 13.
+- **Source issues:** E1–E28 are confirmed and still in print, and three were reclassified. E29–E46 are new:
+  - the p. 898 count claim;
+  - Lemma 4.4 needs m ≤ d;
+  - geometric irreducibility of X is used without proof;
+  - a gap in Remark 1.5;
+  - misprints.
