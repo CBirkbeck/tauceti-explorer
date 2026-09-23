@@ -4470,7 +4470,8 @@
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4492,7 +4493,8 @@
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4507,14 +4509,15 @@
    "locator": "Proposition4.4 p.84, after(4.8)",
    "printed": "([ζ]₁)|Ψ=([e]₁)|Ψ",
    "correction": "The displayed computation gives [zeta]_1=[aTilde]_0[e]_1. The uniform case is repaired by item162; the general case remains G4a.",
-   "reason": "The degree-one term of the printed Bockstein map is b+a[e]_1; b=0 does not force a=1.",
-   "affects": "the proof",
+   "reason": "The degree-one term of the printed Bockstein map is b+a[e]_1; b=0 does not force a=1. (cc-442dc5) Reclassified to affect a stated result: the step fails whenever Ξ ≠ ∅ and Ψ ≠ Ξ, so Propositions 4.4, 4.5 and 6.6 are not established as stated. The evaluation [α̃]_0 is α|_x on Ψ, so it is 0 on Ξ and 1 on Ψ∖Ξ. The main theorems use these propositions only through Proposition 6.7, which takes Ψ = Θ = {x : α|_x = 0}; there the evaluation of the lift of (n/2)α is identically 0, the uniform case the checkpoint repairs. Theorems 0.3–0.5, 0.10 and 0.12 are therefore unaffected (up to the Jannsen input of G10).",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4529,14 +4532,15 @@
    "locator": "Proposition4.5 pp.84–85",
    "printed": "β|TU=p*α̃+2ε+cl(ϕ)",
    "correction": "Supply a typed replacement. Items158–165 do so under uniform evaluation; do not assume aTilde has an integral lift on U.",
-   "reason": "aTilde has F2 coefficients while the other summands have integral Z(1) coefficients. The Brauer topological obstruction downstairs need not vanish.",
-   "affects": "the proof",
+   "reason": "aTilde has F2 coefficients while the other summands have integral Z(1) coefficients. The Brauer topological obstruction downstairs need not vanish. (cc-442dc5) Reclassified to affect a stated result: the typed replacement covers only a constant evaluation on Ψ, so Proposition 4.5 (and 6.6) is not established as stated. The evaluation [α̃]_0 is α|_x on Ψ, so it is 0 on Ξ and 1 on Ψ∖Ξ. The main theorems use these propositions only through Proposition 6.7, which takes Ψ = Θ = {x : α|_x = 0}; there the evaluation of the lift of (n/2)α is identically 0, the uniform case the checkpoint repairs. Theorems 0.3–0.5, 0.10 and 0.12 are therefore unaffected (up to the Jannsen input of G10).",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4558,7 +4562,8 @@
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4573,14 +4578,15 @@
    "locator": "Lemma7.3 p.98 and equation(7.13) p.103",
    "printed": "p*η+ψ(ζ)",
    "correction": "Use p*eta-psi(zeta) with the displayed(1,-phi) convention; the traced equations are unchanged.",
-   "reason": "psi modulo n equals p*phi. For n=4, a sheet tuple(1,0,0,0) detects the difference of signs.",
-   "affects": "the proof",
+   "reason": "psi modulo n equals p*phi. For n=4, a sheet tuple(1,0,0,0) detects the difference of signs. (cc-442dc5) Reclassified to affect nothing: with the displayed (1, −φ) convention the sign is forced, and the traced equations used afterwards are unchanged.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4602,7 +4608,8 @@
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4624,7 +4631,8 @@
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4646,7 +4654,8 @@
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4668,7 +4677,8 @@
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4683,14 +4693,15 @@
    "locator": "Equation(2.1) p.72",
    "printed": "M(−k)",
    "correction": "Use coefficient M(dprime-d) in the source of the Gysin map.",
-   "reason": "The cited BW1(1.22) gives the dimension difference; an identity map must preserve the twist. The prior worker read that source formula.",
-   "affects": "the proof",
+   "reason": "The cited BW1(1.22) gives the dimension difference; an identity map must preserve the twist. The prior worker read that source formula. (cc-442dc5) Reclassified to affect nothing: the cited BW1 (1.22) has the correct twist, and every later use is equal-dimensional.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4705,14 +4716,15 @@
    "locator": "Equation(5.7) p.88",
    "printed": "H⁰(C,N_C/T)",
    "correction": "The normal-sequence boundary lands in H¹(C,N_C/T).",
-   "reason": "The short exact sequence(5.8) sends H0 to H1. The cited Benoist2018 Proposition2.1 uses the corrected degree.",
-   "affects": "the proof",
+   "reason": "The short exact sequence(5.8) sends H0 to H1. The cited Benoist2018 Proposition2.1 uses the corrected degree. (cc-442dc5) Reclassified to affect nothing: the exact sequence (5.8) and the cited Benoist 2018 Proposition 2.1 fix the degree.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4734,7 +4746,8 @@
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4756,7 +4769,8 @@
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4778,7 +4792,8 @@
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4793,14 +4808,15 @@
    "locator": "Proof of Proposition7.1 p.103, following(7.14)",
    "printed": "kernel",
    "correction": "Use torsion-freeness of the cokernel of the Picard cycle map.",
-   "reason": "Dividing the equality n(eta-p_*gamma)=cl(p_*phi) needs primitivity of its image. BW1 Proposition2.9 is explicitly a cokernel theorem.",
-   "affects": "the proof",
+   "reason": "Dividing the equality n(eta-p_*gamma)=cl(p_*phi) needs primitivity of its image. BW1 Proposition2.9 is explicitly a cokernel theorem. (cc-442dc5) Reclassified to affect nothing: the cited BW1 Proposition 2.9 is the cokernel statement that the argument uses.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4822,7 +4838,8 @@
     "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+    "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4837,11 +4854,12 @@
    "locator": "Published §3.1 p77 first line; author-copy p15 has the same wording",
    "printed": "v",
    "correction": "The fixed singular points over Sing R are where w vanishes, with v nonzero.",
-   "reason": "At such a point r=0 and s is a unit, so rv²=sw² forces w=0. Setting v=0 instead forces w=0 too and gives no projective point. Published p77 and author text were checked.",
-   "affects": "the proof",
+   "reason": "At such a point r=0 and s is a unit, so rv²=sw² forces w=0. Setting v=0 instead forces w=0 too and gives no projective point. Published p77 and author text were checked. (cc-442dc5) Reclassified to affect nothing: the equation rv² = sw² with r = 0 and s a unit forces w = 0, which determines the intended centre.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
-    "Published p77 image and author-copy p15 compared; published article page and title/erratum search on2026-09-23. No correction identified in these checks."
+    "Published p77 image and author-copy p15 compared; published article page and title/erratum search on2026-09-23. No correction identified in these checks.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
@@ -4860,7 +4878,8 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Published pp86–87 compared with the local chart and section equations; title/erratum search on2026-09-23. No correction identified in these checks."
+    "Published pp86–87 compared with the local chart and section equations; title/erratum search on2026-09-23. No correction identified in these checks.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); no erratum is linked from the Numdam or Springer records."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
