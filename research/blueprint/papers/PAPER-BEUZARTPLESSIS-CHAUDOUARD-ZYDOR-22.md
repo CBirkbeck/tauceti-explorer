@@ -140,3 +140,36 @@ Forty entries, with DOIs confirmed on Crossref. Four have none: Lapid 2011 and 2
 ## Checks
 
 `python3 scripts/check_paper.py research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.result.json` reports no errors.
+
+## Independent review (`REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22`, issue #1447)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, all seven routes accepted, all
+ten findings confirmed, one `reason` amended in place. The full review is in
+[`reviews/REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.md`](../reviews/REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.md).
+
+The recorded hash matches byte for byte and the PDF's page tree reports the 107 pages the extraction
+records. The numbering comes from a macro layer — `paragr` steps the subsubsection counter, every
+statement environment shares one `theo` counter reset by it, and `local.tex` abbreviates the environment
+as `\bpar`/`\epar` — and simulating all of it across the eight input files gives **93 numbered statements
+and 190 numbered paragraphs**, reproducing the extraction's numbers exactly, including the appendix's
+`A.0.9.1`/`A.0.11.1` form. **Coverage is complete** once the paper's own locator style is respected: the
+extraction cites paragraph ranges as well as statement numbers, and a number-only audit falsely flags 32
+statements. An audit of all 197 `<word> \ref{…}` citations found **no** mismatch, no duplicate labels and
+no undefined references. Both `library` items were read in the Mathlib source at pinned `082e2d3`, and all
+14 cited layers exist. Every non-source route is a joined proposal whose introducing paper is
+identifiable, with parent titles reproduced verbatim.
+
+All ten findings are confirmed in the published text. Four are settled by the paper against itself
+(`η_{G′}` beside `η_{[G′]}`; §10.1.5 against §10.2.1; `[G′]` against `[G′]_0`; `λ` on the wrong side of a
+duality), one by arithmetic (`|S_Π|` cannot equal `2^{−dim(a_P)}`, and (10.3.2.1) carries `|S_Π|^{−1}`),
+one by invariance (`⋀dh_{i,j}` scales by `det(g)^n`, so the Haar form needs `(det h)^{−n}`). **Two are
+revision artifacts**, and the preprint proves it: arXiv v1 has `𝔛^h_0` where the published proof of
+Proposition 10.1.6.1 has `𝔛^h_π`, and v1 defines the `𝒜_0` that the published §6.3 leaves undefined after
+renaming it `ia*_{M,0}`. The one gap, E1, was followed into Beuzart-Plessis–Liu–Zhang–Zhu: Theorem
+4.14(4)'s proof reduces to Proposition 4.13(1), whose argument is a contradiction from "weak base change
+does not exist", and BPLZZ's own Remark 4.15 offers the Mok/KMSW alternative the entry names.
+
+The amendment: **E2's reason** claimed the cited BPLZZ numbers are the first arXiv version's. That holds
+for §§3–4 (verified at label level: `th:isolation_tri` 3.17→3.19, `th:abc` 4.12→4.14, `le:modify`
+4.10→4.12) but not for the two §1 citations, which are off by one in every public version, since
+`th:ggp` is 1.8 and `th:nonvanishing` is 1.9 in both. The corrections themselves are unaffected.
