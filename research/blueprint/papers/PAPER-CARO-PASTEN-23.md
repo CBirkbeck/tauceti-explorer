@@ -1,3 +1,194 @@
+# Continuation: the first residue ball and integral annihilators
+
+Codex — codex-c83e7a; issue #1235; 23 September 2026. **Partial checkpoint.**
+
+This continuation adds written proofs of two local interfaces: the corrected formal coefficient bounds imply inverse isometric Exp/Log on the whole first residue ball under **p>e+1**, and a unit coordinate gives an explicit saturated annihilator basis with independent reduction. These are conditional on the formal maps and the named geometric comparison suppliers. They do not establish the global published surface theorem or remove the earlier source gaps.
+
+The inventory is now **174 items: 14 library, 15 planned, 145 missing**. Fifteen routes take 125 missing items; the same twenty historical false, unmatched or unclosed records remain withheld. All 163 inherited IDs, statuses and statements are preserved. Eleven new items comprise three exact library imports, two existing-stage imports and six missing specialized results/constructions. All 41 definitions/constructions now have structured API and three-test lists; the inherited inline versions remain for context. The selected prerequisite graph has 37 edges and is acyclic, not a claim that every historical dependency is closed.
+
+## Source boundary and published revision evidence
+
+Freshly read all 39 pages of [arXiv:2102.01055v2](https://arxiv.org/pdf/2102.01055v2), including proofs and bibliography. The downloaded 541,132-byte PDF has SHA-256 `d7398c4bc32d7ce631e8397145e63276e33f037070a252ba16442c01500c67f7`, matching earlier readings. The final 54-page publication was not acquired.
+
+The [public publisher article page](https://link.springer.com/article/10.1007/s00222-023-01217-1), read on 23 September, explicitly thanks a referee who found a mistake in an earlier Lemma 3.15. This is primary evidence that the earlier lemma had an acknowledged problem. It does **not** supply the final lemma, identify the precise repair, or prove that every v2 finding survives in print. The retrieved HTML has SHA-256 `f86f68b3101887dbb88ba2f360c06841d78b91bbe3166a375ff78264a27a67b4`; only the public metadata, bibliography and acknowledgements were read. Caro's public research page links this paper to arXiv and Springer, not a separately acquired final PDF. G0 therefore remains open, with better revision evidence.
+
+The JSON now consolidates **E1–E13** from the existing `research/blueprint/errata/PAPER-CARO-PASTEN-23.json`, retaining IDs and their mathematical findings. This is extraction maintenance, not an independent errata review. E1 retains the previous weighted repair and adds the publisher acknowledgement. The ledger's twelve other findings already appeared in the historical report; they now have the required structured representation in the extraction too. No claim of new discovery or published persistence is made. The separate errata files are untouched.
+
+Two errors in the extraction itself are corrected without inventing paper errata: v2 Lemma 7.7 has parts (i)–(iii), so the old locator “7.7(iv)” is replaced by a derived-strengthening locator; in the finite-difference proof, Exp(i Log X) has zero constant coefficient in i, so its beginning is i Log X + O(i²), without the spurious X. Neither changes an inherited theorem statement.
+
+## L1. One coefficient majorant for both maps
+
+Work over a finite extension K/Q_p with ramification e and residue degree f. Use the paper's absolute value |π|=q^−1=p^−f, so |p|=p^−ef. Give K^n the maximum norm. Assume the corrected normalized formal maps Exp_F and Log_F exist and satisfy the already extracted factorial/logarithmic denominator bounds. Their existence is still an explicit formal-geometry supplier; the calculation below is not a circular construction of them.
+
+Put A=p^(ef/(p−1)). For a total-degree M coefficient of Exp, integrality of M!c gives
+
+`|c| ≤ p^(ef v_p(M!)) ≤ A^(M−1)`.
+
+The last inequality is Legendre's formula: (p−1)v_p(M!) is M minus the sum of the base-p digits of M, hence at most M−1 for M≥1. Both the exact identity and strict bound are present at the pinned Mathlib commit.
+
+The same majorant holds for Log. If a=v_p(m), then m≥p^a≥1+a(p−1), so v_p(m)≤(m−1)/(p−1). The inherited logarithm bound is max_(1≤m≤M)|1/m|, which is at most A^(M−1). This uses the stated maximum of denominators; it does not replace it with the stronger unsupported claim that M times every degree-M logarithm coefficient is integral.
+
+## L2. The full first residue ball is small enough
+
+Set r=p^−f and B_r=m_R^n. If p>e+1, then
+
+`c=A r=p^(−f(1−e/(p−1)))<1`.
+
+For a monomial of total degree M, telescope the difference of its M factors. For x,y∈B_r this gives
+
+`|x^α−y^α| ≤ r^(M−1)|x−y|`.
+
+There is no factor M: the norm of the finite telescoping sum is bounded by the largest summand. Multiplying by the L1 coefficient bound gives c^(M−1)|x−y|. The weighted coefficient bound r c^(M−1) tends to zero, so both series lie in the restricted analytic algebra on the closed ball. Summing first over each finite homogeneous degree and then over degrees is legitimate in its complete Gauss norm. For the nonlinear remainder H=P−id of either P=Exp or P=Log, we obtain
+
+`|H(x)−H(y)| ≤ c|x−y|`, with H(0)=0.
+
+This reuses the monomial and Gauss-norm method already written in Bresciani /155,/158. The contribution here is the explicit majorant and full first-residue-ball radius. There is no second analytic carrier and no redefinition of Bresciani's small logarithm.
+
+## L3. Isometry, surjectivity and the strict boundary
+
+For x≠y, the nonlinear difference has norm strictly less than |x−y|. Nonarchimedean dominance therefore gives |P(x)−P(y)|=|x−y|. In particular P preserves the ball and is injective.
+
+For any z∈B_r, the map x↦z−H(x) preserves the same complete nonempty ball and contracts by c<1. The pinned fixed-point theorem produces a unique solution of P(x)=z, proving surjectivity. This is the existing Bresciani /161–163 inverse argument with the concrete coefficient bounds above. Exp and Log are already restricted analytic series; their formal inverse identities evaluate on the ball by the L0 substitution interface. The integral formal group law also preserves the ball, so the formal homomorphism identities evaluate there. This identifies the maps as inverse analytic group isomorphisms; pointwise convergence alone is not used to assert analytic inversion.
+
+Thus **p>e+1 suffices for this local conclusion**; the further sufficient assumption p>exp(e/exp(1)) in v2 Lemma 7.7 is unnecessary here. This is a strengthening of a valid sufficient condition, not another source error. It does not rewrite the global surface endpoints or their geometric hypotheses.
+
+There are new admissible ramified examples. For K=Q_13(π) with π^10=13, Eisenstein gives e=10,f=1, and 13>11. The old exponential bound fails: Euler's number is <3, while the cubic Taylor lower bound for exp(10/3) is already >13. The new c is 13^−(1/6)<1.
+
+Strictness matters. For the multiplicative formal group over Q_2, p=2,e=1 is equality p=e+1. At x=2, the terms x^m/m! of exp(x)−1 with m=2^a have valuation m−v_2(m!)=1, so they do not tend to zero. Consequently no universal full-ball statement can replace > by ≥. This agrees with the previously recorded logarithm torsion example at −1 and with Bresciani's valid smaller-ball construction. The zero-dimensional case is harmless; the boundary counterexample uses dimension one.
+
+## I1. Write the basis rather than choosing arbitrary primitive forms
+
+The algebra works over any commutative ring R once u_j is a unit. Let ε_i be coordinate covectors on R^n, and set
+
+`b_i=ε_i−u_i u_j^−1 ε_j` for i≠j, and `b_*=u_j^−1 ε_j`.
+
+Evaluation at u sends every b_i to zero and b_* to one. Every covector λ satisfies the exact identity
+
+`λ = Σ_(i≠j) λ_i b_i + λ(u)b_*`.
+
+Indeed all coordinates other than j agree immediately, and the j-coordinate is `(λ(u)−Σ_(i≠j)λ_i u_i)/u_j=λ_j`. The same coordinates and evaluation recover the coefficients uniquely. Hence the b_i are a basis of ker(ev_u), and the displayed decomposition splits the entire dual as ker(ev_u)⊕R. This is the explicit specialization needed for the paper, built on existing finite-free linear algebra; it is not a second theory of kernels or complementary submodules.
+
+For a DVR, primitivity of u guarantees such a unit coordinate. A nonzero K-vector can be scaled to a primitive vector by its minimum coordinate valuation, and any two primitive generators of the same K-line differ by a unit. No claim that a rank-one Z_p closure equals the full R-line is needed or introduced.
+
+## I2. Base change and saturation
+
+For any R→S, including nonflat S, u_j remains a unit and the formulas transport coefficientwise. Both S⊗ker(ev_u) and ker(ev_(u⊗S)) have the displayed S-basis, so their natural comparison is an isomorphism. Equivalently, the explicit split sequence stays split exact after tensoring. Thus reduction modulo the DVR uniformizer retains the identity minor obtained by deleting coordinate j.
+
+The quotient of the dual by the kernel is R, so over a DVR the kernel is saturated. The reduced b_i are a basis of the reduced kernel and are independent in the entire reduced dual. Multiplying u by a unit leaves each ratio u_i/u_j unchanged, hence preserves the kernel basis. A different pivot gives another basis of the same kernel; the change-of-basis and its inverse are read off from the two explicit coordinate formulas, so its determinant is a unit and stays invertible after reduction.
+
+The source's insufficient argument is easy to detect in dimension three. For u=e_3 the forms ε_1 and ε_1+π ε_2 both annihilate u, are individually primitive and K-independent, but have equal reductions. Their span is a proper nonsaturated sublattice of the kernel. Choosing from the full split-kernel basis repairs the step; for n≥3 choose any two basis members.
+
+## I3. The geometric lattice remains an explicit supplier
+
+The existing A1 stage owns the isomorphism of invariant differential sheaves Ω¹_(A/R)≃f*e*Ω¹_(A/R), its base-change compatibility and the identity-section tangent dual. For an abelian scheme over a DVR, proper smooth geometrically connected fibers give f_*O_A=R universally. Consequently global relative differentials identify with the finite free invariant cotangent lattice. These statements must be built in A1; field-level `AbelianVariety` does not provide them.
+
+With the formal/analytic differential comparison from the existing Adic R1 and `analytic-algebraic` interfaces, an invariant form λ pulls back along Exp(zu) to λ(u) dz. Since R→K is injective, vanishing on the generic one-parameter group is exactly membership in the integral kernel. I1–I2 therefore supply the independent reductions used by repaired Lemma 9.7. The integral and continuous-to-algebraic comparison is named as a dependency, not hidden in the word invariant.
+
+The later finite-jet differential range remains m≤p−2. A good annihilator lattice does not make Ω¹ of the length-p truncated ring torsion-free at m=p−1. G4's original formal-existence reference and the remaining G6 original sources also remain open.
+
+## Ownership and pinned evidence
+
+Freshly read the actual statements at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`:
+
+- `sub_one_mul_padicValNat_factorial` and `sub_one_mul_padicValNat_factorial_lt_of_ne_zero`, `NumberTheory/Padics/PadicVal/Basic.lean`, lines 624–639.
+- `IsNonarchimedean.add_eq_left_of_lt` and `add_eq_max_of_ne`, `Algebra/Order/Ring/IsNonarchimedean.lean`, lines 78–116.
+- `ContractingWith.fixedPoint_isFixedPt` and `fixedPoint_unique`, `Topology/MetricSpace/Contracting.lean`, lines 273–285, with the nonempty complete-space hypotheses.
+
+Also inspected `LinearMap.equivProdOfSurjectiveOfIsCompl` in `LinearAlgebra/Projection.lean`: it provides the general complementary-kernel construction, but requires the surjectivity/complementarity that the unit-pivot formulas explicitly establish. At Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`, the searched transvection file uses integer matrix pivots, and `LinearAlgebra/BilinearForm/BaseChange.lean` supplies bilinear-form/Gram-matrix transport. Neither is the paper's integral invariant annihilator comparison. No broad absence claim is based solely on a name search.
+
+A1's reviewed AUDIT08 entry still separates the built field carrier from the missing relative/invariant differential work. The reviewed ED.4 entry separates built Gauss-index machinery from the missing Strassmann bound. No matching reviewed L0 or Adic F0/R1/R2 audit entry was located; their imports are based on their actual stage descriptions, not an invented audit verdict. L0's roadmap explicitly owns Banach spaces on residue balls and Gauss norms. The Bresciani extraction already routes /157–163 to the same pending FormalLieTheory Part II; this continuation imports those methods and the shared /155 analytic carrier. These source imports do not create a new roadmap family.
+
+The publication guard refreshed 553 input blobs at `d964b2642d4743641acce02cde0dab1b7019e443`. Changes to Charles16, Colmez–Dospinescu–Nizioł20 and Colmez–Nizioł17, plus new Colmez–Nizioł25 and Dospinescu–Le Bras17 extractions, were screened for overlap. The new L0/L1 extension-of-spaces route is compatible with this existing analytic supplier; no competing formal logarithm or integral-annihilator owner was found.
+
+## Validation and resume point
+
+The standalone regression below executes **228,298 exact assertions**: valuation and factorial bounds, ramification inequalities, explicit pivot decompositions over finite quotients, residue identity minors, unit rescaling, finite-ball inverse/isometry checks, and the 2-adic failure subsequence. Finite checks support the written proofs and are not substitutes for arbitrary-ring or infinite-series arguments. The earlier weighted-sum checks are preserved below as inherited validation, not claimed rerun here.
+
+Paper schema and intake checks pass; inherited IDs/statuses/statements, exact-once routing of all newly missing items, the twenty unchanged withheld records, all structured D/C tests and the selected dependency DAG pass. No Lean file was created or compiled. Suggested implementation files for the eventual design job are `TauCeti/ArithmeticGeometry/FormalLieTheory/IntegralRadius.lean` and `TauCeti/ArithmeticGeometry/FormalLieTheory/AnnihilatorLattice.lean`, importing the common formal/analytic and relative-abelian interfaces. No placeholder carrier or theorem assuming its own conclusion is supplied.
+
+Resume by acquiring the final article and matching its Lemma 3.15 and theorem domains/constants; then close the original formal-existence and invariant-lattice/differential suppliers and the named G6 sources. The previous W1–W8 weighted repair remains conditional and unchanged. The historical reports below contain superseded wording: this supplement governs the local-radius improvement, the explicit integral-basis proof, the two extraction corrections, structured tests and the publisher revision evidence.
+
+```python
+from fractions import Fraction as Q
+from itertools import product
+from random import Random
+import json
+rng=Random(230923); counts={}
+def check(cat, assertion):
+    assert assertion, cat
+    counts[cat]=counts.get(cat,0)+1
+def v(p,m):
+    assert m
+    k=0
+    while m%p==0:k+=1;m//=p
+    return k
+def vf(p,m):
+    ans=0
+    while m:m//=p;ans+=m
+    return ans
+for p in [2,3,5,7,11,13,17,19,23,29,31,37,41,43]:
+    for m in range(1,257):
+        check('valuation_majorants',(p-1)*v(p,m)<=m-1)
+        check('valuation_majorants',(p-1)*vf(p,m)<=m-1)
+        check('legendre',vf(p,m)==sum(v(p,j) for j in range(1,m+1)))
+        for e in range(1,p-1):
+            check('strict_radius',Q(m)-Q(e*vf(p,m))>0)
+            check('strict_radius',Q(m)-Q(e*v(p,m))>0)
+            check('strict_radius',Q(m-1)-Q(e*(m-1),p-1)>=0)
+for a in range(13):
+    m=2**a
+    check('two_adic_boundary',m-vf(2,m)==1)
+for p in [2,3,5]:
+    for k in [1,2,3]:
+        mod=p**k
+        for n in [1,2,3,4]:
+            for trial in range(25):
+                u=[rng.randrange(mod) for _ in range(n)]
+                j=rng.randrange(n)
+                while u[j]%p==0:u[j]=rng.randrange(mod)
+                inv=pow(u[j],-1,mod)
+                indices=[i for i in range(n) if i!=j]
+                basis=[]
+                for i in indices:
+                    b=[int(l==i) for l in range(n)];b[j]=-u[i]*inv%mod;basis.append(b)
+                    check('pivot_evaluation',sum(x*y for x,y in zip(u,b))%mod==0)
+                star=[0]*n;star[j]=inv
+                check('pivot_evaluation',sum(x*y for x,y in zip(u,star))%mod==1)
+                for _ in range(10):
+                    lam=[rng.randrange(mod) for _ in range(n)];ev=sum(x*y for x,y in zip(u,lam))%mod
+                    rebuilt=[(sum(lam[i]*b[l] for i,b in zip(indices,basis))+ev*star[l])%mod for l in range(n)]
+                    check('pivot_decomposition',rebuilt==lam)
+                    check('base_change',all(b[l]%p==int(l==i) for i,b in zip(indices,basis) for l in indices))
+                unit=next(a for a in range(1,mod) if a%p and a!=1) if mod>2 else 1
+                check('unit_rescaling',all((-unit*u[i]*pow(unit*u[j]%mod,-1,mod))%mod==basis[t][j] for t,i in enumerate(indices)))
+# Exhaustive finite quotient fibers: affine solve has exactly mod^(n-1) solutions.
+for p,k,n in [(2,2,3),(3,2,3),(5,1,3)]:
+    mod=p**k;u=[p,1,2]
+    kernel=[a for a in product(range(mod),repeat=n) if sum(x*y for x,y in zip(a,u))%mod==0]
+    check('kernel_cardinality',len(kernel)==mod**(n-1))
+# A nonlinear strict perturbation of identity permutes each first residue ball.
+for p in [2,3,5,7]:
+    for k in [2,3,4]:
+        mod=p**k;ball=list(range(0,mod,p));image=[(x+x*x)%mod for x in ball]
+        check('finite_inverse',sorted(image)==ball)
+        for _ in range(200):
+            x=rng.choice(ball);y=rng.choice(ball)
+            if x!=y:
+                check('finite_isometry',v(p,(x+x*x-y-y*y))==v(p,x-y))
+# Primitive independent rows over Q need not stay independent mod p.
+for p in [2,3,5,7]:
+    rows=((1,0,0),(1,p,0)); determinant=rows[0][0]*rows[1][1]-rows[0][1]*rows[1][0]
+    check('unsaturated_counterexample',determinant!=0 and tuple(x%p for x in rows[0])==tuple(x%p for x in rows[1]) and all(row[2]==0 for row in rows))
+# e=10,p=13 passes p>e+1 but fails the preprint's extra exponential bound:
+# Euler's number <3 and exp(10/3)> its cubic Taylor polynomial >13.
+check('strict_improvement',sum(Q(10,3)**j / [1,1,2,6][j] for j in range(4))>13)
+print(json.dumps({'total':sum(counts.values()),'counts':counts},sort_keys=True))
+```
+
+---
+
+# Historical reports retained for provenance
+
 # Continuation: a componentwise repair of the weighted jet sum
 
 Codex — codex-a71f92, 22 September 2026; issue #1235. **Partial checkpoint.**

@@ -13,9 +13,10 @@
       "Entire 39-page arXiv v2, §§1–11 and references.",
       "Only the explicitly recorded selections of prerequisite sources were read.",
       "Codex codex-a71f92, 2026-09-22: freshly read all 39 pages of arXiv:2102.01055v2, §§1–11 and full bibliography, from the separately downloaded identical PDF.",
-      "Freshly read Stacks 33.39 (0C3Q), 33.27.6 (0C3P), 43.16 (0B01), and 43.14 (0AZR); these are selected sections, not full chapters. Older Debarre/Garcia-Fritz/Aubry–Perret/Balakrishnan–Caro reading extents remain inherited, not newly read."
+      "Freshly read Stacks 33.39 (0C3Q), 33.27.6 (0C3P), 43.16 (0B01), and 43.14 (0AZR); these are selected sections, not full chapters. Older Debarre/Garcia-Fritz/Aubry–Perret/Balakrishnan–Caro reading extents remain inherited, not newly read.",
+      "Codex codex-c83e7a, 2026-09-23: fresh complete reading of all 39 arXiv v2 pages including proofs and bibliography; publisher public metadata/bibliography/acknowledgements only. Bresciani /153–164 interfaces and the selected pinned declarations below were read. No fresh Bourbaki, Hironaka, Nakai or final CP article reading is claimed."
     ],
-    "versionNote": "The fully read v2 predates the 54-page publication; final-source reconciliation is G0. Error findings concern v2 only. Later Balakrishnan–Caro quotes a different constant and domain. Fresh 2026-09-22 publisher PDF attempt returned an HTML access page; arXiv still lists only v1/v2. The componentwise +3 derivation below is our argument for the smooth nef-canonical setup, not evidence about the 54-page final paper or its W₂ domain.",
+    "versionNote": "The fully read v2 predates the 54-page publication; final-source reconciliation is G0. Error findings concern v2 only. Later Balakrishnan–Caro quotes a different constant and domain. Fresh 2026-09-22 publisher PDF attempt returned an HTML access page; arXiv still lists only v1/v2. The componentwise +3 derivation below is our argument for the smooth nef-canonical setup, not evidence about the 54-page final paper or its W₂ domain. Fresh 2026-09-23 publisher acknowledgements explicitly acknowledge a referee finding a mistake in an earlier Lemma 3.15. This provides primary revision evidence, but does not identify the final repaired statement or reconcile all thirteen v2 findings. L1–L3 are our local analytic strengthening, not a claim about the final text.",
     "files": [
       {
         "name": "arxiv.pdf",
@@ -94,13 +95,30 @@
         "date": "2026-09-22",
         "sha256": "87004f59fbad97a159814b2d144469eb92b8fc8cdfb32b88c0a6cb70529c3662",
         "read": "43.16, entire mathematical section"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2102.01055v2",
+        "date": "2026-09-23T05:48:12.432234+00:00",
+        "sha256": "d7398c4bc32d7ce631e8397145e63276e33f037070a252ba16442c01500c67f7",
+        "bytes": 541132,
+        "pages": 39,
+        "read": "All 39 pages including proofs and bibliography, freshly read 2026-09-23."
+      },
+      {
+        "url": "https://link.springer.com/article/10.1007/s00222-023-01217-1",
+        "finalUrl": "https://link.springer.com/article/10.1007/s00222-023-01217-1?error=cookies_not_supported&code=1b934426-6291-406b-a941-7adc565172fc",
+        "date": "2026-09-23T05:56:31.125309+00:00",
+        "sha256": "f86f68b3101887dbb88ba2f360c06841d78b91bbe3166a375ff78264a27a67b4",
+        "bytes": 355823,
+        "contentType": "text/html; charset=utf-8",
+        "read": "Public article metadata, abstract, bibliography and acknowledgements only; not the final article PDF."
       }
     ],
     "libraryPins": {
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "TauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
     },
-    "atlasCommit": "765cf019bd7b864e7e0d0b121abaad090606b9b3",
+    "atlasCommit": "d964b2642d4743641acce02cde0dab1b7019e443",
     "acquisitionAttempts": [
       {
         "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01217-1.pdf",
@@ -114,9 +132,9 @@
         "result": "1160-byte HTML challenge, not an acquired Hironaka text"
       }
     ],
-    "priorAtlasCommit": "89c6d635718f318a74871acc16a6fc4562815261"
+    "priorAtlasCommit": "765cf019bd7b864e7e0d0b121abaad090606b9b3"
   },
-  "summary": "Complete reading of the available preprint, atomic extraction and source-qualified routing for overdetermined jets, abelian differential restriction, formal Lie theory and local surface Chabauty. The false geometric branch bound, printed formal-group construction and canonical-ampleness claim are recorded with counterexamples; numerical global endpoints and unmatched original suppliers remain withheld. Existing suppliers retain their owners; two Part II briefs cover formal Lie theory and surface methods. No formalization is claimed. Continuation codex-a71f92 derives a +3 weighted jet-sum repair from Frobenius orbit splitting and a componentwise canonical intersection budget, conditional only on the explicitly extracted geometric/analytic suppliers. No final-version reconciliation or full library closure is claimed.",
+  "summary": "Complete reading of the available preprint, atomic extraction and source-qualified routing for overdetermined jets, abelian differential restriction, formal Lie theory and local surface Chabauty. The false geometric branch bound, printed formal-group construction and canonical-ampleness claim are recorded with counterexamples; numerical global endpoints and unmatched original suppliers remain withheld. Existing suppliers retain their owners; two Part II briefs cover formal Lie theory and surface methods. No formalization is claimed. Continuation codex-a71f92 derives a +3 weighted jet-sum repair from Frobenius orbit splitting and a componentwise canonical intersection budget, conditional only on the explicitly extracted geometric/analytic suppliers. No final-version reconciliation or full library closure is claimed. Continuation codex-c83e7a proves a conditional full-residue-ball Exp/Log isometry for p>e+1, writes the unit-pivot and base-change repair of the integral annihilator, imports shared Bresciani/L0 analysis, consolidates E1–E13 and records published acknowledgement of the earlier Lemma 3.15 mistake. G0 and original-source/geometric supplier gaps remain open.",
   "items": [
     {
       "id": "PAPER-CARO-PASTEN-23/abelian-variety",
@@ -128,6 +146,30 @@
       "note": " API: Reuse zero, products, field base change and group homomorphisms; keep the relative abelian-scheme extension separate. Tests: (1) dimension three is allowed; (2) properness is a hypothesis; (3) a field object does not supply an integral model.",
       "library": [
         "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety"
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.abelian_variety.interface",
+          "role": "compatibility",
+          "statement": "Reuse zero, products, field base change and group homomorphisms; keep the relative abelian-scheme extension separate."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.abelian_variety.test1",
+          "kind": "compatibility",
+          "statement": "dimension three is allowed"
+        },
+        {
+          "name": "CaroPasten23.abelian_variety.test2",
+          "kind": "compatibility",
+          "statement": "properness is a hypothesis"
+        },
+        {
+          "name": "CaroPasten23.abelian_variety.test3",
+          "kind": "compatibility",
+          "statement": "a field object does not supply an integral model"
+        }
       ]
     },
     {
@@ -140,6 +182,30 @@
       "note": " API: Reuse TangentSpace and its residue-field comparison; construct invariant differentials separately. Tests: (1) zero point is K-rational; (2) scalar extension must be identified; (3) finite dimensionality is not a logarithm.",
       "library": [
         "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.TangentSpace"
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.tangent.interface",
+          "role": "compatibility",
+          "statement": "Reuse TangentSpace and its residue-field comparison; construct invariant differentials separately."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.tangent.test1",
+          "kind": "compatibility",
+          "statement": "zero point is K-rational"
+        },
+        {
+          "name": "CaroPasten23.tangent.test2",
+          "kind": "compatibility",
+          "statement": "scalar extension must be identified"
+        },
+        {
+          "name": "CaroPasten23.tangent.test3",
+          "kind": "compatibility",
+          "statement": "finite dimensionality is not a logarithm"
+        }
       ]
     },
     {
@@ -166,6 +232,30 @@
         "mathlib:KaehlerDifferential",
         "mathlib:KaehlerDifferential.linearMapEquivDerivation",
         "mathlib:KaehlerDifferential.map"
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.kahler.interface",
+          "role": "compatibility",
+          "statement": "Reuse D, linearMapEquivDerivation and map for a commutative algebra square; sheafify and supply completion comparisons separately."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.kahler.test1",
+          "kind": "compatibility",
+          "statement": "d(ab)=a db+b da"
+        },
+        {
+          "name": "CaroPasten23.kahler.test2",
+          "kind": "compatibility",
+          "statement": "d(r)=0 for r in R"
+        },
+        {
+          "name": "CaroPasten23.kahler.test3",
+          "kind": "compatibility",
+          "statement": "ordinary differentials of K[[z]] are not silently continuous"
+        }
       ]
     },
     {
@@ -179,6 +269,30 @@
       "library": [
         "mathlib:FormalGroup",
         "mathlib:FormalGroup.IsComm"
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.formal_one.interface",
+          "role": "compatibility",
+          "statement": "Import the one-dimensional carrier; a dimension-n law is a new construction, not Fin n copies of this type."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.formal_one.test1",
+          "kind": "compatibility",
+          "statement": "additive law qualifies"
+        },
+        {
+          "name": "CaroPasten23.formal_one.test2",
+          "kind": "compatibility",
+          "statement": "multiplicative law X+Y+XY qualifies"
+        },
+        {
+          "name": "CaroPasten23.formal_one.test3",
+          "kind": "compatibility",
+          "statement": "n=3 needs a vector of series in six variables"
+        }
       ]
     },
     {
@@ -215,6 +329,30 @@
       "note": " API: Import A1 and expose evaluation at zero, translation invariance and integral basis. Tests: (1) R may have residue characteristic p; (2) generic and special fibers differ; (3) field-level AbelianVariety does not prove integral freeness.",
       "planned": [
         "AbelianSchemesAndArithmeticModuli:A1"
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.abelian_scheme.interface",
+          "role": "compatibility",
+          "statement": "Import A1 and expose evaluation at zero, translation invariance and integral basis."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.abelian_scheme.test1",
+          "kind": "compatibility",
+          "statement": "R may have residue characteristic p"
+        },
+        {
+          "name": "CaroPasten23.abelian_scheme.test2",
+          "kind": "compatibility",
+          "statement": "generic and special fibers differ"
+        },
+        {
+          "name": "CaroPasten23.abelian_scheme.test3",
+          "kind": "compatibility",
+          "statement": "field-level AbelianVariety does not prove integral freeness"
+        }
       ]
     },
     {
@@ -224,7 +362,31 @@
       "statement": "Over the integers R of a finite extension K/Q_p, take an abelian scheme A/R and a closed smooth proper relative surface X/R with geometrically integral fibers, embedded in A.",
       "locator": "§9.1",
       "status": "missing",
-      "note": " API: Expose generic/special fibers, closed immersion, reduction and compatibility under translation and base change. Tests: (1) good reduction of A alone is insufficient for X; (2) special geometric integrality is retained; (3) translation by an R-section preserves the hypotheses."
+      "note": " API: Expose generic/special fibers, closed immersion, reduction and compatibility under translation and base change. Tests: (1) good reduction of A alone is insufficient for X; (2) special geometric integrality is retained; (3) translation by an R-section preserves the hypotheses.",
+      "api": [
+        {
+          "name": "CaroPasten23.good_pair.interface",
+          "role": "compatibility",
+          "statement": "Expose generic/special fibers, closed immersion, reduction and compatibility under translation and base change."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.good_pair.test1",
+          "kind": "compatibility",
+          "statement": "good reduction of A alone is insufficient for X"
+        },
+        {
+          "name": "CaroPasten23.good_pair.test2",
+          "kind": "compatibility",
+          "statement": "special geometric integrality is retained"
+        },
+        {
+          "name": "CaroPasten23.good_pair.test3",
+          "kind": "compatibility",
+          "statement": "translation by an R-section preserves the hypotheses"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/local-conventions",
@@ -233,7 +395,31 @@
       "statement": "K/Q_p is finite with ramification index e, residue field k=F_q, q=p^f, and |π|=q⁻¹, hence |p|=p^−[K:Q_p]. On K^n use the maximum norm.",
       "locator": "§2.3",
       "status": "missing",
-      "note": " API: Import local-field carriers, prove normalization conversion and expose open/closed balls. Tests: (1) Q_p gives |p|=p⁻¹; (2) a ramified quadratic field has |p|=q⁻²; (3) open unit ball equals the closed radius-q⁻¹ ball."
+      "note": " API: Import local-field carriers, prove normalization conversion and expose open/closed balls. Tests: (1) Q_p gives |p|=p⁻¹; (2) a ramified quadratic field has |p|=q⁻²; (3) open unit ball equals the closed radius-q⁻¹ ball.",
+      "api": [
+        {
+          "name": "CaroPasten23.local_conventions.interface",
+          "role": "compatibility",
+          "statement": "Import local-field carriers, prove normalization conversion and expose open/closed balls."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.local_conventions.test1",
+          "kind": "compatibility",
+          "statement": "Q_p gives |p|=p⁻¹"
+        },
+        {
+          "name": "CaroPasten23.local_conventions.test2",
+          "kind": "compatibility",
+          "statement": "a ramified quadratic field has |p|=q⁻²"
+        },
+        {
+          "name": "CaroPasten23.local_conventions.test3",
+          "kind": "compatibility",
+          "statement": "open unit ball equals the closed radius-q⁻¹ ball"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/closure",
@@ -242,7 +428,31 @@
       "statement": "For finitely generated G⊂A(K) of rank at most one, Γ is its topological closure; finite torsion and the local identity residue subgroup must be retained.",
       "locator": "§1; §9",
       "status": "missing",
-      "note": " API: Construct closure subgroup, reduction image, intersection with the identity disc and translation by Γ. Tests: (1) rank zero means finite G; (2) over K≠Q_p a Z_p-line need not be an R-line; (3) a nonintegral analytic direction is normalized before use."
+      "note": " API: Construct closure subgroup, reduction image, intersection with the identity disc and translation by Γ. Tests: (1) rank zero means finite G; (2) over K≠Q_p a Z_p-line need not be an R-line; (3) a nonintegral analytic direction is normalized before use.",
+      "api": [
+        {
+          "name": "CaroPasten23.closure.interface",
+          "role": "compatibility",
+          "statement": "Construct closure subgroup, reduction image, intersection with the identity disc and translation by Γ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.closure.test1",
+          "kind": "compatibility",
+          "statement": "rank zero means finite G"
+        },
+        {
+          "name": "CaroPasten23.closure.test2",
+          "kind": "compatibility",
+          "statement": "over K≠Q_p a Z_p-line need not be an R-line"
+        },
+        {
+          "name": "CaroPasten23.closure.test3",
+          "kind": "compatibility",
+          "statement": "a nonintegral analytic direction is normalized before use"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/genus",
@@ -251,7 +461,31 @@
       "statement": "For a projective integral curve over an algebraically closed field, p_a=1−χ(O_C) and g is the genus of its normalization. Over a perfect field use geometric base change.",
       "locator": "§2.2; §3.1",
       "status": "missing",
-      "note": " API: Expose normalization, finite-dimensional coherent cohomology and the distinction between p_a and g. Tests: (1) a smooth curve has p_a=g; (2) a nodal cubic has p_a=1,g=0; (3) a nonsplit node does not become two rational branches."
+      "note": " API: Expose normalization, finite-dimensional coherent cohomology and the distinction between p_a and g. Tests: (1) a smooth curve has p_a=g; (2) a nodal cubic has p_a=1,g=0; (3) a nonsplit node does not become two rational branches.",
+      "api": [
+        {
+          "name": "CaroPasten23.genus.interface",
+          "role": "compatibility",
+          "statement": "Expose normalization, finite-dimensional coherent cohomology and the distinction between p_a and g."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.genus.test1",
+          "kind": "compatibility",
+          "statement": "a smooth curve has p_a=g"
+        },
+        {
+          "name": "CaroPasten23.genus.test2",
+          "kind": "compatibility",
+          "statement": "a nodal cubic has p_a=1,g=0"
+        },
+        {
+          "name": "CaroPasten23.genus.test3",
+          "kind": "compatibility",
+          "statement": "a nonsplit node does not become two rational branches"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/delta",
@@ -260,7 +494,31 @@
       "statement": "At a point of an integral curve, δ_x is the length/dimension of the finite normalization quotient Õ_C,x/O_C,x, with geometric points used for geometric genus formulas.",
       "locator": "§3.1",
       "status": "missing",
-      "note": " API: Construct normalization algebra, quotient, support and base-change bookkeeping. Tests: (1) smooth point has δ=0; (2) ordinary node has δ=1; (3) cusp has δ=1 but one branch."
+      "note": " API: Construct normalization algebra, quotient, support and base-change bookkeeping. Tests: (1) smooth point has δ=0; (2) ordinary node has δ=1; (3) cusp has δ=1 but one branch.",
+      "api": [
+        {
+          "name": "CaroPasten23.delta.interface",
+          "role": "compatibility",
+          "statement": "Construct normalization algebra, quotient, support and base-change bookkeeping."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.delta.test1",
+          "kind": "compatibility",
+          "statement": "smooth point has δ=0"
+        },
+        {
+          "name": "CaroPasten23.delta.test2",
+          "kind": "compatibility",
+          "statement": "ordinary node has δ=1"
+        },
+        {
+          "name": "CaroPasten23.delta.test3",
+          "kind": "compatibility",
+          "statement": "cusp has δ=1 but one branch"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/delta-regular",
@@ -287,7 +545,31 @@
       "statement": "mult_x C is the Hilbert–Samuel multiplicity of the one-dimensional local ring of an integral curve at a closed point.",
       "locator": "§3.1",
       "status": "missing",
-      "note": " API: Expose length-growth definition, invariance under completion, regularity criterion and plane-equation comparison. Tests: (1) smooth point has multiplicity one; (2) ordinary node has multiplicity two; (3) multiplicity is not number of branches."
+      "note": " API: Expose length-growth definition, invariance under completion, regularity criterion and plane-equation comparison. Tests: (1) smooth point has multiplicity one; (2) ordinary node has multiplicity two; (3) multiplicity is not number of branches.",
+      "api": [
+        {
+          "name": "CaroPasten23.multiplicity.interface",
+          "role": "compatibility",
+          "statement": "Expose length-growth definition, invariance under completion, regularity criterion and plane-equation comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.multiplicity.test1",
+          "kind": "compatibility",
+          "statement": "smooth point has multiplicity one"
+        },
+        {
+          "name": "CaroPasten23.multiplicity.test2",
+          "kind": "compatibility",
+          "statement": "ordinary node has multiplicity two"
+        },
+        {
+          "name": "CaroPasten23.multiplicity.test3",
+          "kind": "compatibility",
+          "statement": "multiplicity is not number of branches"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/mult-regular",
@@ -326,6 +608,30 @@
       "note": " API: Expose divisor of a nonzero two-form, intersection pairing, base change and adjunction. Tests: (1) K² may be zero; (2) an effective divisor need not be ample; (3) abelian surfaces have trivial K.",
       "planned": [
         "SchemeAndStackFoundations:SF.5"
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.canonical.interface",
+          "role": "compatibility",
+          "statement": "Expose divisor of a nonzero two-form, intersection pairing, base change and adjunction."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.canonical.test1",
+          "kind": "compatibility",
+          "statement": "K² may be zero"
+        },
+        {
+          "name": "CaroPasten23.canonical.test2",
+          "kind": "compatibility",
+          "statement": "an effective divisor need not be ample"
+        },
+        {
+          "name": "CaroPasten23.canonical.test3",
+          "kind": "compatibility",
+          "statement": "abelian surfaces have trivial K"
+        }
       ]
     },
     {
@@ -356,7 +662,31 @@
       "statement": "After completing at a geometric point of a smooth surface, factor a local curve equation into pairwise nonassociated irreducibles in k[[s₁,s₂]]; the factors define formal branches.",
       "locator": "§3.3",
       "status": "missing",
-      "note": " API: Construct branches independently of coordinates, maps from normalization completions, valuations and multiplicities. Tests: (1) a node has two branches; (2) a cusp has one branch; (3) a globally integral curve can have several formal branches."
+      "note": " API: Construct branches independently of coordinates, maps from normalization completions, valuations and multiplicities. Tests: (1) a node has two branches; (2) a cusp has one branch; (3) a globally integral curve can have several formal branches.",
+      "api": [
+        {
+          "name": "CaroPasten23.branches.interface",
+          "role": "compatibility",
+          "statement": "Construct branches independently of coordinates, maps from normalization completions, valuations and multiplicities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.branches.test1",
+          "kind": "compatibility",
+          "statement": "a node has two branches"
+        },
+        {
+          "name": "CaroPasten23.branches.test2",
+          "kind": "compatibility",
+          "statement": "a cusp has one branch"
+        },
+        {
+          "name": "CaroPasten23.branches.test3",
+          "kind": "compatibility",
+          "statement": "a globally integral curve can have several formal branches"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/branches-reduced",
@@ -401,7 +731,31 @@
       "statement": "A smooth projective geometrically integral surface is of general type when its canonical bundle is big, equivalently its pluricanonical section growth is quadratic. Minimal means no smooth rational (−1)-curve.",
       "locator": "§3.4",
       "status": "missing",
-      "note": " API: Expose geometric base change, bigness and minimality without assuming ampleness. Tests: (1) abelian surfaces are excluded; (2) blowing up preserves general type but can destroy nefness; (3) a (−2)-curve can obstruct ampleness."
+      "note": " API: Expose geometric base change, bigness and minimality without assuming ampleness. Tests: (1) abelian surfaces are excluded; (2) blowing up preserves general type but can destroy nefness; (3) a (−2)-curve can obstruct ampleness.",
+      "api": [
+        {
+          "name": "CaroPasten23.general_type.interface",
+          "role": "compatibility",
+          "statement": "Expose geometric base change, bigness and minimality without assuming ampleness."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.general_type.test1",
+          "kind": "compatibility",
+          "statement": "abelian surfaces are excluded"
+        },
+        {
+          "name": "CaroPasten23.general_type.test2",
+          "kind": "compatibility",
+          "statement": "blowing up preserves general type but can destroy nefness"
+        },
+        {
+          "name": "CaroPasten23.general_type.test3",
+          "kind": "compatibility",
+          "statement": "a (−2)-curve can obstruct ampleness"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/minimal-nef",
@@ -428,7 +782,31 @@
       "statement": "A compact complex manifold is Brody hyperbolic when every entire map C→M is constant.",
       "locator": "§3.4",
       "status": "missing",
-      "note": "G6: general analytic owner and original Green/Yau/Brody proofs are not yet matched; withheld. API: Expose holomorphic maps, base embedding and the compactness hypothesis for comparison with Kobayashi hyperbolicity. Tests: (1) a point is hyperbolic; (2) an elliptic curve is not; (3) this definition does not itself imply general type."
+      "note": "G6: general analytic owner and original Green/Yau/Brody proofs are not yet matched; withheld. API: Expose holomorphic maps, base embedding and the compactness hypothesis for comparison with Kobayashi hyperbolicity. Tests: (1) a point is hyperbolic; (2) an elliptic curve is not; (3) this definition does not itself imply general type.",
+      "api": [
+        {
+          "name": "CaroPasten23.hyperbolic.interface",
+          "role": "compatibility",
+          "statement": "Expose holomorphic maps, base embedding and the compactness hypothesis for comparison with Kobayashi hyperbolicity."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.hyperbolic.test1",
+          "kind": "compatibility",
+          "statement": "a point is hyperbolic"
+        },
+        {
+          "name": "CaroPasten23.hyperbolic.test2",
+          "kind": "compatibility",
+          "statement": "an elliptic curve is not"
+        },
+        {
+          "name": "CaroPasten23.hyperbolic.test3",
+          "kind": "compatibility",
+          "statement": "this definition does not itself imply general type"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/hyperbolic-surface",
@@ -455,7 +833,31 @@
       "statement": "For a reduced projective curve D/F_q with geometric components C_j and normalizations ν_j, A_D(F_q)=Σ_(x∈D(F_q))Σ_j #ν_j⁻¹(x)(F̄_q).",
       "locator": "§3.5",
       "status": "missing",
-      "note": " API: Expose Frobenius action on components and fibers, weighted versions and extension of constants. Tests: (1) smooth geometrically integral D gives #D(F_q); (2) nonsplit node contributes two geometric branches; (3) A_D need not equal #D̃(F_q)."
+      "note": " API: Expose Frobenius action on components and fibers, weighted versions and extension of constants. Tests: (1) smooth geometrically integral D gives #D(F_q); (2) nonsplit node contributes two geometric branches; (3) A_D need not equal #D̃(F_q).",
+      "api": [
+        {
+          "name": "CaroPasten23.branch_count.interface",
+          "role": "compatibility",
+          "statement": "Expose Frobenius action on components and fibers, weighted versions and extension of constants."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.branch_count.test1",
+          "kind": "compatibility",
+          "statement": "smooth geometrically integral D gives #D(F_q)"
+        },
+        {
+          "name": "CaroPasten23.branch_count.test2",
+          "kind": "compatibility",
+          "statement": "nonsplit node contributes two geometric branches"
+        },
+        {
+          "name": "CaroPasten23.branch_count.test3",
+          "kind": "compatibility",
+          "statement": "A_D need not equal #D̃(F_q)"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/modified-zeta",
@@ -464,7 +866,31 @@
       "statement": "Choose a finite extension splitting geometric components and all singular normalization fibers; c_D=Σ_geometric singular x(#ν⁻¹(x)−1). Define Z*_D(T)=Z_D(T)/(1−T)^c_D.",
       "locator": "§3.5",
       "status": "missing",
-      "note": " API: Construct c_D independent of sufficiently large splitting field, rationality and extension norms. Tests: (1) smooth D has c_D=0; (2) a node has c_D=1 regardless of splitting; (3) roots-of-unity norms can cancel zeros and poles."
+      "note": " API: Construct c_D independent of sufficiently large splitting field, rationality and extension norms. Tests: (1) smooth D has c_D=0; (2) a node has c_D=1 regardless of splitting; (3) roots-of-unity norms can cancel zeros and poles.",
+      "api": [
+        {
+          "name": "CaroPasten23.modified_zeta.interface",
+          "role": "compatibility",
+          "statement": "Construct c_D independent of sufficiently large splitting field, rationality and extension norms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.modified_zeta.test1",
+          "kind": "compatibility",
+          "statement": "smooth D has c_D=0"
+        },
+        {
+          "name": "CaroPasten23.modified_zeta.test2",
+          "kind": "compatibility",
+          "statement": "a node has c_D=1 regardless of splitting"
+        },
+        {
+          "name": "CaroPasten23.modified_zeta.test3",
+          "kind": "compatibility",
+          "statement": "roots-of-unity norms can cancel zeros and poles"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/branch-stabilizes",
@@ -521,7 +947,31 @@
       "statement": "For f:X→Y over T, define f•:H⁰(Y,Ω¹_Y/T)→H⁰(X,Ω¹_X/T) using the adjunction unit and the canonical differential map f*Ω¹_Y/T→Ω¹_X/T.",
       "locator": "§4.1",
       "status": "missing",
-      "note": " API: Expose composition with its canonical pullback isomorphism, identity, restriction to stalks and base change. Tests: (1) identity pulls back identically; (2) constant map over a field pulls back to zero; (3) composition uses the differential map, not just tensor pullback."
+      "note": " API: Expose composition with its canonical pullback isomorphism, identity, restriction to stalks and base change. Tests: (1) identity pulls back identically; (2) constant map over a field pulls back to zero; (3) composition uses the differential map, not just tensor pullback.",
+      "api": [
+        {
+          "name": "CaroPasten23.global_pullback.interface",
+          "role": "compatibility",
+          "statement": "Expose composition with its canonical pullback isomorphism, identity, restriction to stalks and base change."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.global_pullback.test1",
+          "kind": "compatibility",
+          "statement": "identity pulls back identically"
+        },
+        {
+          "name": "CaroPasten23.global_pullback.test2",
+          "kind": "compatibility",
+          "statement": "constant map over a field pulls back to zero"
+        },
+        {
+          "name": "CaroPasten23.global_pullback.test3",
+          "kind": "compatibility",
+          "statement": "composition uses the differential map, not just tensor pullback"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/pullback-compose",
@@ -539,7 +989,31 @@
       "statement": "A T-morphism f:X→Y is ω-integral for ω∈H⁰(Y,Ω¹_Y/T) if f•ω=0. Several forms impose simultaneous vanishing.",
       "locator": "§4.1",
       "status": "missing",
-      "note": " API: Expose linearity in ω, composition, base change and affine/stalk criterion. Tests: (1) constant morphisms are integral; (2) in characteristic p Frobenius pulls back all one-forms to zero; (3) vanishing at one tangent vector need not imply integrality of a higher jet."
+      "note": " API: Expose linearity in ω, composition, base change and affine/stalk criterion. Tests: (1) constant morphisms are integral; (2) in characteristic p Frobenius pulls back all one-forms to zero; (3) vanishing at one tangent vector need not imply integrality of a higher jet.",
+      "api": [
+        {
+          "name": "CaroPasten23.integral_morphism.interface",
+          "role": "compatibility",
+          "statement": "Expose linearity in ω, composition, base change and affine/stalk criterion."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.integral_morphism.test1",
+          "kind": "compatibility",
+          "statement": "constant morphisms are integral"
+        },
+        {
+          "name": "CaroPasten23.integral_morphism.test2",
+          "kind": "compatibility",
+          "statement": "in characteristic p Frobenius pulls back all one-forms to zero"
+        },
+        {
+          "name": "CaroPasten23.integral_morphism.test3",
+          "kind": "compatibility",
+          "statement": "vanishing at one tangent vector need not imply integrality of a higher jet"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/pullback-local",
@@ -557,7 +1031,31 @@
       "statement": "At x of a smooth surface over k, a length-(m+1) jet is a closed immersion Spec k[z]/(z^(m+1))→S supported at x; require integrality for both specified one-forms.",
       "locator": "§4.2",
       "status": "missing",
-      "note": " API: Expose truncation, support, m=0, closed-immersion criterion and simultaneous pullback. Tests: (1) m=0 is the point; (2) z↦z² alone is not a closed immersed jet; (3) in characteristic p the differential quotient changes when p divides m+1."
+      "note": " API: Expose truncation, support, m=0, closed-immersion criterion and simultaneous pullback. Tests: (1) m=0 is the point; (2) z↦z² alone is not a closed immersed jet; (3) in characteristic p the differential quotient changes when p divides m+1.",
+      "api": [
+        {
+          "name": "CaroPasten23.integral_jet.interface",
+          "role": "compatibility",
+          "statement": "Expose truncation, support, m=0, closed-immersion criterion and simultaneous pullback."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.integral_jet.test1",
+          "kind": "compatibility",
+          "statement": "m=0 is the point"
+        },
+        {
+          "name": "CaroPasten23.integral_jet.test2",
+          "kind": "compatibility",
+          "statement": "z↦z² alone is not a closed immersed jet"
+        },
+        {
+          "name": "CaroPasten23.integral_jet.test3",
+          "kind": "compatibility",
+          "statement": "in characteristic p the differential quotient changes when p divides m+1"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/overdetermined",
@@ -641,6 +1139,30 @@
       "note": " API: Import the dual variety, tensor law, pullback and Rosati positivity; keep degree of H distinct from degree of φ_H. Tests: (1) principal polarization has degree one; (2) tensor square multiplies φ_H by two; (3) a nonample line bundle need not give an isogeny.",
       "planned": [
         "AbelianSchemesAndArithmeticModuli:A2"
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.polarization.interface",
+          "role": "compatibility",
+          "statement": "Import the dual variety, tensor law, pullback and Rosati positivity; keep degree of H distinct from degree of φ_H."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.polarization.test1",
+          "kind": "compatibility",
+          "statement": "principal polarization has degree one"
+        },
+        {
+          "name": "CaroPasten23.polarization.test2",
+          "kind": "compatibility",
+          "statement": "tensor square multiplies φ_H by two"
+        },
+        {
+          "name": "CaroPasten23.polarization.test3",
+          "kind": "compatibility",
+          "statement": "a nonample line bundle need not give an isogeny"
+        }
       ]
     },
     {
@@ -662,7 +1184,31 @@
       "statement": "For an r-cycle Z on A, deg_H Z=H^r.Z; for a smooth d-dimensional X⊂A, cdeg_H X=H^(d−1).K_X.",
       "locator": "§5.1",
       "status": "missing",
-      "note": " API: Expose projection formula, translation and numerical equivalence, and distinguish the dimension of Z from ambient n. Tests: (1) for a curve degree is H.C; (2) for a surface canonical degree is H.K_X; (3) abelian subvarieties have canonical degree zero."
+      "note": " API: Expose projection formula, translation and numerical equivalence, and distinguish the dimension of Z from ambient n. Tests: (1) for a curve degree is H.C; (2) for a surface canonical degree is H.K_X; (3) abelian subvarieties have canonical degree zero.",
+      "api": [
+        {
+          "name": "CaroPasten23.degree_canonical.interface",
+          "role": "compatibility",
+          "statement": "Expose projection formula, translation and numerical equivalence, and distinguish the dimension of Z from ambient n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.degree_canonical.test1",
+          "kind": "compatibility",
+          "statement": "for a curve degree is H.C"
+        },
+        {
+          "name": "CaroPasten23.degree_canonical.test2",
+          "kind": "compatibility",
+          "statement": "for a surface canonical degree is H.K_X"
+        },
+        {
+          "name": "CaroPasten23.degree_canonical.test3",
+          "kind": "compatibility",
+          "statement": "abelian subvarieties have canonical degree zero"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/generated-abelian",
@@ -671,7 +1217,31 @@
       "statement": "After translating a nonempty integral curve to pass through zero, ⟨C⟩ is the smallest abelian subvariety containing it; unpointed statements are understood up to translation.",
       "locator": "§5.1",
       "status": "missing",
-      "note": " API: Construct from its Jacobian map, translation independence for differentials and minimality. Tests: (1) a translated elliptic curve generates an elliptic subvariety after recentering; (2) simple A forces a nonconstant curve to generate A; (3) the raw map ν need not preserve the chosen base point."
+      "note": " API: Construct from its Jacobian map, translation independence for differentials and minimality. Tests: (1) a translated elliptic curve generates an elliptic subvariety after recentering; (2) simple A forces a nonconstant curve to generate A; (3) the raw map ν need not preserve the chosen base point.",
+      "api": [
+        {
+          "name": "CaroPasten23.generated_abelian.interface",
+          "role": "compatibility",
+          "statement": "Construct from its Jacobian map, translation independence for differentials and minimality."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.generated_abelian.test1",
+          "kind": "compatibility",
+          "statement": "a translated elliptic curve generates an elliptic subvariety after recentering"
+        },
+        {
+          "name": "CaroPasten23.generated_abelian.test2",
+          "kind": "compatibility",
+          "statement": "simple A forces a nonconstant curve to generate A"
+        },
+        {
+          "name": "CaroPasten23.generated_abelian.test3",
+          "kind": "compatibility",
+          "statement": "the raw map ν need not preserve the chosen base point"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/divisor-ample",
@@ -689,7 +1259,31 @@
       "statement": "For a curve C and divisor H on A, the translate-intersect-sum construction defines α_A(C,H); after a compatible base point it factors as ν_*∘ν*∘φ_H through the Jacobian of C̃.",
       "locator": "§5.1",
       "status": "missing",
-      "note": " API: Prove independence of moving divisor, translation/base-point convention, numerical class and the factorization. Tests: (1) ν(x₀)=0 is needed for ν=ν_*∘j; (2) changing the base point only translates ν; (3) H ample and C generating make α an isogeny."
+      "note": " API: Prove independence of moving divisor, translation/base-point convention, numerical class and the factorization. Tests: (1) ν(x₀)=0 is needed for ν=ν_*∘j; (2) changing the base point only translates ν; (3) H ample and C generating make α an isogeny.",
+      "api": [
+        {
+          "name": "CaroPasten23.morikawa.interface",
+          "role": "compatibility",
+          "statement": "Prove independence of moving divisor, translation/base-point convention, numerical class and the factorization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.morikawa.test1",
+          "kind": "compatibility",
+          "statement": "ν(x₀)=0 is needed for ν=ν_*∘j"
+        },
+        {
+          "name": "CaroPasten23.morikawa.test2",
+          "kind": "compatibility",
+          "statement": "changing the base point only translates ν"
+        },
+        {
+          "name": "CaroPasten23.morikawa.test3",
+          "kind": "compatibility",
+          "statement": "H ample and C generating make α an isogeny"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/morikawa-trace",
@@ -711,6 +1305,30 @@
       "planned": [
         "AbelianSchemesAndArithmeticModuli:A4",
         "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.endomorphism_polynomial.interface",
+          "role": "compatibility",
+          "statement": "Expose independence of ℓ, integer coefficients, trace and degree including nonisogenies."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.endomorphism_polynomial.test1",
+          "kind": "compatibility",
+          "statement": "u=0 gives t^(2n)"
+        },
+        {
+          "name": "CaroPasten23.endomorphism_polynomial.test2",
+          "kind": "compatibility",
+          "statement": "u=[m] gives (t−m)^(2n)"
+        },
+        {
+          "name": "CaroPasten23.endomorphism_polynomial.test3",
+          "kind": "compatibility",
+          "statement": "degree zero is allowed for a nonisogeny"
+        }
       ]
     },
     {
@@ -831,7 +1449,31 @@
       "statement": "For H=Σ_α c_α x^α over K, let P_H,m be its homogeneous degree-m part and H_u(z)=H(zu)=Σ_m P_H,m(u)z^m for ||u||=1.",
       "locator": "§6.1",
       "status": "missing",
-      "note": " API: Expose coefficients, substitution, convergence radius and supremum norms. Tests: (1) H_u may vanish identically though H≠0; (2) u is normalized to norm one; (3) degree-zero part must be included in the maximum."
+      "note": " API: Expose coefficients, substitution, convergence radius and supremum norms. Tests: (1) H_u may vanish identically though H≠0; (2) u is normalized to norm one; (3) degree-zero part must be included in the maximum.",
+      "api": [
+        {
+          "name": "CaroPasten23.homogeneous.interface",
+          "role": "compatibility",
+          "statement": "Expose coefficients, substitution, convergence radius and supremum norms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.homogeneous.test1",
+          "kind": "compatibility",
+          "statement": "H_u may vanish identically though H≠0"
+        },
+        {
+          "name": "CaroPasten23.homogeneous.test2",
+          "kind": "compatibility",
+          "statement": "u is normalized to norm one"
+        },
+        {
+          "name": "CaroPasten23.homogeneous.test3",
+          "kind": "compatibility",
+          "statement": "degree-zero part must be included in the maximum"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/strassmann-index",
@@ -840,7 +1482,31 @@
       "statement": "For nonzero h converging on a disc larger than radius r, ν(h,r) is the largest n attaining max |a_n|r^n, and n₀(h,r) counts its zeros in the closed radius-r disc with multiplicity.",
       "locator": "§6.2",
       "status": "missing",
-      "note": " API: Use the built last-maximal-coefficient theorem, expose positivity, scaling and division by a linear factor. Tests: (1) zero series is excluded; (2) constant nonzero series has index zero; (3) zeros on the boundary are included."
+      "note": " API: Use the built last-maximal-coefficient theorem, expose positivity, scaling and division by a linear factor. Tests: (1) zero series is excluded; (2) constant nonzero series has index zero; (3) zeros on the boundary are included.",
+      "api": [
+        {
+          "name": "CaroPasten23.strassmann_index.interface",
+          "role": "compatibility",
+          "statement": "Use the built last-maximal-coefficient theorem, expose positivity, scaling and division by a linear factor."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.strassmann_index.test1",
+          "kind": "compatibility",
+          "statement": "zero series is excluded"
+        },
+        {
+          "name": "CaroPasten23.strassmann_index.test2",
+          "kind": "compatibility",
+          "statement": "constant nonzero series has index zero"
+        },
+        {
+          "name": "CaroPasten23.strassmann_index.test3",
+          "kind": "compatibility",
+          "statement": "zeros on the boundary are included"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/strassmann",
@@ -874,6 +1540,30 @@
       "planned": [
         "AdicSpacesPartII:F0",
         "AdicSpacesPartII:R2"
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.residue_chart.interface",
+          "role": "compatibility",
+          "statement": "Expose reductions, transition maps, generic fiber and compatibility with the group law."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.residue_chart.test1",
+          "kind": "compatibility",
+          "statement": "the chart concerns the identity disc"
+        },
+        {
+          "name": "CaroPasten23.residue_chart.test2",
+          "kind": "compatibility",
+          "statement": "a model of a nonproper variety has a smaller generic-fiber locus"
+        },
+        {
+          "name": "CaroPasten23.residue_chart.test3",
+          "kind": "compatibility",
+          "statement": "different coordinates yield a compatible analytic isomorphism"
+        }
       ]
     },
     {
@@ -892,7 +1582,31 @@
       "statement": "The completed group law is an n-tuple F(X,Y) over R in 2n variables, F(X,0)=X, F(0,Y)=Y, associative and commutative.",
       "locator": "§7.2",
       "status": "missing",
-      "note": " API: Construct composition, coordinate change, inverse, tangent linearization and multiplication [m]; import the one-dimensional carrier via a comparison. Tests: (1) F=X+Y recovers G_a^n; (2) n=1 multiplicative law recovers G_m; (3) [m] has linear term mX, not order m."
+      "note": " API: Construct composition, coordinate change, inverse, tangent linearization and multiplication [m]; import the one-dimensional carrier via a comparison. Tests: (1) F=X+Y recovers G_a^n; (2) n=1 multiplicative law recovers G_m; (3) [m] has linear term mX, not order m.",
+      "api": [
+        {
+          "name": "CaroPasten23.formal_n.interface",
+          "role": "compatibility",
+          "statement": "Construct composition, coordinate change, inverse, tangent linearization and multiplication [m]; import the one-dimensional carrier via a comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.formal_n.test1",
+          "kind": "compatibility",
+          "statement": "F=X+Y recovers G_a^n"
+        },
+        {
+          "name": "CaroPasten23.formal_n.test2",
+          "kind": "compatibility",
+          "statement": "n=1 multiplicative law recovers G_m"
+        },
+        {
+          "name": "CaroPasten23.formal_n.test3",
+          "kind": "compatibility",
+          "statement": "[m] has linear term mX, not order m"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/formal-exp",
@@ -901,7 +1615,31 @@
       "statement": "Over the characteristic-zero field K, the completed commutative smooth group has inverse formal maps Log_F and Exp_F with identity linear term, intertwining F and addition. Integral invariant derivations give factorial denominator bounds.",
       "locator": "§7.2, corrected construction contract",
       "status": "missing",
-      "note": "G4: the printed construction is invalid. A proof route via integral commuting invariant derivations is specified in the report; Bourbaki original must still be checked. API: Construct via commuting invariant derivations or a checked original source; prove inverse/composition identities and uniqueness before analytic evaluation. Tests: (1) additive F gives identity maps; (2) multiplicative F gives log(1+x) and exp(x)−1; (3) multiplication [m] alone is not the finite-difference operator. Continuation (cc-fb70e5): the paper's own series construction is valid once Ψ^[m] is read as the finite difference Δ^m and the logarithm sign is (−1)^{m−1}; see formal-finite-difference-vanishing. Existence of Log/Exp over K is classical for commutative formal groups over Q-algebras (Bourbaki LIE III §5.4, cited by the paper)."
+      "note": "G4: the printed construction is invalid. A proof route via integral commuting invariant derivations is specified in the report; Bourbaki original must still be checked. API: Construct via commuting invariant derivations or a checked original source; prove inverse/composition identities and uniqueness before analytic evaluation. Tests: (1) additive F gives identity maps; (2) multiplicative F gives log(1+x) and exp(x)−1; (3) multiplication [m] alone is not the finite-difference operator. Continuation (cc-fb70e5): the paper's own series construction is valid once Ψ^[m] is read as the finite difference Δ^m and the logarithm sign is (−1)^{m−1}; see formal-finite-difference-vanishing. Existence of Log/Exp over K is classical for commutative formal groups over Q-algebras (Bourbaki LIE III §5.4, cited by the paper).",
+      "api": [
+        {
+          "name": "CaroPasten23.formal_exp.interface",
+          "role": "compatibility",
+          "statement": "Construct via commuting invariant derivations or a checked original source; prove inverse/composition identities and uniqueness before analytic evaluation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.formal_exp.test1",
+          "kind": "compatibility",
+          "statement": "additive F gives identity maps"
+        },
+        {
+          "name": "CaroPasten23.formal_exp.test2",
+          "kind": "compatibility",
+          "statement": "multiplicative F gives log(1+x) and exp(x)−1"
+        },
+        {
+          "name": "CaroPasten23.formal_exp.test3",
+          "kind": "compatibility",
+          "statement": "multiplication [m] alone is not the finite-difference operator"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/formal-finite-difference",
@@ -915,7 +1653,31 @@
       "prerequisites": [
         "PAPER-CARO-PASTEN-23/formal-n"
       ],
-      "note": "Added by the continuation of Claude Code (cc-fb70e5). Integral by construction: an integer combination of the [i]. API: Δ^m as n-tuples of series over R; Δ¹=[1]=Id. Tests: for F=X+Y, Δ¹=X and Δ^m=0 for m≥2; for the multiplicative law in dimension 1, Δ^m=X^m. Continuation API/test completion (codex-a71f92): Tests: (1) additive law has Δ¹=X and Δ^m=0 for m≥2; (2) multiplicative law X+Y+XY has Δ^m=X^m; (3) the product of one additive and one multiplicative factor has Δ^m=(0,Y^m) for m≥2, so coordinate mixing or treating multiplication-by-m as Δ^m is detected."
+      "note": "Added by the continuation of Claude Code (cc-fb70e5). Integral by construction: an integer combination of the [i]. API: Δ^m as n-tuples of series over R; Δ¹=[1]=Id. Tests: for F=X+Y, Δ¹=X and Δ^m=0 for m≥2; for the multiplicative law in dimension 1, Δ^m=X^m. Continuation API/test completion (codex-a71f92): Tests: (1) additive law has Δ¹=X and Δ^m=0 for m≥2; (2) multiplicative law X+Y+XY has Δ^m=X^m; (3) the product of one additive and one multiplicative factor has Δ^m=(0,Y^m) for m≥2, so coordinate mixing or treating multiplication-by-m as Δ^m is detected.",
+      "api": [
+        {
+          "name": "CaroPasten23.formal_finite_difference.interface",
+          "role": "compatibility",
+          "statement": "Δ^m as n-tuples of series over R; Δ¹=[1]=Id."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.formal_finite_difference.test1",
+          "kind": "compatibility",
+          "statement": "additive law has Δ¹=X and Δ^m=0 for m≥2"
+        },
+        {
+          "name": "CaroPasten23.formal_finite_difference.test2",
+          "kind": "compatibility",
+          "statement": "multiplicative law X+Y+XY has Δ^m=X^m"
+        },
+        {
+          "name": "CaroPasten23.formal_finite_difference.test3",
+          "kind": "compatibility",
+          "statement": "the product of one additive and one multiplicative factor has Δ^m=(0,Y^m) for m≥2, so coordinate mixing or treating multiplication-by-m as Δ^m is detected"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/formal-finite-difference-vanishing",
@@ -933,7 +1695,7 @@
       "proofSteps": [
         "[i](X)=Exp(i·Log X) over K. Expanding, the coefficient of X^α is Σ_{|β|≤|α|}c_β·i^{|β|}·[X^α](Log X)^β, a polynomial in i of degree ≤|α|. Since Log X=X+(higher), [X^α](Log X)^β=δ_{αβ} when |β|=|α|, so the i^{|α|} coefficient is c_α.",
         "The m-th finite difference in i of a polynomial of degree <m is 0, and of a polynomial of degree m with leading coefficient c is m!·c. This gives (a) and (b).",
-        "Newton interpolation gives [i]=Σ_m C(i,m)Δ^m coefficientwise, a finite sum in each degree by (a). Differentiating in i at i=0, and using Exp(i Log X)=X+i·Log X+O(i²), gives Log X=Σ_m(d/di C(i,m)|_{i=0})Δ^m=Σ_m((−1)^{m−1}/m)Δ^m. This is (c).",
+        "Newton interpolation gives [i]=Σ_m C(i,m)Δ^m coefficientwise, a finite sum in each degree by (a). Differentiating in i at i=0, and using Exp(i Log X)=i·Log X+O(i²), gives Log X=Σ_m(d/di C(i,m)|_{i=0})Δ^m=Σ_m((−1)^{m−1}/m)Δ^m. This is (c).",
         "Exact check: for the one-dimensional law with logarithm t+at²+bt³, (b) and (c) reproduce f^{−1} and f through degree 4, while the printed series (with [m] and sign (−1)^m) give 6a²−4b in place of 2a²−b and −f (errata E7)."
       ],
       "note": "Proof supplied by the continuation of Claude Code (cc-fb70e5). Uses only the existence of Log/Exp over a Q-algebra (formal-exp) and polynomial interpolation. This replaces the invariant-derivation route for the factorial bounds; that route remains a valid alternative."
@@ -1025,9 +1787,9 @@
       "kind": "theorem",
       "name": "Logarithm preserves the maximum norm",
       "statement": "Under the same local-field threshold, |Log_F(t)|=|t| for every t∈m_R^n.",
-      "locator": "Lemma 7.7(iv)",
+      "locator": "Derived strengthening of arXiv v2 Lemma 7.7 (which has only (i)–(iii)); continuation L1–L3",
       "status": "missing",
-      "note": ""
+      "note": "The former locator Lemma 7.7(iv) was an extraction error. The statement follows from the stronger two-point estimate in full-residue-isometry below; the original stricter threshold still implies its hypotheses."
     },
     {
       "id": "PAPER-CARO-PASTEN-23/one-parameter",
@@ -1036,7 +1798,31 @@
       "statement": "For a residue chart t and u∈R^n with ||u||=1, γ(z)=Exp_F(zu), z∈m_R; its image lies in the identity disc.",
       "locator": "§8.1",
       "status": "missing",
-      "note": " API: Expose derivative, injectivity, image subgroup, unit rescaling and coordinate invariance. Tests: (1) u=e₁ gives a coordinate direction; (2) u and a u for a∈R× have the same image; (3) u=0 is excluded."
+      "note": " API: Expose derivative, injectivity, image subgroup, unit rescaling and coordinate invariance. Tests: (1) u=e₁ gives a coordinate direction; (2) u and a u for a∈R× have the same image; (3) u=0 is excluded.",
+      "api": [
+        {
+          "name": "CaroPasten23.one_parameter.interface",
+          "role": "compatibility",
+          "statement": "Expose derivative, injectivity, image subgroup, unit rescaling and coordinate invariance."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.one_parameter.test1",
+          "kind": "compatibility",
+          "statement": "u=e₁ gives a coordinate direction"
+        },
+        {
+          "name": "CaroPasten23.one_parameter.test2",
+          "kind": "compatibility",
+          "statement": "u and a u for a∈R× have the same image"
+        },
+        {
+          "name": "CaroPasten23.one_parameter.test3",
+          "kind": "compatibility",
+          "statement": "u=0 is excluded"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/annihilator",
@@ -1045,7 +1831,31 @@
       "statement": "H(γ) is the kernel of pullback H⁰(A,Ω¹_A/K)→K dz along γ; evaluation at the primitive tangent vector makes it a codimension-one K-subspace.",
       "locator": "§8.1",
       "status": "missing",
-      "note": " API: Expose evaluation pairing, coordinate-free tangent line, integral lattice and equivalence under unit rescaling. Tests: (1) dimension is n−1; (2) a zero direction would give the whole space; (3) primitive vectors can reduce dependently even if K-independent."
+      "note": " API: Expose evaluation pairing, coordinate-free tangent line, integral lattice and equivalence under unit rescaling. Tests: (1) dimension is n−1; (2) a zero direction would give the whole space; (3) primitive vectors can reduce dependently even if K-independent.",
+      "api": [
+        {
+          "name": "CaroPasten23.annihilator.interface",
+          "role": "compatibility",
+          "statement": "Expose evaluation pairing, coordinate-free tangent line, integral lattice and equivalence under unit rescaling."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.annihilator.test1",
+          "kind": "compatibility",
+          "statement": "dimension is n−1"
+        },
+        {
+          "name": "CaroPasten23.annihilator.test2",
+          "kind": "compatibility",
+          "statement": "a zero direction would give the whole space"
+        },
+        {
+          "name": "CaroPasten23.annihilator.test3",
+          "kind": "compatibility",
+          "statement": "primitive vectors can reduce dependently even if K-independent"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/annihilator-evaluation",
@@ -1108,7 +1918,31 @@
       "statement": "Truncate Exp_F(zu) modulo z^(m+1) to get Spec K[z]/z^(m+1)→A; for m<p factorial integrality gives an R-model and reduction over k.",
       "locator": "§8.2–8.3",
       "status": "missing",
-      "note": " API: Expose truncation maps, integral coefficients, reductions and compatibility with completed local rings. Tests: (1) m=0 gives the identity section; (2) m=p can introduce 1/p denominators; (3) a unit linear coefficient gives a closed immersion."
+      "note": " API: Expose truncation maps, integral coefficients, reductions and compatibility with completed local rings. Tests: (1) m=0 gives the identity section; (2) m=p can introduce 1/p denominators; (3) a unit linear coefficient gives a closed immersion.",
+      "api": [
+        {
+          "name": "CaroPasten23.exponential_jets.interface",
+          "role": "compatibility",
+          "statement": "Expose truncation maps, integral coefficients, reductions and compatibility with completed local rings."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.exponential_jets.test1",
+          "kind": "compatibility",
+          "statement": "m=0 gives the identity section"
+        },
+        {
+          "name": "CaroPasten23.exponential_jets.test2",
+          "kind": "compatibility",
+          "statement": "m=p can introduce 1/p denominators"
+        },
+        {
+          "name": "CaroPasten23.exponential_jets.test3",
+          "kind": "compatibility",
+          "statement": "a unit linear coefficient gives a closed immersion"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/jets-integral",
@@ -1153,7 +1987,31 @@
       "statement": "For K[[t₁,…,t_n]], use the completed/universally finite differential module ⊕ K[[t]]dt_i and continuous derivation; construct its map to ordinary differentials of finite jets.",
       "locator": "Lemma 8.10 proof",
       "status": "missing",
-      "note": " API: Expose termwise derivative, continuous substitutions, completion comparison and truncation. Tests: (1) ordinary algebraic Ω of K[[t]] is not substituted without proof; (2) finite quotient maps land in ordinary Ω; (3) chain rule agrees on each polynomial."
+      "note": " API: Expose termwise derivative, continuous substitutions, completion comparison and truncation. Tests: (1) ordinary algebraic Ω of K[[t]] is not substituted without proof; (2) finite quotient maps land in ordinary Ω; (3) chain rule agrees on each polynomial.",
+      "api": [
+        {
+          "name": "CaroPasten23.continuous_differentials.interface",
+          "role": "compatibility",
+          "statement": "Expose termwise derivative, continuous substitutions, completion comparison and truncation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.continuous_differentials.test1",
+          "kind": "compatibility",
+          "statement": "ordinary algebraic Ω of K[[t]] is not substituted without proof"
+        },
+        {
+          "name": "CaroPasten23.continuous_differentials.test2",
+          "kind": "compatibility",
+          "statement": "finite quotient maps land in ordinary Ω"
+        },
+        {
+          "name": "CaroPasten23.continuous_differentials.test3",
+          "kind": "compatibility",
+          "statement": "chain rule agrees on each polynomial"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/analytic-algebraic",
@@ -1243,7 +2101,12 @@
       "statement": "For a primitive u∈R^n, evaluation (R^n)∨→R is split surjective. Its kernel is a free direct summand of rank n−1; when n≥3 select two basis elements whose reductions are independent.",
       "locator": "Lemma 9.7, repaired proof",
       "status": "missing",
-      "note": "Extend u to a basis or split by a unit coordinate. The integral invariant differential lattice must first be identified with (R^n)∨."
+      "note": "Extend u to a basis or split by a unit coordinate. The integral invariant differential lattice must first be identified with (R^n)∨. Explicit formulas and arbitrary-base-change proof are now I1–I3; the geometric lattice remains imported from A1.",
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/unit-pivot-annihilator",
+        "PAPER-CARO-PASTEN-23/annihilator-base-change",
+        "PAPER-CARO-PASTEN-23/invariant-lattice-import"
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/special-wedge",
@@ -1279,7 +2142,31 @@
       "statement": "At x∈X(F̄_q), m(x) is the supremum in N∪{∞} of orders of closed immersed jets integral for u₁,u₂.",
       "locator": "§9.3",
       "status": "missing",
-      "note": " API: Expose existence of the order-zero jet, truncation, upper bounds and translation invariance. Tests: (1) outside D the value is zero; (2) supremum is not assumed finite by definition; (3) the same two forms are used for all jets."
+      "note": " API: Expose existence of the order-zero jet, truncation, upper bounds and translation invariance. Tests: (1) outside D the value is zero; (2) supremum is not assumed finite by definition; (3) the same two forms are used for all jets.",
+      "api": [
+        {
+          "name": "CaroPasten23.max_jet.interface",
+          "role": "compatibility",
+          "statement": "Expose existence of the order-zero jet, truncation, upper bounds and translation invariance."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.max_jet.test1",
+          "kind": "compatibility",
+          "statement": "outside D the value is zero"
+        },
+        {
+          "name": "CaroPasten23.max_jet.test2",
+          "kind": "compatibility",
+          "statement": "supremum is not assumed finite by definition"
+        },
+        {
+          "name": "CaroPasten23.max_jet.test3",
+          "kind": "compatibility",
+          "statement": "the same two forms are used for all jets"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/max-jet-zero",
@@ -1440,6 +2327,30 @@
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.symmetric_square.interface",
+          "role": "compatibility",
+          "statement": "Import the symmetric-power and Picard/Abel construction from JC; expose image W₂, diagonal and point-divisor curves."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.symmetric_square.test1",
+          "kind": "compatibility",
+          "statement": "a quadratic closed point defines a rational symmetric-square point"
+        },
+        {
+          "name": "CaroPasten23.symmetric_square.test2",
+          "kind": "compatibility",
+          "statement": "a pair of conjugates is not two rational points"
+        },
+        {
+          "name": "CaroPasten23.symmetric_square.test3",
+          "kind": "compatibility",
+          "statement": "absence of a rational effective degree-two divisor makes C^(2)(F) empty"
+        }
       ]
     },
     {
@@ -1449,7 +2360,31 @@
       "statement": "For char k≠2, V is the numerical class of x+C and Δ is the image of the diagonal C→C²→C^(2); θ=j*Θ is the theta class.",
       "locator": "§10.3",
       "status": "missing",
-      "note": " API: Expose finite quotient pullbacks, degree-two ramification, numerical equivalence and Abel base-point independence. Tests: (1) pullback of V is the sum of the two point fibers; (2) diagonal pullback carries multiplicity two; (3) θ can be nef without ample on hyperelliptic C^(2)."
+      "note": " API: Expose finite quotient pullbacks, degree-two ramification, numerical equivalence and Abel base-point independence. Tests: (1) pullback of V is the sum of the two point fibers; (2) diagonal pullback carries multiplicity two; (3) θ can be nef without ample on hyperelliptic C^(2).",
+      "api": [
+        {
+          "name": "CaroPasten23.symmetric_classes.interface",
+          "role": "compatibility",
+          "statement": "Expose finite quotient pullbacks, degree-two ramification, numerical equivalence and Abel base-point independence."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.symmetric_classes.test1",
+          "kind": "compatibility",
+          "statement": "pullback of V is the sum of the two point fibers"
+        },
+        {
+          "name": "CaroPasten23.symmetric_classes.test2",
+          "kind": "compatibility",
+          "statement": "diagonal pullback carries multiplicity two"
+        },
+        {
+          "name": "CaroPasten23.symmetric_classes.test3",
+          "kind": "compatibility",
+          "statement": "θ can be nef without ample on hyperelliptic C^(2)"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/symmetric-intersections",
@@ -1587,7 +2522,31 @@
       "statement": "For a smooth projective geometrically integral surface S/F_q and an effective F_q-divisor D=Σ_i a_i C_i on S_kbar, let σ be the action induced by c↦c^q on kbar and the F_q-model of S. Write ν_i:C̃_i→S_kbar. For x∈S(F_q), put b_i(x)=#ν_i⁻¹(x) and B_i=Σ_x b_i(x). The finite component set carries a permutation σ with a_{σi}=a_i. Partition it into fixed components I_0 and moved components I_1. Count geometric branches, not just F_q-points of C̃_i.",
       "locator": "Continuation W1; CP v2 §§3.5 and 9.5",
       "status": "missing",
-      "note": "API: construct finite normalization fibers; restrict to rational base points; transport under Frobenius; prove multiplicities constant on orbits; split weighted finite sums over I_0/I_1. Tests: (1) nonsplit F_3 node has b=2 but no rational normalization preimage; (2) two exchanged lines meet at one rational point and contribute two branches; (3) changing all multiplicities from 1 to 3 triples the weighted count. Do not identify the semilinear Galois action with absolute Frobenius, which fixes the underlying topological space."
+      "note": "API: construct finite normalization fibers; restrict to rational base points; transport under Frobenius; prove multiplicities constant on orbits; split weighted finite sums over I_0/I_1. Tests: (1) nonsplit F_3 node has b=2 but no rational normalization preimage; (2) two exchanged lines meet at one rational point and contribute two branches; (3) changing all multiplicities from 1 to 3 triples the weighted count. Do not identify the semilinear Galois action with absolute Frobenius, which fixes the underlying topological space.",
+      "api": [
+        {
+          "name": "CaroPasten23.branch_profile.interface",
+          "role": "compatibility",
+          "statement": "construct finite normalization fibers; restrict to rational base points; transport under Frobenius; prove multiplicities constant on orbits; split weighted finite sums over I_0/I_1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.branch_profile.test1",
+          "kind": "compatibility",
+          "statement": "nonsplit F_3 node has b=2 but no rational normalization preimage"
+        },
+        {
+          "name": "CaroPasten23.branch_profile.test2",
+          "kind": "compatibility",
+          "statement": "two exchanged lines meet at one rational point and contribute two branches"
+        },
+        {
+          "name": "CaroPasten23.branch_profile.test3",
+          "kind": "compatibility",
+          "statement": "changing all multiplicities from 1 to 3 triples the weighted count"
+        }
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/local-branch-intersection",
@@ -1688,6 +2647,30 @@
         "mathlib:FiniteField.frobeniusAlgEquivOfAlgebraic",
         "mathlib:FiniteField.coe_frobeniusAlgEquivOfAlgebraic",
         "mathlib:FiniteField.coe_frobeniusAlgEquivOfAlgebraic_iterate"
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.frobenius_algebraic_import.interface",
+          "role": "compatibility",
+          "statement": "coerce to q-power map; iterate; invert; transport coefficients."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.frobenius_algebraic_import.test1",
+          "kind": "compatibility",
+          "statement": "base-field elements fixed"
+        },
+        {
+          "name": "CaroPasten23.frobenius_algebraic_import.test2",
+          "kind": "compatibility",
+          "statement": "F_9/F_3 exchanges ±i"
+        },
+        {
+          "name": "CaroPasten23.frobenius_algebraic_import.test3",
+          "kind": "compatibility",
+          "statement": "third iterate on F_8 is identity"
+        }
       ]
     },
     {
@@ -1701,6 +2684,236 @@
         "mathlib:Module.length_ne_top"
       ],
       "note": "Freshly read actual statement. Proper local intersection quotients must be shown Artinian and Noetherian before this import applies."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/factorial-valuation-import",
+      "kind": "theorem",
+      "name": "Legendre valuation and the strict factorial bound",
+      "statement": "For prime p and n>0, (p−1)v_p(n!)=n−sum(base-p digits of n)<n. In particular v_p(n!)≤(n−1)/(p−1).",
+      "locator": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean:624–639; statements and proof read at 082e2d3",
+      "status": "library",
+      "prerequisites": [],
+      "library": [
+        "mathlib:sub_one_mul_padicValNat_factorial",
+        "mathlib:sub_one_mul_padicValNat_factorial_lt_of_ne_zero"
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/ultrametric-dominance-import",
+      "kind": "theorem",
+      "name": "A strictly smaller summand does not change the norm",
+      "statement": "For an additive group, a nonarchimedean real-valued function invariant under negation satisfies f(b+a)=f(b) whenever f(a)<f(b). Apply to the maximum norm on K^n.",
+      "locator": "Mathlib/Algebra/Order/Ring/IsNonarchimedean.lean:78–116; exact hypotheses read at 082e2d3",
+      "status": "library",
+      "prerequisites": [],
+      "library": [
+        "mathlib:IsNonarchimedean.add_eq_left_of_lt",
+        "mathlib:IsNonarchimedean.add_eq_max_of_ne"
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/complete-contraction-import",
+      "kind": "theorem",
+      "name": "Unique fixed point of a complete-space contraction",
+      "statement": "A contracting self-map with constant c<1 on a nonempty complete metric space has a unique fixed point. Apply to the closed ball subtype after proving it is preserved.",
+      "locator": "Mathlib/Topology/MetricSpace/Contracting.lean:273–285; exact hypotheses read at 082e2d3",
+      "status": "library",
+      "prerequisites": [],
+      "library": [
+        "mathlib:ContractingWith.fixedPoint_isFixedPt",
+        "mathlib:ContractingWith.fixedPoint_unique"
+      ],
+      "note": "Same generic supplier as PAPER-BRESCIANI-24/153; this import adds no new roadmap work."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/analytic-ball-import",
+      "kind": "theorem",
+      "name": "Restricted power-series evaluation and analytic substitution",
+      "statement": "Import complete weighted-Gauss-norm algebras on finite-dimensional closed K-balls, evaluation, restriction and analytic substitution from L0, as already specified by PAPER-BRESCIANI-24/155.",
+      "locator": "LocallyAnalyticDistributions:L0 description and roadmap scope; Bresciani /155 read",
+      "status": "planned",
+      "prerequisites": [],
+      "planned": [
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "note": "Import only. The monomial telescoping and contraction pattern of Bresciani /158,/161–163 is reused; no new carrier or second small-logarithm construction."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/log-exponential-majorant",
+      "kind": "theorem",
+      "name": "A common geometric majorant for Exp and Log",
+      "statement": "Let K/Q_p have ramification e and residue degree f, with |π|=p^(−f). Set A=p^(ef/(p−1)). For normalized formal Exp_F and Log_F satisfying formal-denominators, every total-degree M≥1 coefficient of either map has norm at most A^(M−1).",
+      "locator": "Derived from corrected Lemmas 7.5–7.6; continuation L1",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/formal-denominators",
+        "PAPER-CARO-PASTEN-23/factorial-valuation-import"
+      ],
+      "proofSteps": [
+        "For Exp, |c_α|≤|1/M!|=p^(ef v_p(M!))≤A^(M−1).",
+        "For Log, if a=v_p(m), then m≥p^a≥1+a(p−1), hence a≤(m−1)/(p−1). Taking the maximum for 1≤m≤M in formal-denominators gives the same bound."
+      ],
+      "acceptance": [
+        "Degree one is identity and has norm bound one.",
+        "For multiplicative F the coefficients 1/M! and (−1)^(M−1)/M meet these bounds.",
+        "No assertion that M times every logarithm coefficient is integral is needed."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/full-residue-tail",
+      "kind": "theorem",
+      "name": "The nonlinear remainder contracts on the full first residue ball",
+      "statement": "Assume p>e+1, let r=p^(−f) and c=A r=p^(−f(1−e/(p−1)))<1. On B_r=m_R^n the nonlinear remainder of each of Exp_F and Log_F is c-Lipschitz; the series converge in the weighted Gauss norm.",
+      "locator": "Derived application of Bresciani /155,/158 to the common coefficient majorant; continuation L2",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/log-exponential-majorant",
+        "PAPER-CARO-PASTEN-23/analytic-ball-import"
+      ],
+      "proofSteps": [
+        "For |α|=M, telescope x^α−y^α over its M factors; ultrametricity gives |x^α−y^α|≤r^(M−1)|x−y|, with no factor M. This is the existing Bresciani /158 argument.",
+        "Multiply by the coefficient bound. Each degree-M difference is bounded by c^(M−1)|x−y|. Weighted coefficients have norm ≤r c^(M−1), tending to zero. Finite sums within each degree and the convergent degree sum obey the maximum bound.",
+        "For M≥2 the supremum is c; the remainder vanishes at zero."
+      ],
+      "acceptance": [
+        "Keep strict p>e+1, not p≥e+1.",
+        "The bound holds for two arbitrary points in the ball, not only distance from zero.",
+        "The conclusion is conditional on the corrected formal maps and their proved denominator bounds."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/full-residue-isometry",
+      "kind": "theorem",
+      "name": "Inverse isometric Exp and Log under p>e+1",
+      "statement": "Under the hypotheses of full-residue-tail, Exp_F and Log_F evaluate to inverse analytic group isomorphisms (m_R^n,+)↔(m_R^n,F), and |P(x)−P(y)|=|x−y| for either map P. Thus the extra condition p>exp(e/exp(1)) in v2 Lemma 7.7 is unnecessary for this local conclusion.",
+      "locator": "Derived strengthening, not a quoted part (iv) of Lemma 7.7; continuation L3",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/full-residue-tail",
+        "PAPER-CARO-PASTEN-23/ultrametric-dominance-import",
+        "PAPER-CARO-PASTEN-23/complete-contraction-import",
+        "PAPER-CARO-PASTEN-23/formal-exp",
+        "PAPER-CARO-PASTEN-23/analytic-ball-import"
+      ],
+      "proofSteps": [
+        "For x≠y the difference of the remainders has norm <|x−y|, so the identity term dominates. This proves isometry and injectivity.",
+        "For z∈B_r, x↦z−(P(x)−x) preserves B_r and is c-contracting. The complete closed ball is nonempty, so the imported fixed-point theorem proves surjectivity. This is Bresciani /162 applied to the present explicit full-ball estimate.",
+        "Both formal inverse identities and the formal group homomorphism identities may be evaluated: all involved series converge in the Gauss algebra on the ball and the integral group law preserves it. Thus Exp and Log are inverse analytic group maps. Do not infer analyticity merely from pointwise contraction."
+      ],
+      "acceptance": [
+        "The additive group gives identity maps.",
+        "K=Q_13(π), π^10=13, has e=10 and passes 13>11 while failing the old extra exponential bound.",
+        "At p=2,e=1, the multiplicative exponential fails at x=2: terms of index 2^a have 2-adic valuation one. Hence equality p=e+1 cannot be admitted universally. The small-ball Bresciani theorem still applies after shrinking."
+      ],
+      "note": "A local strengthening, not a correction to a false statement: v2 stated a sufficient stronger hypothesis. No global surface endpoint is automatically changed."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/unit-pivot-annihilator",
+      "kind": "construction",
+      "name": "Explicit integral annihilator basis from a unit coordinate",
+      "statement": "Let R be a commutative ring, u∈R^n and u_j a unit. For i≠j define b_i=ε_i−u_i u_j^(−1)ε_j and b_*=u_j^(−1)ε_j in (R^n)∨. The b_i form a basis of ker(ev_u), and adjoining b_* gives a basis of the full dual with ev_u(b_*)=1.",
+      "locator": "Explicit algebraic repair supporting v2 Lemma 9.7; continuation I1",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/annihilator"
+      ],
+      "proofSteps": [
+        "Evaluate: b_i(u)=0 and b_*(u)=1.",
+        "For every λ=Σ λ_i ε_i, the exact identity λ=Σ_(i≠j)λ_i b_i+λ(u)b_* proves spanning.",
+        "The coordinates outside j recover the b_i coefficients, and evaluation at u recovers the last coefficient; hence the expression is unique."
+      ],
+      "api": [
+        {
+          "name": "CaroPasten23.unitPivot.basis",
+          "role": "constructor",
+          "statement": "Construct the kernel basis indexed by {i | i≠j}, and its explicit inverse coordinate map."
+        },
+        {
+          "name": "CaroPasten23.unitPivot.split",
+          "role": "universal-property",
+          "statement": "Export dual≃R^(n−1)×R with second component ev_u and inverse (a,t)↦Σa_i b_i+t b_*."
+        },
+        {
+          "name": "CaroPasten23.unitPivot.changePivot",
+          "role": "compatibility",
+          "statement": "For another unit pivot, transition coefficients are the old basis evaluated on the coordinates outside the new pivot; the two coordinate maps are inverse."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CaroPasten23.unitPivot.standard",
+          "kind": "computation",
+          "statement": "For u=e_j, b_i=ε_i and b_*=ε_j."
+        },
+        {
+          "name": "CaroPasten23.unitPivot.one",
+          "kind": "degenerate",
+          "statement": "For n=1 and u_0 a unit, the kernel has the empty basis and ev_u is an isomorphism."
+        },
+        {
+          "name": "CaroPasten23.unitPivot.nonunit",
+          "kind": "non-example",
+          "statement": "For R=Z and u=(2,4), no coordinate is a unit and ev_u has image 2Z, so the split-surjectivity conclusion onto Z cannot be asserted."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/annihilator-base-change",
+      "kind": "theorem",
+      "name": "The split annihilator commutes with arbitrary base change",
+      "statement": "For the unit-pivot data and any ring map R→S, the natural comparison S⊗_R ker(ev_u)→ker(ev_(u⊗S)) is an isomorphism sending 1⊗b_i to the corresponding pivot basis. No flatness of S is needed. Over a DVR the kernel is saturated, and its reduced basis is linearly independent over the residue field. Multiplying u by a unit leaves the kernel and the pivot basis unchanged.",
+      "locator": "Explicit repair of the independent-reduction step of v2 Lemma 9.7; continuation I2",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/unit-pivot-annihilator"
+      ],
+      "proofSteps": [
+        "The unit remains a unit after base change, and the coordinate formulas commute with the ring map. Both sides identify with S^(n−1), and the comparison is the identity in these coordinates.",
+        "Alternatively tensor the displayed split exact sequence; splitting makes exactness persist even for nonflat S.",
+        "Over a DVR the quotient is R, hence torsion-free and the kernel saturated. Reduction retains the identity minor outside j. A unit multiple has the same ratios u_i/u_j."
+      ],
+      "acceptance": [
+        "Test S=R/π, which is not flat over a nonfield DVR.",
+        "For u=e_3, ε_1 and ε_1+π ε_2 are individually primitive and K-independent but have equal reductions. The whole saturated kernel has the good basis ε_1,ε_2.",
+        "For n≥3 choose two members of the full reduced basis; an arbitrary primitive pair is insufficient."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/invariant-lattice-import",
+      "kind": "theorem",
+      "name": "Integral invariant differentials and tangent duality",
+      "statement": "For an abelian scheme A/R of relative dimension n over a DVR, evaluation at the identity identifies global relative one-forms with e*Ω¹_(A/R)≃Lie(A/R)∨, a free rank-n R-module. The invariant trivialization and this identification commute with generic and special-fiber base change.",
+      "locator": "Existing AbelianSchemesAndArithmeticModuli:A1 translation-invariance/base-change scope; reviewed AUDIT08 A1; v2 §§7–9",
+      "status": "planned",
+      "prerequisites": [],
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A1"
+      ],
+      "note": "This is an imported construction obligation, not proved by field-level AbelianVariety or the name invariant. Use Ω¹≃f*e*Ω¹ and f_*O_A=R universally for proper smooth geometrically connected fibers. The formal-chart differential comparison is separately owned by AdicSpacesPartII:R1 and the inherited analytic-algebraic item."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/integral-annihilator-comparison",
+      "kind": "theorem",
+      "name": "Saturated annihilator forms for an exponential direction",
+      "statement": "Assume the invariant lattice and completed/analytic differential comparison, and take primitive u∈Lie(A/R). Under evaluation at identity, the integral forms whose generic pullbacks along γ(z)=Exp_F(zu) vanish identify with ker(ev_u). Thus they have a basis reducing to an independent special-fiber family; when n≥3 any two members give the pair required by repaired Lemma 9.7.",
+      "locator": "v2 Lemmas 8.1, 8.11, 9.7 with explicit integral repair; continuation I3",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/invariant-lattice-import",
+        "PAPER-CARO-PASTEN-23/annihilator-base-change",
+        "PAPER-CARO-PASTEN-23/annihilator-evaluation",
+        "PAPER-CARO-PASTEN-23/analytic-algebraic"
+      ],
+      "proofSteps": [
+        "An invariant differential pulls back to the constant form λ(u) dz; dExp at zero is identity. This is inherited annihilator-evaluation after the actual differential comparison.",
+        "Since R injects into K, λ(u)=0 in K exactly when it is zero in R. Thus the integral intersection with the generic hyperplane is exactly the split kernel, not an arbitrary lattice spanned by primitive forms.",
+        "Choose a unit coordinate of primitive u and apply the pivot basis and residue-field base-change theorem. Changing u by a unit changes neither kernel nor the resulting independence assertion."
+      ],
+      "acceptance": [
+        "For u=e_1 the annihilators are the remaining coordinate forms.",
+        "Over a ramified DVR primitivity still means some coordinate is a unit, not merely that u≠0.",
+        "Keep the differential jet range m≤p−2 from jets-reduce-integral; the integral-basis repair does not remove torsion at m=p−1."
+      ]
     }
   ],
   "prerequisites": [
@@ -1753,7 +2966,8 @@
         "AbelianSchemesAndArithmeticModuli:A1"
       ],
       "items": [
-        "PAPER-CARO-PASTEN-23/abelian-scheme"
+        "PAPER-CARO-PASTEN-23/abelian-scheme",
+        "PAPER-CARO-PASTEN-23/invariant-lattice-import"
       ],
       "reason": "Relative invariant differentials are already A1 targets; import the built field carrier."
     },
@@ -1960,10 +3174,16 @@
         "PAPER-CARO-PASTEN-23/jets-immersed",
         "PAPER-CARO-PASTEN-23/analytic-algebraic",
         "PAPER-CARO-PASTEN-23/jets-annihilator",
-        "PAPER-CARO-PASTEN-23/jets-reduce-integral"
+        "PAPER-CARO-PASTEN-23/jets-reduce-integral",
+        "PAPER-CARO-PASTEN-23/log-exponential-majorant",
+        "PAPER-CARO-PASTEN-23/full-residue-tail",
+        "PAPER-CARO-PASTEN-23/full-residue-isometry",
+        "PAPER-CARO-PASTEN-23/unit-pivot-annihilator",
+        "PAPER-CARO-PASTEN-23/annihilator-base-change",
+        "PAPER-CARO-PASTEN-23/integral-annihilator-comparison"
       ],
       "reason": "A1 supplies invariant differentials but has no dimension-general formal logarithm, integral exponential or short-jet comparison. The built FormalGroup is one-dimensional, and elliptic formal groups are already upstream; this is their higher-dimensional successor.",
-      "brief": "Import Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A1, Adic Spaces Part II (AdicSpacesPartII) F0/R1/R2, the built scalar analytic differentiation API and formal power series, tangent spaces and one-dimensional FormalGroup. Construct n-dimensional commutative formal laws on the existing series carrier, invariant integral derivations/forms, normalized formal Exp/Log, factorial/logarithmic denominator estimates, coordinate changes and convergence. Use commuting derivations D^α(t_j)(0)/α! and homogeneous integration of closed invariant forms, or acquire and verify Bourbaki III §5; the printed CP multiplication-series argument is invalid and is not an axiom. For finite K/Q_p with |π|=q⁻¹ and p>max(e+1,exp(e/exp(1))), prove inverse analytic Exp/Log on m_R^n, norm preservation, classification of one-parameter images by invariant-form hyperplanes, and short jets. Final interface: for primitive u and m<p the exponential jet is an integral closed immersion; for m≤p−2 every integral annihilating differential pulls back to zero after reduction. Prove the continuous-to-algebraic differential square and retain the stricter differential-freeness range. Include additive/multiplicative laws, ramified K, unit rescaling and m=p−1 torsion tests. No reconstruction of upstream elliptic formal groups and no assumption that a rank-one closure equals the full R-line. Source-gap G4 remains until the corrected formal construction is checked; give APIs, ≥3 tests per definition and suggested Lean signatures in the design job."
+      "brief": "Import Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A1, Adic Spaces Part II (AdicSpacesPartII) F0/R1/R2, the built scalar analytic differentiation API and formal power series, tangent spaces and one-dimensional FormalGroup. Construct n-dimensional commutative formal laws on the existing series carrier, invariant integral derivations/forms, normalized formal Exp/Log, factorial/logarithmic denominator estimates, coordinate changes and convergence. Use commuting derivations D^α(t_j)(0)/α! and homogeneous integration of closed invariant forms, or acquire and verify Bourbaki III §5; the printed CP multiplication-series argument is invalid and is not an axiom. For finite K/Q_p with |π|=q⁻¹ and p>max(e+1,exp(e/exp(1))), prove inverse analytic Exp/Log on m_R^n, norm preservation, classification of one-parameter images by invariant-form hyperplanes, and short jets. Final interface: for primitive u and m<p the exponential jet is an integral closed immersion; for m≤p−2 every integral annihilating differential pulls back to zero after reduction. Prove the continuous-to-algebraic differential square and retain the stricter differential-freeness range. Include additive/multiplicative laws, ramified K, unit rescaling and m=p−1 torsion tests. No reconstruction of upstream elliptic formal groups and no assumption that a rank-one closure equals the full R-line. Source-gap G4 remains until the corrected formal construction is checked; give APIs, ≥3 tests per definition and suggested Lean signatures in the design job. Continuation L1–L3 sharpens the full-residue-ball analytic hypothesis to p>e+1, conditional on corrected formal Exp/Log and their denominator bounds. Import L0 analytic algebras and reuse Bresciani /155,/158,/161–163 contraction methods; do not build a second small logarithm. I1–I3 give a unit-pivot basis, arbitrary base-change compatibility and the integral annihilator comparison. Import the relative invariant lattice from A1 and the differential comparison from R1. This strengthens only the local interface and does not rewrite historical global endpoints. Boundary p=e+1 fails for the multiplicative group over Q2."
     },
     {
       "route": "part-ii",
@@ -2023,6 +3243,17 @@
       ],
       "reason": "ED.4 treats curves; surfaces require simultaneous integral jets, geometric nonvanishing and a rank-one formal direction. These are new layers in the same direction, not nonabelian Chabauty or a new rational-point programme.",
       "brief": "Import Effective Diophantine Methods (EffectiveDiophantineMethods) ED.4 for zero bounds; Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A1–A4/A6 and its proposed Formal Lie Theory Part II; Scheme and Stack Foundations (SchemeAndStackFoundations) SF.0/4/5; Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) C/D/F; Weil Conjectures (WeilConjectures) WC.1/5; and Heights, Rational Points and Obstructions (HeightsRationalPointsAndObstructions) RP.1. Prove CP Theorem 4.4 exactly as item overdetermined, in arbitrary characteristic, with closed immersed jets, geometric branches and infinite-order conventions. Develop Morikawa-based curve restriction, surface one-form injectivity and Lemma 5.7 two-form nonvanishing; correct Lemma 5.5(i) to the sufficient p>max(s,2s²/9). Close original Nakai, positivity, singularity and general-type suppliers rather than assume them. For the exact common local hypotheses recorded in main-local-source, construct two independently reducing annihilating forms using a saturated kernel, D=div(u₁∧u₂), one global combination nonzero on every component and m(x)≤3s≤p−3. First final target is Proposition 9.14: #Γ∩X(K)∩U_x≤1+m(x)/(1−e/(p−1)); summation gives the explicit finite jet-sum bound. The historical preprint target is #Γ∩X(K)≤#X(F_q)+(1−e/(p−1))⁻¹(q+4√q+3)s, but this is a BLOCKED source endpoint: Lemma 3.15 is false and the 54-page publication must be acquired and matched before this or its Q/number-field/symmetric-square corollaries becomes an accepted theorem target. Do not silently replace +3 by the +5 quoted in Balakrishnan–Caro. The present route excludes those endpoint items. For nonhyperelliptic C, construct C^(2)≃W₂, its canonical and theta intersections, descent of H≡2Θ and thresholds (8g−10)^g and p≥521 in genus three. Hyperelliptic genus-three C^(2) has nonample K and cannot be imported as an ample example. Keep density-one simple reduction and hyperbolicity originals as explicit unclosed G6 inputs. Give consumer-derived APIs and ≥3 tests per definition, including nonsplit nodes, ramification and boundary jets; no Lean implementation is claimed. Continuation W1–W8 (codex-a71f92): the historical version-qualified endpoint records remain excluded, but the explicit conditional +3 numerical endpoint is now supplied by weighted-jet-repair and numeric-global-conditional, with a written proof in the report. Use Frobenius-fixed versus moved components, not Lemma 3.15. Import proper local intersection/branch comparison and the componentwise canonical budget from SF.4/5, and the fixed-curve normalization count plus Frobenius component action from WC.1/5. For fixed components bound zeros plus branches by (q+4√q+3)a_i D.C_i. For moved components rational points lie on C_i∩σC_i; combine the branch intersection estimate with adjunction to get (a_i+1)D.C_i−2a_iδ_i≤2a_i D.C_i. Sum the SAME canonical intersection budget once. Preserve g_i≥2, D nef effective canonical, orbit-invariant multiplicities and nonzero pullback of w on every normalization. Keep final-source reconciliation G0 and all other source gaps explicit; no promotion of the published theorem follows from this conditional repair."
+    },
+    {
+      "route": "source",
+      "roadmap": "LocallyAnalyticDistributions",
+      "stages": [
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "items": [
+        "PAPER-CARO-PASTEN-23/analytic-ball-import"
+      ],
+      "reason": "Import the same restricted-series Banach algebra already used by Bresciani /155; no duplicate analytic carrier."
     }
   ],
   "continuationLog": [
@@ -2037,6 +3268,12 @@
       "session": "codex-a71f92",
       "date": "2026-09-22",
       "work": "Fresh full reading of all 39 pages of v2; componentwise Frobenius/adjunction repair of the weighted jet sum, preserving +3 under explicit interfaces; 8 missing items routed into existing owners and 4 narrowly scoped library imports. All original IDs/statuses/statements retained; final publication and other source gaps remain open."
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-c83e7a",
+      "date": "2026-09-23",
+      "work": "L1–L3 and I1–I3: common majorant, full-ball contraction/isometry, unit-pivot kernel and arbitrary base change. Added 11 atomic items (3 library, 2 planned, 6 missing); retained all 163 inherited IDs/statuses/statements. Fixed the invented Lemma7.7(iv) locator and finite-difference proof constant; converted inherited D/C APIs/tests into structured lists; consolidated existing E1–E13 without an independent review."
     }
   ],
   "sourceIssues": [
@@ -2048,13 +3285,218 @@
       "correction": "Lemma 3.15 is false as a general curve statement. For a geometrically integral curve add 2(p_a−g). In the special smooth-surface application, use W1–W8 to recover Σm≤(q+4√q+3)K² from componentwise adjunction and Frobenius-intersection accounting, without the false lemma. This is a derived replacement proof, not a claim about the final publication.",
       "reason": "For the nonsplit F_3 node y²=x²(x−1), normalization P¹ has four rational points but six geometric branches over the five rational image points. The original roots-of-unity norm argument loses cancelling factors. The repair uses extra geometric hypotheses (nef effective canonical divisor, component genera ≥2 and nonzero normalization differentials), so does not assert the false general lemma. Full derived proof and finite regressions are in the report.",
       "affects": "a stated result",
-      "known": "Already recorded in research/blueprint/errata/PAPER-CARO-PASTEN-23.json, E1; this continuation adds a replacement proof for the restricted surface application. Published correction status remains unverified; a later +5 citation alone is not proof.",
+      "known": "The public published acknowledgements thank a referee who found a mistake in an earlier Lemma 3.15 (https://link.springer.com/article/10.1007/s00222-023-01217-1). This establishes an acknowledged earlier-version error; its exact relationship to the v2 counterexample and the final repair is uncollated. Existing atlas E1 and the conditional weighted repair are retained.",
       "searched": [
         "arXiv 2102.01055 version history, 2026-09-22: v2 remains latest",
         "Springer official article and canonical PDF URL, 2026-09-22: subscription preview/access page, not final text",
         "Pasten author-page search result links arXiv; live page timed out",
         "Search for Caro/Pasten Lemma 3.15 correction and branch erratum, 2026-09-22: no relevant public correction found in this limited search",
-        "Existing atlas errata E1–E13 read; no independent review added, and its files are outside this claim's edit scope"
+        "Existing atlas errata E1–E13 read; no independent review added, and its files are outside this claim's edit scope",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E2",
+      "kind": "misprint",
+      "locator": "Remark 4.7, p.13, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"Let m = 2 and let φ : V^k_2 → A²_k be the map induced by the k-algebra morphism k[s_1, s_2] → E^k_2 = k[z]/(z³), s_1 ↦ z mod z³, s_2 ↦ 0. The map φ is a closed immersion supported at x which is ω_i-integral for i = 1, 2\" (with ω_1 = ds_1 + s_1²ds_2, ω_2 = ds_1 + s_2²ds_2).",
+      "correction": "s_1 ↦ 0, s_2 ↦ z mod z³. Then φ pulls ω_1 back to 0 and ω_2 back to z²dz, which is zero in Ω¹_{E^k_2/k} = (k[z]/(z²))dz, so φ is ω_i-integral for i = 1, 2 and the bound (4.4), m ≤ 2, is attained.",
+      "reason": "With s_1 ↦ z and s_2 ↦ 0, both forms pull back to dz, which is nonzero in (k[z]/(z²))dz, so φ is not ω_1- or ω_2-integral and the example does not show sharpness. With the coordinates exchanged, the restrictions of ω_1 to the lines s_1 = ±s_2 are (1 ± s²)ds, nonvanishing at the origin, so (4.4) gives m ≤ 2 and the corrected jet attains it. Noted by the extraction (gap G2, item sharp-example-source), which checked the page image.",
+      "affects": "nothing",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E2 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E3",
+      "kind": "misprint",
+      "locator": "§5, conventions on intersections of cycles, p.16, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"If Z_1 and Z_2 are algebraic cycles of dimensions r_1 and r_2, the intersection Z_1.Z_2 is an algebraic cycle of dimension 2n − r_1 − r_2 defined up to algebraic equivalence.\"",
+      "correction": "Of dimension r_1 + r_2 − n.",
+      "reason": "On an n-dimensional abelian variety, cycles of dimensions r_1 and r_2 have codimensions n − r_1 and n − r_2. Their intersection has codimension 2n − r_1 − r_2, that is, dimension r_1 + r_2 − n. The later computations, for example deg(H^{n−2}.3H.X) on p.20, use the correct count. Noted by the extraction.",
+      "affects": "nothing",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E3 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E4",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 5.4, p.17, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"… where the last equality uses tr(α) = −2(γ_1 + ... + γ_n) and (5.1).\"",
+      "correction": "tr(α) = 2(γ_1 + … + γ_n).",
+      "reason": "P_α(t) = Q(t)² with Q monic of degree n and roots γ_i, so the coefficient of t^{2n−1} in P_α is −2Σγ_i. The paper defines tr(ψ) as the negative of that coefficient (§5.1), so tr α = 2Σγ_i. Combined with (5.1), tr α_A(C,H) = 2 deg(C.H), this gives Σγ_i = deg(C.H), which is what the arithmetic–geometric mean step uses. With the printed sign, the positive γ_i would have negative sum. Noted by the extraction (gap G3).",
+      "affects": "nothing",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E4 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E5",
+      "kind": "error",
+      "locator": "Proof of Lemma 5.5(i), p.18, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"If (i) holds we consider the ample divisor H = X and note that Lemma 5.3 gives deg_H(X) = deg(X³)_A = cdeg(X) = c_1²(X). Thus, condition (5.4) in case (i) simplifies to p > 2c_1²(X)/3, which is implied by (5.3).\" (Here (5.3) is p > c_1²(X).)",
+      "correction": "With n = 3 and H = X, condition (5.4) reads p > (3!/3³) · c_1²(X)³ / c_1²(X) = 2c_1²(X)²/9. Lemma 5.5(i) should assume p > max(c_1²(X), 2c_1²(X)²/9). The hypothesis p > (128/9)c_1²(X)² of Theorem 9.1(i), under which the lemma is used (Lemma 9.10), implies this.",
+      "reason": "The substitution gives 2s²/9 with s = c_1²(X), not 2s/3. For s ≥ 5, (5.3) does not imply it; for example s = 6 and p = 7 satisfy p > s but not p > 2s²/9 = 8. So the proof of case (a) under (i), which applies Lemma 5.4, is not justified by (5.3) alone. The lemma may still hold at the printed threshold, but the argument does not show it. The main theorems assume the stronger bound. Checked on the page image. Noted by the extraction (gap G3, item semiinjective-source).",
+      "affects": "the proof",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E5 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E6",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 6.2, p.23, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"Let λ = (log M)/log(r^{−1}) and note that 0 < λ < 1.\"",
+      "correction": "0 ≤ λ < 1.",
+      "reason": "The lemma allows M ≥ 1, and M = 1 gives λ = 0. The argument works unchanged for λ = 0. Noted by the extraction (item multizero).",
+      "affects": "nothing",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E6 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E7",
+      "kind": "error",
+      "locator": "§7.1–7.2, the series Ψ^{[m]}, Lemma 7.4 and the definitions of Log^t and Exp^t, pp.23–24, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"Given an integer m, let Ψ^{[m]} = (Ψ^{[m]}_1, ..., Ψ^{[m]}_n) be the power series expansion of the morphism [m] : A → A of multiplication by m in terms of t.\" \"From [11] III.5.3 Proposition 2(i) we get Lemma 7.4. The terms of degree less than m in Ψ^{[m]}_j vanish for each j = 1, ..., n.\" \"Log^t_j(y) = Σ_{m≥1} ((−1)^m/m) · Ψ^{[m]}_j(y), Exp^t_j(x) = Σ_{m≥1} (1/m!) · ψ^{[m]}_j(x)\", with ψ^{[m]}_j the homogeneous part of degree m of Ψ^{[m]}_j.",
+      "correction": "Take Ψ^{[m]} to be the m-th finite difference of the multiplication maps, Ψ^{[m]} = Σ_{i=0}^{m} (−1)^{m−i} C(m,i) [i], the series of Bourbaki III.5.3. Take Log^t_j(y) = Σ_{m≥1} ((−1)^{m−1}/m) Ψ^{[m]}_j(y). With these changes Lemma 7.4 is Bourbaki's statement. Lemma 7.2 still holds, as Ψ^{[m]} is an integral combination. Exp^t is the exponential, and the proofs of Lemmas 7.5–7.7 go through as written.",
+      "reason": "As defined, Ψ^{[m]} is multiplication by m, whose linear term is m·t_j, so Lemma 7.4 fails already for the additive formal group and m = 2. Then Log^t_j has linear term Σ_m (−1)^m y_j, which does not converge coefficientwise. The printed Exp^t is also wrong in general. For the one-dimensional formal group with logarithm f(t) = t + at² + bt³, the printed Exp^t (degree-m parts of [m], weighted by 1/m!) has cubic coefficient 6a² − 4b, while the true exponential f^{−1} has 2a² − b; the finite differences give the correct 2a² − b, checked by exact computation to degree 4. The sign: with finite differences, Σ ((−1)^{m−1}/m) Ψ^{[m]} equals the logarithm f, while the printed (−1)^m/m gives −f, which is not inverse to Exp^t as Lemma 7.7(ii) asserts. The bounds used later (|b_{j,α}| ≤ ‖α‖^{[K:Q_p]}, m!c_{j,α} ∈ R) hold for the corrected series, so the main results are unaffected. Checked on the page image. Noted by the extraction (gap G4, items formal-low-degree-source, formal-log-source and formal-exp), which proposed a different repair; the finite-difference reading is given here.",
+      "affects": "the proof",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E7 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E8",
+      "kind": "misprint",
+      "locator": "Lemma 9.3, p.30, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"If assumption (ii) in Theorem 9.1 holds, then there is an ample divisor H′ on A′ such that deg_{H′}(X′) = deg_H(X), cdeg_{H′}(X′) = cdeg_H(X), and deg((H′)³)_{A′} = deg(H³)_A.\"",
+      "correction": "deg((H′)^n)_{A′} = deg(H^n)_A.",
+      "reason": "A has dimension n ≥ 3 in Theorem 9.1(ii), whose threshold involves deg(H^n). The top self-intersection is H^n; H³ is the n = 3 case. Noted by the extraction (gap G5, item good-geometry).",
+      "affects": "nothing",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E8 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E9",
+      "kind": "gap",
+      "locator": "Proof of Lemma 9.7, p.31, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"Thus, we can take v_1, v_2 ∈ ker(f) ∩ R^n which are K-linearly independent. After scaling, we can assume that v_1, v_2 ∈ R^n are primitive. If there are b_1, b_2 ∈ R^× with b_1v_1 + b_2v_2 ∈ pR^n ⊆ R^n then there are c_1, c_2 ∈ R such that b_1v_1 + b_2v_2 = ϖc_1v_1 + ϖc_2v_2 which is not possible since v_1, v_2 are K-linearly independent. Hence the images of v_1, v_2 in k^n are k-linearly independent.\"",
+      "correction": "Take v_1, v_2 to be two members of an R-basis of the saturated lattice ker(f) ∩ R^n. That lattice is a direct summand of R^n of rank n − 1 ≥ 2, so any basis of it reduces to k-linearly independent vectors.",
+      "reason": "The step from b_1v_1 + b_2v_2 ∈ ϖR^n to b_1v_1 + b_2v_2 ∈ ϖ(Rv_1 + Rv_2) assumes that Rv_1 + Rv_2 is saturated in R^n. For v_1 = e_1 and v_2 = e_1 + ϖe_2 in R³, both are primitive and K-independent, but v_2 − v_1 = ϖe_2 and their reductions coincide. The lemma itself holds by the corrected choice, so nothing later changes. Checked on the page image. Noted by the extraction (gap G5, item primitive-proof-source).",
+      "affects": "the proof",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E9 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E10",
+      "kind": "misprint",
+      "locator": "§9.4, before Proposition 9.14's proof, p.33, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"… let u ∈ K^n with |u| = 1 be such that γ = (t, u) be a 1-parameter subgroup of A with Γ ∪ U_e ⊆ im(γ).\"",
+      "correction": "Γ ∩ U_e ⊆ im(γ).",
+      "reason": "Lemma 9.6, just before, provides exactly Γ ∩ U_e ⊆ im(γ). The union is not contained in im(γ), since U_e is open in A(K). Noted by the extraction.",
+      "affects": "nothing",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E10 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E11",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 9.15, p.33, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"… then we can in particular apply it to Y obtaining #Γ ∩ X(K) ∩ U_{x_0} = #Γ ∩ Y(K) ∩ U_e ≤ m_{Y′,ω′_1,ω′_2}(e) = m_{X′,ω′_1,ω′_2}(x_0).\"",
+      "correction": "… ≤ 1 + m_{Y′,ω′_1,ω′_2}(e) · (1 − e/(p−1))^{−1} = 1 + m_{X′,ω′_1,ω′_2}(x_0) · (1 − e/(p−1))^{−1}.",
+      "reason": "Proposition 9.14, which the lemma reduces, bounds the count by 1 + m(x)(1 − e/(p−1))^{−1}. The displayed conclusion drops the leading 1 and the factor, but the translation argument preserves both. Noted by the extraction (item translation-reduction).",
+      "affects": "nothing",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E11 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E12",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 9.1, (9.5), p.35, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"(9.5) #Γ ∩ X(K) = Σ_{x∈X′(k)} #Γ ∩ X(K) ∩ U_x = #X′(k) + (1 − e/(p−1))^{−1} Σ_{x∈X′(k)} m(x) = #X′(k) + (1 − e/(p−1))^{−1} Σ_{x∈Z(k)} m(x).\"",
+      "correction": "The second relation is ≤: #Γ ∩ X(K) ≤ #X′(k) + (1 − e/(p−1))^{−1} Σ_{x∈Z(k)} m(x).",
+      "reason": "Proposition 9.14 and Lemma 9.11 give upper bounds for each residue disk, not equalities. The last step uses m(x) = 0 off Z. Noted by the extraction (item global-conditional).",
+      "affects": "nothing",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E12 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E13",
+      "kind": "error",
+      "locator": "Corollary 10.5, p.37, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
+      "printed": "\"Corollary 10.5. For every curve C of genus g ≥ 3 we have that C^{(2)} has ample canonical divisor. In particular, C^{(2)} is a surface of general type. Proof. Since θ is ample and all the V_ξ are effective, we get the result from Lemma 10.4.\"",
+      "correction": "For C not hyperelliptic, K_{C^{(2)}} is ample: θ = j^*Θ is ample because j is then a closed immersion (Lemma 10.7), and V is nef because the V_ξ move. For every C of genus g ≥ 3, C^{(2)} is of general type, since θ is nef and big.",
+      "reason": "For C hyperelliptic, j : C^{(2)} → J contracts the curve E = {x + ιx} ≅ P¹ of the g¹_2, so θ.E = 0 and θ is not ample. For g = 3, Lemma 10.4 gives K_{C^{(2)}} ≡ θ, so K.E = 0 and the canonical divisor is not ample. The corollary is used only in the proof of Corollary 1.15, which assumes C not hyperelliptic and needs only general type. Checked on the page image. Noted by the extraction (gap G5, item ample-symmetric-source).",
+      "affects": "nothing",
+      "known": "Already recorded as PAPER-CARO-PASTEN-23/E13 in research/blueprint/errata/PAPER-CARO-PASTEN-23.json; consolidated here without an independent review. Final-version matching remains open.",
+      "searched": [
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
+        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
+        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
+        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version",
+        "2026-09-23: public Springer article acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is primary evidence of revision, not the final lemma statement or proof. Caro author page links arXiv and the publisher; no final PDF acquired."
       ]
     }
   ],
@@ -2123,6 +3565,96 @@
       "source": "PAPER-CARO-PASTEN-23/global-conditional",
       "target": "PAPER-CARO-PASTEN-23/numeric-global-conditional",
       "reason": "Sum local bounds with positive ramification factor."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/formal-denominators",
+      "target": "PAPER-CARO-PASTEN-23/log-exponential-majorant",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/factorial-valuation-import",
+      "target": "PAPER-CARO-PASTEN-23/log-exponential-majorant",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/log-exponential-majorant",
+      "target": "PAPER-CARO-PASTEN-23/full-residue-tail",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/analytic-ball-import",
+      "target": "PAPER-CARO-PASTEN-23/full-residue-tail",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/full-residue-tail",
+      "target": "PAPER-CARO-PASTEN-23/full-residue-isometry",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/ultrametric-dominance-import",
+      "target": "PAPER-CARO-PASTEN-23/full-residue-isometry",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/complete-contraction-import",
+      "target": "PAPER-CARO-PASTEN-23/full-residue-isometry",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/formal-exp",
+      "target": "PAPER-CARO-PASTEN-23/full-residue-isometry",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/analytic-ball-import",
+      "target": "PAPER-CARO-PASTEN-23/full-residue-isometry",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/annihilator",
+      "target": "PAPER-CARO-PASTEN-23/unit-pivot-annihilator",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/unit-pivot-annihilator",
+      "target": "PAPER-CARO-PASTEN-23/annihilator-base-change",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/invariant-lattice-import",
+      "target": "PAPER-CARO-PASTEN-23/integral-annihilator-comparison",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/annihilator-base-change",
+      "target": "PAPER-CARO-PASTEN-23/integral-annihilator-comparison",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/annihilator-evaluation",
+      "target": "PAPER-CARO-PASTEN-23/integral-annihilator-comparison",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/analytic-algebraic",
+      "target": "PAPER-CARO-PASTEN-23/integral-annihilator-comparison",
+      "reason": "Continuation local analytic or integral comparison supplier; see item proof steps."
+    }
+  ],
+  "continuationImports": [
+    {
+      "items": [
+        "PAPER-BRESCIANI-24/153",
+        "PAPER-BRESCIANI-24/155",
+        "PAPER-BRESCIANI-24/158",
+        "PAPER-BRESCIANI-24/161",
+        "PAPER-BRESCIANI-24/162",
+        "PAPER-BRESCIANI-24/163"
+      ],
+      "owner": "AbelianSchemesAndArithmeticModuliPartIIFormalLieTheory; L0 for the analytic carrier",
+      "use": "Reuse the existing monomial telescoping, Gauss-norm and fixed-point methods. The CP contribution is the explicit full first-residue-ball majorant, not a second local logarithm construction.",
+      "source": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json"
     }
   ]
 }
