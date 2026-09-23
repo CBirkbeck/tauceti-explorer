@@ -3155,7 +3155,8 @@
    ],
    "avoidAccountOf": "PAPER-WEI-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-WEI-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1194"
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26",
@@ -5217,8 +5218,9 @@
    ],
    "avoidAccountOf": "PAPER-FARB-KISIN-WOLFSON-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-FARB-KISIN-WOLFSON-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1309"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1309",
+   "finishedAt": "2026-09-23T20:43:51Z"
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23",
@@ -6316,8 +6318,9 @@
    ],
    "avoidAccountOf": "PAPER-ANSCHUTZ-LEBRAS-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANSCHUTZ-LEBRAS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1368"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1368",
+   "finishedAt": "2026-09-23T20:43:54Z"
   },
   {
    "id": "PAPER-HACON-WITASZEK-23",
