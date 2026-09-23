@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-KOYMANS-PAGANO",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "The Part II ArithmeticStatisticsPartIISmithMethod, 219 items. I repeated the atlas search that justifies it: Rédei, governing field, reflection principle, expansion map, raw cocycle, additive system and higher Artin pairing return no stage, and ArithmeticStatistics ST.3, which owns class-group distributions and (through PAPER-KOYMANS-MILOVIC-21) governing fields and 2^k-ranks, plans none of the machinery. The parent is an atlas roadmap, the id is not already taken, the title begins with the parent's title and the area algebraicnt is a galaxy id. The brief is buildable: it states Theorem 1.1 exactly, with 𝒟, 𝒟⁻ and α = ∏_{j odd}(1 − 2^{−j}) ≈ 0.41942, which I checked numerically (0.4194224); it lays out six layers that follow the paper's own §§2–8; it names two tests (the first case of Theorem 3.2 against Rédei's reciprocity law, and the 4-rank distribution of Fouvry–Klüners); and it says what to import rather than re-plan, including the Tau Ceti roadmaps ClassFieldTheory, Multiquadratic, QuadraticFormInvariants and ProfiniteProPGroups. Two hundred items is large for a Part II, but the layers are one body of method and splitting them would cut the dependency chain from raw cocycles to the endgame; I would build it as it stands."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "ClassicalArithmeticCompletion:CA.4, 6 items. CA.4 'supplies Pell equations, sums of squares, elementary descent'; the set 𝒟⁻, rational solubility by Hasse–Minkowski, Dirichlet's p ≡ 1 mod 4, the narrow-class-group reformulations and the unit-group Galois-module reading are the negative Pell equation itself and belong there, not in the Part II, which imports them."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "ArithmeticStatistics:ST.0, ST.3 and ST.5, 5 items. ST.0 owns families with local conditions, and 𝒟 is one; ST.3 owns class-group distribution theorems, which is where the prior bounds of Fouvry–Klüners, Chan–Koymans–Milovic–Pagano and the authors, and the sets D_{2,n}, belong; ST.5 owns random-matrix distributions, which is MacWilliams' count of symmetric matrices over 𝔽₂ and the limit of P_Sym. Each item is at the right one of the three."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "AnalyticNumberTheory:AN.2, AN.4 and AN.5, 9 items. AN.2 labels exceptional zeros, which is where Definition 7.5's set 𝒮(c), Landau's repulsion, the effective lower bound and the prime number theorem for a quadratic character uniform in the conductor go; AN.4 owns Chebotarev and Dedekind zeta functions, which covers the effective Chebotarev theorem with Siegel-zero control and Heilbronn's theorem; AN.5 owns mean values, which covers |𝒟(X)| and the Sathe–Selberg bounds of (7.3). None of the nine is Smith's method, and the Part II imports all nine."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "SieveMethodsAndPrimePatterns:SV.2, 1 item. SV.2 owns the multiplicative large sieve and bilinear sums; Heath-Brown's quadratic large sieve, in the bilinear Legendre-symbol form the paper uses at (7.11), is a sharper member of that family and is named by no stage. It is the right owner and the Part II should import it."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "ProbabilisticAndMetricNumberTheory:PM.1, 1 item. PM.1 owns Turán–Kubilius and Erdős–Kac; Theorem 7.2(a), that few d ∈ 𝒟(N) have ω(d) far from ½ log log N, is exactly Erdős–Kac restricted to 𝒟, and the paper proves it that way."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by cc-39fac3 (review job issue #2195). I read arXiv 2201.13424v1 (110 pp.; SHA-256 c7a93ffea06491d824d900fe067f6768246e84555fa8da8282833caac7850cbd, which is the hash the extraction records) at and around every locator, on page images where the typography mattered. Verdict: accept, with no change to any item, status or route. All 51 recorded mistakes are confirmed: I checked each at its locator and re-derived it from the paper's own definitions, and I confirmed independently that no later version or erratum corrects any of them (arXiv has only v1, 31 January 2022, with no journal reference; Crossref has no published version; both checked 23 September 2026). Four corrections were amended in place: E12, whose 'at most 2' half I struck because the printed 'equals 2' is right; E13, to which I added the sharper symptom the report already carried, that the s = 1 four-tuple has the empty base set §3.1 excludes; and E17 and E18, restricted to what is checkable, with the extraction's conjectures kept and labelled as such. The findings that matter most are E4 (Proposition 2.9 and Corollary 2.11 are stated for every vertex x₀ ∈ C but proved only for x₀ = d₀∏p_i(1)), E15 (Definition 3.1's second condition, read as printed, is never verified in the proof of Theorem 5.2 and would require L(ψ₁) to be totally real), E9 (the case split at the place (2) in the proof of Theorem 3.2 names an Artin symbol that is not defined there), E13, E41, E46 and E48. None threatens Theorem 1.1, and the extraction says so correctly. I did not re-read the whole paper for mistakes the extraction missed and found none in what I read; the statuses were checked — the 6 library items' 7 declarations at the pinned commits, and every stage id cited by a planned item (17) or by a route (9). Every change is listed in research/blueprint/reviews/REV-PAPER-KOYMANS-PAGANO.md."
+}
