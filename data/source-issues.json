@@ -6180,6 +6180,162 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E1",
+   "kind": "misprint",
+   "locator": "Published (40), p.921; arXiv v1 §5.1, p.24 (both displays of C_n)",
+   "printed": "I(x_1, x_2) = 1 + Σ_w ∫_{x_1}^{x_2} w(ω_0, …, ω_{2g+2d−2})",
+   "correction": "w(ω_0, …, ω_{2g+d−2}).",
+   "reason": "There are 2g + d − 1 differentials ω_0, …, ω_{2g+d−2} (§4.1), and the next sentence substitutes ω_i for T_i with T_0, …, T_{2g+d−2}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
+   ],
+   "owner": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+   "file": "research/blueprint/papers/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.result.json",
+   "citation": "Balakrishnan, Dogra, Müller, Tuitman and Vonk, \"Explicit Chabauty–Kim for the split Cartan modular curve of level 13\", Annals of Mathematics 189 (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E2",
+   "kind": "misprint",
+   "locator": "Published §4.5, step (i) at the end of the section, p.918",
+   "printed": "Compute η as in (27), as the unique linear combination of ω_{2g}, …, ω_{2g+d−2} such that dΩ_x^T Z Ω_x − η has vanishing residue at all x ∈ X∖Y.",
+   "correction": "… such that Ω_x^T Z dΩ_x − η has vanishing residue at all x ∈ X∖Y, as in (30).",
+   "reason": "(29) gives dg_x = Ω_x^T Z dΩ_x − η; checked by cc-442dc5 from C_x^{-1}dC_x = Λ. So (30) is the condition for g_x to exist, and it is the one used in the proof of Lemma 4.10. By property (d), Z is antisymmetric, so dΩ_x^T Z Ω_x = −Ω_x^T Z dΩ_x, and step (i) as printed flips the sign of that term. It then determines a different η unless the residues of Ω_x^T Z dΩ_x vanish. The authors' code (Cartan13 hodge.m, with Ω = −Ω_x) solves Σ_j η_j Res_x(ω_{2g+j}) = −Res_x(ω^T Z Ω), which is (30).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
+    "arXiv v1 prints a different, also inconsistent, formula here ((19) and step (i), p.22). BDMTV 2023 §4.1 repeats 'dΩ_x^T Z Ω_x − η' with dΩ_x = ω."
+   ],
+   "owner": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+   "file": "research/blueprint/papers/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.result.json",
+   "citation": "Balakrishnan, Dogra, Müller, Tuitman and Vonk, \"Explicit Chabauty–Kim for the split Cartan modular curve of level 13\", Annals of Mathematics 189 (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E3",
+   "kind": "error",
+   "locator": "Published §5.3.2, display after 'Using the parallel transport formula from Section 5.3.1', p.923, and §5.3.1 ('When applied to the integrals I(x, x_0) and I(b_0, b) …'); arXiv v1 (24), p.25",
+   "printed": "s_0(b,x)^{-1}∘s^φ(b,x) is the product of [[1,0,0],[∫_x^{x_0}ω,1,0],[∫_x^{x_0}η + ∫_x^{x_0}ω^T Zω, ∫_x^{x_0}ω^T Z, 1]], [[1,0,0],[∫_{b_0}^b ω,1,0],[∫_{b_0}^b η + ∫_{b_0}^b ω^T Zω, −∫_{b_0}^b ω^T Z, 1]] and the matrix at (b_0, x_0).",
+   "correction": "By (41), τ_{b,x}(v) = I(x_0,x)·v·I(b,b_0). The first two factors are left multiplication by I(x_0,x) and right multiplication by I(b,b_0): all limits are swapped (∫_{x_0}^x and ∫_b^{b_0}).",
+   "reason": "s^φ(b,x) = τ_{b,x}∘s^φ(b_0,x_0). As printed, the (2,1) block gives α_φ(b,x) = α_φ(b_0,x_0) − ∫_{x_0}^x ω − ∫_b^{b_0} ω. But α_φ(b_0,x_0) = (I−F)^{-1}f(x_0) = ∫_{b_0}^{x_0} ω by Frobenius-equivariance of Coleman integration, and the Frobenius-invariant path from b to x has α_φ(b,x) = ∫_b^x ω = ∫_b^{b_0} + ∫_{b_0}^{x_0} + ∫_{x_0}^x. The printed product also fails to compose as paths. The authors' code transports the other way: Cartan13 U1.m parallel_transport(teichpoints[i], Qppoints[i], …)*frob_equiv_iso(…), and QCMod qc_modular.m pti*PhiAZb_to_b0*isoi with parallel_transport(bQ, b0, …), where parallel_transport(P1, P2) has (2,1) block ∫_{P1}^{P2} ω. The same orientation is printed in arXiv v1 (24) and in BDMTV 2023 (4.18).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
+    "The conclusion stands: the published computations used code with the orientation of (41)."
+   ],
+   "owner": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+   "file": "research/blueprint/papers/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.result.json",
+   "citation": "Balakrishnan, Dogra, Müller, Tuitman and Vonk, \"Explicit Chabauty–Kim for the split Cartan modular curve of level 13\", Annals of Mathematics 189 (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E4",
+   "kind": "gap",
+   "locator": "Published §4.1, p.909, used in §4.5, pp.916–918 (N, the proof of Theorem 4.11, uniqueness of b_Fil)",
+   "printed": "The differentials ω_0, …, ω_{2g−1} are of the second kind on X and form a symplectic basis of H^1_dR(X/Q).",
+   "correction": "Also require ω_0, …, ω_{g−1} to be holomorphic, i.e. a basis of H^0(X, Ω¹), as in §6 (ω begins (1, x, y)dx/Q_y).",
+   "reason": "§4.5 uses it without stating it. N = (0_g, 1_g)^T is 'the matrix of the inclusion Fil⁰V_dR ↪ V_dR' only if [ω_0], …, [ω_{g−1}] span Fil¹. The proof of Theorem 4.11 says that Ω_x − NN^TΩ_x has entries in L[[t_x]], which needs ω_0, …, ω_{g−1} regular at every x ∈ D. It also says that Z has lower right block 0_g because Z ∈ Fil¹, which needs the basis adapted to the Hodge filtration. If some ω_i with i < g had a pole at a point of D (allowed by §4.1), the bundle spanned by (33) would not extend over that point.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
+    "In arXiv v1 the corresponding Lemma 4.7 claimed a unique β ∈ K^{2g}, which fails whenever some ω_i is holomorphic (β + e_i is another solution). The published text fixes this with N and b_Fil ∈ Q^g, which requires this hypothesis."
+   ],
+   "owner": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+   "file": "research/blueprint/papers/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.result.json",
+   "citation": "Balakrishnan, Dogra, Müller, Tuitman and Vonk, \"Explicit Chabauty–Kim for the split Cartan modular curve of level 13\", Annals of Mathematics 189 (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E5",
+   "kind": "error",
+   "locator": "Published Lemma 4.7 and its proof, pp.913–914; arXiv v1 Lemma 4.5, p.20",
+   "printed": "Lemma 4.7. Let Z be a class satisfying properties (a)–(d). If ρ(J) = ρ(J_{Q_p}), then there exists a nice element of Pic(X × X) mapping to Z. … By the p-adic Lefschetz (1,1)-theorem of Berthelot–Ogus [BO83, §3.8], property (b) implies that it lifts to something in NS(J_{Q_p}) ⊗ Q_p.",
+   "correction": "Only the forward direction holds: classes of nice correspondences satisfy (a)–(d). The converse is not established. The space of Rosati-symmetric correspondences can have smaller dimension than ∧²H^1_dR(X_{Q_p})^{φ=p} ∩ Fil¹.",
+   "reason": "Property (a) and the Tate conjecture put Z in NS(J_{F_p}) ⊗ Q_p, a Q_p-linear combination of divisor classes. Berthelot–Ogus lifts a divisor class over F_p whose crystalline class lies in Fil¹. A Q_p-combination lying in Fil¹ need not be a combination of such classes: a Z-lattice can meet a Q_p-subspace in smaller rank than the dimension of its intersection with the lattice's Q_p-span. The conclusion 'an element of Pic(X × X)', rather than of Pic(X × X) ⊗ Q, also only holds up to a rational multiple.",
+   "affects": "a stated result",
+   "known": "BDMTV, Quadratic Chabauty for modular curves: algorithms and examples, Compositio Math. 159 (2023), §3.5.2: 'need not equal the dimension of ∧²H^1_dR(X_{Q_p})^{φ=p} ∩ Fil¹, as was erroneously claimed in [BDM+19, Lemma 4.5]' (arXiv numbering; Lemma 4.7 in print)",
+   "searched": [
+    "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
+    "The lemma is not used in the paper ('Though we will not need it in the sequel'); §6 takes Z_1, Z_2 from the Hecke operators T_7 and T_11."
+   ],
+   "owner": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+   "file": "research/blueprint/papers/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.result.json",
+   "citation": "Balakrishnan, Dogra, Müller, Tuitman and Vonk, \"Explicit Chabauty–Kim for the split Cartan modular curve of level 13\", Annals of Mathematics 189 (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E6",
+   "kind": "misprint",
+   "locator": "Published Theorem 4.2, p.910; arXiv v1 Theorem 4.1, p.18",
+   "printed": "for any n-step unipotent vector bundle V with connection on Y, and any section v of V, there exists a unique map f: A_n^dR(Y) → V such that f(1) = v.",
+   "correction": "… and any v in the fibre b*V, there is a unique morphism f with f(1) = v in the fibre at b, as for a pointed object (V, v), v ∈ ω(V), in §A.1.",
+   "reason": "The theorem says it holds 'in the sense of Section A.1', where pointed objects carry a vector in the fibre. For sections it is false already for n = 0: A_0^dR(Y) = (O_Y, d), whose morphisms to (O_Y, d) are multiplication by constants, so no f has f(1) = x for a nonconstant function x on Y.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
+   ],
+   "owner": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+   "file": "research/blueprint/papers/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.result.json",
+   "citation": "Balakrishnan, Dogra, Müller, Tuitman and Vonk, \"Explicit Chabauty–Kim for the split Cartan modular curve of level 13\", Annals of Mathematics 189 (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E7",
+   "kind": "misprint",
+   "locator": "Published §6.5, p.933",
+   "printed": "we obtain the zeroes of det(T_1'(u)) and det(T_2(u'))",
+   "correction": "det(T_2'(u)).",
+   "reason": "The matrices on ]U_2[ are T_1'(u) and T_2'(u), defined in the preceding paragraph; u' is not defined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
+   ],
+   "owner": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+   "file": "research/blueprint/papers/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.result.json",
+   "citation": "Balakrishnan, Dogra, Müller, Tuitman and Vonk, \"Explicit Chabauty–Kim for the split Cartan modular curve of level 13\", Annals of Mathematics 189 (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E8",
+   "kind": "gap",
+   "locator": "Published proof of Lemma 3.7, p.907, and the sketch of Theorem 2.3, p.899",
+   "printed": "By assumption, we have r = g and H^1_f(G_T, V) ≃ H^1_f(G_p, V) ≃ H^0(X_{Q_p}, Ω¹)*",
+   "correction": "Under the assumptions of §1.4 (r = g and J(Q) of finite index in J(Q_p)), what is available is κ(J(Q)) ⊗ Q_p ≃ H^1_f(G_p, V). The equality with H^1_f(G_T, V) needs Sha(J/Q)[p^∞] to be finite. The proof only needs h on κ(J(Q)) ⊗ Q_p. There π_1(A_Z(b,x)) = κ(x − b) lies for x ∈ X(Q), and π_2 = E_Z κ(x − b) + [IA_Z(b)] does too, [IA_Z(b)] being the class of a Chow–Heegner point (Remark 3.11).",
+   "reason": "dim H^1_f(G_T, V) = r + corank Sha(J/Q)[p^∞], so the stated isomorphism is an extra hypothesis. The sketch of Theorem 2.3 likewise bounds the global side by r; that holds for the Selmer variety, which §2.1 cuts down by the image of J(Q) ⊗ Q_p. For X_s(13), Sha is finite by Kolyvagin–Logachev, since each conjugate of f has analytic rank one; this is the theorem already used for Proposition 6.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
+   ],
+   "owner": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+   "file": "research/blueprint/papers/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.result.json",
+   "citation": "Balakrishnan, Dogra, Müller, Tuitman and Vonk, \"Explicit Chabauty–Kim for the split Cartan modular curve of level 13\", Annals of Mathematics 189 (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E1",
    "kind": "misprint",
    "locator": "Theorem 7, p. 13 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
