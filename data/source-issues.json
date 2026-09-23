@@ -53977,9 +53977,9 @@
    "owner": "PAPER-ICHINO-PRASANNA-23",
    "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
    "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ICHINO-PRASANNA-23",
+   "reviewReason": "Confirmed verbatim in the source (Ch02-sv.tex, 'Realizations of motives'): 'Let L be a number field given with a fixed embedding in C. An L-Hodge structure pure of weight n will be an L-vector space V equipped with a descending filtration F^.V_C on V_C = V ⊗_L C such that for p+q = n+1, we have V_C = F^pV_C ⊕ conj(F^qV_C)'. The objection is right: for L not contained in R, 1 ⊗ (complex conjugation) does not descend to V ⊗_L C, so the bar has no meaning. The paper itself opens the subsection with 'Some of our definitions below may be somewhat non-standard', and the entry's reach analysis is right - every field it is applied to (Q, Q(k), the field of rationality of a self-dual Hilbert newform) is totally real."
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E2",
@@ -53998,9 +53998,9 @@
    "owner": "PAPER-ICHINO-PRASANNA-23",
    "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
    "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ICHINO-PRASANNA-23",
+   "reviewReason": "Confirmed verbatim: 'This is concentrated in degree 2d and is independent of the choice of K'. Sh_B has complex dimension d = |Sigma|, section 1.1 says the isotypic part is 'concentrated entirely in the middle degree d', and Theorems 1, 3.2 and 12.4 all use H^d. The paper is right everywhere else; this one sentence doubles the degree."
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E3",
@@ -54019,9 +54019,9 @@
    "owner": "PAPER-ICHINO-PRASANNA-23",
    "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
    "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ICHINO-PRASANNA-23",
+   "reviewReason": "Confirmed verbatim inside the rotated diagram (Ch04-uqu.tex, within \\begin{turn}{90}): the middle row prints 'G(U_B(V^sharp) x U_E(V^sharp_0...'. V^sharp_0 is a one-dimensional skew-hermitian B-space and the text on the preceding page defines G_B with U_B(V^sharp_0), as Propositions 5.10-5.11 use, so U_E is the slip. A rotated xymatrix is exactly where a subscript error survives proofreading."
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E4",
@@ -54040,9 +54040,9 @@
    "owner": "PAPER-ICHINO-PRASANNA-23",
    "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
    "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ICHINO-PRASANNA-23",
+   "reviewReason": "Confirmed verbatim: 'The set of components of Sh_{tilde G_B} is in bijection with the Shimura variety attached to (T_1,h_1)'. The correction is the standard fact: the components are governed by G(A_f)/(G(Q)^+ ρ(G^sc(A_f))K), and since the derived group (B_1^(1) x B_2^(1))/{±1} is not simply connected the square-class part survives, so the map to Sh(T_1,h_1) need not be injective. The phrasing is loose in a second way the entry does not dwell on - a set of components cannot be in bijection with a variety - but its mathematical point is the right one, and E8 depends on it."
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E5",
@@ -54061,9 +54061,9 @@
    "owner": "PAPER-ICHINO-PRASANNA-23",
    "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
    "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ICHINO-PRASANNA-23",
+   "reviewReason": "Confirmed verbatim: 'we fix a finite order character eta of E^(1) \\\\ A^(1)_E and define a character of T_1 by eta([t_1,t_2],alpha) = eta((t_1t_2)^{-1} alpha). The pull back of this character to Z(G_1) is given by eta(t,alpha) = eta(t^{-1} alpha)'. On T_1 one has t_1t_2 = N(alpha), so (t_1t_2)^{-1}alpha has norm N(alpha)^{-1} and is not in A^(1)_E: the expression cannot be evaluated. The entry's repair - eta a finite-order character of A_E^x/E^x A_F^x, the reading sections 1.2 and 10.4 use - makes both displayed formulas come out as eta(alpha), and that is the only reading under which the later sections are consistent."
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E6",
@@ -54082,9 +54082,9 @@
    "owner": "PAPER-ICHINO-PRASANNA-23",
    "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
    "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ICHINO-PRASANNA-23",
+   "reviewReason": "Confirmed verbatim: Proposition A.1(i) (label prop:spl-hodge) prints 'z_{Y_v}(g_1,g_2) = s_v(g_1 g_2)/(s_v(g_1) s(g_2))'. s_v is the map the proposition constructs and the unsubscripted s is the global object of the later subsections, not yet defined; part (iii) of the same proposition writes s_v throughout."
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E7",
@@ -54103,9 +54103,9 @@
    "owner": "PAPER-ICHINO-PRASANNA-23",
    "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
    "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ICHINO-PRASANNA-23",
+   "reviewReason": "Confirmed verbatim: the (p,q) = (1,1) case prints '(1,1) + (k_v-1-1, 2k_v-4 +1-(k_v-1) = (k_v-1,k_v-1).' with no closing parenthesis, and the entry is right that the arithmetic behind it is correct (m = 2k_v-4 is established two lines earlier, and k = k_v-1)."
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E8",
@@ -54124,9 +54124,9 @@
    "owner": "PAPER-ICHINO-PRASANNA-23",
    "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
    "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ICHINO-PRASANNA-23",
+   "reviewReason": "Confirmed verbatim: '(We note that since the action of Gal(Qbar/F_Sigma) on the components of Sh_{tilde G_B} is trivial, the class c is Gal(Qbar/F_Sigma)-invariant.)' The parenthetical is the load-bearing step for the rationality of Res(Xi_tau(d)), and the entry's objection is the right one: Galois acts on the components through the map to Sh(T_1,h_1) by translation, and for small K that action is not trivial, so invariance has to be arranged by choosing c inside the invariant subspace rather than asserted. The entry's repair keeps the construction intact, and it is properly linked to E4, which is the statement the triviality claim leans on."
   },
   {
    "id": "PAPER-IM-KIM-LE-ETAL-24/E1",
@@ -70178,6 +70178,28 @@
     "https://virtualmath1.stanford.edu/~rltaylor/ and linked lg2.pdf (author warns that copies may differ from print)",
     "https://numdam.org/articles/10.24033/asens.2212/ and its published PDF; checked the corresponding printed passages",
     "Targeted title/author erratum search on2026-09-23; no separate correction found for E49/E50 in these sources"
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E52",
+   "kind": "error",
+   "locator": "Gabor Wiese, Galois Representations, version13 February2012, Remark2.4.7(iv), printed/PDF37.",
+   "printed": "traces of powers of generators of G uniquely characterize V",
+   "correction": "Use all group elements (and only claim semisimplification without a semisimplicity hypothesis); powers of a chosen generating set are insufficient.",
+   "reason": "Over C let G=C2*C2=<s,t|s²=t²=1>. Put rho_a(s)=diag(1,−1) and rho_a(t)=[[a,1],[1−a²,−a]] for a=0,2. Both matrices are involutions with eigenvalues1,−1. Thus every power of either generator has the same trace in the two representations. Both representations are irreducible: the only s-invariant lines are the coordinate axes, and neither is t-invariant since both off-diagonal entries are nonzero. Yet tr rho_a(st)=2a is0 versus4, so the representations are not isomorphic. This falsifies even the semisimple version of the generator-only sentence. A99 uses all group elements and extends only traces linearly in the induction.",
+   "affects": "a stated result",
+   "known": "No correction found in the bounded search on23 September2026; the author notes index says these lecture notes should be reworked. Finding is unreviewed.",
+   "searched": [
+    "https://math.uni.lu/~wiese/notes/GalRep.pdf (current71-page author PDF, cover version13 February2012; PDF37 text and image checked)",
+    "https://math.uni.lu/wiese/notes/index.html (author notes index)",
+    "https://math.uni.lu/wiese/teaching/GalReps.html (course page linking current notes)",
+    "Web queries: site.math.uni.lu/~wiese \"Galois Representations\" errata; \"Gabor Wiese\" \"2.4.7\" correction; no dedicated correction located"
    ],
    "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
    "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
