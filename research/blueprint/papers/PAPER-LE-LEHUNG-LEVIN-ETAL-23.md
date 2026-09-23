@@ -1,6 +1,6 @@
 # LLHLM23: local models, generic Breuil–Mézard and Serre weights
 
-**Partial extraction checkpoint, issue #1254.** Codex — codex-hjdg0j continues the full-paper extraction by Codex — codex-7e92bd. The result contains 350 inventory entries (2 library, 3 planned, 345 missing), 15 routes, 25 API/test groups referencing all 83 inventoried definitions, and 35 source findings. Reading coverage and inventory routing are not proof-input closure: the explicit gaps below prevent a `complete` verdict. No Lean implementation or independent verification of the findings is claimed.
+**Partial extraction checkpoint, issue #1254.** Codex — codex-7e92bd continues the codex-hjdg0j checkpoint. The result contains 365 inventory entries (7 library, 4 planned, 354 missing), 15 routes, 26 API/test groups referencing all 84 inventoried definitions, and 35 unchanged source findings. Reading coverage and inventory routing are not proof-input closure: the explicit gaps below prevent a `complete` verdict. No Lean implementation or independent verification of the findings is claimed.
 
 The machine-readable companion is [PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json](PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json). Its `items` contain the mathematical statements and locators; `sourceData.appendixB` preserves the computational equations and every normalization-table row. IDs N/U/M/K/P/G/B/V/A/Q follow the main-paper sections; Z denotes an explicitly extracted external input. L denotes an exact pinned-library theorem. E1–E35 are source findings, a separate namespace.
 
@@ -75,9 +75,80 @@ Z08–Z10 and Z14 instead treat the completed **affinoid** tensor product. BLGGT
 
 The existing AdicSpacesPartII:R0 and F0 own these analytic product/completion interfaces; DeformationAndDerivedPatchingAlgebra:R03.1 owns the complete local coefficient tensors. SchemeAndStackFoundations:SF.4 receives the approximation lemmas. The upstream AdicSpaces carrier is imported. No competing roadmap is added.
 
-At the pinned Tau Ceti commit, the actual declarations TauCeti.connectedSpace_primeSpectrum_iff_idempotent_eq_zero_or_one and TauCeti.geometricallyConnected_tensorProduct were read in full, alongside Mathlib's scheme-level definition. L01 supplies the idempotent criterion in U42. L02 concerns the ordinary algebraic tensor and does not discharge the completed affinoid theorem or the finite-extension convention comparison. Normality/completion, Chevalley, formal regular local structure and affinoid fiber supplier contracts remain explicit gaps.
+At the pinned Tau Ceti commit, the actual declarations TauCeti.connectedSpace_primeSpectrum_iff_idempotent_eq_zero_or_one and TauCeti.geometricallyConnected_tensorProduct were read in full, alongside Mathlib's scheme-level definition. L01 supplies the idempotent criterion in U42. L02 concerns the ordinary algebraic tensor and does not discharge the completed affinoid theorem or the finite-extension convention comparison. The further complete-local continuation below decomposes Chevalley and the formal tensor-jet comparisons. Normality, regular-structure atom auditing and affinoid fiber suppliers remain explicit gaps.
 
 Exact Fraction/integer checks passed for 576 precision-recurrence steps, 210 scalar Newton corrections, 175 examples of precision loss, and five tensor zero-divisor identities. They check the stated bounds and counterexample; they do not prove the general approximation or tensor theorems. The reproducible code is included below.
+
+## Complete-local tensor continuation: saturated point jets
+
+Codex — codex-7e92bd continues the 350-item checkpoint with Z15–Z24 and L03–L07. This pass freshly read the published LLHLM23 PDF79–80 and [Khare–Wintenberger II](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf), PDF4–6 and8–10; the latter download has the same SHA-256 recorded above. The additional Stacks readings were the statements and proofs at [0C0S](https://stacks.math.columbia.edu/tag/0C0S), [07NY](https://stacks.math.columbia.edu/tag/07NY), [00MA](https://stacks.math.columbia.edu/tag/00MA), [0315](https://stacks.math.columbia.edu/tag/0315) and [00KW](https://stacks.math.columbia.edu/tag/00KW). The Chevalley argument below is an explicit reconstruction. KWII's cited Zariski–Samuel book was not separately read.
+
+The revised Z12 proves the **domain conclusion** directly over a complete DVR O. Its proof dependencies now point to the actual general-DVR lemmas, rather than the narrower finite-p-adic-field theorem Z11. No finiteness or perfection of the residue field enters this argument. The affinoid tensor in Z13–Z14 remains a separate open interface.
+
+Write π for the uniformizer, K for its fraction field, and take complete Noetherian local O-algebras R_i with residue field k_O and O-algebra retractions ξ_i. For the domain theorem each R_i is a domain and the local ring at the induced K-point of R_i[1/π] is regular. Set
+
+\[
+ P_i=\ker\xi_i,\quad A_i=R_i[1/\pi],\quad q_i=P_iA_i,
+ \qquad J_{i,n}=q_i^n\cap R_i,\quad Q_{i,n}=R_i/J_{i,n}.
+\]
+
+These are saturated point jets (Z15). The saturation is essential: ordinary quotients by P_i^n can have π-torsion. The API records contraction membership, descending transition maps, augmentation, functoriality for maps preserving ξ, finite freeness and the canonical generic-fiber comparison. It does not assert arbitrary base-change equality of saturated ideals or a functorial choice of bases.
+
+**Separation and cofinality (Z16).** For a finite module M over a complete Noetherian local ring (R,m), let N_n decrease with zero intersection. In M/m^qM the images of N_n stabilize because this module has finite length. Call their stable value V_q. Reduction V_(q+1)→V_q is surjective: choose a common stage at which the images at both levels have stabilized. Starting with any v∈V_q, choose successive lifts in these stable images. Completeness of M gives an element x. For every fixed n and every r, x∈N_n+m^rM. Krull separation for M/N_n therefore puts x in every N_n, so x=0. Thus V_q=0 and some N_n⊂m^qM. This uses finite length, not a finite underlying set.
+
+In the present application, R_i injects into (A_i)_(q_i) because it is a domain, and that local ring injects into its completion by Krull separation. Consequently ∩_nJ_(i,n)=0. Chevalley then gives the required containment J_(i,n)⊂m_i^q. This conclusion is sufficient; it does not say J_(i,n) is open for the maximal-ideal topology. For example, (x^n)⊂O[[x]] contains no power of π.
+
+**Finite free integral quotients (Z17–Z18).** The graded pieces P_i^j/P_i^(j+1) are finite modules over R_i/P_i=O, using monomials in a finite set of generators of P_i. Hence R_i/P_i^n and its quotient Q_(i,n) are finite over O. Saturation removes π-torsion, so each Q_(i,n) is finite free. Its augmentation ideal has nth power zero; its maximal ideal is generated by π and that augmentation ideal. The inclusions
+
+\[
+ \mathfrak m_{Q}^{q+n-1}\subseteq\pi^qQ\subseteq\mathfrak m_Q^q
+\]
+
+identify the two topologies and show completeness. Localization and contraction give Q_(i,n)⊗_O K≅A_i/q_i^n. This finite-dimensional K-algebra is local with nilpotent maximal ideal and residue K; inverting elements outside q_i therefore leaves it unchanged. It is precisely the nth jet of (A_i)_(q_i), not an unidentified quotient of a global generic fiber.
+
+**The kernel of each tensor-jet map (Z20).** Let C be the existing complete-local tensor construction Z24 and let h≥1 be the number of factors. Define H_n=Σ_iJ_(i,n)C and D_n=⊗_O Q_(i,n). The tensor D_n is finite free. Its augmentation ideal N satisfies N^(h(n−1)+1)=0, so
+
+\[
+ \mathfrak m_D^{q+h(n-1)}\subseteq\pi^qD_n\subseteq\mathfrak m_D^q.
+\]
+
+It is therefore a complete local O-algebra. The factor maps extend to C→D_n. Conversely they induce D_n→C/H_n. Completeness of the Noetherian quotient C/H_n and the tensor universal property show these maps are inverse. Thus the kernel is exactly H_n. An alternative proof uses exactness of completion in the Noetherian power-series presentation of C. It must not assume that the ordinary tensor of two formal power-series algebras is Noetherian.
+
+Each D_n injects into D_n⊗_O K. If an element of C maps to zero in every generic jet, it belongs to every H_n. For any q, choose n with J_(i,n)⊂m_i^q for all i; then H_n⊂m_C^q. Separatedness of C forces that element to vanish. This constructs the injection of Z22.
+
+**The generic target (Z19, Z21, Z23).** Completion of a Noetherian regular local ring preserves its dimension and cotangent space, hence regularity. At our rational point, K is already a specified coefficient field. Choose regular parameters once for each point completion. The coefficient-preserving power-series theorem [0C0S](https://stacks.math.columbia.edu/tag/0C0S) identifies it with K[[X_i]]: successive approximation gives surjectivity, and a nonzero kernel would lower the dimension. These fixed choices identify the entire system of generic jets, not just unrelated individual levels.
+
+The nth tensor jet is now K[all X]/Σ_i(X_i)^n. If m denotes the ideal of all variables, then
+
+\[
+ m^{h(n-1)+1}\subseteq\sum_i(X_i)^n\subseteq m^n.
+\]
+
+The inverse limit is consequently the formal power-series ring in all the variables, which is a domain. The injection of Z22 and the induced retraction C→O prove Z12. The empty family gives C=O separately. The map into the generic formal ring is an algebraic injection; it is not claimed continuous from the maximal-ideal topology of C to the parameter-adic topology with discrete coefficient field K.
+
+One must also avoid interchanging localization with this inverse limit. Already O[[X]][1/π] is a proper subring of K[[X]]: the series Σ_nπ^(−n)X^n has unbounded denominators. The argument constructs a map to lim_n(D_n⊗K); it needs neither surjectivity nor equality with (lim_nD_n)⊗K.
+
+A concrete acceptance model is R=O[[x,y]]/(πy−x²), with its origin retraction. Using the basis 1,x over O[[y]] embeds it in K[[X]] by x↦X, y↦X²/π. The two parity classes of powers of X prove injectivity. Its generic point completion is K[[X]]. The saturated jet Q_n has the O-basis
+
+\[
+ \{y^j:2j<n\}\;\cup\;\{xy^j:2j+1<n\},
+\]
+
+of rank n. In particular y∈J_2 but y∉P², and the class of y in R/P² is nonzero π-torsion. This detects exactly the unsaturated-quotient mistake. The contrasting ring O[[x]]/(πx) has x in every J_n; it checks the role of the domain hypothesis in separation.
+
+The reviewed AUDIT-17 row and the existing R03.1/R03.3/R03.6 layer descriptions were read before assigning ownership. All new missing complete-local results go to **DeformationAndDerivedPatchingAlgebra:R03.1**; Z24 imports the construction that layer already plans. Its foundational regular-completion/coordinate lemmas must precede the domain application, without a dependency on later arithmetic patching. The general topological tensor carrier is shared with AdicSpacesPartII:R0 under matching hypotheses.
+
+| New library item | Actual declaration at Mathlib 082e2d3 | Role here |
+| --- | --- | --- |
+| L03 | `IsHausdorff.of_isLocalRing` | Point-local injectivity and closed submodules |
+| L04 | `Module.basisOfFiniteTypeTorsionFree'` | Finite free saturated jets over a DVR |
+| L05 | `MvPowerSeries.eval₂Hom`, `continuous_eval₂`, `eval₂_unique` | Continuous power-series maps with their actual topology hypotheses |
+| L06 | `AdicCompletion.map_exact`, `map_injective`, `map_surjective` | Finite-module exactness over a Noetherian presentation ring |
+| L07 | `AdicCompletion.ofTensorProductEquivOfFiniteNoetherian` | Completeness of finite modules over a complete Noetherian ring |
+
+The six inspected source files, including the regular-local definition, were byte-compared with raw GitHub at the full pin; paths, hashes and public links are in `libraryAudit.completeLocalContinuation`. Searches of both pinned trees did not supply the whole Chevalley/saturated-jet/regular-coordinate package. This is a bounded audit, not a global absence certificate.
+
+The complete-local proof is now decomposed, but implementation closure is still partial: exact baseline or supplier declarations for Noetherian completion, dimension and cotangent comparison, and power-series dimension remain to audit in Z19/Z23/Z24. The Taylor/adjugate/convergence supplier work for Z06 and the analytic descent/fiber/completion work for Z10/Z13/Z14 remain open. No finding E1–E35 was changed or independently reviewed.
 
 ## Computational checks and their limits
 
@@ -1290,3 +1361,95 @@ for p in [3, 5, 7, 11, 13]:
 print(f'{recurrences} precision steps; {newton} Newton corrections; '
       f'{linear} precision-loss examples; {tensor} tensor zero-divisor checks')
 ~~~
+
+## Complete-local continuation inventory and checks
+
+| ID | Item | Status |
+| --- | --- | --- |
+| L03 | Krull separation for finite local modules | library |
+| L04 | Finite torsionfree modules over a PID are free | library |
+| L05 | Continuous evaluation of multivariate power series | library |
+| L06 | Exactness of completion on finite modules | library |
+| L07 | Finite-module completion as scalar extension | library |
+| Z15 | Saturated jets at a DVR-valued point | missing |
+| Z16 | Chevalley cofinality for complete local modules | missing |
+| Z17 | Saturated point jets are finite free | missing |
+| Z18 | Generic jets equal the rational local jets | missing |
+| Z23 | Regularity survives completion at a rational point | missing |
+| Z19 | Power-series coordinates with a specified coefficient field | missing |
+| Z24 | Complete local tensor product and presentation | planned |
+| Z20 | Integral tensor jets are exact quotients | missing |
+| Z21 | The inverse limit of generic box jets | missing |
+| Z22 | The integral completed tensor embeds in generic point jets | missing |
+
+Paper/intake validators, exact ID and source-finding preservation, one route per missing item, definition API coverage and DAG checks. Fresh SymPy/integer/Fraction diagnostics: 8 symbolic saturation ideals, 1 unsaturated-torsion control, 2600 generic jet products, 24336 transition products, 24336 associativity triples, 5624 box-filtration monomials, 144 adic-topology bounds and 48 denominator controls. Code reproduced in report. These diagnostics do not prove the general theorem; previous appendix CAS/precision checks inherited, not rerun. No Lean file compiled.
+
+Run the following with Python and SymPy 1.14.0. The symbolic calculation takes place over Q[π,x,y] and checks finite-jet formulas; the written proof supplies the general DVR statement.
+
+```python
+from itertools import product
+from fractions import Fraction
+from collections import Counter
+import sympy as S
+counts=Counter()
+p,x,y,z=S.symbols('p x y z')
+f=p*y-x*x
+for n in range(1,9):
+    generators=[x**a*y**(n-a) for a in range(n+1)]
+    sat=S.groebner([f,*generators,1-z*p],z,p,x,y,order='lex')
+    eliminated=[g.as_expr() for g in sat.polys if not g.as_expr().has(z)]
+    expected=[f,y**((n+1)//2),x*y**(n//2)]
+    E=S.groebner(expected,p,x,y,order='lex')
+    G=S.groebner(eliminated,p,x,y,order='lex')
+    assert all(E.reduce(g)[1]==0 for g in eliminated)
+    assert all(G.reduce(g)[1]==0 for g in expected)
+    counts['symbolic_saturation_ideals']+=1
+G=S.groebner([f,x*x,x*y,y*y],p,x,y)
+assert G.reduce(y)[1]!=0 and G.reduce(p*y)[1]==0
+counts['unsaturated_torsion_controls']+=1
+# m_w = x^(w mod 2)*y^(w//2); m_i*m_j=p^carry*m_(i+j).
+for prime in (2,3,5,7):
+ for n in range(1,13):
+    def mul(a,b):
+        ca,i=a; cb,j=b
+        return (0,0) if not ca or not cb or i+j>=n else (ca*cb*prime**((i%2)*(j%2)),i+j)
+    def generic(a):
+        c,i=a
+        return (Fraction(c,prime**(i//2)),i) if c else (Fraction(0),0)
+    for i,j in product(range(n),repeat=2):
+        a,b=(1,i),(1,j); c=mul(a,b)
+        if i+j<n:
+            assert generic(c)==(generic(a)[0]*generic(b)[0],i+j)
+        else:assert c==(0,0)
+        counts['generic_jet_products']+=1
+        for m in range(1,n+1):
+            trunc=lambda a:(0,0) if a[1]>=m else a
+            lhs=trunc(c)
+            rhs=mul(trunc(a),trunc(b));rhs=trunc(rhs)
+            assert lhs==rhs
+            counts['transition_products']+=1
+    for i,j,k in product(range(n),repeat=3):
+        assert mul(mul((1,i),(1,j)),(1,k))==mul((1,i),mul((1,j),(1,k)))
+        counts['associativity_triples']+=1
+# Box versus total degree, including the sharp boundary counterexample.
+for h in range(1,5):
+ for n in range(1,7):
+    threshold=h*(n-1)+1
+    for exps in product(range(n+1),repeat=h):
+        box=any(a>=n for a in exps)
+        assert not sum(exps)>=threshold or box
+        assert not box or sum(exps)>=n
+        counts['box_filtration_monomials']+=1
+    assert sum([n-1]*h)==threshold-1 and not any(a>=n for a in [n-1]*h)
+    for q in range(1,7):
+        # Every nonzero term in (p,N)^(q+threshold-1) has N exponent<threshold.
+        degree=q+threshold-1
+        for nexp in range(threshold):assert degree-nexp>=q
+        counts['adic_topology_bounds']+=1
+# Localization of the inverse limit does not allow unbounded denominators.
+for prime in (2,3,5,7):
+ for bound in range(12):
+    assert (Fraction(prime**bound,prime**(bound+1))).denominator==prime
+    counts['denominator_controls']+=1
+print(dict(counts))
+```
