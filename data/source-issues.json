@@ -82936,23 +82936,62 @@
   {
    "id": "PAPER-MARTIN-25/E1",
    "kind": "error",
-   "locator": "Theorem 1.4, p.624, in the published version, Inventiones mathematicae 241 (2025), 623–626 (as quoted by the extraction from the publisher PDF, SHA-256 3e1f4b7f…097c); the same theorem, labelled \"Special case/corollary of Chen\", in arXiv 2502.15960v1",
-   "printed": "For the Markoff equation (1.1) x₁² + x₂² + x₃² = 3x₁x₂x₃ over F_p: \"The number of vertices in a connected component of G_p is divisible by p\", with no restriction on the prime p; the proof in §2 begins \"Fix a prime p > 3\".",
+   "locator": "Published Theorem 1.4, p.624, Inventiones mathematicae 241 (2025), 623–626; graph definition p.623 and proof pp.624–625. In arXiv 2502.15960v1 the corresponding theorem is numbered 1.3, p.2.",
+   "printed": "component of G_p is divisible by p",
    "correction": "Every connected component of G_p has size divisible by p for every prime p ≠ 3; the proof covers p > 3, and p = 2 holds by inspection. At p = 3 the statement is false.",
-   "reason": "Mod 3 the right side of (1.1) vanishes. A square in F₃ is 0 or 1, so a nonzero solution has all three coordinates nonzero, giving exactly the eight triples {±1}³. Each Vieta move x_i ↦ 3x_jx_k − x_i = −x_i flips one sign, so G₃ is the cube: one component of size 8, not divisible by 3. At p = 2 the nonzero solutions are (1,1,1), (0,1,1), (1,0,1), (1,1,0), forming one component of size 4. The proof divides by 2 and 3, and the comparison with the coefficient-free Markoff equation z₁² + z₂² + z₃² = z₁z₂z₃ via x = z/3 needs 3 invertible. Found by the extraction (items 31–34); the review REV-PAPER-MARTIN-25 re-derived both small cases.",
+   "reason": "For the coefficient-3 equation used in the paper, mod 3 every nonzero solution has all three coordinates nonzero: its coordinates lie in {±1}, giving eight vertices. The three Vieta involutions become independent sign flips, so the graph has one component of size 8, not divisible by 3. Mod 2 the vertices are (1,1,1), (0,1,1), (1,0,1), (1,1,0); the central vertex (1,1,1) is joined to each of the others, so the unique component has size 4. For p > 3 the published coordinate construction and involution averaging are valid, including fixed vertices: sum_C y_i = |C|/2 for each coordinate while sum_i y_i = 1. Thus |C| = 3|C|/2 in F_p and p divides |C|. Scaling to the coefficient-free equation by z = 3x is an isomorphism only when p ≠ 3; this is a restriction of Martin’s coefficient-3 statement, not a counterexample to Chen’s differently normalised statement.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
-    "Springer article page https://link.springer.com/article/10.1007/s00222-025-01346-9: no correction is indexed (the page itself could not be fetched here; a web search for a correction or erratum, 22 September 2026, found none)",
-    "arXiv 2502.15960: only v1 (21 February 2025) exists; it has the same unrestricted statement",
-    "D. E. Martin's homepage https://dem6.people.clemson.edu/ lists the paper with no correction"
+    "2026-09-23: publisher article/PDF https://link.springer.com/article/10.1007/s00222-025-01346-9 and https://link.springer.com/content/pdf/10.1007/s00222-025-01346-9.pdf read through web access; no correction link found, and Theorem 1.4 remains unrestricted. A cached public publisher PDF was independently reread and its pp.623–625 page images inspected; direct HTTP retrieval returned a JavaScript challenge.",
+    "2026-09-23: https://arxiv.org/abs/2502.15960 lists only v1 (21 February 2025). Fresh PDF https://arxiv.org/pdf/2502.15960v1, Theorem 1.3 p.2, retains E1.",
+    "2026-09-23: author page https://dem6.people.clemson.edu/ lists publisher and arXiv links without a correction. Crossref https://api.crossref.org/works/10.1007/s00222-025-01346-9 has no update-to/updated-by fields and an empty relation object.",
+    "2026-09-23: exact title, DOI and author/Markoff searches with correction, erratum and corrigendum located no correction to E1. New is limited to these checks, not a claim of discovery priority."
    ],
    "owner": "PAPER-MARTIN-25",
    "file": "research/blueprint/errata/PAPER-MARTIN-25.json",
    "citation": "Martin, \"A new proof of Chen's theorem for Markoff graphs\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-MARTIN-25",
+   "reviewReason": "Independently read the published theorem and graph convention, checked both small primes exactly, and verified the complete p > 3 averaging argument. Retain error / a stated result and the correction p ≠ 3. Added the exact arXiv theorem number, reproducible finite computations, source provenance and fresh correction search. The sufficiently-large-prime consequence is unaffected."
+  },
+  {
+   "id": "PAPER-MARTIN-25/E2",
+   "kind": "misprint",
+   "locator": "arXiv 2502.15960v1, p.2, §2, prose immediately before equation (2.3); corrected in published p.625, corresponding prose.",
+   "printed": "y′₁ = x′₁/(x₂x₃)",
+   "correction": "y′₁ = x′₁/(3x₂x₃), as already used in arXiv display (2.3) and correctly printed in the published prose.",
+   "reason": "Definition (2.1) requires the factor 3. For p=5, x=(1,1,1) and its first Vieta neighbour x′=(2,1,1), the defined y′₁ equals 2/3=4, whereas the misprinted quotient is 2. The adjacent arXiv display uses the right denominator, so this is a prose typo with no effect on the intended argument.",
+   "affects": "nothing",
+   "known": "Corrected in the published version, 20 June 2025, Inventiones mathematicae 241 (2025), https://link.springer.com/article/10.1007/s00222-025-01346-9 (p.625).",
+   "searched": [
+    "Compared the freshly downloaded arXiv v1 p.2 image with published p.625 image and current publisher HTML on 2026-09-23."
+   ],
+   "owner": "PAPER-MARTIN-25",
+   "file": "research/blueprint/errata/PAPER-MARTIN-25.json",
+   "citation": "Martin, \"A new proof of Chen's theorem for Markoff graphs\", Inventiones Mathematicae (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-MARTIN-25",
+   "reviewReason": "Added during version comparison. Both page images and the p=5 witness establish the missing factor in the preprint; the published version already corrects it. This is not a new error in the journal version."
+  },
+  {
+   "id": "PAPER-MARTIN-25/E3",
+   "kind": "error",
+   "locator": "arXiv 2502.15960v1, p.1, §1, paragraph after (1.2), claiming the graph of nonzero integer solutions is a tree and connected; corrected to positive integer solutions in published p.623.",
+   "printed": "graph obtained from integer solutions is a tree",
+   "correction": "Restrict the asserted tree and connectedness statement to positive integer solutions, as the published version does. The graph over all nonzero integer solutions is disconnected.",
+   "reason": "A nonzero integer solution has no zero coordinate: setting one coordinate to zero forces the other two squares to sum to zero. For a Vieta move, x_i x′_i = x_j²+x_k² > 0, so each coordinate sign is preserved. Both (1,1,1) and (-1,-1,1) solve the equation and have distinct sign patterns, so no path connects them. Thus connectedness, and hence the assertion of a single tree, fails for all nonzero integer solutions. This does not affect the finite-field divisibility argument.",
+   "affects": "a stated result",
+   "known": "Corrected in the published version, 20 June 2025, Inventiones mathematicae 241 (2025), https://link.springer.com/article/10.1007/s00222-025-01346-9 (p.623).",
+   "searched": [
+    "Compared arXiv v1 p.1 image with published p.623 image and current publisher HTML on 2026-09-23: the latter explicitly says positive integer solutions."
+   ],
+   "owner": "PAPER-MARTIN-25",
+   "file": "research/blueprint/errata/PAPER-MARTIN-25.json",
+   "citation": "Martin, \"A new proof of Chen's theorem for Markoff graphs\", Inventiones Mathematicae (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-MARTIN-25",
+   "reviewReason": "Added during version comparison. The sign invariant supplies an exact counterexample to the preprint wording; the published version explicitly restricts the assertion to positive integer solutions. Record as already corrected, not as a remaining journal error."
   },
   {
    "id": "PAPER-MERKURJEV-SCAVIA-26/E1",
