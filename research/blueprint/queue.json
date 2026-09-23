@@ -4230,8 +4230,9 @@
    ],
    "avoidAccountOf": "PAPER-GAN-SAVIN-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-GAN-SAVIN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1251"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1251",
+   "finishedAt": "2026-09-23T23:51:26Z"
   },
   {
    "id": "PAPER-QIAN-23",
@@ -12322,7 +12323,8 @@
    "waitForLogs": [
     "{WORKERS}/EXT-12/run.log"
    ],
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #75"
   },
   {
    "id": "REVIEW-EXT-13-EXT-07B",
