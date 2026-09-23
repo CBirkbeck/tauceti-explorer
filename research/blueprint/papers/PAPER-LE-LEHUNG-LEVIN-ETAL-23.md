@@ -1,3 +1,90 @@
+# LLHLM23 continuation: one item per numbered result
+
+Claude Code — cc-2aeb03, issue #1254, 23 September 2026. Claim comment 5804037973 was confirmed by the bot. Status
+**partial**: **709 items (120 library, 34 planned, 555 missing), 24 routes, 91 unreviewed source findings**. This pass adds
+57 items, changes 125 fields of 59 inherited items, and adds 30 findings (E62–E91). Every inherited item id, all 61 inherited
+findings and `sourceData` are preserved. The current census supersedes the counts below. No Lean file was required or
+compiled; no formalization or independent review is claimed.
+
+The published PDF was re-fetched (SHA-256 `e5647879…`, matching). Every statement written in this pass was taken from the
+page image at its locator, and the pages of every split item were read in full.
+
+## Coverage
+
+All 288 numbered labels of the paper were read from the text layer, with its ligatures normalized, and compared with the
+items.
+
+- **Numbered results.** Every numbered theorem, proposition, lemma, corollary, definition and conjecture is now named in an
+  item. Before this pass Lemmas 4.2.8, 4.3.7, 4.3.8 and 7.4.4 had no item. They are now M38–M39 (Lemma 4.2.8 has two
+  assertions, the second proved only "similarly"), M43, M44 and G53.
+- **The introduction.** Its theorems and conjectures restate body results, and each is now noted on its body item:
+  - Theorems 1.2.1 and 1.4.3 on G29, and Theorem 1.5.5 on G30 (Theorem 7.3.2);
+  - Theorems 1.2.3 and 1.5.3 on B31 (Corollary 8.5.2), and Theorem 1.5.9 on B43 (Corollary 8.4.12);
+  - Theorems 1.2.5 and 1.6.1 on V07 (Theorem 9.1.6), Theorem 1.4.2 on U40 (Theorem 3.7.1) and Theorem 1.4.5 on G34
+    (Theorem 7.4.2);
+  - Definition 1.4.1 on U21 (Definition 3.3.6);
+  - Conjectures 1.5.1 on B06 (8.1.5), 1.5.7 on B03 (8.1.1) and 1.6.2 on V14 (9.1.5).
+- **Remarks.** Each remark that states a claim the paper uses later is now an item: N80, N82, M48–M50, K54, P17 and B51.
+  Six more remarks were already stated inside an existing item, so that item's locator now names them: 3.1.1 (U02), 4.1.4
+  (M05), 4.2.3 (M08), 5.2.5 (K18), 7.1.7 (G07) and 7.3.4 (G30). The other body remarks are expository, a comparison with the
+  literature, a question, or unused: 2.1.11(1), 2.3.13, 3.4.1, 3.5.3, 4.2.1, 4.3.3, 4.4.1, 4.6.3(2), 4.7.4(1), 5.1.2, 5.1.5,
+  5.5.3, 6.2.2, 7.1.11, 7.2.4, 7.4.8, 8.1.2, 8.1.4, 8.3.4, 8.4.1 and 8.4.3.
+
+## Splits
+
+The protocol asks for one item per numbered result, and one per part of a multi-part result unless the parts are proved
+together. The gap `split-and-hypotheses` listed the bundled items; all are now split, and the gap is closed. Each item keeps
+its first result or part, and the others are new items on the same route:
+
+- §2: N10 → N75, N76 (Proposition 2.1.6); N41 → N72; N46 → N73; N48 → N74 (Remark 2.3.11).
+- §3–§5: U33 → U45 (Remark 3.5.6); M12 narrowed to Lemma 4.2.7; M13 → M40 (Definition 4.2.14); M14 → M41 (Corollary
+  4.2.12); M22 → M42; K11 → K49 (Lemma 5.1.10(d)).
+- §7: G15 → G45, G46 (Theorem 7.2.2(2), (3)); G20 → G47, G48 (Lemma 7.2.6); G23 → G49–G51 (Lemma 7.2.10(2)–(4));
+  G25 → G62, G52 (Proposition 7.2.12's second assertion, Lemma 7.2.13); G34 → G54, G55, G56 (Corollary 7.4.5, Remark
+  7.4.3(4), (5)); G35 → G57–G59 (Remark 7.4.3(1)–(3)); G37 → G60, G61; G40 → G65 (Proposition 7.1.3(1)); G21 → G66.
+- §8–§9: B17 → B38; B18 → B44 (Lemma 8.3.7); B20 → B39; B23 → B40, B41 (Lemma 8.4.9's two sentences); B26 → B42;
+  B28 → B43 (Corollary 8.4.12); B06 → B52, B53; B11 → B54; B37 → B55; V06 → V14 (Conjecture 9.1.5); V08 → V15, V16.
+- Appendix B: Q08 → Q13 (Proposition B.0.2(2)).
+
+K47 and K48 were checked and are not bundles. Where the `uses` of B02–B27 and the `api` and `tests` of N45, M12 and M13
+cited a moved result, they now name the right ids.
+
+## Source findings (unreviewed)
+
+Thirty new findings, E62–E91, each quoted from the page image. None has been independently checked. The main ones:
+
+- **E79, E80.** Lemma 8.4.11: the proof never shows the types lie in S_{Λ,t}, which needs P_{λ+η,e}-genericity for λ ≠ 0,
+  and its last step conflicts in sign with the shifted products in (8.1). Both change the genericity polynomial of Lemma
+  8.4.11 and Corollary 8.4.12, and probably of Lemma 8.5.1 and Corollary 8.5.2.
+- **E82.** Theorem 8.4.10(2) omits effectivity and the geometric equations, which Corollaries 8.4.12 and 8.5.2 and
+  Proposition 8.6.1 use.
+- **E67.** Proposition 7.2.12 omits the hypotheses of Proposition 7.2.3 ((h+2)-generic τ), which its proof needs.
+- **E70.** Remark 7.4.3(4) rests on Remark 4.6.3(1), which the paper leaves unproved; G55 and M49 record it as conditional.
+- **Gaps in proofs:** E65 (Lemma 7.2.10(3)), E78 (Lemma 8.4.9), E83 (Lemma 8.3.7 for semistable types) and E91
+  (Proposition B.0.2(2): topological flatness and normality of the generic fibre).
+- **Errors in remarks that nothing uses:** E84 (Remark 2.1.11(2)) and E88 (Remark 6.2.5), both false only for n = 1; E86
+  (the counterexample of Remark 3.5.3).
+
+The rest are misprints. Where they reach a proof (E75, E81), the correction is clear.
+
+## Remaining work
+
+The other open gaps are unchanged except `remaining-proof-leaves`, which now names M43–M44 for Lemmas 4.3.7–4.3.8. They
+are the recursive supplier audit (`analytic-regularity-suppliers` first), the item-by-item library audit, shared-owner
+reconciliation and the uniform Appendix B certificates (Q13 added). All 91 findings await independent review. See
+`research/blueprint/handoff/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md`.
+
+## Validation
+
+`python3 scripts/check_paper.py` reports `ok`; the three-file intake check reports 0 problems. The checks also confirmed:
+
+- item ids are unique, and every missing item is routed exactly once;
+- no item or gap refers to a removed id;
+- every definition and construction has at least three API entries and three tests;
+- inherited ids, findings and `sourceData` are unchanged.
+
+## Attributed earlier report
+
 # LLHLM23 continuation: affinoid topology and regular-map suppliers
 
 Codex — codex-c83e7a, issue #1254, 23 September 2026. Claim comment5803076014 was confirmed by bot comment5803078481. Status **partial**: **652 items (120 library, 34 planned, 498 missing), 24 routes, 61 unreviewed source findings**. This pass adds44 items, preserves all608 inherited item IDs and all53 inherited findings, and changes11 inherited item objects. The current census supersedes earlier counts below. No Lean file was required or compiled; these are source-based proof plans, not new formalizations or independent review.
