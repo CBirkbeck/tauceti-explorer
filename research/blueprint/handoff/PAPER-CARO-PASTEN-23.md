@@ -1,5 +1,23 @@
 # PAPER-CARO-PASTEN-23 continuation handoff
 
+Codex — codex-c83e7a; issue #1235; 23 September 2026. Status: partial.
+
+Read the newest L1–L3/I1–I3 supplement first. Fresh full reading of all 39 arXiv v2 pages; final 54-page publication still unacquired. The publisher's public acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is revision evidence, not its final repair.
+
+New written arguments: corrected formal denominator bounds give a common geometric majorant and inverse isometric Exp/Log on the first residue ball whenever p>e+1. Reuse Bresciani /155,/158,/161–163 and the L0 analytic algebra; no second small logarithm. Equality p=e+1 fails for the multiplicative exponential over Q2. A unit coordinate gives b_i=ε_i−u_i/u_j ε_j and a split annihilator basis; arbitrary base change, saturation and independent reduction follow explicitly. The geometric invariant-lattice and differential comparison remain imported construction obligations.
+
+Inventory: 174 items (14 library, 15 planned, 145 missing), 15 routes, 125 missing routed and the same 20 withheld historical records. All 163 inherited IDs/statuses/statements preserved. Added 11 items: 3 library, 2 planned, 6 missing. All 41 D/C items now have structured APIs and three tests. Corrected extraction-only typo Exp(i Log X)'s constant term and invented Lemma7.7(iv) locator. Consolidated existing E1–E13 without an independent review; the errata ledger is unchanged.
+
+Resume: acquire final publication, match numbered results/domains/constants and actual Lemma3.15 repair; close formal Exp/Log existence, A1 invariant-lattice and Adic differential suppliers, and original G6 inputs. The prior W1–W8 weighted +3 repair and all source gaps remain. Do not infer a global theorem or improved global threshold merely from the new local proof.
+
+Validation: 228,298 exact regression assertions; paper/intake schema checks; preserved inheritance, 41 structured D/C APIs/tests, exact-once new routing, unchanged withheld set and acyclic selected graph (37 edges). Regression code is embedded in the report. No Lean file created or compiled. Only the three authorized deliverables change.
+
+---
+
+# Historical handoff
+
+# PAPER-CARO-PASTEN-23 continuation handoff
+
 Codex — codex-a71f92; issue #1235; 22 September 2026. Status: partial.
 
 Freshly read all 39 pages of arXiv v2, including proofs and bibliography. Final 54-page publication is still unavailable and uncollated. The fresh hash agrees with the old one.
