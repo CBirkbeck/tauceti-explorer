@@ -9470,7 +9470,8 @@
    "searched": [
     "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
     "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+    "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
    ],
    "owner": "PAPER-BRESCIANI-24",
    "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
@@ -9482,16 +9483,17 @@
   {
    "id": "PAPER-BRESCIANI-24/E2",
    "kind": "error",
-   "locator": "Published §4 p.141, paragraph after Corollary 15; arXiv v3 §4",
-   "printed": "every Galois section of X is cuspidal",
-   "correction": "Treat parabolic curves with nonsplit degree-two boundary separately. A replacement argument for the general-curve reductions /81 and /96 remains open.",
-   "reason": "X=P1_Q minus V(T²−2) has a rational point 0 and hence a geometric section, but no rational boundary point and therefore no cuspidal section. Splitting its proper completion does not split its boundary. This is the same finding as E2 of the separate errata file; no disproof of Theorems A–C is claimed.",
-   "affects": "the proof",
+   "locator": "Published §4 p.141, paragraph after Corollary 15, and its uses: proof of Lemma 16 p.142 ('We may assume that X is non-parabolic'), the remark after Definition 18 p.144 ('it is immediate to check that t-b.l. sections are quasi-t-b.l.') and the proof of Theorem A p.146; arXiv v3 §4 the same",
+   "printed": "If X is parabolic affine, every Galois section of X is cuspidal (the only non-trivial case is settled by [18, Theorem A]). Because of this, we can always assume that X is non-parabolic.",
+   "correction": "The sentence holds when the boundary is split (every section of A^1 or G_m lies in each cuspidal packet), and for proper genus-zero curves Schmidt's theorem gives X ≅ P^1 once the section is b.l. It is false for X ≅ P^1_k minus a closed point of degree 2, which has geometric sections but no cuspidal ones. That case of Theorem A needs its own proof, and so does the remark after Definition 18, whose identity-map argument needs X non-parabolic. Over number fields the extraction records a proposed repair (items /169–/177, not in the paper, unreviewed). Over fields of positive transcendence degree no argument is known: Proposition 22 takes quasi-t-b.l. sections as input. Theorem A for non-parabolic curves, and Theorems B and C, which only use hyperbolic curves, are unaffected. Items /96 and /112 state what is proved.",
+   "reason": "X = P^1_Q minus V(T²−2) is affine and parabolic, 0 ∈ X(Q) gives a geometric section, and the boundary has no Q-point, so X has no cuspidal section. Schmidt's theorem concerns the splitting of the completion, not rationality of the boundary. The reductions in Lemma 16 and in the proof of Theorem A therefore leave unhandled the t-b.l. sections of such X that are not geometric. Reclassified by cc-442dc5 from 'the proof' to 'a stated result', because the missing case of Theorem A has no proof in the paper or elsewhere over fields of positive transcendence degree. This is not a claim that Theorem A fails there.",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
     "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+    "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
    ],
    "owner": "PAPER-BRESCIANI-24",
    "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
@@ -9512,7 +9514,8 @@
    "searched": [
     "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
     "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+    "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
    ],
    "owner": "PAPER-BRESCIANI-24",
    "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
@@ -9533,7 +9536,8 @@
    "searched": [
     "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
     "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+    "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
    ],
    "owner": "PAPER-BRESCIANI-24",
    "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
@@ -9547,14 +9551,15 @@
    "kind": "misprint",
    "locator": "Published Lemma 9 proof p.140; arXiv v3 Lemma 9",
    "printed": "any lifting",
-   "correction": "Choose qbar monic and a monic lift q of the same degree.",
-   "reason": "For R=Q[u]_(u), qbar=T and q=uT²+T reduce correctly, but the coprime factors T and uT+1 give R[T]/q≃R×Q(u), which is not finite over R. With a monic same-degree lift, finite freeness and the unit discriminant give the intended finite étale local extension. /66 already uses that correction.",
-   "affects": "the proof",
+   "correction": "Choose qbar monic and a monic lift q of the same degree. In this paragraph p stands for f(p) ∈ U and k(p) for its residue field.",
+   "reason": "For R=Q[u]_(u), qbar=T and q=uT²+T reduce correctly, but the coprime factors T and uT+1 give R[T]/q≃R×Q(u), which is not finite over R. With a monic same-degree lift, finite freeness and the unit discriminant give the intended finite étale local extension. /66 already uses that correction. Reclassified by cc-442dc5 from 'the proof' to 'nothing': with the evident monic lift of the same degree the construction is exactly as printed.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
     "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+    "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
    ],
    "owner": "PAPER-BRESCIANI-24",
    "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
@@ -9575,7 +9580,8 @@
    "searched": [
     "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
     "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
-    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists.",
+    "arXiv 2108.13397 listing and Crossref record of doi 10.1007/s00222-023-01220-6 rechecked by cc-442dc5 on 23 September 2026: v3 is still the latest version, and no update relation is registered."
    ],
    "owner": "PAPER-BRESCIANI-24",
    "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
