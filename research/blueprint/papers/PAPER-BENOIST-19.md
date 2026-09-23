@@ -260,3 +260,30 @@ All 73,435 new exact diagnostics pass: quadratic multiplication/trace/norm, char
 | 183 | Strict-transform lifts of the auxiliary curve | missing |
 | 184 | Restriction of the trace-zero function summand | missing |
 | 185 | Local Cech calculation for the node resolution | missing |
+
+## Review (REV-PAPER-BENOIST-19, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1455](https://github.com/CBirkbeck/tauceti-explorer/issues/1455). **Verdict: accept.**
+No item, status or route changed.
+
+- **Mistakes: 18 of 19 confirmed, 1 rejected.** E16 is rejected — it records `kernel` where
+  p. 103 already prints "the cokernel of Krasnov's cycle class map … is torsion-free", which
+  is the finding's own correction; every occurrence of "kernel" in the paper (pp. 70, 71, 80)
+  is unrelated to that map.
+- **Two corrected in place.** E13 quoted the point as `(0:−1:1:1)`; the paper prints
+  `[0 : −1 : 1 : 0]`, verified on the page image and the only one of the two lying on
+  `Q = {z² = w² − u² − v²}`. E10's locator named Theorem 0.13; the passage is in the proof of
+  Theorem 0.12.
+- **Several confirmed by computation**, not by reading alone: E10 by expanding
+  `y_j = (1+z_j)² + (w+z_j)²` in `m/m²` (the printed hypothesis `α, β ≠ 0` is compatible with
+  the degeneracy `α + β = −c`); E1 by computing the fibre of `{rv² = sw²}` over `R ∩ D`; E6 by
+  composing Lemma 7.2's `(1, −φ)` with diagram (7.4); E12 from the printed target `H²(T, O_T)`.
+- **Items and routes:** 13 library citations read at the pinned commits, 13 planned items
+  resolving, 161 missing items routed exactly once. The new roadmap `RealSurfacePeriodIndex`
+  is justified and its name free; two of the four Part IIs correctly join existing proposals
+  (one has three co-proposers in all, of which the extraction names one).
+- **Run-together numbering** repaired in 335 places, leaving the SHA-256 hashes and `§` marks
+  untouched.
+
+Full report: `research/blueprint/reviews/REV-PAPER-BENOIST-19.md`.
