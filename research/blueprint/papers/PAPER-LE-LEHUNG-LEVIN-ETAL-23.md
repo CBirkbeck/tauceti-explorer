@@ -1,3 +1,189 @@
+# LLHLM23 continuation: Whittaker injectivity and finite-place genericity
+
+Codex — codex-a71f92, issue #1254, 23 September 2026. Continues merged #2401
+at `6c2ba657ff3f12cbb83c8ec7877e11a44d3c99ee`; claim5799093170 confirmed by5799096201.
+
+**Partial: 528 items (68 library,18 planned,442 missing),21 routes,45 unreviewed
+source findings; all157 definitions/constructions have individual uses/API/typed
+tests.** No Lean file is required or compiled. This is a source-based plan, not
+a formalization or an independent review.
+
+## The implication actually supplied
+
+The preceding checkpoint left the generic-local consequence of cuspidal base
+change unexplained. A66–A73 now give that implication without assuming a local
+uniqueness theorem. They do **not** establish the exact Speh/Galois realization
+that A62 still needs in order to prove cuspidality.
+
+For a number field F, fix a nontrivial unitary character psi of A_F/F. On the
+upper unitriangular group N_n use psi_N(u)=psi(sum_i u_(i,i+1)), and set
+
+W_phi(g) = integral over N_n(F)\\N_n(A_F) of phi(u g) psi_N(u)^(-1) du.
+
+The quotient has its invariant probability measure, compatible with successive
+additive quotient measures. It is generally a homogeneous space, not a quotient
+group. A66 constructs the transform on smooth automorphic globalizations.
+Compactness gives convergence; right translation gives
+W_(R(h)phi)(g)=W_phi(g h), while unipotent left equivariance is
+W_phi(u g)=psi_N(u)W_phi(g). The inverse in the integrand matters.
+
+The injectivity proof is a useful weakening of the full Fourier expansion:
+it requires only compact Fourier uniqueness, not absolute uniform convergence
+or rearrangement of the final multiple infinite series.
+
+1. **A67: last-column detection.** Write P_n=GL_(n-1) semidirect Y_n with
+   Y_n=A_F^(n-1), and define C_x f using the row frequency x.
+   The zero coefficient vanishes by cuspidality. If e=(0,...,0,1), then
+   C_(e gamma)f(p)=C_e f(diag(gamma,1)p) for rational gamma.
+   Rational change of variables preserves global volume by the product formula.
+   Every nonzero row is e gamma, with stabilizer the row-mirabolic P_(n-1).
+   Hence vanishing of these coefficients implies f(p)=0 by Fourier uniqueness.
+   The frequency set is not projective space.
+2. **A68: induction preserves cuspidality.** For fixed p, the function
+   p'↦C_e f(diag(p',1)p) is a cuspidal function on P_(n-1).
+   For the smaller maximal parabolic a+(n-1-a), the first a last-column
+   coordinates combine with its radical into the GL_n radical for a+(n-a).
+   The character is trivial on these coordinates. Integrate this zero constant
+   term first, then the remaining column coordinates. Compact Fubini and
+   transitivity of constant terms finish the check. The corresponding smaller
+   Whittaker integral is W_f(diag(p',1)p).
+3. **A69: injectivity.** Induct from P_1={1}. If W_f vanishes, A68 and the
+   induction hypothesis force every C_e f to vanish; A67 gives f=0.
+   Restrict each right translate of a GL_n cusp form to P_n to recover its
+   value at every g. This is precisely the consequence needed below.
+4. **A70: global nonvanishing.** For nonzero phi, choose g with W_phi(g)≠0.
+   Then Lambda(R(g)phi)=W_phi(g)≠0, where Lambda(phi)=W_phi(1).
+   Individual vectors can lie in ker Lambda; this is not a claim that every
+   nonzero phi has nonzero value at the identity.
+5. **A71: freeze a detecting factor.** At a finite place v import the actual
+   one-place factorization V_Pi=V_(Pi_v) tensor V^v from AF.2.
+   A nonzero linear functional cannot vanish on all pure tensors. Choose
+   x tensor w detecting it and set lambda_v(y)=Lambda(y tensor w).
+   Local unipotent equivariance is inherited because only the first factor
+   moves. The frozen vector must be chosen: an arbitrary reference vector can
+   give the zero functional. This argument proves finite-place existence,
+   not the factorization of Lambda into an Euler product or its uniqueness.
+6. **A72: normalization twists.** A determinant character is trivial on N_n,
+   so it does not change the Whittaker Hom space. This includes the
+   |det|^((1-n)/2) twist. It does not calculate the corresponding cyclotomic
+   character on the Galois side.
+7. **A73: the LLHLM consumer.** Once A62's Galois realization excludes every
+   nontrivial Speh decomposition, its single cuspidal base change is globally
+   and finitely locally generic. Labesse's split-place comparison transports
+   this to the compact-unitary constituent, including at split places over p.
+   A chosen abstract coefficient-field isomorphism transports the algebraic
+   smooth Hom statement; it is not a topological field isomorphism.
+
+A30 gains A73 as a prerequisite and a proof qualification. Every one of the
+519 old item statements and statuses is unchanged; no other old item changes.
+The 44 old findings and all AppendixB source data are unchanged.
+
+## Owners and library reuse
+
+The general global construction and mirabolic lemmas go to
+AutomorphicFormsOnReductiveGroups AF.3, with the tensor restriction adapter in
+AF.2. The determinant-twist identity refines the local Whittaker API in
+SmoothRepresentationsOfLocalGroups SR.5, whose complex comparison is explicitly
+consumed by AutomorphicLFunctionsAndLocalFactors AL.3. These add two source
+routes, not two new roadmaps. The consumer-specific A73 joins the existing AG2
+source route.
+
+AF.3's present text does not already state the GL_n global genericity theorem:
+the new items are marked missing and routed as source refinements in its
+existing cusp-form direction. No genericity theorem for arbitrary reductive
+groups is being imposed. No exact integral co-Whittaker or coefficient-
+characteristic-p assertion is imported from Helm by a change of notation.
+
+Freshly read reviewed audit rows: AUDIT-13 AF.0/AF.2/AF.3 and AUDIT-14
+AL.0/AL.3. There is no direct reviewed SR.5 row; AL.3's accepted audit explicitly
+finds the local Whittaker machinery absent. Complete pinned-tree searches for
+Whittaker, mirabolic and restricted tensor products found no relevant theorem.
+The current AF/SR/AL campaign documents were read in full, as were the relevant
+atlas contracts and AG2.2/5/6/7. No finer AF/SR/AL packet or promoted decomposition
+exists in this snapshot.
+
+L68 imports only `TensorProduct.ext'` from Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`,
+`Mathlib/LinearAlgebra/TensorProduct/Basic.lean:133`.
+Its proof, scalar context, `curry/curry_apply`, and the `Defs.lean`
+`induction_on`, `mk/mk_apply` and pure-tensor spanning statements were read.
+Both files were byte-verified against the exact remote pin. Algebraic
+extensionality is not Flath's theorem and is not an assertion about completed
+archimedean tensor products.
+
+Still-open supplier boundaries are explicit: AL.0's compact additive character
+duality/completeness, AA.2/AF.3's quotient Haar measures and Fubini, AF.1's smooth
+globalization continuity, and AF.2's actual one-finite-place factorization.
+The mirabolic proof is now decomposed, but these owners are not claimed fully
+formalized or closed by this checkpoint.
+
+## Sources and already-corrected supplier typo
+
+Fresh main-paper reading: LLHLM23 published PDF196–198 and EGH7.2.1 PDF55–56.
+The full LLHLM read remains attributed to codex-7e92bd.
+
+- [Cogdell, PCMI notes](https://people.math.osu.edu/cogdell.1/pcmi-www.pdf),
+  Lecture1 printed5–11/PDF9–15, including the entire mirabolic induction.
+  SHA256 `09b82f9aed494d28327ed9692f5bf37e6bed229cf470e80927e0cc10ce70932a`.
+  Printed11 was also rendered. The local-uniqueness sketch was inspected but
+  is not used as a proof-closure certificate.
+- [Cogdell, Fields Institute notes](https://people.math.osu.edu/cogdell.1/fields-www.pdf),
+  Lecture4 printed29–33/PDF33–37, including Corollary4.1.2.
+  SHA256 `2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7`.
+- [Earlier ICTP notes](https://people.math.osu.edu/cogdell.1/ictp-www.pdf):
+  only the matching functional display was compared.
+  SHA256 `fea0876a14364c8195fb8740ed0042e2ed9f09fc640fe10d9cf986a9b170aa2e`.
+
+**E45** records an already-corrected typo in the prerequisite notes, not a new
+LLHLM error. PCMI printed11 writes Lambda(phi)=W_phi(e) but retains phi(n g)
+in its integral. Evaluation at e requires phi(n); the g-dependent integral is
+W_phi(g)=Lambda(R(g)phi). The Fields notes printed33 already give phi(n).
+The older ICTP display has the same stray g. The author page and the versions
+above were checked, and no novelty is claimed. All45 findings still await
+the independent review; the later corrected formula is evidence, not this
+worker's review verdict.
+
+## Checks and exact finite diagnostics
+
+The scratch standard-library diagnostic checks:
+
+- 134003 upper-unitriangular GL3 products and adjacent-root character sums;
+- 111216 row-frequency/change-of-variable cases over F3,F5,F7, with the
+  correct mirabolic stabilizer;
+- 1680 enlarged-radical normalization cases in ranks3–6;
+- 15 finite Fourier inversions and15 right-translation sign checks, using
+  integer arithmetic modulo the cyclotomic polynomial, not floating-point
+  roots of unity;
+- 719 nonzero bilinear tables detecting a pure tensor, plus the negative test
+  showing a badly chosen frozen vector gives zero.
+
+These are finite regression diagnostics, not proofs of the adelic results.
+They do not prove cuspidality, local p-adic Hodge types or Flath's theorem.
+
+The paper checker passes; all41 existing paper/queue/intake unit tests pass.
+Structural checks give528 unique items,314 acyclic internal prerequisite
+edges, exactly one route per missing item, and157/157 literal definition
+interfaces. All519 prior statements/statuses,44 prior findings and sourceData
+are preserved. Three-file intake is checked again before publication.
+
+Resume with exact Speh algebraic/Galois twists and the Frobenius-polynomial/
+semisimple-uniqueness isomorphism; the sigma(lambda,tau)^* coefficient/type
+dictionary; and the actual reduced/finite-flat projected Hecke image. A65's
+conditional integral-quotient step and A73's conditional generic-local step
+must not be confused with their unproved automorphic inputs. The twelve
+inherited closure gaps remain.
+
+Publication refresh: fresh main `475a4ea5374551cf5f10d0b7b94739b10c78d1eb`
+matches all three original deliverable blobs and all521 guarded content,
+roadmap, atlas, reviewed-audit, protocol and checker inputs. The payload and
+checks were replayed on that snapshot; only the three authorized files are
+submitted.
+
+Earlier report follows unchanged; its old counters and wholly-unexplained
+generic-local step are superseded above.
+
+---
+
 # LLHLM23 continuation: integral deformation-quotient factorization
 
 Codex — codex-a71f92, issue #1254, 23 September 2026. Continues merged #2394

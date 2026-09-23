@@ -369,6 +369,41 @@
             "readSections": "Complete theorem statements/proofs of 00JB,00J8,00EW; 00EJ inspected but not used."
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-23",
+        "main": "Fresh LLHLM23 published PDF196–198; EGH7.2.1 PDF55–56. The inherited full-paper read remains attributed to codex-7e92bd. This bounded continuation reads the global Whittaker supplier, not the full automorphic base-change or local uniqueness proofs.",
+        "sources": [
+          {
+            "title": "J. W. Cogdell, L-functions and Converse Theorems for GL_n",
+            "url": "https://people.math.osu.edu/cogdell.1/pcmi-www.pdf",
+            "sha256": "09b82f9aed494d28327ed9692f5bf37e6bed229cf470e80927e0cc10ce70932a",
+            "version": "Author-hosted PCMI 2002 lecture notes; PDF metadata generated 2014",
+            "readSections": [
+              "Lecture1 printed5–11/PDF9–15: conventions, Theorem1.1 with full mirabolic induction and the global/local functional discussion. Printed11 also rendered. Theorem1.2's uniqueness sketch was inspected but is not used as proof closure."
+            ]
+          },
+          {
+            "title": "J. W. Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n",
+            "url": "https://people.math.osu.edu/cogdell.1/fields-www.pdf",
+            "sha256": "2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7",
+            "version": "Author-hosted Fields Institute lectures, Spring2003",
+            "readSections": [
+              "Lecture4 printed29–33/PDF33–37, including the correctly specialized identity-evaluation formula and Corollary4.1.2. Not a full reading of the notes."
+            ]
+          },
+          {
+            "title": "J. W. Cogdell, Notes on L-functions for GL_n",
+            "url": "https://people.math.osu.edu/cogdell.1/ictp-www.pdf",
+            "sha256": "fea0876a14364c8195fb8740ed0042e2ed9f09fc640fe10d9cf986a9b170aa2e",
+            "version": "Author-hosted ICTP2000 notes",
+            "readSections": [
+              "Only the matching global Whittaker functional display in the Whittaker-model discussion, for comparison of E45; not the full notes."
+            ]
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -387,7 +422,7 @@
       ]
     }
   },
-  "summary": "Partial continuation: 519 items (67 library, 18 planned, 434 missing), 19 routes, 44 unreviewed source findings; all 156 definitions/constructions retain individual uses/API/typed tests. A63-A65 separate characteristic-zero field-factor detection and conditional integral deformation-quotient factorization. L62-L67 reuse pinned generic algebra/topology. P02's closure-to-exact-type converse is corrected as an extraction overclaim, not a source-paper finding. All 510 prior item statements/statuses and all sourceIssues/sourceData preserved. Global automorphic/type suppliers and the other twelve recorded closure gaps remain.",
+  "summary": "Partial continuation: 528 items (68 library, 18 planned, 442 missing), 21 routes, 45 unreviewed findings; all157 definitions/constructions have individual uses/API/typed tests. A66-A73 separate global Whittaker injectivity and the finite-place genericity consequence of cuspidal base change; L68 imports existing pure-tensor extensionality. E45 is a supplier-note evaluation typo already corrected in later author notes. All519 prior item statements/statuses,44 prior sourceIssues and AppendixB data are preserved. Exact Speh/Galois realization, coefficient/type occurrence, actual Hecke-algebra hypotheses and the twelve recorded closure gaps remain.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -15401,9 +15436,10 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A61",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A65"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A65",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A73"
       ],
-      "proofOutline": "Thorne first defines H_i,Q and its image Hecke algebra T_i,Q. Proposition5.9 identifies the projected level0 module with the original-level module. Proposition5.12 supplies the scalar-inertia splitting on the projected level1 image algebra. Apply these at each v∈Q; the operators at distinct places commute. The raw global representation and its local compatibility remain explicit global suppliers, rather than being inferred from the projector calculation alone. EGH supplies characteristic-zero representations in the correct arbitrary-rank compact-unitary setting, with Frobenius-semisimplified compatibility away from p and only semisimplified compatibility at p. CHT glues constituent representations over the reduced integral Hecke algebra using its Lemmas2.1.4,2.1.5,2.1.12; those exact descent declarations, the polarization sign and the requisite genericity consequence still need individual supplier checks. CHT3.4.4(8) itself also passes to a selected Hecke image T(Y). The integral descent is now split into A34–A50, the prescribed sign into A51–A52, and the p-adic monodromy bound into A53–A55. The unitary-to-cuspidal base-change identification and its generic local constituents are still required: A50 supplies irreducibility of the Galois representation but is not by itself an automorphic base-change theorem. Continuation codex-a71f92 splits the compact-unitary base-change input as A59, the residual-spectrum carrier/theorem as A60-A61, and the positive-summand irreducibility argument as A62. LLHLM Section9.1 already assumes F+ is not Q, so Labesse's degree restriction is available. The exact algebraic normalization and Galois realization of all Speh factors, and the local genericity/type dictionary, remain explicit gaps; the withdrawn White preprint is not used as an unqualified closure certificate. A63-A65 now isolate the finite reduced flat field-factor detection and the conditional point-to-integral deformation-quotient factorization; the automorphic constituent/type hypotheses remain separate.",
+      "proofOutline": "Thorne first defines H_i,Q and its image Hecke algebra T_i,Q. Proposition5.9 identifies the projected level0 module with the original-level module. Proposition5.12 supplies the scalar-inertia splitting on the projected level1 image algebra. Apply these at each v∈Q; the operators at distinct places commute. The raw global representation and its local compatibility remain explicit global suppliers, rather than being inferred from the projector calculation alone. EGH supplies characteristic-zero representations in the correct arbitrary-rank compact-unitary setting, with Frobenius-semisimplified compatibility away from p and only semisimplified compatibility at p. CHT glues constituent representations over the reduced integral Hecke algebra using its Lemmas2.1.4,2.1.5,2.1.12; those exact descent declarations, the polarization sign and the requisite genericity consequence still need individual supplier checks. CHT3.4.4(8) itself also passes to a selected Hecke image T(Y). The integral descent is now split into A34–A50, the prescribed sign into A51–A52, and the p-adic monodromy bound into A53–A55. The unitary-to-cuspidal base-change identification and its generic local constituents are still required: A50 supplies irreducibility of the Galois representation but is not by itself an automorphic base-change theorem. Continuation codex-a71f92 splits the compact-unitary base-change input as A59, the residual-spectrum carrier/theorem as A60-A61, and the positive-summand irreducibility argument as A62. LLHLM Section9.1 already assumes F+ is not Q, so Labesse's degree restriction is available. The exact algebraic normalization and Galois realization of all Speh factors, and the local genericity/type dictionary, remain explicit gaps; the withdrawn White preprint is not used as an unqualified closure certificate. A63-A65 now isolate the finite reduced flat field-factor detection and the conditional point-to-integral deformation-quotient factorization; the automorphic constituent/type hypotheses remain separate. A66-A73 now isolate the global Whittaker injectivity/nonvanishing and finite-place restriction argument; conditional on the still-required cuspidal-base-change realization, they supply generic split local components without using local uniqueness. The exact Speh/Galois twists and coefficient/type occurrence are not discharged.",
       "implementationStatus": "unchecked",
       "note": "Exact cited supplier, freshly read in continuation codex-c83e7a. No Lean implementation."
     },
@@ -16483,6 +16519,336 @@
           "statement": "Reducedness and flatness alone do not establish the local p-adic Hodge types of the field factors. Without the stated characteristic-zero type hypothesis, no deformation-quotient factorization follows."
         }
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L68",
+      "kind": "theorem",
+      "name": "Linear maps on a tensor product are determined by pure tensors",
+      "statement": "For modules M,N over a commutative semiring R and R-linear maps g,h:M tensor_R N→P, equality g(m tensor n)=h(m tensor n) for every m,n implies g=h. The pinned declaration allows compatible semilinear maps, so this linear specialization has weaker requirements than the automorphic application.",
+      "locator": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean:133 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
+      "proofOutline": "Existing proof by TensorProduct.induction_on: zero, pure tensor, addition.",
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and surrounding scalar context read at the pinned commit, together with TensorProduct.mk/mk_apply, curry/curry_apply and induction_on. Basic.lean and Defs.lean byte-verified against the exact remote pin. This is an algebraic two-factor result, not Flath's theorem or a completed tensor-product statement.",
+      "library": [
+        "mathlib:TensorProduct.ext'"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A66",
+      "kind": "construction",
+      "name": "Global Whittaker transform with fixed character and right action",
+      "statement": "Let F be a number field, A its adeles, n>=1, and psi:A/F→C^× a nontrivial continuous unitary additive character. For upper unitriangular N_n put psi_N(u)=psi(sum_{i=1}^{n-1}u_(i,i+1)). For a smooth complex automorphic function phi in the smooth globalization (not only its K-infinity-finite subspace) define W_psi(phi)(g)=integral over N_n(F)\\N_n(A) of phi(ug)psi_N(u)^(-1) du. Use the invariant probability quotient measure, compatible with the successive additive quotients. The compact quotient makes this integral convergent; the map is complex-linear, smooth, and intertwines right translation R(h)phi(x)=phi(xh) with right translation on W. Its image satisfies W(ug)=psi_N(u)W(g). This construction alone does not assert that W is nonzero.",
+      "locator": "Cogdell, L-functions and Converse Theorems for GL_n, author-hosted PCMI notes (2002), Lecture1, printed5–7/PDF9–11 and printed10/PDF14; Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, Fields Institute notes (2003), Lecture4, printed29–31/PDF33–35.",
+      "status": "missing",
+      "prerequisites": [
+        "AutomorphicFormsOnReductiveGroups:AF.0",
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "AdelicAlgebraicGroups:AA.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "proofOutline": "Build psi_N from the adjacent-superdiagonal sum, which adds under multiplication; it is trivial on N_n(F). The product phi(ug)psi_N(u)^(-1) descends to the compact homogeneous quotient (not a quotient group in general). Use AF.3's unipotent quotient and AA.2's invariant measure, then differentiation under a compact integral for smoothness. Substitution u↦u u0 in the right-invariant quotient measure proves W(u0 g)=psi_N(u0)W(g). Linearity and right-translation compatibility follow directly. Haar/Fubini/quotient and smooth-globalization suppliers are imported, not newly certified.",
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A69",
+          "how": "The iterated last-column coefficients recover injectivity on cusp forms."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A70",
+          "how": "Evaluation at the identity supplies the global functional."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A73",
+          "how": "Cuspidal base change supplies generic finite local components needed by A30/A55."
+        }
+      ],
+      "api": [
+        {
+          "name": "GlobalWhittakerTransform.apply",
+          "role": "data",
+          "statement": "Evaluation at g is the displayed compact quotient integral with psi_N inverse."
+        },
+        {
+          "name": "GlobalWhittakerTransform.map_add_smul",
+          "role": "structure",
+          "statement": "W(a phi+b phi')=a W(phi)+b W(phi') for a,b∈C."
+        },
+        {
+          "name": "GlobalWhittakerTransform.unipotent_left",
+          "role": "compatibility",
+          "statement": "W(phi)(u g)=psi_N(u)W(phi)(g) for u∈N_n(A)."
+        },
+        {
+          "name": "GlobalWhittakerTransform.right_translate",
+          "role": "functoriality",
+          "statement": "W(R(h)phi)(g)=W(phi)(g h); the action is not left translation on phi."
+        },
+        {
+          "name": "GlobalWhittakerTransform.at_identity",
+          "role": "projection",
+          "statement": "Lambda_psi(phi)=W(phi)(1)=integral phi(u)psi_N(u)^(-1) du; there is no free g in this formula."
+        },
+        {
+          "name": "GlobalWhittakerTransform.rank_one",
+          "role": "example",
+          "statement": "For n=1 the unipotent group is trivial and W(phi)=phi with its probability measure."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GlobalWhittaker.rank_one",
+          "kind": "degenerate",
+          "statement": "For n=1, W(phi)(g)=phi(g), and Lambda(phi)=phi(1)."
+        },
+        {
+          "name": "GlobalWhittaker.translation_sign",
+          "kind": "compatibility",
+          "statement": "W(R(u0)phi)(1)=psi_N(u0)W(phi)(1); using psi_N rather than its inverse in the integrand gives the opposite character."
+        },
+        {
+          "name": "GlobalWhittaker.GL3_nonabelian",
+          "kind": "computation",
+          "statement": "Writing u(a,b,c)=[[1,a,b],[0,1,c],[0,0,1]], u(a,b,c)u(a',b',c')=u(a+a',b+b'+a*c',c+c'), while psi_N(u)=psi(a+c) is multiplicative. The central coordinate b is not a simple-root coordinate."
+        },
+        {
+          "name": "GlobalWhittaker.constant_not_cuspidal",
+          "kind": "non-example",
+          "statement": "For n>=2 the constant automorphic function 1 has W(1)=0 for nontrivial psi_N; injectivity is not asserted outside the cuspidal subspace."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A67",
+      "kind": "theorem",
+      "name": "Nonzero last-column Fourier coefficients detect a cuspidal mirabolic function",
+      "statement": "For n>=2 write P_n={[[h,y],[0,1]]}, h∈GL_(n-1), and Y_n={[[I,y],[0,1]]}. Let f be a smooth left P_n(F)-invariant function on P_n(A) whose constant terms along every proper standard parabolic radical of GL_n vanish. Put C_x f(p)=integral over F^(n-1)\\A^(n-1) of f(y(t)p)psi(-x t) dt for a row x∈F^(n-1), and e=(0,...,0,1). Then C_0 f=0 and C_(e gamma) f(p)=C_e f(diag(gamma,1)p) for gamma∈GL_(n-1)(F). The rows e gamma exhaust the nonzero rows, indexed by P_(n-1)(F)\\GL_(n-1)(F). If C_e f(diag(gamma,1)p)=0 for every gamma at a fixed p, then f(p)=0.",
+      "locator": "Cogdell, L-functions and Converse Theorems for GL_n, author-hosted PCMI notes (2002), Lecture1, proof of Theorem1.1, printed7–8/PDF11–12; Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, Fields Institute notes (2003), Lecture4, printed29–31/PDF33–35.",
+      "status": "missing",
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "AutomorphicFormsOnReductiveGroups:AF.3"
+      ],
+      "proofOutline": "Y_n is the radical for (n-1)+1, so cuspidality kills its trivial coefficient. The product formula gives volume preservation under t↦gamma t for rational gamma; left rational invariance gives the displayed coefficient identity. Elementary row-basis completion gives transitivity on nonzero rows and the exact row stabilizer P_(n-1). AL.0's character duality identifies every character of the compact additive quotient with x∈F^(n-1). If all coefficients vanish, Fourier uniqueness for continuous functions on that quotient gives f(y(t)p)=0, hence f(p)=0. Only uniqueness is used here, not a rearrangement of an infinite multiple Fourier series.",
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "tests": [
+        {
+          "name": "LastColumn.row_stabilizer",
+          "kind": "computation",
+          "statement": "For n=3, e=(0,1), the stabilizer of e under right multiplication is exactly the matrices [[a,b],[0,1]] with a≠0, so the parameter set is P_2(F)\\GL_2(F), not a projective line."
+        },
+        {
+          "name": "LastColumn.zero_frequency",
+          "kind": "non-example",
+          "statement": "The constant function 1 has C_0=1 and all nonzero additive coefficients zero, so dropping cuspidality invalidates detection."
+        },
+        {
+          "name": "LastColumn.rank_two",
+          "kind": "degenerate",
+          "statement": "For n=2 the quotient P_1(F)\\GL_1(F) is F^×; these are precisely the nonzero Fourier frequencies."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A68",
+      "kind": "theorem",
+      "name": "The last-column coefficient remains cuspidal on the smaller mirabolic",
+      "statement": "For n>=3, with f,Y_n,P_n,C_e as in A67 and fixed p∈P_n(A), define f_p'(p')=C_e f(diag(p',1)p) on P_(n-1)(A). It is smooth, left P_(n-1)(F)-invariant, and has zero constant term along each proper standard parabolic radical of GL_(n-1). For n=2 the smaller mirabolic is P_1={1}, with no cuspidality condition. With compatible quotient measures, its Whittaker transform satisfies W_(f_p')(p')=W_f(diag(p',1)p).",
+      "locator": "Cogdell, L-functions and Converse Theorems for GL_n, author-hosted PCMI notes (2002), Lecture1, Theorem1.1 proof, printed8–9/PDF12–13 (the invariance/cuspidality check and the iterated integral).",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A67",
+        "AutomorphicFormsOnReductiveGroups:AF.3"
+      ],
+      "proofOutline": "Rational elements of P_(n-1) stabilize the last-row character, so the same change of variables proves invariance. For the maximal parabolic a+(n-1-a), 1<=a<=n-2, split Y_n's column into coordinates 1..a and a+1..n-1. The character psi(t_(n-1)) is trivial on the first group. That first group together with the smaller radical is precisely the GL_n radical for a+(n-a). Its constant term is zero; integrate the remaining column coordinates afterwards. They normalize the enlarged radical, and the character is unchanged. General standard parabolics follow by transitivity of constant terms. All unipotent quotients in this calculation are compact, justifying Fubini. Finally N_n=N_(n-1)⋉Y_n and the two characters multiply to psi_N; the iterated integral is W_f at the displayed block-diagonal argument.",
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "tests": [
+        {
+          "name": "SmallerMirabolic.enlarged_block",
+          "kind": "computation",
+          "statement": "For n=3,a=1, the x_12 and x_13 entries form the radical of the 1+2 parabolic; psi(x_23) is trivial on it."
+        },
+        {
+          "name": "SmallerMirabolic.last_character",
+          "kind": "non-example",
+          "statement": "For n=3 the nonzero last-column character must be psi(x_23). Using psi(x_13) breaks invariance under the stated P_2 row stabilizer."
+        },
+        {
+          "name": "SmallerMirabolic.base_case",
+          "kind": "degenerate",
+          "statement": "At n=2 the smaller mirabolic is {1}; no nonexistent GL_1 proper-parabolic condition is required."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A69",
+      "kind": "theorem",
+      "name": "The Whittaker transform is injective on GL_n cusp forms",
+      "statement": "For F,psi,n as in A66, if a smooth cusp form phi on GL_n(F)\\GL_n(A) has W_psi(phi)(g)=0 for every g, then phi=0. The analogous assertion holds on P_n(A) for the cuspidal mirabolic functions of A67. This is the injectivity consequence of the Piatetski-Shapiro–Shalika Fourier expansion; no assertion about noncuspidal automorphic forms or other reductive groups is included.",
+      "locator": "Cogdell, L-functions and Converse Theorems for GL_n, author-hosted PCMI notes (2002), Lecture1, Theorem1.1 and its induction, printed7–9/PDF11–13; Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, Fields Institute notes (2003), Lecture4, printed31/PDF35.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A67",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A68"
+      ],
+      "proofOutline": "Induct on n for mirabolic functions. P_1 is trivial and its Whittaker transform is the identity. If W_f=0, A68 makes W_(f_p')=0 for every p. The induction hypothesis gives f_p'=0, so C_e f(p)=0 for every p. Apply A67 to obtain f=0. For a cusp form phi on GL_n, restrict each right translate p↦phi(p g) to P_n(A); the cuspidality equations remain valid. Its Whittaker transform is p↦W_phi(p g)=0, so evaluation at p=1 gives phi(g)=0 for every g. This proof needs compact Fourier uniqueness and compact Fubini, not the stronger absolute-uniform-convergence part of Cogdell's expansion theorem.",
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "tests": [
+        {
+          "name": "WhittakerInjective.rank_one",
+          "kind": "degenerate",
+          "statement": "At n=1 the transform is the identity."
+        },
+        {
+          "name": "WhittakerInjective.constant_function",
+          "kind": "non-example",
+          "statement": "For n>=2 the constant automorphic function has zero transform but is nonzero and noncuspidal."
+        },
+        {
+          "name": "WhittakerInjective.all_arguments",
+          "kind": "non-example",
+          "statement": "Vanishing only at g=1 is not the hypothesis; the transform must vanish at every g."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A70",
+      "kind": "theorem",
+      "name": "A nonzero cuspidal GL_n representation has a nonzero global Whittaker functional",
+      "statement": "Let Pi be a nonzero smooth cuspidal automorphic representation of GL_n(A_F) in A66's complex convention. Then Lambda(phi)=W_psi(phi)(1) is a nonzero linear functional satisfying Lambda(Pi(u)phi)=psi_N(u)Lambda(phi) for u∈N_n(A_F). Use the smooth globalization at infinity for the continuous-functional statement, rather than an arbitrary algebraic functional on a Harish–Chandra module.",
+      "locator": "Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, Fields Institute notes (2003), Lecture4, Corollary4.1.2 and its preceding integral, printed33/PDF37; Cogdell, L-functions and Converse Theorems for GL_n, author-hosted PCMI notes (2002), Lecture1, printed10–11/PDF14–15 (identity-evaluation typo corrected as E45).",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A69",
+        "AutomorphicFormsOnReductiveGroups:AF.1"
+      ],
+      "proofOutline": "Choose nonzero phi. A69 gives g with W_phi(g)≠0. Right-translation stability and A66 yield Lambda(Pi(g)phi)=W_phi(g)≠0. The unipotent equivariance is A66's identity at g=1. Compact integration is continuous in the smooth automorphic topology supplied by AF.1/AF.0. No uniqueness theorem for Whittaker models is needed to prove nonvanishing. A chosen phi can satisfy Lambda(phi)=0; nonvanishing is a property of the functional on the representation, not of every vector.",
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "tests": [
+        {
+          "name": "GlobalGeneric.translate_to_detect",
+          "kind": "characterisation",
+          "statement": "If W_phi(g0)≠0, the vector Pi(g0)phi has Lambda value W_phi(g0)≠0."
+        },
+        {
+          "name": "GlobalGeneric.identity_only",
+          "kind": "non-example",
+          "statement": "A nonzero functional on a space of dimension greater than one can have a nonzero kernel; Lambda(phi)=0 does not imply phi=0."
+        },
+        {
+          "name": "GlobalGeneric.GL1",
+          "kind": "degenerate",
+          "statement": "A nonzero idele-class character has the rank-one functional phi↦phi(1) and no unipotent constraint."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A71",
+      "kind": "theorem",
+      "name": "A global Whittaker functional yields a nonzero finite-place functional",
+      "statement": "Let v be a finite place of a number field F, and suppose the smooth automorphic representation Pi has the proved one-place algebraic factorization V_Pi≅V_(Pi_v) tensor_C V^v, where N_n(F_v) acts only on the first factor. If Lambda:V_Pi→C is a nonzero psi_N-equivariant linear functional, then there exists w∈V^v such that lambda_v(x)=Lambda(x tensor w) is nonzero and satisfies lambda_v(Pi_v(u)x)=psi_v(u)lambda_v(x). Thus Pi_v is generic when it is irreducible admissible. The frozen w must be chosen to detect Lambda; an arbitrary reference tensor need not work.",
+      "locator": "Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, Fields Institute notes (2003), Lecture4, printed32–33/PDF36–37, local-component restriction and Corollary4.1.2; explicit nonvanishing adapter.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L68",
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "SmoothRepresentationsOfLocalGroups:SR.5"
+      ],
+      "proofOutline": "Transport Lambda across the one-place factorization. If it vanished on every x tensor w, L68 would identify it with zero. Choose a detecting pure tensor and freeze its second factor; TensorProduct.mk/curry give linearity, and equivariance holds because the local unipotent acts only on x. Flath's factorization, including the passage from global smooth vectors to the algebraic tensor at one finite place, is imported from AF.2, not proved by L68. Only finite-place genericity is claimed, so no archimedean completed-tensor inference is hidden here. Neither local uniqueness nor an Euler-product factorization of Lambda is needed.",
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "tests": [
+        {
+          "name": "LocalGeneric.choose_good_frozen_vector",
+          "kind": "computation",
+          "statement": "For Lambda:C^2 tensor C^2→C given by Lambda(x tensor y)=x_1 y_1, freezing y=e_1 gives a nonzero functional; freezing y=e_2 gives zero."
+        },
+        {
+          "name": "LocalGeneric.rank_one_tensor",
+          "kind": "degenerate",
+          "statement": "If V^v=C and Lambda≠0, freezing 1 yields a nonzero functional on V_(Pi_v)."
+        },
+        {
+          "name": "LocalGeneric.scalar_ambiguity",
+          "kind": "compatibility",
+          "statement": "Replacing the detecting w by c w for c≠0 multiplies lambda_v by c; the existence conclusion has no preferred normalization."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A72",
+      "kind": "theorem",
+      "name": "Determinant twists preserve the Whittaker functional space",
+      "statement": "For a nonarchimedean local field K, a smooth complex representation pi of GL_n(K), a smooth character chi:K^×→C^× and a fixed nontrivial additive character psi_K, identify the underlying vector spaces of pi and pi tensor(chi∘det). Their psi_K-Whittaker functional spaces are equal: Hom_(N_n(K))(pi,psi_K)=Hom_(N_n(K))(pi tensor(chi∘det),psi_K). In particular genericity is preserved in both directions. This includes every complex modulus twist |det|^s with a fixed convention, including s=(1-n)/2.",
+      "locator": "Cogdell, L-functions and Converse Theorems for GL_n, author-hosted PCMI notes (2002), Lecture1, printed5/PDF9 (unitary twisting convention) and printed10/PDF14 (functional equation); elementary specialization of that equation.",
+      "status": "missing",
+      "prerequisites": [
+        "SmoothRepresentationsOfLocalGroups:SR.5"
+      ],
+      "proofOutline": "For u∈N_n(K), det(u)=1, so the twisted and untwisted actions of u coincide. Hence exactly the same linear maps satisfy the character-equivariance equation. This is an identity of Hom spaces on a fixed carrier, not a statement about a Galois character, its cyclotomic normalization, or continuity under an isomorphism of coefficient fields.",
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "tests": [
+        {
+          "name": "WhittakerTwist.unipotent_determinant",
+          "kind": "computation",
+          "statement": "For [[1,a],[0,1]], det=1, so pi tensor|det|^(-1/2) has precisely the same psi-equivariance equation as pi."
+        },
+        {
+          "name": "WhittakerTwist.trivial_character",
+          "kind": "degenerate",
+          "statement": "For chi=1 the identification is the identity."
+        },
+        {
+          "name": "WhittakerTwist.not_automatic_genericity",
+          "kind": "non-example",
+          "statement": "For n>=2 a one-dimensional determinant representation has no nonzero functional for a nontrivial psi_N; determinant twisting does not turn this nongeneric representation into a generic one."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A73",
+      "kind": "theorem",
+      "name": "Cuspidal compact-unitary base change supplies generic split local factors",
+      "statement": "In A59's compact-unitary setting with [F+:Q]>1, assume the exact Galois realization of all discrete Speh constituents needed by A62 has been proved and the stable residual lattice is absolutely irreducible. Then A62 gives one cuspidal GL_n(A_F) base-change constituent Pi. At every finite split place v=ww^c of F+, the representation sigma_v transported by G(F_v+)≅GL_n(F_w) is generic; so is its twist by |det|^((1-n)/2). This includes places above the coefficient prime. If coefficients are transported along a chosen abstract field isomorphism Qpbar≅C, the same nonzero algebraic smooth Whittaker Hom is transported; no topological isomorphism or descent to a finite coefficient field is asserted.",
+      "locator": "LLHLM23 TheoremA.4.1 PDF196–198 and EGH7.2.1 PDF55–56; Labesse5.3 split-place comparison as A59; Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, Fields Institute notes (2003), Lecture4, Corollary4.1.2 printed33/PDF37.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A70",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A71",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A72"
+      ],
+      "proofOutline": "First discharge A62's input isomorphism; its positive-summand argument makes the base change cuspidal. Apply A70 and A71 to Pi, then transport along A59's actual split-place isomorphism, including ramified split places. A72 preserves genericity under the normalization twist. Whittaker nonvanishing does not prove the missing Speh/Galois isomorphism, does not force temperedness, and does not replace the sigma(lambda,tau)^* occurrence dictionary or the p-adic Hodge/monodromy hypotheses used by A55/A65.",
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "tests": [
+        {
+          "name": "SplitGeneric.not_residual_genericity",
+          "kind": "non-example",
+          "statement": "The conclusion is Whittaker genericity of a characteristic-zero smooth representation. It implies neither adequacy of a residual Galois representation nor the noncyclotomic Frobenius-ratio condition."
+        },
+        {
+          "name": "SplitGeneric.Speh_rank_two",
+          "kind": "non-example",
+          "statement": "The GL_2 Speh quotient from a character with length2 is a determinant character and nongeneric. A single discrete block is insufficient until its length is proved to be1."
+        },
+        {
+          "name": "SplitGeneric.no_type_dictionary",
+          "kind": "non-example",
+          "statement": "Whittaker nonvanishing alone does not imply Hom_K(sigma(tau),pi)≠0 for a prescribed tau, nor a specified Hodge type."
+        }
+      ]
     }
   ],
   "prerequisites": [
@@ -16555,6 +16921,11 @@
       "citation": "BLGGT, Local-global compatibility for l=p, II, Theorem1.1",
       "link": "https://virtualmath1.stanford.edu/~rltaylor/lg2.pdf",
       "why": "The non-Shin-regular monodromy bound, stronger than EGH7.2.1(iv), combines with the inertial type inequality. Existing AG2.5/AG2.6 owns its eigenvariety proof."
+    },
+    {
+      "citation": "Cogdell, L-functions and Converse Theorems for GL_n (PCMI2002), Lecture1; compared with Fields Institute2003 Lecture4",
+      "link": "https://people.math.osu.edu/cogdell.1/pcmi-www.pdf",
+      "why": "Provides the explicit mirabolic induction and global-to-local Whittaker argument required after cuspidal unitary base change. Fourier uniqueness, quotient measures and Flath factorization retain their existing foundational owners; this extraction supplies the precise consumer-facing lemmas."
     }
   ],
   "routes": [
@@ -17207,7 +17578,8 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A51",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A53",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A73"
       ],
       "reason": "The automorphic sign and coefficient-prime monodromy comparison belong to the existing polarized automorphic-system layers. The LLHLM consumer still needs the explicit unitary-to-cuspidal transfer hypotheses."
     },
@@ -17224,6 +17596,34 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A61"
       ],
       "reason": "Reuse the pure automorphic base-change and GL residual-spectrum owners. Labesse5.3 supplies the compact-unitary branch with [F+:Q]>1 and split-place comparison; Speh classification remains ET.7a, not a new patching or Galois roadmap. Exact Galois realization and twist comparison stay in AG2.2."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicFormsOnReductiveGroups",
+      "stages": [
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicFormsOnReductiveGroups:AF.3"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A67",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A68",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A69",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A70",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A71"
+      ],
+      "reason": "Add the GL_n-specific Whittaker integral, mirabolic injectivity and finite-place tensor restriction to the existing automorphic-function/cusp-form direction. AF.3 owns the global construction and cuspidality argument; AF.2 owns restricted tensor products and the one-place restriction adapter. Import AL.0 Fourier uniqueness, AA.2 quotient measures and the existing SR.5 local functional carrier. This is a source refinement, not a claim that the current AF.3 text already explicitly states global genericity for GL_n, and not a genericity claim for every reductive group."
+    },
+    {
+      "route": "source",
+      "roadmap": "SmoothRepresentationsOfLocalGroups",
+      "stages": [
+        "SmoothRepresentationsOfLocalGroups:SR.5"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A72"
+      ],
+      "reason": "The determinant-twist identity belongs to the shared local Whittaker-functional API, whose classical complex comparison is already requested by AL.3. It is an elementary identity of the N-action over characteristic zero, not a new integral co-Whittaker theorem, not an invocation of Helm in coefficient characteristic p, and not an automorphic construction."
     }
   ],
   "sourceIssues": [
@@ -17916,6 +18316,22 @@
         "2026-09-23: https://www.math.univ-paris13.fr/~morra/MLM.pdf p.51 reproduces both passages; downloaded SHA256 8cb1a1dd2eb23404ee9a99b5f0c2632cd1b6f1b879069a6080ff652f8f4f4d6d.",
         "2026-09-23: Springer https://link.springer.com/article/10.1007/s00222-022-01163-4 timed out; its correction listing was not inspected. 'new' means no correction located in the successful searches, not a priority claim."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E45",
+      "source": "Cogdell PCMI2002/ICTP2000 supplier notes, not LLHLM23",
+      "kind": "misprint",
+      "locator": "PCMI notes printed11/PDF15, display immediately before the multiplicity-one theorem; same display in the earlier ICTP notes. Compared with Fields Institute2003 notes printed33/PDF37.",
+      "printed": "Λ(φ) = W_φ(e) = ∫ φ(ng)ψ⁻¹(n) dn.",
+      "correction": "At evaluation at e, the integrand is φ(n)ψ⁻¹(n); alternatively retain g and label the value W_φ(g)=Λ(R(g)φ).",
+      "reason": "The defining transform is W_φ(g)=∫φ(ng)ψ⁻¹(n)dn, so evaluation at e requires g=e. If W_φ were a fixed scalar for all g, its nontrivial N-equivariance would force it to vanish; A69/A70 give nonzero examples on cuspidal representations. The later author notes explicitly print φ(n).",
+      "affects": "nothing",
+      "known": "The corresponding formula is already correct in Cogdell's Fields Institute2003 lecture notes, printed33/PDF37, https://people.math.osu.edu/cogdell.1/fields-www.pdf . This is an already-corrected supplier-note typo, not a new LLHLM error.",
+      "searched": [
+        "2026-09-23: inspected author page https://people.math.osu.edu/cogdell.1/ listing ICTP, corrected/expanded PCMI, and Fields notes.",
+        "2026-09-23: compared the downloaded PCMI and ICTP displays with the Fields notes; hashes and reading scope recorded under source.continuationReadings.",
+        "2026-09-23: exact Cogdell PCMI Whittaker-functional errata search; no separate corrigendum located. The available later correct formula suffices; no novelty claim."
+      ]
     }
   ],
   "gaps": [
@@ -17934,7 +18350,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18"
       ],
-      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed. CHT2.1.1/2.1.4/2.1.5/2.1.8–2.1.12 and3.4.4 descent have now been freshly read and split as A34–A50, with fixed multiplier explicit. Bellaïche–Chenevier published1.2 and BLGGT l=p II1.1 supply A51/A53. Remaining fine inputs include the self-dual-lattice maximality argument, the complete-local Carayol recursion, split-prime Chebotarev, residual Brauer–Nesbitt and, critically, the unitary strong-base-change decomposition identifying these constituents with RACSDC cuspidal systems and proving generic local components. Do not mark the latter implication closed merely from A50. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization."
+      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed. CHT2.1.1/2.1.4/2.1.5/2.1.8–2.1.12 and3.4.4 descent have now been freshly read and split as A34–A50, with fixed multiplier explicit. Bellaïche–Chenevier published1.2 and BLGGT l=p II1.1 supply A51/A53. Remaining fine inputs include the self-dual-lattice maximality argument, the complete-local Carayol recursion, split-prime Chebotarev, residual Brauer–Nesbitt and, critically, the unitary strong-base-change decomposition identifying these constituents with RACSDC cuspidal systems and proving generic local components. Do not mark the latter implication closed merely from A50. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open."
     },
     {
       "id": "split-and-hypotheses",
@@ -17983,7 +18399,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q07",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z02"
       ],
-      "detail": "Current literal census: all156 definitions/constructions have individual use sites, API outlines and at least three typed tests. This continuation adds289 API entries and155 typed tests across the49 previously incomplete entries (Z15 retains its six existing API entries). The earlier numeric censuses are historical. What remains is semantic closure: split compound ring/action/quotient/stack constructions where their interfaces still package several objects, promote API facts used as prerequisites to individually sourced lemma nodes, audit every supplier at the pinned libraries and reconcile those nodes with their common owners. Literal field coverage is complete; neither this gap nor the paper is mathematically closed by that structural fact."
+      "detail": "Current literal census: all156 definitions/constructions have individual use sites, API outlines and at least three typed tests. This continuation adds289 API entries and155 typed tests across the49 previously incomplete entries (Z15 retains its six existing API entries). The earlier numeric censuses are historical. What remains is semantic closure: split compound ring/action/quotient/stack constructions where their interfaces still package several objects, promote API facts used as prerequisites to individually sourced lemma nodes, audit every supplier at the pinned libraries and reconcile those nodes with their common owners. Literal field coverage is complete; neither this gap nor the paper is mathematically closed by that structural fact. A66 adds the global Whittaker transform with six API entries and four typed tests, bringing the literal census to157/157; semantic closure still remains."
     },
     {
       "id": "library-item-audit",
@@ -18413,7 +18829,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30"
       ],
-      "detail": "Thorne projector statements/proofs, EGH Theorem7.2.1 with its §7.1 setting, and CHT Proposition3.4.4 with proof and the projected use on PDF114–115 have now been read. Do not list these bounded sources as wholly unread. Finish exact atom closure for CHT2.1.4/2.1.5/2.1.12 integral polarized descent, the prescribed multiplier sign, generic local constituents and the at-p monodromy-dominance passage in the arbitrary-away-level setting. EGH gives only semisimplified compatibility at p, so it cannot silently supply equality of monodromy. E38 remains the missing unprojected implication; use A30–A33 on projected Hecke images. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization."
+      "detail": "Thorne projector statements/proofs, EGH Theorem7.2.1 with its §7.1 setting, and CHT Proposition3.4.4 with proof and the projected use on PDF114–115 have now been read. Do not list these bounded sources as wholly unread. Finish exact atom closure for CHT2.1.4/2.1.5/2.1.12 integral polarized descent, the prescribed multiplier sign, generic local constituents and the at-p monodromy-dominance passage in the arbitrary-away-level setting. EGH gives only semisimplified compatibility at p, so it cannot silently supply equality of monodromy. E38 remains the missing unprojected implication; use A30–A33 on projected Hecke images. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open."
     },
     {
       "id": "global-descent-supplier-atoms",
@@ -18432,7 +18848,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55"
       ],
-      "detail": "Source statements and proof decompositions are established at the recorded reading depth; formal supplier closure is not. Audit Baire/countability of finite p-adic extensions; the self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology. For A54 prove the precise inertia Clifford decomposition and equivalence of Jordan-partition dominance with all power ranks. For A30/A55 audit White/Labesse strong unitary base change, the decomposition into regular algebraic cuspidal systems with twists, cuspidality/genericity from the absolutely irreducible residual eigensystem, the σ(λ,τ)^* coefficient/constituent dictionary, and the deformation quotient point criterion. BC sign and BLGGT monodromy theorem statements are imported from their existing owners, not newly proved. The whole BC eigenvariety proof has not been read in this continuation. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization."
+      "detail": "Source statements and proof decompositions are established at the recorded reading depth; formal supplier closure is not. Audit Baire/countability of finite p-adic extensions; the self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology. For A54 prove the precise inertia Clifford decomposition and equivalence of Jordan-partition dominance with all power ranks. For A30/A55 audit White/Labesse strong unitary base change, the decomposition into regular algebraic cuspidal systems with twists, cuspidality/genericity from the absolutely irreducible residual eigensystem, the σ(λ,τ)^* coefficient/constituent dictionary, and the deformation quotient point criterion. BC sign and BLGGT monodromy theorem statements are imported from their existing owners, not newly proved. The whole BC eigenvariety proof has not been read in this continuation. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open."
     },
     {
       "id": "unitary-base-change-source-version",
@@ -18442,7 +18858,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62"
       ],
-      "detail": "EGH7.2.1 cites White6.1/6.3; the v8 arXiv record withdraws that preprint due to an error in its main proof. The June2011 IHES copy also differs from v7 and has no6.3. For the LLHLM branch use the now-read Labesse5.3 under its actual degree/compactness hypotheses, with ET.4/ET.7a as owners. Finish exact constituent twists and the automorphic/Galois comparison; do not infer full cuspidality or genericity merely from a weak transfer. The specific faulty step in White, later repairs, and the full generality of EGH outside LLHLM's F+!=Q setting have not been audited. This is a source-reliability boundary, not a confirmed new error finding or a refutation of EGH/LLHLM."
+      "detail": "EGH7.2.1 cites White6.1/6.3; the v8 arXiv record withdraws that preprint due to an error in its main proof. The June2011 IHES copy also differs from v7 and has no6.3. For the LLHLM branch use the now-read Labesse5.3 under its actual degree/compactness hypotheses, with ET.4/ET.7a as owners. Finish exact constituent twists and the automorphic/Galois comparison; do not infer full cuspidality or genericity merely from a weak transfer. The specific faulty step in White, later repairs, and the full generality of EGH outside LLHLM's F+!=Q setting have not been audited. This is a source-reliability boundary, not a confirmed new error finding or a refutation of EGH/LLHLM. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open."
     }
   ],
   "sourceData": {
@@ -19680,6 +20096,25 @@
         }
       ],
       "searchScope": "Fresh targeted rg searches of both complete pinned Lean trees for affine flags/loop groups/Iwahori/Pappas/Schubert, monodromy local models/Serre weights/lowest alcoves/Breuil/Kisin, schematic closure/image, root subgroups/transvections and Grassmannians. These searches and eight inspected source files are bounded evidence, not an exhaustive itemwise absence proof."
+    },
+    "codexA71f92Whittaker": {
+      "atlasCommit": "6c2ba657ff3f12cbb83c8ec7877e11a44d3c99ee",
+      "reviewedRowsRead": [
+        "AUDIT-13:AF.0",
+        "AUDIT-13:AF.2",
+        "AUDIT-13:AF.3",
+        "AUDIT-14:AL.0",
+        "AUDIT-14:AL.3"
+      ],
+      "absentReviewedRows": [
+        "SmoothRepresentationsOfLocalGroups:SR.5 has no direct reviewed row; AL.3's accepted audit explicitly checks the local Whittaker supplier as absent."
+      ],
+      "searches": [
+        "Fresh case-insensitive searches through both complete pinned source trees for Whittaker, mirabolic and restricted tensor product: only the Whittaker–Watson bibliography matched. Broader cusp/generic searches in representation directories found no relevant global/local theorem.",
+        "Read Mathlib TensorProduct Basic.lean ext' and curry/curry_apply, Defs.lean induction_on, mk/mk_apply and pure-tensor spanning with scalar contexts. Both files byte-verified against the exact remote Mathlib pin.",
+        "Read current AF,SR,AL campaign documents in full, relevant atlas stage records, and AG2.2/5/6/7 contracts. No AF/SR/AL packet/decomposition file exists in this snapshot. No duplicate Whittaker construction planned in the pinned libraries."
+      ],
+      "scope": "No new automorphic theorem is labelled library. L68 imports only the two-factor algebraic extensionality fact. The existing unrelated upstream roadmap reads remain inherited, not claimed as fresh readings."
     }
   },
   "validation": {
@@ -20277,6 +20712,51 @@
       },
       "publicationBase": "0d9a9e0fda317432de1abbc59db4fca0f3fffac7",
       "publicationGuard": "All3 original deliverable GitHub blob IDs unchanged; all310 content/roadmap/atlas/audit/protocol/checker inputs byte-identical. Six cited Mathlib files byte-verified against the exact remote pin; no conflicting source update."
+    },
+    "codexA71f92Whittaker": {
+      "agent": "Codex — codex-a71f92",
+      "issue": 1254,
+      "claimComment": 5799093170,
+      "claimConfirmation": 5799096201,
+      "base": "6c2ba657ff3f12cbb83c8ec7877e11a44d3c99ee",
+      "status": "partial",
+      "items": 528,
+      "library": 68,
+      "planned": 18,
+      "missing": 442,
+      "routes": 21,
+      "sourceIssues": 45,
+      "definitionsConstructions": 157,
+      "lean": "No Lean file is required for this paper job; none compiled. No formalization claimed.",
+      "scope": "All519 old item statements and statuses retained; A30 alone gains a prerequisite/proof qualification. All44 old source findings and all sourceData retained. The generic-local implication is conditional on A62's still-unproved Speh/Galois realization. No local-uniqueness, temperedness or p-adic type-occurrence assertion is smuggled into that implication.",
+      "checks": {
+        "paperChecker": "passes",
+        "unitTests": {
+          "paper": 9,
+          "paperQueue": 3,
+          "intake": 29
+        },
+        "finiteDiagnostics": {
+          "N3MultiplicationCharacter": 134003,
+          "rowOrbitChangeOfVariable": 111216,
+          "enlargedRadicalNormalization": 1680,
+          "finiteFourierInversion": 15,
+          "rightTranslationCharacterSign": 15,
+          "pureTensorDetection": 719
+        },
+        "internalDependencyEdges": 314,
+        "acyclic": true,
+        "missingItemsRoutedExactlyOnce": true,
+        "definitionLiteralInterfaces": "157/157",
+        "limitations": "Finite diagnostics are regression tests only, not proofs of adelic Fourier uniqueness, Flath factorization, global cuspidality, or local p-adic Hodge types. Earlier diagnostics remain inherited and were not all rerun."
+      },
+      "publication": {
+        "base": "475a4ea5374551cf5f10d0b7b94739b10c78d1eb",
+        "guardedInputs": 521,
+        "changedInputs": [],
+        "originalDeliverableBlobsUnchanged": true,
+        "intake": "3 files,0 problems; repeated on refreshed snapshot"
+      }
     }
   },
   "definitionApiGroups": [

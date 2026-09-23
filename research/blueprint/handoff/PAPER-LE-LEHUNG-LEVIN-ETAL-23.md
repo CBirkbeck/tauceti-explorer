@@ -1,5 +1,71 @@
 # LLHLM23 — current handoff
 
+Codex — codex-a71f92, issue #1254, 23 September2026. Continues merged #2401.
+Claim5799093170 confirmed by5799096201.
+
+Partial: **528 items (68 library,18 planned,442 missing),21 routes,45 unreviewed
+findings; all157 definitions/constructions have uses/API/typed tests.**
+No Lean file required or compiled; no formalization or independent review.
+
+A66–A73 separate the global Whittaker integral, mirabolic detection/induction,
+injectivity, nonzero functional, finite-place tensor restriction, determinant
+twist invariance and conditional split-place genericity. L68 is the existing
+pure-tensor extensionality theorem. Two source routes reuse AF.2/AF.3 and SR.5;
+A73 joins the existing AG2 route. A30 gains its prerequisite/proof qualification.
+
+E45 is a minor supplier-note typo, already corrected in Cogdell's Fields2003
+notes: evaluation W_phi(e) integrates phi(n), not phi(n g). It is not a newly
+discovered LLHLM error and has no independent verdict.
+
+Resume with:
+1. Exact algebraic/Galois twists for all cuspidal Speh factors and the actual
+   Frobenius-polynomial/semisimple-uniqueness isomorphism assumed by A62.
+   A73 now gives generic split local components *conditional on* this proving
+   cuspidality. It neither proves cuspidality nor supplies temperedness.
+2. The sigma(lambda,tau)^* coefficient/type dictionary and actual reduced,
+   finite-flat projected Hecke image. A65's point-to-integral quotient argument
+   is already conditional on the required types. Preserve the projection,
+   lambda+eta shift and monodromy-dominance direction.
+3. Existing twelve closure gaps, including the precise foundational suppliers
+   for A66–A73: additive quotient character duality/Fourier completeness,
+   compatible quotient Haar/Fubini, smooth-globalization continuity and Flath's
+   one-finite-place factorization. No absolute-uniform multiple Fourier-series
+   theorem, local uniqueness or archimedean completed-tensor theorem is claimed
+   proved in this pass. Continue semantic API splitting, proof suppliers,
+   common ownership and uniform AppendixB certificates.
+
+All519 old statements/statuses,44 old findings and sourceData are preserved.
+Only A30 among old items changes (prerequisite/proof); routes only add entries.
+New definition A66 has6 APIs and4 tests. The source-note typo is sourceIssues E45.
+
+Fresh reads: LLHLM PDF196–198; EGH55–56; Cogdell PCMI printed5–11/PDF9–15,
+including the full mirabolic induction, and rendered printed11; Fields2003
+printed29–33/PDF33–37; only the matching ICTP display. Hashes are in the result.
+Actual Mathlib ext'/curry/mk/induction statements and contexts read; two files
+byte-verified against the exact pin. Reviewed AF.0/2/3 and AL.0/3 audit rows
+read. No direct reviewed SR.5 row exists. AF/SR/AL full current documents and
+relevant stage contracts read; no finer packet/decomposition exists here.
+
+Checks: paper checker;41 paper/queue/intake tests;528 unique IDs,314-edge
+acyclic internal graph,one route per missing item,157/157 literal interfaces.
+Exact finite diagnostics:134003 N3 character checks,111216 row checks,
+1680 radical checks,15 Fourier inversions,15 sign checks,719 tensor tables.
+These are regression checks, not adelic proofs. Submit only the result/report/
+handoff; the standard-library diagnostic stays in scratch.
+
+Publication refresh: fresh main `475a4ea5374551cf5f10d0b7b94739b10c78d1eb`
+matches all three original deliverable blobs and all521 guarded content,
+roadmap, atlas, reviewed-audit, protocol and checker inputs. The payload and
+checks were replayed on that snapshot; only the three authorized files are
+submitted.
+
+Earlier handoff history follows; old counters and the entirely-unexplained
+generic-local consequence are superseded above.
+
+---
+
+# LLHLM23 — current handoff
+
 Codex — codex-a71f92, issue #1254, 23 September 2026. Continues merged #2394.
 Confirmed claim5798776543.
 
