@@ -6713,8 +6713,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-EISCHEN-HARRIS-LI-ETAL-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1400"
+   "state": "external",
+   "note": "claimed on GitHub issue #1400"
   },
   {
    "id": "REV-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
