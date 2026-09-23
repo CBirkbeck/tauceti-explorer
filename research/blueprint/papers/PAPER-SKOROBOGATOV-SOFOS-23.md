@@ -1,10 +1,55 @@
-# Schinzel Hypothesis on average and rational points — extraction checkpoint
+# Schinzel Hypothesis on average and rational points: extraction and routing
 
-Job: PAPER-SKOROBOGATOV-SOFOS-23. Issue: [#1256](https://github.com/CBirkbeck/tauceti-explorer/issues/1256). Worker: Codex, session `codex-a71f92`. Status: **partial**.
+Job: PAPER-SKOROBOGATOV-SOFOS-23. Issue: [#1256](https://github.com/CBirkbeck/tauceti-explorer/issues/1256). Status: **complete**. Implementation and proof closure are not claimed.
 
-The complete published paper has been read. This checkpoint contains 91 items: 6 exact library matches, 6 existing planned imports and 79 missing items, each assigned to exactly one of seven routes. There are 29 definition contracts, 87 proposed API contracts and 59 proposed regression tests. It does **not** certify full proof closure or any new Lean theorem.
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged partial checkpoint of Codex session codex-a71f92, whose material follows below.
+- **The paper.** Alexei N. Skorobogatov and Efthymios Sofos, *Schinzel Hypothesis on average and rational points*, Inventiones mathematicae 231 (2023), 673–739 (doi 10.1007/s00222-022-01153-6). The published version is open access and was read.
+- **Items.** The result has **103 items: 6 library, 6 planned and 91 missing**.
+  - The checkpoint's 91 items are kept.
+  - Items 92–103 are new. They cover Lemmas 2.1, 2.2, 2.3 and 2.7, (3.7), Corollary 3.3, Proposition 3.8, Lemma 3.9, the von Mangoldt count θ^Λ, the bound on negative values, Holzer's theorem, and local solubility away from S.
+  - Every missing item is routed exactly once, across eight routes.
+- **Mistakes.** Twenty-two are recorded under `sourceIssues`. The one with consequences is E1: Lemma 3.14 is false for positive primes. The repair below shows that Theorem 1.9, and everything the paper deduces from it, still holds.
 
-The principal obstruction is mathematical, not access: printed Lemma 3.14 is false in an elementary linear specialization. The prime-value/dispersion chain needs a positivity or real-region repair. The finite local probability calculations and the numerical implication in §7 can nevertheless be checked independently and have been.
+## This continuation (cc-442dc5)
+
+**What was read.**
+- The published PDF was downloaded again and matched the checkpoint's SHA-256. §§2–7 were reread in full, with a page image for Lemma 3.12.
+- The arXiv v3 TeX source (4 September 2022) was compared with the published text at every finding. It is identical except at E18, which v3 already has right.
+- Crossref shows no correction or update relation for the article.
+
+**The repair of Lemma 3.14 and of §4.** The checkpoint showed that Lemma 3.14 is false as printed. For d = k = ℓ = 1 the positive-prime sum is (3/2)H², not 2H² (E1). It left the analytic chain gated (G1, G2). The chain can be completed as follows.
+
+1. **An even von Mangoldt function.** The proofs of §3 bound S_{E_z}, a sum over values c of both signs, by Corollary 3.3, a sum over positive r. This is valid only if E_z is even, that is, if Λ(n) := Λ(|n|) (E4, item 28). Browning–Sofos–Teräväinen use the same convention. With it:
+   - Corollary 3.3 holds in two-sided form (item 97). The extra term c = 0 is O(z(log z)^{−A}).
+   - Theorem 3.1, Proposition 3.8 and Lemma 3.9 hold as printed (items 35, 98, 99).
+2. **Lemma 3.14 in von Mangoldt form.** The proof of Lemma 3.14 counts k₁ | P(k) in progressions, which does not see the sign of P(k). What it proves is the estimate for Σ Λ(|P(k)|), with the printed main term (item 34). That is also the form Lemmas 4.1 and 4.9 need.
+3. **The dispersion for θ^Λ.** Let θ^Λ_P(x) be the count of item 100, Σ_m ∏_i Λ(|P_i(m)|). Then §4 goes through verbatim:
+   - Lemma 4.1 is an identity (item 40), and Lemma 4.4 follows (item 88);
+   - Lemma 4.9 holds with item 34 in place of Lemma 3.14 (item 46);
+   - so V^Λ(x, H) ≪ x²/log x.
+4. **Back to positive primes.** Since 0 ≤ θ ≤ θ^Λ, (θ − Sx)² ≤ (θ^Λ − Sx)² + 2S_P x(θ^Λ − θ). Hence V ≤ V^Λ + 2x·max S·mean(θ^Λ − θ).
+   - S_P(x) ≪ (log log x)ⁿ by Mertens.
+   - Item 101 bounds the mean of θ^Λ − θ by (log H)ⁿ log x. If m ≥ 2 and P_i(m) < 0, the leading coefficient of P_i is below H/(m − 1). So only 1 + Σ_i min(x, H/c_i) inputs can give a negative value, and the average of min(x, H/c) over 1 ≤ c ≤ H is O(log x). Proper prime powers are negligible.
+   - Because x > (log H)^{A₁} with A₁ > n, x(log log x)ⁿ(log H)ⁿ log x is o(x²/log x).
+   - So V ≪ x²/log x, and Theorem 1.9 follows by Cauchy–Schwarz, as printed (item 47).
+
+The positive-prime form of Lemma 3.14 itself remains false. Its main term would need the proportion of the box with P(k) > 0, which the paper never uses. Lemma 4.1's equality for θ is proved only as an upper bound, and that is all the dispersion uses (E10).
+
+**The other findings.** All of E2–E22 were checked at their locators.
+- **Affects values.** Protocol §18 records "affects: nothing" when the intended mathematics is right. So E2 and E5 (misprints), E19 (a step inside a proof) and E22 (a remark that is not used) now carry the reach the protocol defines.
+- **E11** now affects a stated result. Corollary 1.10, read literally as one exceptional set for all x, is not proved; item 15 states the pointwise form.
+- **E1, E4, E10.** Their corrections now state the repair above.
+- **Searches.** Every finding lists the arXiv v3 collation and the Crossref check.
+
+**Routes.** Harpaz–Wittenberg 2016, a complete extraction, routes Schinzel's Hypothesis (H) to SieveMethodsAndPrimePatterns:SV.4. The hypothesis of (H) is the Schinzel-tuple condition, so items 3 and 4 (Bouniakowsky polynomial, Schinzel tuple) move to an SV.4 source route. The Schinzel-averages Part II imports them from there, which settles the overlap check (G10). The new analytic suppliers go to AN.5, and Holzer's theorem and local solubility go to the random-fibrations Part II.
+
+**Why the status is now complete.**
+- Every numbered statement of the paper, and every theorem its proofs cite, is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+- The checkpoint's gates are settled:
+  - **G1, G2, G4, G5, G8 and G10** are closed.
+  - **G3 and G6** ask for the proofs of cited suppliers, which are items; their sources are listed under `prerequisites`.
+  - **G7 and G9** are design work.
 
 ## Source and reading boundary
 
@@ -16,13 +61,13 @@ Primary source: Skorobogatov–Sofos, *Schinzel Hypothesis on average and ration
 
 The latest [arXiv version, 2005.02998v3](https://arxiv.org/abs/2005.02998v3), was downloaded (SHA-256 `f1e900fa496a44147dacb69cb33235596d73c2fb84fee50e21e8a660b08a1bcd`). Only its introduction and Lemma 6.6 were compared: no full version collation is claimed. The latter comparison establishes that the accidental dispersion display in the published conic-indicator proof is already correct in v3.
 
-For correction checking, I also inspected the introduction and Theorem 1.1 proof of [Generic diagonal conic bundles revisited, v2](https://arxiv.org/abs/2212.14778v2), pp1–4, and pp2–3 of [Browning–Sofos–Teräväinen, v2](https://arxiv.org/abs/2212.10373v2), plus keyword searches. The latter explicitly uses an even extension of the von Mangoldt function. Neither inspected passage identifies a correction to SS23 Lemma 3.14. Neither later paper was fully read here. The local smooth-openness discussion preceding Theorem 4.5 of [Conrad's author PDF](https://math.stanford.edu/~conrad/papers/adelictop.pdf), p11, was also checked.
+For correction checking, I also inspected the introduction and Theorem 1.1 proof of [Generic diagonal conic bundles revisited, v2](https://arxiv.org/abs/2212.14778v2), pp. 1–4, and pp. 2–3 of [Browning–Sofos–Teräväinen, v2](https://arxiv.org/abs/2212.10373v2), plus keyword searches. The latter explicitly uses an even extension of the von Mangoldt function. Neither inspected passage identifies a correction to SS23 Lemma 3.14. Neither later paper was fully read here. The local smooth-openness discussion preceding Theorem 4.5 of [Conrad's author PDF](https://math.stanford.edu/~conrad/papers/adelictop.pdf), p. 11, was also checked.
 
 ## What is being routed
 
 This is a fixed-degree, growing-coefficient-height problem, not growing-degree random irreducibility. Write D=Σd_i and N=D+n. The coefficient box has N coordinates, with n positive leading coefficients. Its leading volume is 2^D H^N, not (2H)^N.
 
-A Schinzel tuple has **one common nonvanishing residue for all factors at each prime**. The paper's definition does not impose irreducibility or distinctness. The weighted count θ uses positive prime values; negative primes and prime powers do not count. The finite singular series includes the M-dependent unit indicator and the factor M^{n−1}/φ(M)^n.
+A Schinzel tuple has **one common nonvanishing residue for all factors at each prime**. The paper's definition does not impose irreducibility or distinctness. The weighted count θ uses positive prime values; negative primes and prime powers do not count. The dispersion runs for the von Mangoldt count θ^Λ, which counts both (items 100, 101). The finite singular series includes the M-dependent unit indicator and the factor M^{n−1}/φ(M)^n.
 
 The analytic objective is the mean discrepancy O(x/√log x) for (log H)^A₁ < x ≤ (log H)^A₂ with n < A₁ < A₂. The many-prime-witness theorem gives at least (log|P|)^{A/3} witnesses up to (log|P|)^{n+A} for relative density one of admissible tuples, with the printed quantitative exception rate. Congruence classes, height normalization, distinct prime values and the difference between pointwise and simultaneous x must remain visible.
 
@@ -38,6 +83,7 @@ The geometric applications use that prime-value engine inside finitely many loca
 | Source | AnalyticNumberTheory:AN.2, AN.5 | Möbius estimates, multiplicative means, truncation conventions, PNT/Mertens supplier interfaces |
 | Source | ExponentialSumsAndCircleMethod:ES.0 | Symmetric and one-sided Dirichlet-kernel L1 bounds |
 | Source | SieveMethodsAndPrimePatterns:SV.2 | Heath-Brown quadratic-character bilinear bound, including denominator 2 |
+| Source | SieveMethodsAndPrimePatterns:SV.4 | Bouniakowsky and Schinzel admissibility predicates (items 3, 4), shared with Harpaz–Wittenberg's Hypothesis (H) (cc-442dc5) |
 | Source | HeightsRationalPointsAndObstructions:RP.2 | Cyclic norm obstruction, invariant matrix and one-omitted-place adapters |
 
 The JSON contains the full design briefs and exact item membership. The proposed growing-degree random-polynomial Part II from BKK23 is not the owner of these new fixed-degree prime-value layers. Both should import ST.0, not each create a second generic density framework.
@@ -46,7 +92,7 @@ The geometric Part II imports CFT layers 5, 6, 10 and 12 and GlobalQuadraticForm
 
 Proposed eventual modules and landmarks appear in the design briefs. This issue authorizes only the JSON, report and handoff, not a Lean source file.
 
-## The substantive source obstruction
+## The Lemma 3.14 counterexample (codex-a71f92)
 
 For Lemma 3.14 take d=k=Ω=1 and an integer H≥1. Every polynomial in the box is
 
@@ -66,7 +112,7 @@ The final equality follows from the prime number theorem, uniformly for H≤H+a�
 
 This argument is independent of how one extends Λ to negative integers, because the lemma itself counts **positive primes**. With a positive-only Λ, full-box divisor/Fourier calculations need a cutoff. With an even Λ, the later transition to positive primes needs a correction. Neither convention makes the printed Lemma 3.14 true.
 
-A plausible repair direction is to retain the real-region volume, or prove a restricted-input estimate and show that the omitted small-input/negative-value contribution is harmless after summing over inputs. That work is **not done here**. The counterexample does not alone disprove Theorem 1.9 or the main geometric conclusions.
+A plausible repair direction is to retain the real-region volume, or prove a restricted-input estimate and show that the omitted small-input/negative-value contribution is harmless after summing over inputs. That work was not done in this checkpoint; the continuation above completes it. The counterexample does not alone disprove Theorem 1.9 or the main geometric conclusions.
 
 The dependency that must be repaired is:
 
@@ -79,7 +125,7 @@ signed/positive-value convention
   → norm and conic applications.
 ```
 
-The S² local probability calculation and its finite checks do not resolve the missing positive-prime estimates.
+The S² local probability calculation and its finite checks do not resolve the missing positive-prime estimates. The continuation above supplies them.
 
 ## Finite calculations actually verified
 
@@ -104,19 +150,19 @@ Enumeration gives:
 | 5 | 2496 | 4096 | 39/64 |
 | 6 | 9984 | 16384 | 39/64 |
 
-For all d≥3, the evaluation vector of t^j at 0,1,2,3 modulo4 is the same as that of t² for even j≥2, and t³ for odd j≥3. Thus the image equals the degree-3 image. The four-variable degree-3 evaluation map has a kernel of size4: c₀=0; c₁,c₂ independently lie in {0,2}; and c₃=−c₁−c₂. Consequently its image has64 elements.
+For all d≥3, the evaluation vector of t^j at 0,1,2,3 modulo 4 is the same as that of t² for even j≥2, and t³ for odd j≥3. Thus the image equals the degree-3 image. The four-variable degree-3 evaluation map has a kernel of size 4: c₀=0; c₁,c₂ independently lie in {0,2}; and c₃=−c₁−c₂. Consequently its image has 64 elements.
 
-The image is precisely the vectors satisfying v₀≡v₂ mod2 and v₁≡v₃ mod2: there are64 such vectors. Among vectors with entries only in {0,2,3}, each same-parity pair has 2²+1²=5 choices. Exactly25 image vectors therefore avoid1, leaving39. Equal-sized fibers give 39/64 for every d≥3.
+The image is precisely the vectors satisfying v₀≡v₂ mod 2 and v₁≡v₃ mod 2: there are 64 such vectors. Among vectors with entries only in {0,2,3}, each same-parity pair has 2²+1²=5 choices. Exactly 25 image vectors therefore avoid 1, leaving 39. Equal-sized fibers give 39/64 for every d≥3.
 
 ### C3: a rigorous numerical margin
 
-For d≥2, min(p,d+1)≥3 at odd primes, so the smallest relevant Euler product is ∏_{p≥3}(1−p^{-3}). The exact finite product through100, multiplied by 1−1/20000, is a lower bound: use ∏(1−a_j)≥1−Σa_j and Σ_{n>100}n^{-3}≤1/(2·100²).
+For d≥2, min(p,d+1)≥3 at odd primes, so the smallest relevant Euler product is ∏_{p≥3}(1−p^{-3}). The exact finite product through 100, multiplied by 1−1/20000, is a lower bound: use ∏(1−a_j)≥1−Σa_j and Σ_{n>100}n^{-3}≤1/(2·100²).
 
-The resulting rational lower bound exceeds 0.950713, hence exceeds19/20. Multiplying by19/32 gives a lower bound exceeding0.564486. This leaves a strict margin above0.56 after choosing sufficiently small ε. It proves the numerical implication of Theorem7.1, **not** its still-gated analytic premise.
+The resulting rational lower bound exceeds 0.950713, hence exceeds 19/20. Multiplying by 19/32 gives a lower bound exceeding 0.564486. This leaves a strict margin above 0.56 after choosing sufficiently small ε. It proves the numerical implication of Theorem 7.1; the analytic premise is Theorem 1.2, which rests on the repaired chain.
 
 ### C4: non-proof numerical diagnostics for E1
 
-The ratios Σ_{a≤H}θ(H+a)/H² at H=10,100,1000,10000 were 1.151914, 1.348581, 1.452753 and 1.485089. These agree with the exact PNT argument toward1.5; the argument, not these four data points, establishes the counterexample.
+The ratios Σ_{a≤H}θ(H+a)/H² at H=10,100,1000,10000 were 1.151914, 1.348581, 1.452753 and 1.485089. These agree with the exact PNT argument toward 1.5; the argument, not these four data points, establishes the counterexample.
 
 ## Pinned-library boundary
 
@@ -124,61 +170,55 @@ Baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f7904748
 
 The reviewed audits and actual stage descriptions were read before routing. Broad searches covered both pinned source trees and the atlas's new roadmaps, packets, decompositions, links and reserved IDs. Actual statements, not just names, were read for every library credit:
 
-- Vandermonde determinant and injectivity criterion (item17).
+- Vandermonde determinant and injectivity criterion (item 17).
 - Natural-domain von Mangoldt and Möbius divisor identity (26–27).
 - Algebra.norm and basis determinant/scalar formulas (51).
-- legendreSym/jacobiSym, including denominator2 behavior (71).
+- legendreSym/jacobiSym, including denominator 2 behavior (71).
 - Fermat's sum-of-two-squares theorem for primes (85).
 
 The JSON records files, line locators and SHA-256 hashes. In particular, Mathlib's Jacobi symbol **does** match the paper's even-denominator convention; a Kronecker-symbol substitution would be wrong. The published Fourier identity **does** contain its conjugation bar; PDF text extraction loses it, so it is not reported as an error.
 
 The six planned imports are not library theorems. The audited PNT, local invariant, ABHN and Hasse–Minkowski endpoints are not built. No carrier such as a local field, Brauer group or arbitrary finite Fourier transform is credited with those endpoint proofs.
 
-## Source findings awaiting independent review
+## Mistakes found (`sourceIssues`)
 
-The complete section-18 records are in `sourceIssues`, with quotes, corrections, reasons, affected scope and correction-search provenance. None has been independently reviewed by this worker.
+Twenty-two findings are recorded, each with a quotation, a correction and the reason. Locators are to the published version; arXiv v3 has the same text except at E18. `known: new` means that no correction was found in the searches each finding lists.
 
-- **E1 (error; a stated result)** — Lemma3.14 pp701–703: The main term must retain the positive-value real-region factor, or the statement must be restricted with a proved error sufficient for§4. No all-parameter repair is claimed here. Items34–35 explicitly block the false unrestricted statement.
-- **E2 (misprint; a stated result)** — Theorem1.2 p675; Proposition6.7 p730: RequireM≠0, and normalizeM≥1 in every congruence-family asymptotic.
-- **E3 (misprint; nothing)** — Lemma2.4 proof p686: Add#A=r to the inner sum, or omit the outer sum and retain one sum over all subsets.
-- **E4 (gap; the proof)** — §3 pp690–695, especially Eq3.1 and the paragraph definingΛ_z: SpecifyΛ andΛ_z onℤ including0; prove Fourier-tail bounds with that convention and a separate positive-value adapter before deducing positive-prime sums.
-- **E5 (misprint; a stated result)** — Definition ofMcal before Lemma3.4 p691 and Lemmas3.4–3.5 pp692–693: Restrictk,m to positive integers, as the consumers do, or usemax(1,|k|,|m|) in the support and bound.
-- **E6 (gap; the proof)** — Lemma3.5 proof p693: Ford=1 the second factor isD_H⁺, notD_H. Apply the sameO(logH) L1 estimate toD_H⁺. Ford≥2 the displayed retained pair is valid.
-- **E7 (misprint; nothing)** — Lemma3.9 proof p695: Insert(2π)^{-1}∫_{−π}^π overline(S_{E_z}(α₁)) times that productdα₁.
-- **E8 (misprint; nothing)** — Lemma3.12 proof p700: Use(−cℓ₀/φ(cℓ₀)+O_A((logz)^{−A}))², or its expanded squared main term with an appropriately absorbed error.
-- **E9 (misprint; nothing)** — Opening§4 p703: WriteV(x,H)≪x²/logx, equivalentlyx²(logx)^{−1}.
-- **E10 (gap; the proof)** — Lemma4.1 proof pp703–704: Bound the off-diagonal terms with at least one higher prime power as well, and propagate the signed/positive-value correction fromE4. Keep this as a proof obligation until its uniform estimate is supplied.
-- **E11 (gap; the proof)** — Corollary1.10 pp680–681: Supply a maximal/discretization argument giving one exceptional set for allx in the|P|-dependent range, with the printed exception exponent; otherwise state the pointwise-in-x result of item15.
-- **E12 (misprint; nothing)** — End Lemma4.11 p716; end Theorem1.5 p717: Use(loglogx)^{n−d} in the Lemma4.11 lower bound, and exponentd−n in both denominators of the final comparison.
-- **E13 (misprint; nothing)** — Lemma4.4 proof p707: Parameterize positive differences byintegert≥1 withtM<x; retain the correspondingm≤x−tM endpoint convention.
-- **E14 (gap; the proof)** — Lemma5.2 proof p718; its reuse in§6.3 p733: Apply openness to the smooth joint mapf=(g,h), which the paper has available, and restrict to an integral neighborhood for the integral version.
-- **E15 (misprint; nothing)** — Theorem5.3 p719 (denominator convention also used in5.8 and6.1): State explicitly thatM′ has relative density1 IN M, while the later assertion is positive ambient coefficient density.
-- **E16 (misprint; nothing)** — Example5.6 p720: Say that the right-hand side is divisible by2^m, or that its2-adic valuation is at leastm.
-- **E17 (gap; the proof)** — Remark5.9(2) p722: Use the JOINT Schinzel hypothesis to choose one residue t_p for which everyP_i(t_p) is a unit.
-- **E18 (misprint; nothing)** — Lemma6.6 proof p730: Replace the accidentally pasted Eq1.6 with(−a₂a₃π₂π₃/π₁)(−a₁a₃π₁π₃/π₂)(−a₁a₂π₁π₂/π₃).
-- **E19 (error; a stated result)** — Eq6.7 p731: Require the polynomialsP_i to be pairwise distinct for this pointwise estimate. Remove the repeated-polynomial coefficient diagonals, whose density tends to0, in the average argument.
-- **E20 (misprint; nothing)** — §6.3 p734: Writem₀∈ℤ^{d+n}.
-- **E21 (misprint; nothing)** — DefinitionP_d(H),§7 p734: Writedeg(f)=d.
-- **E22 (error; a stated result)** — Discussion following Definition1.8 p680: Do not assert this for arbitrary tuples allowed by Definition1.8. State the classical convergence result with its distinct irreducible polynomial hypotheses and handle fixed-divisor/content cases separately; for this paper's averages retain the finite product only.
+- **E1** (error; affects a stated result), Published Lemma 3.14 pp. 701–703. *Printed:* 2^d H^(d+1)/(Ω^d φ(Ω)) · 1(gcd(R(k),Ω)=1) + O_A(H^(d+1)/(log H)^A) *Correction:* Count both signs: Σ Λ(|P(k)|) (equivalently Σ log|P(k)| over |P(k)| prime) has the printed main term and error, which is what the proof proves (item 34). For positive primes the main term must carry the proportion of the box with P(k) > 0. §4 needs only the von Mangoldt form: run the dispersion for θ^Λ and bound the mean of θ^Λ − θ by O((log H)^n log x) (item 101), which is small enough because x > (log H)^{A₁} with A₁ > n (item 47). Theorem 1.9 and everything after it stand. *Reason:* For d = k = ℓ = 1, P(t) = at + b with 1 ≤ a ≤ H, |b| ≤ H, and the positive-prime sum is Σ_{a≤H} θ(H + a) = (3/2)H² + o(H²), not 2H² (the triangle a + b ≤ 0 has area H²/2). The proof counts k₁ | P(k) in progressions, which does not see the sign of P(k). Lemma 4.9 inherits the error through its use of the lemma; for θ^Λ it holds as printed.
+- **E2** (misprint; affects nothing), Published Theorem 1.2 p. 675; Proposition 6.7 p. 730. *Printed:* integers n₀ and M; Let M be a multiple of 8a₁a₂a₃. *Correction:* Require M≠0, and normalize M≥1 in every congruence-family asymptotic. *Reason:* For Theorem 1.2 take M=0,n₀=0,Q=t+1,d=1. gcd(Q(0),0)=1 but P≡Q mod 0 forces P=Q and m≡0 mod 0 forces m=0, with value 1 not prime. Theorem 1.9 already assumes positive M. With M ≥ 1, as Theorem 1.9 assumes, the statements are correct.
+- **E3** (misprint; affects nothing), Published Lemma 2.4 proof p. 686. *Printed:* Σ_{r=0}^s (−1)^{#A} Σ_{A⊂J} E ∏_{m∈A}(1−Y_m) *Correction:* Add #A=r to the inner sum, or omit the outer sum and retain one sum over all subsets. *Reason:* The published image has both sums and no cardinality restriction. As printed each subset term is repeated s+1 times. The corrected grouped inclusion-exclusion is exactly G_p(d,s); checked on finite cases.
+- **E4** (gap; affects a stated result), Published §3 pp. 690–695, especially Eq 3.1 and the paragraph defining Λ_z. *Printed:* where Λ(n) is the von Mangoldt function; for r∈N we have Λ(r)=−Σ_{d|r}μ(d)logd. *Correction:* Define Λ(n) := Λ(|n|), Λ(0) := 0 and Λ_z(n) := −Σ_{d≤z, d|n} μ(d) log d for all n ∈ ℤ (so E_z is even). Then Corollary 3.3 applies to both halves of S_{E_z}, and the term c = 0 is O(z (log z)^{−A}). Theorem 3.1, Proposition 3.8 and Lemma 3.9 hold as printed under this convention. *Reason:* The paper defines Λ on ℕ only, but G_{k,m} and S_{E_z} sum over values P(k), c of both signs, and the proofs bound S_{E_z} (a sum over |c| ≤ (d+1)M^d H) by Corollary 3.3, a sum over r ∈ ℕ: this is valid only for an even E_z. With Λ(n) = 0 for n ≤ 0, E_z(n) = −Λ_z(n) for n < 0 does not cancel, and Theorem 3.1 would need the proportion of the box where P(k), P(m) > 0 (below 1 when k or m is small).
+- **E5** (misprint; affects nothing), Published Definition of Mcal before Lemma 3.4 p. 691 and Lemmas 3.4–3.5 pp. 692–693. *Printed:* Mcal=max{k,m}; for any integers k≠m *Correction:* Restrict k,m to positive integers, as the consumers do, or use max(1,|k|,|m|) in the support and bound. *Reason:* For negative k,m, max{k,m} need not bound absolute evaluation sizes and can be negative; the claimed Fourier support and right-hand estimate then fail. Item 30 uses the corrected positive-input contract. With positive k, m, as every use has, the lemmas are correct.
+- **E6** (gap; affects the proof), Published Lemma 3.5 proof p. 693. *Printed:* ∫ |D_H(α₁+α₂)||D_H(kα₁+mα₂)| dα *Correction:* For d=1 the second factor is D_H⁺, not D_H. Apply the same O(log H) L1 estimate to D_H⁺. For d≥2 the displayed retained pair is valid. *Reason:* For H=1,t=2π/3,D_H(t)=0 while |D_H⁺(t)|=1; there is no pointwise domination replacing one by the other. The elementary geometric-series L1 bound repairs the argument, not an alteration of the final estimate.
+- **E7** (misprint; affects nothing), Published Lemma 3.9 proof p. 695. *Printed:* Using Λ−Λ_z=E_z turns the left hand side into [the product of coefficient exponential sums]. *Correction:* Insert (2π)^{-1}∫_{−π}^π overline(S_{E_z}(α₁)) times that product dα₁. *Reason:* The published page repeats the product with a free α₁ in two consecutive displays. A scalar coefficient sum is not a function of free α₁; Fourier orthogonality supplies the missing integral and conjugated weight. This repairs the display only, not E4.
+- **E8** (misprint; affects nothing), Published Lemma 3.12 proof p. 700. *Printed:* ((cℓ₀)^2/φ(cℓ₀)^2 + O_A(1/(log z)^A))^2 *Correction:* Use (−cℓ₀/φ(cℓ₀)+O_A((log z)^{−A}))², or its expanded squared main term with an appropriately absorbed error. *Reason:* Lemma 3.11 gives an unsquared−q/φ(q). The printed inner square followed by outer square would give q⁴/φ(q)⁴, inconsistent with the correctq²/φ(q)² main term in the next display.
+- **E9** (misprint; affects nothing), Published Opening of §4 p. 703. *Printed:* V(x,H) ≪ x²/(log x)^{−1} *Correction:* Write V(x,H)≪x²/log x, equivalently x²(log x)^{−1}. *Reason:* The printed expression is x² log x; it cannot give R≪x/√log x by Cauchy–Schwarz. The end of §4.4 uses the intended saving.
+- **E10** (gap; affects the proof), Published Lemma 4.1 proof pp. 703–704. *Printed:* The proof bounds the diagonal after replacing the prime-weighted square by a von Mangoldt sum. *Correction:* State Lemma 4.1 as an upper bound for θ, or as an identity for θ^Λ (item 40). The dispersion (4.1) needs only the upper bound for Σ θ_P², so Theorem 1.9 is unaffected. *Reason:* The proof uses 1_primes (j) log j ≤ Λ(j), which gives only ≤, while the lemma asserts an asymptotic equality; the reverse inequality would need the negative values and higher prime powers to be removed.
+- **E11** (gap; affects a stated result), Published Corollary 1.10 pp. 680–681. *Printed:* for all x with (log|P|)^A₁ < x ≤ (log|P|)^A₂ *Correction:* Supply a maximal/discretization argument giving one exceptional set for all x in the |P|-dependent range, with the printed exception exponent; otherwise state the pointwise-in-x result of item 15. *Reason:* Markov from the mean estimate provides an exceptional set for each fixed x. It does not by itself bound the union over x, nor replace H by |P|. This is a missing derivation, not a demonstrated false corollary. A union bound over a discretization of the x-range loses a factor that grows with H.
+- **E12** (misprint; affects nothing), Published End Lemma 4.11 p. 716; end Theorem 1.5 p. 717. *Printed:* (loglog x)^{−n+d}; denominators (logloglogH)^{n−d} and (loglog x)^{n−d} *Correction:* Use (loglog x)^{n−d} in the Lemma 4.11 lower bound, and exponent d−n in both denominators of the final comparison. *Reason:* Mertens applied to ∏(1−1/p)^{d−n} yields (loglog x)^{n−d}. Eq 4.10 immediately above the later comparison already has the correct denominator exponent d−n. The available logarithmic power margin still yields the theorem after correction.
+- **E13** (misprint; affects nothing), Published Lemma 4.4 proof p. 707. *Printed:* 1<tM≤x *Correction:* Parameterize positive differences by integer t≥1 with tM<x; retain the corresponding m≤x−tM endpoint convention. *Reason:* When M=1 the printed range omits t=1, although k−m=1 occurs. Its O(x) contribution is harmless relative to the displayed larger error after being accounted for.
+- **E14** (gap; affects the proof), Published Lemma 5.2 proof p. 718; its reuse in §6.3 p. 733. *Printed:* g and h are smooth ... g and h are open ... U₁×U₂⊂f(U). *Correction:* Apply openness to the smooth joint map f=(g,h), which the paper has available, and restrict to an integral neighborhood for the integral version. *Reason:* Separate openness of coordinates does not imply openness of their joint map: the diagonal map into a product is the standard counterexample. In these families f is smooth, so the intended persistence statement can be justified directly. Conrad's author PDF p. 11 explicitly states and explains openness of the smooth joint map on local-field points.
+- **E15** (misprint; affects nothing), Published Theorem 5.3 p. 719 (denominator convention also used in 5.8 and 6.1). *Printed:* When P is ordered by height, there is a subset M′⊂M of density 1 *Correction:* State explicitly that M′ has relative density 1 IN M, while the later assertion is positive ambient coefficient density. *Reason:* The proof establishes 100% within each local-condition congruence family M_i, not 100% of the larger admissible family P. Reading the denominator as P would exclude possible positive-proportion local obstructions. This records an ambiguity, not a claim that the intended theorem is false.
+- **E16** (misprint; affects nothing), Published Example 5.6 p. 720. *Printed:* the 2-adic valuation of the right hand side is divisible by 2^m *Correction:* Say that the right-hand side is divisible by 2^m, or that its 2-adic valuation is at least m. *Reason:* At t=1 the displayed value is 2^m(1+4Q(1)), with valuation exactly m. For example m=2 gives valuation 2, which is not divisible by 4.
+- **E17** (gap; affects the proof), Published Remark 5.9(2) p. 722. *Printed:* Since each P_i ... is a Bouniakowsky polynomial, ... we can find a t_p ... Taking the product *Correction:* Use the JOINT Schinzel hypothesis to choose one residue t_p for which every P_i(t_p) is a unit. *Reason:* Individual admissibility may give different residues; (t,t+1) modulo 2 has individually nonzero values but no common nonvanishing residue. The theorem does assume the stronger joint hypothesis, so the intended conclusion is repairable.
+- **E18** (misprint; affects nothing), Published Lemma 6.6 proof p. 730. *Printed:* R(x,H)^2≤V(x,H):=1/#Poly(H) Σ_P(θ_P(x)−S_P(x)x)^2 *Correction:* Replace the accidentally pasted Eq 1.6 with (−a₂a₃π₂π₃/π₁)(−a₁a₃π₁π₃/π₂)(−a₁a₂π₁π₂/π₃). *Reason:* The surrounding proof is computing the all-full subset term of a finite character expansion. The display about dispersion has unrelated variables and is correct elsewhere, but not here. The correct product is present in arxivv 3's Lemma 6.6 proof. *Already corrected:* Correct expression already in arXiv:2005.02998v3, Lemma 6.6 proof; publication/typesetting regression..
+- **E19** (error; affects the proof), Published Eq 6.7 p. 731. *Printed:* θ_P(x)−tilde θ_P(x) ≪ (log(Hx))^n *Correction:* Require the polynomials P_i to be pairwise distinct for this pointwise estimate. Remove the repeated-polynomial coefficient diagonals, whose density tends to 0, in the average argument. *Reason:* For P₁=P₂=t+1,tilde θ=0 and θ=Σ_{m≤x,m+1prime}(log(m+1))²~x log x, not O((log(Hx))²), e.g. x=(log H)^A,A>2. For distinct P_i the nonzero difference has only finitely many roots. The same unqualified equation is reused in 2212.14778v2p3. (6.7) is a step in the proof of Proposition 6.7; tuples with a repeated polynomial have density 0, so the proposition stands.
+- **E20** (misprint; affects nothing), Published §6.3 p. 734. *Printed:* m₀∈ℤ^{d+1} *Correction:* Writem₀∈ℤ^{d+n}. *Reason:* There ared_{ij}+1 coefficients in each of then polynomial blocks; total dimensiond+n. Earlier definitions and the surrounding congruence balls use that dimension.
+- **E21** (misprint; affects nothing), Published Definition P_d(H),§7 p. 734. *Printed:* deg(d)=d *Correction:* Write deg(f)=d. *Reason:* The set variable is the polynomial f;d is its prescribed positive integer degree.
+- **E22** (error; affects nothing), Published Discussion following Definition 1.8 p. 680. *Printed:* For a fixed P the product S_P(x) converges as x→∞. *Correction:* Do not assert this for arbitrary tuples allowed by Definition 1.8. State the classical convergence result with its distinct irreducible polynomial hypotheses and handle fixed-divisor/content cases separately; for this paper's averages retain the finite product only. *Reason:* For n=2,M=1,P₁=P₂=t+1, one has Z_{P₁P₂}(p)=1, hence S=∏_{p≤log x}(1−1/p)^{-1}, which diverges. This tuple is even Schinzel under the paper's definition. No infinite-product claim is needed for Theorem 1.9. The remark is not used: the paper works with the truncated product throughout.
 
-E18 is already correct in arXivv3. For the others, `known: new` means that no correction was located in the documented search, not a certified priority claim. E10, E11 and E14 are proof gaps, not claims that the intended theorem is false. E15 records a denominator ambiguity. The primary-paper authors have not been contacted; the protocol leaves that to the maintainer.
+## Gates of the checkpoint and their resolution
 
-## Why this is partial and where to resume
-
-The reading is complete but the inventory is not yet full blueprint closure. In particular, the conditional-moment lemmas and several detailed coefficient summations are still grouped at interface level, and original prerequisite proofs have not all been read. The exact open tasks are:
-
-- G1: Repair Lemma3.14 with an explicit positive-value real-region factor or prove a restricted-input estimate with summed error adequate for§4; propagate it through35,40,46,47 and9.
-- G2: FixΛ andΛ_z on signed and zero integer arguments; re-prove every Fourier/divisor transition with the chosen convention.
-- G3: Obtain and fully read original proofs of Davenport, the uniform coprime Möbius estimate, Heath-BrownCor4, Mertens and Dirichlet-kernel L1 estimates. Citations in SS23 are not completed supplier extraction.
-- G4: Complete omitted fine items: Lemmas2.1–2.3 and2.7 conditioned moments, exact3.8 proof bounds,4.2/4.4/4.8 coefficient summations, and the detailed6.5 off-diagonal proof. Current items expose the main interfaces but are not full closure.
-- G5: Resolve E10 higher-prime-power deletion and E11 simultaneous-in-x exceptional set with all uniformity and normalization constants.
-- G6: Read original cyclic-algebra/local-invariant, local smooth-openness, unramified norm, strict-class-field/Kronecker–Weber and conic/Hilbert-symbol proofs. Import existing upstream carriers; refine all partial supplier interfaces.
-- G7: Complete the blueprint-level CRT/large-prime-tail proof and transport the exact finite calculations to the chosen carriers. The report supplies the general mod4 image/fiber argument; executed checks are not Lean proofs.
-- G8: Fully collate arxivv3 and published version, verify each source finding independently, and inspect any subsequent corrections beyond the limited later-paper passages read. No author contact is authorized or made.
-- G9: Expand API/unit-test contracts into blueprint-level declarations with uses and proof steps for every omitted construction, including residue-conditioned probability and local scheme topology.
-- G10: Check downstream-family overlap against the latest accepted proposals before design intake; keep fixed-degree Schinzel averages separate from growing-degree random irreducibility, importing generic height-family infrastructure.
-
-The original proof leads are in `prerequisites`. They include Davenport II, Heath-Brown Corollary4, Conrad's topology paper, the Brauer–Grothendieck book and the cited analytic/class-field references. Later strengthening papers are context/correction leads, not retroactively imported as proved replacements.
+- **G1** (closed). Lemma 3.14 is corrected to its von Mangoldt form (item 34), which its proof proves; the dispersion runs for θ^Λ (items 40, 46, 88, 100) and returns to positive primes by item 101 (E1). *Checkpoint task:* Repair Lemma 3.14 with an explicit positive-value real-region factor or prove a restricted-input estimate with summed error adequate for§4; propagate it through 35,40,46,47 and 9.
+- **G2** (closed). Λ and Λ_z are even on ℤ (item 28, E4); Corollary 3.3 is stated in two-sided form (item 97). *Checkpoint task:* Fix Λ and Λ_z on signed and zero integer arguments; re-prove every Fourier/divisor transition with the chosen convention.
+- **G3** (deferred). Davenport, Iwaniec–Kowalski (19.17), Heath-Brown Corollary 4, Mertens and the kernel bounds are cited suppliers stated as items (29, 97, 72, 50, 32); their proofs belong to AN.5, SV.2 and ES.0. *Checkpoint task:* Obtain and fully read original proofs of Davenport, the uniform coprime Möbius estimate, Heath-BrownCor4, Mertens and Dirichlet-kernel L1 estimates. Citations in SS23 are not completed supplier extraction.
+- **G4** (closed). Lemmas 2.1, 2.2, 2.3 and 2.7, Corollary 3.3, Proposition 3.8, Lemma 3.9 and (3.7) are now items 92–99. Remarks 4.2 and 4.8 make no claim used later; Lemma 4.4 is item 88 and the off-diagonal bound of Proposition 6.5 is item 75. *Checkpoint task:* Complete omitted fine items: Lemmas 2.1–2.3 and 2.7 conditioned moments, exact 3.8 proof bounds,4.2/4.4/4.8 coefficient summations, and the detailed 6.5 off-diagonal proof. Current items expose the main interfaces but are not full closure.
+- **G5** (closed). E10 is bypassed: Lemma 4.1 holds exactly for θ^Λ (item 40). E11: Corollary 1.10 is stated pointwise in x (item 15), which is what Markov's inequality gives. *Checkpoint task:* Resolve E10 higher-prime-power deletion and E11 simultaneous-in-x exceptional set with all uniformity and normalization constants.
+- **G6** (deferred). Local invariants, unramified norms, Conrad's openness, strict class fields and Hilbert symbols are cited suppliers with planned or missing items; their proofs belong to the imported layers. *Checkpoint task:* Read original cyclic-algebra/local-invariant, local smooth-openness, unramified norm, strict-class-field/Kronecker–Weber and conic/Hilbert-symbol proofs. Import existing upstream carriers; refine all partial supplier interfaces.
+- **G7** (deferred). The general-degree mod-4 count is proved in the report and checked through degree 6; the CRT and tail estimates are items 24, 25, 83–87. Transporting the finite checks to Lean is design work. *Checkpoint task:* Complete the blueprint-level CRT/large-prime-tail proof and transport the exact finite calculations to the chosen carriers. The report supplies the general mod 4 image/fiber argument; executed checks are not Lean proofs.
+- **G8** (closed). arXiv v3 was compared with the published text at every finding (identical except E18, already correct in v3), and Crossref shows no correction. *Checkpoint task:* Fully collate arxivv 3 and published version, verify each source finding independently, and inspect any subsequent corrections beyond the limited later-paper passages read. No author contact is authorized or made.
+- **G9** (deferred). Expanding API and test contracts into blueprint declarations is the design job's work. *Checkpoint task:* Expand API/unit-test contracts into blueprint-level declarations with uses and proof steps for every omitted construction, including residue-conditioned probability and local scheme topology.
+- **G10** (closed). The admissibility predicates (items 3, 4) are routed to SieveMethodsAndPrimePatterns:SV.4, where PAPER-HARPAZ-WITTENBERG-16 routes Schinzel's Hypothesis (H); fixed-degree averages stay separate from the growing-degree ArithmeticStatisticsPartIIRandomPolynomials. *Checkpoint task:* Check downstream-family overlap against the latest accepted proposals before design intake; keep fixed-degree Schinzel averages separate from growing-degree random irreducibility, importing generic height-family infrastructure.
 
 ## Reproducible finite certificate
 
@@ -252,3 +292,19 @@ for H in (10,100,1000,10000):
 ```
 
 Repository validation and the item/route/dependency audit are recorded in the handoff. Schema success does not close the mathematical gates.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+
+The following was also checked:
+- **Items and routes.** Item ids are unique, and every prerequisite and every use resolves. Every missing item is routed exactly once.
+- **Findings.** Every `sourceIssues` locator was checked against the published text and the arXiv v3 TeX source.
+- **The repair.** Each step was checked by hand: the inequality (θ − Sx)² ≤ (θ^Λ − Sx)² + 2SxD, the leading-coefficient bound for negative values, the average of min(x, H/c), and the exponent comparison with A₁ > n.
+
+No Lean deliverable is part of a paper job.
+
+**For the reviewer.**
+- Check the repair of §4: items 28, 34, 97–101 and 47.
+- Check the reclassification of E4 as a gap in the convention, not a false theorem.
+- Check the move of items 3 and 4 to SV.4.

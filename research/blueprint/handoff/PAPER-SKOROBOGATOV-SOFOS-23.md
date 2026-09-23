@@ -1,40 +1,31 @@
-# PAPER-SKOROBOGATOV-SOFOS-23 — partial checkpoint
+# PAPER-SKOROBOGATOV-SOFOS-23 handoff
 
-Worker: Codex, session `codex-a71f92`; issue [#1256](https://github.com/CBirkbeck/tauceti-explorer/issues/1256).
-Claim comment 5778218247 was confirmed by bot comment 5778220607. One job only; no upstream atlas or library files changed.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged Codex checkpoint (codex-a71f92, #1913). Issue #1256. Date: 23 September 2026.
 
-## Done
+## Saved
 
-Read all 67 pages of the published paper, including proofs and references. Compared only the arXiv v3 introduction and Lemma6.6, not the whole version. Recorded provenance and limits of the later-paper/correction search.
+- **Items.** 103 items: 6 library, 6 planned, 91 missing.
+  - The checkpoint's 91 items are kept.
+  - Items 92–103 are new: Lemmas 2.1, 2.2, 2.3 and 2.7, (3.7), Corollary 3.3, Proposition 3.8, Lemma 3.9, the von Mangoldt count θ^Λ, the mean bound for θ^Λ − θ, Holzer's theorem, and local solubility away from S.
+  - Every missing item is routed exactly once, across eight routes. Items 3 and 4 moved to a new SieveMethodsAndPrimePatterns:SV.4 source route, where Harpaz–Wittenberg 2016 routes Hypothesis (H).
+- **The repair.** The analytic chain is no longer gated.
+  - **§3.** With Λ even on ℤ (E4), Theorem 3.1 and Lemmas 3.8–3.9 hold as printed. Lemma 3.14 holds in its von Mangoldt form (item 34).
+  - **§4.** The dispersion runs for θ^Λ. The passage back to positive primes costs O(x(log log x)ⁿ(log H)ⁿ log x), which is o(x²/log x) because A₁ > n (items 47, 101).
+- **Mistakes.** Twenty-two are recorded:
+  - E1, E4 and E10 carry the repair;
+  - E11 now affects a stated result;
+  - E2, E5, E19 and E22 have their reach corrected.
+- **Collation and searches.** Every finding was compared with arXiv v3 (identical except E18), and Crossref shows no correction.
+- **Gates.** G1, G2, G4, G5, G8 and G10 are closed. G3 and G6 (supplier proofs) and G7 and G9 (design work) are deferred.
 
-The result has 91 items (6 library, 6 planned, 79 missing), 29 definitions, 87 API contracts and 59 proposed tests. Each missing item has exactly one of seven routes. There are 22 source findings awaiting independent review; E18 is already corrected in arXivv3.
+## Resume
 
-Executed 374 exact rational local-model checks, mod4 enumeration through degree6, and an exact Euler-product tail certificate. The report embeds the complete standalone Python script and gives a general-degree proof of the mod4 count.
+The job is complete. For a reviewer or a later worker:
 
-## Crucial next step
+1. Check the repair of §4: items 28, 34, 97–101 and 47.
+2. Check E4, a missing convention, and E11, Corollary 1.10 stated pointwise in x.
+3. Check that SV.4 is the right owner for items 3 and 4.
 
-Do not make the printed Lemma3.14 a theorem target. For d=k=Ω=1 its left side is exactly Σ_{a=1}^Hθ(H+a)~(3/2)H², not2H². Repair positive/negative/zero-value handling, obtain a valid uniform real-region estimate, and propagate it through the dispersion proof. This is not a disproof of the main theorems.
+## Validation
 
-Then close G2–G10 in the JSON: original analytic and local-global suppliers, remaining fine lemma extraction, prime-power deletion, simultaneous-in-x exception sets, and full version/correction review. No author contact has been made.
-
-## Resume map
-
-- Items1–25: coefficient-family and local probability interfaces.
-- Items26–50 plus88–90: analytic chain and explicit obstruction.
-- Items51–68 and91: norm families and Brauer interfaces.
-- Items69–82: conic bundles, characters and repeated-polynomial correction.
-- Items83–87: explicit mod4 and Euler-product lower bound.
-- Report: mathematical counterexamples, seven route explanations, exact finite certificates.
-- JSON completionGates: precise remaining tasks, all open.
-
-## Checks
-
-- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json` — passed.
-- `python3 research/blueprint/intake.py check-files` on exactly the three deliverables — 3 files, 0 problems.
-- Custom item/route audit — 91 unique resolved IDs, acyclic dependencies, all 79 missing items routed exactly once, API/tests and consumers present for all 29 definitions.
-- Re-executed the certificate extracted from the report itself — all 374 rational identities, mod4 enumerations and exact tail-bound checks passed.
-- Fresh publication snapshot had no prior SS23 deliverables or AGENTS.md; binding instructions, reviewed audit, and both PartII parent extracts remained unchanged.
-
-No Lean file is authorized or delivered for this paper job. No Lean compilation or Lean test execution was performed. The Python finite checks are not formal proofs.
-
-Publication base: `2b68718fe486e286620941d9c7d2fe5fc92ac4ca`; mathematical atlas inspection: `6660b3c597a8c70872eeb63f3d01a198cfeb0dd9`. Binding protocol and reviewed-audit hashes remained unchanged.
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.
