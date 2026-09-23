@@ -3250,14 +3250,15 @@
    "locator": "Theorem 4.1, JAMS p.928, proof p.929; author p.13–14",
    "printed": "\"Theorem 4.1. Let V be a polarized variation of pure Hodge structures of weight k over the punctured polydisk (∆*)^n, with period map Φ: (∆*)^n → S_{Γ,G,M}. Then Φ is R_an,exp-definable.\" (∆ is the unit disk, p.4.)",
    "correction": "Definability holds only after shrinking. For some radius 0 < ρ < 1, the restriction of Φ to (∆*_ρ)^n is R_an,exp-definable, and then for every ρ < 1 by compactness of the remaining annular pieces. The reduction in §4.1 must use charts whose shrunken polydisks still cover the compactification.",
-   "reason": "Counterexample (n = 1, trivial monodromy). Let f(z) = exp(−(1+z)/(1−z)) on the unit disk, so |f| < 1, and τ = 2i + εf with ε small, so that τ(∆) lies in a disk on which π: H → Γ\\H is injective (Γ torsion-free, e.g. Γ(3)). τ is the period map of a polarized weight-one integral VHS. But Φ^{−1}(π(2i + ε/e)) contains the points z_n = 2πin/(2 + 2πin), n ≠ 0, where f = 1/e. These form an infinite discrete set accumulating at 1, which is impossible for a fibre of a definable map. The proof itself allows for this: it says 'after maybe shrinking the polydisk' (p.14), and its Siegel set S_H (y > 1) covers only |q| < e^{−2π}. Theorem 1.3 is unaffected, since §4.1 can use finitely many shrunken charts. Checked numerically: |f(z_n) − 1/e| < 1e−8 for 0 < |n| ≤ 2000. Noted by the extraction (item local-outer-boundary-obstruction).",
+   "reason": "Counterexample (n = 1, trivial monodromy). Let f(z) = exp(−(1+z)/(1−z)) on the unit disk, so |f| < 1, and τ = 2i + εf with ε small, so that τ(∆) lies in a disk on which π: H → Γ\\H is injective (Γ torsion-free, e.g. Γ(3)). τ is the period map of a polarized weight-one integral VHS. But Φ^{−1}(π(2i + ε/e)) contains the points z_n = 2πin/(2 + 2πin), n ≠ 0, where f = 1/e. These form an infinite discrete set accumulating at 1, which is impossible for a fibre of a definable map. The proof itself allows for this: it says 'after maybe shrinking the polydisk' (p.14), and its Siegel set S_H (y > 1) covers only |q| < e^{−2π}. Theorem 1.3 is unaffected, since §4.1 can use finitely many shrunken charts. Checked numerically: |f(z_n) − 1/e| < 1e−8 for 0 < |n| ≤ 2000. Noted by the extraction (item local-outer-boundary-obstruction). (cc-442dc5) Rechecked: the proof on p.929 says 'after maybe shrinking the polydisk', so the intended statement is the shrunken one, and §4.1 needs only finitely many shrunken charts; Theorem 1.3 is unaffected. The printed statement for the whole punctured polydisk is still false, so the finding keeps 'a stated result'.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3279,7 +3280,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3301,7 +3303,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3323,7 +3326,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3345,7 +3349,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3367,7 +3372,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3389,7 +3395,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3411,7 +3418,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3433,7 +3441,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3455,7 +3464,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3477,7 +3487,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3499,7 +3510,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3521,7 +3533,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3543,7 +3556,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3565,7 +3579,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3587,7 +3602,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3609,7 +3625,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3631,7 +3648,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3653,7 +3671,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3668,14 +3687,15 @@
    "locator": "Lemma 4.7(1),(2) and Theorem 4.8(1),(2), JAMS p.931",
    "printed": "u ∈ J_σ",
    "correction": "Require u≠0 for positive two-sided monomial comparisons.",
-   "reason": "At u=0 the squared norm is identically zero and cannot be bounded below by a positive multiple of a positive monomial. The extraction already imposes the nonzero hypothesis.",
-   "affects": "a stated result",
+   "reason": "At u=0 the squared norm is identically zero and cannot be bounded below by a positive multiple of a positive monomial. The extraction already imposes the nonzero hypothesis. (cc-442dc5) Reclassified to affect nothing: the two-sided monomial comparison is meant for u ≠ 0, the only case in which it has content.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3697,7 +3717,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3719,7 +3740,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3741,7 +3763,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3763,7 +3786,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3785,7 +3809,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3807,7 +3832,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3829,7 +3855,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3844,14 +3871,15 @@
    "locator": "§5, JAMS pp.933–934, definition of the target Hodge locus",
    "printed": "union of special subvarieties",
    "correction": "For the exceptional locus use the proper Mumford–Tate-drop subdata, excluding the generic identity image. Establish its correspondence with exceptional tensors.",
-   "reason": "As defined immediately above, a special image may be the image of the identity Hodge morphism. Including it makes the union the whole target, whose pullback is all S, whereas §1.4 defines HL(S,V) using exceptional Hodge tensors. The extraction uses proper special images; the correspondence remains G6.",
-   "affects": "a stated result",
+   "reason": "As defined immediately above, a special image may be the image of the identity Hodge morphism. Including it makes the union the whole target, whose pullback is all S, whereas §1.4 defines HL(S,V) using exceptional Hodge tensors. The extraction uses proper special images; the correspondence remains G6. (cc-442dc5) Reclassified to affect nothing: §1.4 defines the Hodge locus through exceptional Hodge tensors, i.e. proper Mumford–Tate-drop special images; including the identity image in §5's description is a slip that the statement of Theorem 1.6 does not use.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -3873,7 +3901,8 @@
     "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
     "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
     "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation."
+    "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7."
    ],
    "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
