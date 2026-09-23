@@ -73,3 +73,29 @@ Links and reasons are in the JSON.
 - Every missing item appears in exactly one route, and no source route takes a planned or library item. The Part II brief is 246 words.
 - The Mathlib citation was read at 082e2d3 (`GroupTheory/Goursat.lean:128`). Planned layer ids were checked against `data/atlas.json`. Prerequisite DOIs were checked against Crossref.
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Review (REV-PAPER-RICHARD-YAFAEV-25, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1443), **accepted** this
+extraction and all four routes, with one small correction in place. The full record is
+[REV-PAPER-RICHARD-YAFAEV-25.md](../reviews/REV-PAPER-RICHARD-YAFAEV-25.md).
+
+The recorded hash reproduces. 41 items, all 39 missing ones routed exactly once; the three source
+stage ids, both planned layer ids and the `Subgroup.goursat` citation all check out; 57 of 63
+locator checks land exactly and the other six were read (the proof of Theorem 4.7's number-field
+case does reach p.263, and Remark 2.1.3 is printed in the paper's section style "2.1.3. Remarks." on
+p.253). Every numbered definition, proposition, lemma, corollary and theorem is carried into an
+item; only three remarks are not. The Part II title reproduces the parent's atlas title exactly, its
+id appears in no other extraction, and no existing layer covers Hecke-orbit geometry or p-adic
+geometric invariant theory.
+
+**Correction.** Item 34 called 7.6–7.8 all lemmas; 7.8 is printed as a corollary and 7.9 is a
+proposition already covered by item 32, so the name and locator now write the range out.
+
+All six findings are **confirmed**. E6 is a real gap: Lemma 5.12 asserts
+`Z_{M^ad}(ad_M(U′)) = Z_M(U′)/Z(M)`, while the proof starts from `m` whose image centralises
+`ad_M(U)` — the image of the whole group — and lands in `Z_M(U[e])`; since `ad_M(U[e]) ⊆ ad_M(U)`,
+what is proved is the inclusion `Z_{M^ad}(ad_M(U)) ⊆ Z_M(U[e])/Z(M)`, which is what the use at the
+top of p.285 needs. The five misprints are each printed as quoted: the circular `M(A, K, d)` on
+p.263, the inverted index on p.259, `π_p⁻¹(U_p)` on p.273, the `H_p`/`H_{v′}` and
+`1/(2·c(ρ))`/`c(ρ)/2` slips with `Y_k` for `Y_l` on p.280, and `supp` for `sup_p #` on p.275.
