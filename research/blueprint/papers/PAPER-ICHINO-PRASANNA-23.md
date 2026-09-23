@@ -191,3 +191,36 @@ These are listed in the result file with verified links:
 - Harris–Kudla (1992);
 - Gan–Qiu–Takeda with Ichino (2007);
 - Waldspurger (1985) and Repka (1978).
+
+## Independent review (`REV-PAPER-ICHINO-PRASANNA-23`, issue #1376)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, all nine routes accepted, all
+eight findings confirmed, nothing corrected in place. The full review is in
+[`reviews/REV-PAPER-ICHINO-PRASANNA-23.md`](../reviews/REV-PAPER-ICHINO-PRASANNA-23.md).
+
+Both arXiv hashes match byte for byte, and the extraction's note that the publisher stamps each download
+so a fresh Cambridge PDF has another hash is exactly right — that disclosure was missing from another
+extraction reviewed today. Simulating `macros.tex`'s counters (`\newtheorem{thm}{Theorem}[section]` with
+seven environments sharing it, separate counters for the introduction) over the `\input` order gives **88
+numbered objects** and reproduces every number tested; §§4 and 7 genuinely have none and the appendix has
+27. **Nothing is uncovered**: 84 objects are cited by number, Theorem 1 by name, and three parallel
+appendix lemmas (A.16, A.19, A.22) through a section locator. All **97** `<word> \ref{…}` citations agree
+with their targets, with no duplicate or undefined labels.
+
+Both `library` items cite **Tau Ceti**, and all ten declarations resolve at pinned `f790474` — verified by
+locating each and computing its enclosing namespaces, since a broad name search first suggested three were
+missing and was wrong. All 26 cited layers exist. The new roadmap was checked against the atlas rather
+than taken on trust: "Kudla–Millson" appears **zero** times in `data/atlas.json` and all nineteen
+"Jacquet–Langlands" occurrences are the classical correspondence, none a cycle-theoretic realization. The
+three Part II titles reproduce their parents' verbatim, and the metaplectic one joins the proposal
+`PAPER-GAN-ICHINO-18` and `PAPER-GAN-SAVIN-23-B` already make.
+
+All eight findings are confirmed verbatim, and three of them form a chain worth naming: the `L`-Hodge
+structure definition conjugates on `V ⊗_L ℂ` for a field with only an embedding in `ℂ` (E1); the
+components of `Sh_{𝒢̃_B}` are said to be in bijection with `Sh(T_1,h_1)` although the derived group is not
+simply connected (E4); and the rationality step in the proof of Theorem 12.4 asserts that Galois acts
+trivially on those components, which is E4 again and is where the gap carries a proof (E8). E5 is a real
+definedness failure — a character of the norm-one idele class group evaluated on an element of norm
+`N(α)^{−1}` — with a repair the paper's own §§1.2 and 10.4 support. The remaining four are notational
+(degree `2d` for `d`; `U_E` for `U_B` inside a rotated diagram; a missing subscript; a missing
+parenthesis).

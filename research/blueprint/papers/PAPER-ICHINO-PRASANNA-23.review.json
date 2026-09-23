@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-ICHINO-PRASANNA-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Accept. A new roadmap is the right call and I checked it against the atlas rather than taking the extraction's word: 'Kudla-Millson' appears zero times in data/atlas.json, 'theta lift' twice in unrelated contexts, and every one of the nineteen 'Jacquet-Langlands' occurrences is the classical representation-theoretic correspondence (local JL on GL_r(D), Badulescu's extended JL, base change, the two-tower cohomological realization) - none is a cycle- or Hodge-class realization of it. The 'Hodge class' hits are Hodge tensors in a Hilbert construction and Gross-Zagier's degree-one class xi_U. So nothing in the atlas constructs Hodge classes realizing functoriality between Shimura varieties, and the 62 items routed here are the paper's own chain."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Accept. ShimuraVarietiesPartIIAutomorphicCohomology is a Part II of ShimuraVarieties and its title reproduces the parent's exactly ('Complex Shimura varieties and canonical models'). The reason given is accurate: the parent plans the canonical tower and its Hecke correspondences and stops before cohomology of automorphic local systems, which is what the seven items here need."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accept. The title reproduces the parent's verbatim ('Hilbert Modular Varieties And Shimura Curves'), and the extension is real: the parent covers Hilbert modular varieties and quaternionic Shimura curves, while this paper needs the quaternionic varieties for an arbitrary split set Sigma with their reflex field F_Sigma and the tensor-induction structure, which the four items here carry."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Accept, and this is the model case of joining rather than opening a rival: MetaplecticAutomorphicFormsPartIIShimuraWaldspurger is already proposed by PAPER-GAN-ICHINO-18 and PAPER-GAN-SAVIN-23-B, the route's own brief says it adds a consumer to the Gan-Ichino brief, and the title reproduces the parent's ('Metaplectic groups, Weil representations and automorphic theta kernels') verbatim."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accept. Both stages exist in data/atlas.json. MP.3 owns dual-pair embeddings, splittings of the metaplectic cover with their auxiliary characters, local theta modules and Howe duality; MP.4 the adelic Weil representation and theta kernels. The nineteen items routed here are that machinery as the paper uses it - including the splitting appendix, whose Proposition A.1 is the local-splitting statement E6 concerns - rather than new theory."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Accept. AutomorphicFormsOnReductiveGroups:AF.4 exists and owns cohomological representations, with AF.1 for relative Lie algebra cohomology; the Vogan-Zuckerman modules A_q(lambda) and their cohomology with the Hodge bigrading belong there, and section 7 of the paper uses them rather than developing them."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Accept. ModularityAndLanglandsExtensions:ML.4 exists and holds the classification inputs for classical groups with their packets and proof-source owners, which is the right home for the identification of Adams-Johnson packets of U(p,q) with Arthur packets of cohomological parameters that section 11 imports."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Accept. Both stages exist: MC.2 constructs the Betti and l-adic realization functors with their comparisons, which is the target category the paper's section 2 works in, and MC.7 holds typed Hodge and Tate conjecture statements - the right place for the conjectural inputs, keeping them out of the new roadmap where they would look like theorems."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Accept. GeometryOfNumbersAndQuadraticArithmetic:GN.2 exists and plans the local-global theory of quadratic forms with quaternionic and hermitian variants; Eichler's norm theorem and the reduced-norm description of a quaternion algebra belong there, and the paper uses them as inputs."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-fb70e5, 23 September 2026, of the extraction by session cc-442dc5 (issue #1375). cc-fb70e5 appears nowhere in its files.\n\nProvenance. Both arXiv hashes match byte for byte: the v2 PDF 058fda94...28aad5 and the v2 e-print 4a631214...f7657f (eighteen files: Ch01-Ch12 with Ch09.5, macros, preamble, the splittings appendix). The extraction's note on the published PDF deserves credit: it records that 'the publisher stamps each download, so a fresh download has another hash', which is exactly right for Cambridge Core and is the disclosure another extraction I reviewed today was missing.\n\nNumbering and coverage. macros.tex declares \\newtheorem{thm}{Theorem}[section] with lem, prop, cor, defn, rem, conjecture and example on the same counter, and separate counters for the introduction's mtheorem/mcorollary/mremark and the \\Alph-printed mconjecture. Simulating that over the included files in their input order gives 88 numbered objects and reproduces every number I tested - Proposition 11.6, Theorem 12.4 and Proposition A.1 among them. Two sections (4 and 7) genuinely contain no numbered statement, and the appendix contains 27 (23 lemmas, 3 propositions, 1 remark), which the source confirms directly.\n\nCoverage: 84 of the 88 are cited by their own number, the introduction's Theorem 1 by name, and three appendix lemmas (A.16, A.19, A.22 - the second halves of the three parallel Weil-Hodge computations) only through a section-level locator. Nothing is uncovered.\n\nInternal references. All 97 references of the form '<word> \\ref{label}' agree with the environment carrying the label; no duplicate labels, no undefined references.\n\nStatuses. Both library items cite Tau Ceti rather than Mathlib, and all ten declarations resolve at the pinned commit f790474, which I verified by locating each one and computing its enclosing namespaces: TauCeti.Hodge.HodgeStructureOn (Geometry/Hodge/Structure.lean:62), .piece (:156), .IsMorphism (Morphism.lean:69), TauCeti.Hodge.HodgeStructure.Hom (Morphism.lean:150), TauCeti.Hodge.RationalHodgeSubstructure (RationalSubstructure.lean:72), .tateTwist (Tate/Twist.lean:57), TauCeti.Hodge.tate (Tate/Basic.lean:90), .tensorProduct (TensorProduct.lean:109), .dual (Dual.lean:76) and .internalHom (InternalHom.lean:230). A broad grep first suggested three of these were missing; they were not, and resolving namespaces file by file is what settled it. The 13 planned items and the routes cite 26 layers, all of which exist in data/atlas.json.\n\nRoutes. One new roadmap, three Part IIs and five source routes, all accepted; see the route verdicts. The new roadmap is the one that needed the most care, since only this extraction proposes it: the atlas has no Kudla-Millson theory, no theta-lift layer beyond two passing mentions, and none of its nineteen Jacquet-Langlands occurrences is a cycle-theoretic realization. All three Part II titles reproduce their parents' verbatim, and the metaplectic one joins a proposal PAPER-GAN-ICHINO-18 and PAPER-GAN-SAVIN-23-B already make.\n\nMistakes in the paper. All eight are confirmed, each verbatim in the source. Three are substantive rather than typographical: the L-Hodge structure definition takes a number field with an embedding in C but conjugates on V ⊗_L C, which needs L real (E1); the components of Sh_{tilde G_B} are said to be in bijection with the Shimura variety of (T_1,h_1), which fails because the derived group is not simply connected (E4); and the rationality step in the proof of Theorem 12.4 asserts that Galois acts trivially on those components, which is the same point again and is the one place where the gap reaches a proof (E8). The chain E4 to E8 is the most valuable thing in this finding list, and the entries are correctly linked. E5 is a real definedness failure - a character of the norm-one idele class group evaluated on an element of norm N(alpha)^{-1} - with a repair that the paper's own sections 1.2 and 10.4 support. The rest are notational: degree 2d for d (E2), U_E for U_B inside a rotated diagram (E3), a missing subscript on s (E6) and a missing parenthesis (E7).\n\nVerdict: accept."
+}
