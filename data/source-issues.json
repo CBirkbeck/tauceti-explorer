@@ -81466,9 +81466,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Printed on p. 11 as recorded. Theorem 2.2.2, three lines above, is stated 'for a proper morphism in FPS_S', and the whole of §2.2 works over the base S — Lemma 2.2.4 onwards all say FPS_S — so the subscript R has no referent. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZAVYALOV-25/E2",
@@ -81487,9 +81487,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Printed on p. 13 as recorded, and part (1) directly above it reads 'f^! sends D^+_coh(Y) to D^+_coh(X)'. Since f^! is the right adjoint construction for f : X → Y, it goes from Y to X, so part (2)'s direction is reversed. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZAVYALOV-25/E3",
@@ -81508,9 +81508,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Printed on p. 26 as recorded: 'the third one follows from Lemma 2.2.11, Corollary 2.2.10, and K-smoothness of A_K, and the third isomorphism follows from the classical isomorphism'. The chain has four isomorphisms and the second 'third' is the fourth. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZAVYALOV-25/E4",
@@ -81529,9 +81529,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Printed on p. 29 as recorded. The sentence before it fixes 'an open affine 𝔘 ⊂ Spf A° such that 𝔣|_{𝔣^{-1}(𝔘)} : 𝔣^{-1}(𝔘) → 𝔘 is finite flat', so 𝔘 lies over A and 𝔣^{-1}(𝔘) over B; the printed assignment swaps them. The next clause, 'we can further assume that B° is a finite, locally free A°-algebra', confirms which side is which, and the replacement is of Y, not X. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZAVYALOV-25/E5",
@@ -81550,9 +81550,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Printed twice on p. 40 as recorded. The line the digression sets out to compute is the paper's own display 'Sch′¹_X(dlog T) = α(δ(T))', so both 'α(δ(X))' are slips for α(δ(T)); X is the affinoid, not a section. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZAVYALOV-25/E6",
@@ -81571,9 +81571,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Confirmed at all three places (pp. 46, 47, 48). Lemma 2.3.5 (p. 16) is stated for 'a separated, flat, finitely presented O_K-**scheme**', whereas 𝔛 in §3.6 is an admissible **formal** O_C-scheme. The formal-scheme statement is Corollary 2.4.5 (p. 20), 'Let 𝔛 be a separated admissible formal O_K-scheme of pure dimension d. Then the dualizing module ω_𝔛 is flat over O_K' — exactly the cited conclusion. For the amplitude claim on p. 47 the paper itself cites Lemma 2.2.13 elsewhere (p. 19, 'ω_{𝔛_0} ∈ D^{[-d,0]}_coh(𝔛_0) due to Lemma 2.2.13'), which is the extraction's substitute. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZAVYALOV-25/E7",
@@ -81592,9 +81592,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Printed on p. 55 as recorded, with index i on the left of the equation and j on the right. The claim is about the action of a single γ_i, so both indices must agree. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZAVYALOV-25/E8",
@@ -81613,9 +81613,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Printed on p. 65 as recorded. The map being identified is stated in the same sentence as 'Rν_∗Ô^{+,a}_𝔛 → ω^a_𝔛(−d)[−d]', so the identification's right end cannot be ω^a_{𝔛_0}; the subscript 0 is a slip. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZAVYALOV-25/E9",
@@ -81634,9 +81634,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Confirmed. Remark D.10 (p. 97) prints the subscript Tr_{ét,f,O^+_X/p^n} while the displayed source and target are O^+_{X′}/p and O^+_X/p, and Construction 4.4.17 (p. 70) applies it to the mod-p objects. Definition D.1 defines the trace for a general sheaf, so both the mod-p and the mod-p^n instances are legitimate — what is wrong is mixing them in one display. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZAVYALOV-25/E10",
@@ -81655,9 +81655,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Confirmed, and it is the most substantive of the twelve. Definition 3.5.1 (p. 44) reads 'A nice admissible formal O_C-scheme of dimension d is a separated admissible formal O_C-scheme 𝔛 with smooth generic fiber of pure dimension d and reduced special fiber', and Theorem 3.5.2 constructs Faltings' trace only for nice 𝔛. Theorem 4.4.24's statement drops the reduced special fibre, so as printed its conclusion — that Faltings' pairing is almost perfect on 𝔛 — is asserted for schemes on which that pairing has not been defined. The section's own opening (p. 66) says the goal is to prove Theorem 4.1.2 'for any admissible separated rig-smooth formal O_C-scheme 𝔛 with reduced special fiber', and p. 48 says the goal of Section 4 is the statement 'for any nice admissible formal O_C-scheme', so the intended hypothesis is clear and nothing downstream is affected. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZAVYALOV-25/E11",
@@ -81676,9 +81676,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Printed on p. 74 as recorded. Step 3's aim is stated as 'Prove the claim for each 𝔛_i', and 𝔛′ without a subscript is not among the objects Theorem 4.4.1 produces, so the good quotient is 𝔛′_i → 𝔛_i. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZAVYALOV-25/E12",
@@ -81697,9 +81697,9 @@
    "owner": "PAPER-ZAVYALOV-25",
    "file": "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
    "citation": "Bogdan Zavyalov, \"Mod-p Poincaré Duality in p-adic analytic geometry\", Annals of Mathematics 201 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ZAVYALOV-25",
+   "reviewReason": "Printed on p. 75 as recorded. The composition displayed immediately below the definition ends with Tr_f(−d)[−2d], so the target of the global trace is O^a_C/p(−d)[−2d]; the printed [2d] has the shift's sign wrong. No later version or erratum corrects it: arXiv 2111.01830 has only v1, v2 and v3, and the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry (both checked 23 September 2026). The published Annals text is behind the publisher's bot protection and could not be compared, as the extraction states."
   },
   {
    "id": "PAPER-ZHANG-21/E1",
