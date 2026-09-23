@@ -1974,8 +1974,9 @@
    ],
    "avoidAccountOf": "PAPER-DEMARCO-KRIEGER-YE-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-DEMARCO-KRIEGER-YE-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1128"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1128",
+   "finishedAt": "2026-09-23T17:26:45Z"
   },
   {
    "id": "PAPER-COUVEIGNES-20",
@@ -4183,8 +4184,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
