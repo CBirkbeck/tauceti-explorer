@@ -1,17 +1,23 @@
 # PAPER-DUKE-IMAMOGLU-TOTH-16 handoff
 
-Codex — `codex-c83e7a`, 23 September 2026; issue #1170. Partial checkpoint continuing `codex-a71f92` and `cc-fb70e5`. Current result: **188 items,22 library imports,6 existing-plan imports,160 missing items routed once across10 routes;56 definitions/constructions,168 API statements,168 proposed tests.** All169 inherited IDs, kinds, statements and statuses are preserved. No Lean compilation or formalization is claimed.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged checkpoints of codex-a71f92, cc-fb70e5 and codex-c83e7a (latest #2085). Issue #1170. Date: 23 September 2026.
 
-Start with the report's **Biró continuation** and items170–188. The source is available at [Biró's author copy](https://users.renyi.hu/~biroand/pdfs/Cycle.pdf), SHA256 `d1a49be2d88fb60164b11783d444256fdcb0e1e8678476a325c077322a4572a4`. Selected printed pp103–111,126–131,139–143,151–152 were read, not all50 pages. Images104,128,129,142 settle the conjugate on ε, the finite coefficient argument and cusp-index shifts. DIT11 pp947–951,959 and DIT16 pp976–977,982 were freshly checked. Historical full DIT16/Duke88 reads remain attributed to earlier workers.
+## Saved
 
-1. **S5 order identification is written; Hilbert/Poincaré supplier remains open.** Item176 proves Biró L=W∘U on actual Γ₀(4)-automorphic functions with principal branches. Use ν(γ)=conj(ε_d)(c/d), γ=[[-1,1],[-4,3]], and M_w=γN_(3−w). Preserve168: conjugation maps U₄∘W₄ to U∘W. Item180 gives the weakly holomorphic automorphic regression f=θj(4z): W₄U₄f=f, while the opposite-order projection has a forbidden q² coefficient. This is not an r>0 L² cusp counterexample. Item178 keeps the two other-cusp Fourier terms, including(n+3)/4 at the nonsingular cusp. Item179 proves projection algebra conditional on A.2's boundedness, self-adjointness and quadratic relation; the Maass-domain argument and Poincaré extension remain S5. Preserve the3/2 correction: footnote7 is on printed **p977**, not976.
-2. **S6 automorphy interior is written; trace, nonvanishing and bijection remain open.** Items181–184 split W=W₀⊕W₁, use all positive admissible Fourier coefficients to invert a finite matrix, and prove automorphy conditional on Biró(14). W₀ may be nonzero; the positive-D lift vanishes there. Never infer injectivity or a nonzero fundamental coefficient from separation on W₁. Item185 converts Biró's2√(|n|y) normalization to DIT's2√y;186 gives the conditional prime2 coefficient. GL₂ strong/global multiplicity one comes from **R16.4**, not AF finite multiplicity or the built holomorphic newform theorem. The Maass classical/adelic and spherical/K-type comparison remains explicit. Positive D only: all sign cases and Baruch–Mao's eigenline/period theorem remain unclosed. Wiley403 and Rutgers timeout/403 yielded no paper.
-3. **Biró p128 convergence repair is written.** E13 records the false one-point principle. Item187 uses the actual convergence on a large real interval and compact bounds, importing pinned TauCeti Vitali. Item188 shows why this does not justify boundary residues: e^(−k(A+1/2))/(A+1/2) tends locally uniformly to0 in the half-plane, but each boundary residue is1. Read the full Lemmas6–9 and boundary-uniform estimates before closing Lemma10. The cited Pólya–Szegő source was not read.
-4. **Preserve completed norm and Appendix work.** Item151 already has ||φ||²=2L(1,sym²φ)/cosh(πr) and the elementary polynomial bound;169 repaired its Satake-root Hecke estimate. No GL₃ route is needed. Items159–167 supply regularized hypergeometric/gamma imports and the written all-parameter Appendix integral proof. Neither closes residual S4 noncompact Sobolev/resolvent/no-exceptional spectrum or residual S8 W/infinity/seed comparisons.
-5. **Other source gates remain.** S2 needs the original polygon/free-side, limit-set/core and rigidity proof; S1/S3 arithmetic/Dirichlet suppliers and S7 beneath Duke88 remain. Import existing Fuchsian and the four built Multiquadratic layers. Original Kohnen1982/1985 and Chiera proofs are unclosed; the EuDML Kohnen1982 request returned403. Biró [Ko3] is the1982 Crelle paper, not the1996 paper with the same title.
+- **Items.** 188 items: 22 library, 6 planned, 160 missing. Every missing item is routed exactly once.
+- **Mistakes.** Sixteen are recorded; all fourteen inherited findings were confirmed at their locators.
+  - **E6 now affects a stated result.** Proposition 2's (6.6) is printed for ⟨φ,φ⟩⁻¹φ with a(1) = 1, where only a bound with cosh²(πr/4) follows. The paper's own example at r ≈ 13.78 has Weyl ≈ 1.9×10⁹. Items /150 and /152 state what holds, and Theorem 2 is unaffected.
+  - **E15, E16:** two small misprints in (5.1) and (5.4).
+- **Gates.** S1–S8 are deferred as supplier proofs; `gateStatus` in the JSON records each.
+- **Reading.** The full published paper was read, with page images where the text layer garbles formulas. E5's family was recomputed exactly, and the p.967 examples were recomputed from Table 2.
 
-New imports170–174 are finite-dimensional dual separation, Vitali, scalar theta inversion, upstream ModularForms Layer0 j inputs, and GL₂ R16.4. The last two are planned, not built. Fresh relevant audit rows and stage descriptions were inspected; no new roadmap or generic supplier is duplicated. New missing175–186 belong to MP.7,187–188 to AS.
+## Resume
 
-SourceIssues E1–E12 are preserved apart from E12's footnote page correction. E13 is the repairable Biró convergence misstatement. E14 records the DIT11 order discrepancy within the stated scope and notes that DIT16 prints WU. No independent verdict was added; the separate errata file was not edited.
+The job is complete. For a reviewer or a later worker:
 
-Validation:2842 exact rational/integer assertions and140 separate floating-point phase comparisons, maximum error1.088×10⁻¹³. These support written proofs, not closure of analytic suppliers. The188-node DAG,160 exact-once routes,169 inherited statements/statuses, definition APIs/tests and14 sourceIssue IDs were checked. Repository paper and three-file intake checks passed. Original-deliverable and current-input hashes are guarded at publication; the manifest is a consistency record, not a claim that all historical inputs were reread. No Lean file is authorized here.
+1. Check E6's reclassification.
+2. The design job should close the supplier gates S1–S8 in the order the report lists them.
+
+## Validation
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.
