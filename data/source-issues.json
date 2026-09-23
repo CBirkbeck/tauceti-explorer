@@ -25376,15 +25376,58 @@
   {
    "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E12",
    "kind": "misprint",
-   "locator": "Prerequisite DIT11, Cycle integrals of the j-function and mock modular forms, Annals173(2011), p959 (2.19); explicitly corrected by DIT16 p976 footnote7",
+   "locator": "Prerequisite DIT11, Cycle integrals of the j-function and mock modular forms, Annals173(2011), p959 (2.19); explicitly corrected by DIT16 p977 footnote7",
    "printed": "P_d⁺(τ,s)=pr⁺(P_d(τ,s))",
    "correction": "P_d⁺(τ,s)=(3/2)pr⁺(P_d(τ,s)).",
    "reason": "DIT16 footnote7 explicitly supplies the3/2 factor. Consequently DIT16's projected seed has factor2/3 when compared with the earlier P_d⁺ normalization. This scalar correction does not by itself settle the U/W composition-order question.",
    "affects": "nothing",
-   "known": "DIT16, Geometric invariants for real quadratic fields, published p976 footnote7, https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
+   "known": "DIT16, Geometric invariants for real quadratic fields, published p977 footnote7, https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
    "searched": [
     "DIT11 publisher p959 (2.19) read directly2026-09-22.",
-    "DIT16 publisher p976 and footnote7 read during the full-paper read2026-09-22; this is the explicit published correction."
+    "DIT16 publisher p976 and footnote7 read during the full-paper read2026-09-22; this is the explicit published correction.",
+    "2026-09-23 fresh printed p977 read: footnote7 and (8.10) are on977; p976 contains the U/W definitions. This corrects only the inherited page locator."
+   ],
+   "owner": "PAPER-DUKE-IMAMOGLU-TOTH-16",
+   "file": "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.result.json",
+   "citation": "Duke–Imamoḡlu–Tóth, \"Geometric invariants for real quadratic fields\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E13",
+   "kind": "error",
+   "locator": "Prerequisite Biró, Acta Arith.94(2000), p128 paragraph preceding Lemma10, author-hosted published-format PDF SHA256 d1a49be2…572a4; page image checked2026-09-23",
+   "printed": "“for a point z₀ of this domain” in the claimed principle extending convergence of a bounded holomorphic sequence throughout the domain.",
+   "correction": "Require convergence on a set having an accumulation point inside the domain. The actual preceding calculation supplies convergence for all sufficiently large positive real A, so Vitali applies using the stated local uniform bounds and the identity theorem.",
+   "reason": "The bounded sequence f_k(z)=(−1)^k z/2 on the unit disk converges at0 but not at1/2. Item187 repairs the actual argument using the stronger hypotheses already stated;188 leaves the later boundary-residue estimates separate.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23 title search with erratum/correction and Biró/Vitali found no correction.",
+    "Author-hosted Cycle.pdf p128 retains the one-point text; author root page could not be opened in web tool.",
+    "Publisher PDF endpoint returned403, so no claim that a publisher correction listing was successfully inspected. The cited Pólya–Szegő Problem256 was not read."
+   ],
+   "owner": "PAPER-DUKE-IMAMOGLU-TOTH-16",
+   "file": "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.result.json",
+   "citation": "Duke–Imamoḡlu–Tóth, \"Geometric invariants for real quadratic fields\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E14",
+   "kind": "misprint",
+   "locator": "Prerequisite DIT11 published p959, projection preceding (2.19); DIT16 published p976 and Biró p142 (A.1)",
+   "printed": "“pr⁺ = ⅔(U₄ ∘ W₄) + ⅓”",
+   "correction": "For the explicitly displayed left-acting function operators use pr⁺=⅔(W₄∘U₄)+⅓, matching Biró L and DIT16 after168’s conjugation. Keep the independent3/2 normalization correction E12.",
+   "reason": "Item176 proves L=WU on the actual automorphic domain. Item180 gives f=θ(z)j(4z), already supported in0,1 mod4, for which the printed opposite order produces a nonzero q² coefficient. This disproves its unrestricted plus-support projection interpretation; the example is weakly holomorphic, not an r>0 L² cusp form, and is not by itself a counterexample to every Poincaré proposition.",
+   "affects": "the proof",
+   "known": "DIT16 p976 prints the corrected WU order, https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf ; its p977 footnote7 explicitly discusses the separate scalar correction, not this order change.",
+   "searched": [
+    "DIT11 published p959 text and image read; DIT16 p976 convention retained.",
+    "2026-09-23 title/operator-order/correction search found the ETH author copy still printing U₄∘W₄, https://people.math.ethz.ch/~oezlemi/pdf/papers/2011-DIT-cycle-Annals.pdf .",
+    "No dedicated order erratum located; record the differing later published formula without attributing an explicit order-correction statement to its authors."
    ],
    "owner": "PAPER-DUKE-IMAMOGLU-TOTH-16",
    "file": "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.result.json",
