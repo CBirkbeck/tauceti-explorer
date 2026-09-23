@@ -25374,6 +25374,153 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E1",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 7.1, p. 32 (arXiv v5)",
+   "printed": "Likewise the only one-dimensional subrepresentation of ρ̄(𝔤^der)^* ≅ ρ̄(𝔤^der)(1) is isomorphic to k(χ̄κ̄), so the assumption that χ̄ ≠ κ^{−1} implies our claim.",
+   "correction": "… the assumption that χ̄ ≠ κ̄^{−1} …",
+   "reason": "The hypothesis of Lemma 7.1 is χ̄ ≠ κ̄^{−1} (mod p characters); κ is the p-adic cyclotomic character, which cannot be compared with χ̄.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+    "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+    "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+   ],
+   "owner": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+   "file": "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.result.json",
+   "citation": "Fakhruddin–Khare–Patrikis, \"Lifting and automorphy of reducible mod p Galois representations over global fields\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E2",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 7.1, p. 32 (arXiv v5)",
+   "printed": "We therefore reduce the desired vanishing to checking that χ̄^σ is not equal to χ̄^{−1}κ̄, κ̄, or χ̄κ̄ for any σ ∈ Aut(k): but such an equality with χ̄κ̄^{−1} or χ̄κ̄ would contradict the behavior of complex conjugation (as p ≠ 2), …",
+   "correction": "… such an equality with χ̄^{−1}κ̄ or χ̄κ̄ …",
+   "reason": "The three characters to be excluded are those just listed, χ̄^{−1}κ̄, κ̄ and χ̄κ̄; χ̄^{−1}κ̄ and χ̄κ̄ are even (value (−1)(−1) = 1 at complex conjugation) while χ̄^σ is odd. χ̄κ̄^{−1} does not occur in the list (it is also even, so the argument is unaffected).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+    "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+    "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+   ],
+   "owner": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+   "file": "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.result.json",
+   "citation": "Fakhruddin–Khare–Patrikis, \"Lifting and automorphy of reducible mod p Galois representations over global fields\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E3",
+   "kind": "misprint",
+   "locator": "Appendix A, before Lemma A.3, p. 44 (arXiv v5)",
+   "printed": "If the chain is maximal, then each Σ_{i+1}/Σ_i, i = 1, …, n, is a simple 𝔽_p[Γ]-module.",
+   "correction": "… each Σ_{i+1}/Σ_i, i = 0, …, n − 1, …",
+   "reason": "The chain is {1} = Σ_0 ⊊ Σ_1 ⊊ ⋯ ⊊ Σ_n = Σ, so its factors are Σ_{i+1}/Σ_i for 0 ≤ i ≤ n − 1; Σ_{n+1} is undefined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+    "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+    "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+   ],
+   "owner": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+   "file": "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.result.json",
+   "citation": "Fakhruddin–Khare–Patrikis, \"Lifting and automorphy of reducible mod p Galois representations over global fields\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E4",
+   "kind": "misprint",
+   "locator": "Lemma A.10(1), p. 47 (arXiv v5)",
+   "printed": "(1) r̄_i is absolutely irreducible for i = 1, 2 …, r.",
+   "correction": "(1) r̄_i is absolutely irreducible for i = 1, 2, …, s.",
+   "reason": "In §A.1.2 r̄ ≅ ⊕_{i=1}^s r̄_i and conditions (2), (3) of the lemma range over i ≠ j ∈ {1, …, s}; the letter r is carried over from Lemma A.9.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+    "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+    "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+   ],
+   "owner": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+   "file": "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.result.json",
+   "citation": "Fakhruddin–Khare–Patrikis, \"Lifting and automorphy of reducible mod p Galois representations over global fields\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E5",
+   "kind": "misprint",
+   "locator": "Definition A.13, p. 49, and Example A.17, p. 50 (arXiv v5)",
+   "printed": "(χ^{m_1})^σ|_{Γ_{F′}} ≠ (χ^{m_2} ⊗ κ̄^s)|_{Γ′_F}, with [F′ : F] ≤ N (and (χ^{±1})^σ|_{Γ_{F′}} ≠ (χ^{±1} ⊗ κ̄^n)|_{Γ′_F} in Example A.17)",
+   "correction": "(χ^{m_2} ⊗ κ̄^s)|_{Γ_{F′}}, for all F′/F with [F′ : F] ≤ N (and likewise |_{Γ_{F′}} in Example A.17)",
+   "reason": "Both sides are restrictions to the absolute Galois group Γ_{F′} of the extension F′ of degree ≤ N; 'Γ′_F' is not defined, and the use in the proof of Lemma A.14 compares characters of Γ_L with [L ∩ F^{ab} : F] ≤ N.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+    "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+    "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+   ],
+   "owner": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+   "file": "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.result.json",
+   "citation": "Fakhruddin–Khare–Patrikis, \"Lifting and automorphy of reducible mod p Galois representations over global fields\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E6",
+   "kind": "misprint",
+   "locator": "Proof of Lemma B.4, p. 55 (arXiv v5)",
+   "printed": "dim(𝔟_0) + h²(Γ_{F_v}, r(𝔟_0)) + dim(𝔟_0)[F_v : ℚ_p] − (dim(𝔟_0/𝔫_0) + [F_v : ℚ_p] dim(𝔟_0/𝔫_0) − dim(𝔟_0/𝔫_0)) = dim(𝔟_0) + h²(Γ_{F_v}, r(𝔤_0)) + dim(𝔫_0)[F_v : ℚ_p].",
+   "correction": "… = dim(𝔟_0) + h²(Γ_{F_v}, r(𝔟_0)) + dim(𝔫_0)[F_v : ℚ_p].",
+   "reason": "The h² term is carried unchanged from the left side, and the conclusion two lines later uses h² = h²(Γ_{F_v}, r(𝔟_0)); r = gρ_yg^{−1} takes values in B_0, and 𝔤_0 appears nowhere else.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+    "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+    "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+   ],
+   "owner": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+   "file": "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.result.json",
+   "citation": "Fakhruddin–Khare–Patrikis, \"Lifting and automorphy of reducible mod p Galois representations over global fields\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E7",
+   "kind": "misprint",
+   "locator": "Proof of Lemma B.4, p. 55 (arXiv v5)",
+   "printed": "it suffices now to compute for each closed point y ∈ Spec(R^{△λ}_ρ̄[1/p])^∧_y) a lower bound on the dimension of each irreducible component of R^{△λ}_ρ̄[1/p])^∧_y) ≅ O^∧_{𝒢_λ[1/p],ỹ}",
+   "correction": "for each closed point y ∈ Spec(R^{△λ}_ρ̄[1/p]) a lower bound on the dimension of each irreducible component of (R^{△λ}_ρ̄[1/p])^∧_y ≅ O^∧_{𝒢_λ[1/p],ỹ}",
+   "reason": "The parentheses do not balance, and y is a closed point of Spec(R^{△λ}_ρ̄[1/p]) (as in the bullet points on p. 54), not of its completion at y.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01085-7: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:10.1007/s00222-021-01085-7, 23 September 2026)",
+    "arXiv 2008.12593: v1 (28 August 2020) to v5 (15 October 2021), v5 being the final version 'to appear in Invent. Math'; no later version exists",
+    "The article page on Springer Link (doi:10.1007/s00222-021-01085-7), 23 September 2026: published 12 November 2021, no correction or erratum notice; the published text is paywalled and was not compared"
+   ],
+   "owner": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+   "file": "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.result.json",
+   "citation": "Fakhruddin–Khare–Patrikis, \"Lifting and automorphy of reducible mod p Galois representations over global fields\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E1",
    "kind": "misprint",
    "locator": "Lemma 2.1.8, proof, last line, p. 10 (arXiv v2; not present in v1)",
