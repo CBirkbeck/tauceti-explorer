@@ -5534,8 +5534,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1332"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1332",
+   "finishedAt": "2026-09-23T11:54:19Z"
   },
   {
    "id": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -30639,7 +30640,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-GILLE-PARIMALA-26",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-GILLE-PARIMALA-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1790"
   },
   {
    "id": "ERRATA-PAPER-MARTIN-25",
