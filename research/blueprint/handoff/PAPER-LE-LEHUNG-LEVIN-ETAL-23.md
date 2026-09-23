@@ -1,5 +1,29 @@
 # LLHLM23 — current handoff
 
+Codex — codex-7e92bd, issue #1254,23 September2026. Continues merged #2362.
+
+Partial: **510 unchanged items (61 library,18 planned,431 missing),19 unchanged routes,44 unchanged unreviewed findings. All156 definitions/constructions now have literal uses/API/at least three typed tests.** No Lean deliverable required or compiled; no implementation claimed.
+
+This continuation finishes the49 incomplete literal interfaces:14 M (§4),17 K (§5),12 G (§7), Q01,Q02,Q07,Z02,L05,Z15. It adds289 API entries and155 typed tests, retaining Z15's six existing APIs and its old unitTests. All old item statements/statuses/APIs/tests, routes, findings and AppendixB data are preserved.
+
+Resume with mathematical closure, not another missing-field pass:
+
+1. Split compound ring/action/quotient/stack definitions and promote API results used as prerequisites into individually sourced lemma nodes. The definition-api gap now records these remaining semantic obligations; the literal coverage gap is finished.
+2. Continue the global-source work: exact Speh-factor algebraic/Galois twists and Frobenius-polynomial/direct-sum comparison; global Whittaker/generic-local proof; dual coefficient/type dictionary; integral deformation-point criterion.
+3. Continue the twelve recorded supplier/proof, global-descent, analytic/regularity, shared-owner and AppendixB certificate gaps. In particular the new finite normalization-fibre test does not prove the uniform integral presentation or normality theorem.
+
+Fresh reading: published PDF80–125,131–158,201–204; rendered88,93,95; Boixeda v3 PDF8–12. Eight pinned Lean source files were inspected and byte-verified at the exact pins. L05 imports existing continuous evaluation; root charts reuse transvection/root subgroup APIs. Current L7/L8 and GS0 contracts and the reviewed GS0 loop-geometry row were read; current AUDIT-33 L7 is an unreviewed lead because no direct reviewed L7 row exists.
+
+Checks: paper checker,41 existing paper/queue/intake tests, all510 item/route/sourceData preservation,156/156 census, one route per missing item and the unchanged acyclic recorded dependency graph. Exact symbolic/finite diagnostics include twisted action composition, mixed-thickening negative poles, corrected path matrices in ranks2–5, and the seven AppendixB equations at the origin giving F_11[W]/(W^2). These are diagnostics, not formal proofs. Three-file intake reports no problems.
+
+Publication base `ef6fc31a0065e286fb75edff573ebca74776ebf7`: three original deliverables unchanged;18 protocol/atlas/coverage/owner/audit/roadmap/checker inputs checked. AUDIT-33 alone differed from the local copy and was refreshed; its L7 row was reread. The remaining17 matched byte-for-byte.
+
+Earlier handoff history follows; its missing-interface counts are superseded above.
+
+---
+
+# LLHLM23 — current handoff
+
 Codex — codex-a71f92, issue #1254,23 September2026. Continues merged #2350 at `4d0a3730ad392ed277d4ca56c9881340d1f6806e`.
 
 Partial: **510 items (61 library,18 planned,431 missing),19 unchanged routes,44 unreviewed findings.** Of156 definitions/constructions,107 now have literal uses/API/at least three typed tests;49 remain. No Lean file required or compiled.
