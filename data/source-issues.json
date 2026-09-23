@@ -42845,9 +42845,9 @@
    "owner": "PAPER-FU-24",
    "file": "research/blueprint/papers/PAPER-FU-24.result.json",
    "citation": "Weibo Fu, \"Sharp bounds for multiplicities of Bianchi modular forms\", Annals of Mathematics 200 (2024), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FU-24",
+   "reviewReason": "Confirmed at published p. 125. Equation (2) is printed as dim_C H_c^{r₁+r₂}(Y(K_f), W_k) = 2^{r₁} dim_C S_k(K_f), and the following sentence says the space of cusp forms 'corresponds to the first compactly supported cohomology … by the Eichler–Shimura isomorphism (2)'. Eichler–Shimura identifies cusp forms with cuspidal (interior) cohomology; H_c carries boundary contributions as well, so the identification as printed is with the wrong group. The extraction is right that nothing downstream moves, since the boundary terms are bounded by a constant times the number of cusps, which the paper's degree-one saving absorbs. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2."
   },
   {
    "id": "PAPER-FU-24/E2",
@@ -42866,9 +42866,9 @@
    "owner": "PAPER-FU-24",
    "file": "research/blueprint/papers/PAPER-FU-24.result.json",
    "citation": "Weibo Fu, \"Sharp bounds for multiplicities of Bianchi modular forms\", Annals of Mathematics 200 (2024), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FU-24",
+   "reviewReason": "Confirmed at published p. 138. Equation (16) prints D_r(G,K) = {Σ λ_α b^α : sup_α |λ_α| r^{|α|} < ∞}, while the line above defines D_r(G,K) as the completion of D(G,K) for ‖·‖_r. A non-archimedean completion with respect to a sup-norm on an orthogonal basis is the space of series whose terms tend to zero, not the bounded ones — the difference between c₀ and ℓ^∞ — so the displayed set is strictly larger than the object being defined. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2."
   },
   {
    "id": "PAPER-FU-24/E3",
@@ -42887,9 +42887,9 @@
    "owner": "PAPER-FU-24",
    "file": "research/blueprint/papers/PAPER-FU-24.result.json",
    "citation": "Weibo Fu, \"Sharp bounds for multiplicities of Bianchi modular forms\", Annals of Mathematics 200 (2024), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FU-24",
+   "reviewReason": "Confirmed at published p. 147. Remark 5.8's second bullet prints 'The infinitesimal character λ is induced if and only if the valuation λ₀ is at least 2', and the justification it gives — 'since for any continuous character χ : T ≃ 1+pZ_p → 1+pZ_p, dχ(p²h₂) ∈ p²Z_p' — proves only that an induced character has v(λ₀) ≥ 2. The converse needs a square root to exist, which is the extraction's point; I verified its p = 3 instance to the extent that 2λ(Δ)+1 = 3 is not a square in Z_3, so that λ is not induced although its valuation is admissible. I did not re-derive the paper's normalisation of λ₀ against λ(Δ), so the exact form of the corrected criterion rests on the extraction. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2."
   },
   {
    "id": "PAPER-FU-24/E4",
@@ -42908,9 +42908,9 @@
    "owner": "PAPER-FU-24",
    "file": "research/blueprint/papers/PAPER-FU-24.result.json",
    "citation": "Weibo Fu, \"Sharp bounds for multiplicities of Bianchi modular forms\", Annals of Mathematics 200 (2024), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FU-24",
+   "reviewReason": "Confirmed, and the argument is short enough to check outright. Equation (17) at published p. 138 sets S₀ := ⋃_{a≥0} (p^a + m^{a+1}) ⊆ R[[G]] with R the ring of integers of a finite extension K/Q_p. If K is ramified then p ∈ m², so for every a ≥ 1 we have p^a ∈ m^{2a} ⊆ m^{a+1}, whence −p^a ∈ m^{a+1} and 0 = p^a + (−p^a) ∈ p^a + m^{a+1} ⊆ S₀. A multiplicative set containing 0 localises to the zero ring, so the microlocalisation defined from S₀ is trivial for ramified R. Taking R = Z_p or unramified, as [AW13, §10] does, and base-changing to K is the right reading. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2."
   },
   {
    "id": "PAPER-FU-24/E5",
@@ -42929,9 +42929,9 @@
    "owner": "PAPER-FU-24",
    "file": "research/blueprint/papers/PAPER-FU-24.result.json",
    "citation": "Weibo Fu, \"Sharp bounds for multiplicities of Bianchi modular forms\", Annals of Mathematics 200 (2024), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FU-24",
+   "reviewReason": "Located at published pp. 145–146 and 147. The proof passes from the associated graded ring gr_{r′} D_r^λ ≃ gr_{r′} D_r / gr_{r′}(p²Δ + λ₀) being a domain to D_r^λ being one, which needs the filtration induced on the quotient to be separated — i.e. D_r ∩ D_{r′}(p²Δ + λ₀) = D_r(p²Δ + λ₀) — and that step is not made. I verified that the proof as printed contains no such argument; I did not establish whether the separatedness in fact holds, so the extraction's classification as a gap rather than an error is the right one and I have not strengthened it. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2."
   },
   {
    "id": "PAPER-FU-24/E6",
@@ -42950,9 +42950,9 @@
    "owner": "PAPER-FU-24",
    "file": "research/blueprint/papers/PAPER-FU-24.result.json",
    "citation": "Weibo Fu, \"Sharp bounds for multiplicities of Bianchi modular forms\", Annals of Mathematics 200 (2024), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FU-24",
+   "reviewReason": "Confirmed at published p. 125. Theorem 1.2(3) prints dim_C S_k(K_f) ≤_{K_f} (min_{1≤i≤r} k_i)^{−1} O(Δ(k)) and Corollary 1.3 prints dim_C H_c^n(Y(K_f), W_k) ∼_{K_f} k. Both are notation slips rather than mathematical errors: the index i ranges over the archimedean places, r₁ + r₂ of them, and ∼_{K_f} is two-sided boundedness by positive constants depending on K_f, neither of which the paper states. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2."
   },
   {
    "id": "PAPER-FU-24/E7",
@@ -42971,9 +42971,9 @@
    "owner": "PAPER-FU-24",
    "file": "research/blueprint/papers/PAPER-FU-24.result.json",
    "citation": "Weibo Fu, \"Sharp bounds for multiplicities of Bianchi modular forms\", Annals of Mathematics 200 (2024), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FU-24",
+   "reviewReason": "Confirmed at published p. 145: 'Theorem 5.7. Let p be an odd prime. If 1/p < r < 1, then D_r^λ(G, Q_p) is an integral domain', with λ an arbitrary infinitesimal character. The extraction's counterexample turns on λ of small valuation making Δ − λ a unit, so that D_r^λ is the zero ring, which is not an integral domain; the hypothesis v_p(λ₀) ≥ 2 — satisfied in the only case the paper uses — excludes it. I verified the statement as printed and that no such hypothesis appears in it or in the proof; I did not recompute the norm ‖Δ‖_r, so the numerical instance rests on the extraction. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2."
   },
   {
    "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E1",
@@ -75535,9 +75535,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Checked on the page image of p. 5 and in the TeX. With d = 0, N = O satisfies the condition for every X, so the 'if' direction would make every Num_{X/k} constant. It fails for P¹_ℂ as an ℝ-scheme, whose geometric Num is Z² with the summands exchanged by conjugation. The sufficiency proof ('trivial on some subgroup of finite index') and the use of Lemma 1.1 in the proof of Proposition 1.2 both need d ≥ 1."
   },
   {
    "id": "PAPER-SCHROER-23/E2",
@@ -75558,9 +75558,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Checked on the page image of p. 7 and in the TeX. V appears only two sentences later, as the affine hull of U. The same paragraph also writes f for f′ (recorded separately)."
   },
   {
    "id": "PAPER-SCHROER-23/E3",
@@ -75581,9 +75581,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Checked on the page images of pp. 8–9 and in the TeX. §2 fixes the surface S and the contraction f: S → Z; X is §1's notation. The extraction's quote omits the fourth occurrence on p. 9, which the correction adds."
   },
   {
    "id": "PAPER-SCHROER-23/E4",
@@ -75604,9 +75604,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Confirmed. E × P¹_{F_q} → P¹ has constant Num, and its fibre over a rational point is the elliptic curve E: (ii) holds, (iii) fails. The failing step is 'The curve C ⊗ Ω is birational to P¹_Ω, because Γ(S_ā) → Γ(S_a) is a graph isomorphism'. A graph isomorphism says nothing about rationality. The correct input is the Kodaira–Néron classification (/189): every component of a singular fibre of a relatively minimal genus-one fibration is rational. Relative minimality is also needed. Blowing up E × P¹ at an F_q-point gives a reducible fibre Ẽ + L over a rational point, with Num constant and Ẽ elliptic. The paper uses (ii)⇒(iii) only in Proposition 9.2 and for the counts of Proposition 3.2, and both concern singular fibres. The locator should read pp. 10–11."
   },
   {
    "id": "PAPER-SCHROER-23/E5",
@@ -75627,9 +75627,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Checked on the p. 14 image and in the TeX (\"f_1\\star f_2=f_1+f_2+ b\\otimes f_1\\otimes f_2\"). With f²=af, g²=ag and h=f+g+cfg, h²−ah=(c²a²+3ca+2)fg=(ca+1)(ca+2)fg. With ab=2 this vanishes for c=−b (ca=−2), but for c=+b it equals 12fg. Over Z with (a,b)=(1,2) and f=g=1, the printed law gives 4, and 4²≠4. With the minus sign, (R,1,2) gives Z/2 (symmetric difference of idempotents) and (R,2,1) gives μ₂ via u=1−f, as the paper states. The group law is used nowhere else."
   },
   {
    "id": "PAPER-SCHROER-23/E6",
@@ -75650,9 +75650,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Checked on the p. 16 image and in the TeX. The global cover 𝔛 exists only over Z[1/2], and A=W(F̄₂) is not a Z[1/2]-algebra, so '𝔛⊗A' is undefined. The cover over A given by Proposition 5.4(ii) is unique, since H¹(A,Z/2)=0 (A strictly henselian). X_F differs from its generic fibre by a class in F^×/F^{×2}, which the paper never controls, so 'whence X_F has good reduction' does not follow. The group F^×/F^{×2} is indeed infinite: squares of units are ≡[x] (Teichmüller) mod 4, and 1+2u has Witt coordinates (1,ū²,…). Fontaine's Remark (a) (scan p. 3) asks for a proper smooth scheme model, while 𝔜 and 𝔛 are algebraic spaces. The statement of Proposition 5.5 survives by the repair."
   },
   {
    "id": "PAPER-SCHROER-23/E7",
@@ -75673,9 +75673,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Checked in the TeX and on p. 18. t₀⁻² is not a section of O(−2) over D₊(t₁). With the corrected sections, x=t²x′ and y=t³y′, and dividing by t⁶ gives a′ᵢ=aᵢ/tⁱ, the printed conclusion."
   },
   {
    "id": "PAPER-SCHROER-23/E8",
@@ -75696,9 +75696,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "O_J(3E)·C=0 for every vertical curve C disjoint from E, and such curves exist whenever a fibre is reducible. It could equally be classed as a misprint (Z is plainly meant)."
   },
   {
    "id": "PAPER-SCHROER-23/E9",
@@ -75719,9 +75719,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "All quotations checked in the TeX and the PDF text. In §10 the surface is called Y in its first sentence and J everywhere after."
   },
   {
    "id": "PAPER-SCHROER-23/E10",
@@ -75742,9 +75742,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "f_{0,1}=q^{−1} on H⁰(X̄,Q_ℓ(1)). The proof of Proposition 7.1 uses only f_{2j,j}=f_{2j}⊗q^{−j}."
   },
   {
    "id": "PAPER-SCHROER-23/E11",
@@ -75765,9 +75765,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Checked on p. 21 and in the TeX; k=F_q throughout §7."
   },
   {
    "id": "PAPER-SCHROER-23/E12",
@@ -75788,9 +75788,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Γ(C) (§2) has an edge exactly when two components meet. I_n (n≥3) and IV give cycles. A terminal component of II* or III* can have multiplicity 2 or 3, and a rational point on it does not give a section. The conclusion survives with the amended choice."
   },
   {
    "id": "PAPER-SCHROER-23/E13",
@@ -75811,9 +75811,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Br(F₂(t))≠0: the cyclic algebra (F₄(t)/F₂(t), t) does not split, since norms from F₄(t) have even valuation at t=0. The recorded repair is correct: Pic(Ȳ)→MW(J̄/P̄¹) is surjective by Tsen over F̄₂(t), Galois-equivariant, and has Galois-trivial source."
   },
   {
    "id": "PAPER-SCHROER-23/E14",
@@ -75834,9 +75834,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "x_P=(P−O)−(1+P·O)F equals Θ₁*+y with y⊥W_ā, and x_P²=−2−2(P·O) while (Θ₁*)²=−1, so the map is not an isometry. The repair is correct. Under the contrary hypothesis the image of W in W_ā* is W_ā+ZΘ₁*. (Θ₁*)²=−1 for the vector end of D_{m+4}, so Θ₁* pairs integrally with W. As W=W^#, Θ₁*∈W, which contradicts the evenness of W."
   },
   {
    "id": "PAPER-SCHROER-23/E15",
@@ -75857,9 +75857,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "In characteristic 2, c₄=a₁⁴. At a smooth supersingular fibre a₁ vanishes while the fibre is smooth; for example y²+y=x³+t has c₄=0 identically and smooth fibres at t=0 and t=1. The argument uses only 'unstable ⇒ c₄(x)=0', which the correction keeps. Checked on p. 29 and in the TeX."
   },
   {
    "id": "PAPER-SCHROER-23/E16",
@@ -75880,9 +75880,9 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Checked on the p. 30 and p. 31 images. The twisted case contains a genuine error beyond this misprint, recorded as a new issue."
   },
   {
    "id": "PAPER-SCHROER-23/E17",
@@ -75903,9 +75903,603 @@
    "owner": "PAPER-SCHROER-23",
    "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
    "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "Both checked on the page image of p. 43 and in the TeX (\\(q:A_R\\ra\\QQ/2\\ZZ\\), \\(\\Pic(Y_K)=\\Num(Y)/S\\)). No lattice R is defined in Proposition 12.3; the discriminant group is A_S=S*/S. Num(Y)/S has order 2, while Pic(Y_K)=Pic⁰(Y_K)⊕2Z (the splitting in the previous sentence) is infinite. The parallel sentence in the proof of Proposition 12.2 (p. 42) has Pic⁰(Y_K)=Num(Y)/S."
+  },
+  {
+   "id": "PAPER-SCHROER-23/E18",
+   "kind": "error",
+   "locator": "Proposition 1.2, p. 6 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Suppose X is one-dimensional. Then the local system Num_{X/k} is constant if and only if Γ(X̄) → Γ(X) is a graph isomorphism.",
+   "correction": "Suppose every irreducible component of X is one-dimensional.",
+   "reason": "§1 explicitly allows non-equidimensional X ('even if X fails to be … equidimensional', p. 5). For k = ℝ and X = P¹_ℝ ⊔ Spec ℂ, the finite summand contributes nothing to Pic, so Num_{X/ℝ} = Z is constant. But Γ(X_ℂ) has three vertices and Γ(X) has two. The proof uses a degree (L·C_i) and an effective Cartier divisor on every component, and neither exists for an isolated point. The paper never uses Proposition 1.2 again.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E19",
+   "kind": "misprint",
+   "locator": "proof of Proposition 1.2, p. 6 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Let E₁, …, E_s ⊂ X̄ be the irreducible components. Fix some 1 ≤ i₀ ≤ s, and choose some effective Cartier divisor on X supported by E_{i₀} but disjoint from the other components.",
+   "correction": "… some effective Cartier divisor on X̄ supported by E_{i₀} …",
+   "reason": "Checked on a 400 dpi crop of p. 6: E_s ⊂ X̄ carries the bar, 'on X' does not. E_{i₀} lives on X̄, and Lemma 1.1 is then applied to the invertible sheaf of this divisor on X̄.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E20",
+   "kind": "error",
+   "locator": "proof of Lemma 1.1, p. 5 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Set X′ = X ⊗ E and P′ = Pic_{X′/E}, and view them as k-schemes. … Note that the term on the right is zero, because the coefficient sheaf R¹pr_*P′ vanishes, by the arguments for Lemma 1.4 below.",
+   "correction": "P′ = Pic^τ_{X′/E} = P ⊗_k E, so that the norm maps H¹(k, pr_*P′) to H¹(k, P). Delete the vanishing claim. The five-term exact sequence 0 → H¹(k, pr_*P′) → H¹(E, P′) → H⁰(k, R¹pr_*P′) already makes the first map injective, and that is all the argument uses (pr*(l) ↦ 0, hence pr*(l) = 0 and n·l = N(pr*(l)) = 0).",
+   "reason": "With P′ the whole Picard scheme, l maps to 0 in H¹(k, Pic_{X/k}) from the start, because T ⊂ Pic_{X/k} is a sub-torsor, so the argument would say nothing about l ∈ H¹(k, P). The vanishing claim is false in general. Lemma 1.4's argument concerns G_m, but P′ can be non-reduced, and E = κ(a) can be inseparable: a torsor under a non-reduced group may have no separable point. Take k = F₂(c), E = k(√c) and P′ = μ₂, the τ-part of an ordinary Enriques surface (/37). Squares in E ⊗_k A = A ⊕ A√c lie in A, so the class of √c in (E⊗A)^×/(E⊗A)^{×2} ⊂ H¹(E ⊗ A, μ₂) is nonzero for every nonzero k-algebra A. Hence R¹pr_*μ₂ ≠ 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E21",
+   "kind": "misprint",
+   "locator": "proof of Theorem 1.3, p. 7 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "the given contraction is a pair (f′, ϕ′) where f : |X′| → |Y′| is a continuous map and ϕ′ : O_{Y′} → O_{X′} is an f′-homomorphism",
+   "correction": "f′ : |X′| → |Y′|",
+   "reason": "Checked on the page image of p. 7. f is introduced two sentences later, as the map |X| → |Y| with f = f′ under |X| = |X′|.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E22",
+   "kind": "misprint",
+   "locator": "proof of Lemma 1.4, p. 8 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "We show that the edge map H²(X, G_m) → H²(S, h_*(G_m)) is bijective by checking that R^ih_*(G_m) = 0 for i = 1, 2.",
+   "correction": "the edge map H²(S, h_*G_m) → H²(X, G_m)",
+   "reason": "The Leray edge map runs from E₂^{2,0} = H²(S, h_*G_m) to H²(X, G_m). Vanishing of R¹h_* and R²h_* makes it bijective.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E23",
+   "kind": "error",
+   "locator": "§2, p. 8 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Now let f : S → Z be a contraction. Then either Z is a geometrically normal surface and the morphism is birational, or Z is a smooth curve and the morphism is of fiber type.",
+   "correction": "Add the third case Z = Spec k, with f the structure morphism.",
+   "reason": "Since h⁰(O_S) = 1, the structure morphism satisfies O_Z = f_*O_S, so it is a contraction. Theorem 2.1 excludes this case by assuming S_ā one-dimensional, so nothing later changes.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E24",
+   "kind": "gap",
+   "locator": "Theorem 2.1(ii) and its proof, p. 8 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Assertion (ii) is an immediate consequence from (i) and the definitions, and left to the reader.",
+   "correction": "Let D_i, D_j be distinct components of S_a with geometric components C_i = D_i ⊗_{κ(a)} Ω and C_j. The labels are (D_i·D_j) on S over k and (C_i·C_j) on S_Ω. Since (D_i ∩ D_j) ⊗_{κ(a)} Ω = C_i ∩ C_j, we get (D_i·D_j) = [κ(a):k]·(C_i·C_j). So (ii) needs κ(a) = k whenever S_ā is reducible, and this holds. By (iii), κ(a)/k is purely inseparable, of degree q say. E ⊗_k Ω is local of length q, so D_i ⊗_k Ω = q·C_i as divisors on the smooth surface S_Ω, and (D_i·D_j) = q²(C_i·C_j). S_ā is connected, so some pair has (C_i·C_j) > 0, and comparing the two formulas gives q = 1.",
+   "reason": "The definitions alone do not give (ii). At a closed point with κ(a) ≠ k, intersection numbers on S are multiplied by [κ(a):k]. The missing equality κ(a) = k needs the argument above, which uses the smoothness of S. In the paper's only application (Proposition 3.1, over a finite field), (iii) gives κ(a) = k directly, so no later result is affected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E25",
+   "kind": "gap",
+   "locator": "proof of Theorem 2.1, p. 9 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Now suppose r ≥ 2. Then the curves C₁ + … + C_{r−1} and C₂ + … + C_r are negative-definite. Using the previous paragraph, we infer that Γ(S_ā) → Γ(S_a) is again a graph isomorphism.",
+   "correction": "Show directly that distinct components have distinct classes. For i ≠ j, (C_i − C_j)·C_i = C_i² − (C_i·C_j) < 0, since C_i² < 0 (Zariski's lemma, r ≥ 2) and (C_i·C_j) ≥ 0. So [C_i] ≠ [C_j] in Num_{S/k}(Ω), and since Galois acts trivially on Num, it fixes every C_i.",
+   "reason": "Injectivity on the two sub-curves shows only that σ ∈ Aut(Ω/κ(a)) fixes every C_i except possibly by exchanging C₁ and C_r, because neither sub-curve contains both. For r = 2 the sub-curves are C₁ and C₂ separately, and nothing excludes [C₁] = [C₂]. The conclusion is right, and the fix takes one line.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E26",
+   "kind": "misprint",
+   "locator": "§3, p. 9 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Then the intersection matrix N = (C_i · C_j)_{1≤i,j≤r} is negative-semidefinite, and the radical of the intersection form on the lattice L = ⊕_{i=0}^r ZC_i is generated by m₀C₀ + … + m_rC_r.",
+   "correction": "N = (C_i · C_j)_{0≤i,j≤r}",
+   "reason": "Here the components are C₀, …, C_r, and the lattice L is indexed from 0. The matrix without C₀ is negative definite, with zero radical.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E27",
+   "kind": "misprint",
+   "locator": "Proposition 3.2 and its proof, p. 11 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Let C = f^{-1}(a) be a schematic fiber over a rational point a ∈ P¹ … The computation of n ≥ 0 follows directly by comparing C = f^{-1}_red(a) with its normalization C′ = P¹ ∪ … ∪ P¹",
+   "correction": "a ∈ B; 'The computation of Card C(F_q)'; C′ = P¹ ⊔ … ⊔ P¹.",
+   "reason": "Proposition 3.2 takes the assumptions of Proposition 3.1, whose base is B. The symbol n is never defined; the table lists Card C(F_q). The normalization of a curve with r components is the disjoint union of the normalizations of its components.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E28",
+   "kind": "error",
+   "locator": "§1, p. 6 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Any morphism Z′ → Z that sends irreducible components to irreducible components, in particular flat maps, induces a map Γ(Z′) → Γ(Z) between vertex sets that sends edges to edges.",
+   "correction": "… that sends each edge to an edge or to a single vertex. When the map is bijective on vertices, it sends edges to edges.",
+   "reason": "X = {x² + y² = 0} ⊂ A²_ℝ is irreducible, but X_ℂ has two components meeting at the origin, and both map to the one component of X. So the edge of Γ(X_ℂ) has no image edge. The graph isomorphisms used later are bijective on vertices, where the claim holds.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E29",
+   "kind": "error",
+   "locator": "Introduction, p. 3 (third displayed theorem); the same claim opens §10, p. 27 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Theorem. (see Thm. 10.4 and Thm. 10.5) Up to isomorphisms, there are exactly eleven Weierstraß equations y²+a₁xy+… = x³+a₂x²+… with coefficients a_i ∈ F₂[t] that define a geometrically rational elliptic surface φ : J → P¹ with constant Picard scheme Pic_{J/F₂} having at most one rational point a ∈ P¹ where J_a is semistable or supersingular.",
+   "correction": "There are exactly fourteen such Weierstraß equations up to isomorphism: the eleven of Theorems 10.4 and 10.5 and the three recorded in the Theorem 10.4 issue. The paper shows only that every such surface is among its eleven, not that each has constant Picard scheme; the review's exhaustive search confirms that all fourteen do (for geometrically rational J, constant Picard scheme is equivalent to #J(F₂) = 25).",
+   "reason": "Theorems 10.4 and 10.5 say that under assumptions (i)–(ii) of §10 the fibration 'is given by exactly one of' the listed equations, and their proofs derive only necessary conditions. The converse would need Theorem 9.4, whose hypotheses include descent of every geometric Mordell–Weil section, and that is never checked. The TeX never cites Theorem 9.4 (\\ref{constant pic}). The main theorem uses only the necessary direction, which /115 and /117 state correctly. Moreover the list itself is incomplete (Theorem 10.4 issue), so the count 'eleven' is wrong, not only unproved.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E30",
+   "kind": "misprint",
+   "locator": "proof of Proposition 5.4(iii), p. 15 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Using Pic(R) = 0 we obtain a trivialization φ : 𝒪_𝔜 → ℒ^{⊗2}. We endow the locally free sheaf 𝒜 = 𝒪_𝔜 ⊕ ℒ^{⊗−1} with an algebra structure, by declaring (a, b)·(a′, b′) = (aa′ + φ^{−1}(bb′), ab′ + a′b).",
+   "correction": "(a,b)·(a′,b′) = (aa′ + φ^∨(bb′), ab′ + a′b), where φ^∨ : ℒ^{⊗−2} → 𝒪_𝔜 is the dual of φ (equivalently, take 𝒜 = 𝒪_𝔜 ⊕ ℒ and use φ^{−1}).",
+   "reason": "Checked on the p. 15 image and in the TeX. For b,b′∈ℒ^{⊗−1} the product bb′ lies in ℒ^{⊗−2}, while φ^{−1} is defined on ℒ^{⊗2}, so the printed formula does not typecheck. The intended μ₂-torsor (the cover attached to the 2-torsion sheaf ℒ≅ℒ^{−1}) is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E31",
+   "kind": "misprint",
+   "locator": "proof of Proposition 5.4, last paragraph, p. 15 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "It remains to treat general rings R. Since f : 𝔛 → Spec(R) is of finite presentation, it comes from a family of Enriques surfaces over some noetherian subring R′.",
+   "correction": "Since f : 𝔜 → Spec(R) is of finite presentation …",
+   "reason": "Checked on the p. 15 image; the TeX has \\foX. The family of Enriques surfaces is f : 𝔜 → Spec(R), as fixed at the start of §5. 𝔛 is the covering being constructed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E32",
+   "kind": "misprint",
+   "locator": "paragraph before Theorem 5.6, p. 16 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "When combined with suitable assumptions on the Picard group or the Picard group of the base ring R, our constancy condition on the Picard scheme have remarkable consequence",
+   "correction": "… on the Picard group or the Brauer group of the base ring R …",
+   "reason": "Checked on the p. 16 image. Theorem 5.6, which the sentence introduces, assumes that Pic(R) and Br(R) vanish.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E33",
+   "kind": "misprint",
+   "locator": "proof of Proposition 5.5, p. 16 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "We now consider the ring of Witt vectors A = W(F₂^sep), which is the maximal unramified extension of the local ring Z₂.",
+   "correction": "… which is the completion of the maximal unramified extension (the strict henselization) of Z₂.",
+   "reason": "Checked on the p. 16 image. The maximal unramified extension colim_n W(F_{2^n}) is henselian but not 2-adically complete; W(F̄₂) is its completion. Nothing depends on the difference: Hensel lifting works for both, and Fontaine's Remark (a) is stated for W(F̄_p). It is a terminology slip.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E34",
+   "kind": "error",
+   "locator": "Theorem 10.4, p. 29, and its proof, p. 31 (twisted semistable case); the count in the introduction to Section 10, p. 28 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Up to coordinate changes and automorphisms of the projective line, the fibration φ:J→P¹ is given by exactly one of the following eight Weierstraß equations … If the semistable fiber is twisted, we have r_c≤2 and n_c=2r_c+2. Now (11) becomes r_a+i+r_c=11 and thus r_c≥11−i−r_a≥7, and the argument is similar. Summing up, we have the following possibilities: I₁*+E₄+I₄, III*+E₄+I₂, III*+E₂+Ĩ₂, II*+E₄+I₁, II*+E₂+Ĩ₁. … (p. 28) It turns out that there are exactly eleven such Weierstraß equations",
+   "correction": "The twisted case also gives I₂*+E₄+Ĩ₂, I₃*+E₄+Ĩ₁ and IV*+E₄+Ĩ₂. Theorem 10.4 has eleven models, not eight, and §10 has fourteen equations in all. The additional models, with fibres over t=0, 1, ∞, are: y²+txy+t³y=x³+x² [I₂*+E₄+Ĩ₂, Δ=t¹⁰, j=t²]; y²+txy+t³y=x³+tx² [I₃*+E₄+Ĩ₁, Δ=t¹¹, j=t]; y²+txy+t²y=x³+t²x² [IV*+E₄+Ĩ₂, Δ=t⁸(t²+t+1), j=t⁴/(t²+t+1), plus I₁ over t²+t+1=0]. Theorem 10.5 is correct. Proposition 11.1 (p. 33) and the key-reduction proposition of §11 take their elliptic column from Theorem 10.4. The proof of Theorem 15.1 reduces every fibration to I₁*+I₄ or I₂*+III+III. All of these must treat the three configurations; I₃* is never mentioned in §§11–15. On an Enriques surface Y, the multiple fibres would lie over the unstable and the E₄ points, because Ĩ₁ and Ĩ₂ are semistable. Until then the proof of the main theorem has a gap at this point. Whether the configurations occur on a non-exceptional Enriques surface over F₂ with constant Picard scheme is not settled here.",
+   "reason": "Checked by hand for y²+txy+t³y=x³+x². Δ=t¹⁰. At t=0 (Tate's algorithm): the reduction y²=x³+x² is singular at (0,0), and b₂=t², so the fibre is additive; v(a₆)=∞, v(b₈)=6, v(b₆)=6. The change y↦y+x gives a₂=t, a₄=t³ and P(T)=T³+T²=T²(T+1). Then a_{3,2}=a_{6,4}=0, and a_{2,1}X²+a_{4,3}X+a_{6,5}=X²+X has distinct rational roots. So I₂* with c=4, all seven components defined over F₂, 15 points. At ∞: y²+xy+y=x³+s²x², Δ′=s², node at (1,1) with tangent polynomial T²+T+1, so non-split I₂, 6 points. At t=1: y²+xy+y=x³+x² is smooth ordinary with 4 points (E₄). Total 25, so the trace of Frobenius on NS(J̄) is 10 and Pic_{J/F₂} is constant. Condition (ii) holds: only Ĩ₂ is semistable, and E₄ is ordinary. The other two models are checked the same way: I₃* at t=0 after three steps of the I_n* loop, and IV* at t=0 (Y²+Y distinct roots, c=3). Independent checks (scripts S/tate2.py, brute.py, classify.py, lcheck.py): (1) all 2²¹ equations were enumerated through their 2¹⁸ representatives with a₂=0 (every equation becomes one via x↦x+a₂), with Tate's algorithm at every place; this gives exactly 14 isomorphism classes, taken modulo the 512 coordinate changes of degree ≤(2,1,3) and PGL₂(F₂), that satisfy (i) and (ii); these are the 11 printed and the 3 above, one class per configuration; (2) for every class, the L-function of the generic fibre was computed from naive point counts at all places of degree ≤8; it equals (1−2T)^r with r=8−Σ(m_v−1), which confirms the component counts and the Galois-trivial Mordell–Weil action independently of Tate's algorithm; (3) for all 2¹⁸ normalised equations, Ogg's formula (v(Δ)≥e, δ=0 for I_n, IV, IV*) and Σ deg(v)·v(Δ)=12 hold. The proof's other claims were also reproduced: II*+E₂+E₄, I₃*+E₄+E₄ and IV*+E₄+I₃ are excluded, d₁=1 and 1+t are equivalent in the I₄* case, the second I₁* solution is twisted, and α=1 gives E₂. The error is the unexamined twisted case ('the argument is similar'): the tuples (r_a,i,r_c)=(7,2,2) and (8,2,1) yield these configurations.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found by an exhaustive search over F₂ and checked by hand; the coordinator independently recounted points: for all three models Σ_t #J_t(F_q) = 1 + 10q + q² for q = 2, 4, 8, 16, with the stated fibre types, as for the printed III*+E₂+Ĩ₂ control"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E35",
+   "kind": "misprint",
+   "locator": "proof of Corollary 7.2, p. 21 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "We have b₀=1, and with Poincaré Duality get b₄=1 and b₁=0.",
+   "correction": "… get b₄=1 and b₃=0.",
+   "reason": "b₁=0 is a hypothesis of the corollary; Poincaré duality turns b₀=1 and b₁=0 into b₄=1 and b₃=0, which Proposition 7.1 needs (H³=0). Checked in the TeX and on p. 21.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E36",
+   "kind": "error",
+   "locator": "proof of Proposition 9.5, p. 26 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Our task is to verify that the Galois action of G=Gal(F₂^alg/F₂) on the dual graph Γ=Γ(J_ā) is trivial. Since it is a tree, it suffices that check that all terminal vertices are fixed. … For Kodaira symbols IV and IV* there are also two remaining terminal vertices besides v₀∈Γ.",
+   "correction": "For IV the dual graph (§2: an edge for each pair of meeting components) is a triangle, not a tree, and has no terminal vertices. Argue directly: Θ₀ is fixed, and a section defined over F₂ through a second component fixes it. The third component is then fixed as well.",
+   "reason": "The three components of IV pass through one point, so they meet pairwise. The lattice argument (A₂ is not unimodular) still gives such a section, so the conclusion stands.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E37",
+   "kind": "error",
+   "locator": "proof of Proposition 9.5, p. 26 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "If there is at most one further terminal vertex, it must be fixed as well. This already settles the cases where the Kodaira symbol is III, III* or II*.",
+   "correction": "For III* (Ẽ₇) and II* (Ẽ₈) there are two further terminal vertices, of multiplicities 1 and 2, resp. 2 and 3. They are fixed because the Galois action preserves multiplicities, or equivalently because these graphs have no non-trivial automorphism fixing v₀. The count 'at most one further' is right for the multiplicity-one vertices only.",
+   "reason": "Ẽ₇ has three terminal vertices (multiplicities 1, 1, 2) and Ẽ₈ has three (1, 2, 3).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E38",
+   "kind": "gap",
+   "locator": "proof of Proposition 9.3(iv), p. 25 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "The corresponding φ^{−1}_ind(a) are neither semistable nor supersingular, again by Lemma 4.3. So from the three rational points, there is only one b∈P¹ where φ^{−1}_ind(b) and hence J_b can be semistable or supersingular",
+   "correction": "For a multiple fibre whose reduction F is an ordinary elliptic curve, J_a is smooth with the same Kodaira symbol I₀ (Proposition 9.2), and J_a≅F by Corollary 8.3 (over the henselization of O_{P¹,a}). So J_a is ordinary. For simple fibres J_a≅Y_a by Proposition 9.2.",
+   "reason": "Proposition 9.2 compares Kodaira symbols only for multiple fibres, and I₀ does not distinguish ordinary from supersingular curves. The needed comparison is Proposition 8.1 or Corollary 8.3, which the proof does not cite.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E39",
+   "kind": "gap",
+   "locator": "Proposition 11.2 and its proof, p. 34 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Proposition 11.2. Assumption as in Proposition 11.1. Then there are no fibers with Kodaira symbol I8. … Moreover, there is a genus-one fibration ψ : Y → P1 so that the multiple fibers 2F have F · ϕ⁻¹_ind(0) = 1.",
+   "correction": "Add 'Assume Y is non-exceptional', as in Proposition 11.3, so that the partner fibration ψ comes from Proposition 4.4(iii). Alternatively cite Cossec–Dolgachev 1989, Theorem 3.4.1 directly. It supplies ψ unless Ȳ is extra-special of type Ẽ₈, and the (−2)-curves of such a surface form the tree T_{2,3,7} with ten vertices (Martin–Mezzedimi–Veniani, arXiv:2201.05481, Definition 1.1), which contains no cycle, so no fibre of type I₈.",
+   "reason": "The proof gives no source for ψ. In the paper the only one is Proposition 4.4(iii), stated under 'Suppose p=2, and that the Enriques surface Y is non-exceptional'. Proposition 11.1's standing assumption does not include non-exceptionality: that enters only in its second part ('If moreover…'), and Proposition 11.3 adds it explicitly. So the proof does not cover exceptional Y. Harmless for the main theorem: Proposition 11.2 is applied only in Propositions 11.3 and 11.4, both for non-exceptional Y. Checked in the TeX and on the page image.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E40",
+   "kind": "misprint",
+   "locator": "proof of Proposition 11.3, case IV, p. 38 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Let m ≥ 2 be the multiplicity of C2 ⊂ ψ⁻¹_ind(∞). From 2 ≥ ϕ⁻¹_ind(∞) · ψ⁻¹(∞) ≥ C0 · mC2 = m ≥ 2 we infer that the fiber ψ⁻¹(∞) is simple.",
+   "correction": "2 ≥ ϕ⁻¹_ind(0) · ψ⁻¹(∞) ≥ C0 · mC2 = m ≥ 2 (if ψ⁻¹(∞) were multiple the middle term would be at least 2m ≥ 4).",
+   "reason": "In this case the configuration over ∞,0,1 is IV+I₁*+E₅, so C₀,…,C₅ are the components of the I₁* fibre ϕ⁻¹(0); ϕ⁻¹_ind(∞)=C′₀+C′₁+C′₂ contains no C₀. The number is unchanged, since the two half-fibres are numerically equivalent, but the lower bound C₀·mC₂ comes from expanding ϕ⁻¹_ind(0)=C₀+C₁+2C₂+2C₃+C₄+C₅. Checked on the page image of p. 38.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E41",
+   "kind": "gap",
+   "locator": "proof of Proposition 11.3, case IV, p. 38 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Likewise, C′1 and C′2 are ψ-vertical, say contained in ψ⁻¹_ind(0), with respective multiplicities m1, m2 ≥ 1. Now 2 ≥ ϕ⁻¹_ind(∞) · ψ⁻¹(0) ≥ C′0 · (m1C′1 + m2C′2) = m1 + m2 ≥ 2, we see that also ψ⁻¹(0) is simple, contradiction.",
+   "correction": "Also treat the case where C′₁+C′₂ lies in ψ⁻¹(∞), the simple fibre already containing C₁+⋯+C₅. That fibre would contain D₅ and a disjoint, non-adjacent A₂, hence at least 8 components. II*, IV* and I₈ are already excluded, and Ẽ₇ has no such pair of subgraphs, so it is a simple I₄*. In D̃₈ the only A₂ not adjacent to a D₅ consists of a branch vertex (multiplicity 2) and an end vertex (multiplicity 1). This gives 2 = ϕ⁻¹_ind(∞)·ψ⁻¹(∞) = C′₀·ψ⁻¹(∞) ≥ 2+1 = 3, a contradiction. The printed argument covers the other case, t≠∞, where ψ⁻¹(∞) and ψ⁻¹(t) would both be simple, although ψ has two multiple fibres over rational points.",
+   "reason": "The word 'say' presumes that C′₁+C′₂ lies in a ψ-fibre different from ψ⁻¹(∞), and nothing excludes ψ⁻¹(∞). The embedding is realizable in D̃₈ (D₅={Θ₀,Θ₁,Θ₂,Θ₃,Θ₄} with centre Θ₂, A₂={Θ₆,Θ₇}), and there ψ⁻¹(∞) is simple with m=2. So the printed text does not rule the case out, but the intersection count above does. Checked on the page image of p. 38 and the dual graphs in the TeX.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E42",
+   "kind": "error",
+   "locator": "proof of Proposition 12.2, p. 42 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Without loss of generality R̃ ≡ C8*, which ensures (R̃·C8) = 1. Then (R̃·Ci) = 0 for 2 ≤ i ≤ 6, and (R̃·Cj) = 1 for exactly one j ∈ {0, 1, 7} besides j = 8. If (R̃ · C7) = 1 then R̃ ≡ C7* + C8* ≡ C1*, contradiction. So without loss of generality we may assume (R̃ · C0) = 1.",
+   "correction": "R̃·ϕ⁻¹(∞)=2 leaves 15 incidence patterns. Their classes in A_S, computed with N⁻¹ from (14): C₈* exactly for {R̃·C₀=R̃·C₈=1} and {R̃·C₁=R̃·C₇=1}; C₇* exactly for {R̃·C₀=R̃·C₇=1} and {R̃·C₁=R̃·C₈=1} (all other R̃·C_i=0); every other pattern gives 0 or C₁*. The symmetries C₀↔C₁ and C₇↔C₈ of the graph (13) preserve S (C₀=2F−C₁−2(C₂+⋯+C₆)−C₇−C₈) and permute these four patterns transitively. So one may assume R̃·C₀=R̃·C₈=1 and R̃·C_i=0 otherwise, and the rest of the proof is unchanged.",
+   "reason": "R̃≡C₈* does not force R̃·C₈=1. The two-section with R̃·C₁=R̃·C₇=1 is R̃=C₁*+C₇*+nR*+F*, which is ≡C₈* because C₁*≡C₇*+C₈* mod S. Moreover, once R̃·C₈=1, the option j=1 is not 'without loss of generality': it gives R̃≡C₇*, contradicting R̃≡C₈*. Verified in exact arithmetic (S/rv4_lattice.py) and on the page image of p. 42. The conclusion used afterwards (R̃=C₈*+nR*+F*) is correct after the symmetry reduction.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E43",
+   "kind": "gap",
+   "locator": "proof of Proposition 14.1, p. 47 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Let k be an algebraically closed ground field k of arbitrary characteristic p ≥ 0 … By [17], Theorem A the surface Y is non-exceptional. According to Proposition 4.4 there is another genus-one fibration ψ : Y → P1, with ϕ⁻¹(∞) · ψ⁻¹(∞) = 4.",
+   "correction": "For p≠2, cite Cossec–Dolgachev 1989, Theorem 3.4.1 directly (every half-fibre has a partner F′ with F·F′=1 unless the surface is extra-special of type Ẽ₈, which happens only in characteristic 2). Alternatively restrict Proposition 14.1 to p=2, the only case Theorem 15.1 uses.",
+   "reason": "Proposition 4.4 is stated only under 'Suppose p=2, and that the Enriques surface Y is non-exceptional', and Ekedahl–Shepherd-Barron's Theorem A concerns characteristic 2. Proposition 14.1 is stated for arbitrary p, so for p≠2 the cited proposition does not apply as stated. The underlying reference (quoted as Theorem 1.2 and Remark 1.5 of Martin–Mezzedimi–Veniani, arXiv:2201.05481) does cover p≠2. Theorem 15.1 is unaffected. Checked on the page image of p. 47 and the TeX of Proposition 4.4 (p. 13).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-SCHROER-23/E44",
+   "kind": "gap",
+   "locator": "Proposition 11.1, table (12), p. 33, and the proof of Theorem 15.1, pp. 49–50 (hence Theorem 5.1) (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Proposition 11.1. Let ϕ : Y → P¹ be a genus-one fibration. Up to automorphisms of the projective line, the possible configurations of fibers over the rational points t = 0, 1, ∞ are given by the following table: (12) …",
+   "correction": "Add the configurations I₂*+E₄+Ĩ₂, I₃*+E₄+Ĩ₁ and IV*+E₄+Ĩ₂ to the elliptic column of (12), coming from the three Jacobians that Theorem 10.4 omits, and exclude them on non-exceptional Enriques surfaces over F₂ with constant Picard scheme before concluding Theorem 15.1.",
+   "reason": "The elliptic column of (12) is taken from Theorem 10.4, whose list is incomplete (previous issue), and §§11–15 never treat the three omitted configurations (I₃* does not occur after §10). On such an Enriques surface the multiple fibres would lie over the unstable point and the E₄ point, because Ĩ₁ and Ĩ₂ are semistable. Whether these configurations can occur is not settled by the review, so the printed proof of the main theorem has a gap at this step.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2004.07025: versions v1–v3 (v3 of 9 August 2022, identical after the first page to the author's version of 19 July 2022)",
+    "Crossref for doi:10.4007/annals.2023.197.1.1 (Ann. of Math. 197 (2023), 1–63), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2023/197-1/p01) and a web search for an erratum or corrigendum, 23 September 2026: none found",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the preprint here is not established"
+   ],
+   "owner": "PAPER-SCHROER-23",
+   "file": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+   "citation": "Stefan Schröer, \"There is no Enriques surface over the integers\", Annals of Mathematics 197 (2023), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHROER-23",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
   },
   {
    "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E1",
