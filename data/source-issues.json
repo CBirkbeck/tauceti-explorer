@@ -3543,14 +3543,20 @@
     "arXiv 2501.18774: only v1 exists (30 January 2025), read in full",
     "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
     "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
-    "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed"
+    "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed",
+    "Independent review 2026-09-23: https://arxiv.org/abs/2501.18774 lists only v1.",
+    "https://link.springer.com/article/10.1007/s00222-025-01392-3 and its eleven-page PDF, checked at all finding locators; no correction displayed.",
+    "https://web.math.princeton.edu/~who/writing.html and https://arishnidman.github.io/ checked for a correction to this paper.",
+    "https://alpo.ge/papers/hilbert%27s%20tenth.pdf: public reader’s nine-page preprint checked at §§2.4–4; still has the old formulas. Direct download returned 403.",
+    "Title/author/erratum/correction searches; no correction found. Crossmark was opened but supplies no usable confirmation by itself; the review does not infer absence from that page.",
+    "Independent Crossref REST metadata, 2026-09-23: relation={}, no update-to/updated-by; print date March 2026, online date December 2025. This is a bounded search, not a guarantee that no correction exists anywhere."
    ],
    "owner": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
    "file": "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
    "citation": "Alpöge–Bhargava–Shnidman, \"Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
+   "reviewReason": "Confirmed algebraically for ell=3,5,7,11 and by the general substitution x^ell=(1−2rb y^ell)/a. The published p. 1135 has y^(−2); the old version has y^(−1)."
   },
   {
    "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E2",
@@ -3565,21 +3571,27 @@
     "arXiv 2501.18774: only v1 exists (30 January 2025), read in full",
     "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
     "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
-    "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed"
+    "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed",
+    "Independent review 2026-09-23: https://arxiv.org/abs/2501.18774 lists only v1.",
+    "https://link.springer.com/article/10.1007/s00222-025-01392-3 and its eleven-page PDF, checked at all finding locators; no correction displayed.",
+    "https://web.math.princeton.edu/~who/writing.html and https://arishnidman.github.io/ checked for a correction to this paper.",
+    "https://alpo.ge/papers/hilbert%27s%20tenth.pdf: public reader’s nine-page preprint checked at §§2.4–4; still has the old formulas. Direct download returned 403.",
+    "Title/author/erratum/correction searches; no correction found. Crossmark was opened but supplies no usable confirmation by itself; the review does not infer absence from that page.",
+    "Independent Crossref REST metadata, 2026-09-23: relation={}, no update-to/updated-by; print date March 2026, online date December 2025. This is a bounded search, not a guarantee that no correction exists anywhere."
    ],
    "owner": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
    "file": "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
    "citation": "Alpöge–Bhargava–Shnidman, \"Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
+   "reviewReason": "Confirmed by comparing v1 introduction p. 2 with published p. 1131 and substituting (1,1): the missing b changes the Fermat equation. The published version repairs it."
   },
   {
    "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E3",
    "kind": "error",
    "locator": "Proof of Proposition 2.5, case 𝔪 ≠ 1, p. 1137 (published version); the same text in arXiv v1 p. 7",
    "printed": "\"We need only check that the equation t_1x² + 2rγ^{nℓ}t_2y² = t_3z² has a solution modulo 𝔪 for some choice of units t_1, t_2, t_3 modulo 𝔪. Since we are free to assume t_1 = t_3, there is no local obstruction at 2-adic primes 𝔭 | 𝔪.\"",
-   "correction": "With t_1 = t_3 there can be an obstruction at a 2-adic 𝔭 | 𝔪, whenever v_𝔭(2rγ^{nℓ}) < v_𝔭(𝔪). The conclusion still holds. Repair: replace r by rδ^ℓ, where δ ∈ 𝒪_F is divisible by 𝔭^{v_𝔭(𝔪)} for each 2-adic 𝔭 | 𝔪 and by no other prime (it exists because the class group is finite). Then C_{q^ℓr²δ^{2ℓ}} ≅ C_{q^ℓr²} (§2: C_n ≅ C_{nλ^{2ℓ}}), so Lemma 2.3 and the sets S′, S, Σ are unchanged. The clause r ∉ 𝔭 still holds at the odd ramified primes, where the smooth-conic argument uses it. Now β = 2rδ^ℓγ^{nℓ} ≡ 0 modulo the 2-adic part of 𝔪, so x = y = z = 1 solves the congruence there with t_1 = t_3. Alternatively, keep r and choose t_1 ≠ t_3.",
+   "correction": "For the existential main theorem, replace r by r′=r delta^ell with delta supported on dyadic primes dividing m and sufficiently divisible there. The curves are isomorphic, their conductors and S,Sigma are unchanged, and Sel_phi still vanishes. The modified beta is zero modulo the dyadic conductor part, so t_1=t_3 and x=y=z=1 work there. The unit condition on r persists only at odd ramified primes. This establishes the modified-r residue construction; it is not, without further argument, a proof of Proposition 2.5 for its original fixed r. See G3. Choosing t_1≠t_3 works in the displayed example but has not been proved here to work in every original-r case.",
    "reason": "Take F_0 = ℚ, K_0 = ℚ(i) and ℓ = 3, which does not divide Disc = −4. §4 replaces these by F = ℚ(ζ_3) and K = F(i) = ℚ(ζ_12), and K/F is unramified above 3. The prime (2) is inert in F/ℚ, so F_(2) = ℚ_4 is unramified over ℚ_2 with residue field 𝔽_4. F_(2)(i)/F_(2) has conductor exponent 2, so 𝔪 = (4). Since (2) ramifies in K, (2) ∉ S and γ ∉ (2); and r ∉ (2) by Lemma 2.3. Hence v_2(β) = 1. Suppose t x² + βt_2y² ≡ t z² (mod 4) with x, y, z units. Then (z/x)² ≡ 1 + βt_2y²/(tx²) (mod 4), which is ≡ 1 mod 2 but ≢ 1 mod 4. But a unit w with w² ≡ 1 (mod 2) has w ≡ 1 (mod 2), since squaring is bijective on 𝔽_4, and then w² ≡ 1 (mod 4). This is a contradiction. An exhaustive search over the 12 units of ℤ[ζ_3]/4 confirms it. Inertness of a principal prime (p) in K is detected by χ(p) = (−1)^{(N(p)−1)/2}, where N is the norm to ℚ; this is the Hilbert symbol (p, −1) at (2), trivial on global units. For every unit value of β/2 there is no solution with t_1 = t_3 and χ(t_1) = χ(t_2) = −1. Yet admissible residues exist with t_1 ≠ t_3: for β ≡ 2, u_1 = u_2 = 1 + 2ζ_3 and u_3 = u_1 + βu_2 ≡ 3 + 2ζ_3 (mod 4), with norms 3, 3, 7 ≡ 3 (mod 4).",
    "affects": "the proof",
    "known": "new",
@@ -3588,14 +3600,20 @@
     "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
     "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
     "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed",
-    "the published version repeats the arXiv v1 wording of this step verbatim (p. 1137)"
+    "the published version repeats the arXiv v1 wording of this step verbatim (p. 1137)",
+    "Independent review 2026-09-23: https://arxiv.org/abs/2501.18774 lists only v1.",
+    "https://link.springer.com/article/10.1007/s00222-025-01392-3 and its eleven-page PDF, checked at all finding locators; no correction displayed.",
+    "https://web.math.princeton.edu/~who/writing.html and https://arishnidman.github.io/ checked for a correction to this paper.",
+    "https://alpo.ge/papers/hilbert%27s%20tenth.pdf: public reader’s nine-page preprint checked at §§2.4–4; still has the old formulas. Direct download returned 403.",
+    "Title/author/erratum/correction searches; no correction found. Crossmark was opened but supplies no usable confirmation by itself; the review does not infer absence from that page.",
+    "Independent Crossref REST metadata, 2026-09-23: relation={}, no update-to/updated-by; print date March 2026, online date December 2025. This is a bounded search, not a guarantee that no correction exists anywhere."
    ],
    "owner": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
    "file": "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
    "citation": "Alpöge–Bhargava–Shnidman, \"Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
+   "reviewReason": "Confirmed the printed dyadic inference fails. Independently checked all 12^6 unit choices in Z[zeta_3]/4 and gave the valuation argument. The proposed rescaling preserves the isomorphism class and Selmer vanishing, but loses the dyadic unit condition on r and does not prove the original fixed-r X is infinite. Those limitations are now explicit."
   },
   {
    "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E4",
@@ -3611,14 +3629,20 @@
     "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
     "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
     "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed",
-    "the published version prints the same formula (p. 1136)"
+    "the published version prints the same formula (p. 1136)",
+    "Independent review 2026-09-23: https://arxiv.org/abs/2501.18774 lists only v1.",
+    "https://link.springer.com/article/10.1007/s00222-025-01392-3 and its eleven-page PDF, checked at all finding locators; no correction displayed.",
+    "https://web.math.princeton.edu/~who/writing.html and https://arishnidman.github.io/ checked for a correction to this paper.",
+    "https://alpo.ge/papers/hilbert%27s%20tenth.pdf: public reader’s nine-page preprint checked at §§2.4–4; still has the old formulas. Direct download returned 403.",
+    "Title/author/erratum/correction searches; no correction found. Crossmark was opened but supplies no usable confirmation by itself; the review does not infer absence from that page.",
+    "Independent Crossref REST metadata, 2026-09-23: relation={}, no update-to/updated-by; print date March 2026, online date December 2025. This is a bounded search, not a guarantee that no correction exists anywhere."
    ],
    "owner": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
    "file": "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
    "citation": "Alpöge–Bhargava–Shnidman, \"Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
+   "reviewReason": "Confirmed by counting unit pairs modulo q^n for q=3,5,7,11 and n=1,2,3. The printed factor grows as q^(2n−2); dividing by that factor gives 1−(q−1)^(−2) away from beta."
   },
   {
    "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E5",
@@ -3634,21 +3658,27 @@
     "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
     "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
     "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed",
-    "the published version prints the same expression (p. 1135)"
+    "the published version prints the same expression (p. 1135)",
+    "Independent review 2026-09-23: https://arxiv.org/abs/2501.18774 lists only v1.",
+    "https://link.springer.com/article/10.1007/s00222-025-01392-3 and its eleven-page PDF, checked at all finding locators; no correction displayed.",
+    "https://web.math.princeton.edu/~who/writing.html and https://arishnidman.github.io/ checked for a correction to this paper.",
+    "https://alpo.ge/papers/hilbert%27s%20tenth.pdf: public reader’s nine-page preprint checked at §§2.4–4; still has the old formulas. Direct download returned 403.",
+    "Title/author/erratum/correction searches; no correction found. Crossmark was opened but supplies no usable confirmation by itself; the review does not infer absence from that page.",
+    "Independent Crossref REST metadata, 2026-09-23: relation={}, no update-to/updated-by; print date March 2026, online date December 2025. This is a bounded search, not a guarantee that no correction exists anywhere."
    ],
    "owner": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
    "file": "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
    "citation": "Alpöge–Bhargava–Shnidman, \"Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
+   "reviewReason": "Confirmed by trace duality and the explicit Q(zeta_3), C=3 example x=1+2zeta_3: x is not in 3O but Tr(alpha x) is divisible by 3 for all alpha∈O. The inverse-different character lattice is required."
   },
   {
    "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E6",
    "kind": "gap",
    "locator": "End of the proof of Proposition 2.5, p. 1137 (published version), with the statement of Proposition 3.1, p. 1135; arXiv v1 pp. 5–7",
    "printed": "\"For each of the infinitely many triples (p_1, p_2, p_3) produced by the above construction, the ideal 𝔱_{p_1,p_2,p_3} := (p_1^{(ℓ−1)/2} p_2 p_3^{(ℓ−1)/2}) is such that any large enough prime factor occurs with multiplicity strictly smaller than ℓ. Moreover the collection of such ideals has infinite support, else we would be producing infinitely many solutions to an 𝒮-unit equation for a finite set 𝒮 of primes, contradicting the theorem of Siegel and Mahler.\"",
-   "correction": "The argument needs infinitely many pairwise non-proportional triples. Proposition 3.1 should say so; its proof gives it, since the circle-method count (or Kai's asymptotic) of triples of height ≤ N is ≫ N^{2d}/(log N)^3 with d = [F : ℚ], against O(N^d) triples proportional to a fixed one. The multiplicity claim should be stated for non-proportional triples.",
+   "correction": "Require infinitely many F-proportional classes of triples, obtained from Kai’s ≫ N^(2d)/(log N)^3 count versus O(N^d) for each fixed line. Additionally remove the finitely many unit-ratio classes by S-unit finiteness. Only then assert the prime multiplicity bound; see item 52.",
    "reason": "Suppose ε_1 + βε_2 = ε_3 has a solution in units ε_i ∈ 𝒪_F^×. Then for every I-prime π satisfying the congruences, (ε_1π, ε_2π, ε_3π) is a triple as in Proposition 3.1. For it 𝔱 = (π)^ℓ, up to a power of I, so its large prime factor has multiplicity exactly ℓ, contrary to the first sentence. It also yields the same (a, b) = (ε_1/ε_3, γ^{nℓ}ε_2/ε_3) for every π. Proposition 3.1 as stated ('infinitely many triples (p_1, p_2, p_3) (mod 𝒪_F^×)') does not exclude that all but finitely many of its triples are of this form. The paper does not check whether such unit solutions exist for the chosen β. So the step from Proposition 3.1 to the infinitude of X is incomplete as written, though it is repaired by the count in its proof.",
    "affects": "the proof",
    "known": "new",
@@ -3657,14 +3687,44 @@
     "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
     "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
     "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed",
-    "the published version has the same argument (p. 1137)"
+    "the published version has the same argument (p. 1137)",
+    "Independent review 2026-09-23: https://arxiv.org/abs/2501.18774 lists only v1.",
+    "https://link.springer.com/article/10.1007/s00222-025-01392-3 and its eleven-page PDF, checked at all finding locators; no correction displayed.",
+    "https://web.math.princeton.edu/~who/writing.html and https://arishnidman.github.io/ checked for a correction to this paper.",
+    "https://alpo.ge/papers/hilbert%27s%20tenth.pdf: public reader’s nine-page preprint checked at §§2.4–4; still has the old formulas. Direct download returned 403.",
+    "Title/author/erratum/correction searches; no correction found. Crossmark was opened but supplies no usable confirmation by itself; the review does not infer absence from that page.",
+    "Independent Crossref REST metadata, 2026-09-23: relation={}, no update-to/updated-by; print date March 2026, online date December 2025. This is a bounded search, not a guarantee that no correction exists anywhere."
    ],
    "owner": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
    "file": "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
    "citation": "Alpöge–Bhargava–Shnidman, \"Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
+   "reviewReason": "Confirmed as a missing inference, not a counterexample to Proposition 2.5. Infinitude modulo global units does not imply infinitely many ratios. For beta=2, (pi,−pi,−pi) has multiplicity ell and fixed ratios. Item 52 derives the stronger count from the exact Kai statement and removes the finitely many associate-prime families using the S-unit theorem."
+  },
+  {
+   "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E7",
+   "kind": "misprint",
+   "locator": "Published proof of Proposition 3.1, p. 1136; also arXiv v1 p. 7",
+   "printed": "let W ⊂ I² be the subgroup",
+   "correction": "W is an affine coset (x_0,y_0)+(CI)^2, not a subgroup. Translate to a free Z-lattice and use affine-linear maps, as Kai Theorem 13.1 allows.",
+   "reason": "For F=Q(i), I=O_F, C=3, beta=2 and residue classes (u_1,u_2,u_3)=(1,2,2), the compatibility 1+2·2=2 mod 3 holds and all u_i are units, but (0,0) is not in W. Thus W cannot be an additive subgroup. CRT gives the indicated coset because I and C are coprime.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review 2026-09-23: https://arxiv.org/abs/2501.18774 lists only v1.",
+    "https://link.springer.com/article/10.1007/s00222-025-01392-3 and its eleven-page PDF, checked at all finding locators; no correction displayed.",
+    "https://web.math.princeton.edu/~who/writing.html and https://arishnidman.github.io/ checked for a correction to this paper.",
+    "https://alpo.ge/papers/hilbert%27s%20tenth.pdf: public reader’s nine-page preprint checked at §§2.4–4; still has the old formulas. Direct download returned 403.",
+    "Title/author/erratum/correction searches; no correction found. Crossmark was opened but supplies no usable confirmation by itself; the review does not infer absence from that page.",
+    "Independent Crossref REST metadata, 2026-09-23: relation={}, no update-to/updated-by; print date March 2026, online date December 2025. This is a bounded search, not a guarantee that no correction exists anywhere."
+   ],
+   "owner": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
+   "file": "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
+   "citation": "Alpöge–Bhargava–Shnidman, \"Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
+   "reviewReason": "Checked the published wording, the explicit nonzero residue example, the CRT translation, and Kai v5 Theorem 13.1 allowing affine-linear maps."
   },
   {
    "id": "PAPER-ANDRE-18-B/E1",
@@ -48273,9 +48333,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Geometric stabilisation via p-adic integration\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "reviewReason": "Confirmed verbatim in the v2 source (FL.tex, Construction 2.13): 'the stack M_x satisfies condition (iii) of Theorem \\ref{CMIso}', and two sentences later 'Hence Proposition \\ref{CMIso} gives us a morphism'. Simulating the shared per-section counter independently puts CMIso at 2.12 in a proposition environment, so there is indeed no Theorem 2.12 and the same object is cited both ways inside one construction."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E2",
@@ -48294,9 +48354,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Geometric stabilisation via p-adic integration\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "reviewReason": "Confirmed verbatim: Remark 6.19 reads 'stated in Theorem \\ref{cor:geometric_endoscopy}', and cor:geometric_endoscopy is a corollary environment numbered 6.18 in my independent simulation, called 'Corollary 6.18' in the same remark's first sentence."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E3",
@@ -48315,9 +48375,9 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Geometric stabilisation via p-adic integration\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "reviewReason": "Confirmed verbatim: Remark 6.24 reads 'the embedding described in Lemma \\ref{cons:auto_torus}', and cons:auto_torus is a construction environment numbered 4.36. The paper cites the same label as 'Construction' at three other places, so the entry's reading is right."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E4",
@@ -48336,9 +48396,51 @@
    "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
    "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.result.json",
    "citation": "Groechenig–Wyss–Ziegler, \"Geometric stabilisation via p-adic integration\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "reviewReason": "Confirmed, and the structure of the proof is the point. Goal 6.21(1) and (2) both end 'See Lemma \\ref{lemma:chi_gerbe}' (= Lemma 6.34), whose statement and proof give only the Hasse-invariant identity of goal (1). The identification of lambda(alpha) with the unramified twist is made where the entry says: in the deferred 'Proof of \\ref{lemma:0}' (Lemma 6.14), which is printed after the proof of Lemma 6.34 and contains 'It follows from Lemma \\ref{lemma:dual_torsor} [= Lemma 6.29] that alpha_{U_a} in Ext^2(...) = Ext^1(...) corresponds to the unramified twists'. A line-order check alone misattributes that sentence to Lemma 6.34; the deferred-proof structure is what settles it, and the entry read it correctly."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E5",
+   "kind": "misprint",
+   "locator": "Section 2, overview paragraph, p. 9 (arXiv v2, the version read)",
+   "printed": "The main result is Theorem 2.21 which computes the volume of a fibre of the specialisation map e (Construction 2.13) with respect to the canonical measure on M(O_F) introduced in Definition 2.8.",
+   "correction": "introduced in Lemma 2.8.",
+   "reason": "The object numbered 2.8 is printed as 'Lemma 2.8' (it is the existence statement for the canonical measure on a smooth tame DM-stack, label defcanmes), and the paper itself cites it correctly as 'Lemma 2.8' later, in section 6. There is no Definition 2.8.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ],
+   "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.result.json",
+   "citation": "Groechenig–Wyss–Ziegler, \"Geometric stabilisation via p-adic integration\", Journal of the American Mathematical Society (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "reviewReason": "Added by this review. Found by a mechanical audit: for every reference of the form '<word>~\\ref{label}' in the v2 source, compare <word> with the environment carrying that label. Five mismatches exist in the paper; the extraction recorded three of them (E1, E2, E3) and missed this one and E6."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E6",
+   "kind": "misprint",
+   "locator": "Section 6.3, before the displayed specialisation morphism, p. 33 (arXiv v2, the version read)",
+   "printed": "furthermore we have a specialisation morphism (see Definition 2.13)",
+   "correction": "(see Construction 2.13)",
+   "reason": "The object numbered 2.13 is printed as 'Construction 2.13' (label defi:e), and the paper cites it correctly as 'Construction 2.13' at four other places (in the section 2 overview and three times in sections 2 and 3). There is no Definition 2.13.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ],
+   "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.result.json",
+   "citation": "Groechenig–Wyss–Ziegler, \"Geometric stabilisation via p-adic integration\", Journal of the American Mathematical Society (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "reviewReason": "Added by this review, by the same audit as E5. This is a second, distinct mis-citation of Construction 2.13, the object E1 is also about: E1 concerns Proposition 2.12 being called a Theorem inside Construction 2.13, while here Construction 2.13 itself is called a Definition in section 6."
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E1",
@@ -67952,9 +68054,9 @@
    "owner": "PAPER-LI-ZHANG-22-B",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
    "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22-B",
+   "reviewReason": "Confirmed as a gap. Page 59 prints 'Then we have Int_{L^♭,V}(x) = Int_{L′^♭,V}(x′), and ∂Den_{L^♭,V}(x) = ∂Den_{L′^♭,V}(x′)'. Only the full functions depend on the lattice L^♭ + ⟨x⟩ alone; their horizontal and vertical parts depend on the hyperplane, so the two equalities as printed do not follow, while the difference φ = Int − ∂Den does transfer, which is what the induction uses and what the correction records."
   },
   {
    "id": "PAPER-LI-ZHANG-22-B/E2",
@@ -67973,9 +68075,9 @@
    "owner": "PAPER-LI-ZHANG-22-B",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
    "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22-B",
+   "reviewReason": "Confirmed, and the sign is decidable from the resolution. Page 38 prints the two-term complex [O(−Z(x))|_{V(Λ)} → O|_{V(Λ)}] and then ch(V(Λ) ∩^L Z(x)) = ch(O(−Z(x))|_{V(Λ)}) − ch(O_{V(Λ)}), whereas the class of that complex is [O] − [O(−Z(x))], as the resolution 0 → O(−Z) → O → O_Z → 0 shows. The d = 1 test confirms it: for x ∈ Λ^∨ ∖ Λ with val(x) ≥ 0, Lemma 6.2.1 gives Int_{V(Λ)}(x) = 1, so Z(x) meets the curve in one reduced point and O(−Z(x))|_{V(Λ)} has degree −1, against the +1 the printed formula produces. Every downstream sign in Lemmas 6.4.6–6.4.7 and Corollary 6.4.8 flips with it, as the correction sets out."
   },
   {
    "id": "PAPER-LI-ZHANG-22-B/E3",
@@ -67994,9 +68096,9 @@
    "owner": "PAPER-LI-ZHANG-22-B",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
    "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22-B",
+   "reviewReason": "Confirmed. Page 42 prints 'Corollary 6.4.8. … Proof. It follows immediately from Lemmas 6.4.8 and 6.3.1', citing the corollary being proved; the input is Lemma 6.4.7. In the proof of Lemma 6.4.7 the value 1 − q² on Λ′ is Lemma 6.2.1, not the Fourier-transform statement Lemma 6.3.1."
   },
   {
    "id": "PAPER-LI-ZHANG-22-B/E4",
@@ -68015,9 +68117,9 @@
    "owner": "PAPER-LI-ZHANG-22-B",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
    "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22-B",
+   "reviewReason": "Confirmed. Example 3.5.2 on p.18 is about a rank-one L and prints 'if val(L^♭) is odd', where L^♭ is reserved for the rank n − 1 lattice and the following sentences say 'if val(L) is odd'. The two theorem statements name lattices in 𝕍 where Definitions 10.1.1 and 10.2.3 put them in the split space 𝕎_n, and the n = 1 case of Theorem 10.4.3 states the emptiness threshold for Y(x) one step too low."
   },
   {
    "id": "PAPER-LI-ZHANG-22-B/E5",
@@ -68036,9 +68138,9 @@
    "owner": "PAPER-LI-ZHANG-22-B",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
    "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22-B",
+   "reviewReason": "Confirmed. Page 3 attributes the basis-independence of Int(L) to '[Ter13a, Proposition 3.2] (or [How18, Corollary D])'. Terstiege's paper is the GU(1,2) case, that is n = 3, and Howard's introduction says so explicitly ('When n = 3 Corollary D is [Ter13, Proposition 3.2]'); §2.8 of this paper likewise describes itself as generalising Terstiege. So the general-n citation is Howard's Corollary D, with Terstiege for n = 3."
   },
   {
    "id": "PAPER-LI-ZHANG-22/E1",
