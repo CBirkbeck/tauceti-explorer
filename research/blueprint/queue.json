@@ -4826,8 +4826,9 @@
    ],
    "avoidAccountOf": "PAPER-XU-ZHU-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-XU-ZHU-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1285"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1285",
+   "finishedAt": "2026-09-23T22:50:44Z"
   },
   {
    "id": "PAPER-CASTELLA-ETAL-22",
@@ -5056,7 +5057,8 @@
    ],
    "avoidAccountOf": "PAPER-BENOIST-WITTENBERG-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1297"
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-18",
