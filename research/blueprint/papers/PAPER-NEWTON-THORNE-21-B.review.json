@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-NEWTON-THORNE-21-B",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ML.3 is to 'integrate Newton-Thorne source-scoped symmetric-power automorphy', with Newton–Thorne as a selected source, and ML.1 and ML.5 own Deligne–Serre representations and the registered symmetric-power and tensor transfers. Theorem A, Corollary B and Theorem A.1 are endpoints there. The review added the planned items 38 (the definition of Sym^n π), 45 (Λ(Sym^n E, s)) and 46 (the low-degree transfers used by Appendix A), for which the paper is a good source."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "No layer plans the method. It is an automorphy lifting theorem for Sym^{n−1} built by patching the map P → R, with regularity of the patched pseudodeformation ring replacing dual-Selmer control and working for residually reducible Sym^{n−1} and p = 2, together with the seasoned killing of supercuspidal ramification. ML.3 plans only the endpoint. The Part II title has the required parent prefix, and the route does not re-plan a Tau Ceti roadmap. The method differs from the two Part IIs proposed for Newton–Thorne I (eigenvarieties; unitary level raising), whose endpoint it imports as the base case. The review moved items 8 and 17 (Newton–Thorne 2020's P and adjoint Selmer vanishing) to route 4 so that they have one general owner. It rewrote the brief to state the final theorems, the layers, the imports and the corrections E1 and E3."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Henniart's types for the supercuspidal Bernstein components of GL_2(ℚ_l), and the principal-series types χ_1 ⊗ χ_2 of U_0(p^r) (Breuil–Mézard Appendix A), are the classical GL_2 instance of the types layer of the pending SmoothRepresentationsPartII. The route coalesces with that candidate and keeps its id, title, parent, area and brief."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "The pending PolarizedAutomorphyLifting owns polarized automorphy lifting and finiteness of polarized deformation rings on definite unitary groups (CHT, Thorne, Geraghty, BLGGT14), and PAPER-NEWTON-THORNE-21 already routes its BLGGT14 Theorem 4.2.1 item there. The review corrected item 36 to BLGGT14 Theorem 4.2.1's actual hypotheses. It added BLGGT14's relation ∼ (item 58) and potential diagonalisability (item 59), which no layer plans. It also moved in the Newton–Thorne 2020 conjugate self-dual semistable pseudodeformation ring and the vanishing of adjoint Bloch–Kato Selmer groups (items 8 and 17), which belong with polarized deformation rings rather than with a symmetric-power roadmap. The brief addendum states exactly what to record."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Added by the review. The Ribet–Momose large-image theorem for non-CM modular forms is used without citation in Proposition 3.9 and the proof of Theorem 3.1, and no layer plans it. R19.3 constructs the compatible family of a fixed eigenform, whose image this theorem bounds. The proposed open-image Part II of PAPER-CALEGARI-GERAGHTY-20 treats Tate modules of abelian varieties and does not cover weight k > 2."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Added by the review. Gee 2011 Theorem 4.6.1 computes the residual inertia of potentially Barsotti–Tate representations of tame supercuspidal type. It was folded into item 34, whose layer R24.3 (prescribed global lifts) does not plan it. R07.4 builds Breuil–Kisin modules with descent data in the potentially Barsotti–Tate case, and R07.5 derives local residual types, so the theorem belongs in those layers."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-38267a, 23 September 2026, of the extraction by cc-39fac3. The review read the open-access published version in full (the extraction's PDF, SHA-256 ab39986290418f835708ca5f1114b231c628ef1efe5aa7f479f2666db6ae7a1b) together with the arXiv v2 TeX, and checked every recorded mistake on page images. The extraction's claim that arXiv v2 is the published text was corrected: there are three copy-edits (pp. 130, 140, 148). Statements and locators of items 1–37 were checked against the text. They are faithful except item 36, which omitted the hypotheses of BLGGT14 Theorem 4.2.1 (read in the BLGGT14 source), and item 34, which folded in a local theorem its layer does not plan. The only library citation (Lemma 3.8: Mathlib IntermediateField.restrictNormalHomSupProd and its injectivity, Tau Ceti IntermediateField.mem_range_restrictNormalHomSupProd_iff) was read at Mathlib 082e2d3 and Tau Ceti f790474 and holds. Every cited layer description was read. Items 3, 6 and 7 gained layers that plan parts of them (R19.1, R08.5, R04.4). The review added 24 items for definitions and key theorems the paper uses on the way to its results: 20 planned in existing layers (read), and 4 missing (the Ribet–Momose large-image theorem, BLGGT14's ∼ and potential diagonalisability, Gee's Theorem 4.6.1), routed by two new source routes and route 4. The three Newton–Thorne extractions route the Newton–Thorne 2020 results (the ring P, the vanishing of adjoint Selmer groups) to three different places: this paper's Part II, PAPER-NEWTON-THORNE-21's SymmetricPowersByAnalyticContinuation (item 73) and PAPER-NEWTON-THORNE-26's ML source route. The review chose PolarizedAutomorphyLifting as the single owner for this paper and recommends that the reviews of the other two move theirs there. PAPER-NEWTON-THORNE-26's decision to route its method as ML.3 sources is left to its own review. For this paper, a Part II is the better home, because the method is a new lifting theorem, not a registry entry. Source issues: E1 and E2 are confirmed. E3 is new: in the case 2 ∈ sc(π) of the proof of Theorem 3.1, repeating the argument with 3 replaced by 2 cannot end with Proposition 3.11, since π″ may have 3 ∈ sc(π″); it ends with the case already treated. E4 is new and groups the notational slips of §2 (F⁺, m_D, Q for Q_N, H for H_G, H_∞). No published correction exists (Crossref, arXiv, publisher). The checker scripts/check_paper.py reports no errors."
+}

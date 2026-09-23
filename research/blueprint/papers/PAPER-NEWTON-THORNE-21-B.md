@@ -109,3 +109,53 @@ Thirteen entries. All have DOIs confirmed on Crossref except Labesse 2011.
 ## Checks
 
 `python3 scripts/check_paper.py research/blueprint/papers/PAPER-NEWTON-THORNE-21-B.result.json` reports no errors, and every planned stage id exists in `data/atlas.json`.
+
+## Review (REV-PAPER-NEWTON-THORNE-21-B, 23 September 2026)
+
+The review accepted the extraction and all six routes after corrections made in place. It was done by Claude Code (session cc-38267a), and the full record is `research/blueprint/reviews/REV-PAPER-NEWTON-THORNE-21-B.md`. The review read the published PDF (the same file) in full, together with the arXiv v2 TeX.
+
+- **Sources:** arXiv v2 is close to, but not identical with, the published text. The review found three copy-edits:
+  - the proof of Proposition 2.5 cites ANT20 Proposition 2.5, where arXiv cites Bellaïche–Chenevier Proposition 1.5.1;
+  - p. 148 says "potentially crystalline" twice, where arXiv says "potentially Barsotti–Tate";
+  - p. 140 corrects ⊗_{v∈T} to ⊗_{l∈T}.
+- **Statements corrected:**
+  - Item 36 omitted the hypotheses of BLGGT14 Theorem 4.2.1 (CM base, polarization, l ≥ 2(d + 1), ζ_l ∉ F, irreducibility over F(ζ_l)).
+  - Item 32 now records how the case 2 ∈ sc(π) must end (E3).
+  - Item 34 no longer includes Gee's Theorem 4.6.1, which is now item 61.
+  - Items 6, 15 and 18 name the Kisin paper they cite.
+  - Planned layers were added to items 3 (R19.1), 6 (R08.5) and 7 (R04.4).
+- **New items (24):**
+  - **Planned (20):**
+    - the definition of Sym^n π;
+    - local Langlands and Weil–Deligne representations;
+    - Galois representations of polarizable representations;
+    - Gelbart's correspondence;
+    - Newton–Thorne I Theorem B;
+    - BCDT;
+    - Godement–Jacquet;
+    - Λ(Sym^n E, s);
+    - the low-degree transfers;
+    - ordinarity;
+    - soluble base change and descent;
+    - Labesse's base change;
+    - Chenevier's determinants;
+    - the unique decomposition of multiplicity-free determinants;
+    - Cohen–Macaulay support;
+    - Cline–Parshall–Scott;
+    - Chebotarev;
+    - Dickson;
+    - Hida control;
+    - the Khare–Wintenberger Ĝ_m^γ-invariants.
+  - **Missing (4):**
+    - the Ribet–Momose large-image theorem (a new source route to R19.3);
+    - BLGGT14's relation ∼ and potential diagonalisability (to PolarizedAutomorphyLifting);
+    - Gee's Theorem 4.6.1 (a new source route to R07.4–R07.5).
+- **Routes:**
+  - Items 8 and 17 moved from the new Part II to PolarizedAutomorphyLifting. They are the Newton–Thorne 2020 ring P and the vanishing of adjoint Selmer groups, which three extractions use, so they need one general owner.
+  - The Part II brief was rewritten to state its imports and the corrections its layers must respect.
+- **Source issues:**
+  - E1 and E2 are confirmed.
+  - **E3 (new, gap).** In the case 2 ∈ sc(π) of the proof of Theorem 3.1, the argument repeated with 3 replaced by 2 cannot end with Proposition 3.11, because π″ may have 3 ∈ sc(π″). It ends with the case already treated.
+  - **E4 (new, misprints).** Notational slips in §2.
+
+  None affects a stated result.
