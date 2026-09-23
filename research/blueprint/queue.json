@@ -526,8 +526,9 @@
    ],
    "avoidAccountOf": "PAPER-YUAN-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-YUAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1051"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1051",
+   "finishedAt": "2026-09-23T21:59:43Z"
   },
   {
    "id": "PAPER-NEWTON-THORNE-26",
@@ -4248,8 +4249,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -4495,7 +4496,8 @@
    ],
    "avoidAccountOf": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1269"
   },
   {
    "id": "PAPER-XIE-YUAN-22",
@@ -5409,8 +5411,9 @@
    ],
    "avoidAccountOf": "PAPER-FRESAN-SABBAH-YU-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-FRESAN-SABBAH-YU-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1317"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1317",
+   "finishedAt": "2026-09-23T21:59:45Z"
   },
   {
    "id": "PAPER-KOYMANS-MILOVIC-21",
@@ -6176,8 +6179,9 @@
    ],
    "avoidAccountOf": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1357"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1357",
+   "finishedAt": "2026-09-23T21:59:49Z"
   },
   {
    "id": "PAPER-IM-KIM-LE-ETAL-24",
