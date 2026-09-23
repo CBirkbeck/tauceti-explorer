@@ -1,0 +1,92 @@
+{
+  "paper": "PAPER-CESNAVICIUS-19",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "SF.0 owns schemes, morphisms and quasi-coherent modules, and the four items — punctured opens, the Hartogs/depth-2 extension, line-bundle extension and the determinant bridge — are exactly that layer's business. The reason names what to import rather than rebuild, including the ModularCurves 4D strict-henselization interface and R03.3 local algebra, and it points at a precedent (the Gille–Parimala extraction already uses this owner for coherent Hartogs)."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "SF.1 owns fpqc/fppf descent and representable quotients; scheme-torus descent, the represented homogeneous quotient X = Res(G_{R'})/G of Lemma 2.1, torsor lifting and finite-type group reductions belong there. The reason correctly sends Weil restriction to RG2.0a and Cartier duality to the finite locally free owner rather than duplicating them here. I confirmed the libraries have no Weil restriction at all (zero rows for WeilRestriction or weilRestriction in the pinned index), so this cannot be a library item."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The largest route, 59 items, into SF.2, which owns étale/fppf sites and scheme cohomology. This is the right owner for G_m and torus cohomology, cohomology with supports, the Brauer comparison, finite-flat descent and the purity statements, and the reason cites the Harpaz–Wittenberg precedent for routing étale G_m, purity and residues to the same layer. It is also careful about what SF.2 does not already cover, saying in terms that EDC.2 smooth purity is not Gabber absolute purity and that K2SymbolsBrauer's classical symbol/residue scope does not supply the general theorem; and it asks for the layer to be split into an early site/Kummer prefix, a completion/perfectoid-dependent suffix and an Appendix A field prefix, rather than dropping 59 items in as one block. I checked the two obvious library candidates and both fail: Mathlib's BrauerGroup is the field/CSA Brauer group, not the cohomological Brauer group of a scheme (the extraction records this as a near miss), and Mathlib's localCohomology is local cohomology of modules, not étale cohomology with supports."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "SF.4 owns infinitesimal lifting, obstruction complexes and formal algebraization, which is where principal henselian approximation, the iterated-completion adapter and the local parafactorial/Picard theorem belong. The reason imports cotangent complexes from DD.0 rather than rebuilding them. Nothing in the pinned libraries supplies parafactoriality (zero rows)."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "R03.3 already owns dimension, depth, regular sequences and complete intersections, and the five items refine exactly that. The reason says explicitly not to duplicate the existing regular-sequence and regular-local carriers."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "RG2.0a is the unique owner of affine Weil restriction, and the two items are the arbitrary-affine generalization and the finite-locally-free smoothness that Lemma 2.1 needs, with the existing finite-type universal property left unchanged. Correctly declines to plan arbitrary non-affine Weil restriction."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Q0's integral-algebra prefix owns integral perfectoid rings, θ/A_inf and the Tate adapter, and the paper's Definition 4.2 is its p-torsion-free specialization, so this is a refinement and not a second construction. The reason imports the pinned PreTilt, sharp and Witt vector declarations — which I verified exist and say what the citing items claim — and hands the Tate side to P1."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "P1 owns perfectoid Tate rings, tilts and marked untilts; the Banach-Q_p gauge and the characteristic-p tilted pair refine it. The reason is right to insist on general Banach Q_p-algebras without a fixed perfectoid base field, since that is the generality Theorem 4.10 is used in."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "P2 owns rational localization and sheafiness, and explicitly asks for the tilting homeomorphism of valuation spectra rather than the rank-one version — which is what the two KL15 items supply. The reason states plainly that this is not another construction of upstream Huber adic spaces."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "P3 owns almost purity and étale tilting, and the reason keeps the finite étale algebra equivalence distinct from the full étale site equivalence, which is the distinction the paper's §4 actually uses."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "A1 owns the adic étale site itself. The reason correctly says that neither the small scheme étale topology nor a notion of global finite étale covers implements this site, so the item cannot be absorbed elsewhere."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "P5 owns cofiltered limits of affinoid perfectoid pairs, and the five items add the Noetherian-stage qcqs étale-descent extension that the paper states in footnote 3. The reason refuses two shortcuts by name: substituting A3's stronger affinoid descent, and applying a theorem whose stages do not satisfy its hypotheses."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "H0 owns classical adic étale sheaves and derived global sections, which is the right home for the coherent-site continuity step of (4.10.7). The reason keeps ordinary inverse limits distinct from tilde-limits, which matters because P7 owns the latter."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "H1:henselian owns affinoid henselizations and approximation, and the reason is precise about the difficulty: Huber 3.2.9 carries a blanket Noetherian assumption that must not be applied directly at the perfectoid limit, and the generic henselization must not be silently replaced. That is the right instruction to give a builder."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "L2 owns Noetherian approximation and scheme étale-cohomology continuity. The reason notes correctly that Mathlib's ordinary global-sections continuity is not higher-cohomology continuity, so this is a genuine addition rather than a library item."
+    },
+    {
+      "route": 16,
+      "verdict": "accept",
+      "reason": "P7 owns tilde-limits and Frobenius-controlled towers, which is where the Cohen-structure regular finite-flat towers and their perfectoid completion belong. The reason preserves the delicate parts of Lemma 5.2 — algebraically closed residue extension, perfect residue field, p-power ranks, the ramified unit-root calculation — and forbids claiming the finite stages perfectoid, which is the error the construction invites."
+    },
+    {
+      "route": 17,
+      "verdict": "accept",
+      "reason": "R07.1 owns finite flat group schemes and Cartier duality, and only the source-scoped connected finite p-group α_p dévissage is new. The reason imports Cartier duality from Tau Ceti/ModularCurves 0B and the connected–étale sequence from ModularCurves 7E PD-2, following the stated RS-02 boundary, so nothing is duplicated. I verified the cited Tau Ceti Cartier duality declarations exist and provide what the citing item claims."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by cc-442dc5. Verdict accept: no item, status, route or locator target changed. All 178 items, 17 routes and 4 recorded mistakes were checked, and a fifth mistake was found and added. The paper is short (17 pages) and the extraction routes everything as source additions to existing layers, with no Part II and no new roadmap; having read the paper in full I agree that nothing in it needs one. All 15 library items are correctly cited: every one of their declarations was read at the pinned commits and says what the citing item claims. Four citations appear unresolved against declarations.tsv, but all four exist and the index is at fault, in two ways already known to this programme — mathlib:IsAdicComplete.henselianRing is an `instance (priority := 100)`, a form the extractor does not index at all, and the three tauceti:TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual/cartierDuality/cartierDualDualIso lose their outer TauCeti namespace. For the latter this review isolated the trigger: at FiniteLocallyFree.lean:157 a `namespace` keyword has its name on the following line, and every declaration after it in the file loses the enclosing namespace. All 13 planned items name atlas layers that exist, all 150 missing items are routed exactly once, and spot searches of both pinned trees for the concepts most likely to be already present — the cohomological Brauer group of a scheme, Weil restriction, perfectoid predicates, strict henselization, parafactoriality, purity, cohomology with supports and the Picard group of a punctured spectrum — confirm they are absent, so the missing statuses hold. Two corrections were made. Run-together numbering (\"Theorem4.10\", \"Lemma3.1\", \"Stacks0E9K\") was repaired in 593 places, leaving bibliography keys and section marks untouched; and the author's copy of the paper was recorded with its hash and a full collation against arXiv v4. One thing this review could not do: E1 also lives in research/blueprint/errata/PAPER-CESNAVICIUS-19.json, which is outside this job's deliverables, so the confirmed verdict is recorded here only and the two records still need coalescing. Every change is listed in research/blueprint/reviews/REV-PAPER-CESNAVICIUS-19.md."
+}
