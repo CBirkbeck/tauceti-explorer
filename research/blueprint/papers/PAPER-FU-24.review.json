@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-FU-24",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Part II of tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight, whose title it extends exactly: 'Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas' + ', Part II: integral and p-adic enveloping algebras'. The base roadmap has ten layers ending at reductive Lie algebras and gl_n, all of them over a field; Fu's integral central reductions, PBW normal forms over Z_p, saturated-ideal completions and image lattices in Sym^k start where that stops and are planned nowhere else in the atlas. The brief imports rather than rebuilds: it names the base roadmap's field PBW, highest-weight, central-character and Casimir material, the two existing Tau Ceti filtration and Casimir files, and Mathlib's filtered-ring and Ore-localization carriers. The roadmap name PadicEnvelopingAlgebras is free."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Part II of LocallyAnalyticDistributions, title extended exactly. The base roadmap's L0 owns Banach spaces of locally analytic functions and the abelian transforms; it has no noncommutative convolution, no weighted-c0 radius completion, no Frechet-Stein or faithful-flatness theorem and no microlocalization, which is what Fu Sections 3-5 need. The brief is explicit that these are reusable beyond Bianchi forms and must not be buried in a Bianchi-only proof, which is the right reason for a Part II rather than items inside the automorphic route. Its declared imports - PadicMeasuresIwasawaAlgebras L0-L1, ProfiniteProPGroups, NoncommutativeAndEquivariantIwasawa NE.0 - all exist."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Part II of ArithmeticLocallySymmetricSpaces, title extended exactly. The base roadmap and CompletedCohomologyPartII own the quotients, local systems, chain models, completed homology and descent; the sharp weight-aspect estimate of Fu Theorem 1.4, the rank-error calculus and the Bianchi application are new layers in that direction and are planned nowhere else. The brief imports routes 1 and 2 rather than reconstructing their rings, which is the correct dependency order."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source additions to CompletedCohomologyPartII at CC.2-CC.6, all five present in the atlas with titles that match what the four items need: completion and derived inverse limits, continuous duals and completed homology, finite-level chain models, noetherian finiteness and admissibility, descent and classical comparison. Attaching Fu Section 7 and its Calegari-Emerton/Marshall inputs to the existing contracts is right; they are not re-planned."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "One source addition at NoncommutativeAndEquivariantIwasawa:NE.0, which exists and is the Lazard-Venjakob homological layer. Putting the finite-global-dimension/Auslander-regular theorem there rather than inventing a layer is correct, and the reason field is careful to note that NE.1's canonical Ore set is neither the microlocal set nor the all-nonzero localization, so no existing contract is being quietly widened."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "One source addition at PadicMeasuresIwasawaAlgebras:L1 (completed group rings and convolution), which exists. Finite coefficient extension of the completed group ring belongs to that layer's owner rather than to Fu, and the item is the interface Fu consumes to reach ramified finite coefficients - which is exactly the case finding E4 shows the paper's own Section 4 mishandles."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by cc-442dc5. Verdict accept: no item, status, route or locator needed changing. All 137 items, 6 routes and 7 recorded mistakes were checked. The 36 library citations were all read at the pinned commits and all resolve and say what the items claim - including the two that make numeric claims, TauCeti.sl2Casimir (defined as e f + f e + (2:K)-inverse times h squared, matching 'ef+fe+(1/2)h^2') and TauCeti.sl2Casimir_apply_of_hasPrimitiveVectorWith (concluding scalar n(n+2)/2, as the item states). The 11 planned items all name atlas layers that exist. All 7 sourceIssues are confirmed, E4 by an argument short enough to redo outright and E1, E2, E3, E6, E7 verbatim against the published Annals text. One correction was made, to the source block: its archiveStatus, version and continuationRead.scope said the published PDF had never been retrieved, while every locator in the file cites it with the hash prefix a6a15856. The review re-fetched it from NSF PAR, confirmed the full hash a6a158565c556286deac651198771ab241c9c5c15021b783bfdcd5f3afa7fd80, and corrected those three fields. Every change is listed in research/blueprint/reviews/REV-PAPER-FU-24.md."
+}
