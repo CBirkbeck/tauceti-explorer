@@ -1,10 +1,79 @@
-# EVW (2016): extraction and routing checkpoint
+# Ellenberg–Venkatesh–Westerland (2016): extraction and routing
+
+Issue [#1184](https://github.com/CBirkbeck/tauceti-explorer/issues/1184). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints (codex-a71f92 #1843, codex-c83e7a), whose reports follow below as history.
+- **The paper.** J. S. Ellenberg, A. Venkatesh and C. Westerland, *Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields*, Ann. of Math. 183 (2016), 729–786. The published PDF matches the checkpoint's hash (6c10d770…).
+- **Items.** The result has **137 items: 7 library, 8 planned and 122 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Nineteen are recorded under `sourceIssues`. E15–E19 concern the cited Achter–Pries and Vasiu papers.
+
+## This continuation (cc-442dc5)
+
+**Status of the paper.** The Annals paper has no correction. Crossref records no update, and arXiv v4 is the final version. It was the sequel, arXiv 1212.0923, that was withdrawn.
+
+**E11 now affects a stated result (Theorem 1.2).**
+- **What is claimed.** Theorem 1.2 asserts convergence "as q → ∞ with q ≢ 1 (mod ℓ)", which includes q = 2^k and q = ℓ^k.
+- **What §8 covers.** §8 works under the standing hypothesis that ℓ is odd and does not divide q (§8.6). It uses tame A ⋊ Z/2-covers and extensions K(√f), and Theorem 8.8 assumes ℓ ∤ q(q − 1).
+- **The consequence.** The stated limit is established only along odd q prime to ℓ. Item 109 states that version.
+
+**E9 now affects nothing.** Theorem 8.8's "A an ℓ-group" is read under §8.6's standing hypothesis that A is abelian.
+
+**The `known` field.** Every finding had `known` set to a search note, which `scripts/errata.py` would read as "corrected in print". All are now "new", and the notes have moved to `searched`.
+
+**Remaining work.** Each item of the checkpoint's `remainingWork` now has a status in `remainingWorkStatus`. Each is either recorded as a finding or deferred as a cited supplier's proof or design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded, including the range of Theorem 1.2.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), Published Annals 2016 version, after Conjecture 1.5, p.733. *Printed:* equal to 1 *Correction:* The reference to delta^± of Theorem 1.2 cannot be literal: these densities have CL masses. Identify the intended Malle/moment normalization before deriving any claim from this sentence.
+- **E2** (misprint; affects nothing), Published Annals 2016 version, Definition 2.2 final paragraph, p.739. *Printed:* respectively *Correction:* The three fibres are c^n, generating tuples in G^n, and generating tuples in c^n, in that order.
+- **E3** (misprint; affects nothing), Published Annals 2016 version, Lemma 4.6 proof, p.750. *Printed:* M⊗_R R[U] *Correction:* Use R[U] tensor_R M, with R[U] a right module and M a left module, as in the next displayed exact sequence 4.6.3.
+- **E4** (misprint; affects nothing), Published Annals 2016 version, §5.2, p.756. *Printed:* A_q=B_n/L_q *Correction:* Restrict this formula to 0≤q<n and put A_q empty for q≥n; face maps in positive degree have the corresponding range.
+- **E5** (error; affects the proof), Published Annals 2016 version, equation 6.1.6 and its reuse, p.763. *Printed:* U=(|c|/|c∩Q|)U_Q *Correction:* With the displayed unnormalized definition U_Q=sum_(g∈c∩Q) r_g^(D ord g), the diagonal exact-monodromy-Q action is U_Q itself. Remove the extra scalar in both displays; the subgroup induction still works.
+- **E6** (error; affects the proof), Published Annals 2016 version, Lemma 8.4 proof after equation 8.4.1, p.772. *Printed:* principal homogeneous space *Correction:* The lift set may be empty. Prove the aggregate enlargement inequality by the conjugate-partition surjection formula and least-column enlargement, as detailed in the report, instead of asserting all individual surjections lift.
+- **E7** (gap; affects the proof), Published Annals 2016 version, §8.5 before equation 8.5.1, p.774. *Printed:* equivalent *Correction:* Proposition8.3 proves moment convergence implies convergence in distribution. The reverse needs uniform integrability or another family-specific tail estimate; do not infer it solely from distribution convergence.
+- **E8** (misprint; affects nothing), Published Annals 2016 version, equation 8.7.5, p.777. *Printed:* |S_n|=2(q^n−q^(n−1)) *Correction:* Require odd n≥3 for this formula; n=1 gives |S_1|=2q.
+- **E9** (misprint; affects nothing), Published Annals 2016 version, Theorem 8.8, p.777. *Printed:* ℓ-group *Correction:* Retain the standing hypothesis that A is abelian; A=1 is a separately trivial case.
+- **E10** (error; affects the proof), Published Annals 2016 version, generic-fibre identification in Theorem 8.8 proof, p.779. *Printed:* Sur(V,A) *Correction:* The unmarked cover's fibre is Sur(V,A)/{±1}, consistently with Proposition8.7. The marked set can be used for component orbits only after proving that −I∈Sp(V) makes their Sp-orbit sets identical.
+- **E11** (gap; affects a stated result), Published Annals 2016 version, Theorem 1.2, p.730; §§8.6–8.8. *Printed:* q≠1(modℓ) *Correction:* The proof supplied in this extraction supports odd q with ell∤q(q−1). Either state those restrictions or supply the missing characteristic2 and characteristicell arguments before claiming the broader written domain.
+- **E12** (misprint; affects nothing), Published Annals 2016 version, end of Proposition 8.9 proof, p.782. *Printed:* i>g *Correction:* The basis vectors modified are indexed by k<i≤g, not i>g.
+- **E13** (misprint; affects nothing), Published Annals 2016 version, §1.1 example, p.730. *Printed:* indivisible *Correction:* The displayed 1−product_(i≥1)(1−3^-i)≈0.440 is the probability of divisibility by3. Indivisibility has probability c_3≈0.560.
+- **E14** (misprint; affects nothing), Published Annals 2016 version, deduction of Theorem 1.2 after Theorem 8.8, p.777. *Printed:* Cl(O_L)≃A *Correction:* Define nu_n(A) using Cl(O_L)_ell≃A, the ell-primary part, rather than the entire class group.
+- **E15** (gap; affects the proof), Achter–Pries author-hosted final PDF, Corollary3.5 proof, p.14; Vasiu v2 Theorem1.3(b), p.2. *Printed:* standard group theory argument *Correction:* For (g,ell)=(1,3), prove a nonzero first congruence kernel or use a separate geometric argument. Vasiu directly supplies all g≥2,ell odd and g=1,ell≥5, enough for eventual n in EVW.
+- **E16** (error; affects the proof), Achter–Pries author-hosted final PDF, Lemma2.3 proof, p.5, smooth labelled branch functor. *Printed:* is an isomorphism *Correction:* In the stack interpretation retain the deck-group gerbe over the labelled branch space, or explicitly pass to coarse moduli. In the hyperelliptic case it is a mu2-gerbe; irreducibility still follows.
+- **E17** (error; affects a stated result), Achter–Pries author-hosted final PDF, §3.1, p.10, arithmetic/geometric integral image quotient. *Printed:* Gal(F_ell∞/F) *Correction:* Use the exact sequence in item137. Equality with the cyclotomic image holds if the geometric image is full Sp, as in the later Corollary3.6 application.
+- **E18** (error; affects a stated result), Vasiu arXiv:math/0209237v2,§2.2,PDF p.4; preliminary Lie-algebra paragraph. *Printed:* the Lie bracket *Correction:* Compute the Lie bracket using two independent first-order variables and the mixed coefficient, or the equivalent vector-field bracket. The kernel over a single dual-number variable has the additive Lie-algebra group law, so its group commutator is trivial.
+- **E19** (error; affects a stated result), Vasiu arXiv:math/0209237v2,§2.2,PDF p.4; preliminary Lie-algebra paragraph. *Printed:* a free R-module *Correction:* For a smooth group scheme the Lie module is finite locally free; freeness needs an additional base or triviality hypothesis. The Witt-ring case used later has this property.
+
+The reasons and the places searched are in the JSON.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+
+The following was also checked:
+- **Items and routes.** Item ids are unique, and every missing item is routed exactly once.
+- **Findings.** Every finding has `known` equal to "new".
+
+No Lean deliverable is part of a paper job.
+
+**For the reviewer.**
+- Check E11 against §8.6 and Theorem 8.8.
+
+## Checkpoint history (unchanged)
+
+The reports of the earlier checkpoints follow as they were written. Where they say *partial*, this continuation supersedes them.
+
+## EVW (2016): extraction and routing checkpoint
 
 Job #1184; Codex session codex-c83e7a; 2026-09-23. Continuation of
 codex-a71f92 / PR1843. Status: **partial**.
 This is a mathematical extraction and design input, not a Lean formalization.
 
-## Result and scope
+### Result and scope
 
 The result JSON has 137 items: 7 library imports, 8 planned
 suppliers and 122 missing items, each routed exactly once. It has
@@ -29,7 +98,7 @@ with Frobenius. The coefficient prime L used for etale cohomology is separate
 from the statistical prime ell; Proposition 7.8 retains
 L>max(|G|,q,n).
 
-## Sources actually read
+### Sources actually read
 
 The complete [published paper](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p01-p.pdf),
 58 pages, pp.729–786, was read this claim: every section, proof, Table 1 and
@@ -62,7 +131,7 @@ originals. In particular, the Salvetti model, arc connectivity,
 isotopy-extension input, stable genus-zero moduli, tame vanishing-cycle
 comparison, CL mass formula and Haar-cokernel theorem require continuation.
 
-## Routes and ownership
+### Routes and ownership
 
 | Route | Items | Responsibility |
 | --- | ---: | --- |
@@ -93,7 +162,7 @@ this complete specialized interface exists. The Part II brief expressly
 requires resolving the reusable supplier before implementation; it must not
 privately duplicate a general homological-algebra package.
 
-## Library evidence and audit boundary
+### Library evidence and audit boundary
 
 Pins: Mathlib
 `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
@@ -119,7 +188,7 @@ continuation, with the same ownership files. The JSON records the search
 scope and limitations. Negative searches are not assertions that all
 70,000 Tau Ceti declarations have been manually inspected.
 
-## Proof spine and conventions
+### Proof spine and conventions
 
 Items 8–26 separate configuration and cover carriers, the braid action,
 global versus boundary monodromy, concatenation, nonsplitting, the
@@ -152,7 +221,7 @@ the exact-family adapter in the stated genus/prime range, through
 items126–137. Its coordinate torsor retains the distinguished infinity,
 all labels and the involution; the general foundations remain imports.
 
-## Continuation: the exact family and its monodromy
+### Continuation: the exact family and its monodromy
 
 This continuation supplies the mathematical comparison requested by item116,
 with the generic curve and stack prerequisites explicitly imported. It also
@@ -309,8 +378,7 @@ unchanged hash and all1154 assertions passed. These are finite diagnostics;
 the quotient-stack, monodromy and infinite probability arguments above
 still require independent mathematical review and formalisation.
 
-
-## Repair of Lemma 8.4
+### Repair of Lemma 8.4
 
 The following replacement argument is derived here, not attributed to the
 authors and not independently reviewed.
@@ -377,7 +445,7 @@ converges in total variation to mu, while its C_ell-surjection moment is
 2−2ell^(-n). Distribution convergence alone does not justify the converse
 moment implication in §8.5.
 
-## Source findings awaiting review
+### Source findings awaiting review
 
 The inherited JSON ledger E1–E14 contains exact locators, short printed fragments,
 corrections, evidence and the correction-search history. No finding carries
@@ -411,7 +479,7 @@ The [author's EVW II notice](https://www-users.cse.umn.edu/~cwesterl/docs/prepri
 concerns a different preprint and is not used to label the published first
 paper withdrawn. Nothing has been sent to the authors.
 
-## Validation and continuation
+### Validation and continuation
 
 The current paper checker, deliverable-scope checker and structural audit pass:
 unique IDs, 122 missing items routed once, 243 acyclic dependency edges,
@@ -435,7 +503,7 @@ remain open. The explicit family adapter still needs formal supplier
 implementations and independent review. The handoff gives the next
 reading and implementation boundaries.
 
-### Reproducible finite regression
+#### Reproducible finite regression
 
 Run this code with Python 3. It has no third-party dependencies and writes
 no files.
@@ -612,8 +680,7 @@ print(f"PASS: {checks} assertions; {formula_cases} exact surjection counts; "
       f"{homotopy_cases} null-homotopy checks; lift histogram {dict(lift_histogram)}")
 ```
 
-
-### Reproducible continuation arithmetic checks
+#### Reproducible continuation arithmetic checks
 
 Python3, standard library only. SHA-256:
 `68d5311c87f2f1c9889961048e4cfb516664748caa6723d48f01f44de34457f5`. No geometry or Lean compilation is tested.
