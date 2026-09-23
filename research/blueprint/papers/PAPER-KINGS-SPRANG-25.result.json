@@ -35,7 +35,7 @@
    }
   ],
   "sha256": "fab8e605123cf9c399753b7114c4fd65000e1863e3507abdd4129c8c940fbb72",
-  "sha256Note": "SHA-256 of https://arxiv.org/pdf/1912.03657v4, recorded by review REV-PAPER-KINGS-SPRANG-25 on 23 September 2026; the extraction gave none."
+  "sha256Note": "SHA-256 of https://arxiv.org/pdf/1912.03657v4. The report already recorded this hash; review REV-PAPER-KINGS-SPRANG-25 re-fetched the file on 23 September 2026, confirmed the hash and copied it into this source block, which had none."
  },
  "baseline": {
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",

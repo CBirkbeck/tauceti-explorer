@@ -17,12 +17,13 @@ two of them by computations I did myself. One correction was made: the missing s
 
 ## The correction
 
-**The source block recorded no `sha256`.** Every other extraction I reviewed today carries one, and
-without it the locators cannot be tied to a fixed file — arXiv keeps versions immutable, so the hash
-is the thing that makes "v4, p. 37" checkable. I fetched
-<https://arxiv.org/pdf/1912.03657v4>, hashed it, and recorded
-`fab8e605123cf9c399753b7114c4fd65000e1863e3507abdd4129c8c940fbb72` with a note saying the review
-supplied it. Nothing else changed: no item, status, route or locator.
+**The hash was in the report but not in the result file.** `PAPER-KINGS-SPRANG-25.md` records the
+PDF's SHA-256 (and the TeX source's), but the machine-readable `source` block carried none, so a
+checker reading only the JSON could not tie the locators to a fixed file — and arXiv keeps versions
+immutable, which is what makes "v4, p. 37" checkable at all. I fetched
+<https://arxiv.org/pdf/1912.03657v4> myself, confirmed its hash is the report's
+`fab8e605123cf9c399753b7114c4fd65000e1863e3507abdd4129c8c940fbb72`, and copied it into the source
+block with a note saying the review did so. Nothing else changed: no item, status, route or locator.
 
 ## Mistakes in the paper (`sourceIssues` E1–E8)
 
@@ -52,7 +53,11 @@ work.
   4.16 states Deligne's conjecture — proved by Blasius and Kufner — as membership in `E^×`. Deligne's
   conjecture is a **rationality** statement, placing the ratio in `E`; it says nothing about
   non-vanishing, and a critical L-value may vanish. I searched pp. 45–60 for a non-vanishing
-  hypothesis and found none, so both statements assert more than is proved.
+  hypothesis and found none, so both statements assert more than is proved. The extraction's report
+  goes further and exhibits a counterexample — `χ = ψ^{−1}` for the Hecke character of
+  `y² = x³ − 25x`, critical with `α = 1̲`, `β = 0`, where `L_𝔣(χ,0) = L(C,1) = 0` because the root
+  number is `−1`. That is right: 5 is a congruent number, so that curve has rank 1 and its central
+  value vanishes.
 - **E6 (error).** Located at the proof of Theorem 5.27, Step 1. The extraction's point is that the
   transfer through Proposition 4.6 — the route the proof of Theorem 4.9 uses — carries a factor
   `(−1)^{d(d−1)/2}` that the displayed identity omits, absorbable into `µ_𝔣`. I checked that the step
