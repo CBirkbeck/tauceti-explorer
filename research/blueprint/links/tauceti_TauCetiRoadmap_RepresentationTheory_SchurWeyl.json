@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Mapped all ten SchurWeyl stages against the 211 other atlas roadmaps plus the newly added MordellLawrenceVenkatesh roadmap using full-text searches and summary screening; read both endpoint stages for every proposed link and overlap. Ten narrowly scoped links and seven ownership/interface overlaps are recorded. Characteristic/coefficient, image-versus-full-algebra and graded-sign issues remain explicit in the handoff. This is a mathematical dependency plan, not implementation or independent theorem verification.",
+  "summary": "Original catalogue-wide screen retained and independently spot-checked across all ten SchurWeyl stages; the five subsequently added roadmaps were screened, giving 217 other roadmaps in the current 218-roadmap catalogue. All ten narrowly scoped links and seven ownership/interface overlaps are retained after full endpoint reading and literal-quote verification; overlap 5 now reuses the pinned semisimple image-bicommutant theorem rather than requesting its reconstruction. No additional exact supplier/consumer match was established. The recorded coefficient, image-algebra, convention and missing-target obligations remain open roadmap work, not certified theorems.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity",
@@ -135,7 +135,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality",
       "target": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-2-the-weyl-construction-via-young-symmetrizers",
-      "reason": "Consume the complex image-level mutual-commutant and S_d x GL_n tensor-decomposition theorem, with only partitions of length at most n surviving. Compare the fixed Young-image realization with ClassicalGroups' chosen image and swap external tensor factors explicitly. Do not replace the image algebra by a faithful full group algebra in small dimension. The generic bicommutant-to-GL-span proof gap is recorded separately, not assumed solved.",
+      "reason": "Consume the complex image-level mutual-commutant and S_d x GL_n tensor-decomposition theorem, with only partitions of length at most n surviving. Compare the fixed Young-image realization with ClassicalGroups' chosen image and swap external tensor factors explicitly. Do not replace the image algebra by a faithful full group algebra in small dimension. The pinned generic image-bicommutant theorem is reusable; the independent identification of the GL span with the full S_d commutant remains an SW8 obligation, as corrected in overlap 5.",
       "confidence": "explicit",
       "evidence": [
         {
@@ -209,9 +209,9 @@
         "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality",
         "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem"
       ],
-      "detail": "The planned centralizer APIs overlap, but SemisimpleAlgebras Layer 3 is density for a simple module finite over its endomorphism division ring; the SchurWeyl tensor module is generally semisimple, not simple. The former statement alone does not identify the span of GL with the commutant of S_n.",
+      "detail": "The source descriptions overlap at density and tensor commutants, but SA3 states a simple-module result whereas SW8 needs a semisimple image theorem. This is a documentary mismatch, not an unbuilt intermediate theorem: the pinned TauCeti already supplies centralizer_centralizer_range for the image of a semisimple algebra on a finite base module, without faithful action.",
       "recommendation": "rescope",
-      "proposal": "Request a separately named finite-dimensional semisimple-image bicommutant theorem, with block/multiplicity-space proof, from the shared algebra owner. SchurWeyl must independently prove that the GL image is the full S_n commutant, then apply that theorem. No unconditional SemisimpleAlgebras Layer 3 to SchurWeyl Layer 8 edge is submitted."
+      "proposal": "Reuse TauCeti.centralizer_centralizer_range in TauCeti/RingTheory/Semisimple/DoubleCentralizer.lean at f790474821cf4256814db967cb154e7af3d0c369. Its parameters are a commutative base ring K, a K-module N with Module.Finite K N, a semisimple K-algebra S and an algebra map S -> End_K(N); it returns the double centralizer of the image as that image. Align SA3 with this existing output instead of requesting a new block/multiplicity proof. SW8 still must identify the GL image/span with the full S_n commutant before applying the theorem. No unconditional SA3-to-SW8 edge is submitted."
     },
     {
       "stages": [
@@ -231,220 +231,1100 @@
       "recommendation": "keep",
       "proposal": "Reuse CharacterTheory Layer 5's specification and explicit row/column transports to compare their outputs on shared examples. Keep the generic cyclotomic solver separate from SchurWeyl's integral partition recursion; add test-fixture comparisons only after both are constructed, not a reverse algorithm dependency."
     }
-  ]
-,
+  ],
   "examined": [
-    {"roadmapId": "AInfCohomology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AbelianSchemesAndArithmeticModuli", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AdditiveCombinatorics", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AdelicAlgebraicGroups", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AdicCoefficientsAndComparisons", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AdicEtaleGeometry", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AdicSpacesPartII", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AlgebraicModularFormsAndSerreWeights", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AlgebraicModuliForArithmeticGeometry", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AnabelianGeometryAndNonabelianChabauty", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AnalyticNumberTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ArakelovGeometryAndAbelianHeights", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ArithmeticDynamics", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ArithmeticGaloisDuality", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ArithmeticGaloisRepresentations", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ArithmeticKTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ArithmeticLocallySymmetricSpaces", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ArithmeticQuantumTopology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ArithmeticStatistics", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AutomorphicBundles", "result": "none", "note": "B4 read: geometric Schur-functor weights require bundle/descent comparisons; no direct import of the complex Schur-Weyl theorem is stated."},
-    {"roadmapId": "AutomorphicCongruences", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AutomorphicFormsOnReductiveGroups", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AutomorphicGaloisRepresentations", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AutomorphicGaloisRepresentationsPartII", "result": "links", "note": "Full document and raw-stage text read; narrow rational-projector link, with correspondence and graded-sign obligations retained."},
-    {"roadmapId": "AutomorphicLFunctionsAndLocalFactors", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AutomorphicPadicLFunctions", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "AutomorphicSpectralTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "BorelRegulators", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "BunGAndNewtonStrata", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ClassicalAdicEtaleCohomology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ClassicalArithmeticCompletion", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ClassicalSerreModularity", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "CohomologyComparisons", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ColemanIntegration", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ColemanPowerSeries", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "CompletedCohomologyPartII", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ComplexComparisonPartII", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ComplexMultiplicationAndExplicitReciprocity", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ComputationalNumberTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "CrystallineCohomology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "DeformationAndDerivedPatchingAlgebra", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "DeligneWeightsAndPurity", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "DerivedDeRhamCohomology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "DiamondEtaleCohomology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "DiamondSixOperations", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "DiamondsAndVStacks", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "DiophantineApproximationAndTranscendence", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "DirichletPadicLFunctions", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "DrinfeldModulesAndTModules", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "EffectiveDiophantineMethods", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "EllipticCurveModularity", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "EllipticKTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "EllipticRegulators", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "EndoscopicTransferAndUnitaryTraceComparison", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "EnhancedDerivedSheaves", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "EtaleDualityAndPerverseSheaves", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "EulerSystemsAndKolyvaginSystems", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "EulerSystemsCyclotomicMainConjecture", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ExcursionOperatorsAndSpectralAction", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ExponentialSumsAndCircleMethod", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "FaltingsFinitenessAndIsogenyTheorems", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "FarguesFontaineDiamonds", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "FiniteFieldsAndCharacterSums", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "FoundationsAndLibraryIntegration", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "FunctionFieldArithmetic", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "GL2AutomorphicRepresentationsAndTransfer", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "GL2ModularityLifting", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "GeneralAlgebraicKTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "GeneralizedHeegnerCycles", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "GeometricSatakeAndFusion", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "GeometryOfNumbersAndQuadraticArithmetic", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "GlobalGaloisDeformations", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "GlobalShtukasAndFunctionFieldLanglands", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "GrossZagierAndArithmeticHeights", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "HabiroCohomologyFoundations", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "HabiroCyclotomicCompletions", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "HabiroNahmSeries", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "HabiroNumberFields", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "HabiroRings", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "HeckeStacksAndLocalShtukas", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "HeegnerPointEulerSystems", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "HeightsRationalPointsAndObstructions", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "HilbertModularVarietiesAndShimuraCurves", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "HodgeTateAndCanonicalSubgroups", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "IgusaVarietiesAndTorsionConcentration", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "IntegralHeckeAndGaloisDeterminants", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "IntegralIwasawaTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "InverseGaloisAndArithmeticFundamentalGroups", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "K2SymbolsBrauer", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "K3BlochGroups", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "KTheoryFiniteLocalFields", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "KTheoryLowDegrees", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "KatoEulerSystems", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "LanglandsParameterStacks", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "LefschetzPencilsAndVanishingCycles", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "LocalGaloisDeformationRings", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "LocallyAnalyticDistributions", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "LogicAndDefinabilityInNumberTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "MetaplecticAutomorphicForms", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ModularCurvesPartII", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ModularIwasawaMainConjectures", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ModularSymbolsPadicLFunctions", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ModularityAndLanglandsExtensions", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "MotivesAndAlgebraicCycles", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "MotivicEtaleKTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "NeronModelsAndSemistableAbelianVarieties", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "NoncommutativeAndEquivariantIwasawa", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "OverconvergentAutomorphicForms", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PELModuli", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PadicDifferentialEquationsAndRigidCohomology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PadicFamilies", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PadicHodgeRegulators", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PadicHodgeTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PadicLocalLanglandsForGL2Qp", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PadicMeasuresIwasawaAlgebras", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PerfectoidQuotients", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PerfectoidShimuraVarieties", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PerfectoidSpaces", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PeriodsAndSpecialValues", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PhiGammaModulesAndIwasawaCohomology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "Polylogarithms", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PotentialAutomorphyInfrastructure", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PotentialModularityAndCompatibleSystems", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "PrismaticCohomology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ProbabilisticAndMetricNumberTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "QSeriesPartitionsAndMockModularForms", "result": "none", "note": "QM.0 and surrounding targets read: q-series partition functions and Monster moonshine do not consume Specht/Schur-Weyl classification."},
-    {"roadmapId": "RankZeroOneBSD", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ReductiveGroupsPartII", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "RefinedTraceMethods", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "RelativeFarguesFontaine", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "SchemeAndStackFoundations", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "SchemeKTheoryOperations", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "SelmerIwasawaCohomology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "SerreWeightAndLevelOptimisation", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ShimuraCompactifications", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ShimuraData", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "ShimuraVarieties", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "SieveMethodsAndPrimePatterns", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "SmallRamificationAndAbelianVarietyBaseCases", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "SmoothRepresentationsOfLocalGroups", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "SpecialValuesBirchTate", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "StableHomotopyKTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "TorsionCohomologyInfrastructure", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "TropicalAndBerkovichArithmetic", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "VStackSheavesAndLisseCategories", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "VectorBundlesAndIsocrystals", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "WeightsInEtaleCohomology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "WeilConjectures", "result": "none", "note": "Summary and full text searched; Frobenius characteristic polynomials are not the Frobenius characteristic of S_n class functions."},
-    {"roadmapId": "tauceti:Completed/ContourIntegration", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:Completed/EffectiveBounds", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:Completed/IntegralLattices", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:Completed/OrthogonalL2Bases", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps", "result": "none", "note": "Summary/stages screened and cycle-type passages searched; permutation-cycle interface is routed through PolynomialGaloisGroups, not Specht theory."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/Chebotarev", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/Exchangeability", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/HopfRinow", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/ModularCurves", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/ModularForms", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic", "result": "none", "note": "Summary/stages screened and permutation hits searched; factorization/Frobenius cycle types are not symmetric-group character computations."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport", "result": "none", "note": "Summary and full text searched; Young/duality terminology does not supply tableau representation theory."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/PDE", "result": "none", "note": "Summary and full text searched; Hausdorff-Young/analytic terminology is unrelated to Young symmetrizers."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups", "result": "overlap", "note": "Full Layer 0 and fullCycleType passages read; shared cycle-partition adapter needs ownership coordination."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups", "result": "none", "note": "Summary/stages screened, document searched; connected reductivity does not automatically cover disconnected complex O_n."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa", "result": "none", "note": "Summary/stages screened, document searched; faithful Lie representations do not supply tensor-power mutual commutants."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory", "result": "links", "note": "Full document read, endpoint stages checked recursively through Layers 0-5; independent algorithm overlap, not a reverse prerequisite."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups", "result": "links", "note": "Full document read; supplied interfaces, duplicated constructors and missing advertised exports separated."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups", "result": "none", "note": "Summary/stages screened, document searched; averaging/Peter-Weyl is an alternative analytic route, not a stated SchurWeyl prerequisite."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction", "result": "links", "note": "Conventions, Layer 2 and Young-subgroup example read; generic induced-trivial comparison supplies SchurWeyl Layer 1."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups", "result": "none", "note": "Summary/stages screened, document searched; Lie integration and maximal tori are not the finite tensor-action contract."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight", "result": "overlap", "note": "Layer 6 and GL_n-related passages read; minuscule Pieri stays here, general LR export remains a request."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations", "result": "none", "note": "Summary/stages screened, document searched; Schur lemma and quiver representations are not Schur-Weyl interfaces."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory", "result": "none", "note": "Collection/navigation roadmap screened; no new dependency from a directory link or umbrella description."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems", "result": "none", "note": "All stage titles and summary screened, document searched; abstract Weyl/root combinatorics are not the tensor-centralizer theorem."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras", "result": "overlap", "note": "Conventions and Layers 1-3 read; simple-module density is not the needed semisimple tensor-image theorem."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations", "result": "none", "note": "Summary/stages screened and tensor/Spin passages searched; spin/half-spin is not supplied by standard-vector harmonic tensor decomposition."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/StableReduction", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions", "result": "none", "note": "Summary and full text searched; Schur-complement/Gaussian terminology is not Schur functor theory."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective", "result": "none", "note": "Summary/full-text screen: no exact supply/use found."},
-    {"roadmapId": "MordellLawrenceVenkatesh", "result": "none", "note": "New roadmap screened at submission refresh: semilinear centralizers and Aff(q) projectors are not Young tensor-image contracts."}
-  ]
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "none",
+      "note": "B4 read: geometric Schur-functor weights require bundle/descent comparisons; no direct import of the complex Schur-Weyl theorem is stated."
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "links",
+      "note": "Full document and raw-stage text read; narrow rational-projector link, with correspondence and graded-sign obligations retained."
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "FoundationsAndLibraryIntegration",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "note": "QM.0 and surrounding targets read: q-series partition functions and Monster moonshine do not consume Specht/Schur-Weyl classification."
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "none",
+      "note": "Summary and full text searched; Frobenius characteristic polynomials are not the Frobenius characteristic of S_n class functions."
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "none",
+      "note": "Summary/stages screened and cycle-type passages searched; permutation-cycle interface is routed through PolynomialGaloisGroups, not Specht theory."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "none",
+      "note": "Summary/stages screened and permutation hits searched; factorization/Frobenius cycle types are not symmetric-group character computations."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none",
+      "note": "Summary and full text searched; Young/duality terminology does not supply tableau representation theory."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none",
+      "note": "Summary and full text searched; Hausdorff-Young/analytic terminology is unrelated to Young symmetrizers."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "overlap",
+      "note": "Full Layer 0 and fullCycleType passages read; shared cycle-partition adapter needs ownership coordination."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "none",
+      "note": "Summary/stages screened, document searched; connected reductivity does not automatically cover disconnected complex O_n."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "none",
+      "note": "Summary/stages screened, document searched; faithful Lie representations do not supply tensor-power mutual commutants."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "links",
+      "note": "Full document read, endpoint stages checked recursively through Layers 0-5; independent algorithm overlap, not a reverse prerequisite."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "links",
+      "note": "Full document read; supplied interfaces, duplicated constructors and missing advertised exports separated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none",
+      "note": "Summary/stages screened, document searched; averaging/Peter-Weyl is an alternative analytic route, not a stated SchurWeyl prerequisite."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "links",
+      "note": "Conventions, Layer 2 and Young-subgroup example read; generic induced-trivial comparison supplies SchurWeyl Layer 1."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "none",
+      "note": "Summary/stages screened, document searched; Lie integration and maximal tori are not the finite tensor-action contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "overlap",
+      "note": "Layer 6 and GL_n-related passages read; minuscule Pieri stays here, general LR export remains a request."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "none",
+      "note": "Summary/stages screened, document searched; Schur lemma and quiver representations are not Schur-Weyl interfaces."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "note": "Collection/navigation roadmap screened; no new dependency from a directory link or umbrella description."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "result": "none",
+      "note": "All stage titles and summary screened, document searched; abstract Weyl/root combinatorics are not the tensor-centralizer theorem."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "overlap",
+      "note": "Conventions and Layers 1-3 read; simple-module density is not the needed semisimple tensor-image theorem."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "none",
+      "note": "Summary/stages screened and tensor/Spin passages searched; spin/half-spin is not supplied by standard-vector harmonic tensor decomposition."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Summary and full text searched; Schur-complement/Gaussian terminology is not Schur functor theory."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact supply/use found."
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "none",
+      "note": "New roadmap screened at submission refresh: semilinear centralizers and Aff(q) projectors are not Young tensor-image contracts."
+    },
+    {
+      "roadmapId": "AnalyticHabiroStack",
+      "result": "none",
+      "note": "Independent review 2026-09-23: Purpose/scope and full-text screen: q-Pochhammer, q-binomial and quantum-pentagon constructions are not the finite symmetric-group Schur/Brauer contracts. No TemperleyLieb supplier is introduced here."
+    },
+    {
+      "roadmapId": "AnalyticStacks",
+      "result": "none",
+      "note": "Independent review 2026-09-23: Purpose/scope and stage-title screen plus full-text Schur/Young/Specht/Brauer/centralizer search: six-functor and analytic-stack constructions state no supply/use of the SchurWeyl contracts."
+    },
+    {
+      "roadmapId": "QWittVectors",
+      "result": "none",
+      "note": "Independent review 2026-09-23: Purpose/scope, QW.0–1 and full-text screen: big Witt vectors, Lambda-rings and Adams operations do not state a symmetric-function or representation-ring comparison consuming SW7. Shared polynomial notation does not supply that missing comparison."
+    },
+    {
+      "roadmapId": "RingStacksAndTransmutation",
+      "result": "none",
+      "note": "Independent review 2026-09-23: Purpose/scope and stage-title/full-text screen: ring stacks and transmutation have no stated Young-projector, class-function or Schur-polynomial interface."
+    },
+    {
+      "roadmapId": "SolidAnalyticRings",
+      "result": "none",
+      "note": "Independent review 2026-09-23: Purpose/scope and stage-title/full-text screen: idempotent algebras and solid tensor categories do not state the normalized Young-idempotent or finite tensor-centralizer contracts."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
+    "date": "2026-09-23",
+    "notes": "Codex codex-c83e7a independently checked all ten links, all twenty literal evidence quotes and all seven overlap recommendations; read all endpoint stages, searched all ten own stages, and refreshed coverage for five new roadmaps. Retained every edge and overlap; corrected overlap 5 to reuse the directly checked pinned image-bicommutant theorem, and clarified link 9 accordingly. Acceptance concerns the link packet and recorded boundary proposals; it does not resolve the upstream proof/convention gaps. No new dependency or overlap justified. See the review report for the per-item and completeness ledger.",
+    "removed": [],
+    "added": []
+  }
 }
