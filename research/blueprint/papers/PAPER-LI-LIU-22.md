@@ -142,3 +142,28 @@ Links and reasons are in the JSON. Bibliographic data follow the paper's referen
 - Stage ids were checked against `data/atlas.json`, the accepted restructures and `data/roadmap-retirements.json`. RS-07, RS-30, RS-31 and RS-32 touch the owning roadmaps, either by narrowing other stages or, in RS-31, by adding supplier links into SR.4. None changes the scope of a cited stage, and none of the cited stages is retired.
 - The two reused Part II ids come from the merged PAPER-LI-ZHANG-22-B routes. `UnitaryArithmeticInnerProductFormula` occurs in no other extraction.
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Review (REV-PAPER-LI-LIU-22, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1385](https://github.com/CBirkbeck/tauceti-explorer/issues/1385). **Verdict: accept.**
+No item, status, route or locator changed.
+
+- **All 5 mistakes confirmed, three decisively.** E1: the expression
+  `1 + q + ⋯ + q^j + (b₂ − ?)q^j` appears six times — correct with `j` four times on p. 27, and
+  with `l` exactly twice, at (2.17) and the following display on p. 28, which are the two places
+  the finding names. E2: p. 35 writes the condition with `u^{e_i−1}` and the conclusion with
+  `a_i` on the same line. E3: Lemma 2.15 on p. 12 really does print the literal letters `𝑣𝑒𝑒`
+  where `∨` belongs, and p. 60 writes `σ(i)` under a quantifier introducing `h`.
+- **E4 and E5** confirmed as printed, with the verdict stating which part rests on the
+  extraction. E5's locator repays checking and is exactly right: p. 55 has the admissibility
+  bullet, and the set-minus form appears in the proofs at pp. 57 and 64.
+- **Provenance:** the recorded `sha256` is not reproducible — Cambridge stamps each download, and
+  two downloads gave two hashes, neither the recorded one. A reproducible stamp-stripped text
+  hash (`223a9e92…052a8`) was recorded. The page map was confirmed against the running heads.
+- **Items and routes:** no library items; 3 planned resolving; 81 missing routed exactly once;
+  all three Part II titles exact prefix extensions with free names. Two are large merges —
+  `UnitaryRapoportZinkSpacesAndRSZModels` co-proposed by five other papers and
+  `UnitaryKudlaRapoportCycles` by four.
+
+Full report: `research/blueprint/reviews/REV-PAPER-LI-LIU-22.md`.
