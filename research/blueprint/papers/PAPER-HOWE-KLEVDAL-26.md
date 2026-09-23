@@ -186,3 +186,16 @@ These are listed in the result with links:
   - Chambert-Loir–Loeser (ANT 2017);
   - Bakker–Tsimerman (Invent. Math. 2019).
 - **Uniformization:** Daniels–van Hoften–Kim–Zhang (arXiv:2408.01348).
+
+## Review (REV-PAPER-HOWE-KLEVDAL-26, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its eight routes, including the new roadmap, after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-HOWE-KLEVDAL-26.md`. The published version was still not readable, so arXiv v2 remains the source.
+
+- **Statements and locators:** 39 statements and 45 locators corrected.
+- **Statuses:** item 024 changed from planned to missing; items 023, 076 and 079 re-pointed.
+- **New items:** 11 (2 planned, 9 missing). The new roadmap's brief has a corrections paragraph.
+- **Source issues:** E1–E14 are confirmed. E15–E48 are new:
+  - 20 misprints;
+  - nine local gaps with verified repairs: smoothness for singular S, a descent step in Theorem 3.3.1(3), the family argument, a weight step in Proposition 6.4.1, connectedness of motivic Galois groups, and the hypotheses of Lemmas 9.3.1 and 9.3.5 and Part I Corollary 5.5.3;
+  - five errors, none of which touches a main theorem: in §7.5 (Lemma 7.5.1, Remark 7.5.3, the proof of Proposition 7.5.2), in Lemma 9.3.3's converse, and in the descent group on p. 19.
+  - Theorems A, B and 9.1.3 stand.
