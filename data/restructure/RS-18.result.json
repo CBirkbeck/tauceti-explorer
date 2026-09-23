@@ -1,0 +1,1743 @@
+{
+  "family": "RS-18",
+  "roadmaps": {
+    "EllipticKTheory": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "title": "Elliptic curves, Part II: scheme K-theory and arithmetic symbol classes",
+      "reason": "Make the existing Part II introduction and dependency precise: Elliptic curves is the first roadmap prerequisite. Its equation/function-field arithmetic, points, isogenies, divisors and torsion are imported, not rebuilt. Also import the existing Modular Curves scheme/Picard package and Algebraic Curves dictionary. New work starts with their K-theory-ready comparison, the origin-dependent K0 assembly, curve K1--K3, finite-curve computations, arithmetic integral images and certified symbols; analytic regulators remain with EllipticRegulators."
+    },
+    "KTheoryLowDegrees": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "title": "Grothendieck groups, Cartan maps, and Euler forms, Part II: explicit ring and curve K₀ and stable-matrix K₁",
+      "reason": "Make GrothendieckEulerForms the first roadmap prerequisite, as the present introduction already intends. Start beyond its ordinary categorical K0, finite resolutions, Cartan and Euler-form constructions: projective/idempotent presentations, locally constant virtual rank, determinant/Steinitz, regular curves, explicit stable matrix K1, arithmetic SK1 and map-level higher comparisons. Do not delay early Z.1/U.1 behind higher K-theory or repeat the existing categorical groups."
+    },
+    "SchemeKTheoryOperations": {
+      "action": "keep",
+      "reason": "Keep the independent general scheme/perfect-complex theory: enhancement, categorical K-theory, ring degree-zero operations and intersection theory are inputs, while scheme K/G maps, supports, descent, coniveau, projective/blow-up formulas, higher operations and their geometric comparisons are its residual subject. It is neither an elliptic special-case roadmap nor a replacement for GrothendieckEulerForms. No existing roadmap or live atlas file changes in this proposal."
+    }
+  },
+  "layers": {
+    "EllipticKTheory:E.1": {
+      "action": "narrow",
+      "keeps": "Assemble the imported elliptic scheme, affine Weierstrass ring and function field as three distinct inputs to the same scheme K-functor. Prove compatibility of the imported point/group-law and arbitrary nonzero isogeny dictionaries with the carriers actually used here; transport degree, separability, kernels, divisor pullback and invariant differentials. Include the zero scheme morphism separately (it has no function-field embedding). Retain every smooth/proper/geometrically connected/regular/chart assertion as an imported theorem and a comparison test, not a new construction.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+        "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+        "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+        "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+        "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv"
+      ],
+      "reason": "Modular Curves owns the projective model, points/group law and scheme isogenies; its 2A bridge is only the multiplication-map comparison. Algebraic Curves 12 owns the broad function-field/isogeny dictionary. E.1 now owns the K-theory integration of those exact interfaces, including zero, not rival constructions."
+    },
+    "EllipticKTheory:E.2": {
+      "action": "narrow",
+      "keeps": "Assemble the origin-dependent group equivalence K0(E) ≃ Z ⊕ Z ⊕ E(F), transport the actual tensor multiplication (not the product-ring multiplication), and prove compatibility of point/line-bundle classes, degree, Euler characteristic and base pushforward. Compare function-field divisor classes with actual line bundles over F through the imported dictionaries. Retain rational-origin and descent-obstruction hypotheses; this stage is the unique owner of the elliptic K0 specialization formerly repeated in Z.5.",
+      "suppliedBy": [
+        "KTheoryLowDegrees:Z.5",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+        "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals"
+      ],
+      "reason": "Z.5 owns general regular-curve rank/determinant and point classes; Jacobian A--B owns the line-bundle/cohomology language; Modular Curves 2D owns relative elliptic Picard duality. Existing Tau Ceti supplies the function-field degree-zero point equivalence and abstract degree splitting. Their scheme/K0 comparison and elliptic assembly remain here."
+    },
+    "EllipticKTheory:E.3": {
+      "action": "narrow",
+      "keeps": "Specialize and compare the full map-level closed-point localization segment from K3(X) through K0(X), including every intervening residue-field group, exactness, open/finite naturality, norms and ramification multiplicities. Prove the tame-kernel is the restriction image, number-field rational injectivity using torsion residue K2 and finite-field integral injectivity using vanishing residue K2. Preserve all non-rational closed points, rational versus integral lifts and sign tests.",
+      "suppliedBy": [
+        "SchemeKTheoryOperations:S.3",
+        "K2SymbolsBrauer:T.3:symbols",
+        "K2SymbolsBrauer:T.3:localization-comparison"
+      ],
+      "reason": "Import the support/localization construction and symbol boundary comparison. E.3 owns the displayed curve segment and its arithmetic injectivity consequences, not a second localization theorem. The hypotheses proving residue-field torsion/vanishing remain explicit source obligations."
+    },
+    "EllipticKTheory:E.4": {
+      "action": "narrow",
+      "keeps": "Own the constant-unit image and splitting, curve SK1 as the tame-boundary cokernel, and the actual two-column curve K3 filtration/extension with its left K4-to-residue-K3 cokernel term. Compare its maps to E.3. Specialize imported Adams and motivic comparisons with actual eigenspaces/subquotients, finite coefficients and base-change maps, retaining the distinction from ring SK1 and from field indecomposable K3.",
+      "suppliedBy": [
+        "SchemeKTheoryOperations:S.4",
+        "SchemeKTheoryOperations:S.6",
+        "MotivicEtaleKTheory:M.6a",
+        "MotivicEtaleKTheory:M.6b"
+      ],
+      "reason": "Ordinary codimension coniveau is S.4; higher operations are S.6; homotopy-coniveau layer-to-cycle identification and motivic convergence/degeneration are M.6a/b. These are related but distinct constructions. E.4 does not rebuild either global spectral sequence or discard its curve filtration term."
+    },
+    "EllipticKTheory:E.5": {
+      "action": "narrow",
+      "keeps": "Compare the imported pullback, proper-perfect pushforward and finite-flat transfer on the elliptic carriers. Compute the isogeny pull-push action by [f_*O], retaining its determinant/Picard contribution and proving any rational/special degree simplification. Specialize S.5's all-degree P1 formula and compare Z.6's degree-zero bases. Own the finite elliptic-curve K-group theorem, including finite generation/cohomology/Frobenius inputs, K1 ≃ Fq× ⊕ Fq× and the precise finite positive-degree prime-to-characteristic conclusions.",
+      "suppliedBy": [
+        "SchemeKTheoryOperations:S.2",
+        "SchemeKTheoryOperations:S.5",
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "reason": "Generic maps/projection are S.2; projective bundles are S.5; the explicit two-basis K0(P1) check is Z.6. The isogeny computation and finite-curve theorem are not consequences of the field calculation alone and remain E.5 work."
+    },
+    "EllipticKTheory:E.6": {
+      "action": "narrow",
+      "keeps": "Construct and compare global regular proper flat models over O_F and O_{F,S}, supplying the gluing/global-existence and common-modification theorems not supplied by the local DVR contracts. Retain charts, vertical components/intersections via imported local geometry. Own full-base and S-integral rational K2 images, their model independence, vertical-residue/codimension-two characterization and bad-fibre tests. Prove any lattice assertion separately; neither a Neron model nor an unresolved singular Weierstrass scheme replaces the required proper regular model.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+        "SchemeKTheoryOperations:S.3",
+        "SchemeKTheoryOperations:S.5"
+      ],
+      "reason": "StableReduction owns its DVR blowups, resolution, regular/minimal-model geometry and local intersection theory; S.3/S.5 own K-theory localization/blowups. Global arithmetic-base geometry beyond those hypotheses and the integral-image theorem remain here; no unrestricted resolution or model-independence black box is introduced."
+    },
+    "EllipticKTheory:E.7": {
+      "action": "narrow",
+      "keeps": "Own finite-support horizontal/vertical tame certificates on actual functions, local leading units, Bloch Proposition 10.1.1 constant-symbol corrections, classes S_a and independence modulo torsion/constants. Consume existing torsion-divisor functions where applicable, prove any additional linear-system/normalization facts needed for the explicit construction, and transport them through E.1/E.2. Retain non-rational torsion via finite extension, transfer/norm/descent diagrams and E.3 rational lifts; analytic regulator formulas remain with ER.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+        "K2SymbolsBrauer:T.3:symbols"
+      ],
+      "reason": "Existence of functions for n(P)-n(O) is already supplied by the elliptic divisor/Weil-pairing owner and pinned Tau Ceti. Reusing it does not supply Bloch's corrections, full finite certificates, vertical integrality or descent; all those remain here."
+    },
+    "EllipticKTheory:E.8": {
+      "action": "keep",
+      "reason": "Retain the completion gate and all three worked tests: nontrivial symbol, non-rational closed point and bad-fibre integrality. No universal number-field K-group classification or finite-generation assertion is added."
+    },
+    "KTheoryLowDegrees:Z.1": {
+      "action": "narrow",
+      "keeps": "Own the concrete idempotent/stabilization classification of finite projectives, available splitting/complement/matrix data, ring-carrier instantiation of existing K0, class induction and stable-equality criterion, scalar extension and ring K0 Morita functoriality. Reuse existing finite-projective retract/split-exact-category and universal-property declarations; prove comparisons on their actual module carriers rather than constructing a new categorical K0.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map"
+      ],
+      "reason": "GrothendieckEulerForms owns ordinary exact/split K0 and the categorical Cartan setting. Its finite-dimensional Morita case is imported and compared; the general ring-level explicit extension remains here and precedes K.2:plus/K.7. Complements use existing module theorems, not a new higher-K axiom."
+    },
+    "KTheoryLowDegrees:Z.2": {
+      "action": "narrow",
+      "keeps": "Own virtual integer-valued rank on Spec from existing natural-valued stalk rank, finite image, localization/base change, disconnected and finite-product comparison, ring K0 over fields/division rings via dimension, and local/semilocal ring-level consequences with explicit component hypotheses. Reuse categorical finite-dimensional K0 and available local finite-flat freeness; retain F × F ≃ Z² and division-ring tests.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups"
+      ],
+      "reason": "The vector-space categorical dimension calculation already belongs upstream; transporting it to ring K0 is new here. Mathlib stalk-rank locality is an implementation input, not evidence that the virtual K0 homomorphism or all product/semilocal comparisons already exist."
+    },
+    "KTheoryLowDegrees:Z.3": {
+      "action": "keep",
+      "reason": "Own the early commutative-ring K0 tensor/exterior-power/virtual lambda identities, componentwise determinant to Pic, augmentation kernel and algebraic gamma-filtration relation. S.6/S.7 import these degree-zero normalizations; no reverse dependency on higher operations. Determinant remains an additive-group map."
+    },
+    "KTheoryLowDegrees:Z.4": {
+      "action": "keep",
+      "reason": "Retain Steinitz, I⊕J ≃ A⊕IJ, the inverse rank/Pic comparison with zero separately, S-localized class-group quotient and extension/localization/transfer formulas including the determinant of the algebra. Reuse existing Pic/class-group and arithmetic carriers from the reviewed audit; norm-compatible transfer is not degree multiplication on every coordinate."
+    },
+    "KTheoryLowDegrees:Z.5": {
+      "action": "narrow",
+      "keeps": "Own the general connected regular noetherian curve rank-determinant isomorphism, with its actual finiteness/resolution hypotheses, vector-bundle realization of K0, structure/sheaf/skyscraper/divisor class formulas and compatibility with the K/G and divisor-to-line-bundle dictionaries. The general theorem has no dependency on elliptic Picard specialization. Export its result to E.2; the origin-dependent elliptic K0 expression is owned only by E.2. On smooth proper curves reuse the Jacobian dictionary, and on regular projective function-field models reuse Algebraic Curves 12; any additional dictionary/resolution argument for a general regular noetherian (possibly nonproper or arithmetic) curve remains a named part of this stage, not an application outside those suppliers' hypotheses.",
+      "suppliedBy": [
+        "SchemeKTheoryOperations:S.2",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "EllipticKTheory:E.2"
+      ],
+      "reason": "Import generic Cartan and line-bundle/divisor dictionaries. E.2 in suppliedBy denotes a relocated late export, not an input to Z.5: route that export directly to Z.6 and KU-operations, Z.5's original consumers, without adding E.2 -> Z.5. Preserve the non-rational-origin counterexample gate. The suppliers' smooth/proper or regular-projective restrictions do not shrink the retained general-curve target."
+    },
+    "KTheoryLowDegrees:Z.6": {
+      "action": "narrow",
+      "keeps": "Own the map-level comparison of explicit ring/vector-bundle K0 with pi0 of the same K-functor, localization of object classes and perfect-complex Euler classes; compare with the one existing Cartan map. Retain fields, Z, disconnected ring, actual nonprincipal ideal, elliptic and P1 tests. Own the explicit agreement/change-of-basis between projective-bundle and rank/Pic K0(P1) calculations, importing the generic projective-bundle theorem.",
+      "suppliedBy": [
+        "SchemeKTheoryOperations:S.2",
+        "SchemeKTheoryOperations:S.5",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+        "EllipticKTheory:E.2"
+      ],
+      "reason": "Generic K/G Cartan is S.2 over the existing categorical Cartan, projective bundles are S.5, and the elliptic rank/Pic specialization is E.2. Z.6 owns comparison and tests, not another proof of those general constructions."
+    },
+    "KTheoryLowDegrees:U.1": {
+      "action": "keep",
+      "reason": "Keep stable GL and elementary-group constructions, common-stabilization equality, Whitehead commutators, normality/perfectness and explicit finite-rank bounds. Use existing commutative matrix lemmas where applicable without erasing the arbitrary-ring/noncommutative scope."
+    },
+    "KTheoryLowDegrees:U.2": {
+      "action": "keep",
+      "reason": "Keep explicit GL/E and abelianization, ring-map/block-sum calculus and projective-automorphism classes independent of complement, including filtration additivity."
+    },
+    "KTheoryLowDegrees:U.3": {
+      "action": "keep",
+      "reason": "Keep determinant/section/SK1, field and commutative-semilocal elementary reductions, and division-ring Dieudonne determinant into units abelianization. Do not generalize units=K1 to all commutative rings."
+    },
+    "KTheoryLowDegrees:U.4": {
+      "action": "keep",
+      "reason": "Keep the full source-scoped Bass--Milnor--Serre S-integer SK1 theorem, Mennicke/unimodular/CFT inputs and comparison with Dirichlet S-units. Existing Z-case generation does not supply the number-field theorem; the fundamental-unit splitting is noncanonical."
+    },
+    "KTheoryLowDegrees:U.6": {
+      "action": "keep",
+      "reason": "Keep the explicit loop/quotient pi1 comparison, determinant and transfer diagrams, and all Z/finite-field/Z[1/p]/product/triangular/diag(g,g^-1)/uniformizer tests. K.2:low-degree-comparisons only assembles this result."
+    },
+    "KTheoryLowDegrees:U.5": {
+      "action": "narrow",
+      "keeps": "Own classical congruence/relative elementary groups and comparison with K.5's homotopy-fibre relative K1, retaining the preceding K2 boundary and proving any injectivity criterion. Construct finite-projective restriction-of-scalars transfer on explicit K1, prove its unit norm and K0 projection formulas and compatibility with the higher maps. Import the DVR unit-valuation boundary from S.3 and prove the explicit determinant/relative-matrix comparison, with uniformizer sent to 1.",
+      "suppliedBy": [
+        "GeneralAlgebraicKTheory:K.5",
+        "SchemeKTheoryOperations:S.3"
+      ],
+      "reason": "Relative K1 is not simply the kernel of the absolute map. K.5 owns generic relative homotopy fibres; S.3 owns support/localization boundaries. U.5 owns their comparison with explicit matrices and transfers."
+    },
+    "SchemeKTheoryOperations:S.1": {
+      "action": "narrow",
+      "keeps": "Own the scheme-specific subcategory of locally perfect complexes: locality, shifts/cones/retracts, pullback stability, qcqs essential smallness, affine comparison and vector-bundle comparison only under a proved resolution property. Choose/compare its enhanced K.4--K.6 model inside the imported enhanced derived sheaves. Retain arbitrary-ring affine perfection beyond the complete-local P7 case; identify with that existing case on overlap. Keep singular schemes in scope.",
+      "suppliedBy": [
+        "EnhancedDerivedSheaves:E1",
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "reason": "Generic unbounded sheaf complexes, replacements and enhancement belong to E1; complete-Noetherian-local perfect module constructions belong to P7. Neither provides global resolution property, qcqs smallness or the arbitrary-affine theorem; these remain S.1. Available Mathlib complexes and sheaf modules are reused."
+    },
+    "SchemeKTheoryOperations:S.2": {
+      "action": "narrow",
+      "keeps": "Own scheme K from Perf and noetherian G from coherent sheaves, arbitrary derived pullback, hypothesis-qualified proper pushforward, composition/flat base change/projection and affine extension/restriction. Construct the spectrum-level Cartan comparison and its regular-noetherian finite-dimensional equivalence, proving compatibility with the existing degree-zero categorical Cartan map. No singular equivalence by definition.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map"
+      ],
+      "reason": "Only the already owned degree-zero categorical Cartan construction is removed; the scheme functors, higher equivalence and actual compatibility remain here. Finite projective resolution hypotheses are proved in applications rather than inferred from a slogan about regularity."
+    },
+    "SchemeKTheoryOperations:S.3": {
+      "action": "narrow",
+      "keeps": "Own scheme support categories, the qcqs nonconnective support/open fibre sequence, excision, map functoriality, exact-category comparison and hypothesis-qualified regular-immersion devissage. Own DVR/Dedekind/regular-curve/arithmetic-surface applications and unit-valuation boundary; identify the scheme symbol boundary with the imported classical tame symbol/localization normalization. Retain codimension-two terms and G/support theory whenever K(Z) is not valid.",
+      "suppliedBy": [
+        "K2SymbolsBrauer:T.3:symbols",
+        "K2SymbolsBrauer:T.3:localization-comparison"
+      ],
+      "reason": "Classical tame-symbol formulas/signs and their ring localization comparison belong to K2SymbolsBrauer; S.3 owns their support/scheme comparison, not a duplicate symbol construction. E.3 and U.5 import this single localization boundary owner."
+    },
+    "SchemeKTheoryOperations:S.4": {
+      "action": "keep",
+      "reason": "Keep Zariski/Nisnevich descent, K-sheaves, convergence and ordinary codimension coniveau exact couple/residue first page. Keep separate equicharacteristic and explicitly source-scoped mixed-characteristic Gersten tasks. E.4 imports this construction; M.6a adds homotopy-coniveau moving/layer-cycle comparison, not a replacement for ordinary coniveau."
+    },
+    "SchemeKTheoryOperations:S.5": {
+      "action": "narrow",
+      "keeps": "Own regular-scheme homotopy invariance, projective-bundle theorem with tautological generators, regular-centre blow-up formula and exceptional-divisor tests. Extend/import the Laurent ring fundamental theorem through affine/scheme comparison, preserving singular Nil terms. Compare with Z.6's two P1 bases without depending on the late test. Keep ordinary K distinct from KH and construct KH only if a consumer requires it.",
+      "suppliedBy": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "reason": "K.6 owns the ring nonconnective/fundamental theorem including Nil terms. S.5 owns the geometric extension, projective bundles and blowups. There is no Z.6 -> S.5 feedback edge."
+    },
+    "SchemeKTheoryOperations:S.6": {
+      "action": "narrow",
+      "keeps": "Own extension of K.7 external products to schemes/supports/relative theories with graded commutativity and map compatibilities; genuine higher lambda/Adams construction, multiplication law, bounded-weight rational projectors and eigenvalue theorems in their proved ranges. Compare degree zero with Z.3's existing tensor/lambda/determinant normalization. Retain all residue/Gysin weight shifts and denominators.",
+      "suppliedBy": [
+        "GeneralAlgebraicKTheory:K.7",
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "reason": "Generic categorical/ring products are K.7, early K0 operations are Z.3; higher scheme operations are not supplied by exterior powers on objects. The dependency is Z.3 -> S.6, never S.6 -> Z.3."
+    },
+    "SchemeKTheoryOperations:S.7": {
+      "action": "narrow",
+      "keeps": "Own the K/G realization of the degree-zero Chern character, scheme gamma filtration and regular-scheme Chow comparison, including normalization against Z.3 on affines and the imported geometric Chern/Todd classes. Retain the K-theoretic splitting-principle/pullback-injectivity comparison and the Riemann--Roch compatibility on actual K/G pushforward maps, with denominators and exact hypotheses. Prove any extension beyond SF.5's verified source scope explicitly here; higher Chow groups and higher Chern character remain M's.",
+      "suppliedBy": [
+        "KTheoryLowDegrees:Z.3",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "reason": "Import generic divisors/line bundles, Chow/rational-equivalence/Chern/intersection/excess/deformation and source-scoped geometric GRR. SF.5 is an unimplemented source-qualified supplier, not an assertion that arbitrary geometric GRR is available. Z.3 owns ring algebraic gamma normalization; this stage owns its geometric filtration comparison."
+    },
+    "EllipticKTheory:KU-curvek": {
+      "action": "keep",
+      "reason": "Keep the original readiness aggregation, stage ID, component owners, incoming source-unit prerequisites and all consumer edges. It certifies map-compatible availability, not a new proof owner or Lean completion."
+    },
+    "EllipticKTheory:KU-models": {
+      "action": "keep",
+      "reason": "Keep the original readiness aggregation, stage ID, component owners, incoming source-unit prerequisites and all consumer edges. It certifies map-compatible availability, not a new proof owner or Lean completion."
+    },
+    "EllipticKTheory:KU-symbols": {
+      "action": "keep",
+      "reason": "Keep the original readiness aggregation, stage ID, component owners, incoming source-unit prerequisites and all consumer edges. It certifies map-compatible availability, not a new proof owner or Lean completion."
+    },
+    "KTheoryLowDegrees:KU-k0classical": {
+      "action": "keep",
+      "reason": "Keep the original readiness aggregation, stage ID, component owners, incoming source-unit prerequisites and all consumer edges. It certifies map-compatible availability, not a new proof owner or Lean completion."
+    },
+    "KTheoryLowDegrees:KU-k1classical": {
+      "action": "keep",
+      "reason": "Keep the original readiness aggregation, stage ID, component owners, incoming source-unit prerequisites and all consumer edges. It certifies map-compatible availability, not a new proof owner or Lean completion."
+    },
+    "KTheoryLowDegrees:KU-matrices": {
+      "action": "keep",
+      "reason": "Keep the original readiness aggregation, stage ID, component owners, incoming source-unit prerequisites and all consumer edges. It certifies map-compatible availability, not a new proof owner or Lean completion."
+    },
+    "SchemeKTheoryOperations:KU-geometry": {
+      "action": "keep",
+      "reason": "Keep the original readiness aggregation, stage ID, component owners, incoming source-unit prerequisites and all consumer edges. It certifies map-compatible availability, not a new proof owner or Lean completion."
+    },
+    "SchemeKTheoryOperations:KU-operations": {
+      "action": "keep",
+      "reason": "Keep the original readiness aggregation, stage ID, component owners, incoming source-unit prerequisites and all consumer edges. It certifies map-compatible availability, not a new proof owner or Lean completion."
+    },
+    "SchemeKTheoryOperations:KU-schemek": {
+      "action": "keep",
+      "reason": "Keep the original readiness aggregation, stage ID, component owners, incoming source-unit prerequisites and all consumer edges. It certifies map-compatible availability, not a new proof owner or Lean completion."
+    }
+  },
+  "links": [
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "EllipticKTheory:E.1",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.1; import this supplier's part directly while retaining SchemeKTheoryOperations:S.1 for its residual theorem/test."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "SchemeKTheoryOperations:KU-geometry",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.1; import this supplier's part directly while retaining SchemeKTheoryOperations:S.1 for its residual theorem/test."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "SchemeKTheoryOperations:KU-schemek",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.1; import this supplier's part directly while retaining SchemeKTheoryOperations:S.1 for its residual theorem/test."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "SchemeKTheoryOperations:S.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "SchemeKTheoryOperations:S.2",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.1; import this supplier's part directly while retaining SchemeKTheoryOperations:S.1 for its residual theorem/test."
+    },
+    {
+      "source": "EllipticKTheory:E.2",
+      "target": "KTheoryLowDegrees:Z.6",
+      "reason": "Relocated late elliptic K0 export formerly listed in Z.5: consume E.2 directly, without making the general Z.5 theorem depend on it. Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison. Preserve the elliptic test after relocating Z.5's late elliptic formula."
+    },
+    {
+      "source": "EllipticKTheory:E.2",
+      "target": "SchemeKTheoryOperations:KU-operations",
+      "reason": "Relocated late elliptic K0 export formerly listed in Z.5: consume E.2 directly, without making the general Z.5 theorem depend on it. Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.6; import this supplier's part directly while retaining KTheoryLowDegrees:Z.6 for its residual theorem/test. Preserve the former Z.5 elliptic specialization export in the readiness checkpoint without a feedback prerequisite."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "EllipticKTheory:E.1",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.1; import this supplier's part directly while retaining SchemeKTheoryOperations:S.1 for its residual theorem/test."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "SchemeKTheoryOperations:KU-geometry",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.1; import this supplier's part directly while retaining SchemeKTheoryOperations:S.1 for its residual theorem/test."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "SchemeKTheoryOperations:KU-schemek",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.1; import this supplier's part directly while retaining SchemeKTheoryOperations:S.1 for its residual theorem/test."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "SchemeKTheoryOperations:S.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "SchemeKTheoryOperations:S.2",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.1; import this supplier's part directly while retaining SchemeKTheoryOperations:S.1 for its residual theorem/test."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.2:plus",
+      "target": "KTheoryLowDegrees:Z.6",
+      "reason": "Import the early ring pi0 comparison; Z.6 owns explicit degree-zero naturality and worked tests."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.5",
+      "target": "ArithmeticKTheory:N.1",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:U.5; import this supplier's part directly while retaining KTheoryLowDegrees:U.5 for its residual theorem/test."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.5",
+      "target": "KTheoryLowDegrees:KU-k1classical",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:U.5; import this supplier's part directly while retaining KTheoryLowDegrees:U.5 for its residual theorem/test."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.5",
+      "target": "KTheoryLowDegrees:U.5",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.5",
+      "target": "KTheoryLowDegrees:U.6",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:U.5; import this supplier's part directly while retaining KTheoryLowDegrees:U.5 for its residual theorem/test."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6",
+      "target": "MotivicEtaleKTheory:M.6a",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.5; import this supplier's part directly while retaining SchemeKTheoryOperations:S.5 for its residual theorem/test."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6",
+      "target": "Polylogarithms:P.5",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.5; import this supplier's part directly while retaining SchemeKTheoryOperations:S.5 for its residual theorem/test."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6",
+      "target": "SchemeKTheoryOperations:KU-schemek",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.5; import this supplier's part directly while retaining SchemeKTheoryOperations:S.5 for its residual theorem/test."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6",
+      "target": "SchemeKTheoryOperations:S.5",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.6",
+      "target": "SchemeKTheoryOperations:S.6",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.5; import this supplier's part directly while retaining SchemeKTheoryOperations:S.5 for its residual theorem/test."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.7",
+      "target": "KTheoryLowDegrees:Z.5",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.6; import this supplier's part directly while retaining SchemeKTheoryOperations:S.6 for its residual theorem/test."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.7",
+      "target": "MotivicEtaleKTheory:M.4",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.6; import this supplier's part directly while retaining SchemeKTheoryOperations:S.6 for its residual theorem/test."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.7",
+      "target": "SchemeKTheoryOperations:KU-operations",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.6; import this supplier's part directly while retaining SchemeKTheoryOperations:S.6 for its residual theorem/test."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.7",
+      "target": "SchemeKTheoryOperations:S.6",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.7",
+      "target": "SchemeKTheoryOperations:S.7",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.6; import this supplier's part directly while retaining SchemeKTheoryOperations:S.6 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:localization-comparison",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.3; import this supplier's part directly while retaining SchemeKTheoryOperations:S.3 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:localization-comparison",
+      "target": "EllipticKTheory:E.3",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:localization-comparison",
+      "target": "EllipticKTheory:E.4",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.3; import this supplier's part directly while retaining EllipticKTheory:E.3 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:localization-comparison",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.3; import this supplier's part directly while retaining EllipticKTheory:E.3 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:localization-comparison",
+      "target": "SchemeKTheoryOperations:KU-schemek",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.3; import this supplier's part directly while retaining SchemeKTheoryOperations:S.3 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:localization-comparison",
+      "target": "SchemeKTheoryOperations:S.3",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:localization-comparison",
+      "target": "SchemeKTheoryOperations:S.4",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.3; import this supplier's part directly while retaining SchemeKTheoryOperations:S.3 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.3; import this supplier's part directly while retaining SchemeKTheoryOperations:S.3 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "EllipticKTheory:E.3",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "EllipticKTheory:E.4",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.3; import this supplier's part directly while retaining EllipticKTheory:E.3 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "EllipticKTheory:E.7",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "EllipticKTheory:E.8",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.3; import this supplier's part directly while retaining EllipticKTheory:E.3 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "EllipticKTheory:KU-symbols",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "EllipticRegulators:ER.4",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "EllipticRegulators:ER.7",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "SchemeKTheoryOperations:KU-schemek",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.3; import this supplier's part directly while retaining SchemeKTheoryOperations:S.3 for its residual theorem/test."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "SchemeKTheoryOperations:S.3",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "SchemeKTheoryOperations:S.4",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.3; import this supplier's part directly while retaining SchemeKTheoryOperations:S.3 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:U.6",
+      "target": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+      "reason": "Late general assembly imports the explicit loop/quotient/determinant/transfer theorem, not another K1 comparison."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.1",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Early explicit projective complements/scalar extension and ring K0 are inputs to the higher plus comparison, not consequences of it."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.1",
+      "target": "GeneralAlgebraicKTheory:K.7",
+      "reason": "Compare higher Morita invariance with the already constructed early ring K0 maps; no reverse K.7 -> Z.1 input."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.2",
+      "target": "GeneralAlgebraicKTheory:K.7",
+      "reason": "Compare higher finite products with the established degree-zero product/rank computation."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.3",
+      "target": "EllipticKTheory:E.6",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.7; import this supplier's part directly while retaining SchemeKTheoryOperations:S.7 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.3",
+      "target": "KTheoryLowDegrees:Z.5",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.6; import this supplier's part directly while retaining SchemeKTheoryOperations:S.6 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.3",
+      "target": "KTheoryLowDegrees:Z.6",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.7; import this supplier's part directly while retaining SchemeKTheoryOperations:S.7 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.3",
+      "target": "MotivicEtaleKTheory:M.4",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.6; import this supplier's part directly while retaining SchemeKTheoryOperations:S.6 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.3",
+      "target": "SchemeKTheoryOperations:KU-operations",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.6; import this supplier's part directly while retaining SchemeKTheoryOperations:S.6 for its residual theorem/test. Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.7; import this supplier's part directly while retaining SchemeKTheoryOperations:S.7 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.3",
+      "target": "SchemeKTheoryOperations:S.2",
+      "reason": "Normalize affine tensor/projection comparison against early explicit ring K0."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.3",
+      "target": "SchemeKTheoryOperations:S.6",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.3",
+      "target": "SchemeKTheoryOperations:S.7",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.6; import this supplier's part directly while retaining SchemeKTheoryOperations:S.6 for its residual theorem/test. Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.5",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison. General regular-curve rank/determinant precedes origin-dependent elliptic assembly."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.5",
+      "target": "EllipticKTheory:E.3",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.5",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.6",
+      "target": "EllipticKTheory:E.5",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.6",
+      "target": "EllipticKTheory:E.6",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.6",
+      "target": "EllipticKTheory:E.7",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.6",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.6",
+      "target": "EllipticRegulators:ER.2",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.6",
+      "target": "PadicHodgeRegulators:D.5",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.6a",
+      "target": "EllipticKTheory:E.4",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.6a",
+      "target": "EllipticKTheory:E.5",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.4; import this supplier's part directly while retaining EllipticKTheory:E.4 for its residual theorem/test."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.6a",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.4; import this supplier's part directly while retaining EllipticKTheory:E.4 for its residual theorem/test."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.6b",
+      "target": "EllipticKTheory:E.4",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.6b",
+      "target": "EllipticKTheory:E.5",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.4; import this supplier's part directly while retaining EllipticKTheory:E.4 for its residual theorem/test."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.6b",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.4; import this supplier's part directly while retaining EllipticKTheory:E.4 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.5",
+      "target": "EllipticKTheory:E.6",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.7; import this supplier's part directly while retaining SchemeKTheoryOperations:S.7 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.5",
+      "target": "KTheoryLowDegrees:Z.6",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.7; import this supplier's part directly while retaining SchemeKTheoryOperations:S.7 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.5",
+      "target": "SchemeKTheoryOperations:KU-operations",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.7; import this supplier's part directly while retaining SchemeKTheoryOperations:S.7 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.5",
+      "target": "SchemeKTheoryOperations:S.7",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.2",
+      "target": "EllipticKTheory:E.5",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.2",
+      "target": "EllipticKTheory:E.6",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.2",
+      "target": "EllipticKTheory:E.7",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.2",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.2",
+      "target": "EllipticRegulators:ER.2",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.2",
+      "target": "KTheoryLowDegrees:Z.5",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison. Use the actual K/G comparison for divisor and skyscraper classes under its regularity and finite-resolution hypotheses."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.2",
+      "target": "KTheoryLowDegrees:Z.6",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.5; import this supplier's part directly while retaining KTheoryLowDegrees:Z.5 for its residual theorem/test. Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.2",
+      "target": "PadicHodgeRegulators:D.5",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.2",
+      "target": "SchemeKTheoryOperations:KU-operations",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.5; import this supplier's part directly while retaining KTheoryLowDegrees:Z.5 for its residual theorem/test. Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.6; import this supplier's part directly while retaining KTheoryLowDegrees:Z.6 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.3",
+      "target": "ArithmeticKTheory:N.1",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:U.5; import this supplier's part directly while retaining KTheoryLowDegrees:U.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.3",
+      "target": "EllipticKTheory:E.3",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.3",
+      "target": "EllipticKTheory:E.4",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.3; import this supplier's part directly while retaining EllipticKTheory:E.3 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.3",
+      "target": "EllipticKTheory:E.6",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.3",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.3; import this supplier's part directly while retaining EllipticKTheory:E.3 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.3",
+      "target": "EllipticKTheory:KU-models",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.3",
+      "target": "EllipticRegulators:ER.6",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.3",
+      "target": "EllipticRegulators:ER.7",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.3",
+      "target": "KTheoryLowDegrees:KU-k1classical",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:U.5; import this supplier's part directly while retaining KTheoryLowDegrees:U.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.3",
+      "target": "KTheoryLowDegrees:U.5",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.3",
+      "target": "KTheoryLowDegrees:U.6",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:U.5; import this supplier's part directly while retaining KTheoryLowDegrees:U.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.4",
+      "target": "EllipticKTheory:E.4",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.4",
+      "target": "EllipticKTheory:E.5",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.4; import this supplier's part directly while retaining EllipticKTheory:E.4 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.4",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.4; import this supplier's part directly while retaining EllipticKTheory:E.4 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.4",
+      "target": "MotivicEtaleKTheory:M.6a",
+      "reason": "Import ordinary support/coniveau infrastructure; M.6a still constructs the distinct homotopy-coniveau moving and cycle-layer comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.5",
+      "target": "EllipticKTheory:E.5",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.5",
+      "target": "EllipticKTheory:E.6",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test. Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.5",
+      "target": "EllipticKTheory:E.7",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.5",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.5",
+      "target": "EllipticKTheory:KU-models",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.5",
+      "target": "EllipticRegulators:ER.2",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.5",
+      "target": "EllipticRegulators:ER.6",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.5",
+      "target": "EllipticRegulators:ER.7",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.5",
+      "target": "KTheoryLowDegrees:Z.6",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.5",
+      "target": "PadicHodgeRegulators:D.5",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.5; import this supplier's part directly while retaining EllipticKTheory:E.5 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.5",
+      "target": "SchemeKTheoryOperations:KU-operations",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.6; import this supplier's part directly while retaining KTheoryLowDegrees:Z.6 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.6",
+      "target": "EllipticKTheory:E.4",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.6",
+      "target": "EllipticKTheory:E.5",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.4; import this supplier's part directly while retaining EllipticKTheory:E.4 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.6",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.4; import this supplier's part directly while retaining EllipticKTheory:E.4 for its residual theorem/test."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.6",
+      "target": "MotivicEtaleKTheory:M.6b",
+      "reason": "Supply higher operations for filtered-spectrum compatibility and rational degeneration; M.6b owns that additional proof."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.7",
+      "target": "MotivicEtaleKTheory:M.6",
+      "reason": "Compare the motivic cycle-theoretic Chern character with the one geometric degree-zero normalization."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "EllipticKTheory:E.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test. Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "EllipticKTheory:E.3",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test. Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "EllipticRegulators:ER.1",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "KTheoryLowDegrees:Z.5",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "KTheoryLowDegrees:Z.6",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.5; import this supplier's part directly while retaining KTheoryLowDegrees:Z.5 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "SchemeKTheoryOperations:KU-geometry",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "SchemeKTheoryOperations:KU-operations",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.5; import this supplier's part directly while retaining KTheoryLowDegrees:Z.5 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "target": "EllipticKTheory:E.3",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "target": "EllipticKTheory:E.7",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "target": "EllipticKTheory:E.8",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "target": "EllipticKTheory:KU-symbols",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "target": "EllipticRegulators:ER.4",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "target": "EllipticRegulators:ER.7",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "target": "EllipticKTheory:E.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "target": "EllipticRegulators:ER.1",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "target": "SchemeKTheoryOperations:KU-geometry",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "target": "EllipticKTheory:E.7",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "target": "EllipticKTheory:E.8",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "target": "EllipticKTheory:KU-symbols",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "target": "EllipticRegulators:ER.4",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "target": "EllipticRegulators:ER.7",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.7; import this supplier's part directly while retaining EllipticKTheory:E.7 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "ClassicalArithmeticCompletion:CA.7",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "KTheoryLowDegrees:KU-k0classical",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "KTheoryLowDegrees:Z.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "KTheoryLowDegrees:Z.2",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "KTheoryLowDegrees:Z.5",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+      "target": "ClassicalArithmeticCompletion:CA.7",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+      "target": "KTheoryLowDegrees:KU-k0classical",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+      "target": "KTheoryLowDegrees:Z.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+      "target": "KTheoryLowDegrees:Z.2",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+      "target": "KTheoryLowDegrees:Z.5",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "ClassicalArithmeticCompletion:CA.7",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "KTheoryLowDegrees:KU-k0classical",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test. Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.2; import this supplier's part directly while retaining KTheoryLowDegrees:Z.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "KTheoryLowDegrees:Z.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "KTheoryLowDegrees:Z.2",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test. Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "KTheoryLowDegrees:Z.3",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.2; import this supplier's part directly while retaining KTheoryLowDegrees:Z.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "KTheoryLowDegrees:Z.5",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+      "target": "KTheoryLowDegrees:Z.6",
+      "reason": "Use existing finite-resolution Euler-class comparison under actual finite projective resolution hypotheses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "ClassicalArithmeticCompletion:CA.7",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "KTheoryLowDegrees:KU-k0classical",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "KTheoryLowDegrees:Z.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "KTheoryLowDegrees:Z.2",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "KTheoryLowDegrees:Z.5",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.1; import this supplier's part directly while retaining KTheoryLowDegrees:Z.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "KTheoryLowDegrees:Z.6",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "SchemeKTheoryOperations:KU-operations",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.6; import this supplier's part directly while retaining KTheoryLowDegrees:Z.6 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "SchemeKTheoryOperations:KU-schemek",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.2; import this supplier's part directly while retaining SchemeKTheoryOperations:S.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "SchemeKTheoryOperations:S.2",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "SchemeKTheoryOperations:S.3",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.2; import this supplier's part directly while retaining SchemeKTheoryOperations:S.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "EllipticKTheory:E.3",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "EllipticKTheory:E.6",
+      "reason": "Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.7; import this supplier's part directly while retaining SchemeKTheoryOperations:S.7 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "KTheoryLowDegrees:Z.5",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "KTheoryLowDegrees:Z.6",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.5; import this supplier's part directly while retaining KTheoryLowDegrees:Z.5 for its residual theorem/test. Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.7; import this supplier's part directly while retaining SchemeKTheoryOperations:S.7 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "SchemeKTheoryOperations:KU-operations",
+      "reason": "Preserve the prerequisite formerly exposed through KTheoryLowDegrees:Z.5; import this supplier's part directly while retaining KTheoryLowDegrees:Z.5 for its residual theorem/test. Preserve the prerequisite formerly exposed through SchemeKTheoryOperations:S.7; import this supplier's part directly while retaining SchemeKTheoryOperations:S.7 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "SchemeKTheoryOperations:S.1",
+      "reason": "Use existing invertible-sheaf vocabulary as the rank-one vector-bundle case, not a parallel Picard carrier."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "target": "SchemeKTheoryOperations:S.7",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+      "target": "EllipticKTheory:E.3",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+      "target": "EllipticKTheory:E.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+      "target": "EllipticRegulators:ER.1",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+      "target": "SchemeKTheoryOperations:KU-geometry",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+      "target": "EllipticKTheory:E.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+      "target": "EllipticRegulators:ER.1",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+      "target": "SchemeKTheoryOperations:KU-geometry",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+      "target": "EllipticKTheory:E.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+      "target": "EllipticRegulators:ER.1",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+      "target": "SchemeKTheoryOperations:KU-geometry",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+      "target": "EllipticKTheory:E.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+      "target": "EllipticRegulators:ER.1",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+      "target": "SchemeKTheoryOperations:KU-geometry",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+      "target": "EllipticKTheory:E.1",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+      "target": "EllipticRegulators:ER.1",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+      "target": "SchemeKTheoryOperations:KU-geometry",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.1; import this supplier's part directly while retaining EllipticKTheory:E.1 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+      "target": "EllipticKTheory:E.2",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+      "target": "EllipticKTheory:E.3",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+      "target": "EllipticKTheory:KU-curvek",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.2; import this supplier's part directly while retaining EllipticKTheory:E.2 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "target": "EllipticKTheory:E.6",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "target": "EllipticKTheory:KU-models",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "target": "EllipticRegulators:ER.6",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "target": "EllipticRegulators:ER.7",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+      "target": "EllipticKTheory:E.6",
+      "reason": "Import the existing owner's scoped result; retain the consuming stage's residual construction and map-level comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+      "target": "EllipticKTheory:KU-models",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+      "target": "EllipticRegulators:ER.6",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+      "target": "EllipticRegulators:ER.7",
+      "reason": "Preserve the prerequisite formerly exposed through EllipticKTheory:E.6; import this supplier's part directly while retaining EllipticKTheory:E.6 for its residual theorem/test."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Projective Weierstrass scheme, smooth/proper model and arbitrary-base-change model construction",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+      "formerly": [
+        "EllipticKTheory:E.1",
+        "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models"
+      ]
+    },
+    {
+      "target": "Scheme-valued Weierstrass points dictionary",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary",
+      "formerly": [
+        "EllipticKTheory:E.1",
+        "tauceti:TauCetiRoadmap/ModularCurves#1b-the-points-dictionary"
+      ]
+    },
+    {
+      "target": "Scheme group law and agreement with the field-valued point law",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+      "formerly": [
+        "EllipticKTheory:E.1",
+        "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law"
+      ]
+    },
+    {
+      "target": "Scheme multiplication-isogeny degree and its narrow equation/function-field comparison",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+      "formerly": [
+        "EllipticKTheory:E.1",
+        "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree"
+      ]
+    },
+    {
+      "target": "Finite-flat elliptic isogeny and quotient construction",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+      "formerly": [
+        "EllipticKTheory:E.1",
+        "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients"
+      ]
+    },
+    {
+      "target": "General regular-projective-curve/function-field, arbitrary isogeny and divisor comparison dictionary",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "formerly": [
+        "EllipticKTheory:E.1",
+        "EllipticKTheory:E.2",
+        "KTheoryLowDegrees:Z.5",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ]
+    },
+    {
+      "target": "Curve line-bundle/divisor/Picard/degree dictionary",
+      "owner": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "formerly": [
+        "EllipticKTheory:E.2",
+        "KTheoryLowDegrees:Z.5",
+        "SchemeKTheoryOperations:S.7",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
+      ]
+    },
+    {
+      "target": "Coherent curve Euler characteristic, Riemann--Roch and Serre duality used by the elliptic K0 computation",
+      "owner": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+      "formerly": [
+        "EllipticKTheory:E.2",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality"
+      ]
+    },
+    {
+      "target": "Relative elliptic Picard duality and descent, specialized to the pointed field-valued scheme",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+      "formerly": [
+        "EllipticKTheory:E.2",
+        "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals"
+      ]
+    },
+    {
+      "target": "Function-field elliptic degree-zero point/divisor-class identification, using the already built Tau Ceti realization",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+      "formerly": [
+        "EllipticKTheory:E.2",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors"
+      ]
+    },
+    {
+      "target": "General regular-noetherian-curve rank/determinant K0 theorem and structure/skyscraper class formulas",
+      "owner": "KTheoryLowDegrees:Z.5",
+      "formerly": [
+        "EllipticKTheory:E.2",
+        "KTheoryLowDegrees:Z.5"
+      ]
+    },
+    {
+      "target": "Origin-dependent elliptic K0 ≃ Z² ⊕ E(F), with actual tensor multiplication and base-field line-bundle comparison",
+      "owner": "EllipticKTheory:E.2",
+      "formerly": [
+        "KTheoryLowDegrees:Z.5",
+        "EllipticKTheory:E.2"
+      ]
+    },
+    {
+      "target": "General scheme support/localization construction and closed-point curve specialization input",
+      "owner": "SchemeKTheoryOperations:S.3",
+      "formerly": [
+        "EllipticKTheory:E.3",
+        "SchemeKTheoryOperations:S.3"
+      ]
+    },
+    {
+      "target": "DVR unit boundary equals valuation with the uniformizer normalization",
+      "owner": "SchemeKTheoryOperations:S.3",
+      "formerly": [
+        "KTheoryLowDegrees:U.5",
+        "SchemeKTheoryOperations:S.3"
+      ]
+    },
+    {
+      "target": "Classical tame-symbol formula and unit/order convention",
+      "owner": "K2SymbolsBrauer:T.3:symbols",
+      "formerly": [
+        "EllipticKTheory:E.3",
+        "EllipticKTheory:E.7",
+        "SchemeKTheoryOperations:S.3",
+        "K2SymbolsBrauer:T.3:symbols"
+      ]
+    },
+    {
+      "target": "Classical tame-symbol comparison with ring K-theory localization",
+      "owner": "K2SymbolsBrauer:T.3:localization-comparison",
+      "formerly": [
+        "EllipticKTheory:E.3",
+        "SchemeKTheoryOperations:S.3",
+        "K2SymbolsBrauer:T.3:localization-comparison"
+      ]
+    },
+    {
+      "target": "Ordinary codimension coniveau exact couple and residue-field first page",
+      "owner": "SchemeKTheoryOperations:S.4",
+      "formerly": [
+        "EllipticKTheory:E.4",
+        "SchemeKTheoryOperations:S.4"
+      ]
+    },
+    {
+      "target": "Homotopy-coniveau layer-to-cycle comparison (not the ordinary two-column exact couple)",
+      "owner": "MotivicEtaleKTheory:M.6a",
+      "formerly": [
+        "EllipticKTheory:E.4",
+        "MotivicEtaleKTheory:M.6a"
+      ]
+    },
+    {
+      "target": "Motivic filtered-spectrum convergence, Adams compatibility and proved rational degeneration",
+      "owner": "MotivicEtaleKTheory:M.6b",
+      "formerly": [
+        "EllipticKTheory:E.4",
+        "MotivicEtaleKTheory:M.6b"
+      ]
+    },
+    {
+      "target": "General scheme derived pullback/proper-perfect pushforward/transfer comparisons and projection formula",
+      "owner": "SchemeKTheoryOperations:S.2",
+      "formerly": [
+        "EllipticKTheory:E.5",
+        "SchemeKTheoryOperations:S.2"
+      ]
+    },
+    {
+      "target": "General scheme K/G Cartan construction and regular-noetherian finite-dimensional comparison",
+      "owner": "SchemeKTheoryOperations:S.2",
+      "formerly": [
+        "KTheoryLowDegrees:Z.6",
+        "SchemeKTheoryOperations:S.2"
+      ]
+    },
+    {
+      "target": "General projective-bundle theorem, tautological generators and all-degree P1 specialization",
+      "owner": "SchemeKTheoryOperations:S.5",
+      "formerly": [
+        "EllipticKTheory:E.5",
+        "KTheoryLowDegrees:Z.6",
+        "SchemeKTheoryOperations:S.5"
+      ]
+    },
+    {
+      "target": "Explicit degree-zero P1 rank/Pic versus projective-bundle change-of-basis test",
+      "owner": "KTheoryLowDegrees:Z.6",
+      "formerly": [
+        "EllipticKTheory:E.5",
+        "KTheoryLowDegrees:Z.6"
+      ]
+    },
+    {
+      "target": "Regular-centre K-theory blow-up formula used for integral images",
+      "owner": "SchemeKTheoryOperations:S.5",
+      "formerly": [
+        "EllipticKTheory:E.6",
+        "SchemeKTheoryOperations:S.5"
+      ]
+    },
+    {
+      "target": "DVR arithmetic-surface blowups, local resolution/common resolution and intersection geometry",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "formerly": [
+        "EllipticKTheory:E.6",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ]
+    },
+    {
+      "target": "Regular/minimal proper models over a DVR, with the stated positive-genus uniqueness restriction",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+      "formerly": [
+        "EllipticKTheory:E.6",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+      ]
+    },
+    {
+      "target": "Existence of rational functions for torsion divisors n(P)-n(O), already realized in Tau Ceti",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "formerly": [
+        "EllipticKTheory:E.7",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68"
+      ]
+    },
+    {
+      "target": "Ordinary categorical exact structures and conflation functoriality",
+      "owner": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "formerly": [
+        "KTheoryLowDegrees:Z.1",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors"
+      ]
+    },
+    {
+      "target": "Small categorical K0 presentations and universal additive invariants",
+      "owner": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+      "formerly": [
+        "KTheoryLowDegrees:Z.1",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants"
+      ]
+    },
+    {
+      "target": "Split/exact K0 and its categorical vector-space dimension computation",
+      "owner": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "formerly": [
+        "KTheoryLowDegrees:Z.1",
+        "KTheoryLowDegrees:Z.2",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups"
+      ]
+    },
+    {
+      "target": "Existing categorical Cartan map, finite-projective exact category and already owned finite-dimensional Morita case",
+      "owner": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "formerly": [
+        "KTheoryLowDegrees:Z.1",
+        "KTheoryLowDegrees:Z.6",
+        "SchemeKTheoryOperations:S.2",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map"
+      ]
+    },
+    {
+      "target": "Explicit ring K0 scalar extension, complements/cofinality and general-ring degree-zero Morita specialization",
+      "owner": "KTheoryLowDegrees:Z.1",
+      "formerly": [
+        "KTheoryLowDegrees:Z.1",
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "GeneralAlgebraicKTheory:K.7"
+      ]
+    },
+    {
+      "target": "Early ring K0 tensor, exterior/virtual lambda operations and determinant normalization",
+      "owner": "KTheoryLowDegrees:Z.3",
+      "formerly": [
+        "KTheoryLowDegrees:Z.3",
+        "SchemeKTheoryOperations:S.6"
+      ]
+    },
+    {
+      "target": "Ring K0 augmentation/gamma construction and normalization, before geometric Chow comparison",
+      "owner": "KTheoryLowDegrees:Z.3",
+      "formerly": [
+        "KTheoryLowDegrees:Z.3",
+        "SchemeKTheoryOperations:S.7"
+      ]
+    },
+    {
+      "target": "Higher scheme lambda/Adams operations, bounded rational projectors and residue/Gysin weight shifts",
+      "owner": "SchemeKTheoryOperations:S.6",
+      "formerly": [
+        "EllipticKTheory:E.4",
+        "SchemeKTheoryOperations:S.6"
+      ]
+    },
+    {
+      "target": "Generic relative K-theory homotopy fibre and connecting maps",
+      "owner": "GeneralAlgebraicKTheory:K.5",
+      "formerly": [
+        "KTheoryLowDegrees:U.5",
+        "GeneralAlgebraicKTheory:K.5"
+      ]
+    },
+    {
+      "target": "Generic unbounded derived sheaf enhancement and derived ringed-topos functors",
+      "owner": "EnhancedDerivedSheaves:E1",
+      "formerly": [
+        "SchemeKTheoryOperations:S.1",
+        "EnhancedDerivedSheaves:E1"
+      ]
+    },
+    {
+      "target": "Complete-Noetherian-local perfect-module complex construction only",
+      "owner": "DeformationAndDerivedPatchingAlgebra:P7",
+      "formerly": [
+        "SchemeKTheoryOperations:S.1",
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ]
+    },
+    {
+      "target": "Ring nonconnective Laurent fundamental theorem including singular Nil terms",
+      "owner": "GeneralAlgebraicKTheory:K.6",
+      "formerly": [
+        "SchemeKTheoryOperations:S.5",
+        "GeneralAlgebraicKTheory:K.6"
+      ]
+    },
+    {
+      "target": "Generic enhanced/ring external K-products and their relative/localization compatibilities",
+      "owner": "GeneralAlgebraicKTheory:K.7",
+      "formerly": [
+        "SchemeKTheoryOperations:S.6",
+        "GeneralAlgebraicKTheory:K.7"
+      ]
+    },
+    {
+      "target": "Geometric Chow/Chern/intersection/Gysin/excess and source-scoped GRR machinery",
+      "owner": "SchemeAndStackFoundations:SF.5",
+      "formerly": [
+        "SchemeKTheoryOperations:S.7",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-18",
+    "date": "2026-09-23",
+    "notes": "All 36 stages of the three members have entries (18 narrow, 18 keep). The 13 evidence pairs each share an owner entry, and every consumer of the 18 narrowed layers receives links from each supplier. All 223 links resolve; 220 are new and none closes a cycle with the twelve accepted restructurings applied. Both extensions are titled \"<Tau Ceti base title>, Part II: …\" exactly, and both member documents already call themselves Part II of those bases. Sampled narrowings (E.2, E.5, Z.6, S.1, Z.1) keep every original target not owned by a named supplier. The owners agree with RS-16 (S.1), RS-33 (Z.1, U.1), RS-17 and RS-25 (SF.5). See REV-RS-18.md.",
+    "corrections": []
+  }
+}

@@ -1,0 +1,1127 @@
+{
+  "family": "RS-16",
+  "roadmaps": {
+    "ColemanPowerSeries": {
+      "action": "keep",
+      "reason": "Keep the actual local cyclotomic norm tower, Coleman interpolation and norm-fixed power series, the normalized Coleman map and exact sequence, and local cyclotomic-unit quotient. Shared algebra is imported."
+    },
+    "IntegralIwasawaTheory": {
+      "action": "keep",
+      "reason": "Keep the global towers, class/unit arithmetic, conditional Vandiver comparison, independent historical and modern main-conjecture proofs, and all five readiness checkpoints. A local Coleman quotient or a characteristic ideal does not prove these arithmetic endpoints."
+    },
+    "LocallyAnalyticDistributions": {
+      "action": "keep",
+      "reason": "Keep the unbounded locally analytic, growth, Mellin and affinoid/Fredholm theory, including all 13 accepted partial-decomposition nodes and their 19 internal links. Import bounded theory and early characters; receive the later universal-character coefficient action from L0a of the measure roadmap."
+    },
+    "PadicMeasuresIwasawaAlgebras": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "title": "Profinite and pro-p groups, Part II: p-adic measures and Iwasawa algebras",
+      "reason": "Put ProfiniteProPGroups first in the roadmap prerequisite list. Its Layer 9 prerequisites already own the completed Z_p algebra of any profinite group, compact continuous actions and the procyclic/dyadic coordinates; no base reconstruction is assigned here. Start with bounded measure comparison, general adic coefficients and their compatibility with that algebra, then character spaces, pseudomeasures, module invariants, determinant lines and coefficient orders. Import the anchor unchanged, subject to the topology correction gate recorded in RS-16.md."
+    }
+  },
+  "layers": {
+    "PadicMeasuresIwasawaAlgebras:L0": {
+      "action": "keep",
+      "reason": "Reuse pinned AbstractMeasure and its Fubini/pushforward API. Retain the profinite bounded-measure/clopen comparison, integral lattices, finite-extension coefficients, weak versus norm topology, orthonormal bases under their value-group hypothesis, and scalar/completed-tensor comparisons. These are not the locally analytic LF/strong-dual construction."
+    },
+    "PadicMeasuresIwasawaAlgebras:L0a": {
+      "action": "narrow",
+      "keeps": "The affinoid-valued continuous-character functor for compact abelian p-adic analytic groups; representability, universal character, generic-fibre/Iwasawa comparison, finite-character polydisc charts, functoriality and affinoid base change, including the separate dyadic chart. Keep the scalar universal character and its specialization. Transfer only its action on locally analytic distribution coefficient families, associated radius estimates and completed-tensor action comparisons to LocallyAnalyticDistributions:L4.",
+      "suppliedBy": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "reason": "The character functor precedes locally analytic coefficient families. suppliedBy records relocation, not a prerequisite from L4 back to this early layer. L0a consumers receive L4 only when they require the relocated coefficient action; scalar Mellin evaluation in LAD L3 needs only the retained character."
+    },
+    "PadicMeasuresIwasawaAlgebras:L1": {
+      "action": "narrow",
+      "keeps": "Completed algebras for complete separated adic coefficient rings R using the joint (coefficient-ideal, open-normal-subgroup) limit; independence of ideal of definition; coefficient-change comparisons with the anchor Z_p algebra and finite O; integral and bounded K-valued measure/convolution comparisons, augmentation/Dirac/density, compatible actions with an open G-stable submodule basis, restriction/induction/norm and noncommutative conventions. Keep the distinction O[[G]][1/p] versus lim_U K[G/U], and the nonmultiplicative inclusion from multiplicative units to the additive group.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs"
+      ],
+      "reason": "Import the basic completed Z_p group algebra, its compact module action and procyclic/dyadic coordinate. Prove general-coefficient constructions compatible with that carrier; do not reconstruct the anchor case."
+    },
+    "PadicMeasuresIwasawaAlgebras:L2": {
+      "action": "keep",
+      "reason": "Use pinned Mahler and the Z_p-valued Amice linear equivalence; retain the bounded O/K coefficient inverse, topology/convolution/multivariable comparisons, multiplication by a function, partial=(1+T)d/dT, dilation/translation, phi, psi, residue restrictions and unit-supported x inverse. Roots-of-unity averaging requires coefficient extension, divisibility and descent. This owns bounded operators; Coleman and locally analytic versions are comparison/extension theorems."
+    },
+    "PadicMeasuresIwasawaAlgebras:L3": {
+      "action": "keep",
+      "reason": "Own commutative pseudomeasures in the localization at non-zero-divisors, the augmentation condition, clearing-factor evaluation where the evaluated denominator is invertible, independence of choice, uniqueness and generator change. Import the anchor procyclic/dyadic group structure; retain the separate nonprocyclic Z_2-units treatment. No evaluation of the whole total quotient ring at every character."
+    },
+    "PadicMeasuresIwasawaAlgebras:L4": {
+      "action": "narrow",
+      "keeps": "Import pinned Weierstrass existence/uniqueness, quotient comparison, Noetherianity and factoriality with their actual hypotheses. Retain continuity of division, regular local dimension two, elementary-module/pseudo-isomorphism theory, height-one characteristic ideals and their algebraic API, mu/lambda normalized by a coefficient uniformizer, finite-module versus Fitting-ideal examples, permissible integral character components and multivariable characteristic divisors with codimension-two pseudo-null errors. Additional Fitting/characteristic comparisons use the one upstream finite-presentation Fitting carrier.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs"
+      ],
+      "reason": "The anchor supplies its linear division/procyclic coordinate case; Mathlib already supplies general algebraic Weierstrass preparation. StableReduction Layer 1 owns the shared finite-presentation Fitting construction; the Iwasawa-specific comparisons remain here."
+    },
+    "PadicMeasuresIwasawaAlgebras:L5": {
+      "action": "narrow",
+      "keeps": "Determinant functor on bounded finite-projective complexes over commutative coefficient rings, quasi-isomorphism and exact-triangle compatibility, duals and derived base change, rational trivializations and alternating characteristic divisors where defined. Retain compact-module inverse-limit exactness under compactness or proved Mittag-Leffler hypotheses, topological Nakayama, and Iwasawa coinvariant/specialization finite-error comparisons. Import the general perfect-complex carrier and derived tensor from SchemeKTheoryOperations:S.1; import P7 specialization/Tor-amplitude and derived Mittag-Leffler results only in its complete Noetherian local coefficient range, proving semilocal/component and arithmetic compatibility here.",
+      "suppliedBy": [
+        "SchemeKTheoryOperations:S.1",
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "reason": "Perfect complexes and the general derived coefficient-change construction are existing proposed suppliers. The new determinant-line and compact Iwasawa-module applications do not recreate them or silently generalize their coefficient hypotheses."
+    },
+    "PadicMeasuresIwasawaAlgebras:L6": {
+      "action": "narrow",
+      "keeps": "Commutative finite torsion-free O-orders with semisimple fraction algebra, O-dual/invertibility Gorenstein criterion, self-injective reductions R/aR for nonzero a in O, exact duality/biduality and length/annihilator comparisons with their source hypotheses; lattice and derived-dual comparisons. Own the generic exterior-bidual carrier, finite-projective comparison and admissible scalar/base-change and denominator lemmas used by Euler systems, extending existing exterior powers. Keep higher-Fitting/order-specific algebra beyond the basic carrier, importing that carrier from StableReduction; system-specific contractions and Stark/Kolyvagin transitions remain ES.6–8.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+      ],
+      "reason": "Use one finite-presentation Fitting-ideal carrier. Gorenstein orders over a DVR, zero-dimensional self-injective quotients, and system-specific exterior contractions have different hypotheses; the PR323 homological module roadmap does not supply this order theory."
+    },
+    "ColemanPowerSeries:L0": {
+      "action": "narrow",
+      "keeps": "Actual Q_p(mu_p^n) fields, local norm maps, full/principal unit towers, torsion splitting and Tate module, compact topology and compatible Z_p module structure on principal units. Verify that the norm-compatible Galois action satisfies the imported completed-algebra action hypotheses, and retain the explicitly sourced unramified/semilocal coefficient extension. Do not make the full unit group a Z_p module by discarding prime-to-p torsion.",
+      "suppliedBy": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "reason": "Completed-algebra actions are imported; the arithmetic norm tower and verification are new local-field constructions."
+    },
+    "ColemanPowerSeries:L1": {
+      "action": "narrow",
+      "keeps": "Finite-free phi-coordinate decomposition, determinant norm and trace, normalized-trace divisibility and comparison with the bounded psi, norm/evaluation identities, interpolation uniqueness, norm congruences, compact successive approximation, and the full Coleman isomorphism with norm-fixed invertible series; preserve its stated unramified coefficient variants.",
+      "suppliedBy": [
+        "PadicMeasuresIwasawaAlgebras:L2",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ],
+      "reason": "The bounded psi and algebraic Weierstrass engine have single suppliers. Their finite-free norm/trace comparison and the arithmetic interpolation theorem remain Coleman constructions."
+    },
+    "ColemanPowerSeries:L2": {
+      "action": "narrow",
+      "keeps": "The logarithmic derivative of the Coleman series, composition with the imported unit-restriction and x-inverse operators, linearity and Galois equivariance with twists, and the smoothed cyclotomic-unit calculation. Preserve the raw Col_0=-smoothed-zeta convention and the normalized Col=-Col_0 adopted in the member document; do not change the independently normalized zeta function.",
+      "suppliedBy": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "reason": "Use the bounded operator toolbox; extending operators to unbounded distributions is not required to construct the bounded Coleman map."
+    },
+    "ColemanPowerSeries:L3": {
+      "action": "keep",
+      "reason": "Keep the full-unit kernel mu_(p-1) times Z_p(1), the first-moment cokernel, the principal-unit four-term exact sequence and its topology. Tensor every term in a flat O-coefficient extension, including the end terms O(1). Generic exactness is imported from PM L5."
+    },
+    "ColemanPowerSeries:L4": {
+      "action": "narrow",
+      "keeps": "Local embeddings and principal-unit/Teichmuller adjustment of the imported global cyclotomic units, compatible generators, closure equals Z_p span, inverse-limit cyclicity and coefficient compatibility, Coleman image ideal and the odd-prime plus local-unit quotient U^+/C^+ = Lambda/(I zeta_p).",
+      "suppliedBy": [
+        "IntegralIwasawaTheory:L0"
+      ],
+      "reason": "Global cyclotomic-unit subgroups, torsion/real conventions and finite-conductor generators have owner IntegralIwasawaTheory:L0. The local closure, compatible principal generator and local quotient are distinct new conclusions."
+    },
+    "LocallyAnalyticDistributions:L0": {
+      "action": "narrow",
+      "keeps": "Fixed-radius nonarchimedean analytic Banach spaces with Gauss norms and chart restriction, their LF limit and continuous strong dual/projective limit, bounded-measure injection and coefficient comparisons. Preserve Q_p-analytic versus F-analytic distinctions and the topology stronger than that induced from continuous functions.",
+      "suppliedBy": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "reason": "The bounded continuous dual, clopen density and bounded-measure topologies already have an owner; locally analytic radii, LF topology and strong dual remain here."
+    },
+    "LocallyAnalyticDistributions:L1": {
+      "action": "narrow",
+      "keeps": "Unbounded Amice transform to functions analytic on the open unit disc, the Frechet topology theorem and commuting inclusion of bounded transforms. Extend the bounded toolbox continuously to distributions with the required radius estimates, support comparisons, and locally analytic primitives modulo locally constant functions; retain logarithmic factors and apparent-pole cancellation at p-power roots.",
+      "suppliedBy": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "reason": "The formulas on bounded measures are imported; the extension to a different test-function topology and unbounded carrier needs new proofs."
+    },
+    "LocallyAnalyticDistributions:L2": {
+      "action": "keep",
+      "reason": "Keep admissible order-h growth, coefficient estimates, Amice–Velu/Vishik interpolation with the strict threshold, order-zero bounded comparison and multivariable radius hypotheses. Arithmetic interpolation sets need a real uniqueness/density theorem."
+    },
+    "LocallyAnalyticDistributions:L3": {
+      "action": "narrow",
+      "keeps": "Mellin transforms on the imported character space, universal-character evaluation of scalar distributions, derivatives/twists, multivariable and ray-class functoriality, and analytic/meromorphic domains for bounded measures and pseudomeasures. Retain analytic-versus-adic model comparisons using AdicSpaces geometry. Generic affinoid distribution-family action and completed tensor/radius comparisons belong to L4.",
+      "suppliedBy": [
+        "PadicMeasuresIwasawaAlgebras:L0a"
+      ],
+      "reason": "Character-space representability, its universal character and finite-character/dyadic charts are imported once. Evaluating a distribution on that character is new analytic content."
+    },
+    "LocallyAnalyticDistributions:L4": {
+      "action": "keep",
+      "reason": "Keep affinoid-valued analytic/distribution modules, completed tensors and specialization, semigroup actions, complete continuity, Fredholm determinants and slope-adapted base change; add the universal-character action on those coefficient modules with local uniform radii and action/tensor/specialization comparisons relocated from PM L0a. Preserve all 13 accepted decomposition nodes, 19 links, three PadicFamilies node consumers and every unresolved BGR/product-multiplicativity/spectral-mapping/exercise obligation."
+    },
+    "IntegralIwasawaTheory:I.1": {
+      "action": "narrow",
+      "keeps": "Actual cyclotomic Z_p-extension, finite layers and their decomposition/inertia and norms, chosen generator and arithmetic completed action, correct finite quotient kernel ((1+T)^(p^n)-1), and comparison for abelian extensions over totally real fields. Retain verification of coefficients, integral finite-group effects and failure of p-divisible character idempotents; import generic algebras, localization, module invariants and determinant lines.",
+      "suppliedBy": [
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "PadicMeasuresIwasawaAlgebras:L3",
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "PadicMeasuresIwasawaAlgebras:L5"
+      ],
+      "reason": "This stage is the arithmetic tower adapter to the shared algebra, not a second construction of Lambda, total fractions, elementary modules or determinant functors."
+    },
+    "IntegralIwasawaTheory:I.2": {
+      "action": "keep",
+      "reason": "Own general number-field class/S-class and unit/S-unit inverse systems, maximal abelian pro-p Galois groups with specified ramification and class-field comparison, actual finite generation/exact arithmetic sequences, roots and finite corrections, and cyclotomic weak Leopoldt. The classical Q-cyclotomic L1 specializes these carriers; Selmer L4 proves a later Tate-twist comparison."
+    },
+    "IntegralIwasawaTheory:I.3": {
+      "action": "narrow",
+      "keeps": "Exact analytic-to-arithmetic dictionary between Kubota–Leopoldt/Deligne–Ribet pseudomeasures and Stickelberger normalizations, including Euler factors, twists, denominator conventions, poles and uniqueness in the valid domains. Verify the imported Hilbert Eisenstein/q-expansion/congruence and bounded-denominator hypotheses for the arithmetic statement.",
+      "suppliedBy": [
+        "DirichletPadicLFunctions:L1",
+        "DirichletPadicLFunctions:L2",
+        "AutomorphicPadicLFunctions:L3"
+      ],
+      "reason": "The two analytic pseudomeasures and the Hilbert modular construction are supplied by their analytic owners. I.3 proves normalization/comparison, not their existence a second time."
+    },
+    "IntegralIwasawaTheory:I.4": {
+      "action": "narrow",
+      "keeps": "Arithmetic finite-layer and character specialization of the actual Iwasawa complex, proof of finiteness/definedness, Euler-characteristic and leading-term/zero-pole formulas, local S factors, augmentation and real-place corrections at p=2. Instantiate and compare the generic determinant, Tor and Iwasawa-control maps, retaining every finite kernel/cokernel.",
+      "suppliedBy": [
+        "PadicMeasuresIwasawaAlgebras:L5",
+        "SelmerIwasawaCohomology:L3"
+      ],
+      "reason": "Abstract determinant/base-change algebra and the independently constructed Iwasawa cohomology/control are suppliers; the arithmetic evaluation theorem remains here."
+    },
+    "IntegralIwasawaTheory:I.5": {
+      "action": "keep",
+      "reason": "Retain the independent Mazur–Wiles and odd-prime totally-real Wiles Hecke/congruence proof routes, all lattice and both-divisibility inputs and the arithmetic Euler-characteristic output. The cyclotomic Euler-system proof is a separate method, not a supplier that replaces either historical route."
+    },
+    "IntegralIwasawaTheory:I.6": {
+      "action": "keep",
+      "reason": "Retain actual abelian CM Artin L/Stickelberger data, S/T modifications, ray/class modules and source-specific Ritter–Weiss presentations, roots and integral dyadic minus convention. Generic Fitting ideals are imported, and Noncommutative NE.6 uses the finite abelian module interface when that source requires it; noncommutative patching is a distinct theorem."
+    },
+    "IntegralIwasawaTheory:I.7": {
+      "action": "keep",
+      "reason": "Retain the arithmetic DK/DKSW Brumer–Stark proof and finite-level comparison, verifying actual Hilbert/Eisenstein representation/local hypotheses of IHG.6, including residual coincidence at p=2. Generic Ribet algebra remains IHG.6; no theorem is replaced by an annihilator bound."
+    },
+    "IntegralIwasawaTheory:I.8": {
+      "action": "keep",
+      "reason": "Retain the Burns–Flach/Kurihara arithmetic compact-support convention, derived inverse-limit comparison, perfectness and H2=S-ramified module/H3=Z_p calculation with real-place corrections, and tau/CM Stickelberger–Deligne–Ribet comparison. D7 supplies generic compact-support cochains; Selmer L3 supplies the independent Iwasawa complex."
+    },
+    "IntegralIwasawaTheory:I.9": {
+      "action": "keep",
+      "reason": "Retain Kurihara Theorem 4.1 for arbitrary totally real base, including the trivial finite extension and p=2; integral descent, height-one localization and Fitting/determinant proof. The dyadic correction in Lemma 4.2(1) is a finite cokernel of order 2, not a free Z_2 summand. Do not export this localized equality as finite specialization without I.10."
+    },
+    "IntegralIwasawaTheory:I.10": {
+      "action": "keep",
+      "reason": "Own the modern/classical module, twist, compact-support, character and finite-error comparison needed for Kolster; retain augmentation, S-Euler and real corrections and the degree-two weight-two arithmetic equality. Birch–Tate B.6 consumes this table and owns the K2/W2 implication; it does not supply I.10."
+    },
+    "IntegralIwasawaTheory:L0": {
+      "action": "keep",
+      "reason": "Own finite global cyclotomic-unit subgroups with actual units/torsion/real parts, conductor generators and Galois/norm identities, regulator computation and independent class-number index. Use existing cyclotomic field arithmetic and the Dirichlet complex logarithmic L-value input. This stage precedes Coleman local closure and every main-conjecture equality."
+    },
+    "IntegralIwasawaTheory:L1": {
+      "action": "narrow",
+      "keeps": "Classical Q-cyclotomic specialization of I.2 class/Galois carriers, common-closure and conjugation comparison, finite ray-reciprocity sequence and its compact inverse limit, local/global principal-unit embeddings and the exact sequence 0 -> E^+/C^+ -> U^+/C^+ -> X^+ -> Y^+ -> 0.",
+      "suppliedBy": [
+        "IntegralIwasawaTheory:I.2",
+        "PadicMeasuresIwasawaAlgebras:L5"
+      ],
+      "reason": "Do not redefine maximal abelian pro-p extensions or compact-limit exactness. Retain the actual arithmetic ray-class and local Coleman quotient comparison; finite generation alone is not a Mittag-Leffler proof."
+    },
+    "IntegralIwasawaTheory:L2": {
+      "action": "narrow",
+      "keeps": "The one-prime totally ramified tower inertia/commutator argument and exact coinvariant identification, arithmetic class-number-growth derivation and mu=0 bounded-p-rank criterion, and general Z_p-extension eventual ramification/control with all finite errors. Instantiate the imported elementary-module coinvariant count and compact Nakayama, and prove that the arithmetic hypotheses hold.",
+      "suppliedBy": [
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "PadicMeasuresIwasawaAlgebras:L5"
+      ],
+      "reason": "Generic elementary-module structure, mu/lambda and compact Nakayama are owned by PM L4/L5; the finite-layer arithmetic control and growth result remain Iwasawa-owned."
+    },
+    "IntegralIwasawaTheory:L3": {
+      "action": "keep",
+      "reason": "Retain Vandiver(p) as an explicit hypothesis, Y^+=0 and E^+=C^+ deductions, the consequent cyclic X^+ isomorphism and characteristic equality, with actual twist/component maps. The unconditional Euler-system equality does not imply this stronger module isomorphism."
+    },
+    "IntegralIwasawaTheory:L4": {
+      "action": "keep",
+      "reason": "Retain abelian Leopoldt via a fully proved Baker–Brumer theorem, independent Ferrero–Washington including p=2, the analytic/arithmetic mu distinction, and bounded p-primary Greenberg conjecture. DT.3 is a source lead for general logarithmic tools, not yet a verified supplier of Baker–Brumer linear independence over algebraic coefficients; see report gap."
+    },
+    "IntegralIwasawaTheory:KU-allmain": {
+      "action": "keep",
+      "reason": "Preserve this aggregation checkpoint and all named/source-unit prerequisites. It adds no independent proof owner; downstream theorems consume its constituent stages, and KU-maincomparison remains later than both I.10 and Birch–Tate B.6."
+    },
+    "IntegralIwasawaTheory:KU-brumerstark": {
+      "action": "keep",
+      "reason": "Preserve this aggregation checkpoint and all named/source-unit prerequisites. It adds no independent proof owner; downstream theorems consume its constituent stages, and KU-maincomparison remains later than both I.10 and Birch–Tate B.6."
+    },
+    "IntegralIwasawaTheory:KU-iwasawamodules": {
+      "action": "keep",
+      "reason": "Preserve this aggregation checkpoint and all named/source-unit prerequisites. It adds no independent proof owner; downstream theorems consume its constituent stages, and KU-maincomparison remains later than both I.10 and Birch–Tate B.6."
+    },
+    "IntegralIwasawaTheory:KU-maincomparison": {
+      "action": "keep",
+      "reason": "Preserve this aggregation checkpoint and all named/source-unit prerequisites. It adds no independent proof owner; downstream theorems consume its constituent stages, and KU-maincomparison remains later than both I.10 and Birch–Tate B.6."
+    },
+    "IntegralIwasawaTheory:KU-oddmain": {
+      "action": "keep",
+      "reason": "Preserve this aggregation checkpoint and all named/source-unit prerequisites. It adds no independent proof owner; downstream theorems consume its constituent stages, and KU-maincomparison remains later than both I.10 and Birch–Tate B.6."
+    }
+  },
+  "links": [
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "IntegralIwasawaTheory:I.8",
+      "reason": "I.8 constructs its specific Burns–Flach/Kurihara arithmetic comparison and cohomology calculation."
+    },
+    {
+      "source": "AutomorphicPadicLFunctions:L3",
+      "target": "AutomorphicPadicLFunctions:KU-hilberteisenstein",
+      "reason": "Analytic constructions formerly restated in I.3 are direct imports; retain I.3 for the Stickelberger normalization dictionary."
+    },
+    {
+      "source": "AutomorphicPadicLFunctions:L3",
+      "target": "IntegralIwasawaTheory:I.3",
+      "reason": "The two analytic pseudomeasures and the Hilbert modular construction are supplied by their analytic owners. I.3 proves normalization/comparison, not their existence a second time. Import actual Hilbert modular inputs; quaternionic curves are not a substitute."
+    },
+    {
+      "source": "AutomorphicPadicLFunctions:L3",
+      "target": "IntegralIwasawaTheory:I.5",
+      "reason": "Analytic constructions formerly restated in I.3 are direct imports; retain I.3 for the Stickelberger normalization dictionary."
+    },
+    {
+      "source": "AutomorphicPadicLFunctions:L3",
+      "target": "IntegralIwasawaTheory:I.6",
+      "reason": "Analytic constructions formerly restated in I.3 are direct imports; retain I.3 for the Stickelberger normalization dictionary."
+    },
+    {
+      "source": "ColemanPowerSeries:L1",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.4",
+      "reason": "Compare the integral finite-free trace with the period-ring psi without identifying carriers by notation."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "AutomorphicCongruences:L3",
+      "reason": "Derived specialization and coefficient-change algebra formerly bundled into PM L5 comes from P7 in its declared coefficient range."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "IntegralIwasawaTheory:I.4",
+      "reason": "Derived specialization and coefficient-change algebra formerly bundled into PM L5 comes from P7 in its declared coefficient range."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "IntegralIwasawaTheory:I.8",
+      "reason": "Derived specialization and coefficient-change algebra formerly bundled into PM L5 comes from P7 in its declared coefficient range."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "MotivicEtaleKTheory:M.8",
+      "reason": "Derived specialization and coefficient-change algebra formerly bundled into PM L5 comes from P7 in its declared coefficient range."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "PadicMeasuresIwasawaAlgebras:L5",
+      "reason": "Perfect complexes and the general derived coefficient-change construction are existing proposed suppliers. The new determinant-line and compact Iwasawa-module applications do not recreate them or silently generalize their coefficient hypotheses. Use the coefficient hypotheses of P7 and prove the required componentwise comparison before applying it to Iwasawa orders."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "PadicMeasuresIwasawaAlgebras:L6",
+      "reason": "Derived specialization and coefficient-change algebra formerly bundled into PM L5 comes from P7 in its declared coefficient range."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "AutomorphicPadicLFunctions:KU-hilberteisenstein",
+      "reason": "Analytic constructions formerly restated in I.3 are direct imports; retain I.3 for the Stickelberger normalization dictionary."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "IntegralIwasawaTheory:I.3",
+      "reason": "The two analytic pseudomeasures and the Hilbert modular construction are supplied by their analytic owners. I.3 proves normalization/comparison, not their existence a second time. I.3 imports the independently constructed analytic pseudomeasure and proves its Stickelberger normalization."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "IntegralIwasawaTheory:I.5",
+      "reason": "Analytic constructions formerly restated in I.3 are direct imports; retain I.3 for the Stickelberger normalization dictionary."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L1",
+      "target": "IntegralIwasawaTheory:I.6",
+      "reason": "Analytic constructions formerly restated in I.3 are direct imports; retain I.3 for the Stickelberger normalization dictionary."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "AutomorphicPadicLFunctions:KU-hilberteisenstein",
+      "reason": "Analytic constructions formerly restated in I.3 are direct imports; retain I.3 for the Stickelberger normalization dictionary."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "IntegralIwasawaTheory:I.3",
+      "reason": "The two analytic pseudomeasures and the Hilbert modular construction are supplied by their analytic owners. I.3 proves normalization/comparison, not their existence a second time. I.3 retains the arithmetic dictionary, not a second analytic existence proof."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "IntegralIwasawaTheory:I.5",
+      "reason": "Analytic constructions formerly restated in I.3 are direct imports; retain I.3 for the Stickelberger normalization dictionary."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L2",
+      "target": "IntegralIwasawaTheory:I.6",
+      "reason": "Analytic constructions formerly restated in I.3 are direct imports; retain I.3 for the Stickelberger normalization dictionary."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+      "target": "IntegralIwasawaTheory:I.7",
+      "reason": "The arithmetic Brumer–Stark stage must establish every source representation/local hypothesis."
+    },
+    {
+      "source": "IntegralIwasawaTheory:I.10",
+      "target": "SpecialValuesBirchTate:B.6",
+      "reason": "B.6 consumes the proved dictionary and supplies the K2/W2-to-Birch–Tate implication, including its Q test."
+    },
+    {
+      "source": "IntegralIwasawaTheory:I.2",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3",
+      "reason": "Generic arithmetic tower carriers formerly introduced again in L1 are imported directly; the exact local/global sequence remains L1."
+    },
+    {
+      "source": "IntegralIwasawaTheory:I.2",
+      "target": "IntegralIwasawaTheory:L1",
+      "reason": "Do not redefine maximal abelian pro-p extensions or compact-limit exactness. Retain the actual arithmetic ray-class and local Coleman quotient comparison; finite generation alone is not a Mittag-Leffler proof. The classical Q tower and later Selmer/Tate-twist theorem identify these same arithmetic modules."
+    },
+    {
+      "source": "IntegralIwasawaTheory:I.2",
+      "target": "IntegralIwasawaTheory:L2",
+      "reason": "Generic arithmetic tower carriers formerly introduced again in L1 are imported directly; the exact local/global sequence remains L1."
+    },
+    {
+      "source": "IntegralIwasawaTheory:I.2",
+      "target": "SelmerIwasawaCohomology:L4",
+      "reason": "The classical Q tower and later Selmer/Tate-twist theorem identify these same arithmetic modules."
+    },
+    {
+      "source": "IntegralIwasawaTheory:I.6",
+      "target": "NoncommutativeAndEquivariantIwasawa:NE.6",
+      "reason": "Import the finite abelian CM Ritter–Weiss module/presentation where needed; noncommutative logarithms and patching remain NE.6."
+    },
+    {
+      "source": "IntegralIwasawaTheory:L0",
+      "target": "ColemanPowerSeries:L4",
+      "reason": "Global cyclotomic-unit subgroups, torsion/real conventions and finite-conductor generators have owner IntegralIwasawaTheory:L0. The local closure, compatible principal generator and local quotient are distinct new conclusions. Local closure and principal-unit compatibility are new Coleman targets, based on the global units defined once here."
+    },
+    {
+      "source": "IntegralIwasawaTheory:L0",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0",
+      "reason": "Global cyclotomic-unit definitions formerly reachable through Coleman L4 come directly from Iwasawa L0; retain Coleman local quotient as a separate prerequisite."
+    },
+    {
+      "source": "IntegralIwasawaTheory:L0",
+      "target": "IntegralIwasawaTheory:L1",
+      "reason": "Global cyclotomic-unit definitions formerly reachable through Coleman L4 come directly from Iwasawa L0; retain Coleman local quotient as a separate prerequisite."
+    },
+    {
+      "source": "IntegralIwasawaTheory:L0",
+      "target": "IntegralIwasawaTheory:L3",
+      "reason": "Global cyclotomic-unit definitions formerly reachable through Coleman L4 come directly from Iwasawa L0; retain Coleman local quotient as a separate prerequisite."
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4",
+      "target": "OverconvergentAutomorphicForms:O0",
+      "reason": "The late universal-character distribution-family action moved out of early PM L0a is now supplied by LAD L4 with actual radii and completed coefficient maps."
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4",
+      "target": "PadicFamilies:L2a",
+      "reason": "The late universal-character distribution-family action moved out of early PM L0a is now supplied by LAD L4 with actual radii and completed coefficient maps."
+    },
+    {
+      "source": "LocallyAnalyticDistributions:L4",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.7",
+      "reason": "The late universal-character distribution-family action moved out of early PM L0a is now supplied by LAD L4 with actual radii and completed coefficient maps."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0",
+      "target": "LocallyAnalyticDistributions:L0",
+      "reason": "The bounded continuous dual, clopen density and bounded-measure topologies already have an owner; locally analytic radii, LF topology and strong dual remain here. Import the bounded-measure foundation before the locally analytic extension."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0",
+      "target": "LocallyAnalyticDistributions:L1",
+      "reason": "Use the bounded-dual/inclusion substrate formerly restated in LAD L0."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0",
+      "target": "OverconvergentAutomorphicForms:O0",
+      "reason": "Use the bounded-dual/inclusion substrate formerly restated in LAD L0."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0a",
+      "target": "AutomorphicPadicLFunctions:L0",
+      "reason": "The shared character space formerly restated in LAD L3 is supplied directly; retain its Mellin/application prerequisite."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0a",
+      "target": "DirichletPadicLFunctions:L3",
+      "reason": "The shared character space formerly restated in LAD L3 is supplied directly; retain its Mellin/application prerequisite."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0a",
+      "target": "LocallyAnalyticDistributions:L3",
+      "reason": "Character-space representability, its universal character and finite-character/dyadic charts are imported once. Evaluating a distribution on that character is new analytic content. Scalar characters are early; the Mellin theorem uses the same character functor."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0a",
+      "target": "LocallyAnalyticDistributions:L4",
+      "reason": "The shared character space formerly restated in LAD L3 is supplied directly; retain its Mellin/application prerequisite. Construct the coefficient-family action from the early scalar universal character; this direction replaces any back-import into L0a."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L0a",
+      "target": "PadicFamilies:L3",
+      "reason": "The shared character space formerly restated in LAD L3 is supplied directly; retain its Mellin/application prerequisite."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L1",
+      "target": "ColemanPowerSeries:L0",
+      "reason": "Completed-algebra actions are imported; the arithmetic norm tower and verification are new local-field constructions. The recipient verifies its arithmetic or p-adic-Lie hypotheses; it imports this common coefficient carrier."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L1",
+      "target": "ColemanPowerSeries:L1",
+      "reason": "The completed action formerly introduced in Coleman L0 is supplied directly."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L1",
+      "target": "IntegralIwasawaTheory:I.1",
+      "reason": "This stage is the arithmetic tower adapter to the shared algebra, not a second construction of Lambda, total fractions, elementary modules or determinant functors. The recipient verifies its arithmetic or p-adic-Lie hypotheses; it imports this common coefficient carrier."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L1",
+      "target": "IntegralIwasawaTheory:I.2",
+      "reason": "Generic algebra formerly bundled into I.1 comes directly from its owner; retain I.1 for the arithmetic tower."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L1",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Generic algebra formerly bundled into I.1 comes directly from its owner; retain I.1 for the arithmetic tower."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L1",
+      "target": "NoncommutativeAndEquivariantIwasawa:NE.0",
+      "reason": "The recipient verifies its arithmetic or p-adic-Lie hypotheses; it imports this common coefficient carrier."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "ColemanIntegration:L0",
+      "reason": "Bounded reference operators formerly restated in LAD L1 come from their owner; keep the unbounded extension separately."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "ColemanPowerSeries:L1",
+      "reason": "The bounded psi and algebraic Weierstrass engine have single suppliers. Their finite-free norm/trace comparison and the arithmetic interpolation theorem remain Coleman constructions. Import bounded operators, then prove finite-free trace or locally analytic comparison on the recipient carrier."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "ColemanPowerSeries:L2",
+      "reason": "Use the bounded operator toolbox; extending operators to unbounded distributions is not required to construct the bounded Coleman map. Import bounded operators, then prove finite-free trace or locally analytic comparison on the recipient carrier. The bounded phi/psi formulas are the reference for the distinct recipient norm, analytic or period-ring comparison."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "DirichletPadicLFunctions:L3",
+      "reason": "Bounded reference operators formerly restated in LAD L1 come from their owner; keep the unbounded extension separately."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "LocallyAnalyticDistributions:L1",
+      "reason": "The formulas on bounded measures are imported; the extension to a different test-function topology and unbounded carrier needs new proofs. Import bounded operators, then prove finite-free trace or locally analytic comparison on the recipient carrier. The bounded phi/psi formulas are the reference for the distinct recipient norm, analytic or period-ring comparison."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "LocallyAnalyticDistributions:L2",
+      "reason": "Bounded reference operators formerly restated in LAD L1 come from their owner; keep the unbounded extension separately."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.4",
+      "reason": "The bounded phi/psi formulas are the reference for the distinct recipient norm, analytic or period-ring comparison."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L3",
+      "target": "DirichletPadicLFunctions:L1",
+      "reason": "The analytic zeta and arithmetic normalization are applications of the shared pseudomeasure API."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L3",
+      "target": "IntegralIwasawaTheory:I.1",
+      "reason": "This stage is the arithmetic tower adapter to the shared algebra, not a second construction of Lambda, total fractions, elementary modules or determinant functors. The analytic zeta and arithmetic normalization are applications of the shared pseudomeasure API."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L3",
+      "target": "IntegralIwasawaTheory:I.2",
+      "reason": "Generic algebra formerly bundled into I.1 comes directly from its owner; retain I.1 for the arithmetic tower."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L3",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Generic algebra formerly bundled into I.1 comes directly from its owner; retain I.1 for the arithmetic tower."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L4",
+      "target": "ColemanPowerSeries:L1",
+      "reason": "The bounded psi and algebraic Weierstrass engine have single suppliers. Their finite-free norm/trace comparison and the arithmetic interpolation theorem remain Coleman constructions. Import pinned algebraic Weierstrass first; this owner adds topology and module theory, and the recipient proves its arithmetic application."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L4",
+      "target": "IntegralIwasawaTheory:I.1",
+      "reason": "This stage is the arithmetic tower adapter to the shared algebra, not a second construction of Lambda, total fractions, elementary modules or determinant functors. Import pinned algebraic Weierstrass first; this owner adds topology and module theory, and the recipient proves its arithmetic application."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L4",
+      "target": "IntegralIwasawaTheory:I.2",
+      "reason": "Generic algebra formerly bundled into I.1 comes directly from its owner; retain I.1 for the arithmetic tower."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L4",
+      "target": "IntegralIwasawaTheory:I.9",
+      "reason": "Compare determinants/Fitting data with height-one lengths under the actual finite-projective-dimension hypotheses."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L4",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Generic algebra formerly bundled into I.1 comes directly from its owner; retain I.1 for the arithmetic tower."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L4",
+      "target": "IntegralIwasawaTheory:L2",
+      "reason": "Generic elementary-module structure, mu/lambda and compact Nakayama are owned by PM L4/L5; the finite-layer arithmetic control and growth result remain Iwasawa-owned. Import pinned algebraic Weierstrass first; this owner adds topology and module theory, and the recipient proves its arithmetic application."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L4",
+      "target": "IntegralIwasawaTheory:L3",
+      "reason": "Elementary modules and invariant calculations formerly bundled into L2 are direct imports."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L4",
+      "target": "IntegralIwasawaTheory:L4",
+      "reason": "Elementary modules and invariant calculations formerly bundled into L2 are direct imports."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "AutomorphicCongruences:L3",
+      "reason": "Applications use the same determinant functor with proved perfectness, trivializations and finite corrections; no new determinant carrier."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "IntegralIwasawaTheory:I.1",
+      "reason": "This stage is the arithmetic tower adapter to the shared algebra, not a second construction of Lambda, total fractions, elementary modules or determinant functors. Applications use the same determinant functor with proved perfectness, trivializations and finite corrections; no new determinant carrier."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "IntegralIwasawaTheory:I.2",
+      "reason": "Use the shared compact exactness, Nakayama or determinant/Tor interface with the particular arithmetic hypotheses proved here. Generic algebra formerly bundled into I.1 comes directly from its owner; retain I.1 for the arithmetic tower."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "IntegralIwasawaTheory:I.4",
+      "reason": "Abstract determinant/base-change algebra and the independently constructed Iwasawa cohomology/control are suppliers; the arithmetic evaluation theorem remains here. Applications use the same determinant functor with proved perfectness, trivializations and finite corrections; no new determinant carrier."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "IntegralIwasawaTheory:I.8",
+      "reason": "Use the shared compact exactness, Nakayama or determinant/Tor interface with the particular arithmetic hypotheses proved here."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "IntegralIwasawaTheory:I.9",
+      "reason": "Use the shared compact exactness, Nakayama or determinant/Tor interface with the particular arithmetic hypotheses proved here."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Generic algebra formerly bundled into I.1 comes directly from its owner; retain I.1 for the arithmetic tower."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "IntegralIwasawaTheory:L1",
+      "reason": "Do not redefine maximal abelian pro-p extensions or compact-limit exactness. Retain the actual arithmetic ray-class and local Coleman quotient comparison; finite generation alone is not a Mittag-Leffler proof. The arithmetic recipient supplies compactness or genuine Mittag-Leffler hypotheses and constructs its actual transition maps."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "IntegralIwasawaTheory:L2",
+      "reason": "Generic elementary-module structure, mu/lambda and compact Nakayama are owned by PM L4/L5; the finite-layer arithmetic control and growth result remain Iwasawa-owned. The arithmetic recipient supplies compactness or genuine Mittag-Leffler hypotheses and constructs its actual transition maps. Use the shared compact exactness, Nakayama or determinant/Tor interface with the particular arithmetic hypotheses proved here."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "IntegralIwasawaTheory:L3",
+      "reason": "Use the shared compact exactness, Nakayama or determinant/Tor interface with the particular arithmetic hypotheses proved here."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "IntegralIwasawaTheory:L4",
+      "reason": "Compact Nakayama and finite-error algebra formerly bundled into L2 are direct imports."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "MotivicEtaleKTheory:M.8",
+      "reason": "Applications use the same determinant functor with proved perfectness, trivializations and finite corrections; no new determinant carrier."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "PeriodsAndSpecialValues:PS.4",
+      "reason": "Applications use the same determinant functor with proved perfectness, trivializations and finite corrections; no new determinant carrier."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "SelmerIwasawaCohomology:L3",
+      "reason": "Applications use the same determinant functor with proved perfectness, trivializations and finite corrections; no new determinant carrier."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L6",
+      "target": "EulerSystemsAndKolyvaginSystems:ES.6",
+      "reason": "ES.6 retains system-specific contractions and Stark/Kolyvagin transitions; the general exterior-bidual and order-duality API is supplied here."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.1",
+      "target": "AutomorphicCongruences:L3",
+      "reason": "Shared perfect-complex carrier is supplied by S.1; retain PM L5 only for determinant/compact-module comparisons actually used."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.1",
+      "target": "ColemanPowerSeries:L3",
+      "reason": "Shared perfect-complex carrier is supplied by S.1; retain PM L5 only for determinant/compact-module comparisons actually used."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.1",
+      "target": "IntegralIwasawaTheory:I.4",
+      "reason": "Shared perfect-complex carrier is supplied by S.1; retain PM L5 only for determinant/compact-module comparisons actually used."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.1",
+      "target": "IntegralIwasawaTheory:L1",
+      "reason": "Shared perfect-complex carrier is supplied by S.1; retain PM L5 only for determinant/compact-module comparisons actually used."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.1",
+      "target": "MotivicEtaleKTheory:M.8",
+      "reason": "Shared perfect-complex carrier is supplied by S.1; retain PM L5 only for determinant/compact-module comparisons actually used."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.1",
+      "target": "PadicMeasuresIwasawaAlgebras:L5",
+      "reason": "Perfect complexes and the general derived coefficient-change construction are existing proposed suppliers. The new determinant-line and compact Iwasawa-module applications do not recreate them or silently generalize their coefficient hypotheses. Use the general-affine extension from S.1, compatible with the earlier complete-Noetherian-local construction at P7. PM L5 adds determinant and Iwasawa comparisons. Preserve RS-18 direction P7 to S.1; S.1 is not a prerequisite for P7."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.1",
+      "target": "PadicMeasuresIwasawaAlgebras:L6",
+      "reason": "Use the general perfect-complex language formerly bundled into PM L5 for the derived-dual comparison."
+    },
+    {
+      "source": "SchemeKTheoryOperations:S.1",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Shared perfect-complex carrier is supplied by S.1; retain PM L5 only for determinant/compact-module comparisons actually used."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L3",
+      "target": "IntegralIwasawaTheory:I.4",
+      "reason": "Abstract determinant/base-change algebra and the independently constructed Iwasawa cohomology/control are suppliers; the arithmetic evaluation theorem remains here. I.4 applies this control to its arithmetic characteristic/Euler comparisons."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L3",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "The Iwasawa complex/control formerly bundled into I.4 comes from the independent cohomological supplier."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L3",
+      "target": "NoncommutativeAndEquivariantIwasawa:NE.4",
+      "reason": "The Iwasawa complex/control formerly bundled into I.4 comes from the independent cohomological supplier."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "LocallyAnalyticDistributions:L3",
+      "reason": "Mellin analytic spaces use the existing open-disc geometry and a proved model comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "PadicMeasuresIwasawaAlgebras:L0a",
+      "reason": "Reuse open polydisc/adic geometry; prove the character functor and rigid/adic comparison here without reconstructing discs."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "AutomorphicPadicLFunctions:L0",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "CompletedCohomologyPartII:CC.3",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "CompletedCohomologyPartII:CC.5",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "GrossZagierAndArithmeticHeights:GZ.9",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "IntegralIwasawaTheory:I.1",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "NoncommutativeAndEquivariantIwasawa:NE.0",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "PadicFamilies:L0",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "PadicMeasuresIwasawaAlgebras:L0a",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "PadicMeasuresIwasawaAlgebras:L1",
+      "reason": "Import the basic completed Z_p group algebra, its compact module action and procyclic/dyadic coordinate. Prove general-coefficient constructions compatible with that carrier; do not reconstruct the anchor case. Use the anchor construction and prove compatible general-coefficient comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "PadicMeasuresIwasawaAlgebras:L2",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "PadicMeasuresIwasawaAlgebras:L4",
+      "reason": "The anchor supplies its linear division/procyclic coordinate case; Mathlib already supplies general algebraic Weierstrass preparation. StableReduction Layer 1 owns the shared finite-presentation Fitting construction; the Iwasawa-specific comparisons remain here."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "SelmerIwasawaCohomology:L3",
+      "reason": "Direct access to the unchanged Z_p algebra/action/coordinate supplied through the retained general-coefficient layer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "AutomorphicCongruences:L0",
+      "reason": "Use the shared Fitting carrier in the retained characteristic/Fitting or arithmetic containment comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+      "reason": "Import the existing anchor carrier; higher-Fitting/order-specific and arithmetic containment theorems remain with their application owners."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "IntegralIwasawaTheory:I.1",
+      "reason": "Use the shared Fitting carrier in the retained characteristic/Fitting or arithmetic containment comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "IntegralIwasawaTheory:I.6",
+      "reason": "Import the existing anchor carrier; higher-Fitting/order-specific and arithmetic containment theorems remain with their application owners."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "IntegralIwasawaTheory:I.9",
+      "reason": "Use the shared Fitting carrier in the retained characteristic/Fitting or arithmetic containment comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "PadicMeasuresIwasawaAlgebras:L4",
+      "reason": "The anchor supplies its linear division/procyclic coordinate case; Mathlib already supplies general algebraic Weierstrass preparation. StableReduction Layer 1 owns the shared finite-presentation Fitting construction; the Iwasawa-specific comparisons remain here. Import the existing anchor carrier; higher-Fitting/order-specific and arithmetic containment theorems remain with their application owners."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "PadicMeasuresIwasawaAlgebras:L6",
+      "reason": "Use one finite-presentation Fitting-ideal carrier. Gorenstein orders over a DVR, zero-dimensional self-injective quotients, and system-specific exterior contractions have different hypotheses; the PR323 homological module roadmap does not supply this order theory. Import the existing anchor carrier; higher-Fitting/order-specific and arithmetic containment theorems remain with their application owners."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "ColemanPowerSeries:L1",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "IntegralIwasawaTheory:L2",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "PadicMeasuresIwasawaAlgebras:L5",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "AutomorphicCongruences:L0",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "ColemanPowerSeries:L1",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "IntegralIwasawaTheory:L2",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "PadicMeasuresIwasawaAlgebras:L5",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "PadicMeasuresIwasawaAlgebras:L6",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "ColemanPowerSeries:L3",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L5 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "IntegralIwasawaTheory:L1",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L5 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L5 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "EulerSystemsAndKolyvaginSystems:ES.6",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L6 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L4",
+      "target": "ColemanPowerSeries:L2",
+      "reason": "Protocol 15 forwarding of the narrowed ColemanPowerSeries:L1 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "ColemanPowerSeries:L3",
+      "reason": "Protocol 15 forwarding of the narrowed ColemanPowerSeries:L2 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "NoncommutativeAndEquivariantIwasawa:NE.4",
+      "reason": "Protocol 15 forwarding of the narrowed IntegralIwasawaTheory:I.4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3",
+      "reason": "Protocol 15 forwarding of the narrowed IntegralIwasawaTheory:L1 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "SelmerIwasawaCohomology:L4",
+      "reason": "Protocol 15 forwarding of the narrowed IntegralIwasawaTheory:L1 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Completed Z_p group algebra of a profinite group, compact actions and procyclic/dyadic coordinates",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "formerly": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ]
+    },
+    {
+      "target": "Bounded profinite measures, integral lattices and weak/norm topology",
+      "owner": "PadicMeasuresIwasawaAlgebras:L0",
+      "formerly": [
+        "LocallyAnalyticDistributions:L0"
+      ]
+    },
+    {
+      "target": "General adic-coefficient completed group algebras and measure/convolution comparison",
+      "owner": "PadicMeasuresIwasawaAlgebras:L1",
+      "formerly": [
+        "ColemanPowerSeries:L0",
+        "IntegralIwasawaTheory:I.1",
+        "NoncommutativeAndEquivariantIwasawa:NE.0"
+      ]
+    },
+    {
+      "target": "Bounded O/K Amice transform and measure operators partial, phi, psi, unit restriction and x inverse",
+      "owner": "PadicMeasuresIwasawaAlgebras:L2",
+      "formerly": [
+        "ColemanPowerSeries:L1",
+        "ColemanPowerSeries:L2",
+        "LocallyAnalyticDistributions:L1"
+      ]
+    },
+    {
+      "target": "Rigid affinoid character functor, universal character and finite-character/dyadic charts",
+      "owner": "PadicMeasuresIwasawaAlgebras:L0a",
+      "formerly": [
+        "LocallyAnalyticDistributions:L3"
+      ]
+    },
+    {
+      "target": "Universal-character action on affinoid locally analytic distribution families, with radius and completed-tensor comparisons",
+      "owner": "LocallyAnalyticDistributions:L4",
+      "formerly": [
+        "PadicMeasuresIwasawaAlgebras:L0a"
+      ]
+    },
+    {
+      "target": "Pseudomeasure carrier, augmentation condition and admissible clearing-factor evaluation",
+      "owner": "PadicMeasuresIwasawaAlgebras:L3",
+      "formerly": [
+        "IntegralIwasawaTheory:I.1",
+        "DirichletPadicLFunctions:L1"
+      ]
+    },
+    {
+      "target": "Weierstrass-derived Iwasawa elementary modules, pseudo-isomorphism and characteristic/mu/lambda API",
+      "owner": "PadicMeasuresIwasawaAlgebras:L4",
+      "formerly": [
+        "ColemanPowerSeries:L1",
+        "IntegralIwasawaTheory:I.1",
+        "IntegralIwasawaTheory:L2"
+      ]
+    },
+    {
+      "target": "Finite-presentation Fitting-ideal carrier shared with singular loci",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "formerly": [
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "PadicMeasuresIwasawaAlgebras:L6",
+        "IntegralIwasawaTheory:I.6",
+        "IntegralHeckeAndGaloisDeterminants:IHG.6"
+      ]
+    },
+    {
+      "target": "General-affine perfect-complex comparison and derived pullback beyond the complete-local construction",
+      "owner": "SchemeKTheoryOperations:S.1",
+      "formerly": [
+        "PadicMeasuresIwasawaAlgebras:L5"
+      ]
+    },
+    {
+      "target": "Complete-Noetherian-local derived specialization/Tor and derived Mittag-Leffler algebra",
+      "owner": "DeformationAndDerivedPatchingAlgebra:P7",
+      "formerly": [
+        "PadicMeasuresIwasawaAlgebras:L5"
+      ]
+    },
+    {
+      "target": "Determinant functor on commutative perfect complexes and rational/characteristic-divisor comparison",
+      "owner": "PadicMeasuresIwasawaAlgebras:L5",
+      "formerly": [
+        "IntegralIwasawaTheory:I.1",
+        "IntegralIwasawaTheory:I.4",
+        "PeriodsAndSpecialValues:PS.4",
+        "SelmerIwasawaCohomology:L3",
+        "MotivicEtaleKTheory:M.8",
+        "AutomorphicCongruences:L3"
+      ]
+    },
+    {
+      "target": "Compact-module inverse-limit exactness, topological Nakayama and finite-error specialization",
+      "owner": "PadicMeasuresIwasawaAlgebras:L5",
+      "formerly": [
+        "IntegralIwasawaTheory:L1",
+        "IntegralIwasawaTheory:L2"
+      ]
+    },
+    {
+      "target": "Generic exterior bidual and order-specific duality/base-change/denominator API",
+      "owner": "PadicMeasuresIwasawaAlgebras:L6",
+      "formerly": [
+        "EulerSystemsAndKolyvaginSystems:ES.6"
+      ]
+    },
+    {
+      "target": "Finite global cyclotomic-unit subgroup, torsion/real conventions and conductor generators",
+      "owner": "IntegralIwasawaTheory:L0",
+      "formerly": [
+        "ColemanPowerSeries:L4"
+      ]
+    },
+    {
+      "target": "Maximal abelian pro-p ramified/unramified tower carriers and general class-field comparison",
+      "owner": "IntegralIwasawaTheory:I.2",
+      "formerly": [
+        "IntegralIwasawaTheory:L1",
+        "SelmerIwasawaCohomology:L4"
+      ]
+    },
+    {
+      "target": "Kubota-Leopoldt pseudomeasure construction and normalized interpolation",
+      "owner": "DirichletPadicLFunctions:L1",
+      "formerly": [
+        "IntegralIwasawaTheory:I.3"
+      ]
+    },
+    {
+      "target": "Dirichlet-character branch measures and interpolation",
+      "owner": "DirichletPadicLFunctions:L2",
+      "formerly": [
+        "IntegralIwasawaTheory:I.3"
+      ]
+    },
+    {
+      "target": "Deligne-Ribet pseudomeasure and Hilbert Eisenstein/q-expansion construction",
+      "owner": "AutomorphicPadicLFunctions:L3",
+      "formerly": [
+        "IntegralIwasawaTheory:I.3"
+      ]
+    },
+    {
+      "target": "Iwasawa cohomology/corestriction complex and representation-specific control",
+      "owner": "SelmerIwasawaCohomology:L3",
+      "formerly": [
+        "IntegralIwasawaTheory:I.4"
+      ]
+    },
+    {
+      "target": "General compact-support continuous arithmetic cochains, derived limits and real-place corrections",
+      "owner": "ArithmeticGaloisDuality:D7",
+      "formerly": [
+        "IntegralIwasawaTheory:I.8"
+      ]
+    },
+    {
+      "target": "Generalized integral Ribet theorem with residual coincidence and local Fitting factors",
+      "owner": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+      "formerly": [
+        "IntegralIwasawaTheory:I.7"
+      ]
+    },
+    {
+      "target": "Modern Kurihara-to-classical Iwasawa module and finite-specialization comparison",
+      "owner": "IntegralIwasawaTheory:I.10",
+      "formerly": [
+        "SpecialValuesBirchTate:B.6"
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-16",
+    "date": "2026-09-23",
+    "notes": "All 38 stages of the four members have entries (17 narrow, 21 keep). The 16 evidence pairs each share an owner entry. The extension of PadicMeasuresIwasawaAlgebras is titled exactly as a Part II of Tau Ceti ProfiniteProPGroups, whose Layer 9 does own the completed group algebra of the orientation image and linear Weierstrass division. The sampled narrowings (L0a, L4, L5, L6) keep every target not supplied by a named owner, and the Mathlib imports L4 relies on (Weierstrass division, Noetherianity, UFD of R⟦X⟧ over a PID) exist at the pin. StableReduction Layer 1 is the only planned owner of Fitting ideals, since neither pinned library has them. One correction: 20 §15 forwarding links were missing and have been added; the one remaining unforwarded pair (LAD L4 to LAD L3) is justified in the proposal and would close a cycle. With the twelve accepted restructurings applied, every link applies and none closes a cycle. See REV-RS-16.md.",
+    "corrections": [
+      "links: added the 20 missing §15 forwarding links from the suppliers of the narrowed PMIA L4, L5, L6, ColemanPowerSeries L1, L2 and IntegralIwasawaTheory I.4, L1 to those layers' atlas consumers (listed in REV-RS-16.md). LocallyAnalyticDistributions:L4 -> L3, which forwarding L0a would require, was deliberately not added: the proposal explains that L3 needs only the retained character, and the link would close a cycle through LAD L3 -> L4."
+    ]
+  }
+}

@@ -1,0 +1,3083 @@
+{
+  "family": "RS-08",
+  "roadmaps": {
+    "ArithmeticGaloisDuality": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "title": "Continuous cohomology of profinite groups, Part II: compact coefficients and arithmetic duality",
+      "reason": "Begin with the anchor's canonical discrete-coefficient carrier, comparisons, finite-level operations and cohomological dimension. Add nondiscrete coefficients, derived limits, the full Hochschild–Serre spectral sequence, arithmetic finiteness and Poitou–Tate; do not reconstruct the discrete special cases."
+    },
+    "DeformationAndDerivedPatchingAlgebra": {
+      "action": "keep",
+      "reason": "Retain every stage and its source-scoped arithmetic outputs; import the shared constructions assigned below instead of replanning them."
+    },
+    "GL2ModularityLifting": {
+      "action": "keep",
+      "reason": "Retain every stage and its source-scoped arithmetic outputs; import the shared constructions assigned below instead of replanning them."
+    },
+    "GlobalGaloisDeformations": {
+      "action": "keep",
+      "reason": "Retain every stage and its source-scoped arithmetic outputs; import the shared constructions assigned below instead of replanning them."
+    },
+    "LocalGaloisDeformationRings": {
+      "action": "keep",
+      "reason": "Retain every stage and its source-scoped arithmetic outputs; import the shared constructions assigned below instead of replanning them."
+    },
+    "ModularSymbolsPadicLFunctions": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/ModularForms",
+      "title": "Modular forms — Hecke theory, newforms, and L-functions, Part II: cohomological symbols and analytic p-adic L-functions",
+      "reason": "Import the anchor's homological symbols, coefficient fields, Hecke and Mellin theory. The cohomological comparison, signed integral period lines, distribution-valued symbols and p-adic interpolation go beyond that anchor; critical-slope theory is imported from PadicFamilies:L3."
+    },
+    "MotivesAndAlgebraicCycles": {
+      "action": "keep",
+      "reason": "Retain pure Chow and numerical motives, geometric mixed comparisons, Nori motives and periods. Import higher Chow complexes and the effective motivic-homotopy construction; finite correspondences are not Chow correspondences."
+    },
+    "MotivicEtaleKTheory": {
+      "action": "keep",
+      "reason": "Retain all fourteen M.* stages and seven KU aggregation checkpoints. Own the higher Chow, transfers, norm-residue and K-theoretic comparisons; import arithmetic cohomology, duality and Selmer conditions. KU records do not become duplicate mathematical nodes."
+    },
+    "OrdinaryAutomorphicFormsAndModularityLifting": {
+      "action": "keep",
+      "reason": "Retain every stage and its source-scoped arithmetic outputs; import the shared constructions assigned below instead of replanning them."
+    },
+    "PadicFamilies": {
+      "action": "keep",
+      "reason": "Retain the distinct ordinary and finite-slope family constructions, including the general ordinary projector and eigenvariety machine. Import classical and single-form inputs; ordinary big Galois representations come from R21.3, not a second construction in L4."
+    },
+    "SelmerIwasawaCohomology": {
+      "action": "keep",
+      "reason": "Retain every stage and its source-scoped arithmetic outputs; import the shared constructions assigned below instead of replanning them."
+    }
+  },
+  "layers": {
+    "ArithmeticGaloisDuality:R02.1": {
+      "action": "narrow",
+      "keeps": "Keep compact lattice, rational and discrete-quotient coefficient comparisons; the common module/complex Mittag–Leffler and Milnor lemmas with lim^1 retained; actual cochain/topology comparisons, rationalization and completed-tensor hypotheses. Reuse the pinned continuousCohomology carrier and the anchor's discrete theory.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+      ],
+      "reason": "Discrete cohomology and its finite-quotient carrier already belong to the anchor; passing to nondiscrete coefficients is a new comparison, not a definition by fiat."
+    },
+    "ArithmeticGaloisDuality:R02.2": {
+      "action": "narrow",
+      "keeps": "Keep the full continuous Hochschild–Serre spectral sequence for the stated closed normal subgroup/coefficient classes, with its topology and convergence conditions, and the edge-map identifications with the anchor's inflation–restriction and five-term sequences; the restriction/corestriction identities (cor∘res = index, transitivity) for R02.1's compact lattice and rational coefficients, with the corestriction they require; and the precise descent consequences for finite extensions of number fields. Import the anchor's discrete change-of-groups and five-term special cases.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+      ],
+      "reason": "The anchor's five-term and change-of-groups theory is an input, not the full spectral sequence."
+    },
+    "ArithmeticGaloisDuality:D7": {
+      "action": "narrow",
+      "keeps": "Keep, for a number field F, a finite set S containing the places above p and infinity, and a finite projective continuous coefficient module T: topological restricted products, unramified subgroups and their transition maps, with the topology in each finite, compact and discrete coefficient regime; the extension of R02.3's compact-support fibre of the localization map, with modified Tate terms at real places when p = 2, to compact lattice and discrete torsion coefficients; Shapiro's lemma and the projection formula for compact lattice and rational coefficients, and one reciprocity/sign normalization for restriction, corestriction, cup products (the anchor's Layer 12 product, after proving joint continuity of the compact pairings), Shapiro and local invariant maps; derived local and global duality with the derived O-linear or Pontryagin dual and Tate twist, in finite, compact and discrete torsion formulations with the inverse-limit and continuous-dual hypotheses used to pass between them; perfectness/amplitude only under the finite-generation and coefficient hypotheses that imply it, distinguishing globally compact-supported complexes from arbitrary local-condition complexes; and the recovery of R02.4's finite nine-term and lattice/rational sequences from the derived statements without discarding topological-closure or derived-limit terms. Import R02.1 limits, R02.2 Hochschild–Serre, descent and compact restriction/corestriction identities, R02.3 finiteness and the finite-coefficient compact-support fibre, R02.4 finite/lattice Poitou–Tate and P7 local perfect-complex algebra.",
+      "suppliedBy": [
+        "ArithmeticGaloisDuality:R02.1",
+        "ArithmeticGaloisDuality:R02.2",
+        "ArithmeticGaloisDuality:R02.3",
+        "ArithmeticGaloisDuality:R02.4",
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "reason": "Derived arithmetic duality is distinct from both the underlying limit lemma and abstract perfect-complex algebra."
+    },
+    "DeformationAndDerivedPatchingAlgebra:P7": {
+      "action": "narrow",
+      "keeps": "Keep, over complete Noetherian local O-algebras and for bounded complexes of finite projective modules: the homotopy-equivalence and quasi-isomorphism APIs on Mathlib's HomologicalComplex, homotopy and derived categories; perfectness through local finite-projective resolutions; minimal representatives over local rings and their uniqueness up to homotopy; Tor-amplitude, kept distinct from the amplitude of a chosen complex and from the degrees of nonzero cohomology; duals, derived Hom and derived tensor products; derived completion; derived Nakayama and the specialization/extension results under explicit derived-completeness and finiteness hypotheses; the spectral sequence Tor_i^A(H^j(C),B) ⇒ H^(j−i)(C⊗ᴸ_A B) with convergence for the stated boundedness; the complete-local derived Mittag–Leffler comparison, working with finite coefficient quotients before the inverse limit and retaining lim¹ whenever it does not vanish; and chain-level compatibility of morphisms, homotopies and Hecke actions with the inverse system (equalities on cohomology alone do not give a compatible chain action). Import the generic module/complex Milnor sequence and Mittag–Leffler lemmas from R02.1 and verify their hypotheses for these systems.",
+      "suppliedBy": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "reason": "Generic lim^1/Mittag–Leffler algebra is owned once by R02.1; its derived local-ring applications are not dropped."
+    },
+    "ArithmeticGaloisDuality:R02.5": {
+      "action": "narrow",
+      "keeps": "Keep the deformation-theoretic Selmer calculations: the comparison under changing one local deformation condition or adding a prime, and the Poitou–Tate dimension formula used in global deformation presentations and auxiliary-prime arguments. Use L2's generic Selmer kernel, local-condition and mapping-fibre definitions and its H¹/H0 comparison with the explicit global restriction kernel, and use as local conditions the tangent conditions of the finite-flat, ordinary and fixed-type local deformation problems that LocalGaloisDeformationRings R08.6 exports as subspaces of local H¹; do not re-prove those tangent conditions here.",
+      "suppliedBy": [
+        "SelmerIwasawaCohomology:L2"
+      ],
+      "reason": "A deformation-theoretic Selmer calculation consumes, rather than reconstructs, the general local-condition/complex API."
+    },
+    "ArithmeticGaloisDuality:D8": {
+      "action": "narrow",
+      "keeps": "Keep the dimension-general adjoint and dual-adjoint deformation–Selmer comparisons: apply L2's H¹ comparison to the adjoint Selmer complex and R02.5's deformation Selmer kernel; apply L1's Selmer-complex duality (transported from D7) along the proved triangle; prove the dual-Selmer dimension calculation in all ranks, including the trace-kernel exceptions when p divides n, with its own exact sequence rather than assuming the trace-zero adjoint self-dual; construct the determinant/deformation tangent complexes from the actual restriction maps; and give the arithmetic specialization of derived coefficient change, underived specialization holding only after its Tor terms vanish. Import generic Selmer complexes from L2 and Tor/base-change algebra from P7; local p-adic conditions and their tangent maps belong to LocalGaloisDeformationRings.",
+      "suppliedBy": [
+        "SelmerIwasawaCohomology:L2",
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "reason": "Abstract Selmer and Tor constructions have other owners; identifying actual deformation tangent/obstruction data with them remains new mathematics."
+    },
+    "SelmerIwasawaCohomology:L0": {
+      "action": "narrow",
+      "keeps": "Keep the tower-compatible p-adic Kummer identification H^1(F, Z_p(1)) ≃ lim_m F^×/(F^×)^{p^m}, with the correct cohomological hypotheses, topologies and all lim^1 terms, and its compatibility with the imported restriction, corestriction/norm, cup-product and Shapiro maps; the record of which ordinary inverse-limit hypotheses hold for each tower used in this roadmap; and, separately for number-field units, S-units and local multiplicative groups, when the p-completion agrees with a tensor-product expression. Import compact continuous cochains, derived limits and the lim^1 sequence, the discrete comparison, full Hochschild–Serre, cup products, twists, duals, corestriction, Shapiro and projection formulas, and the finite-level Kummer isomorphism; do not replace the p-completion of the unrestricted global group F^× by a naive tensor product.",
+      "suppliedBy": [
+        "ArithmeticGaloisDuality:R02.1",
+        "ArithmeticGaloisDuality:R02.2",
+        "ArithmeticGaloisDuality:D7",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees"
+      ],
+      "reason": "The extension belongs to p-adic arithmetic Kummer and its comparison maps, not a second continuous-cohomology carrier."
+    },
+    "SelmerIwasawaCohomology:L1": {
+      "action": "narrow",
+      "keeps": "Keep annihilator, saturation and local/global pairing comparisons for the stated coefficient modules and supplied local subcomplex maps; the duality map between the mapping fibres of supplied orthogonal local subcomplex maps (the Selmer-complex duality map, transported from D7 along the defining triangle); and the unramified/bad-prime comparison terms, using the unramified subgroups specified in D7. Import global finiteness, Poitou–Tate and derived duality, including real-place corrections. Formulate the parametric pairing lemmas before L2 instantiates named conditions; period-defined conditions remain in L4.",
+      "suppliedBy": [
+        "ArithmeticGaloisDuality:R02.3",
+        "ArithmeticGaloisDuality:R02.4",
+        "ArithmeticGaloisDuality:D7"
+      ],
+      "reason": "Arithmetic duality is imported; verifying a particular local condition and its orthogonal is retained. This does not insert an L2-to-L1 cycle."
+    },
+    "MotivicEtaleKTheory:M.1": {
+      "action": "narrow",
+      "keeps": "Keep the K-theory-oriented finite, lattice and rational coefficient interfaces: the realization of K-theory's arithmetic coefficients (mu_m^{⊗j}, Z_l(j), Q_l(j) and Q/Z(j), the last as the primewise-compatible system of the imported Tate twists, not the tensor power of Q/Z) in the imported continuous carriers through the PR196 etale-site/Galois comparison, and the proof that these realizations agree with finite/discrete cohomology and are compatible with Kummer sequences, localization and transfer. Import continuous/derived cohomology, Tate twists and their coefficient comparisons from R02.1 and D7, and discrete all-degree operations from the anchor. The higher Chern/regulator maps out of K-theory remain M.8.",
+      "suppliedBy": [
+        "ArithmeticGaloisDuality:R02.1",
+        "ArithmeticGaloisDuality:D7",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+      ],
+      "reason": "M.1 supplies compatible arithmetic coefficients, not a second cohomology theory or an assumed general regulator."
+    },
+    "MotivicEtaleKTheory:M.2": {
+      "action": "narrow",
+      "keeps": "Keep the exact comparison diagrams for degree-two K-theory and higher etale descent, with ordinary, positive and modified real-place cohomology kept separate, including the 2-primary cases; prove each comparison map and verify, in each application, the virtual cohomological-dimension and finite-generation hypotheses it uses. Import global finiteness, compact support and the arithmetic cohomological-dimension bounds with their real-place exceptions from R02.3, finite/lattice Poitou-Tate from R02.4, derived local/global duality and modified real-place complexes from D7, and the cd_p/scd_p definitions and inequalities from the anchor's Layer 11.",
+      "suppliedBy": [
+        "ArithmeticGaloisDuality:R02.3",
+        "ArithmeticGaloisDuality:R02.4",
+        "ArithmeticGaloisDuality:D7",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
+      ],
+      "reason": "The arithmetic K-theory application must still identify its maps and real-place correction terms; general duality is not re-proved here."
+    },
+    "DeformationAndDerivedPatchingAlgebra:R03.1": {
+      "action": "narrow",
+      "keeps": "Keep the general coefficient categories: complete Noetherian local O-algebras and Artinian local O-algebras with a specified identification of the residue field with k, with local continuous O-algebra maps; presentation of each complete Noetherian local O-algebra as the inverse limit of its Artinian quotients; continuous maps from power-series rings; completed tensor products over O, with the exact conditions under which they stay Noetherian and local; residue-field extension; descent and ascent of finite generation; and explicit APIs for nilpotent ideals, small extensions and square-zero extensions as used by the deformation functors. Reuse the pinned algebra APIs. ModularCurves 7D's category of complete local Noetherian W(k)-algebras with residue identification is the instance O = W(k) with k algebraically closed: cite it and prove the comparison, without constructing it again and without replacing the general base by it.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves"
+      ],
+      "reason": "The Witt-vector coefficient category of ModularCurves 7D is the O = W(k) instance of the general category. R03.1 cites it and proves the comparison. 7D's elliptic universal deformation and 7F's Serre–Tate theory are not general coefficient or Schlessinger theory."
+    },
+    "DeformationAndDerivedPatchingAlgebra:R03.3": {
+      "action": "narrow",
+      "keeps": "Keep regular sequences, depth, Cohen–Macaulay rings and modules, projective dimension, Auslander–Buchsbaum and the exact complete-intersection criteria used in patching; depth and dimension formulas under the local maps actually used; equidimensionality, associated-prime and support lemmas for finite modules; and explicit catenarity and excellence hypotheses rather than geometric conclusions for arbitrary local rings. Import from ModularCurves 4D, without reproving them, its local statements: regularity and dimension under completion of Noetherian local rings, openness of the regular locus over an excellent base, miracle flatness for finite maps of regular local rings of equal dimension, descent of regularity and dimension along finite faithfully flat maps, and the coherent kernel/cokernel support argument. Where R03.3 needs a more general or module-level form (for example Cohen–Macaulay modules over a regular local base), state it with its hypotheses and prove it compatible with 4D's statement.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem"
+      ],
+      "reason": "Katz–Mazur regularity of a moduli problem does not supply every local-ring depth theorem."
+    },
+    "GlobalGaloisDeformations:R04.1": {
+      "action": "narrow",
+      "keeps": "Keep the generic deformation functors of a continuous representation of a profinite group: framed and strict-equivalence unframed deformations over Artinian coefficient rings, continuity, determinant-fixed variants and change of coefficients; the proof that the local equivalence relation is the intended conjugacy relation and that restriction is well-defined; and the separate determinant/pseudorepresentation deformation functor for the residual situations that need it, which is not assumed equivalent to representation deformations. Import the coefficient categories and representability/obstruction algebra from R03.1/R03.2. Do not package pro-representability into the definition.",
+      "suppliedBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "reason": "General coefficient and Schlessinger machinery are shared; the Galois deformation functor is the retained construction."
+    },
+    "GlobalGaloisDeformations:R04.2": {
+      "action": "narrow",
+      "keeps": "Keep arithmetic G_F,S representability: verification of the finiteness hypothesis on G_F,S, existence of universal framed rings and of unframed rings under absolute residual irreducibility, the universal continuous representation over the inverse-limit ring, the framed-to-unframed comparison by formally smooth power-series maps with the correct number of variables, and changes of determinant and of residual coefficient field. Import R02.3 finiteness and the R03.2 representability criterion; local G_K applications remain R08.1.",
+      "suppliedBy": [
+        "ArithmeticGaloisDuality:R02.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "reason": "Local and global representability are distinct applications of the same general criterion."
+    },
+    "GlobalGaloisDeformations:R04.3": {
+      "action": "narrow",
+      "keeps": "Keep the actual global deformation ring as the completed fibre product/quotient with prescribed local rings, with its local-to-global completed-tensor presentation and framed constraints; the maps from the local framed rings of R08.1 given by restricting the global universal representation; the tangent and obstruction descriptions by the actual adjoint cohomology and local conditions; and the lower bound on the global ring's dimension and the bound on the number of relations over the completed tensor product of local rings in the form of KW II Proposition 4.5 and Corollary 4.7, deduced from R02.6's cohomological inequalities and R03.2's relation-count algebra under their stated hypotheses. No actual auxiliary-prime existence theorem is an input to this presentation argument.",
+      "suppliedBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2",
+        "ArithmeticGaloisDuality:R02.6",
+        "LocalGaloisDeformationRings:R08.1"
+      ],
+      "reason": "A presentation of the actual global functor is not supplied by a dimension count alone."
+    },
+    "LocalGaloisDeformationRings:R08.1": {
+      "action": "narrow",
+      "keeps": "Keep the G_K specializations of R04.1's functors: framed local representability with its tangent/obstruction description, the effect of fixing the determinant and of forgetting the framing, the archimedean deformation rings at p=2, and the comparison of local deformation rings over O under residue-field (coefficient) extension. Import R04.1's generic Galois deformation recipe and R03.1/R03.2 algebra, not the arithmetic G_F,S representability theorem R04.2; the comparison with restrictions of the global universal representation is made in the consumer R04.3, which has both R04.2 and R08.1 as prerequisites.",
+      "suppliedBy": [
+        "GlobalGaloisDeformations:R04.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "reason": "There is one generic Galois deformation recipe; local arithmetic finiteness and universal-ring applications still need proof."
+    },
+    "LocalGaloisDeformationRings:R08.4": {
+      "action": "narrow",
+      "keeps": "Keep the rank-two finite-flat/Barsotti–Tate component theorems used in Kisin's finite-flat modularity arguments: connectedness and component comparisons, separately in the ordinary and non-ordinary cases, the image of the lattice moduli, and exactly which components a chosen modular point meets, with each source's residue-characteristic hypotheses stated. Import L7's bounded-height lattice moduli and proper-image construction and instantiate them in rank two; connectedness of the source is not coverage of a deformation-ring component. The local-at-2 calculations for Kisin's 2-adic theorem remain R08.5.",
+      "suppliedBy": [
+        "LocalGaloisDeformationRings:L7"
+      ],
+      "reason": "The general height-lattice parameter space is constructed in L7, while the rank-two component theorem is a new specialization."
+    },
+    "GlobalGaloisDeformations:G7": {
+      "action": "narrow",
+      "keeps": "Keep, for a CM extension F/F⁺: the polarized dimension-n deformation functor built from the actual pairing/multiplier of ArithmeticGaloisRepresentations G7, with unrestricted framed deformation as its ambient functor, and its fixed determinant/multiplier variants, local framing, complex conjugation and coefficient extension; its tangent and obstruction spaces, obtained by instantiating D8's adjoint comparison and recording the failure of scalar/traceless splitting when p divides n; its global-to-local morphisms and presentations over completed tensor products, separating p-torsion-free quotients from reduced generic fibres; and ACC+ Proposition 6.2.33 for G8's variable-determinant problem (F = F⁺F₀ with F⁺ totally real and F₀ imaginary quadratic, ζ_p ∉ F, enormous image of the residual restriction to G_F(ζ_p) as in Definition 6.2.29, T = S, exactly q primes whose underlying rational primes split in F₀, g = qn − n²[F⁺:Q] variables), with the export of the auxiliary diamond group and its exact rank bounds to complex patching. Import the ACC+ Definition 6.2.2 problem, Theorem 6.2.3 and Lemma 6.2.4 from G8; local ordinary/height/Fontaine–Laffaille conditions from L7 and away-p conditions preserving the monodromy operator from R08.2, in rank n; the adjoint comparison from D8; the conditional dual-Selmer calculation from R02.6; and the Chebotarev prime-selection machinery from R04.5. The fixed-determinant and polarized alternatives recompute their tangent dimensions rather than borrow g.",
+      "suppliedBy": [
+        "LocalGaloisDeformationRings:L7",
+        "LocalGaloisDeformationRings:R08.2",
+        "GlobalGaloisDeformations:G8",
+        "ArithmeticGaloisDuality:D8",
+        "ArithmeticGaloisDuality:R02.6",
+        "GlobalGaloisDeformations:R04.5"
+      ],
+      "reason": "The polarized theorem is not obtained by forgetting a determinant; its actual primes and relation counts remain here beyond the shared recipe."
+    },
+    "GlobalGaloisDeformations:G8": {
+      "action": "narrow",
+      "keeps": "Keep the arbitrary-rank unpolarized global problem with variable determinant of ACC+ Definition 6.2.2 (Λ the completed tensor product of the local Λ_v, absolutely irreducible residual representation, p ∤ 2n, local subfunctors quotient-representable and invariant under strict conjugation, determinant not fixed), its representability and universal representation as in Theorem 6.2.3, the T-framing comparison of Lemma 6.2.4 with n²|T|−1 variables for nonempty T, its local tensor presentation, and the fixed-determinant variant, with the maps between the two problems stated as separate theorems whose formal smoothness and variable counts are proved under their actual hypotheses. Import the R03.2 criterion, R08.1 local rings and the D8 adjoint comparison. The polarized variants are G7's; G8 uses no polarized theorem with its pairing forgotten.",
+      "suppliedBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2",
+        "LocalGaloisDeformationRings:R08.1",
+        "ArithmeticGaloisDuality:D8"
+      ],
+      "reason": "Polarized and variable-determinant functors have distinct deformation data and dimension calculations."
+    },
+    "GL2ModularityLifting:R22.3": {
+      "action": "narrow",
+      "keeps": "Keep arithmetic module patching: construct the actual compatible automorphic modules and their relation to the finite-level Hecke modules, verify each presentation, bound, depth and freeness hypothesis of the abstract theorem, and establish the support statement over the completed tensor product of local rings. Keep framing variables and their removal explicit and track the determinant through all specialisations. Apply R03.3/R03.5; do not replace this by the more general P8 complex theorem or assume its arithmetic inputs.",
+      "suppliedBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.5"
+      ],
+      "reason": "The abstract module-patching lemma is imported; the arithmetic module construction and hypothesis verification remain in R22.3."
+    },
+    "GL2ModularityLifting:R22.4": {
+      "action": "narrow",
+      "keeps": "Keep arithmetic component matching, passage to nonminimal levels and the claimed R=T comparison. Import R03.6 module support/descent and R08.4 local component geometry; P9's derived-complex theorem is a distinct extension, not a replacement for either.",
+      "suppliedBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.6",
+        "LocalGaloisDeformationRings:R08.4"
+      ],
+      "reason": "A nonzero module on one component does not establish support on every required component."
+    },
+    "GL2ModularityLifting:R22.5": {
+      "action": "narrow",
+      "keeps": "Keep the odd-prime ordinary, finite-flat/potentially Barsotti–Tate and required crystalline-range modularity-lifting statements under supplied residual modularity and the correct cyclotomic irreducibility conditions, each with its individual hypotheses, and record exactly which formulations are available without the later global-finiteness argument (the KW I Theorem 4.1 formulation is assembled in R24). Import R21.4 only on its exact ordinary overlap, proving transport to the classical statement; retain the nonordinary and differently scoped cases here.",
+      "suppliedBy": [
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.4"
+      ],
+      "reason": "Ordinary modularity lifting is not the whole odd-prime modularity-lifting theorem."
+    },
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1": {
+      "action": "narrow",
+      "keeps": "Keep the application of the ordinary projector to the actual arithmetic Hecke modules/complexes, with functoriality, integral structures and transition-map compatibility. Import the finite/profinite factorial-projector API from PadicFamilies L0a and its pinned Fitting input.",
+      "suppliedBy": [
+        "PadicFamilies:L0a"
+      ],
+      "reason": "The generic projector and its arithmetic application have different owners."
+    },
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2": {
+      "action": "narrow",
+      "keeps": "Keep the additional nearly ordinary totally real and Eisenstein/residually reducible control statements needed by Skinner–Wiles, with their p-distinguishedness, tame-character, stabilizer, degree, localization, lattice and small-prime hypotheses; compare each arithmetic specialization with the same classical newform and Galois family; prove finite flatness only in the source cases that establish it. Import the rational and totally-real cuspidal Hida constructions/control from PadicFamilies L0/L5, comparing normalizations rather than constructing them again.",
+      "suppliedBy": [
+        "PadicFamilies:L0",
+        "PadicFamilies:L5"
+      ],
+      "reason": "Cuspidal Hida control does not establish the Eisenstein or residually reducible branches."
+    },
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3": {
+      "action": "narrow",
+      "keeps": "Keep the ordinary big Galois representations/determinant laws over the ordinary Hecke algebra with their ordinary local structure and filtrations; construct the ordinary deformation rings with their filtration data (instantiating R04.3's global presentation with L8's local ordinary rings), compare local tangent conditions and prove the map from the ordinary deformation ring to the ordinary Hecke algebra. In residually reducible cases use the representation/pseudorepresentation (determinant/GMA) formalism actually supplied by the source, not the absolutely irreducible representability theorem. Import L8's ordinary determinant-versus-flag comparison under its exact hypotheses; do not assert equivalence on nonreduced rings from pointwise characteristic polynomials.",
+      "suppliedBy": [
+        "LocalGaloisDeformationRings:L8"
+      ],
+      "reason": "The algebraic ordinary local-condition test has one owner; the arithmetic family and its Galois action remain here."
+    },
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4": {
+      "action": "narrow",
+      "keeps": "Keep ordinary arithmetic R=T and lifting: actual modules, local conditions, control hypotheses, auxiliary levels, the dual-Selmer and integral Hecke arguments and the support conclusion, recording determinant, ramification, local distinguishedness, character and residual-modularity assumptions individually. Import R03.5 abstract module patching, R03.6 support/faithfulness transport and its torsion-free/reduced R=T quotient theorem, and R04.5 prime selection. Do not import the completed classical GL2 roadmap as a prerequisite to this supplier.",
+      "suppliedBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.5",
+        "DeformationAndDerivedPatchingAlgebra:R03.6",
+        "GlobalGaloisDeformations:R04.5"
+      ],
+      "reason": "The ordinary arithmetic proof is an application, not another abstract patching theorem."
+    },
+    "ModularSymbolsPadicLFunctions:L0": {
+      "action": "narrow",
+      "keeps": "Keep coefficient-valued cohomological symbols with values in an honest representation of the matrix semigroup (Hecke and diamond actions with determinant factors and left/right conventions, nebentypus, the involution at infinity, boundary maps and presentations), the compactly supported/parabolic cohomology comparison and the functorial comparison with ModularForms 10A's analytic modular curve, and the full Eichler–Shimura isomorphism at general level with rational structures and eigenspace dimensions, handling elliptic stabilizers by torsion-free auxiliary level and descent. Import the homological symbol, Manin, Hecke, Hecke-equivariant injective period map and coefficient-field outputs of ModularForms 8, and prove compatibility with ModularForms 11's level-one period-polynomial Eichler–Shimura isomorphism rather than reconstructing it; the injective period map does not prove the full cohomological isomorphism.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one"
+      ],
+      "reason": "Homological symbols and cohomological comparison are different targets; neither can be deleted by sharing the word symbol."
+    },
+    "ModularSymbolsPadicLFunctions:L1": {
+      "action": "narrow",
+      "keeps": "Keep the ± eigenspaces over the coefficient field, signed period lines, saturated integral symbol lattices and canonical integral periods up to O^× where the relevant multiplicity-one hypotheses hold; the twisted Mellin formula for 0≤j≤w−2 with its Gauss-sum, character-versus-inverse, path-orientation and (2πi)^(j+1) normalizations; algebraicity of the period-normalized critical values with the sign selected by parity; and the RJW B.1 interpolation comparison after the character/period dictionary, with conductor-zero versus positive-conductor Euler factors and the p-stabilized versus primitive L-function. Import the classical Mellin/L-function theory of ModularForms 7 and the coefficient field of ModularForms 8, not a nonexistent canonical integral period basis.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
+      ],
+      "reason": "Classical Mellin identities and rational coefficient fields do not supply signed saturated integral periods."
+    },
+    "ModularSymbolsPadicLFunctions:L3": {
+      "action": "narrow",
+      "keeps": "Keep the single-form arithmetic specialization and normalization comparisons of critical-slope, theta-critical and secondary p-adic L-functions needed by its consumers. Import their general Pollack–Stevens/Bellaiche construction and theorem statements from PadicFamilies L3. This analytic stage does not assume Kato's reciprocity theorem.",
+      "suppliedBy": [
+        "PadicFamilies:L3"
+      ],
+      "reason": "One critical-slope construction serves the family and single-form branches without a reciprocal dependency."
+    },
+    "PadicFamilies:L0": {
+      "action": "narrow",
+      "keeps": "Keep p-adic modular forms from the ordinary tower with the q-expansion principle, integral level structures and diamond actions; instantiate L0a after proving its finite-quotient and continuity hypotheses for Up; finite generation and the finite flatness/control theorems for ordinary cuspidal modules and Hecke algebras over weight Iwasawa algebras with the exact level and residual-localization hypotheses; the ordinary Eisenstein family built from DirichletPadicLFunctions L4's measure-valued q-expansion, with the geometric/cohomological identification of its q-expansion, and ordinary cusp forms built independently of it; specialization at arithmetic characters to the correct classical ordinary space with nebentypus and multiplicity recorded. Import chosen-root p-stabilization from ModularSymbolsPadicLFunctions L2 and the ordinary projector from L0a. Do not assume a localized Hecke algebra Gorenstein or a rank-one module free without a theorem or explicit hypothesis; finite-slope interpolation is not assumed to be integral merely because the slope is zero.",
+      "suppliedBy": [
+        "ModularSymbolsPadicLFunctions:L2",
+        "PadicFamilies:L0a"
+      ],
+      "reason": "Single-form p-stabilization is not constructed again as part of a Hida family."
+    },
+    "PadicFamilies:L1": {
+      "action": "narrow",
+      "keeps": "Keep the ordinary family modular-symbol module with its integral structure, sign action and Hecke action, its control theorem and comparison with ModularSymbolsPadicLFunctions L0–L2 at classical points; the family period modules and congruence modules, retained as line bundles where invertible, with the change-of-trivialization formula for scalar functions; the cyclotomic measure obtained by integrating universal characters against the universal ordinary symbol, with coefficients in the Hecke/period module, and its arithmetic specialization, including the relation between family periods and canonical single-form periods, stated integrally before inverting p and separating equality up to a unit from equality up to a field scalar. Import single-form cohomological symbols, signed periods and small-slope control from ModularSymbolsPadicLFunctions L0/L1/L2 and homological input from ModularForms 8. A period line is not a globally chosen basis.",
+      "suppliedBy": [
+        "ModularSymbolsPadicLFunctions:L0",
+        "ModularSymbolsPadicLFunctions:L1",
+        "ModularSymbolsPadicLFunctions:L2",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
+      ],
+      "reason": "The family variation is new; every single-form specialization reuses the same symbols and periods."
+    },
+    "PadicFamilies:L2": {
+      "action": "narrow",
+      "keeps": "Keep the arithmetic finite-slope instance: the compact Up action on affinoid distribution-valued modular cohomology and verification of L2a's hypotheses via LocallyAnalyticDistributions L4; the eigencurve with its eigenvalue/weight maps and coherent eigensymbol sheaf, built with L2a's generic Fredholm gluing; modular base change with Tor terms and generalized eigenspaces at non-reduced or ramified points; classicality at small-slope classical points deduced from ModularSymbolsPadicLFunctions L2's single-weight overconvergent control through the specialization maps; and the local freeness or multiplicity-one hypotheses required for a scalar family. Retain nilpotents and Tor terms unless a theorem removes them; do not identify an eigenpacket with a unique vector at every point.",
+      "suppliedBy": [
+        "ModularSymbolsPadicLFunctions:L2",
+        "PadicFamilies:L2a"
+      ],
+      "reason": "The generic machine and single-form control are suppliers, not replaced by the arithmetic family instance."
+    },
+    "PadicFamilies:L4": {
+      "action": "narrow",
+      "keeps": "Keep family Selmer and regulator constructions, big Kato classes and explicit reciprocity, and source-scoped nonordinary extensions of family Galois data. Import the ordinary big representation/determinant and filtration from R21.3; keep exact ordinary specializations compatible. This late reciprocity stage is not a supplier for earlier analytic symbols.",
+      "suppliedBy": [
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.3"
+      ],
+      "reason": "Ordinary big Galois data is owned by R21.3; arithmetic regulator/reciprocity extensions remain in L4."
+    },
+    "MotivesAndAlgebraicCycles:MC.4": {
+      "action": "narrow",
+      "keeps": "Keep the Tate-stabilized category (inverting the Tate object, using M.5a's cancellation) and its geometric subcategory; the localization (Gysin) triangles, homotopy invariance and projective-bundle formula for geometric motives under the selected base and resolution or alteration hypotheses, proving here any extension beyond M.5a's base-field/coefficient scope; the motives of A1, Gm and projective space and the boundary map for a closed point of a smooth curve, with shifts and twists; and the canonical comparison of motivic Hom groups with M.4's higher Chow groups in the stated base/coefficient scope. The result is a triangulated category, not an abelian category of mixed motives, and no conjectural motivic t-structure is installed. Import Bloch cycle complexes with moving and localization from M.4, and finite correspondences, Nisnevich sheaves with transfers, A1-localization, effective motivic complexes and cancellation from M.5a, not the completed norm-residue theorem M.5.",
+      "suppliedBy": [
+        "MotivicEtaleKTheory:M.4",
+        "MotivicEtaleKTheory:M.5a"
+      ],
+      "reason": "Higher Chow and effective motivic homotopy each have one construction; comparison and geometric mixed extensions are not deleted."
+    },
+    "MotivicEtaleKTheory:M.8": {
+      "action": "narrow",
+      "keeps": "Keep the etale Chern classes, real Deligne cycle-class maps and rational regulator from motivic cohomology, with their compatibility with the higher K-theory Chern character, residues, norms and products; integral motivic groups, their torsion-free lattices and rational integral parts as distinct objects, and lattice regulators with determinant normalizations; the Galois realizations of the Tate and elliptic objects with their Frobenius Euler polynomials; norm-compatible families of K-theory/cohomology classes with their Euler-factor relations and the proof that the etale regulator carries one to the other (an interface for Euler systems, not their existence); and, for the Tate and elliptic representations, the Selmer complexes, determinant lines and local/global regulator maps that state the Tamagawa-number conjecture in these cases, kept distinct from the norm-residue theorem. Import the generic Selmer local-condition maps, kernels and mapping-fibre complexes from Selmer L2 and the Bloch-Kato local conditions with their lattice/quotient propagation from Selmer L4; instantiate them with the Tate/elliptic realizations and prove the required compatibility. The syntomic/p-adic comparison input stays with PadicHodgeRegulators D.2/D.5.",
+      "suppliedBy": [
+        "SelmerIwasawaCohomology:L2",
+        "SelmerIwasawaCohomology:L4"
+      ],
+      "reason": "A regulator comparison does not build a second Selmer formalism or identify local conditions by dimension alone."
+    },
+    "GL2ModularityLifting:R22.6": {
+      "action": "narrow",
+      "keeps": "Keep the 2-adic lifting theorems needed by KW I and Kisin's stronger Barsotti–Tate theorem supplying its Hypothesis H, stated with complete hypotheses (nonsolvable residual image, the real place and the global twisting arguments), and derive precisely the hypothesis used in KW I §9. Do not identify characteristic-two oddness with a nontrivial complex-conjugation matrix. Import the rank-two Barsotti–Tate component geometry from R08.4 and the real-place, local-at-2 and local twisting calculations from R08.5.",
+      "suppliedBy": [
+        "LocalGaloisDeformationRings:R08.4",
+        "LocalGaloisDeformationRings:R08.5"
+      ],
+      "reason": "Local Barsotti–Tate component geometry and the dyadic real-place/local twisting calculations are owned by R08.4/R08.5; the classical global dyadic lifting theorem and the Hypothesis H derivation remain here."
+    }
+  },
+  "links": [
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "ArithmeticKTheory:N.4",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "EulerSystemsCyclotomicMainConjecture:L1",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "HabiroNumberFields:HB.6",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "IntegralIwasawaTheory:I.2",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "IntegralIwasawaTheory:I.4",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "KTheoryFiniteLocalFields:L.2",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "KatoEulerSystems:L1",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "MotivicEtaleKTheory:KU-continuous",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "MotivicEtaleKTheory:KU-duality",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "MotivicEtaleKTheory:M.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "MotivicEtaleKTheory:M.2",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "MotivicEtaleKTheory:M.3",
+      "reason": "Forward imported scope via M/M.1, M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "MotivicEtaleKTheory:M.7",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "PadicHodgeRegulators:L1",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "SelmerIwasawaCohomology:L2",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D8",
+      "target": "GlobalGaloisDeformations:G7",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D8",
+      "target": "GlobalGaloisDeformations:G8",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "ArithmeticGaloisDuality:D7",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "ArithmeticGaloisDuality:D8",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "ArithmeticKTheory:N.4",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "CompletedCohomologyPartII:CC.2",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "CompletedCohomologyPartII:CC.4",
+      "reason": "Forward imported scope via P/P7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "CompletedCohomologyPartII:CC.6",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "DeformationAndDerivedPatchingAlgebra:P7",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "DeformationAndDerivedPatchingAlgebra:P8",
+      "reason": "Forward imported scope via P/P7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "GeneralizedHeegnerCycles:GH.1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "HabiroNumberFields:HB.6",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.7",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "IntegralIwasawaTheory:I.8",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "KTheoryFiniteLocalFields:L.2",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "MotivicEtaleKTheory:KU-continuous",
+      "reason": "Forward imported scope via D/D7, M/M.1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "MotivicEtaleKTheory:KU-duality",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "MotivicEtaleKTheory:M.1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "MotivicEtaleKTheory:M.2",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "MotivicEtaleKTheory:M.3",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "PadicHodgeRegulators:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.3",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Forward imported scope via D/D7, S/L0; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "ArithmeticGaloisDuality:D7",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "ArithmeticGaloisDuality:D8",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "CompletedCohomologyPartII:CC.2",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "CompletedCohomologyPartII:CC.6",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "GeneralizedHeegnerCycles:GH.1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.7",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "IntegralIwasawaTheory:I.8",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "MotivicEtaleKTheory:KU-continuous",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "MotivicEtaleKTheory:KU-duality",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "MotivicEtaleKTheory:M.1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "MotivicEtaleKTheory:M.2",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "PadicHodgeRegulators:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.3",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Forward imported scope via D/D7, S/L0; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "ArithmeticGaloisDuality:D7",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "ArithmeticGaloisDuality:D8",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "CompletedCohomologyAndLocalGlobalCompatibility:R31.3",
+      "reason": "Forward imported scope via G/R04.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "CompletedCohomologyPartII:CC.2",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "CompletedCohomologyPartII:CC.6",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "EulerSystemsCyclotomicMainConjecture:L1",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "GeneralizedHeegnerCycles:GH.1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "GlobalGaloisDeformations:R04.2",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "GlobalGaloisDeformations:R04.3",
+      "reason": "Forward imported scope via G/R04.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.7",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "IntegralIwasawaTheory:I.2",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "IntegralIwasawaTheory:I.4",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "IntegralIwasawaTheory:I.8",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "KatoEulerSystems:L1",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "MotivicEtaleKTheory:KU-continuous",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "MotivicEtaleKTheory:KU-duality",
+      "reason": "Forward imported scope via D/D7, M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "MotivicEtaleKTheory:M.1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "MotivicEtaleKTheory:M.2",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "MotivicEtaleKTheory:M.3",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "MotivicEtaleKTheory:M.7",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "PadicHodgeRegulators:L1",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.3",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.3",
+      "target": "SelmerIwasawaCohomology:L2",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "ArithmeticGaloisDuality:D7",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "ArithmeticGaloisDuality:D8",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "CompletedCohomologyPartII:CC.2",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "CompletedCohomologyPartII:CC.6",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "EulerSystemsCyclotomicMainConjecture:L1",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "GeneralizedHeegnerCycles:GH.1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.7",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "IntegralIwasawaTheory:I.2",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "IntegralIwasawaTheory:I.4",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "IntegralIwasawaTheory:I.8",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "KatoEulerSystems:L1",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "MotivicEtaleKTheory:KU-continuous",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "MotivicEtaleKTheory:KU-duality",
+      "reason": "Forward imported scope via D/D7, M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "MotivicEtaleKTheory:M.1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "MotivicEtaleKTheory:M.2",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "MotivicEtaleKTheory:M.3",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "MotivicEtaleKTheory:M.7",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "PadicHodgeRegulators:L1",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.3",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.4",
+      "target": "SelmerIwasawaCohomology:L2",
+      "reason": "Forward imported scope via S/L1; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.6",
+      "target": "GlobalGaloisDeformations:G7",
+      "reason": "Use the shared dual-Selmer calculation but retain the polarized, higher-rank relation-count theorem."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.6",
+      "target": "GlobalGaloisDeformations:G8",
+      "reason": "Forward imported scope via G/R04.3; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.6",
+      "target": "GlobalGaloisDeformations:R04.3",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.6",
+      "target": "GlobalGaloisDeformations:R04.4",
+      "reason": "Forward imported scope via G/R04.3; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.6",
+      "target": "GlobalGaloisDeformations:R04.5",
+      "reason": "Conditional dual-Selmer dimension calculations precede and constrain actual Chebotarev auxiliary-prime selection, not the reverse."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.6",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+      "reason": "Forward imported scope via G/R04.3; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "ArithmeticGaloisDuality:D7",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "ArithmeticGaloisDuality:D8",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "CompletedCohomologyPartII:CC.2",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "CompletedCohomologyPartII:CC.6",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "GeneralizedHeegnerCycles:GH.1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "GlobalGaloisDeformations:G7",
+      "reason": "Forward imported scope via D/D8; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "GlobalGaloisDeformations:G8",
+      "reason": "Forward imported scope via D/D8; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.7",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "IntegralIwasawaTheory:I.8",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "MotivicEtaleKTheory:KU-continuous",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "MotivicEtaleKTheory:KU-duality",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "MotivicEtaleKTheory:M.1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "MotivicEtaleKTheory:M.2",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.3",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Forward imported scope via D/D7; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "SelmerIwasawaCohomology:L3",
+      "reason": "Use local perfect-complex coefficient change for arithmetic Iwasawa specialization; prove perfection and retain its Tor/H0 terms."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.1",
+      "target": "GlobalGaloisDeformations:R04.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.1",
+      "target": "GlobalGaloisDeformations:R04.2",
+      "reason": "Forward imported scope via G/R04.1; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.1",
+      "target": "GlobalGaloisDeformations:R04.3",
+      "reason": "Forward imported scope via V/R08.1; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.1",
+      "target": "LocalGaloisDeformationRings:R08.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.1",
+      "target": "LocalGaloisDeformationRings:R08.2",
+      "reason": "Forward imported scope via V/R08.1; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "target": "CompletedCohomologyAndLocalGlobalCompatibility:R31.3",
+      "reason": "Forward imported scope via G/R04.2; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "target": "GlobalGaloisDeformations:G8",
+      "reason": "Forward imported scope via G/R04.3; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "target": "GlobalGaloisDeformations:R04.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "target": "GlobalGaloisDeformations:R04.2",
+      "reason": "Forward imported scope via G/R04.1; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "target": "GlobalGaloisDeformations:R04.3",
+      "reason": "Forward imported scope via G/R04.2, V/R08.1; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "target": "GlobalGaloisDeformations:R04.4",
+      "reason": "Forward imported scope via G/R04.3; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "target": "LocalGaloisDeformationRings:R08.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "target": "LocalGaloisDeformationRings:R08.2",
+      "reason": "Forward imported scope via V/R08.1; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+      "reason": "Forward imported scope via G/R04.3; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "target": "GL2ModularityLifting:R22.3",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "target": "GL2ModularityLifting:R22.4",
+      "reason": "Forward imported scope via T/R22.3; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.5",
+      "target": "GL2ModularityLifting:R22.3",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.5",
+      "target": "GL2ModularityLifting:R22.4",
+      "reason": "Forward imported scope via T/R22.3; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.5",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.5",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+      "reason": "Forward imported scope via O/R21.4; retain its comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.6",
+      "target": "GL2ModularityLifting:R22.4",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.6",
+      "target": "GL2ModularityLifting:R22.5",
+      "reason": "Forward imported scope via T/R22.4; retain its comparison."
+    },
+    {
+      "source": "GlobalGaloisDeformations:R04.1",
+      "target": "GlobalGaloisDeformations:R04.3",
+      "reason": "Forward imported scope via V/R08.1; retain its comparison."
+    },
+    {
+      "source": "GlobalGaloisDeformations:R04.1",
+      "target": "LocalGaloisDeformationRings:R08.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "GlobalGaloisDeformations:R04.1",
+      "target": "LocalGaloisDeformationRings:R08.2",
+      "reason": "Forward imported scope via V/R08.1; retain its comparison."
+    },
+    {
+      "source": "GlobalGaloisDeformations:R04.5",
+      "target": "GL2ModularityLifting:R22.2",
+      "reason": "Actual auxiliary primes with eigenlines and congruence conditions supply the arithmetic auxiliary-level construction; freeness is proved by the consumer."
+    },
+    {
+      "source": "GlobalGaloisDeformations:R04.5",
+      "target": "GlobalGaloisDeformations:G7",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "GlobalGaloisDeformations:R04.5",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "GlobalGaloisDeformations:R04.5",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+      "reason": "Forward imported scope via O/R21.4; retain its comparison."
+    },
+    {
+      "source": "GlobalGaloisDeformations:R04.6",
+      "target": "GL2ModularityLifting:R22.1",
+      "reason": "Use the actual global deformation ring and its universal representation in the map to the classical Hecke algebra."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:L7",
+      "target": "GlobalGaloisDeformations:G7",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:L7",
+      "target": "LocalGaloisDeformationRings:R08.4",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:L7",
+      "target": "LocalGaloisDeformationRings:R08.5",
+      "reason": "Forward imported scope via V/R08.4; retain its comparison."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:L8",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:L8",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+      "reason": "Forward imported scope via O/R21.3; retain its comparison."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.1",
+      "target": "GlobalGaloisDeformations:G8",
+      "reason": "Forward imported scope via G/R04.3; retain its comparison."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.1",
+      "target": "GlobalGaloisDeformations:R04.3",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.1",
+      "target": "GlobalGaloisDeformations:R04.4",
+      "reason": "Forward imported scope via G/R04.3; retain its comparison."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.1",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+      "reason": "Forward imported scope via G/R04.3; retain its comparison."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.2",
+      "target": "GlobalGaloisDeformations:G7",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.4",
+      "target": "GL2ModularityLifting:R22.4",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.4",
+      "target": "GL2ModularityLifting:R22.5",
+      "reason": "Forward imported scope via T/R22.4; retain its comparison."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.4",
+      "target": "GL2ModularityLifting:R22.6",
+      "reason": "The dyadic Barsotti–Tate proof uses the rank-two component theorem, with its hypotheses."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.5",
+      "target": "GL2ModularityLifting:R22.6",
+      "reason": "Supply the dyadic determinant and local endpoint exceptions to the stated classical lifting theorem."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.5",
+      "target": "GL2ModularityLifting:R32.3",
+      "reason": "Reuse exact dyadic local algebra only; the modern regular-de-Rham theorem must prove the additional cases."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.6",
+      "target": "ArithmeticGaloisDuality:R02.5",
+      "reason": "Import the proved tangent spaces of the actual local deformation conditions; the global Selmer dimension calculation remains R02.5."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L0",
+      "target": "AutomorphicCongruences:L1",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L0",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L0",
+      "target": "GeneralizedHeegnerCycles:GH.7",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L0",
+      "target": "HeegnerPointEulerSystems:HE.8",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L0",
+      "target": "PadicFamilies:L1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L0",
+      "target": "PadicFamilies:L2",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L0",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L1",
+      "target": "AutomorphicCongruences:L1",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L1",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L1",
+      "target": "GeneralizedHeegnerCycles:GH.7",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L1",
+      "target": "HeegnerPointEulerSystems:HE.8",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L1",
+      "target": "PadicFamilies:L1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L1",
+      "target": "PadicFamilies:L2",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L1",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "AutomorphicCongruences:L1",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "GeneralizedHeegnerCycles:GH.7",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "HeegnerPointEulerSystems:HE.8",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+      "reason": "Forward imported scope via F/L0; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "PadicFamilies:L0",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "PadicFamilies:L1",
+      "reason": "Forward imported scope via F/L0; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "PadicFamilies:L2",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "PadicFamilies:L3",
+      "reason": "Forward imported scope via F/L2; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "PadicFamilies:L5",
+      "reason": "Forward imported scope via F/L0; retain its comparison."
+    },
+    {
+      "source": "ModularSymbolsPadicLFunctions:L2",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.4",
+      "target": "LogicAndDefinabilityInNumberTheory:LD.3",
+      "reason": "Forward imported scope via C/MC.4; retain its comparison."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.4",
+      "target": "MotivesAndAlgebraicCycles:MC.4",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.4",
+      "target": "MotivesAndAlgebraicCycles:MC.7",
+      "reason": "Forward imported scope via C/MC.4; retain its comparison."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.4",
+      "target": "PeriodsAndSpecialValues:PS.9",
+      "reason": "Forward imported scope via C/MC.4; retain its comparison."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.5a",
+      "target": "LogicAndDefinabilityInNumberTheory:LD.3",
+      "reason": "Forward imported scope via C/MC.4; retain its comparison."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.5a",
+      "target": "MotivesAndAlgebraicCycles:MC.4",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.5a",
+      "target": "MotivesAndAlgebraicCycles:MC.7",
+      "reason": "Forward imported scope via C/MC.4; retain its comparison."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.5a",
+      "target": "PeriodsAndSpecialValues:PS.9",
+      "reason": "Forward imported scope via C/MC.4; retain its comparison."
+    },
+    {
+      "source": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+      "target": "AutomorphicCongruences:L2",
+      "reason": "Forward imported scope via F/L4; retain its comparison."
+    },
+    {
+      "source": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+      "target": "PadicFamilies:L4",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+      "target": "GL2ModularityLifting:R22.5",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+      "target": "GL2ModularityLifting:R22.6",
+      "reason": "Forward imported scope via T/R22.5; retain its comparison."
+    },
+    {
+      "source": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+      "target": "GL2ModularityLifting:R32.5",
+      "reason": "The p=3 residual-reducible branch uses Skinner–Wiles/BLZ and its precise hypotheses, not Pan's p>=5 result."
+    },
+    {
+      "source": "PadicFamilies:L0",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "PadicFamilies:L0",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+      "reason": "Forward imported scope via O/R21.2; retain its comparison."
+    },
+    {
+      "source": "PadicFamilies:L0a",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "PadicFamilies:L0a",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+      "reason": "Forward imported scope via O/R21.1, F/L0; retain its comparison."
+    },
+    {
+      "source": "PadicFamilies:L0a",
+      "target": "PadicFamilies:L0",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "PadicFamilies:L0a",
+      "target": "PadicFamilies:L1",
+      "reason": "Forward imported scope via F/L0; retain its comparison."
+    },
+    {
+      "source": "PadicFamilies:L0a",
+      "target": "PadicFamilies:L5",
+      "reason": "Forward imported scope via F/L0; retain its comparison."
+    },
+    {
+      "source": "PadicFamilies:L2a",
+      "target": "PadicFamilies:L2",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "PadicFamilies:L2a",
+      "target": "PadicFamilies:L3",
+      "reason": "Forward imported scope via F/L2; retain its comparison."
+    },
+    {
+      "source": "PadicFamilies:L3",
+      "target": "KatoEulerSystems:L3",
+      "reason": "Forward imported scope via L/L3; retain its comparison."
+    },
+    {
+      "source": "PadicFamilies:L3",
+      "target": "ModularSymbolsPadicLFunctions:L3",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "PadicFamilies:L3",
+      "target": "ModularSymbolsPadicLFunctions:L4",
+      "reason": "Forward imported scope via L/L3; retain its comparison."
+    },
+    {
+      "source": "PadicFamilies:L5",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "PadicFamilies:L5",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+      "reason": "Forward imported scope via O/R21.2; retain its comparison."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L2",
+      "target": "ArithmeticGaloisDuality:D8",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L2",
+      "target": "ArithmeticGaloisDuality:R02.5",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L2",
+      "target": "ArithmeticGaloisDuality:R02.6",
+      "reason": "Forward imported scope via D/R02.5; retain its comparison."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L2",
+      "target": "EulerSystemsAndKolyvaginSystems:ES.0",
+      "reason": "Forward imported scope via D/R02.5; retain its comparison."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L2",
+      "target": "GlobalGaloisDeformations:G7",
+      "reason": "Forward imported scope via D/D8; retain its comparison."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L2",
+      "target": "GlobalGaloisDeformations:G8",
+      "reason": "Forward imported scope via D/D8; retain its comparison."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L2",
+      "target": "MotivicEtaleKTheory:M.8",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L2",
+      "target": "PadicHodgeRegulators:KU-padicreg",
+      "reason": "Forward imported scope via M/M.8; retain its comparison."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L2",
+      "target": "PeriodsAndSpecialValues:PS.3",
+      "reason": "Forward imported scope via M/M.8; retain its comparison."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L2",
+      "target": "Polylogarithms:KU-realregulators",
+      "reason": "Forward imported scope via M/M.8; retain its comparison."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L4",
+      "target": "MotivicEtaleKTheory:M.8",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L4",
+      "target": "PadicHodgeRegulators:KU-padicreg",
+      "reason": "Forward imported scope via M/M.8; retain its comparison."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L4",
+      "target": "PeriodsAndSpecialValues:PS.3",
+      "reason": "Forward imported scope via M/M.8; retain its comparison."
+    },
+    {
+      "source": "SelmerIwasawaCohomology:L4",
+      "target": "Polylogarithms:KU-realregulators",
+      "reason": "Forward imported scope via M/M.8; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+      "target": "LocalGaloisDeformationRings:L7",
+      "reason": "Import the relative Grassmannian special case; height-lattice conditions and proper scheme-theoretic image remain L7 constructions."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
+      "target": "DeformationAndDerivedPatchingAlgebra:P7",
+      "reason": "Forward imported scope via P/R03.3; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
+      "target": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
+      "target": "DeformationAndDerivedPatchingAlgebra:R03.4",
+      "reason": "Forward imported scope via P/R03.3; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+      "target": "AdicSpacesPartII:F0",
+      "reason": "Forward imported scope via P/R03.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+      "target": "DeformationAndDerivedPatchingAlgebra:P7",
+      "reason": "Forward imported scope via P/R03.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+      "target": "DeformationAndDerivedPatchingAlgebra:R03.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+      "target": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "reason": "Forward imported scope via P/R03.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+      "target": "GlobalGaloisDeformations:R04.1",
+      "reason": "Forward imported scope via P/R03.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+      "target": "LocalGaloisDeformationRings:R08.1",
+      "reason": "Forward imported scope via P/R03.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+      "target": "AdicSpacesPartII:F0",
+      "reason": "Forward imported scope via P/R03.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+      "target": "DeformationAndDerivedPatchingAlgebra:P7",
+      "reason": "Forward imported scope via P/R03.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+      "target": "DeformationAndDerivedPatchingAlgebra:R03.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+      "target": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "reason": "Forward imported scope via P/R03.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+      "target": "GlobalGaloisDeformations:R04.1",
+      "reason": "Forward imported scope via P/R03.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+      "target": "LocalGaloisDeformationRings:R08.1",
+      "reason": "Forward imported scope via P/R03.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+      "target": "AutomorphicPadicLFunctions:L1",
+      "reason": "Forward imported scope via L/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+      "target": "ModularSymbolsPadicLFunctions:L1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+      "target": "ModularSymbolsPadicLFunctions:L2",
+      "reason": "Forward imported scope via L/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+      "target": "RankZeroOneBSD:BSD.5",
+      "reason": "Forward imported scope via L/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Forward imported scope via L/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "AutomorphicCongruences:L1",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "AutomorphicPadicLFunctions:L1",
+      "reason": "Forward imported scope via L/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "AutomorphicPadicLFunctions:L4",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "GeneralizedHeegnerCycles:GH.7",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "HeegnerPointEulerSystems:HE.8",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "ModularSymbolsPadicLFunctions:L0",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "ModularSymbolsPadicLFunctions:L1",
+      "reason": "Forward imported scope via L/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "ModularSymbolsPadicLFunctions:L2",
+      "reason": "Forward imported scope via L/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "PadicFamilies:L1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "PadicFamilies:L2",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "RankZeroOneBSD:BSD.5",
+      "reason": "Forward imported scope via L/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Forward imported scope via F/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Forward imported scope via L/L1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "ArithmeticGaloisDuality:D7",
+      "reason": "Forward imported scope via D/R02.1, D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "ArithmeticGaloisDuality:R02.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "ArithmeticGaloisDuality:R02.2",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "ArithmeticGaloisDuality:R02.3",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "ArithmeticKTheory:N.4",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.6",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "Forward imported scope via D/R02.1, D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "DeligneWeightsAndPurity:DWP.8",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "Forward imported scope via D/R02.1, D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "reason": "Forward imported scope via D/R02.1, D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "EulerSystemsAndKolyvaginSystems:ES.0",
+      "reason": "Forward imported scope via D/R02.1, D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "GlobalGaloisDeformations:R04.1",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "HabiroNumberFields:HB.6",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "HeegnerPointEulerSystems:HE.3",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "KTheoryFiniteLocalFields:L.2",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "KatoEulerSystems:L2",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Forward imported scope via D/R02.1, D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "MotivicEtaleKTheory:KU-continuous",
+      "reason": "Forward imported scope via D/R02.1, M/M.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "MotivicEtaleKTheory:M.1",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "MotivicEtaleKTheory:M.3",
+      "reason": "Forward imported scope via M/M.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.0",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "IntegralIwasawaTheory:I.2",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "IntegralIwasawaTheory:I.4",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "MotivicEtaleKTheory:KU-duality",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "MotivicEtaleKTheory:M.2",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "MotivicEtaleKTheory:M.3",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "MotivicEtaleKTheory:M.7",
+      "reason": "Forward imported scope via M/M.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "ArithmeticGaloisDuality:D7",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "ArithmeticGaloisDuality:R02.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "ArithmeticGaloisDuality:R02.2",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "EulerSystemsAndKolyvaginSystems:ES.0",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "MotivicEtaleKTheory:KU-continuous",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "MotivicEtaleKTheory:M.1",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.0",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "ArithmeticGaloisDuality:D7",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "ArithmeticGaloisDuality:R02.1",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "ArithmeticGaloisDuality:R02.2",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "EulerSystemsAndKolyvaginSystems:ES.0",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "MotivicEtaleKTheory:KU-continuous",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "MotivicEtaleKTheory:M.1",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.0",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Forward imported scope via D/R02.1; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "ArithmeticGaloisDuality:D7",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "ArithmeticGaloisDuality:R02.2",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "ArithmeticGaloisDuality:R02.3",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.6",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "DeligneWeightsAndPurity:DWP.8",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "EulerSystemsAndKolyvaginSystems:ES.0",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "GlobalGaloisDeformations:R04.1",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "HeegnerPointEulerSystems:HE.3",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "KatoEulerSystems:L2",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "PadicHodgeRegulators:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "ArithmeticGaloisDuality:D7",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "ArithmeticGaloisDuality:R02.2",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "ArithmeticGaloisDuality:R02.3",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.6",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "DeligneWeightsAndPurity:DWP.8",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "EulerSystemsAndKolyvaginSystems:ES.0",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "GlobalGaloisDeformations:R04.1",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "HeegnerPointEulerSystems:HE.3",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "KatoEulerSystems:L2",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Forward imported scope via D/R02.2; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "PadicHodgeRegulators:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+      "target": "PadicHodgeRegulators:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+      "target": "PadicHodgeRegulators:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "target": "PadicHodgeRegulators:L0",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Shared scope specified in the target layer decision; its new comparison remains."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Forward imported scope via S/L0; retain its comparison."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0",
+      "reason": "Protocol 15 forwarding for SelmerIwasawaCohomology L0's added supplier D7 (Tate twists, derived duals, compact Shapiro/projection/normalization)."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "PadicHodgeRegulators:L0",
+      "reason": "Protocol 15 forwarding for SelmerIwasawaCohomology L0's added supplier D7."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0",
+      "reason": "Protocol 15 forwarding for L0's added supplier: all-degree discrete corestriction, Shapiro and long exact sequence."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "PadicHodgeRegulators:L0",
+      "reason": "Protocol 15 forwarding for L0's added supplier anchor Layer 10."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Protocol 15 forwarding for L0's added supplier anchor Layer 10."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "L0 imports the all-degree cup product and projection formula (RS-28 owner: Layer 12)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "EulerSystemsCyclotomicMainConjecture:L0",
+      "reason": "Protocol 15 forwarding for L0's added supplier anchor Layer 12."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "PadicHodgeRegulators:L0",
+      "reason": "Protocol 15 forwarding for L0's added supplier anchor Layer 12."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "SelmerIwasawaCohomology:L1",
+      "reason": "Protocol 15 forwarding for L0's added supplier anchor Layer 12."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "ArithmeticGaloisDuality:D7",
+      "reason": "D7 applies the anchor's graded cup product (stated for TopRep with jointly continuous pairings) to compact coefficients instead of rebuilding it."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "ArithmeticGaloisDuality:R02.4",
+      "reason": "The global Poitou–Tate pairing H^i × H^{3−i}_c uses the anchor's all-degree cup product."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+      "target": "ArithmeticGaloisDuality:R02.4",
+      "reason": "R02.4 instantiates the anchor's internal hom with conjugation action and evaluation pairing at N = μ for M^∨(1); it does not re-specify them."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "ArithmeticGaloisDuality:R02.4",
+      "reason": "R02.4 imports the local invariant map and local Tate duality for finite modules, which the AGD document assigns to ClassFieldTheory."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "target": "ArithmeticGaloisDuality:R02.4",
+      "reason": "R02.4 imports the sum of local invariants, including real places (the global Brauer sequence), as its global class-field-theory input."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "ArithmeticGaloisDuality:R02.3",
+      "reason": "R02.3's cohomological-dimension bounds for G_{F,S} with real-place exceptions are stated with the anchor's cd_p/scd_p invariants."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.5",
+      "target": "ArithmeticGaloisDuality:D8",
+      "reason": "D8 compares with R02.5's deformation Selmer kernel (named in D8's original text) and applies R02.5's Poitou–Tate dimension formula in all ranks."
+    },
+    {
+      "source": "GlobalGaloisDeformations:G8",
+      "target": "GlobalGaloisDeformations:G7",
+      "reason": "G7's retained ACC+ Proposition 6.2.33 (q Taylor–Wiles primes, g = qn − n²[F⁺:Q]) is a statement about the ACC+ Definition 6.2.2 unpolarized, variable-determinant problem, whose construction, representability (Thm 6.2.3) and T-framing (Lemma 6.2.4) G8 owns. G7's own text calls g 'this variable-determinant count'. The link is acyclic because G7 has no consumers."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.2",
+      "target": "LocalGaloisDeformationRings:L7",
+      "reason": "L7's rank-n semistable, Steinberg and minimally ramified conditions away from p build on R08.2's conditions (PROTOCOL §15, last rule): L7 cites them and proves compatibility rather than constructing them again."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+      "target": "ModularSymbolsPadicLFunctions:L0",
+      "reason": "Level-one special case (odd/even period maps, M_k⊕S_k ≅ W_w by dimension count) of L0's general-level Eichler–Shimura isomorphism; L0 cites it and proves compatibility (§15 last bullet)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+      "target": "ModularSymbolsPadicLFunctions:L1",
+      "reason": "Protocol 15 forwarding for the narrowed L0 (new supplier MF11)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+      "target": "ModularSymbolsPadicLFunctions:L0",
+      "reason": "The analytic modular curve Γ\\ℍ and its cusp identification with Γ\\ℙ¹(ℚ): the carrier of L0's retained functorial comparison."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.6",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+      "reason": "Abstract support/faithfulness transport and the torsion-free/reduced R=T quotient theorem used by the ordinary R=T conclusion (record 27)."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:R03.6",
+      "target": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+      "reason": "Protocol 15 forwarding for the narrowed R21.4 (new supplier R03.6)."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L4",
+      "target": "PadicFamilies:L0",
+      "reason": "Measure-valued Eisenstein q-expansion from which F/L0 builds the ordinary Eisenstein family; DPL L4 assigns that realization to this roadmap. The edge was already missing from the atlas."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.4",
+      "target": "ClassicalSerreModularity:R26.1",
+      "reason": "Protocol 15 forwarding for the narrowed GL2ModularityLifting:R22.6 (already transitively reachable; no new path)."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.4",
+      "target": "ClassicalSerreModularity:R27.1",
+      "reason": "Protocol 15 forwarding for the narrowed GL2ModularityLifting:R22.6 (already transitively reachable; no new path)."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.4",
+      "target": "GL2ModularityLifting:R32.1",
+      "reason": "Protocol 15 forwarding for the narrowed GL2ModularityLifting:R22.6 (already transitively reachable; no new path)."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.4",
+      "target": "PotentialModularityAndCompatibleSystems:R23.4",
+      "reason": "Protocol 15 forwarding for the narrowed GL2ModularityLifting:R22.6 (already transitively reachable; no new path)."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.4",
+      "target": "PotentialModularityAndCompatibleSystems:R24.1",
+      "reason": "Protocol 15 forwarding for the narrowed GL2ModularityLifting:R22.6 (already transitively reachable; no new path)."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.5",
+      "target": "ClassicalSerreModularity:R26.1",
+      "reason": "Protocol 15 forwarding for the narrowed GL2ModularityLifting:R22.6 (already transitively reachable; no new path)."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.5",
+      "target": "ClassicalSerreModularity:R27.1",
+      "reason": "Protocol 15 forwarding for the narrowed GL2ModularityLifting:R22.6 (already transitively reachable; no new path)."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.5",
+      "target": "GL2ModularityLifting:R32.1",
+      "reason": "Protocol 15 forwarding for the narrowed GL2ModularityLifting:R22.6 (already transitively reachable; no new path)."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.5",
+      "target": "PotentialModularityAndCompatibleSystems:R23.4",
+      "reason": "Protocol 15 forwarding for the narrowed GL2ModularityLifting:R22.6 (already transitively reachable; no new path)."
+    },
+    {
+      "source": "LocalGaloisDeformationRings:R08.5",
+      "target": "PotentialModularityAndCompatibleSystems:R24.1",
+      "reason": "Protocol 15 forwarding for the narrowed GL2ModularityLifting:R22.6 (already transitively reachable; no new path)."
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.5",
+      "target": "MotivicEtaleKTheory:M.4",
+      "reason": "M.4's degree-zero higher Chow groups are SF.5's Chow groups. Import rational equivalence, proper pushforward, flat pullback and intersection products, and prove the cycle-complex operations compatible with them rather than constructing them again. RS-08.md section 3 already says of M.4 that 'ordinary Chow intersection algebra is imported', but no link carries this. Accepted RS-18/RS-25 make SF.5 the owner of general Chow/pushforward/pullback. No cycle: M.4 does not reach SF.5."
+    }
+  ],
+  "owners": [
+    {
+      "target": "All-degree discrete continuous cohomology: finite-quotient colimit, long exact sequence, Shapiro and dimension shifting in every degree",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "formerly": [
+        "ArithmeticGaloisDuality:R02.1",
+        "MotivicEtaleKTheory:M.1",
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "Discrete finite-quotient colimit description",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+      "formerly": [
+        "ArithmeticGaloisDuality:R02.1",
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "Discrete long exact sequences, connecting maps, inflation–restriction and the five-term sequence with transgression",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+      "formerly": [
+        "ArithmeticGaloisDuality:R02.2",
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "Explicit degree-0–2 corestriction, cor∘res = index, transitivity, Mackey formula and conjugation",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+      "formerly": [
+        "ArithmeticGaloisDuality:R02.2",
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "Discrete coinduction and Shapiro comparison",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+      "formerly": [
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "Low-degree discrete cup products and equivariant pairing convention",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+      "formerly": [
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "Finite-level Galois Hilbert 90 and Kummer comparison",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "formerly": [
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "Definitions of cd_p, scd_p and cd, dévissage, and the closed/open-subgroup inequalities",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "formerly": [
+        "MotivicEtaleKTheory:M.2",
+        "MotivicEtaleKTheory:M.7"
+      ]
+    },
+    {
+      "target": "Module/complex Milnor and Mittag–Leffler lemmas, and compact arithmetic cochain limit comparison",
+      "owner": "ArithmeticGaloisDuality:R02.1",
+      "formerly": [
+        "ArithmeticGaloisDuality:D7",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "MotivicEtaleKTheory:M.1",
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "Full continuous Hochschild–Serre spectral sequence and its comparison to discrete edge maps",
+      "owner": "ArithmeticGaloisDuality:R02.2",
+      "formerly": [
+        "ArithmeticGaloisDuality:D7",
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "Global restricted-ramification cohomology finiteness, Euler characteristics and cohomological-dimension bounds for G_{F,S} with the real-place exceptions",
+      "owner": "ArithmeticGaloisDuality:R02.3",
+      "formerly": [
+        "GlobalGaloisDeformations:R04.2",
+        "MotivicEtaleKTheory:M.2",
+        "SelmerIwasawaCohomology:L1"
+      ]
+    },
+    {
+      "target": "Finite/lattice Poitou–Tate duality and normalized global reciprocity pairing",
+      "owner": "ArithmeticGaloisDuality:R02.4",
+      "formerly": [
+        "MotivicEtaleKTheory:M.2",
+        "SelmerIwasawaCohomology:L1",
+        "ArithmeticGaloisDuality:D7"
+      ]
+    },
+    {
+      "target": "Compact-coefficient and derived extension of the compact-support fibre and of arithmetic duality, modified real-place complexes and arithmetic perfection",
+      "owner": "ArithmeticGaloisDuality:D7",
+      "formerly": [
+        "MotivicEtaleKTheory:M.1",
+        "MotivicEtaleKTheory:M.2",
+        "SelmerIwasawaCohomology:L0",
+        "SelmerIwasawaCohomology:L1"
+      ]
+    },
+    {
+      "target": "Generic Selmer local-condition maps, kernel and mapping-fibre complex with H0 correction",
+      "owner": "SelmerIwasawaCohomology:L2",
+      "formerly": [
+        "ArithmeticGaloisDuality:R02.5",
+        "ArithmeticGaloisDuality:D8",
+        "MotivicEtaleKTheory:M.8"
+      ]
+    },
+    {
+      "target": "Adjoint and dual-adjoint deformation–Selmer comparison in all ranks: dual-Selmer dimension calculation with trace-kernel exceptions when p divides n, and determinant/deformation tangent complexes, without trace splitting",
+      "owner": "ArithmeticGaloisDuality:D8",
+      "formerly": [
+        "GlobalGaloisDeformations:G7",
+        "GlobalGaloisDeformations:R04.3"
+      ]
+    },
+    {
+      "target": "Tangent spaces of the actual local deformation conditions (finite-flat/Barsotti–Tate, ordinary, fixed-type, away-p), exported with each local ring as subspaces of local H¹",
+      "owner": "LocalGaloisDeformationRings:R08.6",
+      "formerly": [
+        "ArithmeticGaloisDuality:R02.5"
+      ]
+    },
+    {
+      "target": "Rank-two (KW II §§4–5) conditional dual-Selmer rank-drop calculations and KW cohomological requirements",
+      "owner": "ArithmeticGaloisDuality:R02.6",
+      "formerly": [
+        "GlobalGaloisDeformations:G7",
+        "GlobalGaloisDeformations:R04.3",
+        "GlobalGaloisDeformations:R04.5"
+      ]
+    },
+    {
+      "target": "Actual Taylor–Wiles auxiliary-prime selection with prescribed congruences and eigenlines",
+      "owner": "GlobalGaloisDeformations:R04.5",
+      "formerly": [
+        "GlobalGaloisDeformations:G7",
+        "GL2ModularityLifting:R22.2",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.4"
+      ]
+    },
+    {
+      "target": "Local perfect-complex Tor, derived completion and coefficient-change algebra",
+      "owner": "DeformationAndDerivedPatchingAlgebra:P7",
+      "formerly": [
+        "ArithmeticGaloisDuality:D7",
+        "ArithmeticGaloisDuality:D8",
+        "SelmerIwasawaCohomology:L3"
+      ]
+    },
+    {
+      "target": "General complete local O-algebra coefficient categories and small extensions",
+      "owner": "DeformationAndDerivedPatchingAlgebra:R03.1",
+      "formerly": [
+        "GlobalGaloisDeformations:R04.1",
+        "LocalGaloisDeformationRings:R08.1"
+      ]
+    },
+    {
+      "target": "The category of complete local Noetherian W(k)-algebras with residue identification (the O = W(k) instance of R03.1’s category)",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+      "formerly": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1"
+      ]
+    },
+    {
+      "target": "Serre–Tate-with-level geometric deformation equivalence",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+      "formerly": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ]
+    },
+    {
+      "target": "Local-ring toolkit of ModularCurves 4D: regularity and dimension under completion of Noetherian local rings, openness of the regular locus over an excellent base, miracle flatness for finite maps of regular local rings of equal dimension, descent of regularity along finite faithfully flat covers",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
+      "formerly": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ]
+    },
+    {
+      "target": "General Schlessinger hull/pro-representability and obstruction relation-count algebra",
+      "owner": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "formerly": [
+        "GlobalGaloisDeformations:G8",
+        "GlobalGaloisDeformations:R04.2",
+        "GlobalGaloisDeformations:R04.3",
+        "LocalGaloisDeformationRings:R08.1"
+      ]
+    },
+    {
+      "target": "General depth, regular-sequence and complete-intersection algebra for patching",
+      "owner": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "formerly": [
+        "GL2ModularityLifting:R22.3"
+      ]
+    },
+    {
+      "target": "Abstract patching of modules with precise support hypotheses",
+      "owner": "DeformationAndDerivedPatchingAlgebra:R03.5",
+      "formerly": [
+        "GL2ModularityLifting:R22.3",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.4"
+      ]
+    },
+    {
+      "target": "Abstract module support/component descent, distinct from arithmetic component matching",
+      "owner": "DeformationAndDerivedPatchingAlgebra:R03.6",
+      "formerly": [
+        "GL2ModularityLifting:R22.4"
+      ]
+    },
+    {
+      "target": "Patching of bounded perfect complexes in several degrees",
+      "owner": "DeformationAndDerivedPatchingAlgebra:P8",
+      "formerly": [
+        "GL2ModularityLifting:R22.3"
+      ]
+    },
+    {
+      "target": "Derived-complex amplitude/depth/support theorem under ACC+ hypotheses",
+      "owner": "DeformationAndDerivedPatchingAlgebra:P9",
+      "formerly": [
+        "GL2ModularityLifting:R22.4"
+      ]
+    },
+    {
+      "target": "Generic framed/unframed Galois deformation recipe with determinant variants",
+      "owner": "GlobalGaloisDeformations:R04.1",
+      "formerly": [
+        "LocalGaloisDeformationRings:R08.1"
+      ]
+    },
+    {
+      "target": "Actual arithmetic G_F,S representability with finiteness verification",
+      "owner": "GlobalGaloisDeformations:R04.2",
+      "formerly": [
+        "LocalGaloisDeformationRings:R08.1"
+      ]
+    },
+    {
+      "target": "Actual local G_K universal rings and tangent/obstruction calculations",
+      "owner": "LocalGaloisDeformationRings:R08.1",
+      "formerly": [
+        "GlobalGaloisDeformations:G8",
+        "GlobalGaloisDeformations:R04.2",
+        "GlobalGaloisDeformations:R04.3"
+      ]
+    },
+    {
+      "target": "Rank-general height-lattice moduli and proper-image construction",
+      "owner": "LocalGaloisDeformationRings:L7",
+      "formerly": [
+        "LocalGaloisDeformationRings:R08.4",
+        "GlobalGaloisDeformations:G7"
+      ]
+    },
+    {
+      "target": "Rank-two Barsotti–Tate ordinary/nonordinary component geometry",
+      "owner": "LocalGaloisDeformationRings:R08.4",
+      "formerly": [
+        "GL2ModularityLifting:R22.4",
+        "GL2ModularityLifting:R22.6"
+      ]
+    },
+    {
+      "target": "Away-p local deformation types retaining the monodromy operator",
+      "owner": "LocalGaloisDeformationRings:R08.2",
+      "formerly": [
+        "GlobalGaloisDeformations:G7"
+      ]
+    },
+    {
+      "target": "Dyadic local determinant and endpoint exceptions in the stated BT scope",
+      "owner": "LocalGaloisDeformationRings:R08.5",
+      "formerly": [
+        "GL2ModularityLifting:R22.6",
+        "GL2ModularityLifting:R32.3"
+      ]
+    },
+    {
+      "target": "General ordinary determinant-versus-flag local-condition comparison",
+      "owner": "LocalGaloisDeformationRings:L8",
+      "formerly": [
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.3"
+      ]
+    },
+    {
+      "target": "Ordinary big arithmetic Galois representations/determinants and filtrations",
+      "owner": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+      "formerly": [
+        "PadicFamilies:L4"
+      ]
+    },
+    {
+      "target": "Ordinary arithmetic R=T and modularity lifting on its exact overlap",
+      "owner": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+      "formerly": [
+        "GL2ModularityLifting:R22.1",
+        "GL2ModularityLifting:R22.5"
+      ]
+    },
+    {
+      "target": "Small-prime Skinner–Wiles/BLZ ordinary lifting input",
+      "owner": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+      "formerly": [
+        "GL2ModularityLifting:R32.4",
+        "GL2ModularityLifting:R32.5"
+      ]
+    },
+    {
+      "target": "Classical arithmetic deformation-to-Hecke map for the specified problem",
+      "owner": "GL2ModularityLifting:R22.1",
+      "formerly": [
+        "GlobalGaloisDeformations:R04.6",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.4"
+      ]
+    },
+    {
+      "target": "Pan residual-reducible regular-de-Rham lifting at p>=5",
+      "owner": "GL2ModularityLifting:R32.4",
+      "formerly": [
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.5"
+      ]
+    },
+    {
+      "target": "Homological modular symbols, their Hecke-equivariant injective period map (weight k ≥ 2), integral Hecke algebra and coefficient fields",
+      "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "formerly": [
+        "ModularSymbolsPadicLFunctions:L0",
+        "ModularSymbolsPadicLFunctions:L1",
+        "PadicFamilies:L1"
+      ]
+    },
+    {
+      "target": "Classical Mellin transform and L-function normalization",
+      "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+      "formerly": [
+        "ModularSymbolsPadicLFunctions:L1"
+      ]
+    },
+    {
+      "target": "Cohomological modular symbols and the full Eichler–Shimura comparison at general level, compatible with ModularForms 11 at level one",
+      "owner": "ModularSymbolsPadicLFunctions:L0",
+      "formerly": [
+        "PadicFamilies:L1",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
+      ]
+    },
+    {
+      "target": "Signed single-form period lines and saturated integral symbol lattices",
+      "owner": "ModularSymbolsPadicLFunctions:L1",
+      "formerly": [
+        "PadicFamilies:L1"
+      ]
+    },
+    {
+      "target": "Chosen-root p-stabilization and single-form small-slope distribution-symbol control",
+      "owner": "ModularSymbolsPadicLFunctions:L2",
+      "formerly": [
+        "PadicFamilies:L0",
+        "PadicFamilies:L1",
+        "PadicFamilies:L2"
+      ]
+    },
+    {
+      "target": "General critical-slope, theta-critical and secondary p-adic L-function theory, including the theta exact sequence and the distinction between slope w−1, theta-criticality and a critical refinement",
+      "owner": "PadicFamilies:L3",
+      "formerly": [
+        "ModularSymbolsPadicLFunctions:L3"
+      ]
+    },
+    {
+      "target": "Finite/profinite factorial ordinary projector API beyond the pinned Fitting lemma",
+      "owner": "PadicFamilies:L0a",
+      "formerly": [
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.1"
+      ]
+    },
+    {
+      "target": "Ordinary rational cuspidal Hida families and control",
+      "owner": "PadicFamilies:L0",
+      "formerly": [
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+      ]
+    },
+    {
+      "target": "Totally real cuspidal Hida families and weight/control comparisons",
+      "owner": "PadicFamilies:L5",
+      "formerly": [
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+      ]
+    },
+    {
+      "target": "Higher Chow cycle complexes, moving/localization/products and their arithmetic extension",
+      "owner": "MotivicEtaleKTheory:M.4",
+      "formerly": [
+        "MotivesAndAlgebraicCycles:MC.0",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "MotivesAndAlgebraicCycles:MC.4"
+      ]
+    },
+    {
+      "target": "Finite correspondences, transfers and the effective Nisnevich/A1 motivic category",
+      "owner": "MotivicEtaleKTheory:M.5a",
+      "formerly": [
+        "MotivesAndAlgebraicCycles:MC.0",
+        "MotivesAndAlgebraicCycles:MC.1",
+        "MotivesAndAlgebraicCycles:MC.4",
+        "MotivicEtaleKTheory:M.5"
+      ]
+    },
+    {
+      "target": "Rational-equivalence Chow correspondences on smooth projective schemes",
+      "owner": "MotivesAndAlgebraicCycles:MC.0",
+      "formerly": [
+        "MotivicEtaleKTheory:M.4",
+        "MotivicEtaleKTheory:M.5a"
+      ]
+    },
+    {
+      "target": "Pure Chow motives, idempotent completion, Tate twists and duals",
+      "owner": "MotivesAndAlgebraicCycles:MC.1",
+      "formerly": [
+        "MotivicEtaleKTheory:M.5a"
+      ]
+    },
+    {
+      "target": "Geometric mixed-motive and higher-Chow Hom comparison, including Tate stabilization",
+      "owner": "MotivesAndAlgebraicCycles:MC.4",
+      "formerly": [
+        "MotivicEtaleKTheory:M.4",
+        "MotivicEtaleKTheory:M.5a"
+      ]
+    },
+    {
+      "target": "Propagation of the Bloch–Kato finite local condition to lattices and quotients (T, V/T), its comparison with ordinary conditions, and its arithmetic instances; the finite local condition on V is imported from PadicHodgeRegulators L1",
+      "owner": "SelmerIwasawaCohomology:L4",
+      "formerly": [
+        "MotivicEtaleKTheory:M.8"
+      ]
+    },
+    {
+      "target": "Arithmetic Iwasawa complexes and specialization/control with Tor and H0 corrections",
+      "owner": "SelmerIwasawaCohomology:L3",
+      "formerly": [
+        "ArithmeticGaloisDuality:D8"
+      ]
+    },
+    {
+      "target": "Finite-coefficient compact-support fibre of the localization map for G_{F,S}, with modified real-place terms",
+      "owner": "ArithmeticGaloisDuality:R02.3",
+      "formerly": [
+        "ArithmeticGaloisDuality:D7"
+      ]
+    },
+    {
+      "target": "Restriction/corestriction identities (cor∘res = index, transitivity) and finite-extension descent for compact lattice and rational coefficients",
+      "owner": "ArithmeticGaloisDuality:R02.2",
+      "formerly": [
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "Compact-lattice and rational Shapiro lemma and projection formula, and one reciprocity/sign normalization for restriction, corestriction, cup products, Shapiro and local invariant maps",
+      "owner": "ArithmeticGaloisDuality:D7",
+      "formerly": [
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "All-degree discrete corestriction with cor∘res = index, transitivity and the Mackey formula",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "formerly": [
+        "ArithmeticGaloisDuality:R02.2"
+      ]
+    },
+    {
+      "target": "All-degree cup product on the canonical carrier for jointly continuous pairings, and its projection formula",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "formerly": [
+        "SelmerIwasawaCohomology:L0"
+      ]
+    },
+    {
+      "target": "Duality of Selmer complexes (mapping fibres of orthogonal local conditions) transported from D7 along the defining triangle",
+      "owner": "SelmerIwasawaCohomology:L1",
+      "formerly": [
+        "ArithmeticGaloisDuality:D8"
+      ]
+    },
+    {
+      "target": "The ACC+ Definition 6.2.2 arbitrary-rank unpolarized variable-determinant global deformation problem over the completed tensor product of the local Λ_v, with its representability (Thm 6.2.3), T-framing comparison (Lemma 6.2.4) and local-to-global presentation",
+      "owner": "GlobalGaloisDeformations:G8",
+      "formerly": [
+        "GlobalGaloisDeformations:G7"
+      ]
+    },
+    {
+      "target": "Polarized arbitrary-rank deformation functors built from an actual pairing and multiplier, with their fixed-multiplier variants",
+      "owner": "GlobalGaloisDeformations:G7",
+      "formerly": [
+        "GlobalGaloisDeformations:G8"
+      ]
+    },
+    {
+      "target": "Level-one Eichler–Shimura isomorphism by period polynomials (odd and extended even Hecke-equivariant period maps, M_k ⊕ S_k ≅ W_w)",
+      "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+      "formerly": [
+        "ModularSymbolsPadicLFunctions:L0"
+      ]
+    },
+    {
+      "target": "Ordinary Chow groups with rational equivalence, proper pushforward and flat pullback (the degree-zero case of higher Chow groups)",
+      "owner": "SchemeAndStackFoundations:SF.5",
+      "formerly": [
+        "MotivicEtaleKTheory:M.4"
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-08",
+    "date": "2026-09-23",
+    "notes": "Independent review by Claude Code, session cc-2aeb03; the proposal was written by ChatGPT Pro, session cg-6b83f1, and this reviewer took no part in it. Read: RS-08.json (11 members, 3 anchors, 198 evidence rows), the proposal and its report, all eleven member documents and the descriptions of all 98 member stages, the three anchor documents (ProfiniteCohomology, ModularForms, ModularCurves), and the descriptions of every named supplier and consumer. Checks: scripts/check_restructure.py ok before and after; all 417 links resolve; with the sixteen accepted restructurings applied first, all 374 new edges apply and none is skipped for a cycle; for every narrowed layer, every supplier has a link to every atlas consumer (no forwarding gaps); no link touches a layer an accepted proposal drops. The architecture is right: discrete/compact/derived/arithmetic cohomology are separated (the anchor, R02.1–R02.4, D7), the Selmer formalism is built once (Selmer L2), general algebra is separated from arithmetic deformation theorems (DDPA R03/P versus Global/Local), and both extensions start where their bases stop. But 30 of the 35 narrowed layers needed corrected keeps, most because they silently dropped targets of the original layer that no named supplier plans (for example PadicFamilies L1's two-variable measure, Symbols L1's algebraicity of critical values, R21.3's ordinary deformation rings, MC.4's localization and projective-bundle theorems), and a blueprint job plans a narrowed layer only as far as it keeps; these keeps were restored from the original texts. Also corrected: one title, one false supplier (Selmer L3 for D8) with its three links, one missing narrowing (R22.6, whose content the proposal's own owner records already moved to R08.4/R08.5), 35 added links and 28 owner records (17 retargeted, 1 removed, 10 added). Not changed, and put to the orchestrator in REV-RS-08.md: the rank-n versus rank-two ownership of potentially semistable and away-p deformation conditions (L7 versus R08.2/R08.3), the M.8/PadicHodgeRegulators D.2 Chern-regulator overlap deferred by RS-26, and the 'formerly' convention for rejected leads.",
+    "corrections": [
+      "roadmaps.ModularSymbolsPadicLFunctions.title: now begins with the exact base title 'Modular forms — Hecke theory, newforms, and L-functions' (as RS-06 and RS-21 title their Part IIs of ModularForms); it read 'Modular forms, Part II: …'.",
+      "layers.ArithmeticGaloisDuality:R02.2: keeps corrected. Two targets are kept: the full Hochschild-Serre spectral sequence with its convergence, which the anchor explicitly excludes (Layer 5 'builds the five-term exact sequence directly from cochains and stops there'), and the edge-map identification.",
+      "layers.ArithmeticGaloisDuality:D7: keeps corrected. The keeps ('derived local/global arithmetic duality maps, compact-support and modified real-place complexes, and source-scoped perfectness/amplitude theorems') has two faults.",
+      "layers.ArithmeticGaloisDuality:R02.5: keeps corrected. The keeps contradicts the original layer, the proposal's own link and the report.",
+      "layers.ArithmeticGaloisDuality:D8: keeps, suppliedBy corrected. The keeps ('dimension-general adjoint/dual-adjoint deformation–Selmer comparisons .",
+      "layers.SelmerIwasawaCohomology:L0: keeps, suppliedBy corrected. Originally L0 imported everything general ('Do not reimplement these general theorems here') and kept only three things: the tower-compatible H^1(F,Z_p(1)) identification, recording which inverse-limit hypotheses hold per tower, and the separate units / S-units / local multiplicative groups comparison with a tensor-product expression.",
+      "layers.SelmerIwasawaCohomology:L1: keeps corrected. Keeps the parametric annihilator, saturation and pairing lemmas, which is sound: the parametric form avoids the forward reference to L2's conditions.",
+      "layers.DeformationAndDerivedPatchingAlgebra:P7: keeps corrected. R02.1 does plan what is moved (ML and lim^1 before interchanging cohomology and inverse limit), so the supplier is right.",
+      "layers.DeformationAndDerivedPatchingAlgebra:R03.1: keeps, suppliedBy, reason corrected. Keeping the general category and citing 7D's W(k) instance follows §15.",
+      "layers.DeformationAndDerivedPatchingAlgebra:R03.3: keeps corrected. 4D really plans the imported material.",
+      "layers.GlobalGaloisDeformations:R04.1: keeps corrected. R03.1 and R03.2 were already atlas prerequisites of R04.1, and R04.1 never planned coefficient categories or Schlessinger's criterion.",
+      "layers.GlobalGaloisDeformations:R04.2: keeps corrected. The suppliers are right.",
+      "layers.GlobalGaloisDeformations:R04.3: keeps corrected. The suppliers R03.2, R02.6 and R08.1 plan what they are said to supply.",
+      "layers.LocalGaloisDeformationRings:R08.1: keeps corrected. Importing R04.1's generic functor is sound (R04.1 → R08.1 is acyclic), and so is refusing R04.2.",
+      "layers.LocalGaloisDeformationRings:R08.4: keeps corrected. L7 does plan the imported material ('bounded-height Frobenius-stable lattice moduli .",
+      "layers.GlobalGaloisDeformations:G7: keeps, suppliedBy corrected. D8, R04.5 and L7 plan what they are said to supply.",
+      "layers.GlobalGaloisDeformations:G8: keeps corrected. R03.2, R08.1 and D8 plan what is imported.",
+      "layers.GL2ModularityLifting:R22.3: keeps corrected. The original asks R22.3 to relate the patched module to the finite-level Hecke modules, 'keep framing variables and their removal explicit, and track the determinant through all specialisations'.",
+      "layers.GL2ModularityLifting:R22.5: keeps corrected. The keeps drops two things.",
+      "layers.GL2ModularityLifting:R22.6: action, keeps, suppliedBy, reason corrected. Unlisted, but not unchanged in substance.",
+      "layers.OrdinaryAutomorphicFormsAndModularityLifting:R21.2: keeps corrected. The keeps replaces the original hypothesis list ('p-distinguishedness, tame characters, stabilizers, degree and localizations') with 'small-prime, lattice, level and freeness hypotheses'.",
+      "layers.OrdinaryAutomorphicFormsAndModularityLifting:R21.3: keeps corrected. The original says 'Construct ordinary deformation rings with the filtration data, compare local tangent conditions and prove the map to the Hecke algebra.' The keeps keeps only the Galois representation/determinant, the filtrations and 'their actual maps to ordinary Hecke algebras'.",
+      "layers.OrdinaryAutomorphicFormsAndModularityLifting:R21.4: keeps, suppliedBy corrected. The keeps drops the original 'Record determinant, ramification, local distinguishedness, character and residual modularity assumptions individually' and the named 'dual Selmer and integral Hecke arguments'.",
+      "layers.PadicFamilies:L0: keeps corrected. The keeps drops 'Construct the ordinary Eisenstein family from R03 and prove the geometric/cohomological identification of its q-expansion'.",
+      "layers.PadicFamilies:L1: keeps corrected. The keeps has three problems.",
+      "layers.PadicFamilies:L2: keeps corrected. Mostly right: L2a's generic machine and L/L2's single-weight control ('small-slope control theorem for h<w−1') are real suppliers.",
+      "layers.ModularSymbolsPadicLFunctions:L0: keeps, suppliedBy corrected. The split with ModularForms 8 is right.",
+      "layers.ModularSymbolsPadicLFunctions:L1: keeps corrected. The keeps drops the headline theorem 'Prove algebraicity of the period-normalized values, with the sign selected by parity'.",
+      "layers.MotivesAndAlgebraicCycles:MC.4: keeps corrected. The import split is right.",
+      "layers.MotivicEtaleKTheory:M.1: keeps corrected. The suppliers really plan what is imported.",
+      "layers.MotivicEtaleKTheory:M.2: keeps corrected. The imports are real.",
+      "layers.MotivicEtaleKTheory:M.8: keeps corrected. The Selmer imports are sound.",
+      "links: removed 3 links from SelmerIwasawaCohomology:L3 to ArithmeticGaloisDuality:D8, GlobalGaloisDeformations:G7 and G8. D8 never used Iwasawa cohomology or control, so L3 was a false supplier of D8 and the forwarded links made GL_n deformation rings wait on Iwasawa theory.",
+      "links: added 35 links (listed in REV-RS-08.md): §15 forwarding for the corrected suppliers, the imports the corrected keeps name, and the Tau Ceti layers the extensions build on.",
+      "owners: 'Canonical discrete continuous-cohomology carrier and all-degree comparison' → 'All-degree discrete continuous cohomology: finite-quotient colimit, long exact sequence, Shapiro and dimension shifting in every degree', formerly ['ArithmeticGaloisDuality:R02.1', 'MotivicEtaleKTheory:M.1', 'SelmerIwasawaCohomology:L0']. The carrier and its functoriality are the anchor’s Layer 1 (accepted RS-28); Layer 10 owns the all-degree theory.",
+      "owners: 'Discrete long exact sequences and connecting-map conventions' → 'Discrete long exact sequences, connecting maps, inflation–restriction and the five-term sequence with transgression'. The five-term sequence is Layer 5’s, not Layer 6’s.",
+      "owners: 'Discrete restriction, corestriction and five-term change-of-groups API' → 'Explicit degree-0–2 corestriction, cor∘res = index, transitivity, Mackey formula and conjugation'. Layer 6 plans neither the five-term sequence (Layer 5) nor all-degree corestriction (Layer 10).",
+      "owners: 'Discrete cohomological dimension with its real-place exceptions' → 'Definitions of cd_p, scd_p and cd, dévissage, and the closed/open-subgroup inequalities'. Layer 11 is about abstract profinite groups and plans no real-place exception; those are R02.3’s.",
+      "owners: 'Global restricted-ramification cohomology finiteness and Euler characteristics' → 'Global restricted-ramification cohomology finiteness, Euler characteristics and cohomological-dimension bounds for G_{F,S} with the real-place exceptions'. R02.3 plans the bounds with the real-place exceptions.",
+      "owners: 'Finite/lattice Poitou–Tate duality and normalized global reciprocity pairing' → 'Finite/lattice Poitou–Tate duality and normalized global reciprocity pairing', formerly ['MotivicEtaleKTheory:M.2', 'SelmerIwasawaCohomology:L1', 'ArithmeticGaloisDuality:D7']. D7’s original text also claimed finite/lattice Poitou–Tate; its narrowed keeps imports it.",
+      "owners: 'Derived compact-support arithmetic duality, modified real-place complexes and arithmetic perfection' → 'Compact-coefficient and derived extension of the compact-support fibre and of arithmetic duality, modified real-place complexes and arithmetic perfection'. The finite-coefficient fibre is R02.3’s (new record); this keeps RS-16’s accepted D7 record, which concerns the general case.",
+      "owners: 'Adjoint and dual-adjoint derived deformation–Selmer comparison without trace splitting when p divides rank' → 'Adjoint and dual-adjoint deformation–Selmer comparison in all ranks: dual-Selmer dimension calculation with trace-kernel exceptions when p divides n, and determinant/deformation tangent complexes, without trace splitting'. Names the two D8 targets that G7, G8 and R04.3 import.",
+      "owners: 'Deformation-specific local tangent Selmer dimensions' → 'Tangent spaces of the actual local deformation conditions (finite-flat/Barsotti–Tate, ordinary, fixed-type, away-p), exported with each local ring as subspaces of local H¹', owner LocalGaloisDeformationRings:R08.6, formerly ['ArithmeticGaloisDuality:R02.5']. R02.5’s text says the deformation-specific calculations are owned by R08, the proposal’s own link R08.6 → R02.5 imports them, and R08.6 (kept) exports them; R02.5 keeps only the Selmer comparison.",
+      "owners: 'Conditional dual-Selmer rank-drop calculations and KW cohomological requirements' → 'Rank-two (KW II §§4–5) conditional dual-Selmer rank-drop calculations and KW cohomological requirements'. R02.6 plans the rank-two adjoint calculation; G7’s polarized rank-n control is a different theorem, which uses D8.",
+      "owners: 'Witt-vector elliptic deformation coefficient category and its geometric universal deformation' → 'The category of complete local Noetherian W(k)-algebras with residue identification (the O = W(k) instance of R03.1’s category)'. R03.1 never planned an elliptic universal deformation; only the coefficient category is planned twice.",
+      "owners: 'Katz–Mazur regularity of moduli problems and its flat/smooth comparison' → 'Local-ring toolkit of ModularCurves 4D: regularity and dimension under completion of Noetherian local rings, openness of the regular locus over an excellent base, miracle flatness for finite maps of regular local rings of equal dimension, descent of regularity along finite faithfully flat covers'. R03.3 never planned Katz–Mazur regularity of moduli problems; the overlap is this general local algebra, which 4D owns.",
+      "owners: removed 'Katz–Mazur local algebra and scheme regularity in its stated finite-presentation scope' (owner ModularCurves 7B). 7B applies the strict-henselisation, completion and regularity theorems owned by Layer 4D and does not reconstruct them; that material is the retargeted 4D record, and R03.2 never planned it (report §5 calls the lead a false identification).",
+      "owners: 'Homological modular symbols, integral Hecke algebra and coefficient fields' → 'Homological modular symbols, their Hecke-equivariant injective period map (weight k ≥ 2), integral Hecke algebra and coefficient fields'. ModularForms Layer 8 plans the period map with its equivariance and injectivity, which L0 originally planned.",
+      "owners: 'General critical-slope, theta-critical and secondary p-adic L-function theory' → 'General critical-slope, theta-critical and secondary p-adic L-function theory, including the theta exact sequence and the distinction between slope w−1, theta-criticality and a critical refinement'. These were Symbols L3 targets that its narrowed keeps no longer states; PadicFamilies L3 owns them.",
+      "owners: 'Cohomological modular symbols and full Eichler–Shimura comparison' → 'Cohomological modular symbols and the full Eichler–Shimura comparison at general level, compatible with ModularForms 11 at level one'. Separates L0’s scope from the anchor’s level-one special case.",
+      "owners: 'Finite correspondences, transfers and the effective Nisnevich/A1 motivic category' → 'Finite correspondences, transfers and the effective Nisnevich/A1 motivic category', formerly ['MotivesAndAlgebraicCycles:MC.0', 'MotivesAndAlgebraicCycles:MC.1', 'MotivesAndAlgebraicCycles:MC.4', 'MotivicEtaleKTheory:M.5']. M.5’s text contains M.5a’s full construction; this record now covers the evidence pair (MC.4, M.5).",
+      "owners: 'Hodge/Bloch–Kato local conditions on lattices, rational representations and quotients' → 'Propagation of the Bloch–Kato finite local condition to lattices and quotients (T, V/T), its comparison with ordinary conditions, and its arithmetic instances; the finite local condition on V is imported from PadicHodgeRegulators L1'. Accepted RS-26 gives PadicHodgeRegulators L1 sole ownership of the finite local condition; Selmer L4 keeps the propagation and comparisons.",
+      "owners: added 'Finite-coefficient compact-support fibre of the localization map for G_{F,S}, with modified real-place terms' (owner ArithmeticGaloisDuality:R02.3, formerly ['ArithmeticGaloisDuality:D7']). R02.3 ('Construct compactly supported arithmetic cohomology using the localisation map and the corrected infinite-place terms') and D7 ('construct the localization morphism ...",
+      "owners: added 'Restriction/corestriction identities (cor∘res = index, transitivity) and finite-extension descent for compact lattice and rational coefficients' (owner ArithmeticGaloisDuality:R02.2, formerly ['SelmerIwasawaCohomology:L0']). R02.2's original target.",
+      "owners: added 'Compact-lattice and rational Shapiro lemma and projection formula, and one reciprocity/sign normalization for restriction, corestriction, cup products, Shapiro and local invariant maps' (owner ArithmeticGaloisDuality:D7, formerly ['SelmerIwasawaCohomology:L0']). D7's original ('sole generic owner of its compact-coefficient ...",
+      "owners: added 'All-degree discrete corestriction with cor∘res = index, transitivity and the Mackey formula' (owner tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees, formerly ['ArithmeticGaloisDuality:R02.2']). Evidence row 16 (R02.2 vs Layer 10).",
+      "owners: added 'All-degree cup product on the canonical carrier for jointly continuous pairings, and its projection formula' (owner tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees, formerly ['SelmerIwasawaCohomology:L0']). L0 imported 'continuous cup products ...",
+      "owners: added 'Duality of Selmer complexes (mapping fibres of orthogonal local conditions) transported from D7 along the defining triangle' (owner SelmerIwasawaCohomology:L1, formerly ['ArithmeticGaloisDuality:D8']). L1 planned 'the resulting Selmer-complex duality map' and D8 planned 'transport D7 duality along the proved triangle'.",
+      "owners: added 'The ACC+ Definition 6.2.2 arbitrary-rank unpolarized variable-determinant global deformation problem over the completed tensor product of the local Λ_v, with its representability (Thm 6.2.3), T-framing comparison (Lemma 6.2.4) and local-to-global presentation' (owner GlobalGaloisDeformations:G8, formerly ['GlobalGaloisDeformations:G7']). G7 plans the local-to-global presentation of this problem as the setting of Prop.",
+      "owners: added 'Polarized arbitrary-rank deformation functors built from an actual pairing and multiplier, with their fixed-multiplier variants' (owner GlobalGaloisDeformations:G7, formerly ['GlobalGaloisDeformations:G8']). G8's text: 'Construct the arbitrary-rank unpolarized problem with variable determinant, alongside fixed-determinant and polarized variants'.",
+      "owners: added 'Level-one Eichler–Shimura isomorphism by period polynomials (odd and extended even Hecke-equivariant period maps, M_k ⊕ S_k ≅ W_w)' (owner tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one, formerly ['ModularSymbolsPadicLFunctions:L0']). L0's 'Eichler–Shimura period maps at general level … injectivity and eigenspace dimensions' includes level one, which the anchor already builds in Layer 11.",
+      "owners: added 'Ordinary Chow groups with rational equivalence, proper pushforward and flat pullback (the degree-zero case of higher Chow groups)' (owner SchemeAndStackFoundations:SF.5, formerly ['MotivicEtaleKTheory:M.4']). SF.5 plans 'Construct Chow groups, rational equivalence, proper pushforward, flat/lci pullback'."
+    ]
+  }
+}

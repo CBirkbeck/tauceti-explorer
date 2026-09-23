@@ -1,0 +1,1676 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+  "protocol": "links-v1",
+  "status": "complete",
+  "summary": "Catalogue-wide screen of 217 active roadmaps including the focal roadmap, independently spot-checked against 2007 stage records. Ten prerequisite links: the original seven IntegralLattices inputs and two FF.4 outputs, plus the reviewer-added orthogonal-lattice-sum input to coding Layer 7. Three scoped overlaps preserve coordinate-power reuse, common finite Fourier foundations and the unresolved GN.4 lattice-code handoff. Baseline constructors are reuse inputs; code-specific comparisons and consumer proof obligations remain open.",
+  "worker": "ChatGPT Pro — cgp-f522e092da3e",
+  "jobId": "LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
+  "issueNumber": 38,
+  "date": "2026-09-17",
+  "implementationStatus": "unchecked",
+  "provenance": {
+    "inputRevision": "dbafc759460581dbd23999a3c112149fedefe2b5",
+    "artifactRevision": "66e35f2051d4e49644701ad398112de45095d315",
+    "artifactRun": 35216072568,
+    "artifactId": 10495186650,
+    "artifactSha256": "b4caf4562ec7324ef7e4a8844caaefa29070200927063ce2a9210e3cdbeac8f3",
+    "atlasBlob": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "claimComment": 5713491139,
+    "claimConfirmation": 5713493122,
+    "note": "Authorized GitHub Pages artifact supplied the scratch input tree. Commit comparison showed only unrelated audit24/audit25/queue/ledger changes from the input revision. All physical roadmap documents match atlas readme strings. No git commands were run.",
+    "sourceBlobs": {
+      "content/tau-ceti/AlgebraicCodingTheory/README.md": "4ba535d8d73912dba25cc71ad97c07e6a89bf728",
+      "content/tau-ceti/Completed/IntegralLattices/README.md": "f43ed8eedd4356ede2cb63490af233b185498a61",
+      "content/campaign/FiniteFieldsAndCharacterSums/README.md": "e789381e760ac34af17e582c077cab30d9c93119",
+      "content/campaign/AdditiveCombinatorics/README.md": "d6c25766322d90879f370032a8a7e7bf9795a407",
+      "content/campaign/GeometryOfNumbersAndQuadraticArithmetic/README.md": "7ac6436fd499048580cb800ee15936735bf05ffe",
+      "research/blueprint/PROTOCOL.md": "df6a8d1a7b4c04162a6c178516b82b0337b1dfcd",
+      "research/blueprint/BROWSER_AGENTS.md": "e4854be9cb94f4e9fe6f4ac76a5468f56c53d3a0",
+      "research/blueprint/UPSTREAM_GUIDE.md": "a767747585bba9a7c57ff365e02a574f04cfec71",
+      "research/expansion/PROTOCOL.md": "c763c69dd1a81f4ded9843c714f8b32c9c4cf854",
+      "research/blueprint/baseline.json": "fdb00afdfae8e5728e070f310f5a880707764bc2",
+      "research/blueprint/audit/AUDIT-16.result.json": "cf61f495aa4bc68d690af63d3ee524c53bab611f",
+      "research/blueprint/atlas/index.json": "2c51630de786483ff666b5d51b6b9cda65fd7413",
+      "research/blueprint/atlas/stage-edges.json": "4f28325918b8de7423e29e3b118d0c0e6cd559aa",
+      "data/atlas.json": "37f2add06983c206067d1104e0f40a839cc3961a",
+      "data/roadmap-retirements.json": "b2458ea2cd37e8f64459b8fd296f25329d4e4a76",
+      "scripts/check_links.py": "57e02703163a9286d28cf3869b557983be6efc64"
+    },
+    "preSubmissionRevision": "66e35f2051d4e49644701ad398112de45095d315"
+  },
+  "screen": {
+    "activeAtlasRoadmaps": 211,
+    "newRoadmapDefinitions": 6,
+    "examinedIncludingFocal": 217,
+    "stageRecords": 2001,
+    "upstreamRoadmaps": 60,
+    "existingLinkPackets": 25,
+    "existingLinks": 657,
+    "retiredExcluded": [
+      "FoundationsAndLibraryIntegration"
+    ],
+    "method": "Read all summaries, search every full README/title/stage description for nine focal-object families plus four wider synonym families, then read all selected supplier/consumer stages in full. Detailed reading is not claimed for every unrelated proof. New roadmap definitions, completed upstream roadmaps, all same-area roadmaps, neighboring areas and existing link packets were included.",
+    "queries": [
+      "linear/additive/binary/ternary/evaluation/residue codes; code carriers; AlgebraicCodingTheory",
+      "generator/parity-check matrices; information sets; puncturing/shortening; code equivalences",
+      "Hamming/minimum-distance/dual/Hermitian dual",
+      "weight enumerators/distributions; MacWilliams; Krawtchouk; Gleason",
+      "Golay; hexacode; tetracode; doubly even; Type II",
+      "Construction A; code-lattice; unimodularity",
+      "finite bilinear/quadratic modules; discriminant forms; isotropic subgroups; perpendicular quotient",
+      "A2/D4 alphabets; ADE; root and weight lattices",
+      "finite-field characters; primitiveChar; character vanishing; F4 trace",
+      "all code/coding/Goppa/Reed-Solomon/BCH/Leech/Niemeier terms",
+      "finite Fourier/Pontryagin/character orthogonality",
+      "broader matrix/puncturing terms",
+      "broader discriminant-group/form/module and isotropic/Lagrangian subgroup terms"
+    ],
+    "confidencePolicy": "explicit follows the job-specific rule: a text names the other roadmap/stage; both endpoint outputs/uses are quoted. The integral-lattice dependency is also named reciprocally in the two scope sections. FF.4 explicitly names AlgebraicCodingTheory. No inference from terminology alone."
+  },
+  "links": [
+    {
+      "id": "ACT-L01",
+      "source": "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+      "reason": "IntegralLattices supplies the embedded rational integral-lattice object, form and isometry vocabulary used to bundle Construction A. For m >= 2, coding must first prove fullness of the inverse-image carrier with B_m = dot/m and self-orthogonality before supplying integrality. This is reuse of the supplier, not permission to bundle an arbitrary nonintegral code preimage as IntegralLattice.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms",
+          "quote": "Define an integral symmetric lattice from a carrier `L : Submodule ℤ V` with\n  `[L.IsLattice ℚ]`, a symmetric `B : BilinForm ℚ V`, and a proof that `B(L,L)⊆ℤ`.\n  Supply coercions to the carrier and form, an extensionality theorem, access to a carrier basis and\n  rank, and constructors from a basis plus an integral symmetric Gram matrix and from an\n  existing full submodule with form.",
+          "path": "content/tau-ceti/Completed/IntegralLattices/README.md",
+          "lineStart": 166,
+          "lineEnd": 170
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+          "quote": "Prove that `P_m(C)` is a full `ℤ`-lattice in `ℚ^ι` for every `C`.  It bundles as an\n  `IntegralLattice` exactly when `C ≤ C^⊥`.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 338,
+          "lineEnd": 339
+        }
+      ]
+    },
+    {
+      "id": "ACT-L02",
+      "source": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+      "reason": "The dual carrier, discriminant and equivalent unimodularity criteria are the lattice interfaces used by the integral Construction-A application. Nondegeneracy of dot/m follows from m >= 2, but integrality still requires C <= C-perp. The stronger literal dual identity for arbitrary additive C is coding-owned elementary residue pairing; this edge does not assert that the integral-lattice theorem proves that identity for a nonintegral carrier.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
+          "quote": "Prove the equivalence of the following, with nondegeneracy, integrality, fullness, and finite rank\n  visible in the theorem context: `L=L^∨`; `A_L` is trivial; `#A_L=1`; the Gram determinant has\n  absolute value one; and the restricted pairing `L → Module.Dual ℤ L` is an equivalence.  Signed\n  determinant `-1` is allowed.",
+          "path": "content/tau-ceti/Completed/IntegralLattices/README.md",
+          "lineStart": 250,
+          "lineEnd": 253
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+          "quote": "Prove that integral `P_m(C)` is unimodular exactly when `C=C^⊥`.  Keep self-orthogonality visible\n  in the construction so “unimodular” is never asserted of an unbundled nonintegral carrier.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 345,
+          "lineEnd": 346
+        }
+      ]
+    },
+    {
+      "id": "ACT-L03",
+      "source": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+      "reason": "The additive-code branch explicitly imports a finite bilinear alphabet from IntegralLattices. Its summed coordinate pairing and quadratic refinement use that finite-form carrier, perpendicular operation and nondegenerate cardinality/double-perpendicular API. Do not confuse a finite Q/Z-valued alphabet with an arbitrary field-valued Hermitian space. Coordinate powers themselves already have the checked pinned Tau Ceti APIs listed below.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+          "quote": "Define the radical, isotropic elements and subgroups, `H^⊥`, and Lagrangians.  Prove\n  `H ≤ H^⊥` under the appropriate bilinear-isotropy hypothesis and under quadratic isotropy, the\n  unconditional inclusion `H ≤ H^⊥⊥`, order reversal, and the general finite formula\n  `H^⊥⊥ = H + rad(b)`.  Deduce the double-perp equality `H^⊥⊥=H` and\n  `|H| |H^⊥| = |A|` only under nondegeneracy.  Deduce `|H|²=|A|` for a Lagrangian.  Provide\n  explicit membership and computation lemmas, rather than exposing these notions only through the\n  later correspondence.",
+          "path": "content/tau-ceti/Completed/IntegralLattices/README.md",
+          "lineStart": 276,
+          "lineEnd": 282
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+          "quote": "For a finite bilinear alphabet `A` from the integral-lattices roadmap, construct the coordinate\n  power on `ι → A` by summing pairings.  Define the orthogonal additive code and prove the\n  finite-cardinality and double-perpendicular results under nondegeneracy.  Construct the analogous\n  coordinate finite quadratic module by summing quadratic values.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 193,
+          "lineEnd": 196
+        }
+      ]
+    },
+    {
+      "id": "ACT-L04",
+      "source": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+      "reason": "The construction of the L0 = m Z^i discriminant coordinate map consumes the literal dual/subtype-quotient discriminant carrier and its quotient map. Coding must prove L0-dual = Z^i and that reduction modulo m induces the displayed isometry; neither an abstract group of the right order nor an opaque equivalence replaces this comparison. m >= 2 is inherited from Construction A.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
+          "quote": "Define `A_L` as the actual quotient of the subtype `L^∨` by the inverse-image of `L`; provide its\n  quotient map, representative lemmas, zero criterion, additive-group structure, and functorial map\n  induced by an isometry.  Prove it finite using equal rank and Mathlib's finite-quotient API.",
+          "path": "content/tau-ceti/Completed/IntegralLattices/README.md",
+          "lineStart": 242,
+          "lineEnd": 244
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+          "quote": "Let `L₀(m,ι)` have carrier `mℤ^ι` in `ℚ^ι` and form `B_m`.  Prove\n  `L₀(m,ι)^∨=ℤ^ι` and construct an isometry\n  `A_{L₀} ≅ (ZMod m)^ι` carrying the class of an integer vector to its coordinatewise\n  reduction modulo `m`, and carrying the discriminant pairing to\n  `∑ lift(x_i)lift(y_i)/m mod ℤ`.  For even `m`, identify the half-norm quadratic form with `q_m`.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 372,
+          "lineEnd": 376
+        }
+      ]
+    },
+    {
+      "id": "ACT-L05",
+      "source": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+      "reason": "Coding transports actual additive subgroups through finite bilinear/quadratic isometries and matches polar forms and perpendiculars. It consumes IntegralLattices finite-form isometries and orthogonal sums, in the Q/Z half-norm convention. The alphabet-to-lattice discriminant comparison and trace-Hermitian F4 coordinate calculation remain coding targets; an additive equivalence without form preservation is insufficient.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+          "quote": "Define a finite quadratic module by reusing\n  `QuadraticMap ℤ A (AddCircle (1 : ℚ))`, and identify its symmetric biadditive polar form\n  `b_q(x,y)=q(x+y)-q(x)-q(y)` with the underlying pairing.  Supply morphisms, isometries,\n  orthogonal sums, negation, restriction, and passage to the underlying bilinear module.  State\n  nondegeneracy through the polar form.  The codomain is the additive quotient `ℚ/ℤ`, not a ring;\n  do not introduce a parallel private quadratic-map structure.",
+          "path": "content/tau-ceti/Completed/IntegralLattices/README.md",
+          "lineStart": 270,
+          "lineEnd": 275
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+          "quote": "State the reusable interface for an isometry from a coordinate finite quadratic module to the\n  discriminant module of an orthogonal lattice sum.  Its input subgroup remains an\n  `AddSubgroup`; field-linearity is used only when separately proved for a named code.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 401,
+          "lineEnd": 403
+        }
+      ]
+    },
+    {
+      "id": "ACT-L06",
+      "source": "tauceti:Completed/IntegralLattices#layer-4-overlattices-and-isotropic-subgroups",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+      "reason": "Apply the general intermediate-overlattice/isotropic-subgroup construction and natural discriminant isometry A_(L_H) = H-perp/H after identifying the code with an actual subgroup of A_L0. Bilinear isotropy gives integral gluing; the quadratic refinement additionally requires even m and q_m vanishing on C. Preserve the subtype quotient, representative maps and half-norm convention rather than re-proving gluing or substituting a cardinality equality.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-4-overlattices-and-isotropic-subgroups",
+          "quote": "For isotropic `H`, define the induced form on `H^⊥/H` and construct the natural isometry\n  `A_{L_H} ≅ H^⊥/H`, bilinear in the integral case and quadratic in the even case.  Include the\n  representative formula, nondegeneracy, order computation, and compatibility with the index and\n  determinant formulae.  Deduce that an even overlattice `L_H` is unimodular exactly when\n  `H=H^⊥`, that is, exactly when `H` is Lagrangian.",
+          "path": "content/tau-ceti/Completed/IntegralLattices/README.md",
+          "lineStart": 312,
+          "lineEnd": 316
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+          "quote": "Consume the general gluing theorem to obtain, for isotropic `C`, the natural isometry\n  `A_{P_m(C)} ≅ C^⊥/C`, first as an isometry of finite bilinear modules and, when `m` is even\n  and `q_m|_C=0`, as an isometry of finite quadratic modules.  Its underlying quotient must be the\n  actual subtype quotient built from `C ≤ C^⊥`; a cardinality equality is not a substitute.\n  Deduce unimodularity from the Lagrangian condition `C=C^⊥`, not from an unexplained determinant\n  computation.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 383,
+          "lineEnd": 388
+        }
+      ]
+    },
+    {
+      "id": "ACT-L07",
+      "source": "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+      "reason": "The A_n and D_n discriminant forms specialize at n = 2 and n = 4 to the alphabets used by the tetracode, ternary Golay and hexacode applications. Coding must pin the additive F3/F4 identifications and transport their quadratic values, not import only determinant orders. A2 has q(a) = a^2/3; D4 has q = 1/2 on each nonzero class. General ADE/root classification is supplied transitively through IntegralLattices, not a new direct coding prerequisite.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms",
+          "quote": "| `A_n`, `n≥1` | `ℤ/(n+1)` | the class of the first fundamental weight generates and has `q=n/(2(n+1))` |\n| `D_n`, odd `n≥5` | `ℤ/4` | either spinor class generates; `q(s)=n/8`; the vector class is `2s` and has `q(v)=1/2` |\n| `D_n`, even `n≥4` | `(ℤ/2)²` | vector and the two spinor classes are the three nonzero classes; `q(v)=1/2` and `q(s)=q(c)=n/8` |",
+          "path": "content/tau-ceti/Completed/IntegralLattices/README.md",
+          "lineStart": 358,
+          "lineEnd": 360
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+          "quote": "Verify that the tetracode and `G₁₂` become quadratic-isotropic, Lagrangian subgroups for the\n  standard `A₂` discriminant alphabet.  Pin its generator so that, for `a,b∈F₃`,\n  `q_A₂(a)=a²/3 mod ℤ` and `b_A₂(a,b)=2ab/3 mod ℤ`.\n  Identify the standard `D₄` alphabet additively with `F₄` by sending\n  `1` to the vector class and `ω,ω²` to the two spinor classes.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 390,
+          "lineEnd": 394
+        }
+      ]
+    },
+    {
+      "id": "ACT-L08",
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-1-finite-codes-matrices-and-elementary-constructions",
+      "target": "FiniteFieldsAndCharacterSums:FF.4",
+      "reason": "FF.4 explicitly connects its evaluation/residue and BCH/Reed-Solomon examples to AlgebraicCodingTheory. Consume the generic finite-coordinate code and generator/check presentation API, with encoding membership and rank/dimension theorems, rather than defining another code carrier. FF.4 owns those code families and their field-size/length restrictions; this edge does not put decoding or algebraic-geometry code construction into the focal roadmap.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-1-finite-codes-matrices-and-elementary-constructions",
+          "quote": "Define the code generated by a matrix as `range G.vecMulLinear` and the code checked by a matrix\n  as `ker H.mulVecLin`.  Define generator- and parity-check-matrix predicates by equality to those\n  submodules.  Prove existence from finite bases, the row-span and syndrome membership criteria,\n  the rank/dimension formulae, deletion of dependent rows, and invariance under invertible row\n  operations.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 140,
+          "lineEnd": 144
+        },
+        {
+          "stageId": "FiniteFieldsAndCharacterSums:FF.4",
+          "quote": "Develop Galois rings, additive polynomials, permutation polynomials and sequence correlation; connect evaluation/residue codes to existing AlgebraicCodingTheory and AlgebraicCurves.",
+          "path": "content/campaign/FiniteFieldsAndCharacterSums/README.md",
+          "lineStart": 65,
+          "lineEnd": 65
+        }
+      ]
+    },
+    {
+      "id": "ACT-L09",
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+      "target": "FiniteFieldsAndCharacterSums:FF.4",
+      "reason": "FF.4 requires proved distance bounds for its code families; these use the focal minimum-distance definition and elementary Hamming/coordinate-operation interface. Preserve the zero-code convention and the nonzero-shortening hypothesis. This is not a prerequisite on the entire Hermitian-dual or exceptional-code developments, and FF.4 must prove the family-specific BCH/Reed-Solomon bounds itself.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+          "quote": "Define minimum distance for linear and additive codes with the zero-code convention above.  For a\n  nonzero code, prove attainment by a nonzero word and equality with the least pairwise distance.\n  Prove invariance under Hamming isometries and the sharp deleted-coordinate bound for puncturing.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 170,
+          "lineEnd": 172
+        },
+        {
+          "stageId": "FiniteFieldsAndCharacterSums:FF.4",
+          "quote": "Encoding maps, dimension and distance bounds are proved; BCH/Reed-Solomon examples include field-size and length restrictions.",
+          "path": "content/campaign/FiniteFieldsAndCharacterSums/README.md",
+          "lineStart": 69,
+          "lineEnd": 69
+        },
+        {
+          "stageId": "FiniteFieldsAndCharacterSums:FF.4",
+          "quote": "connect evaluation/residue codes to existing AlgebraicCodingTheory and AlgebraicCurves.",
+          "path": "content/campaign/FiniteFieldsAndCharacterSums/README.md",
+          "lineStart": 65,
+          "lineEnd": 65
+        }
+      ]
+    },
+    {
+      "id": "ACT-L10",
+      "source": "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+      "reason": "Reuse IntegralLattices Layer 1 orthogonal lattice sums and their canonical inclusions/projections and associativity/commutativity isometries for the actual orthogonal lattice sum in the Layer 7 alphabet/discriminant interface. This supplies the lattice-side sum object; Layer 3 supplies the separate finite-form sum. The code owner must still construct any finite-family iteration, the coordinate-power/discriminant isometry, and the named A2/F3 and D4/F4 identifications. A binary sum API is not already an arbitrary finite-family discriminant comparison. This is an ownership/reuse dependency, not a request to rebuild library constructions.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms",
+          "quote": "Construct form scaling, form negation, and orthogonal direct sums."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+          "quote": "State the reusable interface for an isometry from a coordinate finite quadratic module to the\n  discriminant module of an orthogonal lattice sum."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory"
+    }
+  ],
+  "overlaps": [
+    {
+      "id": "ACT-O01",
+      "stages": [
+        "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups"
+      ],
+      "recommendation": "rescope",
+      "detail": "Finite-form orthogonal sums/perpendiculars in IntegralLattices and the coordinate-power work in coding Layers 2 and 7 meet at the same generic finite-alphabet API. Moreover, the pinned Tau Ceti source already constructs both bilinear and quadratic coordinate powers and their coordinatewise isometries, so neither coding layer should rebuild them.",
+      "proposal": "Keep the general finite-form carrier, perpendicular and isometry API with IntegralLattices. Replace the repeated coding construction instructions by imports of the checked coordinatePower, nondegeneracy, membership and coordinatewise-isometry declarations. Coding retains the named alphabet identifications, the Hermitian-to-trace pairing comparison, and the actual discriminant-coordinate maps. No whole-roadmap merge.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+          "quote": "For a finite bilinear alphabet `A` from the integral-lattices roadmap, construct the coordinate\n  power on `ι → A` by summing pairings.  Define the orthogonal additive code and prove the\n  finite-cardinality and double-perpendicular results under nondegeneracy.  Construct the analogous\n  coordinate finite quadratic module by summing quadratic values.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 193,
+          "lineEnd": 196
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+          "quote": "Build finite coordinate powers and coordinatewise isometries for other discriminant alphabets.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 389,
+          "lineEnd": 389
+        },
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+          "quote": "Define a finite quadratic module by reusing\n  `QuadraticMap ℤ A (AddCircle (1 : ℚ))`, and identify its symmetric biadditive polar form\n  `b_q(x,y)=q(x+y)-q(x)-q(y)` with the underlying pairing.  Supply morphisms, isometries,\n  orthogonal sums, negation, restriction, and passage to the underlying bilinear module.  State\n  nondegeneracy through the polar form.",
+          "path": "content/tau-ceti/Completed/IntegralLattices/README.md",
+          "lineStart": 270,
+          "lineEnd": 274
+        }
+      ]
+    },
+    {
+      "id": "ACT-O02",
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-3-weight-enumerators-and-macwilliams",
+        "FiniteFieldsAndCharacterSums:FF.1",
+        "AdditiveCombinatorics:AC.0"
+      ],
+      "recommendation": "keep",
+      "detail": "These stages share the finite additive-character/Fourier orthogonality kernel. The coding text explicitly imports Mathlib primitive characters and nontrivial-character vanishing, while FF.1 and AC.0 describe broader finite-character and Fourier developments. The texts do not establish that coding must await either complete campaign stage.",
+      "proposal": "Reuse the pinned character primitives, choose one common finite-Fourier normalization, and expose the subspace-indicator transform from coding as reusable API. Keep MacWilliams and Krawtchouk coefficients in coding, Gauss/Jacobi sums in FF.1, and convolution/energy and additive-combinatorial inequalities in AC.0. Do not add a dependency arrow merely because all three use characters. Resolve any duplicated general Fourier helper at declaration level.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-3-weight-enumerators-and-macwilliams",
+          "quote": "Establish the finite-character orthogonality lemma for a linear subspace and its Euclidean dual.\n  Reuse Mathlib's primitive additive character on a finite field and its nontrivial-character sum;\n  expose the resulting finite Fourier transform lemma as reusable API rather than burying it in the\n  final polynomial calculation.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 204,
+          "lineEnd": 207
+        },
+        {
+          "stageId": "FiniteFieldsAndCharacterSums:FF.1",
+          "quote": "Construct additive and multiplicative characters, orthogonality, Gauss and Jacobi sums and their norm/product identities; extend zero values consistently.",
+          "path": "content/campaign/FiniteFieldsAndCharacterSums/README.md",
+          "lineStart": 29,
+          "lineEnd": 29
+        },
+        {
+          "stageId": "AdditiveCombinatorics:AC.0",
+          "quote": "Build sumsets, additive energy, convolution and Fourier analysis on finite abelian groups; prove basic Plunnecke/Ruzsa and energy inequalities with cardinality assumptions.",
+          "path": "content/campaign/AdditiveCombinatorics/README.md",
+          "lineStart": 17,
+          "lineEnd": 17
+        }
+      ]
+    },
+    {
+      "id": "ACT-O03",
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+        "FiniteFieldsAndCharacterSums:FF.4"
+      ],
+      "recommendation": "rescope",
+      "detail": "GN.4 promises to connect lattice codes through FF.4, but FF.4 specifies finite code families and no finite-code-to-real-lattice construction. Construction A is the explicit code/lattice construction in coding Layer 6. The phrase lattice codes is too unspecific to determine a mandatory direct stage edge.",
+      "proposal": "GN.4 should name the actual code/lattice construction it uses. For a Construction-A application, import the coding construction, prove the scalar-extension isometry from the rational carrier with dot/m to the real m^(-1/2) realization, and state the norm/covolume or packing interface needed. FF.4 remains the owner of BCH/Reed-Solomon/evaluation/residue families. Until that use is specified, retain this as an unresolved scope handoff rather than an invented prerequisite or a merge.",
+      "evidence": [
+        {
+          "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+          "quote": "connect lattice codes through FF.4.",
+          "path": "content/campaign/GeometryOfNumbersAndQuadraticArithmetic/README.md",
+          "lineStart": 65,
+          "lineEnd": 65
+        },
+        {
+          "stageId": "FiniteFieldsAndCharacterSums:FF.4",
+          "quote": "Encoding maps, dimension and distance bounds are proved; BCH/Reed-Solomon examples include field-size and length restrictions.",
+          "path": "content/campaign/FiniteFieldsAndCharacterSums/README.md",
+          "lineStart": 69,
+          "lineEnd": 69
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+          "quote": "Let `m ≥ 2` and let `C ≤ (ZMod m)^ι` be an additive code.  Define its standard dual by the\n`ZMod m` dot product and construct `P_m(C)` and `B_m` using the standing convention.",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "lineStart": 325,
+          "lineEnd": 326
+        }
+      ],
+      "resolutionStatus": "requires_consumer_contract"
+    }
+  ],
+  "examined": [
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "overlap",
+      "note": "AC.0 read in full: finite Fourier/convolution overlaps only the general kernel of MacWilliams. No mandatory prerequisite inferred. AC.1 is not the Fourier stage."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "links",
+      "note": "Full document and FF.1/FF.4 read. Two outgoing links to FF.4; ACT-O02 finite Fourier sharing and ACT-O03 ambiguous lattice-code handoff."
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "overlap",
+      "note": "Full document read. GN.4 lattice-code promise lacks the exact construction and real-geometric interface; ACT-O03 records that ambiguity."
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none",
+      "note": "Weil/adelic theta representations are outside the finite code Fourier proof. No exact MacWilliams or code-lattice consumer stated."
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "note": "Theta/partition and moonshine applications do not state a code-stage input; the coding roadmap excludes theta-series development."
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "links",
+      "note": "Full document and all five stages read. Seven incoming links; coordinate-module reuse overlap ACT-O01. Completed is a location/status, not retirement. Independent review adds ACT-L10 for the actual orthogonal lattice sum used by coding Layer 7; generic lattice sums and finite-form coordinate powers remain separate carriers."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none",
+      "note": "Focal roadmap: full document and all seven stage descriptions read; inputs and outputs recorded. This is the subject of the screen, not another supplier."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "none",
+      "note": "Goppa-code motivations are future curve-code applications, not an input to the focal code/lattice scope; FF.4 consumes the curve and coding owners separately."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "none",
+      "note": "Sporadic-group lane uses presentations, not a Golay automorphism-group identification. The focal roadmap explicitly excludes Mathieu identification; no edge."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "none",
+      "note": "Conductor-discriminant formula matches do not refer to finite quadratic discriminant forms or code duality."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none",
+      "note": "Summary/full-text matches screened; no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none",
+      "note": "Global field-valued quadratic-form classification excludes integral-lattice theory; no direct code-stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none",
+      "note": "Polarized Hodge structures and their lattices do not give the finite-coordinate code or Q/Z alphabet construction."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "none",
+      "note": "MacWilliams explicitly does not use theta transformation. Modular forms/theta vocabulary alone creates no direct coding dependency."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "none",
+      "note": "Number-field basis/index/discriminant formulas are not the Construction-A lattice interface. Generic arithmetic vocabulary does not establish a link."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "none",
+      "note": "Field-valued Witt/discriminant invariants are distinct from finite Q/Z discriminant alphabets. No additional direct code input stated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "none",
+      "note": "Field-valued orthogonal/Hermitian group representations are not the finite Q/Z coordinate-alphabet interface; no specific code-stage contract established."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "none",
+      "note": "BCH denotes Baker-Campbell-Hausdorff here, not BCH codes; neither smooth covers nor Lie integration supplies the focal stage outputs."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "none",
+      "note": "Root/weight lattices occur in Lie representation theory; the focal consumer requires the IntegralLattices finite discriminant forms, not highest-weight classification."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "result": "none",
+      "note": "Root data/ADE classification supplies the IntegralLattices bridge. No separate direct coding-stage use beyond that finite discriminant-form interface."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "none",
+      "note": "Spinor weights/Clifford modules are not code alphabets. The D4 spinor-class discriminant computation is imported through IntegralLattices."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "none",
+      "note": "Categorical/enhanced periodic objects are outside coding scope; no categorical Niemeier/Leech glue comparison is claimed."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none",
+      "note": "Summary/full-text screen: no exact focal input/output contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "none",
+      "note": "ADE quiver algebras and categorical lattice language do not specify the finite-code/discriminant construction; no edge."
+    },
+    {
+      "roadmapId": "AnalyticHabiroStack",
+      "result": "none",
+      "note": "New definition summary and all stage text screened; no exact coding-stage supplier, consumer or overlap found."
+    },
+    {
+      "roadmapId": "AnalyticStacks",
+      "result": "none",
+      "note": "New definition summary and all stage text screened; no exact coding-stage supplier, consumer or overlap found."
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "none",
+      "note": "New definition summary/stage screen: punctured surfaces and monodromy are not puncturing of coordinate codes."
+    },
+    {
+      "roadmapId": "QWittVectors",
+      "result": "none",
+      "note": "New definition summary/stage screen: q-Witt vectors do not supply finite quadratic-module or code constructions."
+    },
+    {
+      "roadmapId": "RingStacksAndTransmutation",
+      "result": "none",
+      "note": "New definition summary and all stage text screened; no exact coding-stage supplier, consumer or overlap found."
+    },
+    {
+      "roadmapId": "SolidAnalyticRings",
+      "result": "none",
+      "note": "New definition summary and all stage text screened; no exact coding-stage supplier, consumer or overlap found."
+    }
+  ],
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "verification": "Source statements opened at these exact commits; no Lean build or whole-library absence proof. Audit-16 was read as inherited evidence, not accepted as our verification of all its citations.",
+    "checkedSources": [
+      {
+        "library": "tauceti",
+        "path": "TauCeti/InformationTheory/Coding/Basic.lean",
+        "blob": "edf8d399c999348aede6c7c6902cc5e059a117df",
+        "declarations": [
+          "TauCeti.LinearCode",
+          "TauCeti.AdditiveCode"
+        ],
+        "fit": "Aliases are exactly Submodule F (iota -> F) and AddSubgroup (iota -> A), with no finiteness restriction on the aliases. Reuse instead of adding wrappers."
+      },
+      {
+        "library": "tauceti",
+        "path": "TauCeti/LinearAlgebra/FiniteBilinearModule/CoordinatePower.lean",
+        "blob": "46e821c26f86f24a0b47967afa11be1f21123e91",
+        "declarations": [
+          "TauCeti.FiniteBilinearModule.coordinatePower",
+          "TauCeti.FiniteBilinearModule.IsNondegenerate.coordinatePower",
+          "TauCeti.FiniteBilinearModule.mem_orthogonalComplement_coordinatePower_iff",
+          "TauCeti.FiniteBilinearModule.Isometry.coordinatePower",
+          "TauCeti.FiniteQuadraticModule.coordinatePower",
+          "TauCeti.FiniteQuadraticModule.isIsotropic_coordinatePower_iff",
+          "TauCeti.FiniteQuadraticModule.Isometry.coordinatePower"
+        ],
+        "fit": "Arbitrary finite coordinate type; literal Pi carriers, summed pairings/quadratic values, and coordinatewise isometries. Nondegeneracy is an explicit hypothesis. Does not supply the specific A2/F3 or D4/F4 lattice-coordinate comparisons."
+      },
+      {
+        "library": "mathlib",
+        "path": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "blob": "9c8589c4e800b9b9a58ef4621caea4c45e2c6839",
+        "declarations": [
+          "AddChar.PrimitiveAddChar",
+          "AddChar.FiniteField.primitiveChar",
+          "AddChar.IsPrimitive.of_ne_one",
+          "AddChar.sum_eq_zero_of_ne_one",
+          "AddChar.sum_eq_card_of_eq_one",
+          "AddChar.sum_mulShift"
+        ],
+        "fit": "primitiveChar needs different source/target characteristics and returns a character into a specified cyclotomic extension, not definitionally into the supplied coefficient field. Nontrivial-character vanishing needs a finite additive group and domain-valued character. The code subspace-annihilator lemma remains a separate comparison using F-linearity."
+      }
+    ],
+    "searchLimits": "Both library repositories searched as discovery aids (coordinatePower and primitiveChar); zero hits mean only not found in those searches. Current documentation was not used as pinned evidence. No external textbook theorem or PDF proof was newly checked."
+  },
+  "requests": [
+    {
+      "id": "ACT-R01",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-1-finite-codes-matrices-and-elementary-constructions",
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups"
+      ],
+      "request": "Replace construction instructions for the checked aliases and coordinate powers by direct imports. Retain missing code-specific theorems and actual alphabet/discriminant comparisons.",
+      "status": "recorded_for_owner"
+    },
+    {
+      "id": "ACT-R02",
+      "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "request": "Resolve ACT-O03: name which lattice-code construction GN.4 uses and give its rational-to-real form-preserving, norm and covolume contract before adding a directed edge.",
+      "status": "unresolved_consumer_contract"
+    },
+    {
+      "id": "ACT-R03",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+        "tauceti:Completed/IntegralLattices#layer-4-overlattices-and-isotropic-subgroups"
+      ],
+      "request": "For a proof of the Construction-A determinant formula via the general index theorem, factor the elementary L0 coordinate/quotient calculation early. Do not make Layer 6 depend on the completed Layer 7 comparison, which already consumes Layer 6. The present text also permits an elementary index proof; no unconditional IL4-to-L6 edge was invented.",
+      "status": "proof_route_choice"
+    },
+    {
+      "id": "ACT-R04",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-3-weight-enumerators-and-macwilliams"
+      ],
+      "request": "For subspace-character orthogonality use field-linearity to identify the character annihilator with the Euclidean dual. Keep the PrimitiveAddChar cyclotomic target explicit, and justify coefficient transport/injectivity when obtaining the integral polynomial identity. A primitive character on a non-prime finite field is not an injective additive map.",
+      "status": "implementation_contract"
+    },
+    {
+      "id": "ACT-R05",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups"
+      ],
+      "request": "Preserve m >= 2, half-norm Q/Z values, the separate odd/even hypotheses, actual subtype quotients, and the trace-Hermitian D4 convention. The binary Golay Construction-A acceptance is not a rootless or Leech-lattice identification.",
+      "status": "normalization_guard"
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+        "tauceti:Completed/IntegralLattices"
+      ],
+      "detail": "Generic coordinate powers and alphabet-isometry lifting are already in the pinned library.",
+      "proposal": "ACT-O01: import the common API in coding Layers 2 and 7, keep only code/alphabet comparison proofs there; no roadmap merge."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+        "FiniteFieldsAndCharacterSums",
+        "GeometryOfNumbersAndQuadraticArithmetic"
+      ],
+      "detail": "The lattice-code use in GN.4 lacks a specified constructor and geometric comparison.",
+      "proposal": "ACT-O03: separate the finite-code family owner, Construction-A owner and real-geometric application; add only the precisely justified stage edge after the consumer contract is fixed."
+    }
+  ],
+  "validation": {
+    "command": "python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json",
+    "status": "passed",
+    "note": "Structural validation does not certify mathematical correctness, Lean completion or integration. Independent link/overlap review remains required.",
+    "errors": 0,
+    "warnings": 0,
+    "environment": "Unmodified official script in the complete GitHub Pages artifact scratch tree; data and relevant research inputs match inputRevision.",
+    "additionalChecks": [
+      "All 217 examined IDs equal the active atlas plus six new definitions.",
+      "No new link duplicates atlas or 25 other link packets; no identical overlap tuple.",
+      "All quote substrings and source-line locators checked against physical Markdown.",
+      "Retired suppliers excluded; focal endpoints and input blob hashes checked."
+    ],
+    "ciStatus": "not_run_before_submission"
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
+    "date": "2026-09-23",
+    "notes": "Codex codex-c83e7a read every full link/overlap endpoint and all seven own layers, confirmed all nine original arrows and three recommendations, verified all 28 original quotes and line locators, and checked the three cited pinned source files directly. Added ACT-L10 for the lattice-side orthogonal sum in the final discriminant-coordinate interface, retaining the missing finite-family and named-alphabet comparisons. No original link removed. Reviewed AUDIT-16 coverage is inherited evidence; this is not a whole-library or Lean compilation certification.",
+    "removed": [],
+    "added": [
+      "ACT-L10"
+    ]
+  },
+  "reviewBaseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "checkedSources": [
+      {
+        "path": "TauCeti/InformationTheory/Coding/Basic.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/InformationTheory/Coding/Basic.lean",
+        "blob": "edf8d399c999348aede6c7c6902cc5e059a117df",
+        "sha256": "214c5f27f2494c56f9b228c50524af52bb319b708a061c19f6254d66d2068075"
+      },
+      {
+        "path": "TauCeti/LinearAlgebra/FiniteBilinearModule/CoordinatePower.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/FiniteBilinearModule/CoordinatePower.lean",
+        "blob": "46e821c26f86f24a0b47967afa11be1f21123e91",
+        "sha256": "d6538b6e7069a19e916564a7be4bab13178a33b9779fb04785991b49e1fa8e32"
+      },
+      {
+        "path": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "blob": "9c8589c4e800b9b9a58ef4621caea4c45e2c6839",
+        "sha256": "19b06c1956274e1e66ecafbcf1c0436fb44af084eac2e903cbcd1271140d808d"
+      }
+    ],
+    "coverage": "Read all seven AlgebraicCodingTheory entries from current reviewed library coverage (REV-AUDIT-16: 203 checked, 32 corrections). The three cited files were independently read and their blob hashes matched; other audit claims remain inherited."
+  },
+  "reviewValidation": {
+    "literalQuotes": 30,
+    "originalLineLocators": 28,
+    "links": 10,
+    "overlaps": 3,
+    "examined": 217,
+    "catalogue": "all active IDs, including focal roadmap; retired FoundationsAndLibraryIntegration excluded",
+    "ownStagesSearched": 7,
+    "lean": "not compiled"
+  }
+}
