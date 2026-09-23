@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-YUN-ZHANG-17",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Joins the ShtukaSpecialCyclesAndHigherSiegelWeil Part II with the same id, parent, title and area as PAPER-FENG-YUN-ZHANG-24 and PAPER-YUN-ZHANG-19. The brief is amended: the Kronecker limit test expects 2^{r+1} (E9), the Riemann hypothesis over function fields is imported from GS.6 and DWP.7, and Theorem B.2, Proposition B.1 and Remark B.5 are stated in their corrected scope (E15–E17)."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "GZ.5 plans the Waldspurger period formula; §§2 and 4 are its everywhere unramified function-field proof by Jacquet's relative trace formula. Items 8, 9 and 14 are corrected (Lemma 2.2's sum, the u = ∞ orbital integrals, and the |ω_X| factor, which multiplies ℒ)."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "SF.5 plans Chow groups, refined Gysin maps and intersection products; Appendix A is general intersection theory on Deligne–Mumford stacks. Items 32 and 33 gain their Deligne–Mumford hypotheses."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "EDC.8 plans cohomological correspondences and trace classes; §A.4 is the Frobenius-graph refinement. Item 35 adds Varshavsky's Prop. 1.2.5."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "AL.2 plans the Godement–Jacquet L-functions; nothing in the atlas plans super-positivity, so Appendix B is a source of that stage. Items 36 and 37 now record that Proposition B.1's second part needs a non-polynomial φ (E16) and Theorem B.2 an entire L(π, s) (E15)."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-442dc5) of the extraction by cc-fb70e5 (issue #1163).\n\nSources read:\n- the whole published version (author's copy, same SHA-256 as the extraction) and arXiv v3 (same SHA-256), which is dated 11 April 2017, not 24 January 2017;\n- Varshavsky, arXiv math/0205130v2, for the citation of Theorem 5.4.\n\nMethod: three read-only helper agents of this session split the paper (§§1–4; §§5–7; §§8–9 and Appendices A–B). They re-derived the explicit orbital integrals, the dimension counts and point counts, and the Appendix B examples. The reviewer checked every finding and every change at the page image or in the text, and re-derived the u = ∞ orbital integrals and the Appendix B counterexamples.\n\nExtraction error corrected: the |ω_X| factor of Theorems 1.2 and 1.6 and of Proposition 4.5/Theorem 4.7 multiplies ℒ; the extraction divided by it (a factor q^{4g−4}).\n\nSource issues: E1–E7 confirmed, with E2 now affecting nothing; E8 rejected. E9–E37 added. The main ones: Theorem 1.8 and Corollary 2.5 should have 2^{r+1}, not 2^{r+2} (E9); Theorem B.2 fails for n = 1 over function fields (E15); Proposition B.1's second part fails for polynomials (E16); Remark B.5 fails over function fields (E17); Corollary 3.3 and Lemma 6.4 lack degree hypotheses (E11, E29). The rest are proof gaps with short repairs and misprints. Theorems 1.1–1.7 are unaffected.\n\nItems corrected in place: 1, 2, 3, 4, 5, 8, 9, 10, 11, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 26, 27, 28, 29, 32, 33, 35, 36, 37, 38, 42, 43. Status: item 43 remains planned, with GlobalShtukasAndFunctionFieldLanglands GS.6 and DeligneWeightsAndPurity DWP.7 added for the Riemann hypothesis. Every planned stage id was checked in data/atlas.json.\n\nEvery missing item is routed exactly once (36). check_paper.py reports ok."
+}
