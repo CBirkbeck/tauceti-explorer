@@ -4,19 +4,24 @@
   "sourceIssues": [
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E1",
-      "kind": "error",
+      "kind": "gap",
       "locator": "Lemma 5.2(ii), p.956, in the published version, Annals of Mathematics 194 (2021), 943–966 (Caltech repository copy of the publisher PDF, SHA-256 77ff3290…790e)",
       "printed": "\"(ii) The number of supersingular points in X₀(N)(F_{p²}) that correspond to supersingular elliptic curves over F_{p²} with the Frobenius trace a_{p²} = 2p or −2p and the j-invariant different from 0 and 1728 is at least µ(⌊(p−1)/12⌋ − 3/2 + (−3/p) + ½(−1/p)). In particular, there is a supersingular point with a_{p²} = 2p or −2p in X₀(N)(F_{p²}) over X(1)(F_{p²})∖{0,1728} that is unramified for π if p ≡ 1 mod 12 or p ≥ 31.\"",
-      "correction": "The \"in particular\" follows for p ≡ 1 mod 12 and for p ≥ 31 with p ≠ 47. At p = 47 the displayed lower bound is 0 and gives nothing. The existence of an unramified supersingular point at p = 47 comes instead from Lemma 5.2(iii), since 47 ≡ 2 mod 3.",
-      "reason": "The conclusion needs the lower bound to exceed the number of ramification points, which (i) bounds by µ/6. At p = 47: ⌊46/12⌋ = 3, (−3/47) = −1 (47 ≡ 2 mod 3) and (−1/47) = −1 (47 ≡ 3 mod 4), so the bound is µ(3 − 3/2 − 1 − 1/2) = 0 < µ/6. A computation over all primes 31 ≤ p ≤ 400 finds 47 as the only failure, and beyond that the floor term dominates. The main theorem is unaffected: Lemma 5.2(iii) covers p = 47, and Rubin's own verification (Remark 2.3) covers small p. Found by the review REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21.",
-      "affects": "a stated result",
+      "correction": "The displayed bound is valid, but at p = 47 it equals 0, so the \"in particular\" does not follow from it. The \"in particular\" is nevertheless true, and for every p ≥ 13. By the Eichler–Deuring count and the N(t) table in the proof, each of the ⌊(p−1)/12⌋ supersingular j ≠ 0, 1728 has models over F_{p²} with a_{p²} = ±2p and µ points of X_0(N)(F_{p²}) above it. That gives µ⌊(p−1)/12⌋ ≥ µ > µ/6 such points. The displayed bound equals µ(⌊(p−1)/12⌋ − 2δ − ε) in the notation p − 1 = 12m + 4δ + 6ε of the proof, and is weaker than this count.",
+      "reason": "The deduction needs the lower bound to exceed the number of ramification points, which (i) bounds by µ/6. At p = 47: ⌊46/12⌋ = 3, (−3/47) = −1 and (−1/47) = −1, so the displayed bound is µ(3 − 3/2 − 1 − 1/2) = 0 < µ/6. Every other prime p ≥ 31 passes. The count from the proof's own facts is 3µ at p = 47, so the statement holds and only the deduction from the displayed bound fails. The construction of §5 (p.957) cites Lemma 5.2(ii) and (iii) together, and Rubin's verification (Remark 2.3) covers p = 47, so nothing downstream is affected. Found by the review REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21. Reclassified by REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21 from \"error; affects a stated result\".",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals of Mathematics article page https://annals.math.princeton.edu/2021/194-3/p08, checked 22 September 2026: no erratum or corrigendum is linked",
         "arXiv: no version of this paper was found by arXiv and web searches; the later p = 3 extension (arXiv 2401.09037v2, 2 January 2025) was read and mentions no correction",
         "web search for an erratum, corrigendum or correction, 22 September 2026: none found",
         "authors' pages: A. A. Burungale's homepage lists no papers or corrections; the Kyushu University research portal entry for the paper shows no correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at p.956 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named). The arithmetic is right: at p = 47 the displayed bound is 0, so the \"in particular\" does not follow from it. This review corrects the reach in place. The entry called this a false stated result, but the \"in particular\" is true, including at p = 47. The facts in the paper's own proof (p.957) give more than the displayed bound. Write p − 1 = 12m + 4δ + 6ε. The N(t) table gives N(2p) = N(−2p) = m + δ + ε, and the classes with t = ±p and t = 0 occur only for j = 0 and j = 1728. So each of the m = ⌊(p−1)/12⌋ supersingular j-invariants other than 0 and 1728 has models over F_{p²} with a_{p²} = ±2p. Each has µ points of X_0(N)(F_{p²}) above it, by étaleness and Lemma 5.1(i). The true count is therefore µ⌊(p−1)/12⌋. The displayed bound equals µ(m − 2δ − ε), which is valid but weaker. Since there are at most µ/6 ramification points, the \"in particular\" holds for every p ≥ 13; at p = 47 the count is 3µ. So this is a gap in the deduction, not a false statement, and it reaches nothing. The kind, affects, correction and reason are updated accordingly. I confirmed by hand that 47 is the only prime p ≥ 31 at which the displayed bound fails.",
+        "by": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
+      }
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E2",
@@ -32,7 +37,12 @@
         "arXiv: no version of this paper was found by arXiv and web searches; the later p = 3 extension (arXiv 2401.09037v2, 2 January 2025) was read and mentions no correction",
         "web search for an erratum, corrigendum or correction, 22 September 2026: none found",
         "authors' pages: A. A. Burungale's homepage lists no papers or corrections; the Kyushu University research portal entry for the paper shows no correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at pp.952–954 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named). The page images print \"a Hecke character of order l^m\" (p.952 and Proposition 3.3), \"the conductor fl^m of ϕ̄ν\" (p.953) and \"let l^m be the conductor\" (p.954). For l split, the part of the ring class group of conductor l^n coming from l is a quotient of (Z/l^n)^×. Its l-Sylow subgroup is cyclic of order l^{n−1} (the entry's \"the l-part … of order (l−1)l^{n−1}\" means the whole local factor). So a ν of exact order l^m ≥ l has conductor l^{m+1}O_K. Then L_m (degree l^m) does not lie in K(fl^m p^{n+1}), contrary to the definition of M_{n,m}, while z_{fl^m}, (3.6)–(3.7) and the proof of 3.3(3) all use l^m as the conductor. Reading l^m as the conductor and indexing L_m to match is consistent. So is the alternative of keeping \"order\" and using z_{fl^{m+1}}. Nothing else changes.",
+        "by": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
+      }
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E3",
@@ -48,7 +58,12 @@
         "arXiv: no version of this paper was found by arXiv and web searches; the later p = 3 extension (arXiv 2401.09037v2, 2 January 2025) was read and mentions no correction",
         "web search for an erratum, corrigendum or correction, 22 September 2026: none found",
         "authors' pages: A. A. Burungale's homepage lists no papers or corrections; the Kyushu University research portal entry for the paper shows no correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p.958 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named): \"[Φ′_s : Φ] = p^{s−1}(p+1)\". No Φ′_s is defined, and (O/p^sO)^×/(Z/p^sZ)^× has order p^{s−1}(p+1), the degree of Ψ′_s over Φ.",
+        "by": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
+      }
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E4",
@@ -64,7 +79,12 @@
         "arXiv: no version of this paper was found by arXiv and web searches; the later p = 3 extension (arXiv 2401.09037v2, 2 January 2025) was read and mentions no correction",
         "web search for an erratum, corrigendum or correction, 22 September 2026: none found",
         "authors' pages: A. A. Burungale's homepage lists no papers or corrections; the Kyushu University research portal entry for the paper shows no correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p.959 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named). The index-p superlattices (1+ap^s)/p^{s+1}·Z_pt + T of T_s have conductor p^{s+1}, so they correspond to the conjugates of x_{s+1}, and the next display T_p x_s = Σ_σ σx_{s+1} + x_{s−1} uses x_{s+1}.",
+        "by": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
+      }
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E5",
@@ -80,7 +100,12 @@
         "arXiv: no version of this paper was found by arXiv and web searches; the later p = 3 extension (arXiv 2401.09037v2, 2 January 2025) was read and mentions no correction",
         "web search for an erratum, corrigendum or correction, 22 September 2026: none found",
         "authors' pages: A. A. Burungale's homepage lists no papers or corrections; the Kyushu University research portal entry for the paper shows no correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p.959 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named). The p+1 index-p superlattices of T are permuted by Gal(Ψ′_1/Φ), the image of ∆′, of order p+1. ∆ = Gal(Φ_0/Φ) has order p²−1 and does not act on points over Ψ′_1. Definition 5.4 sums over ∆′, and the s = 0 relation needed there is y_0 = Σ_{σ∈∆′} σx_1 = T_p x_0 = 0.",
+        "by": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
+      }
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E6",
@@ -96,7 +121,12 @@
         "arXiv: no version of this paper was found by arXiv and web searches; the later p = 3 extension (arXiv 2401.09037v2, 2 January 2025) was read and mentions no correction",
         "web search for an erratum, corrigendum or correction, 22 September 2026: none found",
         "authors' pages: A. A. Burungale's homepage lists no papers or corrections; the Kyushu University research portal entry for the paper shows no correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p.959 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named): \"V_∞/V^{∗,−}_∞\" is printed without the star. V^{∗,−}_∞ is a submodule of V^∗_∞, and the proof below and Theorem 5.8 use V^∗_∞/V^{∗,−}_∞.",
+        "by": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
+      }
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E7",
@@ -112,7 +142,12 @@
         "arXiv: no version of this paper was found by arXiv and web searches; the later p = 3 extension (arXiv 2401.09037v2, 2 January 2025) was read and mentions no correction",
         "web search for an erratum, corrigendum or correction, 22 September 2026: none found",
         "authors' pages: A. A. Burungale's homepage lists no papers or corrections; the Kyushu University research portal entry for the paper shows no correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p.960 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named). I verified the relation independently from Coleman's norm relation ∏_{w∈F[π]} f(X[+]w) = f([π]X). With h = f′/(fλ′), it gives Σ_{w∈F[π]} h(X[+]w) = π·h([π]X). At X = 0 this is Σ_{γ∈∆} h(v_0^γ) = (π − 1)h(0), so δ_1 = (1 − π^{−1})δ = (1 + p^{−1})δ. The trivial character has conductor p^0 and lies in Ξ⁺, so δ_1 vanishes on V^{∗,−}_∞, and hence so does δ. The same relation reconciles (3.6) with (3.7) through the Euler factor 1 − ϕ̄ν(pO_K)/p² = 1 + 1/p. It also shows that δ is well defined on V^∗_∞, since δ_1 kills (σ − 1)U^∗_∞.",
+        "by": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
+      }
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E8",
@@ -128,7 +163,54 @@
         "arXiv: no version of this paper was found by arXiv and web searches; the later p = 3 extension (arXiv 2401.09037v2, 2 January 2025) was read and mentions no correction",
         "web search for an erratum, corrigendum or correction, 22 September 2026: none found",
         "authors' pages: A. A. Burungale's homepage lists no papers or corrections; the Kyushu University research portal entry for the paper shows no correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p.962 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named): \"factoring through Gal(Ψ_n/Ψ)\". No field Ψ is defined, and λ_χ (p.955) is defined for characters of Gal(Ψ_n/Φ).",
+        "by": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
+      }
+    },
+    {
+      "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E9",
+      "kind": "misprint",
+      "locator": "Lemma 5.1(ii), p.956, in the published version, Annals of Mathematics 194 (2021), 943–966 (Caltech repository copy of the publisher PDF, SHA-256 77ff3290…790e)",
+      "printed": "\"(ii) Let A be an elliptic curve over O that is a lift of A̅. Then the Honda type of the associated formal group Â is ±x² + p. In particular, Â is Lubin–Tate with parameter ∓p.\" (with a_q(A̅) = ±2p)",
+      "correction": "\"… the Honda type of Â is ∓x² + p. In particular, Â is Lubin–Tate with parameter ±p.\" That is, a_{p²} = 2p gives parameter p, and a_{p²} = −2p gives parameter −p.",
+      "reason": "By (i), φ_q = ±p on A̅ when a_q = ±2p. For a Lubin–Tate group with parameter π, [π] reduces to the q-power Frobenius. So π = φ_q = ±p, not ∓p. The paper's own set-up confirms this. §5.0.1 takes E/Q with a_p = 0, whose reduction has a_{p²} = a_p² − 2p = −2p, and states that Ê ≅ F, the Lubin–Tate group with parameter −p; the printed (ii) would give +p. Honda's type p − a_p x + x² for E/Z_p is x² + p there, whereas the printed (ii) would give −x² + p. The pairing of types with parameters in (ii) is right; only the link to the sign of a_q is reversed. Only \"Â is Lubin–Tate\" is used afterwards (p.958), so nothing is affected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2021/194-3/p08, checked 23 September 2026: pages 943–966, no erratum or corrigendum is linked",
+        "Crossref record of DOI 10.4007/annals.2021.194.3.8, checked 23 September 2026: no update or correction is registered",
+        "arXiv: no version of this paper was found (as the errata job records)",
+        "The review found it at the locator in the version named."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21.",
+        "by": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
+      }
+    },
+    {
+      "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E10",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 5.2(ii), (iii), p.957, in the published version, Annals of Mathematics 194 (2021), 943–966 (Caltech repository copy of the publisher PDF, SHA-256 77ff3290…790e)",
+      "printed": "\"Since p is relatively prime to 6, the ramification index of π̄ at elliptic points is 2 or 3. So there are µ points in the fiber of each supersingular point in X(1) except j = 0, 1728, …\"",
+      "correction": "\"… the ramification index of X_0(N) → X(1) at elliptic points is 2 or 3.\"",
+      "reason": "π̄ : X_0(N)_{F_p} → E̅ is the reduced modular parametrization (p.955), whose ramification points Lemma 5.2(i) bounds. Elliptic points and the fibres over X(1) belong to the projection X_0(N) → X(1), which the sentence is about.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2021/194-3/p08, checked 23 September 2026: pages 943–966, no erratum or corrigendum is linked",
+        "Crossref record of DOI 10.4007/annals.2021.194.3.8, checked 23 September 2026: no update or correction is registered",
+        "arXiv: no version of this paper was found (as the errata job records)",
+        "The review found it at the locator in the version named."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21.",
+        "by": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
+      }
     }
   ]
 }
