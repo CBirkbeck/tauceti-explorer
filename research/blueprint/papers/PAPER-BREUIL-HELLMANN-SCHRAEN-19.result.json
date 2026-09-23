@@ -1504,7 +1504,12 @@
         "arXiv:1702.02192v1 (82 pp., SHA-256 4c967337f4bc84d96043ccb9c90e68b4ed0edc63dbd3b4b68cd36c848dbcf961), the only preprint version; its pagination differs from the published one.",
         "The main follow-up paper, Z. Wu, « Local models for the trianguline variety and partially classical families », Ann. Sci. ÉNS (2024), 10.24033/asens.2580, read in arXiv:2103.03823v2 and searched for erratum, gap, incorrect, mistake and 'should be replaced' in any context naming Breuil or BHS: no hits. So, unlike the case of Kisin–Pappas, no later paper by these authors or their successors records a correction to this one.",
         "These are therefore this worker's own findings (Claude Code, session cc-fb70e5, 2026-09-22), not author-confirmed and not put to the authors. Reported candidates that could not be confirmed personally were dropped."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as printed at p. 301: 'Remark 1.1. — We thank the referee for pointing out that we forgot the assumption ᵖ√1 ∉ F in a first version of this paper. Actually this assumption is also missing in …'. The extraction is right that no correction to THIS paper is called for — the paper is correcting its own two predecessors — and right to record it anyway, since a roadmap built on those predecessors as printed would carry a hypothesis set the authors have since declared incomplete. A well-judged entry. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
+      }
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E2",
@@ -1521,7 +1526,12 @@
         "arXiv:1702.02192v1 (82 pp., SHA-256 4c967337f4bc84d96043ccb9c90e68b4ed0edc63dbd3b4b68cd36c848dbcf961), the only preprint version; its pagination differs from the published one.",
         "The main follow-up paper, Z. Wu, « Local models for the trianguline variety and partially classical families », Ann. Sci. ÉNS (2024), 10.24033/asens.2580, read in arXiv:2103.03823v2 and searched for erratum, gap, incorrect, mistake and 'should be replaced' in any context naming Breuil or BHS: no hits. So, unlike the case of Kisin–Pappas, no later paper by these authors or their successors records a correction to this one.",
         "These are therefore this worker's own findings (Claude Code, session cc-fb70e5, 2026-09-22), not author-confirmed and not put to the authors. Reported candidates that could not be confirmed personally were dropped."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p. 352, printed exactly as quoted. The sentence before it defines T₀ ⊂ T_L as the complement of the points z^k and ε(z)z^k, and T₀ⁿ as the characters with δᵢ/δⱼ ∈ T₀ for i ≠ j. Negating that gives: the complement of T₀ⁿ consists of the δ for which δᵢδⱼ⁻¹ OR εδᵢδⱼ⁻¹ is algebraic for SOME i ≠ j — the extraction's correction exactly. As printed, with 'and', the condition asks both to be algebraic at once; since ε = N_{K/Q_p}|N_{K/Q_p}| is not algebraic, δᵢδⱼ⁻¹ algebraic forces εδᵢδⱼ⁻¹ not algebraic, so no character satisfies it, the complement is all of T_Lⁿ and T₀ⁿ = T_Lⁿ — contradicting the definition one sentence earlier. The corrected reading is forced, and it matters: T₀ⁿ is the genericity locus on which §3 and §4 run. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
+      }
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E3",
@@ -1538,7 +1548,12 @@
         "arXiv:1702.02192v1 (82 pp., SHA-256 4c967337f4bc84d96043ccb9c90e68b4ed0edc63dbd3b4b68cd36c848dbcf961), the only preprint version; its pagination differs from the published one.",
         "The main follow-up paper, Z. Wu, « Local models for the trianguline variety and partially classical families », Ann. Sci. ÉNS (2024), 10.24033/asens.2580, read in arXiv:2103.03823v2 and searched for erratum, gap, incorrect, mistake and 'should be replaced' in any context naming Breuil or BHS: no hits. So, unlike the case of Kisin–Pappas, no later paper by these authors or their successors records a correction to this one.",
         "These are therefore this worker's own findings (Claude Code, session cc-fb70e5, 2026-09-22), not author-confirmed and not put to the authors. Reported candidates that could not be confirmed personally were dropped."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p. 397, and I checked the quotation on a page image because the relation symbol and the (in)equality are each a single glyph that the text layer drops. The Claim prints, exactly as the extraction records it, 'Hom_{U(g)}(L(ww₀·μ), Π^an_∞[m^∞_{r_y}])^{U_0}[m^∞_{ε_w,sm}] ≠ 0 if w_R ≼ w' — so the extraction quoted it correctly, including the ≠ and the ≼, which distinguishes it from the vanishing statement (5.15) higher up the same page. The substance is right too: the point y ranges over the patched space, and its Weyl element is introduced two paragraphs earlier as 'w_y ∈ ∏_{v∈S_p} S_n^{[F_ṽ:Q_p]} as we defined w_R in (5.13)', while w_R itself is defined only for a refinement R of the fixed global ρ and so has no meaning for a general y. Step 4, immediately below the Claim, then reads 'Let w … such that w_y ≼ w'. So w_R in the Claim is a slip for w_y. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
+      }
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E4",
@@ -1555,7 +1570,12 @@
         "arXiv:1702.02192v1 (82 pp., SHA-256 4c967337f4bc84d96043ccb9c90e68b4ed0edc63dbd3b4b68cd36c848dbcf961), the only preprint version; its pagination differs from the published one.",
         "The main follow-up paper, Z. Wu, « Local models for the trianguline variety and partially classical families », Ann. Sci. ÉNS (2024), 10.24033/asens.2580, read in arXiv:2103.03823v2 and searched for erratum, gap, incorrect, mistake and 'should be replaced' in any context naming Breuil or BHS: no hits. So, unlike the case of Kisin–Pappas, no later paper by these authors or their successors records a correction to this one.",
         "These are therefore this worker's own findings (Claude Code, session cc-fb70e5, 2026-09-22), not author-confirmed and not put to the authors. Reported candidates that could not be confirmed personally were dropped."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively by comparing the two lemmas on facing pages. Lemma 5.2.3 (p. 392) begins 'For any s ∈ Z_{≥1} the L-vector space Hom_{U(g)}(U(g)⊗_{U(b)} μ, Π^an)^{U_0}[m^s_{ε_sm}] is finite dimensional and we have an isomorphism …', and Lemma 5.2.4 (p. 393) reads 'For any s ∈ Z_{≥1} the L-vector space Hom_{U(g)}(U(g) ⊗_{U(b)} μ, Π^an)^{U_0}[m^s_{ε_sm}] is finite dimensional' — word for word the first assertion of 5.2.3, and nothing else, so as printed the lemma is empty. Its own proof gives the general statement: 'a direct consequence of Lemma 5.2.3, the left exactness of the functor …, the fact that each simple object of the category O is a quotient of a Verma module and that each object of O has finite length' is a dévissage that proves finite-dimensionality for an arbitrary object M of O, which is what §5.3 uses. The extraction's reconstruction is right, and its observation that the printed sentence carries no full stop is also correct. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
+      }
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E5",
@@ -1572,7 +1592,12 @@
         "arXiv:1702.02192v1 (82 pp., SHA-256 4c967337f4bc84d96043ccb9c90e68b4ed0edc63dbd3b4b68cd36c848dbcf961), the only preprint version; its pagination differs from the published one.",
         "The main follow-up paper, Z. Wu, « Local models for the trianguline variety and partially classical families », Ann. Sci. ÉNS (2024), 10.24033/asens.2580, read in arXiv:2103.03823v2 and searched for erratum, gap, incorrect, mistake and 'should be replaced' in any context naming Breuil or BHS: no hits. So, unlike the case of Kisin–Pappas, no later paper by these authors or their successors records a correction to this one.",
         "These are therefore this worker's own findings (Claude Code, session cc-fb70e5, 2026-09-22), not author-confirmed and not put to the authors. Reported candidates that could not be confirmed personally were dropped."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, both halves, and the paper contradicts itself. 2.2.1 is a PROPOSITION: p. 311 prints 'Proposition 2.2.1. — The projection V_w → U_w induced by π is a geometric vector bundle', and it is cited correctly as 'Proposition 2.2.1' on p. 315 and again on p. 320; only the citation on p. 313 calls it a Lemma. The typo is printed as quoted too: p. 313 has 'As the V_w are pairwise disjoint is also follows that none of the X_w is contained in another'. I did not separately verify the third element of the correction, the ambient scheme in the proof of Lemma 2.5.2, which rests on the extraction's reading of that diagram. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
+      }
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E6",
@@ -1589,7 +1614,12 @@
         "arXiv:1702.02192v1 (82 pp., SHA-256 4c967337f4bc84d96043ccb9c90e68b4ed0edc63dbd3b4b68cd36c848dbcf961), the only preprint version; its pagination differs from the published one.",
         "The main follow-up paper, Z. Wu, « Local models for the trianguline variety and partially classical families », Ann. Sci. ÉNS (2024), 10.24033/asens.2580, read in arXiv:2103.03823v2 and searched for erratum, gap, incorrect, mistake and 'should be replaced' in any context naming Breuil or BHS: no hits. So, unlike the case of Kisin–Pappas, no later paper by these authors or their successors records a correction to this one.",
         "These are therefore this worker's own findings (Claude Code, session cc-fb70e5, 2026-09-22), not author-confirmed and not put to the authors. Reported candidates that could not be confirmed personally were dropped."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the giveaway is inside the one sentence. Page 321 states the paper's own convention: 'Recall that P_{x,y} = 0 if and only if x ⋠ y and that P_{x,x}(1) = 1' — so P vanishes unless the FIRST index precedes the second. Page 323 then prints 'As P_{w,w′}(1) = 0 unless w′ ≼ w and P_{w₀w,w₀w′}(1) = 1, it follows that the matrix (P_{w₀w,w₀w′}(1)) … is also invertible'. The first factor is written without w₀ while the second carries it, in the same clause, and the matrix whose triangularity is at issue is the w₀-twisted one. With the convention, P_{w₀w,w₀w′}(1) = 0 unless w₀w ≼ w₀w′, which is equivalent to w′ ≼ w because multiplication by w₀ reverses the Bruhat order — precisely the triangularity the argument needs. So the subscripts, not the relation, are what is missing, exactly as the correction says. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
+      }
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E7",
@@ -1606,7 +1636,12 @@
         "arXiv:1702.02192v1 (82 pp., SHA-256 4c967337f4bc84d96043ccb9c90e68b4ed0edc63dbd3b4b68cd36c848dbcf961), the only preprint version; its pagination differs from the published one.",
         "The main follow-up paper, Z. Wu, « Local models for the trianguline variety and partially classical families », Ann. Sci. ÉNS (2024), 10.24033/asens.2580, read in arXiv:2103.03823v2 and searched for erratum, gap, incorrect, mistake and 'should be replaced' in any context naming Breuil or BHS: no hits. So, unlike the case of Kisin–Pappas, no later paper by these authors or their successors records a correction to this one.",
         "These are therefore this worker's own findings (Claude Code, session cc-fb70e5, 2026-09-22), not author-confirmed and not put to the authors. Reported candidates that could not be confirmed personally were dropped."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as to the first and principal element. The filtration of (3.5) is built on D_pdR(W) — p. 336 prints 'we define a filtration Fil^•_{W⁺}(D_pdR(W)) of D_pdR(W) by the formula' and every surrounding occurrence is D_pdR — so the D_dR(W) appearing inside (3.6) is a slip for D_pdR(W), and indeed D_dR(W) is defined nowhere in the paper. The other two elements of the correction, the completion point (α^{-1}(Fil_{W⁺,•}), N_W) and the reference to Theorem 3.2.5, rest on the extraction's reading rather than on a check of mine. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
+      }
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E8",
@@ -1623,7 +1658,12 @@
         "arXiv:1702.02192v1 (82 pp., SHA-256 4c967337f4bc84d96043ccb9c90e68b4ed0edc63dbd3b4b68cd36c848dbcf961), the only preprint version; its pagination differs from the published one.",
         "The main follow-up paper, Z. Wu, « Local models for the trianguline variety and partially classical families », Ann. Sci. ÉNS (2024), 10.24033/asens.2580, read in arXiv:2103.03823v2 and searched for erratum, gap, incorrect, mistake and 'should be replaced' in any context naming Breuil or BHS: no hits. So, unlike the case of Kisin–Pappas, no later paper by these authors or their successors records a correction to this one.",
         "These are therefore this worker's own findings (Claude Code, session cc-fb70e5, 2026-09-22), not author-confirmed and not put to the authors. Reported candidates that could not be confirmed personally were dropped."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as to the first element, which is the substantive one. Page 337 prints 'such that the graded pieces gr^i_{Fil^•}(V) := Fil^i(V)/Fil^{i+1}(V) are free of rank 1 over A ⊗_{Q_p} K for i ∈ Z'. A filtration is defined on p. 336 as decreasing, exhaustive and separated, so gr^i vanishes for |i| large and the pieces cannot all be free of rank one; 'free' is what is meant, rank zero included. The second element, the missing subtraction in (3.16), rests on the extraction. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
+      }
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E9",
@@ -1640,7 +1680,12 @@
         "arXiv:1702.02192v1 (82 pp., SHA-256 4c967337f4bc84d96043ccb9c90e68b4ed0edc63dbd3b4b68cd36c848dbcf961), the only preprint version; its pagination differs from the published one.",
         "The main follow-up paper, Z. Wu, « Local models for the trianguline variety and partially classical families », Ann. Sci. ÉNS (2024), 10.24033/asens.2580, read in arXiv:2103.03823v2 and searched for erratum, gap, incorrect, mistake and 'should be replaced' in any context naming Breuil or BHS: no hits. So, unlike the case of Kisin–Pappas, no later paper by these authors or their successors records a correction to this one.",
         "These are therefore this worker's own findings (Claude Code, session cc-fb70e5, 2026-09-22), not author-confirmed and not put to the authors. Reported candidates that could not be confirmed personally were dropped."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as to the first element. Page 361 prints 'Choose an object ξ_A = (A, W⁺_A, F_W, ι_A, α_A) in X^□_{W⁺,F_•} mapping to η_A', and F_W is defined nowhere; an object of X^□_{W⁺,F_•}(A) carries the deformed filtration F_{A,•}, abbreviated F_A two lines above, so F_{A,•} is meant. The missing inner parentheses in the displayed product in the proof of Lemma 3.7.4 rest on the extraction's comparison with the next display. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
+      }
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E10",
@@ -1657,7 +1702,12 @@
         "arXiv:1702.02192v1 (82 pp., SHA-256 4c967337f4bc84d96043ccb9c90e68b4ed0edc63dbd3b4b68cd36c848dbcf961), the only preprint version; its pagination differs from the published one.",
         "The main follow-up paper, Z. Wu, « Local models for the trianguline variety and partially classical families », Ann. Sci. ÉNS (2024), 10.24033/asens.2580, read in arXiv:2103.03823v2 and searched for erratum, gap, incorrect, mistake and 'should be replaced' in any context naming Breuil or BHS: no hits. So, unlike the case of Kisin–Pappas, no later paper by these authors or their successors records a correction to this one.",
         "These are therefore this worker's own findings (Claude Code, session cc-fb70e5, 2026-09-22), not author-confirmed and not put to the authors. Reported candidates that could not be confirmed personally were dropped."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as to the first element. Page 375 prints 'For h = (h_{τ,i}) ∈ (Z^n)^{[K:Q_p]}, recall that z^h is the character z ↦ ∏_{τ∈Σ} τ(z)^{h_{τ,i}} of (K^×)^n'. As printed the formula has a free index i and a single argument z, although z^h is a character of the n-fold product; the reading the extraction proposes — the n-tuple whose i-th component is z_i ↦ ∏_τ τ(z_i)^{h_{τ,i}} — is the only one that typechecks. The further elements about wt(δ′) = w′(h) and the added hypothesis in Corollary 4.3.2 rest on the extraction. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
+      }
     },
     {
       "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19/E11",
@@ -1674,7 +1724,12 @@
         "arXiv:1702.02192v1 (82 pp., SHA-256 4c967337f4bc84d96043ccb9c90e68b4ed0edc63dbd3b4b68cd36c848dbcf961), the only preprint version; its pagination differs from the published one.",
         "The main follow-up paper, Z. Wu, « Local models for the trianguline variety and partially classical families », Ann. Sci. ÉNS (2024), 10.24033/asens.2580, read in arXiv:2103.03823v2 and searched for erratum, gap, incorrect, mistake and 'should be replaced' in any context naming Breuil or BHS: no hits. So, unlike the case of Kisin–Pappas, no later paper by these authors or their successors records a correction to this one.",
         "These are therefore this worker's own findings (Claude Code, session cc-fb70e5, 2026-09-22), not author-confirmed and not put to the authors. Reported candidates that could not be confirmed personally were dropped."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as to the first and principal element. Page 386 prints 'Ŝ(U^p, L)_{m^S} := lim←_s S(U^p, O_L/m^s_{O_L})_{m^S}', while the same page has already identified lim←_s S(U^p, O_L/m^s_{O_L}) with Ŝ(U^p, O_L), an O_L-module — the unit ball. So the right-hand side as printed is not an L-Banach space and the definition needs ⊗_{O_L} L, as the correction says. The second element, m_ρ for p_ρ in Remark 5.3.5(i), rests on the extraction. Verified against the published Numdam PDF of Publ. Math. IHÉS 130 (2019), 299–412, re-fetched by this review and hashing to 34ffd697…3967a, matching the record; printed page = PDF page + 298. No later version or erratum corrects it: arXiv 1702.02192 has only v1, and Crossref's record of doi:10.1007/s10240-019-00111-y carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
+      }
     }
   ],
   "gaps": [
@@ -1694,5 +1749,16 @@
       "id": "source-issue-review",
       "detail": "The eleven source issues are this worker’s findings, each re-read in the published text and on a rendered page image where a glyph or an index decides the matter, but none has been put to the authors and no published correction exists (Crossref carries no update relation, and the main follow-up paper records no BHS error). E2, E3 and E4 are the ones that touch statements rather than typography and should be checked first by a reviewer."
     }
-  ]
+  ],
+  "verification": {
+    "agent": "Claude Code",
+    "session": "cc-d67081",
+    "issue": 1457,
+    "job": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19",
+    "date": "2026-09-23",
+    "verdict": "accept",
+    "read": "The published Numdam PDF, re-fetched and hashed to 34ffd697…3967a, matching the record; all 114 pages available, and every one of the 11 recorded mistakes checked at its locator, with p. 397 read on a page image.",
+    "changes": "No change. All 11 recorded mistakes are confirmed and carry review verdicts; nothing needed correcting in place. The one point referred upward rather than edited is the Part II title, which drops 'over Q' from its parent's title and so is not literally the '<base>, Part II: …' form; it is shared verbatim with three co-proposing papers, so changing it here would break the merge.",
+    "lean": "none"
+  }
 }

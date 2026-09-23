@@ -54,3 +54,29 @@ Two entries carry warnings for a formalisation. **Orlik–Strauch and Emerton** 
 ## Checks
 
 `scripts/check_paper.py`: ok with `"status": "complete"`, which enforces that each of the 123 missing items is routed exactly once. `research/blueprint/intake.py check-files`: 0 problems. All three new or Part II route areas (`representations`, `padic`, `automorphic`) are galaxy ids of `data/galaxies.json`; the three proposed roadmap ids are free in the atlas and in every other paper extraction; and the stage ids were checked against `data/restructure/*.result.json` and `data/roadmap-retirements.json`. That check changed a route: RS-26 touches `PadicHodgeTheory:P7`, and reading it surfaced the roadmap `PhiGammaModulesAndIwasawaCohomology`, whose PG.7 is written for the relative Robba category of Kedlaya–Pottharst–Xiao and keeps triangulations, and whose PG.3 owns the Herr complex. The §3.3 items were moved there from the dagger-algebra stages.
+
+## Review (REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1457](https://github.com/CBirkbeck/tauceti-explorer/issues/1457). **Verdict: accept.**
+Nothing needed correcting in place.
+
+- **All 11 recorded mistakes confirmed.** Four are settled by the paper contradicting
+  itself: E2 (the "equivalently" clause on p. 352 uses "and", which is unsatisfiable since
+  `ε` is not algebraic, so `T₀ⁿ = T_Lⁿ` and the genericity locus collapses); E4 (Lemma 5.2.4
+  repeats Lemma 5.2.3 verbatim and is empty as printed, while its proof dévisses to an
+  arbitrary object of `O`); E5 (2.2.1 is a Proposition on p. 311, cited as such on pp. 315
+  and 320, as a Lemma on p. 313); E6 (one clause on p. 323 writes `P_{w,w′}` without `w₀`
+  and `P_{w₀w,w₀w}` with it, against the convention on p. 321).
+- **E3 was checked on a page image**, since its relation symbol and its `≠` are single
+  glyphs the text layer drops. The extraction's quotation is exactly right, and `w_R` in the
+  Claim is indeed a slip for `w_y`.
+- **Items and routes:** no library items (correct — nothing here is in the pinned
+  libraries); 12 planned items resolving; 123 missing items routed exactly once; both new
+  roadmap names free and co-proposed identically by three other papers. No run-together
+  numbering anywhere.
+- **Referred to the maintainer, not edited:** the Part II title drops "over Q" from its
+  parent's title, so it is not literally the "`<base>`, Part II: …" form. It is shared
+  verbatim with two co-proposing papers, so changing it here alone would break the merge.
+
+Full report: `research/blueprint/reviews/REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19.md`.
