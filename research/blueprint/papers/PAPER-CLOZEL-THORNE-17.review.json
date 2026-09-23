@@ -1,0 +1,47 @@
+{
+  "paper": "PAPER-CLOZEL-THORNE-17",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ModularityAndLanglandsExtensions owns the symmetric-power endpoints, and ML.3 asks to record each source's hypotheses. Theorem 6.1, Corollary 7.2 and the §7 reductions are such endpoints and generic arguments, under their own hypotheses. The review added the reduction of Theorem 6.1 to Theorem 6.2 (given only by reference to [CT15, §6]), the odd extension used in Proposition 7.6 and the silent equivalence in Theorem 7.1 (items 076, 080, 081). It moved BLGGT14 Theorem 4.2.1 and potential diagonalisability to route 5, so that those results have the owner the Newton–Thorne reviews gave them. The descent in Theorem 7.1 has a repairable ambiguity (E23)."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Reduced to Casselman's Lemma 2.1 (SR.2/SR.3), with the planned Borel–Casselman bijection (SR.1) and the notation of §1.1 (SR.2) named. The Iwahori–Matsumoto and Bernstein–Lusztig presentations and Kazhdan–Lusztig's classification moved to route 6, because no SR layer plans them."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "L7 plans 'semistable, Steinberg and minimally ramified analogues away from p for rank n, preserving the nilpotent monodromy operator'; the partition rings R^m_v and Lemma 5.2 belong there."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "The level-raising method is planned nowhere, and this is the pending candidate that PAPER-NEWTON-THORNE-21 and PAPER-NEWTON-THORNE-26 coalesce with. The review settled the owner question the extraction left open, as the Newton–Thorne reviews did. Thorne 2015's inputs go to route 5 and the congruence (1.1) to route 7; Theorems 5.1 and 5.7 stay here. Seven items were added: the §2.3 definitions, the duality for Y, the U(4) Jacquet lemma, the Jacquet form of (3.7), the membership of X′ and Y′ in the packet, the corrected semistability argument, and the preliminary reductions of Theorem 5.1. An addendum to the brief records the corrections E3, E7, E8, E10 and E20–E22 that the design job must respect."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Added by the review: a coalescence with PolarizedAutomorphyLifting. It takes Thorne 2015's residually reducible theory as §5 uses it, ι-ordinarity, [CT14, Lemma 2.6 and Proposition 2.9], and BLGGT14 Theorem 4.2.1 with Lemma 1.4.3. These are the owners the reviews of PAPER-NEWTON-THORNE-21, -21-B and -26 chose."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Added by the review: a coalescence with SmoothRepresentationsPartIIParahoricCenters, which already owns the Iwahori Bernstein presentation and the generic affine Hecke algebra. It gains the Iwahori–Matsumoto and Bernstein–Lusztig presentations and Kazhdan–Lusztig's classification with its standard modules. The misprinted Hecke relation (E6) and the misstated condition on s (E8) are recorded in the brief."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Added by the review. G7 owns symmetric-power identities, and the congruence (1.1) is the r = 2 case of the decomposition that PAPER-NEWTON-THORNE-26 routes there. Dickson's classification is named as planned in R01.4."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Added by the review. AG2.0 and AG2.2 own coefficient conjugation and the algebraic twisting characters, as in PAPER-NEWTON-THORNE-26: [CHT08, Lemma 4.1.4] (split out of item 048) and the automorphy of Aut(C)-conjugates, which the proof of Theorem 6.2 uses without citation."
+    }
+  ],
+  "notes": "Accept after corrections made in place. The review was done by Claude Code (session cc-38267a) against the accepted manuscript (Cambridge repository, SHA-256 fb88e83c…), with three checkers (§§1–2, §§3–4, §§5–7). The coordinator verified every substantive finding. The published Duke text was not accessible. Corrections were made to 35 items. The material ones: items 006 and 013 had copied two errors of the paper (E6, E8); item 026's π_H is the packet of the (1, n−1) datum; item 048 had the ramification of π′_2 wrong. Two items were split so that each result has one owner. 25 items were added, giving 81 in total (17 planned, 64 missing), and four routes were added. Source issues: E1–E5 are confirmed, and E1's quotation was corrected. E6–E23 are new. The substantive ones:\n- E7: a wrong entry in the n = 9 matrix T_{s₂}, so that as printed it does not define an H_B-module. Checked by hand and by a symbolic check of all the relations.\n- E8: Theorem 2.4(a) as printed forces u = 1.\n- E10: the 'unique irreducible submodule' claim in §3.5 is false (Y also embeds).\n- E20: primitivity of r_{𝔭₀} is unproved.\n- E21: Lemma 5.3 is proved only for unipotent conditions.\n- E22: Theorem 6.2 lacks the hypothesis F(ζ_l) ⊄ F(ad ρ̄) needed for Theorem 5.7(4).\n- E23: the descent in Theorem 7.1 is ambiguous up to η_{E/F}.\nAll have direct repairs, and none affects Theorem 1.1 or Corollaries 1.2–1.3 under their stated hypotheses."
+}
