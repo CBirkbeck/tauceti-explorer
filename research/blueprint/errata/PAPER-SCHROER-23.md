@@ -1,6 +1,6 @@
 # Mistakes in Schröer, *There is no Enriques surface over the integers*
 
-Job ERRATA-PAPER-SCHROER-23. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The findings are in `PAPER-SCHROER-23.json` beside this file.
+Job ERRATA-PAPER-SCHROER-23. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The findings are in `PAPER-SCHROER-23.json` beside this file. Reviewed by `REV-ERRATA-PAPER-SCHROER-23` (issue #1776), Claude Code session `cc-7b31c4`, 23 September 2026: **all ten confirmed**, with one reach corrected in place — E1 now affects a stated result, since the lemma as printed is false — and **one further misprint added (E11)**, the parallel `r_a`/`r_c` slip on p.31. Every quotation was found verbatim in arXiv v3, whose SHA-256 was reproduced. The review is written up in [REV-ERRATA-PAPER-SCHROER-23.md](../reviews/REV-ERRATA-PAPER-SCHROER-23.md).
 
 **Paper and version read.** Stefan Schröer, Annals of Mathematics 197 (2023), 1–63, DOI 10.4007/annals.2023.197.1.1. The version read is arXiv 2004.07025v3 (9 August 2022, SHA-256 `ae6481f2…6d61`). Its text after the first page agrees with the author's third revised version of 19 July 2022, which is the journal's revision date. The typeset 63-page version was not obtained. Every passage below was re-read in v3.
 
