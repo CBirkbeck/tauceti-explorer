@@ -7328,7 +7328,8 @@
    ],
    "avoidAccountOf": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
    "prompt": "research/blueprint/prompts/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1425"
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-20",
@@ -7482,8 +7483,9 @@
    ],
    "avoidAccountOf": "PAPER-LAFFORGUE-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-LAFFORGUE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1433"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1433",
+   "finishedAt": "2026-09-23T19:48:33Z"
   },
   {
    "id": "PAPER-KISIN-17",
