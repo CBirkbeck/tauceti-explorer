@@ -1,6 +1,6 @@
 # Mistakes in Harpaz–Wittenberg, *The Massey vanishing conjecture for number fields*
 
-Job ERRATA-PAPER-HARPAZ-WITTENBERG-23. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The findings are in `PAPER-HARPAZ-WITTENBERG-23.json` beside this file.
+Job ERRATA-PAPER-HARPAZ-WITTENBERG-23. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The findings are in `PAPER-HARPAZ-WITTENBERG-23.json` beside this file. Reviewed by `REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23` (issue #1716), Claude Code session `cc-7b31c4`, 23 September 2026: **all sixteen confirmed**, none rejected, amended or added; every quotation was matched in the LaTeX source of arXiv v2, which the errata records as identical to the version read. The review is written up in [REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23.md](../reviews/REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23.md).
 
 **Paper and version read.** Yonatan Harpaz and Olivier Wittenberg, Duke Mathematical Journal 172 (2023), 1–41, DOI 10.1215/00127094-2022-0004. The version read is the author final version from Wittenberg's page (33 pages, revised 9 December 2021, SHA-256 `d95100eb…546f`), which is identical to arXiv 1904.06512v2 ("final version"). Every passage below was re-read there. The published Duke version could not be loaded, so it was not compared.
 
