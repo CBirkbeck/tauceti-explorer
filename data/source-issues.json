@@ -4321,8 +4321,8 @@
    "kind": "error",
    "locator": "Published §3.1 p.76",
    "printed": "finite double cover",
-   "correction": "The projective equation gives a proper generically degree-two map, finite flat on S0; introduce its finite Stein model separately.",
-   "reason": "At r=s=0 the fibre of rv²=sw² is P1, not a finite scheme. G1 remains a geometric comparison obligation.",
+   "correction": "The projective equation gives a proper generically degree-two map, finite flat on S0; introduce its finite Stein model separately. The explicit model and resolution are now174–185. The same finite-cover wording on p86 must refer only to the finite model or to the complement of the exceptional set, not to the full pullback of the auxiliary curve.",
+   "reason": "At r=s=0 the fibre of rv²=sw² is P1, not a finite scheme. G1 remains a geometric comparison obligation. At an auxiliary-curve point with r=0 and g nonzero, its full inverse image still contains the exceptional P1; its two graph sections are strict-transform components.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -4682,6 +4682,44 @@
     "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
     "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
     "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+   ],
+   "owner": "PAPER-BENOIST-19",
+   "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
+   "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BENOIST-19/E18",
+   "kind": "misprint",
+   "locator": "Published §3.1 p77 first line; author-copy p15 has the same wording",
+   "printed": "v",
+   "correction": "The fixed singular points over Sing R are where w vanishes, with v nonzero.",
+   "reason": "At such a point r=0 and s is a unit, so rv²=sw² forces w=0. Setting v=0 instead forces w=0 too and gives no projective point. Published p77 and author text were checked.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Published p77 image and author-copy p15 compared; published article page and title/erratum search on2026-09-23. No correction identified in these checks."
+   ],
+   "owner": "PAPER-BENOIST-19",
+   "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
+   "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BENOIST-19/E19",
+   "kind": "misprint",
+   "locator": "Published(5.5) p87, with the normalization fixed in §5.1 p86",
+   "printed": "rg",
+   "correction": "The restriction coefficient is sqrt(a1)rg before rescaling g by the nonzero scalar sqrt(a1).",
+   "reason": "The chosen graph is v=sqrt(a1)g*w and the trace-zero root is z=rv/w. This scalar does not affect the later injectivity argument; the printed expression can be retained after explicitly renormalizing g.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Published pp86–87 compared with the local chart and section equations; title/erratum search on2026-09-23. No correction identified in these checks."
    ],
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
