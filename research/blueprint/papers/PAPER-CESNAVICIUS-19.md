@@ -1,4 +1,76 @@
-# PAPER-CESNAVICIUS-19 — Purity for the Brauer group
+# Česnavičius (2019): purity for the Brauer group, extraction and routing
+
+Issue [#1328](https://github.com/CBirkbeck/tauceti-explorer/issues/1328). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints, whose report follows below as history.
+- **The paper.** K. Česnavičius, *Purity for the Brauer group*, Duke Math. J. 168 (2019), 1461–1486.
+  - arXiv v4, the author's final version, was re-fetched; its SHA-256 (a62a12bb…) matches the checkpoint.
+  - The Duke text is not openly available.
+- **Items.** The result has **178 items: 15 library, 13 planned and 150 missing**. Every missing item is routed exactly once, and every numbered statement is an item; all twenty-six were checked against arXiv v4.
+- **Mistakes.** Four are recorded under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**Findings.**
+- **E1 now affects a stated result.** Proposition 2.2 is stated for arbitrary affine smooth G. For noncommutative G, its proof shows only that the neutral fibre is trivial. Both uses (Proposition 2.3 and Corollary 2.4) have commutative G, so the main theorem is unaffected.
+- **E4 now affects nothing.** The misprint in the cited SGA 2 lemma is harmless: the application holds under either reading.
+- **E2 and E3.** Proof steps in the cited Gabber–Ramero; unchanged.
+
+**Gaps.**
+- G-NONABELIAN is recorded as E1.
+- G-SOURCE-VERSION is unavailable.
+- The other twenty-three are deferred as cited suppliers' proofs or design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (gap; affects a stated result), Proposition 2.2 and its proof, p.4, in arXiv 1711.06456v4 (1 December 2018, the latest version; PDF SHA-256 a62a12bb…8709); the author's copy of 27 November 2018 on his homepage has the same text; the published text, Duke Math. J. 168 (2019), 1461–1486, was not collated. *Printed:* "Proposition 2.2. For a finite, flat map R → R′ of local rings, an open subscheme V ⊂ Spec R, and an affine, smooth R-group scheme G, if (1) Γ(Spec R, O) ≅ Γ(V, O) via pullback; and (2) every G-torsor is trivial over R; then the following pullback is injective: H¹_et(V, G) ↪ H¹_et(V_{R′}, G). (2.2.1)" Proof: "… every element of X(V) lifts to (Res_{R′/R}(G_{R′}))(V), so, by [Gir71, III.3.2.2], the map H¹_et(V, G) → H¹_et(V, Res_{R′/R}(G_{R′})) (2.2.2) is injective." *Correction:* State Proposition 2.2 for commutative G, which covers both of its uses (Proposition 2.3, with G = Res_{R′/R}(T_{R′})/T, and Corollary 2.4, with G = T). For noncommutative G, supply the missing step: for every G-torsor P over V, the twisted map (^P Res_{R′/R}(G_{R′}))(V) → (^P X)(V) must also be surjective.
+- **E2** (misprint; affects the proof), Supporting source GR, math/0201175v3, Proposition5.4.13 proof, p119 (not a finding in the main Česnavičius text). *Printed:* such that t^h ∈ H *Correction:* Choose the finite subideal H with t^h∈H+p_a. This is precisely the condition used later for H_λ+p_(λ,a).
+- **E3** (misprint; affects the proof), Supporting source GR, math/0201175v3, Proposition5.4.13 proof, p119 (not a finding in the main Česnavičius text). *Printed:* S̄_λ := R̄_λ ⊗_(R_λ) S *Correction:* The completed finite-stage algebra is S̄_λ=R̄_λ⊗_(R_λ)S_λ, where S_λ=F_λ/J_λ. In the immediately preceding point-ideal list use X_N−c_N for its last generator.
+- **E4** (misprint; affects nothing), Supporting source SGA2, Laszlo annotated edition, XI Lemma3.17(e); inherited finding from the 2026-09-22 continuation. *Printed:* pour tout y fermé de X, y ∈ Y *Correction:* Replace y ∈ Y by y ∉ Y in this hypothesis.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G-NONABELIAN** (recorded). E1: Proposition 2.2 is established for commutative G, which covers both uses.
+- **G-LOCAL** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-TOPOS** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-LEFSCHETZ** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-ELKIK** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-GABBER** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-QUOTIENT** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-GROTHENDIECK** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-PERFECT-ETALE** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-BMS** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-KL** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-CHARP-CD** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-HUBER** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-ADIC-LIMIT** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-COHEN** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-TOWER-HENSEL** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-CONIVEAU** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-ABSOLUTE** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-CTS** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-RESIDUE** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-SERRE** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-SGA3** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-CGP** (deferred). A cited supplier's proof (see detail); the paper uses it as an input.
+- **G-SOURCE-VERSION** (unavailable). The Duke text is not openly available; arXiv v4, the author's final version, was read in full.
+- **G-CLOSURE** (deferred). Declaration-sized splitting of imported inputs is design work; every numbered statement is an item.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## PAPER-CESNAVICIUS-19 — Purity for the Brauer group
 
 Current worker: Codex, session codex-c83e7a. Refs #1328. Read/check date: 2026-09-23. Earlier checkpoint work by Codex codex-a71f92 and Claude Code cc-fb70e5 / cc-7b31c4 is retained below with its reading boundaries.
 
@@ -6,7 +78,7 @@ Status: **partial checkpoint**. The entire main paper has been read and its name
 
 There are 178 items: 15 library imports, 13 existing planned interfaces and 150 missing items. Every missing item has exactly one route. The 42 definitions/constructions carry 126 unexecuted planning tests with canonical kinds, API outlines and use records. All 17 routes are sources for existing proposed roadmaps; no new roadmap or Part II is needed. The 2026-09-23 continuation below records the 19 additions and the narrowed G-ELKIK boundary.
 
-## Source and reading boundary
+### Source and reading boundary
 
 The main source is the [author's final arXiv version, 1711.06456v4](https://arxiv.org/pdf/1711.06456v4), all 17 pages, including every proof, footnote, remark and the appendix. The arXiv submission date is 1 December 2018; the PDF internally says 4 December 2018. Its metadata identifies Duke Mathematical Journal 168(8) (2019), 1461–1486, DOI [10.1215/00127094-2018-0057](https://doi.org/10.1215/00127094-2018-0057). This supports the publication correspondence, but is not a page-by-page comparison with the unavailable publisher PDF.
 
@@ -22,7 +94,7 @@ The JSON records URLs, hashes, dates and precise reading ranges for the supporti
 
 Other references in the prerequisite ledger are explicitly marked as unread proof inputs or bibliographic pointers. Locating a publisher page is not counted as reading its theorem. The historical Gabber cases (iv)–(vi) in the introduction are not used by this proof and have not been smuggled in as shortcuts.
 
-## Mathematical scope
+### Mathematical scope
 
 The central local result is H²_et(U_R,G_m)=0 for a strictly henselian regular local ring R of dimension at least two. The new mixed-characteristic p-primary argument passes through a tower of finite flat **regular local** algebras and the **p-adic completion of their colimit**. Neither the finite stages nor the uncompleted colimit are declared perfectoid.
 
@@ -44,7 +116,7 @@ The residue sequence retains the primary-part exclusions at imperfect characteri
 
 Appendix A uses Serre's **dimension at most one**, including the extra characteristic-p Brauer-vanishing condition over all finite separable extensions. It proves the equivalent higher fppf vanishing for all finite commutative group schemes, then all finite-type commutative group schemes. It does not assert H¹ vanishing for every such group.
 
-## Two proof-sensitive qualifications
+### Two proof-sensitive qualifications
 
 First, Proposition 2.2 is retained in its printed nonabelian scope, with G-NONABELIAN attached. The displayed quotient argument directly proves that the neutral fibre is trivial. For a nonabelian H¹ pointed set, that alone is not full injectivity. A continuation must read Giraud III.3.2.2 and verify the twisted-fibre argument under the exact hypotheses. This checkpoint does not claim the theorem false. All subsequent applications in the main purity proof use commutative groups, where the neutral-kernel argument does suffice; that specialization is a separate item.
 
@@ -52,7 +124,7 @@ Second — sharpened in the second continuation below, which reduces footnote 3 
 
 Lemma 2.1's rank-zero edge case is handled on its clopen locus before the positive-rank fppf descent argument. Its product decomposition is an isomorphism of groups only in the commutative case. No false counterexample is claimed from the rank-zero case.
 
-## Ownership decisions
+### Ownership decisions
 
 | Supplier | Exact contribution |
 | --- | --- |
@@ -76,7 +148,7 @@ The catalogue pass included new roadmaps, packets, integrated decompositions, re
 
 Neither K2SymbolsBrauer's explicit classical symbols nor the Lefschetz-pencil/vanishing-cycle project owns local Brauer purity or the local parafactorial theorem. SF.3's curve/Picard objects also do not by themselves provide the higher-dimensional local theorem.
 
-## Pinned-library findings
+### Pinned-library findings
 
 The inspected commits are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
@@ -95,13 +167,13 @@ Reviewed AUDIT-01, AUDIT-17 and AUDIT-18 entries were read, and their conclusion
 
 The open [Mathlib integral-perfectoid PR #26385](https://github.com/leanprover-community/mathlib4/pull/26385), at the inspected head 75d288cfb2e8c7033535f60168edf49cfbb0daeb, is shape guidance only. Its pseudouniformizer nonzerodivisor condition is narrower than unrestricted BMS integral perfectoid and is compatible with the paper's torsion-free direction. It is not in the pinned baseline.
 
-## Continuation and checks
+### Continuation and checks
 
 The complete gap ledger is in the JSON. Resume first with G-NONABELIAN, then G-HUBER/G-ADIC-LIMIT and G-LEFSCHETZ/G-ELKIK. The latter two branches already have substantial direct source reading, so a continuation should extend those proof paths rather than repeat the main-paper inventory. Gabber/absolute purity, Cohen structure and the Appendix A SGA3/Serre/CGP inputs remain mandatory before a complete claim.
 
 The paper checker and a supplemental audit cover JSON validity, unique IDs, exact-one missing-item routing, known owners/stages, acyclic item dependencies, explicit gap references, and three tests plus use-derived APIs for every definition. These are structural checks, not mathematical certification. No Lean file is requested by this issue, and no Lean compilation or test execution is claimed.
 
-## Continuation: G-NONABELIAN made non-blocking (Claude Code, cc-fb70e5, 22 September 2026)
+### Continuation: G-NONABELIAN made non-blocking (Claude Code, cc-fb70e5, 22 September 2026)
 
 The printed proof of Proposition 2.2 shows that (Res_{R′/R}G_{R′})(V)→X(V) is surjective. That is the untwisted case, which gives only the triviality of the neutral fibre of H¹(V,G)→H¹(V,Res). For noncommutative G, injectivity of this map of pointed sets would also need the twisted maps (^P Res)(V)→(^P X)(V) to be surjective, for G-torsors P on V that need not extend to R. The printed hypotheses do not control these. The question is recorded as a gap, not a counterexample, in `research/blueprint/errata/PAPER-CESNAVICIUS-19.json` (E1).
 
@@ -113,7 +185,7 @@ The extraction now isolates it:
 
 The extraction now has 149 items, 127 of them missing; every missing item is still routed once.
 
-## Continuation: the SGA 2 and Scholze reading debts (Claude Code, cc-7b31c4, 22 September 2026)
+### Continuation: the SGA 2 and Scholze reading debts (Claude Code, cc-7b31c4, 22 September 2026)
 
 This continuation takes the next two branches in the handoff's resume order, **G-LEFSCHETZ** and
 **G-ADIC-LIMIT**, and reads their named sources at their locators. Both gaps are narrowed to a
@@ -121,7 +193,7 @@ precisely stated remainder; neither is closed. The extraction now has **159 item
 missing, every one routed exactly once; the item dependency graph is still acyclic. No new roadmap or
 Part II is proposed, and nothing is claimed formalised.
 
-### What was read
+#### What was read
 
 - **SGA 2**, Laszlo's edition (same PDF and SHA-256 as the first checkpoint), extending the earlier
   reading: **VIII §2** Théorème 2.1 with Corollaires 2.2 and 2.3 and Lemmes 2.4–2.5, with the proof;
@@ -139,7 +211,7 @@ existing SF.4 source route beside the parafactoriality and Lefschetz nodes; the 
 route beside `noetherian-approx` and `qcqs-site-limit`. Each is wired as a prerequisite of the node
 that consumes it, with the matching `uses` record.
 
-### G-LEFSCHETZ: what the local Grothendieck–Lefschetz theorem actually rests on
+#### G-LEFSCHETZ: what the local Grothendieck–Lefschetz theorem actually rests on
 
 The chain behind `local-pic-lefschetz` — Pic of the punctured spectrum of a Noetherian local complete
 intersection of dimension ≥ 4 vanishes — is now explicit.
@@ -184,7 +256,7 @@ and local-duality theory of SGA 2 IV–V and the Ext-coherence criteria of VII, 
 VIII 2.1 rests; and EGA 0_III 13.3.1 behind the comparison theorem IX 1.1, and EGA 0_III 13.7.7 through
 EGA III 3.4.2 behind IX 2.1.
 
-### G-ADIC-LIMIT: what footnote 3 actually has to prove
+#### G-ADIC-LIMIT: what footnote 3 actually has to prove
 
 Scholze's Proposition 6.4 concerns a cofiltered system `X_i = Spa(R_i, R_i^+)` of **affinoid perfectoid**
 spaces with a common pseudouniformizer `ϖ`, and the limit `X = Spa(R, R^+)` with `R^+` the `ϖ`-adic
@@ -211,7 +283,7 @@ over the limit descends to a stage. That, together with the topos-limit or hyper
 footnote 4, is what is left. Huber's 3.2.9 itself is untouched and remains **G-HUBER**; his book is not
 publicly available and was not read.
 
-### Numbering, checked independently
+#### Numbering, checked independently
 
 The whole source was re-digested from the LaTeX of arXiv:1711.06456v4 (the `subfiles` `finite-flat`,
 `completion`, `perfectoid`, `reduction`, `global` and the main file). Every statement environment is on
@@ -222,11 +294,11 @@ cross-reference was checked against it, and all agree; the numbers that do not a
 are exactly the remarks inside `\brems` blocks that nothing cites. In particular the existing locators
 Proposition 2.2, Corollary 2.5, Lemma 3.1, Theorem 4.10, Theorem 5.3 and Theorem 6.1 are confirmed.
 
-### On `sourceIssues`
+#### On `sourceIssues`
 
 This earlier decision to keep findings only in the separate errata file is superseded by the 2026-09-23 continuation below. Issue instruction5a expressly requires the list in the extraction. E1 is preserved unchanged, supporting-source findings E2–E4 are recorded, and the collector duplication caveat is stated explicitly.
 
-### Checks run
+#### Checks run
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json` — ok.
 - `python3 research/blueprint/intake.py check-files` on the three deliverables — ok.
@@ -237,8 +309,7 @@ This earlier decision to keep findings only in the separate errata file is super
 - Independent reconstruction of the paper's numbering from the LaTeX, checked against the compiled PDF.
 - No Lean file is a deliverable and no compilation or test execution is claimed.
 
-
-## Continuation of 23 September 2026: the Elkik approximation path
+### Continuation of 23 September 2026: the Elkik approximation path
 
 Codex, session `codex-c83e7a`, continued the 159-item checkpoint. All 17 pages of the main paper were freshly read again, with the same recorded hash. The fresh supporting-source work is **Elkik's original journal scan, printed pp553–568**, including all of §§0–II, and **GR §§5.4.1–5.4.14 and §§3.2.1–3.2.18** with proofs. GR §3.2.19–23 and Elkik's opening of §III were context only. Earlier SGA 2, Scholze, BMS, Kedlaya–Liu and later GR reading remains inherited, explicitly distinguished in `supportingSources`.
 
@@ -246,7 +317,7 @@ Elkik's scan is [available from Numdam](https://www.numdam.org/item/10.24033/ase
 
 The new result has **178 items: 15 library, 13 planned, 150 missing**. All 159 inherited IDs and statuses are preserved. All 17 existing source routes and 25 gap IDs remain. The 42 definitions/constructions have 126 planning tests, now with the canonical test kinds. The four new definition/construction interfaces have use-derived APIs and concrete tests. No Lean declarations were implemented or compiled.
 
-### A finite-conormal proof of the Newton step
+#### A finite-conormal proof of the Newton step
 
 Let (F=R[X_1,\ldots,X_N]), (J=(f_1,\ldots,f_q)), (S=F/J), (M=J/J^2), and (d:M\to S^N) be the conormal differential. The pinned `Algebra.Extension.cotangentComplex` already supplies the naive map. Define the ideal
 
@@ -275,7 +346,7 @@ For iteration one retains **(n>2h)** and increases the powers of (I) as well as 
 
 Elkik's minor–colon ideal is separately defined by (H_{\rm Jac}=\sum_\alpha\Delta_\alpha(J_\alpha:J)). GR5.4.6 gives (H_{\rm Jac}\subset H_{\rm fac}) by an explicit adjugate matrix factorization. These ideals are not literally interchangeable: for (J=(X^2)\subset k[X]) in characteristic2, (H_{\rm Jac}=0) but (H_{\rm fac}=(X^2)). Their images have the same vanishing locus on \(\operatorname{Spec}S\).
 
-### The original Noetherian approximation proof
+#### The original Noetherian approximation proof
 
 The Noetherian convention is printed in **Elkik §0, p554**. It applies to Theorem2bis even though that theorem's local statement omits the word. The extraction now gives separate statements and proof outlines for:
 
@@ -288,7 +359,7 @@ The Noetherian convention is printed in **Elkik §0, p554**. It applies to Theor
 
 These applications refine **SF.4**. They import the pinned Artin–Rees theorem and Tau Ceti's controlled-preimage theorem. The general Henselian smooth-lifting interface coalesces with **PAPER-CLAUSEN-MATHEW-MORROW-21/044 in SF.0**; no second Henselian carrier is proposed. DD.0 remains the owner of the full cotangent complex. Zavyalov25/142 concerns the later algebraization of admissible formal models, and Colmez–Nizioł17/158 consumes approximation in a Galois comparison.
 
-### What this closes, and what it leaves open
+#### What this closes, and what it leaves open
 
 The previously unread original Elkik proof and GR3.2.16 are now read; their required source-specific statements are split out. The key Newton calculation has a full written finite-conormal argument. **G-ELKIK remains open** for the finite-data Noetherian Henselian model reduction in GR5.4.13, the EGA Henselian/étale and completion foundations, and the full-L/naive low comparison. Their formal adapters are also unimplemented.
 
@@ -296,7 +367,7 @@ Two pinned near misses are deliberately not treated as completion of that work. 
 
 The Huber publisher-PDF request returned an HTML page, not the book. G-HUBER stays unread; no paywall workaround or theorem reconstruction is counted as a source reading. Other open proof branches in the earlier sections remain unchanged.
 
-### Source issues and validation
+#### Source issues and validation
 
 The issue explicitly requires a `sourceIssues` list, including findings mentioned by earlier workers. This continuation therefore copies **E1** unchanged from the dedicated errata file, records **E2–E3** in the supporting GR preprint, and transfers the inherited SGA2 correction as **E4**. None has a new independent verdict.
 
