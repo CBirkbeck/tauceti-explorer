@@ -13,7 +13,7 @@
       "The entire arXiv v1 (25 September 2018, 23 pages; §§1–5 and references), read 2026-09-22. PDF https://arxiv.org/pdf/1809.09597v1, SHA-256 d56a738ae1b1487dd01b92b7084dd6bd4b9a041a85efdd2fac66b86afd8af433. It is the only public version. The Duke version (2021, 33 printed pages) was not accessible and may be revised, so locators are v1 pages. FIMR arXiv:1110.6331v2 was consulted for Proposition 5.2 and §6."
     ]
   },
-  "summary": "Answers the question of Friedlander, Iwaniec, Mazur and Rubin on the joint distribution of spins of prime ideals. For a Galois field K (totally real with totally positive units squares, or totally complex) and S ⊂ Gal(K/ℚ) with S ∩ S^{−1} = ∅, the joint spin ∏_{σ∈S}(π/σ(π)) oscillates over prime ideals with a power saving (Theorem 1), and the spins are jointly equidistributed (Theorem 2). This is conditional on FIMR's short character sum Conjecture C_n. The proof is FIMR's type I/type II sieve for primes. The linear sums need new counts of squarefull norms in a submodule (Lemma 3.1, via Widmer's lattice count) and of common factors of two norms (Lemma 3.2, via Bhargava's geometric sieve). The bilinear sums come from the authors' earlier estimate. As an application there is no governing field for the 16-rank of ℚ(√−4p), a conditional negative answer to Cohn–Lagarias (Theorem 3). The atlas plans residue symbols (CA.1), Minkowski's second theorem (GN.1) and Chebotarev (AN.4), and Mathlib has Dedekind's lemma and Dirichlet's unit theorem. It has no spins, prime-detecting sieves in number fields or governing fields. Five source issues are recorded (misprints and small gaps).",
+  "summary": "Answers the question of Friedlander, Iwaniec, Mazur and Rubin on the joint distribution of spins of prime ideals. For a Galois field K (totally real with totally positive units squares, or totally complex) and S ⊂ Gal(K/ℚ) with S ∩ S^{−1} = ∅, the joint spin ∏_{σ∈S}(π/σ(π)) oscillates over prime ideals with a power saving (Theorem 1), and the spins are jointly equidistributed (Theorem 2). This is conditional on FIMR's short character sum Conjecture C_n. The proof is FIMR's type I/type II sieve for primes. The linear sums need new counts of squarefull norms in a submodule (Lemma 3.1, via Widmer's lattice count) and of common factors of two norms (Lemma 3.2, via Bhargava's geometric sieve). The bilinear sums come from the authors' earlier estimate. As an application there is no governing field for the 16-rank of ℚ(√−4p), a conditional negative answer to Cohn–Lagarias (Theorem 3). The atlas plans residue symbols (CA.1), the local Hilbert symbol and Hilbert reciprocity (Tau Ceti QuadraticFormInvariants 6C, ClassFieldTheory Layer 14), Minkowski's second theorem (GN.1), Chebotarev's natural density (Tau Ceti Chebotarev Layer 14) and ray fundamental domains (Tau Ceti GlobalNumberFields 3C), and Mathlib has Dedekind's lemma and Dirichlet's unit theorem. It has no spins, prime-detecting sieves in number fields or governing fields. Eight source issues are recorded (misprints and small gaps), all confirmed by the independent review.",
   "items": [
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/1",
@@ -35,9 +35,11 @@
       "locator": "§2.1, p.4, after [FIMR, §3], arXiv:1809.09597v1",
       "status": "planned",
       "planned": [
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
         "ClassicalArithmeticCompletion:CA.1"
       ],
-      "note": "CA.1 plans residue symbols at 2 and the infinite places (local Hilbert symbols); partly built per its audit."
+      "note": "Tau Ceti plans the Hilbert symbol itself: QuadraticFormInvariants 6C defines hilbertSymbol over every nonarchimedean local field of characteristic 0, dyadic included, with its norm and ternary-form descriptions, and ClassFieldTheory Layer 14 defines the finite and real Hilbert invariants (finiteHilbertInvariantAt, infiniteHilbertInvariantAt) and proves the product formula. CA.1 records the residue symbols at 2 and ∞; the products μ₂ and μ_∞ are packaging on top of these."
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/3",
@@ -46,7 +48,7 @@
       "statement": "For α, β ∈ O_K with β odd, μ_∞(α, β)(α/β) depends only on β mod 8α. If α is also odd, then (α/β) = μ₂(α, β)μ_∞(α, β)(β/α), and μ₂(α, β) depends only on α and β mod 8. This follows from Hilbert reciprocity and local computations at the places above 2 ([FIMR, Lemma 2.1, Proposition 2.2, Lemma 2.3]).",
       "locator": "Lemma 2.1, p.4, citing [FIMR], arXiv:1809.09597v1",
       "status": "missing",
-      "note": "Routed to ClassicalArithmeticCompletion CA.1 as a source."
+      "note": "Routed to ClassicalArithmeticCompletion CA.1 as a source. The proof imports Hilbert reciprocity from Tau Ceti ClassFieldTheory Layer 14 (hilbertProductFormula, in multiplicative form QuadraticFormInvariants 6C's hilbertSymbol_productFormula) rather than re-planning it; what CA.1 adds is the passage from the product formula to the residue-symbol law with the μ₂ and μ_∞ factors, and the local computation at the places above 2. Tau Ceti Layer 14 derives quadratic reciprocity only over ℚ."
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/4",
@@ -89,9 +91,9 @@
       "locator": "§1, p.1; §5, p.23, arXiv:1809.09597v1",
       "status": "planned",
       "planned": [
-        "AnalyticNumberTheory:AN.4"
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems"
       ],
-      "note": "AN.4 plans Chebotarev via Hecke L-functions."
+      "note": "Tau Ceti's Chebotarev roadmap plans the natural-density theorem hasNaturalDensity_frobeniusPrimeSet with value #C/#G (Layer 14), with the split-completely density as a named corollary, and its Layer 11.3 discards the primes of residue degree ≥ 2 as O(√x log x), the fact §5 uses when it says the dominant contribution comes from degree-one primes. Tau Ceti already has the Frobenius prime sets (TauCeti/NumberTheory/Chebotarev) but not the density theorem. AN.4 connects Chebotarev to Hecke L-functions and imports this theorem; it does not own it."
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/8",
@@ -117,8 +119,11 @@
       "name": "Fundamental domains for the unit action",
       "statement": "For totally real K with (2.1), D ⊂ ℝⁿ₊ is FIMR's fundamental domain for the totally positive units acting on totally positive elements ([FIMR, (4.2), Lemmas 4.3–4.4, Corollary 4.5]); for totally complex K, D ⊂ ℝⁿ is the domain of [KM18a, Lemma 3.5], containing exactly |T_K| generators tα of each nonzero principal ideal. If α = Σa_iη_i ∈ D ∩ O_K has N(α) ≤ X then |a_i| ≪ X^{1/n}.",
       "locator": "§2.4, p.6, citing [FIMR], [KM18a], arXiv:1809.09597v1",
-      "status": "missing",
-      "note": "Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+      "status": "planned",
+      "note": "Tau Ceti GlobalNumberFields Layer 3C plans rayFundamentalDomain 𝔪, a fundamental domain in Minkowski space for the units ≡ 1 mod 𝔪 carrying the signs prescribed by 𝔪∞, with a Lipschitz-parametrisable frontier. With 𝔪 = 𝔪∞ the set of all real places this is FIMR's domain for the totally positive units acting on totally positive elements; the trivial modulus is Mathlib's NumberField.mixedEmbedding.fundamentalCone (Mathlib/NumberTheory/NumberField/CanonicalEmbedding/FundamentalCone.lean:179), used for totally complex K, whose norm-≤-1 part is bounded (fundamentalCone.isBounded_normLeOne, NormLeOne.lean:823). The coordinate bound |a_i| ≪ X^{1/n} follows from that boundedness by homogeneity. The specific FIMR and KM18a domains are choices of these.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting"
+      ]
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/11",
@@ -181,7 +186,7 @@
       "statement": "If Λ ⊂ ℝ^r is a lattice with successive minima λ₁ ≤ … ≤ λ_r and S ⊂ ℝ^r is bounded with boundary parametrisable by finitely many Lipschitz maps with constant L, then |Λ ∩ S| − vol(S)/det Λ| ≪_{r,L} max_{0≤i<r} L^i/(λ₁⋯λ_i).",
       "locator": "Proof of Lemma 3.1, (3.10), p.11, citing Widmer [12, Theorem 5.4], arXiv:1809.09597v1",
       "status": "missing",
-      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.4 as a source."
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.4 as a source. GN.4 should build on Tau Ceti GlobalNumberFields Layer 3A, which plans IsLipschitzParametrizable and card_inter_smul_isBigO (#(cD ∩ Λ) = vol D/covol Λ · cⁿ + O(c^{n−1}) for a fixed lattice). Widmer's Theorem 5.4 is the uniform refinement Lemma 3.1 needs: the error is explicit in the successive minima, uniformly over the lattices Λ_g."
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/18",
@@ -220,7 +225,7 @@
       "statement": "Let D₁, D₂ be unit translates of D, f a nonzero ideal and γ : S_f × O_K → {−1, 0, 1} satisfy (P1) γ(w, z) = μ(ω, ζ)γ(z, w) for w ≡ ω, z ≡ ζ mod f; (P2) multiplicativity in each argument; (P3) γ(w, z) depends on z mod N(w), and Σ_{ξ mod N(w)}γ(w, ξ) = 0 whenever |N(w)| is not squarefull. Then Σ_{w∈D₁, N(w)≤M, w≡ω}Σ_{z∈D₂, N(z)≤N, z≡ζ}α_wβ_zγ(w, z) ≪_ε (M^{−1/(6n)} + N^{−1/(6n)})(MN)^{1+ε} for bounded (α_w), (β_z).",
       "locator": "Lemma 4.1 and proof, p.20, citing [KM18b, Proposition 3.6], arXiv:1809.09597v1 (misprint and gap E5)",
       "status": "missing",
-      "note": "The only property of squares used in [KM18b] is that there are ≪ M of size ≤ M²; squarefull numbers satisfy the same bound. Statement as corrected in E5. Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+      "note": "The only property of squares used in [KM18b] is that there are ≪ M of size ≤ M²; squarefull numbers satisfy the same bound. Statement as corrected in E5. Routed to SieveMethodsAndPrimePatterns SV.5 as a source. The printed domain of γ, 'S_f × O_F', should read S_f × O_K (E8)."
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/22",
@@ -347,7 +352,6 @@
       "items": [
         "PAPER-KOYMANS-MILOVIC-21/8",
         "PAPER-KOYMANS-MILOVIC-21/9",
-        "PAPER-KOYMANS-MILOVIC-21/10",
         "PAPER-KOYMANS-MILOVIC-21/13",
         "PAPER-KOYMANS-MILOVIC-21/14",
         "PAPER-KOYMANS-MILOVIC-21/15",
@@ -358,7 +362,7 @@
         "PAPER-KOYMANS-MILOVIC-21/23",
         "PAPER-KOYMANS-MILOVIC-21/24"
       ],
-      "reason": "SV.5 owns advanced sieves as separate developments with their own bilinear and parity-breaking inputs, and asks that only the exact conclusion proved be transferred. Theorems 1–2 are prime-detecting results of exactly this kind. The Friedlander–Iwaniec type I/type II sieve for primes in a number field (FIMR Proposition 5.2) converts a linear estimate (§3, with Lemmas 3.1–3.2) and a bilinear estimate (§4, with Lemma 4.1 and (P1)–(P3)) into oscillation of joint spins of prime ideals. The spin definitions, class-group representatives and fundamental domains are the data of this development. The atlas has no spin theory, and neither pinned library has any of it."
+      "reason": "SV.5 owns advanced sieves as separate developments with their own bilinear and parity-breaking inputs, and asks that only the exact conclusion proved be transferred. Theorems 1–2 are prime-detecting results of exactly this kind. The Friedlander–Iwaniec type I/type II sieve for primes in a number field (FIMR Proposition 5.2) converts a linear estimate (§3, with Lemmas 3.1–3.2) and a bilinear estimate (§4, with Lemma 4.1 and (P1)–(P3)) into oscillation of joint spins of prime ideals. The spin definitions and class-group representatives are the data of this development; the fundamental domains are planned by Tau Ceti GlobalNumberFields Layer 3C (item 10). The atlas has no spin theory, and neither pinned library has any of it."
     },
     {
       "route": "source",
@@ -386,7 +390,7 @@
         "PAPER-KOYMANS-MILOVIC-21/3",
         "PAPER-KOYMANS-MILOVIC-21/4"
       ],
-      "reason": "CA.1 owns quadratic reciprocity, power residue symbols and source-scoped reciprocity through class field theory, and plans the residue symbols in number fields and the Hilbert symbols at 2 and ∞ (planned items). The paper uses the general quadratic reciprocity law in a number field with Hilbert-symbol corrections (Lemma 2.1, from FIMR via Hilbert reciprocity), and the norm compatibility of residue symbols in a Galois extension. Both are statements in CA.1's direction that the audit records as absent."
+      "reason": "CA.1 owns quadratic reciprocity, power residue symbols and source-scoped reciprocity through class field theory, and plans the residue symbols in number fields and the Hilbert symbols at 2 and ∞ (planned items). The paper uses the general quadratic reciprocity law in a number field with Hilbert-symbol corrections (Lemma 2.1, from FIMR via Hilbert reciprocity), and the norm compatibility of residue symbols in a Galois extension. Both are statements in CA.1's direction that the audit records as absent. CA.1 imports Hilbert reciprocity from Tau Ceti ClassFieldTheory Layer 14 (hilbertProductFormula) and the local Hilbert symbol from QuadraticFormInvariants 6C rather than re-planning them; Tau Ceti derives quadratic reciprocity only over ℚ, so the number-field law with its μ₂ and μ_∞ factors is CA.1's."
     },
     {
       "route": "source",
@@ -397,7 +401,7 @@
       "items": [
         "PAPER-KOYMANS-MILOVIC-21/17"
       ],
-      "reason": "GN.4 owns lattice-point estimates with main term and error. The audit marks it partly built, with Mathlib having only the volume limit for dilates of regions with null boundary. Lemma 3.1 needs Widmer's explicit count for sets with Lipschitz-parametrised boundary, with the error in terms of successive minima. This is a GN.4 estimate that it does not yet name."
+      "reason": "GN.4 owns lattice-point estimates with main term and error. The audit marks it partly built, with Mathlib having only the volume limit for dilates of regions with null boundary. Lemma 3.1 needs Widmer's explicit count for sets with Lipschitz-parametrised boundary, with the error in terms of successive minima. This is a GN.4 estimate that it does not yet name. It builds on Tau Ceti GlobalNumberFields Layer 3A (IsLipschitzParametrizable, card_inter_smul_isBigO), whose error term is for a fixed lattice; Widmer's version is uniform in the lattice through its successive minima."
     },
     {
       "route": "source",
@@ -426,7 +430,12 @@
         "arXiv 1809.09597: only v1 (25 September 2018, 23 pages) exists",
         "Duke Mathematical Journal 170 (2021), 1723–1755 (10.1215/00127094-2020-0068): the published version (33 pages in print) was not accessible (Project Euclid blocks scripted access), so these issues are recorded against arXiv v1 and may have been corrected in print",
         "Crossref metadata for 10.1215/00127094-2020-0068: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on arXiv v1 PDF22–23: ψ₀ is defined on (O_E/FO_E)^× in (5.1), yet its invariance is stated for α ∈ O_K and u ∈ O_K^×; and (5.2) writes 1_{16|h(−p)} where (5.1) and Theorem 3 concern h(−4p). Both corrections are right. The published version could not be consulted.",
+        "by": "REV-PAPER-KOYMANS-MILOVIC-21"
+      }
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/E2",
@@ -441,7 +450,12 @@
         "arXiv 1809.09597: only v1 (25 September 2018, 23 pages) exists",
         "Duke Mathematical Journal 170 (2021), 1723–1755 (10.1215/00127094-2020-0068): the published version (33 pages in print) was not accessible (Project Euclid blocks scripted access), so these issues are recorded against arXiv v1 and may have been corrected in print",
         "Crossref metadata for 10.1215/00127094-2020-0068: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on PDF7: Corollary 2.2 ends '≤ C(n, ǫ)q^{(1−δ(n))/n}' with no ε, although C depends on ε and Conjecture C_n only gives Q^{(1−δ)/n+ε}; the congruence is printed 'n ≡ l mod k' for the summation variable m. (3.6) uses the +ε form.",
+        "by": "REV-PAPER-KOYMANS-MILOVIC-21"
+      }
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/E3",
@@ -456,7 +470,12 @@
         "arXiv 1809.09597: only v1 (25 September 2018, 23 pages) exists",
         "Duke Mathematical Journal 170 (2021), 1723–1755 (10.1215/00127094-2020-0068): the published version (33 pages in print) was not accessible (Project Euclid blocks scripted access), so these issues are recorded against arXiv v1 and may have been corrected in print",
         "Crossref metadata for 10.1215/00127094-2020-0068: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on PDF7–8: (2.5) is stated for every nonzero ideal m, while §3 assumes m coprime to F and to all σ(m) and restricts to (a, F) = 1. The repair is right: if a prime q divides m and σ(m), then q | α and q | σ(α) for every generator α of an ideal divisible by m, so spin(σ, α) = 0 and s_a = 0; and dropping the finitely many primes dividing F changes Σ s_p by O(1). FIMR's Proposition 5.2 (checked in arXiv:1110.6331v2, PDF24) indeed asks (5.6) for every ideal d.",
+        "by": "REV-PAPER-KOYMANS-MILOVIC-21"
+      }
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/E4",
@@ -471,7 +490,12 @@
         "arXiv 1809.09597: only v1 (25 September 2018, 23 pages) exists",
         "Duke Mathematical Journal 170 (2021), 1723–1755 (10.1215/00127094-2020-0068): the published version (33 pages in print) was not accessible (Project Euclid blocks scripted access), so these issues are recorded against arXiv v1 and may have been corrected in print",
         "Crossref metadata for 10.1215/00127094-2020-0068: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on PDF13: (3.16) cites Lemma 3.1, which bounds the count with radical g₀ > Z, for the condition g₁ > A on the squarefull part; a large squarefull g₁ can have a small radical. The proof of Lemma 3.1 summed over squarefull g > A gives x^{r/n+ε}A^{1/2−r/n} = x^{r/n+ε}A^{−1/2+1/ord(σ)}, and passing from M′ to M multiplies by x^{1/ord(σ)−1/n} as in (3.22), which is the exponent (n−1)/n printed in (3.16). Lemma 3.2 is unaffected.",
+        "by": "REV-PAPER-KOYMANS-MILOVIC-21"
+      }
     },
     {
       "id": "PAPER-KOYMANS-MILOVIC-21/E5",
@@ -486,7 +510,72 @@
         "arXiv 1809.09597: only v1 (25 September 2018, 23 pages) exists",
         "Duke Mathematical Journal 170 (2021), 1723–1755 (10.1215/00127094-2020-0068): the published version (33 pages in print) was not accessible (Project Euclid blocks scripted access), so these issues are recorded against arXiv v1 and may have been corrected in print",
         "Crossref metadata for 10.1215/00127094-2020-0068: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on PDF20–21: (P3) sums 'ξ mod w' although γ(w, ·) is periodic modulo N(w) and the verification sums modulo N(β); and it quantifies over all nonzero w although γ is defined on S_f. The correction is right, and the verification needs the degree-one prime p with p ∥ N(β) to be unramified, which S_f guarantees since F ⊇ D_K. One qualification of the stated reason: the conjugates of a ramified degree-one prime all coincide only when it is totally ramified; in general σ(p) = τ(p) whenever σ⁻¹τ lies in the (nontrivial) decomposition group, so ∏σ(p)σ⁻¹(p) can be a square, and that is what the unramified hypothesis rules out.",
+        "by": "REV-PAPER-KOYMANS-MILOVIC-21"
+      }
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/E6",
+      "kind": "misprint",
+      "locator": "End of §3, PDF18, and §4, PDF19 (arXiv v1)",
+      "printed": "\"… exactly in the same way as for real quadratic fields K …\" (end of §3); \"If K is real quadratic, then we set v′_a = …\" (§4)",
+      "correction": "\"totally real\" in both places.",
+      "reason": "K is Galois of degree n, and the text contrasts the totally real case (§3's main argument, (4.4)) with the totally complex case. A real quadratic field cannot occur: its only nontrivial automorphism σ is its own inverse, so no nonempty S satisfies σ ∈ S ⇒ σ⁻¹ ∉ S. The following sentences ('at least in the case that K is totally real', PDF19 and 21) confirm the intended reading.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv 1809.09597 has only v1 (25 September 2018), SHA-256 d56a738a…f433, the version read.",
+        "2026-09-23: the published Duke version (10.1215/00127094-2020-0068) is not openly accessible (Unpaywall lists only the arXiv submitted version; Project Euclid returned no article text), and Crossref records no update or correction relation.",
+        "2026-09-23: the first author's publication page (webspace.science.uu.nl/~koyma001/publications.html) links the Duke article and arXiv only, with no erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by the reviewer and checked on PDF18–19; the correction is forced by the hypothesis S ∩ S⁻¹ = ∅.",
+        "by": "REV-PAPER-KOYMANS-MILOVIC-21"
+      }
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/E7",
+      "kind": "misprint",
+      "locator": "(2.5), PDF7 (arXiv v1)",
+      "printed": "\"Σ_{N(a)≤X, a≡0 mod m} s_a ≪_ǫ X^{1−δ/(54n|S|²)+ǫ}, where δ is as in Conjecture C_n.\"",
+      "correction": "\"where δ = δ(|S|n) is as in Conjecture C_{|S|n}\".",
+      "reason": "The type I sums are bounded through Corollary 2.2 applied to characters of modulus q ≪ x^{|S|}, and §3 sets δ := δ(|S|n) in (3.6); Theorem 1 assumes Conjecture C_{|S|n} and the exponent θ on PDF7 is written with δ(|S|n). Conjecture C_n alone would not give (2.5) for |S| > 1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv 1809.09597 has only v1 (25 September 2018), SHA-256 d56a738a…f433, the version read.",
+        "2026-09-23: the published Duke version (10.1215/00127094-2020-0068) is not openly accessible (Unpaywall lists only the arXiv submitted version; Project Euclid returned no article text), and Crossref records no update or correction relation.",
+        "2026-09-23: the first author's publication page (webspace.science.uu.nl/~koyma001/publications.html) links the Duke article and arXiv only, with no erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by the reviewer and checked against (3.6) on PDF9 and the definition of θ on PDF7.",
+        "by": "REV-PAPER-KOYMANS-MILOVIC-21"
+      }
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/E8",
+      "kind": "misprint",
+      "locator": "Lemma 4.1, PDF20 (arXiv v1)",
+      "printed": "\"Suppose γ is a map γ : S_f × O_F → {−1, 0, 1}\"",
+      "correction": "\"γ : S_f × O_K → {−1, 0, 1}\".",
+      "reason": "The second argument z ranges over O_K in (P2) and (P3), and in the application γ(w, z) is φ with z ∈ O_K; in this paper F is the integer of (2.2), not a field, so O_F has no meaning here.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv 1809.09597 has only v1 (25 September 2018), SHA-256 d56a738a…f433, the version read.",
+        "2026-09-23: the published Duke version (10.1215/00127094-2020-0068) is not openly accessible (Unpaywall lists only the arXiv submitted version; Project Euclid returned no article text), and Crossref records no update or correction relation.",
+        "2026-09-23: the first author's publication page (webspace.science.uu.nl/~koyma001/publications.html) links the Duke article and arXiv only, with no erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by the reviewer and checked on PDF20.",
+        "by": "REV-PAPER-KOYMANS-MILOVIC-21"
+      }
     }
   ]
 }

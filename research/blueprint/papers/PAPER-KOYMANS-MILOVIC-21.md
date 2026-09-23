@@ -2,7 +2,7 @@
 
 Peter Koymans and Djordjo Milovic, *Joint distribution of spins*, [Duke Mathematical Journal 170 (2021), 1723–1755](https://doi.org/10.1215/00127094-2020-0068); arXiv [1809.09597](https://arxiv.org/abs/1809.09597).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1318). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-KOYMANS-MILOVIC-21.result.json](PAPER-KOYMANS-MILOVIC-21.result.json): 28 items (2 library, 4 planned, 22 missing), 5 routes, 10 prerequisite entries and 5 recorded source issues.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1318). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-KOYMANS-MILOVIC-21.result.json](PAPER-KOYMANS-MILOVIC-21.result.json): 28 items (2 library, 5 planned, 21 missing after review), 5 routes, 10 prerequisite entries and 8 recorded source issues. The independent review (REV-PAPER-KOYMANS-MILOVIC-21) corrected it in place; its changes are listed at the end.
 
 **Source.** arXiv v1 (25 September 2018, 23 pages), SHA-256 `d56a738ae1b1487dd01b92b7084dd6bd4b9a041a85efdd2fac66b86afd8af433`, read in full on 2026-09-22.
 
@@ -33,14 +33,16 @@ Let K/ℚ be Galois of degree n: either totally real with every totally positive
   - Dirichlet's unit theorem: `NumberField.Units.exist_unique_eq_mul_prod`.
 - **Planned.**
   - ClassicalArithmeticCompletion CA.1: quadratic residue symbols in number fields and Hilbert symbols at 2 and ∞.
+  - Tau Ceti QuadraticFormInvariants 6C and ClassFieldTheory Layer 14: the local Hilbert symbol, the Hilbert invariants and the product formula.
   - GeometryOfNumbersAndQuadraticArithmetic GN.1: Minkowski's second theorem.
-  - AnalyticNumberTheory AN.4: Chebotarev.
+  - Tau Ceti Chebotarev Layer 14: Chebotarev's theorem with natural density.
+  - Tau Ceti GlobalNumberFields Layer 3C: ray fundamental domains with sign conditions (the fundamental domains of §2.4).
 - **Not in the atlas.** Spins, prime-detecting type I/II sieves in number fields, governing fields, Widmer's count, the geometric sieve, and Conjecture C_n. No stage or earlier extraction mentions spins or governing fields.
 
 ## Routes
 
-1. **Source of SieveMethodsAndPrimePatterns SV.5** (12 items). This is the spin development:
-   - the setup and class-group representatives, spins and joint spins, and fundamental domains;
+1. **Source of SieveMethodsAndPrimePatterns SV.5** (11 items). This is the spin development:
+   - the setup and class-group representatives, and spins and joint spins;
    - FIMR's sieve for primes;
    - the type I estimate with Lemmas 3.1–3.2, and the type II estimate with Lemma 4.1 and (P1)–(P3);
    - Theorems 1–2.
@@ -51,7 +53,7 @@ Let K/ℚ be Galois of degree n: either totally real with every totally positive
 4. **Source of GeometryOfNumbersAndQuadraticArithmetic GN.4** (1 item): Widmer's lattice-point count for sets with Lipschitz boundary, with the error in successive minima.
 5. **Source of AnalyticNumberTheory AN.6** (2 items): Conjecture C_n and its arithmetic-progression form (Corollary 2.2), for AN.6's register of conjectural inputs.
 
-## Source issues (`sourceIssues` E1–E5)
+## Source issues (`sourceIssues` E1–E8)
 
 None affects the theorems. All are recorded against arXiv v1, and the printed version may differ.
 
@@ -101,3 +103,16 @@ Links and reasons are in the JSON.
 - Tau Ceti f790474 has no residue-symbol, Hilbert-symbol or spin declarations.
 - Layer ids were checked against `data/atlas.json`, and prerequisite DOIs against Crossref.
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Independent review corrections (REV-PAPER-KOYMANS-MILOVIC-21, 23 September 2026)
+
+The review read arXiv v1 in full (same SHA-256) and FIMR's Proposition 5.2. It confirmed every statement and locator, and it confirmed E1–E5. The extraction was corrected in place:
+- **Item 2 (Hilbert symbols).** Now planned also by Tau Ceti QuadraticFormInvariants 6C (the local Hilbert symbol, dyadic case included) and ClassFieldTheory Layer 14 (the finite and real Hilbert invariants and the product formula).
+- **Item 3 (Lemma 2.1).** Still routed to CA.1. The note and route reason now say that CA.1 imports Hilbert reciprocity from those two Tau Ceti layers rather than re-planning it. Tau Ceti derives quadratic reciprocity only over ℚ.
+- **Item 7 (Chebotarev).** Planned by Tau Ceti Chebotarev Layer 14, which owns the natural-density theorem, instead of AN.4, which only imports it.
+- **Item 10 (fundamental domains).** Changed from missing to planned by Tau Ceti GlobalNumberFields Layer 3C (ray fundamental domains with sign conditions), and removed from the SV.5 route. Mathlib's `fundamentalCone` is the trivial-modulus case.
+- **Item 17 (Widmer).** Still routed to GN.4. GN.4 now builds on Tau Ceti GlobalNumberFields 3A's Lipschitz lattice count; Widmer's theorem adds uniformity in the lattice.
+- **Three new misprints, confirmed:**
+  - E6: "real quadratic" is printed for "totally real" (PDF18–19).
+  - E7: δ in (2.5) must be δ(|S|n), from Conjecture C_{|S|n}.
+  - E8: Lemma 4.1 writes γ : S_f × O_F for S_f × O_K.
