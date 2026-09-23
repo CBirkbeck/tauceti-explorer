@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-LIU-ZHU-17",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Rigidity and a Riemann–Hilbert correspondence for p-adic local systems",
     "authors": "Ruochuan Liu and Xinwen Zhu",
@@ -140,7 +140,7 @@
       }
     ]
   },
-  "summary": "Liu–Zhu prove rigidity for p-adic local systems on a connected smooth rigid variety: a local system that is de Rham at one classical point is de Rham at every classical point. They construct a p-adic Riemann–Hilbert functor to filtered vector bundles with integrable connection, compatible with pullback and pushforward, and apply it to Shimura varieties. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed, and twelve findings are recorded against arXiv v3. Lemma 3.10's quantifier is wrong (E06); the main theorems are unaffected. Not formalised.",
+  "summary": "Liu–Zhu construct the nilpotent p-adic Simpson functor, geometric filtered Riemann–Hilbert functor and arithmetic de Rham functors, prove propagation from one de Rham stalk, and apply this to geometric stalks of canonical Shimura local systems. Independent review corrected the extraction but requests revision: source/declaration closure and four route decisions remain unresolved. There are 132 items; no formalization is claimed. Findings are verified only in final arXiv v3, not the unavailable version of record.",
   "items": [
     {
       "id": "PAPER-LIU-ZHU-17/L06",
@@ -896,7 +896,7 @@
       "kind": "definition",
       "name": "Nilpotent exponential",
       "statement": "In a Q-algebra A, a nilpotent element has the finite exponential sum exp(a)=Σ_(i<N) a^i/i! for any N with a^N=0.",
-      "locator": "§2.2 logarithmic Higgs construction",
+      "locator": "§2.3 logarithmic Higgs construction",
       "status": "library",
       "ownerKey": "library",
       "prerequisites": [],
@@ -904,7 +904,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§2.2 logarithmic Higgs construction",
+          "locator": "§2.3 logarithmic Higgs construction",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -1164,7 +1164,7 @@
       "kind": "definition",
       "name": "Filtered Galois period rings",
       "statement": "For k/Qp finite and K the completion of a Galois extension containing k∞, equip BdR+(K) and BdR(K) with their topology, filtration, semilinear Gal(K/k) action, t and gr^j=K(j); construct canonical embeddings of each finite k′⊂K. Do not assume a canonical K→BdR+ section.",
-      "locator": "§§1.2,3.1",
+      "locator": "§1 notations and §3.1",
       "status": "planned",
       "ownerKey": "ph",
       "prerequisites": [
@@ -1175,7 +1175,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§§1.2,3.1",
+          "locator": "§1 notations and §3.1",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -1232,7 +1232,7 @@
       "kind": "definition",
       "name": "De Rham and geometric representations",
       "statement": "For a finite-dimensional continuous Qp representation V of G_k, DdR(V)=(V⊗BdR)^Gk and V is de Rham when dim_k DdR(V)=dim_Qp V. For a number field E, geometric means unramified at all but finitely many finite places and de Rham at every place above p.",
-      "locator": "§1.1 and Theorem1.1",
+      "locator": "§1 introduction and Theorem1.1",
       "status": "planned",
       "ownerKey": "ph",
       "prerequisites": [
@@ -1243,7 +1243,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§1.1 and Theorem1.1",
+          "locator": "§1 introduction and Theorem1.1",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -1429,7 +1429,7 @@
       "kind": "definition",
       "name": "Analytic toric charts and differentials",
       "statement": "For smooth rigid X/k, construct local standard étale charts to the rigid torus, finite locally free analytic Ω_X and its exterior powers; on the n-torus Ω¹ has basis dlog(T_i).",
-      "locator": "§2.2",
+      "locator": "§1 notations and conventions; §2.3 toric-chart setup",
       "status": "planned",
       "ownerKey": "adics",
       "prerequisites": [
@@ -1439,7 +1439,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§2.2",
+          "locator": "§1 notations and conventions; §2.3 toric-chart setup",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -1774,7 +1774,7 @@
       "name": "Cohomological colimits and derived limits",
       "statement": "On the coherent proétale slices used here, filtered colimits commute with the specified cohomology functors; for the surjective period-quotient towers, the applicable derived-limit statement controls lim¹ and gives the unbounded-interval comparison.",
       "locator": "Corollary2.4; Scholze Lemma3.18",
-      "status": "planned",
+      "status": "missing",
       "ownerKey": "eds",
       "prerequisites": [
         "PAPER-LIU-ZHU-17/L36",
@@ -1791,10 +1791,11 @@
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
-      "planned": [
+      "closure": "Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.",
+      "formerPlanned": [
         "EnhancedDerivedSheaves:E2"
       ],
-      "closure": "Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint."
+      "note": "The exact coherent-slice filtered-colimit and period-tower comparison is not stated by E2 alone. E1/E2 are appropriate general owners for this missing source theorem; local coherent slices, not global quasi-compactness of arbitrary X, must be used."
     },
     {
       "id": "PAPER-LIU-ZHU-17/P13",
@@ -1915,7 +1916,7 @@
       "kind": "definition",
       "name": "Koszul complexes of commuting endomorphisms",
       "statement": "For a module M and a finite family of pairwise commuting linear endomorphisms D_i, form the cochain Koszul complex with degree-j direct sums indexed by j-subsets and alternating differential. Ring-element Koszul complexes are special cases.",
-      "locator": "§2.2 and Lemma2.10 applications",
+      "locator": "§2.3 and Lemma2.10 applications",
       "status": "planned",
       "ownerKey": "dd",
       "prerequisites": [],
@@ -1923,7 +1924,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§2.2 and Lemma2.10 applications",
+          "locator": "§2.3 and Lemma2.10 applications",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -1981,7 +1982,7 @@
       "name": "Continuous Cartan–Leray and procyclic cochains",
       "statement": "For the affinoid-perfectoid torsors and continuous Qp-Banach coefficients in this paper, identify proétale cohomology with continuous Γ-cohomology. For a suitable torsion-free procyclic Γ generated by γ, compute by [M→M], γ−1, in degrees0,1. Finite rational descent is exact, including p=2.",
       "locator": "Lemma2.7; §§2.3,3.2",
-      "status": "planned",
+      "status": "missing",
       "ownerKey": "coh",
       "prerequisites": [
         "PAPER-LIU-ZHU-17/L23",
@@ -1999,11 +2000,12 @@
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
-      "planned": [
+      "closure": "Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.",
+      "formerPlanned": [
         "ArithmeticGaloisDuality:R02.1",
         "ArithmeticGaloisDuality:R02.2"
       ],
-      "closure": "Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint."
+      "note": "R02.1/2 do not state this Banach-coefficient Cartan–Leray/procyclic package. Split site descent, general continuous cochains and analytic comparison; keep the existing canonical cohomology carrier."
     },
     {
       "id": "PAPER-LIU-ZHU-17/P18",
@@ -2099,7 +2101,7 @@
       "kind": "definition",
       "name": "Twisted nilpotent Higgs bundles",
       "statement": "For a locally free Ω¹ and invertible twist T on a ringed site, a Higgs bundle is finite locally free E with O-linear θ:E→E⊗Ω¹⊗T and θ∧θ=0. Nilpotent means a finite filtration whose graded Higgs fields vanish, equivalently the locally commuting action is nilpotent in the finite-rank setting used here.",
-      "locator": "Theorem2.1 and §2.2",
+      "locator": "Theorem2.1; §2.3 logarithmic Higgs construction",
       "status": "missing",
       "ownerKey": "higgs",
       "prerequisites": [
@@ -2110,7 +2112,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "Theorem2.1 and §2.2",
+          "locator": "Theorem2.1; §2.3 logarithmic Higgs construction",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -2229,7 +2231,7 @@
       "kind": "definition",
       "name": "Arithmetic p-adic Simpson functor",
       "statement": "For smooth rigid X/k and a Qp local system L, set H(L)=ν′_*(hatL⊗OC) on (X_K)_et with Higgs field induced by gr∇ and semilinear Gal(K/k) action. Theorems below prove it is a rank-preserving nilpotent Higgs bundle.",
-      "locator": "Theorem2.1; formula(2.1)",
+      "locator": "Theorem2.1(i); §2.1 definition of H",
       "status": "missing",
       "ownerKey": "rh",
       "prerequisites": [
@@ -2241,7 +2243,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "Theorem2.1; formula(2.1)",
+          "locator": "Theorem2.1(i); §2.1 definition of H",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -2295,7 +2297,7 @@
       "kind": "definition",
       "name": "Arithmetic and geometric toric towers",
       "statement": "On a standard étale chart Y over the n-torus, adjoin p^m roots of all torus coordinates and cyclotomic roots; distinguish the relative tower over k from its geometric K-base change. Construct Γgeom≃Zp(1)^n, Γ≃Γgeom⋊Gal(K/k), and the associated affinoid-perfectoid completions.",
-      "locator": "§2.2 formulas(2.6)–(2.7)",
+      "locator": "§2.3 formulas(2.6)–(2.7)",
       "status": "missing",
       "ownerKey": "tower",
       "prerequisites": [
@@ -2306,7 +2308,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§2.2 formulas(2.6)–(2.7)",
+          "locator": "§2.3 formulas(2.6)–(2.7)",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -2360,7 +2362,7 @@
       "kind": "theorem",
       "name": "Polynomial period coordinates",
       "statement": "On the geometric toric tower, OC=hatO[V_1,…,V_n] with V_i=t^-1 log([T_i^flat]/T_i), γ_s(V_i)=V_i+δsi, and gr∇V_i=−t^-1 dlogT_i.",
-      "locator": "§2.2 formula(2.8); Lemma2.11",
+      "locator": "§2.3 formula(2.8); Lemma2.11",
       "status": "missing",
       "ownerKey": "ph",
       "prerequisites": [
@@ -2375,7 +2377,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§2.2 formula(2.8); Lemma2.11",
+          "locator": "§2.3 formula(2.8); Lemma2.11",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -2476,7 +2478,7 @@
       "kind": "theorem",
       "name": "Strict quotient cochains and theta specialization",
       "statement": "For a sufficiently small interval 0<s≤r/p and m with p^m s≤1≤p^m r, the perfect/imperfect relative-period quotient cochains are strictly exact. Their theta specialization yields the cocartesian squares(2.27), with imperfect image B_m or B_(K,m), and identifies analytic and continuous cohomology in the stated coefficient category.",
-      "locator": "Lemma2.14 proof; KL2v1 Corollaries5.6.5,5.6.7 and Theorem1.3.8",
+      "locator": "Lemma2.14 proof; KL2v1 Corollaries5.6.5,5.6.7, Lemma5.6.6 and Theorem1.3.8",
       "status": "missing",
       "ownerKey": "tower",
       "prerequisites": [
@@ -2490,11 +2492,12 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "Lemma2.14 proof; KL2v1 Corollaries5.6.5,5.6.7 and Theorem1.3.8",
+          "locator": "Lemma2.14 proof; KL2v1 Corollaries5.6.5,5.6.7, Lemma5.6.6 and Theorem1.3.8",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
-      "closure": "Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint."
+      "closure": "Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.",
+      "note": "Corollary5.6.5 is a scalar quotient statement. The finite-projective module version needs Lemma5.6.6, sufficiently small radii and sufficiently deep Γ_n, with uniform bounds and strict exactness. These are not automatic for arbitrary Banach coefficients."
     },
     {
       "id": "PAPER-LIU-ZHU-17/T07",
@@ -2707,7 +2710,7 @@
       "kind": "definition",
       "name": "Logarithmic Higgs field",
       "statement": "For M_K(Y), define commuting nilpotent Higgs operators by logγ_i=t·θ(T_i∂/∂T_i). Assemble θ:M_K→M_K⊗Ω¹_Y(-1); the Tate factor makes it independent of the chosen cyclotomic trivialization.",
-      "locator": "§2.2 after Proposition2.8",
+      "locator": "§2.3 after Proposition2.8",
       "status": "missing",
       "ownerKey": "rh",
       "prerequisites": [
@@ -2719,7 +2722,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§2.2 after Proposition2.8",
+          "locator": "§2.3 after Proposition2.8",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -3005,7 +3008,7 @@
       "kind": "theorem",
       "name": "Relative Higgs Poincaré lemma",
       "statement": "For smooth f:X→Y, the augmented complex 0→f_proet*OC_Y→OC_X→OC_X⊗Ω¹_X/Y(-1)→… is exact with the induced relative gr∇.",
-      "locator": "§2.3 formula(2.24)",
+      "locator": "§2.3, unnumbered relative Higgs resolution after Remark2.8, PDF16",
       "status": "planned",
       "ownerKey": "ph",
       "prerequisites": [
@@ -3020,7 +3023,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§2.3 formula(2.24)",
+          "locator": "§2.3, unnumbered relative Higgs resolution after Remark2.8, PDF16",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -3134,7 +3137,7 @@
       "id": "PAPER-LIU-ZHU-17/T27",
       "kind": "theorem",
       "name": "Kummer local-system calculation",
-      "statement": "For X=Gm^an, ζ_(p^m)∈k and π:T_m→T the p^m-Kummer cover, L=π_*Zp has M_K=⊕_(a mod p^m) A_K·T^(-a/p^m)⊗τ_a. Its geometric Γ action and Higgs field are trivial although the local system is nontrivial and is not small in the cited integral Faltings sense.",
+      "statement": "For X=Spa(k〈T^{±1}〉,O_k〈T^{±1}〉), m≥1 and ζ_(p^m)∈k and π:T_m→T the p^m-Kummer cover, L=π_*Zp has M_K=⊕_(a mod p^m) A_K·T^(-a/p^m)⊗τ_a. Its geometric Γ action and Higgs field are trivial although the local system is nontrivial and is not small in the cited integral Faltings sense.",
       "locator": "Example2.16(ii)",
       "status": "missing",
       "ownerKey": "rh",
@@ -3617,7 +3620,7 @@
       "kind": "theorem",
       "name": "Filtered period reconstruction",
       "statement": "The adjunction map ν′*RH(L)⊗O_BdR→hatL⊗O_BdR is an isomorphism compatible with filtration, the tensor connection and Galois actions.",
-      "locator": "Theorem3.8(ii)",
+      "locator": "Theorem3.8(iii)",
       "status": "missing",
       "ownerKey": "rh",
       "prerequisites": [
@@ -3632,7 +3635,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "Theorem3.8(ii)",
+          "locator": "Theorem3.8(iii)",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -3643,7 +3646,7 @@
       "kind": "theorem",
       "name": "Associated graded of Riemann–Hilbert",
       "statement": "gr^0 RH(L)≃H(L) with its Higgs field, and gr^j RH(L)≃H(L)(j).",
-      "locator": "Theorem3.8(iii)",
+      "locator": "Theorem3.8(ii)",
       "status": "missing",
       "ownerKey": "rh",
       "prerequisites": [
@@ -3658,7 +3661,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "Theorem3.8(iii)",
+          "locator": "Theorem3.8(ii)",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -3775,7 +3778,7 @@
       "kind": "definition",
       "name": "Arithmetic de Rham direct images",
       "statement": "Define D^i_dR(L)=R^iν_*(hatL⊗O_BdR) on X_et with the induced connection. Via Cartan–Leray these are continuous Gal(K/k)-cohomology sheaves of the geometric RH object. For general L no full-rank admissibility is assumed.",
-      "locator": "§3.2 formula(3.2); Theorem1.5",
+      "locator": "§3.2 unnumbered definition of D_dR^i, PDF24; Theorem1.5",
       "status": "missing",
       "ownerKey": "rh",
       "prerequisites": [
@@ -3786,7 +3789,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§3.2 formula(3.2); Theorem1.5",
+          "locator": "§3.2 unnumbered definition of D_dR^i, PDF24; Theorem1.5",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -4056,16 +4059,13 @@
       "id": "PAPER-LIU-ZHU-17/A09",
       "kind": "theorem",
       "name": "Analytic period-window base change",
-      "statement": "For smooth toric affinoids X=Spa(A),Y=Spa(B), f:Y→X, a Zp local system L on X and finite [a,b], H^i(Γ,RH^[a,b](L)(X_K))⊗_A B→H^i(Γ,RH^[a,b](f*L)(Y_K)) is an isomorphism for all i.",
+      "statement": "For smooth toric affinoids X=Spa(A), Y=Spa(B), f:Y→X, a Zp local system L on X and integers a≤b, the natural map H^i(Γ, RH^[a,b](L)(X_K) ⊗_A B) → H^i(Γ, RH^[a,b](f*L)(Y_K)) is an isomorphism for every i≥0, with Γ=Gal(k∞/k) and K the completed cyclotomic extension. Tensor is INSIDE cohomology. Moving it outside requires the separate flat-cohomology argument for sufficiently wide stabilizing windows.",
       "locator": "Lemma3.11,direction corrected",
       "status": "missing",
       "ownerKey": "rh",
       "prerequisites": [
         "PAPER-LIU-ZHU-17/R13",
-        "PAPER-LIU-ZHU-17/A04",
-        "PAPER-LIU-ZHU-17/A08",
-        "PAPER-LIU-ZHU-17/A07",
-        "PAPER-LIU-ZHU-17/A07V"
+        "PAPER-LIU-ZHU-17/A04"
       ],
       "proofSteps": [
         "Reduce to graded H(L)(j), apply its arbitrary pullback and finite descent M(Y)=M(X)⊗A_m0 B_m0, and use the selected generator for both sides. Compare algebraic and completed tensor through the acyclic trace complement; the printed deeper-generator inequality is not used."
@@ -4078,7 +4078,8 @@
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
-      "closure": "Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint."
+      "closure": "Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.",
+      "note": "Review correction: Lemma3.11 does not assert arbitrary finite-window H^i⊗B base change. Its printed variance and deeper-generator quantifier are corrected as E05/E06; the norm-controlled module argument remains GAP04."
     },
     {
       "id": "PAPER-LIU-ZHU-17/A10",
@@ -4090,7 +4091,10 @@
       "ownerKey": "rh",
       "prerequisites": [
         "PAPER-LIU-ZHU-17/A09",
-        "PAPER-LIU-ZHU-17/A06"
+        "PAPER-LIU-ZHU-17/A06",
+        "PAPER-LIU-ZHU-17/A07",
+        "PAPER-LIU-ZHU-17/A07V",
+        "PAPER-LIU-ZHU-17/A08"
       ],
       "proofSteps": [
         "Use stabilized finite windows and glue the affine comparison. The proof requires A08’s Tor control because f may be a closed immersion."
@@ -4109,7 +4113,7 @@
       "id": "PAPER-LIU-ZHU-17/A11",
       "kind": "theorem",
       "name": "One de Rham stalk gives strict filtration",
-      "statement": "Assume X is connected and smooth and L has one classical de Rham stalk. The period-filtration spectral sequence degenerates at E1; D^0_dR(L) has a decreasing filtration by subbundles satisfying Griffiths transversality, and arbitrary pullback A10 preserves that filtration.",
+      "statement": "Assume X is connected and smooth and L has one classical de Rham stalk. The period-filtration spectral sequence degenerates at E1; for i=0,1, D^i_dR(L) has a decreasing filtration by subbundles satisfying Griffiths transversality, and the arbitrary-pullback isomorphism A10 preserves these filtrations. Higher D^i vanish by A07V.",
       "locator": "Theorem3.9(iii)",
       "status": "missing",
       "ownerKey": "rh",
@@ -4141,7 +4145,8 @@
       "ownerKey": "rh",
       "prerequisites": [
         "PAPER-LIU-ZHU-17/A11",
-        "PAPER-LIU-ZHU-17/R11"
+        "PAPER-LIU-ZHU-17/R11",
+        "PAPER-LIU-ZHU-17/P20"
       ],
       "proofSteps": [
         "Construct the comparison and verify it at every classical fiber; use local freeness, strict filtration and the geometric reconstruction. This is stronger than merely saying that all stalks satisfy a numerical rank equality."
@@ -4243,7 +4248,8 @@
       "ownerKey": "rh",
       "prerequisites": [
         "PAPER-LIU-ZHU-17/A12",
-        "PAPER-LIU-ZHU-17/R12"
+        "PAPER-LIU-ZHU-17/R12",
+        "PAPER-LIU-ZHU-17/P19"
       ],
       "proofSteps": [
         "Apply the filtered period reconstruction and take associated graded only after proving strictness."
@@ -4264,7 +4270,7 @@
       "name": "Resolution, compactification and arithmetic spreading",
       "statement": "In characteristic zero, use the source-qualified algebraic or rigid resolution theorem, smooth compactifications for the algebraic smooth case, and spread the algebraic data over O_E[1/N] with smooth projective compactification and boundary after enlarging N. Keep connected and irreducible components distinct.",
       "locator": "Proofs of Theorem1.3 and Proposition4.1; Bierstone–Milman",
-      "status": "planned",
+      "status": "missing",
       "ownerKey": "sf",
       "prerequisites": [
         "PAPER-LIU-ZHU-17/L42"
@@ -4280,10 +4286,11 @@
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
-      "planned": [
+      "closure": "Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.",
+      "formerPlanned": [
         "SchemeAndStackFoundations:SF.4"
       ],
-      "closure": "Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint."
+      "note": "SF.4 does not supply a named rigid-analytic resolution theorem. Split the algebraic compactification/spreading contract from analytic resolution and connected-component propagation before accepting this route."
     },
     {
       "id": "PAPER-LIU-ZHU-17/G02",
@@ -4455,7 +4462,7 @@
       "kind": "definition",
       "name": "Relative Fontaine–Mazur conjecture specification",
       "statement": "For geometrically connected algebraic X/E and a Qp local system having one geometric closed stalk, the relative Fontaine–Mazur conjecture predicts that the generic-stalk representation is a subquotient, up to Tate twist, of étale cohomology of some variety over the generic point. This item specifies a conjecture, not a proved target.",
-      "locator": "§1.1",
+      "locator": "§1 introduction",
       "status": "missing",
       "ownerKey": "rh",
       "prerequisites": [
@@ -4465,7 +4472,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§1.1",
+          "locator": "§1 introduction",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -4508,7 +4515,7 @@
       ],
       "uses": [
         {
-          "where": "§1.1 contextual endpoint",
+          "where": "§1 introduction contextual endpoint",
           "how": "Prevent the proved rigidity theorem from being mislabeled motivic realization."
         }
       ],
@@ -4520,7 +4527,7 @@
       "kind": "theorem",
       "name": "Abelian-monodromy relative Fontaine–Mazur case",
       "statement": "The relative Fontaine–Mazur prediction in G07 is known when the arithmetic monodromy is abelian, using finite geometric monodromy and the abelian case of Fontaine–Mazur.",
-      "locator": "§1.1 discussion",
+      "locator": "§1 introduction discussion",
       "status": "missing",
       "ownerKey": "rh",
       "prerequisites": [
@@ -4533,7 +4540,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§1.1 discussion",
+          "locator": "§1 introduction discussion",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -4793,7 +4800,7 @@
       "kind": "definition",
       "name": "The real-split anisotropic torus quotient",
       "statement": "For a Q-torus T, define T^a as the connected kernel of all Q-rational characters, T^s as the maximal Q-subtorus of T^a that is R-split, and T^c=T/T^s. For reductive G use Z_G^s in its center and G^c=G/Z_G^s.",
-      "locator": "§4.2 before Lemma4.5; §4.3",
+      "locator": "§4.2 before Lemma4.5; §4.2",
       "status": "missing",
       "ownerKey": "rg",
       "prerequisites": [
@@ -4805,7 +4812,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§4.2 before Lemma4.5; §4.3",
+          "locator": "§4.2 before Lemma4.5; §4.2",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -4883,7 +4890,7 @@
       "kind": "definition",
       "name": "Canonical Shimura local systems",
       "statement": "For a Shimura datum (G,X), sufficiently small neat K=K_pK^p and ρ∈Rep_Qp(G^c), choose a K_p-stable lattice Λ. Set K_p^(n)=K_p∩ρ^-1(1+p^nEndΛ), form the associated finite étale Λ/p^n sheaf on Sh_K, and take its inverse limit then rationalize.",
-      "locator": "§4.3 construction before Lemma4.8",
+      "locator": "§4.2 construction before Lemma4.8",
       "status": "planned",
       "ownerKey": "rh",
       "prerequisites": [
@@ -4898,7 +4905,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§4.3 construction before Lemma4.8",
+          "locator": "§4.2 construction before Lemma4.8",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -4955,7 +4962,7 @@
       "kind": "theorem",
       "name": "Canonical models and special-point supply",
       "statement": "For every Shimura datum, use the canonical model over its reflex field with geometric-Artin special-point reciprocity and algebraic level maps.",
-      "locator": "§4.3 canonical-model input",
+      "locator": "§4.2 canonical-model input",
       "status": "planned",
       "ownerKey": "shim",
       "prerequisites": [
@@ -4969,7 +4976,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§4.3 canonical-model input",
+          "locator": "§4.2 canonical-model input",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -5011,8 +5018,8 @@
       "id": "PAPER-LIU-ZHU-17/G19",
       "kind": "theorem",
       "name": "All Shimura canonical stalks are geometric",
-      "statement": "For every Shimura datum and a representation of G^c defining the canonical Qp local system, its stalk at every closed point is geometric. For Q-rational V this is Theorem1.2; the §4.3 tensor construction and argument apply to Rep_Qp(G^c).",
-      "locator": "Theorem1.2 and §4.3 proof",
+      "statement": "For every Shimura datum and a representation of G^c defining the canonical Qp local system, its stalk at every closed point is geometric. For Q-rational V this is Theorem1.2; the §4.2 tensor construction and argument apply to Rep_Qp(G^c).",
+      "locator": "Theorem1.2 and §4.2 proof",
       "status": "missing",
       "ownerKey": "rh",
       "prerequisites": [
@@ -5030,7 +5037,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "Theorem1.2 and §4.3 proof",
+          "locator": "Theorem1.2 and §4.2 proof",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -5450,7 +5457,7 @@
       "kind": "theorem",
       "name": "Special points in every component",
       "statement": "Every geometric connected component of Sh_K(G,X) contains a special point.",
-      "locator": "§4.3 proof of Theorem1.2; Milne Lemma13.5",
+      "locator": "§4.2 proof of Theorem1.2; Milne Lemma13.5",
       "status": "planned",
       "ownerKey": "shim",
       "prerequisites": [
@@ -5464,7 +5471,7 @@
       "sources": [
         {
           "sourceId": "liuzhu17",
-          "locator": "§4.3 proof of Theorem1.2; Milne Lemma13.5",
+          "locator": "§4.2 proof of Theorem1.2; Milne Lemma13.5",
           "match": "Final arXiv v3 read in full; source findings refer to this version unless otherwise specified."
         }
       ],
@@ -5474,6 +5481,175 @@
         "ShimuraVarieties:V8"
       ],
       "closure": "Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint."
+    },
+    {
+      "id": "PAPER-LIU-ZHU-17/P19",
+      "kind": "definition",
+      "name": "Hodge–Tate local-system predicate",
+      "statement": "Set OB_HT=gr OB_dR=⊕_{j∈Z}OC(j) and D_HT(L)=ν_*(hatL⊗OB_HT). A Qp local system L is Hodge–Tate in the convention of Remark2.5 when D_HT(L) is a vector bundle on X of rank rk(L). Do not replace this family predicate by a list of pointwise Hodge–Tate stalks without a theorem.",
+      "locator": "Remark2.5, PDF8–9",
+      "status": "missing",
+      "ownerKey": "ph",
+      "prerequisites": [
+        "PAPER-LIU-ZHU-17/P03",
+        "PAPER-LIU-ZHU-17/P08",
+        "PAPER-LIU-ZHU-17/P09"
+      ],
+      "implementationStatus": "unchecked",
+      "sources": [
+        {
+          "sourceId": "liuzhu17",
+          "locator": "Remark2.5, PDF8–9",
+          "match": "Independently checked by REV-PAPER-LIU-ZHU-17 in final arXiv v3."
+        }
+      ],
+      "closure": "Extraction contract; source-qualified recursive proof closure remains open.",
+      "uses": [
+        {
+          "where": "A16 and Remark2.5",
+          "how": "Distinguishes the family Hodge–Tate predicate from pointwise and geometric H functors."
+        }
+      ],
+      "api": [
+        {
+          "name": "LiuZhu17.P19.construct",
+          "role": "constructor",
+          "statement": "Form the graded period sheaf, direct-sum coefficient object and pushforward."
+        },
+        {
+          "name": "LiuZhu17.P19.rankCriterion",
+          "role": "characterisation",
+          "statement": "State finite local freeness and the expected-rank condition, componentwise if ranks vary."
+        },
+        {
+          "name": "LiuZhu17.P19.pointComparison",
+          "role": "comparison",
+          "statement": "For X=Spa(k), identify the pushforward with the usual graded D_HT of the Galois representation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "LiuZhu17.P19.test1",
+          "kind": "computation",
+          "statement": "For the constant Qp line recover one-dimensional D_HT in weight zero.",
+          "status": "Acceptance specification; not Lean compiled"
+        },
+        {
+          "name": "LiuZhu17.P19.test2",
+          "kind": "degenerate",
+          "statement": "The zero local system has rank-zero D_HT.",
+          "status": "Acceptance specification; not Lean compiled"
+        },
+        {
+          "name": "LiuZhu17.P19.test3",
+          "kind": "non-example",
+          "statement": "A rank-one cyclotomic analytic character χ^s with nonintegral s is not Hodge–Tate; do not promote it by forgetting integral grading.",
+          "status": "Acceptance specification; not Lean compiled"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ZHU-17/P20",
+      "kind": "definition",
+      "name": "de Rham local-system predicate and associated filtered bundle",
+      "statement": "On a smooth rigid k-variety, call L de Rham when hatL⊗B_dR^+ is associated to a finite locally free filtered O_X-module E with integrable connection and Griffiths transversality: after structural OB_dR extension there is a filtration- and connection-compatible isomorphism ν*E⊗OB_dR ≅ hatL⊗OB_dR. The filtration on E is separated, exhaustive and by locally direct summands. This is the local predicate used by Liu–Zhu; Scholze Definition8.3 is printed in a proper-smooth setting, whereas association itself is defined in §7.",
+      "locator": "Theorem3.9(iv), final arXiv v3; Scholze Definitions7.4–7.5,8.3",
+      "status": "missing",
+      "ownerKey": "ph",
+      "prerequisites": [
+        "PAPER-LIU-ZHU-17/P03",
+        "PAPER-LIU-ZHU-17/P08",
+        "PAPER-LIU-ZHU-17/H01",
+        "PAPER-LIU-ZHU-17/H03"
+      ],
+      "implementationStatus": "unchecked",
+      "sources": [
+        {
+          "sourceId": "liuzhu17",
+          "locator": "Theorem3.9(iv), final arXiv v3; Scholze Definitions7.4–7.5,8.3",
+          "match": "Independently checked by REV-PAPER-LIU-ZHU-17 in final arXiv v3."
+        }
+      ],
+      "closure": "Extraction contract; source-qualified recursive proof closure remains open.",
+      "uses": [
+        {
+          "where": "A11–A14",
+          "how": "Makes the conclusion de Rham local system precise and distinguishes it from pointwise rank conditions."
+        }
+      ],
+      "api": [
+        {
+          "name": "LiuZhu17.P20.associated",
+          "role": "constructor",
+          "statement": "Package the actual period comparison isomorphism and its filtration/connection diagrams."
+        },
+        {
+          "name": "LiuZhu17.P20.locality",
+          "role": "characterisation",
+          "statement": "Prove the predicate is local on X and independent of the integral lattice."
+        },
+        {
+          "name": "LiuZhu17.P20.reconstruct",
+          "role": "comparison",
+          "statement": "For a de Rham local system use A12 to recover E as D^0_dR(L), not by definition for every L."
+        }
+      ],
+      "tests": [
+        {
+          "name": "LiuZhu17.P20.test1",
+          "kind": "computation",
+          "statement": "The constant line corresponds to O_X with d and the weight-zero filtration.",
+          "status": "Acceptance specification; not Lean compiled"
+        },
+        {
+          "name": "LiuZhu17.P20.test2",
+          "kind": "degenerate",
+          "statement": "Zero rank has the zero associated filtered bundle.",
+          "status": "Acceptance specification; not Lean compiled"
+        },
+        {
+          "name": "LiuZhu17.P20.test3",
+          "kind": "non-example",
+          "statement": "Non-de-Rham point representations do not acquire associated full-rank filtered bundles merely because D_dR is defined.",
+          "status": "Acceptance specification; not Lean compiled"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ZHU-17/T28",
+      "kind": "theorem",
+      "name": "Completed-structure-sheaf cohomology as Higgs cohomology",
+      "statement": "For a smooth toric affinoid X=Spa(A) over k, perfectoid K containing k∞, and local system L defined over X, the Higgs complex of the canonical unipotent module M_K(X), with degree q term M_K(X)⊗_A Ω^q_{A/k}(-q) and differential d_θ(m⊗ω)=θ(m)∧ω, computes H^*(X_proet/X_K,hatL⊗hatO_X). It is the Koszul complex of the commuting logarithmic geometric Γ generators. Integrability gives d_θ²=0; the second differential is not the curvature θ∧θ.",
+      "locator": "§2.3 after (2.9), PDF12; Proposition2.8(P2)",
+      "status": "missing",
+      "ownerKey": "rh",
+      "prerequisites": [
+        "PAPER-LIU-ZHU-17/T10",
+        "PAPER-LIU-ZHU-17/T11C",
+        "PAPER-LIU-ZHU-17/T12",
+        "PAPER-LIU-ZHU-17/P16",
+        "PAPER-LIU-ZHU-17/P17"
+      ],
+      "implementationStatus": "unchecked",
+      "sources": [
+        {
+          "sourceId": "liuzhu17",
+          "locator": "§2.3 after (2.9), PDF12; Proposition2.8(P2)",
+          "match": "Independently checked by REV-PAPER-LIU-ZHU-17 in final arXiv v3."
+        }
+      ],
+      "closure": "Extraction contract; source-qualified recursive proof closure remains open.",
+      "uses": [
+        {
+          "where": "Local Simpson cohomology and T25",
+          "how": "Records the explicit unnumbered comparison omitted by the original extraction."
+        }
+      ],
+      "proofSteps": [
+        "Use the geometric Γ cohomology comparison of Proposition2.8(P2).",
+        "Compare the Koszul operators γ_i−1 and their nilpotent logarithms through invertible polynomial factors; retain the t and differential twists.",
+        "Identify the resulting complex with the Higgs complex; use the exterior extension of θ in each degree (E13)."
+      ]
     }
   ],
   "routes": [
@@ -5483,7 +5659,9 @@
       "stages": [
         "PadicHodgeTheory:R06.1",
         "PadicHodgeTheory:R06.2",
-        "PadicHodgeTheory:P8:local-rational"
+        "PadicHodgeTheory:P8:local-rational",
+        "PadicHodgeTheory:P8",
+        "PadicHodgeTheory:R06.5"
       ],
       "items": [
         "PAPER-LIU-ZHU-17/P01",
@@ -5497,9 +5675,11 @@
         "PAPER-LIU-ZHU-17/T22",
         "PAPER-LIU-ZHU-17/T23",
         "PAPER-LIU-ZHU-17/G13",
-        "PAPER-LIU-ZHU-17/G23"
+        "PAPER-LIU-ZHU-17/G23",
+        "PAPER-LIU-ZHU-17/P19",
+        "PAPER-LIU-ZHU-17/P20"
       ],
-      "reason": "Import the pinned underlying period rings, then complete their filtration/Galois/DVR structure and the existing period-functor owner. P8:local-rational owns corrected structural period sheaves, OC/Faltings extension, local acyclicity and relative Poincaré. It precedes proper comparisons; the new Simpson/RH application is placed in T6:comparison, so there is no reverse dependency through a proper comparison."
+      "reason": "Import the pinned underlying period rings, then complete their filtration/Galois/DVR structure and the existing period-functor owner. P8:local-rational owns corrected structural period sheaves, OC/Faltings extension, local acyclicity and relative Poincaré. It precedes proper comparisons; the new Simpson/RH application is placed in T6:comparison, so there is no reverse dependency through a proper comparison. Review: P8's proper suffix, not merely P8:local-rational, supplies T23; R06.5 receives G23's geometric representation applications. P19/P20 are explicit relative period-functor predicates. No reverse dependency from early period sheaves to the Simpson consumer is introduced."
     },
     {
       "route": "source",
@@ -5536,12 +5716,13 @@
       "route": "source",
       "roadmap": "EnhancedDerivedSheaves",
       "stages": [
+        "EnhancedDerivedSheaves:E1",
         "EnhancedDerivedSheaves:E2"
       ],
       "items": [
         "PAPER-LIU-ZHU-17/P12"
       ],
-      "reason": "Coherent-slice colimits, derived limits and the period-tower Mittag–Leffler input use the shared cohomological-completeness owner. Generic derived completion is imported from DD.1."
+      "reason": "Coherent-slice colimits, derived limits and the period-tower Mittag–Leffler input use the shared cohomological-completeness owner. Generic derived completion is imported from DD.1. Review: E1 is also needed for filtered colimits; P12 is missing, not an already explicit E2 theorem."
     },
     {
       "route": "source",
@@ -5650,7 +5831,8 @@
         "PAPER-LIU-ZHU-17/R10V",
         "PAPER-LIU-ZHU-17/A07V",
         "PAPER-LIU-ZHU-17/A16R",
-        "PAPER-LIU-ZHU-17/G12C"
+        "PAPER-LIU-ZHU-17/G12C",
+        "PAPER-LIU-ZHU-17/T28"
       ],
       "reason": "The full stage explicitly owns logarithmic Riemann–Hilbert, arithmetic rigidity and canonical G^c local systems. Liu–Zhu supplies its ordinary, empty-boundary prefix: nilpotent Simpson, geometric and arithmetic RH, arbitrary pullback, qualified proper pushforward and local/global rigidity, followed by the canonical Shimura application. No competing PadicHodgeTheory Riemann–Hilbert successor is proposed. The prefix only needs the ordinary site/period suppliers and geometric decompletion; the later logarithmic boundary and algebraicity comparison stay in the existing suffix.",
       "relatedExtractions": [
@@ -5757,7 +5939,7 @@
         "PAPER-LIU-ZHU-17/T08"
       ],
       "reason": "PG.0–PG.6 are fixed-field cyclotomic constructions and PG.7 is the KPX arithmetic affinoid-family theorem. The full README explicitly excludes obtaining multivariable towers by renaming Γ. Liu–Zhu requires the distinct KL geometric and arithmetic-geometric toric decompletion theorem. One continuation owns that reusable input; it imports the parent coefficient comparisons and does not rebuild Robba analytic carriers.",
-      "brief": "Start after PhiGammaModulesAndIwasawaCohomology, importing its fixed-field cyclotomic construction and proving the zero-geometric-dimension specialization agrees. Import PadicHodgeTheory P7:annulus-foundations for general analytic ring/norm operations, R06.1 for period constants, AdicSpacesPartII R0/R3 for completed affinoid products/coherence, AdicEtaleGeometry A1 for the corrected site, PerfectoidSpaces for the toric completions, and ArithmeticGaloisDuality for continuous/analytic cochain comparisons and corrected Tate–Sen estimates. This is geometric toric descent, not a second KPX arithmetic-family theorem.\n\nConstruct both toric towers over a perfectoid field containing the cyclotomic extension and relative toric towers over a finite p-adic field, with the exact Γgeom=Zp(1)^d and cyclotomic semidirect action. Define weak and local decompletion, the perfect/imperfect relative Robba rings at bounded radii, Γ-modules and φ-linearizations, and distinguish globally étale modules from arbitrary φ-modules. Read KL2 at the cited v1 and compare with the current corrected version before closing the design. Prove the fractional-monomial quotient decomposition, the γ−1 inverse with uniform norm bounds, strict cochain exactness, rational/finite-étale stability and analytic-to-continuous cohomology comparison. The relative arithmetic Γ factor is not normal, so use the source's correct cohomology argument there. Descend finite-projective idempotents and actions, then prove the exact tensor equivalence for globally étale modules rather than assume it in a structure field.\n\nFinal export is Liu–Zhu Lemma2.14: for a local system on a smooth toric chart, a sufficiently high finite B_m module M_m, its completed reconstruction, all Γgeom cohomology comparisons and standard étale base-change compatibility. The choice M_m is not unique. Prove the theta-specialization cocartesian squares with radii0<s≤r/p and p^ms≤1≤p^mr; strictness and completion cannot be dropped. The canonical unipotent summand, arithmetic nilpotence, polynomial OC calculation and H/RH functors belong to T6:comparison, which consumes this module. Tests include dimension0 agreement with the parent, one toric coordinate, a finite nontrivial Kummer character, a rational localization, a finite étale extension, radius rescaling and a non-étale Robba module. Suggested files: TauCeti/NumberTheory/PadicHodge/GeometricTowers/{PeriodRings,Decompletion,EtaleModules,ThetaSpecialization}.lean. Split every original supplier declaration and close the analytic norm/descent gaps before claiming a completed blueprint."
+      "brief": "Start after PhiGammaModulesAndIwasawaCohomology, importing its fixed-field cyclotomic construction and proving the zero-geometric-dimension specialization agrees. Import PadicHodgeTheory P7:annulus-foundations for general analytic ring/norm operations, R06.1 for period constants, AdicSpacesPartII R0/R3 for completed affinoid products/coherence, AdicEtaleGeometry A1 for the corrected site, PerfectoidSpaces for the toric completions, and the existing continuous-cohomology carrier/general comparisons from ProfiniteCohomology and ArithmeticGaloisDuality only within their coefficient hypotheses. Specialized analytic comparison and corrected Tate–Sen norm estimates require explicit p-adic-Hodge suppliers; route6 does not establish them. This is geometric toric descent, not a second KPX arithmetic-family theorem.\n\nConstruct both toric towers over a perfectoid field containing the cyclotomic extension and relative toric towers over a finite p-adic field, with the exact Γgeom=Zp(1)^d and cyclotomic semidirect action. Define weak and local decompletion, the perfect/imperfect relative Robba rings at bounded radii, Γ-modules and φ-linearizations, and distinguish globally étale modules from arbitrary φ-modules. Read KL2 at the cited v1 and compare with the current corrected version before closing the design. Prove the fractional-monomial quotient decomposition, the γ−1 inverse with uniform norm bounds, strict cochain exactness, rational/finite-étale stability and analytic-to-continuous cohomology comparison. The relative arithmetic Γ factor is not normal, so use the source's correct cohomology argument there. Descend finite-projective idempotents and actions, then prove the exact tensor equivalence for globally étale modules rather than assume it in a structure field.\n\nFinal export is Liu–Zhu Lemma2.14: for a local system on a smooth toric chart, a sufficiently high finite B_m module M_m, its completed reconstruction, all Γgeom cohomology comparisons and standard étale base-change compatibility. The choice M_m is not unique. Prove the theta-specialization cocartesian squares with radii0<s≤r/p and p^ms≤1≤p^mr; strictness and completion cannot be dropped. The canonical unipotent summand, arithmetic nilpotence, polynomial OC calculation and H/RH functors belong to T6:comparison, which consumes this module. Tests include dimension0 agreement with the parent, one toric coordinate, a finite nontrivial Kummer character, a rational localization, a finite étale extension, radius rescaling and a non-étale Robba module. Suggested files: TauCeti/NumberTheory/PadicHodge/GeometricTowers/{PeriodRings,Decompletion,EtaleModules,ThetaSpecialization}.lean. Split every original supplier declaration and close the analytic norm/descent gaps before claiming a completed blueprint."
     }
   ],
   "prerequisites": [
@@ -5822,10 +6004,10 @@
       "coverage": "Only the stated ranges are credited as read; download or citation alone is not recursive closure."
     },
     {
-      "citation": "Scholze–Weinstein, Moduli of p-divisible groups",
-      "link": "https://arxiv.org/abs/1211.6357",
-      "why": "Fargues period lattices/BKF input behind Remark4.1(iii), with the actual quotient structure group.",
-      "coverage": "Only the stated ranges are credited as read; download or citation alone is not recursive closure."
+      "citation": "Scholze–Weinstein, Lectures on p-adic geometry, Berkeley course notes (2014)",
+      "link": "https://math.berkeley.edu/~jared/Math274/ScholzeLectures.pdf",
+      "why": "This is [SW] in Liu–Zhu's bibliography, not Moduli of p-divisible groups. Locate the exact Fargues/BKF lattice classification used by Remark4.1(iii), including functorial tensor compatibility and the actual quotient structure group.",
+      "coverage": "Bibliographic identity checked against the complete Liu–Zhu bibliography; original lecture classification proof remains a source gap."
     },
     {
       "citation": "Henniart, Représentations l-adiques abéliennes",
@@ -5850,8 +6032,17 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from v3 Lemma2.10 and TeX: r=0, γ=1, w=1, j=0 makes the displayed sum empty. Including i=r+1 gives the required binomial primitive. Exact rational checks also exercise nontrivial unipotent Jordan blocks.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
     },
     {
       "id": "PAPER-LIU-ZHU-17/E02",
@@ -5868,8 +6059,17 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only the finite-level target typo. The theta map evaluates A_inf(U) in the completed U ring. The source ALREADY includes p-adic completion; Scholze's three-page corrigendum corroborates the target, not an allegation of an uncompleted tensor in Liu–Zhu.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
     },
     {
       "id": "PAPER-LIU-ZHU-17/E03",
@@ -5886,8 +6086,17 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from the polynomial map on PDF15/TeX: for m=1,n=2 the source V_2 must be killed. The printed threshold n asks for a nonexistent target variable.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
     },
     {
       "id": "PAPER-LIU-ZHU-17/E04",
@@ -5904,13 +6113,22 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from the displayed formula and its induction proof. Cohomological degree and truncation length must be independent; otherwise the i=0 case concerns the zero quotient.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
     },
     {
       "id": "PAPER-LIU-ZHU-17/E05",
       "kind": "misprint",
-      "locator": "arXiv1602.06282v3; Theorem3.8(iv),PDF24; Lemma3.11,PDF27",
+      "locator": "arXiv1602.06282v3; Theorem3.8(iv),PDF23; Lemma3.11,PDF27",
       "printed": "f:X→Y; f*L (L on X)",
       "correction": "Use f:Y→X, so A→B and pullback of L to Y agree with every subsequent formula.",
       "reason": "A local system on X cannot be pulled back along a morphism with target Y. The proof and displayed coefficient maps have the corrected variance.",
@@ -5922,8 +6140,17 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed variance at both locators: the coefficient morphism is A→B and L is on X, so f has source Y and target X. Theorem3.8 is on PDF23 (its proof continues on24).",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
     },
     {
       "id": "PAPER-LIU-ZHU-17/E06",
@@ -5940,15 +6167,24 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the false quantified lemma, not a failure of rigidity. For k=Q3, m≥1, χ(γ)=1+3^(m+1) fixes a nonzero ζ_(3^(m+1)) class in K/k_m. BC TS3 has n(γ)≤n (original printed310 inspected visually). A suitable level generator is the intended input; full norm-controlled finite-module repair remains GAP04.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
     },
     {
       "id": "PAPER-LIU-ZHU-17/E07",
       "kind": "misprint",
       "locator": "arXiv1602.06282v3; Proposition4.1 proof,PDF29",
-      "printed": "Frac(X_m), Gal(X_m/X)=GL_n(Z/p^m)",
-      "correction": "Use normalization in the total finite étale algebra of the frame torsor, or work with each connected component and its actual monodromy subgroup.",
+      "printed": "Frac(X_m)",
+      "correction": "Normalize in the total finite étale algebra of the possibly disconnected frame torsor, or work componentwise. The full frame torsor can retain its GL_n torsor action; only a selected connected component has the monodromy subgroup.",
       "reason": "The full frame torsor need not be connected: a constant rank-one F3 local system has a two-component frame cover. Its total quotient algebra is a product of fields, not one fraction field. The ramification argument works componentwise with the same group-order bound.",
       "affects": "the proof",
       "known": "new",
@@ -5958,8 +6194,17 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only the fraction-field wording: the constant F3 line has a two-component frame torsor. A disconnected GL_n torsor remains a valid torsor; its normalization uses the total finite étale algebra, not a single field.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
     },
     {
       "id": "PAPER-LIU-ZHU-17/E08",
@@ -5976,8 +6221,18 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected as an alleged missing-faithfulness error. The source says 'system of open neighborhoods', not a fundamental system or neighborhood basis. Every congruence kernel is indeed open and contains the identity, even for trivial ρ. Effective-image language is useful exposition but does not establish a false mathematical assertion.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      },
+      "note": "Rejected entry retained for review provenance; do not register as a confirmed mistake or require faithfulness in the canonical-sheaf construction."
     },
     {
       "id": "PAPER-LIU-ZHU-17/E09",
@@ -5994,8 +6249,17 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed category/realization slip: the rational Betti local system is singular homology, whereas relative de Rham homology is a vector bundle. The adjoining Tate-module assertion fixes the covariant convention.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
     },
     {
       "id": "PAPER-LIU-ZHU-17/E10",
@@ -6012,8 +6276,17 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed narrowly as an omitted lifting input in Remark4.1(iii): the stated tensor functor has domain Rep(G^c_Qp), so it yields G^c structure, not by itself G structure. No impossibility of an additional lift and no counterexample to Theorem1.2 is asserted.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
     },
     {
       "id": "PAPER-LIU-ZHU-17/E11",
@@ -6030,8 +6303,17 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as notation only. Restricting the finite quotient map to its defining kernel is trivial; the intended nontrivial character is obtained by restricting the inverse-limit reciprocity map. The source's reuse of notation can be repaired explicitly.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
     },
     {
       "id": "PAPER-LIU-ZHU-17/E12",
@@ -6048,15 +6330,46 @@
         "Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.",
         "Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.",
         "Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.",
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed rank-one omission in the tame proof: |GL_1(F_p)|=p−1 does not exclude p, while the mod-p² group has order p(p−1). Adding p to N is harmless; this is not a counterexample to the almost-everywhere result.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
+    },
+    {
+      "id": "PAPER-LIU-ZHU-17/E13",
+      "kind": "misprint",
+      "locator": "arXiv1602.06282v3, §2.3 immediately after(2.9), PDF12; TeX Higgs-cohomology display",
+      "printed": "ϑ∧ϑ : M_K⊗Ω¹(-1) → M_K⊗Ω²(-2)",
+      "correction": "Use the exterior extension d_ϑ=ϑ∧ in degree1, defined by m⊗ω ↦ ϑ(m)∧ω. The composition d_ϑ² is the curvature and vanishes, not the differential d_ϑ itself.",
+      "reason": "Take M=Ae1⊕Ae2 over a two-variable characteristic-zero base and ϑ(e2)=e1 dx, ϑ(e1)=0. Integrability holds, yet d_ϑ(e2⊗dy)=e1 dx∧dy is nonzero. The printed curvature ϑ∧ϑ has source M and is zero. This is a typed arrow-label slip, not failure of the intended Higgs cohomology comparison.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+        "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+        "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history.",
+        "2026-09-23 follow-up searches for Liu–Zhu Riemann–Hilbert Higgs cohomology correction and 1602.06282 erratum found no applicable correction; results for other authors' or other Zhu papers were not treated as corrections to this paper."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the displayed arrow in the full v3 text and independently in the author TeX (not an OCR artifact). The explicit nilpotent rank-two calculation distinguishes the differential from its square. T28 records the correctly typed comparison.",
+        "by": "REV-PAPER-LIU-ZHU-17"
+      }
     }
   ],
   "gaps": [
     {
       "id": "GAP01",
       "title": "Published-version collation",
-      "remaining": "All35 pages of final arXivv3 were read; Caltech submitted copy has identical bytes. Bibliography/title/abstract match the published53-page article, but the full version of record was not obtained. Compare theorem statements, proofs and E01–E12 against the published text before claiming published-source coverage.",
+      "remaining": "All35 pages of final arXivv3 were read; Caltech submitted copy has identical bytes. Bibliography/title/abstract match the published53-page article, but the full version of record was not obtained. Compare theorem statements, proofs and E01–E13 against the published text before claiming published-source coverage.",
       "status": "unavailable",
       "resolution": "The Inventiones version is closed access; arXiv v3 is read and the findings refer to it."
     },
@@ -6064,43 +6377,48 @@
       "id": "GAP02",
       "title": "Declaration-sized and recursive closure",
       "remaining": "T04–T06,R04,A05,A11,G01,G08,G21 and related external interfaces still combine several declarations. Fully split the original-source definitions, hypotheses and proof DAG. All current missing contracts are routed, but this is not complete mathematical closure.",
-      "status": "deferred",
-      "resolution": "Declaration-sized decomposition and recursive closure are design work."
+      "status": "open",
+      "resolution": "Not discharged by the completion. Exact supplier hypotheses, declarations and dependencies remain extraction obligations; see independent review.",
+      "priorResolution": "Declaration-sized decomposition and recursive closure are design work."
     },
     {
       "id": "GAP03",
       "title": "Relative p-adic Hodge suppliers",
       "remaining": "KL2v1 PDF109–113 and131–135 were read, not the full170-page supplier. Read the general perfect/imperfect ring definitions, topological tensor and analytic-cochain prerequisites; compare to the current version. Read KL1 Theorems2.6.5(a),9.2.15 and their descent/acyclicity dependencies. No v1-to-current equivalence is assumed.",
-      "status": "deferred",
-      "resolution": "The relative p-adic Hodge inputs (Scholze, Kedlaya–Liu) are cited suppliers."
+      "status": "open",
+      "resolution": "Not discharged by the completion. Exact supplier hypotheses, declarations and dependencies remain extraction obligations; see independent review.",
+      "priorResolution": "The relative p-adic Hodge inputs (Scholze, Kedlaya–Liu) are cited suppliers."
     },
     {
       "id": "GAP04",
       "title": "Tate–Sen and nonflat base change",
       "remaining": "BC printed309–312 and314 were read; TS3 inequality was visually confirmed. Finish the norm-controlled tensor perturbation and Neumann inverse for arbitrary finite affinoid modules, the procyclic Banach cohomology comparison, finite rational descent and completed/algebraic tensor comparison. Check all A08–A11 flatness and period-window induction details.",
-      "status": "deferred",
-      "resolution": "Tate–Sen and nonflat base-change inputs are cited suppliers; E06 records Lemma 3.10's quantifier."
+      "status": "open",
+      "resolution": "Not discharged by the completion. Exact supplier hypotheses, declarations and dependencies remain extraction obligations; see independent review.",
+      "priorResolution": "Tate–Sen and nonflat base-change inputs are cited suppliers; E06 records Lemma 3.10's quantifier."
     },
     {
       "id": "GAP05",
       "title": "Analytic geometry and singular rigidity",
       "remaining": "Read the exact Krasner/Shilov/Ax–Sen–Tate suppliers, Kiehl/finite-projective descent and coherent-connection local freeness. Pin a suitable rigid resolution theorem and write the component-incidence propagation argument for connected singular spaces; a resolution need not be connected.",
-      "status": "deferred",
-      "resolution": "Analytic-geometry and singular-rigidity inputs are cited suppliers."
+      "status": "open",
+      "resolution": "Not discharged by the completion. Exact supplier hypotheses, declarations and dependencies remain extraction obligations; see independent review.",
+      "priorResolution": "Analytic-geometry and singular-rigidity inputs are cited suppliers."
     },
     {
       "id": "GAP06",
       "title": "Global ramification and Shimura suppliers",
       "remaining": "Close purity and tame-specialization along vertical divisors, arithmetic section avoidance and the disconnected frame-cover normalization. Read torus unit-lattice/discreteness, all-datum canonical models, special-point density and Tannakian analytic reconstruction. ConradB4(i) was read in full, but its p-divisible/Lubin–Tate inputs and CM/Shioda–Katsura alternatives remain recursive suppliers.",
-      "status": "deferred",
-      "resolution": "Global ramification and Shimura-variety inputs are cited suppliers."
+      "status": "open",
+      "resolution": "Not discharged by the completion. Exact supplier hypotheses, declarations and dependencies remain extraction obligations; see independent review.",
+      "priorResolution": "Global ramification and Shimura-variety inputs are cited suppliers."
     },
     {
       "id": "GAP07",
       "title": "Independent source review",
       "remaining": "Independently review E01–E12, especially the explicit cyclotomic counterexample E06 and the ancillary G versus G^c lifting gap E10. Verify publication status and preserve the bounded errata search. No main rigidity theorem is claimed refuted.",
-      "status": "deferred",
-      "resolution": "Independent verification of the findings is the review job's task."
+      "status": "resolved",
+      "resolution": "REV-PAPER-LIU-ZHU-17 independently reviewed all twelve inherited findings, rejected E08, and added confirmed E13. Version-of-record collation remains GAP01."
     },
     {
       "id": "GAP08",
@@ -6108,6 +6426,13 @@
       "remaining": "No Lean file was supplied or compiled for this paper issue. Candidates are proposed directions, not existing stages. Produce declaration signatures, source-qualified proofs, meaningful tests and planets in the later design; numerical and schema checks are not formalization.",
       "status": "deferred",
       "resolution": "Design and Lean realization are downstream work."
+    },
+    {
+      "id": "GAP09",
+      "title": "Ownership corrections and specialized source closure",
+      "status": "open",
+      "remaining": "Replace rejected routes6,9,12 with statement-matched ownership: separate Banach cochains from Tate–Sen estimates; split algebraic models from rigid resolution; route rational/real central torus arithmetic through the adelic owner rather than RG2.5 dual groups. Route15's direction is plausible but its brief requires exact KL coefficient/radius/strictness declarations and valid Tate–Sen imports.",
+      "resolution": "Do not instantiate or publish design jobs from rejected routes."
     }
   ],
   "baseline": {
@@ -9618,7 +9943,13 @@
       }
     },
     "searchScope": "Both pinned trees searched for Higgs, Riemann–Hilbert, Tate–Sen, decompleting and Faltings-extension terms; inspected actual BDeRham, binomial-basis, nilpotent-exponential and Kähler declarations. Imported narrowly scoped same-session declaration readings for continuous cochains, finite projectives, derived/Tor carriers and torus/Galois algebra. Read current PH, PG, T6, adic, CR.1, BG0 and canonical-model owner texts, exact layer descriptions and matching paper route briefs. The underlying period rings already exist; their arithmetic structure and structural sheaves are separate.",
-    "lateInputReview": "Initial review compared the447-input manifest with the previous444-input baseline. Read the new Feng–Yun–Zhang24 and Jannsen16 summaries and all route lists; shtuka special cycles and Kato/weight homology do not supply the ordinary p-adic RH or geometric-toric descent theorem. Kaletha16 adds rigid inner forms and real packets. Read in full both existing HodgeStructuresPartII briefs, the EG20 Cartier-flow/rigid-companion briefs and the Bhatt-et-al23 integral prismatic RH brief; their boundaries are explicitly preserved. Before publication, seven new or changed paper results were read: Benoist–Wittenberg20,Feng24,Guo–Reinecke24,Liu–Wood–ZureickBrown24,NgoDac21,Schmidt–Stix16,and Treumann–Venkatesh16. All summaries and route lists were inspected; both Guo–Reinecke prismatic/crystalline-local-system briefs were read in full. The latter explicitly consumes the Liu–Zhu de Rham criterion; it remains a crystalline extension, importing the ordinary T6 prefix here. The other topology, random-group, mod-p base-change, anabelian and function-field MZV lanes do not own geometric p-adic toric descent. The final manifest also includes every additionally consulted owner README."
+    "lateInputReview": "Initial review compared the447-input manifest with the previous444-input baseline. Read the new Feng–Yun–Zhang24 and Jannsen16 summaries and all route lists; shtuka special cycles and Kato/weight homology do not supply the ordinary p-adic RH or geometric-toric descent theorem. Kaletha16 adds rigid inner forms and real packets. Read in full both existing HodgeStructuresPartII briefs, the EG20 Cartier-flow/rigid-companion briefs and the Bhatt-et-al23 integral prismatic RH brief; their boundaries are explicitly preserved. Before publication, seven new or changed paper results were read: Benoist–Wittenberg20,Feng24,Guo–Reinecke24,Liu–Wood–ZureickBrown24,NgoDac21,Schmidt–Stix16,and Treumann–Venkatesh16. All summaries and route lists were inspected; both Guo–Reinecke prismatic/crystalline-local-system briefs were read in full. The latter explicitly consumes the Liu–Zhu de Rham criterion; it remains a crystalline extension, importing the ordinary T6 prefix here. The other topology, random-group, mod-p base-change, anabelian and function-field MZV lanes do not own geometric p-adic toric descent. The final manifest also includes every additionally consulted owner README.",
+    "independentReview": {
+      "by": "REV-PAPER-LIU-ZHU-17",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "note": "All29 original citations independently opened at the pins. Name/body searches across both trees and atlas ownership sources did not supply the remaining analytic comparisons or rigidity results; this is bounded search, not proof of absence. Existing abstract algebra/cohomology/period carriers remain narrow library credits."
+    }
   },
   "validation": {
     "diagnostics": {
@@ -9686,6 +10017,52 @@
     "date": "2026-09-23",
     "status": "complete",
     "reading": "arXiv v3 re-read at §3 (Lemma 3.10) and at the findings.",
-    "changes": "known set to 'new' on all findings; E06 rechecked; gap statuses recorded; status complete."
+    "changes": "known set to 'new' on all findings; E06 rechecked; gap statuses recorded; status complete.",
+    "reviewSuperseded": true,
+    "reviewReason": "The previous completion did not discharge GAP02–GAP06; coverage also omitted the explicit Higgs-cohomology comparison and two local-system predicates."
+  },
+  "review": {
+    "status": "revise",
+    "by": "independent-review-REV-PAPER-LIU-ZHU-17",
+    "date": "2026-09-23",
+    "note": "Review complete; extraction partial. See separate review verdict and route decisions."
+  },
+  "independentReview": {
+    "job": "REV-PAPER-LIU-ZHU-17",
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "date": "2026-09-23",
+    "status": "complete",
+    "inputPullRequests": [
+      1977,
+      2110
+    ],
+    "atlasCommit": "552344528e9a0207b157b44ed10cd304dac62cc3",
+    "reading": [
+      "Liu–Zhu final arXiv v3, all35pages including proofs and bibliography; author TeX at E01–E05,E07–E09,E12,E13.",
+      "Scholze corrigendum, all3pages; original Definitions7.4–7.5,8.3 and Lemma8.6/proof, plus Lemma8.7 statement (not full original).",
+      "Berger–Colmez printed309–310 and314–315; TS3 page image checked.",
+      "KL2v1 pp20–22 definitions/analytic comparison, pp94–96 tower/ring definitions, pp109–110 strict cochains, pp111–113 through Theorem5.7.4/proof, pp130–135 toric statements/proofs. Full supplier and current-version collation not claimed.",
+      "Conrad PropositionB.4(i) and complete proof, printed35–36; part(ii) is not imported.",
+      "All15 cited owner-stage descriptions; full upstream AdicSpaces and HodgeStructures READMEs; both preceding HodgeStructuresPartII route briefs.",
+      "All29 cited library declaration bodies at the stated pins, with ambient hypotheses. Reviewed audit entries at matching stages; exact-stage audit absences explicitly retained."
+    ],
+    "searches": [
+      "Independent review 2026-09-23: https://arxiv.org/abs/1602.06282 lists v1, v2 and final v3 (20 July 2016), with no later version.",
+      "Publisher article https://link.springer.com/article/10.1007/s00222-016-0671-7 checked: accessible metadata/bibliography, subscription-only version of record, no applicable linked correction found. No claim that arXiv findings persist in the 53-page published text.",
+      "Targeted searches for the title/arXiv number with correction, erratum and Lemma 3.10 found no applicable author correction. Bounded search, not proof of novelty.",
+      "Independent author-page attempts: Liu's bicmr.pku.edu.cn/~ruochuan/ timed out; Zhu's web.stanford.edu/~zhuxw/ was unavailable. These failures are not credited as page readings. Earlier workers' successful-page/Crossref checks are retained as attributed history."
+    ],
+    "counts": {
+      "items": 132,
+      "library": 16,
+      "planned": 13,
+      "missing": 103,
+      "routes": 15,
+      "sourceIssues": 13,
+      "confirmed": 12,
+      "rejected": 1
+    },
+    "validation": "PASS: scripts/check_paper.py; 55 selected unittest tests (paper/source-issues/errata/queue/intake); focused inventory/unique-route/source-verdict/DAG/API checks and all29 pinned declaration hashes; 273 exact binomial primitive cases,18 cyclotomic congruence/degree cases,rank-two Higgs differential,4 rank-one bad-prime cases,product-ring and nonflat-specialization diagnostics. Intake path check is recorded separately after all five deliverables are written. No Lean compile."
   }
 }

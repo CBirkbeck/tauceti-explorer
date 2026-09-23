@@ -1,0 +1,82 @@
+{
+  "paper": "PAPER-LIU-ZHU-17",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Corrected stage assignment: R06.1/2 and P8:local-rational own period foundations and predicates; the full P8 proper suffix is needed for T23, and R06.5 for G23 geometric representation applications. The early/local dependency cut is preserved."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "A1 supplies the corrected analytic site; A2 imports the canonical geometry and coefficient descent, not a duplicate adic-space carrier. P13/P14/T18 are appropriate missing source statements, with perfectoid specialization hypotheses retained."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "R0/R3 own smooth charts, analytic differentials, coherent modules and finite-projective descent. Algebraic Kähler differentials do not alone supply the completed analytic module. P18's source-qualified local-freeness proof remains an explicit gap, not a library claim."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "After adding E1 and changing P12 to missing, the filtered-colimit/derived-limit contract is a source contribution to the shared derived-sheaf owner. Work on coherent slices and prove the actual limit hypotheses; do not assume arbitrary X is quasi-compact or every analytic topos replete."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "DD.1 is the shared Koszul/derived-completion owner. The commuting-endomorphism specialization uses a polynomial-ring action, and A08 retains flat cohomology as a hypothesis. Reuse existing derived-category and Tor carriers."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "R02.1/2 do not plan cyclotomic Tate–Sen normalized traces, norm estimates or arbitrary finite affinoid-module decompletion. P17 also combines site Cartan–Leray with Banach/procyclic and analytic comparison outside the stated compact/lattice scope. Split these inputs; use p-adic Hodge/geometric-tower suppliers for specialized estimates and the existing cohomology owner only for general carrier/comparison results."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "CR.1 supplies the shared connection/stratification carrier. Its crystalline specialization requires quasi-nilpotence; this source contribution must not turn arbitrary analytic integrable connections into crystals. No new connection carrier is justified."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "T6:comparison explicitly owns logarithmic RH, arithmetic rigidity and canonical local systems. Its ordinary empty-boundary prefix is the right home for Liu–Zhu, now including T28. The corrected A09/A11 and predicates preserve the Higgs/arithmetic distinction. Supplier closure remains an overall extraction gate, not a second RH roadmap."
+    },
+    {
+      "route": 9,
+      "verdict": "reject",
+      "reason": "SF.4 gives scheme/model/birational foundations, not the named rigid-analytic resolution theorem used in G01. Split algebraic compactification/spreading from rigid desingularization and connected-component propagation; assign the latter to an actual analytic owner with a precise source. G01 is no longer planned wholesale."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "IG.0/1 own finite-cover Galois categories, inertia and specialization. G02–G04 are legitimate source additions with total finite étale normalization and p excluded in the tame argument. Purity and nonproper boundary/section avoidance remain named supplier obligations."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "V4/V7/V8 match torus reciprocity, all-datum canonical models and the algebraic tower. Preserve source/target levels for Hecke maps and the separate special-point-in-each-component supplier; do not infer arbitrary-data canonical models from the abelian case alone."
+    },
+    {
+      "route": 12,
+      "verdict": "reject",
+      "reason": "RG2.0a constructs Weil restriction; RG2.5 constructs the integral dual/L-group. Neither plans the rational/real-split central quotient or adelic unit-lattice/discreteness conclusions G14/G15/G15C. Coordinate the torus algebra with the existing AdelicAlgebraicGroups central-quotient/reduction owner (AA.0–AA.3) and give precise statements instead of routing to unrelated dual groups."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "BG0/BG2:uniformization are the correct reductive-isocrystal and bundle-classification owners. G21/G22 must use G^c for the given tensor functor unless an additional G lift is supplied (E10). Corrected [SW] provenance does not pretend its unread classification proof is closed."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "Reuse the existing HodgeStructuresPartII candidate and its Landesman–Litt/Esnault–Groechenig briefs. A ringed-differential-site Higgs/λ-connection prefix can serve complex, crystalline and analytic consumers without making p-adic RH depend on complex Simpson. This extends, not duplicates, the upstream fibrewise Hodge roadmap."
+    },
+    {
+      "route": 15,
+      "verdict": "reject",
+      "reason": "The geometric-tower Part II direction is justified relative to PG.0–PG.7, but the current brief is not yet a safe implementation contract: KL perfect/imperfect rings, weak/local decompletion, finite-projective quotient cochains and theta specialization remain bundled; the original Tate–Sen import was invalid. T06 now cites Lemma5.6.6, but exact coefficient/radius/strictness hypotheses and supplier DAG still need extraction, plus the v1/current-version comparison. Keep this candidate, revise its detailed brief before creating its design job."
+    }
+  ],
+  "notes": "Completed independent review by Codex codex-a71f92 (REV-PAPER-LIU-ZHU-17, issue1303). Neither checkpoint PR1977 (codex-c83e7a) nor completion PR2110 (cc-442dc5) is this reviewer's work. Full final arXiv v3 and all original inventory/report entries read. Clear statement/locator/status corrections applied; P19/P20/T28 added. Current counts:132 items,16 library,13 planned,103 missing;15 routes, with6/9/12/15 rejected. Confirmed11 inherited source issues, rejected E08, added confirmed E13:12 confirmed of13. Review is complete but extraction remains partial because GAP02–GAP06/GAP09 require source/ownership closure. Findings are not asserted present in the unavailable published version. No Lean deliverable supplied or compiled."
+}
