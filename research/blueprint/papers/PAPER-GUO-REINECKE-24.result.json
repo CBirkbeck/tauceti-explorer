@@ -43,7 +43,7 @@
   "atlasChecked": "46d351b (tauceti-explorer main, 22 September 2026)",
   "note": "Library citations read at the pinned commits: Mathlib RingTheory/OrzechProperty.lean (OrzechProperty and its commutative-ring instance) and RingTheory/Ideal/AssociatedPrime/Basic.lean (associatedPrimes); Mathlib's A_inf and Fontaine θ (RingTheory/Perfectoid/FontaineTheta.lean) are cited in notes. No Tau Ceti declaration covers prismatic, crystalline or pro-étale objects."
  },
- "summary": "Guo and Reinecke prove that for a smooth p-adic formal scheme X over O_K (K discretely valued, possibly ramified) the étale realization is an equivalence between analytic prismatic F-crystals and crystalline Z_p-local systems on X_η in Faltings' sense (Theorem A), extending Bhatt–Scholze's theorem for Spf(O_K). Embedding analytic F-crystals into prismatic F-crystals in perfect complexes, they prove étale and crystalline comparisons with coefficients, Poincaré duality for prismatic pushforwards (trace-free and trace-normalized), Frobenius isogeny, a strong étale comparison over 𝔸_inf[1/μ] by an arc-local analysis, and compatibility with filtrations via infinitesimal cohomology over 𝔹⁺_dR, and deduce the relative C_crys conjecture with crystalline coefficients for smooth proper morphisms of formal schemes over ramified bases (Theorem B, Corollary C). The atlas plans the prismatic, A_inf, period-sheaf, crystalline and Bhatt–Scholze inputs; it lacks the higher-dimensional theory (a Part II of PrismaticCohomology), Faltings' crystalline local systems and 𝔹_crys(E) (a Part II of PadicHodgeTheory), convergent isocrystals and Xu/Shiho (source of the rigid-cohomology roadmap), and a few isolated inputs routed to existing proposals. Thirty-five mistakes are recorded, including a missing flatness hypothesis in Proposition 3.7, an impossible lift in the proof of Proposition 4.11 for ramified K, an invariant computation in Proposition 2.29 that fails for ramified K, a missing quasi-compactness hypothesis in §2, and gaps in the proofs of Theorems 6.13 and 7.16 and Lemma 9.7; the main theorems survive.",
+ "summary": "Guo and Reinecke prove that for a smooth p-adic formal scheme X over O_K (K discretely valued, possibly ramified) the étale realization is an equivalence between analytic prismatic F-crystals and crystalline Z_p-local systems on X_η in Faltings' sense (Theorem A), extending Bhatt–Scholze's theorem for Spf(O_K). Embedding analytic F-crystals into prismatic F-crystals in perfect complexes, they prove étale and crystalline comparisons with coefficients, Poincaré duality for prismatic pushforwards (trace-free and trace-normalized), Frobenius isogeny, a strong étale comparison over 𝔸_inf[1/μ] by an arc-local analysis, and compatibility with filtrations via infinitesimal cohomology over 𝔹⁺_dR, and deduce the relative C_crys conjecture with crystalline coefficients for smooth proper morphisms of formal schemes over ramified bases (Theorem B, Corollary C). The atlas plans the prismatic, A_inf, period-sheaf, crystalline and Bhatt–Scholze inputs; it lacks the higher-dimensional theory (a Part II of PrismaticCohomology), Faltings' crystalline local systems and 𝔹_crys(E) (a Part II of PadicHodgeTheory), convergent isocrystals and Xu/Shiho (source of the rigid-cohomology roadmap), and a few isolated inputs routed to existing proposals. Thirty-six mistakes are recorded (thirty-five by the extraction, one added by the review), including a missing flatness hypothesis in Proposition 3.7, an impossible lift in the proof of Proposition 4.11 for ramified K, an invariant computation in Proposition 2.29 that fails for ramified K, a missing quasi-compactness hypothesis in §2, and gaps in the proofs of Theorems 6.13 and 7.16 and Lemma 9.7; the main theorems survive.",
  "items": [
   {
    "id": "PAPER-GUO-REINECKE-24/001",
@@ -805,7 +805,7 @@
    "statement": "Let (E, φ, Fil^•E) be a filtered F-isocrystal. Assume X affine with V_0-model X̃ = Spf R^+ and framing V_0⟨x_i^{±1}⟩ → R^+, and that S^+ contains compatible p-power roots x_i^♭ of the x_i. By formal étaleness (ker(𝔸_crys(S,S^+)/p^n → S^+/p^n) is nil), x_i ↦ [x_i^♭] extends to s : R^+ → 𝔸_crys(S,S^+); the crystal property gives E(𝔸_crys(S,S^+))[1/μ] ⊗_{K_0} K ≃ E(R^+) ⊗_{R^+,s} 𝔹_{crys,K}(S,S^+) ≃ E(R_K) ⊗_{O(X_η),s} 𝔹_{crys,K}(S,S^+), and Fil^• on 𝔹_{crys,K}(E)(S,S^+) is the tensor product of Fil^•E and Fil^•𝔹_{crys,K} (Definition 2.23). It is independent of s: for another s' the transition isomorphism is c(e ⊗ 1) = Σ_α θ^α(e) ⊗ (s(x) − s'(x))^{[α]}, filtered by Griffiths transversality provided s(x_i) − s'(x_i) ∈ Fil^1𝔸_crys. Since x_i^♭ exist pro-étale locally, the filtrations glue to a filtration on 𝔹_{crys,K}(E).",
    "locator": "Construction 2.28, p. 19",
    "status": "missing",
-   "note": "The printed independence argument allows lifts s′ that agree with s only modulo p (sourceIssues E8); the construction's own lifts satisfy θ∘s′ = structure map. Possible misprint noted during reading, not verified and not recorded in sourceIssues: (true if θ∘s' = θ∘s; the printed hypothesis only asks agreement modulo p)"
+   "note": "The printed independence argument allows lifts s′ that agree with s only modulo p (sourceIssues E8); the construction's own lifts satisfy θ∘s′ = structure map, and the statement above is written with that hypothesis."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/071",
@@ -2419,7 +2419,7 @@
    "statement": "Convention 10.4: R → R' is a smooth morphism of relative dimension d of smooth topologically finite type O_K-algebras, X = Spf(R') → Y = Spf(R); R_{B⁺}, R_{B_e} (and R'_{B⁺}, R'_{B_e}) are the completed base changes along O_K → A_{inf,K} → B⁺_dR, resp. → B⁺_{dR,e}. Let ℱ be a crystal in vector bundles over X/Y_{B⁺,inf}; let Z be a smooth affinoid adic space over Y_K with a closed immersion X_C → Z_C over Y_C; let Σ ⊂ R'^× be an enlarged framing. (1) The Čech–Alexander complex of ℱ for the covering D_Z(X) is the cosimplicial complex ℱ_{D_{Z^•}(X)}, with ℱ_{D_{Z^n}(X)} := lim_{m,e} ℱ(Z^n_{m,e}), a vector bundle over 𝒪_inf({Z^n_{m,e}}); for Z from Σ it is ℱ_{D_{Σ^•}(R')}. By Lemma 10.3 and vanishing of higher coherent cohomology on affinoids, RΓ(X/Y_{B⁺,inf}, ℱ) ≅ lim_{[n]∈Δ} ℱ_{D_{Z^n}(X)}, functorially in Z (and in enlarging Σ). (2) By [Guo21, Thm. 3.3.1], ℱ_{D_Z(X)} carries a natural flat connection ∇: ℱ_{D_Z(X)} → ℱ_{D_Z(X)} ⊗_{𝒪_Z} Ω^1_{Z/Y_K}, continuous for the natural topology; dR(ℱ_{D_Z(X)}) denotes the associated de Rham complex. For Z from Σ, dR(ℱ_{D_Σ(R')}) := dR(ℱ_{D_Z(X)}) is a Koszul complex since Ω^1_{R⟨x_u^{±1}⟩/R} is free.",
    "locator": "10.6, p. 95–96",
    "status": "missing",
-   "note": "Possible misprint noted during reading, not verified and not recorded in sourceIssues: (printed as ending in Ω^d_{Z/Y_K})"
+   "note": "The statement above leaves the top term of the de Rham complex unspecified; the paper prints Ω^d_{Z/Y_K}, while d is the relative dimension of X over Y and the complex is that of Z, of relative dimension |Σ| in the framed case (sourceIssues E36, added by the reviewer)."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/247",
@@ -2428,7 +2428,7 @@
    "statement": "Convention 10.4: R → R' is a smooth morphism of relative dimension d of smooth topologically finite type O_K-algebras, X = Spf(R') → Y = Spf(R); R_{B⁺}, R_{B_e} (and R'_{B⁺}, R'_{B_e}) are the completed base changes along O_K → A_{inf,K} → B⁺_dR, resp. → B⁺_{dR,e}. Let ℱ be a crystal in vector bundles over X/Y_{B⁺,inf}, Z a smooth affinoid adic space over Y_K with a closed immersion X_K → Z_K (X_C → Z_C). There is a natural double complex M^{a,b}_Σ := ℱ_{D_{Z^{a+1}}(X)} ⊗_{𝒪_{Z^{a+1}}} Ω^b_{Z^{a+1}/Y_K}, with Čech–Alexander (cosimplicial) direction a and de Rham direction b, functorial in ℱ and Z (and in enlarging Σ). For each b > 0 the cosimplicial complex M^{•,b}_Σ is acyclic (homotopic to zero).",
    "locator": "10.7(i), p. 96",
    "status": "missing",
-   "note": "Possible misprint noted during reading, not verified and not recorded in sourceIssues: (as printed; the intended degree-a column uses the (a+1)-fold product of Z)"
+   "note": "Notational point, checked and deliberately not recorded as a mistake: Theorem 10.7 writes the Čech–Alexander direction as ℱ_{D_{Z^{a+1}}(X)} in the definition of M^{a,b}_Σ but as ℱ_{D_Z(X)^•} in its final sentence. The two denote the same cosimplicial object — the degree-a term is built from the (a+1)-fold self-product of Z — and no argument turns on the notation."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/248",
@@ -2437,7 +2437,7 @@
    "statement": "Convention 10.4: R → R' is a smooth morphism of relative dimension d of smooth topologically finite type O_K-algebras, X = Spf(R') → Y = Spf(R); R_{B⁺}, R_{B_e} (and R'_{B⁺}, R'_{B_e}) are the completed base changes along O_K → A_{inf,K} → B⁺_dR, resp. → B⁺_{dR,e}. Let ℱ be a crystal in vector bundles over X/Y_{B⁺,inf}, Z a smooth affinoid adic space over Y_K with a closed immersion X_K → Z_K (X_C → Z_C). There is a natural double complex M^{a,b}_Σ := ℱ_{D_{Z^{a+1}}(X)} ⊗_{𝒪_{Z^{a+1}}} Ω^b_{Z^{a+1}/Y_K}, with Čech–Alexander (cosimplicial) direction a and de Rham direction b, functorial in ℱ and Z (and in enlarging Σ). Any map in Δ between [0] and [a] induces an isomorphism (quasi-isomorphism) of de Rham complexes M^{0,•}_Σ → M^{a,•}_Σ.",
    "locator": "10.7(ii), p. 96",
    "status": "missing",
-   "note": "Possible misprint noted during reading, not verified and not recorded in sourceIssues: (as printed; the intended degree-a column uses the (a+1)-fold product of Z); (printed: 'any degeneracy map [a] → [0]')"
+   "note": "Two notational points, checked and deliberately not recorded as mistakes. (1) As in item 247, the degree-a term is the (a+1)-fold self-product of Z. (2) The paper says 'any degeneracy map [a] → [0] in Δ induces an isomorphism M^{0,•}_Σ → M^{a,•}_Σ'; the map M^{0,•}_Σ → M^{a,•}_Σ is the one induced by the projections Z^{a+1} → Z, which is what the proof uses (it forms dR(ℱ_{D_Z(X)}) → dR(ℱ_{D_{Z^{a+1}}(X)})), while the unique map [a] → [0] induces the diagonal in the other direction. The two maps are mutually inverse once either is an isomorphism, so the content is unaffected."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/249",
@@ -2446,7 +2446,7 @@
    "statement": "Convention 10.4: R → R' is a smooth morphism of relative dimension d of smooth topologically finite type O_K-algebras, X = Spf(R') → Y = Spf(R); R_{B⁺}, R_{B_e} (and R'_{B⁺}, R'_{B_e}) are the completed base changes along O_K → A_{inf,K} → B⁺_dR, resp. → B⁺_{dR,e}. Let ℱ be a crystal in vector bundles over X/Y_{B⁺,inf}, Z a smooth affinoid adic space over Y_K with a closed immersion X_K → Z_K (X_C → Z_C). There is a natural double complex M^{a,b}_Σ := ℱ_{D_{Z^{a+1}}(X)} ⊗_{𝒪_{Z^{a+1}}} Ω^b_{Z^{a+1}/Y_K}, with Čech–Alexander (cosimplicial) direction a and de Rham direction b, functorial in ℱ and Z (and in enlarging Σ). Consequently the total complex of M^{a,b}_Σ is isomorphic to both M^{•,0}_Σ = lim_{[n]∈Δ} ℱ_{D_{Z^n}(X)} (≅ RΓ(X/Y_{B⁺,inf}, ℱ)) and M^{0,•}_Σ = dR(ℱ_{D_Z(X)}).",
    "locator": "10.7, p. 96",
    "status": "missing",
-   "note": "Possible misprint noted during reading, not verified and not recorded in sourceIssues: (as printed; the intended degree-a column uses the (a+1)-fold product of Z)"
+   "note": "As in item 247: the degree-a term of the Čech–Alexander direction is built from the (a+1)-fold self-product of Z, which the paper's final display abbreviates differently. Not recorded as a mistake."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/250",
@@ -2482,7 +2482,7 @@
    "statement": "Setting of §10.1: K as before; A_inf = A_inf(O_C); B⁺_dR = 𝔹⁺_dR(O_C) = (A_inf[1/p])^∧_{ξ̃} (completion along ker θ̃, θ̃ = Hodge–Tate specialization); A_{inf,K} = A_inf ⊗_{W(k)} O_K; θ̃_K: A_{inf,K} → O_C; B⁺_{dR,e} = B⁺_dR/I^e; f: X → Y a smooth morphism of smooth formal O_K-schemes; X_{B_e}, Y_{B_e} the completed base changes along O_K → A_{inf,K} → B⁺_{dR,e}. There is a natural functor D_perf(X_{p=0,crys}) → D_perf(X/Y_{B⁺,inf}) whose restriction to Vect(X_{p=0,crys}) lands in Vect(X/Y_{B⁺,inf}). Locally (Convention 10.4, enlarged framing Σ) the associated crystal ℱ has value at D_{Σ^n}(R') equal to ℰ'(D_{pd,Σ^n}(R'), R'_{O_C/p}) ⊗^L_{D_{pd,Σ^n}(R')} D_{Σ^n}(R').",
    "locator": "10.10, p. 97",
    "status": "missing",
-   "note": "Possible misprint noted during reading, not verified and not recorded in sourceIssues: (printed with D_Σ(R') in place of D_{Σ^n}(R'))"
+   "note": "The statement above gives the corrected value; the paper prints the base change to D_Σ(R') in place of D_{Σ^n}(R') (sourceIssues E33)."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/254",
@@ -2491,7 +2491,7 @@
    "statement": "Convention 10.4: R → R' is a smooth morphism of relative dimension d of smooth topologically finite type O_K-algebras, X = Spf(R') → Y = Spf(R); R_{B⁺}, R_{B_e} (and R'_{B⁺}, R'_{B_e}) are the completed base changes along O_K → A_{inf,K} → B⁺_dR, resp. → B⁺_{dR,e}. A_{crys,K} denotes (abusing notation) the p-completed PD envelope of A_{inf,K} → O_C given by the O_K-linear extension of θ. R_{A_crys} := (R ⊗_{O_K} A_{crys,K})^∧_p, a p-completed PD thickening of R_{O_C/p} = R ⊗_{O_K} O_C/p. For a crystal in vector bundles ℰ' on (X_{p=0}/R)_crys, since X is a smooth lift of X_{p=0} over R (weakly final), RΓ((X_{p=0}/R)_crys, ℰ') is computed by [BdJ11, Thm. 2.12] either by the Čech–Alexander complex ℰ'_{D_{pd,X^•}(X_{p=0})} (p-completed PD thickenings of X_{p=0} → X^{×_Y(n+1)}) or by the relative de Rham complex dR(ℰ'_X, ∇_{X/Y}); similarly (by p-complete base change along (R → R/p) → (R_{A_crys} → R_{O_C/p})) for RΓ((X_{O_C/p}/R_{A_crys})_crys, ℰ'), and these map to the infinitesimal analogues of Construction 10.6.",
    "locator": "§10, p. 98",
    "status": "missing",
-   "note": "Possible misprint noted during reading, not verified and not recorded in sourceIssues: (printed θ: must be θ̃ for consistency with the completions below)"
+   "note": "A_{crys,K} is printed as the PD envelope for the O_K-linear extension of θ; it must be that of the Hodge–Tate specialization θ̃_K, consistently with the completions along ker(θ̃_K) in Proposition 10.11 (sourceIssues E34)."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/255",
@@ -2527,7 +2527,7 @@
    "statement": "Fix a proper smooth morphism f: X → Y of smooth formal O_K-schemes (standing assumption of §10.2), Y = Spf(R). Let T be a crystalline ℤ_p-lisse sheaf on X_η with associated analytic prismatic F-crystal (ℰ, φ_ℰ). Let (A, I) ∈ Y_Δ be a perfect prism satisfying Convention 10.12 such that A ⊗_{W(k)} O_K admits a map from R compatible with R → Ā. Then the base change of the étale–crystalline comparison of Theorem 9.15 to 𝔹_dR(Ā) = A[1/p]^∧_I[1/I] underlies a filtered isomorphism RΓ_dR(X_η/Y_η, E) ⊗_{R_K} 𝔹_dR(Ā) ≅ RΓ(X_{Ā[1/p],ét}, T) ⊗_{ℤ_p(Spf(Ā)_η)} 𝔹_dR(Ā), where the right side carries the filtration induced by the I-adic filtration of A[1/p]^∧_I, and the left side the tensor product of the Hodge filtration on the relative de Rham cohomology of the filtered vector bundle with connection (E, ∇_{X_η/Y_η}, Fil^•) (Corollary 2.37, Proposition 2.17) with the filtration of 𝔹_dR(Ā).",
    "locator": "10.13, p. 99",
    "status": "missing",
-   "note": "Theorem 1.24 in the introduction omits properness of f (sourceIssues E4). Possible misprint noted during reading, not verified and not recorded in sourceIssues: (in fact a crystalline local system)"
+   "note": "Theorem 1.24 in the introduction omits properness of f (sourceIssues E4). T is a crystalline lisse Ẑ_p-sheaf here; Theorem 9.15, whose base change this is, is stated for the étale realization of a prismatic F-crystal in perfect complexes."
   },
   {
    "id": "PAPER-GUO-REINECKE-24/259",
@@ -3103,7 +3103,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Corollary C (TeX l. 325-331) writes H^i(X_eta, T), while Conjecture 1.1 (l. 272-279), which it answers, writes H^i(X_{et,Kbar}, Z_p), and Theorem B's notion of 'associated' base changes to the crystalline period ring of an affinoid perfectoid over Y_eta, which for Y = Spf O_K means Spa(C,O_C). The counterexample is decisive: for X = Spf O_K and T = Z_p, H^1(Spa K, Z_p) = H^1_cont(G_K, Z_p) has Z_p-rank [K:Q_p]+1 by local class field theory, while H^1_crys(Spec k/W(k)) = 0.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E2",
@@ -3118,7 +3123,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The general definition is printed in the proof of Theorem 4.15 (l. 2235-2237): Y_[a,b] = {|[p^flat]|^{s_1} <= |p|^{r_1}, ...} for a = r_1/s_1. With a = 1/p this reads |[p^flat]|^p <= |p|, not |[p^flat]| <= |p| as in Example 1.8 (l. 426-427). The paper's own B_{[1/p,infty]} = Delta_{S,perf}<[p^{flat,p}]/p>[1/p] (l. 2242) confirms the exponent p.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E3",
@@ -3133,7 +3143,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Theorem 1.13 (l. 540-551) uses n in R^{2n}f_{Delta,*} without introducing it; Theorems 7.8 (l. 3306) and 7.16 (l. 3634), which it restates, both assume relative equidimension n.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E4",
@@ -3148,7 +3163,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Theorem 1.24 (l. 633) says 'smooth morphism'; the gamma it base changes comes from Corollary 1.23 (l. 622), stated for a smooth proper morphism, and Section 10.2 opens by fixing 'a proper smooth morphism' (l. 4958).",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E5",
@@ -3163,7 +3183,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The notation is fixed on p. 10 (l. 669): 'We write A<I/p> for the p-completion of the A-algebra A[I/p]'. The list of period rings (l. 705) and the Section 3 diagram (l. 1441) both print Delta_S<I/p> := Delta_S[1/p]^p, whose p-completion is 0 since p is invertible. The neighbouring B_dR^+ := Delta_S[1/p]^I (l. 704) is correct as printed, which is presumably the source of the slip.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E6",
@@ -3178,7 +3203,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. theta-tilde = theta o phi^{-1} restricts on W(k) subset A_inf to the inverse Frobenius, so r (x) a -> r.theta-tilde(a) is not V_0-balanced on R_i^+ (x)_{V_0} A_inf when k is not F_p. The repair proposed (give A_inf its V_0-structure through phi) makes theta-tilde V_0-linear and is the only change needed; Definition 2.3 (l. 769-782) and Warning 2.4 (l. 784) otherwise stand.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E7",
@@ -3193,7 +3223,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Definition 2.25 (l. 1044) says itself that 'A_crys(S,S^+) -> S^+/p is a pro-pd-thickening in (X_{p=0}/V_0)_crys', so the crystal is evaluated at the pair (S^+/p, A_crys/p^r), not at (A_crys/p, A_crys/p^r): Spec(A_crys/p) carries no natural map to X_{p=0} (the section R^+ -> A_crys of Construction 2.28 is exactly what is not available in general). Definition 9.13 (l. 4583) writes the pair correctly.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E8",
@@ -3208,7 +3243,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The hypothesis printed at l. 1090 asks only that s' agree with s after A_crys -> S^+/p, whose kernel contains p, while l. 1095 needs s(x_i) - s'(x_i) in Fil^1 A_crys = ker(theta). The counterexample s'(x) = [x^flat] + p is legitimate under the printed hypothesis and gives difference -p, and p is not in ker(theta) since theta(p) = p is nonzero in the p-torsionfree S^+; the divided powers (-p)^{[alpha]} do not lie in A_crys either. Requiring theta o s' to be the structure map R^+ -> S^+ repairs it, and is what the construction's own section x_i -> [x_i^flat] satisfies.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E9",
@@ -3223,7 +3263,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and it is an error, not a slip. R is set to R^+[1/p] for the V_0-model (l. 1139), so R is a K_0-algebra, while (+_r S (x) C(r))^G = R (x)_{K_0} K = R_K: the H-invariants give +_r R (x)_{K_0} C(r) and Tate's theorem leaves R (x)_{K_0} C^{G_K} = R_K. The printed chain therefore ends one factor of K/K_0 too large, as the case X = Spf O_K, E trivial shows (B_crys^{G_K} = K_0, not K). The conclusion of Proposition 2.29 is correct; the step needs the extra argument the correction gives.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E10",
@@ -3238,7 +3283,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The proof's first reduction (l. 1138) asserts Zariski descent for both sides. Take X the disjoint union of countably many copies of Spf O_K and E the unit: the left side is (prod_n W(k))[1/p], the right side prod_n B_crys^{G_K} = prod_n K_0, and the inclusion is strict because inverting p does not commute with infinite products. Proposition 2.29 as stated is therefore false without quasi-compactness, and Corollaries 2.30 and 2.35 inherit the hypothesis.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E11",
@@ -3253,7 +3303,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The proof of Corollary 2.35 (l. 1283) prints (B^+_dR (x) L)/(B_dR (x) L), a quotient by the ambient module; Lemma 2.22(ii) (l. 985), which it cites, has B_dR/B^+_dR.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E12",
@@ -3268,7 +3323,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and it is an error in a stated result. Section 3 assumes only 'quasi-syntomic p-adic formal scheme over O_K' (l. 1420). For X = Spf k the initial prism of k is (W(k),(p)), its analytic locus is Spec W(k)[1/p], and End of the unit is Z_p on the left but Q_p on the right, so restriction is not full. The proof's step 'Delta_{O_C} -> Delta_S is (p,xi-tilde)-completely faithfully flat, so (p,xi-tilde) is a regular sequence of length 2' (l. 1591) presupposes an O_C-algebra structure that X_qrsp need not have; flatness of X over O_K restores it.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E13",
@@ -3283,7 +3343,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. In B^+_dR one has theta-tilde(mu) = zeta_p - 1, which is nonzero, so mu is already a unit there, while phi(mu) = mu.xi-tilde and xi-tilde generates the maximal ideal. Hence A_inf(E)[1/mu] (x)_{A_inf,phi} B^+_dR = phi^*A_inf(E) (x) B_dR, the whole module, not a lattice. The display just above (l. 1849) identifies M (x) B_dR with phi^*(A_inf(E)[1/mu]) (x) B_dR, so the lattice is phi^*A_inf(E) (x) B^+_dR.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E14",
@@ -3298,7 +3363,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. For a perfectoid S in X_qrsp, Delta_S = A_inf(S) = W(S^flat) with A_inf/p = S^flat perfect, hence reduced. A ring map s : R -> Delta_S restricts to O_K -> Delta_S; writing an Eisenstein relation pi^e = p.v with v a unit, the image of pi is nilpotent mod p, hence lies in pA, so p^{e-1}(image of pi/p)^e would be the unit image of v, impossible for e >= 2. So no such lift exists over ramified K, and Construction 2.28 lifts the V_0-model R^+ for exactly this reason.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E15",
@@ -3313,7 +3383,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The construction in the proof (l. 2614-2616) evaluates at (B,J) as (j_{A,*}E_A) (x)^L_A B for the Breuil-Kisin prism (A,I) = (R-tilde[[u]],(E(u))), which is regular and noetherian; the statement's description by pushforward at every prism fails at a crystalline prism (W(k),(p)) in X_Delta, where Spec W(k) minus V(p,I) is Spec W(k)[1/p] and j_*O = W(k)[1/p] is not a perfect W(k)-complex.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E16",
@@ -3328,7 +3403,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The same proof defines D^phi_perf(Z_crys) (l. 2876) as pairs (E', phi) with phi : F^*E'[1/p] -> E'[1/p], so the middle term of l. 2874 should be perfect A_crys(R)-complexes with an isomorphism after inverting p. As printed, for R = k the unit has endomorphisms Z_p on the left and Q_p in the middle. The analytic statement at l. 2902 legitimately has Vect(A_crys(R)[1/p])^{phi=1}.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E17",
@@ -3343,7 +3423,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and I verified the hypothesis in the cited source. Shiho, 'Relative log convergent cohomology and relative rigid cohomology I' (arXiv:0707.1742), fixes in its Convention a base log formal scheme separated and topologically of finite type over Spf W ('Note that B is Noetherian') and works throughout in the category of log formal schemes separated and topologically of finite type over it; Ogus's convergent topos is likewise developed for finite-type situations. Theorem 6.13 imposes only 'p-complete, p-torsionfree divided power thickening', and Corollary 6.14 evaluates at A = A_crys(S) for S quasiregular semiperfect, which is neither noetherian nor topologically of finite type over W.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E18",
@@ -3358,7 +3443,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Corollary 6.8 (l. 2965-2972) takes Z quasi-syntomic over S and compares RGamma((Z/(A,J))_crys, E') with RGamma((Z_Abar/A)_Delta, E) for Z_Abar = Z x_{Spec S} Spec(Abar); with Z = X_Abar = X x_Y Spec(Abar) this base changes twice. With Z = X x_Y Spec(S) one gets Z_Abar = X_Abar and the crystalline side RGamma((X_S/(A,J))_crys, E'), which is exactly the right-hand side of Theorem 6.13(ii) for Z_{1,A/J} = X_S.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E19",
@@ -3373,7 +3463,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. In the displayed diagram (l. 3398) the left column prints H^n(X, R^n nu_* Obar_Delta{n}[-2n]) while the right column prints H^n(X, Omega^n_{X/Abar})[-2n]; the shift belongs outside H^n in both.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E20",
@@ -3388,7 +3483,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed by internal inconsistency. The arrow HT of the diagram (l. 3396) goes from R^n nu_* Obar_Delta{n}[-n] to Omega^n_{X/Abar}[-n], so if eta_X were the map printed at l. 3402 then HT would be eta_X itself and not its inverse. The Hodge-Tate comparison of [BS22, Thm 4.11] goes from the differential forms to the Hodge-Tate cohomology.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E21",
@@ -3403,7 +3503,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The perfectness of RGamma((X_Abar/A)_Delta, E^vee{n}) as an A-complex is Proposition 5.11 (label 'perfectness', TeX l. 2659); the proof of Theorem 7.8 cites 'Higgs-coh', which is Proposition 5.12 (l. 2675), the Hodge-Tate/Higgs computation. Proposition 5.12 does record perfectness of the Hodge-Tate cohomology as an R-complex in the affine case, but the statement used here is 5.11.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E22",
@@ -3418,7 +3523,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The reduction at l. 3616 fixes a finite index set J with X_eta x_{Y_eta} Spa(R,R^+) = Spa(prod_J R, prod_J R^+), and the displays that follow (l. 3621, 3623) write bigsqcup_I, prod_I R^+ and prod_I (A,I) while their right-hand sides correctly use +_J; I is at the same time the ideal of the prism (A,I).",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E23",
@@ -3433,7 +3543,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Theorem 7.16 (l. 3634) says 'smooth proper morphism of formal O_K-schemes'; Proposition 7.1 (l. 3086), Theorem 7.8 (l. 3306) and Proposition 7.13 (l. 3551), which its proof uses, all say smooth formal O_K-schemes, as does Theorem 1.13.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E24",
@@ -3448,7 +3563,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Proposition 7.1 (l. 3085-3088) assumes f_*O_X = O_Y; Theorem 7.16 does not, and its own conclusion (c') singles out the case f_*O_X = O_Y. The repair is the paper's own device in the proof of Proposition 7.13 (l. 3559): the Stein factorization X -> Y' -> Y with g_*O_X = O_{Y'} and h finite etale, then Lemma 7.12 and the finite etale trace.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E25",
@@ -3463,7 +3583,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. C is defined as the complement of phi^*E[1/I] inside E[1/I] (l. 3867-3869), an A[1/I]-complex, so the base change in Proposition 8.9(ii) (l. 3860) must be over A[1/I]; the proof of Theorem 8.1 uses it in exactly that form, as C_1 (x)^L_{A_1[1/I]} A_1{I/p}[1/p] (l. 3965).",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E26",
@@ -3478,7 +3603,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Under A_inf(O_C) -> W(kbar) the element mu = [eps] - 1 goes to 0, but xi = [p^flat] - p goes to -p and so does xi-tilde = phi(xi), so the image of I is (p), not 0. The paper's own earlier version of the same remark (l. 1725) says only 'the image of mu is 0'. The displayed consequences at l. 4045 survive, since A_inf(V_j)[1/I]^p = W(V_j)[1/p]^p = 0.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E27",
@@ -3493,7 +3623,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. F_p^J is von Neumann regular, so its finitely generated ideals are generated by idempotents, but for infinite J a non-principal ultrafilter U on J gives a maximal ideal m_U = {(a_j) : {j : a_j = 0} in U} that is not finitely generated and not generated by an idempotent. The faithful-flatness criterion invoked at l. 4266 ranges over every maximal ideal of F_p^J, and l. 4267-4268 covers only the principal ones.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E28",
@@ -3508,7 +3643,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. A = prod_{j in J} A_j (Convention 9.2) has nontrivial idempotents as soon as |J| >= 2, so it is not local; what the argument needs, and what the end of the same proof supplies (l. 4382-4383), is that a finitely presented projective A-module of constant rank is a product of free A_j-modules of that rank, hence free.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E29",
@@ -3523,7 +3663,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Membership in Gr_n (l. 4367) is p^n W^{+r} subset N subset p^{-n} W^{+r}. The first inclusion is supplied at l. 4368; multiplying W(V^flat[1/I])^{+r} subset p^{-n} E[1/I]^p (l. 4369) by p^n gives p^n W^{+r} subset E[1/I]^p, which is what is needed, and not the printed E[1/I]^p subset p^n W^{+r}.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E30",
@@ -3538,7 +3683,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Definition 9.13 (l. 4583-4584) defines only B^+_crys(E_s) and then sets B_crys(E_s)(U) := A_crys(E_s)(U)[1/mu], a symbol it never defines; Definition 2.25 (l. 1047), of which this is the derived analogue, sets B_crys(E)(U) := B^+_crys(E)(U)[1/mu].",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E31",
@@ -3553,7 +3703,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The proof of Theorem 9.15 (l. 4612) writes Rf_{s,*}E_s(A_crys(S,S^+),S^+)[1/mu]; the PD thickening is A_crys(S,S^+) -> S^+/p, as the same proof writes two displays earlier (l. 4607) and as Definition 9.13 requires.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E32",
@@ -3568,7 +3723,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. D_Sigma(R') is the completion of R<x_u^{+-1}; u in Sigma>_{B^+} -> R'_C, and by Convention 10.4 and the definition of an enlarged framing (l. 4737) the source has relative dimension |Sigma| and the target relative dimension d, with d of the elements of Sigma giving the etale map to the torus. The completion is therefore a power series ring in |Sigma| - d variables; with Sigma the d-element framing itself the printed formula would give d spurious variables instead of R'_{B^+}.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E33",
@@ -3583,7 +3743,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The crystal F is being described degreewise, and the value at D_{Sigma^n}(R') must be a module over D_{Sigma^n}(R'); both l. 4895 and l. 4898 print the base change to D_Sigma(R').",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E34",
@@ -3598,7 +3763,12 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. In this paper the prism ideal is ker(theta-tilde) (Warning 2.4, l. 784; the Breuil-Kisin cover of (A_inf, ker(theta-tilde)) at l. 3945) and A_crys(S) = Delta_S{I/p} for that ideal (l. 704), and Lemma 2.22's proof builds B^+_{dR,K} from the O_K-linearization theta-tilde_K (l. 991). Proposition 10.11 completes along ker(theta-tilde_K) (l. 4931-4932), so the envelope defined at l. 4908 must be the one for theta-tilde_K.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   },
   {
    "id": "PAPER-GUO-REINECKE-24/E35",
@@ -3613,7 +3783,32 @@
     "arXiv listing 2203.09490 (v1 17 Mar 2022, v2, v3 27 Oct 2023) and the TeX source of v3",
     "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no correction relation)",
     "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. R' -> R'_infty adjoins p-power roots of the units of the enlarged framing; O_K<x^{+-1}> -> O_K<x^{+-1/p}> is not etale modulo p, since the derivative of T^p - x is pT^{p-1}. It is a G-torsor only on generic fibres, which is how the paper itself uses it later (l. 5248: 'the induced map of generic fibers ... is a G-torsor').",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
+  },
+  {
+   "id": "PAPER-GUO-REINECKE-24/E36",
+   "kind": "misprint",
+   "locator": "Construction 10.6(2), p. 96 (arXiv 2203.09490v3)",
+   "printed": "dR(F_{D_Z(X)}) := (F_{D_Z(X)} → F_{D_Z(X)} ⊗_{O_Z} Ω^1_{Z/Y_K} → ⋯ → F_{D_Z(X)} ⊗_{O_Z} Ω^d_{Z/Y_K})",
+   "correction": "… → F_{D_Z(X)} ⊗_{O_Z} Ω^{dim(Z/Y_K)}_{Z/Y_K}, that is Ω^{|Σ|} for the Z attached to an enlarged framing Σ.",
+   "reason": "d is fixed by Convention 10.4 as the relative dimension of X over Y, whereas the complex displayed is the de Rham complex of Z over Y_K. In the case Construction 10.6(2) goes on to use, Z is the generic fibre of Spf(R⟨x_u^{±1}; u ∈ Σ⟩) and has relative dimension |Σ|, which exceeds d whenever the enlarged framing is larger than a framing; the complex as printed then stops short of its top term.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2203.09490 (v1 17 March 2022, v2, v3 27 October 2023; v3 is the current version)",
+    "Crossref metadata for DOI 10.1007/s00222-024-01238-4 (no update-to, updated-by or other correction relation)",
+    "Springer landing page of Invent. Math. 236 (2024) 17–164 (paywalled; no erratum listed)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed by the reviewer, and added here: the extraction noticed the printed exponent but left it unrecorded. Convention 10.4 (TeX l. 4725) fixes d as the relative dimension of R -> R', and Construction 10.6(2) (l. 4781) displays the de Rham complex of Z over Y_K, whose relative dimension is |Sigma| in the framed case of Example 10.5(2) (l. 4741), not d. Nothing downstream uses the printed top term: Theorem 10.7 works with Omega^b_{Z^{a+1}/Y_K} for all b.",
+    "by": "REV-PAPER-GUO-REINECKE-24"
+   }
   }
  ]
 }
