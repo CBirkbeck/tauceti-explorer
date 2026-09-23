@@ -8237,8 +8237,9 @@
    ],
    "avoidAccountOf": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2174"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2174",
+   "finishedAt": "2026-09-23T14:56:36Z"
   },
   {
    "id": "PAPER-BETTS-STIX-25",
@@ -9999,7 +10000,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_Chebotarev",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #88"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_JacobianChallenge",
@@ -12633,8 +12635,9 @@
    ],
    "avoidAccountOf": "RS-12~2",
    "prompt": "research/blueprint/prompts/REV-RS-12~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1614"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1614",
+   "finishedAt": "2026-09-23T14:56:39Z"
   },
   {
    "id": "RS-13",
@@ -13044,7 +13047,8 @@
    ],
    "avoidAccountOf": "RS-20~2",
    "prompt": "research/blueprint/prompts/REV-RS-20~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1616"
   },
   {
    "id": "RS-21",
@@ -31706,8 +31710,9 @@
    ],
    "avoidAccountOf": "ERRATA-DESIGN-LV",
    "prompt": "research/blueprint/prompts/REV-ERRATA-DESIGN-LV.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1883"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1883",
+   "finishedAt": "2026-09-23T14:56:49Z"
   },
   {
    "id": "BP-tauceti_Completed_ContourIntegration",
@@ -41641,8 +41646,9 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-38.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-38"
+   "state": "external",
+   "avoidAccountOf": "AUDIT-38",
+   "note": "claimed on GitHub issue #873"
   },
   {
    "id": "AUDIT-39",
