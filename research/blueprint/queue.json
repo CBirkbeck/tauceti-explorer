@@ -4558,8 +4558,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1282"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1282",
+   "finishedAt": "2026-09-23T04:46:53Z"
   },
   {
    "id": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
@@ -5692,7 +5693,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-PASKUNAS-QUAST-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1344"
   },
   {
    "id": "REV-PAPER-PASKUNAS-QUAST-26",
