@@ -3905,8 +3905,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BREUIL-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1241"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1241",
+   "finishedAt": "2026-09-23T09:14:06Z"
   },
   {
    "id": "REV-PAPER-BREUIL-ETAL-23",
@@ -5197,8 +5198,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1314"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1314",
+   "finishedAt": "2026-09-23T09:14:07Z"
   },
   {
    "id": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
@@ -30501,7 +30503,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1858"
   },
   {
    "id": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
