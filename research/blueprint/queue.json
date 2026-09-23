@@ -504,8 +504,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YUAN-26.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1050"
+   "state": "external",
+   "note": "claimed on GitHub issue #1050"
   },
   {
    "id": "REV-PAPER-YUAN-26",
