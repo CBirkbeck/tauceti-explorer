@@ -15,7 +15,12 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 22 September 2026: no erratum is linked",
         "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
         "web search for an erratum or corrigendum, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at p.6 of arXiv 2012.01307v2 (SHA-256 f9f26f7d…2c1f, the version named): ⟨⟨a⟩⟩ is defined as the quadratic form x₁² − a x₂², and in characteristic 2 the display tensors these quadratic forms with ⟨⟨a₀]]. Quadratic forms have no tensor product in characteristic 2, and x₁² + a x₂² is the square of a linear form over F(√a), hence totally singular. [EKM, 9.B], which the paper cites, builds the quadratic Pfister form as a bilinear Pfister form ⟨⟨a_i,…,a_1⟩⟩_b acting on ⟨⟨a₀]]. The later use (a nonsingular form in 2^{i+1} variables with smooth projective quadric) needs that reading. The intended meaning is clear, so this is a misprint.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E2",
@@ -30,7 +35,12 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 22 September 2026: no erratum is linked",
         "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
         "web search for an erratum or corrigendum, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at p.12: u_i² − u_i − ε_i = u_i²(1 − 1/u_i − ε_i/u_i²), so the printed + sign is wrong. With w̃(u_i) < 0 and w̃(ε_i) = 0 either expression is a principal w̃-unit, and Proposition 3.2, 1) then gives isotropy of q_{a′_i,a_0}, hence of q_{a_i,a_0} (a_i and a′_i differ by a square). The argument is unaffected.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E3",
@@ -45,7 +55,12 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 22 September 2026: no erratum is linked",
         "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
         "web search for an erratum or corrigendum, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at pp.16–17: W_T is defined on p.16 with rank-one geometric prime divisors w, but V_T and Lemma 5.3 take elements of W_T to be full-rank flags (fraktur w, residue field κ[ζ] a number field, with P_fin(κ_w) available). A rank-one divisor has residue field of transcendence degree e − 1 over κ, so the second use must mean {w ∈ D^e_{K|κ} : T ⊂ O_w}. That set is definable by the same argument (D^e_{K|κ} is a definable family), so nothing downstream changes.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E4",
@@ -60,7 +75,172 @@
         "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 22 September 2026: no erratum is linked",
         "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
         "web search for an erratum or corrigendum, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at p.17: the proof picks ζ over the algebraic closure of κv with ḡ(ζ) ≠ 0 and calls it an e-tuple of roots of unity, which fails if a coordinate is 0. The coordinates must also be nonzero for w_{v′}(t_i) ⩾ 0 to hold with t_i ↦ ζ_i a unit and for the Teichmüller lift. The correction is right: T₁⋯T_e·ḡ is a nonzero polynomial over an infinite field, so a torus point with ḡ(ζ) ≠ 0 exists. This is a gap with an immediate repair, and it affects nothing.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E5",
+      "kind": "misprint",
+      "locator": "§2, the paragraph before Fact 2.1, p.4, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "\"Let P(k₁) denote the set of places of k₁ and k₁v̂ be the completion of k at v ∈ P(k₁). Then the relative algebraic closure k₁v ⊂ k₁v̂ of k₁ in k₁v̂ satisfies: k₁v is the real closure of k at v if v is a real place\"",
+      "correction": "Read k₁ for k in both places: the completion of k₁ at v, and the real closure of k₁ at v.",
+      "reason": "No field k is defined at this point; v is a place of the global field k₁ and k₁v̂ its completion.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 23 September 2026: no erratum is linked",
+        "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
+        "The review found it at p.4 in the version named."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E6",
+      "kind": "misprint",
+      "locator": "§2, the paragraph after the Bloch–Ogus complex, p.4, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "\"Hence every x ∈ X¹ gives rise to a residue map ∂ₓ : H^{i+1}(K) → H^d(κ(x)) as indicated at b) above, and one has ∂_d := ⊕_{x∈X¹} ∂ₓ.\"",
+      "correction": "∂ₓ : H^{d+1}(K) → H^d(κ(x)).",
+      "reason": "By item b) the residue map lowers the degree by one, and ∂_d is the first map H^{d+1}(K) → ⊕ H^d(κ(x)) of the complex displayed just above; there is no free index i here.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 23 September 2026: no erratum is linked",
+        "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
+        "The review found it at p.4 in the version named."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E7",
+      "kind": "misprint",
+      "locator": "§2, the paragraph before Fact 2.1, p.4, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "\"Since k₁ is relatively algebraically closed in K and k₁v is separable over k₁, K ⊗_{k₁} k₁v is a domain, hence K_v̂ := K k₁v̂ := Quot(K ⊗_{k₁} k₁v) is a well-defined field.\"",
+      "correction": "K_v̂ := K k₁v̂ := Quot(K ⊗_{k₁} k₁v̂), the compositum with the completion. The tensor product is again a domain: K ⊗_{k₁} k₁v̂ = (K ⊗_{k₁} k₁v) ⊗_{k₁v} k₁v̂, where K ⊗_{k₁} k₁v = K k₁v is a field and k₁v̂ is regular over the relatively algebraically closed k₁v.",
+      "reason": "The printed definition makes K_v̂ equal to K_v = K k₁v, yet the next sentence treats K_v ⊂ K_v̂ as a proper compositum inside it, and the paper matches K_v̂ with Jannsen's completions F_v. With the hat restored the definition agrees with Jannsen [Ja], Theorem 0.4, which Fact 2.1 quotes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 23 September 2026: no erratum is linked",
+        "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
+        "The review found it at p.4 in the version named."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E8",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 3.2, first paragraph, p.7, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "\"Since w is non-dyadic, V_{q_ε} ↪ P^N_{O_w} is a smooth O_w-subvariety of P^N_{O_w}, with special fiber the projective smooth Kw-variety V_{q_ε̄} ↪ P^N_{Fw}.\"",
+      "correction": "\"… the projective smooth Fw-variety V_{q_ε̄} ↪ P^N_{Fw}.\"",
+      "reason": "The field in Proposition 3.2 is F with valuation w; the special fibre lives over the residue field Fw, as the same sentence's P^N_{Fw} shows.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 23 September 2026: no erratum is linked",
+        "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
+        "The review found it at p.7 in the version named."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E9",
+      "kind": "gap",
+      "locator": "Proof of Proposition 3.2, 3), Case 2, proof of the Claim, p.7, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "\"First, if v′ ∈ P(k′) is not a real place, then E′_{v′} has no orderings; hence by the well-known behaviour of cohomological dimension in field extensions we have cd(E′_{v′}) ⩽ cd(E′) ⩽ dim(E′) + 1 ⩽ dim(Fw) + 1 < r + 1.\"",
+      "correction": "Bound E′_{v′} directly: cd₂(E′_{v′}) ⩽ cd₂(k′_{v′}) + td(E′_{v′} | k′_{v′}) ⩽ 2 + (dim(E′) − 1) = dim(E′) + 1, using cd₂(k′_{v′}) ⩽ 2 for a non-real place (a henselian p-adic or algebraically closed field) and Serre's bound cd(K) ⩽ cd(k) + td(K|k). The rest of the chain is unchanged.",
+      "reason": "The middle inequality cd(E′) ⩽ dim(E′) + 1 is false when E′ is formally real, since a field with an ordering has infinite 2-cohomological dimension. That case occurs here: E′ ⊂ E, a field of representatives for Fw, and k′ may have real places, which is why the second half of the proof treats them. The absence of orderings in E′_{v′}, which the sentence invokes, is exactly what makes the direct bound work.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 23 September 2026: no erratum is linked",
+        "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
+        "The review found it at p.7 in the version named."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E10",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 3.9, 2), p.11, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "\"Then there is a finite subextension E|F of F_w|F such that q_a is isotropic over E. Then V_a contains the neighborhood V_{E|F} of q_a. Thus V_a is open.\"",
+      "correction": "\"… contains the neighborhood V_{E|F} of w.\"",
+      "reason": "V_{E|F} is a set of valuations containing w (by part 1), not a neighbourhood of the form q_a.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 23 September 2026: no erratum is linked",
+        "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
+        "The review found it at p.11 in the version named."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E11",
+      "kind": "misprint",
+      "locator": "Notations/Remarks 4.1, 2), p.14, and the proof of Theorem 4.2, 1), p.14, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "\"… and w ∈ D_{K|k_a} are in bijection with the closed points P ∈ C via O_w = O_P.\" and \"Since V_a ⊂ D_{K|k_a} is finite, …\"",
+      "correction": "D_{K|k_t} in both places.",
+      "reason": "D_{K|k_t}, the prime divisors of K trivial on the relative algebraic closure k_t of k₁(t), is the set just defined in 4.1, 2) and used in 4.1, 5); no field k_a is defined.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 23 September 2026: no erratum is linked",
+        "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
+        "The review found it at p.14 in the version named."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E12",
+      "kind": "misprint",
+      "locator": "Bibliography [Du], [Ka] and [P1], p.18, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "\"[Du] … J. Symbolic Logic 57 (1992), 808–923.\"; \"[Ka] … Invent. math. 66 (1982), 493–51.\"; \"[P1] … Invent. Math. 150 (2002), 385–308.\"",
+      "correction": "[Du] pp. 808–823; [Ka] pp. 493–510; [P1] pp. 385–408.",
+      "reason": "Crossref records, queried 23 September 2026: DOI 10.2307/2275432 (Duret, JSL 57, 808–823), DOI 10.1007/BF01389226 (Kato, Invent. Math. 66, 493–510) and DOI 10.1007/s00222-002-0238-7 (Pop, Invent. Math. 150, 385–408).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/198-3/p04, checked 23 September 2026: no erratum is linked",
+        "arXiv 2012.01307: v1 (2 December 2020) and v2 (27 April 2023, the latest)",
+        "The review found it at p.18 in the version named; Crossref API queries for the three works."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
+      }
     }
   ]
 }
