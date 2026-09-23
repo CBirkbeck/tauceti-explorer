@@ -1,63 +1,97 @@
-# Mistakes in Kisin–Pappas, *Integral models of Shimura varieties with parahoric level structure*
+# Kisin–Pappas (2018): reviewed source findings
 
-Job ERRATA-PAPER-KISIN-PAPPAS-18. Worker: Claude Code, session `cc-442dc5`, 23 September 2026. The findings are in `PAPER-KISIN-PAPPAS-18.json` beside this file.
+Original errata: Claude Code `cc-442dc5`, 23 September 2026.
+Independent review: Codex `codex-a71f92`, `REV-ERRATA-PAPER-KISIN-PAPPAS-18`, issue #1879, 23 September 2026.
+Underlying extraction: `codex-c83e7a` and `cc-fb70e5`; this reviewer did not write it.
 
-**Paper and version read.** Mark Kisin and Georgios Pappas, Publ. Math. IHÉS 128 (2018), 121–218, DOI 10.1007/s10240-018-0100-0. The version read is the Numdam PDF (SHA-256 `e2b4a076…`, 98 pages, printed page = PDF page + 120). The quoted passages were re-read at pp. 162, 166, 169, 173, 187 and 205.
+**Eight findings confirmed after amendments:** E1–E7 are already corrected in the authors' published 2026 sequel; E8 is a rank misprint for which no correction was found in the bounded search. E2 and E3 are reclassified from errors to gaps: their general conclusions have not been disproved by this review.
 
-**Earlier work.**
-- The extraction PAPER-KISIN-PAPPAS-18 (complete) recorded seven findings, E1–E7. They are kept here with everything they say.
-- All seven are corrections the authors themselves published in the sequel: Kisin–Pappas–Zhou, *Integral models of Shimura varieties with parahoric level structure, II*, Forum Math. Pi 14 (2026) e14 (KPZ26), in §1.3.1, Remark 5.1.17, footnote 8 and §7.3.
-- This job found E8.
+## Sources and reading boundary
 
-**Existing corrections.**
-- **E1–E7** are corrected in KPZ26, so their `known` value names KPZ26.
-- **Nothing is registered against the article itself.** Crossref records no correction for its DOI, and neither the Springer nor the Numdam article page links an erratum. (The only "Corrigendum" on the Numdam page belongs to a cited paper of Haines.)
-- **arXiv 1512.01149** stops at v3 (April 2018), before the corrections.
-- **E8 is new.**
+[KP18, published Numdam PDF](https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf), Publ. Math. IHÉS 128 (2018), 121–218; 98 PDF pages, printed page = PDF page +120; SHA-256 `e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b`.
 
-**Effect on the main results.** This paper's final results need an extra hypothesis. Theorem 4.2.7, Corollaries 4.2.12–4.2.13 and the local-model diagram of Theorem 4.6.23 hold only for **very good** Hodge embeddings (E1–E3). KPZ26 supplies the corrected theorems: Theorem 7.1.3 and Theorem 7.2.21.
+[KPZ26, published sequel](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/integral_models_of_shimura_varieties_with_parahoric_level_structure_ii.pdf), Forum Math. Pi 14 (2026), e14, DOI 10.1017/fmp.2026.10031; 89 pages; downloaded-copy SHA-256 `20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce`. Cambridge adds a request-specific footer, so this digest identifies the downloaded copy.
 
-## E1 — Lemma 3.1.9: the connection isomorphism is not canonical (p. 166)
+The review read the KP18 statements and local arguments at pp.162,166–169,173–174,186–188,202–205,208, with image checks at pp.162,166,169,187,202,205. In KPZ26 it read the correction overview (§§1.2.1,1.3), the replacement comparison map and proof (§5.1.11–5.1.19), the tensor-horizontality definition (§5.2.1–5.2.5), the statements of Theorems 7.1.3 and 7.2.21 with the stated refinement, the type-D condition (§7.2.1), and the whole errata subsection §7.3.1. Images at pp.51–52,77,86 checked the matrix, footnote and topology/quotient formulas.
 
-- **The error.** The proof builds the isomorphism c from a normal decomposition M = L ⊕ T. The result depends on that choice.
-- **Why the diagram doesn't pin c down.** The diagram's horizontal maps need not be injective, even when Ŵ(R) is p-torsion free.
-- **Consequence.** Lemma 3.1.12 fails for this c.
-- **The correction.** KPZ26 Lemma 5.1.15 replaces the construction, following Hoff and Zink. The error was pointed out by M. Hoff, [Ho23, Rem. 2.29].
+The corresponding correction passages in [KPZ26 arXiv v3](https://arxiv.org/pdf/2409.03689v3), SHA-256 `d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615`, were collated. The published introduction has Theorem 1.1.1 / Corollary 1.1.2 where v3 has Theorem 1.1.2 / Corollary 1.1.3. Footnote 8 is on published p.77, not v3 p.80.
 
-## E2 — §3.2.12: Ψ_{R_G} needs a very good embedding (p. 173)
+This is a targeted independent errata check, not a reproof or whole-paper audit. The background results of Zink, Hoff and Deligne cited by the sequel were not independently reread in full. The local calculations below distinguish direct checks from reliance on those background results.
 
-- **The error.** The isomorphism Ψ_{R_G} preserving the tensors is said to exist "as G is smooth".
-- **Why it fails.** Smoothness does not give it. It exists only when the Hodge embedding is very good (KPZ26 Definition 5.2.5).
-- **What changes.** Lemma 3.2.14 and Propositions 3.2.17 and 3.3.13 hold with that hypothesis, with the same proofs.
+## E1 — the normal-decomposition recipe is not canonical
 
-## E3 — the main theorems inherit the hypothesis (pp. 186–188, 208)
+Confirmed: error, affecting a stated result. The replacement is KPZ26 Lemma 5.1.15 and Remark 5.1.17, published pp.51–52. The point is not that no canonical comparison exists; it is that the old recipe does not give it, and the old definition used by Lemma 3.1.12 is therefore wrong.
 
-- **What changes.** Theorem 4.2.7 and Corollaries 4.2.12–4.2.13 go through Ψ_{R_G}, so they need the very-good hypothesis.
-- **The replacements.** Theorem 4.2.7 is replaced by KPZ26 Theorem 7.1.3, and Theorem 4.6.23 by KPZ26 Theorem 7.2.21.
+Here is a direct calculation. Take p>2, R=Z_p[[t]], S=Ŵ(R), and M=S². The universal rank-one filtration modulo I_R is generated by e₁+t e₂. Two normal lifts, with T=S e₂, are
+`l=e₁+[t]e₂` and `l′=l+V([t])e₂`.
+They give the same filtration because V([t])∈I_R. In M̃₁ use the free basis
+`u=φ(l), v=p e₂`.
+The identity φV=p gives `u′=u+[t]v`.
 
-## E4 — the proof of Theorem 4.2.7: q^loc is not a torsor (p. 187)
+After tensoring with Ŵ(B), B=R/(p,t²), the symbols u and v remain a free basis; in particular v is not to be replaced by zero just because its ambient image is p e₂. The two versions of the old inverse comparison send the same basis vector to u and u+[t]v, which differ since [t]≠0. The horizontal map kills the difference because p[t]=0 in Ŵ(B). This explains both the dependence and why the commutative diagram fails to detect it.
 
-- **The error.** "One sees easily that q^loc is a G-torsor" is false.
-- **The correction.** q^loc is isomorphic to the action morphism G × M^loc → M^loc. That morphism is smooth, and smoothness is all the proof uses.
+The sequel's functorial frame construction, with its lower-left V⁻¹(Z) term in (5.1.18), corrects precisely the missing divided-Frobenius information.
 
-## E5 — the proof of Lemma 3.1.17: the wrong topology (p. 169)
+## E2 — smoothness does not establish tensor preservation
 
-- **The gap.** The series is summed in the topology τ, but Ŵ(A)[1/p] is not complete for τ.
-- **The repair.** KPZ26 §7.3.1(2) shows Ŵ(A)[1/p] is p-adically complete and separated, and that p^{−m}φ^m(x) → 0 p-adically, using Zink's logarithmic coordinates (p > 2).
+Confirmed after reclassification to gap; the corrected construction's stated scope gains a hypothesis.
 
-## E6 — Lemma 4.6.13 and Corollary 4.6.15: the component levels (pp. 202–203)
+The prescribed reduction of Ψ must already lie in the tensor-isomorphism torsor before smoothness can lift it. For the corrected c this requires `c(sα,0)=s̃α`, the horizontality condition defining a very good embedding. Lifting a torsor point and showing that a given linear map is such a point are different tasks.
 
-- **The error.** The connected Shimura varieties in the union must have the conjugated levels jK°_p j^{−1} (j ∈ J), not the single level K°_p.
-- **The correction.** KPZ26 §7.3.1(3) gives the corrected formula and the corrected integral model.
+KPZ26 p.6 explicitly leaves general horizontality unproved and conjectures that every good integral Hodge embedding is very good. Thus the old “error” classification and any reading that all other embeddings have been disproved are too strong. The correction is to impose the condition in the construction, not to assert an unavailable counterexample to the conjecture.
 
-## E7 — §4.6.21: H♯ is not defined for every classical (H, Y) (p. 205)
+## E3 — propagation to the local-model statements
 
-- **The error.** The paper asserts H♯ exists for any (H, Y) with H of classical type.
-- **The correction.** The third defining condition can fail in general. It holds when (H^ad, Y^ad) is of abelian type, which is the case used (KPZ26, footnote 8).
+Confirmed after reclassification to gap, affecting the justified scope of stated results.
 
-## E8 — §2.3.15: the rank of the Grassmannian (p. 162)
+KP18 Theorem 4.2.7 consumes the deformation construction; its two corollaries explicitly use the diagram. KPZ26 §1.3.1 explains this dependence, and Theorem 7.1.3 has very-goodness as assumption (C). The abelian-type replacement is Theorem 7.2.21 with the further refinement in Corollary 7.2.24.
 
-- **What the paper says.** "the smooth Grassmannian Gr(V′_{Z_p}) classifying subbundles F ⊂ V′_{Z_p} ⊗ O_S of rank dim_{Q_p}(V′)".
-- **Why it is wrong.** μ₀ comes from a symplectic Hodge embedding, so the Hodge filtration is Lagrangian, of rank ½·dim V′. Subbundles of full rank would make this Grassmannian a point.
-- **The correction.** Rank ½·dim_{Q_p}(V′).
-- **Effect.** A misprint with a clear intended form; it affects nothing. The extraction's item M13 already uses Gr(g′, Λ′) with 2g′ = dim V′.
+This is a missing-hypothesis/proof-chain finding, not evidence that every original geometric conclusion is false. The sequel distinguishes a weaker étale-local conclusion obtainable by other methods without very-goodness. The JSON now distinguishes the published and preprint introduction numbering.
+
+## E4 — equivariance is not invariance for the specified action
+
+Confirmed: error in the proof, repaired in KPZ26 §7.3.1(1), published p.85 / v3 p.89.
+
+The natural change-of-trivialization action moves the image filtration. Therefore q_loc is equivariant, not a torsor projection for that action in general: its fibers need not be invariant. Its required smoothness follows from the action-map factorization:
+`(g,m) ↦ (g,g·m) ↦ g·m`.
+The first map has inverse `(g,n) ↦ (g,g⁻¹·n)`; the second is a smooth product projection of relative dimension dim G.
+
+The errata is amended to specify the action. Transporting a different action through the isomorphism could give the underlying map a torsor structure; denying every possible torsor structure would overstate the defect.
+
+## E5 — a direct incompleteness witness for τ
+
+Confirmed: gap in the proof, repaired in KPZ26 §7.3.1(2), published p.86 / v3 p.90.
+
+Take A=Z_p[ε]/(ε²), p>2. It is complete local and p-torsion free, and m_A²⊂pA. On the square-zero ideal εQ_p, Witt ghost coordinates satisfy w_i(x)=p^i x_i.
+
+Let z_N have Witt coordinates ε/p^i for i≤N and zero afterwards. Multiplying by p^N makes them integral with finite support, so z_N belongs to Ŵ(A)[1/p]. Its ghost coordinates are ε for i≤N and zero afterwards. They converge coordinatewise, so the sequence is Cauchy for the printed product-induced topology τ.
+
+Any limit would have every ghost coordinate ε. Multiplication by one fixed p^M would then force Witt coordinates p^(M−i)ε for all i, which cannot be integral once i>M. There is no limit even in W(A)[1/p].
+
+The replacement uses the topology induced by the integral Ŵ(A) lattice, not the ideal topology of the now-invertible p. The sequel invokes Zink for completeness and logarithmic coordinates; under those coordinates p^(−m)φ^m is a tail shift. A p-adically null sequence has tails uniformly tending to zero, giving the required convergence. The last step is checked here; the general background logarithm theorem is cited, not reproved.
+
+## E6 — conjugated levels in the component quotient
+
+Confirmed: error, affecting a stated formula. The corrected formula is KPZ26 §7.3.1(3), published pp.86–87 / v3 pp.90–91.
+
+Passing from the connected pro-object to the component indexed by j changes its stabilizer to the intersection with jK°_p j⁻¹. A quotient at that level cannot simply be replaced by the same K°_p quotient for every j. The corrected disjoint union and the closures defining its integral model have been checked against the full sequel calculation.
+
+The inherited search provenance attributed Yu Luo and Peihang Wu's contribution to E7; the sequel thanks them for this level correction, E6. That attribution is corrected.
+
+## E7 — compatibility of the type-D real places
+
+Confirmed: error in the overbroad preliminary statement, repaired in KPZ26 §7.2.1, footnote 8, published pp.76–77 / v3 p.80.
+
+The missing condition is now explicit: in a type-D simple factor over its totally real field, all noncompact real places must have the same Hermitian type, always D^R or always D^H. The former calls for the simply connected cover and the latter for the standard orthogonal quotient. One finite central kernel cannot have trivial degree at one real place and nontrivial degree at another. Abelian-type adjoint data supply the compatibility condition used in the actual application.
+
+## E8 — half rank in the ambient Grassmannian
+
+Confirmed: misprint, affecting nothing as intended. Published p.162 visibly prints full rank. A symplectic Hodge filtration has rank g′ in dimension 2g′, so the ambient GL Grassmannian is Gr(g′,2g′), not Gr(2g′,2g′). A full-rank locally direct-summand subbundle is the whole bundle. In dimension two, this would wrongly replace the intended P¹ by a point.
+
+This typo also persists in §2.3.15 of [KP18 arXiv v3](https://arxiv.org/pdf/1512.01149v3), SHA-256 `7577bb3ea98e42949160deb8ad94710a48ef14f02ca7cc3949b6884a0d29f55e`, and [Kisin's current author copy](https://people.math.harvard.edu/~kisin/dvifiles/parahoric.pdf), SHA-256 `b55ea86176fe379e8e76e77f85eaec78c55e3df8402b1d6b63d3e8bb80e3c278`. Those copies were checked only at this passage in this review.
+
+## Existing-correction search
+
+On 23 September 2026, both arXiv histories still ended at v3. The Numdam record and Crossref fields inspected did not identify a separate KP18 erratum; this does not erase the corrections actually published in KPZ26. Kisin's paper list, Pappas's publication list, the sequel's correction sections, and exact-title/rank-typo searches yielded no additional correction to E8. “New” means none found in those searches, not an exhaustive claim.
+
+No extra findings are added. Original extraction files and generated registers are untouched. No Lean file was changed or compiled.
