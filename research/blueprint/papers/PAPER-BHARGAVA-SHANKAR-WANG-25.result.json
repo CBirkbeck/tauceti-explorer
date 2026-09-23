@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BHARGAVA-SHANKAR-WANG-25",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Squarefree values of polynomial discriminants II",
     "authors": "Manjul Bhargava, Arul Shankar and Xiaoheng Wang",
@@ -10,10 +10,11 @@
     "arxiv": "2207.05592",
     "url": "https://doi.org/10.1017/fmp.2025.9",
     "readSections": [
-      "The entire published open-access article (CC BY 4.0; §§1–7, Appendix A and references), read 2026-09-22. PDF from Cambridge Core, SHA-256 1cdd11c0f7ea39deda07685ddd55a47720f94dfd0a5b1ce2769e4d39352f55d3."
+      "The entire published open-access article (CC BY 4.0; §§1–7, Appendix A and references), read 2026-09-22. PDF from Cambridge Core, SHA-256 1cdd11c0f7ea39deda07685ddd55a47720f94dfd0a5b1ce2769e4d39352f55d3.",
+      "Independent review, 2026-09-23: all 57 published pages, §§1–7, Appendix A and bibliography; Cambridge PDF SHA-256 cabacefc16eefd171b1d0958cba20c1a9d3f4f7056e93365fedb5ff166e5e345. Rendered p.15 inspected. Targeted comparisons only, not full rereads, of arXiv v1 and the author's prepublication PDF."
     ]
   },
-  "summary": "Determines the density of integral binary n-ic forms, ordered by the maximum of their coefficients, with squarefree discriminant (Theorem 1), and with R_f maximal (Theorem 2). The latter is ζ(2)^{−1}ζ(3)^{−1} for n ≥ 3, the arithmetic Bertini theorem conjectured by Poonen for P¹_Z. Both come with power savings (Theorem 6). Consequences:\n- ≫ X^{1/2+1/(n−1)} S_n-fields of degree n (Theorem 3);\n- Nakagawa's retracted lower bounds for unramified A_n-extensions of quadratic fields (Theorem 4).\nThe key is the tail estimate (Theorem 5).\n- Strong divisibility: the geometric sieve.\n- Weak divisibility, odd n: as in Part I, via σ_m into the pairs of symmetric matrices 2 ⊗ Sym²(n), with the Q-invariant (a hyperdeterminant). Distinguished points are counted in the main body (large sieve), the shallow cusp and the deep cusp.\n- Weak divisibility, even n: forms are not determinants, so f ↦ xf embeds into singular pencils. A new q-invariant, and a skew-box version of Eskin–Katznelson's count of singular symmetric matrices (§5), complete the count.\nThe atlas plans Hilbert irreducibility (IG.2) and Siegel sets (AA.3); Mathlib has NumberField.discr. Everything else is routed as sources of ArithmeticStatistics ST.0–ST.3, with GN.4 (lattice-point counts), GN.3, SV.2 (large sieve) and IG.2. Eleven source issues are recorded:\n- the n = 4 density in Theorem 1 is wrong (≈ 20.83%, not 21.18%), from a misquoted ν_1;\n- Proposition 3.6 is false, and Lemma 6.25 has a degree slip; together they break the deep-cusp bound for even n as written, but an easy repair keeps η_n and Theorems 1–4 and 6;\n- Theorem 6.6's exponent fails for n = 4;\n- Lemma 7.2 has a sign gap, with an explicit counterexample;\n- the odd-m and n = 2 cases and several other steps have gaps, and there are misprints.\nThe densities α_n(p) and β_n(p), the constants, Q² | Δ, (19)–(20) and the Appendix congruence were checked by computation.",
+  "summary": "The published paper states squarefree-discriminant and maximal-order density theorems for binary forms, quantitative tails, and field-counting corollaries. Independent review requires revision: exact counterexamples correct the quartic density, Proposition 3.6, Proposition 3.9 and two lattice-count statements; the even deep-cusp and field-multiplicity proof chains remain unclosed. All 75 original item identifiers are retained; 1 library, 1 planned and 73 missing. No claim is made that the main field-counting theorems are false or that this extraction is ready to build.",
   "items": [
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/1",
@@ -40,16 +41,16 @@
       "statement": "For every integral binary form f, Δ(f) ≡ 0 or 1 (mod 4). Hence if 2 | Δ(f) then 4 | Δ(f + 2g) for every g, so 4 always divides strongly and W^{(2)}_m = ∅ for even m.",
       "locator": "Proof of Proposition A.1, subset 3, pp.54–55 (\"if p = 2, then since 2 | Δ(f), we have 4 | Δ(f)\"), Forum Math. Pi 13 (2025), e17 (gap E6)",
       "status": "missing",
-      "note": "Checked for all forms mod 4 of degree n ≤ 5. Tau Ceti has the number-field version (TauCeti.NumberField.discr_emod_four_eq_zero_or_one, NumberField/Discriminant/Stickelberger.lean:104 at f790474), not this one. Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+      "note": "Binary-form congruence remains missing, including reducible/zero-leading-coefficient forms. Read at f790474: TauCeti/NumberTheory/NumberField/Discriminant/Stickelberger.lean, TauCeti.NumberField.discr_emod_four_eq_zero_or_one and Module.Basis.exists_discr_eq_sq_sub_four_mul_of_isIntegral. The latter handles a Q-basis in a number field, not an arbitrary binary-form carrier. Finite mod-4 checks are tests, not the all-degree proof."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/4",
       "kind": "construction",
       "name": "The rank-n ring R_f of a binary form (Birch–Merriman, Nakagawa, Wood)",
-      "statement": "For f with a_0 ≠ 0, let θ be the image of x in K_f = Q[x]/(f(x, 1)). R_f is the Z-module spanned by 1, a_0θ, a_0θ² + a_1θ, …, a_0θ^{n−1} + ⋯ + a_{n−1}θ. It is closed under multiplication, and disc(R_f) = Δ(f). The subscheme of P¹_Z cut out by f is regular iff R_f is maximal.",
+      "statement": "For an integral binary n-ic f with a_0 ≠ 0, let θ be x in Q[x]/(f(x,1)). Set ζ_k = Σ_{j=0}^{k−1} a_j θ^{k−j} for 1≤k≤n−1. The Z-span R_f of 1,ζ_1,…,ζ_{n−1} is a ring, with discriminant Δ(f). For the arithmetic-Bertini comparison state the precise finite-flat/primitive hypotheses and the extension to charts with a_0=0 separately; the closed subscheme of P¹_Z is not automatically Spec R_f for a form with nontrivial content.",
       "locator": "§1, pp.2–3; §7, p.52, citing [12], [24], [38], Forum Math. Pi 13 (2025), e17",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+      "note": "Corrected the final index in the basis (E12); the original unconditional regularity/maximality sentence bundled a separate geometric comparison. Wood/Birch–Merriman multiplication and geometric contracts remain to be extracted. This is not a claim that every form defines a finite flat divisor."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/5",
@@ -64,7 +65,7 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/6",
       "kind": "theorem",
       "name": "Densities ν_0(n, p), ν_1(n, p) of v_p(Δ) = 0, 1 for monic polynomials (corrected)",
-      "statement": "Among monic degree-n polynomials over Z_p, the density with p ∤ Δ is ν_0(n, p) = 1 − 1/p for n ≥ 2 (1 for n = 1). The density with v_p(Δ) = 1 is ν_1(n, p) = 0 for p = 2 or n = 1; p^{−1}(1 − p^{−1}) for n = 2; and (1 − p^{−1})²(1 − (−p)^{2−n})/(1 + p) for n ≥ 3 (for n = 3 this is p^{−1}(1 − p^{−1})²). The paper quotes (1 − (−p)^{−n}) for n ≥ 4 (E1).",
+      "statement": "Among monic degree-n polynomials over Z_p, the density with p ∤ Δ is ν_0(n, p) = 1 − 1/p for n ≥ 2 (1 for n = 1). The density with v_p(Δ) = 1 is ν_1(n, p) = 0 for p = 2 or n = 1; p^{−1}(1 − p^{−1}) for n = 2 and odd p; and (1 − p^{−1})²(1 − (−p)^{2−n})/(1 + p) for n ≥ 3 and odd p (for n = 3 this is p^{−1}(1 − p^{−1})²). The paper quotes (1 − (−p)^{−n}) for n ≥ 4 (E1).",
       "locator": "Proof of Proposition A.1, p.53, citing [2, Proposition 6.4 and Theorem 6.8], Forum Math. Pi 13 (2025), e17 (error E1)",
       "status": "missing",
       "note": "ν_0 + ν_1 must equal the density λ_n(p) of p² ∤ Δ (Yamamura; PAPER-BHARGAVA-SHANKAR-WANG-22), and the corrected ν_1 does. For p = 3, n = 4: λ_4(3) = 62/81 by exhaustive count, so ν_1(4, 3) = 8/81, while the printed formula gives 80/729. Routed to ArithmeticStatistics ST.0/ST.1 as a source."
@@ -76,7 +77,7 @@
       "statement": "α_2(2) = 1/2 and α_n(2) = 3/8 for n ≥ 3. For odd p, α_n(p) = (1 − 1/p)(1 + 1/p − 1/p³) for n = 2; (1 − 1/p)²(1 + 1/p)² for n = 3; and (1 − 1/p)²(1 + 1/p)(1 + 1/p − 1/p²) = (1 − 1/p)²(1 + 2/p − 1/p³) for every n ≥ 4. The printed n = 4 value (1 − 1/p)²(1 + 2/p − 2/p⁴ + 1/p⁵) is wrong (E1). The proof splits forms by p ∤ a_0; p | a_0, p ∤ a_1; and p | a_0, a_1, using Δ(a_0x^n + ⋯) ≡ −4a_0a_2³Δ(a_2x^{n−2} + ⋯) mod (a_0², a_0a_1, a_1²).",
       "locator": "Proposition A.1 and proof, pp.53–55, Forum Math. Pi 13 (2025), e17 (error E1)",
       "status": "missing",
-      "note": "Exhaustive counts mod p²: α_n(2) for n = 2, …, 5; α_2, α_3, α_4 at p = 3; α_2, α_3, α_4 at p = 5; α_5 at p = 3. All match the corrected formulas; α_4(3) = 176/243 and α_4(5) = 2784/3125 contradict the printed n = 4 formula. The congruence was checked symbolically for n = 3, …, 6. Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+      "note": "Original worker's diagnostic record (not independently rerun in full): Exhaustive counts mod p²: α_n(2) for n = 2, …, 5; α_2, α_3, α_4 at p = 3; α_2, α_3, α_4 at p = 5; α_5 at p = 3. All match the corrected formulas; α_4(3) = 176/243 and α_4(5) = 2784/3125 contradict the printed n = 4 formula. The congruence was checked symbolically for n = 3, …, 6. Routed to ArithmeticStatistics ST.0/ST.1 as a source."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/8",
@@ -85,7 +86,7 @@
       "statement": "β_2(p) = (1 − 1/p)(1 + 1/p − 1/p³) and β_n(p) = (1 − 1/p²)(1 − 1/p³) for n ≥ 3. Proof: Hensel-factor f = h_1h_2 with h_1 ≡ y^k (mod p) and h_2 monic; R_{h_1} is maximal iff k ≤ 1 or p² ∤ the x^k-coefficient; h_2 is maximal with probability 1 − p^{−2} (Lenstra, [2, Proposition 3.5]).",
       "locator": "Proposition A.2 and proof, p.55, citing [2, Proposition 3.5], Forum Math. Pi 13 (2025), e17",
       "status": "missing",
-      "note": "Checked by exhaustive count over f mod p² (maximality via v_p(Δ) = v_p(d_K) with PARI) for (n, p) = (2, 2), (3, 2), (4, 2), (2, 3), (3, 3). Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+      "note": "Original worker's diagnostic record (not independently rerun in full): Checked by exhaustive count over f mod p² (maximality via v_p(Δ) = v_p(d_K) with PARI) for (n, p) = (2, 2), (3, 2), (4, 2), (2, 3), (3, 3). Routed to ArithmeticStatistics ST.0/ST.1 as a source."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/9",
@@ -136,10 +137,10 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/14",
       "kind": "theorem",
       "name": "Existence and number of orbits for even n",
-      "statement": "Let n = 2g + 2, f ∈ V(k) with Δ(f) ≠ 0 and a_0 ≠ 0, L = k[x]/(f(x, 1)), and V_f(k) = {(A, B) ∈ W_n(k) : f_{A,B} = f}. Then V_f(k) ≠ ∅ iff a_0 ∈ k^{×2}N_{L/k}(L^×) ([8, Theorem 7]); for instance V_f(R) = ∅ for negative definite f. Over a finite field of odd characteristic, V_f(k) ≠ ∅ and the SL_n(k)-orbits correspond to the even-degree factorizations of f.",
+      "statement": "Let k be a field of characteristic not 2, n = 2g + 2, f ∈ V(k) with Δ(f) ≠ 0 and a_0 ≠ 0, L = k[x]/(f(x, 1)), and V_f(k) = {(A, B) ∈ W_n(k) : f_{A,B} = f}. Then V_f(k) ≠ ∅ iff a_0 ∈ k^{×2}N_{L/k}(L^×) ([8, Theorem 7]); for instance V_f(R) = ∅ for negative definite f. Over a finite field of odd characteristic, V_f(k) ≠ ∅ and the number of SL_n(k)-orbits equals the number of the even-degree factorizations of f.",
       "locator": "§3.1, p.8, citing [8, Theorem 7], Forum Math. Pi 13 (2025), e17",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source. The source states an equality of counts over finite fields, not a canonical orbit/factorization bijection."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/15",
@@ -175,16 +176,16 @@
       "statement": "Q² | Δ in Z[W_0]. Proof: Propositions 3.2 and 3.4 show that Q | Δ, and a first-order deformation in the (1, n − 1)-entry of B shows that Q also divides Δ/Q.",
       "locator": "Theorem 3.5 and proof, p.11, Forum Math. Pi 13 (2025), e17",
       "status": "missing",
-      "note": "Checked at 37–40 random integral points of W_0 for n = 3 and 5. Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+      "note": "Original worker's diagnostic record (not independently rerun in full): Checked at 37–40 random integral points of W_0 for n = 3 and 5. Routed to ArithmeticStatistics ST.0/ST.1 as a source."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/19",
       "kind": "theorem",
       "name": "Proposition 3.6 (corrected: Δ lies in the ideal of maximal minors of B^top and of A^top)",
-      "statement": "Δ vanishes on W_0(C) wherever A^top or B^top has rank < g (a kernel vector of B in ⟨e_1, …, e_g⟩ is A-isotropic). Hence Δ lies in the ideal generated by the g × g minors of B^top (a prime determinantal ideal), and likewise for A^top. On bounded sets this gives |Δ| ≪ det(B^top(B^top)^t)^{1/2}. The printed statement, det(A^top(A^top)^t)det(B^top(B^top)^t) | Δ in Z[W_0], is false (E2).",
+      "statement": "On W_0(C), Δ vanishes when the generic g×(g+1) block A^top or B^top has rank <g. Primality of the maximal-minor ideal and the Nullstellensatz give Δ in that ideal over C. Consequently, on each fixed bounded real coefficient set, |Δ| ≪ (det(B^top(B^top)^t))^{1/2}, and similarly for A. This does not assert the printed product divisibility in Z[W_0] or integral ideal membership without descent.",
       "locator": "Proposition 3.6 and proof, pp.11–12, Forum Math. Pi 13 (2025), e17 (error E2)",
       "status": "missing",
-      "note": "For n = 3, det(A^topA^topᵗ)det(B^topB^topᵗ) divided Δ at only 6 of 37 random integral points; an explicit counterexample is in E2. The vanishing on rank-deficient B^top was checked at 12 random points for n = 5. Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+      "note": "The explicit integral n=3 example in E2 disproves the printed statement; no random tests are used as proof. Determinantal-ideal primality and the bounded-polynomial-coefficient argument are separate prerequisites."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/20",
@@ -199,8 +200,8 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/21",
       "kind": "theorem",
       "name": "Theorem 3.7 (σ_m for odd n)",
-      "statement": "For odd squarefree m > 0 (the statement omits \"odd\", E10) there is a map σ_m : W^{(2)}_m → W_0(Z) with f_{σ_m(f)} = f and |Q|(σ_m(f)) = m.",
-      "locator": "Theorem 3.7, p.12, Forum Math. Pi 13 (2025), e17 (misprint E10)",
+      "statement": "For n=2g+1≥3 and odd squarefree m>0 there is σ_m:W_m^(2)→W_0(Z) with f_{σ_m(f)}=f and |Q|(σ_m(f))=m. For even m, the domain is empty by Stickelberger and the unique empty map supplies a vacuous extension.",
+      "locator": "Theorem 3.7, p.12, published 2025 version; even-m convention E6 (not a missing-hypothesis error).",
       "status": "missing",
       "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
     },
@@ -226,7 +227,7 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/24",
       "kind": "definition",
       "name": "The embedding for even n via xf, and the set W^{(2),gen}_{m,n}",
-      "statement": "Let n = 2g + 2 and m odd squarefree. W^{(2),gen}_{m,n} ⊂ W^{(2)}_{m,n} consists of the f with f(0, 1) coprime to m. Since Δ(xf) = Δ(f)f(0, 1)², xf ∈ W^{(2)}_{m,n+1}, and σ_{m,n}(f) := σ_{m,n+1}(xf) ∈ W_{n+1}(Z). Its B is singular, with a 1-dimensional kernel that is not A-isotropic.",
+      "statement": "Let n = 2g + 2 and m odd squarefree. W^{(2),gen}_{m,n} ⊂ W^{(2)}_{m,n} consists of the f with f(0, 1) coprime to m. Since Δ(xf) = Δ(f)f(0, 1)², xf ∈ W^{(2)}_{m,n+1}, and σ_{m,n}(f) := σ_{m,n+1}(xf) ∈ W_{n+1}(Z). Its B is singular, with a 1-dimensional kernel that is not A-isotropic. The one-dimensional non-A-isotropic kernel conclusion additionally assumes Δ(f)f(0,1) ≠ 0; it is not implied by gcd(m,f(0,1))=1 when m=1. The §3.5 set here is distinct from the further Galois/discriminant-restricted set in §6.",
       "locator": "§3.5, p.13, Forum Math. Pi 13 (2025), e17",
       "status": "missing",
       "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
@@ -244,16 +245,16 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/26",
       "kind": "theorem",
       "name": "Proposition 3.9 (|Q| and |q| of σ_m(f), n even)",
-      "statement": "Let n = 2g + 2, m odd positive squarefree and f ∈ W^{(2),gen}_m irreducible. For (A, B) ∈ SL_{n+1}(Z)·σ_m(f) and a (g + 1)-dimensional primitive A-isotropic Λ inside a (g + 2)-dimensional primitive B-isotropic Λ′, |Q|(A, B, Λ) ∈ {m, |f(0, 1)|m} and |q|(A, B, Λ, Λ′) = m. There are exactly two such Λ (#J_{xf}[2](Q) = 2), the second the A-reflection of the first in e_{n+1}^⊥. Distinct m give inequivalent σ_m(f).",
+      "statement": "Let n=2g+2≥4, m odd positive squarefree, and f irreducible in W_m^(2) with gcd(m,f(0,1))=1. Put b=f(0,1)≠0 and d=gcd(2,b). For (A,B) in the SL_{n+1}(Z)-orbit of σ_m(f), and primitive Λ⊂Λ′ of ranks g+1,g+2 that are A-isotropic and B-isotropic respectively, the two possible |Q| values are m and |b|m/d; both have |q|=m. Thus different m still give distinct orbits. This is the parity-corrected calculation of Proposition 3.9, not its printed {m,|b|m} formula.",
       "locator": "Proposition 3.9 and proof, pp.14–15, Forum Math. Pi 13 (2025), e17 (misprint E10)",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+      "note": "E13 gives an exact irreducible n=4,m=1 counterexample and the primitive reflected basis. The even b case divides the reflected Q and det(B′) by 2, so q is unchanged."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/27",
       "kind": "theorem",
       "name": "Kuba: reducible binary forms are O(X^n)",
-      "statement": "The number of reducible f ∈ V_n(Z) with H(f) < X is O(X^n) ([22, Theorem 1]).",
+      "statement": "For fixed n≥3, the number of Q-reducible integral degree-n binary forms of coefficient height<X is O_n(X^n). For a_0≠0 this is Kuba's Theorem 1 after dehomogenization; the a_0=0 hyperplane contributes O(X^n). Degree n=2 instead has order X²log X and is excluded from this bound.",
       "locator": "§4, (14), p.16; §6, p.25, citing [22], Forum Math. Pi 13 (2025), e17 (gap E7)",
       "status": "missing",
       "note": "Routed to InverseGaloisAndArithmeticFundamentalGroups IG.2 as a source."
@@ -261,14 +262,11 @@
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/28",
       "kind": "theorem",
-      "name": "Hilbert irreducibility: 100% of binary forms have Galois group S_n",
-      "statement": "When ordered by height, 100% of integral binary n-ic forms are irreducible with Gal(f(x, 1)) = S_n; the set V(Z)^red = {f : Gal(f(x, 1)) ≠ S_n} (31) is negligible.",
+      "name": "Quantitative non-S_n exceptional set for nonmonic binary coefficient boxes",
+      "statement": "Required supplier: for each fixed n≥3, bound the integral (n+1)-coefficient forms of height<X that are degenerate, reducible, or have Galois group other than S_n by O_{n,ε}(X^{n+1−c_n+ε}) for an explicit c_n>1/(88n^6). A large-sieve bound with c_n=1/2 would suffice. This is an unresolved quantitative input, not a theorem supplied by qualitative IG.2 or by Kuba's reducible-only count.",
       "locator": "§6, (31), p.25, Forum Math. Pi 13 (2025), e17 (gap E7)",
-      "status": "planned",
-      "planned": [
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
-      ],
-      "note": "IG.2 plans Hilbert irreducibility. The paper needs a power-saving count; see E7."
+      "status": "missing",
+      "note": "E7 confirmed by reading Kuba's Theorem 1 at arXiv:2008.05815v1. IG.2 supplies the qualitative direction; add the coefficient-controlled quantitative extension here, consuming SV.2. Do not substitute a monic theorem for an (n+1)-parameter family."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/29",
@@ -295,7 +293,7 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/31",
       "kind": "theorem",
       "name": "Proposition 4.1 (Davenport's lemma)",
-      "statement": "Let R ⊂ R^n be a bounded semialgebraic multiset of maximal multiplicity m, defined by at most k polynomial inequalities of degree ≤ ℓ, and R′ its image under a triangular unipotent transformation. Then #(R′ ∩ Z^n) = Vol(R) + O(max{Vol(R̄), 1}), where Vol(R̄) is the largest volume of a coordinate projection of R, with the constant depending only on n, m, k and ℓ ([14]).",
+      "statement": "Let R ⊂ R^n be a bounded semialgebraic multiset of maximal multiplicity m, defined by at most k polynomial inequalities of degree ≤ ℓ, and R′ its image under a triangular unipotent transformation. Then #(R′ ∩ Z^n) = Vol(R) + O(max{Vol(R̄), 1}), where Vol(R̄) is the largest volume of a coordinate projection of R of dimensions 1,…,n−1, with the constant depending only on n, m, k and ℓ ([14]).",
       "locator": "Proposition 4.1, p.17, citing [14], Forum Math. Pi 13 (2025), e17",
       "status": "missing",
       "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.4 as a source."
@@ -304,7 +302,7 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/32",
       "kind": "theorem",
       "name": "Proposition 4.3 (the large sieve in boxes)",
-      "statement": "For Ω_p ⊂ V(F_p) with ω(p) = #Ω_p/#V(F_p) and a box B′ with sides X_1, …, X_N, the set S of v ∈ V(Z) ∩ B′ with v mod p ∉ Ω_p for all p satisfies |S| ≤ ∏(X_i^{1/2} + L)²·(Σ_{m<L squarefree}∏_{p|m}ω(p)/(1 − ω(p)))^{−1} for every L > 0 (18). If ω(p) ≫ 1, then |S| ≪_{n,ε} X_1⋯X_N/min{X_i}^{1/2−ε}.",
+      "statement": "For Ω_p ⊂ V(F_p) with ω(p) = #Ω_p/#V(F_p) and a box B′ with sides X_1, …, X_N, the set S of v ∈ V(Z) ∩ B′ with v mod p ∉ Ω_p for all p satisfies |S| ≤ ∏(X_i^{1/2} + L)²·(Σ_{m<L squarefree}∏_{p|m}ω(p)/(1 − ω(p)))^{−1} for every L > 0 (18). If ω(p) ≫ 1, then |S| ≪_{n,ε} X_1⋯X_N/min{X_i}^{1/2−ε}. Use side lengths X_i≥1, L>1 and 0≤ω(p)<1 in the finite expression; if ω(p)=1 for some p the sifted set is empty. For the power-saving consequence require a uniform lower bound for all sufficiently large primes, with its threshold and constant among the dependencies.",
       "locator": "Proposition 4.3 and proof, p.18, citing [19, Theorem 1], [23, Proposition 2.4], Forum Math. Pi 13 (2025), e17",
       "status": "missing",
       "note": "The remark that the large sieve would improve Shankar–Tsimerman's quintic error term to X^{159/160+ε} is not proved. Routed to SieveMethodsAndPrimePatterns SV.2 as a source."
@@ -313,10 +311,10 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/33",
       "kind": "theorem",
       "name": "Non-distinguished elements have p-adic density bounded below",
-      "statement": "The density of non-F_p-distinguished elements of W(F_p) is bounded below by a positive constant independent of p ([20, Proposition 4.6]).",
+      "statement": "For fixed odd n=2g+1≥3, and all sufficiently large odd primes p, the proportion of non-F_p-distinguished pairs in W_n(F_p) is bounded below by a positive constant depending only on n. Keep Δ≠0 in the distinguished predicate and treat the finitely many excluded primes separately.",
       "locator": "§4.2, pp.17–18, citing [20], Forum Math. Pi 13 (2025), e17",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+      "note": "Routed to ArithmeticStatistics ST.2 as a source. This is a uniform finite-field orbit/factorization supplier, not a p-adic measure theorem inferred without counting."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/34",
@@ -367,7 +365,7 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/39",
       "kind": "theorem",
       "name": "Proposition 5.2 (Schmidt's lattice-point bound)",
-      "statement": "For a rank-k lattice Λ ⊂ R^m with successive minima μ_1 ≤ ⋯ ≤ μ_k and a bounded open D ⊂ R^m, #(YD ∩ Λ) = O(max_{1≤j≤k}Y^j/(μ_1⋯μ_j)) ([31]).",
+      "statement": "For a rank-k lattice Λ in R^m, a fixed bounded open D, Y>0 and Euclidean successive minima μ_1≤⋯≤μ_k, #(YD∩Λ) ≪_{k,m,D} max_{0≤j≤k} Y^j/(μ_1⋯μ_j), where the j=0 term is 1. Without the constant term the printed result is false when 0∈YD and Y tends to zero (E14).",
       "locator": "Proposition 5.2, p.22, citing [31], Forum Math. Pi 13 (2025), e17",
       "status": "missing",
       "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.4 as a source."
@@ -376,19 +374,19 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/40",
       "kind": "definition",
       "name": "Singular symmetric matrices in skew balls; S(Λ), ℓ_i ∗ ℓ_j, C(r, s)",
-      "statement": "S = Sym²(n) with the Euclidean length, S(Z)^{(r)} the rank-r integral matrices, s = diag(t_1^{−1}, …, t_n^{−1}) ∈ T′ with Y^{−Θ} ≪ t_n ≤ t_1 ≪ Y^Θ, and N_r(Y, s) = #(s(YD) ∩ S(Z)^{(r)}). C(r, s) = ∏_{i≤r}∏_{j≤n−i}t_j/t_{n−i+1} = ∏_{i<j, j>n−r}t_i/t_j ≪ δ(s)^{−1} (21). For a primitive rank-r Λ ⊂ Z^n, S(Λ) is the set of B ∈ S(Z) whose row space is a full-rank sublattice of Λ ⊗ R, and S′(Λ) is the lattice it spans. v_1 ∗ v_2 = v_1v_2^t + v_2v_1^t (or v_1v_2^t if they are dependent), with |v||w| ≤ |v ∗ w| ≤ 2|v||w| (24).",
+      "statement": "S = Sym²(n) with Frobenius Euclidean norm (off-diagonal coordinates have weight √2 for exact covolumes), S(Z)^{(r)} the rank-r integral matrices, s = diag(t_1^{−1}, …, t_n^{−1}) ∈ T′ with Y^{−Θ} ≪ t_n ≤ t_1 ≪ Y^Θ, and N_r(Y, s) = #(s(YD) ∩ S(Z)^{(r)}). C(r, s) = ∏_{i≤r}∏_{j≤n−i}t_j/t_{n−i+1} = ∏_{i<j, j>n−r}t_i/t_j ≪ δ(s)^{−1} (21). For a primitive rank-r Λ ⊂ Z^n, S(Λ) is the set of B ∈ S(Z) whose row space is a full-rank sublattice of Λ ⊗ R, and S′(Λ) is the lattice it spans. v_1 ∗ v_2 = v_1v_2^t + v_2v_1^t (or v_1v_2^t if they are dependent), with |v||w| ≤ |v ∗ w| ≤ 2|v||w| (24).",
       "locator": "§5, (21)–(24), pp.21–22, Forum Math. Pi 13 (2025), e17",
       "status": "missing",
-      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.4 as a source."
+      "note": "Pin the Frobenius metric for the exact factor in Theorem 5.3. Distinguish full-rank S_full(Λ) from its spanning lattice S_lat(Λ). The piecewise operation ∗ is a basis convenience, not a bilinear map on all vector pairs. Generic symmetric tensors/matrices and lattice carriers are imports."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/41",
       "kind": "theorem",
       "name": "Theorem 5.3 and Propositions 5.4–5.5 (Eskin–Katznelson lattices)",
-      "statement": "For γ ∈ SL_n(R) and a basis ℓ_1, …, ℓ_r of γΛ, {ℓ_i ∗ ℓ_j : i ≤ j} is a basis of γ(S′(Λ)), with d(γS′(Λ)) = 2^{r(r−1)/4}d(γΛ)^{r+1}, and it is almost reduced if {ℓ_i} is. If YD ∩ γS(Λ) ≠ ∅ then μ_iμ_j ≤ c_1Y for i + j ≤ r + 1 (Proposition 5.4). And #(YD ∩ γS(Λ)) = O(Y^{r(r+1)/2}d(Λ)^{−(r+1)}∏_{i<j, i+j≤r+1}μ_j/μ_i) (Proposition 5.5, (25)).",
+      "statement": "For γ ∈ SL_n(R) and a basis ℓ_1, …, ℓ_r of γΛ, {ℓ_i ∗ ℓ_j : i ≤ j} is a basis of γ(S′(Λ)), with d(γS′(Λ)) = 2^{r(r−1)/4}d(γΛ)^{r+1}, and it is almost reduced if {ℓ_i} is. If YD ∩ γS(Λ) ≠ ∅ then μ_iμ_j ≤ c_1Y for i + j ≤ r + 1 (Proposition 5.4). And #(YD ∩ γS(Λ)) = O(Y^{r(r+1)/2}d(γΛ)^{−(r+1)}∏_{i<j, i+j≤r+1}μ_j/μ_i) (Proposition 5.5, (25)).",
       "locator": "Theorem 5.3, Propositions 5.4–5.5 and proofs, pp.22–23, citing [17, Proposition 3.3, Lemmas 3.5 and 4.1], Forum Math. Pi 13 (2025), e17",
       "status": "missing",
-      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.4 as a source."
+      "note": "Corrected Proposition 5.5's covolume (E15). The μ_i belong to γΛ, and determinant-one ambient maps need not preserve a lower-rank covolume. The bound is for full-rank S_full, not all of S_lat; split the three results before blueprinting."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/42",
@@ -448,10 +446,10 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/48",
       "kind": "construction",
       "name": "Fibering the count over row spaces of the singular B",
-      "statement": "For a primitive rank-n Λ ⊂ Z^{n+1}, S(Λ) is the lattice of B ∈ S(Z) with row space in Λ; Σ(L, s) are those Λ with successive minima of s^{−1}Λ in [L_i, 2L_i], and S(L, s) = ⋃_{Λ∈Σ(L,s)}S(Λ). The coordinates ℓ_ij of a reduced basis have weights w_L(ℓ_ij) = L_it_j^{−1}. Saturated sets Z ⊂ K ∪ M, the regions T_Z(L, Y) (38) and N(L, L, Z, X) (39) give I_X(L(M)) ≪ Σ_LΣ_ZN(L(M), L, Z, X), with the main body (a_11 ∉ Z), the shallow cusp (a_11 ∈ Z, a_{g+1,g+1} ∉ Z) and the deep cusp (a_{g+1,g+1} ∈ Z) (40).",
+      "statement": "For a primitive rank-n Λ ⊂ Z^{n+1}, S_lat(Λ) is the lattice of B ∈ S(Z) with row space in Λ; Σ(L, s) are those Λ with successive minima of s^{−1}Λ in [L_i, 2L_i], and for the nondegenerate count use the disjoint union of S_full(Λ)={B∈S_lat(Λ):rank B=n}. The coordinates ℓ_ij of a reduced basis have weights w_L(ℓ_ij) = L_it_j^{−1}. Saturated sets Z ⊂ K ∪ M, the regions T_Z(L, Y) (38) and N(L, L, Z, X) (39) give I_X(L(M)) ≪ Σ_LΣ_ZN(L(M), L, Z, X), with the main body (a_11 ∉ Z), the shallow cusp (a_11 ∈ Z, a_{g+1,g+1} ∉ Z) and the deep cusp (a_{g+1,g+1} ∈ Z) (40).",
       "locator": "§6.1, (38)–(40), pp.26–28, Forum Math. Pi 13 (2025), e17",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+      "note": "The paper changes S(Λ)'s convention between §§5 and 6. Use distinct names; only full-rank row spans give unique saturated Λ. In the deep cusp also retain the zero top-block restriction on the B actually paired with A in L(M); it does not hold for every B′∈S_lat(Λ). See E18."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/49",
@@ -496,7 +494,7 @@
       "statement": "I^main_X(L(1)) = O(X^{n+1−θ_n+ε}) with θ_n = min{1/(4n), (n − 2)/(2n² + 2n + 2)}, which is 1/(4n) for n ≥ 6 and 1/21 for n = 4. The printed exponent 1/(4n) is not reached for n = 4 (E4). Proof: Proposition 6.9, plus a split of s_n at Y^δ into (47) and (48), with δ = (n + 3/2)/(n² + n + 1).",
       "locator": "Theorem 6.6 and proof, pp.29–33, Forum Math. Pi 13 (2025), e17 (error E4)",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+      "note": "This is the weaker saving delivered by the printed balancing argument after the other stated counting inputs. E4 confirms a proof gap at n=4, not a counterexample to the stronger asserted theorem."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/54",
@@ -538,25 +536,25 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/58",
       "kind": "theorem",
       "name": "Lemma 6.25 (corrected: lower bound for det(B^top(B^top)^t))",
-      "statement": "For (A, B) ∈ (YD × YD) ∩ W_0(R), W = W_{n+1}, Δ is homogeneous of degree 2n(n + 1), so |Δ(Y^{−1}(A, B))| = X^{−2n}|Δ(A, B)|. With the corrected Proposition 3.6: if |Δ(A, B)| > X^{2n−κ″}, then det(B^top(B^top)^t) ≫ Y^{2(g+1)}X^{−2κ″}. The printed version assumes only |Δ(A, B)| > X^{2n−2−κ} and concludes det(B^top(B^top)^t) ≫ Y^{2(g+1)−(n+1)κ}; that does not follow (E3).",
+      "statement": "Put Y=X^{1/(n+1)}. For (A, B) ∈ (YD × YD) ∩ W_0(R), W = W_{n+1}, Δ is homogeneous of degree 2n(n + 1), so |Δ(Y^{−1}(A, B))| = X^{−2n}|Δ(A, B)|. With the corrected Proposition 3.6: if |Δ(A, B)| > X^{2n−κ″}, then det(B^top(B^top)^t) ≫ Y^{2(g+1)}X^{−2κ″}. The printed version assumes only |Δ(A, B)| > X^{2n−2−κ} and concludes det(B^top(B^top)^t) ≫ Y^{2(g+1)−(n+1)κ}; that does not follow (E3).",
       "locator": "Lemma 6.25 and proof, p.44, Forum Math. Pi 13 (2025), e17 (error E3)",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+      "note": "The bounded-set minor estimate is over R after complex ideal membership, not the printed integral divisibility. Its stronger discriminant hypothesis must be supplied from L_good, not assumed for all L(1)."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/59",
       "kind": "theorem",
       "name": "Proposition 6.26 (upper bound for |q| in the deep cusp)",
-      "statement": "For saturated Z ⊂ Z_1 containing a_{g+1,g+1} and ℓ_{g+1,g+1}, s ∈ T_Z(L, Y) and (A, B) ∈ (s(YD) × s(YD)) ∩ L(1): |q|(A, B) ≪ Y^{(g+1)(g+2)}L_1⋯L_{g+1}/det(B_0^top(B_0^top)^t)^{1/2}, with (A_0, B_0) = s^{−1}(A, B) (from (69)–(71)). With the printed Lemma 6.25 this is ≪ Y^{(g+1)²+(n+1)κ/2}∏_{i≤g+1}L_i (66). With the corrected Lemma 6.25 (E3), after discarding forms with small |f(0, 1)|, it is ≪ Y^{(g+1)²}X^{κ″}∏_{i≤g+1}L_i.",
+      "statement": "For saturated Z ⊂ Z_1 containing a_{g+1,g+1} and ℓ_{g+1,g+1}, s ∈ T_Z(L, Y) and (A, B) ∈ (s(YD) × s(YD)) ∩ L(1): |q|(A, B) ≪ Y^{(g+1)(g+2)}L_1⋯L_{g+1}/det(B_0^top(B_0^top)^t)^{1/2}, with (A_0, B_0) = s^{−1}(A, B) (from (69)–(71)). With the printed Lemma 6.25 this is ≪ Y^{(g+1)²+(n+1)κ/2}∏_{i≤g+1}L_i (66). With the corrected Lemma 6.25 (E3), on the explicitly restricted image L_good(1), with |Δ(f)|>H(f)^{2n−2−κ} and |f(0,1)|≥H(f)^{1−κ/(2n−2)}, in dyadic heights, it is ≪ Y^{(g+1)²}X^{κ″}∏_{i≤g+1}L_i.",
       "locator": "Proposition 6.26 and proof, pp.45–47, Forum Math. Pi 13 (2025), e17 (error E3)",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+      "note": "Retain the Gram-determinant denominator and the exact flag/rank conditions. The corrected numerical substitution is conditional on the repaired restricted-family argument, not an unconditional proof of the displayed bound for every L(1)."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/60",
       "kind": "theorem",
       "name": "Theorem 6.24 (deep cusp, even n)",
-      "statement": "I^dcusp_X(L(M)) = O(X^{n+1+κ/2}log^{2n}X/M). Proof: bound #(s(YD) ∩ S(Z)) by (73) and #(s(YD) ∩ S(L, s)) by (76)–(78), and impose M ≪ Y^{(g+1)²+(n+1)κ/2}∏L_i (75). With the repair of E3 the exponent κ/2 becomes κ″ = κn/(n − 1).",
+      "statement": "Required repaired deep-cusp estimate: on L_good(M) as specified in item 59, establish I_X^dcusp(L_good(M)) ≪ X^{n+1+κn/(n−1)}log^{2n}X/M. The original unrestricted X^{n+1+κ/2} estimate is not supplied by Lemma 6.25. E3 gives the necessary scaling correction, while E18 requires the count to retain full rank and the top-block conditions. The discarded small-|f(0,1)| family costs O(X^{n+1−κ/(2n−2)}). This remains a proof obligation.",
       "locator": "Theorem 6.24 and proof, pp.44–50, Forum Math. Pi 13 (2025), e17 (error E3)",
       "status": "missing",
       "note": "Routed to ArithmeticStatistics ST.2 as a source."
@@ -583,7 +581,7 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/63",
       "kind": "theorem",
       "name": "Theorem 5(c) (tail estimate, weakly divisible case, even n)",
-      "statement": "For even n ≥ 4: #⋃_{m>M sqfree}{f ∈ W^{(2)}_m : H(f) < X} = O(X^{n+1+ξ}/√M + X^{n+1−1/(88n⁶)}), with ξ = 1/(88n⁵) as printed. With the repair of E3, ξ = 1/(44n⁵). Proof (§6.5): for m ≤ X^{1/2}, #{f ∈ W^{(2)}_m, H < X} ≪ X^{n+1}/m^{2−ε}, so one may assume M > X^{1/2}; then (35), (37), Lemmas 6.1–6.2 and Theorems 6.6, 6.11, 6.24 with κ = (2n − 2)/(88n⁶).",
+      "statement": "The published Theorem 5(c) asserts, for even n≥4, #⋃_{m>M squarefree}{f∈W_m^(2):H(f)<X} ≪ X^{n+1+1/(88n^5)}/√M+X^{n+1−1/(88n^6)}. The present extraction does not supply this proof. A candidate repaired bound, conditional on items 28,59,60 and the corrected cusp counts, has ξ=1/(44n^5) and an additional X^ε (or explicit logarithmic factor) on the first term. With κ=(2n−2)/(88n^6), κn/(n−1)=1/(44n^5), leaving no slack to absorb log^{2n}X at that exact exponent. Choose slack and recheck the final optimization before asserting a no-ε bound.",
       "locator": "Theorem 5(c), p.4; §6.5, p.50, Forum Math. Pi 13 (2025), e17 (errors E3, E4; gap E6; misprint E10)",
       "status": "missing",
       "note": "Routed to ArithmeticStatistics ST.2 as a source."
@@ -592,7 +590,7 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/64",
       "kind": "theorem",
       "name": "Corollary 6.27 (uniformity for m² | Δ)",
-      "statement": "For n ≥ 3: Σ_{m>M sqfree}#{f ∈ W_m : H(f) < X} ≪_ε X^{n+1+ξ_n+ε}/M^{δ_n} + X^{n+1−η_n+ε}, with δ_n = 1/2, ξ_n = 0, η_n = 1/(2n) for odd n and δ_n = 1/3, ξ_n = 1/(88n⁵), η_n = 1/(88n⁶) for even n. Proof: split m = m_1m_2 (strong and weak primes) and take M_1 = M_2 = √M (n odd) or M_1 = M^{1/3}, M_2 = M^{2/3} (n even).",
+      "statement": "For fixed n≥3, the summed squarefree-modulus tail must count only forms with 0<|Δ(f)| and H(f)<X. Conditional on the appropriate repaired strong/weak union estimates, the divisor bound for nonzero Δ and splitting m into strong/weak parts yield Σ_{m>M squarefree}#{f∈W_m:H(f)<X,Δ(f)≠0} ≪_ε X^{n+1+ξ_n+ε}/M^{δ_n}+X^{n+1−η_n+ε}. For odd n the source parameters are δ=1/2,ξ=0,η=1/(2n); for even n the proposed corrected parameters are δ=1/3,ξ=1/(44n^5),η=1/(88n^6), conditional on closure of E3/E18. The unrestricted printed sum diverges (E16).",
       "locator": "Corollary 6.27 and proof, p.51, Forum Math. Pi 13 (2025), e17 (misprint E10; ξ_n for even n per E3)",
       "status": "missing",
       "note": "Routed to ArithmeticStatistics ST.2 as a source."
@@ -604,7 +602,7 @@
       "statement": "For squarefree N and nonempty Σ_p ⊂ V_n(Z/p²Z) (p | N): #{f ∈ V_n(Σ) : H(f) < X, Δ(f) squarefree} = α_n(Σ)(2X)^{n+1} + O_ε(E(X, N, ε)), and likewise for R_f maximal with β_n(Σ). Here E = X^{n+1−η_n+ε} + N²X^{n+3(η_n+ξ_n)+ε} + N^{2n+2}X^{(6n+3)(η_n+ξ_n)+ε}. Proof: inclusion–exclusion over m ≤ M = X^{3η_n+3ξ_n} coprime to N, with Corollary 6.27 for the tail. Theorem 6 is N = 1.",
       "locator": "Theorem 7.1 and proof, pp.51–52, Forum Math. Pi 13 (2025), e17 (gap E11)",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+      "note": "E11 requires good local conditions at all p|N before inclusion–exclusion over (m,N)=1, giving N^{2n+2}∏_{p|N}α_n(Σ,p)·m^{2n+2}∏_{p|m}(1−α_n(p)) classes. Exclude Δ=0 before the divisor-tail argument (E16). The displayed error formula is a conditional sieve calculation with supplied η,ξ; substitute repaired even parameters only after proving the tail. Extension to a fixed bounded semialgebraic region requires uniform boundary/projection control; arbitrary local conditions at infinity are not automatically covered."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/66",
@@ -613,7 +611,7 @@
       "statement": "For n ≥ 2, when integral binary n-ic forms are ordered by H, the density with squarefree discriminant exists and equals α_n = ∏_pα_n(p): (1/2)∏_{p>2}(1 − 1/p)(1 + 1/p − 1/p³) ≈ 38.97% (n = 2); (3/8)∏_{p>2}(1 − 1/p)²(1 + 1/p)² ≈ 24.64% (n = 3); and (3/8)∏_{p>2}(1 − 1/p)²(1 + 1/p)(1 + 1/p − 1/p²) ≈ 20.83% for every n ≥ 4. The printed n = 4 value, (3/8)∏(1 − 1/p)²(1 + 2/p − 2/p⁴ + 1/p⁵) ≈ 21.18%, is wrong (E1).",
       "locator": "Theorem 1, p.2; §7, p.52; Appendix, Forum Math. Pi 13 (2025), e17 (error E1, gap E8)",
       "status": "missing",
-      "note": "Constants computed with PARI prodeulerrat: 0.389743, 0.246384, 0.208276 (corrected n = 4 and n ≥ 5), and 0.211795 (printed n = 4). Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+      "note": "Constants computed with PARI prodeulerrat: 0.389743, 0.246384, 0.208276 (corrected n = 4 and n ≥ 5), and 0.211795 (printed n = 4). Routed to ArithmeticStatistics ST.3/ST.5 as a source. Source-stated target; this review does not certify the unclosed proof chain. Owner ST.3, not an unspecified additional ST.5 route."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/67",
@@ -622,16 +620,16 @@
       "statement": "For n ≥ 2, among irreducible integral binary n-ic forms ordered by H, the density with R_f the maximal order is ∏_p(1 − 1/p² − 1/p³ + 1/p⁴) ≈ 53.59% (n = 2), and ζ(2)^{−1}ζ(3)^{−1} ≈ 50.57% for n ≥ 3.",
       "locator": "Theorem 2, pp.2–3; §7, p.52, Forum Math. Pi 13 (2025), e17 (gap E8)",
       "status": "missing",
-      "note": "Constants checked with PARI: 0.535896 and 0.505739. Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+      "note": "Constants checked with PARI: 0.535896 and 0.505739. Routed to ArithmeticStatistics ST.3/ST.5 as a source. Source-stated target; this review does not certify the unclosed proof chain. Owner ST.3, not an unspecified additional ST.5 route."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/68",
       "kind": "theorem",
       "name": "Theorem 6 (power-saving counts)",
-      "statement": "With η_n = 1/(2n) for odd n and 1/(88n⁶) for even n: #{f ∈ V_n(Z) : H(f) < X, Δ(f) squarefree} = α_n(2X)^{n+1} + O_ε(X^{n+1−η_n+ε}), and #{f : H(f) < X, R_f maximal} = β_n(2X)^{n+1} + O_ε(X^{n+1−η_n+ε}). Analogues hold with finitely many local conditions (including at infinity) that do not force emptiness.",
+      "statement": "With η_n = 1/(2n) for odd n and 1/(88n⁶) for even n: #{f ∈ V_n(Z) : H(f) < X, Δ(f) squarefree} = α_n(2X)^{n+1} + O_ε(X^{n+1−η_n+ε}), and #{f : H(f) < X, R_f maximal} = β_n(2X)^{n+1} + O_ε(X^{n+1−η_n+ε}). The source also discusses local restrictions; any region version must specify its regularity and corrected tail inputs. This is a source-stated target, not a verified consequence of the still-incomplete extraction.",
       "locator": "Theorem 6, p.4; §7, p.52, Forum Math. Pi 13 (2025), e17",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+      "note": "Owner ST.3, importing ST.2 tails. Even-degree proof obligations E3/E18 and n=2 closure remain. Do not silently retain the old ξ in an intermediate sieve calculation."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/69",
@@ -640,13 +638,13 @@
       "statement": "Poonen conjectured that for a quasiprojective X ⊂ P^N_Z, regular of dimension m, the density of hyperplane sections that are regular of dimension m − 1 is ζ_X(m + 1)^{−1} ([28, §5]). Theorem 2 proves this, unconditionally, for X = P¹_Z embedded by binary n-ic forms with the box ordering: ζ_{P¹_Z}(s) = ζ(s)ζ(s − 1), so the density is ζ(2)^{−1}ζ(3)^{−1}, for every fixed n ≥ 3 and not only as n → ∞.",
       "locator": "§1, p.3, citing [28, §5 and Theorem 5.1], Forum Math. Pi 13 (2025), e17 (misprint E10)",
       "status": "missing",
-      "note": "Poonen's abc-conditional result is [28, Theorem 5.1]. Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+      "note": "Poonen's abc-conditional result is [28, Theorem 5.1]. Routed to ArithmeticStatistics ST.3/ST.5 as a source. Source-stated target; this review does not certify the unclosed proof chain. Owner ST.3, not an unspecified additional ST.5 route."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/70",
       "kind": "definition",
       "name": "Minkowski-reduced bases",
-      "statement": "A Z-basis of a lattice is Minkowski-reduced if each successive vector is a shortest vector extending the previous ones to part of a basis; a lattice generically has a unique such basis up to signs.",
+      "statement": "A Z-basis b_1,…,b_n of a Euclidean lattice is Minkowski-reduced when each b_i minimizes length among vectors extending b_1,…,b_{i−1} to a partial Z-basis. Strong uniqueness here must mean uniqueness up to independent vector signs. No density-one assertion for lattices obtained from integer forms follows from generic uniqueness in the space of real lattices.",
       "locator": "§7, p.52, Forum Math. Pi 13 (2025), e17",
       "status": "missing",
       "note": "Also an item of PAPER-BHARGAVA-SHANKAR-WANG-22. Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
@@ -655,25 +653,25 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/71",
       "kind": "definition",
       "name": "Minkowski-reduced, quasi-reduced and strongly quasi-reduced binary forms",
-      "statement": "For a real binary n-ic form f with a_0 ≠ 0 and Δ(f) ≠ 0, R_f is the lattice in R[x]/(f(x, 1)) ≅ R^n spanned by 1, ζ_1 = a_0θ, …, ζ_{n−1} = a_0θ^{n−1} + ⋯ + a_{n−1}θ. f is Minkowski-reduced if this basis is Minkowski-reduced, quasi-reduced if γ·f is Minkowski-reduced for some γ ∈ SL_2(Z), and \"strongly\" if moreover R_f has a unique Minkowski-reduced basis (necessarily up to sign).",
+      "statement": "For a real binary n-ic f with a_0≠0 and Δ(f)≠0, let θ be x in R[x]/(f(x,1)), ζ_k=Σ_{j=0}^{k−1}a_jθ^{k−j}, and R_f=Z⟨1,ζ_1,…,ζ_{n−1}⟩. Use the unweighted norm from real embeddings and one representative of each complex pair, C=R⊕iR; do not import Part I's all-embeddings norm. The displayed basis defines Minkowski-reduced; existence of an SL2(Z) representative with that property defines quasi-reduced; strong means uniqueness up to independent vector signs.",
       "locator": "§7, p.52, Forum Math. Pi 13 (2025), e17",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+      "note": "Corrected basis indices (E12) and fixed the metric/sign conventions needed for E5. Coefficient dilation fixes θ and 1 but scales ζ_k, k≥1; it is not a uniform lattice homothety."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/72",
       "kind": "theorem",
       "name": "Lemma 7.2 (corrected: rings of strongly quasi-reduced forms)",
-      "statement": "Let n ≥ 3 and f, f* be strongly quasi-reduced integral binary n-ic forms with R_f ≅ R_{f*}. Then f* is GL_2(Z)-equivalent to f (f* ∈ SL_2(Z)·{f, f(−x, y)}), but not necessarily SL_2(Z)-equivalent as printed (E5).",
+      "statement": "For n≥3 and strongly quasi-reduced integral forms with a_0≠0 and Δ≠0 after reduction, an isomorphism R_f≅R_f* implies that, after taking reduced SL2(Z) representatives, f*(x,y)=ε s^n f(sx,y), with ε,s∈{±1}. Thus there are at most four reduced sign alternatives, contained in the signed GL2(Z) orbit; for odd n the overall sign is already realized by −I. Do not assert ordinary GL2-equivalence in every even degree without an additional argument.",
       "locator": "Lemma 7.2 and proof, pp.52–53, Forum Math. Pi 13 (2025), e17 (error E5)",
       "status": "missing",
-      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+      "note": "Comparing ζ_1 and ζ_2 gives a_0*=ε_2a_0, s=ε_1ε_2 and φ(θ)=sθ*. Then a_i*=ε_2s^i a_i, using ζ_{n−1} and its product with θ for the final coefficients. E5 gives a certified cubic counterexample to the printed SL2 statement."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/73",
       "kind": "theorem",
       "name": "Theorem 3 (S_n-fields of degree n)",
-      "statement": "For n ≥ 3, the number of isomorphism classes of degree-n number fields with Galois group S_n and |Disc| < X is ≫ X^{1/2+1/(n−1)}; they may be taken with squarefree discriminant. Proof: take a small open B of strongly quasi-reduced forms of discriminant ≤ 1 with no two elements equivalent (GL_2(Z)-equivalent, by the correction E5); apply the sieve to B_X = X^{1/(2n−2)}·B, which contains ≫ X^{(n+1)/(2n−2)} maximal (squarefree-discriminant) forms; Lemma 7.2 makes their fields distinct.",
+      "statement": "Source-stated target: for fixed n≥3, there are ≫ X^{1/2+1/(n−1)} isomorphism classes of degree-n S_n fields with |Disc|<X, even with squarefree discriminant. The proposed proof via a scaled open family needs a uniform strong-quasi-reduction or replacement bounded-multiplicity argument, a correctly signed equivalence convention, the quantitative non-S_n exclusion and the regular-region sieve. Openness alone does not justify the dilation step; the original extraction's statement that E5 repairs the proof is withdrawn.",
       "locator": "Theorem 3, p.3; proof, p.53, Forum Math. Pi 13 (2025), e17 (error E5, gap E11)",
       "status": "missing",
       "note": "This improves X^{1/2+1/n} of PAPER-BHARGAVA-SHANKAR-WANG-22. Routed to ArithmeticStatistics ST.3/ST.5 as a source."
@@ -682,13 +680,13 @@
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/74",
       "kind": "definition",
       "name": "The absolute discriminant of a number field",
-      "statement": "Theorems 3 and 4 count fields by |Disc(K)|, the discriminant of O_K.",
+      "statement": "The signed number-field discriminant is NumberField.discr K : ℤ; the ordering in Theorems 3–4 uses |NumberField.discr K|. Absolute value is a wrapper, not the type or sign convention of the cited definition.",
       "locator": "§1, p.3, Forum Math. Pi 13 (2025), e17",
       "status": "library",
       "library": [
         "mathlib:NumberField.discr"
       ],
-      "note": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean:36 at 082e2d3."
+      "note": "Read Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean:36 at 082e2d37e8b0463410cdb532e111cd43d5a66174; raw pinned file agrees with the local baseline."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/75",
@@ -697,7 +695,7 @@
       "statement": "For n ≥ 3, the total number of unramified A_n-extensions of real (resp. imaginary) quadratic fields F with |Disc(F)| < X is ≫ X^{(n+1)/(2n−2)}. The retracted results [24, Theorems 3–4] and [26, Theorem 2] of Nakagawa hold, since the missing ingredient was a tail estimate like Theorem 5.",
       "locator": "Theorem 4, p.3, citing [24]–[27], Forum Math. Pi 13 (2025), e17",
       "status": "missing",
-      "note": "No separate proof is written out; the paper supplies the tail estimate for Nakagawa's argument. Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+      "note": "No separate proof is written out; the paper supplies the tail estimate for Nakagawa's argument. Routed to ArithmeticStatistics ST.3/ST.5 as a source. Source-stated target; this review does not certify the unclosed proof chain. Owner ST.3, not an unspecified additional ST.5 route."
     }
   ],
   "prerequisites": [
@@ -917,177 +915,405 @@
         "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
       ],
       "items": [
-        "PAPER-BHARGAVA-SHANKAR-WANG-25/27"
+        "PAPER-BHARGAVA-SHANKAR-WANG-25/27",
+        "PAPER-BHARGAVA-SHANKAR-WANG-25/28"
       ],
-      "reason": "IG.2 owns Hilbert irreducibility. Kuba's count of reducible binary forms is a quantitative form of it, used in (14) and (35). The corresponding Dietmann bound of PAPER-BHARGAVA-SHANKAR-WANG-22 is routed to the same stage."
+      "reason": "IG.2 is the owner of quantitative extensions of Hilbert irreducibility. Item 27 is the reducible-polynomial input, with leading-zero binary forms counted separately; item 28 is the additional non-S_n exceptional-set estimate, not provided by Kuba. Import the generic large sieve from SV.2. Coalesce with Part I's quantitative route; do not duplicate upstream polynomial-Galois definitions."
     }
   ],
   "sourceIssues": [
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E1",
       "kind": "error",
-      "locator": "Proof of Proposition A.1, p.53 (ν_1), Proposition A.1, p.53, and Theorem 1, p.2 (n = 4)",
+      "locator": "Proof of Proposition A.1, p.53 (ν_1), Proposition A.1, p.53, and Theorem 1, p.2 (n = 4); published 2025 version",
       "printed": "ν_1(n, p) = \"(1 − p^{−1})²(1 − (−p)^{−n})(1 + p)^{−1} if n ≥ 4, p ≠ 2\"; α_4(p) = \"(1 − 1/p)²(1 + 2/p − 2/p⁴ + 1/p⁵)\"; Theorem 1: \"(3/8)∏_{p>2}(1 − 1/p)²(1 + 2/p − 2/p⁴ + 1/p⁵) ≈ 21.18% if n = 4\".",
       "correction": "ν_1(n, p) = (1 − p^{−1})²(1 − (−p)^{2−n})/(1 + p) for n ≥ 3; for n = 3 this is the printed p^{−1}(1 − p^{−1})². Then α_4(p) = (1 − 1/p)²(1 + 1/p)(1 + 1/p − 1/p²), the same as for n ≥ 5. The density in Theorem 1 for n = 4 is (3/8)∏_{p>2}(1 − 1/p)²(1 + 1/p)(1 + 1/p − 1/p²) ≈ 20.83%, the n ≥ 5 value.",
-      "reason": "ν_0(n, p) + ν_1(n, p) must be the density of p² ∤ Δ among monic polynomials, which is Yamamura's λ_n(p) = 1 − (3p^{n−1} − p^{n−2} + (−1)^n(p − 1)²)/(p^n(p + 1)) (Part I, verified there by exhaustive counts). Solving gives the corrected ν_1. For n = 4, p = 3 the printed ν_1 gives ν_0 + ν_1 = 566/729, against λ_4(3) = 62/81 = 558/729. Exhaustive counts of binary quartics mod p² give α_4(3) = 176/243 and α_4(5) = 2784/3125. These equal the corrected formula and differ from the printed one (1600/2187, 69856/78125). The error enters only through the ν_1(4, p) term of subset 1. For n ≥ 5 the terms ν_1(n) + ν_1(n − 1)/p combine to (1 − 1/p)²/p with either exponent, so those formulas are right. So are α_2, α_3 and β_n (all checked by exhaustive counts). The PARI values are 0.2082756 (corrected) against 0.2117949 (printed).",
+      "reason": "Exact exhaustive enumeration of all 9^5 binary quartics modulo 9 gives 176/243, not the printed 1600/2187. The quartic polynomial was cross-checked against 81 Sylvester resultants. All 4^5 quartics mod 4 give 3/8. For monic quartics mod 9, ν_0+ν_1=62/81. For odd p, count monic squarefree h of degree n−2 coprime to x and a unique double linear factor; among lifts a fraction 1−1/p has valuation exactly one. This gives ν_1=(1−1/p)^2(1−(−p)^{2−n})/(p+1) for odd p and n≥3, recovering the corrected quartic factor. The extraction's p=5 enumeration and numerical Euler-product decimal are not independently rerun here.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Forum Math. Pi 13 (2025), e17, DOI 10.1017/fmp.2025.9: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the open-access article page shows no correction",
-        "arXiv 2207.05592v1 (July 2022) is superseded by the published version, which was read",
-        "Part I (PAPER-BHARGAVA-SHANKAR-WANG-22, Invent. Math. 2022) was compared where Part II relies on it",
-        "Ash–Brakenhoff–Zarrabi (Experiment. Math. 16 (2007)) could not be checked (Project Euclid blocks scripted access), so whether the misprint is theirs or in the quotation is open"
-      ]
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists.",
+        "The Ash–Brakenhoff–Zarrabi source was not obtained as readable full text. This finding attributes the checked error to the quotation/computation in BSW II, not to that earlier paper."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the quartic local-factor discrepancy by complete mod-4/mod-9 enumeration and the general unique-double-root recurrence. No attribution to unread ABZ text.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E2",
       "kind": "error",
-      "locator": "Proposition 3.6 and proof, pp.11–12",
+      "locator": "Proposition 3.6 and proof, pp.11–12; published 2025 version",
       "printed": "\"Proposition 3.6. We have det(A^top(A^top)^t) det(B^top(B^top)^t) | Δ as elements in Z[W_0].\" Proof: \"Suppose (A, B) ∈ W_0(C) with det(B^top(B^top)^t) = 0. Then B^top does not have full rank.\"",
-      "correction": "Over C, det(MM^t) = 0 does not imply rank M < g (for M = (1, i), MM^t = 0), so the Nullstellensatz argument fails and the statement is false. What the argument does prove: Δ vanishes on the complex locus where B^top (or A^top) has rank < g. So Δ lies in the ideal generated by the g × g minors of B^top (a prime determinantal ideal), and likewise for A^top. On bounded sets this gives |Δ| ≪ Σ|minors| ≪ det(B^top(B^top)^t)^{1/2}, by Cauchy–Binet, and that suffices for Lemma 6.25 with the exponent doubled.",
-      "reason": "Counterexample for n = 3 (g = 1): A = [[0, 0, 1], [0, 0, 0], [1, 0, 1]] and B = [[0, 1, 1], [1, 1, 0], [1, 0, 0]] lie in W_0(Z). Then f_{A,B} = −y(x² − 3xy + y²) and Δ = 5, while det(A^top(A^top)^t)det(B^top(B^top)^t) = 1·2 = 2 ∤ 5. At random integral points the claimed divisibility held in only 6 of 37 cases for n = 3 and 0 of 40 for n = 5. Δ vanished at all 12 random points with rank-1 B^top for n = 5.",
-      "affects": "the proof",
+      "correction": "Replace the product divisibility with the following bounded-real estimate: over C, Δ lies in the prime ideal of maximal minors of B^top (and separately A^top), since rank deficiency gives a B-kernel vector isotropic for A. Write Δ as a polynomial combination of those minors. On a fixed bounded real coefficient set, Cauchy–Binet gives |Δ|≪sqrt(det(B^top(B^top)^t)). This proves neither integral ideal membership nor the original stronger divisibility.",
+      "reason": "Exact n=3 integral matrices A=[[0,0,1],[0,0,0],[1,0,1]], B=[[0,1,1],[1,1,0],[1,0,0]] give f_{A,B}=−x²y+3xy²−y³, discriminant 5, and the alleged divisor 2. Thus the integral polynomial divisibility is false. Separately M=(1,i) has rank 1 and MM^t=0, disproving the complex rank implication. No sampling is used as a universal proof.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Forum Math. Pi 13 (2025), e17, DOI 10.1017/fmp.2025.9: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the open-access article page shows no correction",
-        "arXiv 2207.05592v1 (July 2022) is superseded by the published version, which was read",
-        "Part I (PAPER-BHARGAVA-SHANKAR-WANG-22, Invent. Math. 2022) was compared where Part II relies on it"
-      ]
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed an actual false stated divisibility, not merely a flawed complex proof. The repair is only the bounded-real estimate over a complex maximal-minor ideal.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E3",
-      "kind": "error",
-      "locator": "Lemma 6.25 and proof, p.44; its use in Proposition 6.26, pp.45–47, and Theorem 6.24",
+      "kind": "gap",
+      "locator": "Lemma 6.25 and proof, p.44; its use in Proposition 6.26, pp.45–47, and Theorem 6.24; published 2025 version",
       "printed": "\"Let (A, B) ∈ (YD × YD) ∩ W_0(R) be such that Δ(A, B) > X^{2n−2−κ} … Then det(B^top(B^top)^t) ≫ Y^{2(g+1)−(n+1)κ}. Proof. Let (A′, B′) = Y^{−1}(A, B) … Since |Δ(A, B)| > X^{2n−2−κ}, we have |Δ(A′, B′)| > X^{−κ}.\" In Proposition 6.26: \"|Δ(A_0, B_0)| = |Δ(A, B)| > X^{2n−2−κ} since (A, B) ∈ L(1).\"",
-      "correction": "Here W = W_{n+1}, so f_{A,B} is an (n + 1)-ic form and Δ(A, B) is homogeneous of degree 2n(n + 1). Then |Δ(A′, B′)| = X^{−2n}|Δ(A, B)| > X^{−2−κ} only, so the printed conclusion does not follow. Repair:\n- discard, besides V^{Δ small}, the forms with |f(0, 1)| < H(f)^{1−κ/(2n−2)} (O(X^{n+1−κ/(2n−2)}) of them), and work in dyadic height ranges;\n- then for (A, B) ∈ L(1), Δ(A, B) = Δ(xf) = Δ(f)f(0, 1)² ≫ X^{2n−κ″} with κ″ = κn/(n − 1);\n- with the corrected Proposition 3.6 (E2), det(B_0^top(B_0^top)^t) ≫ Y^{2(g+1)}X^{−2κ″};\n- so |q| ≪ Y^{(g+1)²}X^{κ″}∏_{i≤g+1}L_i in (66), and Theorem 6.24 holds with X^{n+1+κ″} in place of X^{n+1+κ/2}.\nIn §6.5 (κ = (2n − 2)/(88n⁶)) this changes ξ_n in Theorem 5(c) and Corollary 6.27 from 1/(88n⁵) to 1/(44n⁵). The saving η_n = 1/(88n⁶) and Theorems 1–4 and 6 are unchanged.",
+      "correction": "Use degree 2n(n+1) for Δ on W_{n+1} and Y=X^{1/(n+1)}. The printed hypothesis gives only |Δ(Y^{-1}A,Y^{-1}B)|>X^{-2−κ}. A candidate repair discards |f(0,1)|<H(f)^{1−κ/(2n−2)}, defines L_good from the remaining forms, and works in dyadic heights. Then Δ(xf)=Δ(f)f(0,1)^2 gives normalized discriminant ≫X^{-κ″}, κ″=κn/(n−1), and E2 gives Gram determinant ≫Y^{2g+2}X^{-2κ″}. The proposed deep-cusp bound concerns L_good(M), not the original L(M). At κ=(2n−2)/(88n^6), κ″=1/(44n^5); log^{2n}X cannot be absorbed at exactly that exponent without ε/slack. Complete the restricted-family count, including E18, and reoptimize before claiming any unchanged final saving.",
       "reason": "For (A, B) ∈ L(1), f_{A,B} = xf and Δ(A, B) = Δ(f)f(0, 1)² (§3.5). Only |Δ(f)| > H(f)^{2n−2−κ} is known, and f(0, 1) can be ±1, so |Δ(A, B)| can be as small as X^{2n−2−κ}. The scaling step treats Δ as if it had degree (2n − 2)(n + 1), the degree of Δ(f) for the n-ic f. Example: n = 4, W_5; the binary quintic discriminant has degree 8 in coefficients of degree 5, so Δ(tA, tB) = t^{40}Δ(A, B) = X^8 for t = Y. The printed conclusion needs |Δ(A, B)| > X^{2n−κ}. The argument also rests on the false Proposition 3.6 (E2).",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Forum Math. Pi 13 (2025), e17, DOI 10.1017/fmp.2025.9: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the open-access article page shows no correction",
-        "arXiv 2207.05592v1 (July 2022) is superseded by the published version, which was read",
-        "Part I (PAPER-BHARGAVA-SHANKAR-WANG-22, Invent. Math. 2022) was compared where Part II relies on it"
-      ]
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the homogeneous-degree mismatch and missing constant-coefficient factor. The extraction's claim of an easy complete repair with unchanged final results is withdrawn; restricted-family and logarithmic losses remain.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E4",
-      "kind": "error",
-      "locator": "Theorem 6.6 and its proof, pp.29–33",
+      "kind": "gap",
+      "locator": "Theorem 6.6 and its proof, pp.29–33; published 2025 version",
       "printed": "\"Theorem 6.6. We have I^main_X(L(1)) = O(X^{n+1−1/(4n)+ε}).\" Proof: \"Combining (47) and (48) and choosing δ = (n + 3/2)/(n² + n + 1) yields N(L(1), L, Z, X) ≪_ε X^{n+1−(n−2)/(2n²+2n+2)+ε}.\"",
-      "correction": "The proof gives I^main_X(L(1)) = O(X^{n+1−θ_n+ε}) with θ_n = min{1/(4n), (n − 2)/(2n² + 2n + 2)}, which is 1/(4n) for n ≥ 6 but 2/42 = 1/21 < 1/16 for n = 4. §6.5 needs only a saving above 1/(88n⁶), so Theorem 5(c) is unaffected.",
+      "correction": "The displayed optimization supplies only θ_n=min(1/(4n),(n−2)/(2n²+2n+2)), hence 1/21 for n=4 and 1/(4n) for even n≥6. This is adequate relative to the much smaller downstream desired saving, conditional on the other repaired estimates; it is not a disproof of the stronger bound itself or a certification of the full downstream argument.",
       "reason": "Proposition 6.9 gives 1/(4n), but the Z ⊂ M part gives (n − 2)/(2n² + 2n + 2). For n = 4 the latter is 1/21 (δ = 11/42, balancing (47) and (48) at Y^{−5/21}). So the stated exponent is not reached for n = 4, and nothing else in the proof improves it.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Forum Math. Pi 13 (2025), e17, DOI 10.1017/fmp.2025.9: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the open-access article page shows no correction",
-        "arXiv 2207.05592v1 (July 2022) is superseded by the published version, which was read",
-        "Part I (PAPER-BHARGAVA-SHANKAR-WANG-22, Invent. Math. 2022) was compared where Part II relies on it"
-      ]
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed that the displayed balancing proves only 1/21 in degree four. This confirms a proof gap, not falsity of the stronger estimate.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E5",
       "kind": "error",
-      "locator": "Lemma 7.2 and proof, pp.52–53; proof of Theorem 3, p.53",
+      "locator": "Lemma 7.2 and proof, pp.52–53; proof of Theorem 3, p.53; published 2025 version",
       "printed": "\"Lemma 7.2 … Suppose the corresponding rank-n rings R_f and R_{f*} are isomorphic. Then f(x, y) and f*(x, y) are SL_2(Z)-equivalent. Proof. … By the uniqueness of Minkowski-reduced bases, φ must map the basis elements 1, ζ_1, …, ζ_{n−1} for R_f to the corresponding basis elements 1, ζ*_1, …, ζ*_{n−1}.\"",
-      "correction": "Minkowski-reduced bases are unique at best up to the signs of their vectors, so φ(ζ_i) = ±ζ*_i. The conclusion is only that f* is GL_2(Z)-equivalent to f, e.g. f*(x, y) = f(−x, y). In the proof of Theorem 3, choose B so that no two of its elements are GL_2(Z)-equivalent (GL_2(Z) also acts discretely). The bound is unchanged.",
-      "reason": "Counterexample for n = 3: f = x³ − x²y + xy² + y³, an S_3 cubic (disc −44), is strongly Minkowski-reduced. An exhaustive search gives the reduced basis 1, ζ_1, ζ_2 with unique minima up to sign. f*(x, y) = f(−x, y) = −x³ − x²y − xy² + y³ has the same lattice R_{f*} = R_f, since ζ*_i = ±ζ_i, so it is strongly Minkowski-reduced too. But f* is not SL_2(Z)-equivalent to f. Otherwise f would have a stabilizer element δ of determinant −1, and −δ would be a nontrivial automorphism of R_f in the twisted GL_2(Z)-action, which is impossible for an order in a non-Galois cubic field. Part I's Lemma 5.1 has the same sign gap (its E10).",
-      "affects": "nothing",
+      "correction": "Interpret strong uniqueness up to independent vector signs; literal uniqueness is impossible for any nonzero lattice. For reduced representatives, comparing signed basis images gives f*(x,y)=ε s^n f(sx,y), ε,s∈{±1}. Thus retain an overall sign as well as x-reflection (at most four alternatives). Odd degree absorbs the overall sign through −I; the former universal ordinary-GL2 repair was not established in even degree. A separate uniform family/multiplicity argument is still needed for Theorem 3.",
+      "reason": "The proposed cubic f=x³−x²y+xy²+y³ is indeed strongly reduced under the UNWEIGHTED real-plus-one-complex-place norm specified on p.52. Its unique real root r lies in [−5437/10000,−5436/10000]. Exact rational interval arithmetic for the basis 1,θ,θ²−θ proves Gram–Schmidt squares λ_2>2.1087, λ_3>2.6073, while ||θ||²<2.1352 and ||1||²=2; strict diagonal-dominance inequalities prove that the unique successive extending vectors are ±1,±θ,±(θ²−θ) over all integers, not a finite search. Reflection f(−x,y) has the same lattice and signed basis. The cubic is irreducible (no rational root) with nonsquare discriminant −44, hence S_3. A rational projective stabilizer would centralize the full S_3 on its roots and is therefore trivial; a scalar stabilizer of the cubic has scalar 1. There is no determinant −1 stabilizer, so the two forms are not SL2(Z)-equivalent. The full certificate and sign derivation are in the review.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Forum Math. Pi 13 (2025), e17, DOI 10.1017/fmp.2025.9: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the open-access article page shows no correction",
-        "arXiv 2207.05592v1 (July 2022) is superseded by the published version, which was read",
-        "Part I (PAPER-BHARGAVA-SHANKAR-WANG-22, Invent. Math. 2022) was compared where Part II relies on it"
-      ]
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by an all-integer rational-interval reduction certificate under the published norm. The old finite-search evidence was insufficient, and the all-degree ordinary-GL2 repair is replaced by signed equivalence.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E6",
       "kind": "gap",
-      "locator": "§3.4, p.12; §6, p.25 (W^{(2)}_m for odd m only); Theorem 5(b)–(c), pp.3–4",
+      "locator": "§3.4, p.12; §6, p.25 (W^{(2)}_m for odd m only); Theorem 5(b)–(c), pp.3–4; published 2025 version",
       "printed": "\"For an odd squarefree integer m > 0, let W^{(2)}_m = W^{(2)}_{m,n} denote the set of integer n-ic binary forms whose discriminants are weakly divisible by p² for every prime factor p of m.\" Theorem 5 takes the union over all squarefree m > M.",
       "correction": "Add that W^{(2)}_m = ∅ for even m: the discriminant of an integral binary form is ≡ 0 or 1 mod 4 (Stickelberger), so 2 | Δ(f + 2g) forces 4 | Δ(f + 2g), and divisibility by 4 is never weak. The unions in Theorem 5(b)–(c) are then over odd m, as the proofs assume.",
-      "reason": "The constructions σ_m (choice of r with m | 2rc_0 + b_1, the even-n set W^gen_m) need m odd, and the paper never says why even m can be dropped. The fact is used, without comment, only in subset 3 of the proof of Proposition A.1. Checked: Δ mod 4 ∈ {0, 1} for all binary forms mod 4 of degree n ≤ 5.",
+      "reason": "An integral binary-form discriminant is 0 or 1 modulo 4. If it is even, every f+2g still has even discriminant, hence discriminant divisible by 4; weak 4-divisibility is impossible. The missing explanatory convention is harmless and the Appendix already uses the congruence. Finite degree≤5 tests are not the general proof. Theorem 3.7 can extend uniquely to the empty even-m domain, so omission of the word 'odd' there is NOT separately a false statement.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Forum Math. Pi 13 (2025), e17, DOI 10.1017/fmp.2025.9: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the open-access article page shows no correction",
-        "arXiv 2207.05592v1 (July 2022) is superseded by the published version, which was read",
-        "Part I (PAPER-BHARGAVA-SHANKAR-WANG-22, Invent. Math. 2022) was compared where Part II relies on it"
-      ]
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only as a missing explanation/convention for empty even-m families; not as a counterexample to a theorem on a nonempty even-m domain.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E7",
       "kind": "gap",
-      "locator": "§6, (31) and the sentence after (35), p.25",
+      "locator": "§6, (31) and the sentence after (35), p.25; published 2025 version",
       "printed": "\"V(Z)^red := {f ∈ V(Z) : Gal(f(x, 1)) ≠ S_n}\" and \"The number of elements in V(Z)^red having height less than X was bounded by O(X^n) in [22, Theorem 1].\"",
-      "correction": "Kuba [22] counts reducible forms only. The irreducible forms with Galois group ≠ S_n need a separate power-saving bound, e.g. by the large sieve as in Gallagher's argument (O_ε(X^{n+1/2+ε})) or by Bhargava's work on van der Waerden's conjecture [6], which the bibliography lists but the text never cites. Any saving larger than 1/(88n⁶) suffices for §6.5.",
-      "reason": "The S_n hypothesis is used in Lemma 6.23 (no factorization of g(x, 1) over quadratic fields) and in the definition of W^gen_m. So the count of V(Z)^red must include irreducible non-S_n forms, which [22] does not cover.",
-      "affects": "nothing",
+      "correction": "Kuba gives O(X^n) for Q-reducible degree-n nonmonic polynomials, n≥3, not all non-S_n polynomials. Add a quantitative non-S_n coefficient-box estimate with power saving >1/(88n^6), consuming a correctly normalized large sieve. A nonmonic O_ε(X^{n+1/2+ε}) supplier would suffice, but is not established by the citation or by qualitative Hilbert irreducibility. Do not silently import a monic bound.",
+      "reason": "Read Kuba, arXiv:2008.05815v1, §1 and Theorem 1: R_n(t) explicitly consists of polynomials reducible over Q. Equation (31) in BSW II includes irreducible polynomials with proper Galois group; Lemma 6.23 needs their exclusion. Hence the cited theorem is not the required bound.",
+      "affects": "the proof",
       "known": "new",
       "searched": [
-        "Forum Math. Pi 13 (2025), e17, DOI 10.1017/fmp.2025.9: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the open-access article page shows no correction",
-        "arXiv 2207.05592v1 (July 2022) is superseded by the published version, which was read",
-        "Part I (PAPER-BHARGAVA-SHANKAR-WANG-22, Invent. Math. 2022) was compared where Part II relies on it"
-      ]
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists.",
+        "Primary comparison: https://arxiv.org/pdf/2008.05815v1, Kuba's definition of R_n(t) and Theorem 1."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against Kuba's actual reducible-only definition and theorem. Reclassified as affecting the proof and item 28 changed to missing.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E8",
       "kind": "gap",
-      "locator": "Theorems 1, 2 and 6 for n = 2; Theorem 5 and Corollary 6.27 (n ≥ 3)",
+      "locator": "Theorems 1, 2 and 6 for n = 2; Theorem 5 and Corollary 6.27 (n ≥ 3); published 2025 version",
       "printed": "\"For n = 2, classical methods in sieve theory yield the answer.\" Theorems 1 and 2 are stated for n ≥ 2; Theorem 5 and Corollary 6.27 for n ≥ 3.",
-      "correction": "Add the n = 2 tail estimate. For N ≠ 0, #{(a_0, a_1, a_2) ∈ [−X, X]³ : a_1² − 4a_0a_2 = N} ≪_ε X^{1+ε}, since for each a_1 with a_1² ≠ N the product a_0a_2 = (a_1² − N)/4 has ≪ X^ε factorizations, and at most two a_1 have a_1² = N. Summing over N = m²k with m > M and 0 < |k| ≪ X²/m² gives O_ε(X^{3+ε}/M), which is what Theorem 7.1 needs.",
+      "correction": "Add the n = 2 tail estimate. For N ≠ 0, #{(a_0, a_1, a_2) ∈ [−X, X]³ : a_1² − 4a_0a_2 = N} ≪_ε X^{1+ε}, since for each a_1 with a_1² ≠ N the product a_0a_2 = (a_1² − N)/4 has ≪ X^ε factorizations, and at most two a_1 have a_1² = N. Summing over N = m²k with m > M and 0 < |k| ≪ X²/m² gives O_ε(X^{3+ε}/M), which is what Theorem 7.1 needs. Exclude Δ=0 from this weighted tail first; its box count is O(X²), by choosing a_0,a_1 and solving for a_2 when a_0≠0, and treating a_0=0 separately. Close the finite-modulus residue count and truncation for the n=2 sieve separately; this tail alone is not a complete proof of all stated n=2 conclusions.",
       "reason": "Theorem 7.1's proof uses Corollary 6.27, which is proved only for n ≥ 3, so the n = 2 cases of Theorems 1, 2 and 6 are asserted by reference to \"classical methods\" without proof. Part I has the same omission (its E9).",
-      "affects": "nothing",
+      "affects": "the proof",
       "known": "new",
       "searched": [
-        "Forum Math. Pi 13 (2025), e17, DOI 10.1017/fmp.2025.9: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the open-access article page shows no correction",
-        "arXiv 2207.05592v1 (July 2022) is superseded by the published version, which was read",
-        "Part I (PAPER-BHARGAVA-SHANKAR-WANG-22, Invent. Math. 2022) was compared where Part II relies on it"
-      ]
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the omitted n=2 derivation; checked the stated nonzero-discriminant divisor tail, separating product-zero and Δ=0 cases. Full sieve closure remains explicit.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E9",
       "kind": "gap",
-      "locator": "§3.4, (8), p.12",
+      "locator": "§3.4, (8), p.12; published 2025 version",
       "printed": "\"Then just as shown in [11, §3.2], there exists an SL_2(Z)-change of variable such that f((x, y)γ) has the form m²b_0x^n + mb_1x^{n−1}y + ⋯ + b_ny^n for some integers b_0, …, b_n and where m and b_0 are coprime.\"",
       "correction": "Part I (for monic polynomials) gives the divisibility but not the coprimality (m, b_0) = 1, which the choice of r needs. Repair, for each odd p | m:\n- move the double root to (1 : 0), so p | a_0, a_1 and p ∤ a_2, and p² | a_0 by the Appendix congruence;\n- apply (x, y) ↦ (x, pt·x + y), which changes a_0/p² mod p by (a_1/p)t + a_2t² with a_2 ≢ 0;\n- this quadratic has at most two roots mod p ≥ 3, so some t gives p³ ∤ a_0;\n- combine the primes by CRT.",
       "reason": "Coprimality is used to solve m | 2rc_0 + b_1 with c_0 = b_0, and it is not automatic: a weakly divisible f can have p³ | a_0, e.g. a_0 = 0.",
-      "affects": "nothing",
+      "affects": "the proof",
       "known": "new",
       "searched": [
-        "Forum Math. Pi 13 (2025), e17, DOI 10.1017/fmp.2025.9: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the open-access article page shows no correction",
-        "arXiv 2207.05592v1 (July 2022) is superseded by the published version, which was read",
-        "Part I (PAPER-BHARGAVA-SHANKAR-WANG-22, Invent. Math. 2022) was compared where Part II relies on it"
-      ]
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the additional coprimality step is not automatic; the quadratic-in-shift argument at odd p and CRT supply the required elementary repair.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E10",
       "kind": "misprint",
-      "locator": "Various, pp.3–51",
-      "printed": "p.3: Poonen's density \"should equal ζ_X(m + 1)\". Theorem 3.7: \"Let m > 0 be a squarefree integer\". (20): \"∏_{1≤i<j≤g+1} t_i/t_j\" and \"∏_{α∈U′}\". Proof of Proposition 4.8: \"contained in U_1\". Proof of Proposition 3.9 (b_n even): \"{(b_n/2)e_1 − e_n, e_2, …}\". (32): \"Δ(f) ≤ H(f)^{2n−2−κ}\". Lemma 6.7: \"#G_{B_0}(F_p) = #O(b_0)(F_p) = 2p^{(n²+n)/2}(…)\". (48): \"∫_{s∈T_1}\". (58): \"s_n ≥ X^{1/2−δ}\". Lemma 6.21: \"δ < max(η, 1)/1355g⁶\" and \"b_{g+2,n+2}\". §6.5: \"O_ε(m^{2n−ε}) binary n-ic forms mod m²\". Corollary 6.27: \"For a positive integer N ≥ 3\". Proof of Theorem 5.1: \"L_1 ≤ ⋯ ≤ L_n\".",
-      "correction": "\"ζ_X(m + 1)^{−1}\"; \"an odd squarefree integer\"; \"∏_{1≤i<j≤g} t_i/t_j\" and a product over U_0 ∩ U′; \"U′\"; \"(b_n/2)e_1 − e_{n+1}\"; \"|Δ(f)| ≤ H(f)^{2n−2−κ}\"; \"#G_{B_0}(F_p) = p^n·#O(b_0)(F_p)\"; \"∫_{s∈T_2}\"; \"Y^{1/2−δ}\"; \"min(η, 1)\" and \"b_{g+2,n+1}\"; \"O_ε(m^{2n+ε})\"; \"n ≥ 3\"; \"L_1 ≤ ⋯ ≤ L_r\".",
-      "reason": "Each correction is forced by the surrounding text:\n- the intro's own next line has ζ_{P¹}(3)^{−1};\n- the construction of σ_m needs 2 invertible mod m;\n- for n = 3 the true product in (20) is empty while the printed one is t_1/t_2, and only the corrected form makes (19)·(20) omit exactly the pairs (i ≥ g + 1, j = n), as the text says (checked symbolically for g ≤ 3);\n- with e_n the listed vectors do not span Z^{n+1};\n- Lemma 6.1 counts |Δ| small;\n- the stabilizer of B_0 contains the unipotent p^n, and the final count uses it;\n- (48) integrates over T_2;\n- Y is the scaling parameter;\n- Lemma 6.21 assumes min;\n- B is (n + 1) × (n + 1);\n- the resulting bound X^{n+1}/m^{2−ε} needs m^{2n+ε};\n- n is the degree;\n- L has r entries.",
+      "locator": "Published 2025 version: p.3; (20), p.20 and Proposition 4.8; Proposition 3.9, p.15; (32), p.25; Lemma 6.7, p.29; (48), p.33; (58), p.37; proof of Lemma 6.21, p.41; §6.5, p.50; Corollary 6.27, p.51; proof of Theorem 5.1, p.24.",
+      "printed": "p.3: Poonen's density \"should equal ζ_X(m + 1)\". (20): \"∏_{1≤i<j≤g+1} t_i/t_j\" and \"∏_{α∈U′}\". Proof of Proposition 4.8: \"contained in U_1\". Proof of Proposition 3.9 (b_n even): \"{(b_n/2)e_1 − e_n, e_2, …}\". (32): \"Δ(f) ≤ H(f)^{2n−2−κ}\". Lemma 6.7: \"#G_{B_0}(F_p) = #O(b_0)(F_p) = 2p^{(n²+n)/2}(…)\". (48): \"∫_{s∈T_1}\". (58): \"s_n ≥ X^{1/2−δ}\". Lemma 6.21: \"δ < max(η, 1)/1355g⁶\" and \"b_{g+2,n+2}\". §6.5: \"O_ε(m^{2n−ε}) binary n-ic forms mod m²\". Corollary 6.27: \"For a positive integer N ≥ 3\". Proof of Theorem 5.1: \"L_1 ≤ ⋯ ≤ L_n\".",
+      "correction": "\"ζ_X(m + 1)^{−1}\"; \"∏_{1≤i<j≤g} t_i/t_j\" and a product over U_0 ∩ U′; \"U′\"; \"(b_n/2)e_1 − e_{n+1}\"; \"|Δ(f)| ≤ H(f)^{2n−2−κ}\"; \"#G_{B_0}(F_p) = p^n·#O(b_0)(F_p)\"; \"∫_{s∈T_2}\"; \"Y^{1/2−δ}\"; \"min(η, 1)\" and \"b_{g+2,n+1}\"; \"O_ε(m^{2n+ε})\"; \"n ≥ 3\"; \"L_1 ≤ ⋯ ≤ L_r\". The max/min error is in the proof of Lemma 6.21, not its correctly printed statement. Remove the former alleged missing-odd error: the even-m source is empty by E6.",
+      "reason": "Each correction is forced by the surrounding text:\n- the intro's own next line has ζ_{P¹}(3)^{−1};\n- for n = 3 the true product in (20) is empty while the printed one is t_1/t_2, and only the corrected form makes (19)·(20) omit exactly the pairs (i ≥ g + 1, j = n), as the text says (checked symbolically for g ≤ 3);\n- with e_n the listed vectors do not span Z^{n+1};\n- Lemma 6.1 counts |Δ| small;\n- the stabilizer of B_0 contains the unipotent p^n, and the final count uses it;\n- (48) integrates over T_2;\n- Y is the scaling parameter;\n- Lemma 6.21 assumes min;\n- B is (n + 1) × (n + 1);\n- the resulting bound X^{n+1}/m^{2−ε} needs m^{2n+ε};\n- n is the degree;\n- L has r entries.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Forum Math. Pi 13 (2025), e17, DOI 10.1017/fmp.2025.9: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the open-access article page shows no correction",
-        "arXiv 2207.05592v1 (July 2022) is superseded by the published version, which was read",
-        "Part I (PAPER-BHARGAVA-SHANKAR-WANG-22, Invent. Math. 2022) was compared where Part II relies on it"
-      ]
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the narrowed, individually located typo list. The former claim that Theorem 3.7 must add 'odd' is rejected and removed because the even-m extension is vacuous. Some typographical slips occur inside proofs; their limited correction does not verify those proofs.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E11",
       "kind": "gap",
-      "locator": "Proof of Theorem 7.1, pp.51–52; proof of Theorem 3, p.53",
+      "locator": "Proof of Theorem 7.1, pp.51–52; proof of Theorem 3, p.53; published 2025 version",
       "printed": "\"W_m(Σ) denote the set of elements f ∈ V(Z) such that m² | Δ(f), and such that the reduction of f modulo p² belongs to Σ_p for every p | N. Note that W_m(Σ) is a union of γ(Σ, N, m) := N^{2n+2}m^{2n+2}∏_{p|m}(#Σ_p/p^{2n+2} − α_n(Σ, p)) translates of m²N²V(Z).\" Proof of Theorem 3: \"applying Theorem 7.1, we see that ≫ X^{(n+1)/(2n−2)} integral elements in B_X have discriminant less than X\".",
-      "correction": "Inclusion–exclusion over m coprime to N imposes nothing at p | N. So W_m(Σ) must also require p² ∤ Δ(f) (resp. R_f maximal at p) for p | N, or Σ_p must be assumed to lie in that set. Then W_m(Σ) consists of N^{2n+2}∏_{p|N}α_n(Σ, p)·m^{2n+2}∏_{p|m}(1 − α_n(p)) classes modulo N²m², which gives the main term α_n(Σ)(2X)^{n+1}. Theorem 3 needs the same sieve over the scaled region B_X instead of the height box. The proof carries over, with Theorem 5 bounding the tails in the enclosing box and Proposition 4.1 the main term.",
+      "correction": "Inclusion–exclusion over m coprime to N imposes nothing at p | N. So W_m(Σ) must also require p² ∤ Δ(f) (resp. R_f maximal at p) for p | N, or Σ_p must be assumed to lie in that set. Then W_m(Σ) consists of N^{2n+2}∏_{p|N}α_n(Σ, p)·m^{2n+2}∏_{p|m}(1 − α_n(p)) classes modulo N²m², which gives the main term α_n(Σ)(2X)^{n+1}. Theorem 3 needs the same sieve over the scaled region B_X instead of the height box. The proof carries over, with Theorem 5 bounding the tails in the enclosing box and Proposition 4.1 the main term. Restrict the region version to a fixed bounded semialgebraic region (or an explicitly proved uniform boundary-count class). This sieve extension does not supply the separate strong-quasi-reduction/dilation argument.",
       "reason": "The printed γ lacks the factor ∏_{p|N}#Σ_p/p^{2n+2}, and its main term Σ_mμ(m)∏_{p|m}(1 − α_n(p)) equals ∏_{p∤N}α_n(p), not α_n(Σ). Theorem 7.1 is stated only for {H(f) < X}. Theorem 6 (N = 1) is unaffected.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the missing good conditions at p|N and the incorrect residue-class product. Regular-region counting is a separate supplier, not a consequence of the height-box statement alone.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E12",
+      "kind": "misprint",
+      "locator": "Rank-n ring basis, p.2; ζ_{n−1}, p.52; published 2025 version",
+      "printed": "p.2 ends the basis with 'a_{n−1}θ'; p.52 ends ζ_{n−1} with 'a_{n−1}'.",
+      "correction": "Use ζ_k=Σ_{j=0}^{k−1}a_jθ^{k−j}; the final term of ζ_{n−1} is a_{n−2}θ.",
+      "reason": "The explicit ζ_2=a_0θ²+a_1θ and the identity θζ_{n−1}=−a_{n−1}θ−a_n in the proof on p.53 force this indexing.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Forum Math. Pi 13 (2025), e17, DOI 10.1017/fmp.2025.9: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the open-access article page shows no correction",
-        "arXiv 2207.05592v1 (July 2022) is superseded by the published version, which was read",
-        "Part I (PAPER-BHARGAVA-SHANKAR-WANG-22, Invent. Math. 2022) was compared where Part II relies on it"
-      ]
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the published locator. The explicit ζ_2=a_0θ²+a_1θ and the identity θζ_{n−1}=−a_{n−1}θ−a_n in the proof on p.53 force this indexing.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E13",
+      "kind": "error",
+      "locator": "Proposition 3.9 and even-b_n reflected basis/matrices, pp.14–15; published 2025 version",
+      "printed": "The reflected |Q| is asserted to be '|f(0,1)|m'.",
+      "correction": "For b=f(0,1)≠0, the primitive reflected flag has |Q|=|b|m/gcd(2,b), not always |b|m. Its |det B′| has the same factor, so |q|=m survives. Use the primitive vector (b/d)e_1−(2/d)e_{n+1}, d=gcd(2,b), and a genuine unimodular completion.",
+      "reason": "Take n=4,m=1,f=x⁴+6y⁴, irreducible by Eisenstein at 2. Use A,B and the unimodular basis printed in the review's exact diagnostic. f_{A,B}=x⁵+6xy⁴, original |Q|=1; the reflected primitive flag has |Q|=3 and |det B′|=3, so |q|=1. The printed possibilities {1,6} miss 3. The matrix computation was also checked against rendered p.15.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the published locator. Take n=4,m=1,f=x⁴+6y⁴, irreducible by Eisenstein at 2. Use A,B and the unimodular basis printed in the review's exact diagnostic. f_{A,B}=x⁵+6xy⁴, original |Q|=1; the reflected primitive flag has |Q|=3 and |det B′|=3, so |q|=1. The printed possibilities {1,6} miss 3. The matrix computation was also checked against rendered p.15.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E14",
+      "kind": "error",
+      "locator": "Proposition 5.2, equation (22), p.22; published 2025 version",
+      "printed": "The maximum is over '1≤j≤k'.",
+      "correction": "Include j=0 with empty product 1, or add 1 to the bound. A zero-free variant must state that restriction.",
+      "reason": "Set Λ=Z, D=(−1,1), and let Y→0+. The count remains 1 because of 0, while the printed bound O(Y) tends to zero.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the published locator. Set Λ=Z, D=(−1,1), and let Y→0+. The count remains 1 because of 0, while the printed bound O(Y) tends to zero.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E15",
+      "kind": "error",
+      "locator": "Proposition 5.5, equations (25)–(26), pp.22–23; published 2025 version",
+      "printed": "The denominator is 'd(Λ)^{r+1}'.",
+      "correction": "Use d(γΛ)^{r+1}. Theorem 5.3 already uses γΛ, and the later proof of Theorem 5.1 uses its successive minima product. Ambient determinant one does not preserve lower-dimensional covolume.",
+      "reason": "For n=2,r=1, Λ=Ze_1, γ=diag(1/t,t), D the unit Frobenius ball and Y=1, full-rank matrices are k e_1e_1^t/t² with 0<|k|<t². For integer t they number 2(t²−1), while the printed uniform RHS is O(1). The corrected covolume is 1/t and gives O(t²).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the published locator. For n=2,r=1, Λ=Ze_1, γ=diag(1/t,t), D the unit Frobenius ball and Y=1, full-rank matrices are k e_1e_1^t/t² with 0<|k|<t². For integer t they number 2(t²−1), while the printed uniform RHS is O(1). The corrected covolume is 1/t and gives O(t²).",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E16",
+      "kind": "error",
+      "locator": "Corollary 6.27 and proof, p.51; use in Theorem 7.1; published 2025 version",
+      "printed": "The sum counts 'f ∈ W_m : H(f)<X' without excluding Δ(f)=0.",
+      "correction": "Exclude zero discriminant before summing over squarefree m. Bound the omitted algebraic hypersurface by O_n(X^n) in an (n+1)-coefficient box. Use a divisor bound only for nonzero Δ. In the strong/weak split use a union upper bound by the SUM of the two contributions, not both separate inequalities.",
+      "reason": "For X>1, f=x^n has discriminant 0. For every prime p its reduction has a root of multiplicity n, so p²-divisibility is strong for n≥3 (or follows from the discriminant's degree≥2 vanishing at this multiple-root locus). Thus f belongs to W_p for infinitely many primes p>M, and the displayed sum diverges. If W_m is read as all m²|Δ forms, the same conclusion is immediate. The nonzero-discriminant version has only finitely many m and permits the divisor argument.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the published locator. For X>1, f=x^n has discriminant 0. For every prime p its reduction has a root of multiplicity n, so p²-divisibility is strong for n≥3 (or follows from the discriminant's degree≥2 vanishing at this multiple-root locus). Thus f belongs to W_p for infinitely many primes p>M, and the displayed sum diverges. If W_m is read as all m²|Δ forms, the same conclusion is immediate. The nonzero-discriminant version has only finitely many m and permits the divisor argument.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E17",
+      "kind": "misprint",
+      "locator": "Lemma 6.23, equation (65) and following quadratic solution, pp.42–43; published 2025 version",
+      "printed": "The middle term is 'a_{g+1,g+2}xy'.",
+      "correction": "With A the symmetric Gram matrix, use 2a_{g+1,g+2}xy. The discriminant becomes 4(a_{g+1,g+2}²−a_{g+1,g+1}a_{g+2,g+2}); adjust the root formula accordingly. Complete the displayed basis through e_{n+1}, not e_n.",
+      "reason": "For a 2×2 symmetric block [[a,b],[b,c]], v^tAv=ax²+2bxy+cy². The printed equation is not the isotropy equation; e.g. [[1,1],[1,1]] has isotropic (1,−1), which does not solve x²+xy+y²=0. Changing the factor only changes fixed constants in the size bound, but the downstream argument must use the corrected equation.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the published locator. For a 2×2 symmetric block [[a,b],[b,c]], v^tAv=ax²+2bxy+cy². The printed equation is not the isotropy equation; e.g. [[1,1],[1,1]] has isotropic (1,−1), which does not solve x²+xy+y²=0. Changing the factor only changes fixed constants in the size bound, but the downstream argument must use the corrected equation.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-25/E18",
+      "kind": "gap",
+      "locator": "Definition of S(Λ), p.26; application of Proposition 5.5, p.29; equation (74) and paragraph leading to (76), pp.47–48; published 2025 version",
+      "printed": "§6 defines row space 'contained in Λ'; (74) then counts the union as a sum, and p.48 says the top-left block of any B′∈S(Λ) is 0.",
+      "correction": "Distinguish the full-rank subset from its spanning lattice. Fiber actual nondegenerate B by its unique saturated rank-n row lattice. In the deep cusp count only B paired with an A in the selected locus, retaining its top-block-zero conditions; do not impose these on the entire symmetric lattice.",
+      "reason": "Zero belongs to every row-contained lattice, so they are not disjoint and the full-rank Proposition 5.5 cannot be used for that whole lattice. Also a row-space condition alone does not force a prescribed top-left block to vanish: sums of outer products of a lattice basis generally have a nonzero such block. The relevant pairs do have extra equations, which must remain in the counted subset.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: published Cambridge article DOI 10.1017/fmp.2025.9 and its public page metadata (corrections, correctionsOriginals and addendums empty); full published PDF read. https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/squarefree-values-of-polynomial-discriminants-ii/FD680BEF350C0140B682AB604D45F415",
+        "2026-09-23: https://arxiv.org/abs/2207.05592 lists only v1 (12 July 2022); targeted comparison of Propositions 3.9,5.2,5.5 and Corollary 6.27 in v1, not a full v1 review.",
+        "2026-09-23: Wang's page https://www.math.uwaterloo.ca/~x46wang/ and Shankar's https://arulshnkr1.github.io/; https://www.math.uwaterloo.ca/~x46wang/Papers/Squarefree_2.pdf is dated 4 April 2025, before publication. Targeted checks do not identify a later correction.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2025.9 has no update relation; title/erratum/corrigendum searches found no applicable correction. Absence from these searches is not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the published locator. Zero belongs to every row-contained lattice, so they are not disjoint and the full-rank Proposition 5.5 cannot be used for that whole lattice. Also a row-space condition alone does not force a prescribed top-left block to vanish: sums of outer products of a lattice basis generally have a nonzero such block. The relevant pairs do have extra equations, which must remain in the counted subset.",
+        "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+      }
     }
+  ],
+  "review": {
+    "verdict": "revise",
+    "by": "independent-review-REV-PAPER-BHARGAVA-SHANKAR-WANG-25"
+  },
+  "reviewGaps": [
+    "Split compound items 12,14,17,25,36,40–42,50–51,54–56,65,68,71 into independently stated declarations and expose their carrier/API/prerequisite contracts. Reading every page is not declaration-level closure.",
+    "Extract the hyperelliptic curve/Jacobian/J[2], torsor, Galois-cohomology and even-degree flag/ruling suppliers; import existing generic matrix, algebraic-group and abelian-variety infrastructure rather than rebuilding it.",
+    "Supply a quantitative, nonmonic coefficient-box non-S_n count for item 28; qualitative Hilbert irreducibility and Kuba's reducible-polynomial theorem do not suffice.",
+    "Close the even-degree deep-cusp argument on an explicitly restricted L_good(M), with the exceptional constant-coefficient family, full-rank/top-block restrictions, all logarithmic losses and the final sieve parameters. E3 is not a proof of the original unrestricted theorem.",
+    "Prove a uniform squarefree-modulus geometric-sieve remainder, the zero-discriminant exclusion, bad-prime factors, and the n=2 sieve separately. Generic lattice asymptotics do not give these estimates.",
+    "Give a valid positive-volume family and bounded-multiplicity argument for Theorem 3, retaining all signs. Openness of strong quasi-reduction alone does not prove it persists under coefficient dilation. R_{Tf} scales nonconstant basis vectors but not 1; the cubic in E5 loses its displayed reduced basis for T=5. This is an obstruction to the stated justification, not a proof that every SL2 representative fails.",
+    "Give the Nakagawa comparison, finite/infinite ramification conventions, and real/imaginary signature families for Theorem 4; the paper's citation alone does not close these declarations."
   ]
 }
