@@ -195,3 +195,39 @@ its proof invokes, requires), E96 (Theorem 5.3.1's proof rests on [LLHLM18, Theo
 paper's own §6(16) says was omitted there), and E13/E14 (arXiv-only misprints, consistent with the
 published text). The remaining 128 need verification in substance, sixteen of them with [LLHLM18]
 open; the checkpoint says so and suggests the order.
+
+## Review completed (REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20, 23 September 2026)
+
+The same worker (Claude Code, session `cc-7b31c4`, issue #1403) took the job again and finished it.
+**Verdict: accept.** All seven routes are accepted, all 132 findings now carry verdicts, and all 132
+are **confirmed**; no further correction was needed beyond the area fix recorded above. The record is
+[REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20.md](../reviews/REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20.md), which now
+replaces the checkpoint.
+
+For the 19 findings whose quoted text the published PDF's fonts do not extract — Tables 3–6, the
+matrix charts of §3.6.2, several displays in §§4–5 — the arXiv v4 e-print source settles every
+quotation exactly. Many findings then decide themselves: Table 3 prints the `βα` row twice with
+different first relations (`c11c33 = 0` against `c11c32 = 0`, and the mod-`v` rank condition picks the
+first); the `αβ` matrix and relation differ between Table 3 and the body at (3.14); Tables 5 and 6
+attach `ε′1` and `ε′2` to the alcoves `C, D, E, F` in exactly transposed ways; and the change of
+variables in the case `αt_1` assigns six of seven coordinates, leaving `c22` and `c′21` unmatched,
+with the corrected assignment turning the primed relation into the negative of the unprimed one.
+
+Two checks improve on the record. `E24` fails already at the identity, where
+`Σ_1 = Σ_0 ∩ r(Σ_0)` has six elements while `1 ∉ Adm(η)X⁰(T)`, so no computation with `t_{(1,0,0)}` is
+needed. And `E67` holds without choosing a row of Table 5: the dot action puts `A` at `(0,p)³` and
+`C, D, E, F` at `(0,p)×(p,2p)×(p,2p)`, `(p,2p)×(0,p)×(p,2p)`, `(0,p)×(p,2p)×(2p,3p)` and
+`(p,2p)×(0,p)×(2p,3p)`, none of which shares a face with `A`, while Lemma 4.2.6 makes all of them
+`gr_1` alcoves and (4.8) turns each into a nonzero `Ext¹`.
+
+Two findings are recorded twice and should be merged: `E89` and `E90` are the same sentence of the
+proof of Theorem 5.2.3 with the same correction (keep `E90`'s `misprint`, since the printed statement
+is false and not merely unproved), and `E58` and `E133` are the same bibliography entry, once at its
+citation and once at the reference list. The review also notes, without changing it, that `E31` is
+graded `affects: nothing` although the equality it corrects is false as printed, which is how `E02`
+earns `a stated result`.
+
+The review states its own limits: the sixteen §6 findings are confirmed as faithful reports of the
+authors' addendum to [LLHLM18], not checked against [LLHLM18] itself, and five findings (`E62`,
+`E63`, `E79`, `E81`, `E86`) rest on computations the reviewer did not reproduce, with each verdict
+saying which part was verified independently.
