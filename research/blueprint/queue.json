@@ -4237,8 +4237,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DISEGNI-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1260"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1260",
+   "finishedAt": "2026-09-23T09:27:57Z"
   },
   {
    "id": "REV-PAPER-DISEGNI-22",
@@ -8005,7 +8006,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LAWRENCE-VENKATESH-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2162"
   },
   {
    "id": "REV-PAPER-LAWRENCE-VENKATESH-20",
@@ -8145,7 +8147,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SKINNER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2170"
   },
   {
    "id": "REV-PAPER-SKINNER-20",
@@ -8180,7 +8183,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2173"
   },
   {
    "id": "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
@@ -31035,8 +31039,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1872"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1872",
+   "finishedAt": "2026-09-23T09:27:59Z"
   },
   {
    "id": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20",
