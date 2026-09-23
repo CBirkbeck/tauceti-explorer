@@ -1,4 +1,97 @@
-# PAPER-KISIN-PAPPAS-ZHOU-26 — integral parahoric models, II
+# Kisin–Pappas–Zhou (2026): integral models of Shimura varieties with parahoric level, II — extraction and routing
+
+Issue [#1342](https://github.com/CBirkbeck/tauceti-explorer/issues/1342). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoint, whose report follows below as history.
+- **The paper.** M. Kisin, G. Pappas and R. Zhou, *Integral models of Shimura varieties with parahoric level structure, II*, Forum Math. Pi 14 (2026), e14, 1–89.
+  - The publisher's PDF link returned HTML here.
+  - The published version was read from the Cambridge repository copy that Unpaywall lists: 89 pages, with the journal header, SHA-256 b3e4bf8b…. Its hash differs from the checkpoint's copy because of the repository's PDF processing.
+  - arXiv v3 was re-fetched; its SHA-256 (d0834555…) matches the checkpoint. It is the latest arXiv version, and Crossref lists no correction for the DOI.
+- **Items.** The result has **205 items: 14 library, 13 planned and 178 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Fourteen are recorded under `sourceIssues`. The checkpoint described four printed issues in its report but recorded none.
+
+## This continuation (cc-442dc5)
+
+**Printed corrections of other papers.** The paper corrects Kisin–Pappas 2018 ([KP18]) and Pappas 2023 ([P23]) in §1.3, Remark 5.1.17, footnote 8 and §7.3. These are recorded with `known` values that name this paper:
+- **E1.** The connection isomorphism c of [KP18, Lemma 3.1.9] is not canonical, and [KP18, Lemma 3.1.12] fails for it. It is replaced by Lemma 5.1.15, following Hoff.
+- **E2.** [KP18, 3.2.12] and the results that depend on it need a very good Hodge embedding. [KP18, Theorems 4.2.7 and 4.6.23] are replaced by Theorems 7.1.3 and 7.2.21.
+- **E3 and E4.** Two proof repairs: q^loc in [KP18, Theorem 4.2.7] is smooth rather than a torsor, and [KP18, Lemma 3.1.17] needs p-adic completeness.
+- **E5.** The connected components in [KP18, Lemma 4.6.13 and Corollary 4.6.15] need conjugated levels jK°_p j^{-1}.
+- **E6.** H♯ in [KP18, 4.6.21] is defined only in abelian type.
+- **E7.** [P23] needs the very good hypothesis.
+
+**New findings.**
+- **E9 (a stated result).** In characteristic p, §4.2.9's claim that "X_α v ≠ 0 for some weight vector" is equivalent to "ϖ′ and ϖ′ + α are weights" is false.
+  - Counterexample: GL_2 with highest weight (p, 0), where X_α v_1 = p·v_0 = 0.
+  - As a result, the last step of the proof of Proposition 4.2.10(2) fails, and the proposition is not established for general λ ≼ μ.
+  - For minuscule weights the step is valid. That is all Theorem 4.2.3 needs, through Proposition 4.2.13's inequality k_α ≥ j_α. So Theorem 4.2.3 and the main results stand.
+- **E8 (affects nothing).** Remark 4.1.5(2) repeats a variable and calls X = Spec k[x, y, z]/(x² + xyz) normal. In fact x² + xyz = x(x + yz) is reducible, so X is not normal. The tangent-space example holds as stated.
+- **E10–E14 (misprints, affect nothing).**
+  - E10: characters are written as cocharacters in §§4.2.6–4.2.10, and the reverse slip occurs in Proposition 4.3.9.
+  - E11: the type-B weight lattice is printed as Z^n, and the sums for ϖ_i use the wrong index.
+  - E12: α_n = e_{n−1} + e_{n−1}, and the sign of the last coordinate of μ in type D^H.
+  - E13: Corollary 4.2.19 prints k_α and l_α for k_{−α} and l_{−α}. Both of its uses read k_{−α}.
+  - E14: in the published proof of Lemma 7.2.8 a sentence was garbled in typesetting. It is restored from arXiv v3.
+
+**Items.**
+- Lemma 5.1.11 (F34) and Lemma 7.2.5 (S43) were added.
+- Theorem 1.1.1, Corollary 1.1.2 and Theorem 1.2.3 were mapped as introduction forms of S32–S35, S37 and R30.
+- R12's locator now reads Proposition 4.2.10(2).
+
+**Gaps.**
+- G-roots, G-reps and G-global are recorded through E9, E11–E14.
+- The other eleven are deferred as cited suppliers' proofs or design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once.
+- The findings the checkpoint left open are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (error; affects a stated result), Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), Lemma 3.1.9 and Lemma 3.1.12. *Printed:* the connection isomorphism c constructed in the proof of Lemma 3.1.9 from a normal decomposition M = L ⊕ T, and Lemma 3.1.12 for that c *Correction:* The construction depends on the normal decomposition and is not canonical, and Lemma 3.1.12 fails for it. Use the canonical c of Lemma 5.1.15 (via Lemma 5.1.11), following Hoff.
+- **E2** (error; affects a stated result), Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), 3.2.12, Lemma 3.2.14, Propositions 3.2.17 and 3.3.13, Theorem 4.2.7, Corollaries 4.2.12–4.2.13 and Theorem 4.6.23. *Printed:* the isomorphism Ψ_{R_G} of 3.2.12 for an arbitrary (good) Hodge embedding, and the results using it *Correction:* Ψ_{R_G} exists only when the Hodge embedding is very good (Definition 5.2.5). Add that hypothesis to the listed results, whose proofs are otherwise unchanged. Theorem 4.2.7 is replaced by Theorem 7.1.3 and Theorem 4.6.23 by Theorem 7.2.21 (Theorem 1.1.1), refined by Corollary 7.2.24.
+- **E3** (error; affects the proof), Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), proof of Theorem 4.2.7. *Printed:* the morphism q^loc is a G-torsor *Correction:* q^loc is isomorphic to the action morphism G × M^loc → M^loc, which is smooth as the composite of (g, m) ↦ (g, g·m) with a projection; the rest of the proof is unchanged.
+- **E4** (error; affects the proof), Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), proof of Lemma 3.1.17. *Printed:* p^{-m}φ^m(x) → 0 for the topology τ on Ŵ(A)[1/p] *Correction:* Ŵ(A)[1/p] is not complete for τ. It is p-adically complete and separated ([Zi01, Prop. 2.3, 2.4]), and p^{-m}φ^m(x) → 0 p-adically, by Zink's logarithmic coordinates for p > 2.
+- **E5** (error; affects a stated result), Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), Lemma 4.6.13 and Corollary 4.6.15. *Printed:* the description of Sh_{K°_{2,p}}(G_2, X_2) as a union of connected Shimura varieties at the level K°_p *Correction:* The component indexed by j ∈ J has level jK°_p j^{-1}: Sh_{K°_{2,p}}(G_2, X_2) ≅ ⨆_{j∈J} [Sh_{K°_p}(G, X)^{j,+} × 𝒜(G_{2,Z(p)})]/𝒜(G_{Z(p)})°, and the integral model of Corollary 4.6.15 uses the Zariski closures of the Sh_{K°_p}(G, X)^{j,+}.
+- **E6** (error; affects a stated result), Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), 4.6.21. *Printed:* H♯ is defined for any (H, Y) with H of classical type *Correction:* H♯ need not satisfy the third defining condition in general; it does when (H^ad, Y^ad) is of abelian type.
+- **E7** (error; affects a stated result), Pappas, On integral models of Shimura varieties, Math. Ann. 385 (2023) ([P23]), §4.5, Proposition 4.5.3, §8 and Theorem 8.1.6. *Printed:* the constructions and results without the hypothesis that (G, μ) ↪ (GL(Λ), μ_d) is very good *Correction:* Add that hypothesis. The independence in Theorem 8.1.6 holds for models built from different very good Hodge embeddings.
+- **E8** (error; affects nothing), Remark 4.1.5(2), p.31. *Printed:* Consider the normal surface X = Spec k[x, y, x]/(x² + xyz). *Correction:* X = Spec k[x, y, z]/(x² + xyz), which is not normal: x² + xyz = x(x + yz), so X is the union of two smooth surfaces meeting along x = yz = 0, and its local ring at the origin is not a domain.
+- **E9** (error; affects a stated result), §4.2.9 and proof of Proposition 4.2.10(2), p.35. *Printed:* (ϖ, ϖ′) ∈ W(α) if X_α v_{ϖ′} ≠ 0 for some weight vector … Equivalently, (ϖ, ϖ′) ∈ W(α) if and only if ϖ′ and ϖ′ + α are weights of V(ϖ); … If we let ν and v ∈ V(ν) range over all such pairs with X_α v ≠ 0, then (ϖ, ϖ′ − α) range over all elements of W(α). *Correction:* The equivalence fails in characteristic p, and the printed proof bounds l only over the pairs realised by a nonzero X_α. Every pair with ϖ minuscule is realised, so the argument gives l ≤ j_α (the minimum over ϖ ∈ S of Proposition 4.2.13) for (α, ⟨λ, α⟩ − l) ∈ Φ^FM. With k_α ≥ j_α from the proof of Proposition 4.2.13, this still gives Φ^cur = Φ^tan = Φ^FM, so Theorem 4.2.3 stands.
+- **E10** (misprint; affects nothing), Definition 4.2.6, §4.2.9 and proof of Proposition 4.2.10(2), pp.34–35; Proposition 4.3.9, p.41. *Printed:* ν ∈ X_*(T)^+ a dominant weight; ϖ ∈ X_*(T)^+ is a dominant cocharacter; ϖ = −w_0ν ∈ X_*(T)^+; and, in Proposition 4.3.9, λ ∈ X^*(T)_+ *Correction:* ν, ϖ ∈ X^*(T)^+ are dominant weights (characters), and λ ∈ X_*(T)^+ is a dominant cocharacter.
+- **E11** (misprint; affects nothing), Proof of Theorem 4.2.3 (§4.2.15), types B_n and D_n, pp.37–38. *Printed:* Type B_n. We identify P^∨ and P with Z^n … ϖ_n = (1/2, …, 1/2); and, in types B_n and D_n, ϖ_i = Σ_{j=1}^{i} e_i *Correction:* P = Z^n + Z·(1/2, …, 1/2) (P^∨ = Z^n), and ϖ_i = Σ_{j=1}^{i} e_j.
+- **E12** (misprint; affects nothing), Proof of Theorem 4.2.3 (§4.2.15), types D^R_n and D^H_n, pp.38–39. *Printed:* α_n = e_{n−1} + e_{n−1}; and, for type D^H_n, μ = sϖ^∨_{n−1} + tϖ^∨_n with q = s − t and μ = (r/2, …, r/2, q/2) *Correction:* α_n = e_{n−1} + e_n. With the printed ϖ_{n−1} = (1/2, …, 1/2, −1/2) and ϖ_n = (1/2, …, 1/2), μ = (r/2, …, r/2, −q/2); equivalently take q = t − s.
+- **E13** (misprint; affects nothing), Corollary 4.2.19, p.40. *Printed:* k_α = min_{ϖ∈S} ⟨μ, ϖ⟩ − ⟨λ, ϖ_α⟩ = l_α *Correction:* k_{−α} = min_{ϖ∈S} ⟨μ, ϖ⟩ − ⟨λ, ϖ_α⟩ = l_{−α}.
+- **E14** (misprint; affects nothing), Proof of Lemma 7.2.8, p.79. *Printed:* Bil_{H^c}(V) ⊗_Q F ≅ ∏_{σ:F→R} Bil_{H^c_{R,σ}}(V_{R,σ}) … we have h = ∏_{σ:F→R,σ} ×V_{R,σ} → R. We also have an isomorphism Let h ∈ X; then considering h as a H′_{R,σ} is the weight homomorphism for h_σ. … We choose Ψ ∈ Bil_{H^c} ∩ ∏_{σ∈F} U_σ. *Correction:* Bil_{H^c}(V) ⊗_Q R ≅ ∏_σ Bil_{H^c_{R,σ}}(V_{R,σ}). Restore the sentence of arXiv v3 (p.82): h = ∏_σ h_σ for some h_σ: S → H′_{R,σ}, and h_σ(i) is a Cartan involution of H′_{R,σ}/w_σ(R)^×, where w_σ: G_m → H′_{R,σ} is the weight homomorphism of h_σ. Choose Ψ ∈ Bil_{H^c}(V) whose image in Bil_{H^c}(V) ⊗_Q R lies in ∏_σ U_σ.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G-local** (deferred). Bruhat–Tits, Edixhoven, tame fixed-point, Néron-model and Levin results are cited suppliers.
+- **G-models** (deferred). Pappas–Zhu, Levin, AGLR, FHLR and Haines–Richarz are cited suppliers; splitting long constructions is design work.
+- **G-roots** (recorded). E11–E13 record the B/D coordinate misprints and the Corollary 4.2.19 sign; with them the case checks and Proposition 4.2.13's inequality k_α ≥ j_α go through as printed. Declaration-level proofs are formalisation work.
+- **G-reps** (recorded). E9: the adjacent-weight criterion fails in characteristic p (GL_2, highest weight (p, 0)), but it holds for minuscule weights, which is all Theorem 4.2.3 needs. Jantzen and the Kostant lattice are cited suppliers.
+- **G-display** (deferred). Zink, Lau, Bültel–Pappas and Hoff are cited suppliers. E1 records the KP18 Lemma 3.1.9 construction that §5.1 replaces; Lemma 5.1.11 now has its own item (F34).
+- **G-purity** (deferred). Anschütz Proposition 10.3 and PR24 Appendix A are cited suppliers.
+- **G-tensors** (deferred). The absolute-Hodge and integral comparison theorems are cited suppliers.
+- **G-siegel** (deferred). Zhou's parahoric Siegel lattice-chain moduli (Zh20 §6.3) is a cited supplier.
+- **G-diamonds** (deferred). Scholze–Weinstein and the DvHKZ appendix are cited suppliers.
+- **G-shtukas** (deferred). DvHKZ, PR24 and PR26 are cited suppliers.
+- **G-prismatic** (deferred). The DvHKZ appendix and its prismatic sources are cited suppliers.
+- **G-components** (deferred). KP18 §§4.3–4.6 is a cited supplier; E5 records the conjugated component levels the paper applies.
+- **G-global** (recorded). E14 reconstructs Lemma 7.2.8's garbled sentence from arXiv v3. Deligne, Satake, Zarhin and KP18 are cited suppliers; Lemma 7.2.5 now has its own item (S43).
+- **G-shimura** (deferred). Declaration-sized splitting is design work; E2, E3 and E5 record the KP18 corrections that §7 applies.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## PAPER-KISIN-PAPPAS-ZHOU-26 — integral parahoric models, II
 
 Agent: Codex. Session: `codex-c83e7a`. Issue: #1342. Status: **partial checkpoint**. All items have implementation status `unchecked`.
 
@@ -6,7 +99,7 @@ This extraction reads the complete published paper by Mark Kisin, Georgios Pappa
 
 The main paper, its proofs, introduction, conventions, bibliography and errata have all been read. This does **not** close the recursive prerequisite graph. The original proofs of several cited local-model, purity, integral shtuka, prismatic and component-descent results remain to be extracted. Long constructions still need finer dependencies. The result is deliberately partial so the next worker can continue from an explicit mathematical inventory rather than inherit an unsupported claim of completeness.
 
-## Source and baseline discipline
+### Source and baseline discipline
 
 All locators refer to the **89-page published version**, online 27 April 2026, accepted 27 February 2026. Its SHA-256 is `1abf681bd3795e76118842347f9789c2abcac3740b46f09d258b7d3947ee53d8`. The publisher identifies the text as CC BY 4.0. The 94-page arXiv v3 was also acquired, but its numbering is not mixed into this extraction. Earlier KPZ locators in other paper checkpoints must be converted before they are imported here.
 
@@ -18,7 +111,7 @@ Several tempting matches fail the actual statement test. `TauCeti.IsMinuscule` i
 
 The reviewed library audit and relevant stage descriptions were read. The manifested atlas sweep covers 294 files, supplemented by all 38 current paper extractions, fetched with both Git-blob and SHA-256 checks. Search matches were used to find potential owners, not to certify mathematical coverage. The two upstream documents read in depth are ReductiveGroups and RootSystems. Current packets, decompositions, proposals, reserved ids and relevant candidate routes were inspected before assigning the missing items.
 
-## What the local theory must keep separate
+### What the local theory must keep separate
 
 The local group model matters throughout. A full stabilizer at a building point can be disconnected. Its neutral component is the connected parahoric. A quasi-parahoric retains a smooth integral model between the connected and full fixers, rather than merely naming a compact subgroup of rational points. Weil restriction, tame fixed points and the graded lattice chain each have their own data. The total lattice uses a determining segment without counting the periodic endpoint twice.
 
@@ -32,7 +125,7 @@ A closed integral representation can give only a normalization map from the loca
 
 There is also a proof-order issue. The closed embedding theorem 3.3.25 is used, together with the v-sheaf recovery in 3.4.1, to establish the choice-independent local model in 3.2.15. Reversing that order creates a cycle. The dependency graph follows the proof order rather than numerical order.
 
-## Tangent geometry and the source corrections
+### Tangent geometry and the source corrections
 
 The central geometric input is that certain Schubert tangent spaces are **spanned** by formal-curve tangent images. This means linear span. It does not assert that every individual tangent vector lifts to one formal curve. The ambient negative big cell separates root directions from Cartan directions; the rotation action records the loop degree.
 
@@ -46,7 +139,7 @@ Second, Corollary 4.2.19 prints k_alpha where its preceding lemma and later use 
 
 The D4 example at the end of the Cartan discussion is a useful limit on the argument. At the stated mu, lambda and H, the two negative-root curve bounds are two and the representation bound is three. This shows a gap between the constructed curve directions and the FM bound. It does not, without another theorem, show that the actual Schubert tangent space contains the extra direction. The report and item R27 preserve that distinction.
 
-## The corrected display argument
+### The corrected display argument
 
 The coefficient ring is Zink's subring of Witt vectors, with the decaying maximal-ideal Witt coordinates. A full Witt ring is not a interchangeable replacement. The frame includes its ideal, Frobenius lift and semilinear divided Frobenius; the identity phi(i)=p phi1(i) must be used without dividing by p in a torsion ring.
 
@@ -64,7 +157,7 @@ Section 6 then supplies the embeddings. The non-exceptional theorem excludes D-q
 
 The exceptions receive separate constructions. D-quaternionic cases use orthogonal or quaternionic PEL realizations, their larger endomorphism-defined groups and the passage to the smooth closure of the generic neutral group. The latter is not necessarily the relative identity component. The division-algebra A construction uses the standard and opposite-dual representations and remains valid when p divides the index. Left/right module conventions, Morita equivalence, reduced trace, exchange involution and matching multipliers are all necessary data. These constructions explain why the final global theorem has no non-exceptional restriction.
 
-## Global models and the two different local comparisons
+### Global models and the two different local comparisons
 
 The Hodge integral model is the normalization of the generic Hodge variety's closure in the relevant integral Siegel model. The supplier for general lattice-chain Siegel moduli is stated separately: the existing PEL good-level smoothness stage does not prove the parahoric statement. Under the full-stabilizer, R-smooth, prime-to-p fundamental-group and very-good embedding hypotheses, Theorem 7.1.3 gives the pro-level DVR extension property and a tensor-frame torsor with a smooth equivariant map to the local model. If the integral group is connected, it also gives the ordinary henselization comparison with the same finite residue field.
 
@@ -82,11 +175,11 @@ For that corollary, Daniels–van Hoften–Kim–Zhang Proposition 4.3.3 require
 
 All three corrections to KP18 and the added Pappas23 hypothesis are retained. The local action morphism is used for smoothness, without the erroneous torsor assertion. The logarithmic tail after inverting p uses the topology of a p-adic lattice, since p is a unit in the localized ring. The component indexed by j uses the conjugated level j Kp-neutral j inverse. The prior display-moduli and independence arguments require very-goodness.
 
-## Ownership and remaining work
+### Ownership and remaining work
 
 The following route briefs are the proposed design instructions. Existing candidate ids are retained where the direction is already present. In particular the earlier HE21 dominance candidate is the common owner for the overlapping KZ25 dominance proposal. This paper does not silently create a third copy. No file belonging to another issue is changed.
 
-### Route 1: `ReductiveGroupsPartII`
+#### Route 1: `ReductiveGroupsPartII`
 
 The existing continuation owns integral Weil restriction, buildings and smooth parahoric/fixer models. Add quasi-tame and R-smooth inputs, tame fixed-point and stable-chain statements, the GO/GO+ distinction and smooth center/multiplier intersections here. No new copy of Bruhat–Tits theory is proposed.
 
@@ -94,7 +187,7 @@ Supplier stages: `ReductiveGroupsPartII:RG2.0a`, `ReductiveGroupsPartII:RG2.2`, 
 
 This route owns 22 extracted items.
 
-### Route 2: `RootSystemsPartIIDominanceAndDemazure`
+#### Route 2: `RootSystemsPartIIDominanceAndDemazure`
 
 An earlier HE21 continuation already owns integral dominance and related Weyl combinatorics. This extraction extends that candidate and records the later KZ25 alias for consolidation; it does not propose another parallel root roadmap.
 
@@ -102,7 +195,7 @@ Continue the candidate already proposed by PAPER-HE-21. Import root data, integr
 
 This route owns 17 extracted items.
 
-### Route 3: `ReductiveGroupsIntegralRepresentationsPartII`
+#### Route 3: `ReductiveGroupsIntegralRepresentationsPartII`
 
 The upstream reductive group roadmap supplies group/comodule and pinned group-scheme foundations, but not these positive-characteristic Weyl-module statements. ClassicalGroups and LieHighestWeight are characteristic zero in the relevant stages; the arithmetic and local-group continuations have different targets.
 
@@ -110,7 +203,7 @@ Build on Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), sp
 
 This route owns 3 extracted items.
 
-### Route 4: `GeometricSatakeLocalModelsPartII`
+#### Route 4: `GeometricSatakeLocalModelsPartII`
 
 The existing GS0 geometry stops before flat integral scheme recovery and these tangent/embedding theorems. The KZ25 candidate already opens this exact direction; current work fills its major KPZ supplier.
 
@@ -118,7 +211,7 @@ Extend the existing candidate from PAPER-KISIN-ZHOU-25, retaining its same-resid
 
 This route owns 36 extracted items.
 
-### Route 5: `FiniteFlatGroupsWithTensorsPartII`
+#### Route 5: `FiniteFlatGroupsWithTensorsPartII`
 
 The existing candidate owns tensor displays and very-good deformations. KPZ supplies the corrected construction and existence proofs; ordinary classification in R07 is imported, not repeated.
 
@@ -126,7 +219,7 @@ Continue the existing tensor-deformation and ordinary-lift candidate from PAPER-
 
 This route owns 48 extracted items.
 
-### Route 6: `DiamondsAndVStacksIntegralPartII`
+#### Route 6: `DiamondsAndVStacksIntegralPartII`
 
 D6 explicitly concerns analytic diamonds and étale-category equivalence, and disclaims general full faithfulness. The38 prior paper extractions contain no candidate owning these normal integral recovery statements.
 
@@ -134,7 +227,7 @@ Import Diamonds and v-stacks (DiamondsAndVStacks D6) for the analytic diamond an
 
 This route owns 4 extracted items.
 
-### Route 7: `HeckeStacksAndLocalShtukasIntegralPartII`
+#### Route 7: `HeckeStacksAndLocalShtukasIntegralPartII`
 
 HS2 supplies generic Hecke-fiber moduli, not canonical integral parahoric systems. The earlier ADLV continuation has a different endpoint. This is the missing integral direction needed for the strict-henselian and all-case connected-diagram refinements.
 
@@ -142,7 +235,7 @@ Import Hecke stacks and local shtukas (HeckeStacksAndLocalShtukas HS2) for bound
 
 This route owns 6 extracted items.
 
-### Route 8: `ShimuraVarietiesHondaTatePartII`
+#### Route 8: `ShimuraVarietiesHondaTatePartII`
 
 The existing integral reduction candidate is the shared owner of these Shimura models. This work supplies the all-abelian odd-prime foundation and corrected descent rather than proposing another Shimura roadmap.
 
@@ -150,7 +243,7 @@ Extend the candidate already used by PAPER-KISIN-MADAPUSIPERA-SHIN-22 and PAPER-
 
 This route owns 40 extracted items.
 
-## Explicit closure gates
+### Explicit closure gates
 
 - **G-local** (22 direct consumers): Read and decompose the original Bruhat–Tits, Edixhoven, tame fixed-point, Néron-model and Levin inputs at each cited proposition. Close the full-fixer/connected-fixer, R-smooth quotient and integral lattice adapters. The published KPZ proofs were read; this is recursive original-source closure.
 - **G-models** (37 direct consumers): Expand Pappas–Zhu, Levin, AGLR, FHLR and Haines–Richarz at the actual local-model representability, normality, reducedness and Cohen–Macaulay results. Split polynomial-model construction, auxiliary-cover comparison and all long proof steps to declaration size. Do not use Theorem3.2.15 to prove3.3.25.
@@ -167,7 +260,7 @@ This route owns 40 extracted items.
 - **G-global** (13 direct consumers): Read Deligne71/79, Satake, Zarhin85 and the explicit integral Zarhin form, and KP18’s CM/reflex/center enlargement proofs. Reconstruct Lemma7.2.8’s garbled positivity sentence from its formulas and source; expose the local-to-global C-cohomology proof and conditional coinvariants.
 - **G-shimura** (12 direct consumers): Close the Hodge/abelian normalization, descent and extension proofs using the preceding supplier gates and precise Artin approximation. Main theorem outputs are split, but the inherited global constructions need further declaration-sized dependencies before a complete classification.
 
-## Validation and interpretation
+### Validation and interpretation
 
 The extraction has 203 items: 14 library carriers, 13 planned imports and 176 missing items. Every missing item belongs to exactly one of eight routes. All 67 definitions and constructions have three API statements and three unit-test specifications, for 201 of each. The graph is acyclic and every internal dependency resolves. Planned items cite actual current stage ids; they are not declarations claimed to exist in Lean. The 22 baseline declaration references retain their pinned source statements and limited scope.
 
@@ -177,7 +270,7 @@ The authorized deliverables are this report, the paper result JSON and the hando
 
 The next worker should preserve item ids and first close the modular root-action and corrected frame/purity suppliers, then integral model recovery and shtuka comparison, followed by global covers and component descent. The full published paper need not be read again from scratch: the outstanding tasks are original-source verification and finer proof decomposition. Bibliographic groups are acquisition leads until that work is done. A source route or a Part II candidate is an ownership decision, not proof closure.
 
-## Item index
+### Item index
 
 The JSON contains the full statements, hypotheses, dependency lists, use-derived APIs, test specifications and gap assignments. This index lets a reader locate an item without scrolling through its machine-readable fields.
 
