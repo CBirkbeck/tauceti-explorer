@@ -1426,7 +1426,12 @@
     "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
     "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
     "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the source (Ch02-sv.tex, 'Realizations of motives'): 'Let L be a number field given with a fixed embedding in C. An L-Hodge structure pure of weight n will be an L-vector space V equipped with a descending filtration F^.V_C on V_C = V ⊗_L C such that for p+q = n+1, we have V_C = F^pV_C ⊕ conj(F^qV_C)'. The objection is right: for L not contained in R, 1 ⊗ (complex conjugation) does not descend to V ⊗_L C, so the bar has no meaning. The paper itself opens the subsection with 'Some of our definitions below may be somewhat non-standard', and the entry's reach analysis is right - every field it is applied to (Q, Q(k), the field of rationality of a self-dual Hilbert newform) is totally real.",
+    "by": "REV-PAPER-ICHINO-PRASANNA-23"
+   }
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E2",
@@ -1441,7 +1446,12 @@
     "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
     "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
     "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: 'This is concentrated in degree 2d and is independent of the choice of K'. Sh_B has complex dimension d = |Sigma|, section 1.1 says the isotypic part is 'concentrated entirely in the middle degree d', and Theorems 1, 3.2 and 12.4 all use H^d. The paper is right everywhere else; this one sentence doubles the degree.",
+    "by": "REV-PAPER-ICHINO-PRASANNA-23"
+   }
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E3",
@@ -1456,7 +1466,12 @@
     "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
     "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
     "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim inside the rotated diagram (Ch04-uqu.tex, within \\begin{turn}{90}): the middle row prints 'G(U_B(V^sharp) x U_E(V^sharp_0...'. V^sharp_0 is a one-dimensional skew-hermitian B-space and the text on the preceding page defines G_B with U_B(V^sharp_0), as Propositions 5.10-5.11 use, so U_E is the slip. A rotated xymatrix is exactly where a subscript error survives proofreading.",
+    "by": "REV-PAPER-ICHINO-PRASANNA-23"
+   }
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E4",
@@ -1471,7 +1486,12 @@
     "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
     "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
     "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: 'The set of components of Sh_{tilde G_B} is in bijection with the Shimura variety attached to (T_1,h_1)'. The correction is the standard fact: the components are governed by G(A_f)/(G(Q)^+ ρ(G^sc(A_f))K), and since the derived group (B_1^(1) x B_2^(1))/{±1} is not simply connected the square-class part survives, so the map to Sh(T_1,h_1) need not be injective. The phrasing is loose in a second way the entry does not dwell on - a set of components cannot be in bijection with a variety - but its mathematical point is the right one, and E8 depends on it.",
+    "by": "REV-PAPER-ICHINO-PRASANNA-23"
+   }
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E5",
@@ -1486,7 +1506,12 @@
     "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
     "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
     "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: 'we fix a finite order character eta of E^(1) \\\\ A^(1)_E and define a character of T_1 by eta([t_1,t_2],alpha) = eta((t_1t_2)^{-1} alpha). The pull back of this character to Z(G_1) is given by eta(t,alpha) = eta(t^{-1} alpha)'. On T_1 one has t_1t_2 = N(alpha), so (t_1t_2)^{-1}alpha has norm N(alpha)^{-1} and is not in A^(1)_E: the expression cannot be evaluated. The entry's repair - eta a finite-order character of A_E^x/E^x A_F^x, the reading sections 1.2 and 10.4 use - makes both displayed formulas come out as eta(alpha), and that is the only reading under which the later sections are consistent.",
+    "by": "REV-PAPER-ICHINO-PRASANNA-23"
+   }
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E6",
@@ -1501,7 +1526,12 @@
     "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
     "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
     "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: Proposition A.1(i) (label prop:spl-hodge) prints 'z_{Y_v}(g_1,g_2) = s_v(g_1 g_2)/(s_v(g_1) s(g_2))'. s_v is the map the proposition constructs and the unsubscripted s is the global object of the later subsections, not yet defined; part (iii) of the same proposition writes s_v throughout.",
+    "by": "REV-PAPER-ICHINO-PRASANNA-23"
+   }
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E7",
@@ -1516,7 +1546,12 @@
     "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
     "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
     "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: the (p,q) = (1,1) case prints '(1,1) + (k_v-1-1, 2k_v-4 +1-(k_v-1) = (k_v-1,k_v-1).' with no closing parenthesis, and the entry is right that the arithmetic behind it is correct (m = 2k_v-4 is established two lines earlier, and k = k_v-1).",
+    "by": "REV-PAPER-ICHINO-PRASANNA-23"
+   }
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E8",
@@ -1531,7 +1566,12 @@
     "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
     "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
     "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: '(We note that since the action of Gal(Qbar/F_Sigma) on the components of Sh_{tilde G_B} is trivial, the class c is Gal(Qbar/F_Sigma)-invariant.)' The parenthetical is the load-bearing step for the rationality of Res(Xi_tau(d)), and the entry's objection is the right one: Galois acts on the components through the map to Sh(T_1,h_1) by translation, and for small K that action is not trivial, so invariance has to be arranged by choosing c inside the invariant subspace rather than asserted. The entry's repair keeps the construction intact, and it is properly linked to E4, which is the statement the triviality claim leans on.",
+    "by": "REV-PAPER-ICHINO-PRASANNA-23"
+   }
   }
  ]
 }
