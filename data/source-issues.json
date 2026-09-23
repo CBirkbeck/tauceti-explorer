@@ -26121,6 +26121,111 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E1",
+   "kind": "misprint",
+   "locator": "§1.2, pp. 9–10 (arXiv v2); pp. 331–332 (Annals)",
+   "printed": "il induit un morphisme G-équivariant continu et surjectif Φ : Π(π, 2)^* → Ω^1(Σ_n) […] le morphisme Φ : Π(π, 2)^*/u^+(Π(π, 0))^* → Ω^1(Σ_n)/d(O(Σ_n)^ρ) est forcément un isomorphisme",
+   "correction": "Ω^1(Σ_n)^ρ in both places",
+   "reason": "Φ takes values in the ρ-isotypic part: it is induced by Φ : Π(π, 0)^* → O(Σ_n)^ρ, and the second display divides by d(O(Σ_n)^ρ). Ω^1(Σ_n) has the other isotypic components too, onto which Φ is not surjective. §11.3 (p. 63; Annals p. 383) writes Φ : Π(π, 2)^* → Ω^1(Σ_n)^ρ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
+    "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
+    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E2",
+   "kind": "misprint",
+   "locator": "§5.1, proof of Lemme 5.6, p. 27 (arXiv v2); p. 351 (Annals)",
+   "printed": "Soit χ un caractère de Hecke χ de F tel que η̄_p = ω_2^{r+1}, χ_∞(z) = z^{−1} et χ_ℓ choisi de sorte que […]",
+   "correction": "χ̄_p = ω_2^{r+1} (a condition on the reduction of χ's component at p)",
+   "reason": "The only character in the construction is χ, and η is not defined anywhere in the proof; the condition must prescribe χ at p so that the induced representation has r̄_p = Ind ω_2^{r+1}, which is what the preceding sentence asks for.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
+    "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
+    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E3",
+   "kind": "misprint",
+   "locator": "§11.2, proof of Lemme 11.4, p. 59 (arXiv v2); p. 391 (Annals)",
+   "printed": "On conclut en utilisant les égalités i_{j,n}(L) = α_dif(i_{j,n}(l)) et Ψ_V(v_1) = α_dif^{−1}(i_{V,α}(v)).",
+   "correction": "Ψ_V(v_1) = α_dif^{−1}(ι_{V,α}(v))",
+   "reason": "The embedding defined on p. 58 (Annals p. 390) and used in the statement of the lemma is ι_{V,α} = α_dif ∘ Ψ_V ∘ ξ_{V,α}; no map i_{V,α} is defined, and the i_{j,n} in the same line are different maps.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
+    "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
+    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E4",
+   "kind": "misprint",
+   "locator": "§11.2, proof of Proposition 11.6, p. 61 (arXiv v2); p. 392 (Annals)",
+   "printed": "Ainsi, F est équivariante pour l'action du Borel B de G et il suffit de tester que d(wl) = wd(l) pour l ∈ (Π^an)^*.",
+   "correction": "Ainsi, d est équivariante pour l'action du Borel B de G […]",
+   "reason": "The map being checked is d : (Π^an)^* → Π(π, 2)^*, so named at the start of the proof and in the same sentence; no F occurs in this proof.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
+    "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
+    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E5",
+   "kind": "misprint",
+   "locator": "§11.2, proof of Théorème 11.7, p. 62 (arXiv v2); p. 393 (Annals)",
+   "printed": "Fixons des isomorphismes Π(π, 0) ≃ Π(V_1)^an/Π(V_2)^lisse et Π(π, 0) ≃ Π(V_2)^an/Π(V_2)^lisse.",
+   "correction": "Π(π, 0) ≃ Π(V_1)^an/Π(V_1)^lisse",
+   "reason": "Π(V_2)^lisse is not a subspace of Π(V_1)^an; the isomorphisms meant are those of Définition 8.7 and Proposition 11.6 for each V_j, as the next sentence uses them.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
+    "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
+    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E1",
    "kind": "misprint",
    "locator": "§5, \"Spectral expansion\", the display after (5.2), p.961, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
