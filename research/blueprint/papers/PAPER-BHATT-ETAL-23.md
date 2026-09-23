@@ -1,8 +1,83 @@
-# PAPER-BHATT-ETAL-23: published-paper extraction checkpoint
+# Bhatt et al. (2023): globally +-regular varieties and the MMP for threefolds in mixed characteristic, extraction and routing
+
+Issue [#1444](https://github.com/CBirkbeck/tauceti-explorer/issues/1444). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints (Codex and Claude Code), whose report follows below as history.
+- **The paper.** B. Bhatt, L. Ma, Z. Patakfalvi, K. Schwede, K. Tucker, J. Waldron and J. Witaszek, *Globally +-regular varieties and the minimal model program for threefolds in mixed characteristic*, Publ. Math. IHÉS 138 (2023), 69–227 (open access).
+  - The published PDF was re-fetched; its SHA-256 (a07fcb79…) matches the checkpoint.
+- **Items.** The result has **273 items: 7 library, 11 planned and 255 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Eight are recorded under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**New items.** Lemma 6.7 (global +-regularity passes to smaller boundaries) and Conjecture 6.17 (statement only).
+
+**New finding.**
+- **E8 (affects nothing).**
+  - The step: the proof of Lemma 4.20 applies Lemma 2.36 to D_Y = ⌈π*L + A_Y⌉, which need not be Q-Cartier.
+  - Why it holds: Lemma 2.36's argument needs only D_X to be Q-Cartier. Pull back div(g) + D_X ≥ 0 and use D_Y ≥ f*D_X. So the step is valid, and this resolves gap-weil-adapter.
+
+**Gaps.**
+- gap-weil-adapter is resolved.
+- gap-resolution-centres is recorded as E6.
+- The others are deferred as cited suppliers' proofs, design work or proof-checking. gap-section-nine-scope is among them: the items carry the repaired supplier choices for §9.
+
+**Unchanged.** Lemma 2.56's second assertion (E1) is the one finding that affects a stated result.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (error; affects a stated result), Lemma 2.56, second assertion, p.101 of the published version; the same wording is arXiv v1 Lemma 2.37 (p.20), v2 Lemma 2.50 (p.26) and v3 Lemma 2.56 (p.29). *Printed:* "More generally, let D be a fixed divisor and let A be a semiample Q-Cartier Q-divisor such that A ∼_Q M + Λ, where M is an effective Cartier divisor with no exceptional curve of Y → X in its support, and −δD ≤ Λ ≤ δD for δ > 0. Take x ∈ F ∩ M of multiplicity k ∈ Z_{>0} in M. Then ε_sa(A; x) converges to k when δ → 0." *Correction:* Only a lower bound holds. For every rational γ with 0 < γ < k there is δ₀ > 0, depending only on f, D and γ, such that ε_sa(A; x) = ε(A; x) ≥ k − γ for all δ < δ₀ and all such A, M, Λ and x. Equivalently, liminf_{δ→0} ε_sa(A; x) ≥ k, uniformly. This is exactly what the printed proof establishes; there is no upper bound.
+- **E2** (misprint; affects nothing), Proposition 6.28, p.154 of the published version (and arXiv v3 Proposition 6.28, p.71). *Printed:* "Let Δ ≥ 0 be a Q-divisor on X such that (X, Δ) is globally +-regular (completely purely globally +-regular over R, resp.). Suppose that Δ_Y ≥ 0, where K_Y + Δ_Y = f*(K_X + Δ). Then (Y, Δ_Y) is globally +-regular (globally +-regular, resp.)." *Correction:* The conclusion in the resp. case is "completely purely globally +-regular over R", with the pure boundary S_Y the strict transform of S and B_Y = Δ_Y − S_Y. This is what arXiv v2 (Proposition 6.28, p.64) prints, and arXiv v1 (Proposition 6.22, p.48) prints "purely ... purely".
+- **E3** (misprint; affects nothing), Proof of Lemma 4.28, p.128 of the published version (also arXiv v2 and v3). *Printed:* "Twisting by the pullback L⁺ to W⁺ of the line bundle O_Y(f*(M − (K_X + S + B))) (for some finite cover f: Y → W), and taking local cohomology, we obtain: ... The left zeros are due to Corollary 3.7 and the fact that L⁺ is the pullback of a big and semiample line bundle." *Correction:* Twist by the pullback of O_Y(f*(K_X + S + B − M)), the inverse of the big and semiample bundle f*(M − (K_X + S + B)). Corollary 3.7 then applies with b = −1 and kills H^{d−1}_m of it.
+- **E4** (misprint; affects nothing), Theorem 9.28(c), p.206 of the published version (also arXiv v2 and v3). *Printed:* "(c) For each Γ_i, −4d_{Γ_i} < (K_X + Δ)·Γ_i < 0" *Correction:* −4d_{Γ_i} ≤ (K_X + Δ)·Γ_i < 0, as in the introduction's statement of the same theorem (Theorem I(c), p.74: 0 < −(K_X + Δ)·_k C_i ≤ 4d_{C_i}).
+- **E5** (misprint; affects nothing), Theorem 10.6, definition of β(1), p.216 of the published version (also arXiv v3); compare Theorem K, p.76, and the proof, pp.218–219. *Printed:* "β(v) = 393 if v = 1, 213v + 48 if v ≥ 2" *Correction:* β(1) = 373, as in Theorem K ("f(v) = 373 if v = 1"). The printed 393 gives a weaker statement, which the corrected one implies.
+- **E6** (error; affects nothing), Theorem 2.13 and Proposition 2.14, p.85 of the published version. *Printed:* "... and let T be a subscheme of X. Then there exists a proper birational morphism g: Y → X from a regular scheme Y such that both g^{−1}(T) and Ex(g) are divisors and Supp(g^{−1}(T) ∪ Ex(g)) is simple normal crossing." *Correction:* T must be a closed subscheme containing no irreducible component of X, that is, nowhere dense.
+- **E7** (error; affects nothing), Definition 2.19, p.88 of the published version. *Printed:* "coeff_E Fix(D) = min_{D′ ∈ |D|} coeff_E D′. Note that as D is Cartier the above coefficients are integers and hence the minimum exists." *Correction:* The minimum exists only when |D| ≠ ∅, so the definition needs that hypothesis.
+- **E8** (error; affects nothing), Published version, proof of Lemma 4.20, p.122 (final step). *Printed:* Hence the map κ is an isomorphism (Lemma 2.36) *Correction:* Apply Lemma 2.36 in the form that needs only D_X Q-Cartier. D_Y = ⌈π*L + A_Y⌉ on the normal Y need not be Q-Cartier.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **gap-empty-system** (resolved). Resolved by an earlier continuation; see detail.
+- **gap-resolution-centres** (recorded). E6; every application uses a nowhere-dense centre. The CP/CJS/KW hypotheses are cited suppliers.
+- **gap-seshadri-limit** (resolved). Resolved by an earlier continuation; see detail.
+- **gap-adjoint-sign** (resolved). Resolved by an earlier continuation; see detail.
+- **gap-weil-adapter** (resolved). E8: Lemma 2.36 holds with only D_X Q-Cartier, so the step in Lemma 4.20 is valid.
+- **gap-pure-birational** (resolved). Resolved by an earlier continuation; see detail.
+- **gap-cone-length** (resolved). Resolved by an earlier continuation; see detail.
+- **gap-section-nine-scope** (deferred). The items carry the repaired supplier choices. Confirming that the printed citations in the proofs of §9 (for example Theorem 9.7 in Proposition 9.36) suffice is proof-checking work.
+- **gap-moduli-bound** (resolved). Resolved by an earlier continuation; see detail.
+- **gap-kollar-family** (deferred). Patakfalvi's stable-family functor is a cited supplier.
+- **gap-ct-erratum** (deferred). Cascini–Tanaka with its v3 correction is a cited supplier.
+- **gap-adjoint-version** (deferred). The paper itself notes the v1 error and uses the corrected definition; the completion compatibility is proof work for the implementation.
+- **gap-limits-enhancement** (deferred). The enhanced-category limit argument is a cited foundational supplier.
+- **gap-bhatt-rh-frontier** (deferred). Bhatt's vanishing and Bhatt–Lurie Riemann–Hilbert are cited suppliers.
+- **gap-bcm-tight-closure-frontier** (deferred). The BCM and tight-closure inputs are cited suppliers.
+- **gap-lower-mmp-frontier** (deferred). The surface, characteristic-zero and equal-characteristic MMP inputs are cited suppliers.
+- **gap-positivity-descent-frontier** (deferred). Keel, Cascini–Tanaka and Witaszek are cited suppliers.
+- **gap-stable-moduli-frontier** (deferred). Patakfalvi, PX15, FR06 and Rydh are cited suppliers.
+- **gap-ap-version** (deferred). Matching the published AP22 citation is supplier-version work.
+- **gap-atomic-closure** (deferred). Declaration-sized splitting is design work; every numbered statement is now an item.
+- **gap-library-api** (deferred). Library APIs and tests are implementation work.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## PAPER-BHATT-ETAL-23: published-paper extraction checkpoint
 
 Session: Codex `codex-a71f92`; issue #1444; 2026-09-22. Status: **partial**.
 
-## Scope and evidence
+### Scope and evidence
 
 Bhatt–Ma–Patakfalvi–Schwede–Tucker–Waldron–Witaszek, [Globally +-regular varieties and the minimal model program for threefolds in mixed characteristic](https://doi.org/10.1007/s10240-023-00140-8), *Publications Mathématiques de l'IHÉS* 138 (2023), 69–227.
 
@@ -12,7 +87,7 @@ The [machine-readable extraction](PAPER-BHATT-ETAL-23.result.json) has **271 ite
 
 Items carry source locators, proof outlines, explicit dependencies, reverse consumer uses and blocking gaps propagated through the graph. Each definition has three use-derived API obligations and three mathematical tests. Tests are proposed assertions, not executed Lean examples. A `library` label applies only to the named carrier/theorem, not all newly proposed API.
 
-## What is being planned
+### What is being planned
 
 The dependency chain runs from integral perfectoid/prismatic and enhanced étale/coherent machinery to Bhatt's finite-cover annihilation, then B⁰ and adjoint B⁰, graded test modules, +-regularity and section lifting, restricted-algebra finite generation and flips, and finally threefold MMP and moduli.
 
@@ -29,7 +104,7 @@ The statements retain their different scopes:
 - Theorem10.2 constructs the stable-surface stack and coarse algebraic space. Properness and projectivity in10.6 concern the **closure of the smooth locus**, after more primes are inverted, not the entire stack over Z[1/30].
 - Corollaries L and M are included: Weil/symbolic finite generation and dimension-four F-regular ⇒ strongly F-regular. Weak F-regularity is not silently substituted.
 
-## Existing library and atlas boundaries
+### Existing library and atlas boundaries
 
 Pinned Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti: `f790474821cf4256814db967cb154e7af3d0c369`. Actual declaration statements were opened, not inferred from search names. The reviewed library-coverage blob is `5e708cfc74a51b10e62149113872fe4e00eb5846`.
 
@@ -56,9 +131,9 @@ Existing planned suppliers are imported by exact IDs in the JSON. Important owne
 
 The full relevant stage descriptions, reviewed audit entries, proposed roadmap files and overlap screens were used. Forty current paper route sets were screened, then five changed results were refreshed at `a57390347a3ba27adb18b8f465a89a7755c5c1e9`. Pending proposals are **not** promoted to planned stages. In particular the André ramification proposal does not close the BCM theorem. Exact source-supplier proof closure remains the work listed below.
 
-## Routing
+### Routing
 
-### 1. SchemeAndStackFoundations
+#### 1. SchemeAndStackFoundations
 
 Source refinement of `SchemeAndStackFoundations:SF.0`. 4 checkpoint items.
 
@@ -66,7 +141,7 @@ Absolute integral closures, reflexive divisor sheaves and base-scope adapters re
 
 Exact item IDs are in the route record. Existing carriers and other roadmaps' targets remain imports.
 
-### 2. SchemeAndStackFoundations
+#### 2. SchemeAndStackFoundations
 
 Source refinement of `SchemeAndStackFoundations:SF.4`. 4 checkpoint items.
 
@@ -74,7 +149,7 @@ Named three-dimensional pair resolution and Saito's log-smooth extension refine 
 
 Exact item IDs are in the route record. Existing carriers and other roadmaps' targets remain imports.
 
-### 3. SchemeAndStackFoundations
+#### 3. SchemeAndStackFoundations
 
 Source refinement of `SchemeAndStackFoundations:SF.5`. 1 checkpoint items.
 
@@ -82,7 +157,7 @@ The discriminant computation is a concrete Chern/intersection/Thom–Porteous ap
 
 Exact item IDs are in the route record. Existing carriers and other roadmaps' targets remain imports.
 
-### 4. DeformationAndDerivedPatchingAlgebra
+#### 4. DeformationAndDerivedPatchingAlgebra
 
 Source refinement of `DeformationAndDerivedPatchingAlgebra:R03.3`. 6 checkpoint items.
 
@@ -90,7 +165,7 @@ Use the existing local commutative-algebra owner for Matlis duality, supported l
 
 Exact item IDs are in the route record. Existing carriers and other roadmaps' targets remain imports.
 
-### 5. AnalyticStacks
+#### 5. AnalyticStacks
 
 Source refinement of `AnalyticStacks:AS.1`. 4 checkpoint items.
 
@@ -98,7 +173,7 @@ Add the Noetherian singular coherent-duality, normalized dualizing-complex and f
 
 Exact item IDs are in the route record. Existing carriers and other roadmaps' targets remain imports.
 
-### 6. DerivedDeRhamCohomology
+#### 6. DerivedDeRhamCohomology
 
 Source refinement of `DerivedDeRhamCohomology:DD.1`. 2 checkpoint items.
 
@@ -106,7 +181,7 @@ Generic derived completion is canonically DD.1. The paper supplies a quotient-co
 
 Exact item IDs are in the route record. Existing carriers and other roadmaps' targets remain imports.
 
-### 7. EnhancedDerivedSheaves
+#### 7. EnhancedDerivedSheaves
 
 Source refinement of `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E3`. 2 checkpoint items.
 
@@ -114,7 +189,7 @@ Remark4.11 is a precise acceptance obstruction for coherent derived limits: ordi
 
 Exact item IDs are in the route record. Existing carriers and other roadmaps' targets remain imports.
 
-### 8. LefschetzPencilsAndVanishingCycles
+#### 8. LefschetzPencilsAndVanishingCycles
 
 Source refinement of `LefschetzPencilsAndVanishingCycles:LPV.3`. 2 checkpoint items.
 
@@ -122,7 +197,7 @@ LPV.3 already owns actual Lefschetz pencils after a second Veronese and finite-e
 
 Exact item IDs are in the route record. Existing carriers and other roadmaps' targets remain imports.
 
-### 9. AlgebraicModuliForArithmeticGeometry
+#### 9. AlgebraicModuliForArithmeticGeometry
 
 Source refinement of `AlgebraicModuliForArithmeticGeometry:R09.2`, `AlgebraicModuliForArithmeticGeometry:R09.5`. 2 checkpoint items.
 
@@ -130,7 +205,7 @@ Patakfalvi's explicit Hilbert/Isom atlas and finite-inertia coarse-space argumen
 
 Exact item IDs are in the route record. Existing carriers and other roadmaps' targets remain imports.
 
-### 10. SchemeAndStackFoundationsMixedCharacteristicBirationalGeometry
+#### 10. SchemeAndStackFoundationsMixedCharacteristicBirationalGeometry
 
 Part II of `SchemeAndStackFoundations`; proposed galaxy `arithmeticgeometry`. 193 checkpoint items.
 
@@ -138,7 +213,7 @@ Reuse the pending identically named route from PAPER-HACON-WITASZEK-23. The pres
 
 Start after Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations SF.0/4/5). Import general coherent base change from The Jacobian challenge (tauceti:TauCetiRoadmap/JacobianChallenge, contract J-C), general Proj and polarization from Stable reduction (tauceti:TauCetiRoadmap/StableReduction, Layer2), local algebra and Matlis duality from Deformation and derived patching algebra (DeformationAndDerivedPatchingAlgebra:R03.3), singular coherent-duality adapters from Six-functor formalisms and analytic stacks (AnalyticStacks:AS.1), coherent diagrams from EnhancedDerivedSheaves, and derived completion from DerivedDeRhamCohomology:DD.1. Reuse the pending MixedCharacteristicPositivity, NumericalPicardAndContractionDescent and arithmetic-presentation suppliers by their exact IDs in the other routes. Import integral perfectoid algebra from PerfectoidQuotients:Q0:integral-algebra and the proposed PrismaticCohomologyIntegralRiemannHilbert extension, not a duplicate perfectoid-field theory. Build big/balanced/cohomological CM predicates, closure vanishing, B⁰ and the corrected component-direct-sum adjoint B⁰_S, graded test modules, ordinary/pure/completely-pure regularity, adjunction and lifting, restricted mobile algebras and their saturation/torus-limit proof. Prove Theorems5.8/5.9 only for finite-summand singularities, retaining flatness and globally generated ample L for the exponent dim X−dim R+1. Prove Theorem7.2 with Cartier M, normalized centre and big-semiample adjoint difference. Separate standard p>5 pl-flips from the all-residue one-complement branch. For absolute threefolds over §9's excellent finite-dimensional dualizing base, prove Theorem9.15's non-Q-factorial exceptional MMP and numerical descent under every stated exceptional/Q-Cartier/crepant hypothesis; Theorem9.17 requires L big but no residue exclusions. Theorems9.20 and9.27 require positive-dimensional image and no closed residue2,3,5: distinguish arbitrary pseudoeffective MMP termination from nonpseudoeffective scaling termination9.37. Prove real-boundary cone/polytope statements with the degree factor d_C, terminalizations, dlt modifications and lc inversion10.1. Add Corollary L's arbitrary Weil/symbolic finite generation and Corollary M only after the AP22 version and tight-closure conventions are closed. Preserve all diagnostic gaps, especially the false Seshadri limit and pure-to-ordinary qualifier, and the unknown general adjoint completion equality. This supplies earlier dependencies of Hacon–Witaszek23; its conditional fourfold results stay downstream and do not prove these threefold inputs. Stable-surface moduli has its own consumer route. Every definition needs use-derived API and counterexample tests; the current partial graph still needs the enumerated source closures and atomic splitting.
 
-### 11. SchemeAndStackFoundationsMixedCharacteristicPositivity
+#### 11. SchemeAndStackFoundationsMixedCharacteristicPositivity
 
 Part II of `SchemeAndStackFoundations`; proposed galaxy `arithmeticgeometry`. 12 checkpoint items.
 
@@ -146,7 +221,7 @@ Coalesce with the same pending candidate already used by PAPER-WITASZEK-22, PAPE
 
 Start after Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), the first prerequisite: import its universal-homeomorphism and direct-limit perfection adapters (SF.0), algebraic spaces, conductor/Picard patching, geometric pushouts and finite quotients (SF.1), formal algebraization and compactification (SF.4), and general intersection theory (SF.5). Import finite-type relative Proj, projectivity, relative ampleness and global generation from Stable reduction (tauceti:TauCetiRoadmap/StableReduction, Layer2), line bundles/divisors/curve degree from The Jacobian challenge (tauceti:TauCetiRoadmap/JacobianChallenge, LayerA), and coherent direct-image/base-change interfaces from its LayerC and StableReduction Layer2. Higher-dimensional representability must use Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry:A0-extension). Reuse the pending NumericalPicardAndContractionDescent supplier of Picard-τ finiteness; do not rebuild it. Construct relative nefness, bigness, semiampleness, the all-integral-subvarieties EWM predicate with dim f(V)<dim V, and the reduced exceptional locus. Give every construction an API and tests. Prove separately the semiample and EWM gluing assertions of Propositions5.1–5.3, including scheme-theoretic intersections, normalization/conductor diagrams, rational restrictions, geometrically connected fibers and the locally finite residue-field guard in the finite-exception semiample case. Prove Theorem1.10: for nef L on a scheme projective over Noetherian S, semiampleness (respectively EWM) is equivalent to that of the restrictions to X_red and X_Q. Prove Theorem6.1: for X projective over excellent S and nef L, semiampleness is equivalent to semiampleness on E(L) and X_Q; the EWM analogue additionally requires S finite type over a mixed-characteristic Dedekind domain. Decompose the corrected Keeler Fujita proof, thickening section lifts and Artin formal contraction input instead of adding a vanishing black box. The final applications are Corollary6.5 for a plt absolute-threefold pair (X,D+B), D normal irreducible, L nef Cartier, L−(K_X+D+B) ample and E(L)⊆D, over S quasi-projective over a mixed-characteristic Dedekind domain; and Corollary6.7 for a klt normal integral absolute threefold projective and surjective over Spec of a mixed-characteristic Dedekind domain with perfect closed residue fields, L nef and big Cartier and L−(K_X+Δ) nef and big: L is EWM, and is semiample when positive-characteristic closed residue fields are locally finite. Cover the relative surface Proposition6.6, ordered adjunction, conductor degree bounds and numerical-dimension cases. Import the characteristic-zero and Tanaka surface theorems only after their precise hypotheses and proof inputs have been read. Use the stronger κ=ν=1 surface target, not the false bare h⁰>0 formulation, and allow an empty generic conductor. Do not absorb later BMPSTWW generalizations or the paper's conjectures/work-in-progress as proved targets. The current extraction is partial: its enumerated original-source/version gaps must be closed before the design is declared complete. For Hacon–Witaszek23 additionally audit Wit21b Thms1.2/2.22, CT20's corrected dependencies and the Keel/NT20 connected-fibre gluing needed by Props4.5/5.2; retain characteristic-zero fibres and distinguish numerical from Q-linear descent. For this paper add relative Seshadri thresholds and the actual perturbative lower bound used by Lem8.15/Claim8.21; do not adopt Lem2.56's false limit equality. Extend the EWM criterion to the exact excellent-base scope of Theorem2.50 only after its Artin/Popescu adapter is proved. Include Lemmas2.51–2.55, the nef vertical descent after flattening and nonbig EWM9.26. Resolve the CT20 geometrically-connected-fibre guard and distinguish its 2026 replacement of Prop3.2 from the unaffected divisor-descent statement2.17.
 
-### 12. NumericalPicardAndContractionDescent
+#### 12. NumericalPicardAndContractionDescent
 
 Part II of `AlgebraicModuliForArithmeticGeometry`; proposed galaxy `algebraicgeometry`. 7 checkpoint items.
 
@@ -154,7 +229,7 @@ Coalesce with the same pending candidate already used by PAPER-WITASZEK-22, PAPE
 
 Start from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry), especially A0-extension, and Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.1,SF.2,SF.5). Construct Pic^τ and Num for arbitrary proper schemes over a field, including nonreduced and disconnected schemes; expose geometric base change, Galois action, numerical equivalence, torsion obstructions and norm maps. Prove the positive-power descent criterion with a numerically trivial twist, then Theorem1.3: constant Num descends geometric contractions with projective target; treat purely inseparable descent separately without the constantness assumption. Prove Theorem2.1 for contractions of smooth proper surfaces: component-graph descent, the geometrically-reduced edge-label assertion, and pure inseparability of residue fields of reducible fibers. Import surface intersections, not their reconstruction. Give each definition an API and at least three tests; include P¹_C/R with permuted numerical components, d=0 as a forbidden criterion, and projectivity versus arbitrary proper targets. The Enriques roadmap consumes these general theorems; it must not own a duplicate Picard theory. Add the killed-by-two numerical-class lift /183 as a sheaf-quotient construction. Import rigidified Picard descent from A0-extension and relative ampleness from R09.1/R09.3; the Enriques consumer owns the local-projectivity application. For Hacon–Witaszek23 add relative rational/real N¹ specialization, the AHK modified rank, the source-guarded Prop5.4 numerical descent and Cartier-index preservation. Separate numerical surjectivity from actual Picard lifting, and close the missing numerical perturbation argument in Thm6.1(2b). No arbitrary numerically trivial divisor is declared pulled back. For this paper export N₁/N¹ over closed-point curves, the inseparable degree factor d_C, normalized extremal curves and the numerical descent statements of2.51,9.15 and9.16. State each exceptional/crepant/nef hypothesis; these do not assert arbitrary numerical equivalence implies Q-linear pullback. Import the ordinary Picard and intersection owners and the birational extension's actual contractions.
 
-### 13. SchemeAndStackFoundationsPartIIArithmeticPresentation
+#### 13. SchemeAndStackFoundationsPartIIArithmeticPresentation
 
 Part II of `SchemeAndStackFoundations`; proposed galaxy `arithmeticgeometry`. 1 checkpoint items.
 
@@ -162,7 +237,7 @@ Reuse the pending arithmetic-presentation owner from PAPER-CESNAVICIUS-22 for fi
 
 Start after Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), which is the first prerequisite. Import its schemes, smooth/étale/flat morphisms and generic descent; import finite-type relative Proj and coherent-curve interfaces from Stable reduction (tauceti:TauCetiRoadmap/StableReduction, Layer2); import regular sequences, Cohen–Macaulay and dimension-flatness algebra from Deformation and derived patching algebra (DeformationAndDerivedPatchingAlgebra:R03.3). Reuse tangent/jet/incidence interfaces of Lefschetz pencils and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.3) where their scope matches; do not identify a finite-extension rational point with a point over the original finite field. Build one geometric-presentation library: arbitrary-base avoidance (3.1); arbitrary-field prescribed-locus Bertini (3.2) with separable reduced marked points, simultaneous incidence inequalities, and iterative degrees divisible by the characteristic exponent; weighted projective charts and section blowups (3.4–3.5), importing rather than rebuilding Proj; the seven separate weighted projection assertions over fields (3.6) and semilocal Dedekind bases (3.7), keeping total and fiberwise codimension distinct. The first final target is Proposition4.1: for smooth positive-relative-dimensional A/O, finitely many points and a closed total-codimension≥2 locus, find an affine neighborhood with a smooth relative-curve map to an affine open in a disjoint union of affine O-spaces, with that locus finite over the target. The second final target is Lemma6.3: over semilocal R, for a flat affine curve with pure one-dimensional Cohen–Macaulay fibers, finite retained Y and finite Z in the smooth locus satisfying the finite-residue degree-point inequalities, find an affine neighborhood and quasi-finite flat map to A1_R that is cartesian and an isomorphism over Z, étale along Z, and agrees on every infinitesimal neighborhood. Supply the finite-cover point-count lemma6.1, simple residue-extension lemma6.2 and monic-polynomial remark6.4. Read CTHK97 §3 to closure and use the corrected p.20 argument for imperfect fields: construct embeddings of first-order thickenings by geometric presentation and disjoint translates, not an unjustified base-linear Cohen isomorphism. No generic rational-section or Grothendieck–Serre torsor target belongs to this geometry supplier. Do not assert nonflat base change for weighted blowups. The current partial extraction exposes the unverified GLL15, Gab01, EGA and commutative-algebra proof obligations; close them before declaring the design blueprint closed. For BMPSTWW Theorem2.17, add simultaneous regular hypersurface sections of finitely many regular closed subschemes of projective space over a Noetherian local domain, using the finite-field Poonen/GK19 and infinite-field FOV branches, lifting and cotangent-space checks. Verify that this regular mixed-local conclusion is not inferred merely from geometric smoothness over an imperfect field.
 
-### 14. PrismaticCohomologyIntegralRiemannHilbert
+#### 14. PrismaticCohomologyIntegralRiemannHilbert
 
 Part II of `PrismaticCohomology`; proposed galaxy `padic`. 5 checkpoint items.
 
@@ -170,7 +245,7 @@ PR.4 plans smooth étale comparison, not the integral singular-scheme functor us
 
 Start after Prismatic cohomology (PrismaticCohomology PR.0–PR.2), using perfected derived prismatic cohomology and its universal-prism comparison from PerfectoidQuotients Q2. Import integral perfectoid rings from PerfectoidQuotients:Q0:integral-algebra, almost mathematics from PerfectoidSpaces:P0, generic derived completion from DerivedDeRhamCohomology:DD.1, and homotopy-coherent diagrams, enhancements and Kan extensions from EnhancedDerivedSheaves E0–E3. Import constructible étale sheaves, Verdier duality and the middle perverse t-structure from EtaleDualityAndPerverseSheaves:EDC.5 and its predecessors. The latter applies to F_p on the characteristic-zero generic fibre; it is not a p-torsion special-fibre assertion. Construct, rather than assume, Bha20 Theorem3.4's exact colimit-preserving RH_Δ:D(X_et,Z/p^n)→D_qc(X_{p^n=0}) for schemes over a perfectoid ring. Prove the constant-sheaf perfected-prismatic formula and proper-pushforward natural isomorphism, with coefficient changes and coherent composition. Under X finitely presented flat over O_C, add generic-fibre almostification, almost coherence, Verdier/Grothendieck duality compatibility and the precise two perverse bounds; split those clauses and retain all shifts and local dimensions. Prove the étale acyclicity of integral normal schemes with algebraically closed function fields, the resulting proper-map mod-p annihilation mechanism, and the prismatic Frobenius/finite-length argument underlying Bhatt's geometric CM theorem. The birational extension owns the general excellent-base approximation and B⁰ applications. Do not identify this with a rational p-adic local-system correspondence or smooth de Rham comparison. The main paper cites BL as in preparation; this worker obtained Bha20's statements and sketches, not the full construction. Locate the authoritative construction and close its transitive proof inputs before this proposed direction is declared complete.
 
-### 15. AlgebraicModuliForArithmeticGeometryStableSurfaces
+#### 15. AlgebraicModuliForArithmeticGeometryStableSurfaces
 
 Part II of `AlgebraicModuliForArithmeticGeometry`; proposed galaxy `arithmeticgeometry`. 14 checkpoint items.
 
@@ -180,11 +255,11 @@ Start after Algebraic moduli and representability for arithmetic geometry (Algeb
 
 The birational extension is the same pending owner proposed in PAPER-HACON-WITASZEK-23, now expanded at its logically earlier threefold/BCM inputs. Hacon–Witaszek's special fourfold MMP remains downstream: it is never used circularly to prove these inputs. Positivity, numerical-Picard and arithmetic-presentation proposals likewise retain their existing pending IDs.
 
-## Source mistakes (sourceIssues E1–E7)
+### Source mistakes (sourceIssues E1–E7)
 
 A continuation on 2026-09-22 (Claude Code, session `cc-fb70e5`) checked the earlier diagnostics at their locators in the published PDF. The same PDF is used (SHA-256 `a07fcb79…`), with page images for E1–E5, and the passages were collated with arXiv v1, v2 and v3. None has a published correction: Crossref records no update to the DOI, no correction notice was found, and v3 (2022-12-05) is the latest arXiv version. Each is in the JSON's `sourceIssues` with printed text, correction, reason and search record. They are worker findings awaiting the independent review, not author-approved errata. None of them changes a main theorem.
 
-### E1. Lemma 2.56: the limit is only a lower bound (error; p.101)
+#### E1. Lemma 2.56: the limit is only a lower bound (error; p.101)
 
 The second assertion says that ε_sa(A; x) "converges to k when δ → 0". The same wording is in v1 Lemma 2.37, v2 Lemma 2.50 and v3 Lemma 2.56. It is false.
 
@@ -204,7 +279,7 @@ The first assertion (Λ = 0, ≥ k) is correct.
 
 **Consumers.** Proposition 8.15 (p.173, (8.15.4)) uses only the first assertion, ε_sa(M; x) ≥ 1. Claim 8.21 (p.178) uses k = 3 and needs only ε_sa > 2, which the lower bound gives.
 
-### E2. Proposition 6.28: the pure qualifier fell out (misprint; p.154)
+#### E2. Proposition 6.28: the pure qualifier fell out (misprint; p.154)
 
 The published proposition reads: hypothesis "globally +-regular (completely purely globally +-regular over R, resp.)", conclusion "globally +-regular (globally +-regular, resp.)". The earlier versions differ:
 
@@ -224,31 +299,31 @@ The published resp. conclusion is false. For R = k[[t]], f = id and Δ = S = V(t
 
 No comparison of pure and completely pure regularity over a non-complete base is used; Remark 4.30 leaves that open. Theorem 7.14 (p.165) applies the corrected form over its complete base.
 
-### E3. Lemma 4.28: sign of the twist (misprint; p.128)
+#### E3. Lemma 4.28: sign of the twist (misprint; p.128)
 
 The proof twists by O_Y(f*(M − (K_X + S + B))), a big semiample bundle. It then cites Corollary 3.7 (p.107), which kills only negative powers. The twist must be the inverse, f*(K_X + S + B − M), which is the L of Theorem 7.2's proof (p.156). Its dual is exactly the displayed H⁰(K_Y + S_Y + f*(M − K_X − S − B)). The lemma is "a fact we will not use".
 
-### E4. Theorem 9.28(c): strict versus non-strict (misprint; p.206)
+#### E4. Theorem 9.28(c): strict versus non-strict (misprint; p.206)
 
 It prints −4d_{Γ_i} < (K_X + Δ)·Γ_i < 0. Theorem I(c) (p.74), Lemma 9.29 and the proof (p.210) all give ≤, and no consumer uses strictness. Item `cone-length` states the non-strict bound.
 
-### E5. Theorem 10.6: β(1) = 393 should be 373 (misprint; p.216)
+#### E5. Theorem 10.6: β(1) = 393 should be 373 (misprint; p.216)
 
 Theorem K (p.76) and the proof use 373. The proof uses β(1) only through two conditions, p ≥ 110 + 4 for the fibre genus and p > deg D for the discriminant. The discriminant degree is 319K² + 12χ ≤ 325K² + 48 = 373 by Noether's formula and inequality. Both conditions hold for all p > 373. The printed 393 is a weaker statement.
 
-### E6. Theorem 2.13 / Proposition 2.14: the centre must be nowhere dense (error; p.85)
+#### E6. Theorem 2.13 / Proposition 2.14: the centre must be nowhere dense (error; p.85)
 
 For T = X, or T containing a component, g^{−1}(T) is not a divisor. Every application uses a nowhere-dense T: boundary supports of log resolutions, and the blow-up centre inside the proof of 2.14.
 
-### E7. Definition 2.19: nonempty linear systems (error; p.88)
+#### E7. Definition 2.19: nonempty linear systems (error; p.88)
 
 "the minimum exists" fails when |D| = ∅, for example O(−1) on P¹. Every Mob/Fix in §8 lives on a scheme projective and birational over an affine base, where every Cartier divisor has a section. Setting 8.5 moreover chooses K_X + S + B effective.
 
-### Other load-bearing distinctions
+#### Other load-bearing distinctions
 
 Corollary 4.20 invokes Lemma 2.36 on a rounded divisor that need not be Q-Cartier; that gap remains open. The main paper itself acknowledges an erroneous adjoint argument (Lemma 4.25) in arXiv v1; its corrected published construction controls this extraction. CT20v3's erratum repairs a different dependency, not the statement of its divisor-descent Lemma 2.17. Its geometrically-connected-fibre condition still must be justified at the actual consumers.
 
-## Gap ledger
+### Gap ledger
 
 Gaps 1, 3, 4, 6, 7 and 9 were resolved by the continuation; their IDs are kept, and they no longer block any item. The other 15 are open.
 
@@ -324,7 +399,7 @@ Gaps 1, 3, 4, 6, 7 and 9 were resolved by the continuation; their IDs are kept, 
 
    Directly affected: `weak-regular`, `line-bundle`, `cohom-module`, `local-cohom-carrier`, `derived-carrier`, `fekete`, `circle-density`, `torus-approximation`. Further consumers inherit this blocker in the JSON.
 
-## Sources and reading limits
+### Sources and reading limits
 
 - **main**: [source](https://link.springer.com/content/pdf/10.1007/s10240-023-00140-8.pdf). Entire published 159-page paper, pp69–227, §§1–10 and references; continuous extracted text through line8125. Pages85,88,101,128,154,216 also checked as images. SHA-256: `a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6`. Limit: Full primary-paper reading, not full transitive prerequisite closure. Continuation (cc-fb70e5): pp.74–76, 85, 88, 96, 101, 107, 120–128, 146–156, 165, 169–178, 188, 194, 205–213 and 216–219 reread for the diagnostics, and pp.101, 128, 154, 206 and 216 image-checked.
 
@@ -356,7 +431,7 @@ Gaps 1, 3, 4, 6, 7 and 9 were resolved by the continuation; their IDs are kept, 
 
 The JSON's prerequisite list distinguishes independently read sources from bibliography-only pointers. In particular neither a citation to Ma–Schwede/MST nor the main paper's statement of a lower-dimensional MMP theorem counts as a closed proof. The AP author PDF's Cor4.4/4.5 was read, but its numbering does not resolve the published Theorem B citation; acquisition/version matching remains open.
 
-## Verification and handoff
+### Verification and handoff
 
 Run the repository paper checker and the supplemental dependency/route/API audit recorded in the JSON. Their scope is structural consistency, not mathematical proof. No Lean deliverable is required for this paper job; no Lean compilation or execution of the180 tests is claimed.
 

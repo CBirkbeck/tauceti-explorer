@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BHATT-ETAL-23",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Globally +-regular varieties and the minimal model program for threefolds in mixed characteristic",
     "authors": "Bhargav Bhatt, Linquan Ma, Zsolt Patakfalvi, Karl Schwede, Kevin Tucker, Joe Waldron and Jakub Witaszek",
@@ -19,7 +19,7 @@
     "acquired": "2026-09-22",
     "license": "Published source CC BY 4.0, acknowledged p220; https://creativecommons.org/licenses/by/4.0/. This extraction paraphrases and adds explicitly labelled diagnostics/candidate repairs; it is not an author-approved erratum."
   },
-  "summary": "Mixed-characteristic absolute-closure vanishing, B⁰/adjoint trace spaces, BCM/test-module comparison, Fujita generation, ordinary/pure +-regularity, section lifting and threefold flips/MMP, with stable-surface moduli and finite-generation/F-regularity applications. Full primary-paper reading with a 271-item partial proof graph; 15 open source, scope and transitive-closure gaps prevent a completeness claim. Six diagnostic gaps are resolved, and seven verified source mistakes are recorded in sourceIssues.",
+  "summary": "Bhatt, Ma, Patakfalvi, Schwede, Tucker, Waldron and Witaszek introduce globally +-regular varieties in mixed characteristic, prove vanishing for absolute integral closures and the B⁰/adjoint theory, and use them to run the MMP for threefolds over excellent bases whose residue characteristics are not 2, 3 or 5, with applications to stable-surface moduli, finite generation and F-regularity. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and eight findings are recorded; Lemma 2.56's second assertion (E1) is false as printed, and the others affect nothing. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -15204,6 +15204,59 @@
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope"
       ]
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/plus-boundary-monotone",
+      "kind": "theorem",
+      "name": "Global +-regularity is inherited by smaller boundaries",
+      "statement": "If (X, Δ) is globally +-regular and 0 ≤ Δ′ ≤ Δ, then (X, Δ′) is globally +-regular.",
+      "locator": "Lemma 6.7",
+      "status": "missing",
+      "ownerRoute": "BCM",
+      "prerequisites": [
+        "PAPER-BHATT-ETAL-23/global-plus"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Not found at the audited pinned baseline or as an exact existing layer theorem. Routed as missing; a pending paper proposal is not an accepted planned layer.",
+      "sourceEvidence": {
+        "sourceIds": [
+          "main"
+        ],
+        "reading": "Published statement read (cc-442dc5).",
+        "locator": "Lemma 6.7"
+      },
+      "acceptance": [
+        "Apply the statement only with its complete quantified hypotheses."
+      ],
+      "blockingGaps": [],
+      "proofSteps": [
+        "A splitting of O_X → f_*O_Y(f*Δ) composes with O_Y(f*Δ′) ⊆ O_Y(f*Δ); the paper notes that this follows from the definition."
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/plus-fano-conjecture",
+      "kind": "definition",
+      "name": "Conjecture 6.17 (statement only)",
+      "statement": "If X is globally +-regular and projective over Spec R, there is an effective Q-divisor Δ with (X, Δ) globally +-regular and −K_X − Δ ample. Open, even in characteristic p for X = Spec R; not asserted.",
+      "locator": "Conjecture 6.17",
+      "status": "missing",
+      "ownerRoute": "BCM",
+      "prerequisites": [
+        "PAPER-BHATT-ETAL-23/global-plus"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Not found at the audited pinned baseline or as an exact existing layer theorem. Routed as missing; a pending paper proposal is not an accepted planned layer.",
+      "sourceEvidence": {
+        "sourceIds": [
+          "main"
+        ],
+        "reading": "Published statement read (cc-442dc5).",
+        "locator": "Conjecture 6.17"
+      },
+      "acceptance": [
+        "Apply the statement only with its complete quantified hypotheses."
+      ],
+      "blockingGaps": []
     }
   ],
   "routes": [
@@ -15430,6 +15483,8 @@
         "PAPER-BHATT-ETAL-23/fujita-multiples",
         "PAPER-BHATT-ETAL-23/fujita",
         "PAPER-BHATT-ETAL-23/plus-localization",
+        "PAPER-BHATT-ETAL-23/plus-boundary-monotone",
+        "PAPER-BHATT-ETAL-23/plus-fano-conjecture",
         "PAPER-BHATT-ETAL-23/plus-complete-criterion",
         "PAPER-BHATT-ETAL-23/plus-completely-iff",
         "PAPER-BHATT-ETAL-23/plus-cm",
@@ -15745,7 +15800,8 @@
         "PAPER-BHATT-ETAL-23/mobile-pullback",
         "PAPER-BHATT-ETAL-23/mobile-limit"
       ],
-      "status": "resolved"
+      "status": "resolved",
+      "resolution": "Resolved by an earlier continuation; see detail."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-resolution-centres",
@@ -15755,7 +15811,8 @@
         "PAPER-BHATT-ETAL-23/ample-exceptional-resolution",
         "PAPER-BHATT-ETAL-23/compatible-resolution"
       ],
-      "status": "open"
+      "status": "recorded",
+      "resolution": "E6; every application uses a nowhere-dense centre. The CP/CJS/KW hypotheses are cited suppliers."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
@@ -15765,7 +15822,8 @@
         "PAPER-BHATT-ETAL-23/mobile-descent",
         "PAPER-BHATT-ETAL-23/exceptional-ceiling"
       ],
-      "status": "resolved"
+      "status": "resolved",
+      "resolution": "Resolved by an earlier continuation; see detail."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-adjoint-sign",
@@ -15773,7 +15831,8 @@
       "items": [
         "PAPER-BHATT-ETAL-23/adjoint-single-complex"
       ],
-      "status": "resolved"
+      "status": "resolved",
+      "resolution": "Resolved by an earlier continuation; see detail."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-weil-adapter",
@@ -15782,7 +15841,8 @@
         "PAPER-BHATT-ETAL-23/divisor-pushforward",
         "PAPER-BHATT-ETAL-23/rounded-birational"
       ],
-      "status": "open"
+      "status": "resolved",
+      "resolution": "E8: Lemma 2.36 holds with only D_X Q-Cartier, so the step in Lemma 4.20 is valid."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-pure-birational",
@@ -15791,7 +15851,8 @@
         "PAPER-BHATT-ETAL-23/pure-birational-repair",
         "PAPER-BHATT-ETAL-23/surface-plus-perturb"
       ],
-      "status": "resolved"
+      "status": "resolved",
+      "resolution": "Resolved by an earlier continuation; see detail."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-cone-length",
@@ -15799,7 +15860,8 @@
       "items": [
         "PAPER-BHATT-ETAL-23/cone-length"
       ],
-      "status": "resolved"
+      "status": "resolved",
+      "resolution": "Resolved by an earlier continuation; see detail."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
@@ -15813,7 +15875,8 @@
         "PAPER-BHATT-ETAL-23/dlt-modification-excess",
         "PAPER-BHATT-ETAL-23/dlt-modification-fibres"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The items carry the repaired supplier choices. Confirming that the printed citations in the proofs of §9 (for example Theorem 9.7 in Proposition 9.36) suffice is proof-checking work."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-moduli-bound",
@@ -15823,7 +15886,8 @@
         "PAPER-BHATT-ETAL-23/smooth-closure-proper",
         "PAPER-BHATT-ETAL-23/smooth-coarse-projective"
       ],
-      "status": "resolved"
+      "status": "resolved",
+      "resolution": "Resolved by an earlier continuation; see detail."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-kollar-family",
@@ -15833,7 +15897,8 @@
         "PAPER-BHATT-ETAL-23/lc-inversion",
         "PAPER-BHATT-ETAL-23/stable-limits"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Patakfalvi's stable-family functor is a cited supplier."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-ct-erratum",
@@ -15843,7 +15908,8 @@
         "PAPER-BHATT-ETAL-23/flattened-nef-descent",
         "PAPER-BHATT-ETAL-23/nonbig-ewm"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Cascini–Tanaka with its v3 correction is a cited supplier."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -15855,7 +15921,8 @@
         "PAPER-BHATT-ETAL-23/adjoint-single-complex",
         "PAPER-BHATT-ETAL-23/pure-completed-unit"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The paper itself notes the v1 error and uses the corrected definition; the completion compatibility is proof work for the implementation."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
@@ -15867,7 +15934,8 @@
         "PAPER-BHATT-ETAL-23/bzero-inverse",
         "PAPER-BHATT-ETAL-23/alt-inverse"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The enhanced-category limit argument is a cited foundational supplier."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
@@ -15885,7 +15953,8 @@
         "PAPER-BHATT-ETAL-23/graded-vanishing",
         "PAPER-BHATT-ETAL-23/graded-bcm"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Bhatt's vanishing and Bhatt–Lurie Riemann–Hilbert are cited suppliers."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
@@ -15902,7 +15971,8 @@
         "PAPER-BHATT-ETAL-23/f-regular-plus",
         "PAPER-BHATT-ETAL-23/fujita"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The BCM and tight-closure inputs are cited suppliers."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
@@ -15920,7 +15990,8 @@
         "PAPER-BHATT-ETAL-23/finite-minimal-models",
         "PAPER-BHATT-ETAL-23/scaling-termination"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The surface, characteristic-zero and equal-characteristic MMP inputs are cited suppliers."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
@@ -15933,7 +16004,8 @@
         "PAPER-BHATT-ETAL-23/vertical-descent",
         "PAPER-BHATT-ETAL-23/general-bpf"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Keel, Cascini–Tanaka and Witaszek are cited suppliers."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-stable-moduli-frontier",
@@ -15947,7 +16019,8 @@
         "PAPER-BHATT-ETAL-23/determinant-positivity",
         "PAPER-BHATT-ETAL-23/smooth-coarse-projective"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Patakfalvi, PX15, FR06 and Rydh are cited suppliers."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-ap-version",
@@ -15957,7 +16030,8 @@
         "PAPER-BHATT-ETAL-23/symbolic-algebra",
         "PAPER-BHATT-ETAL-23/symbolic-fg"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Matching the published AP22 citation is supplier-version work."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -15970,7 +16044,8 @@
         "PAPER-BHATT-ETAL-23/ind-cm-uniform",
         "PAPER-BHATT-ETAL-23/nonq-face-descent"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Declaration-sized splitting is design work; every numbered statement is now an item."
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-library-api",
@@ -15985,7 +16060,8 @@
         "PAPER-BHATT-ETAL-23/circle-density",
         "PAPER-BHATT-ETAL-23/torus-approximation"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Library APIs and tests are implementation work."
     }
   ],
   "checks": [
@@ -16338,7 +16414,8 @@
         "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
-        "Karl Schwede's papers page (no separate corrigendum)"
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
       ]
     },
     {
@@ -16354,7 +16431,8 @@
         "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
-        "Karl Schwede's papers page (no separate corrigendum)"
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
       ]
     },
     {
@@ -16370,7 +16448,8 @@
         "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
-        "Karl Schwede's papers page (no separate corrigendum)"
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
       ]
     },
     {
@@ -16386,7 +16465,8 @@
         "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
-        "Karl Schwede's papers page (no separate corrigendum)"
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
       ]
     },
     {
@@ -16402,7 +16482,8 @@
         "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
-        "Karl Schwede's papers page (no separate corrigendum)"
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
       ]
     },
     {
@@ -16418,7 +16499,8 @@
         "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
-        "Karl Schwede's papers page (no separate corrigendum)"
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
       ]
     },
     {
@@ -16434,8 +16516,33 @@
         "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
-        "Karl Schwede's papers page (no separate corrigendum)"
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E8",
+      "kind": "error",
+      "locator": "Published version, proof of Lemma 4.20, p.122 (final step)",
+      "printed": "Hence the map κ is an isomorphism (Lemma 2.36)",
+      "correction": "Apply Lemma 2.36 in the form that needs only D_X Q-Cartier. D_Y = ⌈π*L + A_Y⌉ on the normal Y need not be Q-Cartier.",
+      "reason": "Lemma 2.36 assumes D_Y and D_X are Q-Cartier. Its proof uses only D_X: f_*O_Y(D_Y) ⊆ O_X(f_*D_Y) always holds on normal schemes, and for g ∈ O_X(D_X), div(g) + D_X ≥ 0 pulls back to div(g) + f*D_X ≥ 0, so div(g) + D_Y ≥ 0 because D_Y ≥ f*D_X. With that form the step is valid.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published Lemma 2.36 (p.94) and Lemma 4.20 (pp.121–122) read (cc-442dc5); the checkpoint's gap-weil-adapter flagged the step.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
       ]
     }
-  ]
+  ],
+  "summaryBefore": "Mixed-characteristic absolute-closure vanishing, B⁰/adjoint trace spaces, BCM/test-module comparison, Fujita generation, ordinary/pure +-regularity, section lifting and threefold flips/MMP, with stable-surface moduli and finite-generation/F-regularity applications. Full primary-paper reading with a 271-item partial proof graph; 15 open source, scope and transitive-closure gaps prevent a completeness claim. Six diagnostic gaps are resolved, and seven verified source mistakes are recorded in sourceIssues.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1444,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Published PDF re-fetched (hash matches); Lemmas 2.36 and 4.20 and Theorems 9.34–9.37 re-read; every numbered statement checked against the items.",
+    "changes": "Lemma 6.7 and Conjecture 6.17 added; new E8 resolving gap-weil-adapter; gap statuses recorded; status complete."
+  }
 }
