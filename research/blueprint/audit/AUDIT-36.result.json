@@ -1232,7 +1232,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti has affine group schemes with Cartier duality, components and semisimplicity, which is the closest existing material; p-divisible groups, their Dieudonné modules and Tate twists are absent. The cited file/line is nominal — see TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/ for the actual declarations."
+       "note": "Tau Ceti has affine group schemes with Cartier duality, components and semisimplicity, which is the closest existing material; p-divisible groups, their Dieudonné modules and Tate twists are absent. The citation is exact — `FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality` is at TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean:232 — but it stands for the whole Cartier-duality directory beside it, which is the material a p-divisible-group theory would build on."
       },
       {
        "target": "Finite-projective crystalline-coefficient and relative Gauss–Manin interfaces, with base-change/horizontality proved rather than assumed",
