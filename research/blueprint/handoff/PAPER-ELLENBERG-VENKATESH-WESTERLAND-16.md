@@ -1,60 +1,70 @@
 # Handoff: PAPER-ELLENBERG-VENKATESH-WESTERLAND-16
 
-Issue #1184. Codex — codex-a71f92. 2026-09-22. Partial extraction checkpoint;
-no Lean implementation or compilation.
+Issue1184. Codex — codex-c83e7a. 2026-09-23. Continuation of PR1843.
+Partial research checkpoint; no Lean file authored or compiled.
 
-## Done
+## Done in this continuation
 
-Read the entire published 58-page paper. Recorded publisher URL, exact PDF
-hash and reading scope. Read RW06 §§4.1–4.5 and Achter–Pries introduction,
-§§2.1–2.4 and §§3.1–3.3 with proofs. No claim to have read all their references.
+Read all58 published EVW pages729–786. Read AP author PDF pp.1–15 and19–20;
+Vasiu arXiv math/0209237v2 pp.1–5,9,16,23–28. Exact URLs/hashes and reading
+limits are in the result/report. Rendered AP5,10,14 and Vasiu2.
 
-Delivered 125 items (7 library, 6 planned, 112 missing), 222 DAG edges,
-3 routes, 36 API outlines with 108 planned acceptance tests, and
-14 unreviewed source findings. All missing items are routed exactly once.
-The report contains a self-contained replacement for the Lemma8.4
-aggregate inequality and complete finite-regression code (1154 assertions).
+Supplied item116's exact monic odd-degree polynomial-family comparison:
+B_n={(a,b,d):d²=a^n}≃Ga⋊Gm is connected, [PConf_n/B_n] is the fully
+labelled hyperelliptic stack, and the connected torsor surjects on pi1.
+Deck involution is retained. AP labelled monodromy and Vasiu give full
+integral image for n≥5 (also n=3,ell≥5), sufficient for EVW's eventual n.
+The general curve and stack prerequisites remain imported, unformalised.
 
-Current check_paper.py and custom structure/DAG/API/route checks pass.
-Nothing is independently reviewed or formalized.
+Found Vasiu's extra g=1,ell=3 hypothesis. The report exhibits an order24
+subgroup of SL2(Z/9), ambient order648, reducing bijectively to SL2(F3).
+Its inverse image shows full mod3 image alone does not force integral
+surjectivity. The exceptional geometric theorem is not disproved.
 
-## Resume here
+Corrected predecessor item115/E7/report: the rare-event group must be
+(C_ell)^n, not cyclic C_(ell^n). Added unreviewed supporting-source findings:
+E15 integral lifting exception; E16 deck gerbe in AP Lemma2.3; E17 general
+arithmetic/geometric quotient requires a kernel term. Do not treat these
+as independently confirmed or claim novelty. E18–E19 additionally record
+Vasiu§2.2’s single-dual-number Lie bracket and general-base freeness
+statements; neither literal statement is used in the lifting application.
 
-1. Read the originals behind Salvetti's cell model and §5.5 arc connectivity.
-   Verify the precise arc variants, endpoint isotopies, simultaneous isotopy
-   extension and relative pi2 input. Split any newly exposed prerequisites.
-2. Resolve general balanced right/left graded tensor/Tor over noncommutative
-   rings. Do not treat commutative ModuleCat tensor or abstract
-   CategoryTheory.Tor as an already complete EVW implementation. Find the
-   correct existing supplier before designing new generic machinery.
-3. Read SGA1 XII/XIII, SGA7II XIII2.1.8.9/2.1.11 and Knudsen's genus-zero
-   compactification. Close RW06's deformation, field-of-moduli descent and
-   good-reduction/valuative finiteness references.
-4. Close item116: the full hyperelliptic-moduli monodromy theorem needs a
-   comparison to the actual EVW family with infinity fixed and affine
-   coordinates. Track labels, the involution gerbe and fundamental-group
-   surjectivity. Then close the original integral symplectic lifting lemma,
-   Jacobian/Kummer comparison and the CFT involution/degree dictionary.
-5. Read the CL mass/moment and Haar-cokernel primary proofs. Independently
-   verify the replacement enlargement formula/proof and every sourceIssue.
-   Render the remaining minor disputed pages and compare author/arXiv
-   versions before calling findings new.
-6. Recheck all generic ownership and accepted restructures on fresh main.
-   Retain the Part II specialized stability boundary, existing IG.3/IG.5
-   moduli sources, and ST.0/ST.5 statistical consumer route.
+Current inventory:137 items (7 library,8 planned,122 missing),
+243 dependency edges,3 routes,39 structured API outlines,117 planned tests,
+19 unreviewed source findings. Existing36 APIs now have roles and uses.
+All missing items route once. Current owners/audits and fresh inputs checked.
 
-Do not drop L>max(|G|,q,n) from Proposition7.8, assume Frobenius-equivariant
-stabilization, claim fixed-q density convergence, omit the sign quotient or
-factor2, include nonabelian A, use whole class groups as ell-group-valued
-random variables, or broaden characteristic hypotheses without new proofs.
+## Resume
+
+1. Independently verify the quotient-stack comparison and its normality,
+   smooth-curve and compact-type hypotheses; close generic IG.0/R09.4
+   finite-etale stack and SF.3 double-cover/relative-line-bundle suppliers.
+   If uniform all-genus monodromy is wanted, supply g=1,ell=3 separately.
+2. Read original curve-moduli base-case monodromy and AP group-generation
+   references; Vasiu's remaining root-system/representation prerequisites
+   were not exhaustively read. Do not advertise recursive closure.
+3. Continue the inherited Salvetti/arc-complex/isotopy-extension task,
+   balanced noncommutative graded right/left tensor/Tor ownership, SGA1
+   XII/XIII and SGA7II XIII2.1.8.9/2.1.11, Knudsen compactification and
+   RW deformation/descent/good-reduction originals.
+4. Close Jacobian/Kummer and CFT constants/degree/involution inputs;
+   read original CL mass/moment and Haar-cokernel proofs. The report's
+   enlargement proof is inherited and remains unreviewed.
+5. Collate AP publisher/arXiv versions and independently review all19
+   findings. Check fresh ownership before completing the paper.
+
+Keep odd q and ell not dividing q(q−1); retain the auxiliary cohomology
+prime restriction, sign quotient and arithmetic factor2. No fixed-q
+distribution limit or Frobenius-equivariant stabilization is proved.
 
 ## Validation
 
-Run the current scripts/check_paper.py on the result. Recheck exact-once
-routing, DAG, API/test coverage, galaxy IDs and baseline declaration names.
-The report embeds the exact Python finite regression and its SHA-256.
-The saved finite checks are regression evidence only, not Lean verification.
+The embedded predecessor regression passes1154 assertions with its original
+hash. The new embedded program passes3371 assertions, including exhaustive
+mod9 subgroup checks. These are finite diagnostics, not formal proofs.
+Current check_paper.py, intake check-files and custom DAG/routing/API checks
+pass. No Lean compilation was attempted: this paper issue authorizes only
+the result, report and handoff.
 
-Opening the pull request ends this worker's claim. Do not manually merge,
-close, relabel or mark the source findings confirmed.
-
+Opening a PR ends this claim. Never manually merge, close, relabel or mark
+source findings confirmed. Follow WORKERS.md for the next available issue.
