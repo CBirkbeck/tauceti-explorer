@@ -12392,7 +12392,14 @@
       "locator": "PropositionB.0.1(1) PDF202",
       "statement": "On V the rank-three chart is presented by the three displayed polynomials in t,a,b,c12,c13,d21,c22,d31,d33, eliminating the other six chart coefficients using monodromy and t-torsion-freeness. The exact three equations are in sourceData.appendixB.chartEquations. Rational-function-field consistency checks are recorded in validation; a uniform localized-integer certificate is a remaining blueprint proof obligation.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Start from the universal determinant-bounded matrix A of Proposition 3.2.8 and the presentation of U(z~)^{det,<=0} as Z[t,c11,d11,c12,c13,c21,d21,c22,c23,d31,c31,c33,d33] modulo det A = -(v-t)^4.",
+        "Work over V = Spec Z[a,b][1/P] with the simplified monodromy condition of Remark 3.3.2, the third monodromy coordinate being 0.",
+        "The monodromy equations solve the six coefficients c11, d11, c21, c23, c31, c33 in terms of t, c12, c13, d21, c22, d31, d33. Both stated hypotheses are used and neither is decorative: t-torsion-freeness of the ring of functions, and invertibility of P(a,b).",
+        "Conclude only that U(z~,lambda,grad) x V is a CLOSED subscheme of Spec R, and that after inverting t it is all of Spec R[1/t]. Equality on the nose is not available here; it comes from the density argument in Q05.",
+        "Blueprint obligation: the source states the elimination without displaying the six solved expressions. Supply them together with a uniform localized-integer certificate over Z[a,b][1/P]. A consistency check in the rational function field is not a substitute, since it cannot see the denominator locus."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q04",
@@ -12401,7 +12408,16 @@
       "locator": "PropositionB.0.1(2) PDF203",
       "statement": "On t=0 the chart has the seven component ideals listed in sourceData.appendixB.specialFiberMinimalPrimes. Keep scheme multiplicities distinct from the list of minimal primes; this is not a claim that the original special fiber is reduced.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Take the seven ideals recorded in sourceData.appendixB.specialFiberMinimalPrimes and verify each is prime in R/t.",
+        "Verify that they are exactly the minimal primes of Spec R/t, so that no component is missing from the list.",
+        "Record the consequence that is actually consumed downstream: each fibre of Spec R/t over Spec Z[t,a,b][1/P] has codimension three. Q05 uses this number, not the individual ideals.",
+        "Do not upgrade this to a statement about the special fibre as a scheme. These are minimal primes only: no multiplicity is computed and no reducedness is claimed. Reducedness appears later and only after normalization, in Q08."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q03"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q05",
@@ -12410,7 +12426,18 @@
       "locator": "PropositionB.0.1(3) PDF203",
       "statement": "On V the presented chart is an irreducible complete intersection flat over X times V. Fiber codimension three and the regular domain generic fiber identify the presentation with the flat closure.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Match the codimension-three count of Q04 against the three equations of Q03; by Stacks Tag 00R4 this makes R a complete intersection.",
+        "Obtain that Spec R[1/t] is a regular domain, using the corresponding fact for U(z~,lambda,grad) x_{X x A^2} X^0 x V from Proposition 3.3.4.",
+        "Use that t is a regular element of R, which the complete-intersection property supplies, to conclude that Spec R[1/t] is dense in Spec R.",
+        "Combine density with the closed immersion of Q03: a closed subscheme containing a dense open subscheme of a reduced ambient scheme is everything, so U(z~,lambda,grad) x V = Spec R, and flatness over V follows.",
+        "Keep the scope straight: irreducibility is asserted for the chart over V, not for its special fibre, whose seven components are Q04."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q04"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q06",
@@ -12419,7 +12446,16 @@
       "locator": "PropositionB.0.1(4) PDF203",
       "statement": "The ideal of 3-by-3 minors of the relative Jacobian of the three-equation presentation contains t^3. The source cites a Macaulay2 computation without a displayed certificate; this needs an independently reproducible polynomial certificate or explicit outstanding proof leaf, not a claimed verified computation.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Fix H as the ideal of 3x3 minors of the Jacobian of the three-equation presentation of Q03, taken relative to Z[t,a,b][1/P].",
+        "Record the source's justification verbatim and without softening it: Proposition B.0.1(4) is proved by 'a computation in Macaulay 2', and no certificate is displayed in the paper.",
+        "Blueprint obligation, and this is the substance of the item: exhibit 3x3 minors m_i of that Jacobian and polynomials h_i over Z[t,a,b][1/P] with t^3 = sum h_i m_i, uniformly in (a,b), and name the exceptional denominator locus on which the certificate degenerates.",
+        "Do not treat the machine claim as discharged. The exponent r = 3 is consumed by Proposition 3.3.9 and by Q11's depth bound, so an unsupported exponent propagates into the depth-ten hypothesis rather than staying local to this item."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q03"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q07",
@@ -12493,7 +12529,20 @@
       "locator": "PropositionB.0.2(1),(2) PDF204–206",
       "statement": "For a specialization (-p,a,b) in X times V over O, the chart is O-flat and its specified partial normalization is O-flat and normal, hence the normalization. The proof uses a specialized Groebner basis, Cohen–Macaulay leading ideal, generically reduced special fiber, topological flatness and the Pappas–Zhu normality criterion, with regular generic fiber.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Part (1) is immediate from Q05 by base change along s: Spec O -> X x V corresponding to (-p,a,b); no new input is needed.",
+        "For part (2), take the image I of the base-changed ideal in F[W,c12,c13,d21,c22,d31,d33], using that P(a,b) is a unit in F.",
+        "Run Buchberger's algorithm for the monomial order W > c12 > c13 > d21 > c22 > d31 > d33; the Groebner basis printed at PDF 205 is what the rest of the argument consumes.",
+        "Read Cohen-Macaulayness off the leading ideal, list the special-fibre components of the normalization, and observe by inspection that the special fibre is generically reduced. Generically reduced together with S1, which Cohen-Macaulayness supplies, gives reduced.",
+        "For O-flatness argue by contradiction from topological flatness: a global function not divisible by pi but with pi-power torsion would be nilpotent, and reducing mod pi would produce a non-zero nilpotent on the reduced special fibre.",
+        "Conclude normality from O-flat with reduced special fibre, which is what makes the finite birational map of Q07 the normalization map and is the input Q10 needs.",
+        "Blueprint obligation: the Groebner basis is computed with (a,b) specialized into a field, so it certifies one fibre and not the family. Supply a comprehensive (parametric) Groebner system over Z[a,b][1/P] with its exceptional denominator locus made explicit, or replace this step by a direct verification of Serre's R1 and S2."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q07"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q09",
@@ -12502,7 +12551,17 @@
       "locator": "PropositionB.0.2(3); Table1 PDF207",
       "statement": "Table1 gives the decomposition of the inverse image of each original component, distinguishing the unique maximal-dimensional component from lower-dimensional extras. All seven rows were read in the rotated PDF image and transcribed in sourceData.appendixB.normalizationFiberComponents. The ideals are in the normalization quotient: row four retains its inherited quadratic W equation.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Treat Table 1 as data with its own locator: it is read from a rotated image at PDF 207 and transcribed in sourceData.appendixB.normalizationFiberComponents.",
+        "Record that the source calls this decomposition 'a direct computation in Macaulay 2', so it carries the same evidential status as Q06 and the second half of Q08.",
+        "For each of the seven components of the special fibre, pull back along the normalization map and decompose the preimage, separating the unique maximal-dimensional component from the lower-dimensional extras.",
+        "Blueprint obligation: re-derive each row from the Groebner data of Q08 rather than transcribing it, and keep the table only as a cross-check.",
+        "Note the blast radius: Q10 consumes one row of this table set-theoretically, so an error in a single row is confined to that component's unibranch analysis and does not invalidate the others."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q08"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q10",
@@ -12511,7 +12570,19 @@
       "locator": "CorollaryB.0.4 PDF206,208",
       "statement": "For p>7 and all seven parameter factors units, the chart is unibranch at z because its normalization fiber is a singleton. On the component (c22,c13,c12), a generically étale degree-two normalization cover gives a Zariski-dense locus that is not geometrically unibranch. This disproves a blanket all-point unibranch conclusion; distinguish ordinary from geometric unibranchness at nonclosed points.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Use Q08(2) to know that pi: U(z~,lambda,grad)^{nm}_{(a,b,0)} -> U(z~,lambda,grad)_{(a,b,0)} is the normalization map, not merely a finite birational one.",
+        "For the first claim, show pi^{-1}(z~) is set-theoretically a singleton; unibranchness at z~ is then immediate.",
+        "For the second claim, let C be the component cut out by (c22,c13,c12). By the corresponding row of Table 1, at the set-theoretic level pi^{-1}(C) -> C is identified with Z -> A^3_F, (d21,d31,d33,W) |-> (d21,d31,d33), where Z is the subscheme of A^4_F cut out by the displayed quadratic relation in W.",
+        "That quadric is irreducible, so the map is a double cover of A^3_F, hence generically finite etale of degree two. Every point off the branch locus has two preimages and so is not geometrically unibranch, and those points are Zariski dense in C.",
+        "The hypotheses p > 7 and invertibility of the seven factors of P are used, not incidental: they keep P a unit and 2 invertible, without which the degree-two cover argument does not run.",
+        "State the conclusion precisely. This refutes a blanket unibranch expectation on the special fibre; it says nothing against the first claim, and z~ itself remains unibranch."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q09"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q11",
@@ -12520,7 +12591,19 @@
       "locator": "CorollaryB.0.5 PDF208–209",
       "statement": "For n=3,K=Q_p,lambda=(3,1,0),z=(23)t_(2,1,1), a 5-generic presentation with mu 10-deep gives the local comparison conclusions in this chart, using Jacobian exponent 3 and m-6+3>6. Use the explicit 10-depth hypothesis: the printed raw polynomial product_{m=0}^{10}(X-Y-m)(Y-Z-m)(Z-X-m) does not imply it, as E26 shows. Alternatively evaluate a signed wall polynomial at mu+eta. Interpret the local isomorphism on the completed framed chart in Theorem7.3.2, retaining its torus torsors.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Fix the numerical setting: n = 3, K = Q_p, lambda = (3,1,0), z~ = (23)t^{(2,1,1)}, with (s,mu) a 5-generic lowest alcove presentation of a tame inertial type.",
+        "To run the Elkik approximation of Propositions 3.3.9 and 7.1.10 the depth must satisfy the source's inequality m - 6 + 3 > 6, where the Jacobian exponent r = 3 comes from Q06 and h = 3.",
+        "Solve it: m >= 10, which is what forces the printed choice P(X,Y,Z) = prod_{m=0}^{10} (X-Y-m)(Y-Z-m)(Z-X-m). Use the depth hypothesis itself rather than the printed raw product, which is a presentation of that hypothesis and not an independent condition.",
+        "Note that the second conclusion of Theorem 7.3.2 needs no extra work here: the unibranch property it requires is already supplied by Q10's first claim for this z~.",
+        "Obtain the final comparison X^{lambda,tau}(z~) = U(z~,lambda,grad) from the fact that z~ is not lambda'-admissible for any lambda' < lambda.",
+        "Carry the caveat forward explicitly: the depth 10 is only as good as r = 3, which rests on the uncertified Macaulay 2 claim in Q06. If that exponent changes, this depth changes with it."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q10"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q12",
@@ -12529,7 +12612,19 @@
       "locator": "RemarkB.0.6 PDF209",
       "statement": "Products preserve the reduced special-fiber and normalization facts in this example, giving the analogous chart statement for general unramified K/Q_p and corresponding product data. This is not an arbitrary-product preservation theorem for unibranchness without the stated geometric hypotheses.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Recall that Q10 is stated for J a singleton, which is the only case the explicit chart covers.",
+        "Extend to general J by taking products of the corresponding charts and of their normalizations.",
+        "The step that makes this work is that taking products preserves reducedness of the special fibres, so the product of the normalizations is still the normalization of the product; the per-factor reducedness is exactly what Q08 established.",
+        "Conclude the generalization of Q11 to K a general unramified extension of Q_p.",
+        "Do not read this as a general preservation theorem for unibranchness under products. It rests on the reducedness supplied by Q08 and on normality of a product of O-flat normal schemes with reduced special fibres, and outside those hypotheses the argument gives nothing."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q11"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z01",
