@@ -24,7 +24,8 @@
       "ChatGPT Pro cgp-0922-b7d49a: selected §§2–4 of the February 2017 Taniguchi copy, with the basis formula visually checked; Klüners–Wang v2 Theorem 2.1 and full proof pp.3–4 read and visually checked, plus first-page version stamp. No new PDF byte hash, fresh complete reading of §§5–7, or acquisition of the final publisher text is claimed.",
       "ChatGPT Pro cgp-0922-d4f8c2: the February 2017 main-paper author copy, all parsed pages including references, with the p.4 volume display visually checked; Bombieri–Pila selected determinant foundations pp.1–6 and all of §3 pp.10–17 read, with printed pp.3,14,17 visually checked. The original-source formulas are distinguished from the new BP1–BP6 replacement arguments. No new PDF byte hash, full reading of unrelated prerequisite interiors, or acquisition of the final 2020 publisher revision is claimed.",
       "Codex codex-a71f92 (2026-09-22): freshly downloaded and hashed the Taniguchi author copy and Oxford Bombieri–Pila PDF; hashes match the inherited records. Read the entire 13-page main author copy including references, BP pp.1–6 and all §3 pp.10–17; visually inspected main p.4 and BP pp.14,17. Did not read BP pp.7–9 or §4 as part of this checkpoint. Exact Mathlib Taylor, interpolation, Vandermonde, root-count and mean-value declarations read at the prescribed pin.",
-      "Codex codex-a71f92, 2026-09-23: fresh Taniguchi PDF, all 13 pages including references; fresh Oxford Bombieri–Pila PDF, pp.1–6 and all §3 pp.10–17. No new visual page inspection or final-publisher-text comparison. Read exact pinned rank-nullity, coefficients/evaluation, Rolle, polynomial derivative, interpolation, triangular determinant, Taylor and compact-maximum suppliers for checkpoint ten."
+      "Codex codex-a71f92, 2026-09-23: fresh Taniguchi PDF, all 13 pages including references; fresh Oxford Bombieri–Pila PDF, pp.1–6 and all §3 pp.10–17. No new visual page inspection or final-publisher-text comparison. Read exact pinned rank-nullity, coefficients/evaluation, Rolle, polynomial derivative, interpolation, triangular determinant, Taylor and compact-maximum suppliers for checkpoint ten.",
+      "Codex codex-c83e7a, 2026-09-23: fresh complete reading of all 13 pages of the February 2017 Taniguchi author copy, including bibliography; fresh BP pp.1–6 and §3 pp.10–17. Neither BP pp.7–9/§4 nor the final BSTTTZ publication is newly claimed read. Generic declarations for M1/D1–D3/S1–S3 read at the pins."
     ],
     "files": [
       {
@@ -139,10 +140,28 @@
         "url": "https://people.maths.ox.ac.uk/pila/Ovals.pdf",
         "sha256": "a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408",
         "scope": "pp.1–6 and §3 pp.10–17, parsed text; not pp.7–9 or §4."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-c83e7a",
+        "date": "2026-09-23",
+        "url": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
+        "sha256": "bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec",
+        "bytes": 291000,
+        "scope": "All 13 pages and references."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-c83e7a",
+        "date": "2026-09-23",
+        "url": "https://people.maths.ox.ac.uk/pila/Ovals.pdf",
+        "sha256": "a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408",
+        "bytes": 202885,
+        "scope": "pp.1–6 and §3 pp.10–17 only."
       }
     ]
   },
-  "summary": "Partial tenth checkpoint: 138 stable-identified items (30 library, 8 planned, 100 missing). Retains all 129 inherited IDs, all seven proposed source findings and six route owners. Adds three exact generic suppliers and six missing determinant-method adapters; refines six inherited items. Rectangular polynomial evaluation kernels, entrywise repeated-Rolle/factorial witnesses, Newton factorization and the ordinary Taylor/absolute-maximum distinction now have explicit proof plans. Ninety-three missing items are routed exactly once; seven diagnostic claims remain deliberately unrouted. G0–G10 remain, with G7 narrowed honestly. No complete extraction, final-publisher agreement, independent review or Lean formalization is claimed.",
+  "summary": "Partial tenth checkpoint: 138 stable-identified items (30 library, 8 planned, 100 missing). Retains all 129 inherited IDs, all seven proposed source findings and six route owners. Adds three exact generic suppliers and six missing determinant-method adapters; refines six inherited items. Rectangular polynomial evaluation kernels, entrywise repeated-Rolle/factorial witnesses, Newton factorization and the ordinary Taylor/absolute-maximum distinction now have explicit proof plans. Ninety-three missing items are routed exactly once; seven diagnostic claims remain deliberately unrouted. G0–G10 remain, with G7 narrowed honestly. No complete extraction, final-publisher agreement, independent review or Lean formalization is claimed. Eleventh checkpoint: closes the written rectangular-minor, normalized-product/monomial and coordinate-specialization/fiber adapters in G7, while retaining its geometric and final-source boundaries. No Lean implementation is claimed.",
   "items": [
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/class-group",
@@ -154,7 +173,31 @@
       "library": [
         "mathlib:ClassGroup"
       ],
-      "note": "Inherited from #1636: ClassGroup uses invertible fractional ideals; the Dedekind-domain instance for O_K gives the stated carrier. Not the narrow class group. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Use ClassGroup (O_K), mk0, equality modulo principal ideals and the kernel of squaring; import the quotient carrier. Tests: (1) Q has trivial class group; (2) principal nonzero ideals map to one; (3) ordinary versus narrow classes are distinguished."
+      "note": "Inherited from #1636: ClassGroup uses invertible fractional ideals; the Dedekind-domain instance for O_K gives the stated carrier. Not the narrow class group. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Use ClassGroup (O_K), mk0, equality modulo principal ideals and the kernel of squaring; import the quotient carrier. Tests: (1) Q has trivial class group; (2) principal nonzero ideals map to one; (3) ordinary versus narrow classes are distinguished.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.class_group.interface",
+          "role": "compatibility",
+          "statement": "Use ClassGroup (O_K), mk0, equality modulo principal ideals and the kernel of squaring; import the quotient carrier."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.class_group.test1",
+          "kind": "compatibility",
+          "statement": "Q has trivial class group"
+        },
+        {
+          "name": "IntegralPointBounds.class_group.test2",
+          "kind": "compatibility",
+          "statement": "principal nonzero ideals map to one"
+        },
+        {
+          "name": "IntegralPointBounds.class_group.test3",
+          "kind": "compatibility",
+          "statement": "ordinary versus narrow classes are distinguished"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/class-group-finite",
@@ -180,7 +223,31 @@
         "mathlib:NumberField.InfinitePlace",
         "mathlib:NumberField.InfinitePlace.mk"
       ],
-      "note": "Inherited from #1636. Complex places have multiplicity two in the product formula and norm/volume computations. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Evaluate the existing absolute values, real/complex subtype tests, extension of embeddings and the norm product with multiplicities. Tests: (1) Q has one real place; (2) Q(i) has one complex place with multiplicity two; (3) conjugate embeddings define the same place."
+      "note": "Inherited from #1636. Complex places have multiplicity two in the product formula and norm/volume computations. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Evaluate the existing absolute values, real/complex subtype tests, extension of embeddings and the norm product with multiplicities. Tests: (1) Q has one real place; (2) Q(i) has one complex place with multiplicity two; (3) conjugate embeddings define the same place.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.infinite_places.interface",
+          "role": "compatibility",
+          "statement": "Evaluate the existing absolute values, real/complex subtype tests, extension of embeddings and the norm product with multiplicities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.infinite_places.test1",
+          "kind": "compatibility",
+          "statement": "Q has one real place"
+        },
+        {
+          "name": "IntegralPointBounds.infinite_places.test2",
+          "kind": "compatibility",
+          "statement": "Q(i) has one complex place with multiplicity two"
+        },
+        {
+          "name": "IntegralPointBounds.infinite_places.test3",
+          "kind": "compatibility",
+          "statement": "conjugate embeddings define the same place"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/discriminant",
@@ -194,7 +261,31 @@
         "mathlib:NumberField.discr_ne_zero",
         "mathlib:NumberField.discr_eq_discr"
       ],
-      "note": "Inherited from #1636. The Lean integer discr is signed; use its absolute value in all real powers. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Use signed discr and D=|discr|, integral-basis invariance, positivity of D and order-index comparisons as separate lemmas. Tests: (1) Q has D=1; (2) Q(i) has signed discriminant -4; (3) a nonmaximal order can have larger discriminant."
+      "note": "Inherited from #1636. The Lean integer discr is signed; use its absolute value in all real powers. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Use signed discr and D=|discr|, integral-basis invariance, positivity of D and order-index comparisons as separate lemmas. Tests: (1) Q has D=1; (2) Q(i) has signed discriminant -4; (3) a nonmaximal order can have larger discriminant.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.discriminant.interface",
+          "role": "compatibility",
+          "statement": "Use signed discr and D=|discr|, integral-basis invariance, positivity of D and order-index comparisons as separate lemmas."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.discriminant.test1",
+          "kind": "compatibility",
+          "statement": "Q has D=1"
+        },
+        {
+          "name": "IntegralPointBounds.discriminant.test2",
+          "kind": "compatibility",
+          "statement": "Q(i) has signed discriminant -4"
+        },
+        {
+          "name": "IntegralPointBounds.discriminant.test3",
+          "kind": "compatibility",
+          "statement": "a nonmaximal order can have larger discriminant"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/mixed-embedding",
@@ -208,7 +299,31 @@
         "mathlib:NumberField.mixedEmbedding.mixedSpace",
         "mathlib:NumberField.mixedEmbedding.finrank"
       ],
-      "note": "Inherited from #1636. Use ordinary product measure and explicitly specify the Euclidean norm for successive minima, not the default product sup norm. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Import mixedEmbedding and its Euclidean transport; expose injectivity, real dimension and archimedean coordinate projections. Tests: (1) dimension r+2s equals n; (2) Q(i) contributes two real coordinates; (3) default product norm is not silently the Euclidean norm."
+      "note": "Inherited from #1636. Use ordinary product measure and explicitly specify the Euclidean norm for successive minima, not the default product sup norm. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Import mixedEmbedding and its Euclidean transport; expose injectivity, real dimension and archimedean coordinate projections. Tests: (1) dimension r+2s equals n; (2) Q(i) contributes two real coordinates; (3) default product norm is not silently the Euclidean norm.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.mixed_embedding.interface",
+          "role": "compatibility",
+          "statement": "Import mixedEmbedding and its Euclidean transport; expose injectivity, real dimension and archimedean coordinate projections."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.mixed_embedding.test1",
+          "kind": "compatibility",
+          "statement": "dimension r+2s equals n"
+        },
+        {
+          "name": "IntegralPointBounds.mixed_embedding.test2",
+          "kind": "compatibility",
+          "statement": "Q(i) contributes two real coordinates"
+        },
+        {
+          "name": "IntegralPointBounds.mixed_embedding.test3",
+          "kind": "compatibility",
+          "statement": "default product norm is not silently the Euclidean norm"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/integer-covolume",
@@ -280,7 +395,31 @@
       "planned": [
         "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
       ],
-      "note": "Inherited from #1636: reviewed AUDIT-02 distinguishes these planned definitions and the second theorem from existing Minkowski-first machinery. API: Infimum of radii containing i independent lattice vectors; positivity, monotonicity, attainment and Minkowski second product estimates. Tests: (1) rank-one lattice aZ has minimum |a|; (2) rectangular rank-two lattice has distinct minima; (3) zero-dimensional case has an empty product."
+      "note": "Inherited from #1636: reviewed AUDIT-02 distinguishes these planned definitions and the second theorem from existing Minkowski-first machinery. API: Infimum of radii containing i independent lattice vectors; positivity, monotonicity, attainment and Minkowski second product estimates. Tests: (1) rank-one lattice aZ has minimum |a|; (2) rectangular rank-two lattice has distinct minima; (3) zero-dimensional case has an empty product.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.successive_minima.interface",
+          "role": "compatibility",
+          "statement": "Infimum of radii containing i independent lattice vectors; positivity, monotonicity, attainment and Minkowski second product estimates."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.successive_minima.test1",
+          "kind": "compatibility",
+          "statement": "rank-one lattice aZ has minimum |a|"
+        },
+        {
+          "name": "IntegralPointBounds.successive_minima.test2",
+          "kind": "compatibility",
+          "statement": "rectangular rank-two lattice has distinct minima"
+        },
+        {
+          "name": "IntegralPointBounds.successive_minima.test3",
+          "kind": "compatibility",
+          "statement": "zero-dimensional case has an empty product"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-body",
@@ -289,7 +428,31 @@
       "statement": "Given K of degree n, m ≥ 1, a nonzero integral ideal I and I^m = (α) with α ≠ 0, set R_v = D_K^(1/(2n)) |α|_v^(-1/m). The product of real intervals [-R_v,R_v] and closed complex discs of radius R_v is compact, symmetric and convex, with volume 2^r pi^s sqrt(D_K)/N(I).",
       "locator": "§2 proof of Theorem 2.1, p.4",
       "status": "missing",
-      "note": "A complex disc contributes pi R_v². The body volume is at least 2^n covol(I^(-1)), since pi ≥ 2. API: Construct the product of intervals and complex discs from positive radii; membership, compactness, convexity, symmetry and the volume formula. Tests: (1) all-real case attains the Minkowski volume threshold; (2) one complex place contributes pi times radius squared; (3) alpha=0 is rejected."
+      "note": "A complex disc contributes pi R_v². The body volume is at least 2^n covol(I^(-1)), since pi ≥ 2. API: Construct the product of intervals and complex discs from positive radii; membership, compactness, convexity, symmetry and the volume formula. Tests: (1) all-real case attains the Minkowski volume threshold; (2) one complex place contributes pi times radius squared; (3) alpha=0 is rejected.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.balanced_body.interface",
+          "role": "compatibility",
+          "statement": "Construct the product of intervals and complex discs from positive radii; membership, compactness, convexity, symmetry and the volume formula."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.balanced_body.test1",
+          "kind": "compatibility",
+          "statement": "all-real case attains the Minkowski volume threshold"
+        },
+        {
+          "name": "IntegralPointBounds.balanced_body.test2",
+          "kind": "compatibility",
+          "statement": "one complex place contributes pi times radius squared"
+        },
+        {
+          "name": "IntegralPointBounds.balanced_body.test3",
+          "kind": "compatibility",
+          "statement": "alpha=0 is rejected"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-kappa",
@@ -325,7 +488,31 @@
       "statement": "For every degree-n number field with n≥2, there is a Z-basis 1,v_1,...,v_(n−1) of O_K, nondecreasing in the trace-weighted Euclidean norm, such that ||v_i||_tr≤(3/2)^i||w||_tr for every 1≤i≤n−1 and integral w outside span_Q(1,v_1,...,v_(i−1)). The product Π_(i=1)^(n−1)||v_i||_tr is bounded above and below by positive degree-dependent multiples of sqrt(D_K).",
       "locator": "BSTTTZ §3 p.5, originally citing Siegel Lecture X §6; replacement proof in the fourth-checkpoint supplement B1–B3",
       "status": "missing",
-      "note": "Original Siegel proof remains unread. The present route instead uses trace-metric-normalization, primitive-prefix-extension with u=1 and A=1, and reduced-basis-product. The comparison now includes i=n−1. Generic reduction belongs to GN.5, consuming GN.0/GN.1; the number-field specialization belongs to EffectiveBoundsClassGroupTorsion. API: a basis extending 1, primitive saturated prefixes, all-index length comparison, trace-metric ordering, degree-uniform product bounds and explicit comparison with ordinary Euclidean lengths. Tests: (1) the quadratic case has exactly one nonconstant vector; (2) the last-index comparison is present; (3) Q(i) uses trace covolume two while ordinary covolume is one. Sorting is asserted only in the trace metric, not simultaneously in both metrics. This integrates the earlier direct proof candidate, not an independent review or a Lean implementation."
+      "note": "Original Siegel proof remains unread. The present route instead uses trace-metric-normalization, primitive-prefix-extension with u=1 and A=1, and reduced-basis-product. The comparison now includes i=n−1. Generic reduction belongs to GN.5, consuming GN.0/GN.1; the number-field specialization belongs to EffectiveBoundsClassGroupTorsion. API: a basis extending 1, primitive saturated prefixes, all-index length comparison, trace-metric ordering, degree-uniform product bounds and explicit comparison with ordinary Euclidean lengths. Tests: (1) the quadratic case has exactly one nonconstant vector; (2) the last-index comparison is present; (3) Q(i) uses trace covolume two while ordinary covolume is one. Sorting is asserted only in the trace metric, not simultaneously in both metrics. This integrates the earlier direct proof candidate, not an independent review or a Lean implementation.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.reduced_integral_basis.interface",
+          "role": "compatibility",
+          "statement": "a basis extending 1, primitive saturated prefixes, all-index length comparison, trace-metric ordering, degree-uniform product bounds and explicit comparison with ordinary Euclidean lengths."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.reduced_integral_basis.test1",
+          "kind": "compatibility",
+          "statement": "the quadratic case has exactly one nonconstant vector"
+        },
+        {
+          "name": "IntegralPointBounds.reduced_integral_basis.test2",
+          "kind": "compatibility",
+          "statement": "the last-index comparison is present"
+        },
+        {
+          "name": "IntegralPointBounds.reduced_integral_basis.test3",
+          "kind": "compatibility",
+          "statement": "Q(i) uses trace covolume two while ordinary covolume is one"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix",
@@ -334,7 +521,31 @@
       "statement": "For n ≥ 3 and a basis 1,v_1,...,v_(n-1), form the symmetric (n−2)-square rational matrix A whose entry a_ij is the coefficient of v_(n−1) in v_i v_j, for 1 ≤ i,j ≤ n−2.",
       "locator": "§3 proof of Theorem 3.1, p.5",
       "status": "missing",
-      "note": "This is a coordinate construction on field multiplication, not the trace Gram matrix. API: Use basis.repr of products and Matrix.det, with symmetry and invariance of the rational hyperplane under a kernel witness. Tests: (1) cubic basis produces a one-by-one matrix; (2) quadratic extension needs a separate empty-matrix argument; (3) trace Gram matrices have different entries."
+      "note": "This is a coordinate construction on field multiplication, not the trace Gram matrix. API: Use basis.repr of products and Matrix.det, with symmetry and invariance of the rational hyperplane under a kernel witness. Tests: (1) cubic basis produces a one-by-one matrix; (2) quadratic extension needs a separate empty-matrix argument; (3) trace Gram matrices have different entries.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.multiplication_matrix.interface",
+          "role": "compatibility",
+          "statement": "Use basis.repr of products and Matrix.det, with symmetry and invariance of the rational hyperplane under a kernel witness."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.multiplication_matrix.test1",
+          "kind": "compatibility",
+          "statement": "cubic basis produces a one-by-one matrix"
+        },
+        {
+          "name": "IntegralPointBounds.multiplication_matrix.test2",
+          "kind": "compatibility",
+          "statement": "quadratic extension needs a separate empty-matrix argument"
+        },
+        {
+          "name": "IntegralPointBounds.multiplication_matrix.test3",
+          "kind": "compatibility",
+          "statement": "trace Gram matrices have different entries"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix-nondegenerate",
@@ -379,7 +590,31 @@
       "statement": "For K of degree n set R = D_K^(1/n) and B_K(R) = {β ∈ O_K : |β|_v ≤ R for every infinite v}. Choosing the order-dividing-m=2 representatives defines an injection Cl(K)[2] → {β ∈ B_K(R) : β ≠ 0 and |N_K/Q(β)| is an integer square}.",
       "locator": "Opening of §4 p.6; injectivity and norm-sign details expanded in this report",
       "status": "missing",
-      "note": "If two chosen generators agree, their ideal squares agree; unique factorization of nonzero ideals then identifies the ideals and their classes. Use both norm signs. API: Choose representatives via balanced-order-dividing; prove nonzeroness, square-norm membership, ideal-power cancellation and injectivity. Tests: (1) identity class is included; (2) negative signed norm is allowed; (3) equal generators force equal integral ideals."
+      "note": "If two chosen generators agree, their ideal squares agree; unique factorization of nonzero ideals then identifies the ideals and their classes. Use both norm signs. API: Choose representatives via balanced-order-dividing; prove nonzeroness, square-norm membership, ideal-power cancellation and injectivity. Tests: (1) identity class is included; (2) negative signed norm is allowed; (3) equal generators force equal integral ideals.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.torsion_square_norm_injection.interface",
+          "role": "compatibility",
+          "statement": "Choose representatives via balanced-order-dividing; prove nonzeroness, square-norm membership, ideal-power cancellation and injectivity."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.torsion_square_norm_injection.test1",
+          "kind": "compatibility",
+          "statement": "identity class is included"
+        },
+        {
+          "name": "IntegralPointBounds.torsion_square_norm_injection.test2",
+          "kind": "compatibility",
+          "statement": "negative signed norm is allowed"
+        },
+        {
+          "name": "IntegralPointBounds.torsion_square_norm_injection.test3",
+          "kind": "compatibility",
+          "statement": "equal generators force equal integral ideals"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/variable-radius-box-count",
@@ -397,7 +632,31 @@
       "statement": "For β ∈ O_K define P_β(X) as the characteristic polynomial of multiplication by β on the free Z-module O_K. It is monic in Z[X], has degree [K:Q], and satisfies P_β(t) = N_K/Q(t−β) for t ∈ Q.",
       "locator": "§4 p.6 norm polynomial; monic sign convention expanded here",
       "status": "missing",
-      "note": "The paper uses N(β−X) = (−1)^n P_β(X). Import the existing characteristic-polynomial, determinant and norm APIs rather than creating duplicate carriers; the packaged comparison has not been matched to an exact pinned declaration. API: Reuse multiplication endomorphisms and characteristic polynomials; monicity, degree, scalar extension, evaluation as norm and translation. Tests: (1) rational beta has P=(X-beta)^n; (2) primitive beta has its minimal polynomial; (3) odd degree changes the sign of N(beta-X)."
+      "note": "The paper uses N(β−X) = (−1)^n P_β(X). Import the existing characteristic-polynomial, determinant and norm APIs rather than creating duplicate carriers; the packaged comparison has not been matched to an exact pinned declaration. API: Reuse multiplication endomorphisms and characteristic polynomials; monicity, degree, scalar extension, evaluation as norm and translation. Tests: (1) rational beta has P=(X-beta)^n; (2) primitive beta has its minimal polynomial; (3) odd degree changes the sign of N(beta-X).",
+      "api": [
+        {
+          "name": "IntegralPointBounds.norm_polynomial.interface",
+          "role": "compatibility",
+          "statement": "Reuse multiplication endomorphisms and characteristic polynomials; monicity, degree, scalar extension, evaluation as norm and translation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.norm_polynomial.test1",
+          "kind": "compatibility",
+          "statement": "rational beta has P=(X-beta)^n"
+        },
+        {
+          "name": "IntegralPointBounds.norm_polynomial.test2",
+          "kind": "compatibility",
+          "statement": "primitive beta has its minimal polynomial"
+        },
+        {
+          "name": "IntegralPointBounds.norm_polynomial.test3",
+          "kind": "compatibility",
+          "statement": "odd degree changes the sign of N(beta-X)"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/norm-polynomial-multiplicity",
@@ -451,7 +710,31 @@
       "statement": "For K of degree n ≥ 3, R = D_K^(1/n), β_0 ∈ B_K(R) and α = β_0−m ∈ B_K(R) with m ∈ Z, α ≠ 0 and |N(α)| = y² for y ∈ Z_≥0, one has |m| ≤ 2R and 0 < y ≤ sqrt(D_K). The assignment α ↦ (s,m,y), with s chosen so that y² = sP_β0(m), injects into the union of the two norm curves in this rectangle.",
       "locator": "§4 p.6, with the ± sign made explicit as in §5.1 p.7",
       "status": "missing",
-      "note": "The sign also incorporates P_β0(m) = (−1)^n N(α). The norm is nonzero. The rectangle fits an integer translate of a square of side at most C_n sqrt(D_K). API: Recover the translation integer, positive square root and sign; prove bounds, inverse recovery and the unchanged generated field. Tests: (1) negative norm selects the other curve; (2) zero alpha is excluded; (3) integer translation preserves generated-field index."
+      "note": "The sign also incorporates P_β0(m) = (−1)^n N(α). The norm is nonzero. The rectangle fits an integer translate of a square of side at most C_n sqrt(D_K). API: Recover the translation integer, positive square root and sign; prove bounds, inverse recovery and the unchanged generated field. Tests: (1) negative norm selects the other curve; (2) zero alpha is excluded; (3) integer translation preserves generated-field index.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.signed_norm_curve_map.interface",
+          "role": "compatibility",
+          "statement": "Recover the translation integer, positive square root and sign; prove bounds, inverse recovery and the unchanged generated field."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.signed_norm_curve_map.test1",
+          "kind": "compatibility",
+          "statement": "negative norm selects the other curve"
+        },
+        {
+          "name": "IntegralPointBounds.signed_norm_curve_map.test2",
+          "kind": "compatibility",
+          "statement": "zero alpha is excluded"
+        },
+        {
+          "name": "IntegralPointBounds.signed_norm_curve_map.test3",
+          "kind": "compatibility",
+          "statement": "integer translation preserves generated-field index"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/odd-index-coset-bound",
@@ -505,7 +788,31 @@
       "statement": "Cl(K)[2] is the kernel of c ↦ c² on the ordinary ideal class group; h₂(K) is its finite cardinality and r₂(K)=log₂ h₂(K).",
       "locator": "§1 pp.1–3",
       "status": "missing",
-      "note": " API: Use the existing group kernel rather than a new class-group type; prove finiteness, F₂-vector-space structure and h₂=2^r₂. Tests: (1) the identity belongs to the kernel; (2) a cyclic group of order four has two elements killed by two; (3) an odd-order group has h₂=1."
+      "note": " API: Use the existing group kernel rather than a new class-group type; prove finiteness, F₂-vector-space structure and h₂=2^r₂. Tests: (1) the identity belongs to the kernel; (2) a cyclic group of order four has two elements killed by two; (3) an odd-order group has h₂=1.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.two_torsion.interface",
+          "role": "compatibility",
+          "statement": "Use the existing group kernel rather than a new class-group type; prove finiteness, F₂-vector-space structure and h₂=2^r₂."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.two_torsion.test1",
+          "kind": "compatibility",
+          "statement": "the identity belongs to the kernel"
+        },
+        {
+          "name": "IntegralPointBounds.two_torsion.test2",
+          "kind": "compatibility",
+          "statement": "a cyclic group of order four has two elements killed by two"
+        },
+        {
+          "name": "IntegralPointBounds.two_torsion.test3",
+          "kind": "compatibility",
+          "statement": "an odd-order group has h₂=1"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/feedback-constants",
@@ -514,7 +821,31 @@
       "statement": "Put u=√3/2, b=((1+u)/(2u)) log((1+u)/(2u))−((1−u)/(2u)) log((1−u)/(2u)), a=1/(6(1−b/log 2)), c=ab/log 2. All logarithms except log₂ are natural.",
       "locator": "§5.1 pp.7–8; Theorem 1.2",
       "status": "missing",
-      "note": " API: Define exact real constants; prove positivity and b<log 2 before dividing; expose a=1/6+c. Tests: (1) b lies between .27823 and .27825; (2) a lies between .27843 and .27844; (3) c lies between .11176 and .11178."
+      "note": " API: Define exact real constants; prove positivity and b<log 2 before dividing; expose a=1/6+c. Tests: (1) b lies between .27823 and .27825; (2) a lies between .27843 and .27844; (3) c lies between .11176 and .11178.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.feedback_constants.interface",
+          "role": "compatibility",
+          "statement": "Define exact real constants; prove positivity and b<log 2 before dividing; expose a=1/6+c."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.feedback_constants.test1",
+          "kind": "compatibility",
+          "statement": "b lies between .27823 and .27825"
+        },
+        {
+          "name": "IntegralPointBounds.feedback_constants.test2",
+          "kind": "compatibility",
+          "statement": "a lies between .27843 and .27844"
+        },
+        {
+          "name": "IntegralPointBounds.feedback_constants.test3",
+          "kind": "compatibility",
+          "statement": "c lies between .11176 and .11178"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/relative-genus-source-claim",
@@ -637,7 +968,7 @@
       "statement": "For N>0, k∈ℕ, a nonempty compact interval I⊂[0,N], an open U containing I and f:ℝ→ℝ of class C^k on U, let ||f||_(N,k;I)=max_{0≤r≤k, x∈I} N^(r−1)|iteratedDeriv r f x|/r!. Exponents here are real/integer, not truncated natural subtraction. This specifies the open-neighbourhood specialization used for the graph applications; it does not identify arbitrary closed-set within-derivatives with ordinary endpoint derivatives.",
       "locator": "Bombieri–Pila §2 p.3",
       "status": "missing",
-      "note": "The absolute-value compact-maximum argument in checkpoint ten justifies the maximum for this open-neighbourhood specialization. Product estimates and monomial norm bounds remain application proof obligations, not new generic calculus ownership. Historical closed-interval notation must not silently supply ordinary derivatives at endpoints without the stated neighbourhood smoothness.",
+      "note": "The absolute-value compact-maximum argument in checkpoint ten justifies the maximum for this open-neighbourhood specialization. Product estimates and monomial norm bounds remain application proof obligations, not new generic calculus ownership. Historical closed-interval notation must not silently supply ordinary derivatives at endpoints without the stated neighbourhood smoothness. The product API now has proof node bp-normalized-product-bound; the constant monomial is separately bp-monomial-norm-bound.",
       "api": [
         {
           "name": "IntegralPointBounds.scaledDerivativeNorm_bound",
@@ -697,7 +1028,7 @@
       "statement": "Over a field F, let M be a finite set of distinct bivariate exponent vectors, S any finite point-index type, z:S→F² and A_(s,m)=z_s^m. Then A.rank<|M| iff there exists a nonzero polynomial Q∈MvPolynomial (Fin 2) F with support⊆M and Q(z_s)=0 for every s∈S. No square-matrix or distinct-point hypothesis is imposed; M=∅ and S=∅ are permitted.",
       "locator": "Bombieri–Pila Lemmas 1 and 3 pp.2–3,11",
       "status": "missing",
-      "note": "Checkpoint ten gives the rectangular reduction and matches the exact generic suppliers. This derived application is still missing, not a library declaration. Full-column-rank ⇒ a nonzero square row minor is a different adapter, required by bp-integral-determinant and still G7.",
+      "note": "Checkpoint ten gives the rectangular reduction and matches the exact generic suppliers. This derived application is still missing, not a library declaration. Full-column-rank ⇒ a nonzero square row minor is a different adapter, required by bp-integral-determinant and still G7. Full-column-rank row-minor selection is now supplied separately by bp-full-rank-row-minor, with its complete multilinear proof.",
       "prerequisites": [
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-supported-coefficient-equivalence",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-rank-nullity-supplier",
@@ -724,7 +1055,7 @@
       "statement": "Let D≥1, N>0, I be a nonempty compact interval in [0,N], U open containing I, and f_1,...,f_D:ℝ→ℝ be C^(D−1) on U. For distinct x_1,...,x_D∈I, |det(f_j(x_i))|≤|∏_(i<j)(x_j−x_i)| D! N^(D(3−D)/2) ∏_j||f_j||_(N,D−1;I). The exponent is evaluated in ℝ/ℤ, not natural subtraction. Repeated abscissae instead give determinant zero directly.",
       "locator": "Bombieri–Pila Proposition 2 and equation (1), pp.4–5",
       "status": "missing",
-      "note": "Checkpoint ten supplies the entrywise derivative and factorial argument and the algebraic Newton factorization. The statement explicitly uses neighbourhood smoothness, as the graph application does; no conversion from arbitrary ContDiffOn on a closed interval is asserted. Polynomial product/monomial bounds and the rectangular full-rank minor selection used downstream remain G7.",
+      "note": "Checkpoint ten supplies the entrywise derivative and factorial argument and the algebraic Newton factorization. The statement explicitly uses neighbourhood smoothness, as the graph application does; no conversion from arbitrary ContDiffOn on a closed interval is asserted. Polynomial product/monomial bounds and the rectangular full-rank minor selection used downstream remain G7. The downstream product/monomial and row-minor steps are now D1–D3 and M1; the existing derivative-witness proof is unchanged.",
       "prerequisites": [
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-newton-determinant-factorization",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-derivative-witness",
@@ -749,7 +1080,11 @@
       "statement": "A nonzero integer monomial evaluation determinant has absolute value at least one. Combining this with the derivative estimate bounds the abscissa span below by (D^p ||f||_(N,D−1)^q)^(−2/(D(D−1))) N^(1−2p/(D(D−1))), for D≥2.",
       "locator": "Bombieri–Pila Lemmas 2 and 4 pp.6,11",
       "status": "missing",
-      "note": "Use a maximal nonvanishing minor in an ordered block; handle vanishing derivative-bound factor separately rather than dividing by zero."
+      "note": "Use a maximal nonvanishing minor in an ordered block; handle vanishing derivative-bound factor separately rather than dividing by zero. Continuation M1/D1–D3 supplies the square minor and the monomial norm calculation, including the constant column and H=0 guard.",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-full-rank-row-minor",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-determinant-bound"
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-auxiliary-cover",
@@ -767,7 +1102,31 @@
       "statement": "For a degree-d plane polynomial F and integer δ≥2d, select monomials of degrees d through δ not divisible by the degree-d term of largest Y-degree in F. Then D=d(δ−d+1), p=d(δ(δ+1)−d(d−1))/2.",
       "locator": "Bombieri–Pila §3 pp.11–12",
       "status": "missing",
-      "note": " API: Define the degree-then-Y monomial order, avoidance predicate, counts, and show no nonzero supported polynomial is divisible by F. Tests: (1) exactly d monomials survive at each degree h≥d; (2) δ=2d satisfies D≥2; (3) a multiple of F has a forbidden leading term."
+      "note": " API: Define the degree-then-Y monomial order, avoidance predicate, counts, and show no nonzero supported polynomial is divisible by F. Tests: (1) exactly d monomials survive at each degree h≥d; (2) δ=2d satisfies D≥2; (3) a multiple of F has a forbidden leading term.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.bp_standard_monomials.interface",
+          "role": "compatibility",
+          "statement": "Define the degree-then-Y monomial order, avoidance predicate, counts, and show no nonzero supported polynomial is divisible by F."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.bp_standard_monomials.test1",
+          "kind": "compatibility",
+          "statement": "exactly d monomials survive at each degree h≥d"
+        },
+        {
+          "name": "IntegralPointBounds.bp_standard_monomials.test2",
+          "kind": "compatibility",
+          "statement": "δ=2d satisfies D≥2"
+        },
+        {
+          "name": "IntegralPointBounds.bp_standard_monomials.test3",
+          "kind": "compatibility",
+          "statement": "a multiple of F has a forbidden leading term"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-proper-intersection",
@@ -849,6 +1208,30 @@
         "tauceti:WeierstrassCurve.Affine.selmerGroup₂",
         "tauceti:WeierstrassCurve.Affine.mem_selmerGroup₂_iff",
         "tauceti:WeierstrassCurve.Affine.range_μ_le_selmerGroup₂"
+      ],
+      "api": [
+        {
+          "name": "IntegralPointBounds.explicit_selmer.interface",
+          "role": "compatibility",
+          "statement": "Import selmerGroup₂, membership and the inclusion of the global Kummer image. The comparison with cohomological Sel₂ is a separate EC.7 theorem."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.explicit_selmer.test1",
+          "kind": "compatibility",
+          "statement": "split cubic algebra retains all factors"
+        },
+        {
+          "name": "IntegralPointBounds.explicit_selmer.test2",
+          "kind": "compatibility",
+          "statement": "a norm-square class can fail a local condition"
+        },
+        {
+          "name": "IntegralPointBounds.explicit_selmer.test3",
+          "kind": "compatibility",
+          "statement": "global point images pass every local condition"
+        }
       ]
     },
     {
@@ -887,6 +1270,30 @@
         "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight",
         "tauceti:WeierstrassCurve.Affine.Point.tendsto_naiveHeight_two_pow_nsmul_div_four_pow",
         "tauceti:WeierstrassCurve.Affine.Point.abs_canonicalHeight_sub_naiveHeight_le"
+      ],
+      "api": [
+        {
+          "name": "IntegralPointBounds.canonical_height.interface",
+          "role": "compatibility",
+          "statement": "Import canonicalHeight, its proved convergence and quadraticity; keep the factor 1/2 when comparing with the EC roadmap text."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.canonical_height.test1",
+          "kind": "compatibility",
+          "statement": "ĥ(0)=0"
+        },
+        {
+          "name": "IntegralPointBounds.canonical_height.test2",
+          "kind": "compatibility",
+          "statement": "ĥ(2P)=4ĥ(P)"
+        },
+        {
+          "name": "IntegralPointBounds.canonical_height.test3",
+          "kind": "compatibility",
+          "statement": "the EC roadmap convention without 1/2 is twice this height"
+        }
       ]
     },
     {
@@ -908,7 +1315,31 @@
       "statement": "For 0≤t<1 put f(t)=√((1+t)(3−t))/2 and β(t)=((1+f)/(2f))log((1+f)/(2f))−((1−f)/(2f))log((1−f)/(2f)); set β(1)=0 and α(x)=min_{0≤t≤1}(xt+β(t)) for x≥0.",
       "locator": "HV Theorem 3.8 and Definition 1",
       "status": "missing",
-      "note": " API: Prove continuous endpoint extension and attainment of the minimum; export β(0)=b, α(x)≤β(0) and α(x)≤x. Tests: (1) t=1 uses the zero-log-zero limit; (2) x=0 gives α=0; (3) t=0 gives the pure packing bound."
+      "note": " API: Prove continuous endpoint extension and attainment of the minimum; export β(0)=b, α(x)≤β(0) and α(x)≤x. Tests: (1) t=1 uses the zero-log-zero limit; (2) x=0 gives α=0; (3) t=0 gives the pure packing bound.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.hv_packing_function.interface",
+          "role": "compatibility",
+          "statement": "Prove continuous endpoint extension and attainment of the minimum; export β(0)=b, α(x)≤β(0) and α(x)≤x."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.hv_packing_function.test1",
+          "kind": "compatibility",
+          "statement": "t=1 uses the zero-log-zero limit"
+        },
+        {
+          "name": "IntegralPointBounds.hv_packing_function.test2",
+          "kind": "compatibility",
+          "statement": "x=0 gives α=0"
+        },
+        {
+          "name": "IntegralPointBounds.hv_packing_function.test3",
+          "kind": "compatibility",
+          "statement": "t=0 gives the pure packing bound"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hv-height-count",
@@ -953,7 +1384,31 @@
       "statement": "The balanced translation cosets for a cubic field give O(D_K^(1/6)) signed equations ±y²=x³+Ax²+Bx+C with |A|≪D_K^(1/3), |B|≪D_K^(2/3), |C|≪D_K; counted points have |x|≪D_K^(1/3), |y|≪D_K^(1/2).",
       "locator": "§5.1 p.7",
       "status": "missing",
-      "note": " API: Construct signed models from the unreduced cubic norm polynomial, bound elementary symmetric coefficients and discriminants, and inject nontrivial torsion classes into smooth fibers. Tests: (1) rational beta gives a singular cubic and must be separated; (2) negative sign converts by X=-x with sign changes of A,C; (3) nonrational beta in a cubic field is primitive."
+      "note": " API: Construct signed models from the unreduced cubic norm polynomial, bound elementary symmetric coefficients and discriminants, and inject nontrivial torsion classes into smooth fibers. Tests: (1) rational beta gives a singular cubic and must be separated; (2) negative sign converts by X=-x with sign changes of A,C; (3) nonrational beta in a cubic field is primitive.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.cubic_norm_family.interface",
+          "role": "compatibility",
+          "statement": "Construct signed models from the unreduced cubic norm polynomial, bound elementary symmetric coefficients and discriminants, and inject nontrivial torsion classes into smooth fibers."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.cubic_norm_family.test1",
+          "kind": "compatibility",
+          "statement": "rational beta gives a singular cubic and must be separated"
+        },
+        {
+          "name": "IntegralPointBounds.cubic_norm_family.test2",
+          "kind": "compatibility",
+          "statement": "negative sign converts by X=-x with sign changes of A,C"
+        },
+        {
+          "name": "IntegralPointBounds.cubic_norm_family.test3",
+          "kind": "compatibility",
+          "statement": "nonrational beta in a cubic field is primitive"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/rational-generator-identity",
@@ -1043,7 +1498,31 @@
       "statement": "For A=∏ K_i a finite étale Q-algebra, Cl(A)=∏Cl(O_(K_i)), h₂(A)=∏h₂(K_i), and D_A=∏|disc K_i|. These use maximal orders, not an arbitrary polynomial order.",
       "locator": "Theorem 5.2; §5.3 Remark 5.4",
       "status": "missing",
-      "note": " API: Transport along algebra isomorphisms and factor permutations; expose product torsion and discriminant formulas. Tests: (1) Q³ has D=1 and h₂=1; (2) Q×a quadratic field reduces to its quadratic factor; (3) changing a polynomial order does not change A but may enlarge its discriminant."
+      "note": " API: Transport along algebra isomorphisms and factor permutations; expose product torsion and discriminant formulas. Tests: (1) Q³ has D=1 and h₂=1; (2) Q×a quadratic field reduces to its quadratic factor; (3) changing a polynomial order does not change A but may enlarge its discriminant.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.etale_class_group.interface",
+          "role": "compatibility",
+          "statement": "Transport along algebra isomorphisms and factor permutations; expose product torsion and discriminant formulas."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.etale_class_group.test1",
+          "kind": "compatibility",
+          "statement": "Q³ has D=1 and h₂=1"
+        },
+        {
+          "name": "IntegralPointBounds.etale_class_group.test2",
+          "kind": "compatibility",
+          "statement": "Q×a quadratic field reduces to its quadratic factor"
+        },
+        {
+          "name": "IntegralPointBounds.etale_class_group.test3",
+          "kind": "compatibility",
+          "statement": "changing a polynomial order does not change A but may enlarge its discriminant"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-resolvent",
@@ -1052,7 +1531,31 @@
       "statement": "For a quartic field K, let its Galois group act on the three partitions of the four embeddings into two unordered pairs. The associated degree-three finite étale Q-algebra is its cubic resolvent A.",
       "locator": "§5.3 Lemma 5.3 and Remark 5.4",
       "status": "missing",
-      "note": " API: Construct the three-element Galois set and its étale algebra; handle disconnected orbits, isomorphism invariance and comparison with resolvent orders. Tests: (1) S₄ acts transitively through S₃; (2) V₄ acts trivially and gives Q³; (3) a nontransitive action yields a product algebra rather than a cubic field."
+      "note": " API: Construct the three-element Galois set and its étale algebra; handle disconnected orbits, isomorphism invariance and comparison with resolvent orders. Tests: (1) S₄ acts transitively through S₃; (2) V₄ acts trivially and gives Q³; (3) a nontransitive action yields a product algebra rather than a cubic field.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.cubic_resolvent.interface",
+          "role": "compatibility",
+          "statement": "Construct the three-element Galois set and its étale algebra; handle disconnected orbits, isomorphism invariance and comparison with resolvent orders."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.cubic_resolvent.test1",
+          "kind": "compatibility",
+          "statement": "S₄ acts transitively through S₃"
+        },
+        {
+          "name": "IntegralPointBounds.cubic_resolvent.test2",
+          "kind": "compatibility",
+          "statement": "V₄ acts trivially and gives Q³"
+        },
+        {
+          "name": "IntegralPointBounds.cubic_resolvent.test3",
+          "kind": "compatibility",
+          "statement": "a nontransitive action yields a product algebra rather than a cubic field"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-torsion-transfer",
@@ -1079,7 +1582,31 @@
       "statement": "Let M=F₂^4 with S₄ permuting its basis, M₀ the line spanned by the sum, M₁=M/M₀ and M₂ the image of the even-weight subspace in M₁. Let N=F₂^3 on the three pair partitions and N₀ its sum line. Then M₁/M₂ is trivial and N/N₀≅M₂ equivariantly.",
       "locator": "Tsimerman §6 pp.15–16",
       "status": "missing",
-      "note": " API: Use quotient F₂-representations, the incidence of a pair partition and a weight-two vector modulo complements, and restriction to subgroups. Tests: (1) dimensions M₀,M₂,M₁/M₂ are 1,2,1; (2) N/N₀ has dimension two; (3) the isomorphism remains equivariant after restriction to V₄."
+      "note": " API: Use quotient F₂-representations, the incidence of a pair partition and a weight-two vector modulo complements, and restriction to subgroups. Tests: (1) dimensions M₀,M₂,M₁/M₂ are 1,2,1; (2) N/N₀ has dimension two; (3) the isomorphism remains equivariant after restriction to V₄.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.resolvent_f2_modules.interface",
+          "role": "compatibility",
+          "statement": "Use quotient F₂-representations, the incidence of a pair partition and a weight-two vector modulo complements, and restriction to subgroups."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.resolvent_f2_modules.test1",
+          "kind": "compatibility",
+          "statement": "dimensions M₀,M₂,M₁/M₂ are 1,2,1"
+        },
+        {
+          "name": "IntegralPointBounds.resolvent_f2_modules.test2",
+          "kind": "compatibility",
+          "statement": "N/N₀ has dimension two"
+        },
+        {
+          "name": "IntegralPointBounds.resolvent_f2_modules.test3",
+          "kind": "compatibility",
+          "statement": "the isomorphism remains equivariant after restriction to V₄"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/discriminant-negligible",
@@ -1088,7 +1615,31 @@
       "statement": "For bounded degree n of a Galois splitting field L and bounded torus dimension d, a positive quantity F is negligible if for every ε>0, D_L^(-ε)≪_(n,d,ε) F≪_(n,d,ε)D_L^ε.",
       "locator": "Tsimerman §4 pp.6–7",
       "status": "missing",
-      "note": " API: Track both bounds, multiplication, inversion and changing ε; retain the discriminant of the actual splitting field. Tests: (1) a positive bounded constant is negligible; (2) D_L^c for fixed c>0 is not negligible; (3) one-sided upper bounds alone are insufficient."
+      "note": " API: Track both bounds, multiplication, inversion and changing ε; retain the discriminant of the actual splitting field. Tests: (1) a positive bounded constant is negligible; (2) D_L^c for fixed c>0 is not negligible; (3) one-sided upper bounds alone are insufficient.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.discriminant_negligible.interface",
+          "role": "compatibility",
+          "statement": "Track both bounds, multiplication, inversion and changing ε; retain the discriminant of the actual splitting field."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.discriminant_negligible.test1",
+          "kind": "compatibility",
+          "statement": "a positive bounded constant is negligible"
+        },
+        {
+          "name": "IntegralPointBounds.discriminant_negligible.test2",
+          "kind": "compatibility",
+          "statement": "D_L^c for fixed c>0 is not negligible"
+        },
+        {
+          "name": "IntegralPointBounds.discriminant_negligible.test3",
+          "kind": "compatibility",
+          "statement": "one-sided upper bounds alone are insufficient"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/torus-transfer-source",
@@ -1109,6 +1660,30 @@
       "note": " API: Import ST.0 field-family and height-count conventions; prove finiteness, monotonicity and group/resolvent predicates. Tests: (1) normal-closure group is not Aut(K/Q); (2) strict versus non-strict discriminant cutoffs are explicit; (3) fixed F is additional data, not a uniformity assertion.",
       "planned": [
         "ArithmeticStatistics:ST.0"
+      ],
+      "api": [
+        {
+          "name": "IntegralPointBounds.field_count_carrier.interface",
+          "role": "compatibility",
+          "statement": "Import ST.0 field-family and height-count conventions; prove finiteness, monotonicity and group/resolvent predicates."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.field_count_carrier.test1",
+          "kind": "compatibility",
+          "statement": "normal-closure group is not Aut(K/Q)"
+        },
+        {
+          "name": "IntegralPointBounds.field_count_carrier.test2",
+          "kind": "compatibility",
+          "statement": "strict versus non-strict discriminant cutoffs are explicit"
+        },
+        {
+          "name": "IntegralPointBounds.field_count_carrier.test3",
+          "kind": "compatibility",
+          "statement": "fixed F is additional data, not a uniformity assertion"
+        }
       ]
     },
     {
@@ -1177,6 +1752,30 @@
         "tauceti:TauCeti.Divisor",
         "tauceti:TauCeti.Divisor.degree",
         "tauceti:TauCeti.Divisor.principal"
+      ],
+      "api": [
+        {
+          "name": "IntegralPointBounds.function_divisors.interface",
+          "role": "compatibility",
+          "statement": "Import TauCeti.Divisor, degree and principal divisors; use the existing coefficient order and degree homomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.function_divisors.test1",
+          "kind": "compatibility",
+          "statement": "a degree-two closed point has degree two"
+        },
+        {
+          "name": "IntegralPointBounds.function_divisors.test2",
+          "kind": "compatibility",
+          "statement": "a nonzero constant has principal divisor zero"
+        },
+        {
+          "name": "IntegralPointBounds.function_divisors.test3",
+          "kind": "compatibility",
+          "statement": "degree is additive and weights residue degrees"
+        }
       ]
     },
     {
@@ -1191,6 +1790,30 @@
         "tauceti:TauCeti.Divisor.degreeClass",
         "tauceti:TauCeti.Divisor.degreeClass_divisorClass",
         "tauceti:TauCeti.Divisor.divisorClass_eq_zero_iff"
+      ],
+      "api": [
+        {
+          "name": "IntegralPointBounds.function_class_group.interface",
+          "role": "compatibility",
+          "statement": "Use degreeClass and its kernel; expose quotient surjectivity, representative degree and principal witness recovery."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.function_class_group.test1",
+          "kind": "compatibility",
+          "statement": "principal divisors represent zero"
+        },
+        {
+          "name": "IntegralPointBounds.function_class_group.test2",
+          "kind": "compatibility",
+          "statement": "positive-degree divisors do not lie in Cl⁰"
+        },
+        {
+          "name": "IntegralPointBounds.function_class_group.test3",
+          "kind": "compatibility",
+          "statement": "finite-chart ideal class groups are not identified without an infinity comparison"
+        }
       ]
     },
     {
@@ -1218,6 +1841,30 @@
         "tauceti:TauCeti.Divisor.dim",
         "tauceti:TauCeti.mem_riemannRochSpace_iff_neg_le_ord",
         "tauceti:TauCeti.finiteDimensional_riemannRochSpace"
+      ],
+      "api": [
+        {
+          "name": "IntegralPointBounds.rr_space.interface",
+          "role": "compatibility",
+          "statement": "Import riemannRochSpace and Divisor.dim; nonzero membership via ord inequalities, monotonicity and finite-dimensionality."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.rr_space.test1",
+          "kind": "compatibility",
+          "statement": "zero belongs for every D"
+        },
+        {
+          "name": "IntegralPointBounds.rr_space.test2",
+          "kind": "compatibility",
+          "statement": "L(0)=k requires exact constants"
+        },
+        {
+          "name": "IntegralPointBounds.rr_space.test3",
+          "kind": "compatibility",
+          "statement": "negative-degree divisors have no nonzero sections"
+        }
       ]
     },
     {
@@ -1289,7 +1936,31 @@
       "statement": "Fix a divisor E of degree g on C/k. Let V=L(2E), and S_E={f∈V:f≠0 and every coefficient of div(f) is even}. This is a k×-stable subset of V minus zero, not asserted to be a subspace.",
       "locator": "§7 p.12 displayed H⁰(C,2E)^sq",
       "status": "missing",
-      "note": " API: Define the coefficientwise evenness predicate on existing principal divisors, prove scalar invariance and inclusion into the projectivization. Tests: (1) a section with an odd zero is excluded; (2) multiplication by a nonsquare constant still preserves membership; (3) zero is excluded even though the valuation API has junk values there."
+      "note": " API: Define the coefficientwise evenness predicate on existing principal divisors, prove scalar invariance and inclusion into the projectivization. Tests: (1) a section with an odd zero is excluded; (2) multiplication by a nonsquare constant still preserves membership; (3) zero is excluded even though the valuation API has junk values there.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.even_divisor_sections.interface",
+          "role": "compatibility",
+          "statement": "Define the coefficientwise evenness predicate on existing principal divisors, prove scalar invariance and inclusion into the projectivization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.even_divisor_sections.test1",
+          "kind": "compatibility",
+          "statement": "a section with an odd zero is excluded"
+        },
+        {
+          "name": "IntegralPointBounds.even_divisor_sections.test2",
+          "kind": "compatibility",
+          "statement": "multiplication by a nonsquare constant still preserves membership"
+        },
+        {
+          "name": "IntegralPointBounds.even_divisor_sections.test3",
+          "kind": "compatibility",
+          "statement": "zero is excluded even though the valuation API has junk values there"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/half-divisor-map",
@@ -1298,7 +1969,31 @@
       "statement": "For f∈S_E, divide the coefficients of div(f) by two to obtain an integral degree-zero divisor A_f. The class [A_f] depends only on the projective class of f and satisfies 2[A_f]=0.",
       "locator": "§7 p.12 surjection expanded",
       "status": "missing",
-      "note": " API: Prove exact coefficient halving, degree zero using 2deg A=0, independence under scalar multiplication and codomain membership. Tests: (1) non-even coefficients cannot be rounded; (2) constant sections map to the identity; (3) global squares give principal half-divisors but even divisors need not come from squares."
+      "note": " API: Prove exact coefficient halving, degree zero using 2deg A=0, independence under scalar multiplication and codomain membership. Tests: (1) non-even coefficients cannot be rounded; (2) constant sections map to the identity; (3) global squares give principal half-divisors but even divisors need not come from squares.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.half_divisor_map.interface",
+          "role": "compatibility",
+          "statement": "Prove exact coefficient halving, degree zero using 2deg A=0, independence under scalar multiplication and codomain membership."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.half_divisor_map.test1",
+          "kind": "compatibility",
+          "statement": "non-even coefficients cannot be rounded"
+        },
+        {
+          "name": "IntegralPointBounds.half_divisor_map.test2",
+          "kind": "compatibility",
+          "statement": "constant sections map to the identity"
+        },
+        {
+          "name": "IntegralPointBounds.half_divisor_map.test3",
+          "kind": "compatibility",
+          "statement": "global squares give principal half-divisors but even divisors need not come from squares"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/half-divisor-surjective",
@@ -1334,7 +2029,31 @@
       "statement": "The k-gonality of C is the minimum degree of a nonconstant k-morphism C→P¹. The second assertion only assumes existence of a degree-n map, not minimality.",
       "locator": "§7 opening p.11",
       "status": "missing",
-      "note": " API: Import finite morphisms and function-field degrees; record separable/inseparable degree and base-field dependence, and prove a chosen map bounds gonality. Tests: (1) P¹ has gonality one; (2) a degree-n map need not compute the minimum; (3) extension of the constant field may lower gonality."
+      "note": " API: Import finite morphisms and function-field degrees; record separable/inseparable degree and base-field dependence, and prove a chosen map bounds gonality. Tests: (1) P¹ has gonality one; (2) a degree-n map need not compute the minimum; (3) extension of the constant field may lower gonality.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.gonality.interface",
+          "role": "compatibility",
+          "statement": "Import finite morphisms and function-field degrees; record separable/inseparable degree and base-field dependence, and prove a chosen map bounds gonality."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.gonality.test1",
+          "kind": "compatibility",
+          "statement": "P¹ has gonality one"
+        },
+        {
+          "name": "IntegralPointBounds.gonality.test2",
+          "kind": "compatibility",
+          "statement": "a degree-n map need not compute the minimum"
+        },
+        {
+          "name": "IntegralPointBounds.gonality.test3",
+          "kind": "compatibility",
+          "statement": "extension of the constant field may lower gonality"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/function-gonality-source",
@@ -1398,7 +2117,31 @@
       "statement": "For a number field K of signature (r,s) and degree n=r+2s, put ||x||_tr²=Σ_real |x_v|²+2Σ_complex |x_v|² on its existing mixed space. The diagonal real map scaling both real coordinates of each complex factor by sqrt(2) identifies this metric with ordinary Euclidean space and has determinant 2^s. Thus ||x||_0≤||x||_tr≤sqrt(2)||x||_0, and the integer lattice has covolume sqrt(D_K) for the metric-induced Euclidean volume. The vector 1 is primitive and shortest, of trace length sqrt(n).",
       "locator": "Fourth-checkpoint supplement in the companion report, B1; BSTTTZ §3 p.5 motivates the normalization",
       "status": "missing",
-      "note": "Replacement construction, not a new mixed-embedding carrier. The unchanged ordinary product measure still gives covolume 2^(-s)sqrt(D_K), by the actual pinned declaration integer-covolume. For nonzero integral alpha, AM–GM on all n conjugates and |N(alpha)|≥1 proves the shortest-vector assertion; O_K∩Q=Z proves primitivity. Owner: EffectiveBoundsClassGroupTorsion. API: traceNorm_sq, traceNorm_eq_norm_scaled, norm_le_traceNorm, traceNorm_le_sqrtTwo_mul_norm, traceCovolume_integerLattice, traceNorm_one, sqrt_degree_le_traceNorm_of_integral_ne_zero, and primitive_one. These are planning names, not existing Lean declarations. Tests: (1) Q has length and covolume one; (2) Q(i) has trace basis lengths sqrt(2) and trace covolume two, but ordinary covolume one; (3) a mixed signature scales both real coordinates of each complex factor and satisfies both norm comparisons."
+      "note": "Replacement construction, not a new mixed-embedding carrier. The unchanged ordinary product measure still gives covolume 2^(-s)sqrt(D_K), by the actual pinned declaration integer-covolume. For nonzero integral alpha, AM–GM on all n conjugates and |N(alpha)|≥1 proves the shortest-vector assertion; O_K∩Q=Z proves primitivity. Owner: EffectiveBoundsClassGroupTorsion. API: traceNorm_sq, traceNorm_eq_norm_scaled, norm_le_traceNorm, traceNorm_le_sqrtTwo_mul_norm, traceCovolume_integerLattice, traceNorm_one, sqrt_degree_le_traceNorm_of_integral_ne_zero, and primitive_one. These are planning names, not existing Lean declarations. Tests: (1) Q has length and covolume one; (2) Q(i) has trace basis lengths sqrt(2) and trace covolume two, but ordinary covolume one; (3) a mixed signature scales both real coordinates of each complex factor and satisfies both norm comparisons.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.trace_metric_normalization.interface",
+          "role": "compatibility",
+          "statement": "traceNorm_sq, traceNorm_eq_norm_scaled, norm_le_traceNorm, traceNorm_le_sqrtTwo_mul_norm, traceCovolume_integerLattice, traceNorm_one, sqrt_degree_le_traceNorm_of_integral_ne_zero, and primitive_one. These are planning names, not existing Lean declarations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.trace_metric_normalization.test1",
+          "kind": "compatibility",
+          "statement": "Q has length and covolume one"
+        },
+        {
+          "name": "IntegralPointBounds.trace_metric_normalization.test2",
+          "kind": "compatibility",
+          "statement": "Q(i) has trace basis lengths sqrt(2) and trace covolume two, but ordinary covolume one"
+        },
+        {
+          "name": "IntegralPointBounds.trace_metric_normalization.test3",
+          "kind": "compatibility",
+          "statement": "a mixed signature scales both real coordinates of each complex factor and satisfies both norm comparisons"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/primitive-prefix-extension",
@@ -1437,7 +2180,31 @@
       "statement": "For a quadratic extension E/F, let A=Cl(E)/2Cl(E), let σ be the induced involution, and put T=σ−1, V=A/TA and s=dim_F2 V. Then T²=0 and dim_F2 A≤2s. In the elementary-2 ordinary Hilbert class field H/E corresponding to A, the fixed field M=H^(TA) is Galois over F and yields a central exact sequence 1→V→G=Gal(M/F)→C2→1. The group G is abelian, has order 2^(s+1), and |2G|≤2; the sequence is not asserted to split without a ramified place.",
       "locator": "Fourth-checkpoint supplement in the companion report, C1; Klüners–Wang arXiv:2003.12161v2, Theorem 2.1 proof, pp.3–4, with the quotient carrier made explicit",
       "status": "missing",
-      "note": "Use the quotient A, not an equivariant identification with Cl(E)[2] inferred from equal cardinalities. Rank-nullity and im T⊆ker T give dim A≤2s. The characteristic class-group quotient and conjugation compatibility make H/F Galois; stability of TA gives M/F. Trivial conjugation on V makes G abelian because G/V is cyclic. G is generated by V and a lift τ, so 2G is generated by 2τ and has at most two elements. Owner: EffectiveBoundsClassGroupTorsion, importing hilbert-class-field-input. API: inducedClassQuotientInvolution, T_sq_zero, stable_range_T, fixedField_range_T, restriction_exact, commutative_G, card_G and card_twoG_le_two, all planning names. Tests: (1) on Z/4×Z/2, σ(x,y)=(x,y+x mod 2) fixes all 2-torsion but not the quotient modulo two; (2) the unramified branch admits nonsplit C4; (3) a ramified place provides an actual order-two inertia lift, not just an arbitrary lift."
+      "note": "Use the quotient A, not an equivariant identification with Cl(E)[2] inferred from equal cardinalities. Rank-nullity and im T⊆ker T give dim A≤2s. The characteristic class-group quotient and conjugation compatibility make H/F Galois; stability of TA gives M/F. Trivial conjugation on V makes G abelian because G/V is cyclic. G is generated by V and a lift τ, so 2G is generated by 2τ and has at most two elements. Owner: EffectiveBoundsClassGroupTorsion, importing hilbert-class-field-input. API: inducedClassQuotientInvolution, T_sq_zero, stable_range_T, fixedField_range_T, restriction_exact, commutative_G, card_G and card_twoG_le_two, all planning names. Tests: (1) on Z/4×Z/2, σ(x,y)=(x,y+x mod 2) fixes all 2-torsion but not the quotient modulo two; (2) the unramified branch admits nonsplit C4; (3) a ramified place provides an actual order-two inertia lift, not just an arbitrary lift.",
+      "api": [
+        {
+          "name": "IntegralPointBounds.quadratic_coinvariant_extension.interface",
+          "role": "compatibility",
+          "statement": "inducedClassQuotientInvolution, T_sq_zero, stable_range_T, fixedField_range_T, restriction_exact, commutative_G, card_G and card_twoG_le_two, all planning names."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.quadratic_coinvariant_extension.test1",
+          "kind": "compatibility",
+          "statement": "on Z/4×Z/2, σ(x,y)=(x,y+x mod 2) fixes all 2-torsion but not the quotient modulo two"
+        },
+        {
+          "name": "IntegralPointBounds.quadratic_coinvariant_extension.test2",
+          "kind": "compatibility",
+          "statement": "the unramified branch admits nonsplit C4"
+        },
+        {
+          "name": "IntegralPointBounds.quadratic_coinvariant_extension.test3",
+          "kind": "compatibility",
+          "statement": "a ramified place provides an actual order-two inertia lift, not just an arbitrary lift"
+        }
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/quadratic-relative-rank",
@@ -1518,7 +2285,10 @@
       "statement": "For N>0 and an absolutely irreducible real plane polynomial F of total degree d≥2, its integral zeros in [0,N]² are covered by at most 8d³ sets, each either a singleton or contained in a C-infinity graph on a compact subinterval of [0,N] with absolute slope at most one relative to one coordinate axis. Each graph satisfies F, or F with coordinates exchanged. For N≥exp(d^6), the constant-eleven graph bound therefore implies the constant-twelve plane-curve bound.",
       "locator": "BP6 of the sixth-checkpoint supplement; replacement for the abbreviated final passage of Bombieri–Pila Theorem 5, author preprint p.17.",
       "status": "missing",
-      "note": "Use proper Bézout on F_Y, F_X+F_Y and F_X−F_Y, and horizontal boundary intersections. There are at most Q=3d(d−1)+2d critical abscissae. Each open strip has at most d simple analytic root graphs; invert steep ones, and restrict each to the compact hull of its finitely many integer points. Critical vertical fibers contribute at most d points each. The total is ≤d(Q+1)+d(Q+2)≤8d³; log(8d³)≤sqrt(d log N loglog N) absorbs it. No smoothness at the original singular endpoints is assumed. Generic proper-intersection/Bézout stays with SF.5; exact root-continuation and analytic inverse-function supplier matching remains G7. This does not prove the stronger O(d²) whole-curve claim. Tests: singular cusp Y²=X³; steep graphs needing axis exchange; integral points on critical/boundary vertical fibers. Owner: IntegralPointDeterminantMethods."
+      "note": "Use proper Bézout on F_Y, F_X+F_Y and F_X−F_Y, and horizontal boundary intersections. There are at most Q=3d(d−1)+2d critical abscissae. Each open strip has at most d simple analytic root graphs; invert steep ones, and restrict each to the compact hull of its finitely many integer points. Critical vertical fibers contribute at most d points each. The total is ≤d(Q+1)+d(Q+2)≤8d³; log(8d³)≤sqrt(d log N loglog N) absorbs it. No smoothness at the original singular endpoints is assumed. Generic proper-intersection/Bézout stays with SF.5; exact root-continuation and analytic inverse-function supplier matching remains G7. This does not prove the stronger O(d²) whole-curve claim. Tests: singular cusp Y²=X³; steep graphs needing axis exchange; integral points on critical/boundary vertical fibers. Owner: IntegralPointDeterminantMethods. S1–S3 now prove nonzero coordinate specialization and the ≤d fiber count. Proper Bézout and smooth root continuation remain open.",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-coordinate-fibers"
+      ]
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-supplier",
@@ -1788,6 +2558,316 @@
       ],
       "note": "This upper remainder bound is distinct from the lower derivative estimate used by bp-large-derivative-interval. The compact-maximum argument also supplies attainment for each derivative order of bp-scaled-derivative-norm.",
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-linear-retraction-supplier",
+      "kind": "theorem",
+      "name": "An injective vector-space map has a linear retraction",
+      "statement": "For vector spaces over a division ring, ker(f)=⊥ implies existence of a linear g with g.comp f=id. With finite coordinate bases, toMatrix converts composition to matrix multiplication.",
+      "locator": "Pinned Mathlib/LinearAlgebra/Basis/VectorSpace.lean:240; LinearAlgebra/Matrix/ToLin.lean:470–474",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "import",
+      "library": [
+        "mathlib:LinearMap.exists_leftInverse_of_injective",
+        "mathlib:LinearMap.toMatrix'_comp"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-row-multilinearity-supplier",
+      "kind": "theorem",
+      "name": "Expand a determinant over finite row combinations",
+      "statement": "The determinant is alternating multilinear in its rows. Multilinear maps expand a tuple of finite sums over all choices of one summand per coordinate and pull out the product of scalars. Repeated rows give determinant zero; the empty determinant is one.",
+      "locator": "Pinned Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:55–68,86–103,370; LinearAlgebra/Multilinear/Basic.lean:626–628,1160–1162",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "import",
+      "library": [
+        "mathlib:Matrix.detRowAlternating",
+        "mathlib:MultilinearMap.map_sum",
+        "mathlib:MultilinearMap.map_smul_univ",
+        "mathlib:Matrix.det_zero_of_row_eq",
+        "mathlib:Matrix.det_isEmpty"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-leibniz-supplier",
+      "kind": "theorem",
+      "name": "Leibniz formula for iterated ordinary derivatives",
+      "statement": "For C^n functions f,g at x into a normed algebra, iteratedDeriv n(fg)(x)=Σ_(i=0)^n choose(n,i) iteratedDeriv i f(x) iteratedDeriv(n−i)g(x). The identity-function derivative is x in order zero, one in order one, and zero in higher orders.",
+      "locator": "Pinned Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean:409–425",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "import",
+      "library": [
+        "mathlib:iteratedDeriv_mul",
+        "mathlib:iteratedDeriv_id"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-binomial-factorial-supplier",
+      "kind": "theorem",
+      "name": "Binomial coefficients cancel normalized derivative factorials",
+      "statement": "For k≤n, choose(n,k) k! (n−k)!=n!. Casting into R and dividing by the nonzero factorials yields the normalized Leibniz convolution.",
+      "locator": "Pinned Mathlib/Data/Nat/Choose/Basic.lean:140–142",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "import",
+      "library": [
+        "mathlib:Nat.choose_mul_factorial_mul_factorial"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-linear-factor-supplier",
+      "kind": "theorem",
+      "name": "Factor theorem over an arbitrary commutative coefficient ring",
+      "statement": "For a polynomial p over a commutative ring and an element a of that ring, X−C(a) divides p iff p(a)=0. Apply with coefficient ring K[Y] and a the constant polynomial.",
+      "locator": "Pinned Mathlib/Algebra/Polynomial/Div.lean:616–628",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "import",
+      "library": [
+        "mathlib:Polynomial.dvd_iff_isRoot"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-polynomial-unit-supplier",
+      "kind": "theorem",
+      "name": "Units of a multivariate polynomial ring over a reduced ring",
+      "statement": "Over a reduced commutative ring R, P is a unit iff P=C(r) for a unit r of R. In particular over a field every polynomial unit is a nonzero constant.",
+      "locator": "Pinned Mathlib/Algebra/MvPolynomial/Nilpotent.lean:83–94",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "import",
+      "library": [
+        "mathlib:MvPolynomial.isUnit_iff_eq_C_of_isReduced"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-polynomial-coordinate-supplier",
+      "kind": "construction",
+      "name": "Existing polynomial coordinate equivalences",
+      "statement": "finSuccEquiv R n identifies MvPolynomial (Fin(n+1)) R with Polynomial(MvPolynomial (Fin n) R), taking variable zero to the outer variable and successor variables to constant coefficients. uniqueAlgEquiv identifies one-variable MvPolynomial with Polynomial R.",
+      "locator": "Pinned Mathlib/Algebra/MvPolynomial/Equiv.lean:67–109,649–689",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "import",
+      "library": [
+        "mathlib:MvPolynomial.finSuccEquiv",
+        "mathlib:MvPolynomial.finSuccEquiv_X_zero",
+        "mathlib:MvPolynomial.finSuccEquiv_X_succ",
+        "mathlib:MvPolynomial.uniqueAlgEquiv",
+        "mathlib:MvPolynomial.uniqueAlgEquiv_monomial"
+      ],
+      "api": [
+        {
+          "name": "IntegralPointBounds.polynomialCoordinates.outer",
+          "role": "compatibility",
+          "statement": "Use finSuccEquiv K 1 to regard X as the outer polynomial variable and Y as the coefficient-ring variable."
+        },
+        {
+          "name": "IntegralPointBounds.polynomialCoordinates.one",
+          "role": "compatibility",
+          "statement": "Use uniqueAlgEquiv K (Fin 1) for the residual one-variable polynomial; its inverse and coefficient identities are the existing equivalence API."
+        },
+        {
+          "name": "IntegralPointBounds.polynomialCoordinates.specialize",
+          "role": "data",
+          "statement": "Evaluate the outer variable at the constant a, then apply the one-variable equivalence; polynomial operations and constant coefficients are preserved."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralPointBounds.polynomialCoordinates.x",
+          "kind": "computation",
+          "statement": "finSuccEquiv K 1 (X 0)=Polynomial.X."
+        },
+        {
+          "name": "IntegralPointBounds.polynomialCoordinates.y",
+          "kind": "computation",
+          "statement": "finSuccEquiv K 1 (X 1)=Polynomial.C (MvPolynomial.X 0)."
+        },
+        {
+          "name": "IntegralPointBounds.polynomialCoordinates.monomial",
+          "kind": "compatibility",
+          "statement": "uniqueAlgEquiv maps the one-variable monomial with exponent j and coefficient c to Polynomial.monomial j c."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-nonzero",
+          "how": "Apply the actual ring factor theorem in the outer variable and transport divisibility back."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-full-rank-row-minor",
+      "kind": "theorem",
+      "name": "A full-column-rank evaluation matrix has a nonzero row minor",
+      "statement": "For a field K, finite column type M of cardinality D and finite row type S, if A:S×M→K has rank D, then there is an injection ρ:M→S with det(A.submatrix ρ id)≠0. Includes D=0 with the empty determinant one.",
+      "locator": "Bombieri–Pila Lemmas 2 and 4; continuation M1",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-rank-nullity-supplier",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-linear-retraction-supplier",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-row-multilinearity-supplier"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Rank-nullity gives ker(A.mulVecLin)=0. The linear retraction supplier gives B with BA=I_D; use coordinate-matrix composition, not a square-only inverse theorem.",
+        "Write each row of BA as Σ_s B_(i,s) A_(s,−). Multilinearity gives 1=Σ_(ρ:M→S)(∏_i B_(i,ρ(i))) det(A_(ρ(i),j)). This follows directly from map_sum and map_smul_univ; no unverified rectangular Cauchy–Binet declaration is assumed.",
+        "Since the finite sum is nonzero, some summand is nonzero, hence so is its determinant. A repeated row would make that determinant zero, so ρ is injective. For M empty the unique map is injective and the determinant is one."
+      ],
+      "acceptance": [
+        "A 3-by-2 matrix with rows (1,0),(0,0),(0,1) needs rows 1 and 3, not the first two rows.",
+        "If S is empty and D>0 full column rank cannot hold.",
+        "Duplicate indexed points are permitted; they simply cannot both occur in the selected nonzero minor."
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-normalized-product-bound",
+      "kind": "theorem",
+      "name": "Normalized derivatives give the scaled product estimate",
+      "statement": "For N>0, nonempty compact I⊂[0,N], an open neighbourhood U, k≥0 and m≥1 real functions f_1,...,f_m of class C^k on U, ||∏f_j||_(N,k;I)≤N^(m−1)(k+1)^(m−1)∏||f_j||_(N,k;I).",
+      "locator": "Bombieri–Pila Proposition 1 p.4; continuation D1",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-leibniz-supplier",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-binomial-factorial-supplier",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Divide the binary Leibniz formula by r!: (fg)^(r)/r!=Σ_(i=0)^r (f^(i)/i!)(g^(r−i)/(r−i)!). Factorial cancellation uses the exact natural identity cast to R.",
+        "For each summand the two norm bounds give |f^(i)g^(r−i)|/(i!(r−i)!)≤B_f B_g N^(2−r). Multiply by N^(r−1) and sum r+1 nonnegative bounds, giving ≤N(k+1)B_fB_g for r≤k.",
+        "Take the maximum over r,x. Induct on m starting with m=1; products remain C^k on the same open neighbourhood. This never assumes that a zero norm is invertible."
+      ],
+      "acceptance": [
+        "For k=0 and constants c_j the factor N^(m−1) is necessary and the bound is equality.",
+        "Zero factors and singleton I cause no division problem.",
+        "The empty product m=0 is not included and is treated separately as the constant function one."
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-norm-bound",
+      "kind": "theorem",
+      "name": "Monomial derivative bounds with the constant treated separately",
+      "statement": "For the same data and H=||f||_(N,k;I), if i+j≥1 then ||x^i f^j||≤((k+1)N)^(i+j−1)H^j. For i=j=0 the exact norm is 1/N.",
+      "locator": "Bombieri–Pila Proposition 1 and Lemmas 2/4; continuation D2",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-normalized-product-bound",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-leibniz-supplier"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The norm of id on I⊂[0,N] is at most one, by the exact iterated derivatives. It equals one if k≥1; for k=0 a strict subinterval can have norm less than one.",
+        "Apply the m=i+j product estimate to i copies of id and j copies of f, allowing i=0 or j=0 as long as m≥1.",
+        "The constant monomial is the empty product and has norm 1/N. Do not substitute i+j=0 into the positive-factor product estimate."
+      ],
+      "acceptance": [
+        "For k=1 the unsupported empty-product substitution would give 1/(2N), contradicting ||1||=1/N.",
+        "The pure monomials x^i and f^j are covered without assuming both exponents positive.",
+        "For H=0 and j>0 the monomial vanishes on I."
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-determinant-bound",
+      "kind": "theorem",
+      "name": "The monomial determinant bound retains D^p including the constant column",
+      "statement": "Let M be D≥2 distinct bivariate monomials, p=Σ(i+j), q=Σj, H=||f||_(N,D−1;I), and x_1,...,x_D distinct in an interval of length L inside I. Then |det(x_r^i f(x_r)^j)|≤L^(D(D−1)/2) D^p H^q N^(p−D(D−1)/2). If the determinant is a nonzero integer, its norm is ≥1, so D^p H^q>0 and the separation bound of bp-integral-determinant follows.",
+      "locator": "Bombieri–Pila Lemmas 2 and 4; continuation D3",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-norm-bound",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-full-rank-row-minor"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Let z be one if (0,0)∈M and zero otherwise. The product of the monomial norms is ≤N^(p−D) D^(p−D+z) H^q. Exponents may be negative integers, and N,D are positive.",
+        "The determinant bound contributes D! N^(D(3−D)/2). Since D!=1·2···D≤D^(D−1) and z≤1, D! D^(p−D+z)≤D^p. Thus the missing factor for the constant monomial is absorbed without changing the stated D^p.",
+        "The Vandermonde factor is ≤L^(D(D−1)/2). Combine N exponents to p−D(D−1)/2. For a nonzero integer determinant, 1≤|det| forces H^q>0, so the positive-real power rearrangement is valid. If H=0,q>0 every column with positive Y exponent is zero; no full-rank block exists."
+      ],
+      "acceptance": [
+        "M={1,x} has the constant monomial and determinant x_2−x_1; no loss of a factor D is allowed.",
+        "M={x,x²} has no constant monomial and satisfies the same bound.",
+        "The convention H^0=1 permits q=0 even when H=0; repeated abscissae give zero determinant separately."
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-nonzero",
+      "kind": "theorem",
+      "name": "An irreducible nonlinear plane polynomial has no identically zero coordinate fiber",
+      "statement": "For any field K, irreducible F∈K[X,Y] of total degree d≥2 and a∈K, both F(a,Y) and F(X,a) are nonzero polynomials. Absolute irreducibility is not needed for this algebraic step.",
+      "locator": "Adapter for the BP6 finite graph cover; continuation S1",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-polynomial-coordinate-supplier",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-linear-factor-supplier",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-polynomial-unit-supplier"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Regard F as a polynomial in X over K[Y] using the existing coordinate equivalences. If F(a,Y)=0, the factor theorem gives F=(X−a)G in K[X,Y].",
+        "X−a is a nonunit: evaluation at X=a would send a hypothetical inverse identity to 0=1. Irreducibility of F therefore forces G to be a unit.",
+        "The multivariate unit supplier makes G a nonzero constant. Thus F is a nonzero scalar multiple of X−a and has total degree at most one, contradicting d≥2. Exchange X,Y for the horizontal statement."
+      ],
+      "acceptance": [
+        "F=X−a is a degree-one counterexample and is excluded.",
+        "F=(X−a)Y is a reducible degree-two counterexample, so the degree hypothesis alone is insufficient.",
+        "F=Y²−X has nonzero specialization Y²−a for every a, including a=0 with a repeated root."
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-degree",
+      "kind": "theorem",
+      "name": "Coordinate specialization does not increase total degree",
+      "statement": "For any bivariate polynomial F over a field K and a∈K, natDegree(F(a,Y))≤totalDegree F, and similarly for F(X,a); the statement permits the zero specialization.",
+      "locator": "Coefficient adapter for the finite-fiber bound; continuation S2",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-polynomial-coordinate-supplier",
+        "mathlib:MvPolynomial.le_totalDegree",
+        "mathlib:MvPolynomial.coeff_sum",
+        "mathlib:MvPolynomial.coeff_monomial",
+        "mathlib:Polynomial.natDegree_le_iff_coeff_eq_zero"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Write F as the finite sum Σ c_(i,j) X^iY^j using its actual support. Each supported pair satisfies i+j≤totalDegree F by le_totalDegree.",
+        "The coefficient of Y^j after X=a is Σ_i c_(i,j)a^i. If j>totalDegree F every summand is zero, so that coefficient vanishes. Cancellation can lower degree but cannot introduce a higher exponent.",
+        "A polynomial whose coefficients above d vanish has natural degree at most d; zero has natural degree zero and d≥0. Apply the same coefficient argument after exchanging the variables."
+      ],
+      "acceptance": [
+        "Specialization can lower degree: XY+1 at X=0 gives 1.",
+        "Specialization can vanish: (X−a)Y at X=a; nonzeroness must come from S1 before root counting.",
+        "For Y^d+X at X=0 the bound is attained."
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-coordinate-fibers",
+      "kind": "theorem",
+      "name": "At most d points on each vertical or horizontal fiber",
+      "statement": "For an irreducible F∈K[X,Y] of total degree d≥2 over a field K, each finite set of distinct zeros on a fixed vertical or horizontal line has cardinality ≤d. In particular this bounds the real and integral fibers used in BP6.",
+      "locator": "BP6 boundary/critical-fiber adapter; continuation S3",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-nonzero",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-degree",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-root-supplier"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Fix X=a. S1 gives a nonzero univariate polynomial and S2 bounds its natural degree by d.",
+        "If a finite distinct set of roots had cardinality >d, the pinned root-count supplier would force that polynomial to vanish, contradicting S1.",
+        "Swap the coordinates for the horizontal version. This does not give a smooth branch parametrization or a two-curve Bézout theorem."
+      ],
+      "acceptance": [
+        "A singular fiber with a repeated root is still bounded by the number of distinct roots.",
+        "No smoothness or characteristic-zero hypothesis is used in this fiber count.",
+        "Irreducible univariate F(X) of degree≥2 can have no K-rational vertical zero fiber; the same argument covers this degenerate plane polynomial."
+      ]
     }
   ],
   "prerequisites": [
@@ -1918,10 +2998,17 @@
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-derivative-witness",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-newton-determinant-factorization",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-endpoint",
-        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-absolute-bound"
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-absolute-bound",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-full-rank-row-minor",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-normalized-product-bound",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-norm-bound",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-determinant-bound",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-nonzero",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-degree",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-coordinate-fibers"
       ],
       "reason": "Catalogue screen finds no coefficient-uniform algebraic-curve counting owner. RP.4 is finiteness, ED is certified algorithms, and LD.6 is Pila–Wilkie outside the algebraic part. Retain the inherited candidate, now with selected original proof interiors.",
-      "brief": "Prove original Bombieri–Pila Theorem 5: for an absolutely irreducible real plane curve of total degree d≥2 and N≥exp(d^6), the integer-point count in [0,N]^2 is at most N^(1/d)exp(12 sqrt(d log N loglog N)); deduce the coefficient-uniform epsilon form for all N≥1 and integer translates. The curve may be singular. Import Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), SF.0/SF.5, for plane curves and proper intersection/Bézout, and Mathlib determinants, interpolation, derivatives and Taylor/mean-value machinery. Build monomial evaluation kernels, scaled derivative norms, Vandermonde determinant estimates, the integer determinant separation argument, auxiliary covers, leading-term avoidance, derivative-level partitions, the short-interval lemma, recurrence and bounded-slope arc decomposition. Keep generic linear algebra and algebraic geometry with their existing suppliers. Correct the lambda substitution and q≤p typo in the author preprint; resolve integer rounding of delta with the displayed constants (G7), including singular/boundary exceptional points. Tests include Y²=X³ (singular degree three), coefficient translations, polynomial branches with constant higher derivatives, the smallest allowed d,N, and repeated abscissae. Suggested file: TauCeti/NumberTheory/IntegralPointBounds/DeterminantMethod.lean. Sedunova’s printed uniformity is not a supplied positive-characteristic analogue; G9 must be resolved separately. Sixth-checkpoint refinement: use bp-integer-normalization, bp-contraction-iteration and bp-recurrence-constants, then delta=floor(2 sqrt(log N/(d loglog N))) with the derivative-monotonicity proof in bp-integer-optimization to obtain constant 11 without changing the threshold. For constant 12 use the explicit 8d^3 finite-integer-point graph cover rather than assuming the stronger O(d^2) whole-curve decomposition. Retain singular/critical fibers, horizontal boundaries, noninteger interval endpoints, inverse steep graphs and the strict N<1 stopping case. E1–E3 record the source-level corrections; G7 now retains exact generic supplier matching and independent verification. Earlier wording asking for an unwritten rounding proof is superseded by this refinement. Seventh checkpoint: import the five exact Mathlib supplier nodes (Taylor, interpolation, Vandermonde, finite polynomial roots and mean value). Their consumer adapters remain explicit; none supplies Bézout or global analytic branch continuation. Tenth checkpoint: use the promoted supported-coefficient, repeated-Rolle, entrywise interpolation-witness, Newton determinant, ordinary Taylor endpoint and absolute-remainder adapters. Rank/kernel is rectangular; the short-interval argument uses a lower derivative bound at its Taylor point, not the upper absolute-maximum bound. Keep full-column-rank row-minor selection, specialization nonzeroness/degree, monomial norm-product estimates, SF.5 Bézout and analytic branch/inverse matching explicit in G7."
+      "brief": "Prove original Bombieri–Pila Theorem 5: for an absolutely irreducible real plane curve of total degree d≥2 and N≥exp(d^6), the integer-point count in [0,N]^2 is at most N^(1/d)exp(12 sqrt(d log N loglog N)); deduce the coefficient-uniform epsilon form for all N≥1 and integer translates. The curve may be singular. Import Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), SF.0/SF.5, for plane curves and proper intersection/Bézout, and Mathlib determinants, interpolation, derivatives and Taylor/mean-value machinery. Build monomial evaluation kernels, scaled derivative norms, Vandermonde determinant estimates, the integer determinant separation argument, auxiliary covers, leading-term avoidance, derivative-level partitions, the short-interval lemma, recurrence and bounded-slope arc decomposition. Keep generic linear algebra and algebraic geometry with their existing suppliers. Correct the lambda substitution and q≤p typo in the author preprint; resolve integer rounding of delta with the displayed constants (G7), including singular/boundary exceptional points. Tests include Y²=X³ (singular degree three), coefficient translations, polynomial branches with constant higher derivatives, the smallest allowed d,N, and repeated abscissae. Suggested file: TauCeti/NumberTheory/IntegralPointBounds/DeterminantMethod.lean. Sedunova’s printed uniformity is not a supplied positive-characteristic analogue; G9 must be resolved separately. Sixth-checkpoint refinement: use bp-integer-normalization, bp-contraction-iteration and bp-recurrence-constants, then delta=floor(2 sqrt(log N/(d loglog N))) with the derivative-monotonicity proof in bp-integer-optimization to obtain constant 11 without changing the threshold. For constant 12 use the explicit 8d^3 finite-integer-point graph cover rather than assuming the stronger O(d^2) whole-curve decomposition. Retain singular/critical fibers, horizontal boundaries, noninteger interval endpoints, inverse steep graphs and the strict N<1 stopping case. E1–E3 record the source-level corrections; G7 now retains exact generic supplier matching and independent verification. Earlier wording asking for an unwritten rounding proof is superseded by this refinement. Seventh checkpoint: import the five exact Mathlib supplier nodes (Taylor, interpolation, Vandermonde, finite polynomial roots and mean value). Their consumer adapters remain explicit; none supplies Bézout or global analytic branch continuation. Tenth checkpoint: use the promoted supported-coefficient, repeated-Rolle, entrywise interpolation-witness, Newton determinant, ordinary Taylor endpoint and absolute-remainder adapters. Rank/kernel is rectangular; the short-interval argument uses a lower derivative bound at its Taylor point, not the upper absolute-maximum bound. Keep full-column-rank row-minor selection, specialization nonzeroness/degree, monomial norm-product estimates, SF.5 Bézout and analytic branch/inverse matching explicit in G7. Eleventh checkpoint M1/D1–D3/S1–S3 supplies rectangular full-rank row-minor selection via a linear retraction and determinant multilinearity; normalized Leibniz product and monomial estimates with the constant-column factorial saving; and nonzero coordinate specialization, degree and fiber bounds. Import the exact generic Mathlib suppliers rather than creating rival matrix/calculus/polynomial theories. Proper Bézout stays SF.5; smooth branch continuation and inverse graphs remain explicit obligations. These steps do not certify the stronger whole-curve O(d²) cover."
     },
     {
       "route": "part-ii",
@@ -1990,7 +3077,7 @@
   ],
   "verification": {
     "agent": "Codex",
-    "session": "codex-a71f92",
+    "session": "codex-c83e7a",
     "issue": 1420,
     "date": "2026-09-23",
     "continues": [
@@ -2002,226 +3089,173 @@
       1817,
       1845,
       1919,
-      1964
+      1964,
+      2070
     ],
-    "baseCommit": "969b623148e6fb8b0542a4cde5ca2fcdaf3f73db",
-    "stableIds": "All 129 inherited IDs retained. Exactly six inherited item objects refined; other 123 item objects preserved. Nine items added: three exact generic library suppliers and six missing application adapters. SourceIssues E1–E7, prerequisites and five route objects untouched; the determinant route only gains the six adapters and an appended brief refinement.",
+    "baseCommit": "db84182bbf4c428cfeab9ed13767aeff7b4e4ae1",
+    "stableIds": "All 138 inherited IDs, statuses and statements preserved; five inherited item notes/dependencies refined, and 31 inherited inline API/test specifications converted to structured lists without replacing their prose. Added 14 items: seven narrowly scoped library suppliers and seven missing application adapters. Five route objects, all prerequisites and all seven sourceIssue objects preserved.",
     "modifiedInheritedItems": [
-      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-system",
-      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
       "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-evaluation-kernel",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
       "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
-      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
-      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-supplier"
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integral-determinant",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-explicit-graph-cover",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/class-group",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/infinite-places",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/discriminant",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/mixed-embedding",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/successive-minima",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-body",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/torsion-square-norm-injection",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/norm-polynomial",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/signed-norm-curve-map",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/feedback-constants",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-standard-monomials",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/explicit-selmer",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/canonical-height",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hv-packing-function",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-norm-family",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/etale-class-group",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-resolvent",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-f2-modules",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/discriminant-negligible",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/field-count-carrier",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/function-divisors",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/function-class-group",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/rr-space",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/even-divisor-sections",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/half-divisor-map",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/gonality",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/trace-metric-normalization",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/quadratic-coinvariant-extension"
     ],
-    "libraryBoundary": "Three new library statements read at the prescribed Mathlib pin: rank-nullity, HasDerivAt Rolle and the compact maximum theorem. The old Taylor and interpolation statements were reread for their use; historical claims on the other inherited library/planned items are preserved, not independently re-audited. Missing adapters remain missing.",
-    "ownership": "Read upstream Completed/EffectiveBounds and AlgebraicCurves documents completely, SchemeAndStackFoundations stages and SF.0/SF.5 reviewed audit entries, and EffectiveBounds audit rows. Retain the existing six-route ownership. General linear algebra/calculus stays with Mathlib; proper intersection/Bézout stays SF.5; only the determinant application adapters join IntegralPointDeterminantMethods.",
-    "checks": "python3 scripts/check_paper.py: ok. python3 research/blueprint/intake.py check-files: 3 files, 0 problems. 11,765 exact-rational diagnostic assertions passed; 535 data-preservation/route/graph/supplier assertions passed. All 48 repository regressions passed (9 paper, 3 paper queue, 7 source issue, 29 intake). The complete inherited report remains a contiguous exact substring after a current-status notice, and sourceIssues E1–E7 are unchanged. The three remote deliverable blobs still match the claim base before publication. Finite examples and structural checks do not prove analytic statements or completeness.",
+    "libraryBoundary": "Fresh actual statement reads listed below. Other inherited library classifications are not independently re-audited. Missing application adapters are not library theorems.",
+    "ownership": "Reuse IntegralPointDeterminantMethods. Read upstream EffectiveBounds document and reviewed AUDIT03 entries; read SF.5 scope and reviewed AUDIT01 entry. Existing generic matrix/polynomial/calculus APIs are suppliers; proper Bézout remains SF.5. Parsed paper inventory has no competing owner for these adapters.",
+    "checks": "Paper schema and three-file intake pass; 9520 exact diagnostic assertions and 740 structural/preservation assertions pass; selected DAG has 53 edges. All 34 D/C items have structured APIs and at least three tests. The whole inherited report remains contiguous. No Lean.",
     "lean": "none",
     "declarationsRead": [
       {
-        "ref": "mathlib:Matrix.rank",
-        "module": "Mathlib/LinearAlgebra/Matrix/Rank.lean:135",
-        "provides": "Rank is finrank of the range of mulVecLin, for a finite column type; no square-matrix assumption.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:LinearMap.exists_leftInverse_of_injective",
+        "module": "Mathlib/LinearAlgebra/Basis/VectorSpace.lean:240; LinearAlgebra/Matrix/ToLin.lean:470–474",
+        "provides": "For vector spaces over a division ring, ker(f)=⊥ implies existence of a linear g with g.comp f=id. With finite coordinate bases, toMatrix converts composition to matrix multiplication.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:LinearMap.finrank_range_add_finrank_ker",
-        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean:173",
-        "provides": "Finite-dimensional source over a division ring; range plus kernel dimension equals source dimension.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:LinearMap.toMatrix'_comp",
+        "module": "Mathlib/LinearAlgebra/Basis/VectorSpace.lean:240; LinearAlgebra/Matrix/ToLin.lean:470–474",
+        "provides": "For vector spaces over a division ring, ker(f)=⊥ implies existence of a linear g with g.comp f=id. With finite coordinate bases, toMatrix converts composition to matrix multiplication.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:Module.finrank_fintype_fun_eq_card",
-        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean:322",
-        "provides": "For a finite type over the field used here, the function space has dimension its cardinality.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:Matrix.detRowAlternating",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:55–68,86–103,370; LinearAlgebra/Multilinear/Basic.lean:626–628,1160–1162",
+        "provides": "The determinant is alternating multilinear in its rows. Multilinear maps expand a tuple of finite sums over all choices of one summand per coordinate and pull out the product of scalars. Repeated rows give determinant zero; the empty determinant is one.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:Module.finrank_pos_iff_exists_ne_zero",
-        "module": "Mathlib/LinearAlgebra/Dimension/Finite.lean:383",
-        "provides": "Finite torsion-free module over a domain with strong rank condition; specializes to the kernel vector space.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:MultilinearMap.map_sum",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:55–68,86–103,370; LinearAlgebra/Multilinear/Basic.lean:626–628,1160–1162",
+        "provides": "The determinant is alternating multilinear in its rows. Multilinear maps expand a tuple of finite sums over all choices of one summand per coordinate and pull out the product of scalars. Repeated rows give determinant zero; the empty determinant is one.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:MvPolynomial.basisMonomials",
-        "module": "Mathlib/RingTheory/MvPolynomial/Basic.lean:200",
-        "provides": "The monomial basis over a commutative semiring.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:MultilinearMap.map_smul_univ",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:55–68,86–103,370; LinearAlgebra/Multilinear/Basic.lean:626–628,1160–1162",
+        "provides": "The determinant is alternating multilinear in its rows. Multilinear maps expand a tuple of finite sums over all choices of one summand per coordinate and pull out the product of scalars. Repeated rows give determinant zero; the empty determinant is one.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:MvPolynomial.coeff_sum",
-        "module": "Mathlib/Algebra/MvPolynomial/Basic.lean:574",
-        "provides": "Coefficients commute with finite sums.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:Matrix.det_zero_of_row_eq",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:55–68,86–103,370; LinearAlgebra/Multilinear/Basic.lean:626–628,1160–1162",
+        "provides": "The determinant is alternating multilinear in its rows. Multilinear maps expand a tuple of finite sums over all choices of one summand per coordinate and pull out the product of scalars. Repeated rows give determinant zero; the empty determinant is one.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:MvPolynomial.coeff_monomial",
-        "module": "Mathlib/Algebra/MvPolynomial/Basic.lean:582",
-        "provides": "Kronecker-delta coefficient formula.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:Matrix.det_isEmpty",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:55–68,86–103,370; LinearAlgebra/Multilinear/Basic.lean:626–628,1160–1162",
+        "provides": "The determinant is alternating multilinear in its rows. Multilinear maps expand a tuple of finite sums over all choices of one summand per coordinate and pull out the product of scalars. Repeated rows give determinant zero; the empty determinant is one.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:MvPolynomial.eval₂_sum",
-        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean:236",
-        "provides": "Evaluation commutes with finite sums.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:iteratedDeriv_mul",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean:409–425",
+        "provides": "For C^n functions f,g at x into a normed algebra, iteratedDeriv n(fg)(x)=Σ_(i=0)^n choose(n,i) iteratedDeriv i f(x) iteratedDeriv(n−i)g(x). The identity-function derivative is x in order zero, one in order one, and zero in higher orders.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:MvPolynomial.eval₂_monomial",
-        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean:92",
-        "provides": "Evaluation of a monomial is its mapped coefficient times the exponent product.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:iteratedDeriv_id",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean:409–425",
+        "provides": "For C^n functions f,g at x into a normed algebra, iteratedDeriv n(fg)(x)=Σ_(i=0)^n choose(n,i) iteratedDeriv i f(x) iteratedDeriv(n−i)g(x). The identity-function derivative is x in order zero, one in order one, and zero in higher orders.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:exists_hasDerivAt_eq_zero",
-        "module": "Mathlib/Analysis/Calculus/LocalExtr/Rolle.lean:54",
-        "provides": "Continuity on Icc, equal endpoints and actual HasDerivAt on Ioo give an interior zero.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:Nat.choose_mul_factorial_mul_factorial",
+        "module": "Mathlib/Data/Nat/Choose/Basic.lean:140–142",
+        "provides": "For k≤n, choose(n,k) k! (n−k)!=n!. Casting into R and dividing by the nonzero factorials yields the normalized Leibniz convolution.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:Lagrange.eval_interpolate_at_node",
-        "module": "Mathlib/LinearAlgebra/Lagrange.lean:319",
-        "provides": "Field, finite node set, node-map injectivity and membership are explicit.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:Polynomial.dvd_iff_isRoot",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean:616–628",
+        "provides": "For a polynomial p over a commutative ring and an element a of that ring, X−C(a) divides p iff p(a)=0. Apply with coefficient ring K[Y] and a the constant polynomial.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:Lagrange.degree_interpolate_lt",
-        "module": "Mathlib/LinearAlgebra/Lagrange.lean:336",
-        "provides": "Degree, not unguarded natural degree, is less than the number of nodes.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:MvPolynomial.isUnit_iff_eq_C_of_isReduced",
+        "module": "Mathlib/Algebra/MvPolynomial/Nilpotent.lean:83–94",
+        "provides": "Over a reduced commutative ring R, P is a unit iff P=C(r) for a unit r of R. In particular over a field every polynomial unit is a nonzero constant.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:Lagrange.eq_interpolate_iff",
-        "module": "Mathlib/LinearAlgebra/Lagrange.lean:375",
-        "provides": "Degree and values characterize the interpolant under node injectivity.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:MvPolynomial.finSuccEquiv",
+        "module": "Mathlib/Algebra/MvPolynomial/Equiv.lean:67–109,649–689",
+        "provides": "finSuccEquiv R n identifies MvPolynomial (Fin(n+1)) R with Polynomial(MvPolynomial (Fin n) R), taking variable zero to the outer variable and successor variables to constant coefficients. uniqueAlgEquiv identifies one-variable MvPolynomial with Polynomial R.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:Polynomial.contDiff_aeval",
-        "module": "Mathlib/Analysis/Calculus/ContDiff/Polynomial.lean:22",
-        "provides": "Polynomial evaluation is smooth over a nontrivially normed field.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:MvPolynomial.finSuccEquiv_X_zero",
+        "module": "Mathlib/Algebra/MvPolynomial/Equiv.lean:67–109,649–689",
+        "provides": "finSuccEquiv R n identifies MvPolynomial (Fin(n+1)) R with Polynomial(MvPolynomial (Fin n) R), taking variable zero to the outer variable and successor variables to constant coefficients. uniqueAlgEquiv identifies one-variable MvPolynomial with Polynomial R.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:Polynomial.deriv",
-        "module": "Mathlib/Analysis/Calculus/Deriv/Polynomial.lean:107",
-        "provides": "Analytic derivative of evaluation equals evaluation of the formal derivative.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:MvPolynomial.finSuccEquiv_X_succ",
+        "module": "Mathlib/Algebra/MvPolynomial/Equiv.lean:67–109,649–689",
+        "provides": "finSuccEquiv R n identifies MvPolynomial (Fin(n+1)) R with Polynomial(MvPolynomial (Fin n) R), taking variable zero to the outer variable and successor variables to constant coefficients. uniqueAlgEquiv identifies one-variable MvPolynomial with Polynomial R.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:Polynomial.coeff_iterate_derivative",
-        "module": "Mathlib/Algebra/Polynomial/Derivative.lean:275",
-        "provides": "Coefficient m after k formal derivatives is (m+k).descFactorial(k) times coefficient m+k.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:MvPolynomial.uniqueAlgEquiv",
+        "module": "Mathlib/Algebra/MvPolynomial/Equiv.lean:67–109,649–689",
+        "provides": "finSuccEquiv R n identifies MvPolynomial (Fin(n+1)) R with Polynomial(MvPolynomial (Fin n) R), taking variable zero to the outer variable and successor variables to constant coefficients. uniqueAlgEquiv identifies one-variable MvPolynomial with Polynomial R.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:iteratedDeriv_sub",
-        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean:336",
-        "provides": "Subtracts iterated derivatives under ContDiffAt for both functions at the required order.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:MvPolynomial.uniqueAlgEquiv_monomial",
+        "module": "Mathlib/Algebra/MvPolynomial/Equiv.lean:67–109,649–689",
+        "provides": "finSuccEquiv R n identifies MvPolynomial (Fin(n+1)) R with Polynomial(MvPolynomial (Fin n) R), taking variable zero to the outer variable and successor variables to constant coefficients. uniqueAlgEquiv identifies one-variable MvPolynomial with Polynomial R.",
+        "checked": "Actual statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
       },
       {
-        "ref": "mathlib:iteratedDeriv_succ",
-        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:306",
-        "provides": "Successor iterated derivative is derivative of the previous iterate.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:Polynomial.natDegree_le_iff_coeff_eq_zero",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Lemmas.lean:78–79",
+        "provides": "Natural degree at most d iff every coefficient above d vanishes, including the zero polynomial.",
+        "checked": "Actual statement read at the pin."
       },
       {
-        "ref": "mathlib:Matrix.det_mul",
-        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:138",
-        "provides": "Determinant of a product of square matrices over a commutative ring.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:MvPolynomial.le_totalDegree",
+        "module": "Mathlib/Algebra/MvPolynomial/Degrees.lean:441–443",
+        "provides": "Every supported exponent vector has total exponent sum at most totalDegree.",
+        "checked": "Actual statement read at the pin."
       },
       {
-        "ref": "mathlib:Matrix.det_of_isLowerTriangular",
-        "module": "Mathlib/LinearAlgebra/Matrix/Block.lean:393",
-        "provides": "A finite linearly ordered lower-triangular matrix has diagonal-product determinant.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:ContDiffOn.continuousOn_iteratedDerivWithin",
-        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:147",
-        "provides": "Continuity through the differentiability order on a UniqueDiffOn set.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:ContDiffOn.differentiableOn_iteratedDerivWithin",
-        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:166",
-        "provides": "Differentiability strictly below the differentiability order on a UniqueDiffOn set.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:iteratedDerivWithin_of_isOpen",
-        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:317",
-        "provides": "On an open set, within and ordinary iterated derivatives agree there.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:IsOpen.uniqueDiffOn",
-        "module": "Mathlib/Analysis/Calculus/TangentCone/Basic.lean:291",
-        "provides": "An open set has UniqueDiffOn.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:ContDiffOn.contDiffAt",
-        "module": "Mathlib/Analysis/Calculus/ContDiff/Defs.lean:963",
-        "provides": "A neighbourhood in the smoothness set gives ContDiffAt.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:iteratedDerivWithin_eq_iteratedDeriv",
-        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:70",
-        "provides": "UniqueDiffOn, ContDiffAt and set membership suffice even at an endpoint.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:uniqueDiffOn_uIcc",
-        "module": "Mathlib/Analysis/Calculus/TangentCone/Real.lean:102",
-        "provides": "Unequal real endpoints give UniqueDiffOn on the unordered closed interval.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:taylor_mean_remainder_lagrange_iteratedDeriv",
-        "module": "Mathlib/Analysis/Calculus/Taylor.lean:348",
-        "provides": "Unequal endpoints and ContDiffOn of order n+1 give an ordinary derivative remainder and within-Taylor polynomial.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:taylorCoeffWithin",
-        "module": "Mathlib/Analysis/Calculus/Taylor.lean:62",
-        "provides": "Coefficient is inverse factorial times the within-iterated derivative.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:taylorWithinEval_succ",
-        "module": "Mathlib/Analysis/Calculus/Taylor.lean:87",
-        "provides": "Recursive Taylor evaluation including the successor factorial.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:taylor_within_zero_eval",
-        "module": "Mathlib/Analysis/Calculus/Taylor.lean:100",
-        "provides": "Zero-order Taylor evaluation is f at the base point.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:taylorWithinEval_self",
-        "module": "Mathlib/Analysis/Calculus/Taylor.lean:109",
-        "provides": "Taylor evaluation at the base point is f there.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:isCompact_Icc",
-        "module": "Mathlib/Topology/Order/Compact.lean:55",
-        "provides": "Closed intervals in a CompactIccSpace, including the reals, are compact.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
-      },
-      {
-        "ref": "mathlib:IsCompact.exists_isMaxOn",
-        "module": "Mathlib/Topology/Order/Compact.lean:246",
-        "provides": "A continuous real-valued function on a nonempty compact set attains its maximum.",
-        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        "ref": "mathlib:Polynomial.eq_zero_of_natDegree_lt_card_of_eval_eq_zero",
+        "module": "Mathlib/Algebra/Polynomial/Roots.lean:740–750",
+        "provides": "A polynomial over a domain vanishing on more distinct points than its natural degree is zero.",
+        "checked": "Actual statement reread at the pin."
       }
     ]
   },
@@ -2272,7 +3306,7 @@
     },
     {
       "id": "G7",
-      "detail": "BP1–BP6 retain their numerical and singularity-safe finite-point-cover proofs. Checkpoint ten integrates the eighth-checkpoint ordinary Taylor endpoint conversion, proves the absolute-maximum upper remainder estimate separately from BP2's lower-derivative short-interval argument, and gives rectangular evaluation-rank/kernel, repeated-Rolle/factorial interpolation and Newton determinant adapters against exact generic suppliers. These are missing application declarations with proof plans, not implemented library results. Remaining: full-column-rank rectangular matrix ⇒ nonzero D-by-D row minor with exact supplier match; normalized product/monomial derivative-bound decomposition; specialization F(a,Y) nonzeroness and degree bounds; proper Bézout supplier closure in SF.5; smooth root continuation across each open strip and inverse-graph construction; complete recursive supplier matching and independent review. The stronger O(d²) whole-curve claim is still unverified. No Lean implementation is claimed."
+      "detail": "The previous BP1–BP6 and checkpoint-ten R1–R6 proofs remain. Eleventh checkpoint M1 proves full-column-rank ⇒ nonzero row minor from exact retraction/multilinearity suppliers; D1–D3 prove the normalized product and monomial derivative estimates with the constant monomial handled by D!≤D^(D−1); S1–S3 prove nonzero coordinate specialization, degree bounds and finite fiber counts. These application declarations remain missing and unimplemented. Still open: proper Bézout supplier closure in SF.5, smooth root continuation across open strips and inverse graphs, recursive supplier closure and independent review. The 8d³ finite integral-point cover remains conditional on those geometric suppliers; the stronger O(d²) whole-curve assertion is not established."
     },
     {
       "id": "G8",
@@ -2427,6 +3461,243 @@
       "ownership": "No owner or route claim changes. The inherited six-route split stands.",
       "checks": "python3 scripts/check_paper.py reports ok; python3 research/blueprint/intake.py check-files reports 3 files, 0 problems. Item count and IDs were compared programmatically before and after the edit (129 -> 129, identical IDs and identical status counts 27 library / 8 planned / 94 missing), and the item list was checked to be byte-identical to the base blob. No Lean artifact was written or compiled, and no earlier checkpoint's regression script was rerun. These checks do not establish mathematical completeness; this worker did not review the inherited items, routes, gaps or proposed issues E1-E4.",
       "lean": "none"
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-a71f92",
+      "issue": 1420,
+      "date": "2026-09-23",
+      "continues": [
+        1636,
+        1641,
+        1650,
+        1695,
+        1760,
+        1817,
+        1845,
+        1919,
+        1964
+      ],
+      "baseCommit": "969b623148e6fb8b0542a4cde5ca2fcdaf3f73db",
+      "stableIds": "All 129 inherited IDs retained. Exactly six inherited item objects refined; other 123 item objects preserved. Nine items added: three exact generic library suppliers and six missing application adapters. SourceIssues E1–E7, prerequisites and five route objects untouched; the determinant route only gains the six adapters and an appended brief refinement.",
+      "modifiedInheritedItems": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-system",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-evaluation-kernel",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-supplier"
+      ],
+      "libraryBoundary": "Three new library statements read at the prescribed Mathlib pin: rank-nullity, HasDerivAt Rolle and the compact maximum theorem. The old Taylor and interpolation statements were reread for their use; historical claims on the other inherited library/planned items are preserved, not independently re-audited. Missing adapters remain missing.",
+      "ownership": "Read upstream Completed/EffectiveBounds and AlgebraicCurves documents completely, SchemeAndStackFoundations stages and SF.0/SF.5 reviewed audit entries, and EffectiveBounds audit rows. Retain the existing six-route ownership. General linear algebra/calculus stays with Mathlib; proper intersection/Bézout stays SF.5; only the determinant application adapters join IntegralPointDeterminantMethods.",
+      "checks": "python3 scripts/check_paper.py: ok. python3 research/blueprint/intake.py check-files: 3 files, 0 problems. 11,765 exact-rational diagnostic assertions passed; 535 data-preservation/route/graph/supplier assertions passed. All 48 repository regressions passed (9 paper, 3 paper queue, 7 source issue, 29 intake). The complete inherited report remains a contiguous exact substring after a current-status notice, and sourceIssues E1–E7 are unchanged. The three remote deliverable blobs still match the claim base before publication. Finite examples and structural checks do not prove analytic statements or completeness.",
+      "lean": "none",
+      "declarationsRead": [
+        {
+          "ref": "mathlib:Matrix.rank",
+          "module": "Mathlib/LinearAlgebra/Matrix/Rank.lean:135",
+          "provides": "Rank is finrank of the range of mulVecLin, for a finite column type; no square-matrix assumption.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:LinearMap.finrank_range_add_finrank_ker",
+          "module": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean:173",
+          "provides": "Finite-dimensional source over a division ring; range plus kernel dimension equals source dimension.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:Module.finrank_fintype_fun_eq_card",
+          "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean:322",
+          "provides": "For a finite type over the field used here, the function space has dimension its cardinality.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:Module.finrank_pos_iff_exists_ne_zero",
+          "module": "Mathlib/LinearAlgebra/Dimension/Finite.lean:383",
+          "provides": "Finite torsion-free module over a domain with strong rank condition; specializes to the kernel vector space.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:MvPolynomial.basisMonomials",
+          "module": "Mathlib/RingTheory/MvPolynomial/Basic.lean:200",
+          "provides": "The monomial basis over a commutative semiring.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:MvPolynomial.coeff_sum",
+          "module": "Mathlib/Algebra/MvPolynomial/Basic.lean:574",
+          "provides": "Coefficients commute with finite sums.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:MvPolynomial.coeff_monomial",
+          "module": "Mathlib/Algebra/MvPolynomial/Basic.lean:582",
+          "provides": "Kronecker-delta coefficient formula.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:MvPolynomial.eval₂_sum",
+          "module": "Mathlib/Algebra/MvPolynomial/Eval.lean:236",
+          "provides": "Evaluation commutes with finite sums.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:MvPolynomial.eval₂_monomial",
+          "module": "Mathlib/Algebra/MvPolynomial/Eval.lean:92",
+          "provides": "Evaluation of a monomial is its mapped coefficient times the exponent product.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:exists_hasDerivAt_eq_zero",
+          "module": "Mathlib/Analysis/Calculus/LocalExtr/Rolle.lean:54",
+          "provides": "Continuity on Icc, equal endpoints and actual HasDerivAt on Ioo give an interior zero.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:Lagrange.eval_interpolate_at_node",
+          "module": "Mathlib/LinearAlgebra/Lagrange.lean:319",
+          "provides": "Field, finite node set, node-map injectivity and membership are explicit.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:Lagrange.degree_interpolate_lt",
+          "module": "Mathlib/LinearAlgebra/Lagrange.lean:336",
+          "provides": "Degree, not unguarded natural degree, is less than the number of nodes.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:Lagrange.eq_interpolate_iff",
+          "module": "Mathlib/LinearAlgebra/Lagrange.lean:375",
+          "provides": "Degree and values characterize the interpolant under node injectivity.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:Polynomial.contDiff_aeval",
+          "module": "Mathlib/Analysis/Calculus/ContDiff/Polynomial.lean:22",
+          "provides": "Polynomial evaluation is smooth over a nontrivially normed field.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:Polynomial.deriv",
+          "module": "Mathlib/Analysis/Calculus/Deriv/Polynomial.lean:107",
+          "provides": "Analytic derivative of evaluation equals evaluation of the formal derivative.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:Polynomial.coeff_iterate_derivative",
+          "module": "Mathlib/Algebra/Polynomial/Derivative.lean:275",
+          "provides": "Coefficient m after k formal derivatives is (m+k).descFactorial(k) times coefficient m+k.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:iteratedDeriv_sub",
+          "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean:336",
+          "provides": "Subtracts iterated derivatives under ContDiffAt for both functions at the required order.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:iteratedDeriv_succ",
+          "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:306",
+          "provides": "Successor iterated derivative is derivative of the previous iterate.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:Matrix.det_mul",
+          "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:138",
+          "provides": "Determinant of a product of square matrices over a commutative ring.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:Matrix.det_of_isLowerTriangular",
+          "module": "Mathlib/LinearAlgebra/Matrix/Block.lean:393",
+          "provides": "A finite linearly ordered lower-triangular matrix has diagonal-product determinant.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:ContDiffOn.continuousOn_iteratedDerivWithin",
+          "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:147",
+          "provides": "Continuity through the differentiability order on a UniqueDiffOn set.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:ContDiffOn.differentiableOn_iteratedDerivWithin",
+          "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:166",
+          "provides": "Differentiability strictly below the differentiability order on a UniqueDiffOn set.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:iteratedDerivWithin_of_isOpen",
+          "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:317",
+          "provides": "On an open set, within and ordinary iterated derivatives agree there.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:IsOpen.uniqueDiffOn",
+          "module": "Mathlib/Analysis/Calculus/TangentCone/Basic.lean:291",
+          "provides": "An open set has UniqueDiffOn.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:ContDiffOn.contDiffAt",
+          "module": "Mathlib/Analysis/Calculus/ContDiff/Defs.lean:963",
+          "provides": "A neighbourhood in the smoothness set gives ContDiffAt.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:iteratedDerivWithin_eq_iteratedDeriv",
+          "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:70",
+          "provides": "UniqueDiffOn, ContDiffAt and set membership suffice even at an endpoint.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:uniqueDiffOn_uIcc",
+          "module": "Mathlib/Analysis/Calculus/TangentCone/Real.lean:102",
+          "provides": "Unequal real endpoints give UniqueDiffOn on the unordered closed interval.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:taylor_mean_remainder_lagrange_iteratedDeriv",
+          "module": "Mathlib/Analysis/Calculus/Taylor.lean:348",
+          "provides": "Unequal endpoints and ContDiffOn of order n+1 give an ordinary derivative remainder and within-Taylor polynomial.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:taylorCoeffWithin",
+          "module": "Mathlib/Analysis/Calculus/Taylor.lean:62",
+          "provides": "Coefficient is inverse factorial times the within-iterated derivative.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:taylorWithinEval_succ",
+          "module": "Mathlib/Analysis/Calculus/Taylor.lean:87",
+          "provides": "Recursive Taylor evaluation including the successor factorial.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:taylor_within_zero_eval",
+          "module": "Mathlib/Analysis/Calculus/Taylor.lean:100",
+          "provides": "Zero-order Taylor evaluation is f at the base point.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:taylorWithinEval_self",
+          "module": "Mathlib/Analysis/Calculus/Taylor.lean:109",
+          "provides": "Taylor evaluation at the base point is f there.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:isCompact_Icc",
+          "module": "Mathlib/Topology/Order/Compact.lean:55",
+          "provides": "Closed intervals in a CompactIccSpace, including the reals, are compact.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        },
+        {
+          "ref": "mathlib:IsCompact.exists_isMaxOn",
+          "module": "Mathlib/Topology/Order/Compact.lean:246",
+          "provides": "A continuous real-valued function on a nonempty compact set attains its maximum.",
+          "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no Lean elaboration."
+        }
+      ]
     }
   ],
   "sourceIssues": [
@@ -2700,6 +3971,111 @@
       "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-absolute-maximum-supplier",
       "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
       "adapter": "Continuity of each ordinary derivative on a nonempty compact interval gives an attained absolute maximum; take the finite maximum over orders."
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-full-rank-row-minor",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-rank-nullity-supplier"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-full-rank-row-minor",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-linear-retraction-supplier"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-full-rank-row-minor",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-row-multilinearity-supplier"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-normalized-product-bound",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-leibniz-supplier"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-normalized-product-bound",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-binomial-factorial-supplier"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-normalized-product-bound",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-norm-bound",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-normalized-product-bound"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-norm-bound",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-leibniz-supplier"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-determinant-bound",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-determinant-bound",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-norm-bound"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-determinant-bound",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-full-rank-row-minor"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-nonzero",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-polynomial-coordinate-supplier"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-nonzero",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-linear-factor-supplier"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-nonzero",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-polynomial-unit-supplier"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-degree",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-polynomial-coordinate-supplier"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-coordinate-fibers",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-nonzero"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-coordinate-fibers",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-specialization-degree"
+    },
+    {
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-coordinate-fibers",
+      "adapter": "Eleventh-checkpoint proof step; see the target item.",
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-root-supplier"
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-full-rank-row-minor",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integral-determinant",
+      "adapter": "Consume the new specialization or determinant adapter."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-determinant-bound",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integral-determinant",
+      "adapter": "Consume the new specialization or determinant adapter."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-coordinate-fibers",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-explicit-graph-cover",
+      "adapter": "Consume the new specialization or determinant adapter."
     }
   ],
   "selectedProofEdgesBoundary": "Selected proof edges only, not a claim that the entire extraction is dependency-closed. Checkpoint ten adds explicit item prerequisites including pinned Mathlib leaves. The inherited seven diagnostic source claims remain unrouted. Full-rank row-minor selection, polynomial specialization, monomial norm bounds, SF.5 proper Bézout and analytic continuation/inverse adapters remain G7.",
